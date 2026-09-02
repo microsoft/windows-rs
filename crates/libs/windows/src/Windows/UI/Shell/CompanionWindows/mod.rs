@@ -6,7 +6,7 @@ impl CompanionWindowCoordinator {
     pub fn RequestWindowFromAppAsync(&self, appid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<CompanionWindowRequestResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestWindowFromAppAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(appid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestWindowFromAppAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(appid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DetachCompanionWindow(&self) -> windows_core::Result<()> {
@@ -35,7 +35,7 @@ impl CompanionWindowCoordinator {
     pub fn GetForWindow(windowid: super::super::WindowId) -> windows_core::Result<Self> {
         Self::ICompanionWindowCoordinatorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForWindow)(windows_core::Interface::as_raw(this), windowid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForWindow)(windows_core::Interface::as_raw(this), windowid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICompanionWindowCoordinatorStatics<R, F: FnOnce(&ICompanionWindowCoordinatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -63,7 +63,7 @@ impl CompanionWindowRequest {
     pub fn Accept(&self, windowid: super::super::WindowId) -> windows_core::Result<CompanionWindowCoordinator> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Accept)(windows_core::Interface::as_raw(self), windowid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Accept)(windows_core::Interface::as_raw(self), windowid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Reject(&self) -> windows_core::Result<()> {
@@ -72,7 +72,7 @@ impl CompanionWindowRequest {
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RequestingWindowId(&self) -> windows_core::Result<super::super::WindowId> {
@@ -87,7 +87,7 @@ impl CompanionWindowRequest {
     {
         Self::ICompanionWindowRequestStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFromLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFromLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICompanionWindowRequestStatics<R, F: FnOnce(&ICompanionWindowRequestStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -159,8 +159,8 @@ impl CompanionWindowRequestResultStatus {
     pub const ActivationTimedOut: Self = Self(3);
     pub const RejectedByCompanionApp: Self = Self(4);
 }
-impl windows_core::TypeKind for CompanionWindowRequestResultStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CompanionWindowRequestResultStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CompanionWindowRequestResultStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.CompanionWindows.CompanionWindowRequestResultStatus;i4)");

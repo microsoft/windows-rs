@@ -12,7 +12,7 @@ where
 {
     windows_core::link!("dxva2.dll" "system" fn DXVA2CreateVideoService(pdd : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppservice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { DXVA2CreateVideoService(pdd.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { DXVA2CreateVideoService(pdd.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -547,7 +547,7 @@ impl IDirect3DDeviceManager9 {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetVideoService)(windows_core::Interface::as_raw(self), hdevice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetVideoService)(windows_core::Interface::as_raw(self), hdevice, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -705,7 +705,7 @@ impl IDirectXVideoDecoder {
     pub unsafe fn GetVideoDecoderService(&self) -> windows_core::Result<IDirectXVideoDecoderService> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetVideoDecoderService)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetVideoDecoderService)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "d3d9")]
@@ -856,7 +856,7 @@ impl IDirectXVideoDecoderService {
     pub unsafe fn CreateVideoDecoder(&self, guid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: &[Option<super::IDirect3DSurface9>]) -> windows_core::Result<IDirectXVideoDecoder> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateVideoDecoder)(windows_core::Interface::as_raw(self), guid, pvideodesc, pconfig, core::mem::transmute(ppdecoderrendertargets.as_ptr()), ppdecoderrendertargets.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateVideoDecoder)(windows_core::Interface::as_raw(self), guid, pvideodesc, pconfig, core::mem::transmute(ppdecoderrendertargets.as_ptr()), ppdecoderrendertargets.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -993,7 +993,7 @@ impl IDirectXVideoProcessor {
     pub unsafe fn GetVideoProcessorService(&self) -> windows_core::Result<IDirectXVideoProcessorService> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetVideoProcessorService)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetVideoProcessorService)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "d3d9")]
@@ -1172,7 +1172,7 @@ impl IDirectXVideoProcessorService {
     pub unsafe fn CreateVideoProcessor(&self, videoprocdeviceguid: *const windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::D3DFORMAT, maxnumsubstreams: u32) -> windows_core::Result<IDirectXVideoProcessor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateVideoProcessor)(windows_core::Interface::as_raw(self), videoprocdeviceguid, pvideodesc, rendertargetformat, maxnumsubstreams, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateVideoProcessor)(windows_core::Interface::as_raw(self), videoprocdeviceguid, pvideodesc, rendertargetformat, maxnumsubstreams, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

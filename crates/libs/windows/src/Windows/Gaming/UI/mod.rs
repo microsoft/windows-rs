@@ -55,8 +55,8 @@ impl GameChatMessageOrigin {
     pub const Voice: Self = Self(0);
     pub const Text: Self = Self(1);
 }
-impl windows_core::TypeKind for GameChatMessageOrigin {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for GameChatMessageOrigin {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for GameChatMessageOrigin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatMessageOrigin;i4)");
@@ -130,7 +130,7 @@ impl GameChatOverlay {
     pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IGameChatOverlayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IGameChatOverlayStatics<R, F: FnOnce(&IGameChatOverlayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -205,8 +205,8 @@ impl GameChatOverlayPosition {
     pub const TopLeft: Self = Self(6);
     pub const TopRight: Self = Self(7);
 }
-impl windows_core::TypeKind for GameChatOverlayPosition {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for GameChatOverlayPosition {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for GameChatOverlayPosition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatOverlayPosition;i4)");
@@ -240,14 +240,14 @@ impl GameUIProviderActivatedEventArgs {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GameUIArgs(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GameUIArgs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GameUIArgs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]

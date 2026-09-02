@@ -54,8 +54,8 @@ impl CompositionDebugOverdrawContentKinds {
     pub const SwapChains: Self = Self(64);
     pub const All: Self = Self(4294967295);
 }
-impl windows_core::TypeKind for CompositionDebugOverdrawContentKinds {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CompositionDebugOverdrawContentKinds {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CompositionDebugOverdrawContentKinds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds;u4)");
@@ -102,7 +102,7 @@ impl CompositionDebugSettings {
     pub fn HeatMaps(&self) -> windows_core::Result<CompositionDebugHeatMaps> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HeatMaps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).HeatMaps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TryGetSettings<P0>(compositor: P0) -> windows_core::Result<Self>
@@ -111,7 +111,7 @@ impl CompositionDebugSettings {
     {
         Self::ICompositionDebugSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetSettings)(windows_core::Interface::as_raw(this), compositor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetSettings)(windows_core::Interface::as_raw(this), compositor.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICompositionDebugSettingsStatics<R, F: FnOnce(&ICompositionDebugSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

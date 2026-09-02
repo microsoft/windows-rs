@@ -8,7 +8,6 @@ pub enum ParamValue<T: Type<T>> {
 }
 
 impl<T: Type<T>> ParamValue<T> {
-    // TODO: replace with `borrow` in windows-bindgen
     pub fn abi(&self) -> T::Abi {
         unsafe {
             match self {

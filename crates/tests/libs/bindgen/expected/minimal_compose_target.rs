@@ -23,7 +23,7 @@ impl Base {
             )
             .ok()?;
             let _ = &derived__;
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         })
     }
     fn IBaseFactory<R, F: FnOnce(&IBaseFactory) -> windows_core::Result<R>>(
@@ -71,7 +71,7 @@ impl Derived {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IDerivedFactory<R, F: FnOnce(&IDerivedFactory) -> windows_core::Result<R>>(
@@ -130,7 +130,7 @@ impl IBaseFactory {
                 inner as *mut _ as _,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -193,7 +193,7 @@ impl IDerivedFactory {
                 inner as *mut _ as _,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

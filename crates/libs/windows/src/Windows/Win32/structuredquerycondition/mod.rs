@@ -43,7 +43,7 @@ impl ICondition {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSubConditions)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSubConditions)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetComparisonInfo(&self, ppszpropertyname: *mut windows_core::PWSTR, pcop: Option<*mut CONDITION_OPERATION>, ppropvar: Option<*mut super::PROPVARIANT>) -> windows_core::HRESULT {
@@ -67,7 +67,7 @@ impl ICondition {
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

@@ -20,8 +20,8 @@ pub struct DisplayAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
 }
-impl windows_core::TypeKind for DisplayAdapterId {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DisplayAdapterId {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DisplayAdapterId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayAdapterId;u4;i4)");
@@ -32,8 +32,8 @@ impl windows_core::RuntimeType for DisplayAdapterId {
 pub struct DisplayId {
     pub Value: u64,
 }
-impl windows_core::TypeKind for DisplayId {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DisplayId {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DisplayId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayId;u8)");
@@ -68,8 +68,8 @@ pub struct PointInt32 {
     pub X: i32,
     pub Y: i32,
 }
-impl windows_core::TypeKind for PointInt32 {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PointInt32 {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PointInt32 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.PointInt32;i4;i4)");
@@ -83,8 +83,8 @@ pub struct RectInt32 {
     pub Width: i32,
     pub Height: i32,
 }
-impl windows_core::TypeKind for RectInt32 {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for RectInt32 {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for RectInt32 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.RectInt32;i4;i4;i4;i4)");
@@ -96,8 +96,8 @@ pub struct SizeInt32 {
     pub Width: i32,
     pub Height: i32,
 }
-impl windows_core::TypeKind for SizeInt32 {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for SizeInt32 {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for SizeInt32 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.SizeInt32;i4;i4)");

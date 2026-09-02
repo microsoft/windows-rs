@@ -137,7 +137,7 @@ where
     Invoke: unsafe extern "system" fn(
         this: *mut core::ffi::c_void,
         asyncinfo: *mut core::ffi::c_void,
-        progressinfo: windows_core::AbiType<TProgress>,
+        progressinfo: windows_core::imp::AbiType<TProgress>,
     ) -> windows_core::HRESULT,
     TProgress: core::marker::PhantomData<TProgress>,
 }
@@ -181,7 +181,7 @@ impl<
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
         asyncinfo: *mut core::ffi::c_void,
-        progressinfo: windows_core::AbiType<TProgress>,
+        progressinfo: windows_core::imp::AbiType<TProgress>,
     ) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void
@@ -505,7 +505,7 @@ where
     Invoke: unsafe extern "system" fn(
         this: *mut core::ffi::c_void,
         asyncinfo: *mut core::ffi::c_void,
-        progressinfo: windows_core::AbiType<TProgress>,
+        progressinfo: windows_core::imp::AbiType<TProgress>,
     ) -> windows_core::HRESULT,
     TResult: core::marker::PhantomData<TResult>,
     TProgress: core::marker::PhantomData<TProgress>,
@@ -557,7 +557,7 @@ impl<
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
         asyncinfo: *mut core::ffi::c_void,
-        progressinfo: windows_core::AbiType<TProgress>,
+        progressinfo: windows_core::imp::AbiType<TProgress>,
     ) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void
@@ -719,8 +719,8 @@ impl AsyncStatus {
     pub const Error: Self = Self(3);
     pub const Started: Self = Self(0);
 }
-impl windows_core::TypeKind for AsyncStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for AsyncStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for AsyncStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -765,7 +765,7 @@ impl IAsyncAction {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetResults(&self) -> windows_core::Result<()> {
@@ -960,7 +960,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TP
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetCompleted<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -984,7 +984,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TP
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetResults(&self) -> windows_core::Result<()> {
@@ -1430,7 +1430,7 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetResults(&self) -> windows_core::Result<TResult> {
@@ -1440,7 +1440,7 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<u32> {
@@ -1554,7 +1554,7 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResult>
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            result__: *mut windows_core::AbiType<TResult>,
+            result__: *mut windows_core::imp::AbiType<TResult>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -1601,7 +1601,7 @@ where
     ) -> windows_core::HRESULT,
     pub GetResults: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut windows_core::AbiType<TResult>,
+        *mut windows_core::imp::AbiType<TResult>,
     ) -> windows_core::HRESULT,
     TResult: core::marker::PhantomData<TResult>,
 }
@@ -1680,7 +1680,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetCompleted<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1704,7 +1704,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetResults(&self) -> windows_core::Result<TResult> {
@@ -1714,7 +1714,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<u32> {
@@ -1899,7 +1899,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            result__: *mut windows_core::AbiType<TResult>,
+            result__: *mut windows_core::imp::AbiType<TResult>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -1958,7 +1958,7 @@ where
     ) -> windows_core::HRESULT,
     pub GetResults: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut windows_core::AbiType<TResult>,
+        *mut windows_core::imp::AbiType<TResult>,
     ) -> windows_core::HRESULT,
     TResult: core::marker::PhantomData<TResult>,
     TProgress: core::marker::PhantomData<TProgress>,

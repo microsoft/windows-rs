@@ -64,7 +64,7 @@ impl DisplayMonitor {
     pub fn PhysicalSizeInInches(&self) -> windows_core::Result<super::super::Foundation::Size> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PhysicalSizeInInches)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::Size>| r__.Value())
+            (windows_core::Interface::vtable(self).PhysicalSizeInInches)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::Size>| r__.Value())
         }
     }
     pub fn RawDpiX(&self) -> windows_core::Result<f32> {
@@ -143,13 +143,13 @@ impl DisplayMonitor {
     pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IDisplayMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn FromInterfaceIdAsync(deviceinterfaceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IDisplayMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromInterfaceIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceinterfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromInterfaceIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceinterfaceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IDisplayMonitorStatics<R, F: FnOnce(&IDisplayMonitorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -178,8 +178,8 @@ impl DisplayMonitorConnectionKind {
     pub const Wireless: Self = Self(2);
     pub const Virtual: Self = Self(3);
 }
-impl windows_core::TypeKind for DisplayMonitorConnectionKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DisplayMonitorConnectionKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DisplayMonitorConnectionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorConnectionKind;i4)");
@@ -192,8 +192,8 @@ impl DisplayMonitorDescriptorKind {
     pub const Edid: Self = Self(0);
     pub const DisplayId: Self = Self(1);
 }
-impl windows_core::TypeKind for DisplayMonitorDescriptorKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DisplayMonitorDescriptorKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DisplayMonitorDescriptorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorDescriptorKind;i4)");
@@ -212,8 +212,8 @@ impl DisplayMonitorPhysicalConnectorKind {
     pub const Sdi: Self = Self(6);
     pub const DisplayPort: Self = Self(7);
 }
-impl windows_core::TypeKind for DisplayMonitorPhysicalConnectorKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DisplayMonitorPhysicalConnectorKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DisplayMonitorPhysicalConnectorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind;i4)");
@@ -227,8 +227,8 @@ impl DisplayMonitorUsageKind {
     pub const HeadMounted: Self = Self(1);
     pub const SpecialPurpose: Self = Self(2);
 }
-impl windows_core::TypeKind for DisplayMonitorUsageKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DisplayMonitorUsageKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DisplayMonitorUsageKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorUsageKind;i4)");

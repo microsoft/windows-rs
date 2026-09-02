@@ -330,19 +330,19 @@ impl MiracastReceiver {
     pub fn GetDefaultSettings(&self) -> windows_core::Result<MiracastReceiverSettings> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDefaultSettings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDefaultSettings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetCurrentSettings(&self) -> windows_core::Result<MiracastReceiverSettings> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrentSettings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetCurrentSettings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetCurrentSettingsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MiracastReceiverSettings>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrentSettingsAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetCurrentSettingsAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DisconnectAllAndApplySettings<P0>(&self, settings: P0) -> windows_core::Result<MiracastReceiverApplySettingsResult>
@@ -351,7 +351,7 @@ impl MiracastReceiver {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DisconnectAllAndApplySettings)(windows_core::Interface::as_raw(self), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DisconnectAllAndApplySettings)(windows_core::Interface::as_raw(self), settings.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DisconnectAllAndApplySettingsAsync<P0>(&self, settings: P0) -> windows_core::Result<windows_future::IAsyncOperation<MiracastReceiverApplySettingsResult>>
@@ -360,19 +360,19 @@ impl MiracastReceiver {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DisconnectAllAndApplySettingsAsync)(windows_core::Interface::as_raw(self), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DisconnectAllAndApplySettingsAsync)(windows_core::Interface::as_raw(self), settings.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetStatus(&self) -> windows_core::Result<MiracastReceiverStatus> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetStatusAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MiracastReceiverStatus>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStatusAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStatusAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn StatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -396,7 +396,7 @@ impl MiracastReceiver {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), view.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), view.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
@@ -406,7 +406,7 @@ impl MiracastReceiver {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSessionAsync)(windows_core::Interface::as_raw(self), view.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSessionAsync)(windows_core::Interface::as_raw(self), view.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ClearKnownTransmitters(&self) -> windows_core::Result<()> {
@@ -474,8 +474,8 @@ impl MiracastReceiverApplySettingsStatus {
     pub const ModelNumberTooLong: Self = Self(6);
     pub const InvalidSettings: Self = Self(7);
 }
-impl windows_core::TypeKind for MiracastReceiverApplySettingsStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for MiracastReceiverApplySettingsStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for MiracastReceiverApplySettingsStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverApplySettingsStatus;i4)");
@@ -490,8 +490,8 @@ impl MiracastReceiverAuthorizationMethod {
     pub const PinDisplayIfRequested: Self = Self(2);
     pub const PinDisplayRequired: Self = Self(3);
 }
-impl windows_core::TypeKind for MiracastReceiverAuthorizationMethod {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for MiracastReceiverAuthorizationMethod {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for MiracastReceiverAuthorizationMethod {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverAuthorizationMethod;i4)");
@@ -519,7 +519,7 @@ impl MiracastReceiverConnection {
     pub fn PauseAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PauseAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PauseAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Resume(&self) -> windows_core::Result<()> {
@@ -528,31 +528,31 @@ impl MiracastReceiverConnection {
     pub fn ResumeAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ResumeAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ResumeAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Transmitter(&self) -> windows_core::Result<MiracastTransmitter> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Transmitter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Transmitter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn InputDevices(&self) -> windows_core::Result<MiracastReceiverInputDevices> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InputDevices)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InputDevices)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CursorImageChannel(&self) -> windows_core::Result<MiracastReceiverCursorImageChannel> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CursorImageChannel)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CursorImageChannel)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn StreamControl(&self) -> windows_core::Result<MiracastReceiverStreamControl> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StreamControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StreamControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -576,7 +576,7 @@ impl MiracastReceiverConnectionCreatedEventArgs {
     pub fn Connection(&self) -> windows_core::Result<MiracastReceiverConnection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Connection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Connection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Pin(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -588,7 +588,7 @@ impl MiracastReceiverConnectionCreatedEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -633,7 +633,7 @@ impl MiracastReceiverCursorImageChannel {
     pub fn ImageStream(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ImageStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ImageStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ImageStreamChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -728,8 +728,8 @@ impl MiracastReceiverDisconnectReason {
     pub const MediaStreamingError: Self = Self(6);
     pub const MediaDecryptionError: Self = Self(7);
 }
-impl windows_core::TypeKind for MiracastReceiverDisconnectReason {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for MiracastReceiverDisconnectReason {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for MiracastReceiverDisconnectReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverDisconnectReason;i4)");
@@ -743,7 +743,7 @@ impl MiracastReceiverDisconnectedEventArgs {
     pub fn Connection(&self) -> windows_core::Result<MiracastReceiverConnection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Connection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Connection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -828,8 +828,8 @@ impl MiracastReceiverGameControllerDeviceUsageMode {
     pub const AsGameController: Self = Self(0);
     pub const AsMouseAndKeyboard: Self = Self(1);
 }
-impl windows_core::TypeKind for MiracastReceiverGameControllerDeviceUsageMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for MiracastReceiverGameControllerDeviceUsageMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for MiracastReceiverGameControllerDeviceUsageMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode;i4)");
@@ -843,13 +843,13 @@ impl MiracastReceiverInputDevices {
     pub fn Keyboard(&self) -> windows_core::Result<MiracastReceiverKeyboardDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Keyboard)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Keyboard)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GameController(&self) -> windows_core::Result<MiracastReceiverGameControllerDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GameController)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GameController)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -929,8 +929,8 @@ impl MiracastReceiverListeningStatus {
     pub const DisabledByPolicy: Self = Self(4);
     pub const TemporarilyDisabled: Self = Self(5);
 }
-impl windows_core::TypeKind for MiracastReceiverListeningStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for MiracastReceiverListeningStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for MiracastReceiverListeningStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverListeningStatus;i4)");
@@ -944,26 +944,26 @@ impl MiracastReceiverMediaSourceCreatedEventArgs {
     pub fn Connection(&self) -> windows_core::Result<MiracastReceiverConnection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Connection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Connection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_Core", feature = "Media_Playback"))]
     pub fn MediaSource(&self) -> windows_core::Result<super::Core::MediaSource> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MediaSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).MediaSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CursorImageChannelSettings(&self) -> windows_core::Result<MiracastReceiverCursorImageChannelSettings> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CursorImageChannelSettings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CursorImageChannelSettings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1052,13 +1052,13 @@ impl MiracastReceiverSession {
     pub fn Start(&self) -> windows_core::Result<MiracastReceiverSessionStartResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MiracastReceiverSessionStartResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1113,8 +1113,8 @@ impl MiracastReceiverSessionStartStatus {
     pub const MiracastNotSupported: Self = Self(2);
     pub const AccessDenied: Self = Self(3);
 }
-impl windows_core::TypeKind for MiracastReceiverSessionStartStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for MiracastReceiverSessionStartStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for MiracastReceiverSessionStartStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverSessionStartStatus;i4)");
@@ -1215,7 +1215,7 @@ impl MiracastReceiverStatus {
     pub fn KnownTransmitters(&self) -> windows_core::Result<windows_collections::IVectorView<MiracastTransmitter>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).KnownTransmitters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).KnownTransmitters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1239,13 +1239,13 @@ impl MiracastReceiverStreamControl {
     pub fn GetVideoStreamSettings(&self) -> windows_core::Result<MiracastReceiverVideoStreamSettings> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetVideoStreamSettings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetVideoStreamSettings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetVideoStreamSettingsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<MiracastReceiverVideoStreamSettings>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetVideoStreamSettingsAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetVideoStreamSettingsAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SuggestVideoStreamSettings<P0>(&self, settings: P0) -> windows_core::Result<()>
@@ -1260,7 +1260,7 @@ impl MiracastReceiverStreamControl {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SuggestVideoStreamSettingsAsync)(windows_core::Interface::as_raw(self), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SuggestVideoStreamSettingsAsync)(windows_core::Interface::as_raw(self), settings.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn MuteAudio(&self) -> windows_core::Result<bool> {
@@ -1332,8 +1332,8 @@ impl MiracastReceiverWiFiStatus {
     pub const MiracastSupportNotOptimized: Self = Self(2);
     pub const MiracastSupported: Self = Self(3);
 }
-impl windows_core::TypeKind for MiracastReceiverWiFiStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for MiracastReceiverWiFiStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for MiracastReceiverWiFiStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverWiFiStatus;i4)");
@@ -1365,7 +1365,7 @@ impl MiracastTransmitter {
     pub fn GetConnections(&self) -> windows_core::Result<windows_collections::IVectorView<MiracastReceiverConnection>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetConnections)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetConnections)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn MacAddress(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1402,8 +1402,8 @@ impl MiracastTransmitterAuthorizationStatus {
     pub const AlwaysPrompt: Self = Self(2);
     pub const Blocked: Self = Self(3);
 }
-impl windows_core::TypeKind for MiracastTransmitterAuthorizationStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for MiracastTransmitterAuthorizationStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for MiracastTransmitterAuthorizationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastTransmitterAuthorizationStatus;i4)");

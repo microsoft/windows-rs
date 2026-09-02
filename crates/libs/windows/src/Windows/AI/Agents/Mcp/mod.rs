@@ -281,8 +281,8 @@ impl McpMessageDirection {
     pub const ClientToServer: Self = Self(0);
     pub const ServerToClient: Self = Self(1);
 }
-impl windows_core::TypeKind for McpMessageDirection {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for McpMessageDirection {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for McpMessageDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.Agents.Mcp.McpMessageDirection;i4)");

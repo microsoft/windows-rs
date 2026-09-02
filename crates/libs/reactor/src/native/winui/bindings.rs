@@ -70,7 +70,7 @@ impl AppBarButton {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn LabelProperty() -> windows_core::Result<DependencyProperty> {
@@ -80,7 +80,7 @@ impl AppBarButton {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IAppBarButtonFactory<R, F: FnOnce(&IAppBarButtonFactory) -> windows_core::Result<R>>(
@@ -142,7 +142,7 @@ impl AppBarSeparator {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IAppBarSeparatorFactory<
@@ -280,7 +280,7 @@ impl Application {
             )
             .ok()?;
             let _ = &derived__;
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         })
     }
     pub(crate) fn Current() -> windows_core::Result<Self> {
@@ -290,7 +290,7 @@ impl Application {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn Start<P0>(callback: P0) -> windows_core::Result<()>
@@ -470,7 +470,7 @@ impl AutoSuggestBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn PlaceholderTextProperty() -> windows_core::Result<DependencyProperty> {
@@ -480,7 +480,7 @@ impl AutoSuggestBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IAutoSuggestBoxStatics<R, F: FnOnce(&IAutoSuggestBoxStatics) -> windows_core::Result<R>>(
@@ -585,8 +585,8 @@ impl AutomationHeadingLevel {
     pub const Level8: Self = Self(8);
     pub const Level9: Self = Self(9);
 }
-impl windows_core::TypeKind for AutomationHeadingLevel {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for AutomationHeadingLevel {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for AutomationHeadingLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -701,7 +701,7 @@ impl BitmapIcon {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn UriSourceProperty() -> windows_core::Result<DependencyProperty> {
@@ -711,7 +711,7 @@ impl BitmapIcon {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ShowAsMonochromeProperty() -> windows_core::Result<DependencyProperty> {
@@ -721,7 +721,7 @@ impl BitmapIcon {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IBitmapIconFactory<R, F: FnOnce(&IBitmapIconFactory) -> windows_core::Result<R>>(
@@ -910,7 +910,7 @@ impl Border {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn BorderThicknessProperty() -> windows_core::Result<DependencyProperty> {
@@ -920,7 +920,7 @@ impl Border {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn BackgroundProperty() -> windows_core::Result<DependencyProperty> {
@@ -930,7 +930,7 @@ impl Border {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn CornerRadiusProperty() -> windows_core::Result<DependencyProperty> {
@@ -940,7 +940,7 @@ impl Border {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn PaddingProperty() -> windows_core::Result<DependencyProperty> {
@@ -950,7 +950,7 @@ impl Border {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IBorderStatics<R, F: FnOnce(&IBorderStatics) -> windows_core::Result<R>>(
@@ -1005,7 +1005,7 @@ impl BreadcrumbBar {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ItemsSourceProperty() -> windows_core::Result<DependencyProperty> {
@@ -1015,7 +1015,7 @@ impl BreadcrumbBar {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IBreadcrumbBarFactory<R, F: FnOnce(&IBreadcrumbBarFactory) -> windows_core::Result<R>>(
@@ -1127,7 +1127,7 @@ impl Button {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IButtonFactory<R, F: FnOnce(&IButtonFactory) -> windows_core::Result<R>>(
@@ -1219,7 +1219,7 @@ impl CalendarDatePicker {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsCalendarOpenProperty() -> windows_core::Result<DependencyProperty> {
@@ -1229,7 +1229,7 @@ impl CalendarDatePicker {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn PlaceholderTextProperty() -> windows_core::Result<DependencyProperty> {
@@ -1239,7 +1239,7 @@ impl CalendarDatePicker {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsTodayHighlightedProperty() -> windows_core::Result<DependencyProperty> {
@@ -1249,7 +1249,7 @@ impl CalendarDatePicker {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICalendarDatePickerFactory<
@@ -1350,7 +1350,7 @@ impl CalendarView {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsGroupLabelVisibleProperty() -> windows_core::Result<DependencyProperty> {
@@ -1360,7 +1360,7 @@ impl CalendarView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsTodayHighlightedProperty() -> windows_core::Result<DependencyProperty> {
@@ -1370,7 +1370,7 @@ impl CalendarView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICalendarViewFactory<R, F: FnOnce(&ICalendarViewFactory) -> windows_core::Result<R>>(
@@ -1459,7 +1459,7 @@ impl Canvas {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn LeftProperty() -> windows_core::Result<DependencyProperty> {
@@ -1469,7 +1469,7 @@ impl Canvas {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SetLeft<P0>(element: P0, length: f64) -> windows_core::Result<()>
@@ -1492,7 +1492,7 @@ impl Canvas {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SetTop<P0>(element: P0, length: f64) -> windows_core::Result<()>
@@ -1570,7 +1570,7 @@ impl CheckBox {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICheckBoxFactory<R, F: FnOnce(&ICheckBoxFactory) -> windows_core::Result<R>>(
@@ -1608,8 +1608,8 @@ pub struct Color {
     pub g: u8,
     pub b: u8,
 }
-impl windows_core::TypeKind for Color {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Color {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Color {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1667,7 +1667,7 @@ impl ColorPicker {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ColorProperty() -> windows_core::Result<DependencyProperty> {
@@ -1677,7 +1677,7 @@ impl ColorPicker {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsAlphaEnabledProperty() -> windows_core::Result<DependencyProperty> {
@@ -1687,7 +1687,7 @@ impl ColorPicker {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsColorSliderVisibleProperty() -> windows_core::Result<DependencyProperty> {
@@ -1697,7 +1697,7 @@ impl ColorPicker {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsColorChannelTextInputVisibleProperty()
@@ -1708,7 +1708,7 @@ impl ColorPicker {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsHexInputVisibleProperty() -> windows_core::Result<DependencyProperty> {
@@ -1718,7 +1718,7 @@ impl ColorPicker {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IColorPickerFactory<R, F: FnOnce(&IColorPickerFactory) -> windows_core::Result<R>>(
@@ -1859,7 +1859,7 @@ impl ComboBox {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsEditableProperty() -> windows_core::Result<DependencyProperty> {
@@ -1869,7 +1869,7 @@ impl ComboBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn PlaceholderTextProperty() -> windows_core::Result<DependencyProperty> {
@@ -1879,7 +1879,7 @@ impl ComboBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IComboBoxFactory<R, F: FnOnce(&IComboBoxFactory) -> windows_core::Result<R>>(
@@ -1943,7 +1943,7 @@ impl CommandBar {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICommandBarFactory<R, F: FnOnce(&ICommandBarFactory) -> windows_core::Result<R>>(
@@ -1992,7 +1992,7 @@ impl CommandBarFlyout {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICommandBarFlyoutFactory<
@@ -2175,7 +2175,7 @@ impl ContentControl {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IContentControlFactory<R, F: FnOnce(&IContentControlFactory) -> windows_core::Result<R>>(
@@ -2231,7 +2231,7 @@ impl ContentDialog {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn TitleProperty() -> windows_core::Result<DependencyProperty> {
@@ -2241,7 +2241,7 @@ impl ContentDialog {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn PrimaryButtonTextProperty() -> windows_core::Result<DependencyProperty> {
@@ -2251,7 +2251,7 @@ impl ContentDialog {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SecondaryButtonTextProperty() -> windows_core::Result<DependencyProperty> {
@@ -2261,7 +2261,7 @@ impl ContentDialog {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn CloseButtonTextProperty() -> windows_core::Result<DependencyProperty> {
@@ -2271,7 +2271,7 @@ impl ContentDialog {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsPrimaryButtonEnabledProperty() -> windows_core::Result<DependencyProperty> {
@@ -2281,7 +2281,7 @@ impl ContentDialog {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsSecondaryButtonEnabledProperty() -> windows_core::Result<DependencyProperty> {
@@ -2291,7 +2291,7 @@ impl ContentDialog {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IContentDialogFactory<R, F: FnOnce(&IContentDialogFactory) -> windows_core::Result<R>>(
@@ -2363,8 +2363,8 @@ impl ContentDialogResult {
     pub const Primary: Self = Self(1);
     pub const Secondary: Self = Self(2);
 }
-impl windows_core::TypeKind for ContentDialogResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ContentDialogResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ContentDialogResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -2388,7 +2388,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn HorizontalContentAlignmentProperty() -> windows_core::Result<DependencyProperty> {
@@ -2398,7 +2398,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn VerticalContentAlignmentProperty() -> windows_core::Result<DependencyProperty> {
@@ -2408,7 +2408,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn BackgroundProperty() -> windows_core::Result<DependencyProperty> {
@@ -2418,7 +2418,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn BorderThicknessProperty() -> windows_core::Result<DependencyProperty> {
@@ -2428,7 +2428,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn BorderBrushProperty() -> windows_core::Result<DependencyProperty> {
@@ -2438,7 +2438,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IControlStatics<R, F: FnOnce(&IControlStatics) -> windows_core::Result<R>>(
@@ -2531,8 +2531,8 @@ pub struct CornerRadius {
     pub bottom_right: f64,
     pub bottom_left: f64,
 }
-impl windows_core::TypeKind for CornerRadius {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CornerRadius {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CornerRadius {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -2553,8 +2553,8 @@ impl DataPackageOperation {
     pub const NewTarget: Self = Self(1073741824);
     pub const BackgroundTarget: Self = Self(536870912);
 }
-impl windows_core::TypeKind for DataPackageOperation {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DataPackageOperation {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DataPackageOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -2642,7 +2642,7 @@ impl DataWriter {
                 outputstream.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IDataWriterFactory<R, F: FnOnce(&IDataWriterFactory) -> windows_core::Result<R>>(
@@ -2698,7 +2698,7 @@ impl DatePicker {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn DayVisibleProperty() -> windows_core::Result<DependencyProperty> {
@@ -2708,7 +2708,7 @@ impl DatePicker {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MonthVisibleProperty() -> windows_core::Result<DependencyProperty> {
@@ -2718,7 +2718,7 @@ impl DatePicker {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn YearVisibleProperty() -> windows_core::Result<DependencyProperty> {
@@ -2728,7 +2728,7 @@ impl DatePicker {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IDatePickerFactory<R, F: FnOnce(&IDatePickerFactory) -> windows_core::Result<R>>(
@@ -2935,7 +2935,7 @@ impl DesktopAcrylicBackdrop {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IDesktopAcrylicBackdropFactory<
@@ -2986,7 +2986,7 @@ impl DispatcherQueue {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IDispatcherQueueStatics<
@@ -3070,8 +3070,8 @@ impl DispatcherQueuePriority {
     pub const Normal: Self = Self(0);
     pub const High: Self = Self(10);
 }
-impl windows_core::TypeKind for DispatcherQueuePriority {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DispatcherQueuePriority {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DispatcherQueuePriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -3291,7 +3291,7 @@ impl DropDownButton {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IDropDownButtonFactory<R, F: FnOnce(&IDropDownButtonFactory) -> windows_core::Result<R>>(
@@ -3343,7 +3343,7 @@ impl ElementCompositionPreview {
                 element.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SetElementChildVisual<P0, P1>(element: P0, visual: P1) -> windows_core::Result<()>
@@ -3454,8 +3454,8 @@ impl ElementTheme {
     pub const Light: Self = Self(1);
     pub const Dark: Self = Self(2);
 }
-impl windows_core::TypeKind for ElementTheme {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ElementTheme {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ElementTheme {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -3538,7 +3538,7 @@ where
     Invoke: unsafe extern "system" fn(
         this: *mut core::ffi::c_void,
         sender: *mut core::ffi::c_void,
-        args: windows_core::AbiType<T>,
+        args: windows_core::imp::AbiType<T>,
     ) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
 }
@@ -3565,7 +3565,7 @@ impl<
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
         sender: *mut core::ffi::c_void,
-        args: windows_core::AbiType<T>,
+        args: windows_core::imp::AbiType<T>,
     ) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void
@@ -3688,7 +3688,7 @@ impl Expander {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsExpandedProperty() -> windows_core::Result<DependencyProperty> {
@@ -3698,7 +3698,7 @@ impl Expander {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IExpanderFactory<R, F: FnOnce(&IExpanderFactory) -> windows_core::Result<R>>(
@@ -3762,7 +3762,7 @@ impl FlipView {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IFlipViewFactory<R, F: FnOnce(&IFlipViewFactory) -> windows_core::Result<R>>(
@@ -3807,7 +3807,7 @@ impl Flyout {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IFlyoutFactory<R, F: FnOnce(&IFlyoutFactory) -> windows_core::Result<R>>(
@@ -3884,8 +3884,8 @@ impl FlyoutPlacementMode {
     pub const RightEdgeAlignedBottom: Self = Self(12);
     pub const Auto: Self = Self(13);
 }
-impl windows_core::TypeKind for FlyoutPlacementMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for FlyoutPlacementMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for FlyoutPlacementMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -3901,8 +3901,8 @@ impl FocusState {
     pub const Keyboard: Self = Self(2);
     pub const Programmatic: Self = Self(3);
 }
-impl windows_core::TypeKind for FocusState {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for FocusState {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for FocusState {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -3933,7 +3933,7 @@ impl FontIcon {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn GlyphProperty() -> windows_core::Result<DependencyProperty> {
@@ -3943,7 +3943,7 @@ impl FontIcon {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IFontIconFactory<R, F: FnOnce(&IFontIconFactory) -> windows_core::Result<R>>(
@@ -3988,8 +3988,8 @@ impl FontStyle {
     pub const Oblique: Self = Self(1);
     pub const Italic: Self = Self(2);
 }
-impl windows_core::TypeKind for FontStyle {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for FontStyle {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for FontStyle {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -4000,8 +4000,8 @@ impl windows_core::RuntimeType for FontStyle {
 pub struct FontWeight {
     pub weight: u16,
 }
-impl windows_core::TypeKind for FontWeight {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for FontWeight {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for FontWeight {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -4024,7 +4024,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn WidthProperty() -> windows_core::Result<DependencyProperty> {
@@ -4034,7 +4034,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn HeightProperty() -> windows_core::Result<DependencyProperty> {
@@ -4044,7 +4044,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MinWidthProperty() -> windows_core::Result<DependencyProperty> {
@@ -4054,7 +4054,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MaxWidthProperty() -> windows_core::Result<DependencyProperty> {
@@ -4064,7 +4064,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MinHeightProperty() -> windows_core::Result<DependencyProperty> {
@@ -4074,7 +4074,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MaxHeightProperty() -> windows_core::Result<DependencyProperty> {
@@ -4084,7 +4084,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn HorizontalAlignmentProperty() -> windows_core::Result<DependencyProperty> {
@@ -4094,7 +4094,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn VerticalAlignmentProperty() -> windows_core::Result<DependencyProperty> {
@@ -4104,7 +4104,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MarginProperty() -> windows_core::Result<DependencyProperty> {
@@ -4114,7 +4114,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn StyleProperty() -> windows_core::Result<DependencyProperty> {
@@ -4124,7 +4124,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IFrameworkElementStatics<
@@ -4200,7 +4200,7 @@ impl Grid {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn RowSpacingProperty() -> windows_core::Result<DependencyProperty> {
@@ -4210,7 +4210,7 @@ impl Grid {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ColumnSpacingProperty() -> windows_core::Result<DependencyProperty> {
@@ -4220,7 +4220,7 @@ impl Grid {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn RowProperty() -> windows_core::Result<DependencyProperty> {
@@ -4230,7 +4230,7 @@ impl Grid {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SetRow<P0>(element: P0, value: i32) -> windows_core::Result<()>
@@ -4253,7 +4253,7 @@ impl Grid {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SetColumn<P0>(element: P0, value: i32) -> windows_core::Result<()>
@@ -4276,7 +4276,7 @@ impl Grid {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SetRowSpan<P0>(element: P0, value: i32) -> windows_core::Result<()>
@@ -4299,7 +4299,7 @@ impl Grid {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SetColumnSpan<P0>(element: P0, value: i32) -> windows_core::Result<()>
@@ -4355,8 +4355,8 @@ pub struct GridLength {
     pub value: f64,
     pub grid_unit_type: GridUnitType,
 }
-impl windows_core::TypeKind for GridLength {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for GridLength {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for GridLength {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -4371,8 +4371,8 @@ impl GridUnitType {
     pub const Pixel: Self = Self(1);
     pub const Star: Self = Self(2);
 }
-impl windows_core::TypeKind for GridUnitType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for GridUnitType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for GridUnitType {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -4406,7 +4406,7 @@ impl GridView {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IGridViewFactory<R, F: FnOnce(&IGridViewFactory) -> windows_core::Result<R>>(
@@ -4463,7 +4463,7 @@ impl GridViewItem {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IGridViewItemFactory<R, F: FnOnce(&IGridViewItemFactory) -> windows_core::Result<R>>(
@@ -4505,8 +4505,8 @@ impl HorizontalAlignment {
     pub const Right: Self = Self(2);
     pub const Stretch: Self = Self(3);
 }
-impl windows_core::TypeKind for HorizontalAlignment {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for HorizontalAlignment {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for HorizontalAlignment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -4585,7 +4585,7 @@ impl HyperlinkButton {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn NavigateUriProperty() -> windows_core::Result<DependencyProperty> {
@@ -4595,7 +4595,7 @@ impl HyperlinkButton {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IHyperlinkButtonFactory<
@@ -4782,7 +4782,7 @@ impl IAppWindow {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn Size(&self) -> windows_core::Result<SizeInt32> {
@@ -4802,7 +4802,7 @@ impl IAppWindow {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetIcon(&self, iconpath: &str) -> windows_core::Result<()> {
@@ -4990,7 +4990,7 @@ impl IApplication {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5328,7 +5328,7 @@ impl IAutoSuggestBoxSuggestionChosenEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5609,7 +5609,7 @@ impl IBitmapSource {
                 streamsource.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5878,7 +5878,7 @@ impl IBreadcrumbBarItemClickedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6205,7 +6205,7 @@ impl ICalendarDatePickerDateChangedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
             .and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
@@ -7058,7 +7058,7 @@ impl ICommandBar {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SecondaryCommands(
@@ -7070,7 +7070,7 @@ impl ICommandBar {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -7142,7 +7142,7 @@ impl ICommandBarFlyout {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SecondaryCommands(
@@ -7154,7 +7154,7 @@ impl ICommandBarFlyout {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -7206,7 +7206,7 @@ impl ICompositionObject {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -7426,7 +7426,7 @@ impl IContentDialog {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -7845,7 +7845,7 @@ impl IDataPackageView {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn GetStorageItemsAsync(
@@ -7859,7 +7859,7 @@ impl IDataPackageView {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -7923,7 +7923,7 @@ impl IDataWriter {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn DetachStream(&self) -> windows_core::Result<IOutputStream> {
@@ -7933,7 +7933,7 @@ impl IDataWriter {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8174,7 +8174,7 @@ impl IDatePickerSelectedValueChangedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
             .and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
@@ -8362,7 +8362,7 @@ impl IDispatcherQueue {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn TryEnqueueWithPriority<P1>(
@@ -8521,7 +8521,7 @@ impl IDragEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn DragUIOverride(&self) -> windows_core::Result<DragUIOverride> {
@@ -8531,7 +8531,7 @@ impl IDragEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetAcceptedOperation(
@@ -8553,7 +8553,7 @@ impl IDragEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8836,7 +8836,7 @@ impl IElementFactoryGetArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8865,7 +8865,7 @@ impl IElementFactoryRecycleArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -9195,7 +9195,7 @@ impl IFrameworkElement {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn Tag(&self) -> windows_core::Result<windows_core::IInspectable> {
@@ -9205,7 +9205,7 @@ impl IFrameworkElement {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetTag<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -9674,7 +9674,7 @@ impl IGrid {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn ColumnDefinitions(&self) -> windows_core::Result<ColumnDefinitionCollection> {
@@ -9684,7 +9684,7 @@ impl IGrid {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetRowSpacing(&self, value: f64) -> windows_core::Result<()> {
@@ -10580,7 +10580,7 @@ impl IItemsControl {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -10656,7 +10656,7 @@ impl IItemsRepeater {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -11245,7 +11245,7 @@ impl IMenuBar {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -11304,7 +11304,7 @@ impl IMenuBarItem {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -11376,7 +11376,7 @@ impl IMenuFlyout {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -11562,7 +11562,7 @@ impl IMenuFlyoutSubItem {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetText(&self, value: &str) -> windows_core::Result<()> {
@@ -11730,7 +11730,7 @@ impl INavigationView {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetSelectedItem<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -11754,7 +11754,7 @@ impl INavigationView {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SelectionChanged<F>(
@@ -12136,7 +12136,7 @@ impl INavigationViewItem2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -12283,7 +12283,7 @@ impl INavigationViewSelectionChangedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -12686,7 +12686,7 @@ impl IPanel {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetBackground<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -12749,7 +12749,7 @@ impl IParagraph {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -13377,7 +13377,7 @@ impl IPointerPoint {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -13471,7 +13471,7 @@ impl IPointerRoutedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn GetCurrentPoint<P0>(&self, relativeto: P0) -> windows_core::Result<PointerPoint>
@@ -13485,7 +13485,7 @@ impl IPointerRoutedEventArgs {
                 relativeto.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -13990,7 +13990,7 @@ impl IRandomAccessStream {
                 position,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn Seek(&self, position: u64) -> windows_core::Result<()> {
@@ -14621,7 +14621,7 @@ impl IResourceDictionary {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -14671,7 +14671,7 @@ impl IRichEditBox {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetHeader<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -14874,7 +14874,7 @@ impl IRichTextBlock {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetIsTextSelectionEnabled(&self, value: bool) -> windows_core::Result<()> {
@@ -15360,7 +15360,7 @@ impl ISelector {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetSelectedItem<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -15456,7 +15456,7 @@ impl ISelectorBar {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SelectedItem(&self) -> windows_core::Result<SelectorBarItem> {
@@ -15466,7 +15466,7 @@ impl ISelectorBar {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetSelectedItem<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -16002,7 +16002,7 @@ impl ISpan {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -16801,7 +16801,7 @@ impl ITabView {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetCanReorderTabs(&self, value: bool) -> windows_core::Result<()> {
@@ -17108,7 +17108,7 @@ impl ITabViewTabCloseRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -18151,7 +18151,7 @@ impl ITimePickerSelectedValueChangedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
             .and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
@@ -18457,7 +18457,7 @@ impl IToggleButton {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
             .and_then(|r__: windows_reference::IReference<bool>| r__.Value())
         }
     }
@@ -18759,7 +18759,7 @@ impl ITreeView {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetSelectionMode(
@@ -18868,7 +18868,7 @@ impl ITreeViewItemInvokedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -18897,7 +18897,7 @@ impl ITreeViewNode {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetContent<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -18930,7 +18930,7 @@ impl ITreeViewNode {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -19032,7 +19032,7 @@ impl IUIElement {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetKeyboardAcceleratorPlacementMode(
@@ -19099,7 +19099,7 @@ impl IUIElement {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetXamlRoot<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -20148,7 +20148,7 @@ impl IWebView2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn EnsureCoreWebView2Async(
@@ -20160,7 +20160,7 @@ impl IWebView2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn CoreWebView2Initialized<F>(
@@ -20423,7 +20423,7 @@ impl IWindow2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -20575,7 +20575,7 @@ impl IXamlMetadataProvider {
                 core::mem::transmute_copy(r#type),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn GetXamlTypeByFullName(&self, fullname: &str) -> windows_core::Result<IXamlType> {
@@ -20586,7 +20586,7 @@ impl IXamlMetadataProvider {
                 core::mem::transmute_copy(&windows_core::HSTRING::from(fullname)),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn GetXmlnsDefinitions(
@@ -20898,7 +20898,7 @@ impl Image {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn StretchProperty() -> windows_core::Result<DependencyProperty> {
@@ -20908,7 +20908,7 @@ impl Image {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IImageStatics<R, F: FnOnce(&IImageStatics) -> windows_core::Result<R>>(
@@ -20963,7 +20963,7 @@ impl ImageIcon {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SourceProperty() -> windows_core::Result<DependencyProperty> {
@@ -20973,7 +20973,7 @@ impl ImageIcon {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IImageIconFactory<R, F: FnOnce(&IImageIconFactory) -> windows_core::Result<R>>(
@@ -21108,7 +21108,7 @@ impl InfoBadge {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ValueProperty() -> windows_core::Result<DependencyProperty> {
@@ -21118,7 +21118,7 @@ impl InfoBadge {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IInfoBadgeFactory<R, F: FnOnce(&IInfoBadgeFactory) -> windows_core::Result<R>>(
@@ -21180,7 +21180,7 @@ impl InfoBar {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsOpenProperty() -> windows_core::Result<DependencyProperty> {
@@ -21190,7 +21190,7 @@ impl InfoBar {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn TitleProperty() -> windows_core::Result<DependencyProperty> {
@@ -21200,7 +21200,7 @@ impl InfoBar {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MessageProperty() -> windows_core::Result<DependencyProperty> {
@@ -21210,7 +21210,7 @@ impl InfoBar {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SeverityProperty() -> windows_core::Result<DependencyProperty> {
@@ -21220,7 +21220,7 @@ impl InfoBar {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsClosableProperty() -> windows_core::Result<DependencyProperty> {
@@ -21230,7 +21230,7 @@ impl InfoBar {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IInfoBarFactory<R, F: FnOnce(&IInfoBarFactory) -> windows_core::Result<R>>(
@@ -21303,8 +21303,8 @@ impl InfoBarSeverity {
     pub const Warning: Self = Self(2);
     pub const Error: Self = Self(3);
 }
-impl windows_core::TypeKind for InfoBarSeverity {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for InfoBarSeverity {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for InfoBarSeverity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -21419,7 +21419,7 @@ impl ItemContainer {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IItemContainerStatics<R, F: FnOnce(&IItemContainerStatics) -> windows_core::Result<R>>(
@@ -21472,7 +21472,7 @@ impl ItemsControl {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IItemsControlStatics<R, F: FnOnce(&IItemsControlStatics) -> windows_core::Result<R>>(
@@ -21526,7 +21526,7 @@ impl ItemsRepeater {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IItemsRepeaterFactory<R, F: FnOnce(&IItemsRepeaterFactory) -> windows_core::Result<R>>(
@@ -21575,7 +21575,7 @@ impl KeyboardAccelerator {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IKeyboardAcceleratorFactory<
@@ -21645,8 +21645,8 @@ impl KeyboardAcceleratorPlacementMode {
     pub const Auto: Self = Self(0);
     pub const Hidden: Self = Self(1);
 }
-impl windows_core::TypeKind for KeyboardAcceleratorPlacementMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for KeyboardAcceleratorPlacementMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for KeyboardAcceleratorPlacementMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -21706,7 +21706,7 @@ impl Line {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn Y1Property() -> windows_core::Result<DependencyProperty> {
@@ -21716,7 +21716,7 @@ impl Line {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn X2Property() -> windows_core::Result<DependencyProperty> {
@@ -21726,7 +21726,7 @@ impl Line {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn Y2Property() -> windows_core::Result<DependencyProperty> {
@@ -21736,7 +21736,7 @@ impl Line {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ILineStatics<R, F: FnOnce(&ILineStatics) -> windows_core::Result<R>>(
@@ -21838,7 +21838,7 @@ impl ListBox {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IListBoxFactory<R, F: FnOnce(&IListBoxFactory) -> windows_core::Result<R>>(
@@ -21895,7 +21895,7 @@ impl ListBoxItem {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IListBoxItemFactory<R, F: FnOnce(&IListBoxItemFactory) -> windows_core::Result<R>>(
@@ -21953,7 +21953,7 @@ impl ListView {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IListViewFactory<R, F: FnOnce(&IListViewFactory) -> windows_core::Result<R>>(
@@ -22008,7 +22008,7 @@ impl ListViewBase {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn CanDragItemsProperty() -> windows_core::Result<DependencyProperty> {
@@ -22018,7 +22018,7 @@ impl ListViewBase {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn CanReorderItemsProperty() -> windows_core::Result<DependencyProperty> {
@@ -22028,7 +22028,7 @@ impl ListViewBase {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IListViewBaseStatics<R, F: FnOnce(&IListViewBaseStatics) -> windows_core::Result<R>>(
@@ -22085,7 +22085,7 @@ impl ListViewItem {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IListViewItemFactory<R, F: FnOnce(&IListViewItemFactory) -> windows_core::Result<R>>(
@@ -22124,8 +22124,8 @@ impl ListViewSelectionMode {
     pub const Multiple: Self = Self(2);
     pub const Extended: Self = Self(3);
 }
-impl windows_core::TypeKind for ListViewSelectionMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ListViewSelectionMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ListViewSelectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -22159,7 +22159,7 @@ impl MenuBar {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMenuBarFactory<R, F: FnOnce(&IMenuBarFactory) -> windows_core::Result<R>>(
@@ -22214,7 +22214,7 @@ impl MenuBarItem {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn TitleProperty() -> windows_core::Result<DependencyProperty> {
@@ -22224,7 +22224,7 @@ impl MenuBarItem {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMenuBarItemFactory<R, F: FnOnce(&IMenuBarItemFactory) -> windows_core::Result<R>>(
@@ -22280,7 +22280,7 @@ impl MenuFlyout {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMenuFlyoutFactory<R, F: FnOnce(&IMenuFlyoutFactory) -> windows_core::Result<R>>(
@@ -22336,7 +22336,7 @@ impl MenuFlyoutItem {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMenuFlyoutItemFactory<R, F: FnOnce(&IMenuFlyoutItemFactory) -> windows_core::Result<R>>(
@@ -22426,7 +22426,7 @@ impl MenuFlyoutSeparator {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMenuFlyoutSeparatorFactory<
@@ -22532,7 +22532,7 @@ impl MicaBackdrop {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMicaBackdropFactory<R, F: FnOnce(&IMicaBackdropFactory) -> windows_core::Result<R>>(
@@ -22569,8 +22569,8 @@ impl MicaKind {
     pub const Base: Self = Self(0);
     pub const BaseAlt: Self = Self(1);
 }
-impl windows_core::TypeKind for MicaKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for MicaKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for MicaKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -22603,7 +22603,7 @@ impl NavigationView {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsPaneOpenProperty() -> windows_core::Result<DependencyProperty> {
@@ -22613,7 +22613,7 @@ impl NavigationView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsSettingsVisibleProperty() -> windows_core::Result<DependencyProperty> {
@@ -22623,7 +22623,7 @@ impl NavigationView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsPaneToggleButtonVisibleProperty() -> windows_core::Result<DependencyProperty> {
@@ -22633,7 +22633,7 @@ impl NavigationView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn AlwaysShowHeaderProperty() -> windows_core::Result<DependencyProperty> {
@@ -22643,7 +22643,7 @@ impl NavigationView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn OpenPaneLengthProperty() -> windows_core::Result<DependencyProperty> {
@@ -22653,7 +22653,7 @@ impl NavigationView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsBackButtonVisibleProperty() -> windows_core::Result<DependencyProperty> {
@@ -22663,7 +22663,7 @@ impl NavigationView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn PaneTitleProperty() -> windows_core::Result<DependencyProperty> {
@@ -22673,7 +22673,7 @@ impl NavigationView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn PaneDisplayModeProperty() -> windows_core::Result<DependencyProperty> {
@@ -22683,7 +22683,7 @@ impl NavigationView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn INavigationViewFactory<R, F: FnOnce(&INavigationViewFactory) -> windows_core::Result<R>>(
@@ -22738,8 +22738,8 @@ impl NavigationViewBackButtonVisible {
     pub const Visible: Self = Self(1);
     pub const Auto: Self = Self(2);
 }
-impl windows_core::TypeKind for NavigationViewBackButtonVisible {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for NavigationViewBackButtonVisible {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for NavigationViewBackButtonVisible {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -22754,8 +22754,8 @@ impl NavigationViewDisplayMode {
     pub const Compact: Self = Self(1);
     pub const Expanded: Self = Self(2);
 }
-impl windows_core::TypeKind for NavigationViewDisplayMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for NavigationViewDisplayMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for NavigationViewDisplayMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -22820,7 +22820,7 @@ impl NavigationViewItem {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SelectsOnInvokedProperty() -> windows_core::Result<DependencyProperty> {
@@ -22830,7 +22830,7 @@ impl NavigationViewItem {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsExpandedProperty() -> windows_core::Result<DependencyProperty> {
@@ -22840,7 +22840,7 @@ impl NavigationViewItem {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn INavigationViewItemFactory<
@@ -22911,7 +22911,7 @@ impl NavigationViewItemBase {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn INavigationViewItemBaseStatics<
@@ -22956,8 +22956,8 @@ impl NavigationViewPaneDisplayMode {
     pub const LeftCompact: Self = Self(3);
     pub const LeftMinimal: Self = Self(4);
 }
-impl windows_core::TypeKind for NavigationViewPaneDisplayMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for NavigationViewPaneDisplayMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for NavigationViewPaneDisplayMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -23019,7 +23019,7 @@ impl NumberBox {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MinimumProperty() -> windows_core::Result<DependencyProperty> {
@@ -23029,7 +23029,7 @@ impl NumberBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MaximumProperty() -> windows_core::Result<DependencyProperty> {
@@ -23039,7 +23039,7 @@ impl NumberBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ValueProperty() -> windows_core::Result<DependencyProperty> {
@@ -23049,7 +23049,7 @@ impl NumberBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn INumberBoxFactory<R, F: FnOnce(&INumberBoxFactory) -> windows_core::Result<R>>(
@@ -23121,8 +23121,8 @@ impl Orientation {
     pub const Vertical: Self = Self(0);
     pub const Horizontal: Self = Self(1);
 }
-impl windows_core::TypeKind for Orientation {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Orientation {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Orientation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -23183,7 +23183,7 @@ impl Panel {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPanelStatics<R, F: FnOnce(&IPanelStatics) -> windows_core::Result<R>>(
@@ -23296,7 +23296,7 @@ impl PasswordBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn PlaceholderTextProperty() -> windows_core::Result<DependencyProperty> {
@@ -23306,7 +23306,7 @@ impl PasswordBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn PasswordRevealModeProperty() -> windows_core::Result<DependencyProperty> {
@@ -23316,7 +23316,7 @@ impl PasswordBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPasswordBoxStatics<R, F: FnOnce(&IPasswordBoxStatics) -> windows_core::Result<R>>(
@@ -23354,8 +23354,8 @@ impl PasswordRevealMode {
     pub const Hidden: Self = Self(1);
     pub const Visible: Self = Self(2);
 }
-impl windows_core::TypeKind for PasswordRevealMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PasswordRevealMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PasswordRevealMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -23387,7 +23387,7 @@ impl PathIcon {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn DataProperty() -> windows_core::Result<DependencyProperty> {
@@ -23397,7 +23397,7 @@ impl PathIcon {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPathIconFactory<R, F: FnOnce(&IPathIconFactory) -> windows_core::Result<R>>(
@@ -23459,7 +23459,7 @@ impl PersonPicture {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn DisplayNameProperty() -> windows_core::Result<DependencyProperty> {
@@ -23469,7 +23469,7 @@ impl PersonPicture {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn InitialsProperty() -> windows_core::Result<DependencyProperty> {
@@ -23479,7 +23479,7 @@ impl PersonPicture {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPersonPictureFactory<R, F: FnOnce(&IPersonPictureFactory) -> windows_core::Result<R>>(
@@ -23538,7 +23538,7 @@ impl Pivot {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn TitleProperty() -> windows_core::Result<DependencyProperty> {
@@ -23548,7 +23548,7 @@ impl Pivot {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SelectedIndexProperty() -> windows_core::Result<DependencyProperty> {
@@ -23558,7 +23558,7 @@ impl Pivot {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPivotFactory<R, F: FnOnce(&IPivotFactory) -> windows_core::Result<R>>(
@@ -23621,7 +23621,7 @@ impl PivotItem {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn HeaderProperty() -> windows_core::Result<DependencyProperty> {
@@ -23631,7 +23631,7 @@ impl PivotItem {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPivotItemFactory<R, F: FnOnce(&IPivotItemFactory) -> windows_core::Result<R>>(
@@ -23678,8 +23678,8 @@ impl PlacementMode {
     pub const Right: Self = Self(4);
     pub const Top: Self = Self(10);
 }
-impl windows_core::TypeKind for PlacementMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PlacementMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PlacementMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -23692,8 +23692,8 @@ pub struct Point {
     pub x: f32,
     pub y: f32,
 }
-impl windows_core::TypeKind for Point {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Point {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Point {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -23886,7 +23886,7 @@ impl ProgressBar {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsIndeterminateProperty() -> windows_core::Result<DependencyProperty> {
@@ -23896,7 +23896,7 @@ impl ProgressBar {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ShowErrorProperty() -> windows_core::Result<DependencyProperty> {
@@ -23906,7 +23906,7 @@ impl ProgressBar {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ShowPausedProperty() -> windows_core::Result<DependencyProperty> {
@@ -23916,7 +23916,7 @@ impl ProgressBar {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IProgressBarFactory<R, F: FnOnce(&IProgressBarFactory) -> windows_core::Result<R>>(
@@ -23978,7 +23978,7 @@ impl ProgressRing {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsActiveProperty() -> windows_core::Result<DependencyProperty> {
@@ -23988,7 +23988,7 @@ impl ProgressRing {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsIndeterminateProperty() -> windows_core::Result<DependencyProperty> {
@@ -23998,7 +23998,7 @@ impl ProgressRing {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ValueProperty() -> windows_core::Result<DependencyProperty> {
@@ -24008,7 +24008,7 @@ impl ProgressRing {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MinimumProperty() -> windows_core::Result<DependencyProperty> {
@@ -24018,7 +24018,7 @@ impl ProgressRing {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MaximumProperty() -> windows_core::Result<DependencyProperty> {
@@ -24028,7 +24028,7 @@ impl ProgressRing {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IProgressRingFactory<R, F: FnOnce(&IProgressRingFactory) -> windows_core::Result<R>>(
@@ -24094,7 +24094,7 @@ impl RadioButton {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn GroupNameProperty() -> windows_core::Result<DependencyProperty> {
@@ -24104,7 +24104,7 @@ impl RadioButton {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRadioButtonFactory<R, F: FnOnce(&IRadioButtonFactory) -> windows_core::Result<R>>(
@@ -24166,7 +24166,7 @@ impl RadioButtons {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ItemsSourceProperty() -> windows_core::Result<DependencyProperty> {
@@ -24176,7 +24176,7 @@ impl RadioButtons {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SelectedIndexProperty() -> windows_core::Result<DependencyProperty> {
@@ -24186,7 +24186,7 @@ impl RadioButtons {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MaxColumnsProperty() -> windows_core::Result<DependencyProperty> {
@@ -24196,7 +24196,7 @@ impl RadioButtons {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRadioButtonsFactory<R, F: FnOnce(&IRadioButtonsFactory) -> windows_core::Result<R>>(
@@ -24256,7 +24256,7 @@ impl RangeBase {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MaximumProperty() -> windows_core::Result<DependencyProperty> {
@@ -24266,7 +24266,7 @@ impl RangeBase {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ValueProperty() -> windows_core::Result<DependencyProperty> {
@@ -24276,7 +24276,7 @@ impl RangeBase {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRangeBaseStatics<R, F: FnOnce(&IRangeBaseStatics) -> windows_core::Result<R>>(
@@ -24422,7 +24422,7 @@ impl RatingControl {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn CaptionProperty() -> windows_core::Result<DependencyProperty> {
@@ -24432,7 +24432,7 @@ impl RatingControl {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsReadOnlyProperty() -> windows_core::Result<DependencyProperty> {
@@ -24442,7 +24442,7 @@ impl RatingControl {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MaxRatingProperty() -> windows_core::Result<DependencyProperty> {
@@ -24452,7 +24452,7 @@ impl RatingControl {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ValueProperty() -> windows_core::Result<DependencyProperty> {
@@ -24462,7 +24462,7 @@ impl RatingControl {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRatingControlFactory<R, F: FnOnce(&IRatingControlFactory) -> windows_core::Result<R>>(
@@ -24537,7 +24537,7 @@ impl Rectangle {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn RadiusYProperty() -> windows_core::Result<DependencyProperty> {
@@ -24547,7 +24547,7 @@ impl Rectangle {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRectangleStatics<R, F: FnOnce(&IRectangleStatics) -> windows_core::Result<R>>(
@@ -24602,7 +24602,7 @@ impl RelativePanel {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn AlignLeftWithPanelProperty() -> windows_core::Result<DependencyProperty> {
@@ -24612,7 +24612,7 @@ impl RelativePanel {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SetAlignLeftWithPanel<P0>(element: P0, value: bool) -> windows_core::Result<()>
@@ -24635,7 +24635,7 @@ impl RelativePanel {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SetAlignTopWithPanel<P0>(element: P0, value: bool) -> windows_core::Result<()>
@@ -24658,7 +24658,7 @@ impl RelativePanel {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SetAlignRightWithPanel<P0>(element: P0, value: bool) -> windows_core::Result<()>
@@ -24681,7 +24681,7 @@ impl RelativePanel {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SetAlignBottomWithPanel<P0>(element: P0, value: bool) -> windows_core::Result<()>
@@ -24705,7 +24705,7 @@ impl RelativePanel {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SetAlignHorizontalCenterWithPanel<P0>(
@@ -24732,7 +24732,7 @@ impl RelativePanel {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SetAlignVerticalCenterWithPanel<P0>(
@@ -24825,7 +24825,7 @@ impl RepeatButton {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IntervalProperty() -> windows_core::Result<DependencyProperty> {
@@ -24835,7 +24835,7 @@ impl RepeatButton {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRepeatButtonStatics<R, F: FnOnce(&IRepeatButtonStatics) -> windows_core::Result<R>>(
@@ -24918,7 +24918,7 @@ impl RichEditBox {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsReadOnlyProperty() -> windows_core::Result<DependencyProperty> {
@@ -24928,7 +24928,7 @@ impl RichEditBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn PlaceholderTextProperty() -> windows_core::Result<DependencyProperty> {
@@ -24938,7 +24938,7 @@ impl RichEditBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRichEditBoxFactory<R, F: FnOnce(&IRichEditBoxFactory) -> windows_core::Result<R>>(
@@ -25039,7 +25039,7 @@ impl RichTextBlock {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn TextWrappingProperty() -> windows_core::Result<DependencyProperty> {
@@ -25049,7 +25049,7 @@ impl RichTextBlock {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsTextSelectionEnabledProperty() -> windows_core::Result<DependencyProperty> {
@@ -25059,7 +25059,7 @@ impl RichTextBlock {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRichTextBlockStatics<R, F: FnOnce(&IRichTextBlockStatics) -> windows_core::Result<R>>(
@@ -25301,7 +25301,7 @@ impl ScalarTransition {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IScalarTransitionFactory<
@@ -25343,8 +25343,8 @@ impl ScrollBarVisibility {
     pub const Hidden: Self = Self(2);
     pub const Visible: Self = Self(3);
 }
-impl windows_core::TypeKind for ScrollBarVisibility {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ScrollBarVisibility {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ScrollBarVisibility {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -25376,7 +25376,7 @@ impl ScrollView {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn HorizontalScrollBarVisibilityProperty() -> windows_core::Result<DependencyProperty>
@@ -25387,7 +25387,7 @@ impl ScrollView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn VerticalScrollBarVisibilityProperty() -> windows_core::Result<DependencyProperty>
@@ -25398,7 +25398,7 @@ impl ScrollView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IScrollViewFactory<R, F: FnOnce(&IScrollViewFactory) -> windows_core::Result<R>>(
@@ -25475,7 +25475,7 @@ impl ScrollViewer {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn VerticalScrollBarVisibilityProperty() -> windows_core::Result<DependencyProperty>
@@ -25486,7 +25486,7 @@ impl ScrollViewer {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IScrollViewerStatics<R, F: FnOnce(&IScrollViewerStatics) -> windows_core::Result<R>>(
@@ -25524,8 +25524,8 @@ impl ScrollingScrollBarVisibility {
     pub const Visible: Self = Self(1);
     pub const Hidden: Self = Self(2);
 }
-impl windows_core::TypeKind for ScrollingScrollBarVisibility {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ScrollingScrollBarVisibility {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ScrollingScrollBarVisibility {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -25640,7 +25640,7 @@ impl Selector {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ISelectorStatics<R, F: FnOnce(&ISelectorStatics) -> windows_core::Result<R>>(
@@ -25695,7 +25695,7 @@ impl SelectorBar {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ISelectorBarFactory<R, F: FnOnce(&ISelectorBarFactory) -> windows_core::Result<R>>(
@@ -25751,7 +25751,7 @@ impl SelectorBarItem {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn TextProperty() -> windows_core::Result<DependencyProperty> {
@@ -25761,7 +25761,7 @@ impl SelectorBarItem {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ISelectorBarItemFactory<
@@ -25856,7 +25856,7 @@ impl SelectorItem {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ISelectorItemStatics<R, F: FnOnce(&ISelectorItemStatics) -> windows_core::Result<R>>(
@@ -25899,7 +25899,7 @@ impl Shape {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn StrokeProperty() -> windows_core::Result<DependencyProperty> {
@@ -25909,7 +25909,7 @@ impl Shape {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn StrokeThicknessProperty() -> windows_core::Result<DependencyProperty> {
@@ -25919,7 +25919,7 @@ impl Shape {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IShapeStatics<R, F: FnOnce(&IShapeStatics) -> windows_core::Result<R>>(
@@ -25955,8 +25955,8 @@ pub struct Size {
     pub width: f32,
     pub height: f32,
 }
-impl windows_core::TypeKind for Size {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Size {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Size {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -26048,8 +26048,8 @@ pub struct SizeInt32 {
     pub width: i32,
     pub height: i32,
 }
-impl windows_core::TypeKind for SizeInt32 {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for SizeInt32 {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for SizeInt32 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -26077,7 +26077,7 @@ impl Slider {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn StepFrequencyProperty() -> windows_core::Result<DependencyProperty> {
@@ -26087,7 +26087,7 @@ impl Slider {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn OrientationProperty() -> windows_core::Result<DependencyProperty> {
@@ -26097,7 +26097,7 @@ impl Slider {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ISliderFactory<R, F: FnOnce(&ISliderFactory) -> windows_core::Result<R>>(
@@ -26229,7 +26229,7 @@ impl SplitButton {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ISplitButtonFactory<R, F: FnOnce(&ISplitButtonFactory) -> windows_core::Result<R>>(
@@ -26311,7 +26311,7 @@ impl SplitView {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsPaneOpenProperty() -> windows_core::Result<DependencyProperty> {
@@ -26321,7 +26321,7 @@ impl SplitView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn OpenPaneLengthProperty() -> windows_core::Result<DependencyProperty> {
@@ -26331,7 +26331,7 @@ impl SplitView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn CompactPaneLengthProperty() -> windows_core::Result<DependencyProperty> {
@@ -26341,7 +26341,7 @@ impl SplitView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn DisplayModeProperty() -> windows_core::Result<DependencyProperty> {
@@ -26351,7 +26351,7 @@ impl SplitView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ISplitViewFactory<R, F: FnOnce(&ISplitViewFactory) -> windows_core::Result<R>>(
@@ -26397,8 +26397,8 @@ impl SplitViewDisplayMode {
     pub const CompactOverlay: Self = Self(2);
     pub const CompactInline: Self = Self(3);
 }
-impl windows_core::TypeKind for SplitViewDisplayMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for SplitViewDisplayMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for SplitViewDisplayMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -26430,7 +26430,7 @@ impl StackPanel {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn OrientationProperty() -> windows_core::Result<DependencyProperty> {
@@ -26440,7 +26440,7 @@ impl StackPanel {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SpacingProperty() -> windows_core::Result<DependencyProperty> {
@@ -26450,7 +26450,7 @@ impl StackPanel {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IStackPanelFactory<R, F: FnOnce(&IStackPanelFactory) -> windows_core::Result<R>>(
@@ -26496,8 +26496,8 @@ impl Stretch {
     pub const Uniform: Self = Self(2);
     pub const UniformToFill: Self = Self(3);
 }
-impl windows_core::TypeKind for Stretch {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Stretch {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Stretch {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -26546,7 +26546,7 @@ impl SvgImageSource {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ISvgImageSourceFactory<R, F: FnOnce(&ISvgImageSourceFactory) -> windows_core::Result<R>>(
@@ -26602,7 +26602,7 @@ impl SwapChainPanel {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ISwapChainPanelFactory<R, F: FnOnce(&ISwapChainPanelFactory) -> windows_core::Result<R>>(
@@ -26834,8 +26834,8 @@ impl Symbol {
     pub const Print: Self = Self(59209);
     pub const XboxOneConsole: Self = Self(59792);
 }
-impl windows_core::TypeKind for Symbol {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Symbol {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Symbol {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -26879,7 +26879,7 @@ impl SymbolIcon {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ISymbolIconStatics<R, F: FnOnce(&ISymbolIconStatics) -> windows_core::Result<R>>(
@@ -26962,7 +26962,7 @@ impl TabView {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsAddTabButtonVisibleProperty() -> windows_core::Result<DependencyProperty> {
@@ -26972,7 +26972,7 @@ impl TabView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn CanReorderTabsProperty() -> windows_core::Result<DependencyProperty> {
@@ -26982,7 +26982,7 @@ impl TabView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SelectedIndexProperty() -> windows_core::Result<DependencyProperty> {
@@ -26992,7 +26992,7 @@ impl TabView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ITabViewFactory<R, F: FnOnce(&ITabViewFactory) -> windows_core::Result<R>>(
@@ -27057,7 +27057,7 @@ impl TabViewItem {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn HeaderProperty() -> windows_core::Result<DependencyProperty> {
@@ -27067,7 +27067,7 @@ impl TabViewItem {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsClosableProperty() -> windows_core::Result<DependencyProperty> {
@@ -27077,7 +27077,7 @@ impl TabViewItem {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ITabViewItemFactory<R, F: FnOnce(&ITabViewItemFactory) -> windows_core::Result<R>>(
@@ -27168,7 +27168,7 @@ impl TeachingTip {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsOpenProperty() -> windows_core::Result<DependencyProperty> {
@@ -27178,7 +27178,7 @@ impl TeachingTip {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn TitleProperty() -> windows_core::Result<DependencyProperty> {
@@ -27188,7 +27188,7 @@ impl TeachingTip {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SubtitleProperty() -> windows_core::Result<DependencyProperty> {
@@ -27198,7 +27198,7 @@ impl TeachingTip {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ActionButtonContentProperty() -> windows_core::Result<DependencyProperty> {
@@ -27208,7 +27208,7 @@ impl TeachingTip {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn CloseButtonContentProperty() -> windows_core::Result<DependencyProperty> {
@@ -27218,7 +27218,7 @@ impl TeachingTip {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsLightDismissEnabledProperty() -> windows_core::Result<DependencyProperty> {
@@ -27228,7 +27228,7 @@ impl TeachingTip {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn PreferredPlacementProperty() -> windows_core::Result<DependencyProperty> {
@@ -27238,7 +27238,7 @@ impl TeachingTip {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ITeachingTipFactory<R, F: FnOnce(&ITeachingTipFactory) -> windows_core::Result<R>>(
@@ -27321,8 +27321,8 @@ impl TeachingTipPlacementMode {
     pub const RightBottom: Self = Self(12);
     pub const Center: Self = Self(13);
 }
-impl windows_core::TypeKind for TeachingTipPlacementMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TeachingTipPlacementMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TeachingTipPlacementMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -27361,7 +27361,7 @@ impl TextBlock {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn FontWeightProperty() -> windows_core::Result<DependencyProperty> {
@@ -27371,7 +27371,7 @@ impl TextBlock {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ForegroundProperty() -> windows_core::Result<DependencyProperty> {
@@ -27381,7 +27381,7 @@ impl TextBlock {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn TextWrappingProperty() -> windows_core::Result<DependencyProperty> {
@@ -27391,7 +27391,7 @@ impl TextBlock {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn TextTrimmingProperty() -> windows_core::Result<DependencyProperty> {
@@ -27401,7 +27401,7 @@ impl TextBlock {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn TextProperty() -> windows_core::Result<DependencyProperty> {
@@ -27411,7 +27411,7 @@ impl TextBlock {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsTextSelectionEnabledProperty() -> windows_core::Result<DependencyProperty> {
@@ -27421,7 +27421,7 @@ impl TextBlock {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MaxLinesProperty() -> windows_core::Result<DependencyProperty> {
@@ -27431,7 +27431,7 @@ impl TextBlock {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ITextBlockStatics<R, F: FnOnce(&ITextBlockStatics) -> windows_core::Result<R>>(
@@ -27486,7 +27486,7 @@ impl TextBox {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn TextProperty() -> windows_core::Result<DependencyProperty> {
@@ -27496,7 +27496,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn AcceptsReturnProperty() -> windows_core::Result<DependencyProperty> {
@@ -27506,7 +27506,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn TextWrappingProperty() -> windows_core::Result<DependencyProperty> {
@@ -27516,7 +27516,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn PlaceholderTextProperty() -> windows_core::Result<DependencyProperty> {
@@ -27526,7 +27526,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ITextBoxFactory<R, F: FnOnce(&ITextBoxFactory) -> windows_core::Result<R>>(
@@ -27677,8 +27677,8 @@ pub struct TextGetOptions(pub u32);
 impl TextGetOptions {
     pub const None: Self = Self(0);
 }
-impl windows_core::TypeKind for TextGetOptions {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TextGetOptions {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TextGetOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -27723,8 +27723,8 @@ pub struct TextSetOptions(pub u32);
 impl TextSetOptions {
     pub const None: Self = Self(0);
 }
-impl windows_core::TypeKind for TextSetOptions {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TextSetOptions {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TextSetOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -27772,8 +27772,8 @@ impl TextTrimming {
     pub const WordEllipsis: Self = Self(2);
     pub const Clip: Self = Self(3);
 }
-impl windows_core::TypeKind for TextTrimming {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TextTrimming {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TextTrimming {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -27787,8 +27787,8 @@ impl TextWrapping {
     pub const Wrap: Self = Self(2);
     pub const WrapWholeWords: Self = Self(3);
 }
-impl windows_core::TypeKind for TextWrapping {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TextWrapping {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TextWrapping {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -27802,8 +27802,8 @@ pub struct Thickness {
     pub right: f64,
     pub bottom: f64,
 }
-impl windows_core::TypeKind for Thickness {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Thickness {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Thickness {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -27835,7 +27835,7 @@ impl TimePicker {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ClockIdentifierProperty() -> windows_core::Result<DependencyProperty> {
@@ -27845,7 +27845,7 @@ impl TimePicker {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn MinuteIncrementProperty() -> windows_core::Result<DependencyProperty> {
@@ -27855,7 +27855,7 @@ impl TimePicker {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ITimePickerFactory<R, F: FnOnce(&ITimePickerFactory) -> windows_core::Result<R>>(
@@ -27947,7 +27947,7 @@ impl TitleBar {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn TitleProperty() -> windows_core::Result<DependencyProperty> {
@@ -27957,7 +27957,7 @@ impl TitleBar {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SubtitleProperty() -> windows_core::Result<DependencyProperty> {
@@ -27967,7 +27967,7 @@ impl TitleBar {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsBackButtonVisibleProperty() -> windows_core::Result<DependencyProperty> {
@@ -27977,7 +27977,7 @@ impl TitleBar {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsBackButtonEnabledProperty() -> windows_core::Result<DependencyProperty> {
@@ -27987,7 +27987,7 @@ impl TitleBar {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsPaneToggleButtonVisibleProperty() -> windows_core::Result<DependencyProperty> {
@@ -27997,7 +27997,7 @@ impl TitleBar {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ITitleBarFactory<R, F: FnOnce(&ITitleBarFactory) -> windows_core::Result<R>>(
@@ -28041,8 +28041,8 @@ impl TitleBarHeightOption {
     pub const Standard: Self = Self(0);
     pub const Tall: Self = Self(1);
 }
-impl windows_core::TypeKind for TitleBarHeightOption {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TitleBarHeightOption {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TitleBarHeightOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -28057,8 +28057,8 @@ impl TitleBarTheme {
     pub const Light: Self = Self(2);
     pub const Dark: Self = Self(3);
 }
-impl windows_core::TypeKind for TitleBarTheme {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TitleBarTheme {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TitleBarTheme {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -28092,7 +28092,7 @@ impl ToggleButton {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn IsCheckedProperty() -> windows_core::Result<DependencyProperty> {
@@ -28102,7 +28102,7 @@ impl ToggleButton {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IToggleButtonFactory<R, F: FnOnce(&IToggleButtonFactory) -> windows_core::Result<R>>(
@@ -28177,7 +28177,7 @@ impl ToggleSwitch {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IToggleSwitchStatics<R, F: FnOnce(&IToggleSwitchStatics) -> windows_core::Result<R>>(
@@ -28233,7 +28233,7 @@ impl ToolTip {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IToolTipFactory<R, F: FnOnce(&IToolTipFactory) -> windows_core::Result<R>>(
@@ -28351,7 +28351,7 @@ impl TreeView {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn SelectionModeProperty() -> windows_core::Result<DependencyProperty> {
@@ -28361,7 +28361,7 @@ impl TreeView {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ITreeViewFactory<R, F: FnOnce(&ITreeViewFactory) -> windows_core::Result<R>>(
@@ -28444,7 +28444,7 @@ impl TreeViewNode {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ITreeViewNodeFactory<R, F: FnOnce(&ITreeViewNodeFactory) -> windows_core::Result<R>>(
@@ -28482,8 +28482,8 @@ impl TreeViewSelectionMode {
     pub const Single: Self = Self(1);
     pub const Multiple: Self = Self(2);
 }
-impl windows_core::TypeKind for TreeViewSelectionMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TreeViewSelectionMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TreeViewSelectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -28498,8 +28498,8 @@ impl TypeKind {
     pub const Metadata: Self = Self(1);
     pub const Custom: Self = Self(2);
 }
-impl windows_core::TypeKind for TypeKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TypeKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TypeKind {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -28511,8 +28511,8 @@ pub struct TypeName {
     pub name: windows_core::HSTRING,
     pub kind: TypeKind,
 }
-impl windows_core::TypeKind for TypeName {
-    type TypeKind = windows_core::CloneType;
+impl windows_core::imp::TypeKind for TypeName {
+    type TypeKind = windows_core::imp::CloneType;
 }
 impl windows_core::RuntimeType for TypeName {
     const SIGNATURE : windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice (b"struct(Windows.UI.Xaml.Interop.TypeName;string;enum(Windows.UI.Xaml.Interop.TypeKind;i4))") ;
@@ -28556,8 +28556,8 @@ where
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(
         this: *mut core::ffi::c_void,
-        sender: windows_core::AbiType<TSender>,
-        args: windows_core::AbiType<TResult>,
+        sender: windows_core::imp::AbiType<TSender>,
+        args: windows_core::imp::AbiType<TResult>,
     ) -> windows_core::HRESULT,
     TSender: core::marker::PhantomData<TSender>,
     TResult: core::marker::PhantomData<TResult>,
@@ -28579,8 +28579,8 @@ impl<
     const VTABLE : TypedEventHandler_Vtbl < TSender , TResult , > = TypedEventHandler_Vtbl::< TSender , TResult , > { base__ : windows_core::IUnknown_Vtbl { QueryInterface : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::QueryInterface , AddRef : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::AddRef , Release : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::Release , } , Invoke : Self::Invoke , TSender : core::marker::PhantomData::< TSender > , TResult : core::marker::PhantomData::< TResult > } ;
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
-        sender: windows_core::AbiType<TSender>,
-        args: windows_core::AbiType<TResult>,
+        sender: windows_core::imp::AbiType<TSender>,
+        args: windows_core::imp::AbiType<TResult>,
     ) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void
@@ -28610,7 +28610,7 @@ impl UIElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn OpacityProperty() -> windows_core::Result<DependencyProperty> {
@@ -28620,7 +28620,7 @@ impl UIElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IUIElementStatics<R, F: FnOnce(&IUIElementStatics) -> windows_core::Result<R>>(
@@ -28693,7 +28693,7 @@ impl Uri {
                 core::mem::transmute_copy(&windows_core::HSTRING::from(uri)),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IUriRuntimeClassFactory<
@@ -28764,7 +28764,7 @@ impl VariableSizedWrapGrid {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn ItemWidthProperty() -> windows_core::Result<DependencyProperty> {
@@ -28774,7 +28774,7 @@ impl VariableSizedWrapGrid {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub(crate) fn OrientationProperty() -> windows_core::Result<DependencyProperty> {
@@ -28784,7 +28784,7 @@ impl VariableSizedWrapGrid {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IVariableSizedWrapGridStatics<
@@ -28837,7 +28837,7 @@ impl Vector3Transition {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IVector3TransitionFactory<
@@ -28881,8 +28881,8 @@ impl VerticalAlignment {
     pub const Bottom: Self = Self(2);
     pub const Stretch: Self = Self(3);
 }
-impl windows_core::TypeKind for VerticalAlignment {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for VerticalAlignment {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for VerticalAlignment {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -28920,7 +28920,7 @@ impl Viewbox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IViewboxStatics<R, F: FnOnce(&IViewboxStatics) -> windows_core::Result<R>>(
@@ -29127,8 +29127,8 @@ impl VirtualKey {
     pub const GamepadRightThumbstickRight: Self = Self(217);
     pub const GamepadRightThumbstickLeft: Self = Self(218);
 }
-impl windows_core::TypeKind for VirtualKey {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for VirtualKey {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for VirtualKey {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -29144,8 +29144,8 @@ impl VirtualKeyModifiers {
     pub const Shift: Self = Self(4);
     pub const Windows: Self = Self(8);
 }
-impl windows_core::TypeKind for VirtualKeyModifiers {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for VirtualKeyModifiers {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for VirtualKeyModifiers {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -29232,7 +29232,7 @@ impl WebView2 {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IWebView2Factory<R, F: FnOnce(&IWebView2Factory) -> windows_core::Result<R>>(
@@ -29276,7 +29276,7 @@ impl Window {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IWindowFactory<R, F: FnOnce(&IWindowFactory) -> windows_core::Result<R>>(
@@ -29357,7 +29357,7 @@ impl XamlBindingHelper {
                 value.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IXamlBindingHelperStatics<
@@ -29499,7 +29499,7 @@ impl XamlReader {
                 core::mem::transmute_copy(&windows_core::HSTRING::from(xaml)),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IXamlReaderStatics<R, F: FnOnce(&IXamlReaderStatics) -> windows_core::Result<R>>(
@@ -29589,8 +29589,8 @@ pub struct XmlnsDefinition {
     pub xml_namespace: windows_core::HSTRING,
     pub namespace: windows_core::HSTRING,
 }
-impl windows_core::TypeKind for XmlnsDefinition {
-    type TypeKind = windows_core::CloneType;
+impl windows_core::imp::TypeKind for XmlnsDefinition {
+    type TypeKind = windows_core::imp::CloneType;
 }
 impl windows_core::RuntimeType for XmlnsDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(

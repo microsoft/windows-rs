@@ -8,8 +8,8 @@ impl ExtendedExecutionReason {
     pub const LocationTracking: Self = Self(1);
     pub const SavingData: Self = Self(2);
 }
-impl windows_core::TypeKind for ExtendedExecutionReason {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ExtendedExecutionReason {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ExtendedExecutionReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionReason;i4)");
@@ -22,8 +22,8 @@ impl ExtendedExecutionResult {
     pub const Allowed: Self = Self(0);
     pub const Denied: Self = Self(1);
 }
-impl windows_core::TypeKind for ExtendedExecutionResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ExtendedExecutionResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ExtendedExecutionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionResult;i4)");
@@ -60,8 +60,8 @@ impl ExtendedExecutionRevokedReason {
     pub const Resumed: Self = Self(0);
     pub const SystemPolicy: Self = Self(1);
 }
-impl windows_core::TypeKind for ExtendedExecutionRevokedReason {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ExtendedExecutionRevokedReason {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ExtendedExecutionRevokedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason;i4)");
@@ -128,7 +128,7 @@ impl ExtendedExecutionSession {
     pub fn RequestExtensionAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ExtendedExecutionResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestExtensionAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestExtensionAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

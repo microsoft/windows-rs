@@ -2155,7 +2155,7 @@ impl IBindResource {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pwszurl.param().abi(), dwbindurlflags, rguid, &T::IID, pauthenticate.param().abi(), pimplsession.unwrap_or(core::mem::zeroed()) as _, pdwbindstatus.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pwszurl.param().abi(), dwbindurlflags, rguid, &T::IID, pauthenticate.param().abi(), pimplsession.unwrap_or(core::mem::zeroed()) as _, pdwbindstatus.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -2344,7 +2344,7 @@ impl IColumnsRowset {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetColumnsRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), DBORDINAL(rgoptcolumns.len().try_into().unwrap()), rgoptcolumns.as_ptr(), &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetColumnsRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), DBORDINAL(rgoptcolumns.len().try_into().unwrap()), rgoptcolumns.as_ptr(), &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -2401,14 +2401,14 @@ impl ICommand {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, pparams.unwrap_or(core::mem::zeroed()) as _, pcrowsaffected.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, pparams.unwrap_or(core::mem::zeroed()) as _, pcrowsaffected.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetDBSession<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetDBSession)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetDBSession)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -2846,7 +2846,7 @@ impl ICreateRow {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateRow)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pwszurl.param().abi(), dwbindurlflags, rguid, &T::IID, pauthenticate.param().abi(), pimplsession.unwrap_or(core::mem::zeroed()) as _, pdwbindstatus as _, ppwsznewurl as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateRow)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pwszurl.param().abi(), dwbindurlflags, rguid, &T::IID, pauthenticate.param().abi(), pimplsession.unwrap_or(core::mem::zeroed()) as _, pdwbindstatus as _, ppwsznewurl as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -3041,7 +3041,7 @@ impl IDBCreateCommand {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateCommand)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateCommand)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -3077,7 +3077,7 @@ impl IDBCreateSession {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -3114,7 +3114,7 @@ impl IDBDataSourceAdmin {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateDataSource)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateDataSource)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn DestroyDataSource(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DestroyDataSource)(windows_core::Interface::as_raw(self)) }
@@ -3385,7 +3385,7 @@ impl IDBSchemaRowset {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), rguidschema, rgrestrictions.map_or(0, |slice| slice.len().try_into().unwrap()), rgrestrictions.map_or(core::ptr::null(), |slice| slice.as_ptr()), &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), rguidschema, rgrestrictions.map_or(0, |slice| slice.len().try_into().unwrap()), rgrestrictions.map_or(core::ptr::null(), |slice| slice.as_ptr()), &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetSchemas(&self, pcschemas: *mut u32, prgschemas: *mut *mut windows_core::GUID, prgrestrictionsupport: *mut *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSchemas)(windows_core::Interface::as_raw(self), pcschemas as _, prgschemas as _, prgrestrictionsupport as _) }
@@ -3523,13 +3523,13 @@ impl IErrorRecords {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetCustomErrorObject)(windows_core::Interface::as_raw(self), ulrecordnum, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCustomErrorObject)(windows_core::Interface::as_raw(self), ulrecordnum, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "oaidl", feature = "winnt"))]
     pub unsafe fn GetErrorInfo(&self, ulrecordnum: u32, lcid: super::LCID) -> windows_core::Result<super::IErrorInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), ulrecordnum, lcid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), ulrecordnum, lcid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
@@ -3659,7 +3659,7 @@ impl IGetDataSource {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetDataSource)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetDataSource)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -3695,7 +3695,7 @@ impl IGetRow {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetRowFromHROW)(windows_core::Interface::as_raw(self), punkouter.param().abi(), hrow, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetRowFromHROW)(windows_core::Interface::as_raw(self), punkouter.param().abi(), hrow, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetURLFromHROW(&self, hrow: HROW) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -3754,7 +3754,7 @@ impl IGetSession {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSession)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSession)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -3789,7 +3789,7 @@ impl IGetSourceRow {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSourceRow)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceRow)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -3885,7 +3885,7 @@ impl IMDDataset {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetAxisRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), iaxis, &T::IID, cpropertysets, rgpropertysets as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetAxisRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), iaxis, &T::IID, cpropertysets, rgpropertysets as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetCellData(&self, haccessor: HACCESSOR, ulstartcell: DBORDINAL, ulendcell: DBORDINAL, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCellData)(windows_core::Interface::as_raw(self), haccessor, ulstartcell, ulendcell, pdata as _) }
@@ -3895,7 +3895,7 @@ impl IMDDataset {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -4037,7 +4037,7 @@ impl IMDRangeRowset {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetRangeRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ulstartcell, ulendcell, &T::IID, cpropertysets, rgpropertysets as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetRangeRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ulstartcell, ulendcell, &T::IID, cpropertysets, rgpropertysets as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -4079,7 +4079,7 @@ impl IMultipleResults {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetResult)(windows_core::Interface::as_raw(self), punkouter.param().abi(), lresultflag, &T::IID, pcrowsaffected.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetResult)(windows_core::Interface::as_raw(self), punkouter.param().abi(), lresultflag, &T::IID, pcrowsaffected.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -4239,7 +4239,7 @@ impl IOpenRowset {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -4281,7 +4281,7 @@ impl IParentRowset {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetChildRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), iordinal, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetChildRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), iordinal, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -4411,7 +4411,7 @@ impl IRow {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSourceRowset)(windows_core::Interface::as_raw(self), &T::IID, &mut result__, phrow.unwrap_or(core::mem::zeroed()) as _).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceRowset)(windows_core::Interface::as_raw(self), &T::IID, &mut result__, phrow.unwrap_or(core::mem::zeroed()) as _).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn Open<P0, T>(&self, punkouter: P0, pcolumnid: *const DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: u32) -> windows_core::Result<T>
     where
@@ -4419,7 +4419,7 @@ impl IRow {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pcolumnid, rguidcolumntype, dwbindflags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pcolumnid, rguidcolumntype, dwbindflags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -4525,7 +4525,7 @@ impl IRowPosition {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetRowset)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetRowset)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn Initialize<P0>(&self, prowset: P0) -> windows_core::HRESULT
     where
@@ -5108,14 +5108,14 @@ impl IRowsetInfo {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetReferencedRowset)(windows_core::Interface::as_raw(self), iordinal, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetReferencedRowset)(windows_core::Interface::as_raw(self), iordinal, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetSpecification<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -5581,14 +5581,14 @@ impl IRowsetView {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateView)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateView)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetView<T>(&self, hchapter: HCHAPTER, phchaptersource: *mut HCHAPTER) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetView)(windows_core::Interface::as_raw(self), hchapter, &T::IID, phchaptersource as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetView)(windows_core::Interface::as_raw(self), hchapter, &T::IID, phchaptersource as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -5909,7 +5909,7 @@ impl ISourcesRowset {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSourcesRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, rgproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgproperties.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcesRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, rgproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgproperties.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -5996,7 +5996,7 @@ impl ITableDefinition {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, rgcolumndescs.map_or(DBORDINAL(0), |slice| DBORDINAL(slice.len().try_into().unwrap())), rgcolumndescs.map_or(core::ptr::null(), |slice| slice.as_ptr()), &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pptableid as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, rgcolumndescs.map_or(DBORDINAL(0), |slice| DBORDINAL(slice.len().try_into().unwrap())), rgcolumndescs.map_or(core::ptr::null(), |slice| slice.as_ptr()), &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pptableid as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn DropTable(&self, ptableid: *const DBID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DropTable)(windows_core::Interface::as_raw(self), ptableid) }
@@ -6101,7 +6101,7 @@ impl ITableDefinitionWithConstraints {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateTableWithConstraints)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid, ccolumndescs, rgcolumndescs, cconstraintdescs, rgconstraintdescs, &T::IID, cpropertysets, rgpropertysets as _, pptableid as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateTableWithConstraints)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid, ccolumndescs, rgcolumndescs, cconstraintdescs, rgconstraintdescs, &T::IID, cpropertysets, rgpropertysets as _, pptableid as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn DropConstraint(&self, ptableid: *const DBID, pconstraintid: *const DBID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DropConstraint)(windows_core::Interface::as_raw(self), ptableid, pconstraintid) }
@@ -6168,7 +6168,7 @@ impl ITransactionJoin {
     pub unsafe fn GetOptionsObject(&self) -> windows_core::Result<super::ITransactionOptions> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "transact")]
@@ -6247,7 +6247,7 @@ impl ITransactionLocal {
     pub unsafe fn GetOptionsObject(&self) -> windows_core::Result<super::ITransactionOptions> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn StartTransaction<P2>(&self, isolevel: super::ISOLEVEL, isoflags: u32, potheroptions: P2, pultransactionlevel: Option<*mut u32>) -> windows_core::HRESULT
@@ -6310,7 +6310,7 @@ impl ITransactionObject {
     pub unsafe fn GetTransactionObject(&self, ultransactionlevel: u32) -> windows_core::Result<super::ITransaction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTransactionObject)(windows_core::Interface::as_raw(self), ultransactionlevel, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetTransactionObject)(windows_core::Interface::as_raw(self), ultransactionlevel, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6577,7 +6577,7 @@ impl IViewChapter {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn OpenViewChapter(&self, hsource: HCHAPTER, phviewchapter: Option<*mut HCHAPTER>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OpenViewChapter)(windows_core::Interface::as_raw(self), hsource, phviewchapter.unwrap_or(core::mem::zeroed()) as _) }
@@ -6692,7 +6692,7 @@ impl IViewRowset {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn OpenViewRowset<P0, T>(&self, punkouter: P0) -> windows_core::Result<T>
     where
@@ -6700,7 +6700,7 @@ impl IViewRowset {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).OpenViewRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).OpenViewRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]

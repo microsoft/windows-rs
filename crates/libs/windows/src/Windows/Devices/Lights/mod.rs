@@ -241,13 +241,13 @@ impl Lamp {
     pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::ILampStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::ILampStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ILampStatics<R, F: FnOnce(&ILampStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -353,7 +353,7 @@ impl LampArray {
     pub fn GetLampInfo(&self, lampindex: i32) -> windows_core::Result<LampInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetLampInfo)(windows_core::Interface::as_raw(self), lampindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetLampInfo)(windows_core::Interface::as_raw(self), lampindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
@@ -404,14 +404,14 @@ impl LampArray {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SendMessageAsync)(windows_core::Interface::as_raw(self), messageid, message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SendMessageAsync)(windows_core::Interface::as_raw(self), messageid, message.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn RequestMessageAsync(&self, messageid: i32) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestMessageAsync)(windows_core::Interface::as_raw(self), messageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestMessageAsync)(windows_core::Interface::as_raw(self), messageid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsAvailable(&self) -> windows_core::Result<bool> {
@@ -445,7 +445,7 @@ impl LampArray {
     pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::ILampArrayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ILampArrayStatics<R, F: FnOnce(&ILampArrayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -484,8 +484,8 @@ impl LampArrayKind {
     pub const Microphone: Self = Self(12);
     pub const Speaker: Self = Self(13);
 }
-impl windows_core::TypeKind for LampArrayKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for LampArrayKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for LampArrayKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
@@ -566,7 +566,7 @@ impl LampInfo {
     pub fn FixedColor(&self) -> windows_core::Result<super::super::UI::Color> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FixedColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::UI::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).FixedColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::UI::Color>| r__.Value())
         }
     }
     #[cfg(feature = "UI")]
@@ -607,8 +607,8 @@ impl LampPurposes {
     pub const Illumination: Self = Self(16);
     pub const Presentation: Self = Self(32);
 }
-impl windows_core::TypeKind for LampPurposes {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for LampPurposes {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for LampPurposes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampPurposes;u4)");

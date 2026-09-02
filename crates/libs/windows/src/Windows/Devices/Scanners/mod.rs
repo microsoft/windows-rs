@@ -841,19 +841,19 @@ impl ImageScanner {
     pub fn FlatbedConfiguration(&self) -> windows_core::Result<ImageScannerFlatbedConfiguration> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FlatbedConfiguration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FlatbedConfiguration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FeederConfiguration(&self) -> windows_core::Result<ImageScannerFeederConfiguration> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FeederConfiguration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FeederConfiguration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn AutoConfiguration(&self) -> windows_core::Result<ImageScannerAutoConfiguration> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AutoConfiguration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AutoConfiguration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsPreviewSupported(&self, scansource: ImageScannerScanSource) -> windows_core::Result<bool> {
@@ -869,7 +869,7 @@ impl ImageScanner {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ScanPreviewToStreamAsync)(windows_core::Interface::as_raw(self), scansource, targetstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ScanPreviewToStreamAsync)(windows_core::Interface::as_raw(self), scansource, targetstream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Search")]
@@ -879,13 +879,13 @@ impl ImageScanner {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ScanFilesToFolderAsync)(windows_core::Interface::as_raw(self), scansource, storagefolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ScanFilesToFolderAsync)(windows_core::Interface::as_raw(self), scansource, storagefolder.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IImageScannerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
@@ -958,8 +958,8 @@ impl ImageScannerAutoCroppingMode {
     pub const SingleRegion: Self = Self(1);
     pub const MultipleRegion: Self = Self(2);
 }
-impl windows_core::TypeKind for ImageScannerAutoCroppingMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ImageScannerAutoCroppingMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ImageScannerAutoCroppingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerAutoCroppingMode;i4)");
@@ -974,8 +974,8 @@ impl ImageScannerColorMode {
     pub const Monochrome: Self = Self(2);
     pub const AutoColor: Self = Self(3);
 }
-impl windows_core::TypeKind for ImageScannerColorMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ImageScannerColorMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ImageScannerColorMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerColorMode;i4)");
@@ -1549,8 +1549,8 @@ impl ImageScannerFormat {
     pub const OpenXps: Self = Self(5);
     pub const Pdf: Self = Self(6);
 }
-impl windows_core::TypeKind for ImageScannerFormat {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ImageScannerFormat {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ImageScannerFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerFormat;i4)");
@@ -1592,8 +1592,8 @@ pub struct ImageScannerResolution {
     pub DpiX: f32,
     pub DpiY: f32,
 }
-impl windows_core::TypeKind for ImageScannerResolution {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ImageScannerResolution {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ImageScannerResolution {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Scanners.ImageScannerResolution;f4;f4)");
@@ -1608,7 +1608,7 @@ impl ImageScannerScanResult {
     pub fn ScannedFiles(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Storage::StorageFile>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ScannedFiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ScannedFiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1633,8 +1633,8 @@ impl ImageScannerScanSource {
     pub const Feeder: Self = Self(2);
     pub const AutoConfigured: Self = Self(3);
 }
-impl windows_core::TypeKind for ImageScannerScanSource {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ImageScannerScanSource {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ImageScannerScanSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerScanSource;i4)");

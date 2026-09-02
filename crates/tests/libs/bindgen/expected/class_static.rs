@@ -34,7 +34,7 @@ impl Class {
                 value,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IClassStatics<R, F: FnOnce(&IClassStatics) -> windows_core::Result<R>>(

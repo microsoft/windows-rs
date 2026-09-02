@@ -10,7 +10,7 @@ impl IWebViewControl {
     pub fn Source(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Source)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Source)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetSource<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -57,13 +57,13 @@ impl IWebViewControl {
     pub fn Settings(&self) -> windows_core::Result<WebViewControlSettings> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DeferredPermissionRequests(&self) -> windows_core::Result<windows_collections::IVectorView<WebViewControlDeferredPermissionRequest>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeferredPermissionRequests)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DeferredPermissionRequests)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GoForward(&self) -> windows_core::Result<()> {
@@ -107,7 +107,7 @@ impl IWebViewControl {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InvokeScriptAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(scriptname), arguments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InvokeScriptAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(scriptname), arguments.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -117,20 +117,20 @@ impl IWebViewControl {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CapturePreviewToStreamAsync)(windows_core::Interface::as_raw(self), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CapturePreviewToStreamAsync)(windows_core::Interface::as_raw(self), stream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "ApplicationModel_DataTransfer")]
     pub fn CaptureSelectedContentToDataPackageAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CaptureSelectedContentToDataPackageAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CaptureSelectedContentToDataPackageAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn BuildLocalStreamUri(&self, contentidentifier: &windows_core::HSTRING, relativepath: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BuildLocalStreamUri)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(contentidentifier), core::mem::transmute_copy(relativepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BuildLocalStreamUri)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(contentidentifier), core::mem::transmute_copy(relativepath), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetDeferredPermissionRequestById(&self, id: u32, result: &mut Option<WebViewControlDeferredPermissionRequest>) -> windows_core::Result<()> {
@@ -1364,7 +1364,7 @@ impl WebViewControlContentLoadingEventArgs {
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1386,7 +1386,7 @@ impl WebViewControlDOMContentLoadedEventArgs {
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1414,7 +1414,7 @@ impl WebViewControlDeferredPermissionRequest {
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn PermissionType(&self) -> windows_core::Result<WebViewControlPermissionType> {
@@ -1479,7 +1479,7 @@ impl WebViewControlNavigationCompletedEventArgs {
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsSuccess(&self) -> windows_core::Result<bool> {
@@ -1513,7 +1513,7 @@ impl WebViewControlNavigationStartingEventArgs {
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Cancel(&self) -> windows_core::Result<bool> {
@@ -1544,13 +1544,13 @@ impl WebViewControlNewWindowRequestedEventArgs {
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Referrer(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Referrer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Referrer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Handled(&self) -> windows_core::Result<bool> {
@@ -1566,7 +1566,7 @@ impl WebViewControlNewWindowRequestedEventArgs {
         let this = &windows_core::Interface::cast::<IWebViewControlNewWindowRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NewWindow)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).NewWindow)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetNewWindow<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1580,7 +1580,7 @@ impl WebViewControlNewWindowRequestedEventArgs {
         let this = &windows_core::Interface::cast::<IWebViewControlNewWindowRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1608,7 +1608,7 @@ impl WebViewControlPermissionRequest {
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn PermissionType(&self) -> windows_core::Result<WebViewControlPermissionType> {
@@ -1651,7 +1651,7 @@ impl WebViewControlPermissionRequestedEventArgs {
     pub fn PermissionRequest(&self) -> windows_core::Result<WebViewControlPermissionRequest> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PermissionRequest)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PermissionRequest)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1674,8 +1674,8 @@ impl WebViewControlPermissionState {
     pub const Allow: Self = Self(2);
     pub const Deny: Self = Self(3);
 }
-impl windows_core::TypeKind for WebViewControlPermissionState {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WebViewControlPermissionState {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WebViewControlPermissionState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionState;i4)");
@@ -1693,8 +1693,8 @@ impl WebViewControlPermissionType {
     pub const Screen: Self = Self(5);
     pub const ImmersiveView: Self = Self(6);
 }
-impl windows_core::TypeKind for WebViewControlPermissionType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WebViewControlPermissionType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WebViewControlPermissionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionType;i4)");
@@ -1708,7 +1708,7 @@ impl WebViewControlScriptNotifyEventArgs {
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1779,7 +1779,7 @@ impl WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Handled(&self) -> windows_core::Result<bool> {
@@ -1810,13 +1810,13 @@ impl WebViewControlUnviewableContentIdentifiedEventArgs {
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Referrer(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Referrer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Referrer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn MediaType(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1844,14 +1844,14 @@ impl WebViewControlWebResourceRequestedEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Web_Http")]
     pub fn Request(&self) -> windows_core::Result<super::Http::HttpRequestMessage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Web_Http")]
@@ -1865,7 +1865,7 @@ impl WebViewControlWebResourceRequestedEventArgs {
     pub fn Response(&self) -> windows_core::Result<super::Http::HttpResponseMessage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Response)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Response)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

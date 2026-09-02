@@ -7,7 +7,7 @@ where
 {
     windows_core::link!("dinput8.dll" "system" fn DirectInput8Create(hinst : super::HINSTANCE, dwversion : u32, riidltf : *const windows_core::GUID, ppvout : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { DirectInput8Create(hinst, dwversion, &T::IID, &mut result__, punkouter.param().abi()).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { DirectInput8Create(hinst, dwversion, &T::IID, &mut result__, punkouter.param().abi()).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 pub const CLSID_DirectInput: windows_core::GUID = windows_core::GUID::from_u128(0x25e609e0_b259_11cf_bfc7_444553540000);
 pub const CLSID_DirectInput8: windows_core::GUID = windows_core::GUID::from_u128(0x25e609e4_b259_11cf_bfc7_444553540000);

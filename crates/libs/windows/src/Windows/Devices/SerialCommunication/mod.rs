@@ -277,14 +277,14 @@ impl SerialDevice {
     pub fn InputStream(&self) -> windows_core::Result<super::super::Storage::Streams::IInputStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InputStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InputStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OutputStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ErrorReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -336,7 +336,7 @@ impl SerialDevice {
     pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::ISerialDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ISerialDeviceStatics<R, F: FnOnce(&ISerialDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -366,8 +366,8 @@ impl SerialError {
     pub const ReceiveParity: Self = Self(3);
     pub const TransmitFull: Self = Self(4);
 }
-impl windows_core::TypeKind for SerialError {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for SerialError {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for SerialError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialError;i4)");
@@ -382,8 +382,8 @@ impl SerialHandshake {
     pub const XOnXOff: Self = Self(2);
     pub const RequestToSendXOnXOff: Self = Self(3);
 }
-impl windows_core::TypeKind for SerialHandshake {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for SerialHandshake {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for SerialHandshake {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialHandshake;i4)");
@@ -399,8 +399,8 @@ impl SerialParity {
     pub const Mark: Self = Self(3);
     pub const Space: Self = Self(4);
 }
-impl windows_core::TypeKind for SerialParity {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for SerialParity {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for SerialParity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialParity;i4)");
@@ -416,8 +416,8 @@ impl SerialPinChange {
     pub const DataSetReady: Self = Self(3);
     pub const RingIndicator: Self = Self(4);
 }
-impl windows_core::TypeKind for SerialPinChange {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for SerialPinChange {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for SerialPinChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialPinChange;i4)");
@@ -431,8 +431,8 @@ impl SerialStopBitCount {
     pub const OnePointFive: Self = Self(1);
     pub const Two: Self = Self(2);
 }
-impl windows_core::TypeKind for SerialStopBitCount {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for SerialStopBitCount {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for SerialStopBitCount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialStopBitCount;i4)");

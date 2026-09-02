@@ -1,5 +1,6 @@
 #![cfg(windows)]
 use windows::Win32::E_BOUNDS;
+use windows::core::imp::Type;
 use windows::core::*;
 use windows_collections::*;
 

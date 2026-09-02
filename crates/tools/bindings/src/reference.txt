@@ -1,0 +1,10 @@
+--out crates/libs/reference/src/bindings.rs
+--flat --minimal
+--implement
+    Windows.Foundation.IPropertyValue
+    Windows.Foundation.IReference
+
+--filter
+    Windows.Foundation.IPropertyValue::{}
+    Windows.Foundation.IReference::{}
+    E_NOTIMPL

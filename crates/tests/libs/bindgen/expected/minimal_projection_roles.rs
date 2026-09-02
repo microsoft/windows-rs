@@ -49,7 +49,7 @@ impl Constructed {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IConstructedFactory<R, F: FnOnce(&IConstructedFactory) -> windows_core::Result<R>>(
@@ -126,7 +126,7 @@ impl IConstructedFactory {
                 inner as *mut _ as _,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

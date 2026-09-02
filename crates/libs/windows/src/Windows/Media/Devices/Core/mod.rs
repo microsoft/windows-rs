@@ -89,7 +89,7 @@ impl CameraIntrinsics {
     pub fn Create(focallength: windows_numerics::Vector2, principalpoint: windows_numerics::Vector2, radialdistortion: windows_numerics::Vector3, tangentialdistortion: windows_numerics::Vector2, imagewidth: u32, imageheight: u32) -> windows_core::Result<Self> {
         Self::ICameraIntrinsicsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), focallength, principalpoint, radialdistortion, tangentialdistortion, imagewidth, imageheight, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), focallength, principalpoint, radialdistortion, tangentialdistortion, imagewidth, imageheight, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICameraIntrinsicsFactory<R, F: FnOnce(&ICameraIntrinsicsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -176,25 +176,25 @@ impl FrameControlCapabilities {
     pub fn Exposure(&self) -> windows_core::Result<FrameExposureCapabilities> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Exposure)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Exposure)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ExposureCompensation(&self) -> windows_core::Result<FrameExposureCompensationCapabilities> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExposureCompensation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ExposureCompensation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsoSpeed(&self) -> windows_core::Result<FrameIsoSpeedCapabilities> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsoSpeed)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsoSpeed)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Focus(&self) -> windows_core::Result<FrameFocusCapabilities> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Focus)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Focus)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn PhotoConfirmationSupported(&self) -> windows_core::Result<bool> {
@@ -207,7 +207,7 @@ impl FrameControlCapabilities {
         let this = &windows_core::Interface::cast::<IFrameControlCapabilities2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Flash)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Flash)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -236,31 +236,31 @@ impl FrameController {
     pub fn ExposureControl(&self) -> windows_core::Result<FrameExposureControl> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExposureControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ExposureControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ExposureCompensationControl(&self) -> windows_core::Result<FrameExposureCompensationControl> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExposureCompensationControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ExposureCompensationControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsoSpeedControl(&self) -> windows_core::Result<FrameIsoSpeedControl> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsoSpeedControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsoSpeedControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FocusControl(&self) -> windows_core::Result<FrameFocusControl> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FocusControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn PhotoConfirmationEnabled(&self) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PhotoConfirmationEnabled)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<bool>| r__.Value())
+            (windows_core::Interface::vtable(self).PhotoConfirmationEnabled)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<bool>| r__.Value())
         }
     }
     pub fn SetPhotoConfirmationEnabled(&self, value: Option<bool>) -> windows_core::Result<()> {
@@ -271,7 +271,7 @@ impl FrameController {
         let this = &windows_core::Interface::cast::<IFrameController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FlashControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FlashControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -375,7 +375,7 @@ impl FrameExposureCompensationControl {
     pub fn Value(&self) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<f32>| r__.Value())
+            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<f32>| r__.Value())
         }
     }
     pub fn SetValue(&self, value: Option<f32>) -> windows_core::Result<()> {
@@ -410,7 +410,7 @@ impl FrameExposureControl {
     pub fn Value(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
     pub fn SetValue(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
@@ -522,8 +522,8 @@ impl FrameFlashMode {
     pub const Enable: Self = Self(1);
     pub const Global: Self = Self(2);
 }
-impl windows_core::TypeKind for FrameFlashMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for FrameFlashMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for FrameFlashMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.Core.FrameFlashMode;i4)");
@@ -577,7 +577,7 @@ impl FrameFocusControl {
     pub fn Value(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
+            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
         }
     }
     pub fn SetValue(&self, value: Option<u32>) -> windows_core::Result<()> {
@@ -652,7 +652,7 @@ impl FrameIsoSpeedControl {
     pub fn Value(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
+            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
         }
     }
     pub fn SetValue(&self, value: Option<u32>) -> windows_core::Result<()> {
@@ -991,26 +991,26 @@ impl VariablePhotoSequenceController {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetHighestConcurrentFrameRate)(windows_core::Interface::as_raw(self), captureproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetHighestConcurrentFrameRate)(windows_core::Interface::as_raw(self), captureproperties.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetCurrentFrameRate(&self) -> windows_core::Result<super::super::MediaProperties::MediaRatio> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrentFrameRate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetCurrentFrameRate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FrameCapabilities(&self) -> windows_core::Result<FrameControlCapabilities> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FrameCapabilities)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FrameCapabilities)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DesiredFrameControllers(&self) -> windows_core::Result<windows_collections::IVector<FrameController>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DesiredFrameControllers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DesiredFrameControllers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

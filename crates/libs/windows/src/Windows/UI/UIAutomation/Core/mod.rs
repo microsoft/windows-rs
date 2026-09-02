@@ -3,8 +3,8 @@
 pub struct AutomationAnnotationTypeRegistration {
     pub LocalId: i32,
 }
-impl windows_core::TypeKind for AutomationAnnotationTypeRegistration {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for AutomationAnnotationTypeRegistration {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for AutomationAnnotationTypeRegistration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.UIAutomation.Core.AutomationAnnotationTypeRegistration;i4)");
@@ -15,8 +15,8 @@ impl windows_core::RuntimeType for AutomationAnnotationTypeRegistration {
 pub struct AutomationRemoteOperationOperandId {
     pub Value: i32,
 }
-impl windows_core::TypeKind for AutomationRemoteOperationOperandId {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for AutomationRemoteOperationOperandId {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for AutomationRemoteOperationOperandId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.UIAutomation.Core.AutomationRemoteOperationOperandId;i4)");
@@ -54,7 +54,7 @@ impl AutomationRemoteOperationResult {
     pub fn GetOperand(&self, operandid: AutomationRemoteOperationOperandId) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOperand)(windows_core::Interface::as_raw(self), operandid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOperand)(windows_core::Interface::as_raw(self), operandid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -80,8 +80,8 @@ impl AutomationRemoteOperationStatus {
     pub const UnhandledException: Self = Self(3);
     pub const ExecutionFailure: Self = Self(4);
 }
-impl windows_core::TypeKind for AutomationRemoteOperationStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for AutomationRemoteOperationStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for AutomationRemoteOperationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.UIAutomation.Core.AutomationRemoteOperationStatus;i4)");
@@ -142,7 +142,7 @@ impl CoreAutomationRemoteOperation {
     pub fn Execute(&self, bytecodebuffer: &[u8]) -> windows_core::Result<AutomationRemoteOperationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), bytecodebuffer.len().try_into().unwrap(), bytecodebuffer.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), bytecodebuffer.len().try_into().unwrap(), bytecodebuffer.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ImportConnectionBoundObject<P1>(&self, operandid: AutomationRemoteOperationOperandId, connectionboundobject: P1) -> windows_core::Result<()>
@@ -173,7 +173,7 @@ impl CoreAutomationRemoteOperationContext {
     pub fn GetOperand(&self, id: AutomationRemoteOperationOperandId) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOperand)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOperand)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetOperand<P1>(&self, id: AutomationRemoteOperationOperandId, operand: P1) -> windows_core::Result<()>
@@ -471,7 +471,7 @@ impl RemoteAutomationClientSession {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateWindowAsync)(windows_core::Interface::as_raw(self), remotewindowid, remoteprocessid, parentautomationelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateWindowAsync)(windows_core::Interface::as_raw(self), remotewindowid, remoteprocessid, parentautomationelement.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SessionId(&self) -> windows_core::Result<windows_core::GUID> {
@@ -511,13 +511,13 @@ impl RemoteAutomationClientSession {
     pub fn CreateInstance(name: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IRemoteAutomationClientSessionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateInstance2(name: &windows_core::HSTRING, sessionid: windows_core::GUID) -> windows_core::Result<Self> {
         Self::IRemoteAutomationClientSessionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), sessionid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), sessionid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRemoteAutomationClientSessionFactory<R, F: FnOnce(&IRemoteAutomationClientSessionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -612,13 +612,13 @@ impl RemoteAutomationWindow {
     pub fn AutomationProvider(&self) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AutomationProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AutomationProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn UnregisterAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UnregisterAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).UnregisterAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

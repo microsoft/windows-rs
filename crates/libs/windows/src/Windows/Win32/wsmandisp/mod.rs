@@ -17,13 +17,13 @@ impl IWSMan {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(connection), flags, connectionoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(connection), flags, connectionoptions.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateConnectionOptions(&self) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateConnectionOptions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateConnectionOptions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CommandLine(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -585,7 +585,7 @@ impl IWSManEx {
     pub unsafe fn CreateResourceLocator(&self, strresourcelocator: &windows_core::BSTR) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateResourceLocator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strresourcelocator), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateResourceLocator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strresourcelocator), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SessionFlagUTF8(&self) -> windows_core::Result<i32> {
@@ -1634,7 +1634,7 @@ impl IWSManSession {
     pub unsafe fn Enumerate(&self, resourceuri: &super::VARIANT, filter: &windows_core::BSTR, dialect: &windows_core::BSTR, flags: i32) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Enumerate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(resourceuri), core::mem::transmute_copy(filter), core::mem::transmute_copy(dialect), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Enumerate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(resourceuri), core::mem::transmute_copy(filter), core::mem::transmute_copy(dialect), flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Identify(&self, flags: i32) -> windows_core::Result<windows_core::BSTR> {

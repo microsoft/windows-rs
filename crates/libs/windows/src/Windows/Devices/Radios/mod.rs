@@ -36,7 +36,7 @@ impl Radio {
     pub fn SetStateAsync(&self, value: RadioState) -> windows_core::Result<windows_future::IAsyncOperation<RadioAccessStatus>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetStateAsync)(windows_core::Interface::as_raw(self), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SetStateAsync)(windows_core::Interface::as_raw(self), value, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -74,7 +74,7 @@ impl Radio {
     pub fn GetRadiosAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Self>>> {
         Self::IRadioStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetRadiosAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetRadiosAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
@@ -86,13 +86,13 @@ impl Radio {
     pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IRadioStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<RadioAccessStatus>> {
         Self::IRadioStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRadioStatics<R, F: FnOnce(&IRadioStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -121,8 +121,8 @@ impl RadioAccessStatus {
     pub const DeniedByUser: Self = Self(2);
     pub const DeniedBySystem: Self = Self(3);
 }
-impl windows_core::TypeKind for RadioAccessStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for RadioAccessStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for RadioAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioAccessStatus;i4)");
@@ -138,8 +138,8 @@ impl RadioKind {
     pub const Bluetooth: Self = Self(3);
     pub const FM: Self = Self(4);
 }
-impl windows_core::TypeKind for RadioKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for RadioKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for RadioKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioKind;i4)");
@@ -154,8 +154,8 @@ impl RadioState {
     pub const Off: Self = Self(2);
     pub const Disabled: Self = Self(3);
 }
-impl windows_core::TypeKind for RadioState {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for RadioState {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for RadioState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioState;i4)");

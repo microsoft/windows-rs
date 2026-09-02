@@ -9,8 +9,8 @@ impl DirectXAlphaMode {
     pub const Straight: Self = Self(2);
     pub const Ignore: Self = Self(3);
 }
-impl windows_core::TypeKind for DirectXAlphaMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DirectXAlphaMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DirectXAlphaMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
@@ -46,8 +46,8 @@ impl DirectXColorSpace {
     pub const YccStudioG24LeftP2020: Self = Self(23);
     pub const YccStudioG24TopLeftP2020: Self = Self(24);
 }
-impl windows_core::TypeKind for DirectXColorSpace {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DirectXColorSpace {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DirectXColorSpace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
@@ -180,8 +180,8 @@ impl DirectXPixelFormat {
     pub const SamplerFeedbackMipRegionUsedOpaque: Self = Self(190);
     pub const A4B4G4R4: Self = Self(191);
 }
-impl windows_core::TypeKind for DirectXPixelFormat {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DirectXPixelFormat {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DirectXPixelFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
@@ -198,8 +198,8 @@ impl DirectXPrimitiveTopology {
     pub const TriangleList: Self = Self(4);
     pub const TriangleStrip: Self = Self(5);
 }
-impl windows_core::TypeKind for DirectXPrimitiveTopology {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DirectXPrimitiveTopology {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DirectXPrimitiveTopology {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPrimitiveTopology;i4)");

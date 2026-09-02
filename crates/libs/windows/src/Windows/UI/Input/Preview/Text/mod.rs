@@ -30,7 +30,7 @@ impl FocusEnteredEventArgs {
     pub fn FocusedTextBoxInfo(&self) -> windows_core::Result<TextBoxInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusedTextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FocusedTextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -400,8 +400,8 @@ impl KeyEventDeviceType {
     pub const Gamepad: Self = Self(3);
     pub const Injection: Self = Self(4);
 }
-impl windows_core::TypeKind for KeyEventDeviceType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for KeyEventDeviceType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for KeyEventDeviceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Text.KeyEventDeviceType;i4)");
@@ -455,7 +455,7 @@ impl KeyEventReceivedEventArgs {
     pub fn EditSession(&self) -> windows_core::Result<TextEditSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EditSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EditSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Handled(&self) -> windows_core::Result<bool> {
@@ -512,19 +512,19 @@ impl KeyboardInputProcessor {
     pub fn FocusedTextBoxInfo(&self) -> windows_core::Result<TextBoxInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusedTextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FocusedTextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FocusedTextBoxBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusedTextBoxBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::super::Foundation::Rect>| r__.Value())
+            (windows_core::Interface::vtable(self).FocusedTextBoxBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::super::Foundation::Rect>| r__.Value())
         }
     }
     pub fn SelectionBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SelectionBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::super::Foundation::Rect>| r__.Value())
+            (windows_core::Interface::vtable(self).SelectionBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::super::Foundation::Rect>| r__.Value())
         }
     }
     pub fn ConversionMode(&self) -> windows_core::Result<TextConversionMode> {
@@ -539,7 +539,7 @@ impl KeyboardInputProcessor {
     pub fn CreateEditSession(&self) -> windows_core::Result<TextEditSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEditSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEditSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Activated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -707,8 +707,8 @@ impl PayloadResult {
     pub const Rejected: Self = Self(5);
     pub const Canceled: Self = Self(6);
 }
-impl windows_core::TypeKind for PayloadResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PayloadResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PayloadResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Text.PayloadResult;i4)");
@@ -749,8 +749,8 @@ impl TextBoxContentAttribute {
     pub const Property: Self = Self(3);
     pub const Layout: Self = Self(4);
 }
-impl windows_core::TypeKind for TextBoxContentAttribute {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TextBoxContentAttribute {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TextBoxContentAttribute {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Text.TextBoxContentAttribute;i4)");
@@ -807,8 +807,8 @@ impl TextBoxFeatures {
     pub const WriteText: Self = Self(2);
     pub const AugmentText: Self = Self(4);
 }
-impl windows_core::TypeKind for TextBoxFeatures {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TextBoxFeatures {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TextBoxFeatures {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Text.TextBoxFeatures;u4)");
@@ -852,8 +852,8 @@ impl core::ops::Not for TextBoxFeatures {
 pub struct TextBoxId {
     pub Value: u32,
 }
-impl windows_core::TypeKind for TextBoxId {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TextBoxId {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TextBoxId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Text.TextBoxId;u4)");
@@ -922,7 +922,7 @@ impl TextBoxInfoChangedEventArgs {
     pub fn TextBoxInfo(&self) -> windows_core::Result<TextBoxInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -947,8 +947,8 @@ impl TextBoxSettings {
     pub const Multiline: Self = Self(2);
     pub const VerticalWriting: Self = Self(4);
 }
-impl windows_core::TypeKind for TextBoxSettings {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TextBoxSettings {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TextBoxSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Text.TextBoxSettings;u4)");
@@ -1000,8 +1000,8 @@ impl TextChangeSource {
     pub const AutoCompletion: Self = Self(6);
     pub const Mixed: Self = Self(7);
 }
-impl windows_core::TypeKind for TextChangeSource {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TextChangeSource {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TextChangeSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Text.TextChangeSource;i4)");
@@ -1021,13 +1021,13 @@ impl TextComposition {
     pub fn FirstSegment(&self) -> windows_core::Result<TextCompositionSegment> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FirstSegment)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FirstSegment)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SelectedSegment(&self) -> windows_core::Result<TextCompositionSegment> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SelectedSegment)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SelectedSegment)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CaretPosition(&self) -> windows_core::Result<u32> {
@@ -1042,7 +1042,7 @@ impl TextComposition {
     pub fn InsertText(&self, text: &windows_core::HSTRING) -> windows_core::Result<TextCompositionSegment> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InsertText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InsertText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Complete(&self) -> windows_core::Result<()> {
@@ -1120,13 +1120,13 @@ impl TextCompositionSegment {
     pub fn Next(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Previous(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Previous)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Previous)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_Text")]
@@ -1170,8 +1170,8 @@ impl TextConversionMode {
     pub const RequestConversion: Self = Self(10);
     pub const NativeEudc: Self = Self(11);
 }
-impl windows_core::TypeKind for TextConversionMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TextConversionMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TextConversionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Text.TextConversionMode;i4)");
@@ -1205,7 +1205,7 @@ impl TextEditSession {
     pub fn PopulateAsync(&self, range: super::super::super::Text::Core::CoreTextRange) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PopulateAsync)(windows_core::Interface::as_raw(self), range, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PopulateAsync)(windows_core::Interface::as_raw(self), range, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_Text_Core")]
@@ -1236,20 +1236,20 @@ impl TextEditSession {
     pub fn Composition(&self) -> windows_core::Result<TextComposition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Composition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Composition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn StartComposition(&self) -> windows_core::Result<TextComposition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartComposition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartComposition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_Text_Core")]
     pub fn StartReconversion(&self, range: super::super::super::Text::Core::CoreTextRange) -> windows_core::Result<TextComposition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartReconversion)(windows_core::Interface::as_raw(self), range, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartReconversion)(windows_core::Interface::as_raw(self), range, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SubmitPayload(&self) -> windows_core::Result<bool> {
@@ -1261,7 +1261,7 @@ impl TextEditSession {
     pub fn SubmitPayloadAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PayloadResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SubmitPayloadAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SubmitPayloadAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1306,25 +1306,25 @@ impl TextInputProvider {
     pub fn FocusedTextBoxInfo(&self) -> windows_core::Result<TextBoxInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusedTextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FocusedTextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FocusedTextBoxBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusedTextBoxBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::super::Foundation::Rect>| r__.Value())
+            (windows_core::Interface::vtable(self).FocusedTextBoxBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::super::Foundation::Rect>| r__.Value())
         }
     }
     pub fn SelectionBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SelectionBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::super::Foundation::Rect>| r__.Value())
+            (windows_core::Interface::vtable(self).SelectionBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::super::Foundation::Rect>| r__.Value())
         }
     }
     pub fn CreateEditSession(&self) -> windows_core::Result<TextEditSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEditSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEditSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TryStartDelegation(&self) -> windows_core::Result<bool> {
@@ -1455,19 +1455,19 @@ impl TextInputService {
     pub fn CreateKeyboardInputProcessor(&self, inputprofile: &windows_core::HSTRING) -> windows_core::Result<KeyboardInputProcessor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateKeyboardInputProcessor)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(inputprofile), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateKeyboardInputProcessor)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(inputprofile), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateTextInputProvider(&self, inputprofile: &windows_core::HSTRING) -> windows_core::Result<TextInputProvider> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTextInputProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(inputprofile), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTextInputProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(inputprofile), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetForCurrentThread() -> windows_core::Result<Self> {
         Self::ITextInputServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ITextInputServiceStatics<R, F: FnOnce(&ITextInputServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1493,8 +1493,8 @@ pub struct TextInputServiceSubscription {
     pub requiredEnabledFeatures: TextBoxFeatures,
     pub requiredDisabledFeatures: TextBoxFeatures,
 }
-impl windows_core::TypeKind for TextInputServiceSubscription {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TextInputServiceSubscription {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TextInputServiceSubscription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Text.TextInputServiceSubscription;enum(Windows.UI.Input.Preview.Text.TextBoxFeatures;u4);enum(Windows.UI.Input.Preview.Text.TextBoxFeatures;u4))");
@@ -1509,8 +1509,8 @@ pub struct TextStyle {
     pub underlineColor: super::super::super::Color,
     pub underlineType: super::super::super::Text::UnderlineType,
 }
-impl windows_core::TypeKind for TextStyle {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TextStyle {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TextStyle {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Text.TextStyle;enum(Windows.UI.Input.Preview.Text.TextStyleAttributes;u4);struct(Windows.UI.Color;u1;u1;u1;u1);struct(Windows.UI.Color;u1;u1;u1;u1);struct(Windows.UI.Color;u1;u1;u1;u1);enum(Windows.UI.Text.UnderlineType;i4))");
@@ -1526,8 +1526,8 @@ impl TextStyleAttributes {
     pub const UnderlineColor: Self = Self(4);
     pub const UnderlineType: Self = Self(8);
 }
-impl windows_core::TypeKind for TextStyleAttributes {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TextStyleAttributes {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TextStyleAttributes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Text.TextStyleAttributes;u4)");

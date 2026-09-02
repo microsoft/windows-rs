@@ -434,8 +434,6 @@ fn gen_into_outer(inputs: &ImplementInputs) -> syn::ImplItem {
         // Builds the outer object. Internal only: app code must never own a `Foo_Impl`,
         // since mutable access to it would shear the refcount. Callers `into_static` and
         // `into_object` uphold this by only handing out `StaticComObject` / `ComObject`.
-        //
-        // TODO: hide this in a private module so app code can't call it.
         #[inline(always)]
         #maybe_const fn into_outer(self) -> #impl_ident::#generics_idents {
             #impl_ident::#generics_idents {

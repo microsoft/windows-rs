@@ -56,8 +56,8 @@ impl RemoteKeyEventAttributes {
     pub const Extended: Self = Self(4);
     pub const Extended1: Self = Self(8);
 }
-impl windows_core::TypeKind for RemoteKeyEventAttributes {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for RemoteKeyEventAttributes {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for RemoteKeyEventAttributes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteDesktop.Input.RemoteKeyEventAttributes;u4)");
@@ -134,7 +134,7 @@ impl RemoteTextConnection {
     {
         Self::IRemoteTextConnectionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), connectionid, pduforwarder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), connectionid, pduforwarder.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateInstance2<P1>(connectionid: windows_core::GUID, pduforwarder: P1, options: RemoteTextConnectionOptions) -> windows_core::Result<Self>
@@ -143,7 +143,7 @@ impl RemoteTextConnection {
     {
         Self::IRemoteTextConnectionFactory2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), connectionid, pduforwarder.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), connectionid, pduforwarder.param().abi(), options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRemoteTextConnectionFactory<R, F: FnOnce(&IRemoteTextConnectionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -219,8 +219,8 @@ impl RemoteTextConnectionOptions {
     pub const None: Self = Self(0);
     pub const EnablePredictedKeyReporting: Self = Self(1);
 }
-impl windows_core::TypeKind for RemoteTextConnectionOptions {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for RemoteTextConnectionOptions {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for RemoteTextConnectionOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteDesktop.Input.RemoteTextConnectionOptions;u4)");

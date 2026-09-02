@@ -183,7 +183,8 @@ impl<'a> Service<'a> {
 
     /// Sets the current state of the service.
     ///
-    /// In most cases, the service state is updated automatically and does not need to be set directly.
+    /// In most cases, the service state is updated automatically and does not need to be set
+    /// directly.
     pub fn set_state(&self, state: State) {
         let mut writer = self.status.write().unwrap();
         writer.dwCurrentState = match state {

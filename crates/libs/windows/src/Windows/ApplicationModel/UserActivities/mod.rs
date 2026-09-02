@@ -356,13 +356,13 @@ impl UserActivity {
     pub fn VisualElements(&self) -> windows_core::Result<UserActivityVisualElements> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VisualElements)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).VisualElements)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ContentUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ContentUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ContentUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetContentUri<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -383,7 +383,7 @@ impl UserActivity {
     pub fn FallbackUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FallbackUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FallbackUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetFallbackUri<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -395,7 +395,7 @@ impl UserActivity {
     pub fn ActivationUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ActivationUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ActivationUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetActivationUri<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -407,7 +407,7 @@ impl UserActivity {
     pub fn ContentInfo(&self) -> windows_core::Result<IUserActivityContentInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ContentInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ContentInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetContentInfo<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -419,13 +419,13 @@ impl UserActivity {
     pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SaveAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SaveAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateSession(&self) -> windows_core::Result<UserActivitySession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ToJson(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -449,19 +449,19 @@ impl UserActivity {
     pub fn CreateWithActivityId(activityid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUserActivityFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithActivityId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activityid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithActivityId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activityid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn TryParseFromJson(json: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryParseFromJson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(json), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryParseFromJson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(json), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn TryParseFromJsonArray(json: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<Self>> {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryParseFromJsonArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(json), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryParseFromJsonArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(json), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn ToJsonArray<P0>(activities: P0) -> windows_core::Result<windows_core::HSTRING>
@@ -509,7 +509,7 @@ impl UserActivityAttribution {
     pub fn IconUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IconUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IconUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetIconUri<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -542,7 +542,7 @@ impl UserActivityAttribution {
     {
         Self::IUserActivityAttributionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithUri)(windows_core::Interface::as_raw(this), iconuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithUri)(windows_core::Interface::as_raw(this), iconuri.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IUserActivityAttributionFactory<R, F: FnOnce(&IUserActivityAttributionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -570,39 +570,39 @@ impl UserActivityChannel {
     pub fn GetOrCreateUserActivityAsync(&self, activityid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<UserActivity>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOrCreateUserActivityAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(activityid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOrCreateUserActivityAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(activityid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DeleteActivityAsync(&self, activityid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeleteActivityAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(activityid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DeleteActivityAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(activityid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DeleteAllActivitiesAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeleteAllActivitiesAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DeleteAllActivitiesAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetRecentUserActivitiesAsync(&self, maxuniqueactivities: i32) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<UserActivitySessionHistoryItem>>> {
         let this = &windows_core::Interface::cast::<IUserActivityChannel2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetRecentUserActivitiesAsync)(windows_core::Interface::as_raw(this), maxuniqueactivities, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetRecentUserActivitiesAsync)(windows_core::Interface::as_raw(this), maxuniqueactivities, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetSessionHistoryItemsForUserActivityAsync(&self, activityid: &windows_core::HSTRING, starttime: windows_time::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<UserActivitySessionHistoryItem>>> {
         let this = &windows_core::Interface::cast::<IUserActivityChannel2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSessionHistoryItemsForUserActivityAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activityid), starttime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetSessionHistoryItemsForUserActivityAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activityid), starttime, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IUserActivityChannelStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn DisableAutoSessionCreation() -> windows_core::Result<()> {
@@ -615,7 +615,7 @@ impl UserActivityChannel {
     {
         Self::IUserActivityChannelStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetForWebAccount)(windows_core::Interface::as_raw(this), account.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetForWebAccount)(windows_core::Interface::as_raw(this), account.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -625,7 +625,7 @@ impl UserActivityChannel {
     {
         Self::IUserActivityChannelStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IUserActivityChannelStatics<R, F: FnOnce(&IUserActivityChannelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -667,7 +667,7 @@ impl UserActivityContentInfo {
     pub fn FromJson(value: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUserActivityContentInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromJson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromJson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IUserActivityContentInfoStatics<R, F: FnOnce(&IUserActivityContentInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -733,7 +733,7 @@ impl UserActivityRequestManager {
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IUserActivityRequestManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IUserActivityRequestManagerStatics<R, F: FnOnce(&IUserActivityRequestManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -759,13 +759,13 @@ impl UserActivityRequestedEventArgs {
     pub fn Request(&self) -> windows_core::Result<UserActivityRequest> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -818,7 +818,7 @@ impl UserActivitySessionHistoryItem {
     pub fn UserActivity(&self) -> windows_core::Result<UserActivity> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UserActivity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).UserActivity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn StartTime(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -830,7 +830,7 @@ impl UserActivitySessionHistoryItem {
     pub fn EndTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).EndTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
 }
@@ -853,8 +853,8 @@ impl UserActivityState {
     pub const New: Self = Self(0);
     pub const Published: Self = Self(1);
 }
-impl windows_core::TypeKind for UserActivityState {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for UserActivityState {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for UserActivityState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserActivities.UserActivityState;i4)");
@@ -897,7 +897,7 @@ impl UserActivityVisualElements {
     pub fn Attribution(&self) -> windows_core::Result<UserActivityAttribution> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Attribution)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Attribution)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetAttribution<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -917,7 +917,7 @@ impl UserActivityVisualElements {
     pub fn Content(&self) -> windows_core::Result<super::super::UI::Shell::IAdaptiveCard> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Content)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Content)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn AttributionDisplayText(&self) -> windows_core::Result<windows_core::HSTRING> {

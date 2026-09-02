@@ -94,63 +94,63 @@ impl IFsrmClassificationManager {
     pub unsafe fn EnumPropertyDefinitions(&self, options: super::FsrmEnumOptions) -> windows_core::Result<super::IFsrmCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumPropertyDefinitions)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumPropertyDefinitions)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "fsrm")]
     pub unsafe fn CreatePropertyDefinition(&self) -> windows_core::Result<IFsrmPropertyDefinition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreatePropertyDefinition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreatePropertyDefinition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "fsrm")]
     pub unsafe fn GetPropertyDefinition(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<IFsrmPropertyDefinition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPropertyDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPropertyDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub unsafe fn EnumRules(&self, ruletype: super::FsrmRuleType, options: super::FsrmEnumOptions) -> windows_core::Result<super::IFsrmCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumRules)(windows_core::Interface::as_raw(self), ruletype, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumRules)(windows_core::Interface::as_raw(self), ruletype, options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub unsafe fn CreateRule(&self, ruletype: super::FsrmRuleType) -> windows_core::Result<IFsrmRule> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRule)(windows_core::Interface::as_raw(self), ruletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateRule)(windows_core::Interface::as_raw(self), ruletype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub unsafe fn GetRule(&self, rulename: &windows_core::BSTR, ruletype: super::FsrmRuleType) -> windows_core::Result<IFsrmRule> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRule)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(rulename), ruletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetRule)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(rulename), ruletype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub unsafe fn EnumModuleDefinitions(&self, moduletype: super::FsrmPipelineModuleType, options: super::FsrmEnumOptions) -> windows_core::Result<super::IFsrmCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumModuleDefinitions)(windows_core::Interface::as_raw(self), moduletype, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumModuleDefinitions)(windows_core::Interface::as_raw(self), moduletype, options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub unsafe fn CreateModuleDefinition(&self, moduletype: super::FsrmPipelineModuleType) -> windows_core::Result<IFsrmPipelineModuleDefinition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateModuleDefinition)(windows_core::Interface::as_raw(self), moduletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateModuleDefinition)(windows_core::Interface::as_raw(self), moduletype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "fsrm", feature = "fsrmenums"))]
     pub unsafe fn GetModuleDefinition(&self, modulename: &windows_core::BSTR, moduletype: super::FsrmPipelineModuleType) -> windows_core::Result<IFsrmPipelineModuleDefinition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetModuleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(modulename), moduletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetModuleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(modulename), moduletype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "fsrmenums")]
@@ -171,14 +171,14 @@ impl IFsrmClassificationManager {
     pub unsafe fn EnumFileProperties(&self, filepath: &windows_core::BSTR, options: super::FsrmGetFilePropertyOptions) -> windows_core::Result<super::IFsrmCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumFileProperties)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumFileProperties)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "fsrmenums")]
     pub unsafe fn GetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, options: super::FsrmGetFilePropertyOptions) -> windows_core::Result<IFsrmProperty> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFileProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute_copy(propertyname), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFileProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute_copy(propertyname), options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, propertyvalue: &windows_core::BSTR) -> windows_core::HRESULT {
@@ -1106,7 +1106,7 @@ impl IFsrmPipelineModuleConnector {
     pub unsafe fn ModuleImplementation(&self) -> windows_core::Result<IFsrmPipelineModuleImplementation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ModuleImplementation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ModuleImplementation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ModuleName(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -1632,7 +1632,7 @@ impl IFsrmPipelineModuleImplementation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OnLoad)(windows_core::Interface::as_raw(self), moduledefinition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OnLoad)(windows_core::Interface::as_raw(self), moduledefinition.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn OnUnload(&self) -> windows_core::HRESULT {
@@ -1929,7 +1929,7 @@ impl IFsrmPropertyBag {
     pub unsafe fn GetFileProperty(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmProperty> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFileProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFileProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetFileProperty(&self, name: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::HRESULT {
@@ -2319,7 +2319,7 @@ impl IFsrmPropertyBag2 {
     pub unsafe fn GetUntrustedInFileProperties(&self) -> windows_core::Result<super::IFsrmCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUntrustedInFileProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetUntrustedInFileProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2627,7 +2627,7 @@ impl IFsrmPropertyDefinition2 {
     pub unsafe fn ValueDefinitions(&self) -> windows_core::Result<super::IFsrmCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ValueDefinitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ValueDefinitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

@@ -50,7 +50,7 @@ impl IAutomaticUpdates {
     pub unsafe fn Settings(&self) -> windows_core::Result<IAutomaticUpdatesSettings> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "wtypes")]
@@ -180,7 +180,7 @@ impl IAutomaticUpdates2 {
     pub unsafe fn Results(&self) -> windows_core::Result<IAutomaticUpdatesResults> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Results)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Results)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -761,7 +761,7 @@ impl ICategory {
     pub unsafe fn Children(&self) -> windows_core::Result<ICategoryCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Children)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Children)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -773,7 +773,7 @@ impl ICategory {
     pub unsafe fn Image(&self) -> windows_core::Result<IImageInformation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Order(&self) -> windows_core::Result<i32> {
@@ -785,7 +785,7 @@ impl ICategory {
     pub unsafe fn Parent(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Type(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -797,7 +797,7 @@ impl ICategory {
     pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -974,13 +974,13 @@ impl ICategoryCollection {
     pub unsafe fn Item(&self, index: i32) -> windows_core::Result<ICategory> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
@@ -1159,7 +1159,7 @@ impl IDownloadJob {
     pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CleanUp(&self) -> windows_core::HRESULT {
@@ -1168,7 +1168,7 @@ impl IDownloadJob {
     pub unsafe fn GetProgress(&self) -> windows_core::Result<IDownloadProgress> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RequestAbort(&self) -> windows_core::HRESULT {
@@ -1337,7 +1337,7 @@ impl IDownloadProgress {
     pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateDownloadResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CurrentUpdateDownloadPhase(&self) -> windows_core::Result<DownloadPhase> {
@@ -1580,7 +1580,7 @@ impl IDownloadProgressChangedCallbackArgs {
     pub unsafe fn Progress(&self) -> windows_core::Result<IDownloadProgress> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Progress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Progress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1646,7 +1646,7 @@ impl IDownloadResult {
     pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateDownloadResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2115,7 +2115,7 @@ impl IInstallationJob {
     pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CleanUp(&self) -> windows_core::HRESULT {
@@ -2124,7 +2124,7 @@ impl IInstallationJob {
     pub unsafe fn GetProgress(&self) -> windows_core::Result<IInstallationProgress> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RequestAbort(&self) -> windows_core::HRESULT {
@@ -2271,7 +2271,7 @@ impl IInstallationProgress {
     pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateInstallationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2415,7 +2415,7 @@ impl IInstallationProgressChangedCallbackArgs {
     pub unsafe fn Progress(&self) -> windows_core::Result<IInstallationProgress> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Progress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Progress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2488,7 +2488,7 @@ impl IInstallationResult {
     pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateInstallationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2835,19 +2835,19 @@ impl ISearchResult {
     pub unsafe fn RootCategories(&self) -> windows_core::Result<ICategoryCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RootCategories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RootCategories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Warnings(&self) -> windows_core::Result<IUpdateExceptionCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Warnings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Warnings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2958,7 +2958,7 @@ impl IStringCollection {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
@@ -2986,7 +2986,7 @@ impl IStringCollection {
     pub unsafe fn Copy(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Insert(&self, index: i32, value: &windows_core::BSTR) -> windows_core::HRESULT {
@@ -3258,7 +3258,7 @@ impl IUpdate {
     pub unsafe fn BundledUpdates(&self) -> windows_core::Result<IUpdateCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BundledUpdates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BundledUpdates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "wtypes")]
@@ -3271,7 +3271,7 @@ impl IUpdate {
     pub unsafe fn Categories(&self) -> windows_core::Result<ICategoryCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
@@ -3323,19 +3323,19 @@ impl IUpdate {
     pub unsafe fn Identity(&self) -> windows_core::Result<IUpdateIdentity> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Identity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Identity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Image(&self) -> windows_core::Result<IImageInformation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn InstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "wtypes")]
@@ -3387,7 +3387,7 @@ impl IUpdate {
     pub unsafe fn Languages(&self) -> windows_core::Result<IStringCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn LastDeploymentChangeTime(&self) -> windows_core::Result<f64> {
@@ -3413,7 +3413,7 @@ impl IUpdate {
     pub unsafe fn MoreInfoUrls(&self) -> windows_core::Result<IStringCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MoreInfoUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).MoreInfoUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn MsrcSeverity(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -3449,13 +3449,13 @@ impl IUpdate {
     pub unsafe fn SecurityBulletinIDs(&self) -> windows_core::Result<IStringCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SecurityBulletinIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SecurityBulletinIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SupersededUpdateIDs(&self) -> windows_core::Result<IStringCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SupersededUpdateIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SupersededUpdateIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -3479,19 +3479,19 @@ impl IUpdate {
     pub unsafe fn UninstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UninstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).UninstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn KBArticleIDs(&self) -> windows_core::Result<IStringCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).KBArticleIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).KBArticleIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AcceptEula(&self) -> windows_core::HRESULT {
@@ -3516,7 +3516,7 @@ impl IUpdate {
     pub unsafe fn DownloadContents(&self) -> windows_core::Result<IUpdateDownloadContentCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DownloadContents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DownloadContents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4277,7 +4277,7 @@ impl IUpdate2 {
     pub unsafe fn CveIDs(&self) -> windows_core::Result<IStringCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CveIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CveIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CopyToCache<P0>(&self, pfiles: P0) -> windows_core::HRESULT
@@ -4579,7 +4579,7 @@ impl IUpdateCollection {
     pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IUpdate> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetItem<P1>(&self, index: i32, value: P1) -> windows_core::HRESULT
@@ -4591,7 +4591,7 @@ impl IUpdateCollection {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
@@ -4622,7 +4622,7 @@ impl IUpdateCollection {
     pub unsafe fn Copy(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Insert<P1>(&self, index: i32, value: P1) -> windows_core::HRESULT
@@ -4914,13 +4914,13 @@ impl IUpdateDownloadContentCollection {
     pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IUpdateDownloadContent> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
@@ -5116,7 +5116,7 @@ impl IUpdateDownloader {
     pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetUpdates<P0>(&self, value: P0) -> windows_core::HRESULT
@@ -5133,13 +5133,13 @@ impl IUpdateDownloader {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginDownload)(windows_core::Interface::as_raw(self), onprogresschanged.param().abi(), oncompleted.param().abi(), core::mem::transmute_copy(state), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BeginDownload)(windows_core::Interface::as_raw(self), onprogresschanged.param().abi(), oncompleted.param().abi(), core::mem::transmute_copy(state), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Download(&self) -> windows_core::Result<IDownloadResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Download)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Download)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn EndDownload<P0>(&self, value: P0) -> windows_core::Result<IDownloadResult>
@@ -5148,7 +5148,7 @@ impl IUpdateDownloader {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndDownload)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EndDownload)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5345,13 +5345,13 @@ impl IUpdateDownloaderEx {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginDownload2)(windows_core::Interface::as_raw(self), downloadtype, onprogresschanged.param().abi(), oncompleted.param().abi(), core::mem::transmute_copy(state), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BeginDownload2)(windows_core::Interface::as_raw(self), downloadtype, onprogresschanged.param().abi(), oncompleted.param().abi(), core::mem::transmute_copy(state), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Download2(&self, downloadtype: DownloadType) -> windows_core::Result<IDownloadResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Download2)(windows_core::Interface::as_raw(self), downloadtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Download2)(windows_core::Interface::as_raw(self), downloadtype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5611,13 +5611,13 @@ impl IUpdateExceptionCollection {
     pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IUpdateException> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
@@ -5734,7 +5734,7 @@ impl IUpdateHistoryEntry {
     pub unsafe fn UpdateIdentity(&self) -> windows_core::Result<IUpdateIdentity> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UpdateIdentity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).UpdateIdentity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -5776,7 +5776,7 @@ impl IUpdateHistoryEntry {
     pub unsafe fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -6040,7 +6040,7 @@ impl IUpdateHistoryEntry2 {
     pub unsafe fn Categories(&self) -> windows_core::Result<ICategoryCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6094,13 +6094,13 @@ impl IUpdateHistoryEntryCollection {
     pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IUpdateHistoryEntry> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
@@ -6411,13 +6411,13 @@ impl IUpdateInstaller {
     pub unsafe fn ParentWindow(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ParentWindow)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ParentWindow)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetUpdates<P0>(&self, value: P0) -> windows_core::HRESULT
@@ -6434,7 +6434,7 @@ impl IUpdateInstaller {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginInstall)(windows_core::Interface::as_raw(self), onprogresschanged.param().abi(), oncompleted.param().abi(), core::mem::transmute_copy(state), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BeginInstall)(windows_core::Interface::as_raw(self), onprogresschanged.param().abi(), oncompleted.param().abi(), core::mem::transmute_copy(state), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
@@ -6445,7 +6445,7 @@ impl IUpdateInstaller {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginUninstall)(windows_core::Interface::as_raw(self), onprogresschanged.param().abi(), oncompleted.param().abi(), core::mem::transmute_copy(state), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BeginUninstall)(windows_core::Interface::as_raw(self), onprogresschanged.param().abi(), oncompleted.param().abi(), core::mem::transmute_copy(state), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn EndInstall<P0>(&self, value: P0) -> windows_core::Result<IInstallationResult>
@@ -6454,7 +6454,7 @@ impl IUpdateInstaller {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndInstall)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EndInstall)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn EndUninstall<P0>(&self, value: P0) -> windows_core::Result<IInstallationResult>
@@ -6463,19 +6463,19 @@ impl IUpdateInstaller {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndUninstall)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EndUninstall)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Install(&self) -> windows_core::Result<IInstallationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Install)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Install)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RunWizard(&self, dialogtitle: &windows_core::BSTR) -> windows_core::Result<IInstallationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RunWizard)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(dialogtitle), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RunWizard)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(dialogtitle), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "wtypes")]
@@ -6488,7 +6488,7 @@ impl IUpdateInstaller {
     pub unsafe fn Uninstall(&self) -> windows_core::Result<IInstallationResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Uninstall)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Uninstall)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "wtypes")]
@@ -7131,7 +7131,7 @@ impl IUpdateSearcher {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginSearch)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(criteria), oncompleted.param().abi(), core::mem::transmute_copy(state), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BeginSearch)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(criteria), oncompleted.param().abi(), core::mem::transmute_copy(state), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn EndSearch<P0>(&self, searchjob: P0) -> windows_core::Result<ISearchResult>
@@ -7140,7 +7140,7 @@ impl IUpdateSearcher {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndSearch)(windows_core::Interface::as_raw(self), searchjob.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EndSearch)(windows_core::Interface::as_raw(self), searchjob.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn EscapeString(&self, unescaped: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
@@ -7152,13 +7152,13 @@ impl IUpdateSearcher {
     pub unsafe fn QueryHistory(&self, startindex: i32, count: i32) -> windows_core::Result<IUpdateHistoryEntryCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryHistory)(windows_core::Interface::as_raw(self), startindex, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).QueryHistory)(windows_core::Interface::as_raw(self), startindex, count, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Search(&self, criteria: &windows_core::BSTR) -> windows_core::Result<ISearchResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Search)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(criteria), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Search)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(criteria), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "wtypes")]
@@ -7673,7 +7673,7 @@ impl IUpdateService {
     pub unsafe fn RedirectUrls(&self) -> windows_core::Result<IStringCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RedirectUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RedirectUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -8018,13 +8018,13 @@ impl IUpdateServiceCollection {
     pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IUpdateService> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
@@ -8117,13 +8117,13 @@ impl IUpdateServiceManager {
     pub unsafe fn Services(&self) -> windows_core::Result<IUpdateServiceCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Services)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Services)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AddService(&self, serviceid: &windows_core::BSTR, authorizationcabpath: &windows_core::BSTR) -> windows_core::Result<IUpdateService> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddService)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serviceid), core::mem::transmute_copy(authorizationcabpath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddService)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serviceid), core::mem::transmute_copy(authorizationcabpath), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RegisterServiceWithAU(&self, serviceid: &windows_core::BSTR) -> windows_core::HRESULT {
@@ -8138,7 +8138,7 @@ impl IUpdateServiceManager {
     pub unsafe fn AddScanPackageService(&self, servicename: &windows_core::BSTR, scanfilelocation: &windows_core::BSTR, flags: i32) -> windows_core::Result<IUpdateService> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddScanPackageService)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(servicename), core::mem::transmute_copy(scanfilelocation), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddScanPackageService)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(servicename), core::mem::transmute_copy(scanfilelocation), flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
@@ -8277,13 +8277,13 @@ impl IUpdateServiceManager2 {
     pub unsafe fn QueryServiceRegistration(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<IUpdateServiceRegistration> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryServiceRegistration)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).QueryServiceRegistration)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AddService2(&self, serviceid: &windows_core::BSTR, flags: i32, authorizationcabpath: &windows_core::BSTR) -> windows_core::Result<IUpdateServiceRegistration> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddService2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serviceid), flags, core::mem::transmute_copy(authorizationcabpath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddService2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serviceid), flags, core::mem::transmute_copy(authorizationcabpath), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8398,7 +8398,7 @@ impl IUpdateServiceRegistration {
     pub unsafe fn Service(&self) -> windows_core::Result<IUpdateService2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Service)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Service)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8519,7 +8519,7 @@ impl IUpdateSession {
     pub unsafe fn WebProxy(&self) -> windows_core::Result<IWebProxy> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).WebProxy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).WebProxy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetWebProxy<P0>(&self, value: P0) -> windows_core::HRESULT
@@ -8531,19 +8531,19 @@ impl IUpdateSession {
     pub unsafe fn CreateUpdateSearcher(&self) -> windows_core::Result<IUpdateSearcher> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateUpdateSearcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateUpdateSearcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateUpdateDownloader(&self) -> windows_core::Result<IUpdateDownloader> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateUpdateDownloader)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateUpdateDownloader)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateUpdateInstaller(&self) -> windows_core::Result<IUpdateInstaller> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateUpdateInstaller)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateUpdateInstaller)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8773,13 +8773,13 @@ impl IUpdateSession3 {
     pub unsafe fn CreateUpdateServiceManager(&self) -> windows_core::Result<IUpdateServiceManager2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateUpdateServiceManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateUpdateServiceManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn QueryHistory(&self, criteria: &windows_core::BSTR, startindex: i32, count: i32) -> windows_core::Result<IUpdateHistoryEntryCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryHistory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(criteria), startindex, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).QueryHistory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(criteria), startindex, count, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8860,7 +8860,7 @@ impl IWebProxy {
     pub unsafe fn BypassList(&self) -> windows_core::Result<IStringCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BypassList)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BypassList)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetBypassList<P0>(&self, value: P0) -> windows_core::HRESULT
@@ -9357,7 +9357,7 @@ impl IWindowsDriverUpdate2 {
     pub unsafe fn CveIDs(&self) -> windows_core::Result<IStringCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CveIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CveIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CopyToCache<P0>(&self, pfiles: P0) -> windows_core::HRESULT
@@ -9523,7 +9523,7 @@ impl IWindowsDriverUpdate4 {
     pub unsafe fn WindowsDriverUpdateEntries(&self) -> windows_core::Result<IWindowsDriverUpdateEntryCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).WindowsDriverUpdateEntries)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).WindowsDriverUpdateEntries)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "wtypes")]
@@ -9887,13 +9887,13 @@ impl IWindowsDriverUpdateEntryCollection {
     pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IWindowsDriverUpdateEntry> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {

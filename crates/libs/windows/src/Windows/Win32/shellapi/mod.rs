@@ -6,7 +6,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn AssocCreateForClasses(rgclasses : *const ASSOCIATIONELEMENT, cclasses : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { AssocCreateForClasses(rgclasses.as_ptr(), rgclasses.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { AssocCreateForClasses(rgclasses.as_ptr(), rgclasses.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CommandLineToArgvW<P0>(lpcmdline: P0, pnumargs: *mut i32) -> *mut windows_core::PWSTR
@@ -274,7 +274,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHGetImageList(iimagelist : i32, riid : *const windows_core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHGetImageList(iimagelist, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHGetImageList(iimagelist, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn SHGetLocalizedName<P0>(pszpath: P0, pszresmodule: windows_core::PWSTR, cch: u32, pidsres: *mut i32) -> windows_core::HRESULT
@@ -310,7 +310,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHGetPropertyStoreForWindow(hwnd : super::HWND, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHGetPropertyStoreForWindow(hwnd, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHGetPropertyStoreForWindow(hwnd, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(feature = "windef")]
 #[inline]

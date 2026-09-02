@@ -5,7 +5,7 @@ impl AnalyticsInfo {
     pub fn VersionInfo() -> windows_core::Result<AnalyticsVersionInfo> {
         Self::IAnalyticsInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VersionInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).VersionInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn DeviceForm() -> windows_core::Result<windows_core::HSTRING> {
@@ -20,7 +20,7 @@ impl AnalyticsInfo {
     {
         Self::IAnalyticsInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSystemPropertiesAsync)(windows_core::Interface::as_raw(this), attributenames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetSystemPropertiesAsync)(windows_core::Interface::as_raw(this), attributenames.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IAnalyticsInfoStatics<R, F: FnOnce(&IAnalyticsInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -80,7 +80,7 @@ impl AppApplicability {
     {
         Self::IAppApplicabilityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetUnsupportedAppRequirements)(windows_core::Interface::as_raw(this), capabilities.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetUnsupportedAppRequirements)(windows_core::Interface::as_raw(this), capabilities.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IAppApplicabilityStatics<R, F: FnOnce(&IAppApplicabilityStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -116,7 +116,7 @@ impl HardwareIdentification {
     {
         Self::IHardwareIdentificationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPackageSpecificToken)(windows_core::Interface::as_raw(this), nonce.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPackageSpecificToken)(windows_core::Interface::as_raw(this), nonce.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IHardwareIdentificationStatics<R, F: FnOnce(&IHardwareIdentificationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -136,21 +136,21 @@ impl HardwareToken {
     pub fn Id(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn Signature(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Signature)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Signature)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn Certificate(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Certificate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Certificate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -608,8 +608,8 @@ impl PlatformAutomaticAppSignInPolicy {
     pub const PermissionRequired: Self = Self(1);
     pub const AlwaysAllowed: Self = Self(2);
 }
-impl windows_core::TypeKind for PlatformAutomaticAppSignInPolicy {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PlatformAutomaticAppSignInPolicy {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PlatformAutomaticAppSignInPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.PlatformAutomaticAppSignInPolicy;i4)");
@@ -624,8 +624,8 @@ impl PlatformDataCollectionLevel {
     pub const Enhanced: Self = Self(2);
     pub const Full: Self = Self(3);
 }
-impl windows_core::TypeKind for PlatformDataCollectionLevel {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PlatformDataCollectionLevel {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PlatformDataCollectionLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.PlatformDataCollectionLevel;i4)");
@@ -678,7 +678,7 @@ impl RetailInfo {
     pub fn Properties() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         Self::IRetailInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRetailInfoStatics<R, F: FnOnce(&IRetailInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -750,7 +750,7 @@ impl SystemIdentification {
     pub fn GetSystemIdForPublisher() -> windows_core::Result<SystemIdentificationInfo> {
         Self::ISystemIdentificationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSystemIdForPublisher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetSystemIdForPublisher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetSystemIdForUser<P0>(user: P0) -> windows_core::Result<SystemIdentificationInfo>
@@ -759,7 +759,7 @@ impl SystemIdentification {
     {
         Self::ISystemIdentificationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSystemIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetSystemIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ISystemIdentificationStatics<R, F: FnOnce(&ISystemIdentificationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -779,7 +779,7 @@ impl SystemIdentificationInfo {
     pub fn Id(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Source(&self) -> windows_core::Result<SystemIdentificationSource> {
@@ -810,8 +810,8 @@ impl SystemIdentificationSource {
     pub const Uefi: Self = Self(2);
     pub const Registry: Self = Self(3);
 }
-impl windows_core::TypeKind for SystemIdentificationSource {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for SystemIdentificationSource {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for SystemIdentificationSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemIdentificationSource;i4)");
@@ -825,8 +825,8 @@ impl SystemOutOfBoxExperienceState {
     pub const InProgress: Self = Self(1);
     pub const Completed: Self = Self(2);
 }
-impl windows_core::TypeKind for SystemOutOfBoxExperienceState {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for SystemOutOfBoxExperienceState {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for SystemOutOfBoxExperienceState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemOutOfBoxExperienceState;i4)");
@@ -899,8 +899,8 @@ impl UnsupportedAppRequirementReasons {
     pub const Unknown: Self = Self(0);
     pub const DeniedBySystem: Self = Self(1);
 }
-impl windows_core::TypeKind for UnsupportedAppRequirementReasons {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for UnsupportedAppRequirementReasons {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for UnsupportedAppRequirementReasons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.UnsupportedAppRequirementReasons;u4)");

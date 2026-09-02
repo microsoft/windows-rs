@@ -120,7 +120,7 @@ impl ISurfaceImageSourceNativeWithD2D {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect, &T::IID, &mut result__, offset as _).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect, &T::IID, &mut result__, offset as _).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn EndDraw(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)) }

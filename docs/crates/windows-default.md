@@ -65,8 +65,8 @@ crates are intended for build tools rather than runtime dependencies.
 
 ## Internal documentation
 
-The rest of this page covers how the crate is built and maintained. It is for contributors and is
-not needed to consume the metadata.
+The remainder of this page covers how the crate is built and maintained. It is for contributors and
+is **not needed to use `windows-default`**.
 
 ### How it's built
 

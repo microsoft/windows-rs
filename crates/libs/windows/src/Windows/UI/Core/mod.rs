@@ -66,8 +66,8 @@ impl AppViewBackButtonVisibility {
     pub const Collapsed: Self = Self(1);
     pub const Disabled: Self = Self(2);
 }
-impl windows_core::TypeKind for AppViewBackButtonVisibility {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for AppViewBackButtonVisibility {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for AppViewBackButtonVisibility {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AppViewBackButtonVisibility;i4)");
@@ -82,7 +82,7 @@ impl AutomationProviderRequestedEventArgs {
     pub fn AutomationProvider(&self) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AutomationProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AutomationProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetAutomationProvider<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -231,8 +231,8 @@ impl CoreAcceleratorKeyEventType {
     pub const SystemKeyUp: Self = Self(5);
     pub const UnicodeCharacter: Self = Self(8);
 }
-impl windows_core::TypeKind for CoreAcceleratorKeyEventType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CoreAcceleratorKeyEventType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CoreAcceleratorKeyEventType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreAcceleratorKeyEventType;i4)");
@@ -331,7 +331,7 @@ impl CoreComponentInputSource {
     pub fn Dispatcher(&self) -> windows_core::Result<CoreDispatcher> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Dispatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Dispatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsInputEnabled(&self) -> windows_core::Result<bool> {
@@ -443,7 +443,7 @@ impl CoreComponentInputSource {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerCursor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PointerCursor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetPointerCursor<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -563,7 +563,7 @@ impl CoreComponentInputSource {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TouchHitTesting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -614,7 +614,7 @@ impl CoreCursor {
     pub fn CreateCursor(r#type: CoreCursorType, id: u32) -> windows_core::Result<Self> {
         Self::ICoreCursorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCursor)(windows_core::Interface::as_raw(this), r#type, id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCursor)(windows_core::Interface::as_raw(this), r#type, id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICoreCursorFactory<R, F: FnOnce(&ICoreCursorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -655,8 +655,8 @@ impl CoreCursorType {
     pub const Pin: Self = Self(14);
     pub const Person: Self = Self(15);
 }
-impl windows_core::TypeKind for CoreCursorType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CoreCursorType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CoreCursorType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreCursorType;i4)");
@@ -698,7 +698,7 @@ impl CoreDispatcher {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RunAsync)(windows_core::Interface::as_raw(self), priority, agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RunAsync)(windows_core::Interface::as_raw(self), priority, agilecallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RunIdleAsync<P0>(&self, agilecallback: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -707,7 +707,7 @@ impl CoreDispatcher {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RunIdleAsync)(windows_core::Interface::as_raw(self), agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RunIdleAsync)(windows_core::Interface::as_raw(self), agilecallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TryRunAsync<P1>(&self, priority: CoreDispatcherPriority, agilecallback: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -717,7 +717,7 @@ impl CoreDispatcher {
         let this = &windows_core::Interface::cast::<ICoreDispatcher2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryRunAsync)(windows_core::Interface::as_raw(this), priority, agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryRunAsync)(windows_core::Interface::as_raw(this), priority, agilecallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TryRunIdleAsync<P0>(&self, agilecallback: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -727,7 +727,7 @@ impl CoreDispatcher {
         let this = &windows_core::Interface::cast::<ICoreDispatcher2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryRunIdleAsync)(windows_core::Interface::as_raw(this), agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryRunIdleAsync)(windows_core::Interface::as_raw(this), agilecallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CurrentPriority(&self) -> windows_core::Result<CoreDispatcherPriority> {
@@ -781,8 +781,8 @@ impl CoreDispatcherPriority {
     pub const Normal: Self = Self(0);
     pub const High: Self = Self(1);
 }
-impl windows_core::TypeKind for CoreDispatcherPriority {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CoreDispatcherPriority {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CoreDispatcherPriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreDispatcherPriority;i4)");
@@ -799,8 +799,8 @@ impl CoreIndependentInputFilters {
     pub const PenWithBarrel: Self = Self(8);
     pub const PenInverted: Self = Self(16);
 }
-impl windows_core::TypeKind for CoreIndependentInputFilters {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CoreIndependentInputFilters {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CoreIndependentInputFilters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreIndependentInputFilters;u4)");
@@ -848,7 +848,7 @@ impl CoreIndependentInputSource {
     pub fn Dispatcher(&self) -> windows_core::Result<CoreDispatcher> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Dispatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Dispatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsInputEnabled(&self) -> windows_core::Result<bool> {
@@ -900,7 +900,7 @@ impl CoreIndependentInputSource {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerCursor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PointerCursor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetPointerCursor<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1020,7 +1020,7 @@ impl CoreIndependentInputSource {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn PointerRoutedAway<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -1112,7 +1112,7 @@ impl CoreIndependentInputSourceController {
     pub fn Source(&self) -> windows_core::Result<CoreIndependentInputSource> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Source)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Source)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetControlledInput(&self, inputtypes: CoreInputDeviceTypes) -> windows_core::Result<()> {
@@ -1128,7 +1128,7 @@ impl CoreIndependentInputSourceController {
     {
         Self::ICoreIndependentInputSourceControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForVisual)(windows_core::Interface::as_raw(this), visual.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForVisual)(windows_core::Interface::as_raw(this), visual.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "UI_Composition")]
@@ -1138,7 +1138,7 @@ impl CoreIndependentInputSourceController {
     {
         Self::ICoreIndependentInputSourceControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForIVisualElement)(windows_core::Interface::as_raw(this), visualelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForIVisualElement)(windows_core::Interface::as_raw(this), visualelement.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICoreIndependentInputSourceControllerStatics<R, F: FnOnce(&ICoreIndependentInputSourceControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1167,8 +1167,8 @@ impl CoreInputDeviceTypes {
     pub const Pen: Self = Self(2);
     pub const Mouse: Self = Self(4);
 }
-impl windows_core::TypeKind for CoreInputDeviceTypes {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CoreInputDeviceTypes {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CoreInputDeviceTypes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreInputDeviceTypes;u4)");
@@ -1217,8 +1217,8 @@ pub struct CorePhysicalKeyStatus {
     pub WasKeyDown: bool,
     pub IsKeyReleased: bool,
 }
-impl windows_core::TypeKind for CorePhysicalKeyStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CorePhysicalKeyStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CorePhysicalKeyStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CorePhysicalKeyStatus;u4;u4;b1;b1;b1;b1)");
@@ -1233,8 +1233,8 @@ impl CoreProcessEventsOption {
     pub const ProcessUntilQuit: Self = Self(2);
     pub const ProcessAllIfPresent: Self = Self(3);
 }
-impl windows_core::TypeKind for CoreProcessEventsOption {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CoreProcessEventsOption {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CoreProcessEventsOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProcessEventsOption;i4)");
@@ -1246,8 +1246,8 @@ pub struct CoreProximityEvaluation {
     pub Score: i32,
     pub AdjustedPoint: super::super::Foundation::Point,
 }
-impl windows_core::TypeKind for CoreProximityEvaluation {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CoreProximityEvaluation {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CoreProximityEvaluation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CoreProximityEvaluation;i4;struct(Windows.Foundation.Point;f4;f4))");
@@ -1260,8 +1260,8 @@ impl CoreProximityEvaluationScore {
     pub const Closest: Self = Self(0);
     pub const Farthest: Self = Self(2147483647);
 }
-impl windows_core::TypeKind for CoreProximityEvaluationScore {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CoreProximityEvaluationScore {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CoreProximityEvaluationScore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProximityEvaluationScore;i4)");
@@ -1275,8 +1275,8 @@ impl CoreVirtualKeyStates {
     pub const Down: Self = Self(1);
     pub const Locked: Self = Self(2);
 }
-impl windows_core::TypeKind for CoreVirtualKeyStates {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CoreVirtualKeyStates {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CoreVirtualKeyStates {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreVirtualKeyStates;u4)");
@@ -1369,7 +1369,7 @@ impl CoreWindow {
     pub fn AutomationHostProvider(&self) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AutomationHostProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AutomationHostProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Bounds(&self) -> windows_core::Result<super::super::Foundation::Rect> {
@@ -1382,13 +1382,13 @@ impl CoreWindow {
     pub fn CustomProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CustomProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CustomProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Dispatcher(&self) -> windows_core::Result<CoreDispatcher> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Dispatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Dispatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FlowDirection(&self) -> windows_core::Result<CoreWindowFlowDirection> {
@@ -1412,7 +1412,7 @@ impl CoreWindow {
     pub fn PointerCursor(&self) -> windows_core::Result<CoreCursor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PointerCursor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PointerCursor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetPointerCursor<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1758,7 +1758,7 @@ impl CoreWindow {
         let this = &windows_core::Interface::cast::<ICoreWindow5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ActivationMode(&self) -> windows_core::Result<CoreWindowActivationMode> {
@@ -1771,14 +1771,14 @@ impl CoreWindow {
     pub fn GetForCurrentThread() -> windows_core::Result<Self> {
         Self::ICoreWindowStatic(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn UIContext(&self) -> windows_core::Result<super::UIContext> {
         let this = &windows_core::Interface::cast::<ICoreWindowWithContext>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UIContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UIContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     fn ICoreWindowStatic<R, F: FnOnce(&ICoreWindowStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1805,8 +1805,8 @@ impl CoreWindowActivationMode {
     pub const ActivatedNotForeground: Self = Self(2);
     pub const ActivatedInForeground: Self = Self(3);
 }
-impl windows_core::TypeKind for CoreWindowActivationMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CoreWindowActivationMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CoreWindowActivationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationMode;i4)");
@@ -1820,8 +1820,8 @@ impl CoreWindowActivationState {
     pub const Deactivated: Self = Self(1);
     pub const PointerActivated: Self = Self(2);
 }
-impl windows_core::TypeKind for CoreWindowActivationState {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CoreWindowActivationState {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CoreWindowActivationState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationState;i4)");
@@ -1887,7 +1887,7 @@ impl CoreWindowDialog {
     pub fn Commands(&self) -> windows_core::Result<windows_collections::IVector<super::Popups::IUICommand>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Commands)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Commands)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DefaultCommandIndex(&self) -> windows_core::Result<u32> {
@@ -1912,7 +1912,7 @@ impl CoreWindowDialog {
     pub fn BackButtonCommand(&self) -> windows_core::Result<super::Popups::UICommandInvokedHandler> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BackButtonCommand)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BackButtonCommand)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_Popups")]
@@ -1926,13 +1926,13 @@ impl CoreWindowDialog {
     pub fn ShowAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::Popups::IUICommand>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ShowAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ShowAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateWithTitle(title: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ICoreWindowDialogFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICoreWindowDialogFactory<R, F: FnOnce(&ICoreWindowDialogFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1982,8 +1982,8 @@ impl CoreWindowFlowDirection {
     pub const LeftToRight: Self = Self(0);
     pub const RightToLeft: Self = Self(1);
 }
-impl windows_core::TypeKind for CoreWindowFlowDirection {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CoreWindowFlowDirection {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CoreWindowFlowDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowFlowDirection;i4)");
@@ -2042,7 +2042,7 @@ impl CoreWindowFlyout {
     pub fn Commands(&self) -> windows_core::Result<windows_collections::IVector<super::Popups::IUICommand>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Commands)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Commands)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DefaultCommandIndex(&self) -> windows_core::Result<u32> {
@@ -2058,7 +2058,7 @@ impl CoreWindowFlyout {
     pub fn BackButtonCommand(&self) -> windows_core::Result<super::Popups::UICommandInvokedHandler> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BackButtonCommand)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BackButtonCommand)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_Popups")]
@@ -2072,19 +2072,19 @@ impl CoreWindowFlyout {
     pub fn ShowAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::Popups::IUICommand>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ShowAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ShowAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Create(position: super::super::Foundation::Point) -> windows_core::Result<Self> {
         Self::ICoreWindowFlyoutFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), position, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), position, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateWithTitle(position: super::super::Foundation::Point, title: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ICoreWindowFlyoutFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithTitle)(windows_core::Interface::as_raw(this), position, core::mem::transmute_copy(title), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithTitle)(windows_core::Interface::as_raw(this), position, core::mem::transmute_copy(title), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICoreWindowFlyoutFactory<R, F: FnOnce(&ICoreWindowFlyoutFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2143,7 +2143,7 @@ impl CoreWindowResizeManager {
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ICoreWindowResizeManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICoreWindowResizeManagerStatics<R, F: FnOnce(&ICoreWindowResizeManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2478,7 +2478,7 @@ impl ICoreInputSourceBase {
     pub fn Dispatcher(&self) -> windows_core::Result<CoreDispatcher> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Dispatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Dispatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsInputEnabled(&self) -> windows_core::Result<bool> {
@@ -2648,7 +2648,7 @@ impl ICorePointerInputSource {
     pub fn PointerCursor(&self) -> windows_core::Result<CoreCursor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PointerCursor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PointerCursor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetPointerCursor<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -3029,7 +3029,7 @@ impl ICorePointerInputSource2 {
     pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::System::DispatcherQueue> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DispatcherQueue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DispatcherQueue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ReleasePointerCapture(&self) -> windows_core::Result<()> {
@@ -3058,7 +3058,7 @@ impl ICorePointerInputSource2 {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerCursor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PointerCursor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetPointerCursor<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -3380,7 +3380,7 @@ impl ICoreWindow {
     pub fn AutomationHostProvider(&self) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AutomationHostProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AutomationHostProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Bounds(&self) -> windows_core::Result<super::super::Foundation::Rect> {
@@ -3393,13 +3393,13 @@ impl ICoreWindow {
     pub fn CustomProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CustomProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CustomProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Dispatcher(&self) -> windows_core::Result<CoreDispatcher> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Dispatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Dispatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FlowDirection(&self) -> windows_core::Result<CoreWindowFlowDirection> {
@@ -3423,7 +3423,7 @@ impl ICoreWindow {
     pub fn PointerCursor(&self) -> windows_core::Result<CoreCursor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PointerCursor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PointerCursor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetPointerCursor<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -5017,7 +5017,7 @@ impl PointerEventArgs {
     pub fn CurrentPoint(&self) -> windows_core::Result<super::Input::PointerPoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CurrentPoint)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CurrentPoint)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
@@ -5031,7 +5031,7 @@ impl PointerEventArgs {
     pub fn GetIntermediatePoints(&self) -> windows_core::Result<windows_collections::IVector<super::Input::PointerPoint>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIntermediatePoints)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetIntermediatePoints)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5078,7 +5078,7 @@ impl SystemNavigationManager {
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ISystemNavigationManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ISystemNavigationManagerStatics<R, F: FnOnce(&ISystemNavigationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

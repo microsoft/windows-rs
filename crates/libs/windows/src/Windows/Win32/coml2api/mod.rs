@@ -4,7 +4,7 @@ pub unsafe fn CreateILockBytesOnHGlobal(hglobal: Option<super::HGLOBAL>, fdelete
     windows_core::link!("ole32.dll" "system" fn CreateILockBytesOnHGlobal(hglobal : super::HGLOBAL, fdeleteonrelease : windows_core::BOOL, pplkbyt : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateILockBytesOnHGlobal(hglobal.unwrap_or(core::mem::zeroed()) as _, fdeleteonrelease.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateILockBytesOnHGlobal(hglobal.unwrap_or(core::mem::zeroed()) as _, fdeleteonrelease.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -74,7 +74,7 @@ pub unsafe fn StgCreateDocfile(pwcsname: Option<*const u16>, grfmode: u32, reser
     windows_core::link!("ole32.dll" "system" fn StgCreateDocfile(pwcsname : *const u16, grfmode : u32, reserved : u32, ppstgopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        StgCreateDocfile(pwcsname.unwrap_or(core::mem::zeroed()) as _, grfmode, reserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        StgCreateDocfile(pwcsname.unwrap_or(core::mem::zeroed()) as _, grfmode, reserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "objidl")]
@@ -86,7 +86,7 @@ where
     windows_core::link!("ole32.dll" "system" fn StgCreateDocfileOnILockBytes(plkbyt : *mut core::ffi::c_void, grfmode : u32, reserved : u32, ppstgopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        StgCreateDocfileOnILockBytes(plkbyt.param().abi(), grfmode, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        StgCreateDocfileOnILockBytes(plkbyt.param().abi(), grfmode, reserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(all(feature = "objidl", feature = "propidlbase"))]
@@ -98,7 +98,7 @@ where
     windows_core::link!("ole32.dll" "system" fn StgCreatePropSetStg(pstorage : *mut core::ffi::c_void, dwreserved : u32, pppropsetstg : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        StgCreatePropSetStg(pstorage.param().abi(), dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        StgCreatePropSetStg(pstorage.param().abi(), dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "propidlbase")]
@@ -110,7 +110,7 @@ where
     windows_core::link!("ole32.dll" "system" fn StgCreatePropStg(punk : *mut core::ffi::c_void, fmtid : *const windows_core::GUID, pclsid : *const windows_core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        StgCreatePropStg(punk.param().abi(), fmtid, pclsid, grfflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        StgCreatePropStg(punk.param().abi(), fmtid, pclsid, grfflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "winnt")]
@@ -121,7 +121,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn StgCreateStorageEx(pwcsname : *const u16, grfmode : u32, stgfmt : u32, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, riid : *const windows_core::GUID, ppobjectopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { StgCreateStorageEx(pwcsname.unwrap_or(core::mem::zeroed()) as _, grfmode, stgfmt, grfattrs, pstgoptions.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { StgCreateStorageEx(pwcsname.unwrap_or(core::mem::zeroed()) as _, grfmode, stgfmt, grfattrs, pstgoptions.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn StgIsStorageFile(pwcsname: *const u16) -> windows_core::HRESULT {
@@ -146,7 +146,7 @@ where
     windows_core::link!("ole32.dll" "system" fn StgOpenPropStg(punk : *mut core::ffi::c_void, fmtid : *const windows_core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        StgOpenPropStg(punk.param().abi(), fmtid, grfflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        StgOpenPropStg(punk.param().abi(), fmtid, grfflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "objidl")]
@@ -158,7 +158,7 @@ where
     windows_core::link!("ole32.dll" "system" fn StgOpenStorage(pwcsname : *const u16, pstgpriority : *mut core::ffi::c_void, grfmode : u32, snbexclude : *const windows_core::PCWSTR, reserved : u32, ppstgopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        StgOpenStorage(pwcsname.unwrap_or(core::mem::zeroed()) as _, pstgpriority.param().abi(), grfmode, snbexclude.unwrap_or(core::mem::zeroed()) as _, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        StgOpenStorage(pwcsname.unwrap_or(core::mem::zeroed()) as _, pstgpriority.param().abi(), grfmode, snbexclude.unwrap_or(core::mem::zeroed()) as _, reserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "winnt")]
@@ -169,7 +169,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn StgOpenStorageEx(pwcsname : *const u16, grfmode : u32, stgfmt : u32, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, riid : *const windows_core::GUID, ppobjectopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { StgOpenStorageEx(pwcsname, grfmode, stgfmt, grfattrs, pstgoptions.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { StgOpenStorageEx(pwcsname, grfmode, stgfmt, grfattrs, pstgoptions.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
@@ -181,7 +181,7 @@ where
     windows_core::link!("ole32.dll" "system" fn StgOpenStorageOnILockBytes(plkbyt : *mut core::ffi::c_void, pstgpriority : *mut core::ffi::c_void, grfmode : u32, snbexclude : *const windows_core::PCWSTR, reserved : u32, ppstgopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        StgOpenStorageOnILockBytes(plkbyt.param().abi(), pstgpriority.param().abi(), grfmode, snbexclude.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        StgOpenStorageOnILockBytes(plkbyt.param().abi(), pstgpriority.param().abi(), grfmode, snbexclude.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "minwindef")]

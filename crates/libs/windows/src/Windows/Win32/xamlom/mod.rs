@@ -388,7 +388,7 @@ impl IVisualTreeService2 {
     pub unsafe fn RenderTargetBitmap(&self, handle: InstanceHandle, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> windows_core::Result<IBitmapData> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RenderTargetBitmap)(windows_core::Interface::as_raw(self), handle, options, maxpixelwidth, maxpixelheight, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RenderTargetBitmap)(windows_core::Interface::as_raw(self), handle, options, maxpixelwidth, maxpixelheight, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -638,25 +638,25 @@ impl IXamlDiagnostics {
     pub unsafe fn GetDispatcher(&self) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDispatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDispatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetUiLayer(&self) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUiLayer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetUiLayer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetApplication(&self) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetApplication)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetApplication)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetIInspectableFromHandle(&self, instancehandle: InstanceHandle) -> windows_core::Result<windows_core::IInspectable> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIInspectableFromHandle)(windows_core::Interface::as_raw(self), instancehandle, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetIInspectableFromHandle)(windows_core::Interface::as_raw(self), instancehandle, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetHandleFromIInspectable<P0>(&self, pinstance: P0) -> windows_core::Result<InstanceHandle>

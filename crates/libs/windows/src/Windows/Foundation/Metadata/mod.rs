@@ -86,8 +86,8 @@ impl AttributeTargets {
     pub const InterfaceImpl: Self = Self(2048);
     pub const ApiContract: Self = Self(8192);
 }
-impl windows_core::TypeKind for AttributeTargets {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for AttributeTargets {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for AttributeTargets {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.AttributeTargets;u4)");
@@ -133,8 +133,8 @@ impl CompositionType {
     pub const Protected: Self = Self(1);
     pub const Public: Self = Self(2);
 }
-impl windows_core::TypeKind for CompositionType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CompositionType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CompositionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.CompositionType;i4)");
@@ -147,8 +147,8 @@ impl DeprecationType {
     pub const Deprecate: Self = Self(0);
     pub const Remove: Self = Self(1);
 }
-impl windows_core::TypeKind for DeprecationType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DeprecationType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DeprecationType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.DeprecationType;i4)");
@@ -163,8 +163,8 @@ impl FeatureStage {
     pub const EnabledByDefault: Self = Self(2);
     pub const AlwaysEnabled: Self = Self(3);
 }
-impl windows_core::TypeKind for FeatureStage {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for FeatureStage {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for FeatureStage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.FeatureStage;i4)");
@@ -178,8 +178,8 @@ impl GCPressureAmount {
     pub const Medium: Self = Self(1);
     pub const High: Self = Self(2);
 }
-impl windows_core::TypeKind for GCPressureAmount {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for GCPressureAmount {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for GCPressureAmount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
@@ -214,8 +214,8 @@ impl MarshalingType {
     pub const Standard: Self = Self(3);
     pub const InvalidMarshaling: Self = Self(0);
 }
-impl windows_core::TypeKind for MarshalingType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for MarshalingType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for MarshalingType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.MarshalingType;i4)");
@@ -228,8 +228,8 @@ impl Platform {
     pub const Windows: Self = Self(0);
     pub const WindowsPhone: Self = Self(1);
 }
-impl windows_core::TypeKind for Platform {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Platform {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Platform {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.Platform;i4)");
@@ -244,8 +244,8 @@ impl ThreadingModel {
     pub const Both: Self = Self(3);
     pub const InvalidThreading: Self = Self(0);
 }
-impl windows_core::TypeKind for ThreadingModel {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ThreadingModel {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ThreadingModel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.ThreadingModel;i4)");

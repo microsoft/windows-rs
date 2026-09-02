@@ -13,7 +13,7 @@ impl IEnumWIA_DEV_CAPS {
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -113,7 +113,7 @@ impl IEnumWIA_DEV_INFO {
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -213,7 +213,7 @@ impl IEnumWIA_FORMAT_INFO {
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -313,7 +313,7 @@ impl IEnumWiaItem {
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -413,7 +413,7 @@ impl IEnumWiaItem2 {
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -616,7 +616,7 @@ impl IWiaDataTransfer {
     pub unsafe fn idtEnumWIA_FORMAT_INFO(&self) -> windows_core::Result<IEnumWIA_FORMAT_INFO> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).idtEnumWIA_FORMAT_INFO)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).idtEnumWIA_FORMAT_INFO)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn idtGetExtendedTransferInfo(&self, pextendedtransferinfo: *mut WIA_EXTENDED_TRANSFER_INFO) -> windows_core::HRESULT {
@@ -704,20 +704,20 @@ impl IWiaDevMgr {
     pub unsafe fn EnumDeviceInfo(&self, lflag: i32) -> windows_core::Result<IEnumWIA_DEV_INFO> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumDeviceInfo)(windows_core::Interface::as_raw(self), lflag, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumDeviceInfo)(windows_core::Interface::as_raw(self), lflag, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateDevice(&self, bstrdeviceid: &windows_core::BSTR) -> windows_core::Result<IWiaItem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdeviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn SelectDeviceDlg(&self, hwndparent: super::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR) -> windows_core::Result<IWiaItem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent, ldevicetype, lflags, core::mem::transmute(pbstrdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent, ldevicetype, lflags, core::mem::transmute(pbstrdeviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "windef")]
@@ -743,7 +743,7 @@ impl IWiaDevMgr {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterEventCallbackInterface)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), peventguid, piwiaeventcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RegisterEventCallbackInterface)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), peventguid, piwiaeventcallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RegisterEventCallbackCLSID(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: &windows_core::BSTR, bstrdescription: &windows_core::BSTR, bstricon: &windows_core::BSTR) -> windows_core::HRESULT {
@@ -904,20 +904,20 @@ impl IWiaDevMgr2 {
     pub unsafe fn EnumDeviceInfo(&self, lflags: i32) -> windows_core::Result<IEnumWIA_DEV_INFO> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumDeviceInfo)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumDeviceInfo)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateDevice(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR) -> windows_core::Result<IWiaItem2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn SelectDeviceDlg(&self, hwndparent: super::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR) -> windows_core::Result<IWiaItem2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent, ldevicetype, lflags, core::mem::transmute(pbstrdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent, ldevicetype, lflags, core::mem::transmute(pbstrdeviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "windef")]
@@ -933,7 +933,7 @@ impl IWiaDevMgr2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterEventCallbackInterface)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), peventguid, piwiaeventcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RegisterEventCallbackInterface)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrdeviceid), peventguid, piwiaeventcallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RegisterEventCallbackProgram(&self, lflags: i32, bstrdeviceid: &windows_core::BSTR, peventguid: *const windows_core::GUID, bstrfullappname: &windows_core::BSTR, bstrcommandlinearg: &windows_core::BSTR, bstrname: &windows_core::BSTR, bstrdescription: &windows_core::BSTR, bstricon: &windows_core::BSTR) -> windows_core::HRESULT {
@@ -1284,7 +1284,7 @@ impl IWiaItem {
     pub unsafe fn EnumChildItems(&self) -> windows_core::Result<IEnumWiaItem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumChildItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumChildItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn DeleteItem(&self, lflags: i32) -> windows_core::HRESULT {
@@ -1293,19 +1293,19 @@ impl IWiaItem {
     pub unsafe fn CreateChildItem(&self, lflags: i32, bstritemname: &windows_core::BSTR, bstrfullitemname: &windows_core::BSTR) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateChildItem)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstritemname), core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateChildItem)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstritemname), core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const windows_core::GUID) -> windows_core::Result<IEnumWIA_DEV_CAPS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumRegisterEventInfo)(windows_core::Interface::as_raw(self), lflags, peventguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumRegisterEventInfo)(windows_core::Interface::as_raw(self), lflags, peventguid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindItemByName(&self, lflags: i32, bstrfullitemname: &windows_core::BSTR) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "windef")]
@@ -1318,13 +1318,13 @@ impl IWiaItem {
     pub unsafe fn GetRootItem(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRootItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetRootItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnumDeviceCapabilities(&self, lflags: i32) -> windows_core::Result<IEnumWIA_DEV_CAPS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumDeviceCapabilities)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumDeviceCapabilities)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn DumpItemData(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -1574,7 +1574,7 @@ impl IWiaItem2 {
     pub unsafe fn CreateChildItem(&self, litemflags: i32, lcreationflags: i32, bstritemname: &windows_core::BSTR) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateChildItem)(windows_core::Interface::as_raw(self), litemflags, lcreationflags, core::mem::transmute_copy(bstritemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateChildItem)(windows_core::Interface::as_raw(self), litemflags, lcreationflags, core::mem::transmute_copy(bstritemname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn DeleteItem(&self, lflags: i32) -> windows_core::HRESULT {
@@ -1583,13 +1583,13 @@ impl IWiaItem2 {
     pub unsafe fn EnumChildItems(&self, pcategoryguid: *const windows_core::GUID) -> windows_core::Result<IEnumWiaItem2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumChildItems)(windows_core::Interface::as_raw(self), pcategoryguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumChildItems)(windows_core::Interface::as_raw(self), pcategoryguid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindItemByName(&self, lflags: i32, bstrfullitemname: &windows_core::BSTR) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetItemCategory(&self) -> windows_core::Result<windows_core::GUID> {
@@ -1614,7 +1614,7 @@ impl IWiaItem2 {
     pub unsafe fn EnumDeviceCapabilities(&self, lflags: i32) -> windows_core::Result<IEnumWIA_DEV_CAPS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumDeviceCapabilities)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumDeviceCapabilities)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CheckExtension(&self, lflags: i32, bstrname: &windows_core::BSTR, riidextensioninterface: *const windows_core::GUID) -> windows_core::Result<windows_core::BOOL> {
@@ -1628,30 +1628,30 @@ impl IWiaItem2 {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrname), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstrname), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetParentItem(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetParentItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetParentItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetRootItem(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRootItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetRootItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetPreviewComponent(&self, lflags: i32) -> windows_core::Result<IWiaPreview> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPreviewComponent)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPreviewComponent)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const windows_core::GUID) -> windows_core::Result<IEnumWIA_DEV_CAPS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumRegisterEventInfo)(windows_core::Interface::as_raw(self), lflags, peventguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumRegisterEventInfo)(windows_core::Interface::as_raw(self), lflags, peventguid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Diagnostic(&self, ulsize: u32, pbuffer: *const u8) -> windows_core::HRESULT {
@@ -2251,7 +2251,7 @@ impl IWiaPropertyStorage {
     pub unsafe fn Enum(&self) -> windows_core::Result<super::IEnumSTATPROPSTG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "minwindef")]
@@ -2577,7 +2577,7 @@ impl IWiaTransfer {
     pub unsafe fn EnumWIA_FORMAT_INFO(&self) -> windows_core::Result<IEnumWIA_FORMAT_INFO> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumWIA_FORMAT_INFO)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumWIA_FORMAT_INFO)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2657,7 +2657,7 @@ impl IWiaTransferCallback {
     pub unsafe fn GetNextStream(&self, lflags: i32, bstritemname: &windows_core::BSTR, bstrfullitemname: &windows_core::BSTR) -> windows_core::Result<super::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNextStream)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstritemname), core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNextStream)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(bstritemname), core::mem::transmute_copy(bstrfullitemname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

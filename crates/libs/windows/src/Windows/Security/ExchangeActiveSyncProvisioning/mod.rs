@@ -158,13 +158,13 @@ impl EasClientSecurityPolicy {
     pub fn CheckCompliance(&self) -> windows_core::Result<EasComplianceResults> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CheckCompliance)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CheckCompliance)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ApplyAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<EasComplianceResults>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ApplyAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ApplyAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -264,8 +264,8 @@ impl EasDisallowConvenienceLogonResult {
     pub const CanBeCompliant: Self = Self(2);
     pub const RequestedPolicyIsStricter: Self = Self(3);
 }
-impl windows_core::TypeKind for EasDisallowConvenienceLogonResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for EasDisallowConvenienceLogonResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for EasDisallowConvenienceLogonResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasDisallowConvenienceLogonResult;i4)");
@@ -279,8 +279,8 @@ impl EasEncryptionProviderType {
     pub const WindowsEncryption: Self = Self(1);
     pub const OtherEncryption: Self = Self(2);
 }
-impl windows_core::TypeKind for EasEncryptionProviderType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for EasEncryptionProviderType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for EasEncryptionProviderType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasEncryptionProviderType;i4)");
@@ -296,8 +296,8 @@ impl EasMaxInactivityTimeLockResult {
     pub const RequestedPolicyIsStricter: Self = Self(3);
     pub const InvalidParameter: Self = Self(4);
 }
-impl windows_core::TypeKind for EasMaxInactivityTimeLockResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for EasMaxInactivityTimeLockResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for EasMaxInactivityTimeLockResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxInactivityTimeLockResult;i4)");
@@ -313,8 +313,8 @@ impl EasMaxPasswordFailedAttemptsResult {
     pub const RequestedPolicyIsStricter: Self = Self(3);
     pub const InvalidParameter: Self = Self(4);
 }
-impl windows_core::TypeKind for EasMaxPasswordFailedAttemptsResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for EasMaxPasswordFailedAttemptsResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for EasMaxPasswordFailedAttemptsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxPasswordFailedAttemptsResult;i4)");
@@ -340,8 +340,8 @@ impl EasMinPasswordComplexCharactersResult {
     pub const ChangeConnectedAdminsPassword: Self = Self(13);
     pub const ChangeConnectedUserPassword: Self = Self(14);
 }
-impl windows_core::TypeKind for EasMinPasswordComplexCharactersResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for EasMinPasswordComplexCharactersResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for EasMinPasswordComplexCharactersResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordComplexCharactersResult;i4)");
@@ -367,8 +367,8 @@ impl EasMinPasswordLengthResult {
     pub const ChangeConnectedAdminsPassword: Self = Self(13);
     pub const ChangeConnectedUserPassword: Self = Self(14);
 }
-impl windows_core::TypeKind for EasMinPasswordLengthResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for EasMinPasswordLengthResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for EasMinPasswordLengthResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordLengthResult;i4)");
@@ -388,8 +388,8 @@ impl EasPasswordExpirationResult {
     pub const AdminsCannotChangePassword: Self = Self(7);
     pub const LocalControlledUsersCannotChangePassword: Self = Self(8);
 }
-impl windows_core::TypeKind for EasPasswordExpirationResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for EasPasswordExpirationResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for EasPasswordExpirationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordExpirationResult;i4)");
@@ -405,8 +405,8 @@ impl EasPasswordHistoryResult {
     pub const RequestedPolicyIsStricter: Self = Self(3);
     pub const InvalidParameter: Self = Self(4);
 }
-impl windows_core::TypeKind for EasPasswordHistoryResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for EasPasswordHistoryResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for EasPasswordHistoryResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordHistoryResult;i4)");
@@ -436,8 +436,8 @@ impl EasRequireEncryptionResult {
     pub const OsNotProtected: Self = Self(11);
     pub const UnexpectedFailure: Self = Self(12);
 }
-impl windows_core::TypeKind for EasRequireEncryptionResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for EasRequireEncryptionResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for EasRequireEncryptionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasRequireEncryptionResult;i4)");

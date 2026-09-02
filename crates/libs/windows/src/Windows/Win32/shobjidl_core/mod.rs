@@ -14,7 +14,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHAssocEnumHandlers(pszextra : windows_core::PCWSTR, affilter : ASSOC_FILTER, ppenumhandler : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHAssocEnumHandlers(pszextra.param().abi(), affilter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        SHAssocEnumHandlers(pszextra.param().abi(), affilter, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -25,7 +25,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHAssocEnumHandlersForProtocolByApplication(protocol : windows_core::PCWSTR, riid : *const windows_core::GUID, enumhandlers : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHAssocEnumHandlersForProtocolByApplication(protocol.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHAssocEnumHandlersForProtocolByApplication(protocol.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn SHCreateAssociationRegistration<T>() -> windows_core::Result<T>
@@ -34,7 +34,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateAssociationRegistration(riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHCreateAssociationRegistration(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHCreateAssociationRegistration(&T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn SHCreateDefaultExtractIcon<T>() -> windows_core::Result<T>
@@ -43,7 +43,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateDefaultExtractIcon(riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHCreateDefaultExtractIcon(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHCreateDefaultExtractIcon(&T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -53,7 +53,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateItemFromIDList(pidl : *const super::ITEMIDLIST, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHCreateItemFromIDList(pidl, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHCreateItemFromIDList(pidl, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
@@ -65,7 +65,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateItemFromParsingName(pszpath : windows_core::PCWSTR, pbc : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHCreateItemFromParsingName(pszpath.param().abi(), pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHCreateItemFromParsingName(pszpath.param().abi(), pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
@@ -78,7 +78,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateItemFromRelativeName(psiparent : *mut core::ffi::c_void, pszname : windows_core::PCWSTR, pbc : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHCreateItemFromRelativeName(psiparent.param().abi(), pszname.param().abi(), pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHCreateItemFromRelativeName(psiparent.param().abi(), pszname.param().abi(), pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -89,7 +89,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const super::KNOWNFOLDERID, dwkfflags : u32, pszitem : windows_core::PCWSTR, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHCreateItemInKnownFolder(kfid, dwkfflags, pszitem.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHCreateItemInKnownFolder(kfid, dwkfflags, pszitem.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -100,7 +100,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateItemWithParent(pidlparent : *const super::ITEMIDLIST, psfparent : *mut core::ffi::c_void, pidl : *const super::ITEMIDLIST, riid : *const windows_core::GUID, ppvitem : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHCreateItemWithParent(pidlparent.unwrap_or(core::mem::zeroed()) as _, psfparent.param().abi(), pidl, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHCreateItemWithParent(pidlparent.unwrap_or(core::mem::zeroed()) as _, psfparent.param().abi(), pidl, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -111,7 +111,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : *const super::ITEMIDLIST, psf : *mut core::ffi::c_void, cidl : u32, ppidl : *const super::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateShellItemArray(pidlparent.unwrap_or(core::mem::zeroed()) as _, psf.param().abi(), ppidl.map_or(0, |slice| slice.len().try_into().unwrap()), ppidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        SHCreateShellItemArray(pidlparent.unwrap_or(core::mem::zeroed()) as _, psf.param().abi(), ppidl.map_or(0, |slice| slice.len().try_into().unwrap()), ppidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "objidl")]
@@ -123,7 +123,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromDataObject(pdo : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHCreateShellItemArrayFromDataObject(pdo.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHCreateShellItemArrayFromDataObject(pdo.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -131,7 +131,7 @@ pub unsafe fn SHCreateShellItemArrayFromIDLists(rgpidl: &[super::LPCITEMIDLIST])
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromIDLists(cidl : u32, rgpidl : *const super::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateShellItemArrayFromIDLists(rgpidl.len().try_into().unwrap(), rgpidl.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        SHCreateShellItemArrayFromIDLists(rgpidl.len().try_into().unwrap(), rgpidl.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -142,7 +142,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromShellItem(psi : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHCreateShellItemArrayFromShellItem(psi.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHCreateShellItemArrayFromShellItem(psi.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -165,7 +165,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHGetItemFromDataObject(pdtobj : *mut core::ffi::c_void, dwflags : DATAOBJ_GET_ITEM_FLAGS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHGetItemFromDataObject(pdtobj.param().abi(), dwflags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHGetItemFromDataObject(pdtobj.param().abi(), dwflags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn SHGetItemFromObject<P0, T>(punk: P0) -> windows_core::Result<T>
@@ -175,7 +175,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHGetItemFromObject(punk : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHGetItemFromObject(punk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHGetItemFromObject(punk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -194,7 +194,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHGetPropertyStoreFromIDList(pidl : *const super::ITEMIDLIST, flags : super::GETPROPERTYSTOREFLAGS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHGetPropertyStoreFromIDList(pidl, flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHGetPropertyStoreFromIDList(pidl, flags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "propsys"))]
 #[inline]
@@ -206,7 +206,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHGetPropertyStoreFromParsingName(pszpath : windows_core::PCWSTR, pbc : *mut core::ffi::c_void, flags : super::GETPROPERTYSTOREFLAGS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHGetPropertyStoreFromParsingName(pszpath.param().abi(), pbc.param().abi(), flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHGetPropertyStoreFromParsingName(pszpath.param().abi(), pbc.param().abi(), flags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -1979,7 +1979,7 @@ impl IApplicationDocumentLists {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetList)(windows_core::Interface::as_raw(self), listtype, citemsdesired, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetList)(windows_core::Interface::as_raw(self), listtype, citemsdesired, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -2055,7 +2055,7 @@ impl IAssocHandler {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateInvoker)(windows_core::Interface::as_raw(self), pdo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateInvoker)(windows_core::Interface::as_raw(self), pdo.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2510,7 +2510,7 @@ impl IBandSite {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetBandObject)(windows_core::Interface::as_raw(self), dwbandid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetBandObject)(windows_core::Interface::as_raw(self), dwbandid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn SetBandSiteInfo(&self, pbsinfo: *const BANDSITEINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBandSiteInfo)(windows_core::Interface::as_raw(self), pbsinfo) }
@@ -2800,7 +2800,7 @@ impl ICategoryProvider {
     pub unsafe fn EnumCategories(&self) -> windows_core::Result<super::IEnumGUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumCategories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumCategories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetCategoryName(&self, pguid: *const windows_core::GUID, pszname: windows_core::PWSTR, cch: u32) -> windows_core::HRESULT {
@@ -2811,7 +2811,7 @@ impl ICategoryProvider {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateCategory)(windows_core::Interface::as_raw(self), pguid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateCategory)(windows_core::Interface::as_raw(self), pguid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -3672,7 +3672,7 @@ impl ICustomDestinationList {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).BeginList)(windows_core::Interface::as_raw(self), pcminslots as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).BeginList)(windows_core::Interface::as_raw(self), pcminslots as _, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "objectarray")]
     pub unsafe fn AppendCategory<P0, P1>(&self, pszcategory: P0, poa: P1) -> windows_core::HRESULT
@@ -3700,7 +3700,7 @@ impl ICustomDestinationList {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetRemovedDestinations)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetRemovedDestinations)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn DeleteList<P0>(&self, pszappid: P0) -> windows_core::HRESULT
     where
@@ -3827,7 +3827,7 @@ impl IDataObjectProvider {
     pub unsafe fn GetDataObject(&self) -> windows_core::Result<super::IDataObject> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDataObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDataObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "objidl")]
@@ -3898,7 +3898,7 @@ impl IDataTransferManagerInterop {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn ShowShareUIForWindow(&self, appwindow: super::HWND) -> windows_core::HRESULT {
@@ -4332,7 +4332,7 @@ impl IDeskBar {
     pub unsafe fn GetClient(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "windef")]
@@ -4468,7 +4468,7 @@ impl IDesktopWallpaper {
     pub unsafe fn GetSlideshow(&self) -> windows_core::Result<IShellItemArray> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSlideshow)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSlideshow)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetSlideshowOptions(&self, options: DESKTOP_SLIDESHOW_OPTIONS, slideshowtick: u32) -> windows_core::HRESULT {
@@ -4722,7 +4722,7 @@ impl IDestinationStreamFactory {
     pub unsafe fn GetDestinationStream(&self) -> windows_core::Result<super::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDestinationStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDestinationStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5093,7 +5093,7 @@ impl IEnumExplorerCommand {
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5172,7 +5172,7 @@ impl IEnumExtraSearch {
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5252,7 +5252,7 @@ impl IEnumFullIDList {
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5338,7 +5338,7 @@ impl IEnumIDList {
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5423,7 +5423,7 @@ impl IEnumObjects {
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5502,7 +5502,7 @@ impl IEnumResources {
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5581,7 +5581,7 @@ impl IEnumShellItems {
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5918,7 +5918,7 @@ impl IExplorerBrowser {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentView)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentView)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -6252,7 +6252,7 @@ impl IExplorerCommand {
     pub unsafe fn EnumSubCommands(&self) -> windows_core::Result<IEnumExplorerCommand> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumSubCommands)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumSubCommands)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6403,14 +6403,14 @@ impl IExplorerCommandProvider {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetCommands)(windows_core::Interface::as_raw(self), punksite.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCommands)(windows_core::Interface::as_raw(self), punksite.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetCommand<T>(&self, rguidcommandid: *const windows_core::GUID) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetCommand)(windows_core::Interface::as_raw(self), rguidcommandid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCommand)(windows_core::Interface::as_raw(self), rguidcommandid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -6709,13 +6709,13 @@ impl IFileDialog {
     pub unsafe fn GetFolder(&self) -> windows_core::Result<IShellItem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetCurrentSelection(&self) -> windows_core::Result<IShellItem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrentSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetCurrentSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetFileName<P0>(&self, pszname: P0) -> windows_core::HRESULT
@@ -6751,7 +6751,7 @@ impl IFileDialog {
     pub unsafe fn GetResult(&self) -> windows_core::Result<IShellItem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetResult)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetResult)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AddPlace<P0>(&self, psi: P0, fdap: FDAP) -> windows_core::HRESULT
@@ -7761,13 +7761,13 @@ impl IFileOpenDialog {
     pub unsafe fn GetResults(&self) -> windows_core::Result<IShellItemArray> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetResults)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetResults)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetSelectedItems(&self) -> windows_core::Result<IShellItemArray> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSelectedItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSelectedItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8508,7 +8508,7 @@ impl IFileSaveDialog {
     pub unsafe fn GetProperties(&self) -> windows_core::Result<super::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "propsys", feature = "windef"))]
@@ -8942,7 +8942,7 @@ impl IFolderView {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "shtypes")]
     pub unsafe fn Item(&self, iitemindex: i32) -> windows_core::Result<super::LPITEMIDLIST> {
@@ -8962,7 +8962,7 @@ impl IFolderView {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Items)(windows_core::Interface::as_raw(self), uflags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Items)(windows_core::Interface::as_raw(self), uflags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetSelectionMarkedItem(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -9285,7 +9285,7 @@ impl IFolderView2 {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), iitem, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), iitem, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetVisibleItem(&self, istart: i32, fprevious: bool) -> windows_core::Result<i32> {
         unsafe {
@@ -9302,7 +9302,7 @@ impl IFolderView2 {
     pub unsafe fn GetSelection(&self, fnoneimpliesfolder: bool) -> windows_core::Result<IShellItemArray> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), fnoneimpliesfolder.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), fnoneimpliesfolder.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "shtypes")]
@@ -9672,7 +9672,7 @@ impl IFolderViewSettings {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetColumnPropertyList)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetColumnPropertyList)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn GetGroupByProperty(&self, pkey: *mut super::PROPERTYKEY, pfgroupascending: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -10800,7 +10800,7 @@ impl IKnownFolder {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetShellItem)(windows_core::Interface::as_raw(self), dwflags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetShellItem)(windows_core::Interface::as_raw(self), dwflags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetPath(&self, dwflags: u32) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -11014,7 +11014,7 @@ impl IKnownFolderManager {
     pub unsafe fn GetFolder(&self, rfid: *const super::KNOWNFOLDERID) -> windows_core::Result<IKnownFolder> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), rfid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), rfid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFolderByName<P0>(&self, pszcanonicalname: P0) -> windows_core::Result<IKnownFolder>
@@ -11023,7 +11023,7 @@ impl IKnownFolderManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFolderByName)(windows_core::Interface::as_raw(self), pszcanonicalname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFolderByName)(windows_core::Interface::as_raw(self), pszcanonicalname.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "shtypes")]
@@ -11040,14 +11040,14 @@ impl IKnownFolderManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindFolderFromPath)(windows_core::Interface::as_raw(self), pszpath.param().abi(), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindFolderFromPath)(windows_core::Interface::as_raw(self), pszpath.param().abi(), mode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "shtypes")]
     pub unsafe fn FindFolderFromIDList(&self, pidl: *const super::ITEMIDLIST) -> windows_core::Result<IKnownFolder> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindFolderFromIDList)(windows_core::Interface::as_raw(self), pidl, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindFolderFromIDList)(windows_core::Interface::as_raw(self), pidl, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "shtypes", feature = "windef"))]
@@ -11742,7 +11742,7 @@ impl INameSpaceTreeControl {
     pub unsafe fn GetRootItems(&self) -> windows_core::Result<IShellItemArray> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRootItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetRootItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetItemState<P0>(&self, psi: P0, nstcismask: NSTCITEMSTATE, nstcisflags: NSTCITEMSTATE) -> windows_core::HRESULT
@@ -11763,7 +11763,7 @@ impl INameSpaceTreeControl {
     pub unsafe fn GetSelectedItems(&self) -> windows_core::Result<IShellItemArray> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSelectedItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSelectedItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetItemCustomState<P0>(&self, psi: P0) -> windows_core::Result<i32>
@@ -11799,14 +11799,14 @@ impl INameSpaceTreeControl {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNextItem)(windows_core::Interface::as_raw(self), psi.param().abi(), nstcgi, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNextItem)(windows_core::Interface::as_raw(self), psi.param().abi(), nstcgi, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn HitTest(&self, ppt: *const super::POINT) -> windows_core::Result<IShellItem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HitTest)(windows_core::Interface::as_raw(self), ppt, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).HitTest)(windows_core::Interface::as_raw(self), ppt, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "windef")]
@@ -12497,7 +12497,7 @@ impl IObjectProvider {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).QueryObject)(windows_core::Interface::as_raw(self), guidobject, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).QueryObject)(windows_core::Interface::as_raw(self), guidobject, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -12819,7 +12819,7 @@ impl IObjectWithSelection {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -12943,7 +12943,7 @@ impl IOpenSearchSource {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetResults)(windows_core::Interface::as_raw(self), hwnd, pszquery.param().abi(), dwstartindex, dwcount, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetResults)(windows_core::Interface::as_raw(self), hwnd, pszquery.param().abi(), dwstartindex, dwcount, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -13567,7 +13567,7 @@ impl IParseAndCreateItem {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -14617,7 +14617,7 @@ impl IRelatedItem {
     pub unsafe fn GetItem(&self) -> windows_core::Result<IShellItem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -14887,7 +14887,7 @@ impl ISearchFolderItemFactory {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetShellItem)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetShellItem)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "shtypes")]
     pub unsafe fn GetIDList(&self) -> windows_core::Result<super::LPITEMIDLIST> {
@@ -15214,7 +15214,7 @@ impl IShellBrowser {
     pub unsafe fn GetViewStateStream(&self, grfmode: u32) -> windows_core::Result<super::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetViewStateStream)(windows_core::Interface::as_raw(self), grfmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetViewStateStream)(windows_core::Interface::as_raw(self), grfmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "windef")]
@@ -15231,7 +15231,7 @@ impl IShellBrowser {
     pub unsafe fn QueryActiveShellView(&self) -> windows_core::Result<IShellView> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryActiveShellView)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).QueryActiveShellView)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn OnViewWindowActive<P0>(&self, pshv: P0) -> windows_core::HRESULT
@@ -15485,7 +15485,7 @@ impl IShellFolder {
     pub unsafe fn EnumObjects(&self, hwnd: super::HWND, grfflags: SHCONTF) -> windows_core::Result<IEnumIDList> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumObjects)(windows_core::Interface::as_raw(self), hwnd, grfflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumObjects)(windows_core::Interface::as_raw(self), hwnd, grfflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "objidl", feature = "shtypes"))]
@@ -15495,7 +15495,7 @@ impl IShellFolder {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).BindToObject)(windows_core::Interface::as_raw(self), pidl, pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).BindToObject)(windows_core::Interface::as_raw(self), pidl, pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "objidl", feature = "shtypes"))]
     pub unsafe fn BindToStorage<P1, T>(&self, pidl: *const super::ITEMIDLIST, pbc: P1) -> windows_core::Result<T>
@@ -15504,7 +15504,7 @@ impl IShellFolder {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).BindToStorage)(windows_core::Interface::as_raw(self), pidl, pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).BindToStorage)(windows_core::Interface::as_raw(self), pidl, pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "minwindef", feature = "shtypes"))]
     pub unsafe fn CompareIDs(&self, lparam: super::LPARAM, pidl1: *const super::ITEMIDLIST, pidl2: *const super::ITEMIDLIST) -> windows_core::HRESULT {
@@ -15516,7 +15516,7 @@ impl IShellFolder {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateViewObject)(windows_core::Interface::as_raw(self), hwndowner, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateViewObject)(windows_core::Interface::as_raw(self), hwndowner, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "shtypes")]
     pub unsafe fn GetAttributesOf(&self, cidl: u32, apidl: *const super::LPCITEMIDLIST, rgfinout: *mut SFGAOF) -> windows_core::HRESULT {
@@ -15528,7 +15528,7 @@ impl IShellFolder {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetUIObjectOf)(windows_core::Interface::as_raw(self), hwndowner, cidl, apidl, &T::IID, rgfreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetUIObjectOf)(windows_core::Interface::as_raw(self), hwndowner, cidl, apidl, &T::IID, rgfreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "shtypes")]
     pub unsafe fn GetDisplayNameOf(&self, pidl: *const super::ITEMIDLIST, uflags: SHGDNF, pname: *mut super::STRRET) -> windows_core::HRESULT {
@@ -15716,7 +15716,7 @@ impl IShellFolder2 {
     pub unsafe fn EnumSearches(&self) -> windows_core::Result<IEnumExtraSearch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumSearches)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumSearches)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetDefaultColumn(&self, dwres: u32, psort: *mut u32, pdisplay: *mut u32) -> windows_core::HRESULT {
@@ -15992,12 +15992,12 @@ impl IShellItem {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).BindToHandler)(windows_core::Interface::as_raw(self), pbc.param().abi(), bhid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).BindToHandler)(windows_core::Interface::as_raw(self), pbc.param().abi(), bhid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetParent(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetDisplayName(&self, sigdnname: SIGDN) -> windows_core::Result<windows_core::PWSTR> {
@@ -16130,7 +16130,7 @@ impl IShellItem2 {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyStore)(windows_core::Interface::as_raw(self), flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyStore)(windows_core::Interface::as_raw(self), flags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "propsys")]
     pub unsafe fn GetPropertyStoreWithCreateObject<P1, T>(&self, flags: super::GETPROPERTYSTOREFLAGS, punkcreateobject: P1) -> windows_core::Result<T>
@@ -16139,7 +16139,7 @@ impl IShellItem2 {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyStoreWithCreateObject)(windows_core::Interface::as_raw(self), flags, punkcreateobject.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyStoreWithCreateObject)(windows_core::Interface::as_raw(self), flags, punkcreateobject.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "propsys", feature = "wtypes"))]
     pub unsafe fn GetPropertyStoreForKeys<T>(&self, rgkeys: *const super::PROPERTYKEY, ckeys: u32, flags: super::GETPROPERTYSTOREFLAGS) -> windows_core::Result<T>
@@ -16147,7 +16147,7 @@ impl IShellItem2 {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyStoreForKeys)(windows_core::Interface::as_raw(self), rgkeys, ckeys, flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyStoreForKeys)(windows_core::Interface::as_raw(self), rgkeys, ckeys, flags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn GetPropertyDescriptionList<T>(&self, keytype: *const super::PROPERTYKEY) -> windows_core::Result<T>
@@ -16155,7 +16155,7 @@ impl IShellItem2 {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyDescriptionList)(windows_core::Interface::as_raw(self), keytype, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyDescriptionList)(windows_core::Interface::as_raw(self), keytype, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "objidl")]
     pub unsafe fn Update<P0>(&self, pbc: P0) -> windows_core::HRESULT
@@ -16456,7 +16456,7 @@ impl IShellItemArray {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).BindToHandler)(windows_core::Interface::as_raw(self), pbc.param().abi(), bhid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).BindToHandler)(windows_core::Interface::as_raw(self), pbc.param().abi(), bhid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "propsys")]
     pub unsafe fn GetPropertyStore<T>(&self, flags: super::GETPROPERTYSTOREFLAGS) -> windows_core::Result<T>
@@ -16464,7 +16464,7 @@ impl IShellItemArray {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyStore)(windows_core::Interface::as_raw(self), flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyStore)(windows_core::Interface::as_raw(self), flags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn GetPropertyDescriptionList<T>(&self, keytype: *const super::PROPERTYKEY) -> windows_core::Result<T>
@@ -16472,7 +16472,7 @@ impl IShellItemArray {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyDescriptionList)(windows_core::Interface::as_raw(self), keytype, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyDescriptionList)(windows_core::Interface::as_raw(self), keytype, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetAttributes(&self, attribflags: SIATTRIBFLAGS, sfgaomask: SFGAOF) -> windows_core::Result<SFGAOF> {
         unsafe {
@@ -16489,13 +16489,13 @@ impl IShellItemArray {
     pub unsafe fn GetItemAt(&self, dwindex: u32) -> windows_core::Result<IShellItem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetItemAt)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetItemAt)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnumItems(&self) -> windows_core::Result<IEnumShellItems> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -16756,7 +16756,7 @@ impl IShellItemResources {
     pub unsafe fn EnumResources(&self) -> windows_core::Result<IEnumResources> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumResources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumResources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SupportsResource(&self, pcsir: *const SHELL_ITEM_RESOURCE) -> windows_core::HRESULT {
@@ -16767,14 +16767,14 @@ impl IShellItemResources {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).OpenResource)(windows_core::Interface::as_raw(self), pcsir, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).OpenResource)(windows_core::Interface::as_raw(self), pcsir, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn CreateResource<T>(&self, pcsir: *const SHELL_ITEM_RESOURCE) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateResource)(windows_core::Interface::as_raw(self), pcsir, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateResource)(windows_core::Interface::as_raw(self), pcsir, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn MarkForDelete(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MarkForDelete)(windows_core::Interface::as_raw(self)) }
@@ -16951,7 +16951,7 @@ impl IShellLibrary {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetFolders)(windows_core::Interface::as_raw(self), lff, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetFolders)(windows_core::Interface::as_raw(self), lff, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn ResolveFolder<P0, T>(&self, psifoldertoresolve: P0, dwtimeout: u32) -> windows_core::Result<T>
     where
@@ -16959,14 +16959,14 @@ impl IShellLibrary {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).ResolveFolder)(windows_core::Interface::as_raw(self), psifoldertoresolve.param().abi(), dwtimeout, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).ResolveFolder)(windows_core::Interface::as_raw(self), psifoldertoresolve.param().abi(), dwtimeout, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetDefaultSaveFolder<T>(&self, dsft: DEFAULTSAVEFOLDERTYPE) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetDefaultSaveFolder)(windows_core::Interface::as_raw(self), dsft, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetDefaultSaveFolder)(windows_core::Interface::as_raw(self), dsft, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn SetDefaultSaveFolder<P1>(&self, dsft: DEFAULTSAVEFOLDERTYPE, psi: P1) -> windows_core::HRESULT
     where
@@ -17016,7 +17016,7 @@ impl IShellLibrary {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), psifoldertosavein.param().abi(), pszlibraryname.param().abi(), lsf, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), psifoldertosavein.param().abi(), pszlibraryname.param().abi(), lsf, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "shtypes")]
@@ -17026,7 +17026,7 @@ impl IShellLibrary {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SaveInKnownFolder)(windows_core::Interface::as_raw(self), kfidtosavein, pszlibraryname.param().abi(), lsf, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SaveInKnownFolder)(windows_core::Interface::as_raw(self), kfidtosavein, pszlibraryname.param().abi(), lsf, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -17966,7 +17966,7 @@ impl IShellMenu {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetShellFolder)(windows_core::Interface::as_raw(self), pdwflags as _, ppidl as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetShellFolder)(windows_core::Interface::as_raw(self), pdwflags as _, ppidl as _, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn SetMenu(&self, hmenu: Option<super::HMENU>, hwnd: Option<super::HWND>, dwflags: u32) -> windows_core::HRESULT {
@@ -18356,7 +18356,7 @@ impl IShellView {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetItemObject)(windows_core::Interface::as_raw(self), uitem, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetItemObject)(windows_core::Interface::as_raw(self), uitem, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[cfg(feature = "oleidl")]
@@ -19237,7 +19237,7 @@ impl IThumbnailHandlerFactory {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetThumbnailHandler)(windows_core::Interface::as_raw(self), pidlchild, pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetThumbnailHandler)(windows_core::Interface::as_raw(self), pidlchild, pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -19423,7 +19423,7 @@ impl ITransferDestination {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateItem)(windows_core::Interface::as_raw(self), pszname.param().abi(), dwattributes, ullsize, flags, riiditem, ppvitem as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateItem)(windows_core::Interface::as_raw(self), pszname.param().abi(), dwattributes, ullsize, flags, riiditem, ppvitem as _, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -19531,7 +19531,7 @@ impl ITransferSource {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).OpenItem)(windows_core::Interface::as_raw(self), psi.param().abi(), flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).OpenItem)(windows_core::Interface::as_raw(self), psi.param().abi(), flags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn MoveItem<P0, P1, P2>(&self, psi: P0, psiparentdst: P1, psznamedst: P2, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::Result<IShellItem>
     where
@@ -19541,7 +19541,7 @@ impl ITransferSource {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MoveItem)(windows_core::Interface::as_raw(self), psi.param().abi(), psiparentdst.param().abi(), psznamedst.param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).MoveItem)(windows_core::Interface::as_raw(self), psi.param().abi(), psiparentdst.param().abi(), psznamedst.param().abi(), flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RecycleItem<P0, P1>(&self, psisource: P0, psiparentdest: P1, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::Result<IShellItem>
@@ -19551,7 +19551,7 @@ impl ITransferSource {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RecycleItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), psiparentdest.param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RecycleItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), psiparentdest.param().abi(), flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveItem<P0>(&self, psisource: P0, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::HRESULT
@@ -19567,7 +19567,7 @@ impl ITransferSource {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RenameItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), psznewname.param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RenameItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), psznewname.param().abi(), flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn LinkItem<P0, P1, P2>(&self, psisource: P0, psiparentdest: P1, psznewname: P2, flags: TRANSFER_SOURCE_FLAGS) -> windows_core::Result<IShellItem>
@@ -19578,7 +19578,7 @@ impl ITransferSource {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LinkItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), psiparentdest.param().abi(), psznewname.param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).LinkItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), psiparentdest.param().abi(), psznewname.param().abi(), flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ApplyPropertiesToItem<P0>(&self, psisource: P0) -> windows_core::Result<IShellItem>
@@ -19587,7 +19587,7 @@ impl ITransferSource {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ApplyPropertiesToItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ApplyPropertiesToItem)(windows_core::Interface::as_raw(self), psisource.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetDefaultDestinationName<P0, P1>(&self, psisource: P0, psiparentdest: P1) -> windows_core::Result<windows_core::PWSTR>

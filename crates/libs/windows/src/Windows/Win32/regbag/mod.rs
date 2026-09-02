@@ -8,7 +8,7 @@ impl ICreatePropBagOnRegKey {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), hkey, subkey.param().abi(), uloptions, samdesired, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), hkey, subkey.param().abi(), uloptions, samdesired, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]

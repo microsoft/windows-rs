@@ -13,8 +13,8 @@ impl Direct3DBindings {
     pub const Decoder: Self = Self(512);
     pub const VideoEncoder: Self = Self(1024);
 }
-impl windows_core::TypeKind for Direct3DBindings {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Direct3DBindings {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Direct3DBindings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DBindings;u4)");
@@ -59,8 +59,8 @@ pub struct Direct3DMultisampleDescription {
     pub Count: i32,
     pub Quality: i32,
 }
-impl windows_core::TypeKind for Direct3DMultisampleDescription {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Direct3DMultisampleDescription {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Direct3DMultisampleDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4)");
@@ -74,8 +74,8 @@ pub struct Direct3DSurfaceDescription {
     pub Format: super::DirectXPixelFormat,
     pub MultisampleDescription: Direct3DMultisampleDescription,
 }
-impl windows_core::TypeKind for Direct3DSurfaceDescription {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Direct3DSurfaceDescription {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Direct3DSurfaceDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription;i4;i4;enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4);struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4))");
@@ -90,8 +90,8 @@ impl Direct3DUsage {
     pub const Dynamic: Self = Self(2);
     pub const Staging: Self = Self(3);
 }
-impl windows_core::TypeKind for Direct3DUsage {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Direct3DUsage {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Direct3DUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");

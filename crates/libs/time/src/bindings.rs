@@ -4,8 +4,8 @@ windows_core::link!("kernel32.dll" "system" fn FileTimeToLocalFileTime(lpfiletim
 pub struct DateTime {
     pub universal_time: i64,
 }
-impl windows_core::TypeKind for DateTime {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DateTime {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DateTime {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -22,8 +22,8 @@ pub struct FILETIME {
 pub struct TimeSpan {
     pub duration: i64,
 }
-impl windows_core::TypeKind for TimeSpan {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TimeSpan {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TimeSpan {
     const SIGNATURE: windows_core::imp::ConstBuffer =

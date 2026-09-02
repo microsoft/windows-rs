@@ -7,8 +7,8 @@ impl CollectionChange {
     pub const ItemRemoved: Self = Self(2);
     pub const ItemChanged: Self = Self(3);
 }
-impl windows_core::TypeKind for CollectionChange {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CollectionChange {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CollectionChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -55,7 +55,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -166,7 +166,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn HasCurrent(&self) -> windows_core::Result<bool> {
@@ -191,7 +191,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     }
     pub fn GetMany(
         &self,
-        items: &mut [<T as windows_core::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -219,7 +219,7 @@ where
     fn MoveNext(&self) -> windows_core::Result<bool>;
     fn GetMany(
         &self,
-        items: &mut [<T as windows_core::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32>;
 }
 impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
@@ -230,7 +230,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            result__: *mut windows_core::AbiType<T>,
+            result__: *mut windows_core::imp::AbiType<T>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -292,7 +292,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
         >(
             this: *mut core::ffi::c_void,
             items_array_size: u32,
-            items: *mut windows_core::AbiType<T>,
+            items: *mut windows_core::imp::AbiType<T>,
             result__: *mut u32,
         ) -> windows_core::HRESULT {
             unsafe {
@@ -334,7 +334,7 @@ where
     pub base__: windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut windows_core::AbiType<T>,
+        *mut windows_core::imp::AbiType<T>,
     ) -> windows_core::HRESULT,
     pub HasCurrent:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -343,7 +343,7 @@ where
     pub GetMany: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         u32,
-        *mut windows_core::AbiType<T>,
+        *mut windows_core::imp::AbiType<T>,
         *mut u32,
     ) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
@@ -414,7 +414,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Value(&self) -> windows_core::Result<V> {
@@ -424,7 +424,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -454,7 +454,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            result__: *mut windows_core::AbiType<K>,
+            result__: *mut windows_core::imp::AbiType<K>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -476,7 +476,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            result__: *mut windows_core::AbiType<V>,
+            result__: *mut windows_core::imp::AbiType<V>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -512,11 +512,11 @@ where
     pub base__: windows_core::IInspectable_Vtbl,
     pub Key: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut windows_core::AbiType<K>,
+        *mut windows_core::imp::AbiType<K>,
     ) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut windows_core::AbiType<V>,
+        *mut windows_core::imp::AbiType<V>,
     ) -> windows_core::HRESULT,
     K: core::marker::PhantomData<K>,
     V: core::marker::PhantomData<V>,
@@ -580,7 +580,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                 key.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -614,7 +614,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Insert<P0, P1>(&self, key: P0, value: P1) -> windows_core::Result<bool>
@@ -659,7 +659,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -716,8 +716,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            key: windows_core::AbiType<K>,
-            result__: *mut windows_core::AbiType<V>,
+            key: windows_core::imp::AbiType<K>,
+            result__: *mut windows_core::imp::AbiType<V>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -760,7 +760,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            key: windows_core::AbiType<K>,
+            key: windows_core::imp::AbiType<K>,
             result__: *mut bool,
         ) -> windows_core::HRESULT {
             unsafe {
@@ -804,8 +804,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            key: windows_core::AbiType<K>,
-            value: windows_core::AbiType<V>,
+            key: windows_core::imp::AbiType<K>,
+            value: windows_core::imp::AbiType<V>,
             result__: *mut bool,
         ) -> windows_core::HRESULT {
             unsafe {
@@ -831,7 +831,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            key: windows_core::AbiType<K>,
+            key: windows_core::imp::AbiType<K>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -879,13 +879,13 @@ where
     pub base__: windows_core::IInspectable_Vtbl,
     pub Lookup: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_core::AbiType<K>,
-        *mut windows_core::AbiType<V>,
+        windows_core::imp::AbiType<K>,
+        *mut windows_core::imp::AbiType<V>,
     ) -> windows_core::HRESULT,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub HasKey: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_core::AbiType<K>,
+        windows_core::imp::AbiType<K>,
         *mut bool,
     ) -> windows_core::HRESULT,
     pub GetView: unsafe extern "system" fn(
@@ -894,13 +894,13 @@ where
     ) -> windows_core::HRESULT,
     pub Insert: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_core::AbiType<K>,
-        windows_core::AbiType<V>,
+        windows_core::imp::AbiType<K>,
+        windows_core::imp::AbiType<V>,
         *mut bool,
     ) -> windows_core::HRESULT,
     pub Remove: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_core::AbiType<K>,
+        windows_core::imp::AbiType<K>,
     ) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     K: core::marker::PhantomData<K>,
@@ -955,7 +955,7 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs<K> {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -999,7 +999,7 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            result__: *mut windows_core::AbiType<K>,
+            result__: *mut windows_core::imp::AbiType<K>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -1038,7 +1038,7 @@ where
     ) -> windows_core::HRESULT,
     pub Key: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut windows_core::AbiType<K>,
+        *mut windows_core::imp::AbiType<K>,
     ) -> windows_core::HRESULT,
     K: core::marker::PhantomData<K>,
 }
@@ -1103,7 +1103,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                 key.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -1152,7 +1152,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1206,8 +1206,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            key: windows_core::AbiType<K>,
-            result__: *mut windows_core::AbiType<V>,
+            key: windows_core::imp::AbiType<K>,
+            result__: *mut windows_core::imp::AbiType<V>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -1250,7 +1250,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            key: windows_core::AbiType<K>,
+            key: windows_core::imp::AbiType<K>,
             result__: *mut bool,
         ) -> windows_core::HRESULT {
             unsafe {
@@ -1309,13 +1309,13 @@ where
     pub base__: windows_core::IInspectable_Vtbl,
     pub Lookup: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_core::AbiType<K>,
-        *mut windows_core::AbiType<V>,
+        windows_core::imp::AbiType<K>,
+        *mut windows_core::imp::AbiType<V>,
     ) -> windows_core::HRESULT,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub HasKey: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_core::AbiType<K>,
+        windows_core::imp::AbiType<K>,
         *mut bool,
     ) -> windows_core::HRESULT,
     pub Split: unsafe extern "system" fn(
@@ -1412,7 +1412,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Lookup<P0>(&self, key: P0) -> windows_core::Result<V>
@@ -1427,7 +1427,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                 key.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -1464,7 +1464,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Insert<P0, P1>(&self, key: P0, value: P1) -> windows_core::Result<bool>
@@ -1685,7 +1685,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
@@ -1697,7 +1697,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -1719,7 +1719,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
@@ -1808,7 +1808,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
     pub fn GetMany(
         &self,
         startindex: u32,
-        items: &mut [<T as windows_core::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
@@ -1825,7 +1825,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
     }
     pub fn ReplaceAll(
         &self,
-        items: &[<T as windows_core::Type<T>>::Default],
+        items: &[<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
@@ -1977,7 +1977,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -1997,7 +1997,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
@@ -2079,7 +2079,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     pub fn GetMany(
         &self,
         startindex: u32,
-        items: &mut [<T as windows_core::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2095,7 +2095,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     }
     pub fn ReplaceAll(
         &self,
-        items: &[<T as windows_core::Type<T>>::Default],
+        items: &[<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).ReplaceAll)(
@@ -2114,7 +2114,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2154,11 +2154,11 @@ where
     fn GetMany(
         &self,
         startIndex: u32,
-        items: &mut [<T as windows_core::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32>;
     fn ReplaceAll(
         &self,
-        items: &[<T as windows_core::Type<T>>::Default],
+        items: &[<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<()>;
 }
 impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
@@ -2170,7 +2170,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         >(
             this: *mut core::ffi::c_void,
             index: u32,
-            result__: *mut windows_core::AbiType<T>,
+            result__: *mut windows_core::imp::AbiType<T>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -2232,7 +2232,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: windows_core::AbiType<T>,
+            value: windows_core::imp::AbiType<T>,
             index: *mut u32,
             result__: *mut bool,
         ) -> windows_core::HRESULT {
@@ -2259,7 +2259,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         >(
             this: *mut core::ffi::c_void,
             index: u32,
-            value: windows_core::AbiType<T>,
+            value: windows_core::imp::AbiType<T>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -2274,7 +2274,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         >(
             this: *mut core::ffi::c_void,
             index: u32,
-            value: windows_core::AbiType<T>,
+            value: windows_core::imp::AbiType<T>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -2302,7 +2302,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: windows_core::AbiType<T>,
+            value: windows_core::imp::AbiType<T>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -2344,7 +2344,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             this: *mut core::ffi::c_void,
             startindex: u32,
             items_array_size: u32,
-            items: *mut windows_core::AbiType<T>,
+            items: *mut windows_core::imp::AbiType<T>,
             result__: *mut u32,
         ) -> windows_core::HRESULT {
             unsafe {
@@ -2373,7 +2373,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         >(
             this: *mut core::ffi::c_void,
             items_array_size: u32,
-            items: *const windows_core::AbiType<T>,
+            items: *const windows_core::imp::AbiType<T>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -2418,7 +2418,7 @@ where
     pub GetAt: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         u32,
-        *mut windows_core::AbiType<T>,
+        *mut windows_core::imp::AbiType<T>,
     ) -> windows_core::HRESULT,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetView: unsafe extern "system" fn(
@@ -2427,24 +2427,24 @@ where
     ) -> windows_core::HRESULT,
     pub IndexOf: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_core::AbiType<T>,
+        windows_core::imp::AbiType<T>,
         *mut u32,
         *mut bool,
     ) -> windows_core::HRESULT,
     pub SetAt: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         u32,
-        windows_core::AbiType<T>,
+        windows_core::imp::AbiType<T>,
     ) -> windows_core::HRESULT,
     pub InsertAt: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         u32,
-        windows_core::AbiType<T>,
+        windows_core::imp::AbiType<T>,
     ) -> windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_core::AbiType<T>,
+        windows_core::imp::AbiType<T>,
     ) -> windows_core::HRESULT,
     pub RemoveAtEnd: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2452,13 +2452,13 @@ where
         *mut core::ffi::c_void,
         u32,
         u32,
-        *mut windows_core::AbiType<T>,
+        *mut windows_core::imp::AbiType<T>,
         *mut u32,
     ) -> windows_core::HRESULT,
     pub ReplaceAll: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         u32,
-        *const windows_core::AbiType<T>,
+        *const windows_core::imp::AbiType<T>,
     ) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
 }
@@ -2611,7 +2611,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -2642,7 +2642,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
     pub fn GetMany(
         &self,
         startindex: u32,
-        items: &mut [<T as windows_core::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2664,7 +2664,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2697,7 +2697,7 @@ where
     fn GetMany(
         &self,
         startIndex: u32,
-        items: &mut [<T as windows_core::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32>;
 }
 impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
@@ -2709,7 +2709,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
         >(
             this: *mut core::ffi::c_void,
             index: u32,
-            result__: *mut windows_core::AbiType<T>,
+            result__: *mut windows_core::imp::AbiType<T>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -2750,7 +2750,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: windows_core::AbiType<T>,
+            value: windows_core::imp::AbiType<T>,
             index: *mut u32,
             result__: *mut bool,
         ) -> windows_core::HRESULT {
@@ -2778,7 +2778,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             this: *mut core::ffi::c_void,
             startindex: u32,
             items_array_size: u32,
-            items: *mut windows_core::AbiType<T>,
+            items: *mut windows_core::imp::AbiType<T>,
             result__: *mut u32,
         ) -> windows_core::HRESULT {
             unsafe {
@@ -2822,12 +2822,12 @@ where
     pub GetAt: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         u32,
-        *mut windows_core::AbiType<T>,
+        *mut windows_core::imp::AbiType<T>,
     ) -> windows_core::HRESULT,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub IndexOf: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_core::AbiType<T>,
+        windows_core::imp::AbiType<T>,
         *mut u32,
         *mut bool,
     ) -> windows_core::HRESULT,
@@ -2835,7 +2835,7 @@ where
         *mut core::ffi::c_void,
         u32,
         u32,
-        *mut windows_core::AbiType<T>,
+        *mut windows_core::imp::AbiType<T>,
         *mut u32,
     ) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,

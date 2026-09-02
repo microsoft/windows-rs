@@ -212,8 +212,8 @@ links clicked points with a line and repaints only when `Invalidator::invalidate
 
 ## Internal documentation
 
-The rest of this page covers how the crate is built and maintained. It is not needed to use
-`windows-canvas`.
+The remainder of this page covers how the crate is built and maintained. It is for contributors and
+is **not needed to use `windows-canvas`**.
 
 ### How it's built
 
@@ -270,9 +270,6 @@ Canvas does not draw or present until attachment succeeds.
 resize, draw, present, and failed-recovery errors. Repeated frames do not repeat the same error;
 successful attachment or presentation starts a new failure episode. Device loss remains an
 automatic recovery signal and is reported only when rebuilding the surface fails.
-
-The old manually managed `CanvasSwapChain` sample was expressible with `canvas_invalidated`, so the
-Reactor bridge does not add a second low-level wrapper for it.
 
 Input belongs to reactor. Geometry queries belong to canvas. Pointer events use DIPs. Apps map those
 DIPs into canvas space with their own transform.

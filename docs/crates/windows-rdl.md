@@ -205,8 +205,8 @@ against the standard definitions.
 
 ## Internal documentation
 
-The rest of this page covers how the crate is built and maintained. It is for contributors and is
-not needed to use `windows-rdl`.
+The remainder of this page covers how the crate is built and maintained. It is for contributors and
+is **not needed to use `windows-rdl`**.
 
 ### How it's built
 

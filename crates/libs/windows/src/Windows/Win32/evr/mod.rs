@@ -6,7 +6,7 @@ where
 {
     windows_core::link!("evr.dll" "C" fn MFCreateVideoMixer(powner : *mut core::ffi::c_void, riiddevice : *const windows_core::GUID, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { MFCreateVideoMixer(powner.param().abi(), riiddevice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { MFCreateVideoMixer(powner.param().abi(), riiddevice, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn MFCreateVideoMixerAndPresenter<P0, P1>(pmixerowner: P0, ppresenterowner: P1, riidmixer: *const windows_core::GUID, ppvvideomixer: *mut *mut core::ffi::c_void, riidpresenter: *const windows_core::GUID, ppvvideopresenter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
@@ -25,7 +25,7 @@ where
 {
     windows_core::link!("evr.dll" "C" fn MFCreateVideoPresenter(powner : *mut core::ffi::c_void, riiddevice : *const windows_core::GUID, riid : *const windows_core::GUID, ppvideopresenter : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { MFCreateVideoPresenter(powner.param().abi(), riiddevice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { MFCreateVideoPresenter(powner.param().abi(), riiddevice, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const windows_core::GUID, ppvideorenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -39,7 +39,7 @@ where
 {
     windows_core::link!("evr.dll" "C" fn MFCreateVideoSampleAllocator(riid : *const windows_core::GUID, ppsampleallocator : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { MFCreateVideoSampleAllocator(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { MFCreateVideoSampleAllocator(&T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -50,7 +50,7 @@ where
     windows_core::link!("evr.dll" "C" fn MFCreateVideoSampleFromSurface(punksurface : *mut core::ffi::c_void, ppsample : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFCreateVideoSampleFromSurface(punksurface.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        MFCreateVideoSampleFromSurface(punksurface.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 pub type EVRFilterConfigPrefs = i32;
@@ -957,7 +957,7 @@ impl IMFVideoPresenter {
     pub unsafe fn GetCurrentMediaType(&self) -> windows_core::Result<super::IMFVideoMediaType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrentMediaType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetCurrentMediaType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

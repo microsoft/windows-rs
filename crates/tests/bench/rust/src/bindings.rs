@@ -348,7 +348,7 @@ impl Widget {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetObjectProperty<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -370,7 +370,7 @@ impl Widget {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
             .and_then(|r__: windows_reference::IReference<i32>| r__.Value())
         }
     }
@@ -391,7 +391,7 @@ impl Widget {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn StringOperation(
@@ -403,7 +403,7 @@ impl Widget {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ObjectOperation(
@@ -415,7 +415,7 @@ impl Widget {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Add(&self, a: i32, b: i32) -> windows_core::Result<i32> {
@@ -488,7 +488,7 @@ impl Widget {
                 value.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn LiveCount(&self) -> windows_core::Result<i32> {
@@ -531,7 +531,7 @@ impl Widget {
                 count,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn StringItems(
@@ -545,7 +545,7 @@ impl Widget {
                 count,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Map(&self, count: u32) -> windows_core::Result<windows_collections::IMap<i32, i32>> {
@@ -556,7 +556,7 @@ impl Widget {
                 count,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn StringMap(
@@ -570,7 +570,7 @@ impl Widget {
                 count,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn StringValues(
@@ -584,7 +584,7 @@ impl Widget {
                 count,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ItemsView(
@@ -598,7 +598,7 @@ impl Widget {
                 count,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn MapView(
@@ -612,7 +612,7 @@ impl Widget {
                 count,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>

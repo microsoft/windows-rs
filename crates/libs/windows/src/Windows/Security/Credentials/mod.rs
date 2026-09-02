@@ -18,7 +18,7 @@ impl AttestationChallengeHandler {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), challenge.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), challenge.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -61,8 +61,8 @@ pub struct ChallengeResponseKind(pub i32);
 impl ChallengeResponseKind {
     pub const VirtualizationBasedSecurityEnclave: Self = Self(0);
 }
-impl windows_core::TypeKind for ChallengeResponseKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ChallengeResponseKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ChallengeResponseKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.ChallengeResponseKind;i4)");
@@ -163,7 +163,7 @@ impl IKeyCredentialCacheConfigurationFactory {
     pub fn CreateInstance(&self, cacheoption: KeyCredentialCacheOption, timeout: windows_time::TimeSpan, usagecount: u32) -> windows_core::Result<KeyCredentialCacheConfiguration> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), cacheoption, timeout, usagecount, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), cacheoption, timeout, usagecount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -342,7 +342,7 @@ impl IWebAccount {
     pub fn WebAccountProvider(&self) -> windows_core::Result<WebAccountProvider> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).WebAccountProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).WebAccountProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn UserName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -530,14 +530,14 @@ impl KeyCredential {
     pub fn RetrievePublicKeyWithDefaultBlobType(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RetrievePublicKeyWithDefaultBlobType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RetrievePublicKeyWithDefaultBlobType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Security_Cryptography_Core", feature = "Storage_Streams"))]
     pub fn RetrievePublicKeyWithBlobType(&self, blobtype: super::Cryptography::Core::CryptographicPublicKeyBlobType) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RetrievePublicKeyWithBlobType)(windows_core::Interface::as_raw(self), blobtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RetrievePublicKeyWithBlobType)(windows_core::Interface::as_raw(self), blobtype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -547,13 +547,13 @@ impl KeyCredential {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestSignAsync)(windows_core::Interface::as_raw(self), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestSignAsync)(windows_core::Interface::as_raw(self), data.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetAttestationAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<KeyCredentialAttestationResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAttestationAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetAttestationAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Storage_Streams", feature = "UI"))]
@@ -564,7 +564,7 @@ impl KeyCredential {
         let this = &windows_core::Interface::cast::<IKeyCredential2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestDeriveSharedSecretAsync)(windows_core::Interface::as_raw(this), windowid, core::mem::transmute_copy(message), encryptedrequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestDeriveSharedSecretAsync)(windows_core::Interface::as_raw(this), windowid, core::mem::transmute_copy(message), encryptedrequest.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -575,7 +575,7 @@ impl KeyCredential {
         let this = &windows_core::Interface::cast::<IKeyCredential2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrieveAuthorizationContext)(windows_core::Interface::as_raw(this), encryptedrequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrieveAuthorizationContext)(windows_core::Interface::as_raw(this), encryptedrequest.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Storage_Streams", feature = "UI"))]
@@ -586,7 +586,7 @@ impl KeyCredential {
         let this = &windows_core::Interface::cast::<IKeyCredentialWithWindow>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestSignForWindowAsync)(windows_core::Interface::as_raw(this), window, data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestSignForWindowAsync)(windows_core::Interface::as_raw(this), window, data.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -611,14 +611,14 @@ impl KeyCredentialAttestationResult {
     pub fn CertificateChainBuffer(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CertificateChainBuffer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CertificateChainBuffer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn AttestationBuffer(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AttestationBuffer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AttestationBuffer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Status(&self) -> windows_core::Result<KeyCredentialAttestationStatus> {
@@ -649,8 +649,8 @@ impl KeyCredentialAttestationStatus {
     pub const NotSupported: Self = Self(2);
     pub const TemporaryFailure: Self = Self(3);
 }
-impl windows_core::TypeKind for KeyCredentialAttestationStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for KeyCredentialAttestationStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for KeyCredentialAttestationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialAttestationStatus;i4)");
@@ -683,7 +683,7 @@ impl KeyCredentialCacheConfiguration {
     pub fn CreateInstance(cacheoption: KeyCredentialCacheOption, timeout: windows_time::TimeSpan, usagecount: u32) -> windows_core::Result<Self> {
         Self::IKeyCredentialCacheConfigurationFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), cacheoption, timeout, usagecount, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), cacheoption, timeout, usagecount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IKeyCredentialCacheConfigurationFactory<R, F: FnOnce(&IKeyCredentialCacheConfigurationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -710,8 +710,8 @@ impl KeyCredentialCacheOption {
     pub const NoCache: Self = Self(0);
     pub const CacheWhenUnlocked: Self = Self(1);
 }
-impl windows_core::TypeKind for KeyCredentialCacheOption {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for KeyCredentialCacheOption {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for KeyCredentialCacheOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialCacheOption;i4)");
@@ -724,8 +724,8 @@ impl KeyCredentialCreationOption {
     pub const ReplaceExisting: Self = Self(0);
     pub const FailIfExists: Self = Self(1);
 }
-impl windows_core::TypeKind for KeyCredentialCreationOption {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for KeyCredentialCreationOption {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for KeyCredentialCreationOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialCreationOption;i4)");
@@ -737,37 +737,37 @@ impl KeyCredentialManager {
     pub fn RequestCreateForWindowAsync(window: super::super::UI::WindowId, name: &windows_core::HSTRING, option: KeyCredentialCreationOption) -> windows_core::Result<windows_future::IAsyncOperation<KeyCredentialRetrievalResult>> {
         Self::IKeyCredentialManagerCreateWithWindowStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestCreateForWindowAsync)(windows_core::Interface::as_raw(this), window, core::mem::transmute_copy(name), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestCreateForWindowAsync)(windows_core::Interface::as_raw(this), window, core::mem::transmute_copy(name), option, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn IsSupportedAsync() -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsSupportedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).IsSupportedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn RenewAttestationAsync() -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenewAttestationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RenewAttestationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn RequestCreateAsync(name: &windows_core::HSTRING, option: KeyCredentialCreationOption) -> windows_core::Result<windows_future::IAsyncOperation<KeyCredentialRetrievalResult>> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestCreateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestCreateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), option, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn OpenAsync(name: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<KeyCredentialRetrievalResult>> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn DeleteAsync(name: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Storage_Streams", feature = "UI"))]
@@ -778,7 +778,7 @@ impl KeyCredentialManager {
     {
         Self::IKeyCredentialManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestCreateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), option, core::mem::transmute_copy(algorithm), core::mem::transmute_copy(message), cacheconfiguration.param().abi(), windowid, callbacktype, attestationcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestCreateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), option, core::mem::transmute_copy(algorithm), core::mem::transmute_copy(message), cacheconfiguration.param().abi(), windowid, callbacktype, attestationcallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -788,14 +788,14 @@ impl KeyCredentialManager {
     {
         Self::IKeyCredentialManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), callbacktype, attestationcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), callbacktype, attestationcallback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn GetSecureId() -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         Self::IKeyCredentialManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSecureId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetSecureId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IKeyCredentialManagerCreateWithWindowStatics<R, F: FnOnce(&IKeyCredentialManagerCreateWithWindowStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -823,7 +823,7 @@ impl KeyCredentialOperationResult {
     pub fn Result(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Result)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Status(&self) -> windows_core::Result<KeyCredentialStatus> {
@@ -853,7 +853,7 @@ impl KeyCredentialRetrievalResult {
     pub fn Credential(&self) -> windows_core::Result<KeyCredential> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Credential)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Credential)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Status(&self) -> windows_core::Result<KeyCredentialStatus> {
@@ -888,8 +888,8 @@ impl KeyCredentialStatus {
     pub const SecurityDeviceLocked: Self = Self(6);
     pub const AlgorithmNotSupported: Self = Self(7);
 }
-impl windows_core::TypeKind for KeyCredentialStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for KeyCredentialStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for KeyCredentialStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialStatus;i4)");
@@ -910,7 +910,7 @@ impl PasswordCredential {
     pub fn CreatePasswordCredential(resource: &windows_core::HSTRING, username: &windows_core::HSTRING, password: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ICredentialFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePasswordCredential)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), core::mem::transmute_copy(username), core::mem::transmute_copy(password), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreatePasswordCredential)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), core::mem::transmute_copy(username), core::mem::transmute_copy(password), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn Resource(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -947,7 +947,7 @@ impl PasswordCredential {
     pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     fn ICredentialFactory<R, F: FnOnce(&ICredentialFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -988,14 +988,14 @@ impl PasswordCredentialPropertyStore {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -1016,7 +1016,7 @@ impl PasswordCredentialPropertyStore {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Insert<P1>(&self, key: &windows_core::HSTRING, value: P1) -> windows_core::Result<bool>
@@ -1113,25 +1113,25 @@ impl PasswordVault {
     pub fn Retrieve(&self, resource: &windows_core::HSTRING, username: &windows_core::HSTRING) -> windows_core::Result<PasswordCredential> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Retrieve)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(resource), core::mem::transmute_copy(username), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Retrieve)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(resource), core::mem::transmute_copy(username), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FindAllByResource(&self, resource: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<PasswordCredential>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindAllByResource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(resource), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindAllByResource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(resource), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FindAllByUserName(&self, username: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<PasswordCredential>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindAllByUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(username), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindAllByUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(username), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RetrieveAll(&self) -> windows_core::Result<windows_collections::IVectorView<PasswordCredential>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RetrieveAll)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RetrieveAll)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1155,7 +1155,7 @@ impl WebAccount {
     pub fn WebAccountProvider(&self) -> windows_core::Result<WebAccountProvider> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).WebAccountProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).WebAccountProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn UserName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1181,7 +1181,7 @@ impl WebAccount {
         let this = &windows_core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1189,21 +1189,21 @@ impl WebAccount {
         let this = &windows_core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPictureAsync)(windows_core::Interface::as_raw(this), desizedsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPictureAsync)(windows_core::Interface::as_raw(this), desizedsize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SignOutAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SignOutAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SignOutAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SignOutWithClientIdAsync(&self, clientid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SignOutWithClientIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(clientid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SignOutWithClientIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(clientid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateWebAccount<P0>(webaccountprovider: P0, username: &windows_core::HSTRING, state: WebAccountState) -> windows_core::Result<Self>
@@ -1212,7 +1212,7 @@ impl WebAccount {
     {
         Self::IWebAccountFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWebAccount)(windows_core::Interface::as_raw(this), webaccountprovider.param().abi(), core::mem::transmute_copy(username), state, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWebAccount)(windows_core::Interface::as_raw(this), webaccountprovider.param().abi(), core::mem::transmute_copy(username), state, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IWebAccountFactory<R, F: FnOnce(&IWebAccountFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1241,8 +1241,8 @@ impl WebAccountPictureSize {
     pub const Size424x424: Self = Self(424);
     pub const Size1080x1080: Self = Self(1080);
 }
-impl windows_core::TypeKind for WebAccountPictureSize {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WebAccountPictureSize {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WebAccountPictureSize {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountPictureSize;i4)");
@@ -1268,7 +1268,7 @@ impl WebAccountProvider {
     pub fn IconUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IconUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IconUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DisplayPurpose(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1290,7 +1290,7 @@ impl WebAccountProvider {
         let this = &windows_core::Interface::cast::<IWebAccountProvider3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsSystemProvider(&self) -> windows_core::Result<bool> {
@@ -1306,7 +1306,7 @@ impl WebAccountProvider {
     {
         Self::IWebAccountProviderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWebAccountProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(displayname), iconuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWebAccountProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(displayname), iconuri.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IWebAccountProviderFactory<R, F: FnOnce(&IWebAccountProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1334,8 +1334,8 @@ impl WebAccountState {
     pub const Connected: Self = Self(1);
     pub const Error: Self = Self(2);
 }
-impl windows_core::TypeKind for WebAccountState {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WebAccountState {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WebAccountState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountState;i4)");

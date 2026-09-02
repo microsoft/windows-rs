@@ -8,7 +8,7 @@ where
     windows_core::link!("mmdevapi.dll" "system" fn ActivateAudioInterfaceAsync(deviceinterfacepath : windows_core::PCWSTR, riid : *const windows_core::GUID, activationparams : *const super::PROPVARIANT, completionhandler : *mut core::ffi::c_void, activationoperation : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        ActivateAudioInterfaceAsync(deviceinterfacepath.param().abi(), riid, activationparams.unwrap_or(core::mem::zeroed()) as _, completionhandler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        ActivateAudioInterfaceAsync(deviceinterfacepath.param().abi(), riid, activationparams.unwrap_or(core::mem::zeroed()) as _, completionhandler.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 pub type AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = i32;
@@ -166,21 +166,21 @@ impl IAudioSystemEffectsPropertyStore {
     pub unsafe fn OpenDefaultPropertyStore(&self, stgmaccess: u32) -> windows_core::Result<super::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenDefaultPropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenDefaultPropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "propsys")]
     pub unsafe fn OpenUserPropertyStore(&self, stgmaccess: u32) -> windows_core::Result<super::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenUserPropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenUserPropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "propsys")]
     pub unsafe fn OpenVolatilePropertyStore(&self, stgmaccess: u32) -> windows_core::Result<super::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenVolatilePropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenVolatilePropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ResetUserPropertyStore(&self) -> windows_core::HRESULT {
@@ -322,13 +322,13 @@ impl IMMDevice {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), &T::IID, dwclsctx, pactivationparams.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), &T::IID, dwclsctx, pactivationparams.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     #[cfg(feature = "propsys")]
     pub unsafe fn OpenPropertyStore(&self, stgmaccess: u32) -> windows_core::Result<super::IPropertyStore> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenPropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenPropertyStore)(windows_core::Interface::as_raw(self), stgmaccess, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetId(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -435,7 +435,7 @@ impl IMMDeviceActivator {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), &T::IID, pdevice.param().abi(), pactivationparams.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), &T::IID, pdevice.param().abi(), pactivationparams.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -480,7 +480,7 @@ impl IMMDeviceCollection {
     pub unsafe fn Item(&self, ndevice: u32) -> windows_core::Result<IMMDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), ndevice, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), ndevice, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -534,13 +534,13 @@ impl IMMDeviceEnumerator {
     pub unsafe fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: u32) -> windows_core::Result<IMMDeviceCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumAudioEndpoints)(windows_core::Interface::as_raw(self), dataflow, dwstatemask, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumAudioEndpoints)(windows_core::Interface::as_raw(self), dataflow, dwstatemask, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetDefaultAudioEndpoint(&self, dataflow: EDataFlow, role: ERole) -> windows_core::Result<IMMDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDefaultAudioEndpoint)(windows_core::Interface::as_raw(self), dataflow, role, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDefaultAudioEndpoint)(windows_core::Interface::as_raw(self), dataflow, role, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetDevice<P0>(&self, pwstrid: P0) -> windows_core::Result<IMMDevice>
@@ -549,7 +549,7 @@ impl IMMDeviceEnumerator {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), pwstrid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), pwstrid.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RegisterEndpointNotificationCallback<P0>(&self, pclient: P0) -> windows_core::HRESULT

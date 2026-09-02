@@ -427,7 +427,7 @@ impl ITipHelper {
     pub unsafe fn Pull(&self, i_psztxurl: *const i8) -> windows_core::Result<super::ITransaction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Pull)(windows_core::Interface::as_raw(self), i_psztxurl, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Pull)(windows_core::Interface::as_raw(self), i_psztxurl, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "transact")]
@@ -437,7 +437,7 @@ impl ITipHelper {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PullAsync)(windows_core::Interface::as_raw(self), i_psztxurl, i_ptippullsink.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PullAsync)(windows_core::Interface::as_raw(self), i_psztxurl, i_ptippullsink.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetLocalTmUrl(&self) -> windows_core::Result<*mut i8> {
@@ -763,7 +763,7 @@ impl ITransactionExportFactory {
     pub unsafe fn Create(&self, cbwhereabouts: u32, rgbwhereabouts: *const super::byte) -> windows_core::Result<ITransactionExport> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), cbwhereabouts, rgbwhereabouts, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), cbwhereabouts, rgbwhereabouts, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -830,7 +830,7 @@ impl ITransactionImport {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Import)(windows_core::Interface::as_raw(self), cbtransactioncookie, rgbtransactioncookie, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Import)(windows_core::Interface::as_raw(self), cbtransactioncookie, rgbtransactioncookie, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
