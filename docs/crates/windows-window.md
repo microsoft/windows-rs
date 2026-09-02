@@ -5,113 +5,140 @@
 - 📦 [crates.io](https://crates.io/crates/windows-window)
 - 📖 [docs.rs](https://docs.rs/windows-window)
 - 🚀 [Getting started](../../crates/libs/window/readme.md)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/window)
 
-`windows-window` provides just enough Win32 windowing to open a top-level window and run a message
-loop, so crates and samples that need a host window - [`windows-canvas`](windows-canvas.md) swap
-chains, WebView2 controllers, Direct2D/Direct3D rendering - don't have to depend on the full
-[`windows`](windows.md) crate or hand-roll a `windows-bindgen` build script.
+## When to use it
 
-It is intentionally small: a `Window` with an optional message handler and resize callback, plus
-`run`, `run_with`, and `quit`. All Win32 details are private; you work with a safe `Window` and the
-raw `HWND` it exposes for interop.
+Use `windows-window` when a Windows desktop application needs a small top-level window and message
+loop to host a swap chain, WebView2 controller, Direct2D or Direct3D renderer, or another API that
+accepts an `HWND`. It avoids depending on the full [`windows`](windows.md) crate or generating
+application-specific bindings for basic windowing.
 
-## Getting started
+The crate is not a general UI toolkit. Menus, controls, input policy, multi-window coordination,
+and specialized message handling remain the application's responsibility.
 
-The crate readme contains a checked window and message-loop example.
+## Prerequisites
 
-## The API
+The crate targets Windows desktop applications. Create and drive a window on the thread that owns
+its message queue. Interop code receiving `Window::hwnd()` must not retain the handle beyond the
+`Window` lifetime.
 
-- **`Window::new(title)`** returns a `WindowBuilder`. Configure it with `.size(width, height)`,
-  `.style(..)`, `.ex_style(..)`, `.on_message(..)`, and `.on_resize(..)`, then `.create()` to open
-  and show the window.
-- **`Window::hwnd()`** returns the raw `*mut c_void` handle for interop.
-- **`Window::client_size()`** returns the current client area as `(width, height)`.
-- **`style(WS_*)` / `ex_style(WS_EX_*)`** override the window styles (raw `u32`). They default to
-  `WS_OVERLAPPEDWINDOW` and none - pass Win32 style constants for custom chrome (e.g.
-  `WS_EX_NOREDIRECTIONBITMAP` for a DirectComposition target).
-- **`on_message(|hwnd, message, wparam, lparam| -> Option<isize>)`** handles raw window messages;
-  return `Some(result)` to handle a message or `None` to fall through to default processing.
-- **`on_resize(|width, height|)`** is a convenience for `WM_SIZE`, giving the new client size in
-  pixels.
+The first registered window class sets process DPI awareness to per-monitor v2. Set any different
+process DPI policy before creating a `Window`.
 
-Handlers are detached while they run, so a handler that triggers reentrant dispatch (for example
-calling `SetWindowPos`, which synchronously sends `WM_WINDOWPOSCHANGING` / `WM_SIZE`) won't re-enter
-itself - the nested messages fall through to default processing. This keeps shared state behind an
-`Rc<RefCell<..>>` safe from reentrant borrows.
+The README contains dependency setup and the minimal create-and-run example.
 
-`wndproc` invokes your handlers directly, without a `catch_unwind`, so a panic that escapes a
-handler aborts the process at the `extern "system"` boundary rather than unwinding into the Win32
-frames that called it - much like a C++ `noexcept` function terminating. This is intentional; the
-crate does not try to recover from handler panics. If a handler needs to survive its own panics,
-wrap its body in `std::panic::catch_unwind` (usually via `AssertUnwindSafe`, since handler closures
-capture mutable state).
+## First workflow: host resize-sensitive content
 
-## The message loop
+Most integrations need the following sequence:
 
-- **`run()`** - a blocking, event-driven loop (`GetMessage`) until the window closes. Best for
-  interactive apps such as a WebView2 host.
-- **`run_with(render)`** - calls `render` whenever the queue is empty; `render` returns `Ok(true)`
-  to keep rendering immediately (continuous animation) or `Ok(false)` to wait for the next message
-  (event-driven/occluded). Returns `Ok(())` when the window closes, or early if `render` returns an
-  error.
-- **`quit()`** - posts a quit message. An unhandled `WM_DESTROY` posts one automatically, so closing
-  the window ends the loop without extra code.
-- **`pump()`** - dispatches all currently-pending messages without blocking and returns `false` if a
-  quit was received. Lets a caller drive the loop while waiting on an external condition, such as
-  pumping until an asynchronous callback completes.
+1. Put shared renderer or controller state behind `Rc<RefCell<_>>` or another UI-thread owner.
+2. Build the window with an `on_resize` closure that updates the hosted content.
+3. Call `create`, then use `client_size` for the initial content size.
+4. Pass `hwnd` to the hosting API.
+5. Choose `run` for an event-driven host or `run_with` for a render loop.
+6. Drop hosted resources before the `Window` when their API requires the parent handle to remain
+   valid.
+
+`on_resize` receives client-area width and height in physical pixels. The callback also handles the
+initial resize messages that arrive after the builder installs its state.
+
+## Window creation and ownership
+
+`Window::new(title)` returns a `WindowBuilder`. `size` sets the initial outer window size.
+`style` and `ex_style` replace the defaults with raw `WS_*` and `WS_EX_*` values. The defaults are
+`WS_OVERLAPPEDWINDOW` and no extended style.
+
+`on_message` receives `(hwnd, message, wparam, lparam)` and returns `Option<isize>`. Return
+`Some(result)` only when the application fully handled the message. Return `None` to use the
+crate's built-in handling and `DefWindowProcW`. `on_resize` is the focused alternative for
+`WM_SIZE`; if both are installed and `on_message` handles `WM_SIZE`, the resize callback does not
+run.
+
+`create` registers the shared window class, creates and shows the window, and returns an error if
+creation fails. `Window::client_size` returns `(0, 0)` if `GetClientRect` fails.
+
+Dropping a live `Window` calls `DestroyWindow`. An unhandled `WM_DESTROY` posts `WM_QUIT`, so
+closing any window created by this crate ends the thread's message loop. Applications with several
+top-level windows must account for that policy.
+
+## Choosing a message loop
+
+| API | Use it when | Behavior |
+| --- | --- | --- |
+| `run()` | Event-driven updates. | Blocks in `GetMessageW` until quit. |
+| `run_with(render)` | Consecutive frames may be needed. | Drains messages, then calls `render`. |
+| `pump()` | An external operation owns the wait. | Dispatches pending messages; never blocks. |
+| `quit()` | Application state requires loop termination. | Posts `WM_QUIT` to the current thread. |
+
+The `run_with` closure returns `Result<bool>`. Return `Ok(true)` to request another immediate frame,
+or `Ok(false)` to block until a message arrives. Propagating an error exits the loop. This lets a
+renderer switch between animation and an idle or occluded state without busy-waiting.
+
+`pump` returns `false` after consuming `WM_QUIT`; the caller should then stop its outer loop.
+Repeatedly calling `pump` without another wait mechanism spins the CPU.
+
+## Messages, reentrancy, and panics
+
+Message dispatch is reentrant: a handler can call a Win32 API that sends another message before the
+first callback returns. The crate temporarily removes both user handlers while either one runs.
+Nested messages therefore use default processing instead of re-entering a closure or borrowing its
+captured `RefCell` again.
+
+This also means a nested `WM_SIZE` triggered inside a handler does not invoke `on_resize`. Apply any
+state update needed by that synchronous operation directly.
+
+Handlers run across an `extern "system"` window-procedure boundary without `catch_unwind`. A panic
+that escapes a handler aborts the process rather than unwinding through Win32. Return errors
+through captured application state or catch a panic inside the closure if recovery is required.
+
+Do not perform long blocking work in a message handler. It prevents painting, input, timers, and
+other components on the same UI thread from progressing.
+
+## Interop and common options
+
+- Use `hwnd()` only with APIs that accept a borrowed parent or target handle.
+- Use `client_size()` after creation to size the initial swap chain or child content.
+- Forward resize callbacks to `Controller::set_bounds` for
+  [`windows-webview`](windows-webview.md), or resize the relevant swap-chain buffers.
+- A DirectComposition host may need an extended style such as
+  `WS_EX_NOREDIRECTIONBITMAP`; obtain the constant from the consuming bindings and pass its raw
+  value to `ex_style`.
+- Raw input, paint, keyboard, mouse, DPI, and position behavior can be implemented through
+  `on_message`. This crate intentionally does not project message-specific argument types.
 
 ## Samples
 
-- [`create_window`](../../crates/samples/windows/samples/examples/create_window.rs)
-  the minimal case - open a window and pump messages with `run_with`, depending only on
-  `windows-window` (no `windows` crate).
-- [`window_message`](../../crates/samples/windows/samples/examples/window_message.rs)
-  handles raw messages (`WM_PAINT`, mouse, keyboard) via `on_message`, with direct access to
-  `wparam`/`lparam`.
-- [`canvas/standalone`](../../crates/samples/canvas/standalone)
-  hosts a `windows-canvas` swap chain in a `windows-window` window driven by `run_with`.
-- [`windows/direct2d`](../../crates/samples/windows/direct2d)
-  drives a Direct2D swap chain with `run_with`, rendering only while visible.
-- [`windows/direct3d12`](../../crates/samples/windows/direct3d12)
-  binds a Direct3D 12 swap chain to `window.hwnd()` and renders on `WM_PAINT`.
-- [`windows/dcomp`](../../crates/samples/windows/dcomp)
-  hosts a DirectComposition target (custom `ex_style`) and pumps with `run`, relying on
-  reentrancy-safe handlers for its DPI handling.
+| Sample | What to study |
+| --- | --- |
+| [`create_window`](../../crates/samples/windows/samples) | Basic creation and `run_with`. |
+| [`window_message`](../../crates/samples/windows/samples) | Paint, mouse, and keyboard messages. |
+| [`standalone`](../../crates/samples/canvas/standalone) | Swap-chain hosting and resize flow. |
+| [`direct2d`](../../crates/samples/windows/direct2d) | Rendering only while visible. |
+| [`direct3d12`](../../crates/samples/windows/direct3d12) | Binding a swap chain to the handle. |
+| [`dcomp`](../../crates/samples/windows/dcomp) | Composition, custom style, and DPI. |
+| [`webview`](../../crates/samples/webview/samples) | Controller lifetime and resize flow. |
 
 ---
 
 ## Internal documentation
 
-The remainder of this page covers how the crate is built and maintained. It is for contributors and
-is **not needed to use `windows-window`**.
+This section is for contributors to `windows-window`.
 
-### How it's built
+`src/bindings.rs` is generated by `tool_bindings` from
+`crates/tools/bindings/src/window.txt`. It contains the minimal flat Win32 surface needed for class
+registration, creation, DPI setup, destruction, and message dispatch. The hand-written
+`window.rs` depends only on [`windows-core`](windows-core.md).
 
-`src/bindings.rs` is generated by `tool_bindings` from `crates/tools/bindings/src/window.txt` -
-minimal, flat bindings for the `RegisterClassW` / `CreateWindowExW` / message-pump surface plus the
-handful of structs and constants they need. Everything in `window.rs` (the `Window`,
-`WindowBuilder`, and the message loop) is hand-written over those bindings and depends only on
-[`windows-core`](windows-core.md), so the crate stays fast to build.
+One class is registered lazily for the process. A boxed state containing optional message and
+resize handlers is stored in `GWLP_USERDATA` after `CreateWindowExW`. `wndproc` removes the state
+on `WM_NCDESTROY`; `Window::drop` checks whether the handle is still live before destroying it.
 
-### Design
+Before invoking a callback, `wndproc` takes both handlers out of state. After the callback it reads
+`GWLP_USERDATA` again because synchronous handling may have destroyed the window and freed the
+state. It restores the handlers only when the state still exists. Keep this ordering when changing
+dispatch behavior.
 
-- **One window class** - a single process-wide window class is registered lazily; all windows share
-  it and route messages through one `wndproc`.
-- **State in `GWLP_USERDATA`** - the boxed message/resize handlers are stored in the window's user
-  data, set after `CreateWindowExW` returns, and reclaimed on `WM_NCDESTROY`. `Window::drop` calls
-  `DestroyWindow` if the window still exists.
-- **Reentrancy-safe** - `wndproc` moves the handlers out of the state before invoking them and
-  restores them afterward, so a handler that pumps nested messages can't alias (or, behind
-  `RefCell`, panic on re-borrowing) itself.
-- **No `catch_unwind`** - handlers are invoked directly, so a panic aborts at the `extern "system"`
-  boundary (see [The API](#the-api) above). This is deliberate: recovering from handler panics is
-  out of scope for this crate.
-- **Not a kitchen sink** - the crate covers window creation, a resize hook, and a message loop only.
-  Anything beyond that (menus, input, multiple monitors, etc.) belongs in the consuming app or a
-  focused [`windows-bindgen`](windows-bindgen.md) binding.
-
-### Testing
-
-`cargo check -p windows-window` and `cargo clippy -p windows-window --all-targets`. The
-`canvas/standalone` sample exercises it end to end.
+The crate does not catch panics in `wndproc`, add message-specific wrappers, or coordinate several
+top-level windows. Those boundaries keep the crate small and its ownership rules explicit.

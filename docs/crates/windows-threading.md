@@ -9,9 +9,77 @@
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/threading)
 
 `windows-threading` exposes the Windows thread pool through a small, safe API. `submit` runs a
-closure on a pool thread, `for_each` runs a closure over an iterator in parallel and waits for
-completion, and the `Pool` type offers direct control including thread limits and scoped
-submission.
+closure on a pool thread, while `Pool` provides ownership and sizing controls.
+
+## When to use
+
+Use this crate for CPU or blocking work that should run on the Windows thread pool without bringing
+in a Rust async runtime. It is also useful when scoped tasks need to borrow local data.
+
+Use `std::thread` when each task needs a dedicated thread, thread-local initialization, or a stable
+thread identity. Use an async runtime's task APIs when the application already depends on that
+runtime and the work is primarily asynchronous I/O.
+
+## Getting started
+
+The [crate README](../../crates/libs/threading/readme.md) contains the dependency declaration and
+minimal examples for all three submission styles. For a first workflow, decide whether the caller
+must wait:
+
+```rust,no_run
+let inputs = [2, 3, 4];
+let outputs = std::sync::Mutex::new(Vec::new());
+
+windows_threading::Pool::with_scope(|scope| {
+    for input in inputs {
+        let outputs = &outputs;
+        scope.submit(move || outputs.lock().unwrap().push(input * input));
+    }
+});
+
+assert_eq!(outputs.lock().unwrap().len(), inputs.len());
+```
+
+`with_scope` does not return until its submissions finish, so the closures can borrow `inputs` and
+`outputs`.
+
+## Choosing a submission API
+
+| API | Waiting and lifetime behavior |
+| --- | --- |
+| `submit` | Uses the process-wide default pool and returns immediately; the closure is `'static`. |
+| `for_each` | Submits every iterator item in parallel and waits for all of them. |
+| `Pool::submit` | Uses a private pool and returns immediately; the closure is `'static`. |
+| `Pool::scope` | Accepts borrowing closures and joins the pool before returning. |
+
+Dropping a `Pool` also waits for its outstanding submissions. Calling `join` waits explicitly.
+`scope` and `join` wait for all work on that private pool, including work submitted from another
+thread.
+
+## Pool sizing and task design
+
+Windows chooses the private pool size unless `set_thread_limits(min, max)` is called. Set limits
+only when the workload has measured concurrency requirements. Keep pool closures finite, avoid
+waiting on other work queued to the same constrained pool, and protect shared mutable state with
+normal synchronization primitives.
+
+`thread_id()` returns the current Windows thread identifier. `sleep(milliseconds)` blocks the
+current worker; it does not schedule a timer or yield an async task.
+
+## Platform constraints and pitfalls
+
+- This crate wraps the Windows thread-pool APIs and is for Windows targets.
+- `submit` and `Pool::submit` cannot borrow stack data because they may outlive the caller. Use
+  `Pool::scope` for borrowed data.
+- A panic in a submitted closure crosses a system callback boundary and must not be used as an
+  error-reporting strategy. Handle expected failures inside the closure.
+- Thread-pool allocation failures are treated as unrecoverable and panic.
+
+## Samples and next steps
+
+The [`for_each` sample](../../crates/samples/threading/samples/examples/for_each.rs) shows parallel
+aggregation. The [`pool` sample](../../crates/samples/threading/samples/examples/pool.rs) shows
+thread limits, scoped borrowing, and how work is distributed among pool threads.
 
 ---
 

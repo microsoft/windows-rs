@@ -12,6 +12,85 @@ metadata. It is the foundation [`windows-bindgen`](windows-bindgen.md) builds on
 `reader::Index` type loads one or more `.winmd` files and lets you query namespaces, type
 definitions, and their members.
 
+Applications should start with a focused crate or `windows-bindgen`; binary applications may use
+[`windows`](windows.md) or [`windows-sys`](windows-sys.md) when they want a broad pre-generated
+surface. Use `windows-metadata` directly when writing a metadata inspector, generator, merger, or
+namespace transformation. The API exposes metadata facts; it does not project them into a safe Rust
+API.
+
+Start with the crate [README](../../crates/libs/metadata/readme.md) for dependency setup and a
+focused type query.
+
+## First workflow: inspect an API definition
+
+1. Load a file with `reader::Index::read`, or construct `reader::File` values and pass them to
+   `Index::new`.
+2. Locate a type with `get` when duplicates are possible or `expect` when exactly one definition is
+   an invariant.
+3. Inspect `category`, `extends`, fields, methods, signatures, attributes, and nested types.
+4. Keep rows borrowed from the index; use `leak` or `read_static` only when a tool requires
+   process-lifetime rows.
+
+For methods, match ECMA-335 parameter rows with
+`MethodDef::params_by_sequence(signature.types.len())`. Sequence 0 belongs to the return value;
+nonzero sequences are one-based signature positions. `params()` instead returns physical table
+order and is appropriate for lossless copying, not semantic parameter association.
+
+`tool_reactor` provides a larger example. Its metadata resolver loads WinUI winmd files, adds
+`windows-default` byte inputs, indexes classes and interfaces, then uses method signatures and
+attributes to drive generated UI code. `tool_features` uses `Index::iter_items` to enumerate types,
+free functions, and constants.
+
+## Input and output model
+
+`reader::File` owns one winmd byte stream. `reader::Index` combines files into searchable
+namespace, type, nested-type, and expanded Win32 `Apis` indexes. A zero architecture selector keeps
+all rows; `Index::new_for_architecture` selects neutral rows plus one of X86 (1), X64 (2), or Arm64
+(4).
+
+The writer API is lower-level. `writer::File` builds ECMA-335 rows and `into_stream` returns the
+finished bytes. Prefer [`windows-rdl`](windows-rdl.md) when a reviewable source format is useful;
+use the writer directly when a tool is copying or synthesizing table rows.
+
+## Common tool tasks
+
+| Task | API |
+| --- | --- |
+| Read one winmd | `reader::File::read` or `reader::Index::read` |
+| Read bytes already in memory | `reader::File::new` |
+| Query several files together | `reader::Index::new` |
+| Select one architecture | `reader::Index::new_for_architecture` |
+| Merge ordinary winmds | `merge().input(...).output(...).merge()` |
+| Merge per-architecture winmds | `merge().arch_input(path, bits)` |
+| Union compatible duplicate enums | `Merger::union_enums` |
+| Remap flat namespaces | `remap().source(...).routes(...).fallback(...)` |
+| Author metadata tables | `writer::File` |
+
+The merger accepts files or directories. Architecture merge retains one neutral definition only
+when the same shape is present on every merged architecture; divergent shapes are tagged and kept.
+The remapper rewrites definitions and references together and splits Win32 `Apis` members across
+their routed target namespaces.
+
+## Integration and pitfalls
+
+- [`windows-default`](windows-default.md) supplies the standard WinRT and Win32 files as byte
+  slices. Construct `reader::File` values from those bytes when a custom tool needs them.
+- [`windows-rdl`](windows-rdl.md) provides a higher-level text authoring and decompilation path.
+- [`windows-bindgen`](windows-bindgen.md) applies Rust projection policy to these raw metadata
+  facts.
+- A metadata parameter marked neither In nor Out is `ParamDirection::Unspecified`. Do not infer
+  input direction in the metadata layer.
+- Optional, reserved, retval, and buffer-count annotations are independent facts. Consumers decide
+  how those facts affect their public API.
+- Duplicate type definitions can be valid in an unfiltered multi-architecture index. Do not call
+  `expect` unless uniqueness is guaranteed.
+- Preserve physical row order when copying malformed or sparse metadata; use semantic helpers when
+  interpreting it.
+
+The focused fixtures in `crates/tests/libs/rdl` and `crates/tests/libs/bindgen` show metadata
+shapes. The main tool consumers are `tool_winrt`, `tool_win32`, `tool_package`, `tool_features`,
+and `tool_reactor`.
+
 ---
 
 ## Internal documentation
@@ -59,7 +138,7 @@ architecture explicitly uses `isize` or `usize` and every other copy uses the sa
 integer for its architecture (`i32`/`u32` on x86, `i64`/`u64` on x64 or arm64), the callback keeps
 one native-sized signature. It becomes arch-neutral when present on every merged architecture;
 otherwise it keeps its subset arch tag. This handles SDK declarations such as `FARPROC`, whose
-return is spelled `INT_PTR` on 64-bit but historical `int` on x86. A plain `i32`/`i64` pair does not
+return is spelled `INT_PTR` on 64-bit but legacy `int` on x86. A plain `i32`/`i64` pair does not
 qualify: the explicit native-sized spelling is required as semantic evidence.
 
 The merge is deterministic: it stages through `BTreeMap`s and insertion-ordered `Vec`s, with no

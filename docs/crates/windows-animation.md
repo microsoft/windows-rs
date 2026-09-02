@@ -5,142 +5,161 @@
 - 📦 [crates.io](https://crates.io/crates/windows-animation)
 - 📖 [docs.rs](https://docs.rs/windows-animation)
 - 🚀 [Getting started](../../crates/libs/animation/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/animation)
 - 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/animation)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/animation)
 
-`windows-animation` wraps the Win32 Windows Animation Manager COM APIs in safe Rust types. A
-`Manager` owns animation `Variable`s. Each one is a smoothly animated `f64`. You describe motion
-with a `Transition` from a `TransitionLibrary`, optionally group transitions into a `Storyboard`,
-and schedule them. The crate computes interpolated values only; it does not draw anything. Within
-the UI family ([`windows-reactor`](windows-reactor.md), [`windows-canvas`](windows-canvas.md),
-[`windows-webview`](windows-webview.md), [`windows-window`](windows-window.md)) it is the animation
-engine for immediate-mode rendering. You sample `variable.value()` each frame from a draw loop such
-as canvas's `animated_canvas`. See [How it fits with canvas and
-reactor](#how-it-fits-with-canvas-and-reactor) for why reactor animates on Composition instead.
+## When to use it
 
-## Getting started
+Use `windows-animation` when a Windows application needs time-based interpolation for values that
+it will draw or apply itself. It works well with immediate-mode rendering: advance the manager on
+each frame, read each `Variable`, and use the values in a canvas, Direct2D, Direct3D, or
+DirectComposition scene.
 
-The flow is always: create a `Manager`, create one or more `Variable`s, build `Transition`s,
-schedule them, then call `manager.update(time)` each frame and read `variable.value()`.
+The crate does not create a timer, request frames, draw content, or update a UI property. For
+retained WinUI visuals in [`windows-reactor`](windows-reactor.md), Reactor's Composition
+transitions usually fit better because the compositor owns their frame updates.
+
+## Prerequisites
+
+Initialize COM on the thread that creates the animation objects. For a console or rendering thread,
+`windows_core::init_mta()` is suitable, as shown by the samples. A UI thread may use its existing
+apartment. Use one monotonic time origin for scheduling and updates.
+
+The README contains dependency setup and a minimal storyboard. The workflow below focuses on
+integrating animation into a real frame loop.
+
+## First workflow: drive a rendered property
+
+1. Create one `Manager` and one `TransitionLibrary`.
+2. Create a `Variable` for each scalar property, using the current rendered value as its initial
+   value.
+3. Build a transition and schedule it at an absolute time from the application's animation clock.
+4. On every requested frame, sample that clock and call `Manager::update(time)` once.
+5. Read all variables, draw or apply the values, and request another frame while animation remains
+   active.
+
+For example, the per-frame portion of a renderer can be kept separate from transition setup:
+
+```rust,no_run
+use windows_animation::{Manager, Result, Variable};
+
+fn draw_frame(manager: &Manager, x: &Variable, now: f64) -> Result<f64> {
+    manager.update(now)?;
+    let x = x.value()?;
+    // Use `x` in the renderer for this frame.
+    Ok(x)
+}
+```
+
+`now` is an absolute timestamp in the same time domain used when scheduling, not elapsed time since
+the previous frame. Supplying deltas makes the animation clock stall or move incorrectly.
+
+## Core API and lifecycle
+
+`Manager` coordinates variables, transitions, and storyboards. Reuse it for values updated from
+the same frame clock. `Variable` holds the current interpolated `f64`. `TransitionLibrary` creates
+transition descriptions. `Transition` and `Storyboard` are retained COM-backed values and can be
+cloned.
+
+There are two scheduling paths:
+
+- `Manager::schedule_transition` applies one transition to one variable at an absolute start time.
+- `Manager::create_storyboard` creates a group that can coordinate several variables or sequence
+  transitions before scheduling the group.
+
+Keep the `Manager` and every `Variable` needed by rendering alive for the animation lifetime.
+Propagate the `windows_core::Result` from creation, scheduling, updates, and value reads; COM
+initialization and invalid transition parameters are reported through those results.
+
+## Transition choices
+
+| API | Use it for |
+| --- | --- |
+| `linear(duration, final_value)` | Constant-rate movement to a value. |
+| `accelerate_decelerate(...)` | Ease-in and ease-out movement. |
+| `instantaneous(final_value)` | A scheduled jump without interpolation. |
+
+Acceleration and deceleration are ratios of total duration and must sum to <= 1.0. Durations and
+final values use `f64`.
+
+For direct scheduling:
 
 ```rust,no_run
 use windows_animation::*;
 
-fn main() -> Result<()> {
-    let manager = Manager::new()?;
-    let opacity = manager.create_variable(0.0)?;
-
-    // Animate from 0.0 to 1.0 over half a second.
-    let library = TransitionLibrary::new()?;
-    let fade_in = library.linear(0.5, 1.0)?;
-    manager.schedule_transition(&opacity, &fade_in, 0.0)?;
-
-    // Each frame: advance the clock to the current time, then read the value.
-    manager.update(0.25)?;
-    let value = opacity.value()?;
-    assert!((0.0..=1.0).contains(&value));
-    Ok(())
+fn retarget(manager: &Manager, library: &TransitionLibrary, x: &Variable, now: f64)
+    -> Result<()>
+{
+    let transition = library.accelerate_decelerate(0.25, 320.0, 0.3, 0.3)?;
+    manager.schedule_transition(x, &transition, now)
 }
 ```
-
-`update(time)` takes an absolute time (typically seconds since the animation started, sampled from a
-high-resolution clock or frame timer), not a delta. Call it once per frame before reading values.
-
-## Transition types
-
-`TransitionLibrary` is the factory for the built-in transitions:
-
-- **`linear(duration, final_value)`** - constant-rate move to `final_value`.
-- **`accelerate_decelerate(duration, final_value, acceleration_ratio, deceleration_ratio)`** - eases
-  in then out. The two ratios are fractions of the duration and must sum to 1.0 or less.
-- **`instantaneous(final_value)`** - jumps immediately to `final_value`.
-
-`manager.schedule_transition(&variable, &transition, start_time)` applies a single transition
-directly, which is all you need for simple one-shot animations.
 
 ## Sequencing with storyboards
 
-A `Storyboard` groups several transitions so they start together or chain off one another.
-`add_transition` returns a `Keyframe` marking that transition's end, and
-`add_transition_at_keyframe` starts another transition at that point, so a value can begin animating
-exactly when an earlier one finishes.
+`Storyboard::add_transition` adds a transition and returns a `Keyframe` marking its end.
+`add_transition_at_keyframe` starts another transition at that point. A keyframe can coordinate a
+later transition on the same variable or another variable.
 
-```rust,no_run
-use windows_animation::*;
+Build the entire storyboard before calling `schedule(start_time)`. Its time is absolute in the
+manager's clock domain. The `storyboard` sample sequences a rise and fall on one variable; the
+same pattern can start a fade after a movement finishes.
 
-fn main() -> Result<()> {
-    let manager = Manager::new()?;
-    let library = TransitionLibrary::new()?;
+## Frame-loop and error pitfalls
 
-    let x = manager.create_variable(0.0)?;
-    let opacity = manager.create_variable(0.0)?;
+- Update a manager once per frame before reading its variables. Reading first returns the value
+  from the previous update.
+- Use a monotonic high-resolution clock. Wall-clock changes must not move animation time backward.
+- Schedule and update with the same time origin. `0.0` is valid for a deterministic offline
+  timeline, while a live app commonly uses seconds since renderer startup.
+- The crate does not report whether more frames are required. The application owns invalidation
+  and its stop condition.
+- Do not block the UI thread between updates in an interactive application; missed updates appear
+  as skipped visual frames even though interpolation remains time-correct.
+- Treat a failed creation, transition, schedule, update, or value read as an application error.
+  Do not continue rendering with a stale value unless that is an explicit fallback.
 
-    let slide = library.accelerate_decelerate(0.5, 200.0, 0.3, 0.3)?;
-    let fade = library.linear(0.25, 1.0)?;
+## DirectComposition
 
-    let storyboard = manager.create_storyboard()?;
-    let after_slide = storyboard.add_transition(&x, &slide)?;
-    storyboard.add_transition_at_keyframe(&opacity, &fade, after_slide)?;
-    storyboard.schedule(0.0)?;
+`Variable::copy_curve` copies the variable's curve to an object implementing
+`IDCompositionAnimation`. DirectComposition can then evaluate it on its own composition thread,
+without the application reading `Variable::value` each frame.
 
-    manager.update(0.6)?;
-    let _ = (x.value()?, opacity.value()?);
-    Ok(())
-}
-```
-
-## DirectComposition integration
-
-`Variable::copy_curve` copies a variable's animation curve into a DirectComposition animation object
-(any `IDCompositionAnimation`), so the composition engine can drive the animation on its own thread
-instead of you sampling `value()` each frame.
+This API targets Win32 DirectComposition, not the Windows.UI.Composition engine used by WinUI and
+Reactor. The two animation object models are not interchangeable.
 
 ## Samples
 
-The
-[`crates/samples/animation/samples`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/animation/samples)
-crate has headless console examples that drive the manager on an explicit timeline and print the
-animated value, so they run without a window. Run one with
-`cargo run -p animation_samples --example <name>`:
+Run the headless examples with:
 
-| Example | Demonstrates |
-| --- | --- |
-| `variable` | A single variable animated by one accelerate/decelerate transition, sampled over time. |
-| `storyboard` | Two transitions sequenced on a storyboard: a value rises to a peak, then falls back. |
+```text
+cargo run -p animation_samples --example variable
+cargo run -p animation_samples --example storyboard
+```
 
-The [`clock`](windows-canvas.md) canvas sample shows the same API driving a live per-frame render
-loop instead.
+`variable` schedules one accelerate/decelerate transition and prints deterministic samples from
+0.0 through 1.0 seconds. `storyboard` chains a rise and fall through a keyframe. Both initialize
+COM explicitly and show the absolute-time update pattern.
+
+The [`canvas/clock`](../../crates/samples/canvas/clock) sample applies the same API in a live
+per-frame rendering loop.
 
 ---
 
 ## Internal documentation
 
-The remainder of this page covers how the crate is built and maintained. It is for contributors and
-is **not needed to use `windows-animation`**.
+This section is for contributors to `windows-animation`.
 
-### How it's built
+`src/bindings.rs` is generated by `tool_bindings` from
+`crates/tools/bindings/src/animation.txt`. The hand-written `Manager`, `TransitionLibrary`,
+`Storyboard`, `Transition`, `Keyframe`, and `Variable` wrappers expose the selected Windows
+Animation Manager 2 interfaces.
 
-`src/bindings.rs` is generated by `tool_bindings` from `crates/tools/bindings/src/animation.txt`;
-`Manager`, `TransitionLibrary`, `Storyboard`, and `Variable` are hand-written safe wrappers over the
-UIAnimation COM API (`IUIAnimationManager2` and friends), created via `CoCreateInstance`.
+`Manager::new` and `TransitionLibrary::new` create their COM classes with `CoCreateInstance`.
+Manager methods delegate scheduling and updates to `IUIAnimationManager2`. Storyboards add an
+explicit keyframe after each transition so the returned opaque `Keyframe` can anchor another
+transition. `Variable::copy_curve` casts the supplied interface to `IDCompositionAnimation` before
+copying the curve.
 
-### Testing
-
-Run `cargo test -p windows-animation`; see also the workspace test crates.
-
-### How it fits with canvas and reactor
-
-This family has three animation technologies with distinct roles:
-
-- **`windows-animation` (UIAnimation Manager)** computes interpolated values that you sample each
-  frame (`update(time)` then `value()`). This matches immediate-mode rendering, such as
-  `windows-canvas`'s `animated_canvas` per-frame draw loop. It is the animation engine for canvas
-  and raw Win32 or DirectComposition. Its failures are immediate `windows_core::Result` values; it
-  does not own an asynchronous Reactor integration lifecycle.
-- **`windows-reactor` implicit transitions** use Windows.UI.Composition. It runs animations
-  off-thread on retained visuals. This is the model for a declarative, re-rendering UI, where you do
-  not re-render every frame to animate.
-- **Bridging caveat.** `Variable::copy_curve` targets `IDCompositionAnimation` (DirectComposition,
-  the Win32 composition engine), not Windows.UI.Composition (the WinRT engine WinUI and reactor
-  use). The two are distinct. So `windows-animation` plugs into canvas and raw Win32 or
-  DirectComposition, but does not drop directly into the reactor visual tree.
+Keep the generated filter and the hand-written surface aligned. The headless examples are also the
+clearest end-to-end checks of COM creation, direct scheduling, keyframe sequencing, and updates.

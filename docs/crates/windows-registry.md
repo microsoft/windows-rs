@@ -9,11 +9,85 @@
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/registry)
 
 `windows-registry` wraps the Win32 registry APIs behind a small, safe surface. Start from one of the
-predefined roots - `CURRENT_USER`, `LOCAL_MACHINE`, or `CLASSES_ROOT` - then `create` or `open` keys
-and read or write typed values. The `options()` builder adds fine-grained control, including
-transactions, volatile keys, additional access rights, and the registry redirection view:
-`wow64_32()` targets the 32-bit (`WOW6432Node`) view and `wow64_64()` the native 64-bit view. The
-two views are mutually exclusive - the last call wins.
+predefined roots, then open a key and work with typed values.
+
+## When to use
+
+Use this crate when a Windows application must read or write registry configuration and wants owned
+keys, typed values, iteration, transactions, or explicit registry-view selection. Use a portable
+configuration format when settings must work on non-Windows systems or travel with the application.
+
+## Getting started
+
+The [crate README](../../crates/libs/registry/readme.md) has the dependency declaration and minimal
+read/write and transaction examples. For a first workflow, read application settings under
+`CURRENT_USER` and propagate missing-key, access, type, and data errors to the layer that can decide
+how to handle them:
+
+```rust,no_run
+use windows_registry::{CURRENT_USER, Result};
+
+fn read_launch_count() -> Result<u32> {
+    let key = CURRENT_USER.open(r"Software\Contoso\Widget")?;
+    key.get_u32("LaunchCount")
+}
+```
+
+Create keys during installation or first-run setup, and remove test data when finished.
+
+## Keys and access
+
+The predefined roots include `CLASSES_ROOT`, `CURRENT_CONFIG`, `CURRENT_USER`, `LOCAL_MACHINE`, and
+`USERS`. `open` requests read access. `create` opens or creates a key with read and write access.
+Both return an owned `Key` that closes its handle on drop.
+
+Use `options()` when the defaults are not appropriate:
+
+```rust,no_run
+use windows_registry::{CURRENT_USER, Result};
+
+fn open_for_update() -> Result<windows_registry::Key> {
+    CURRENT_USER
+        .options()
+        .read()
+        .write()
+        .wow64_64()
+        .open(r"Software\Contoso\Widget")
+}
+```
+
+The builder can add access rights, create a volatile key, or associate the operation with a
+`Transaction`.
+
+## Reading, writing, and enumerating
+
+Typed helpers cover `u32`, `u64`, strings, expandable strings, multi-strings, and binary data.
+`get_value` and `set_value` preserve a value's registry `Type` when the typed helpers are not
+enough. `keys()` enumerates child names and `values()` enumerates names and values.
+
+Registry operations are not atomic as a group. To update several keys together, create a
+`Transaction`, open or create each key through options associated with it, and call `commit`.
+Dropping an uncommitted transaction rolls it back.
+
+## Platform constraints and pitfalls
+
+- The crate is Windows-only. Access to protected locations such as parts of `LOCAL_MACHINE`
+  depends on the process token and may require elevation.
+- A 32-bit process and a 64-bit process can see different redirected views. Select `wow64_32()` or
+  `wow64_64()` when both processes must address a known view. They are mutually exclusive; the last
+  call wins.
+- Expandable strings are returned as stored. Reading one does not expand environment variables.
+- Value names may be empty for a key's default value.
+- `remove_tree` is recursive. Scope the parent and path carefully before deleting.
+- Kernel Transaction Manager support and policy can vary by Windows environment. Surface
+  transaction creation and commit failures to the caller.
+
+## Samples and next steps
+
+The [`read_write` sample](../../crates/samples/registry/samples/examples/read_write.rs) creates,
+reads, and removes a test key. The
+[`transaction` sample](../../crates/samples/registry/samples/examples/transaction.rs) performs the
+write through a transaction.
 
 ---
 
