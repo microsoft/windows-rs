@@ -720,10 +720,6 @@ impl LivePump for ComponentLoop {
     }
 }
 
-pub fn bootstrap() -> windows_core::Result<()> {
-    bootstrap_runtime()
-}
-
 pub struct App;
 
 impl App {
@@ -771,7 +767,10 @@ impl App {
     fn run_with(
         create_pumps: impl FnOnce(Application) -> Vec<Box<dyn LivePump>> + 'static,
     ) -> windows_core::Result<()> {
-        bootstrap_runtime()?;
+        if !is_packaged_process()? {
+            bootstrap_runtime()?;
+        }
+
         initialize_ui_thread()?;
         let create_pumps = Rc::new(RefCell::new(Some(create_pumps)));
         let result = Rc::new(RefCell::new(Ok(())));
@@ -1167,6 +1166,16 @@ fn queue_live_delayed(
         }
     })?);
     timer.Start()
+}
+
+fn is_packaged_process() -> windows_core::Result<bool> {
+    let mut length = 0;
+    let rc = unsafe { GetCurrentPackageFullName(&mut length, windows_core::PWSTR::null()) };
+    match rc {
+        ERROR_INSUFFICIENT_BUFFER => Ok(true),
+        APPMODEL_ERROR_NO_PACKAGE => Ok(false),
+        _ => Err(windows_core::HRESULT::from(windows_core::WIN32_ERROR(rc as u32)).into()),
+    }
 }
 
 fn pump_error(error: PumpError) -> windows_core::Error {

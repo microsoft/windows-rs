@@ -1,6 +1,4 @@
 fn main() {
-    windows_reactor_setup::as_framework_dependent();
-
     let bindings = format!("{}/bindings.rs", std::env::var("OUT_DIR").unwrap());
     windows_bindgen::builder()
         .input("../../../tools/reactor/winmd")

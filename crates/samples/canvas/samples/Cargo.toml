@@ -12,8 +12,5 @@ windows-reactor = { workspace = true }
 windows-numerics = { workspace = true, features = ["std"] }
 windows-time = { workspace = true }
 
-[build-dependencies]
-windows-reactor-setup = { workspace = true }
-
 [lints]
 workspace = true

@@ -14,9 +14,6 @@ windows-reactor = { workspace = true }
 [dev-dependencies]
 windows-reactor = { workspace = true, features = ["test"] }
 
-[build-dependencies]
-windows-reactor-setup = { workspace = true }
-
 [[bin]]
 name = "reactor-virtual-perf"
 path = "src/perf_main.rs"

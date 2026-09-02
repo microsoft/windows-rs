@@ -13,8 +13,7 @@
 and describe native UI with `View` values. The runtime reconciles each view against the retained
 tree, publishes native commands, and applies them on the UI thread.
 
-The crate readme contains the dependency setup, the `build.rs` runtime staging, and a complete
-counter example.
+The crate readme contains dependency and deployment setup plus a complete counter example.
 
 ## Component model
 
@@ -153,10 +152,12 @@ between releases as the reconciler changes.
 
 ## Deployment
 
-Applications use `windows-reactor-setup` from `build.rs` to stage the Windows App Runtime.
-Framework-dependent and self-contained examples live in `crates/samples/reactor/framework_dependent`
-and `crates/samples/reactor/self_contained`. See
-[`windows-reactor-setup`](windows-reactor-setup.md) for the staging details.
+Self-contained applications use `windows-reactor-setup` from `build.rs` to stage the Windows App
+Runtime. Framework-dependent applications need no setup crate: Reactor resolves the installed
+Windows App Runtime framework package at startup. Framework-dependent and self-contained examples
+live in `crates/samples/reactor/framework_dependent` and
+`crates/samples/reactor/self_contained`. See
+[`windows-reactor-setup`](windows-reactor-setup.md) for self-contained staging details.
 
 ---
 
@@ -205,9 +206,9 @@ control. Applications attach text or rich content through `TooltipExt` and `Tool
 
 ### Code generation
 
-`crates/tools/reactor` refreshes the committed WinUI, Windows App SDK, and WebView2 metadata plus
-the `windows-reactor-setup` bootstrap DLLs from pinned NuGet packages. It then reads
-`src/winui.toml` and the metadata under `winmd` and generates:
+`crates/tools/reactor` refreshes the committed WinUI, Windows App SDK, and WebView2 metadata from
+pinned NuGet packages. It then reads `src/winui.toml` and the metadata under `winmd` and
+generates:
 
 | Output | Contents |
 | --- | --- |
