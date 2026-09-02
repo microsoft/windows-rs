@@ -8,8 +8,5 @@ publish = false
 windows-core = { workspace = true }
 windows-reactor = { workspace = true }
 
-[build-dependencies]
-windows-reactor-setup = { workspace = true }
-
 [lints]
 workspace = true

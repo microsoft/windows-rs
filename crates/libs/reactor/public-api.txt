@@ -4377,7 +4377,6 @@ pub trait windows_reactor::TreeViewExt: core::convert::Into<windows_reactor::Vie
 pub fn windows_reactor::TreeViewExt::nodes(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::TreeNode>) -> windows_reactor::View
 impl<T> windows_reactor::TreeViewExt for T where T: core::convert::Into<windows_reactor::View>
 pub fn T::nodes(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::TreeNode>) -> windows_reactor::View
-pub fn windows_reactor::bootstrap() -> windows_result::Result<()>
 pub type windows_reactor::CompositionHostError = windows_reactor::IntegrationError
 pub type windows_reactor::FocusError = windows_reactor::IntegrationError
 pub type windows_reactor::ImageSourceError = windows_reactor::IntegrationError

@@ -10,8 +10,5 @@ windows-reactor = { workspace = true }
 windows-composition = { workspace = true, default-features = false, features = ["reactor"] }
 windows-numerics = { workspace = true }
 
-[build-dependencies]
-windows-reactor-setup = { workspace = true }
-
 [lints]
 workspace = true

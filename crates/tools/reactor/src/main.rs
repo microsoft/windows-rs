@@ -25,13 +25,6 @@ const EXTRAS_RDL: &str = "crates/tools/reactor/src/extras.rdl";
 const EXTRAS_WINMD: &str = "crates/tools/reactor/winmd/extras.winmd";
 const SCHEMA: &str = "crates/tools/reactor/src/winui.toml";
 const WINDOWS_APP_SDK_VERSION: &str = "2.4.0";
-const BOOTSTRAP_DIR: &str = "crates/libs/reactor-setup/bootstrap";
-const BOOTSTRAP_DLL: &str = "Microsoft.WindowsAppRuntime.Bootstrap.dll";
-const BOOTSTRAP_ARCHES: &[(&str, &str)] = &[
-    ("arm64", "win-arm64"),
-    ("x64", "win-x64"),
-    ("x86", "win-x86"),
-];
 
 fn main() {
     assert_reactor_setup_pins();
@@ -176,23 +169,6 @@ fn refresh_winmd() {
         .join("Microsoft.Web.WebView2.Core.winmd");
     fs::copy(&webview_core, dir.join("Microsoft.Web.WebView2.Core.winmd"))
         .unwrap_or_else(|error| panic!("cannot copy `{}`: {error}", webview_core.display()));
-
-    refresh_bootstrap(&foundation_package);
-}
-
-fn refresh_bootstrap(foundation_package: &Path) {
-    for (architecture, runtime_id) in BOOTSTRAP_ARCHES {
-        let source = foundation_package
-            .join("runtimes")
-            .join(runtime_id)
-            .join("native")
-            .join(BOOTSTRAP_DLL);
-        let destination = workspace_path(BOOTSTRAP_DIR).join(architecture);
-        fs::create_dir_all(&destination)
-            .unwrap_or_else(|error| panic!("cannot create `{}`: {error}", destination.display()));
-        fs::copy(&source, destination.join(BOOTSTRAP_DLL))
-            .unwrap_or_else(|error| panic!("cannot copy `{}`: {error}", source.display()));
-    }
 }
 
 fn read_nuspec(package_dir: &Path) -> String {

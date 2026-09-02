@@ -24,38 +24,9 @@ mod extras {
 
     // Sourced from Microsoft.WindowsAppSDK.Runtime 2.4.0
 
-    #[library("Microsoft.WindowsAppRuntime.Bootstrap.dll")]
-    extern fn MddBootstrapInitialize2(
-        majorMinorVersion: u32,
-        versionTag: *const u16,
-        minVersion: Windows::Win32::PACKAGE_VERSION,
-        options: MddBootstrapInitializeOptions,
-    ) -> HRESULT;
-
-    #[library("Microsoft.WindowsAppRuntime.Bootstrap.dll")]
-    extern fn MddBootstrapShutdown();
-
-    #[repr(i32)]
-    enum MddBootstrapInitializeOptions {
-        MddBootstrapInitializeOptions_None = 0,
-        MddBootstrapInitializeOptions_OnError_DebugBreak = 1,
-        MddBootstrapInitializeOptions_OnError_DebugBreak_IfDebuggerAttached = 2,
-        MddBootstrapInitializeOptions_OnError_FailFast = 4,
-        MddBootstrapInitializeOptions_OnNoMatch_ShowUI = 8,
-        MddBootstrapInitializeOptions_OnPackageIdentity_NOOP = 16,
-    }
-
-    const WINDOWSAPPSDK_RELEASE_MAJOR: i32 = 2;
-    const WINDOWSAPPSDK_RELEASE_MINOR: i32 = 4;
-    const WINDOWSAPPSDK_RELEASE_PATCH: i32 = 0;
-    const WINDOWSAPPSDK_RELEASE_MAJORMINOR: i32 = 0x0002_0004;
-
     const WINDOWSAPPSDK_RUNTIME_VERSION_MAJOR: u32 = 2;
     const WINDOWSAPPSDK_RUNTIME_VERSION_MINOR: u32 = 4;
     const WINDOWSAPPSDK_RUNTIME_VERSION_BUILD: u32 = 0;
     const WINDOWSAPPSDK_RUNTIME_VERSION_REVISION: u32 = 0;
     const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 0x0002_0004_0000_0000;
-
-    #[encoding("utf-16")]
-    const WINDOWSAPPSDK_RELEASE_VERSION_TAG_W: String = "";
 }

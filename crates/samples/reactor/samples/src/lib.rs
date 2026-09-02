@@ -46,7 +46,6 @@ pub fn run(
     title: &'static str,
     render: impl Fn() -> windows_reactor::View + 'static,
 ) -> Result<()> {
-    windows_reactor::bootstrap()?;
     windows_reactor::App::run_component::<Sample>(SampleInput {
         render: std::rc::Rc::new(render),
         title,
