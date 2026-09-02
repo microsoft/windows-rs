@@ -8,283 +8,141 @@
 - 🧩 [Samples](../../crates/samples/bindgen)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/bindgen)
 
-`windows-bindgen` generates Rust bindings from Windows metadata. It powers the `windows` and
-`windows-sys` crates. You can also use it from `build.rs` to make a small binding set for the APIs
-that your crate calls.
+Use `windows-bindgen` when a focused crate does not cover the APIs a project needs. It is the
+preferred way for reusable libraries to own a narrow binding set without depending on the broad
+[`windows`](windows.md) or [`windows-sys`](windows-sys.md) umbrella crate. Binary applications may
+prefer those pre-generated crates when dependency size and version sharing are less important.
 
-The crate includes the standard Windows metadata through
-[`windows-default`](windows-default.md). Most projects only need an output file and a filter. If an
-API has no metadata, use [`windows-rdl`](windows-rdl.md) to create a `.winmd` file. Then pass that
-file to `windows-bindgen`.
+The generator also supports custom metadata and control over the generated Rust shape. It is a
+build-time generator, not a Windows API runtime.
 
-## Getting started
-
-Add `windows-bindgen` as a build dependency. Add `windows-link` or `windows-core` as the runtime
-dependency that the generated code uses:
-
-```toml
-[dependencies]
-windows-link = "0.100"
-
-[build-dependencies]
-windows-bindgen = "0.100"
-```
-
-Generate bindings from `build.rs` with command-line-style arguments, a command file, or the builder:
-
-```rust,no_run
-windows_bindgen::bindgen([
-    "--out", "src/bindings.rs",
-    "--flat",
-    "--sys",
-    "--filter", "GetTickCount",
-]);
-```
-
-```rust,no_run
-windows_bindgen::Bindgen::new()
-    .output("src/bindings.rs")
-    .flat()
-    .sys()
-    .filter("GetTickCount")
-    .write();
-```
-
-Include the generated file as a module in your crate.
-
-## Filters
-
-A filter selects which APIs appear in the output. Rule specificity controls how much of a type is
-generated. This works like a Rust `use` declaration. Use a bare name for the full item. Use braces
-to select a smaller surface.
-
-- A namespace, such as `Windows.Win32.System.Com`, includes all types under it.
-- A bare type includes the full type. Examples are `HWND`, `OSVERSIONINFOEXW`, and
-  `Windows.Win32.Foundation.HWND`.
-- `Namespace.Type::{}` emits a name-only shell. Use it for a dependency that you only pass through
-  signatures.
-- `Namespace.Type::{Method1, Method2}` emits only the named methods. `Namespace.Type::Method` is the
-  single-method form.
-- `Property` and `Event` names expand to accessor pairs. Properties expand to `get_` and `put_`.
-  Events expand to `add_` and `remove_`.
-- `Namespace.Class::CreateInstance` emits class activation support. A bare class projects its
-  default interface but no constructor.
-
-Prefix a rule with `!` to exclude it. A selected type also pulls in the types that its signatures
-require. Those dependency types are emitted as shells.
-
-For a complete command file, use `--etc`. Blank lines and lines whose first non-whitespace
-characters are `//` are ignored:
+The crate is the final stage of the repository's metadata pipeline:
 
 ```text
---out crates/libs/version/src/bindings.rs
---flat --sys
-
---filter
-    RtlGetVersion
-    OSVERSIONINFOEXW
-    VER_NT_WORKSTATION
+C/C++ headers -> RDL -> .winmd -> windows-bindgen -> Rust source or a Rust package
 ```
 
-```rust,no_run
-windows_bindgen::bindgen(["--etc", "bindings.txt"]);
-```
+Start with the crate [README](../../crates/libs/bindgen/readme.md) for dependency setup and the
+smallest invocation. This page covers how to choose and maintain a real generation workflow.
 
-When only the filter list is large, keep it in a filter-only file and use
-`Bindgen::filter_file`/`filter_files` or the textual `--filter-file` option.
+## Choose the input
 
-The in-repo crates use both patterns. `tool_bindings` runs
-`bindgen(["--etc", "crates/tools/bindings/src/<crate>.txt"])` for each library.
+`windows-bindgen` reads ECMA-335 Windows metadata, not headers or IDL.
 
-## Choosing the output shape
+| Starting point | Path to bindings |
+| --- | --- |
+| Standard Windows API | Use the implicit default metadata and add filters. |
+| Custom `.winmd` | Add it with `input`; also call `input_default` if it references Windows types. |
+| RDL declarations | Compile them with [`windows-rdl`](windows-rdl.md), then add the `.winmd`. |
+| C/C++ headers | Scrape with [`windows-clang`](windows-clang.md), compile with RDL, then bind. |
+| Metadata bytes in memory | Use `input_bytes` or `input_byte_sets`. |
 
-Two independent choices control the generated code. The first choice is style. The second choice is
-layout.
+If no input is supplied, the builder reads the standard WinRT and Win32 metadata from
+[`windows-default`](windows-default.md). Supplying a custom input replaces that implicit choice;
+call `input_default` when custom definitions need standard types.
 
-Style:
+## First workflow: own a focused binding
 
-- Default style emits rich bindings. It includes class wrappers, inherited-interface forwarders,
-  handle types, and free-function wrappers. The `windows` crate uses this style.
-- `--sys` or `.sys()` emits raw FFI. It emits bare `extern` functions and plain structs. It links
-  through `link!` macros. Add `--extern` or `.extern_fns()` to emit `extern { fn ... }` blocks
-  instead of `link!`. The `windows-sys` crate uses this style.
-- `--minimal` or `.minimal()` starts from default style. It omits per-class wrappers, inherited
-  forwarders, handle helpers, implementation-only callable wrappers, and free-function wrappers.
-  A class `CreateInstance` filter retains only the constructor factory method it needs. Use minimal
-  style for small binding sets. `windows-canvas` and `windows-reactor` use it. It is mutually
-  exclusive with `--sys`.
-- `--compose Namespace.Class` or `.compose("Namespace.Class")` marks an explicitly filtered,
-  composable WinRT class as a minimal-mode composition target. It emits `compose()` instead of the
-  factory's non-aggregating `new()`. Composition targets are independent of `--implement`, which
-  selects interface implementation traits.
+For a reusable library, keep generation separate from normal consumer builds:
 
-WinRT event accessors are always collapsed into an `Event` wrapper. This applies to all styles and
-layouts. See [Event accessors](#event-accessors).
+1. Decide whether the public surface needs rich wrappers or raw FFI.
+2. Put the API names in a stable filter list.
+3. Generate `src/bindings.rs` from an unpublished workspace tool.
+4. Review and commit the generated file with the library.
+5. Run that tool in CI and reject a generated diff.
 
-### Variadic native functions
+The repository's `tool_bindings` follows this workflow. It reads command files from
+`crates/tools/bindings/src/*.txt` and rewrites each library's committed `bindings.rs`.
+`crates/samples/bindgen/vss_backup/build.rs` shows the alternative for an application: generate a
+flat file in `OUT_DIR`, include it as a private module, and let each build recreate it.
 
-Native variadic exports carry `MethodCallAttributes::VARARG` in the method signature. Only
-`--sys` emits them, because sys output can retain the literal `...` tail in a raw foreign
-declaration. Both `link!` output and `--sys --extern` preserve metadata `C` and `system` calling
-conventions. Rust lowers a Windows `system` C-variadic declaration to the compatible C variadic ABI
-on X86 while retaining `system` for fixed signatures.
+Prefer committed output for a published library. Its users then need only the generated code's
+runtime support, not the generator and metadata payloads. Treat generated types exposed by the
+library as part of its public contract.
 
-Default and minimal output cannot forward an unknown variadic tail through a Rust wrapper. Broad
-filters omit those exports. Selecting one by exact function name reports that rich and minimal
-bindings cannot project it and directs the caller to `--sys`; it never emits the fixed prefix as a
-callable function. Stable Rust cannot declare a `fastcall` C-variadic function, so broad sys
-generation omits that metadata shape and exact selection reports the unsupported convention.
+## Select APIs with filters
 
-The published `windows-sys` crate retains raw declarations such as
-`AuthzReportSecurityEvent(...)`. The `windows` crate omits Win32 and WDK variadic exports because
-the default projection cannot preserve their argument tails.
+Filters resemble Rust paths. Specific filters produce smaller output:
 
-Layout:
+| Filter | Result |
+| --- | --- |
+| `Windows.Win32.System.Com` | Everything in that namespace and its children. |
+| `Windows.Win32.Foundation.HWND` | The full named type. |
+| `Namespace.Type::{}` | A name-only shell. |
+| `Namespace.Type::Method` | One method and required type dependencies. |
+| `Namespace.Type::{Method1, Method2}` | A set of methods. |
+| `!Namespace.Type` | Excludes a matching included item. |
 
-- The default layout emits one Rust module per metadata namespace.
-- `--flat` or `.flat()` emits one flat list of items.
-- `--package` or `.package()` emits one file per namespace. It also writes a `Cargo.toml` with
-  per-namespace features. The `windows` and `windows-sys` crates use this layout. It is mutually
-  exclusive with `--flat`.
+Property and event names select their accessor pairs. Selecting a WinRT class's
+`CreateInstance` member includes activation support; selecting only the class projects its default
+interface without a constructor.
 
-The style and layout choices are independent. The repository uses only the combinations below.
+Signature dependencies are included automatically, usually as shells. A whole-type filter retains
+the type hierarchy. Use `filter_file` or `filter_files` for filter-only files. Use the textual
+`--etc` adapter when the file contains the whole command, including output and style options.
+Blank lines and lines beginning with `//` are ignored in command files.
 
-| Style + layout        | Purpose                                           | Examples                                  |
-| --------------------- | ------------------------------------------------- | ----------------------------------------- |
-| default + `--flat`    | Helper crate with one bindings file              | `windows-collections`, `windows-future`   |
-| default + `--package` | Published umbrella crate                         | `windows`                                 |
-| `--sys` + `--flat`    | Raw FFI helper crate with one bindings file      | `windows-result`, `windows-registry`      |
-| `--sys` + `--package` | Published raw FFI crate                          | `windows-sys`                             |
-| `--minimal` + `--flat`| Small binding set                                | `windows-core`, `windows-canvas`, `windows-reactor` |
-| any + modules         | Namespace-per-module output for direct consumers | External binding generation               |
+## Choose style and layout
 
-`--minimal` and `--package` are not used together. Minimal output targets small binding sets.
-Package output targets the full API surface.
+Style controls the API shape. Layout controls where items are written.
 
-### Empty modules in package mode
+| Style | Use it for | Key behavior |
+| --- | --- | --- |
+| Default | Rich WinRT and Win32 bindings | Wrappers, handle types, and inherited forwarders. |
+| `sys` | Raw FFI | Plain structs and foreign functions; used by `windows-sys`. |
+| `minimal` | Small hand-wrapped binding sets | Omits most convenience and inherited wrappers. |
 
-In `--sys --package` mode, a namespace can contain only COM interfaces. Raw FFI style emits no
-interface bodies, so the namespace has no items. `write_package` prunes that empty namespace. It
-removes the module declaration, file, Cargo feature, and feature dependency references.
+`extern_fns` changes sys free functions from `windows-link` macros to `extern` blocks. `sys` and
+`minimal` are mutually exclusive. Only sys style can emit native variadic functions because a rich
+wrapper cannot forward an unknown argument tail. Stable Rust also cannot declare `fastcall`
+variadics.
 
-Pruning is recursive. A parent namespace is pruned only when it and all children are empty. This
-applies only to `--sys`. The full `windows` crate emits interfaces, so those modules are not empty.
+| Layout | Output |
+| --- | --- |
+| Default | Nested Rust modules matching metadata namespaces. |
+| `flat` | One flat Rust source file. |
+| `package` | Namespace files plus a `Cargo.toml` with namespace features. |
 
-### Event accessors
+`flat` and `package` are mutually exclusive. Package mode is intended for broad projections such
+as `windows` and `windows-sys`; focused libraries normally use one flat file. In sys package mode,
+empty COM-only namespaces and their unused feature entries are pruned.
 
-Each WinRT `add_X` and `remove_X` pair becomes one method:
+## Common generation tasks
 
-Event add methods return `Result<EventRevoker>`.
+- Use `implement` or `implements` to generate WinRT implementation traits for selected interfaces.
+  `implement_all` applies to every interface in scope.
+- In minimal mode, use `compose` for an explicitly filtered composable WinRT class. Filter the
+  class and its factory method separately; `implement` does not select composition targets.
+- Use `derive` or `derives` to add traits to generated types.
+- Use `rustfmt` to select a formatter executable.
+- Use `dead_code` for internal bindings whose unused callable items should be detected as
+  `pub(crate)`.
 
-The method takes the closure directly. It returns an
-[`EventRevoker`](https://docs.rs/windows-core/latest/windows_core/struct.EventRevoker.html). The
-revoker calls the matching `remove_X` slot on drop. Call `.forget()` or `.into_token()` to opt out.
+WinRT event add/remove pairs project as one method returning `EventRevoker`. Dropping the revoker
+unsubscribes; `forget` or `into_token` transfers that responsibility. Interface implementations
+still provide both ABI accessors.
 
-This rule changes only the consumer side. Implementing an event source still requires both `add_X`
-and `remove_X`.
+## Pitfalls
 
-### Other useful options
+- A broad namespace filter can produce a large dependency closure. Begin with the callable or type
+  names the wrapper actually owns.
+- Default, sys, and minimal output are different contracts, not formatting choices. Pick the style
+  before writing wrapper code.
+- `minimal` changes rendering, not dependency selection. Narrow filters are still required.
+- Exact selection of an unsupported variadic export reports an error; broad rich filters omit it.
+- Output paths are relative to the generator's current directory. Make generator invocation
+  location stable in scripts and CI.
+- Do not make an entire library depend on the `windows` crate just to share one generated type.
+  Use a focused foundational crate or make the binding's ownership explicit.
 
-- `--in`, `.input(..)`, and `.inputs(..)` add `.winmd` files or directories. The builder uses the
-  standard metadata implicitly when no input is supplied. Builder inputs accept strings, `Path`, or
-  `PathBuf`. Use `.input_default()` to combine the bundled metadata with custom inputs; the textual
-  `--in default` form provides the same behavior.
-- `.output(..)` accepts a string, `Path`, or `PathBuf`.
-- `--derive` and `.derive(..)` add derives to generated types.
-- Bare `--implement` and `.implement_all()` emit `_Impl` scaffolding for every WinRT interface in
-  scope. Use `.implement(name)` or `.implements(names)` to limit scaffolding to type names or
-  namespace prefixes.
-- `--rustfmt` and `.rustfmt(..)` set the formatter for the output.
-- `--dead-code` and `.dead_code()` emit `pub(crate)` for callable items. This lets the compiler flag
-  unused generated callables.
+## Samples and neighboring tools
 
-## Committing generated bindings
-
-A `build.rs` can regenerate bindings on each build. Published crates usually use a different
-pattern. Commit `src/bindings.rs` as source. Depend only on [`windows-link`](windows-link.md) at
-runtime. Consumers then build without code generation, metadata files, or a `windows-bindgen`
-dependency.
-
-The pattern has three parts.
-
-**1. The published crate depends only on `windows-link`** and includes the committed bindings:
-
-```toml
-# tickcount/Cargo.toml
-[dependencies]
-windows-link = "0.100"
-```
-
-The library module includes the generated bindings and exposes the safe API used by the binary.
-
-**2. A separate, unpublished binary owns code generation.** Keep it as a workspace member. It does
-not become a dependency of the published crate:
-
-```toml
-# gen/Cargo.toml
-[package]
-name = "gen"
-publish = false
-
-[dependencies]
-windows-bindgen = "0.100"
-```
-
-```rust,no_run
-// gen/src/main.rs
-windows_bindgen::bindgen([
-    "--out", "tickcount/src/bindings.rs",
-    "--flat",
-    "--sys",
-    "--filter", "GetTickCount64",
-]);
-```
-
-`--out` is resolved relative to the current directory. Run the tool from the workspace root:
-
-```sh
-cargo run -p gen
-```
-
-**3. A CI check keeps the committed bindings current.** Regenerate, then fail if the result differs
-from the checked-in file:
-
-```yaml
-- run: cargo run -p gen
-- run: git diff --exit-code
-```
-
-This repository uses the same arrangement.
-[`tool_bindings`](https://github.com/microsoft/windows-rs/tree/master/crates/tools/bindings)
-regenerates each crate's `bindings.rs` from a `.txt` filter. The
-[`gen.yml`](https://github.com/microsoft/windows-rs/blob/master/.github/workflows/gen.yml) workflow
-runs the tools and rejects any diff.
-
-## Consuming APIs outside the default projection
-
-The published `windows` crate projects public, documented APIs behind Cargo features. Some consumers
-need a smaller slice or an API that is not in public metadata.
-
-Use `windows-bindgen` for these cases instead of expanding the `windows` crate.
-
-- If the API is public but belongs to a broad feature, generate a small binding set with a filter.
-  For example, a crate can select `IPropertyStore` and `PROPVARIANT` without enabling the full
-  feature surface that contains them.
-- If the API is not in public metadata, author metadata with [`windows-rdl`](windows-rdl.md). Then
-  feed that metadata to `windows-bindgen`. This keeps the FFI surface generated and typed.
-
-## Type ownership in libraries
-
-Libraries should use focused crates such as [`windows-collections`](windows-collections.md),
-[`windows-future`](windows-future.md), [`windows-numerics`](windows-numerics.md),
-[`windows-reference`](windows-reference.md), and [`windows-time`](windows-time.md) for shared
-foundational types. Generate other API-specific types as part of the library's own binding rather
-than depending on the full `windows` crate to share them. This limits dependency weight and avoids
-coupling unrelated libraries to one large projection version.
-
-If generated types are part of a library's public API, treat that binding as an owned public
-contract. A dedicated binding crate can make that ownership explicit. For an internal binding,
-commit the generated source with the wrapper library as described above.
+- `crates/samples/bindgen/vss_backup` generates rich COM bindings in `OUT_DIR`.
+- `crates/samples/bindgen/context_alignment` generates a flat sys binding for `CONTEXT`.
+- `crates/samples/robot/component` compiles custom RDL and generates implementation support.
+- `crates/samples/robot/client` combines custom and default metadata for a WinRT client.
+- `tool_package` uses package mode for the published `windows` and `windows-sys` crates.
+- `tool_webview` demonstrates the complete header -> RDL -> winmd -> Rust pipeline.
 
 ---
 
@@ -293,171 +151,117 @@ commit the generated source with the wrapper library as described above.
 The remainder of this page covers how the crate is built and maintained. It is for contributors and
 is **not needed to use `windows-bindgen`**.
 
-### How it's built
+### How it is built
 
-`windows-bindgen` is hand-written. It is the generator that other crates use. It reads ECMA-335
-metadata through [`windows-metadata`](windows-metadata.md). The bundled metadata inputs live in
-the [`windows-default`](windows-default.md) crate.
-
-Two tools drive it in this repository:
-
-- `tool_bindings` reads the per-crate `.txt` filters in `crates/tools/bindings/src`.
-- `tool_package` produces the published `windows` and `windows-sys` crates.
+`windows-bindgen` is hand-written. It reads ECMA-335 metadata through
+[`windows-metadata`](windows-metadata.md), while [`windows-default`](windows-default.md) supplies
+the bundled inputs. `tool_bindings` generates focused library files and `tool_package` generates
+the published `windows` and `windows-sys` packages.
 
 ### Output policies
 
-The generator models output style as named policies. These policies keep style checks in one place
-and make call sites describe intent.
+Named policy methods keep style decisions out of individual writers:
 
-- `Style::emit_class_methods` emits per-class wrapper methods.
-- `Style::emit_inherited_forwarders` emits inherited-interface forwarders.
-- `Style::emit_iterable_into_iterator` emits the `IntoIterator` bridge for an inherited
-  `IIterable<T>`.
-- `Style::minimal_string_input` and `Style::minimal_string_return` expose `HSTRING` parameters and
-  returns as `&str` and `String`.
-- `Config::emit_runtime_name` emits the WinRT `NAME` runtime-name constant.
-- `Style::derive_std_traits` emits `Default`, `Debug`, and `PartialEq` derives.
-- `Style::emit_core_traits` emits the `windows-core` trait block.
-- `Style::emit_bare_typedef` emits handle structs and unscoped enums as type aliases.
+- `Style::emit_class_methods` controls per-class wrapper methods.
+- `Style::emit_inherited_forwarders` controls inherited-interface forwarding methods.
+- `Style::emit_iterable_into_iterator` controls the inherited `IIterable<T>` bridge.
+- `Style::minimal_string_input` and `minimal_string_return` map minimal strings.
+- `Config::emit_runtime_name` controls WinRT runtime-name constants.
+- `Style::derive_std_traits` and `emit_core_traits` control generated trait blocks.
+- `Style::emit_bare_typedef` controls handle and unscoped-enum representation.
 
-`--dead-code` visibility is centralized in `Config::item_vis()`. It is used for callables such as
-methods and delegate constructors. Nameable public items stay `pub`, because hand-written crates can
-re-export them or reference them from exported macros.
-
-Repeated layout helpers also live on `Config`:
-
-- `Config::doc_hidden_in_package` emits `#[doc(hidden)]` in package mode.
-- `Config::write_value_name_const` writes the `RuntimeType::NAME` constant for value types.
+`Config::item_vis` applies `dead_code` visibility to callable items. Nameable items stay public
+because handwritten code and exported macros may re-export or reference them.
 
 ### Type selection
 
-For precise filters, `TypeClosure::build` starts from the selected types and walks signature
-dependencies. It emits selected entry points as full types. It emits dependency types as shells
-unless they are selected directly. A whole-type filter retains that type's hierarchy. A class
-member filter retains the class-to-interface edge that provides the member. Signature-only
-dependencies do not add hierarchy edges to unrelated types.
+For precise filters, `TypeClosure::build` starts from selected types and follows signature
+dependencies. Selected entry points are full types; signature dependencies are shells unless
+selected directly. A whole-type filter retains its hierarchy. A class member filter retains the
+class-to-interface edge that provides the member. Signature-only dependencies do not add unrelated
+hierarchy edges.
 
-An interface selected as a shell can still supply `_Impl` scaffolding through `--implement`.
-Implementation closure retains every method signature needed by the ABI without emitting callable
-wrappers. Select the whole interface as well when the same binding must call and implement it.
+An interface selected as a shell can still supply `_Impl` scaffolding through `implement`.
+Implementation closure retains every ABI method signature without emitting callable wrappers.
+Select the whole interface too when one binding must call and implement it.
 
-Minimal composable bindings also require an explicit class target. Select the class's composable
-factory method with `--filter`, select the override interfaces with `--implement`, and select the
-class itself with `--compose`. This avoids treating every class that inherits an implemented
-override interface as a composition target.
+Minimal composable bindings require an explicit class target. Select the class's composable factory
+method with a filter, select override interfaces with `implement`, and select the class with
+`compose`. This prevents every class inheriting an implemented override interface from becoming a
+composition target.
 
-For broad filters and package generation, `TypeMap::filter` scans namespaces from the top down. This
-is used for full namespace and package output.
+Broad filters and package generation use `TypeMap::filter`. `minimal` affects rendering only and
+does not change which referenced types are included.
 
-The `--minimal` flag affects rendering only. It does not change which referenced types are included.
+### WinRT and Win32 generation
 
-### WinRT and Win32 code generation
+The metadata reader classifies types from metadata attributes. Shared code handles names,
+signatures, dependencies, and remapping. Separate writers preserve the different ABI rules:
 
-The metadata reader classifies types as WinRT or Win32/COM from the metadata type attributes. Shared
-code handles names, signatures, dependencies, and type remapping. The writers stay separate where
-the ABI rules differ.
-
-The main differences are:
-
-- WinRT vtable methods return `HRESULT`. The projection wraps them in `Result`.
-- COM methods keep their native return shape. `ReturnHint` controls the projected shape for common
-  COM patterns.
+- WinRT vtable methods return `HRESULT`; rich output projects them through `Result`.
+- COM methods keep their native return shape, with `ReturnHint` for common projection patterns.
 - WinRT supports generics, runtime signatures, activation, and `RuntimeType`.
-- WinRT delegates are COM interfaces with `Invoke`. COM callback types can be raw function pointers.
+- WinRT delegates are COM interfaces with `Invoke`; COM callbacks can be function pointers.
 - Win32 also has free exports, constants, handles, unions, nested types, and architecture-specific
   layout.
 
-Some writer pieces are shared. Interface vtable method fields and `_Impl` method iteration use
-common helpers. Enum constant and flag operator emission also use common helpers.
+### Bit-field accessors
 
-### Generating bit-field accessors
+Winmd has no bit-field syntax. The header pipeline stores each run in an integer field named
+`_bitfield`, `_bitfield1`, and so on, with `NativeBitfieldAttribute` entries for logical members.
+Non-sys bindgen output keeps the backing field and adds typed getters and setters.
 
-Win32 structs frequently pack several logical members into one storage unit with C bit-fields:
+Width-one members project as `bool`; wider members use the backing integer. Reads shift through the
+backing type so signed fields sign-extend and unsigned fields zero-extend. Writes clear the target
+range and OR in the masked value. Identity shifts are omitted to keep generated code clean under
+`-D warnings`.
 
-```c
-typedef struct _MIB_IF_ROW2 {
-    // ...
-    struct {
-        BOOLEAN HardwareInterface : 1;
-        BOOLEAN FilterInterface : 1;
-        BOOLEAN ConnectorPresent : 1;
-        // ...
-    } InterfaceAndOperStatusFlags;
-} MIB_IF_ROW2;
-```
+RDL spells the same shape as a block on the backing field. Coverage lives in
+`test_clang/input/bitfields.h` and `test_bindgen/input/struct_bitfield.rdl`.
 
-The winmd format has no bit-field concept. The scrape coalesces each run of bit-fields into one
-backing integer field named `_bitfield`. If a struct has more runs, the fields are named
-`_bitfield1`, `_bitfield2`, and more. The backing field is emitted as public FFI data:
+### Counted buffers
 
-`windows-bindgen` also generates a typed getter and setter for each logical member. The data comes
-from `NativeBitfieldAttribute` metadata on the backing field. The accessors are generated for
-non-`sys` styles.
+`NativeArrayInfoAttribute` and `MemorySizeAttribute` describe element counts, byte counts, and
+fixed counts. `MethodParam::buffer_relationship` decodes only the literal relationship; bindgen
+validates projection policy.
 
-Generated accessors read and update each member without manual bit arithmetic.
+Before indexing a related parameter, bindgen rejects negative, out-of-range, self-relative, or
+multiply-used count indexes. A count must be one input scalar. Byte counts require byte-sized
+elements. Fixed counts must be nonnegative and fit the maximum Rust object size on 32-bit Windows.
+Any failed check preserves the raw pointer and count.
 
-A width-1 member projects as `bool`. Wider members project as the backing integer type. Reads shift
-through the backing type so signed backing fields sign-extend and unsigned backing fields
-zero-extend. Writes clear the target bits and OR in the masked value. Identity shifts are omitted so
-generated code stays clean under `-D warnings`.
+Input or input/output buffers can become slices. Output-only buffers remain raw pointer/count pairs
+because `&mut [T]` would require initialized storage before the call.
 
-The RDL spelling is a C-like bit-field block on the backing field:
+### Parameter direction and return values
 
-```text
-_bitfield: u8 { HardwareInterface: 1, ... }
-```
+`windows-metadata` supplies raw direction, optional, reserved, retval, and count facts. Bindgen
+applies Rust policy: `Input` and `Unspecified` are input-only; `Output` and `InputOutput` take the
+output-capable branch. An eligible input/output buffer becomes `&mut [T]`.
 
-See [`windows-rdl`](windows-rdl.md) for RDL input. Test coverage lives in
-`crates/tests/libs/clang/input/bitfields.h` and
-`crates/tests/libs/bindgen/input/struct_bitfield.rdl`.
+A trailing parameter becomes a projected return only when it is output-only, required,
+non-reserved, uncounted, and pointer-shaped. `RetValAttribute` bypasses only the heuristic checks
+for preceding output parameters, a void pointee, and the 128-bit size limit. It does not bypass the
+other candidate checks.
 
-### Counted-buffer metadata
+### Variadic functions
 
-`NativeArrayInfoAttribute` and `MemorySizeAttribute` can replace an input or input/output
-pointer/count pair with a slice parameter in rich output.
-`windows-metadata::reader::MethodParam::buffer_relationship` decodes the literal signed
-relationship:
+Sys output retains the literal `...` tail and metadata `C` or `system` calling convention in either
+link-macro or extern-block output. On X86, Rust lowers a `system` C-variadic declaration to the
+compatible C variadic ABI. Rich and minimal writers never emit a callable fixed-prefix wrapper.
 
-- `CountParamIndex` identifies an element-count parameter.
-- `BytesParamIndex` identifies a byte-count parameter.
-- `CountConst` supplies a fixed element count.
+### Package pruning
 
-The metadata reader checks property names and value types. Invalid or conflicting relationships
-return `None`, which keeps the raw ABI shape. It does not interpret parameter positions, pointer
-shapes, or public projection policy.
+Sys package output can leave a namespace empty when it contains only COM interfaces. Package
+generation recursively removes that namespace's module, file, feature, and feature dependency.
+A parent remains when it or any child still contains output.
 
-Buffers marked `Output` without `Input` keep their pointer and count parameters so callers may
-supply uninitialized storage. For other buffers, before `CppMethod` indexes a related parameter,
-it rejects negative, out-of-range, and self-relative indexes and verifies that the count is one
-input scalar used by one buffer. Byte counts still require byte-sized elements. A fixed
-`CountConst` must be nonnegative and fit the maximum Rust object size on 32-bit Windows. If any
-check fails, generation keeps the pointer and count parameters exactly as the ABI declares them
-and adds no slice or array sugar.
+### Determinism and testing
 
-### Parameter direction and retval policy
+Generation sorts metadata-driven maps and formats output before writing. The generator must remain
+output-neutral unless a projection change is intended. Run the owning `tool_*` generators after a
+bindgen change and inspect all generated diffs.
 
-`windows-metadata::reader::MethodParam` supplies the raw direction, optional, reserved, and retval
-facts. Bindgen's local `Param::is_input_only` then applies Rust policy: `Input` and `Unspecified`
-are input-only, while `Output` and `InputOutput` take the output-capable branch. An eligible In+Out
-counted buffer becomes `&mut [T]`; treating the presence of `In` as input-only would incorrectly
-make writable storage const. An output-only counted buffer remains `*mut T` plus its count because
-`&mut [T]` would require initialized values before the call.
-
-Bindgen also keeps its optional-or-reserved `Option` shaping local. Metadata does not combine those
-facts because they are projection policy rather than metadata structure.
-
-A trailing parameter becomes a projected return only when it is an output-only, required,
-non-reserved, uncounted pointer. An explicit `RetValAttribute` bypasses the heuristic requirements
-that every preceding parameter be input-only, that the pointee is not void, and that it fit the
-existing 128-bit size limit; it does not bypass the other candidate checks. Without that attribute,
-any preceding `Output` or `InputOutput` parameter keeps the trailing pointer in the parameter list.
-
-### Testing
-
-Dedicated test crates cover the generator and related metadata tools: `test_bindgen`, `test_rdl`,
-and `test_clang`. `variadic_fn*` covers rich, minimal, sys-link, sys-extern, `C`, `system`, and
-unsupported `fastcall` output. `buffer_relationships` covers valid, negative, out-of-range,
-self-relative, byte-counted, and fixed-count metadata. The `interface_out_array` golden pins raw
-output buffers and In+Out mutable slices. `method_params` pins In+Out mutable projection, and
-`method_return` covers explicit and heuristic retval selection with In+Out, optional, reserved, and
-counted exclusions plus explicit void-pointer and large-pointee returns.
+`test_bindgen` covers filter closure, styles, layouts, methods, buffers, returns, implementation
+support, and variadics. `test_rdl` and `test_clang` cover the input stages. CI regenerates committed
+bindings and package output and rejects drift.

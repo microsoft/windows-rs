@@ -9,9 +9,78 @@
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/future)
 
 `windows-future` provides `IAsyncOperation` and the related WinRT async interfaces, with
-conveniences for producing and consuming them from Rust. Use `ready` to wrap an already-available
-value, `spawn` to run work on a background thread, and `join` to block until a result is available.
-The types also implement `IntoFuture`, so they can be `.await`ed.
+conveniences for producing and consuming them from Rust.
+
+## When to use
+
+Use this crate when an API returns one of the four WinRT async interfaces, or when your own WinRT
+API must return one:
+
+- `IAsyncAction`
+- `IAsyncOperation<T>`
+- `IAsyncActionWithProgress<P>`
+- `IAsyncOperationWithProgress<T, P>`
+
+Use an async runtime's native task type for Rust-only work that does not cross a WinRT boundary.
+`windows-future` adapts WinRT operations to Rust futures; it is not an async executor.
+
+## Getting started
+
+The [crate README](../../crates/libs/future/readme.md) has the dependency declaration and a minimal
+`ready`/`spawn` example. A typical first workflow is to receive an `IAsyncOperation<T>` from a
+Windows API, choose how the surrounding code should wait for it, and propagate its
+`windows_core::Result<T>`:
+
+```rust,ignore
+async fn consume(operation: windows_future::IAsyncOperation<i32>) -> windows_core::Result<i32> {
+    let value = operation.await?;
+    Ok(value + 1)
+}
+```
+
+The operation begins according to the WinRT API's rules; converting it into a future does not
+create or schedule the operation.
+
+## Consuming an operation
+
+Choose one completion style and let it own the operation's completion handler:
+
+| Style | Use it when |
+| --- | --- |
+| `.await` | The caller is already async and the default `std` feature is enabled. |
+| `join()` | Synchronous code may block the current thread until completion. |
+| `when(callback)` | Completion should invoke a `Send + 'static` callback without blocking. |
+
+All three paths return or receive a `Result`, including failures reported by the WinRT operation.
+Avoid `join()` on a UI thread or another thread that must continue pumping work.
+
+## Producing an operation
+
+`ready` wraps a result that is already available. `spawn` runs a `Send + 'static` closure on the
+Windows thread pool and exposes its result as a WinRT async object. Pick `IAsyncAction` for `()`
+and `IAsyncOperation<T>` for a value. The progress variants provide the corresponding interface
+shape, but closures passed to `spawn` do not report intermediate progress.
+
+The `std` feature is enabled by default and supplies `ready`, `spawn`, and the `IntoFuture`
+implementation used by `.await`. Without it, the interface types and the `join`/`when` consumption
+helpers remain available.
+
+## Platform constraints and pitfalls
+
+- The crate targets Windows and WinRT async interfaces.
+- A WinRT completion handler can be assigned only once. These helpers may assign that handler while
+  an operation is running, so do not combine them or a direct `SetCompleted` call on one operation.
+- `spawn` is for blocking or synchronous work that is safe on a pool thread. It does not make
+  thread-affine UI or COM work safe to move off its owning thread.
+- `ready` and `spawn` expose `Cancel` and `Close` through `IAsyncInfo`, but these constructors do
+  not interrupt the supplied closure.
+
+## Sample and next steps
+
+The [`spawn` sample](../../crates/samples/future/samples/examples/spawn.rs) contrasts an immediately
+ready operation with work submitted to the Windows thread pool. Next, inspect the API that produces
+your operation to determine its result type, error behavior, cancellation support, and any thread
+affinity.
 
 ---
 

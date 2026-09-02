@@ -11,6 +11,77 @@
 graphics APIs: `Vector2`, `Vector3`, `Vector4`, `Matrix3x2`, and `Matrix4x4`. Each is a plain
 `#[repr(C)]` struct with inherent methods and operator overloads layered on top.
 
+## When to use
+
+Use this crate when a Windows graphics or composition API accepts
+`Windows.Foundation.Numerics` values. The structs have the expected Windows ABI layout, so vectors
+and matrices can cross those API boundaries without conversion.
+
+For a Rust-only math engine, consider a general-purpose math crate if you need quaternions, planes,
+SIMD-specific operations, or a larger set of transforms. `windows-numerics` focuses on the five
+value types projected by this crate.
+
+## Getting started
+
+The [crate README](../../crates/libs/numerics/readme.md) contains the dependency declaration and
+minimal vector and matrix examples. A useful first workflow is to calculate with the same types
+that the target Windows API expects:
+
+```rust
+use windows_numerics::{Matrix3x2, Vector2};
+
+let position = Vector2::new(20.0, 30.0);
+let offset = Vector2::new(5.0, -10.0);
+let translated = position + offset;
+let transform = Matrix3x2::translation(translated.x, translated.y);
+
+assert_eq!((transform.m31, transform.m32), (25.0, 20.0));
+```
+
+Keep values as `f32`; these Windows numeric types do not provide `f64` variants.
+
+## Vectors
+
+`Vector2`, `Vector3`, and `Vector4` provide constructors, zero/one and axis vectors, dot products,
+length and distance operations, and normalization. `Vector3` also provides a cross product.
+Arithmetic operators work with owned or borrowed vectors; multiplication and division between
+vectors are component-wise. Scalar multiplication and division use `f32`.
+
+Use `length_squared` or `distance_squared` when only a comparison is needed, avoiding a square
+root. Check for a zero-length vector before calling `normalize`, since normalization divides by
+the length.
+
+## Matrices and transforms
+
+`Matrix3x2` represents 2D affine transforms. It provides identity, translation, scale, rotation,
+and skew constructors, including variants around a center point. Rotation and skew angles are in
+degrees.
+
+`Matrix4x4` provides 3D translation, Y-axis rotation in degrees, and perspective projection.
+Matrix multiplication composes transforms; preserve the order expected by the Windows API and test
+the result with representative points rather than assuming another math library's convention.
+
+## Platform constraints and pitfalls
+
+- The types are plain `#[repr(C)]` structs with public fields. Initialize every field when using a
+  struct literal, or prefer the constructors.
+- Equality is exact floating-point equality. Use an application-appropriate tolerance for computed
+  values.
+- Normalizing a zero vector and constructing invalid projection inputs can produce non-finite
+  values.
+- The default `std` feature supplies square root and trigonometric methods used by length,
+  distance, normalization, rotation, and skew. Basic value types and arithmetic remain available
+  without it.
+
+## Samples and next steps
+
+The canvas, composition, Direct2D, and DirectComposition samples use these types in real graphics
+workflows. Start with the
+[`canvas transform` sample](../../crates/samples/canvas/samples/examples/transform.rs) for a 2D
+matrix and the
+[`composition animation` sample](../../crates/samples/reactor/composition/examples/animation.rs)
+for vectors passed to composition APIs.
+
 ---
 
 ## Internal documentation

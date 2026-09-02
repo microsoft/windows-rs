@@ -18,62 +18,88 @@ It parses C/C++ declarations, SAL annotations, calling conventions, constants, l
 interfaces, and import libraries. It emits RDL that
 [`windows-rdl`](windows-rdl.md) compiles into ECMA-335 metadata.
 
-## Getting started
+Applications and libraries should start with a focused crate or `windows-bindgen` using existing
+metadata. Binary applications can use [`windows`](windows.md) or
+[`windows-sys`](windows-sys.md) when a broad pre-generated surface is more convenient. Use
+`windows-clang` when building a metadata tool for an API available only as C or C++ headers. It
+does not generate Rust code directly.
 
-Add `windows-clang` as a build dependency:
+Start with the crate [README](../../crates/libs/clang/readme.md) for setup. A usable installation
+also needs libclang. `ensure_libclang` locates or downloads the pinned runtime unless
+`LIBCLANG_PATH` is set, and `assert_libclang_version` checks that the loaded version matches.
 
-```toml
-[build-dependencies]
-windows-clang = "0.100"
-```
+## First workflow: turn a header into bindings
 
-Configure the parser and write one RDL file per input header:
+1. Provision the pinned libclang before the first parse.
+2. Add every header that owns declarations you need and pass the same language, include, define,
+   extension, and target arguments that the header expects.
+3. Emit one namespaced RDL file with `write`.
+4. Compile that RDL with [`windows-rdl`](windows-rdl.md).
+5. Generate Rust from the resulting winmd with [`windows-bindgen`](windows-bindgen.md).
 
-```rust,no_run
-windows_clang::clang()
-    .args(["-x", "c++", "--target=x86_64-pc-windows-msvc"])
-    .input("Example.h")
-    .reference_default()
-    .output("rdl")
-    .namespace("Example")
-    .library("Example.dll")
-    .write_by_header()
-    .unwrap();
-```
+`tool_webview` is the concrete model. It obtains a pinned WebView2 NuGet package, supplies the
+header search path and MSVC target, writes `target/webview/WebView2.rdl`, compiles
+`WebView2.winmd`, and runs bindgen from a checked-in command file.
 
-Only declarations defined by an input header are emitted. Included declarations are available for
-type resolution but are not copied into that header's output. Add each header whose declarations
-you want to emit.
+Each header is a translation unit. Included declarations are available while parsing but are not
+emitted as declarations owned by the input header. List each owning header explicitly. Use
+`input_text` or `input_texts` for source already in memory.
 
-Use `input_text` or `input_texts` for source already in memory. Input, reference, resolution,
-import-library, and output paths accept strings, `Path`, and `PathBuf`.
+## Input and output model
 
-### References and resolution
-
-`reference_default()` adds the bundled WinRT and Win32 metadata for external type resolution.
-Custom metadata can be supplied with `reference`, `references`, `reference_bytes`, and
-`reference_byte_sets`.
-
-Resolution metadata classifies `ABI::Windows::*` declarations without excluding them as existing
-definitions. `resolution_default()` adds the bundled WinRT metadata. Custom inputs use
-`resolution_input`, `resolution_inputs`, `resolution_bytes`, or `resolution_byte_sets`.
-
-### Output modes
-
-| Terminal | Output |
+| Builder input | Purpose |
 | --- | --- |
-| `write()` | One formatted RDL file for a namespaced scrape. |
-| `write_by_header()` | One flat RDL partition per defining header. |
-| `scrape(ScrapePlan)` | Per-architecture scrapes followed by architecture-aware RDL and winmd merging. |
+| `input`, `inputs` | Header files or directories containing `.h` files. |
+| `arg`, `args`, `target` | libclang language, include, define, extension, and target options. |
+| `reference*` | Existing metadata used for type resolution and duplicate suppression. |
+| `resolution*` | Metadata used only to classify `ABI::Windows::*` projection declarations. |
+| `import_library` | COFF `.lib` symbols used to recover function -> DLL mappings. |
+| `library` | One fallback DLL name for imported functions. |
 
-`write()` is used for small namespaced metadata such as WebView2. `write_by_header()` and
-`scrape()` are used by the Win32 and WDK pipeline.
+`reference_default` adds the bundled WinRT and Win32 metadata. `resolution_default` adds only the
+bundled WinRT metadata for classification. File and byte variants are available for both roles; do
+not substitute a resolution input for a reference because their exclusion behavior differs.
 
-## Consumers
+| Terminal | Output and use |
+| --- | --- |
+| `write` | One formatted RDL file in the configured namespace. |
+| `write_by_header` | Lowercase `<header-stem>.rdl` files in one flat root namespace. |
+| `scrape` | Multi-architecture partitions plus an architecture-aware merged winmd. |
 
-- `tool_win32` scrapes Windows SDK and WDK headers into the committed Win32 RDL and winmd.
-- `tool_webview` scrapes WebView2 headers into namespaced RDL.
-- `test_clang` contains golden header-to-RDL fixtures.
+Use `write` for one component-owned namespace. Use `write_by_header` when the defining header is
+the partition key. `ScrapePlan` adds architecture triples, bitmasks, scratch outputs, references,
+an optional hand-authored seed, and parallel execution; it is intended for SDK-scale generators.
+
+## Common tasks
+
+- Use `filter` and `filters` for normalized header path suffixes.
+- Use `symbol` and `symbols` when only named free functions should be roots.
+- Use `scope` or `scope_header` to choose roots for a per-header reachability sweep.
+- Use `exclude_header` to remove a partition before that sweep.
+- Load per-DLL import libraries before umbrella libraries so first-wins symbol resolution keeps the
+  real DLL. `libraries` supplies reviewed symbol overrides.
+- Enable `drop_lib_less` only when import-library coverage is available; otherwise valid functions
+  without mappings are discarded.
+
+## Pitfalls
+
+- The parser sees the preprocessed declaration selected by your arguments. Wrong defines or target
+  settings can change layouts, aliases, and exported names without a parser error.
+- The winmd format cannot express every C type detail. Mixed pointer constness and bit fields are
+  normalized for metadata consumers.
+- Header references do not provide DLL ownership. Supply a fallback DLL or import libraries before
+  expecting callable free functions in generated bindings.
+- A single-architecture scrape cannot describe cross-architecture layout differences. Use
+  `ScrapePlan` when one winmd must support X86, X64, and Arm64.
+- Header scraping recovers source declarations, not curated lifetime, last-error, or documentation
+  policy.
+
+## Samples and consumers
+
+- `tool_webview` is the starting example for a namespaced component scrape.
+- `tool_win32` and its WDK stage use per-header, multi-architecture generation.
+- `test_clang` contains small header-to-RDL fixtures for annotations, constants, interfaces,
+  layouts, bit fields, and canonicalization.
 
 ---
 

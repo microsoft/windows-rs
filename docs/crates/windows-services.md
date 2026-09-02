@@ -9,9 +9,69 @@
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/services)
 
 `windows-services` lets you write a Windows service process with a builder. Use `Service::new` to
-declare which control commands the service accepts (`can_stop`, `can_pause`), then `run` to hand
-control to the service control manager. Your closure receives the service handle and each incoming
-command.
+declare accepted controls, then `run` to connect the process to the Service Control Manager (SCM).
+
+## When to use
+
+Use this crate to implement the runtime side of a Windows service: service startup, status changes,
+and control callbacks. It does not install, configure, start, or remove the service registration.
+Use the SCM command-line tools or an installer for that lifecycle.
+
+Use a normal console application for foreground tools and short-lived scheduled work. A service is
+appropriate when Windows must manage a long-running background process and deliver service control
+events.
+
+## Getting started
+
+The [crate README](../../crates/libs/services/readme.md) has the dependency declaration and minimal
+builder example. The first practical workflow is:
+
+1. Build a service executable.
+2. Register its absolute path with the SCM.
+3. Start it through the SCM, not by launching it directly.
+4. Handle `Command::Start` and every control enabled on the builder.
+5. Stop and remove the test registration when finished.
+
+The [`simple` sample](../../crates/samples/services/simple/src/main.rs) prints the corresponding
+`sc create`, `sc start`, `sc query`, `sc stop`, and `sc delete` commands when run outside the SCM.
+
+## Commands and state
+
+`Service::new` accepts only startup by default. `can_stop` enables stop and shutdown controls.
+`can_pause` enables pause and resume. `can_accept(mask)` enables other SCM control classes, which
+arrive as `Command::Extended`.
+
+The callback receives `&Service` and a `Command`. The crate moves through the normal pending and
+stable states around start, stop, pause, and resume callbacks. Use `state()` to inspect the current
+state and `set_state()` only when the service needs to report a state outside that automatic flow.
+
+Keep the callback responsive. Start worker threads or signal existing workers instead of doing
+lengthy work on the control callback. On `Stop`, signal shutdown and release resources promptly.
+
+## Running outside the SCM
+
+Without configuration, `run` returns an error when the process was not started by the SCM.
+`can_fallback` installs a closure for intentional console or development execution. In fallback
+mode the crate sends start and stop commands around that closure, allowing one executable to share
+service setup with a local test path.
+
+## Platform constraints and pitfalls
+
+- The crate and service process are Windows-only.
+- Registering or changing a service normally requires administrative rights.
+- `run` owns the service dispatch lifecycle. Arrange application initialization before calling it.
+- Enable only controls the callback handles. Other accepted controls arrive with raw event data in
+  `ExtendedCommand`; interpret that pointer only according to the matching Windows control code and
+  during the callback.
+- A service normally has a different working directory, environment, account, and desktop access
+  than an interactive process. Use absolute paths and avoid assumptions about an interactive user.
+- Log to the Windows Event Log or another service-safe destination rather than standard output.
+
+## Samples and next steps
+
+Start with the [`simple` sample](../../crates/samples/services/simple). The
+[`time-change` sample](../../crates/samples/services/time) shows `can_accept`, an extended
+time-change control, and decoding its event data with the matching Win32 definitions.
 
 ---
 

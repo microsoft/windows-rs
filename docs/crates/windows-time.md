@@ -9,9 +9,72 @@
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/time)
 
 `windows-time` provides the two WinRT time primitives as plain `#[repr(C)]` Rust types: `TimeSpan`
-(a duration, stored as 100-nanosecond ticks) and `DateTime` (an instant on a 1601-based UTC clock).
-Both are `Copy`, support the usual arithmetic and comparison operators, convert to and from
-`std::time` types, and `Display` as ISO-8601.
+(a duration) and `DateTime` (a point on the WinRT UTC timeline).
+
+## When to use
+
+Use these types when exchanging time values with WinRT APIs or when code benefits from their signed,
+100-nanosecond representation. Use `std::time::Duration` for nonnegative Rust-only durations and
+`std::time::SystemTime` when no Windows ABI value is needed.
+
+## Getting started
+
+The [crate README](../../crates/libs/time/readme.md) has the dependency declaration and a minimal
+arithmetic example. A practical workflow is to keep calculations in `DateTime` and `TimeSpan`, use
+checked arithmetic at input boundaries, and convert only where another API requires a `std` type:
+
+```rust
+use windows_time::{DateTime, TimeSpan};
+
+let started = DateTime::now();
+let timeout = TimeSpan::from_seconds(30);
+let deadline = started.checked_add(timeout).expect("deadline out of range");
+
+assert!(deadline > started);
+```
+
+## `TimeSpan` durations
+
+Construct spans from ticks, microseconds, milliseconds, seconds, minutes, hours, or days. Unit
+constructors saturate if multiplication exceeds the `i64` tick range. `TimeSpan` can be negative,
+so it can represent a difference that `std::time::Duration` cannot.
+
+Use `checked_add`, `checked_sub`, `checked_mul`, `checked_div`, and `checked_neg` when overflow is
+possible. The operator forms panic on overflow or division by zero. Saturating addition,
+subtraction, and negation are also available.
+
+Conversions to `std::time::Duration` reject negative spans. Conversion in either direction has
+100-nanosecond precision, so finer source precision is truncated.
+
+## `DateTime` points
+
+`DateTime` stores ticks since 1601-01-01 00:00:00 UTC. Use `from_unix_secs` or
+`from_unix_millis` for Unix timestamps, and `unix_secs`, `unix_millis`, or `unix_nanos` for the
+reverse direction. `DateTime::now()` and `SystemTime` conversions require the default `std`
+feature.
+
+Add or subtract a `TimeSpan` to move along the timeline. Subtract two `DateTime` values to obtain a
+signed `TimeSpan`. Prefer the checked methods for values from external input.
+
+`Display` emits an ISO-8601 UTC timestamp. `to_local()` shifts the stored ticks so the component
+methods return local calendar fields. Treat that result as a local-field carrier; it is not a new
+UTC instant to serialize with `Display` or convert back to `SystemTime`.
+
+## Platform constraints and pitfalls
+
+- Both types use signed `i64` ticks, where one tick is 100 nanoseconds.
+- `TimeSpan` and `DateTime` are ABI values. Do not substitute `Duration` or `SystemTime` in a WinRT
+  signature.
+- Unit and Unix constructors saturate on overflow. Use explicit range validation when saturation
+  would hide invalid input.
+- `DateTime::now()` returns `DateTime::MAX` if the system clock cannot be represented.
+- Disable the default `std` feature only if `now`, `SystemTime` conversion, and the standard error
+  implementation are not needed. Local-time conversion still calls a Windows API.
+
+## Sample and next steps
+
+The [`time_types` sample](../../crates/samples/time/samples/examples/time_types.rs) demonstrates
+duration construction, checked date arithmetic, Unix timestamps, and formatting.
 
 ---
 
