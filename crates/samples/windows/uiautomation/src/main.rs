@@ -5,7 +5,8 @@ fn main() -> windows::core::Result<()> {
         CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
         let window = FindWindowA(None, s!("Calculator"));
         if window.0.is_null() {
-            return Err(Error::from_thread());
+            println!("Open Calculator before running this sample.");
+            return Ok(());
         }
 
         let automation: IUIAutomation = CoCreateInstance(&CUIAutomation, None, CLSCTX_ALL as u32)?;

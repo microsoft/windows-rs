@@ -30,9 +30,9 @@ pub unsafe fn SQLBindParameter(hstmt: super::SQLHSTMT, ipar: super::SQLUSMALLINT
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLBrowseConnect(hdbc: super::SQLHDBC, szconnstrin: &[super::SQLCHAR], szconnstrout: Option<*mut super::SQLCHAR>, cchconnstroutmax: super::SQLSMALLINT, pcchconnstrout: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLBrowseConnect(hdbc: super::SQLHDBC, szconnstrin: *const super::SQLCHAR, cchconnstrin: super::SQLSMALLINT, szconnstrout: Option<*mut super::SQLCHAR>, cchconnstroutmax: super::SQLSMALLINT, pcchconnstrout: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLBrowseConnect(hdbc : super::SQLHDBC, szconnstrin : *const super::SQLCHAR, cchconnstrin : super::SQLSMALLINT, szconnstrout : *mut super::SQLCHAR, cchconnstroutmax : super::SQLSMALLINT, pcchconnstrout : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLBrowseConnect(hdbc, szconnstrin.as_ptr(), super::SQLSMALLINT(szconnstrin.len().try_into().unwrap()), szconnstrout.unwrap_or(core::mem::zeroed()) as _, cchconnstroutmax, pcchconnstrout.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLBrowseConnect(hdbc, szconnstrin, cchconnstrin, szconnstrout.unwrap_or(core::mem::zeroed()) as _, cchconnstroutmax, pcchconnstrout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -56,21 +56,9 @@ pub unsafe fn SQLColAttributes(hstmt: super::SQLHSTMT, icol: super::SQLUSMALLINT
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLColumnPrivileges(hstmt: super::SQLHSTMT, szcatalogname: Option<&[super::SQLCHAR]>, szschemaname: Option<&[super::SQLCHAR]>, sztablename: Option<&[super::SQLCHAR]>, szcolumnname: Option<&[super::SQLCHAR]>) -> super::SQLRETURN {
+pub unsafe fn SQLColumnPrivileges(hstmt: super::SQLHSTMT, szcatalogname: Option<*const super::SQLCHAR>, cchcatalogname: super::SQLSMALLINT, szschemaname: Option<*const super::SQLCHAR>, cchschemaname: super::SQLSMALLINT, sztablename: Option<*const super::SQLCHAR>, cchtablename: super::SQLSMALLINT, szcolumnname: Option<*const super::SQLCHAR>, cchcolumnname: super::SQLSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLColumnPrivileges(hstmt : super::SQLHSTMT, szcatalogname : *const super::SQLCHAR, cchcatalogname : super::SQLSMALLINT, szschemaname : *const super::SQLCHAR, cchschemaname : super::SQLSMALLINT, sztablename : *const super::SQLCHAR, cchtablename : super::SQLSMALLINT, szcolumnname : *const super::SQLCHAR, cchcolumnname : super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLColumnPrivileges(
-            hstmt,
-            szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szcatalogname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szschemaname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            sztablename.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            szcolumnname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szcolumnname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-        )
-    }
+    unsafe { SQLColumnPrivileges(hstmt, szcatalogname.unwrap_or(core::mem::zeroed()) as _, cchcatalogname, szschemaname.unwrap_or(core::mem::zeroed()) as _, cchschemaname, sztablename.unwrap_or(core::mem::zeroed()) as _, cchtablename, szcolumnname.unwrap_or(core::mem::zeroed()) as _, cchcolumnname) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "sqltypes")]
@@ -88,9 +76,9 @@ pub unsafe fn SQLDescribeParam(hstmt: super::SQLHSTMT, ipar: super::SQLUSMALLINT
 }
 #[cfg(all(feature = "sqltypes", feature = "windef"))]
 #[inline]
-pub unsafe fn SQLDriverConnect(hdbc: super::SQLHDBC, hwnd: super::SQLHWND, szconnstrin: &[super::SQLCHAR], szconnstrout: Option<*mut super::SQLCHAR>, cchconnstroutmax: super::SQLSMALLINT, pcchconnstrout: Option<*mut super::SQLSMALLINT>, fdrivercompletion: super::SQLUSMALLINT) -> super::SQLRETURN {
+pub unsafe fn SQLDriverConnect(hdbc: super::SQLHDBC, hwnd: super::SQLHWND, szconnstrin: *const super::SQLCHAR, cchconnstrin: super::SQLSMALLINT, szconnstrout: Option<*mut super::SQLCHAR>, cchconnstroutmax: super::SQLSMALLINT, pcchconnstrout: Option<*mut super::SQLSMALLINT>, fdrivercompletion: super::SQLUSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDriverConnect(hdbc : super::SQLHDBC, hwnd : super::SQLHWND, szconnstrin : *const super::SQLCHAR, cchconnstrin : super::SQLSMALLINT, szconnstrout : *mut super::SQLCHAR, cchconnstroutmax : super::SQLSMALLINT, pcchconnstrout : *mut super::SQLSMALLINT, fdrivercompletion : super::SQLUSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLDriverConnect(hdbc, hwnd, szconnstrin.as_ptr(), super::SQLSMALLINT(szconnstrin.len().try_into().unwrap()), szconnstrout.unwrap_or(core::mem::zeroed()) as _, cchconnstroutmax, pcchconnstrout.unwrap_or(core::mem::zeroed()) as _, fdrivercompletion) }
+    unsafe { SQLDriverConnect(hdbc, hwnd, szconnstrin, cchconnstrin, szconnstrout.unwrap_or(core::mem::zeroed()) as _, cchconnstroutmax, pcchconnstrout.unwrap_or(core::mem::zeroed()) as _, fdrivercompletion) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -114,25 +102,9 @@ pub unsafe fn SQLExtendedFetch(hstmt: super::SQLHSTMT, ffetchtype: super::SQLUSM
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLForeignKeys(hstmt: super::SQLHSTMT, szpkcatalogname: Option<&[super::SQLCHAR]>, szpkschemaname: Option<&[super::SQLCHAR]>, szpktablename: Option<&[super::SQLCHAR]>, szfkcatalogname: Option<&[super::SQLCHAR]>, szfkschemaname: Option<&[super::SQLCHAR]>, szfktablename: Option<&[super::SQLCHAR]>) -> super::SQLRETURN {
+pub unsafe fn SQLForeignKeys(hstmt: super::SQLHSTMT, szpkcatalogname: Option<*const super::SQLCHAR>, cchpkcatalogname: super::SQLSMALLINT, szpkschemaname: Option<*const super::SQLCHAR>, cchpkschemaname: super::SQLSMALLINT, szpktablename: Option<*const super::SQLCHAR>, cchpktablename: super::SQLSMALLINT, szfkcatalogname: Option<*const super::SQLCHAR>, cchfkcatalogname: super::SQLSMALLINT, szfkschemaname: Option<*const super::SQLCHAR>, cchfkschemaname: super::SQLSMALLINT, szfktablename: Option<*const super::SQLCHAR>, cchfktablename: super::SQLSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLForeignKeys(hstmt : super::SQLHSTMT, szpkcatalogname : *const super::SQLCHAR, cchpkcatalogname : super::SQLSMALLINT, szpkschemaname : *const super::SQLCHAR, cchpkschemaname : super::SQLSMALLINT, szpktablename : *const super::SQLCHAR, cchpktablename : super::SQLSMALLINT, szfkcatalogname : *const super::SQLCHAR, cchfkcatalogname : super::SQLSMALLINT, szfkschemaname : *const super::SQLCHAR, cchfkschemaname : super::SQLSMALLINT, szfktablename : *const super::SQLCHAR, cchfktablename : super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLForeignKeys(
-            hstmt,
-            szpkcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szpkcatalogname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            szpkschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szpkschemaname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            szpktablename.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szpktablename.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            szfkcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szfkcatalogname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            szfkschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szfkschemaname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            szfktablename.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szfktablename.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-        )
-    }
+    unsafe { SQLForeignKeys(hstmt, szpkcatalogname.unwrap_or(core::mem::zeroed()) as _, cchpkcatalogname, szpkschemaname.unwrap_or(core::mem::zeroed()) as _, cchpkschemaname, szpktablename.unwrap_or(core::mem::zeroed()) as _, cchpktablename, szfkcatalogname.unwrap_or(core::mem::zeroed()) as _, cchfkcatalogname, szfkschemaname.unwrap_or(core::mem::zeroed()) as _, cchfkschemaname, szfktablename.unwrap_or(core::mem::zeroed()) as _, cchfktablename) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -142,9 +114,9 @@ pub unsafe fn SQLMoreResults(hstmt: super::SQLHSTMT) -> super::SQLRETURN {
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLNativeSql(hdbc: super::SQLHDBC, szsqlstrin: &[super::SQLCHAR], szsqlstr: Option<*mut super::SQLCHAR>, cchsqlstrmax: super::SQLINTEGER, pcbsqlstr: *mut super::SQLINTEGER) -> super::SQLRETURN {
+pub unsafe fn SQLNativeSql(hdbc: super::SQLHDBC, szsqlstrin: *const super::SQLCHAR, cchsqlstrin: super::SQLINTEGER, szsqlstr: Option<*mut super::SQLCHAR>, cchsqlstrmax: super::SQLINTEGER, pcbsqlstr: *mut super::SQLINTEGER) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLNativeSql(hdbc : super::SQLHDBC, szsqlstrin : *const super::SQLCHAR, cchsqlstrin : super::SQLINTEGER, szsqlstr : *mut super::SQLCHAR, cchsqlstrmax : super::SQLINTEGER, pcbsqlstr : *mut super::SQLINTEGER) -> super::SQLRETURN);
-    unsafe { SQLNativeSql(hdbc, szsqlstrin.as_ptr(), super::SQLINTEGER(szsqlstrin.len().try_into().unwrap()), szsqlstr.unwrap_or(core::mem::zeroed()) as _, cchsqlstrmax, pcbsqlstr as _) }
+    unsafe { SQLNativeSql(hdbc, szsqlstrin, cchsqlstrin, szsqlstr.unwrap_or(core::mem::zeroed()) as _, cchsqlstrmax, pcbsqlstr as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -168,53 +140,21 @@ pub unsafe fn SQLParamOptions(hstmt: super::SQLHSTMT, crow: super::SQLULEN, piro
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLPrimaryKeys(hstmt: super::SQLHSTMT, szcatalogname: Option<&[super::SQLCHAR]>, szschemaname: Option<&[super::SQLCHAR]>, sztablename: Option<&[super::SQLCHAR]>) -> super::SQLRETURN {
+pub unsafe fn SQLPrimaryKeys(hstmt: super::SQLHSTMT, szcatalogname: Option<*const super::SQLCHAR>, cchcatalogname: super::SQLSMALLINT, szschemaname: Option<*const super::SQLCHAR>, cchschemaname: super::SQLSMALLINT, sztablename: Option<*const super::SQLCHAR>, cchtablename: super::SQLSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLPrimaryKeys(hstmt : super::SQLHSTMT, szcatalogname : *const super::SQLCHAR, cchcatalogname : super::SQLSMALLINT, szschemaname : *const super::SQLCHAR, cchschemaname : super::SQLSMALLINT, sztablename : *const super::SQLCHAR, cchtablename : super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLPrimaryKeys(
-            hstmt,
-            szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szcatalogname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szschemaname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            sztablename.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-        )
-    }
+    unsafe { SQLPrimaryKeys(hstmt, szcatalogname.unwrap_or(core::mem::zeroed()) as _, cchcatalogname, szschemaname.unwrap_or(core::mem::zeroed()) as _, cchschemaname, sztablename.unwrap_or(core::mem::zeroed()) as _, cchtablename) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLProcedureColumns(hstmt: super::SQLHSTMT, szcatalogname: Option<&[super::SQLCHAR]>, szschemaname: Option<&[super::SQLCHAR]>, szprocname: Option<&[super::SQLCHAR]>, szcolumnname: Option<&[super::SQLCHAR]>) -> super::SQLRETURN {
+pub unsafe fn SQLProcedureColumns(hstmt: super::SQLHSTMT, szcatalogname: Option<*const super::SQLCHAR>, cchcatalogname: super::SQLSMALLINT, szschemaname: Option<*const super::SQLCHAR>, cchschemaname: super::SQLSMALLINT, szprocname: Option<*const super::SQLCHAR>, cchprocname: super::SQLSMALLINT, szcolumnname: Option<*const super::SQLCHAR>, cchcolumnname: super::SQLSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLProcedureColumns(hstmt : super::SQLHSTMT, szcatalogname : *const super::SQLCHAR, cchcatalogname : super::SQLSMALLINT, szschemaname : *const super::SQLCHAR, cchschemaname : super::SQLSMALLINT, szprocname : *const super::SQLCHAR, cchprocname : super::SQLSMALLINT, szcolumnname : *const super::SQLCHAR, cchcolumnname : super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLProcedureColumns(
-            hstmt,
-            szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szcatalogname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szschemaname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            szprocname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szprocname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            szcolumnname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szcolumnname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-        )
-    }
+    unsafe { SQLProcedureColumns(hstmt, szcatalogname.unwrap_or(core::mem::zeroed()) as _, cchcatalogname, szschemaname.unwrap_or(core::mem::zeroed()) as _, cchschemaname, szprocname.unwrap_or(core::mem::zeroed()) as _, cchprocname, szcolumnname.unwrap_or(core::mem::zeroed()) as _, cchcolumnname) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLProcedures(hstmt: super::SQLHSTMT, szcatalogname: Option<&[super::SQLCHAR]>, szschemaname: Option<&[super::SQLCHAR]>, szprocname: Option<&[super::SQLCHAR]>) -> super::SQLRETURN {
+pub unsafe fn SQLProcedures(hstmt: super::SQLHSTMT, szcatalogname: Option<*const super::SQLCHAR>, cchcatalogname: super::SQLSMALLINT, szschemaname: Option<*const super::SQLCHAR>, cchschemaname: super::SQLSMALLINT, szprocname: Option<*const super::SQLCHAR>, cchprocname: super::SQLSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLProcedures(hstmt : super::SQLHSTMT, szcatalogname : *const super::SQLCHAR, cchcatalogname : super::SQLSMALLINT, szschemaname : *const super::SQLCHAR, cchschemaname : super::SQLSMALLINT, szprocname : *const super::SQLCHAR, cchprocname : super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLProcedures(
-            hstmt,
-            szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szcatalogname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szschemaname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            szprocname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szprocname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-        )
-    }
+    unsafe { SQLProcedures(hstmt, szcatalogname.unwrap_or(core::mem::zeroed()) as _, cchcatalogname, szschemaname.unwrap_or(core::mem::zeroed()) as _, cchschemaname, szprocname.unwrap_or(core::mem::zeroed()) as _, cchprocname) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "sqltypes")]
@@ -246,19 +186,9 @@ pub unsafe fn SQLSetScrollOptions(hstmt: super::SQLHSTMT, fconcurrency: super::S
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLTablePrivileges(hstmt: super::SQLHSTMT, szcatalogname: Option<&[super::SQLCHAR]>, szschemaname: Option<&[super::SQLCHAR]>, sztablename: Option<&[super::SQLCHAR]>) -> super::SQLRETURN {
+pub unsafe fn SQLTablePrivileges(hstmt: super::SQLHSTMT, szcatalogname: Option<*const super::SQLCHAR>, cchcatalogname: super::SQLSMALLINT, szschemaname: Option<*const super::SQLCHAR>, cchschemaname: super::SQLSMALLINT, sztablename: Option<*const super::SQLCHAR>, cchtablename: super::SQLSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLTablePrivileges(hstmt : super::SQLHSTMT, szcatalogname : *const super::SQLCHAR, cchcatalogname : super::SQLSMALLINT, szschemaname : *const super::SQLCHAR, cchschemaname : super::SQLSMALLINT, sztablename : *const super::SQLCHAR, cchtablename : super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLTablePrivileges(
-            hstmt,
-            szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szcatalogname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            szschemaname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            sztablename.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-        )
-    }
+    unsafe { SQLTablePrivileges(hstmt, szcatalogname.unwrap_or(core::mem::zeroed()) as _, cchcatalogname, szschemaname.unwrap_or(core::mem::zeroed()) as _, cchschemaname, sztablename.unwrap_or(core::mem::zeroed()) as _, cchtablename) }
 }
 #[repr(C)]
 #[cfg(feature = "sqltypes")]

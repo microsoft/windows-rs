@@ -12895,10 +12895,10 @@ impl IMemInputPin {
     {
         unsafe { (windows_core::Interface::vtable(self).Receive)(windows_core::Interface::as_raw(self), psample.param().abi()) }
     }
-    pub unsafe fn ReceiveMultiple(&self, psamples: &[Option<IMediaSample>]) -> windows_core::Result<i32> {
+    pub unsafe fn ReceiveMultiple(&self, psamples: *const Option<IMediaSample>, nsamples: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReceiveMultiple)(windows_core::Interface::as_raw(self), core::mem::transmute(psamples.as_ptr()), psamples.len().try_into().unwrap(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).ReceiveMultiple)(windows_core::Interface::as_raw(self), core::mem::transmute(psamples), nsamples, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn ReceiveCanBlock(&self) -> windows_core::HRESULT {
@@ -14115,13 +14115,13 @@ impl IResourceManager {
             (windows_core::Interface::vtable(self).Register)(windows_core::Interface::as_raw(self), pname.param().abi(), cresource, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RegisterGroup<P0>(&self, pname: P0, paltokens: &[i32]) -> windows_core::Result<i32>
+    pub unsafe fn RegisterGroup<P0>(&self, pname: P0, cresource: i32, paltokens: *const i32) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterGroup)(windows_core::Interface::as_raw(self), pname.param().abi(), paltokens.len().try_into().unwrap(), paltokens.as_ptr(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).RegisterGroup)(windows_core::Interface::as_raw(self), pname.param().abi(), cresource, paltokens, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn RequestResource<P1, P2>(&self, idresource: i32, pfocusobject: P1, pconsumer: P2) -> windows_core::HRESULT

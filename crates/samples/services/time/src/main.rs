@@ -26,7 +26,7 @@ fn main() {
 
     let mut log = std::fs::File::create("D:\\service.txt").unwrap();
 
-    Service::new()
+    let result = Service::new()
         .can_stop()
         .can_accept(SERVICE_ACCEPT_TIMECHANGE as u32)
         .run(|_service, command| {
@@ -46,6 +46,9 @@ fn main() {
                     writeln!(log, "{old:#?}\n{new:#?}").unwrap();
                 }
             }
-        })
-        .unwrap();
+        });
+
+    if let Err(error) = result {
+        println!("{error}");
+    }
 }

@@ -29,9 +29,9 @@ pub unsafe fn WSAAddressToStringW(lpsaaddress: *const super::SOCKADDR, dwaddress
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn WSAAsyncGetHostByAddr(hwnd: super::HWND, wmsg: u_int, addr: &[u8], r#type: i32, buf: *mut i8, buflen: i32) -> super::HANDLE {
+pub unsafe fn WSAAsyncGetHostByAddr(hwnd: super::HWND, wmsg: u_int, addr: *const i8, len: i32, r#type: i32, buf: *mut i8, buflen: i32) -> super::HANDLE {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetHostByAddr(hwnd : super::HWND, wmsg : u_int, addr : *const i8, len : i32, r#type : i32, buf : *mut i8, buflen : i32) -> super::HANDLE);
-    unsafe { WSAAsyncGetHostByAddr(hwnd, wmsg, core::mem::transmute(addr.as_ptr()), addr.len().try_into().unwrap(), r#type, buf as _, buflen) }
+    unsafe { WSAAsyncGetHostByAddr(hwnd, wmsg, addr, len, r#type, buf as _, buflen) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -483,9 +483,9 @@ pub unsafe fn connect(s: SOCKET, name: *const super::SOCKADDR, namelen: i32) -> 
     unsafe { connect(s, name, namelen) }
 }
 #[inline]
-pub unsafe fn gethostbyaddr(addr: &[u8], r#type: i32) -> *mut hostent {
+pub unsafe fn gethostbyaddr(addr: *const i8, len: i32, r#type: i32) -> *mut hostent {
     windows_core::link!("ws2_32.dll" "system" fn gethostbyaddr(addr : *const i8, len : i32, r#type : i32) -> *mut hostent);
-    unsafe { gethostbyaddr(core::mem::transmute(addr.as_ptr()), addr.len().try_into().unwrap(), r#type) }
+    unsafe { gethostbyaddr(addr, len, r#type) }
 }
 #[inline]
 pub unsafe fn gethostbyname<P0>(name: P0) -> *mut hostent
@@ -608,20 +608,20 @@ pub unsafe fn select(nfds: i32, readfds: Option<*mut fd_set>, writefds: Option<*
     unsafe { select(nfds, readfds.unwrap_or(core::mem::zeroed()) as _, writefds.unwrap_or(core::mem::zeroed()) as _, exceptfds.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn send(s: SOCKET, buf: &[u8], flags: i32) -> i32 {
+pub unsafe fn send(s: SOCKET, buf: *const i8, len: i32, flags: i32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn send(s : SOCKET, buf : *const i8, len : i32, flags : i32) -> i32);
-    unsafe { send(s, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap(), flags) }
+    unsafe { send(s, buf, len, flags) }
 }
 #[cfg(feature = "ws2")]
 #[inline]
-pub unsafe fn sendto(s: SOCKET, buf: &[u8], flags: i32, to: *const super::SOCKADDR, tolen: i32) -> i32 {
+pub unsafe fn sendto(s: SOCKET, buf: *const i8, len: i32, flags: i32, to: *const super::SOCKADDR, tolen: i32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn sendto(s : SOCKET, buf : *const i8, len : i32, flags : i32, to : *const super::SOCKADDR, tolen : i32) -> i32);
-    unsafe { sendto(s, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap(), flags, to, tolen) }
+    unsafe { sendto(s, buf, len, flags, to, tolen) }
 }
 #[inline]
-pub unsafe fn setsockopt(s: SOCKET, level: i32, optname: i32, optval: Option<&[u8]>) -> i32 {
+pub unsafe fn setsockopt(s: SOCKET, level: i32, optname: i32, optval: Option<*const i8>, optlen: i32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn setsockopt(s : SOCKET, level : i32, optname : i32, optval : *const i8, optlen : i32) -> i32);
-    unsafe { setsockopt(s, level, optname, core::mem::transmute(optval.map_or(core::ptr::null(), |slice| slice.as_ptr())), optval.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { setsockopt(s, level, optname, optval.unwrap_or(core::mem::zeroed()) as _, optlen) }
 }
 #[inline]
 pub unsafe fn shutdown(s: SOCKET, how: i32) -> i32 {

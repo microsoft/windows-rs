@@ -84,21 +84,9 @@ pub unsafe fn SQLColAttribute(statementhandle: super::SQLHSTMT, columnnumber: su
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLColumns(statementhandle: super::SQLHSTMT, catalogname: Option<&[super::SQLCHAR]>, schemaname: Option<&[super::SQLCHAR]>, tablename: Option<&[super::SQLCHAR]>, columnname: Option<&[super::SQLCHAR]>) -> super::SQLRETURN {
+pub unsafe fn SQLColumns(statementhandle: super::SQLHSTMT, catalogname: Option<*const super::SQLCHAR>, namelength1: super::SQLSMALLINT, schemaname: Option<*const super::SQLCHAR>, namelength2: super::SQLSMALLINT, tablename: Option<*const super::SQLCHAR>, namelength3: super::SQLSMALLINT, columnname: Option<*const super::SQLCHAR>, namelength4: super::SQLSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLColumns(statementhandle : super::SQLHSTMT, catalogname : *const super::SQLCHAR, namelength1 : super::SQLSMALLINT, schemaname : *const super::SQLCHAR, namelength2 : super::SQLSMALLINT, tablename : *const super::SQLCHAR, namelength3 : super::SQLSMALLINT, columnname : *const super::SQLCHAR, namelength4 : super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLColumns(
-            statementhandle,
-            catalogname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            catalogname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            schemaname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            schemaname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            tablename.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            tablename.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            columnname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            columnname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-        )
-    }
+    unsafe { SQLColumns(statementhandle, catalogname.unwrap_or(core::mem::zeroed()) as _, namelength1, schemaname.unwrap_or(core::mem::zeroed()) as _, namelength2, tablename.unwrap_or(core::mem::zeroed()) as _, namelength3, columnname.unwrap_or(core::mem::zeroed()) as _, namelength4) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -108,9 +96,9 @@ pub unsafe fn SQLCompleteAsync(handletype: super::SQLSMALLINT, handle: super::SQ
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLConnect(connectionhandle: super::SQLHDBC, servername: &[super::SQLCHAR], username: &[super::SQLCHAR], authentication: &[super::SQLCHAR]) -> super::SQLRETURN {
+pub unsafe fn SQLConnect(connectionhandle: super::SQLHDBC, servername: *const super::SQLCHAR, namelength1: super::SQLSMALLINT, username: *const super::SQLCHAR, namelength2: super::SQLSMALLINT, authentication: *const super::SQLCHAR, namelength3: super::SQLSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLConnect(connectionhandle : super::SQLHDBC, servername : *const super::SQLCHAR, namelength1 : super::SQLSMALLINT, username : *const super::SQLCHAR, namelength2 : super::SQLSMALLINT, authentication : *const super::SQLCHAR, namelength3 : super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLConnect(connectionhandle, servername.as_ptr(), super::SQLSMALLINT(servername.len().try_into().unwrap()), username.as_ptr(), super::SQLSMALLINT(username.len().try_into().unwrap()), authentication.as_ptr(), super::SQLSMALLINT(authentication.len().try_into().unwrap())) }
+    unsafe { SQLConnect(connectionhandle, servername, namelength1, username, namelength2, authentication, namelength3) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -158,9 +146,9 @@ pub unsafe fn SQLError(environmenthandle: super::SQLHENV, connectionhandle: supe
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLExecDirect(statementhandle: super::SQLHSTMT, statementtext: Option<&[super::SQLCHAR]>) -> super::SQLRETURN {
+pub unsafe fn SQLExecDirect(statementhandle: super::SQLHSTMT, statementtext: Option<*const super::SQLCHAR>, textlength: super::SQLINTEGER) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLExecDirect(statementhandle : super::SQLHSTMT, statementtext : *const super::SQLCHAR, textlength : super::SQLINTEGER) -> super::SQLRETURN);
-    unsafe { SQLExecDirect(statementhandle, statementtext.map_or(core::ptr::null(), |slice| slice.as_ptr()), statementtext.map_or(super::SQLINTEGER(0), |slice| super::SQLINTEGER(slice.len().try_into().unwrap()))) }
+    unsafe { SQLExecDirect(statementhandle, statementtext.unwrap_or(core::mem::zeroed()) as _, textlength) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -326,9 +314,9 @@ pub unsafe fn SQLParamData(statementhandle: super::SQLHSTMT, value: Option<*mut 
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLPrepare(statementhandle: super::SQLHSTMT, statementtext: &[super::SQLCHAR]) -> super::SQLRETURN {
+pub unsafe fn SQLPrepare(statementhandle: super::SQLHSTMT, statementtext: *const super::SQLCHAR, textlength: super::SQLINTEGER) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLPrepare(statementhandle : super::SQLHSTMT, statementtext : *const super::SQLCHAR, textlength : super::SQLINTEGER) -> super::SQLRETURN);
-    unsafe { SQLPrepare(statementhandle, statementtext.as_ptr(), super::SQLINTEGER(statementtext.len().try_into().unwrap())) }
+    unsafe { SQLPrepare(statementhandle, statementtext, textlength) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "sqltypes")]
@@ -380,9 +368,9 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: super::SQLHDBC, option: supe
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLSetCursorName(statementhandle: super::SQLHSTMT, cursorname: &[super::SQLCHAR]) -> super::SQLRETURN {
+pub unsafe fn SQLSetCursorName(statementhandle: super::SQLHSTMT, cursorname: *const super::SQLCHAR, namelength: super::SQLSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLSetCursorName(statementhandle : super::SQLHSTMT, cursorname : *const super::SQLCHAR, namelength : super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLSetCursorName(statementhandle, cursorname.as_ptr(), super::SQLSMALLINT(cursorname.len().try_into().unwrap())) }
+    unsafe { SQLSetCursorName(statementhandle, cursorname, namelength) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -446,58 +434,21 @@ pub unsafe fn SQLSetStmtOption(statementhandle: super::SQLHSTMT, option: super::
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLSpecialColumns(statementhandle: super::SQLHSTMT, identifiertype: super::SQLUSMALLINT, catalogname: Option<&[super::SQLCHAR]>, schemaname: Option<&[super::SQLCHAR]>, tablename: Option<&[super::SQLCHAR]>, scope: super::SQLUSMALLINT, nullable: super::SQLUSMALLINT) -> super::SQLRETURN {
+pub unsafe fn SQLSpecialColumns(statementhandle: super::SQLHSTMT, identifiertype: super::SQLUSMALLINT, catalogname: Option<*const super::SQLCHAR>, namelength1: super::SQLSMALLINT, schemaname: Option<*const super::SQLCHAR>, namelength2: super::SQLSMALLINT, tablename: Option<*const super::SQLCHAR>, namelength3: super::SQLSMALLINT, scope: super::SQLUSMALLINT, nullable: super::SQLUSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLSpecialColumns(statementhandle : super::SQLHSTMT, identifiertype : super::SQLUSMALLINT, catalogname : *const super::SQLCHAR, namelength1 : super::SQLSMALLINT, schemaname : *const super::SQLCHAR, namelength2 : super::SQLSMALLINT, tablename : *const super::SQLCHAR, namelength3 : super::SQLSMALLINT, scope : super::SQLUSMALLINT, nullable : super::SQLUSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLSpecialColumns(
-            statementhandle,
-            identifiertype,
-            catalogname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            catalogname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            schemaname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            schemaname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            tablename.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            tablename.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            scope,
-            nullable,
-        )
-    }
+    unsafe { SQLSpecialColumns(statementhandle, identifiertype, catalogname.unwrap_or(core::mem::zeroed()) as _, namelength1, schemaname.unwrap_or(core::mem::zeroed()) as _, namelength2, tablename.unwrap_or(core::mem::zeroed()) as _, namelength3, scope, nullable) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLStatistics(statementhandle: super::SQLHSTMT, catalogname: Option<&[super::SQLCHAR]>, schemaname: Option<&[super::SQLCHAR]>, tablename: Option<&[super::SQLCHAR]>, unique: super::SQLUSMALLINT, reserved: super::SQLUSMALLINT) -> super::SQLRETURN {
+pub unsafe fn SQLStatistics(statementhandle: super::SQLHSTMT, catalogname: Option<*const super::SQLCHAR>, namelength1: super::SQLSMALLINT, schemaname: Option<*const super::SQLCHAR>, namelength2: super::SQLSMALLINT, tablename: Option<*const super::SQLCHAR>, namelength3: super::SQLSMALLINT, unique: super::SQLUSMALLINT, reserved: super::SQLUSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLStatistics(statementhandle : super::SQLHSTMT, catalogname : *const super::SQLCHAR, namelength1 : super::SQLSMALLINT, schemaname : *const super::SQLCHAR, namelength2 : super::SQLSMALLINT, tablename : *const super::SQLCHAR, namelength3 : super::SQLSMALLINT, unique : super::SQLUSMALLINT, reserved : super::SQLUSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLStatistics(
-            statementhandle,
-            catalogname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            catalogname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            schemaname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            schemaname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            tablename.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            tablename.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            unique,
-            reserved,
-        )
-    }
+    unsafe { SQLStatistics(statementhandle, catalogname.unwrap_or(core::mem::zeroed()) as _, namelength1, schemaname.unwrap_or(core::mem::zeroed()) as _, namelength2, tablename.unwrap_or(core::mem::zeroed()) as _, namelength3, unique, reserved) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLTables(statementhandle: super::SQLHSTMT, catalogname: Option<&[super::SQLCHAR]>, schemaname: Option<&[super::SQLCHAR]>, tablename: Option<&[super::SQLCHAR]>, tabletype: Option<&[super::SQLCHAR]>) -> super::SQLRETURN {
+pub unsafe fn SQLTables(statementhandle: super::SQLHSTMT, catalogname: Option<*const super::SQLCHAR>, namelength1: super::SQLSMALLINT, schemaname: Option<*const super::SQLCHAR>, namelength2: super::SQLSMALLINT, tablename: Option<*const super::SQLCHAR>, namelength3: super::SQLSMALLINT, tabletype: Option<*const super::SQLCHAR>, namelength4: super::SQLSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLTables(statementhandle : super::SQLHSTMT, catalogname : *const super::SQLCHAR, namelength1 : super::SQLSMALLINT, schemaname : *const super::SQLCHAR, namelength2 : super::SQLSMALLINT, tablename : *const super::SQLCHAR, namelength3 : super::SQLSMALLINT, tabletype : *const super::SQLCHAR, namelength4 : super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe {
-        SQLTables(
-            statementhandle,
-            catalogname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            catalogname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            schemaname.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            schemaname.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            tablename.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            tablename.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-            tabletype.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            tabletype.map_or(super::SQLSMALLINT(0), |slice| super::SQLSMALLINT(slice.len().try_into().unwrap())),
-        )
-    }
+    unsafe { SQLTables(statementhandle, catalogname.unwrap_or(core::mem::zeroed()) as _, namelength1, schemaname.unwrap_or(core::mem::zeroed()) as _, namelength2, tablename.unwrap_or(core::mem::zeroed()) as _, namelength3, tabletype.unwrap_or(core::mem::zeroed()) as _, namelength4) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]

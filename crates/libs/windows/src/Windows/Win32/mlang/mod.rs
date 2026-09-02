@@ -237,8 +237,8 @@ impl IMLangCodePages {
             (windows_core::Interface::vtable(self).GetCharCodePages)(windows_core::Interface::as_raw(self), chsrc, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetStrCodePages(&self, pszsrc: &[u16], dwprioritycodepages: u32, pdwcodepages: Option<*mut u32>, pcchcodepages: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStrCodePages)(windows_core::Interface::as_raw(self), pszsrc.as_ptr(), pszsrc.len().try_into().unwrap(), dwprioritycodepages, pdwcodepages.unwrap_or(core::mem::zeroed()) as _, pcchcodepages.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn GetStrCodePages(&self, pszsrc: *const u16, cchsrc: i32, dwprioritycodepages: u32, pdwcodepages: Option<*mut u32>, pcchcodepages: Option<*mut i32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStrCodePages)(windows_core::Interface::as_raw(self), pszsrc, cchsrc, dwprioritycodepages, pdwcodepages.unwrap_or(core::mem::zeroed()) as _, pcchcodepages.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn CodePageToCodePages(&self, ucodepage: u32) -> windows_core::Result<u32> {
         unsafe {
@@ -699,12 +699,12 @@ impl IMLangLineBreakConsole {
         unsafe { (windows_core::Interface::vtable(self).BreakLineML)(windows_core::Interface::as_raw(self), psrcmlstr.param().abi(), lsrcpos, lsrclen, cmincolumns, cmaxcolumns, pllinelen.unwrap_or(core::mem::zeroed()) as _, plskiplen.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn BreakLineW(&self, locale: super::LCID, pszsrc: &[u16], cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BreakLineW)(windows_core::Interface::as_raw(self), locale, pszsrc.as_ptr(), pszsrc.len().try_into().unwrap(), cmaxcolumns, pcchline.unwrap_or(core::mem::zeroed()) as _, pcchskip.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn BreakLineW(&self, locale: super::LCID, pszsrc: *const u16, cchsrc: i32, cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BreakLineW)(windows_core::Interface::as_raw(self), locale, pszsrc, cchsrc, cmaxcolumns, pcchline.unwrap_or(core::mem::zeroed()) as _, pcchskip.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn BreakLineA(&self, locale: super::LCID, ucodepage: u32, pszsrc: &[i8], cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BreakLineA)(windows_core::Interface::as_raw(self), locale, ucodepage, pszsrc.as_ptr(), pszsrc.len().try_into().unwrap(), cmaxcolumns, pcchline.unwrap_or(core::mem::zeroed()) as _, pcchskip.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn BreakLineA(&self, locale: super::LCID, ucodepage: u32, pszsrc: *const i8, cchsrc: i32, cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BreakLineA)(windows_core::Interface::as_raw(self), locale, ucodepage, pszsrc, cchsrc, cmaxcolumns, pcchline.unwrap_or(core::mem::zeroed()) as _, pcchskip.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -846,8 +846,11 @@ impl core::ops::Deref for IMLangStringAStr {
 }
 windows_core::imp::interface_hierarchy!(IMLangStringAStr, windows_core::IUnknown, IMLangString);
 impl IMLangStringAStr {
-    pub unsafe fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: &[u8], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn SetAStr<P3>(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: P3, cchsrc: i32, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT
+    where
+        P3: windows_core::Param<windows_core::PCSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetAStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, pszsrc.param().abi(), cchsrc, pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetStrBufA<P3>(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: P3, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT
     where
@@ -864,8 +867,11 @@ impl IMLangStringAStr {
     pub unsafe fn LockAStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: u32, cchrequest: i32, pucodepageout: Option<*mut u32>, ppszdest: *mut windows_core::PSTR, pcchdest: Option<*mut i32>, pldestlen: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LockAStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, lflags, ucodepagein, cchrequest, pucodepageout.unwrap_or(core::mem::zeroed()) as _, ppszdest as _, pcchdest.unwrap_or(core::mem::zeroed()) as _, pldestlen.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn UnlockAStr(&self, pszsrc: &[u8], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnlockAStr)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn UnlockAStr<P0>(&self, pszsrc: P0, cchsrc: i32, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).UnlockAStr)(windows_core::Interface::as_raw(self), pszsrc.param().abi(), cchsrc, pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: super::LCID) -> windows_core::HRESULT {
@@ -1148,8 +1154,11 @@ impl core::ops::Deref for IMLangStringWStr {
 }
 windows_core::imp::interface_hierarchy!(IMLangStringWStr, windows_core::IUnknown, IMLangString);
 impl IMLangStringWStr {
-    pub unsafe fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: &[u16], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetWStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn SetWStr<P2>(&self, ldestpos: i32, ldestlen: i32, pszsrc: P2, cchsrc: i32, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT
+    where
+        P2: windows_core::Param<windows_core::PCWSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetWStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, pszsrc.param().abi(), cchsrc, pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetStrBufW<P2>(&self, ldestpos: i32, ldestlen: i32, psrcbuf: P2, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT
     where
@@ -1166,8 +1175,11 @@ impl IMLangStringWStr {
     pub unsafe fn LockWStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, cchrequest: i32, ppszdest: *mut windows_core::PWSTR, pcchdest: Option<*mut i32>, pldestlen: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LockWStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, lflags, cchrequest, ppszdest as _, pcchdest.unwrap_or(core::mem::zeroed()) as _, pldestlen.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn UnlockWStr(&self, pszsrc: &[u16], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnlockWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn UnlockWStr<P0>(&self, pszsrc: P0, cchsrc: i32, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).UnlockWStr)(windows_core::Interface::as_raw(self), pszsrc.param().abi(), cchsrc, pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: super::LCID) -> windows_core::HRESULT {

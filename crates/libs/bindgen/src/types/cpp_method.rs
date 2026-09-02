@@ -96,8 +96,12 @@ impl CppMethod {
                         param_hints[position] = ParamHint::None;
                         continue;
                     };
-                    // The len params must be input only.
-                    if relative_param.is_input_only() && !relative_param.is_pointer() {
+                    // Slice lengths must be unsigned input scalars. Signed counts may use negative
+                    // sentinel values that a slice cannot represent.
+                    if relative_param.is_input_only()
+                        && relative_param.ty.is_unsigned()
+                        && !relative_param.is_pointer()
+                    {
                         param_hints[relative] = ParamHint::ArrayRelativePtr(position);
                     } else {
                         param_hints[position] = ParamHint::None;

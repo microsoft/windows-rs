@@ -4,6 +4,7 @@
 using namespace winrt::Robotics;
 
 typedef HRESULT (__stdcall *CreateRobotFromHandle)(void* handle, void**) noexcept;
+typedef HRESULT (__stdcall *DllGetActivationFactory)(void* name, void** factory) noexcept;
 
 struct __declspec(uuid("ae60832b-0bc8-57b0-8a69-f82ebc1560ed")) IRobotInterop: IUnknown {
     virtual void* __stdcall Handle() noexcept = 0;
@@ -11,11 +12,20 @@ struct __declspec(uuid("ae60832b-0bc8-57b0-8a69-f82ebc1560ed")) IRobotInterop: I
 
 extern "C" {
     HRESULT __stdcall main_cpp() noexcept try {
-        Robot robot;
+        auto library = LoadLibraryExW(L"robotics.dll", 0, 0);
+        if (!library) winrt::throw_last_error();
+
+        auto get_factory = reinterpret_cast<DllGetActivationFactory>(
+            GetProcAddress(library, "DllGetActivationFactory"));
+        if (!get_factory) winrt::throw_last_error();
+
+        winrt::hstring name = L"Robotics.Robot";
+        winrt::Windows::Foundation::IActivationFactory factory{ nullptr };
+        winrt::check_hresult(get_factory(winrt::get_abi(name), winrt::put_abi(factory)));
+
+        Robot robot = factory.ActivateInstance<Robot>();
         robot.Speak(L"Hello from cpp land");
 
-        auto library = LoadLibraryExW(L"robotics.dll", 0, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
-        if (!library) winrt::throw_last_error();
         auto create = reinterpret_cast<CreateRobotFromHandle>(GetProcAddress(library, "CreateRobotFromHandle"));
         if (!create) winrt::throw_last_error();
 

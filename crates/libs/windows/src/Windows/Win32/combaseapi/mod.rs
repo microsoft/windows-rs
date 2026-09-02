@@ -327,9 +327,9 @@ pub unsafe fn CoInitializeEx(pvreserved: Option<*const core::ffi::c_void>, dwcoi
 }
 #[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CoInitializeSecurity(psecdesc: Option<super::PSECURITY_DESCRIPTOR>, asauthsvc: Option<&[super::SOLE_AUTHENTICATION_SERVICE]>, preserved1: Option<*const core::ffi::c_void>, dwauthnlevel: u32, dwimplevel: u32, pauthlist: Option<*const core::ffi::c_void>, dwcapabilities: u32, preserved3: Option<*const core::ffi::c_void>) -> windows_core::HRESULT {
+pub unsafe fn CoInitializeSecurity(psecdesc: Option<super::PSECURITY_DESCRIPTOR>, cauthsvc: i32, asauthsvc: Option<*const super::SOLE_AUTHENTICATION_SERVICE>, preserved1: Option<*const core::ffi::c_void>, dwauthnlevel: u32, dwimplevel: u32, pauthlist: Option<*const core::ffi::c_void>, dwcapabilities: u32, preserved3: Option<*const core::ffi::c_void>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CoInitializeSecurity(psecdesc : super::PSECURITY_DESCRIPTOR, cauthsvc : i32, asauthsvc : *const super::SOLE_AUTHENTICATION_SERVICE, preserved1 : *const core::ffi::c_void, dwauthnlevel : u32, dwimplevel : u32, pauthlist : *const core::ffi::c_void, dwcapabilities : u32, preserved3 : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoInitializeSecurity(psecdesc.unwrap_or(core::mem::zeroed()) as _, asauthsvc.map_or(0, |slice| slice.len().try_into().unwrap()), asauthsvc.map_or(core::ptr::null(), |slice| slice.as_ptr()), preserved1.unwrap_or(core::mem::zeroed()) as _, dwauthnlevel, dwimplevel, pauthlist.unwrap_or(core::mem::zeroed()) as _, dwcapabilities, preserved3.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CoInitializeSecurity(psecdesc.unwrap_or(core::mem::zeroed()) as _, cauthsvc, asauthsvc.unwrap_or(core::mem::zeroed()) as _, preserved1.unwrap_or(core::mem::zeroed()) as _, dwauthnlevel, dwimplevel, pauthlist.unwrap_or(core::mem::zeroed()) as _, dwcapabilities, preserved3.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CoInvalidateRemoteMachineBindings<P0>(pszmachinename: P0) -> windows_core::HRESULT
