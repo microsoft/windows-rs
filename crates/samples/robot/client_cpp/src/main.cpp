@@ -12,7 +12,8 @@ struct __declspec(uuid("ae60832b-0bc8-57b0-8a69-f82ebc1560ed")) IRobotInterop: I
 
 extern "C" {
     HRESULT __stdcall main_cpp() noexcept try {
-        auto library = LoadLibraryExW(L"robotics.dll", 0, 0);
+        auto library = LoadLibraryExW(
+            L"robotics.dll", 0, LOAD_LIBRARY_SEARCH_APPLICATION_DIR);
         if (!library) winrt::throw_last_error();
 
         auto get_factory = reinterpret_cast<DllGetActivationFactory>(
