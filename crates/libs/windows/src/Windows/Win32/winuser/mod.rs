@@ -2195,15 +2195,15 @@ pub unsafe fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTabbedTextExtentA(hdc: super::HDC, lpstring: &[u8], lpntabstoppositions: Option<&[i32]>) -> u32 {
+pub unsafe fn GetTabbedTextExtentA(hdc: super::HDC, lpstring: &[u8], ntabpositions: i32, lpntabstoppositions: Option<*const i32>) -> u32 {
     windows_core::link!("user32.dll" "system" fn GetTabbedTextExtentA(hdc : super::HDC, lpstring : windows_core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
-    unsafe { GetTabbedTextExtentA(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpntabstoppositions.map_or(0, |slice| slice.len().try_into().unwrap()), lpntabstoppositions.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    unsafe { GetTabbedTextExtentA(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTabbedTextExtentW(hdc: super::HDC, lpstring: &[u16], lpntabstoppositions: Option<&[i32]>) -> u32 {
+pub unsafe fn GetTabbedTextExtentW(hdc: super::HDC, lpstring: &[u16], ntabpositions: i32, lpntabstoppositions: Option<*const i32>) -> u32 {
     windows_core::link!("user32.dll" "system" fn GetTabbedTextExtentW(hdc : super::HDC, lpstring : windows_core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
-    unsafe { GetTabbedTextExtentW(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpntabstoppositions.map_or(0, |slice| slice.len().try_into().unwrap()), lpntabstoppositions.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+    unsafe { GetTabbedTextExtentW(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -4186,15 +4186,15 @@ pub unsafe fn SystemParametersInfoW(uiaction: u32, uiparam: u32, pvparam: *mut c
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn TabbedTextOutA(hdc: super::HDC, x: i32, y: i32, lpstring: &[u8], lpntabstoppositions: Option<&[i32]>, ntaborigin: i32) -> i32 {
+pub unsafe fn TabbedTextOutA(hdc: super::HDC, x: i32, y: i32, lpstring: &[u8], ntabpositions: i32, lpntabstoppositions: Option<*const i32>, ntaborigin: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn TabbedTextOutA(hdc : super::HDC, x : i32, y : i32, lpstring : windows_core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
-    unsafe { TabbedTextOutA(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpntabstoppositions.map_or(0, |slice| slice.len().try_into().unwrap()), lpntabstoppositions.map_or(core::ptr::null(), |slice| slice.as_ptr()), ntaborigin) }
+    unsafe { TabbedTextOutA(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _, ntaborigin) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn TabbedTextOutW(hdc: super::HDC, x: i32, y: i32, lpstring: &[u16], lpntabstoppositions: Option<&[i32]>, ntaborigin: i32) -> i32 {
+pub unsafe fn TabbedTextOutW(hdc: super::HDC, x: i32, y: i32, lpstring: &[u16], ntabpositions: i32, lpntabstoppositions: Option<*const i32>, ntaborigin: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn TabbedTextOutW(hdc : super::HDC, x : i32, y : i32, lpstring : windows_core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
-    unsafe { TabbedTextOutW(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpntabstoppositions.map_or(0, |slice| slice.len().try_into().unwrap()), lpntabstoppositions.map_or(core::ptr::null(), |slice| slice.as_ptr()), ntaborigin) }
+    unsafe { TabbedTextOutW(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _, ntaborigin) }
 }
 #[cfg(feature = "windef")]
 #[inline]

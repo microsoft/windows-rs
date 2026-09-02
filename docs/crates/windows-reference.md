@@ -54,13 +54,13 @@ the public Rust wrapper exposes `Value` as the supported way to retrieve the box
 
 ```rust
 use windows_reference::IReference;
-use windows_strings::{HSTRING, h};
+use windows_strings::HSTRING;
 
 let count = IReference::<u32>::from(3);
 assert_eq!(count.Value().unwrap(), 3);
 
 let label = IReference::<HSTRING>::from("ready");
-assert_eq!(label.Value().unwrap(), h!("ready"));
+assert_eq!(label.Value().unwrap(), "ready");
 ```
 
 `IReference<HSTRING>` accepts `HSTRING`, `&HSTRING`, `String`, and `&str`. Other supported value

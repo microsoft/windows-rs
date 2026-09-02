@@ -64,5 +64,8 @@ features = ["std"]
 [dependencies.windows-version]
 workspace = true
 
+[dependencies.windows-webview]
+workspace = true
+
 [lints]
 workspace = true

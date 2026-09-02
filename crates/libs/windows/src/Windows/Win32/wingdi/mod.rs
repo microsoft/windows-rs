@@ -555,9 +555,12 @@ where
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn DrawEscape(hdc: super::HDC, iescape: i32, lpin: Option<&[u8]>) -> i32 {
+pub unsafe fn DrawEscape<P3>(hdc: super::HDC, iescape: i32, cjin: i32, lpin: P3) -> i32
+where
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
     windows_core::link!("gdi32.dll" "system" fn DrawEscape(hdc : super::HDC, iescape : i32, cjin : i32, lpin : windows_core::PCSTR) -> i32);
-    unsafe { DrawEscape(hdc, iescape, lpin.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpin.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { DrawEscape(hdc, iescape, cjin, lpin.param().abi()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -669,9 +672,12 @@ pub unsafe fn EqualRgn(hrgn1: super::HRGN, hrgn2: super::HRGN) -> windows_core::
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn Escape(hdc: super::HDC, iescape: i32, pvin: Option<&[u8]>, pvout: Option<*mut core::ffi::c_void>) -> i32 {
+pub unsafe fn Escape<P3>(hdc: super::HDC, iescape: i32, cjin: i32, pvin: P3, pvout: Option<*mut core::ffi::c_void>) -> i32
+where
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
     windows_core::link!("gdi32.dll" "system" fn Escape(hdc : super::HDC, iescape : i32, cjin : i32, pvin : windows_core::PCSTR, pvout : *mut core::ffi::c_void) -> i32);
-    unsafe { Escape(hdc, iescape, pvin.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pvin.map_or(core::ptr::null(), |slice| slice.as_ptr())), pvout.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { Escape(hdc, iescape, cjin, pvin.param().abi(), pvout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -693,9 +699,12 @@ pub unsafe fn ExtCreateRegion(lpx: Option<*const XFORM>, ncount: u32, lpdata: *c
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ExtEscape(hdc: super::HDC, iescape: i32, lpindata: Option<&[u8]>, cjoutput: i32, lpoutdata: Option<windows_core::PSTR>) -> i32 {
+pub unsafe fn ExtEscape<P3>(hdc: super::HDC, iescape: i32, cjinput: i32, lpindata: P3, cjoutput: i32, lpoutdata: Option<windows_core::PSTR>) -> i32
+where
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
     windows_core::link!("gdi32.dll" "system" fn ExtEscape(hdc : super::HDC, iescape : i32, cjinput : i32, lpindata : windows_core::PCSTR, cjoutput : i32, lpoutdata : windows_core::PSTR) -> i32);
-    unsafe { ExtEscape(hdc, iescape, lpindata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpindata.map_or(core::ptr::null(), |slice| slice.as_ptr())), cjoutput, lpoutdata.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ExtEscape(hdc, iescape, cjinput, lpindata.param().abi(), cjoutput, lpoutdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1361,27 +1370,21 @@ pub unsafe fn GetTextColor(hdc: super::HDC) -> super::COLORREF {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentExPointA<P1>(hdc: super::HDC, lpszstring: P1, cchstring: i32, nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn GetTextExtentExPointA(hdc: super::HDC, lpszstring: &[u8], nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointA(hdc : super::HDC, lpszstring : windows_core::PCSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::SIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentExPointA(hdc, lpszstring.param().abi(), cchstring, nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
+    unsafe { GetTextExtentExPointA(hdc, core::mem::transmute(lpszstring.as_ptr()), lpszstring.len().try_into().unwrap(), nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentExPointI(hdc: super::HDC, lpwszstring: *const u16, cwchstring: i32, nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL {
+pub unsafe fn GetTextExtentExPointI(hdc: super::HDC, lpwszstring: &[u16], nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointI(hdc : super::HDC, lpwszstring : *const u16, cwchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::SIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentExPointI(hdc, lpwszstring, cwchstring, nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
+    unsafe { GetTextExtentExPointI(hdc, lpwszstring.as_ptr(), lpwszstring.len().try_into().unwrap(), nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentExPointW<P1>(hdc: super::HDC, lpszstring: P1, cchstring: i32, nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn GetTextExtentExPointW(hdc: super::HDC, lpszstring: &[u16], nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointW(hdc : super::HDC, lpszstring : windows_core::PCWSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::SIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentExPointW(hdc, lpszstring.param().abi(), cchstring, nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
+    unsafe { GetTextExtentExPointW(hdc, core::mem::transmute(lpszstring.as_ptr()), lpszstring.len().try_into().unwrap(), nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]

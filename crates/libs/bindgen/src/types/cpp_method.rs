@@ -96,8 +96,14 @@ impl CppMethod {
                         param_hints[position] = ParamHint::None;
                         continue;
                     };
-                    // The len params must be input only.
-                    if relative_param.is_input_only() && !relative_param.is_pointer() {
+                    // Optional buffers with signed counts may use negative sentinel values that a
+                    // slice cannot represent. Required SAL-counted buffers use slices regardless
+                    // of the count's signedness.
+                    if relative_param.is_input_only()
+                        && (relative_param.ty.is_unsigned()
+                            || !signature.params[position].is_optional_or_reserved())
+                        && !relative_param.is_pointer()
+                    {
                         param_hints[relative] = ParamHint::ArrayRelativePtr(position);
                     } else {
                         param_hints[position] = ParamHint::None;

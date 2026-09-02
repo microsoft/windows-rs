@@ -41,9 +41,10 @@ fixed-prefix wrapper.
 Parameter direction uses the shared raw facts from `windows-metadata`, but Rust projection policy
 stays local. `Input` and `Unspecified` take the input-only branch, `InputOutput` keeps mutable slice
 shapes, and parameters marked only `Output` keep raw pointer/count parameters so callers may
-provide uninitialized storage. A trailing retval must be output-only, required, non-reserved,
-uncounted, and pointer-shaped. The existing void-pointee and size limits apply only to unmarked
-heuristic candidates.
+provide uninitialized storage. Required input buffers may use signed or unsigned slice lengths.
+Optional buffers with signed counts remain explicit because they may use negative sentinel values.
+A trailing retval must be output-only, required, non-reserved, uncounted, and pointer-shaped. The
+existing void-pointee and size limits apply only to unmarked heuristic candidates.
 
 And then use the bindings as follows:
 

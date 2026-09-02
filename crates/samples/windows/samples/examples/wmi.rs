@@ -34,6 +34,7 @@ fn main() -> windows::core::Result<()> {
 
         CoInitializeSecurity(
             None,
+            -1,
             None,
             None,
             RPC_C_AUTHN_LEVEL_DEFAULT as u32,
@@ -143,6 +144,20 @@ fn main() -> windows::core::Result<()> {
         let text = variant_to_string(&value);
         VariantClear(&mut value).ok()?;
         println!("`Create` method return value: {text}");
+
+        let mut value = VARIANT::default();
+        output
+            .Get(
+                w!("ProcessId"),
+                0,
+                &mut value,
+                std::ptr::null_mut(),
+                std::ptr::null_mut(),
+            )
+            .ok()?;
+        let text = variant_to_string(&value);
+        VariantClear(&mut value).ok()?;
+        println!("Process ID: {text}");
 
         Ok(())
     }

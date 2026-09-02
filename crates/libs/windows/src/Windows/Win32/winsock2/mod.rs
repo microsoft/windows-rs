@@ -619,9 +619,9 @@ pub unsafe fn sendto(s: SOCKET, buf: &[u8], flags: i32, to: *const super::SOCKAD
     unsafe { sendto(s, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap(), flags, to, tolen) }
 }
 #[inline]
-pub unsafe fn setsockopt(s: SOCKET, level: i32, optname: i32, optval: Option<&[u8]>) -> i32 {
+pub unsafe fn setsockopt(s: SOCKET, level: i32, optname: i32, optval: Option<*const i8>, optlen: i32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn setsockopt(s : SOCKET, level : i32, optname : i32, optval : *const i8, optlen : i32) -> i32);
-    unsafe { setsockopt(s, level, optname, core::mem::transmute(optval.map_or(core::ptr::null(), |slice| slice.as_ptr())), optval.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { setsockopt(s, level, optname, optval.unwrap_or(core::mem::zeroed()) as _, optlen) }
 }
 #[inline]
 pub unsafe fn shutdown(s: SOCKET, how: i32) -> i32 {

@@ -106,9 +106,9 @@ pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, 
     unsafe { ScriptJustify(psva, piadvance, cglyphs, idx, iminkashida, pijustify as _) }
 }
 #[inline]
-pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: Option<*mut i32>, pilogicaltovisual: Option<*mut i32>) -> windows_core::HRESULT {
+pub unsafe fn ScriptLayout(pblevel: &[u8], pivisualtological: Option<*mut i32>, pilogicaltovisual: Option<*mut i32>) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptLayout(cruns : i32, pblevel : *const u8, pivisualtological : *mut i32, pilogicaltovisual : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptLayout(cruns, pblevel, pivisualtological.unwrap_or(core::mem::zeroed()) as _, pilogicaltovisual.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ScriptLayout(pblevel.len().try_into().unwrap(), pblevel.as_ptr(), pivisualtological.unwrap_or(core::mem::zeroed()) as _, pilogicaltovisual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "windef", feature = "wingdi"))]
 #[inline]
@@ -148,11 +148,11 @@ pub unsafe fn ScriptShapeOpenType(hdc: Option<super::HDC>, psc: *mut SCRIPT_CACH
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ScriptStringAnalyse(hdc: super::HDC, pstring: *const core::ffi::c_void, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: Option<&[SCRIPT_CONTROL; 1]>, psstate: Option<&[SCRIPT_STATE; 1]>, pidx: Option<&[i32]>, ptabdef: Option<&[SCRIPT_TABDEF; 1]>, pbinclass: *const u8) -> windows_core::Result<SCRIPT_STRING_ANALYSIS> {
+pub unsafe fn ScriptStringAnalyse(hdc: super::HDC, pstring: *const core::ffi::c_void, cstring: i32, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: Option<&[SCRIPT_CONTROL; 1]>, psstate: Option<&[SCRIPT_STATE; 1]>, pidx: Option<*const i32>, ptabdef: Option<&[SCRIPT_TABDEF; 1]>, pbinclass: *const u8) -> windows_core::Result<SCRIPT_STRING_ANALYSIS> {
     windows_core::link!("usp10.dll" "system" fn ScriptStringAnalyse(hdc : super::HDC, pstring : *const core::ffi::c_void, cstring : i32, cglyphs : i32, icharset : i32, dwflags : u32, ireqwidth : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pidx : *const i32, ptabdef : *const SCRIPT_TABDEF, pbinclass : *const u8, pssa : *mut SCRIPT_STRING_ANALYSIS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        ScriptStringAnalyse(hdc, pstring, pidx.map_or(0, |slice| slice.len().try_into().unwrap()), cglyphs, icharset, dwflags, ireqwidth, pscontrol.map_or(core::ptr::null(), |slice| slice.as_ptr()), psstate.map_or(core::ptr::null(), |slice| slice.as_ptr()), pidx.map_or(core::ptr::null(), |slice| slice.as_ptr()), ptabdef.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbinclass, &mut result__).map(|| result__)
+        ScriptStringAnalyse(hdc, pstring, cstring, cglyphs, icharset, dwflags, ireqwidth, pscontrol.map_or(core::ptr::null(), |slice| slice.as_ptr()), psstate.map_or(core::ptr::null(), |slice| slice.as_ptr()), pidx.unwrap_or(core::mem::zeroed()) as _, ptabdef.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbinclass, &mut result__).map(|| result__)
     }
 }
 #[inline]
