@@ -8,8 +8,72 @@
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/version)
 
 `windows-version` reports the real operating system version even when the process has no version
-manifest - useful for feature detection. `OsVersion` implements `Ord`, so you can compare against a
-minimum build, and `is_server` distinguishes Windows Server releases.
+manifest.
+
+## When to use
+
+Use this crate when Windows documentation gives an OS build requirement and the program must make a
+version decision that is not affected by application-manifest version virtualization. It also
+provides a workstation/server distinction and the update build revision (UBR).
+
+Prefer direct capability detection when Windows exposes it: attempt the API, query the interface,
+or check the feature itself. Version checks are appropriate when the platform contract is stated
+only in terms of a minimum Windows version or build.
+
+## Getting started
+
+The [crate README](../../crates/libs/version/readme.md) contains the dependency declaration and a
+minimal comparison. In application code, name the required version and keep the decision next to
+the feature it guards:
+
+```rust,no_run
+use windows_version::OsVersion;
+
+const REQUIRED: OsVersion = OsVersion::new(10, 0, 0, 22_000);
+
+fn feature_is_available() -> bool {
+    OsVersion::current() >= REQUIRED
+}
+```
+
+This is easier to audit than scattering comparisons against individual fields.
+
+## Reading version information
+
+`OsVersion::current()` returns `major`, `minor`, service-pack `pack`, and `build`. `OsVersion`
+implements `Ord`, with comparisons proceeding in that field order. Construct a threshold with
+`OsVersion::new`.
+
+`is_server()` distinguishes Windows Server from workstation releases. `revision()` reads the UBR
+from the registry. Treat the revision separately from `OsVersion`: it is not part of `Ord`.
+
+For diagnostics, report both values when the revision matters:
+
+```rust,no_run
+let version = windows_version::OsVersion::current();
+let revision = windows_version::revision();
+println!(
+    "{}.{}.{}.{}",
+    version.major, version.minor, version.build, revision
+);
+```
+
+## Platform constraints and pitfalls
+
+- The crate is Windows-only.
+- A version threshold does not guarantee that an optional component, driver, policy, or hardware
+  capability is present. Query those requirements separately.
+- `revision()` returns `0` when the registry query fails as well as when the stored revision is
+  zero. Do not use it where those cases must be distinguished.
+- Windows product names are marketing labels, not API versions. Compare the documented numeric
+  build rather than parsing a product name.
+- Do not use `is_server()` as a proxy for installed roles or individual server capabilities.
+
+## Next steps
+
+Find the minimum supported build in the documentation for the Windows API or feature being used.
+Keep that requirement in one named constant, and add capability checks for requirements not
+captured by the OS build.
 
 ---
 

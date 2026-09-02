@@ -11,93 +11,49 @@
 Language), a small Rust-like syntax for Windows APIs. It emits ECMA-335 `.winmd` metadata for
 [`windows-bindgen`](windows-bindgen.md). It also writes canonical RDL from `.winmd` files.
 
-Use `windows-rdl` when an API needs metadata first. You can write RDL by hand. You can also generate
-RDL from C or C++ headers with [`windows-clang`](windows-clang.md). Then pass the `.winmd` output to
-`windows-bindgen`.
+Most applications should use existing bindings rather than author metadata. Use `windows-rdl` when
+you are defining a custom WinRT or Win32 surface, adapting header output from
+[`windows-clang`](windows-clang.md), or maintaining reviewable text for a winmd generator.
 
-## Getting started
+Start with the crate [README](../../crates/libs/rdl/readme.md) for setup and the two basic builder
+calls. The full language reference is in
+[`crates/libs/rdl/rdl.md`](../../crates/libs/rdl/rdl.md).
 
-Add `windows-rdl` as a build dependency. It usually runs from a codegen tool or `build.rs`. It is
-not a runtime dependency.
+## First workflow: define a custom component surface
 
-```toml
-[build-dependencies]
-windows-rdl = "0.100"
-```
+1. Create an `.rdl` file with one or more `#[winrt]` or `#[win32]` modules.
+2. Add standard metadata as a reference if the declarations mention Windows types.
+3. Compile the RDL to a winmd with `reader`.
+4. Feed the winmd to [`windows-bindgen`](windows-bindgen.md) or C++/WinRT.
+5. Treat the RDL as the reviewed source and regenerate the binary winmd.
 
-The crate exposes two builders:
+`crates/samples/robot/component` follows this path. Its build script compiles `src/robot.rdl`,
+references standard Windows metadata, then asks bindgen for the `Robotics` namespace and WinRT
+implementation support. `crates/samples/robot/component_cpp` sends the same kind of output to
+[`cppwinrt`](cppwinrt.md).
 
-- `reader()` compiles RDL source to `.winmd` metadata.
-- `writer()` writes canonical RDL source from `.winmd` metadata.
+## Input and output model
 
-Input, reference, and output paths accept strings, `Path`, or `PathBuf`, so build scripts can pass
-paths without converting them to UTF-8 strings. `.input_text(..)` and `.input_texts(..)` compile RDL
-source already in memory.
+| Direction | Builder | Inputs | Output |
+| --- | --- | --- | --- |
+| RDL -> winmd | `reader()` | `.rdl` files, directories, or text | One `.winmd` file |
+| winmd -> RDL | `writer()` | `.winmd` files, directories, or bytes | One file or partition |
 
-### RDL to winmd, and back
+Reader references resolve names but are not emitted as definitions. Use `reference_default` for
+the bundled standard metadata, or the path and byte reference methods for custom dependencies.
+Writer inputs are definitions to render; `input_default` renders the bundled metadata.
 
-Use `reader` to compile `.rdl` into `.winmd`. Use `writer` to regenerate canonical `.rdl` from
-`.winmd`.
-
-```rust,no_run
-// RDL source -> winmd metadata.
-windows_rdl::reader()
-    .input("example.rdl")
-    .output("example.winmd")
-    .write()
-    .unwrap();
-
-// winmd metadata -> canonical RDL source.
-windows_rdl::writer()
-    .input("example.winmd")
-    .output("example.rdl")
-    .write()
-    .unwrap();
-```
-
-RDL can reference types it does not define. Examples include `HRESULT` and
-`Windows::Win32::System::Com::IUnknown`. Add the standard metadata so those references resolve.
-
-```rust,no_run
-windows_rdl::reader()
-    .input("example.rdl")
-    .reference_default()
-    .output("example.winmd")
-    .write()
-    .unwrap();
-```
-
-The reader treats the default metadata as references while compiling the input RDL. Add other
-reference metadata with `.reference(path)`, `.references(paths)`, `.reference_bytes(bytes)`, or
-`.reference_byte_sets(byte_sets)`. The writer has the corresponding `.input`, `.inputs`,
-`.input_bytes`, and `.input_byte_sets` methods and treats default metadata as input to render.
-
-### C/C++ headers to RDL
-
-Use [`windows-clang`](windows-clang.md) when an API ships only a C or C++ header. The `clang()`
-builder parses the header into RDL. Then `reader()` compiles that RDL to metadata.
-
-Each header is parsed as its own translation unit. The scraper emits only that header's top-level
-declarations. It does not emit declarations from `#include` files. List each header you need as a
-separate input.
-
-```rust,no_run
-windows_clang::clang()
-    .args(["-x", "c++", "--target=x86_64-pc-windows-msvc"])
-    .input("Example.h")
-    .reference_default()
-    .output("example.rdl")
-    .namespace("Example")
-    .library("Example.dll")
-    .write()
-    .unwrap();
-```
+Writer filters accept namespace prefixes, qualified or unqualified names, and `!` exclusions.
+`split` writes one file per namespace. `partition` accepts an item-name -> file-stem map and writes
+one file per defining header. `item_names` reads the names declared under one namespace without
+compiling the file.
 
 ## RDL syntax
 
-RDL looks like a small Rust module. A top-level `mod` is a metadata namespace. Tag it `#[winrt]` or
-`#[win32]` to select the type system. Attributes map to metadata attributes. Item keywords mirror
-metadata kinds.
+RDL uses Rust tokens and module syntax, but it describes metadata rather than executable Rust.
+A top-level `mod` is a metadata namespace. Tag it `#[winrt]` or `#[win32]` to select the type
+system. Items include classes, interfaces, delegates, callbacks, enums, structs, unions, typedefs,
+constants, and imported functions.
 
 ```text
 #[win32]
@@ -152,8 +108,8 @@ The reader writes one `Windows.Win32.Metadata.NativeBitfieldAttribute(name, offs
 attribute per named member. The writer renders it back to block form.
 
 See [`windows-clang`](windows-clang.md#bit-field-member-scraping) for how the scraper emits bit
-fields. See [`windows-bindgen`](windows-bindgen.md#generating-bit-field-accessors) for the accessors
-they drive.
+fields. See [`windows-bindgen`](windows-bindgen.md#bit-field-accessors) for the accessors they
+drive.
 
 WinRT types use the `#[winrt]` namespace flavor. They also add runtime-class and property syntax.
 
@@ -176,30 +132,36 @@ mod Robotics {
 The `crates/tests/libs/rdl/input` directory has focused `.rdl` files for syntax examples. It covers
 structs, flags, delegates, generic interfaces, unions, and more.
 
-## How it fits with windows-bindgen
+## Common tasks and neighboring crates
 
-`windows-rdl` and `windows-bindgen` are two stages in one pipeline.
+The complete source-to-binding path is:
 
 ```text
 C/C++ headers -- clang() --> .rdl -- reader() --> .winmd -- bindgen() --> bindings.rs
  (windows-clang)             (windows-rdl)        (windows-bindgen)
 ```
 
-Skip `windows-rdl` when metadata already exists. Use it when you need to create metadata first. You
-can write RDL by hand or lift declarations from a header.
+- Skip RDL when a suitable winmd already exists.
+- Use `windows-clang` to create RDL from headers; `tool_webview` demonstrates the full path.
+- Use `windows-metadata` for table-level inspection, merge, and namespace remapping.
+- Use `writer().split()` to maintain namespace-partitioned reviewable metadata.
+- Use `merge_arch_rdl` only for generators that have per-architecture RDL directories and winmds.
+  It merges structural differences and restores the defining-header partition.
+- `tool_reactor` compiles hand-authored `extras.rdl` to fill metadata gaps before binding WinUI.
 
-Two in-repo tools show both uses:
+## Pitfalls
 
-- `tool_webview` runs the full path. WebView2 ships only a C/C++ header. `clang()` produces
-  `WebView2.rdl`. `reader()` compiles it to `WebView2.winmd`. Then `windows_bindgen::bindgen`
-  generates bindings for [`windows-webview`](windows-webview.md).
-- `tool_reactor` hand-writes a few COM interfaces and version constants in
-  `crates/tools/reactor/src/extras.rdl`. These declarations fill gaps in the WinUI and Windows App
-  SDK metadata. The tool compiles them with the standard Win32 winmd into `extras.winmd`. Then it
-  feeds that winmd to `windows_bindgen::bindgen` for [`windows-reactor`](windows-reactor.md).
-
-In both tools, `reader` also gets the standard metadata as references. That lets RDL names resolve
-against the standard definitions.
+- RDL references must be supplied separately; naming an external type does not locate its winmd.
+- The reader rejects unsupported types, constants, callback ABIs, variadic callback parameters,
+  and function ABIs instead of dropping them.
+- Pointer chains have one constness bit plus depth. Uniform `*mut *mut T` and
+  `*const *const T` chains work; mixed chains do not.
+- `len_param` and `size_param` store raw zero-based signature positions. Update the attribute when
+  parameters move.
+- RDL cannot spell a metadata parameter with neither In nor Out. Omitting direction invokes the
+  type-based default.
+- Attributes on a void return row cannot round-trip because there is no return type to carry them.
+- `split` and `partition` clear existing `.rdl` files in the output directory before writing.
 
 ---
 
@@ -242,8 +204,8 @@ cargo test -p test_clang
 
 | File | Source | Writer |
 |------|--------|--------|
-| `crates/libs/default/Windows.winmd` | SDK Contracts winmds, merged and written through RDL | `tool_winrt` |
-| `crates/libs/default/Windows.Win32.winmd` | Windows SDK + WDK headers scraped to RDL, um + km merged | `tool_win32` |
+| `crates/libs/default/Windows.winmd` | Merged SDK contract winmds | `tool_winrt` |
+| `crates/libs/default/Windows.Win32.winmd` | Scraped SDK and WDK headers | `tool_win32` |
 
 The committed RDL files are the reviewable source for these metadata files:
 
@@ -288,9 +250,9 @@ changes tracked files.
 
 | Family | External source | RDL layout | Winmd build path |
 |--------|-----------------|------------|------------------|
-| WinRT | SDK Contracts winmds | `metadata/winrt`, per namespace | merge SDK winmds, write RDL, read RDL to winmd |
-| Win32 | SDK headers | `metadata/win32`, per header | scrape headers to RDL, merge architectures, read RDL to winmd |
-| WDK | WDK headers | `metadata/wdk`, per header | scrape headers to RDL, merge architectures, read RDL to winmd |
+| WinRT | SDK winmds | `metadata/winrt`, per namespace | merge -> RDL -> winmd |
+| Win32 | SDK headers | `metadata/win32`, per header | scrape -> arch merge -> winmd |
+| WDK | WDK headers | `metadata/wdk`, per header | scrape -> arch merge -> winmd |
 
 `tool_roundtrip` validates the reverse direction:
 
@@ -306,14 +268,14 @@ RDL stable.
 
 | Form | RDL spelling | Reason |
 |------|--------------|--------|
-| WinRT `System.Char` | `Char16` | It stays distinct from `u16` and maps to `metadata::Type::Char`. |
-| Property setter parameter names | `value` | RDL property shorthand does not store the original parameter name. |
-| Event add parameter names | `handler` | RDL event shorthand stores the event shape, not the accessor parameter name. |
+| WinRT `System.Char` | `Char16` | Keeps the type distinct from `u16`. |
+| Property setter parameter | `value` | Shorthand does not retain its original name. |
+| Event add parameter | `handler` | Shorthand stores the event shape. |
 | Event remove parameter names | `token` | The remove accessor takes an event token. |
-| Property and event accessors | Property or event shorthand | The writer tracks consumed `get_`, `put_`, `add_`, and `remove_` methods. |
-| Unconsumed interface methods | Full method form | Methods that are not part of shorthand stay explicit. |
+| Property and event accessors | Shorthand | The writer tracks consumed accessor methods. |
+| Other interface methods | Full method form | Non-accessor methods stay explicit. |
 | Input direction | `#[in]` | The reader accepts `#[r#in]`; the formatter emits `#[in]`. |
-| Raw identifiers, GUID constants, and delegate ABI spelling | Canonical writer output | Text can differ while metadata stays equivalent. |
+| Raw identifiers, GUIDs, delegate ABIs | Canonical output | Equivalent text has one spelling. |
 
 The reader rejects unsupported forms with errors. It does not silently drop them. Examples include
 unsupported types, constants, callback ABIs, variadic callback parameters, and function ABIs.
