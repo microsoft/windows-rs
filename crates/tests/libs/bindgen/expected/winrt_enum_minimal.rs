@@ -6,8 +6,8 @@ impl Enum {
     pub const Second: Self = Self(1);
     pub const Third: Self = Self(2);
 }
-impl windows_core::TypeKind for Enum {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Enum {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Enum {
     const SIGNATURE: windows_core::imp::ConstBuffer =

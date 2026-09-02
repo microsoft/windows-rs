@@ -85,7 +85,7 @@ impl SceneLightingEffect {
     pub fn NormalMapSource(&self) -> windows_core::Result<super::super::super::Graphics::Effects::IGraphicsEffectSource> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NormalMapSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).NormalMapSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetNormalMapSource<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -148,8 +148,8 @@ impl SceneLightingEffectReflectanceModel {
     pub const BlinnPhong: Self = Self(0);
     pub const PhysicallyBasedBlinnPhong: Self = Self(1);
 }
-impl windows_core::TypeKind for SceneLightingEffectReflectanceModel {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for SceneLightingEffectReflectanceModel {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for SceneLightingEffectReflectanceModel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel;i4)");

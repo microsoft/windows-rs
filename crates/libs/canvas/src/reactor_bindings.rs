@@ -208,7 +208,7 @@ impl SurfaceImageSource {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ISurfaceImageSourceFactory<

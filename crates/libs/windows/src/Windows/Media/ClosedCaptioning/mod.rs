@@ -12,8 +12,8 @@ impl ClosedCaptionColor {
     pub const Magenta: Self = Self(7);
     pub const Cyan: Self = Self(8);
 }
-impl windows_core::TypeKind for ClosedCaptionColor {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ClosedCaptionColor {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ClosedCaptionColor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionColor;i4)");
@@ -30,8 +30,8 @@ impl ClosedCaptionEdgeEffect {
     pub const Uniform: Self = Self(4);
     pub const DropShadow: Self = Self(5);
 }
-impl windows_core::TypeKind for ClosedCaptionEdgeEffect {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ClosedCaptionEdgeEffect {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ClosedCaptionEdgeEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;i4)");
@@ -47,8 +47,8 @@ impl ClosedCaptionOpacity {
     pub const TwentyFivePercent: Self = Self(3);
     pub const ZeroPercent: Self = Self(4);
 }
-impl windows_core::TypeKind for ClosedCaptionOpacity {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ClosedCaptionOpacity {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ClosedCaptionOpacity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;i4)");
@@ -167,8 +167,8 @@ impl ClosedCaptionSize {
     pub const OneHundredFiftyPercent: Self = Self(3);
     pub const TwoHundredPercent: Self = Self(4);
 }
-impl windows_core::TypeKind for ClosedCaptionSize {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ClosedCaptionSize {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ClosedCaptionSize {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionSize;i4)");
@@ -187,8 +187,8 @@ impl ClosedCaptionStyle {
     pub const Cursive: Self = Self(6);
     pub const SmallCapitals: Self = Self(7);
 }
-impl windows_core::TypeKind for ClosedCaptionStyle {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ClosedCaptionStyle {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ClosedCaptionStyle {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionStyle;i4)");
@@ -295,7 +295,7 @@ impl ClosedCaptionTheme {
     pub fn GetSelectedTheme() -> windows_core::Result<Self> {
         Self::IClosedCaptionThemeStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSelectedTheme)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetSelectedTheme)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn TrySetSelectedTheme<P0>(value: P0) -> windows_core::Result<bool>

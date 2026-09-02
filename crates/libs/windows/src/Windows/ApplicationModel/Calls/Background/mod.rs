@@ -85,8 +85,8 @@ impl PhoneCallBlockedReason {
     pub const PrivateNumber: Self = Self(1);
     pub const UnknownNumber: Self = Self(2);
 }
-impl windows_core::TypeKind for PhoneCallBlockedReason {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PhoneCallBlockedReason {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PhoneCallBlockedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason;i4)");
@@ -167,8 +167,8 @@ impl PhoneIncomingCallDismissedReason {
     pub const TextReply: Self = Self(2);
     pub const ConnectionLost: Self = Self(3);
 }
-impl windows_core::TypeKind for PhoneIncomingCallDismissedReason {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PhoneIncomingCallDismissedReason {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PhoneIncomingCallDismissedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedReason;i4)");
@@ -266,8 +266,8 @@ impl PhoneLineChangeKind {
     pub const Removed: Self = Self(1);
     pub const PropertiesChanged: Self = Self(2);
 }
-impl windows_core::TypeKind for PhoneLineChangeKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PhoneLineChangeKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PhoneLineChangeKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineChangeKind;i4)");
@@ -324,8 +324,8 @@ impl PhoneLineProperties {
     pub const Transport: Self = Self(128);
     pub const Voicemail: Self = Self(256);
 }
-impl windows_core::TypeKind for PhoneLineProperties {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PhoneLineProperties {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PhoneLineProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineProperties;u4)");
@@ -413,8 +413,8 @@ impl PhoneTriggerType {
     pub const IncomingCallDismissed: Self = Self(6);
     pub const IncomingCallNotification: Self = Self(7);
 }
-impl windows_core::TypeKind for PhoneTriggerType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PhoneTriggerType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PhoneTriggerType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneTriggerType;i4)");

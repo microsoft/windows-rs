@@ -4,6 +4,7 @@
 use std::sync::RwLock;
 use windows::Foundation::*;
 use windows::Win32::*;
+use windows::core::imp::{Type, ref_as_default};
 use windows::core::*;
 use windows_collections::*;
 

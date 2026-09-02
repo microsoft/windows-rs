@@ -61,40 +61,9 @@ fn main() {
 }
 ```
 
-`ComponentContext` supplies message senders, background work, and window requests.
-`ViewContext::forward` sends an event payload that already matches the component message.
-`ViewContext::message` maps a payload-free event to a fixed message. Generated control builders
-expose typed properties, events, content, and child collections. `ElementRef` provides typed
-imperative operations for focus and integration points that must run after publication.
-
-Background work runs on the Windows thread pool. Expected application failures should be returned
-in the component message as `Result`; panics and thread-pool submission failures are fatal.
-
-Use ordinary functions returning `View` for stateless presentation. Use a `Component` when a
-subtree owns state, handles messages, uses lifecycle work, or needs its own recomposition boundary.
-Generated metadata value enums and slot enums are non-exhaustive, so matches must include a wildcard
-arm.
-
-Selection indices, empty numeric controls, and nullable date or time picker events use `Option<T>`
-instead of native `-1`, `NaN`, or null sentinels. Omitting a property builder inherits the native
-default; passing `None` sets an explicit empty value.
-
-Large `ItemsRepeater` collections can use `VirtualSource` to construct views only for realized
-items. Its key revision changes when keys or their order change; view-only updates retain the
-revision and recompose only realized rows.
-
-Constrained values are checked by their builders. For example, text weights use constants such as
-`FontWeight::BOLD`, with custom values available through `FontWeight::new`.
-
-Images can load encoded PNG and other WinUI-supported bitmap data without a file or URI:
-
-```rust,ignore
-Image::new()
-    .source_data(EncodedImage::from_static(include_bytes!("logo.png")))
-    .on_opened(|| println!("image ready"))
-    .on_failed(|| eprintln!("image could not be decoded"))
-```
-
-`EncodedImage::from_static` borrows static data without copying it. `EncodedImage::new` owns shared
-data supplied at runtime. Decoding is asynchronous; replacing or removing the image cancels its
-pending load.
+`ComponentContext` supplies message senders, background work, and window requests. `ViewContext`
+builds the view and wires typed events to component messages. Generated control builders expose
+typed properties, events, content, and child collections, and `ElementRef` provides typed
+imperative operations such as focus. See the
+[guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md) for the
+component model, virtualized lists, image loading, and the native integration boundary.

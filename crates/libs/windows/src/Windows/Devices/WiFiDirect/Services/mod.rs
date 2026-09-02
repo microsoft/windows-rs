@@ -239,13 +239,13 @@ impl WiFiDirectService {
     pub fn RemoteServiceInfo(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemoteServiceInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RemoteServiceInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SupportedConfigurationMethods(&self) -> windows_core::Result<windows_collections::IVectorView<WiFiDirectServiceConfigurationMethod>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SupportedConfigurationMethods)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SupportedConfigurationMethods)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn PreferGroupOwnerMode(&self) -> windows_core::Result<bool> {
@@ -261,7 +261,7 @@ impl WiFiDirectService {
     pub fn SessionInfo(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -294,19 +294,19 @@ impl WiFiDirectService {
     pub fn GetProvisioningInfoAsync(&self, selectedconfigurationmethod: WiFiDirectServiceConfigurationMethod) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectServiceProvisioningInfo>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProvisioningInfoAsync)(windows_core::Interface::as_raw(self), selectedconfigurationmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetProvisioningInfoAsync)(windows_core::Interface::as_raw(self), selectedconfigurationmethod, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ConnectAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectServiceSession>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConnectAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ConnectAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ConnectAsyncWithPin(&self, pin: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectServiceSession>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConnectAsyncWithPin)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ConnectAsyncWithPin)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pin), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetSelector(servicename: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
@@ -328,7 +328,7 @@ impl WiFiDirectService {
     pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IWiFiDirectServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IWiFiDirectServiceStatics<R, F: FnOnce(&IWiFiDirectServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -357,8 +357,8 @@ impl WiFiDirectServiceAdvertisementStatus {
     pub const Stopped: Self = Self(2);
     pub const Aborted: Self = Self(3);
 }
-impl windows_core::TypeKind for WiFiDirectServiceAdvertisementStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WiFiDirectServiceAdvertisementStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WiFiDirectServiceAdvertisementStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAdvertisementStatus;i4)");
@@ -378,14 +378,14 @@ impl WiFiDirectServiceAdvertiser {
     pub fn ServiceNamePrefixes(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ServiceNamePrefixes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ServiceNamePrefixes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn ServiceInfo(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ServiceInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ServiceInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -416,7 +416,7 @@ impl WiFiDirectServiceAdvertiser {
     pub fn PreferredConfigurationMethods(&self) -> windows_core::Result<windows_collections::IVector<WiFiDirectServiceConfigurationMethod>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PreferredConfigurationMethods)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PreferredConfigurationMethods)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ServiceStatus(&self) -> windows_core::Result<WiFiDirectServiceStatus> {
@@ -441,7 +441,7 @@ impl WiFiDirectServiceAdvertiser {
     pub fn DeferredSessionInfo(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeferredSessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DeferredSessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -512,7 +512,7 @@ impl WiFiDirectServiceAdvertiser {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConnectAsync)(windows_core::Interface::as_raw(self), deviceinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ConnectAsync)(windows_core::Interface::as_raw(self), deviceinfo.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
@@ -522,7 +522,7 @@ impl WiFiDirectServiceAdvertiser {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConnectAsyncWithPin)(windows_core::Interface::as_raw(self), deviceinfo.param().abi(), core::mem::transmute_copy(pin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ConnectAsyncWithPin)(windows_core::Interface::as_raw(self), deviceinfo.param().abi(), core::mem::transmute_copy(pin), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
@@ -534,7 +534,7 @@ impl WiFiDirectServiceAdvertiser {
     pub fn CreateWiFiDirectServiceAdvertiser(servicename: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IWiFiDirectServiceAdvertiserFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWiFiDirectServiceAdvertiser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(servicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWiFiDirectServiceAdvertiser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(servicename), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IWiFiDirectServiceAdvertiserFactory<R, F: FnOnce(&IWiFiDirectServiceAdvertiserFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -562,14 +562,14 @@ impl WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
     pub fn Session(&self) -> windows_core::Result<WiFiDirectServiceSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn SessionInfo(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -593,8 +593,8 @@ impl WiFiDirectServiceConfigurationMethod {
     pub const PinDisplay: Self = Self(1);
     pub const PinEntry: Self = Self(2);
 }
-impl windows_core::TypeKind for WiFiDirectServiceConfigurationMethod {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WiFiDirectServiceConfigurationMethod {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WiFiDirectServiceConfigurationMethod {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod;i4)");
@@ -610,8 +610,8 @@ impl WiFiDirectServiceError {
     pub const UnsupportedHardware: Self = Self(3);
     pub const NoHardware: Self = Self(4);
 }
-impl windows_core::TypeKind for WiFiDirectServiceError {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WiFiDirectServiceError {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WiFiDirectServiceError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceError;i4)");
@@ -624,8 +624,8 @@ impl WiFiDirectServiceIPProtocol {
     pub const Tcp: Self = Self(6);
     pub const Udp: Self = Self(17);
 }
-impl windows_core::TypeKind for WiFiDirectServiceIPProtocol {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WiFiDirectServiceIPProtocol {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WiFiDirectServiceIPProtocol {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceIPProtocol;i4)");
@@ -670,7 +670,7 @@ impl WiFiDirectServiceRemotePortAddedEventArgs {
     pub fn EndpointPairs(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::super::Networking::EndpointPair>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndpointPairs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EndpointPairs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Protocol(&self) -> windows_core::Result<WiFiDirectServiceIPProtocol> {
@@ -748,7 +748,7 @@ impl WiFiDirectServiceSession {
     pub fn GetConnectionEndpointPairs(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::super::Networking::EndpointPair>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetConnectionEndpointPairs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetConnectionEndpointPairs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SessionStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -772,7 +772,7 @@ impl WiFiDirectServiceSession {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddStreamSocketListenerAsync)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddStreamSocketListenerAsync)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Networking_Sockets")]
@@ -782,7 +782,7 @@ impl WiFiDirectServiceSession {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddDatagramSocketAsync)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddDatagramSocketAsync)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RemotePortAdded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -821,7 +821,7 @@ impl WiFiDirectServiceSessionDeferredEventArgs {
     pub fn DeferredSessionInfo(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeferredSessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DeferredSessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -848,8 +848,8 @@ impl WiFiDirectServiceSessionErrorStatus {
     pub const SystemFailure: Self = Self(4);
     pub const NoResponseFromRemote: Self = Self(5);
 }
-impl windows_core::TypeKind for WiFiDirectServiceSessionErrorStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WiFiDirectServiceSessionErrorStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WiFiDirectServiceSessionErrorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionErrorStatus;i4)");
@@ -869,20 +869,20 @@ impl WiFiDirectServiceSessionRequest {
     pub fn DeviceInformation(&self) -> windows_core::Result<super::super::Enumeration::DeviceInformation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeviceInformation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DeviceInformation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ProvisioningInfo(&self) -> windows_core::Result<WiFiDirectServiceProvisioningInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ProvisioningInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ProvisioningInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn SessionInfo(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -906,7 +906,7 @@ impl WiFiDirectServiceSessionRequestedEventArgs {
     pub fn GetSessionRequest(&self) -> windows_core::Result<WiFiDirectServiceSessionRequest> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSessionRequest)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSessionRequest)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -931,8 +931,8 @@ impl WiFiDirectServiceSessionStatus {
     pub const Requested: Self = Self(2);
     pub const Open: Self = Self(3);
 }
-impl windows_core::TypeKind for WiFiDirectServiceSessionStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WiFiDirectServiceSessionStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WiFiDirectServiceSessionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionStatus;i4)");
@@ -946,8 +946,8 @@ impl WiFiDirectServiceStatus {
     pub const Busy: Self = Self(1);
     pub const Custom: Self = Self(2);
 }
-impl windows_core::TypeKind for WiFiDirectServiceStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WiFiDirectServiceStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WiFiDirectServiceStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceStatus;i4)");

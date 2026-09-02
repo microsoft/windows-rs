@@ -693,7 +693,7 @@ impl IPrintTaskOptionsCoreUIConfiguration {
     pub fn DisplayedOptions(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DisplayedOptions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DisplayedOptions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -884,8 +884,8 @@ impl PrintBinding {
     pub const JogOffset: Self = Self(15);
     pub const Trim: Self = Self(16);
 }
-impl windows_core::TypeKind for PrintBinding {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PrintBinding {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PrintBinding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBinding;i4)");
@@ -901,8 +901,8 @@ impl PrintBordering {
     pub const Bordered: Self = Self(3);
     pub const Borderless: Self = Self(4);
 }
-impl windows_core::TypeKind for PrintBordering {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PrintBordering {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PrintBordering {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBordering;i4)");
@@ -918,8 +918,8 @@ impl PrintCollation {
     pub const Collated: Self = Self(3);
     pub const Uncollated: Self = Self(4);
 }
-impl windows_core::TypeKind for PrintCollation {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PrintCollation {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PrintCollation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintCollation;i4)");
@@ -937,8 +937,8 @@ impl PrintColorMode {
     pub const Monochrome: Self = Self(5);
     pub const AutoSelect: Self = Self(6);
 }
-impl windows_core::TypeKind for PrintColorMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PrintColorMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PrintColorMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintColorMode;i4)");
@@ -955,8 +955,8 @@ impl PrintDuplex {
     pub const TwoSidedShortEdge: Self = Self(4);
     pub const TwoSidedLongEdge: Self = Self(5);
 }
-impl windows_core::TypeKind for PrintDuplex {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PrintDuplex {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PrintDuplex {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintDuplex;i4)");
@@ -975,8 +975,8 @@ impl PrintHolePunch {
     pub const TopEdge: Self = Self(6);
     pub const BottomEdge: Self = Self(7);
 }
-impl windows_core::TypeKind for PrintHolePunch {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PrintHolePunch {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PrintHolePunch {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintHolePunch;i4)");
@@ -1004,13 +1004,13 @@ impl PrintManager {
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IPrintManagerStatic(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn ShowPrintUIAsync() -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IPrintManagerStatic(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowPrintUIAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ShowPrintUIAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn IsSupported() -> windows_core::Result<bool> {
@@ -1218,8 +1218,8 @@ impl PrintMediaSize {
     pub const Roll36Inch: Self = Self(171);
     pub const Roll54Inch: Self = Self(172);
 }
-impl windows_core::TypeKind for PrintMediaSize {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PrintMediaSize {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PrintMediaSize {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaSize;i4)");
@@ -1262,8 +1262,8 @@ impl PrintMediaType {
     pub const TShirtTransfer: Self = Self(30);
     pub const None: Self = Self(31);
 }
-impl windows_core::TypeKind for PrintMediaType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PrintMediaType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PrintMediaType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaType;i4)");
@@ -1281,8 +1281,8 @@ impl PrintOrientation {
     pub const Landscape: Self = Self(5);
     pub const LandscapeFlipped: Self = Self(6);
 }
-impl windows_core::TypeKind for PrintOrientation {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PrintOrientation {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PrintOrientation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintOrientation;i4)");
@@ -1296,8 +1296,8 @@ pub struct PrintPageDescription {
     pub DpiX: u32,
     pub DpiY: u32,
 }
-impl windows_core::TypeKind for PrintPageDescription {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PrintPageDescription {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PrintPageDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing.PrintPageDescription;struct(Windows.Foundation.Size;f4;f4);struct(Windows.Foundation.Rect;f4;f4;f4;f4);u4;u4)");
@@ -1393,13 +1393,13 @@ impl PrintPageRange {
     pub fn Create(firstpage: i32, lastpage: i32) -> windows_core::Result<Self> {
         Self::IPrintPageRangeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), firstpage, lastpage, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), firstpage, lastpage, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateWithSinglePage(page: i32) -> windows_core::Result<Self> {
         Self::IPrintPageRangeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithSinglePage)(windows_core::Interface::as_raw(this), page, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithSinglePage)(windows_core::Interface::as_raw(this), page, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPrintPageRangeFactory<R, F: FnOnce(&IPrintPageRangeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1479,8 +1479,8 @@ impl PrintQuality {
     pub const Photographic: Self = Self(8);
     pub const Text: Self = Self(9);
 }
-impl windows_core::TypeKind for PrintQuality {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PrintQuality {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PrintQuality {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintQuality;i4)");
@@ -1504,8 +1504,8 @@ impl PrintStaple {
     pub const StapleDualBottom: Self = Self(11);
     pub const SaddleStitch: Self = Self(12);
 }
-impl windows_core::TypeKind for PrintStaple {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PrintStaple {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PrintStaple {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintStaple;i4)");
@@ -1520,19 +1520,19 @@ impl PrintTask {
     pub fn Properties(&self) -> windows_core::Result<super::super::ApplicationModel::DataTransfer::DataPackagePropertySet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Source(&self) -> windows_core::Result<IPrintDocumentSource> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Source)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Source)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Options(&self) -> windows_core::Result<PrintTaskOptions> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Options)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Options)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Previewing<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -1670,8 +1670,8 @@ impl PrintTaskCompletion {
     pub const Failed: Self = Self(2);
     pub const Submitted: Self = Self(3);
 }
-impl windows_core::TypeKind for PrintTaskCompletion {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PrintTaskCompletion {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PrintTaskCompletion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTaskCompletion;i4)");
@@ -1702,21 +1702,21 @@ impl PrintTaskOptions {
         let this = &windows_core::Interface::cast::<IPrintTaskOptions>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPagePrintTicket)(windows_core::Interface::as_raw(this), printpageinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPagePrintTicket)(windows_core::Interface::as_raw(this), printpageinfo.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn PageRangeOptions(&self) -> windows_core::Result<PrintPageRangeOptions> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PageRangeOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PageRangeOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CustomPageRanges(&self) -> windows_core::Result<windows_collections::IVector<PrintPageRange>> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CustomPageRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CustomPageRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetPageDescription(&self, jobpagenumber: u32) -> windows_core::Result<PrintPageDescription> {
@@ -1864,7 +1864,7 @@ impl PrintTaskOptions {
         let this = &windows_core::Interface::cast::<IPrintTaskOptionsCoreUIConfiguration>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayedOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisplayedOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1921,13 +1921,13 @@ impl PrintTaskRequest {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreatePrintTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(title), handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreatePrintTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(title), handler.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<PrintTaskRequestedDeferral> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1972,7 +1972,7 @@ impl PrintTaskRequestedEventArgs {
     pub fn Request(&self) -> windows_core::Result<PrintTaskRequest> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2008,7 +2008,7 @@ impl PrintTaskSourceRequestedArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<PrintTaskSourceRequestedDeferral> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

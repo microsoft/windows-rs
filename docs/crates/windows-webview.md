@@ -253,8 +253,8 @@ that DLL with the other runtime files. See the
 
 ## Internal documentation
 
-The rest of this page covers how the crate is built and maintained. It is for contributors and is
-not needed to use `windows-webview`.
+The remainder of this page covers how the crate is built and maintained. It is for contributors and
+is **not needed to use `windows-webview`**.
 
 ### Capabilities
 

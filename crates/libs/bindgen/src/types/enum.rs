@@ -112,8 +112,8 @@ impl Enum {
             let name_const = config.write_value_name_const(self.def.type_name());
 
             quote! {
-                impl windows_core::TypeKind for #name {
-                    type TypeKind = windows_core::CopyType;
+                impl windows_core::imp::TypeKind for #name {
+                    type TypeKind = windows_core::imp::CopyType;
                 }
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#signature);

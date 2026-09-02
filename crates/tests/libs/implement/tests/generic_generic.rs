@@ -1,5 +1,6 @@
 #![cfg(windows)]
 use windows::Foundation::*;
+use windows::core::imp::Type;
 use windows::core::*;
 use windows_collections::*;
 

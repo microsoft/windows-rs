@@ -84,8 +84,8 @@ See [`composition/standalone`](../../crates/samples/composition/standalone) for 
 
 ## Internal documentation
 
-The rest of this page covers how the crate is built and maintained. It is for contributors and is
-not needed to use `windows-composition`.
+The remainder of this page covers how the crate is built and maintained. It is for contributors and
+is **not needed to use `windows-composition`**.
 
 ### Dependencies
 

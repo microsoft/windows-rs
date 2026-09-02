@@ -12,8 +12,8 @@ impl DragDropModifiers {
     pub const MiddleButton: Self = Self(16);
     pub const RightButton: Self = Self(32);
 }
-impl windows_core::TypeKind for DragDropModifiers {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DragDropModifiers {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DragDropModifiers {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.DragDropModifiers;u4)");

@@ -34,8 +34,8 @@ pub struct Color {
     pub G: u8,
     pub B: u8,
 }
-impl windows_core::TypeKind for Color {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Color {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Color {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Color;u1;u1;u1;u1)");
@@ -1169,7 +1169,7 @@ impl UIContentRoot {
     pub fn UIContext(&self) -> windows_core::Result<UIContext> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UIContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).UIContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1206,8 +1206,8 @@ unsafe impl Sync for UIContext {}
 pub struct WindowId {
     pub Value: u64,
 }
-impl windows_core::TypeKind for WindowId {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WindowId {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WindowId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.WindowId;u8)");

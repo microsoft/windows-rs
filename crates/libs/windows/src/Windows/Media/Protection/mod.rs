@@ -8,13 +8,13 @@ impl ComponentLoadFailedEventArgs {
     pub fn Information(&self) -> windows_core::Result<RevocationAndRenewalInformation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Information)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Information)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Completion(&self) -> windows_core::Result<MediaProtectionServiceCompletion> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Completion)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Completion)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -78,7 +78,7 @@ impl ComponentRenewal {
     {
         Self::IComponentRenewalStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenewSystemComponentsAsync)(windows_core::Interface::as_raw(this), information.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RenewSystemComponentsAsync)(windows_core::Interface::as_raw(this), information.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IComponentRenewalStatics<R, F: FnOnce(&IComponentRenewalStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -100,8 +100,8 @@ impl GraphicsTrustStatus {
     pub const DriverSigningFailure: Self = Self(4);
     pub const UnknownFailure: Self = Self(5);
 }
-impl windows_core::TypeKind for GraphicsTrustStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for GraphicsTrustStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for GraphicsTrustStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.GraphicsTrustStatus;i4)");
@@ -115,8 +115,8 @@ impl HdcpProtection {
     pub const On: Self = Self(1);
     pub const OnWithTypeEnforcement: Self = Self(2);
 }
-impl windows_core::TypeKind for HdcpProtection {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for HdcpProtection {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for HdcpProtection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.HdcpProtection;i4)");
@@ -148,13 +148,13 @@ impl HdcpSession {
     pub fn GetEffectiveProtection(&self) -> windows_core::Result<HdcpProtection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEffectiveProtection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<HdcpProtection>| r__.Value())
+            (windows_core::Interface::vtable(self).GetEffectiveProtection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<HdcpProtection>| r__.Value())
         }
     }
     pub fn SetDesiredMinProtectionAsync(&self, protection: HdcpProtection) -> windows_core::Result<windows_future::IAsyncOperation<HdcpSetProtectionResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetDesiredMinProtectionAsync)(windows_core::Interface::as_raw(self), protection, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SetDesiredMinProtectionAsync)(windows_core::Interface::as_raw(self), protection, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ProtectionChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
@@ -193,8 +193,8 @@ impl HdcpSetProtectionResult {
     pub const NotSupported: Self = Self(2);
     pub const UnknownFailure: Self = Self(3);
 }
-impl windows_core::TypeKind for HdcpSetProtectionResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for HdcpSetProtectionResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for HdcpSetProtectionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.HdcpSetProtectionResult;i4)");
@@ -488,7 +488,7 @@ impl MediaProtectionManager {
     pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -513,7 +513,7 @@ impl MediaProtectionPMPServer {
     pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -523,7 +523,7 @@ impl MediaProtectionPMPServer {
     {
         Self::IMediaProtectionPMPServerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePMPServer)(windows_core::Interface::as_raw(this), pproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreatePMPServer)(windows_core::Interface::as_raw(this), pproperties.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMediaProtectionPMPServerFactory<R, F: FnOnce(&IMediaProtectionPMPServerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -603,8 +603,8 @@ impl ProtectionCapabilityResult {
     pub const Maybe: Self = Self(1);
     pub const Probably: Self = Self(2);
 }
-impl windows_core::TypeKind for ProtectionCapabilityResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ProtectionCapabilityResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ProtectionCapabilityResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.ProtectionCapabilityResult;i4)");
@@ -659,8 +659,8 @@ impl RenewalStatus {
     pub const AppComponentsMayNeedUpdating: Self = Self(3);
     pub const NoComponentsFound: Self = Self(4);
 }
-impl windows_core::TypeKind for RenewalStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for RenewalStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for RenewalStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.RenewalStatus;i4)");
@@ -674,7 +674,7 @@ impl RevocationAndRenewalInformation {
     pub fn Items(&self) -> windows_core::Result<windows_collections::IVector<RevocationAndRenewalItem>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Items)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Items)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -758,8 +758,8 @@ impl RevocationAndRenewalReasons {
     pub const ComponentSignedWithTestCertificate: Self = Self(16777216);
     pub const EncryptionFailure: Self = Self(268435456);
 }
-impl windows_core::TypeKind for RevocationAndRenewalReasons {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for RevocationAndRenewalReasons {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for RevocationAndRenewalReasons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.RevocationAndRenewalReasons;u4)");
@@ -806,13 +806,13 @@ impl ServiceRequestedEventArgs {
     pub fn Request(&self) -> windows_core::Result<IMediaProtectionServiceRequest> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Completion(&self) -> windows_core::Result<MediaProtectionServiceCompletion> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Completion)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Completion)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Playback")]
@@ -820,7 +820,7 @@ impl ServiceRequestedEventArgs {
         let this = &windows_core::Interface::cast::<IServiceRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MediaPlaybackItem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MediaPlaybackItem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

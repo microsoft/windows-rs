@@ -181,9 +181,6 @@ impl Key {
         }
     }
 
-    /// Sets the name and value in the registry key.
-    ///
-    /// This method avoids any allocations.
     /// Sets a raw byte sequence for the given name and type, without any allocations.
     ///
     /// # Safety

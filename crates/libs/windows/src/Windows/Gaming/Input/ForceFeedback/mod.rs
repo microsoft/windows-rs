@@ -17,7 +17,7 @@ impl ConditionForceEffect {
     pub fn CreateInstance(effectkind: ConditionForceEffectKind) -> windows_core::Result<Self> {
         Self::IConditionForceEffectFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), effectkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), effectkind, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn Gain(&self) -> windows_core::Result<f64> {
@@ -67,8 +67,8 @@ impl ConditionForceEffectKind {
     pub const Inertia: Self = Self(2);
     pub const Friction: Self = Self(3);
 }
-impl windows_core::TypeKind for ConditionForceEffectKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ConditionForceEffectKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ConditionForceEffectKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ConditionForceEffectKind;i4)");
@@ -137,8 +137,8 @@ impl ForceFeedbackEffectAxes {
     pub const Y: Self = Self(2);
     pub const Z: Self = Self(4);
 }
-impl windows_core::TypeKind for ForceFeedbackEffectAxes {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ForceFeedbackEffectAxes {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ForceFeedbackEffectAxes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectAxes;u4)");
@@ -186,8 +186,8 @@ impl ForceFeedbackEffectState {
     pub const Paused: Self = Self(2);
     pub const Faulted: Self = Self(3);
 }
-impl windows_core::TypeKind for ForceFeedbackEffectState {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ForceFeedbackEffectState {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ForceFeedbackEffectState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectState;i4)");
@@ -201,8 +201,8 @@ impl ForceFeedbackLoadEffectResult {
     pub const EffectStorageFull: Self = Self(1);
     pub const EffectNotSupported: Self = Self(2);
 }
-impl windows_core::TypeKind for ForceFeedbackLoadEffectResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ForceFeedbackLoadEffectResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ForceFeedbackLoadEffectResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackLoadEffectResult;i4)");
@@ -246,7 +246,7 @@ impl ForceFeedbackMotor {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LoadEffectAsync)(windows_core::Interface::as_raw(self), effect.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).LoadEffectAsync)(windows_core::Interface::as_raw(self), effect.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn PauseAllEffects(&self) -> windows_core::Result<()> {
@@ -261,19 +261,19 @@ impl ForceFeedbackMotor {
     pub fn TryDisableAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryDisableAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryDisableAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TryEnableAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryEnableAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryEnableAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TryResetAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryResetAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryResetAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TryUnloadEffectAsync<P0>(&self, effect: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -282,7 +282,7 @@ impl ForceFeedbackMotor {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryUnloadEffectAsync)(windows_core::Interface::as_raw(self), effect.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryUnloadEffectAsync)(windows_core::Interface::as_raw(self), effect.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -542,7 +542,7 @@ impl PeriodicForceEffect {
     pub fn CreateInstance(effectkind: PeriodicForceEffectKind) -> windows_core::Result<Self> {
         Self::IPeriodicForceEffectFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), effectkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), effectkind, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPeriodicForceEffectFactory<R, F: FnOnce(&IPeriodicForceEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -572,8 +572,8 @@ impl PeriodicForceEffectKind {
     pub const SawtoothWaveUp: Self = Self(3);
     pub const SawtoothWaveDown: Self = Self(4);
 }
-impl windows_core::TypeKind for PeriodicForceEffectKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PeriodicForceEffectKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PeriodicForceEffectKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind;i4)");

@@ -18,7 +18,7 @@ pub enum Type {
     /// An array of string values.
     MultiString,
 
-    /// An array u8 bytes.
+    /// An array of bytes.
     Bytes,
 
     /// An unknown type.

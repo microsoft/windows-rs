@@ -40,7 +40,7 @@ impl Activatable {
                 arg,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IActivatableFactory<R, F: FnOnce(&IActivatableFactory) -> windows_core::Result<R>>(
@@ -92,7 +92,7 @@ impl Composable {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn compose<T>(compose: T) -> windows_core::Result<Self>
@@ -110,7 +110,7 @@ impl Composable {
             )
             .ok()?;
             let _ = &derived__;
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         })
     }
     pub fn WithValue(arg: i32) -> windows_core::Result<Self> {
@@ -123,7 +123,7 @@ impl Composable {
                 core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn WithValue_compose<T>(arg: i32, compose: T) -> windows_core::Result<Self>
@@ -142,7 +142,7 @@ impl Composable {
             )
             .ok()?;
             let _ = &derived__;
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         })
     }
     fn IComposableFactory<R, F: FnOnce(&IComposableFactory) -> windows_core::Result<R>>(

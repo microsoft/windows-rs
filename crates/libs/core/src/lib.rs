@@ -66,7 +66,7 @@ pub use param_value::*;
 pub use runtime_name::*;
 pub use runtime_type::*;
 pub use scoped_interface::*;
-pub use r#type::*;
+pub use r#type::Ref;
 pub use unknown::*;
 pub use weak::*;
 #[cfg(feature = "proc-macros")]
@@ -76,6 +76,8 @@ pub use windows_interface::interface;
 pub use windows_link::link;
 pub use windows_result::*;
 pub use windows_strings::*;
+
+use r#type::{CloneType, CopyType, InterfaceType, Type, TypeKind};
 
 /// Attempts to load the factory object for the given WinRT class.
 /// This can be used to access COM interfaces implemented on a Windows Runtime class factory.

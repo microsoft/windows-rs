@@ -8,6 +8,14 @@ description = "Declarative Windows UI library for Rust"
 repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
 readme = "readme.md"
+exclude = [
+    "public-api.txt",
+    "src/core/component_tests.rs",
+    "src/core/engine_tests.rs",
+    "src/core/pump/tests",
+    "src/native/winui/tests.rs",
+    "src/test/recording_tests.rs",
+]
 
 [features]
 test = []

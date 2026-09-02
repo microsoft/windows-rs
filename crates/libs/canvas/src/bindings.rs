@@ -491,7 +491,7 @@ impl ID2D1Device {
                 options,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -544,7 +544,7 @@ impl ID2D1DeviceContext {
                 bitmapproperties,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateBitmapFromWicBitmap<P0>(
@@ -563,7 +563,7 @@ impl ID2D1DeviceContext {
                 bitmapproperties.unwrap_or(core::mem::zeroed()) as _,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateBitmapFromDxgiSurface<P0>(
@@ -582,7 +582,7 @@ impl ID2D1DeviceContext {
                 bitmapproperties.unwrap_or(core::mem::zeroed()) as _,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateEffect(
@@ -596,7 +596,7 @@ impl ID2D1DeviceContext {
                 effectid,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn SetTarget<P0>(&self, image: P0)
@@ -617,7 +617,7 @@ impl ID2D1DeviceContext {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             );
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         }
     }
     pub(crate) unsafe fn DrawImage<P0>(
@@ -774,7 +774,7 @@ impl ID2D1Effect {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             );
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         }
     }
 }
@@ -845,7 +845,7 @@ impl ID2D1Factory1 {
                 dxgidevice.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateStrokeStyle(
@@ -862,7 +862,7 @@ impl ID2D1Factory1 {
                 dashes.map_or(0, |slice| slice.len().try_into().unwrap()),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreatePathGeometry(&self) -> windows_core::Result<ID2D1PathGeometry1> {
@@ -872,7 +872,7 @@ impl ID2D1Factory1 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1149,7 +1149,7 @@ impl ID2D1PathGeometry {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1268,7 +1268,7 @@ impl ID2D1RenderTarget {
                 brushproperties.unwrap_or(core::mem::zeroed()) as _,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateGradientStopCollection(
@@ -1287,7 +1287,7 @@ impl ID2D1RenderTarget {
                 extendmode,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateLinearGradientBrush<P2>(
@@ -1308,7 +1308,7 @@ impl ID2D1RenderTarget {
                 gradientstopcollection.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateRadialGradientBrush<P2>(
@@ -1329,7 +1329,7 @@ impl ID2D1RenderTarget {
                 gradientstopcollection.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn DrawLine<P2, P4>(
@@ -2133,7 +2133,7 @@ impl IDWriteFactory {
                 localename.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateTextLayout<P2>(
@@ -2157,7 +2157,7 @@ impl IDWriteFactory {
                 maxheight,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2500,7 +2500,7 @@ impl IDXGIDevice {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2623,7 +2623,7 @@ impl IDXGIFactory2 {
                 prestricttooutput.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateSwapChainForComposition<P0, P2>(
@@ -2645,7 +2645,7 @@ impl IDXGIFactory2 {
                 prestricttooutput.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2697,7 +2697,7 @@ impl IDXGIObject {
                 &T::IID,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2807,7 +2807,7 @@ impl IDXGISwapChain {
                 &T::IID,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn ResizeBuffers(
@@ -2957,7 +2957,7 @@ impl IWICBitmapDecoder {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3106,7 +3106,7 @@ impl IWICImagingFactory {
                 metadataoptions,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateFormatConverter(&self) -> windows_core::Result<IWICFormatConverter> {
@@ -3116,7 +3116,7 @@ impl IWICImagingFactory {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

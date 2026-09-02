@@ -36,7 +36,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -84,7 +84,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         >(
             this: *mut core::ffi::c_void,
             index: u32,
-            result__: *mut windows_core::AbiType<T>,
+            result__: *mut windows_core::imp::AbiType<T>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -125,7 +125,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: windows_core::AbiType<T>,
+            value: windows_core::imp::AbiType<T>,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -154,12 +154,12 @@ where
     pub GetAt: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         u32,
-        *mut windows_core::AbiType<T>,
+        *mut windows_core::imp::AbiType<T>,
     ) -> windows_core::HRESULT,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_core::AbiType<T>,
+        windows_core::imp::AbiType<T>,
     ) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
 }

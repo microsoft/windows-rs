@@ -9,6 +9,7 @@
 )]
 mod bindings;
 pub use bindings::*;
+use windows_core::imp::Type;
 pub use windows_core::*;
 
 pub fn consume(test: &ITest) -> Result<()> {

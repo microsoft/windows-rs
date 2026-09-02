@@ -273,12 +273,25 @@ Use `windows-bindgen` for these cases instead of expanding the `windows` crate.
 - If the API is not in public metadata, author metadata with [`windows-rdl`](windows-rdl.md). Then
   feed that metadata to `windows-bindgen`. This keeps the FFI surface generated and typed.
 
+## Type ownership in libraries
+
+Libraries should use focused crates such as [`windows-collections`](windows-collections.md),
+[`windows-future`](windows-future.md), [`windows-numerics`](windows-numerics.md),
+[`windows-reference`](windows-reference.md), and [`windows-time`](windows-time.md) for shared
+foundational types. Generate other API-specific types as part of the library's own binding rather
+than depending on the full `windows` crate to share them. This limits dependency weight and avoids
+coupling unrelated libraries to one large projection version.
+
+If generated types are part of a library's public API, treat that binding as an owned public
+contract. A dedicated binding crate can make that ownership explicit. For an internal binding,
+commit the generated source with the wrapper library as described above.
+
 ---
 
 ## Internal documentation
 
-The rest of this page covers how the crate is built and maintained. It is for contributors and is
-not needed to use `windows-bindgen`.
+The remainder of this page covers how the crate is built and maintained. It is for contributors and
+is **not needed to use `windows-bindgen`**.
 
 ### How it's built
 

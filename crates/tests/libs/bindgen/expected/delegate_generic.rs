@@ -45,7 +45,7 @@ where
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(
         this: *mut core::ffi::c_void,
-        sender: windows_core::AbiType<T>,
+        sender: windows_core::imp::AbiType<T>,
         args: i32,
     ) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
@@ -71,7 +71,7 @@ impl<
     };
     unsafe extern "system" fn Invoke(
         this: *mut core::ffi::c_void,
-        sender: windows_core::AbiType<T>,
+        sender: windows_core::imp::AbiType<T>,
         args: i32,
     ) -> windows_core::HRESULT {
         unsafe {

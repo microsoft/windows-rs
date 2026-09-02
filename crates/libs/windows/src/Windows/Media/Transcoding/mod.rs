@@ -144,7 +144,7 @@ impl MediaTranscoder {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrepareFileTranscodeAsync)(windows_core::Interface::as_raw(self), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PrepareFileTranscodeAsync)(windows_core::Interface::as_raw(self), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
@@ -156,7 +156,7 @@ impl MediaTranscoder {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrepareStreamTranscodeAsync)(windows_core::Interface::as_raw(self), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PrepareStreamTranscodeAsync)(windows_core::Interface::as_raw(self), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
@@ -169,7 +169,7 @@ impl MediaTranscoder {
         let this = &windows_core::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareMediaStreamSourceTranscodeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareMediaStreamSourceTranscodeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetVideoProcessingAlgorithm(&self, value: MediaVideoProcessingAlgorithm) -> windows_core::Result<()> {
@@ -203,8 +203,8 @@ impl MediaVideoProcessingAlgorithm {
     pub const Default: Self = Self(0);
     pub const MrfCrf444: Self = Self(1);
 }
-impl windows_core::TypeKind for MediaVideoProcessingAlgorithm {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for MediaVideoProcessingAlgorithm {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for MediaVideoProcessingAlgorithm {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.MediaVideoProcessingAlgorithm;i4)");
@@ -230,7 +230,7 @@ impl PrepareTranscodeResult {
     pub fn TranscodeAsync(&self) -> windows_core::Result<windows_future::IAsyncActionWithProgress<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TranscodeAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TranscodeAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -255,8 +255,8 @@ impl TranscodeFailureReason {
     pub const InvalidProfile: Self = Self(2);
     pub const CodecNotFound: Self = Self(3);
 }
-impl windows_core::TypeKind for TranscodeFailureReason {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TranscodeFailureReason {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TranscodeFailureReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.TranscodeFailureReason;i4)");

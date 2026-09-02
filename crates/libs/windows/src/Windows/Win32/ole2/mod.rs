@@ -4,7 +4,7 @@ pub unsafe fn CreateOleAdviseHolder() -> windows_core::Result<super::IOleAdviseH
     windows_core::link!("ole32.dll" "system" fn CreateOleAdviseHolder(ppoaholder : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateOleAdviseHolder(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateOleAdviseHolder(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(all(feature = "objidl", feature = "oleidl"))]
@@ -89,7 +89,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreate(rclsid : *const windows_core::GUID, riid : *const windows_core::GUID, renderopt : u32, pformatetc : *const super::FORMATETC, pclientsite : *mut core::ffi::c_void, pstg : *mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreate(rclsid, &T::IID, renderopt, pformatetc, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreate(rclsid, &T::IID, renderopt, pformatetc, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn OleCreateDefaultHandler<P1, T>(clsid: *const windows_core::GUID, punkouter: P1) -> windows_core::Result<T>
@@ -99,7 +99,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreateDefaultHandler(clsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, riid : *const windows_core::GUID, lplpobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateDefaultHandler(clsid, punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreateDefaultHandler(clsid, punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(feature = "unknwnbase")]
 #[inline]
@@ -111,7 +111,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreateEmbeddingHelper(clsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, flags : u32, pcf : *mut core::ffi::c_void, riid : *const windows_core::GUID, lplpobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateEmbeddingHelper(clsid, punkouter.param().abi(), flags, pcf.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreateEmbeddingHelper(clsid, punkouter.param().abi(), flags, pcf.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "wtypes"))]
 #[inline]
@@ -124,7 +124,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreateEx(rclsid : *const windows_core::GUID, riid : *const windows_core::GUID, dwflags : u32, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::FORMATETC, lpadvisesink : *mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : *mut core::ffi::c_void, pstg : *mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateEx(rclsid, &T::IID, dwflags, renderopt, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection as _, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreateEx(rclsid, &T::IID, dwflags, renderopt, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection as _, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "wtypes"))]
 #[inline]
@@ -137,7 +137,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreateFromData(psrcdataobj : *mut core::ffi::c_void, riid : *const windows_core::GUID, renderopt : u32, pformatetc : *const super::FORMATETC, pclientsite : *mut core::ffi::c_void, pstg : *mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateFromData(psrcdataobj.param().abi(), &T::IID, renderopt, pformatetc, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreateFromData(psrcdataobj.param().abi(), &T::IID, renderopt, pformatetc, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "wtypes"))]
 #[inline]
@@ -151,7 +151,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreateFromDataEx(psrcdataobj : *mut core::ffi::c_void, riid : *const windows_core::GUID, dwflags : u32, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::FORMATETC, lpadvisesink : *mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : *mut core::ffi::c_void, pstg : *mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateFromDataEx(psrcdataobj.param().abi(), &T::IID, dwflags, renderopt, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection as _, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreateFromDataEx(psrcdataobj.param().abi(), &T::IID, dwflags, renderopt, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection as _, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "wtypes"))]
 #[inline]
@@ -164,7 +164,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreateFromFile(rclsid : *const windows_core::GUID, lpszfilename : windows_core::PCWSTR, riid : *const windows_core::GUID, renderopt : u32, lpformatetc : *const super::FORMATETC, pclientsite : *mut core::ffi::c_void, pstg : *mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateFromFile(rclsid, lpszfilename.param().abi(), &T::IID, renderopt, lpformatetc, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreateFromFile(rclsid, lpszfilename.param().abi(), &T::IID, renderopt, lpformatetc, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "wtypes"))]
 #[inline]
@@ -178,7 +178,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreateFromFileEx(rclsid : *const windows_core::GUID, lpszfilename : windows_core::PCWSTR, riid : *const windows_core::GUID, dwflags : u32, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::FORMATETC, lpadvisesink : *mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : *mut core::ffi::c_void, pstg : *mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateFromFileEx(rclsid, lpszfilename.param().abi(), &T::IID, dwflags, renderopt, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection as _, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreateFromFileEx(rclsid, lpszfilename.param().abi(), &T::IID, dwflags, renderopt, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection as _, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "wtypes"))]
 #[inline]
@@ -191,7 +191,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreateLink(pmklinksrc : *mut core::ffi::c_void, riid : *const windows_core::GUID, renderopt : u32, lpformatetc : *const super::FORMATETC, pclientsite : *mut core::ffi::c_void, pstg : *mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateLink(pmklinksrc.param().abi(), &T::IID, renderopt, lpformatetc, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreateLink(pmklinksrc.param().abi(), &T::IID, renderopt, lpformatetc, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "wtypes"))]
 #[inline]
@@ -205,7 +205,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreateLinkEx(pmklinksrc : *mut core::ffi::c_void, riid : *const windows_core::GUID, dwflags : u32, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::FORMATETC, lpadvisesink : *mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : *mut core::ffi::c_void, pstg : *mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateLinkEx(pmklinksrc.param().abi(), &T::IID, dwflags, renderopt, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection as _, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreateLinkEx(pmklinksrc.param().abi(), &T::IID, dwflags, renderopt, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection as _, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "wtypes"))]
 #[inline]
@@ -218,7 +218,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreateLinkFromData(psrcdataobj : *mut core::ffi::c_void, riid : *const windows_core::GUID, renderopt : u32, pformatetc : *const super::FORMATETC, pclientsite : *mut core::ffi::c_void, pstg : *mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateLinkFromData(psrcdataobj.param().abi(), &T::IID, renderopt, pformatetc, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreateLinkFromData(psrcdataobj.param().abi(), &T::IID, renderopt, pformatetc, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "wtypes"))]
 #[inline]
@@ -232,7 +232,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreateLinkFromDataEx(psrcdataobj : *mut core::ffi::c_void, riid : *const windows_core::GUID, dwflags : u32, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::FORMATETC, lpadvisesink : *mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : *mut core::ffi::c_void, pstg : *mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateLinkFromDataEx(psrcdataobj.param().abi(), &T::IID, dwflags, renderopt, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection as _, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreateLinkFromDataEx(psrcdataobj.param().abi(), &T::IID, dwflags, renderopt, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection as _, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "wtypes"))]
 #[inline]
@@ -245,7 +245,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreateLinkToFile(lpszfilename : windows_core::PCWSTR, riid : *const windows_core::GUID, renderopt : u32, lpformatetc : *const super::FORMATETC, pclientsite : *mut core::ffi::c_void, pstg : *mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateLinkToFile(lpszfilename.param().abi(), &T::IID, renderopt, lpformatetc, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreateLinkToFile(lpszfilename.param().abi(), &T::IID, renderopt, lpformatetc, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "wtypes"))]
 #[inline]
@@ -259,7 +259,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreateLinkToFileEx(lpszfilename : windows_core::PCWSTR, riid : *const windows_core::GUID, dwflags : u32, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::FORMATETC, lpadvisesink : *mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : *mut core::ffi::c_void, pstg : *mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateLinkToFileEx(lpszfilename.param().abi(), &T::IID, dwflags, renderopt, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection as _, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreateLinkToFileEx(lpszfilename.param().abi(), &T::IID, dwflags, renderopt, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection as _, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "windef", feature = "winnt"))]
 #[inline]
@@ -278,7 +278,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleCreateStaticFromData(psrcdataobj : *mut core::ffi::c_void, iid : *const windows_core::GUID, renderopt : u32, pformatetc : *const super::FORMATETC, pclientsite : *mut core::ffi::c_void, pstg : *mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateStaticFromData(psrcdataobj.param().abi(), &T::IID, renderopt, pformatetc, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleCreateStaticFromData(psrcdataobj.param().abi(), &T::IID, renderopt, pformatetc, pclientsite.param().abi(), pstg.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "winnt"))]
 #[inline]
@@ -332,7 +332,7 @@ pub unsafe fn OleGetClipboard() -> windows_core::Result<super::IDataObject> {
     windows_core::link!("ole32.dll" "system" fn OleGetClipboard(ppdataobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        OleGetClipboard(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        OleGetClipboard(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "objidl")]
@@ -392,7 +392,7 @@ where
 {
     windows_core::link!("ole32.dll" "system" fn OleLoad(pstg : *mut core::ffi::c_void, riid : *const windows_core::GUID, pclientsite : *mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { OleLoad(pstg.param().abi(), &T::IID, pclientsite.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { OleLoad(pstg.param().abi(), &T::IID, pclientsite.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
@@ -453,7 +453,7 @@ pub unsafe fn OleRegEnumFormatEtc(clsid: *const windows_core::GUID, dwdirection:
     windows_core::link!("ole32.dll" "system" fn OleRegEnumFormatEtc(clsid : *const windows_core::GUID, dwdirection : u32, ppenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        OleRegEnumFormatEtc(clsid, dwdirection, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        OleRegEnumFormatEtc(clsid, dwdirection, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "oleidl")]
@@ -462,7 +462,7 @@ pub unsafe fn OleRegEnumVerbs(clsid: *const windows_core::GUID) -> windows_core:
     windows_core::link!("ole32.dll" "system" fn OleRegEnumVerbs(clsid : *const windows_core::GUID, ppenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        OleRegEnumVerbs(clsid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        OleRegEnumVerbs(clsid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]

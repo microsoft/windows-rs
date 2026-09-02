@@ -6,8 +6,8 @@ impl DeviceAccountAuthenticationType {
     pub const OAuth: Self = Self(1);
     pub const SingleSignOn: Self = Self(2);
 }
-impl windows_core::TypeKind for DeviceAccountAuthenticationType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DeviceAccountAuthenticationType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DeviceAccountAuthenticationType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountAuthenticationType;i4)");
@@ -174,7 +174,7 @@ impl DeviceAccountConfiguration {
         let this = &windows_core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IncomingServerCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).IncomingServerCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Security_Credentials")]
@@ -190,7 +190,7 @@ impl DeviceAccountConfiguration {
         let this = &windows_core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OutgoingServerCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OutgoingServerCredential)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Security_Credentials")]
@@ -362,7 +362,7 @@ impl DeviceAccountConfiguration {
         let this = &windows_core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CardDavServerUrl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CardDavServerUrl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetCardDavServerUrl<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -387,7 +387,7 @@ impl DeviceAccountConfiguration {
         let this = &windows_core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CalDavServerUrl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CalDavServerUrl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetCalDavServerUrl<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -518,8 +518,8 @@ impl DeviceAccountIconId {
     pub const Outlook: Self = Self(2);
     pub const Generic: Self = Self(3);
 }
-impl windows_core::TypeKind for DeviceAccountIconId {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DeviceAccountIconId {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DeviceAccountIconId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountIconId;i4)");
@@ -537,8 +537,8 @@ impl DeviceAccountMailAgeFilter {
     pub const Last30Days: Self = Self(5);
     pub const Last90Days: Self = Self(6);
 }
-impl windows_core::TypeKind for DeviceAccountMailAgeFilter {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DeviceAccountMailAgeFilter {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DeviceAccountMailAgeFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountMailAgeFilter;i4)");
@@ -552,8 +552,8 @@ impl DeviceAccountServerType {
     pub const Pop: Self = Self(1);
     pub const Imap: Self = Self(2);
 }
-impl windows_core::TypeKind for DeviceAccountServerType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DeviceAccountServerType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DeviceAccountServerType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountServerType;i4)");
@@ -571,8 +571,8 @@ impl DeviceAccountSyncScheduleKind {
     pub const Daily: Self = Self(5);
     pub const AsItemsArrive: Self = Self(6);
 }
-impl windows_core::TypeKind for DeviceAccountSyncScheduleKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DeviceAccountSyncScheduleKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DeviceAccountSyncScheduleKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountSyncScheduleKind;i4)");
@@ -731,13 +731,13 @@ impl UserDataAccountSystemAccessManager {
     {
         Self::IUserDataAccountSystemAccessManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddAndShowDeviceAccountsAsync)(windows_core::Interface::as_raw(this), accounts.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AddAndShowDeviceAccountsAsync)(windows_core::Interface::as_raw(this), accounts.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn SuppressLocalAccountWithAccountAsync(userdataaccountid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SuppressLocalAccountWithAccountAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(userdataaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SuppressLocalAccountWithAccountAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(userdataaccountid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateDeviceAccountAsync<P0>(account: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
@@ -746,19 +746,19 @@ impl UserDataAccountSystemAccessManager {
     {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDeviceAccountAsync)(windows_core::Interface::as_raw(this), account.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDeviceAccountAsync)(windows_core::Interface::as_raw(this), account.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn DeleteDeviceAccountAsync(accountid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteDeviceAccountAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(accountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DeleteDeviceAccountAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(accountid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetDeviceAccountConfigurationAsync(accountid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DeviceAccountConfiguration>> {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceAccountConfigurationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(accountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDeviceAccountConfigurationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(accountid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IUserDataAccountSystemAccessManagerStatics<R, F: FnOnce(&IUserDataAccountSystemAccessManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

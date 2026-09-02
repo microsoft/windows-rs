@@ -54,8 +54,8 @@ impl TokenBindingKeyType {
     pub const EcdsaP256: Self = Self(1);
     pub const AnyExisting: Self = Self(2);
 }
-impl windows_core::TypeKind for TokenBindingKeyType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TokenBindingKeyType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TokenBindingKeyType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.TokenBindingKeyType;i4)");
@@ -70,7 +70,7 @@ impl WebAuthenticationBroker {
     {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticateWithCallbackUriAsync)(windows_core::Interface::as_raw(this), options, requesturi.param().abi(), callbackuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AuthenticateWithCallbackUriAsync)(windows_core::Interface::as_raw(this), options, requesturi.param().abi(), callbackuri.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn AuthenticateWithoutCallbackUriAsync<P1>(options: WebAuthenticationOptions, requesturi: P1) -> windows_core::Result<windows_future::IAsyncOperation<WebAuthenticationResult>>
@@ -79,13 +79,13 @@ impl WebAuthenticationBroker {
     {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticateWithoutCallbackUriAsync)(windows_core::Interface::as_raw(this), options, requesturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AuthenticateWithoutCallbackUriAsync)(windows_core::Interface::as_raw(this), options, requesturi.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetCurrentApplicationCallbackUri() -> windows_core::Result<super::super::super::Foundation::Uri> {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrentApplicationCallbackUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetCurrentApplicationCallbackUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn AuthenticateAndContinue<P0>(requesturi: P0) -> windows_core::Result<()>
@@ -116,7 +116,7 @@ impl WebAuthenticationBroker {
     {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticateSilentlyAsync)(windows_core::Interface::as_raw(this), requesturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AuthenticateSilentlyAsync)(windows_core::Interface::as_raw(this), requesturi.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn AuthenticateSilentlyWithOptionsAsync<P0>(requesturi: P0, options: WebAuthenticationOptions) -> windows_core::Result<windows_future::IAsyncOperation<WebAuthenticationResult>>
@@ -125,7 +125,7 @@ impl WebAuthenticationBroker {
     {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticateSilentlyWithOptionsAsync)(windows_core::Interface::as_raw(this), requesturi.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AuthenticateSilentlyWithOptionsAsync)(windows_core::Interface::as_raw(this), requesturi.param().abi(), options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IWebAuthenticationBrokerStatics<R, F: FnOnce(&IWebAuthenticationBrokerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -150,8 +150,8 @@ impl WebAuthenticationOptions {
     pub const UseHttpPost: Self = Self(4);
     pub const UseCorporateNetwork: Self = Self(8);
 }
-impl windows_core::TypeKind for WebAuthenticationOptions {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WebAuthenticationOptions {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WebAuthenticationOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationOptions;u4)");
@@ -232,8 +232,8 @@ impl WebAuthenticationStatus {
     pub const UserCancel: Self = Self(1);
     pub const ErrorHttp: Self = Self(2);
 }
-impl windows_core::TypeKind for WebAuthenticationStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WebAuthenticationStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WebAuthenticationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationStatus;i4)");

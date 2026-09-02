@@ -17,7 +17,7 @@ impl Manager {
                 &mut ptr,
             )
             .ok()?;
-            Ok(Self(windows_core::Type::from_abi(ptr)?))
+            Ok(Self(windows_core::imp::Type::from_abi(ptr)?))
         }
     }
 

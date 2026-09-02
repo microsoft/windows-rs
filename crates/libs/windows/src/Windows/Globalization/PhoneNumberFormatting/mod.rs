@@ -77,8 +77,8 @@ impl PhoneNumberFormat {
     pub const National: Self = Self(2);
     pub const Rfc3966: Self = Self(3);
 }
-impl windows_core::TypeKind for PhoneNumberFormat {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PhoneNumberFormat {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PhoneNumberFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat;i4)");
@@ -230,7 +230,7 @@ impl PhoneNumberInfo {
     pub fn Create(number: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IPhoneNumberInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn TryParse(input: &windows_core::HSTRING, phonenumber: &mut Option<Self>) -> windows_core::Result<PhoneNumberParseResult> {
@@ -282,8 +282,8 @@ impl PhoneNumberMatchResult {
     pub const NationalSignificantNumberMatch: Self = Self(2);
     pub const ExactMatch: Self = Self(3);
 }
-impl windows_core::TypeKind for PhoneNumberMatchResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PhoneNumberMatchResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PhoneNumberMatchResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult;i4)");
@@ -299,8 +299,8 @@ impl PhoneNumberParseResult {
     pub const TooShort: Self = Self(3);
     pub const TooLong: Self = Self(4);
 }
-impl windows_core::TypeKind for PhoneNumberParseResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PhoneNumberParseResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PhoneNumberParseResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;i4)");
@@ -323,8 +323,8 @@ impl PredictedPhoneNumberKind {
     pub const Voicemail: Self = Self(10);
     pub const Unknown: Self = Self(11);
 }
-impl windows_core::TypeKind for PredictedPhoneNumberKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PredictedPhoneNumberKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PredictedPhoneNumberKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PredictedPhoneNumberKind;i4)");

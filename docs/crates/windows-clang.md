@@ -79,7 +79,8 @@ definitions. `resolution_default()` adds the bundled WinRT metadata. Custom inpu
 
 ## Internal documentation
 
-The rest of this page describes the implementation and maintenance workflow.
+The remainder of this page covers how the crate is built and maintained. It is for contributors and
+is **not needed to use `windows-clang`**.
 
 ### Crate layering
 

@@ -3,7 +3,7 @@ pub unsafe fn CreateVssExpressWriterInternal() -> windows_core::Result<IVssExpre
     windows_core::link!("vssapi.dll" "system" fn CreateVssExpressWriterInternal(ppwriter : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateVssExpressWriterInternal(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateVssExpressWriterInternal(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -14,7 +14,7 @@ where
     windows_core::link!("vssapi.dll" "system" fn CreateWriter(pwriter : *mut core::ffi::c_void, pwriterimpl : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateWriter(pwriter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateWriter(pwriter.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -25,7 +25,7 @@ where
     windows_core::link!("vssapi.dll" "system" fn CreateWriterEx(pwriter : *mut core::ffi::c_void, pwriterimpl : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateWriterEx(pwriter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateWriterEx(pwriter.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 windows_core::imp::define_interface!(CVssWriter, CVssWriter_Vtbl);
@@ -197,7 +197,7 @@ impl IVssComponent {
     pub unsafe fn GetAlternateLocationMapping(&self, imapping: u32) -> windows_core::Result<IVssWMFiledesc> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAlternateLocationMapping)(windows_core::Interface::as_raw(self), imapping, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetAlternateLocationMapping)(windows_core::Interface::as_raw(self), imapping, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetBackupMetadata<P0>(&self, wszdata: P0) -> windows_core::HRESULT
@@ -251,7 +251,7 @@ impl IVssComponent {
     pub unsafe fn GetNewTarget(&self, inewtarget: u32) -> windows_core::Result<IVssWMFiledesc> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNewTarget)(windows_core::Interface::as_raw(self), inewtarget, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNewTarget)(windows_core::Interface::as_raw(self), inewtarget, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AddDirectedTarget<P0, P1, P2, P3, P4, P5>(&self, wszsourcepath: P0, wszsourcefilename: P1, wszsourcerangelist: P2, wszdestinationpath: P3, wszdestinationfilename: P4, wszdestinationrangelist: P5) -> windows_core::HRESULT
@@ -1351,7 +1351,7 @@ impl IVssCreateWriterMetadata {
     pub unsafe fn GetDocument(&self) -> windows_core::Result<super::IXMLDOMDocument> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SaveAsXML(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -1591,7 +1591,7 @@ impl IVssExpressWriter {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMetadata)(windows_core::Interface::as_raw(self), writerid, writername.param().abi(), usagetype, versionmajor, versionminor, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateMetadata)(windows_core::Interface::as_raw(self), writerid, writername.param().abi(), usagetype, versionmajor, versionminor, reserved, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn LoadMetadata<P0>(&self, metadata: P0, reserved: u32) -> windows_core::HRESULT
@@ -1911,7 +1911,7 @@ impl IVssWriterComponents {
     pub unsafe fn GetComponent(&self, icomponent: u32) -> windows_core::Result<IVssComponent> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetComponent)(windows_core::Interface::as_raw(self), icomponent, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetComponent)(windows_core::Interface::as_raw(self), icomponent, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

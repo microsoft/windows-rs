@@ -1,5 +1,6 @@
 use super::bindings;
 use bindings::E_NOTIMPL;
+use windows_core::imp::Type;
 use windows_core::*;
 
 /// A boxed reference to a value of type `T`.

@@ -3,7 +3,7 @@ pub unsafe fn CreateVssBackupComponentsInternal() -> windows_core::Result<IVssBa
     windows_core::link!("vssapi.dll" "system" fn CreateVssBackupComponentsInternal(ppbackup : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateVssBackupComponentsInternal(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateVssBackupComponentsInternal(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -11,7 +11,7 @@ pub unsafe fn CreateVssExamineWriterMetadataInternal(bstrxml: &windows_core::BST
     windows_core::link!("vssapi.dll" "system" fn CreateVssExamineWriterMetadataInternal(bstrxml : *mut core::ffi::c_void, ppmetadata : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateVssExamineWriterMetadataInternal(core::mem::transmute_copy(bstrxml), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateVssExamineWriterMetadataInternal(core::mem::transmute_copy(bstrxml), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "vss")]
@@ -20,7 +20,7 @@ pub unsafe fn GetProviderMgmtInterfaceInternal(providerid: super::VSS_ID, interf
     windows_core::link!("vssapi.dll" "system" fn GetProviderMgmtInterfaceInternal(providerid : super::VSS_ID, interfaceid : windows_core::GUID, ppitf : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetProviderMgmtInterfaceInternal(providerid, interfaceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        GetProviderMgmtInterfaceInternal(providerid, interfaceid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -61,7 +61,7 @@ impl IVssBackupComponents {
     pub unsafe fn GetWriterComponents(&self, iwriter: u32) -> windows_core::Result<IVssWriterComponentsExt> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetWriterComponents)(windows_core::Interface::as_raw(self), iwriter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetWriterComponents)(windows_core::Interface::as_raw(self), iwriter, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn InitializeForBackup(&self, bstrxml: &windows_core::BSTR) -> windows_core::HRESULT {
@@ -82,7 +82,7 @@ impl IVssBackupComponents {
     pub unsafe fn GatherWriterMetadata(&self) -> windows_core::Result<super::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GatherWriterMetadata)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GatherWriterMetadata)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetWriterMetadataCount(&self) -> windows_core::Result<u32> {
@@ -110,7 +110,7 @@ impl IVssBackupComponents {
     pub unsafe fn PrepareForBackup(&self) -> windows_core::Result<super::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrepareForBackup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PrepareForBackup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AbortBackup(&self) -> windows_core::HRESULT {
@@ -120,7 +120,7 @@ impl IVssBackupComponents {
     pub unsafe fn GatherWriterStatus(&self) -> windows_core::Result<super::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GatherWriterStatus)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GatherWriterStatus)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetWriterStatusCount(&self) -> windows_core::Result<u32> {
@@ -194,7 +194,7 @@ impl IVssBackupComponents {
     pub unsafe fn BackupComplete(&self) -> windows_core::Result<super::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BackupComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BackupComplete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "vss", feature = "vswriter"))]
@@ -250,14 +250,14 @@ impl IVssBackupComponents {
     pub unsafe fn PreRestore(&self) -> windows_core::Result<super::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PreRestore)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PreRestore)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn PostRestore(&self) -> windows_core::Result<super::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PostRestore)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PostRestore)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetContext(&self, lcontext: i32) -> windows_core::HRESULT {
@@ -284,7 +284,7 @@ impl IVssBackupComponents {
     pub unsafe fn DoSnapshotSet(&self) -> windows_core::Result<super::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DoSnapshotSet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DoSnapshotSet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "vss")]
@@ -295,7 +295,7 @@ impl IVssBackupComponents {
     pub unsafe fn ImportSnapshots(&self) -> windows_core::Result<super::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ImportSnapshots)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ImportSnapshots)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "vss")]
@@ -351,7 +351,7 @@ impl IVssBackupComponents {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryRevertStatus)(windows_core::Interface::as_raw(self), pwszvolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).QueryRevertStatus)(windows_core::Interface::as_raw(self), pwszvolume.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1128,21 +1128,21 @@ impl IVssBackupComponentsEx2 {
     pub unsafe fn BreakSnapshotSetEx(&self, snapshotsetid: super::VSS_ID, dwbreakflags: u32) -> windows_core::Result<super::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BreakSnapshotSetEx)(windows_core::Interface::as_raw(self), snapshotsetid, dwbreakflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BreakSnapshotSetEx)(windows_core::Interface::as_raw(self), snapshotsetid, dwbreakflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn PreFastRecovery(&self, snapshotsetid: super::VSS_ID, dwprefastrecoveryflags: u32) -> windows_core::Result<super::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PreFastRecovery)(windows_core::Interface::as_raw(self), snapshotsetid, dwprefastrecoveryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PreFastRecovery)(windows_core::Interface::as_raw(self), snapshotsetid, dwprefastrecoveryflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn FastRecovery(&self, snapshotsetid: super::VSS_ID, dwfastrecoveryflags: u32) -> windows_core::Result<super::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FastRecovery)(windows_core::Interface::as_raw(self), snapshotsetid, dwfastrecoveryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FastRecovery)(windows_core::Interface::as_raw(self), snapshotsetid, dwfastrecoveryflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1290,7 +1290,7 @@ impl IVssBackupComponentsEx3 {
     pub unsafe fn RecoverSet(&self, dwflags: u32) -> windows_core::Result<super::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RecoverSet)(windows_core::Interface::as_raw(self), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RecoverSet)(windows_core::Interface::as_raw(self), dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "vss")]
@@ -1440,20 +1440,20 @@ impl IVssExamineWriterMetadata {
     pub unsafe fn GetIncludeFile(&self, ifile: u32) -> windows_core::Result<super::IVssWMFiledesc> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIncludeFile)(windows_core::Interface::as_raw(self), ifile, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetIncludeFile)(windows_core::Interface::as_raw(self), ifile, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "vswriter")]
     pub unsafe fn GetExcludeFile(&self, ifile: u32) -> windows_core::Result<super::IVssWMFiledesc> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetExcludeFile)(windows_core::Interface::as_raw(self), ifile, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetExcludeFile)(windows_core::Interface::as_raw(self), ifile, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetComponent(&self, icomponent: u32) -> windows_core::Result<IVssWMComponent> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetComponent)(windows_core::Interface::as_raw(self), icomponent, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetComponent)(windows_core::Interface::as_raw(self), icomponent, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "vswriter")]
@@ -1464,7 +1464,7 @@ impl IVssExamineWriterMetadata {
     pub unsafe fn GetAlternateLocationMapping(&self, imapping: u32) -> windows_core::Result<super::IVssWMFiledesc> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAlternateLocationMapping)(windows_core::Interface::as_raw(self), imapping, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetAlternateLocationMapping)(windows_core::Interface::as_raw(self), imapping, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBackupSchema(&self) -> windows_core::Result<u32> {
@@ -1477,7 +1477,7 @@ impl IVssExamineWriterMetadata {
     pub unsafe fn GetDocument(&self) -> windows_core::Result<super::IXMLDOMDocument> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SaveAsXML(&self, pbstrxml: *const windows_core::BSTR) -> windows_core::HRESULT {
@@ -1727,7 +1727,7 @@ impl IVssExamineWriterMetadataEx2 {
     pub unsafe fn GetExcludeFromSnapshotFile(&self, ifile: u32) -> windows_core::Result<super::IVssWMFiledesc> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetExcludeFromSnapshotFile)(windows_core::Interface::as_raw(self), ifile, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetExcludeFromSnapshotFile)(windows_core::Interface::as_raw(self), ifile, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1812,28 +1812,28 @@ impl IVssWMComponent {
     pub unsafe fn GetFile(&self, ifile: u32) -> windows_core::Result<super::IVssWMFiledesc> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFile)(windows_core::Interface::as_raw(self), ifile, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFile)(windows_core::Interface::as_raw(self), ifile, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "vswriter")]
     pub unsafe fn GetDatabaseFile(&self, idbfile: u32) -> windows_core::Result<super::IVssWMFiledesc> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDatabaseFile)(windows_core::Interface::as_raw(self), idbfile, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDatabaseFile)(windows_core::Interface::as_raw(self), idbfile, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "vswriter")]
     pub unsafe fn GetDatabaseLogFile(&self, idblogfile: u32) -> windows_core::Result<super::IVssWMFiledesc> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDatabaseLogFile)(windows_core::Interface::as_raw(self), idblogfile, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDatabaseLogFile)(windows_core::Interface::as_raw(self), idblogfile, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "vswriter")]
     pub unsafe fn GetDependency(&self, idependency: u32) -> windows_core::Result<super::IVssWMDependency> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDependency)(windows_core::Interface::as_raw(self), idependency, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDependency)(windows_core::Interface::as_raw(self), idependency, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

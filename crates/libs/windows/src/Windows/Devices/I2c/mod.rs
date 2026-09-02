@@ -7,8 +7,8 @@ impl I2cBusSpeed {
     pub const StandardMode: Self = Self(0);
     pub const FastMode: Self = Self(1);
 }
-impl windows_core::TypeKind for I2cBusSpeed {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for I2cBusSpeed {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for I2cBusSpeed {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cBusSpeed;i4)");
@@ -49,7 +49,7 @@ impl I2cConnectionSettings {
     pub fn Create(slaveaddress: i32) -> windows_core::Result<Self> {
         Self::II2cConnectionSettingsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), slaveaddress, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), slaveaddress, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn II2cConnectionSettingsFactory<R, F: FnOnce(&II2cConnectionSettingsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -80,7 +80,7 @@ impl I2cController {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), settings.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Devices_I2c_Provider")]
@@ -90,13 +90,13 @@ impl I2cController {
     {
         Self::II2cControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::II2cControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn II2cControllerStatics<R, F: FnOnce(&II2cControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -135,7 +135,7 @@ impl I2cDevice {
     pub fn ConnectionSettings(&self) -> windows_core::Result<I2cConnectionSettings> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConnectionSettings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ConnectionSettings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Write(&self, buffer: &[u8]) -> windows_core::Result<()> {
@@ -183,7 +183,7 @@ impl I2cDevice {
     {
         Self::II2cDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), settings.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn II2cDeviceStatics<R, F: FnOnce(&II2cDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -210,8 +210,8 @@ impl I2cSharingMode {
     pub const Exclusive: Self = Self(0);
     pub const Shared: Self = Self(1);
 }
-impl windows_core::TypeKind for I2cSharingMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for I2cSharingMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for I2cSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cSharingMode;i4)");
@@ -223,8 +223,8 @@ pub struct I2cTransferResult {
     pub Status: I2cTransferStatus,
     pub BytesTransferred: u32,
 }
-impl windows_core::TypeKind for I2cTransferResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for I2cTransferResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for I2cTransferResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.I2c.I2cTransferResult;enum(Windows.Devices.I2c.I2cTransferStatus;i4);u4)");
@@ -240,8 +240,8 @@ impl I2cTransferStatus {
     pub const ClockStretchTimeout: Self = Self(3);
     pub const UnknownError: Self = Self(4);
 }
-impl windows_core::TypeKind for I2cTransferStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for I2cTransferStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for I2cTransferStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cTransferStatus;i4)");
@@ -343,7 +343,7 @@ impl II2cDeviceStatics {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FromIdAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(deviceid), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FromIdAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(deviceid), settings.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

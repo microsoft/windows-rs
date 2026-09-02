@@ -40,8 +40,8 @@ pub use value_iterator::ValueIterator;
 mod r#type;
 pub use r#type::Type;
 
-pub use windows_result::Result;
 use windows_result::*;
+pub use windows_result::{Error, Result};
 
 pub use windows_strings::HSTRING;
 use windows_strings::{PCWSTR, *};
