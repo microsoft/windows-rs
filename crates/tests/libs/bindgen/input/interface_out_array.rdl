@@ -25,7 +25,12 @@ mod Test {
             #[out] #[len_param(0)] output: *mut u32,
         ) -> i32;
         fn InLen(&self, count: u32, #[in] #[len_param(0)] buffer: *const u32) -> i32;
-        fn InSignedLen(&self, count: i32, #[opt] #[in] #[len_param(0)] buffer: *const u32) -> i32;
+        fn InSignedLen(&self, count: i32, #[in] #[len_param(0)] buffer: *const u32) -> i32;
+        fn InOptionalSignedLen(
+            &self,
+            count: i32,
+            #[opt] #[in] #[len_param(0)] buffer: *const u32,
+        ) -> i32;
     }
 }
 #[win32]

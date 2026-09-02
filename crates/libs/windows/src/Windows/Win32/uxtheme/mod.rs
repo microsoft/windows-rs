@@ -94,21 +94,15 @@ pub unsafe fn DrawThemeParentBackgroundEx(hwnd: super::HWND, hdc: super::HDC, dw
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn DrawThemeText<P4>(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: P4, cchtext: i32, dwtextflags: u32, dwtextflags2: u32, prect: *const super::RECT) -> windows_core::HRESULT
-where
-    P4: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn DrawThemeText(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: u32, dwtextflags2: u32, prect: *const super::RECT) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn DrawThemeText(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchtext : i32, dwtextflags : u32, dwtextflags2 : u32, prect : *const super::RECT) -> windows_core::HRESULT);
-    unsafe { DrawThemeText(htheme, hdc, ipartid, istateid, psztext.param().abi(), cchtext, dwtextflags, dwtextflags2, prect) }
+    unsafe { DrawThemeText(htheme, hdc, ipartid, istateid, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, dwtextflags2, prect) }
 }
 #[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn DrawThemeTextEx<P4>(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: P4, cchtext: i32, dwtextflags: u32, prect: *mut super::RECT, poptions: Option<*const DTTOPTS>) -> windows_core::HRESULT
-where
-    P4: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn DrawThemeTextEx(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: u32, prect: *mut super::RECT, poptions: Option<*const DTTOPTS>) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn DrawThemeTextEx(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchtext : i32, dwtextflags : u32, prect : *mut super::RECT, poptions : *const DTTOPTS) -> windows_core::HRESULT);
-    unsafe { DrawThemeTextEx(htheme, hdc, ipartid, istateid, psztext.param().abi(), cchtext, dwtextflags, prect as _, poptions.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DrawThemeTextEx(htheme, hdc, ipartid, istateid, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, prect as _, poptions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -400,14 +394,11 @@ pub unsafe fn GetThemeSysString(htheme: super::HTHEME, istringid: i32, pszstring
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetThemeTextExtent<P4>(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: P4, cchcharcount: i32, dwtextflags: u32, pboundingrect: Option<*const super::RECT>) -> windows_core::Result<super::RECT>
-where
-    P4: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn GetThemeTextExtent(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: u32, pboundingrect: Option<*const super::RECT>) -> windows_core::Result<super::RECT> {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeTextExtent(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchcharcount : i32, dwtextflags : u32, pboundingrect : *const super::RECT, pextentrect : *mut super::RECT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetThemeTextExtent(htheme, hdc, ipartid, istateid, psztext.param().abi(), cchcharcount, dwtextflags, pboundingrect.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+        GetThemeTextExtent(htheme, hdc, ipartid, istateid, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, pboundingrect.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "wingdi", feature = "winnt"))]

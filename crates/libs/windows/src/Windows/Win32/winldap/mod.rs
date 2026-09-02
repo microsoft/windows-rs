@@ -9,20 +9,14 @@ pub unsafe fn LdapMapErrorToWin32(ldaperror: u32) -> u32 {
     unsafe { LdapMapErrorToWin32(ldaperror) }
 }
 #[inline]
-pub unsafe fn LdapUTF8ToUnicode<P0>(lpsrcstr: P0, cchsrc: i32, lpdeststr: windows_core::PWSTR, cchdest: i32) -> i32
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn LdapUTF8ToUnicode(lpsrcstr: &[u8], lpdeststr: windows_core::PWSTR, cchdest: i32) -> i32 {
     windows_core::link!("wldap32.dll" "C" fn LdapUTF8ToUnicode(lpsrcstr : windows_core::PCSTR, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32) -> i32);
-    unsafe { LdapUTF8ToUnicode(lpsrcstr.param().abi(), cchsrc, lpdeststr, cchdest) }
+    unsafe { LdapUTF8ToUnicode(core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), lpdeststr, cchdest) }
 }
 #[inline]
-pub unsafe fn LdapUnicodeToUTF8<P0>(lpsrcstr: P0, cchsrc: i32, lpdeststr: windows_core::PSTR, cchdest: i32) -> i32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn LdapUnicodeToUTF8(lpsrcstr: &[u16], lpdeststr: windows_core::PSTR, cchdest: i32) -> i32 {
     windows_core::link!("wldap32.dll" "C" fn LdapUnicodeToUTF8(lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpdeststr : windows_core::PSTR, cchdest : i32) -> i32);
-    unsafe { LdapUnicodeToUTF8(lpsrcstr.param().abi(), cchsrc, lpdeststr, cchdest) }
+    unsafe { LdapUnicodeToUTF8(core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), lpdeststr, cchdest) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

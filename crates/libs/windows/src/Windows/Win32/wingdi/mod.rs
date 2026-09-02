@@ -437,15 +437,15 @@ pub unsafe fn CreatePenIndirect(plpen: *const LOGPEN) -> super::HPEN {
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::POINT, pc: *const i32, cpoly: i32, imode: i32) -> super::HRGN {
+pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::POINT, pc: &[i32], imode: i32) -> super::HRGN {
     windows_core::link!("gdi32.dll" "system" fn CreatePolyPolygonRgn(pptl : *const super::POINT, pc : *const i32, cpoly : i32, imode : i32) -> super::HRGN);
-    unsafe { CreatePolyPolygonRgn(pptl, pc, cpoly, imode) }
+    unsafe { CreatePolyPolygonRgn(pptl, pc.as_ptr(), pc.len().try_into().unwrap(), imode) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn CreatePolygonRgn(pptl: *const super::POINT, cpoint: i32, imode: i32) -> super::HRGN {
+pub unsafe fn CreatePolygonRgn(pptl: &[super::POINT], imode: i32) -> super::HRGN {
     windows_core::link!("gdi32.dll" "system" fn CreatePolygonRgn(pptl : *const super::POINT, cpoint : i32, imode : i32) -> super::HRGN);
-    unsafe { CreatePolygonRgn(pptl, cpoint, imode) }
+    unsafe { CreatePolygonRgn(pptl.as_ptr(), pptl.len().try_into().unwrap(), imode) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -493,9 +493,9 @@ pub unsafe fn CreateSolidBrush(color: super::COLORREF) -> super::HBRUSH {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn DPtoLP(hdc: super::HDC, lppt: *mut super::POINT, c: i32) -> windows_core::BOOL {
+pub unsafe fn DPtoLP(hdc: super::HDC, lppt: &mut [super::POINT]) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn DPtoLP(hdc : super::HDC, lppt : *mut super::POINT, c : i32) -> windows_core::BOOL);
-    unsafe { DPtoLP(hdc, lppt as _, c) }
+    unsafe { DPtoLP(hdc, lppt.as_mut_ptr(), lppt.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -933,21 +933,15 @@ pub unsafe fn GetCharWidthW(hdc: super::HDC, ifirst: u32, ilast: u32, lpbuffer: 
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetCharacterPlacementA<P1>(hdc: super::HDC, lpstring: P1, ncount: i32, nmexextent: i32, lpresults: *mut GCP_RESULTSA, dwflags: u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn GetCharacterPlacementA(hdc: super::HDC, lpstring: &[u8], nmexextent: i32, lpresults: *mut GCP_RESULTSA, dwflags: u32) -> u32 {
     windows_core::link!("gdi32.dll" "system" fn GetCharacterPlacementA(hdc : super::HDC, lpstring : windows_core::PCSTR, ncount : i32, nmexextent : i32, lpresults : *mut GCP_RESULTSA, dwflags : u32) -> u32);
-    unsafe { GetCharacterPlacementA(hdc, lpstring.param().abi(), ncount, nmexextent, lpresults as _, dwflags) }
+    unsafe { GetCharacterPlacementA(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), nmexextent, lpresults as _, dwflags) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetCharacterPlacementW<P1>(hdc: super::HDC, lpstring: P1, ncount: i32, nmexextent: i32, lpresults: *mut GCP_RESULTSW, dwflags: u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn GetCharacterPlacementW(hdc: super::HDC, lpstring: &[u16], nmexextent: i32, lpresults: *mut GCP_RESULTSW, dwflags: u32) -> u32 {
     windows_core::link!("gdi32.dll" "system" fn GetCharacterPlacementW(hdc : super::HDC, lpstring : windows_core::PCWSTR, ncount : i32, nmexextent : i32, lpresults : *mut GCP_RESULTSW, dwflags : u32) -> u32);
-    unsafe { GetCharacterPlacementW(hdc, lpstring.param().abi(), ncount, nmexextent, lpresults as _, dwflags) }
+    unsafe { GetCharacterPlacementW(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), nmexextent, lpresults as _, dwflags) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1376,69 +1370,51 @@ pub unsafe fn GetTextColor(hdc: super::HDC) -> super::COLORREF {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentExPointA<P1>(hdc: super::HDC, lpszstring: P1, cchstring: i32, nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn GetTextExtentExPointA(hdc: super::HDC, lpszstring: &[u8], nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointA(hdc : super::HDC, lpszstring : windows_core::PCSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::SIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentExPointA(hdc, lpszstring.param().abi(), cchstring, nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
+    unsafe { GetTextExtentExPointA(hdc, core::mem::transmute(lpszstring.as_ptr()), lpszstring.len().try_into().unwrap(), nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentExPointI(hdc: super::HDC, lpwszstring: *const u16, cwchstring: i32, nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL {
+pub unsafe fn GetTextExtentExPointI(hdc: super::HDC, lpwszstring: &[u16], nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointI(hdc : super::HDC, lpwszstring : *const u16, cwchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::SIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentExPointI(hdc, lpwszstring, cwchstring, nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
+    unsafe { GetTextExtentExPointI(hdc, lpwszstring.as_ptr(), lpwszstring.len().try_into().unwrap(), nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentExPointW<P1>(hdc: super::HDC, lpszstring: P1, cchstring: i32, nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn GetTextExtentExPointW(hdc: super::HDC, lpszstring: &[u16], nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointW(hdc : super::HDC, lpszstring : windows_core::PCWSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::SIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentExPointW(hdc, lpszstring.param().abi(), cchstring, nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
+    unsafe { GetTextExtentExPointW(hdc, core::mem::transmute(lpszstring.as_ptr()), lpszstring.len().try_into().unwrap(), nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentPoint32A<P1>(hdc: super::HDC, lpstring: P1, c: i32, psizl: *mut super::SIZE) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn GetTextExtentPoint32A(hdc: super::HDC, lpstring: &[u8], psizl: *mut super::SIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentPoint32A(hdc : super::HDC, lpstring : windows_core::PCSTR, c : i32, psizl : *mut super::SIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentPoint32A(hdc, lpstring.param().abi(), c, psizl as _) }
+    unsafe { GetTextExtentPoint32A(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), psizl as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentPoint32W<P1>(hdc: super::HDC, lpstring: P1, c: i32, psizl: *mut super::SIZE) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn GetTextExtentPoint32W(hdc: super::HDC, lpstring: &[u16], psizl: *mut super::SIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentPoint32W(hdc : super::HDC, lpstring : windows_core::PCWSTR, c : i32, psizl : *mut super::SIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentPoint32W(hdc, lpstring.param().abi(), c, psizl as _) }
+    unsafe { GetTextExtentPoint32W(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), psizl as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentPointA<P1>(hdc: super::HDC, lpstring: P1, c: i32, lpsz: *mut super::SIZE) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn GetTextExtentPointA(hdc: super::HDC, lpstring: &[u8], lpsz: *mut super::SIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentPointA(hdc : super::HDC, lpstring : windows_core::PCSTR, c : i32, lpsz : *mut super::SIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentPointA(hdc, lpstring.param().abi(), c, lpsz as _) }
+    unsafe { GetTextExtentPointA(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpsz as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentPointI(hdc: super::HDC, pgiin: *const u16, cgi: i32, psize: *mut super::SIZE) -> windows_core::BOOL {
+pub unsafe fn GetTextExtentPointI(hdc: super::HDC, pgiin: &[u16], psize: *mut super::SIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentPointI(hdc : super::HDC, pgiin : *const u16, cgi : i32, psize : *mut super::SIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentPointI(hdc, pgiin, cgi, psize as _) }
+    unsafe { GetTextExtentPointI(hdc, pgiin.as_ptr(), pgiin.len().try_into().unwrap(), psize as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentPointW<P1>(hdc: super::HDC, lpstring: P1, c: i32, lpsz: *mut super::SIZE) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn GetTextExtentPointW(hdc: super::HDC, lpstring: &[u16], lpsz: *mut super::SIZE) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GetTextExtentPointW(hdc : super::HDC, lpstring : windows_core::PCWSTR, c : i32, lpsz : *mut super::SIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentPointW(hdc, lpstring.param().abi(), c, lpsz as _) }
+    unsafe { GetTextExtentPointW(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpsz as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1520,9 +1496,9 @@ pub unsafe fn InvertRgn(hdc: super::HDC, hrgn: super::HRGN) -> windows_core::BOO
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn LPtoDP(hdc: super::HDC, lppt: *mut super::POINT, c: i32) -> windows_core::BOOL {
+pub unsafe fn LPtoDP(hdc: super::HDC, lppt: &mut [super::POINT]) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn LPtoDP(hdc : super::HDC, lppt : *mut super::POINT, c : i32) -> windows_core::BOOL);
-    unsafe { LPtoDP(hdc, lppt as _, c) }
+    unsafe { LPtoDP(hdc, lppt.as_mut_ptr(), lppt.len().try_into().unwrap()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -1652,9 +1628,9 @@ pub unsafe fn PolyDraw(hdc: super::HDC, apt: *const super::POINT, aj: *const u8,
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn PolyPolygon(hdc: super::HDC, apt: *const super::POINT, asz: *const i32, csz: i32) -> windows_core::BOOL {
+pub unsafe fn PolyPolygon(hdc: super::HDC, apt: *const super::POINT, asz: &[i32]) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn PolyPolygon(hdc : super::HDC, apt : *const super::POINT, asz : *const i32, csz : i32) -> windows_core::BOOL);
-    unsafe { PolyPolygon(hdc, apt, asz, csz) }
+    unsafe { PolyPolygon(hdc, apt, asz.as_ptr(), asz.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1664,27 +1640,27 @@ pub unsafe fn PolyPolyline(hdc: super::HDC, apt: *const super::POINT, asz: &[u32
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn PolyTextOutA(hdc: super::HDC, ppt: *const POLYTEXTA, nstrings: i32) -> windows_core::BOOL {
+pub unsafe fn PolyTextOutA(hdc: super::HDC, ppt: &[POLYTEXTA]) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn PolyTextOutA(hdc : super::HDC, ppt : *const POLYTEXTA, nstrings : i32) -> windows_core::BOOL);
-    unsafe { PolyTextOutA(hdc, ppt, nstrings) }
+    unsafe { PolyTextOutA(hdc, ppt.as_ptr(), ppt.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn PolyTextOutW(hdc: super::HDC, ppt: *const POLYTEXTW, nstrings: i32) -> windows_core::BOOL {
+pub unsafe fn PolyTextOutW(hdc: super::HDC, ppt: &[POLYTEXTW]) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn PolyTextOutW(hdc : super::HDC, ppt : *const POLYTEXTW, nstrings : i32) -> windows_core::BOOL);
-    unsafe { PolyTextOutW(hdc, ppt, nstrings) }
+    unsafe { PolyTextOutW(hdc, ppt.as_ptr(), ppt.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn Polygon(hdc: super::HDC, apt: *const super::POINT, cpt: i32) -> windows_core::BOOL {
+pub unsafe fn Polygon(hdc: super::HDC, apt: &[super::POINT]) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn Polygon(hdc : super::HDC, apt : *const super::POINT, cpt : i32) -> windows_core::BOOL);
-    unsafe { Polygon(hdc, apt, cpt) }
+    unsafe { Polygon(hdc, apt.as_ptr(), apt.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn Polyline(hdc: super::HDC, apt: *const super::POINT, cpt: i32) -> windows_core::BOOL {
+pub unsafe fn Polyline(hdc: super::HDC, apt: &[super::POINT]) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn Polyline(hdc : super::HDC, apt : *const super::POINT, cpt : i32) -> windows_core::BOOL);
-    unsafe { Polyline(hdc, apt, cpt) }
+    unsafe { Polyline(hdc, apt.as_ptr(), apt.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -2170,21 +2146,15 @@ pub unsafe fn SwapBuffers(param0: super::HDC) -> windows_core::BOOL {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn TextOutA<P3>(hdc: super::HDC, x: i32, y: i32, lpstring: P3, c: i32) -> windows_core::BOOL
-where
-    P3: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn TextOutA(hdc: super::HDC, x: i32, y: i32, lpstring: &[u8]) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn TextOutA(hdc : super::HDC, x : i32, y : i32, lpstring : windows_core::PCSTR, c : i32) -> windows_core::BOOL);
-    unsafe { TextOutA(hdc, x, y, lpstring.param().abi(), c) }
+    unsafe { TextOutA(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn TextOutW<P3>(hdc: super::HDC, x: i32, y: i32, lpstring: P3, c: i32) -> windows_core::BOOL
-where
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn TextOutW(hdc: super::HDC, x: i32, y: i32, lpstring: &[u16]) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn TextOutW(hdc : super::HDC, x : i32, y : i32, lpstring : windows_core::PCWSTR, c : i32) -> windows_core::BOOL);
-    unsafe { TextOutW(hdc, x, y, lpstring.param().abi(), c) }
+    unsafe { TextOutW(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: *mut CHARSETINFO, dwflags: u32) -> windows_core::BOOL {

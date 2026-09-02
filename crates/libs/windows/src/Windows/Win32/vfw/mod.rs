@@ -138,9 +138,9 @@ where
     unsafe { AVIMakeCompressedStream(core::mem::transmute(ppscompressed), ppssource.param().abi(), lpoptions, pclsidhandler.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut Option<IAVIFile>, nstreams: i32, papstreams: *const Option<IAVIStream>) -> windows_core::HRESULT {
+pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut Option<IAVIFile>, papstreams: &[Option<IAVIStream>]) -> windows_core::HRESULT {
     windows_core::link!("avifil32.dll" "system" fn AVIMakeFileFromStreams(ppfile : *mut *mut core::ffi::c_void, nstreams : i32, papstreams : *const *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { AVIMakeFileFromStreams(core::mem::transmute(ppfile), nstreams, core::mem::transmute(papstreams)) }
+    unsafe { AVIMakeFileFromStreams(core::mem::transmute(ppfile), papstreams.len().try_into().unwrap(), core::mem::transmute(papstreams.as_ptr())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -166,9 +166,9 @@ pub unsafe fn AVISaveOptions(hwnd: super::HWND, uiflags: u32, nstreams: i32, ppa
     unsafe { AVISaveOptions(hwnd, uiflags, nstreams, core::mem::transmute(ppavi), plpoptions as _) }
 }
 #[inline]
-pub unsafe fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const LPAVICOMPRESSOPTIONS) -> windows_core::HRESULT {
+pub unsafe fn AVISaveOptionsFree(plpoptions: &[LPAVICOMPRESSOPTIONS]) -> windows_core::HRESULT {
     windows_core::link!("avifil32.dll" "system" fn AVISaveOptionsFree(nstreams : i32, plpoptions : *const LPAVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    unsafe { AVISaveOptionsFree(nstreams, plpoptions) }
+    unsafe { AVISaveOptionsFree(plpoptions.len().try_into().unwrap(), plpoptions.as_ptr()) }
 }
 #[inline]
 pub unsafe fn AVISaveVA<P0>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *const LPAVICOMPRESSOPTIONS) -> windows_core::HRESULT
@@ -386,9 +386,9 @@ pub unsafe fn DrawDibBegin(hdd: HDRAWDIB, hdc: Option<super::HDC>, dxdst: i32, d
 }
 #[cfg(all(feature = "wingdi", feature = "winnt"))]
 #[inline]
-pub unsafe fn DrawDibChangePalette(hdd: HDRAWDIB, istart: i32, ilen: i32, lppe: *const super::PALETTEENTRY) -> windows_core::BOOL {
+pub unsafe fn DrawDibChangePalette(hdd: HDRAWDIB, istart: i32, lppe: &[super::PALETTEENTRY]) -> windows_core::BOOL {
     windows_core::link!("msvfw32.dll" "system" fn DrawDibChangePalette(hdd : HDRAWDIB, istart : i32, ilen : i32, lppe : *const super::PALETTEENTRY) -> windows_core::BOOL);
-    unsafe { DrawDibChangePalette(hdd, istart, ilen, lppe) }
+    unsafe { DrawDibChangePalette(hdd, istart, lppe.len().try_into().unwrap(), lppe.as_ptr()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

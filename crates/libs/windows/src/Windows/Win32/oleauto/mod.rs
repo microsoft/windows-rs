@@ -2524,12 +2524,12 @@ pub unsafe fn VarSub(pvarleft: *const super::VARIANT, pvarright: *const super::V
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn VarTokenizeFormatString<P0>(pstrformat: P0, rgbtok: *mut u8, cbtok: i32, ifirstday: i32, ifirstweek: i32, lcid: super::LCID, pcbactual: Option<*const i32>) -> windows_core::HRESULT
+pub unsafe fn VarTokenizeFormatString<P0>(pstrformat: P0, rgbtok: &mut [u8], ifirstday: i32, ifirstweek: i32, lcid: super::LCID, pcbactual: Option<*const i32>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("oleaut32.dll" "system" fn VarTokenizeFormatString(pstrformat : windows_core::PCWSTR, rgbtok : *mut u8, cbtok : i32, ifirstday : i32, ifirstweek : i32, lcid : super::LCID, pcbactual : *const i32) -> windows_core::HRESULT);
-    unsafe { VarTokenizeFormatString(pstrformat.param().abi(), rgbtok as _, cbtok, ifirstday, ifirstweek, lcid, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { VarTokenizeFormatString(pstrformat.param().abi(), rgbtok.as_mut_ptr(), rgbtok.len().try_into().unwrap(), ifirstday, ifirstweek, lcid, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "wtypes")]
 #[inline]

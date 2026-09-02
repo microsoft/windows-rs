@@ -184,9 +184,9 @@ where
     unsafe { mmioStringToFOURCCW(sz.param().abi(), uflags) }
 }
 #[inline]
-pub unsafe fn mmioWrite(hmmio: HMMIO, pch: *const i8, cch: i32) -> i32 {
+pub unsafe fn mmioWrite(hmmio: HMMIO, pch: &[u8]) -> i32 {
     windows_core::link!("winmm.dll" "system" fn mmioWrite(hmmio : HMMIO, pch : *const i8, cch : i32) -> i32);
-    unsafe { mmioWrite(hmmio, pch, cch) }
+    unsafe { mmioWrite(hmmio, core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

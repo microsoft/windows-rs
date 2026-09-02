@@ -3335,9 +3335,9 @@ pub unsafe fn _hread(hfile: super::HFILE, lpbuffer: *mut core::ffi::c_void, lbyt
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn _hwrite(hfile: super::HFILE, lpbuffer: *const i8, lbytes: i32) -> i32 {
+pub unsafe fn _hwrite(hfile: super::HFILE, lpbuffer: &[u8]) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn _hwrite(hfile : super::HFILE, lpbuffer : *const i8, lbytes : i32) -> i32);
-    unsafe { _hwrite(hfile, lpbuffer, lbytes) }
+    unsafe { _hwrite(hfile, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]

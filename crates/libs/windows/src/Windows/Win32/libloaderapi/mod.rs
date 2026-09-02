@@ -101,13 +101,9 @@ where
     unsafe { FindResourceW(hmodule.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi(), lptype.param().abi()) }
 }
 #[inline]
-pub unsafe fn FindStringOrdinal<P1, P3>(dwfindstringordinalflags: u32, lpstringsource: P1, cchsource: i32, lpstringvalue: P3, cchvalue: i32, bignorecase: bool) -> i32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn FindStringOrdinal(dwfindstringordinalflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], bignorecase: bool) -> i32 {
     windows_core::link!("kernel32.dll" "system" fn FindStringOrdinal(dwfindstringordinalflags : u32, lpstringsource : windows_core::PCWSTR, cchsource : i32, lpstringvalue : windows_core::PCWSTR, cchvalue : i32, bignorecase : windows_core::BOOL) -> i32);
-    unsafe { FindStringOrdinal(dwfindstringordinalflags, lpstringsource.param().abi(), cchsource, lpstringvalue.param().abi(), cchvalue, bignorecase.into()) }
+    unsafe { FindStringOrdinal(dwfindstringordinalflags, core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), bignorecase.into()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]

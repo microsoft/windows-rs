@@ -30,9 +30,9 @@ pub unsafe fn SQLBindParameter(hstmt: super::SQLHSTMT, ipar: super::SQLUSMALLINT
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLBrowseConnect(hdbc: super::SQLHDBC, szconnstrin: *const super::SQLCHAR, cchconnstrin: super::SQLSMALLINT, szconnstrout: Option<*mut super::SQLCHAR>, cchconnstroutmax: super::SQLSMALLINT, pcchconnstrout: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
+pub unsafe fn SQLBrowseConnect(hdbc: super::SQLHDBC, szconnstrin: &[super::SQLCHAR], szconnstrout: Option<*mut super::SQLCHAR>, cchconnstroutmax: super::SQLSMALLINT, pcchconnstrout: Option<*mut super::SQLSMALLINT>) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLBrowseConnect(hdbc : super::SQLHDBC, szconnstrin : *const super::SQLCHAR, cchconnstrin : super::SQLSMALLINT, szconnstrout : *mut super::SQLCHAR, cchconnstroutmax : super::SQLSMALLINT, pcchconnstrout : *mut super::SQLSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLBrowseConnect(hdbc, szconnstrin, cchconnstrin, szconnstrout.unwrap_or(core::mem::zeroed()) as _, cchconnstroutmax, pcchconnstrout.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SQLBrowseConnect(hdbc, szconnstrin.as_ptr(), super::SQLSMALLINT(szconnstrin.len().try_into().unwrap()), szconnstrout.unwrap_or(core::mem::zeroed()) as _, cchconnstroutmax, pcchconnstrout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -76,9 +76,9 @@ pub unsafe fn SQLDescribeParam(hstmt: super::SQLHSTMT, ipar: super::SQLUSMALLINT
 }
 #[cfg(all(feature = "sqltypes", feature = "windef"))]
 #[inline]
-pub unsafe fn SQLDriverConnect(hdbc: super::SQLHDBC, hwnd: super::SQLHWND, szconnstrin: *const super::SQLCHAR, cchconnstrin: super::SQLSMALLINT, szconnstrout: Option<*mut super::SQLCHAR>, cchconnstroutmax: super::SQLSMALLINT, pcchconnstrout: Option<*mut super::SQLSMALLINT>, fdrivercompletion: super::SQLUSMALLINT) -> super::SQLRETURN {
+pub unsafe fn SQLDriverConnect(hdbc: super::SQLHDBC, hwnd: super::SQLHWND, szconnstrin: &[super::SQLCHAR], szconnstrout: Option<*mut super::SQLCHAR>, cchconnstroutmax: super::SQLSMALLINT, pcchconnstrout: Option<*mut super::SQLSMALLINT>, fdrivercompletion: super::SQLUSMALLINT) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLDriverConnect(hdbc : super::SQLHDBC, hwnd : super::SQLHWND, szconnstrin : *const super::SQLCHAR, cchconnstrin : super::SQLSMALLINT, szconnstrout : *mut super::SQLCHAR, cchconnstroutmax : super::SQLSMALLINT, pcchconnstrout : *mut super::SQLSMALLINT, fdrivercompletion : super::SQLUSMALLINT) -> super::SQLRETURN);
-    unsafe { SQLDriverConnect(hdbc, hwnd, szconnstrin, cchconnstrin, szconnstrout.unwrap_or(core::mem::zeroed()) as _, cchconnstroutmax, pcchconnstrout.unwrap_or(core::mem::zeroed()) as _, fdrivercompletion) }
+    unsafe { SQLDriverConnect(hdbc, hwnd, szconnstrin.as_ptr(), super::SQLSMALLINT(szconnstrin.len().try_into().unwrap()), szconnstrout.unwrap_or(core::mem::zeroed()) as _, cchconnstroutmax, pcchconnstrout.unwrap_or(core::mem::zeroed()) as _, fdrivercompletion) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
@@ -114,9 +114,9 @@ pub unsafe fn SQLMoreResults(hstmt: super::SQLHSTMT) -> super::SQLRETURN {
 }
 #[cfg(feature = "sqltypes")]
 #[inline]
-pub unsafe fn SQLNativeSql(hdbc: super::SQLHDBC, szsqlstrin: *const super::SQLCHAR, cchsqlstrin: super::SQLINTEGER, szsqlstr: Option<*mut super::SQLCHAR>, cchsqlstrmax: super::SQLINTEGER, pcbsqlstr: *mut super::SQLINTEGER) -> super::SQLRETURN {
+pub unsafe fn SQLNativeSql(hdbc: super::SQLHDBC, szsqlstrin: &[super::SQLCHAR], szsqlstr: Option<*mut super::SQLCHAR>, cchsqlstrmax: super::SQLINTEGER, pcbsqlstr: *mut super::SQLINTEGER) -> super::SQLRETURN {
     windows_core::link!("odbc32.dll" "system" fn SQLNativeSql(hdbc : super::SQLHDBC, szsqlstrin : *const super::SQLCHAR, cchsqlstrin : super::SQLINTEGER, szsqlstr : *mut super::SQLCHAR, cchsqlstrmax : super::SQLINTEGER, pcbsqlstr : *mut super::SQLINTEGER) -> super::SQLRETURN);
-    unsafe { SQLNativeSql(hdbc, szsqlstrin, cchsqlstrin, szsqlstr.unwrap_or(core::mem::zeroed()) as _, cchsqlstrmax, pcbsqlstr as _) }
+    unsafe { SQLNativeSql(hdbc, szsqlstrin.as_ptr(), super::SQLINTEGER(szsqlstrin.len().try_into().unwrap()), szsqlstr.unwrap_or(core::mem::zeroed()) as _, cchsqlstrmax, pcbsqlstr as _) }
 }
 #[cfg(feature = "sqltypes")]
 #[inline]

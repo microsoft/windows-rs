@@ -496,15 +496,15 @@ pub unsafe fn CountClipboardFormats() -> i32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn CreateAcceleratorTableA(paccel: *const ACCEL, caccel: i32) -> super::HACCEL {
+pub unsafe fn CreateAcceleratorTableA(paccel: &[ACCEL]) -> super::HACCEL {
     windows_core::link!("user32.dll" "system" fn CreateAcceleratorTableA(paccel : *const ACCEL, caccel : i32) -> super::HACCEL);
-    unsafe { CreateAcceleratorTableA(paccel, caccel) }
+    unsafe { CreateAcceleratorTableA(paccel.as_ptr(), paccel.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn CreateAcceleratorTableW(paccel: *const ACCEL, caccel: i32) -> super::HACCEL {
+pub unsafe fn CreateAcceleratorTableW(paccel: &[ACCEL]) -> super::HACCEL {
     windows_core::link!("user32.dll" "system" fn CreateAcceleratorTableW(paccel : *const ACCEL, caccel : i32) -> super::HACCEL);
-    unsafe { CreateAcceleratorTableW(paccel, caccel) }
+    unsafe { CreateAcceleratorTableW(paccel.as_ptr(), paccel.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -725,9 +725,9 @@ pub unsafe fn DefMDIChildProcW(hwnd: super::HWND, umsg: u32, wparam: super::WPAR
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn DefRawInputProc(parawinput: *const PRAWINPUT, ninput: i32, cbsizeheader: u32) -> super::LRESULT {
+pub unsafe fn DefRawInputProc(parawinput: &[PRAWINPUT], cbsizeheader: u32) -> super::LRESULT {
     windows_core::link!("user32.dll" "system" fn DefRawInputProc(parawinput : *const PRAWINPUT, ninput : i32, cbsizeheader : u32) -> super::LRESULT);
-    unsafe { DefRawInputProc(parawinput, ninput, cbsizeheader) }
+    unsafe { DefRawInputProc(parawinput.as_ptr(), parawinput.len().try_into().unwrap(), cbsizeheader) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
@@ -2046,9 +2046,9 @@ pub unsafe fn GetPointerType(pointerid: u32, pointertype: *mut POINTER_INPUT_TYP
     unsafe { GetPointerType(pointerid, pointertype as _) }
 }
 #[inline]
-pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cformats: i32) -> i32 {
+pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: &[u32]) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetPriorityClipboardFormat(paformatprioritylist : *const u32, cformats : i32) -> i32);
-    unsafe { GetPriorityClipboardFormat(paformatprioritylist, cformats) }
+    unsafe { GetPriorityClipboardFormat(paformatprioritylist.as_ptr(), paformatprioritylist.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn GetProcessDefaultLayout(pdwdefaultlayout: *mut u32) -> windows_core::BOOL {
@@ -2195,21 +2195,15 @@ pub unsafe fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTabbedTextExtentA<P1>(hdc: super::HDC, lpstring: P1, chcount: i32, ntabpositions: i32, lpntabstoppositions: Option<*const i32>) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn GetTabbedTextExtentA(hdc: super::HDC, lpstring: &[u8], ntabpositions: i32, lpntabstoppositions: Option<*const i32>) -> u32 {
     windows_core::link!("user32.dll" "system" fn GetTabbedTextExtentA(hdc : super::HDC, lpstring : windows_core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
-    unsafe { GetTabbedTextExtentA(hdc, lpstring.param().abi(), chcount, ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetTabbedTextExtentA(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTabbedTextExtentW<P1>(hdc: super::HDC, lpstring: P1, chcount: i32, ntabpositions: i32, lpntabstoppositions: Option<*const i32>) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn GetTabbedTextExtentW(hdc: super::HDC, lpstring: &[u16], ntabpositions: i32, lpntabstoppositions: Option<*const i32>) -> u32 {
     windows_core::link!("user32.dll" "system" fn GetTabbedTextExtentW(hdc : super::HDC, lpstring : windows_core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
-    unsafe { GetTabbedTextExtentW(hdc, lpstring.param().abi(), chcount, ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetTabbedTextExtentW(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -4192,21 +4186,15 @@ pub unsafe fn SystemParametersInfoW(uiaction: u32, uiparam: u32, pvparam: *mut c
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn TabbedTextOutA<P3>(hdc: super::HDC, x: i32, y: i32, lpstring: P3, chcount: i32, ntabpositions: i32, lpntabstoppositions: Option<*const i32>, ntaborigin: i32) -> i32
-where
-    P3: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn TabbedTextOutA(hdc: super::HDC, x: i32, y: i32, lpstring: &[u8], ntabpositions: i32, lpntabstoppositions: Option<*const i32>, ntaborigin: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn TabbedTextOutA(hdc : super::HDC, x : i32, y : i32, lpstring : windows_core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
-    unsafe { TabbedTextOutA(hdc, x, y, lpstring.param().abi(), chcount, ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _, ntaborigin) }
+    unsafe { TabbedTextOutA(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _, ntaborigin) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn TabbedTextOutW<P3>(hdc: super::HDC, x: i32, y: i32, lpstring: P3, chcount: i32, ntabpositions: i32, lpntabstoppositions: Option<*const i32>, ntaborigin: i32) -> i32
-where
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn TabbedTextOutW(hdc: super::HDC, x: i32, y: i32, lpstring: &[u16], ntabpositions: i32, lpntabstoppositions: Option<*const i32>, ntaborigin: i32) -> i32 {
     windows_core::link!("user32.dll" "system" fn TabbedTextOutW(hdc : super::HDC, x : i32, y : i32, lpstring : windows_core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
-    unsafe { TabbedTextOutW(hdc, x, y, lpstring.param().abi(), chcount, ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _, ntaborigin) }
+    unsafe { TabbedTextOutW(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), ntabpositions, lpntabstoppositions.unwrap_or(core::mem::zeroed()) as _, ntaborigin) }
 }
 #[cfg(feature = "windef")]
 #[inline]

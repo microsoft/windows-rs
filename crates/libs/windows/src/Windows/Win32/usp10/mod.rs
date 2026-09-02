@@ -15,11 +15,11 @@ pub unsafe fn ScriptBreak(pwcchars: *const u16, cchars: i32, psa: &[SCRIPT_ANALY
     unsafe { ScriptBreak(pwcchars, cchars, psa.as_ptr(), psla as _) }
 }
 #[inline]
-pub unsafe fn ScriptCPtoX(icp: i32, ftrailing: bool, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: &[SCRIPT_ANALYSIS; 1]) -> windows_core::Result<i32> {
+pub unsafe fn ScriptCPtoX(icp: i32, ftrailing: bool, cglyphs: i32, pwlogclust: &[u16], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: &[SCRIPT_ANALYSIS; 1]) -> windows_core::Result<i32> {
     windows_core::link!("usp10.dll" "system" fn ScriptCPtoX(icp : i32, ftrailing : windows_core::BOOL, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pix : *mut i32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        ScriptCPtoX(icp, ftrailing.into(), cchars, cglyphs, pwlogclust, psva, piadvance, psa.as_ptr(), &mut result__).map(|| result__)
+        ScriptCPtoX(icp, ftrailing.into(), pwlogclust.len().try_into().unwrap(), cglyphs, pwlogclust.as_ptr(), psva, piadvance, psa.as_ptr(), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "windef")]
@@ -86,19 +86,19 @@ pub unsafe fn ScriptGetProperties(ppsp: *mut *mut *mut SCRIPT_PROPERTIES, pinums
     unsafe { ScriptGetProperties(ppsp as _, pinumscripts as _) }
 }
 #[inline]
-pub unsafe fn ScriptIsComplex(pwcinchars: *const u16, cinchars: i32, dwflags: u32) -> windows_core::HRESULT {
+pub unsafe fn ScriptIsComplex(pwcinchars: &[u16], dwflags: u32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptIsComplex(pwcinchars : *const u16, cinchars : i32, dwflags : u32) -> windows_core::HRESULT);
-    unsafe { ScriptIsComplex(pwcinchars, cinchars, dwflags) }
+    unsafe { ScriptIsComplex(pwcinchars.as_ptr(), pwcinchars.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
-pub unsafe fn ScriptItemize(pwcinchars: *const u16, cinchars: i32, cmaxitems: i32, pscontrol: Option<&[SCRIPT_CONTROL; 1]>, psstate: Option<&[SCRIPT_STATE; 1]>, pitems: *mut SCRIPT_ITEM, pcitems: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptItemize(pwcinchars: &[u16], cmaxitems: i32, pscontrol: Option<&[SCRIPT_CONTROL; 1]>, psstate: Option<&[SCRIPT_STATE; 1]>, pitems: *mut SCRIPT_ITEM, pcitems: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptItemize(pwcinchars : *const u16, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pcitems : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptItemize(pwcinchars, cinchars, cmaxitems, pscontrol.map_or(core::ptr::null(), |slice| slice.as_ptr()), psstate.map_or(core::ptr::null(), |slice| slice.as_ptr()), pitems as _, pcitems as _) }
+    unsafe { ScriptItemize(pwcinchars.as_ptr(), pwcinchars.len().try_into().unwrap(), cmaxitems, pscontrol.map_or(core::ptr::null(), |slice| slice.as_ptr()), psstate.map_or(core::ptr::null(), |slice| slice.as_ptr()), pitems as _, pcitems as _) }
 }
 #[inline]
-pub unsafe fn ScriptItemizeOpenType(pwcinchars: *const u16, cinchars: i32, cmaxitems: i32, pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pitems: *mut SCRIPT_ITEM, pscripttags: *mut OPENTYPE_TAG, pcitems: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptItemizeOpenType(pwcinchars: &[u16], cmaxitems: i32, pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pitems: *mut SCRIPT_ITEM, pscripttags: *mut OPENTYPE_TAG, pcitems: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptItemizeOpenType(pwcinchars : *const u16, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pscripttags : *mut OPENTYPE_TAG, pcitems : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptItemizeOpenType(pwcinchars, cinchars, cmaxitems, pscontrol.unwrap_or(core::mem::zeroed()) as _, psstate.unwrap_or(core::mem::zeroed()) as _, pitems as _, pscripttags as _, pcitems as _) }
+    unsafe { ScriptItemizeOpenType(pwcinchars.as_ptr(), pwcinchars.len().try_into().unwrap(), cmaxitems, pscontrol.unwrap_or(core::mem::zeroed()) as _, psstate.unwrap_or(core::mem::zeroed()) as _, pitems as _, pscripttags as _, pcitems as _) }
 }
 #[inline]
 pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32, pijustify: *mut i32) -> windows_core::HRESULT {
@@ -106,9 +106,9 @@ pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, 
     unsafe { ScriptJustify(psva, piadvance, cglyphs, idx, iminkashida, pijustify as _) }
 }
 #[inline]
-pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: Option<*mut i32>, pilogicaltovisual: Option<*mut i32>) -> windows_core::HRESULT {
+pub unsafe fn ScriptLayout(pblevel: &[u8], pivisualtological: Option<*mut i32>, pilogicaltovisual: Option<*mut i32>) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptLayout(cruns : i32, pblevel : *const u8, pivisualtological : *mut i32, pilogicaltovisual : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptLayout(cruns, pblevel, pivisualtological.unwrap_or(core::mem::zeroed()) as _, pilogicaltovisual.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ScriptLayout(pblevel.len().try_into().unwrap(), pblevel.as_ptr(), pivisualtological.unwrap_or(core::mem::zeroed()) as _, pilogicaltovisual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "windef", feature = "wingdi"))]
 #[inline]
@@ -226,9 +226,9 @@ pub unsafe fn ScriptTextOut(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], x: i32
     unsafe { ScriptTextOut(hdc, psc.as_mut_ptr(), x, y, fuoptions, lprc.map_or(core::ptr::null(), |slice| slice.as_ptr()), psa.as_ptr(), pwcreserved.unwrap_or(core::mem::zeroed()) as _, ireserved.unwrap_or(core::mem::zeroed()) as _, pwglyphs, cglyphs, piadvance, pijustify.unwrap_or(core::mem::zeroed()) as _, pgoffset) }
 }
 #[inline]
-pub unsafe fn ScriptXtoCP(ix: i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: &[SCRIPT_ANALYSIS; 1], picp: *mut i32, pitrailing: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptXtoCP(ix: i32, cglyphs: i32, pwlogclust: &[u16], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: &[SCRIPT_ANALYSIS; 1], picp: *mut i32, pitrailing: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptXtoCP(ix : i32, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, picp : *mut i32, pitrailing : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptXtoCP(ix, cchars, cglyphs, pwlogclust, psva, piadvance, psa.as_ptr(), picp as _, pitrailing as _) }
+    unsafe { ScriptXtoCP(ix, pwlogclust.len().try_into().unwrap(), cglyphs, pwlogclust.as_ptr(), psva, piadvance, psa.as_ptr(), picp as _, pitrailing as _) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

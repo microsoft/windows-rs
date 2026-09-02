@@ -96,10 +96,12 @@ impl CppMethod {
                         param_hints[position] = ParamHint::None;
                         continue;
                     };
-                    // Slice lengths must be unsigned input scalars. Signed counts may use negative
-                    // sentinel values that a slice cannot represent.
+                    // Optional buffers with signed counts may use negative sentinel values that a
+                    // slice cannot represent. Required SAL-counted buffers use slices regardless
+                    // of the count's signedness.
                     if relative_param.is_input_only()
-                        && relative_param.ty.is_unsigned()
+                        && (relative_param.ty.is_unsigned()
+                            || !signature.params[position].is_optional_or_reserved())
                         && !relative_param.is_pointer()
                     {
                         param_hints[relative] = ParamHint::ArrayRelativePtr(position);
