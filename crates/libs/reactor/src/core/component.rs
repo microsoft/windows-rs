@@ -19,7 +19,9 @@ use std::sync::{Arc, Mutex, Weak};
 pub(crate) const BACKGROUND_MESSAGE_QUEUE_CAPACITY: usize = 4_096;
 pub(crate) const BACKGROUND_TASK_CAPACITY: usize = 64;
 pub(crate) const LOCAL_MESSAGE_QUEUE_CAPACITY: usize = 4_096;
-
+/// Identifies an effect within one component publication.
+///
+/// Keys must be unique among the effects declared by one call to [`Component::view`].
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub struct EffectKey(EffectKeyKind);
 
@@ -63,7 +65,9 @@ impl From<&str> for EffectKey {
 pub(crate) struct ContextId(u64);
 
 static NEXT_CONTEXT_ID: AtomicU64 = AtomicU64::new(1);
-
+/// A typed context channel with a fallback value.
+///
+/// Each value created by [`new`](Self::new) has its own identity, even when defaults are equal.
 #[derive(Clone, Debug)]
 pub struct Context<T> {
     default: T,
@@ -71,6 +75,7 @@ pub struct Context<T> {
 }
 
 impl<T> Context<T> {
+    /// Creates a context that returns `default` when no ancestor provides a value.
     pub fn new(default: T) -> Self {
         Self {
             default,
@@ -308,12 +313,18 @@ impl ComponentToken {
     }
 }
 
+/// An invalid set of declarations made during [`Component::view`].
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum ComponentDeclarationError {
+    /// The same effect key was declared more than once.
     EffectKey(EffectKey),
+    /// More than one color-scheme observation was declared.
     ColorSchemeObservation,
+    /// More than one window-size observation was declared.
     WindowSizeObservation,
+    /// More than one window title was declared.
     WindowTitle,
+    /// More than one set of window visuals was declared.
     WindowVisuals,
 }
 
@@ -411,24 +422,32 @@ impl Drop for TaskSlot {
     }
 }
 
+/// A cooperative cancellation signal passed to background work.
 #[derive(Clone, Debug)]
 pub struct CancellationToken {
     control: Arc<TaskControl>,
 }
 
 impl CancellationToken {
+    /// Returns whether the component scope or task has been cancelled.
     pub fn is_cancelled(&self) -> bool {
         self.control.status() == ComponentTaskStatus::Cancelled
     }
 }
 
+/// The delivery state of a component background task.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 #[repr(u8)]
 pub enum ComponentTaskStatus {
+    /// The task is running on the thread pool.
     Running,
+    /// Its result is waiting in the component message queue.
     Queued,
+    /// Its result was delivered to the component.
     Delivered,
+    /// Delivery was cancelled.
     Cancelled,
+    /// Bounded scheduling or delivery rejected the result.
     Rejected,
 }
 
@@ -504,11 +523,11 @@ impl TaskControl {
     }
 }
 
-#[derive(Clone)]
 /// A handle for observing or cancelling background work.
 ///
 /// Dropping the handle does not cancel the task. Scope retirement, Pump shutdown, or an explicit
 /// [`cancel`](Self::cancel) call cancels it.
+#[derive(Clone)]
 pub struct ComponentTask {
     control: Arc<TaskControl>,
     queue: Arc<Mutex<BackgroundQueue>>,
@@ -516,6 +535,7 @@ pub struct ComponentTask {
 }
 
 impl ComponentTask {
+    /// Cancels delivery and removes a queued result when possible.
     pub fn cancel(&self) {
         self.control.cancel();
         let mut queue = self.queue.lock().unwrap();
@@ -524,10 +544,12 @@ impl ComponentTask {
             .retain(|envelope| !Arc::ptr_eq(&envelope.control, &self.control));
     }
 
+    /// Returns whether this task has been cancelled.
     pub fn is_cancelled(&self) -> bool {
         self.status() == ComponentTaskStatus::Cancelled
     }
 
+    /// Returns the current scheduling and delivery state.
     pub fn status(&self) -> ComponentTaskStatus {
         self.control.status()
     }
@@ -711,6 +733,10 @@ struct ComponentQueue {
     wake: Option<Rc<dyn Fn()>>,
 }
 
+/// Sends typed messages to a component's queued update loop.
+///
+/// Delivery never calls [`Component::update`] inline. A send returns `false` when the component
+/// is retired, the queue is closed, or the bounded local queue is full.
 pub struct LocalSender<M> {
     queue: Rc<RefCell<ComponentQueue>>,
     token: ComponentToken,
@@ -728,6 +754,7 @@ impl<M> Clone for LocalSender<M> {
 }
 
 impl<M: 'static> LocalSender<M> {
+    /// Queues a message for later delivery.
     pub fn send(&self, message: M) -> bool {
         let wake = {
             let mut queue = self.queue.borrow_mut();
@@ -755,6 +782,10 @@ impl<M: 'static> LocalSender<M> {
         true
     }
 
+    /// Adapts values into queued component messages.
+    ///
+    /// Captureless mapper functions retain callback identity across publications. Capturing
+    /// closures have identity only through clones of the returned callback.
     pub fn callback<T, F>(&self, map: F) -> Callback<T>
     where
         F: Fn(T) -> M + 'static,
@@ -770,6 +801,7 @@ impl<M: 'static> LocalSender<M> {
         }
     }
 
+    /// Creates a callback that queues a clone of `message` each time it is called.
     pub fn message(&self, message: M) -> Callback<()>
     where
         M: Clone,
@@ -778,6 +810,9 @@ impl<M: 'static> LocalSender<M> {
     }
 }
 
+/// Capabilities available while creating or updating a component.
+///
+/// Messages sent through this context are queued and delivered after the current lifecycle call.
 pub struct ComponentContext<C: Component> {
     sender: LocalSender<C::Message>,
     tasks: TaskSpawner,
@@ -791,6 +826,7 @@ impl<C: Component> ComponentContext<C> {
         self.window.request_open(root)
     }
 
+    /// Returns a sender bound to this component instance.
     pub fn sender(&self) -> LocalSender<C::Message> {
         self.sender.clone()
     }
@@ -851,6 +887,10 @@ impl<T> SingleDeclaration<T> {
     }
 }
 
+/// Records view-time declarations for a component publication.
+///
+/// Context reads subscribe the component to the resolved provider. Callbacks queue messages rather
+/// than updating the component during view construction.
 pub struct ViewContext<C: Component> {
     contexts: ContextSnapshot,
     effects: ComponentEffects,
@@ -885,18 +925,22 @@ impl<C: Component> ViewContext<C> {
         self.window_visuals.declare(visuals);
     }
 
+    /// Returns a sender bound to this component instance.
     pub fn sender(&self) -> LocalSender<C::Message> {
         self.sender.clone()
     }
 
+    /// Creates a callback that maps its argument to a queued component message.
     pub fn callback<T>(&self, map: impl Fn(T) -> C::Message + 'static) -> Callback<T> {
         self.sender.callback(map)
     }
 
+    /// Creates a callback that forwards its argument as a queued component message.
     pub fn forward(&self) -> Callback<C::Message> {
         self.sender.callback(std::convert::identity)
     }
 
+    /// Creates a callback that queues a clone of `message`.
     pub fn message(&self, message: C::Message) -> Callback<()>
     where
         C::Message: Clone,
@@ -904,6 +948,7 @@ impl<C: Component> ViewContext<C> {
         self.sender.message(message)
     }
 
+    /// Reads the nearest provided value, or the context's fallback when no provider exists.
     pub fn use_context<T: Clone + 'static>(&mut self, context: &Context<T>) -> T {
         let resolved = self.contexts.get(context);
         self.reads.insert(ContextDependency {
@@ -913,6 +958,11 @@ impl<C: Component> ViewContext<C> {
         resolved.map_or_else(|| context.default.clone(), |(_, value)| value)
     }
 
+    /// Declares an effect identified by `key` and `dependency`.
+    ///
+    /// The setup runs after a successful publication when the dependency is new or changed. Its
+    /// cleanup runs before replacement, when the effect is omitted, or when the component is
+    /// removed. Cleanup functions run in reverse order when the component is removed.
     pub fn use_effect<D>(
         &mut self,
         key: impl Into<EffectKey>,
@@ -925,13 +975,24 @@ impl<C: Component> ViewContext<C> {
     }
 }
 
+/// A stateful unit that turns input and queued messages into a [`View`].
+///
+/// Reactor calls [`create`](Self::create) once, [`input_changed`](Self::input_changed) when unequal
+/// input is applied, and [`update`](Self::update) for accepted queued messages. It then calls
+/// [`view`](Self::view) to publish the current tree and view-time declarations.
 pub trait Component: Sized + 'static {
+    /// Immutable parent-supplied data used to reconcile the component.
     type Input: Clone + PartialEq + 'static;
+    /// A message delivered to [`update`](Self::update).
     type Message: 'static;
 
+    /// Creates component state from its initial input.
     fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self;
+    /// Responds to a new input value that differs from the current input.
     fn input_changed(&mut self, _input: &Self::Input, _context: &ComponentContext<Self>) {}
+    /// Handles one queued message.
     fn update(&mut self, _message: Self::Message, _context: &ComponentContext<Self>) {}
+    /// Builds the current view and records context, effect, and window declarations.
     fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View;
 }
 

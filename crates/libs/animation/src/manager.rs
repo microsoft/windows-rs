@@ -31,13 +31,13 @@ impl Manager {
         unsafe { Ok(Storyboard(self.0.CreateStoryboard()?)) }
     }
 
-    /// Advances the animation manager to the specified time.
+    /// Advances the animation manager to the specified time in seconds.
     pub fn update(&self, time: f64) -> Result<()> {
         unsafe { self.0.Update(time, None) }.ok()?;
         Ok(())
     }
 
-    /// Schedules a transition on a variable, starting at the specified time.
+    /// Schedules a transition on a variable, starting at the specified time in seconds.
     pub fn schedule_transition(
         &self,
         variable: &Variable,

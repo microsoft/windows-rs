@@ -551,7 +551,8 @@ impl File {
         }
     }
 
-    /// Writes the `Type` into a `FileSig` buffer and stores it in the file, returning the blob offset.
+    /// Writes the `Type` into a `FileSig` buffer and stores it in the file, returning the blob
+    /// offset.
     fn FieldSig(&mut self, ty: &Type) -> BlobId {
         let mut buffer = vec![0x6]; // FIELD
         self.Type(ty, &mut buffer);

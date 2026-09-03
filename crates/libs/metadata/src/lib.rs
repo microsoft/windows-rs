@@ -29,8 +29,10 @@ pub use signature::*;
 
 pub use reader::{AsRow, HasAttributes};
 
+/// Metadata merge and namespace remapping support.
 pub mod merge;
 
+/// Creates a builder for combining winmd files.
 pub fn merge() -> merge::Merger {
     merge::Merger::new()
 }
@@ -41,6 +43,7 @@ pub fn remap() -> merge::Remapper {
     merge::Remapper::new()
 }
 
+/// Removes the generic arity suffix beginning with a backtick.
 pub fn trim_tick(name: &str) -> &str {
     if let Some(pos) = name.find('`') {
         &name[..pos]

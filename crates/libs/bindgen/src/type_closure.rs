@@ -76,7 +76,8 @@ impl TypeClosure {
                     }
                 }
 
-                // Unscoped enum variants are standalone constants; include the requested set explicitly.
+                // Unscoped enum variants are standalone constants; include the requested set
+                // explicitly.
                 if let Type::CppEnum(e) = &ty
                     && !e.def.has_attribute("ScopedEnumAttribute")
                     && let Some(variant_set) =
@@ -245,7 +246,8 @@ impl CombineClosure for Type {
                 field_ty.combine_closure(types, reader, references);
             }
             Self::Class(c) => {
-                // Classes pull in only the default interface unless other interfaces are explicit seeds.
+                // Classes pull in only the default interface unless other interfaces are
+                // explicit seeds.
                 for iface in c.required_interfaces(reader) {
                     if matches!(
                         iface.kind,

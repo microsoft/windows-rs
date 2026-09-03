@@ -137,18 +137,31 @@ impl NewWindowRequestedArgs {
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[non_exhaustive]
 pub enum PermissionKind {
+    /// A permission kind not represented by the other variants.
     Unknown,
+    /// Access to the microphone.
     Microphone,
+    /// Access to the camera.
     Camera,
+    /// Access to the device location.
     Geolocation,
+    /// Permission to show notifications.
     Notifications,
+    /// Access to device sensors other than location.
     OtherSensors,
+    /// Permission to read the clipboard.
     ClipboardRead,
+    /// Permission to start multiple downloads automatically.
     MultipleAutomaticDownloads,
+    /// Access to files on the device.
     FileReadWrite,
+    /// Permission to play media without user interaction.
     Autoplay,
+    /// Access to locally installed fonts.
     LocalFonts,
+    /// Access to system-exclusive MIDI messages.
     MidiSystemExclusiveMessages,
+    /// Permission to inspect and place windows on screens.
     WindowManagement,
 }
 
@@ -244,6 +257,7 @@ impl PermissionRequestedArgs {
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[non_exhaustive]
 pub enum ProcessFailedKind {
+    /// A process failure kind not represented by the other variants.
     Unknown,
     /// The browser process ended unexpectedly; the `WebView` is no longer usable.
     BrowserProcessExited,
@@ -252,12 +266,19 @@ pub enum ProcessFailedKind {
     RenderProcessExited,
     /// A render process is unresponsive (hung).
     RenderProcessUnresponsive,
+    /// A frame's render process ended unexpectedly.
     FrameRenderProcessExited,
+    /// A utility process ended unexpectedly.
     UtilityProcessExited,
+    /// A sandbox helper process ended unexpectedly.
     SandboxHelperProcessExited,
+    /// The GPU process ended unexpectedly.
     GpuProcessExited,
+    /// A PPAPI plugin process ended unexpectedly.
     PpapiPluginProcessExited,
+    /// A PPAPI broker process ended unexpectedly.
     PpapiBrokerProcessExited,
+    /// An unrecognized process ended unexpectedly.
     UnknownProcessExited,
 }
 
@@ -345,7 +366,9 @@ impl MoveFocusRequestedArgs {
 /// The kind of key event reported by [`AcceleratorKeyPressedArgs::key_event_kind`].
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum KeyEventKind {
+    /// A key was pressed.
     KeyDown,
+    /// A key was released.
     KeyUp,
     /// A system key was pressed (for example a key combined with Alt).
     SystemKeyDown,
@@ -406,7 +429,7 @@ impl DevToolsProtocolEventReceivedArgs {
     }
 }
 
-/// RAII guard for an event subscription.
+/// An event subscription that unsubscribes when dropped.
 #[must_use]
 pub struct EventRegistration(Option<Box<dyn FnOnce()>>);
 

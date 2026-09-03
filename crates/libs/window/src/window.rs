@@ -77,7 +77,7 @@ pub struct WindowBuilder {
 }
 
 impl WindowBuilder {
-    /// Sets the initial window size in pixels.
+    /// Sets the initial outer window size, including non-client borders, in pixels.
     pub fn size(mut self, width: i32, height: i32) -> Self {
         self.width = width;
         self.height = height;

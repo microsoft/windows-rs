@@ -135,9 +135,8 @@ impl<'a> Service<'a> {
     /// Runs the service with the given callback closure to receive commands sent by the service
     /// control manager.
     ///
-    /// This method will block for the life of the service. It will never return and immediately
-    /// terminate the current process after indicating to the service control manager that the
-    /// service has stopped.
+    /// Blocks while the service dispatcher runs. Returns after the service stops or the fallback
+    /// closure completes.
     pub fn run<F: FnMut(&Service, Command) + Send + Sync + 'a>(
         &mut self,
         callback: F,
@@ -211,7 +210,7 @@ impl<'a> Service<'a> {
         *self.handle.read().unwrap()
     }
 
-    /// The current state the service.
+    /// Returns the current state of the service.
     pub fn state(&self) -> State {
         let reader = self.status.read().unwrap();
 

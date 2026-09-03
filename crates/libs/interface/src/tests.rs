@@ -1,8 +1,8 @@
 //! Tests for the `#[interface]` macro that verify the generated code structure.
 //!
 //! These tests call `interface_core` directly and check that the formatted output contains
-//! the expected declarations, vtable, and trait definitions.  Any change to the code generator
-//! that silently removes or renames a key item will be caught as a test failure.
+//! the expected declarations, vtable, and trait definitions. The assertions detect removal or
+//! renaming of key generated items.
 //!
 //! To inspect the full formatted output of a test, run with `--nocapture`:
 //!
@@ -44,14 +44,12 @@ fn rustfmt(input: &str) -> String {
 
     let mut stdout = child.stdout.take().unwrap();
 
-    // spawn thread to read stdout
     let stdout_thread = std::thread::spawn(move || {
         let mut buf = String::new();
         stdout.read_to_string(&mut buf).unwrap();
         buf
     });
 
-    // write unformatted into stdin
     let mut stdin = child.stdin.take().unwrap();
     stdin.write_all(input.as_bytes()).unwrap();
     drop(stdin);

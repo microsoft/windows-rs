@@ -15,7 +15,7 @@ use windows_clang::LIBCLANG_VERSION;
 fn main() {
     // `tool_clang path` prints the directory holding the pinned `libclang.dll` (respecting an
     // existing `LIBCLANG_PATH`). CI's `test.yml` captures it into `LIBCLANG_PATH` for the
-    // `test_clang` suite, so the multithreaded test runner never has to call the `unsafe` `set_var`.
+    // `test_clang` suite, so the multithreaded test runner never calls the unsafe `set_var`.
     if std::env::args().nth(1).as_deref() == Some("path") {
         if let Some(dir) = std::env::var_os("LIBCLANG_PATH") {
             println!("{}", Path::new(&dir).display());
@@ -26,7 +26,8 @@ fn main() {
     }
 
     // Fetch + load the pinned `libclang.dll` and assert it reports `LIBCLANG_VERSION`. This is the
-    // same provisioning the scrapers run, so a broken/missing pin fails here rather than mid-scrape.
+    // same provisioning as the scrapers, so a broken or missing pin fails here rather than
+    // during a scrape.
     windows_clang::ensure_libclang();
     windows_clang::assert_libclang_version();
 

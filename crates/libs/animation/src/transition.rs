@@ -27,6 +27,8 @@ impl TransitionLibrary {
 
     /// Creates a transition that accelerates then decelerates.
     ///
+    /// `duration` is measured in seconds.
+    ///
     /// The sum of `acceleration_ratio` and `deceleration_ratio` must be <= 1.0.
     pub fn accelerate_decelerate(
         &self,
@@ -45,7 +47,7 @@ impl TransitionLibrary {
         }
     }
 
-    /// Creates a linear transition to the final value.
+    /// Creates a linear transition to the final value over `duration` seconds.
     pub fn linear(&self, duration: f64, final_value: f64) -> Result<Transition> {
         unsafe {
             Ok(Transition(

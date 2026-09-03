@@ -26,6 +26,9 @@ fn warn_redundant_cast<T: Interface>(location: &core::panic::Location<'_>) {
 /// Provides low-level access to a COM interface vtable.
 ///
 /// # Safety
+///
+/// Implementors must be transparent wrappers over an owned COM interface pointer. `Vtable` and
+/// `IID` must describe that interface, and cloning the wrapper must retain the COM reference.
 pub unsafe trait Interface: Sized + Clone {
     #[doc(hidden)]
     type Vtable;
@@ -264,31 +267,26 @@ impl<I: core::fmt::Debug + Interface> core::fmt::Debug for InterfaceRef<'_, I> {
 }
 
 impl<I: Interface> InterfaceRef<'_, I> {
-    /// Creates an `InterfaceRef` from a raw pointer. _This is extremely dangerous, since there
-    /// is no lifetime tracking at all!_
+    /// Borrows an interface from a raw pointer without changing its reference count.
     ///
     /// # Safety
-    /// The caller must guarantee that the `'a` lifetime parameter is bound by context to a correct
-    /// lifetime.
+    ///
+    /// `ptr` must point to a valid `I` that remains alive for the inferred lifetime.
     #[inline(always)]
     pub unsafe fn from_raw(ptr: NonNull<c_void>) -> Self {
         Self(ptr, PhantomData)
     }
 
-    /// Creates an `InterfaceRef` from an interface reference. This safely associates the lifetime
-    /// of the interface reference with the `'a` parameter of `InterfaceRef`. This allows for
-    /// lifetime checking _without_ calling AddRef/Release on the underlying lifetime, which can
-    /// improve efficiency.
+    /// Borrows an interface without calling `AddRef`.
     #[inline(always)]
     pub fn from_interface(interface: &I) -> Self {
         unsafe {
-            // SAFETY: new_unchecked() should be valid because Interface::as_raw should always
-            // return a non-null pointer.
+            // SAFETY: `Interface::as_raw` returns a non-null interface pointer.
             Self(NonNull::new_unchecked(interface.as_raw()), PhantomData)
         }
     }
 
-    /// Calls AddRef on the underlying COM interface and returns an "owned" (counted) reference.
+    /// Calls `AddRef` and returns an owned interface.
     #[inline(always)]
     pub fn to_owned(self) -> I {
         (*self).clone()

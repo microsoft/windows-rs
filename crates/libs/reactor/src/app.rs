@@ -720,9 +720,15 @@ impl LivePump for ComponentLoop {
     }
 }
 
+/// Starts and owns a Reactor application's WinUI message loop.
+///
+/// Each run method blocks until all application-owned windows have closed.
 pub struct App;
 
 impl App {
+    /// Runs one window whose root content is `root`.
+    ///
+    /// This call blocks while the WinUI message loop is running.
     pub fn run(root: View) -> windows_core::Result<()> {
         Self::run_with(move |application| {
             vec![Box::new(ComponentLoop {
@@ -734,6 +740,12 @@ impl App {
         })
     }
 
+    /// Runs one independent window and component pump for each root view.
+    ///
+    /// Unlike placing several views in a fragment, each item creates a separate native window.
+    /// This call blocks until every application-owned window has closed.
+    ///
+    /// Returns an invalid-argument error if `roots` is empty.
     pub fn run_windows<I>(roots: I) -> windows_core::Result<()>
     where
         I: IntoIterator<Item = View>,
@@ -760,6 +772,10 @@ impl App {
         })
     }
 
+    /// Runs one window rooted at component `C`.
+    ///
+    /// This is equivalent to passing [`View::component`] to [`run`](Self::run), and blocks while
+    /// the WinUI message loop is running.
     pub fn run_component<C: Component>(input: C::Input) -> windows_core::Result<()> {
         Self::run(View::component::<C>(input))
     }

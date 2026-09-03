@@ -155,6 +155,7 @@ mod file_uri_tests {
     }
 }
 
+/// A brush resolved from the active WinUI theme resources.
 #[repr(u8)]
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub enum ThemeBrush {
@@ -168,6 +169,7 @@ pub enum ThemeBrush {
     SystemCriticalBackground,
 }
 
+/// An OpenType font weight in the inclusive range 1 through 999.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct FontWeight(u16);
 
@@ -184,6 +186,7 @@ impl FontWeight {
     pub const SEMI_LIGHT: Self = Self(350);
     pub const THIN: Self = Self(100);
 
+    /// Creates a font weight, returning `None` outside the OpenType range 1 through 999.
     pub const fn new(weight: u16) -> Option<Self> {
         if weight >= 1 && weight <= 999 {
             Some(Self(weight))
@@ -192,6 +195,7 @@ impl FontWeight {
         }
     }
 
+    /// Returns the numeric OpenType weight.
     pub const fn get(self) -> u16 {
         self.0
     }
@@ -232,6 +236,7 @@ impl ThemeBrush {
     }
 }
 
+/// An 8-bit-per-channel ARGB color.
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
 pub struct Color {
@@ -242,19 +247,23 @@ pub struct Color {
 }
 
 impl Color {
+    /// Creates a color from alpha, red, green, and blue channels.
     pub const fn argb(a: u8, r: u8, g: u8, b: u8) -> Self {
         Self { a, r, g, b }
     }
 
+    /// Creates an opaque color from red, green, and blue channels.
     pub const fn rgb(r: u8, g: u8, b: u8) -> Self {
         Self::argb(255, r, g, b)
     }
 
+    /// Returns fully transparent black.
     pub const fn transparent() -> Self {
         Self::argb(0, 0, 0, 0)
     }
 }
 
+/// A theme resource brush or a fixed solid color.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub enum Brush {
     Theme(ThemeBrush),
@@ -331,6 +340,7 @@ pub(crate) mod sealed {
     }
 }
 
+/// Stable identity for a keyed child, menu item, tree node, or command.
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub struct Key(KeyKind);
 
@@ -416,6 +426,10 @@ pub(crate) trait NativeChildrenTestExt: Sized {
     fn native_children(self, children: impl IntoIterator<Item = KeyedElement>) -> Self;
 }
 
+/// A declarative Reactor subtree.
+///
+/// Positional fragments preserve identity by position. Keyed fragments preserve child identity by
+/// [`Key`] as items are inserted, removed, or reordered.
 #[derive(Clone, Debug, PartialEq)]
 pub struct View(ViewKind);
 
@@ -491,6 +505,7 @@ pub(crate) enum ViewKind {
 /// ```
 pub trait IntoViews: sealed::StaticViews {}
 
+/// Placement of a tooltip relative to its target.
 #[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
 pub enum TooltipPlacement {
     #[default]
@@ -501,6 +516,7 @@ pub enum TooltipPlacement {
     Mouse,
 }
 
+/// Text or view content displayed as a tooltip.
 #[derive(Clone, Debug, PartialEq)]
 pub struct Tooltip {
     pub(crate) content: Box<View>,
@@ -508,10 +524,12 @@ pub struct Tooltip {
 }
 
 impl Tooltip {
+    /// Creates a text tooltip with top placement.
     pub fn text(value: impl Into<String>) -> Self {
         Self::rich(TextBlock::new().text(value))
     }
 
+    /// Creates a rich-content tooltip with top placement.
     pub fn rich(content: impl Into<View>) -> Self {
         Self {
             content: Box::new(content.into()),
@@ -519,12 +537,14 @@ impl Tooltip {
         }
     }
 
+    /// Sets the preferred placement.
     pub fn placement(mut self, placement: TooltipPlacement) -> Self {
         self.placement = placement;
         self
     }
 }
 
+/// Adds a tooltip to a view.
 pub trait TooltipExt: Into<View> + Sized {
     fn tooltip(self, value: impl Into<String>) -> View {
         self.tooltip_with(Tooltip::text(value))
@@ -540,6 +560,7 @@ pub trait TooltipExt: Into<View> + Sized {
 
 impl<T> TooltipExt for T where T: Into<View> {}
 
+/// Placement of a flyout relative to its target.
 #[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
 pub enum FlyoutPlacement {
     #[default]
@@ -559,6 +580,7 @@ pub enum FlyoutPlacement {
     Auto,
 }
 
+/// Text or view content displayed in a flyout.
 #[derive(Clone, Debug, PartialEq)]
 pub struct Flyout {
     pub(crate) content: Box<View>,
@@ -566,10 +588,12 @@ pub struct Flyout {
 }
 
 impl Flyout {
+    /// Creates a text flyout with top placement.
     pub fn text(value: impl Into<String>) -> Self {
         Self::rich(TextBlock::new().text(value))
     }
 
+    /// Creates a rich-content flyout with top placement.
     pub fn rich(content: impl Into<View>) -> Self {
         Self {
             content: Box::new(content.into()),
@@ -577,12 +601,14 @@ impl Flyout {
         }
     }
 
+    /// Sets the preferred placement.
     pub fn placement(mut self, placement: FlyoutPlacement) -> Self {
         self.placement = placement;
         self
     }
 }
 
+/// Adds a flyout to a view.
 pub trait FlyoutExt: Into<View> + Sized {
     fn flyout(self, value: impl Into<String>) -> View {
         self.flyout_with(Flyout::text(value))
@@ -598,6 +624,7 @@ pub trait FlyoutExt: Into<View> + Sized {
 
 impl<T> FlyoutExt for T where T: Into<View> {}
 
+/// A keyed item in a context menu.
 #[derive(Clone, Debug, PartialEq)]
 pub enum MenuItem {
     Item {
@@ -616,6 +643,7 @@ pub enum MenuItem {
 }
 
 impl MenuItem {
+    /// Creates an enabled command item.
     pub fn item(key: impl Into<Key>, label: impl Into<String>) -> Self {
         Self::Item {
             key: key.into(),
@@ -624,6 +652,7 @@ impl MenuItem {
         }
     }
 
+    /// Creates a disabled command item.
     pub fn disabled(key: impl Into<Key>, label: impl Into<String>) -> Self {
         Self::Item {
             key: key.into(),
@@ -632,10 +661,12 @@ impl MenuItem {
         }
     }
 
+    /// Creates a separator.
     pub fn separator(key: impl Into<Key>) -> Self {
         Self::Separator { key: key.into() }
     }
 
+    /// Creates a nested submenu.
     pub fn submenu(
         key: impl Into<Key>,
         label: impl Into<String>,
@@ -655,6 +686,7 @@ impl MenuItem {
     }
 }
 
+/// A context menu whose click callback receives the selected item's label.
 #[derive(Clone, Debug, PartialEq)]
 pub struct Menu {
     pub(crate) items: Vec<MenuItem>,
@@ -662,6 +694,7 @@ pub struct Menu {
 }
 
 impl Menu {
+    /// Creates a menu and a callback that receives the selected item's label.
     pub fn new(
         items: impl IntoIterator<Item = MenuItem>,
         on_click: impl IntoPayloadCallback<String>,
@@ -673,6 +706,7 @@ impl Menu {
     }
 }
 
+/// Adds a context menu to a view.
 pub trait MenuExt: Into<View> + Sized {
     fn menu(self, menu: Menu) -> View {
         View(ViewKind::Menu {
@@ -684,6 +718,7 @@ pub trait MenuExt: Into<View> + Sized {
 
 impl<T> MenuExt for T where T: Into<View> {}
 
+/// A keyed command owned by a command bar or command-bar flyout.
 #[derive(Clone, Debug, PartialEq)]
 pub enum CommandBarCommand {
     Button {
@@ -784,6 +819,7 @@ impl CommandBar {
     }
 }
 
+/// Primary and secondary commands displayed in a command-bar flyout.
 #[derive(Clone, Debug, PartialEq)]
 pub struct CommandBarFlyout {
     pub(crate) primary: Vec<CommandBarCommand>,
@@ -805,6 +841,7 @@ impl CommandBarFlyout {
     }
 }
 
+/// Adds a command-bar flyout to a view.
 pub trait CommandBarFlyoutExt: Into<View> + Sized {
     fn command_bar_flyout(self, flyout: CommandBarFlyout) -> View {
         View(ViewKind::CommandBarFlyout {
@@ -816,29 +853,34 @@ pub trait CommandBarFlyoutExt: Into<View> + Sized {
 
 impl<T> CommandBarFlyoutExt for T where T: Into<View> {}
 
+/// Paragraph content for a [`RichTextBlock`].
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct RichText {
     pub(crate) paragraphs: Rc<Vec<RichTextParagraph>>,
 }
 
 impl RichText {
+    /// Creates rich text from paragraphs.
     pub fn new(paragraphs: impl IntoIterator<Item = RichTextParagraph>) -> Self {
         Self {
             paragraphs: Rc::new(paragraphs.into_iter().collect()),
         }
     }
 
+    /// Creates rich text containing one paragraph.
     pub fn single_paragraph(inlines: impl IntoIterator<Item = RichTextInline>) -> Self {
         Self::new([RichTextParagraph::new(inlines)])
     }
 }
 
+/// A paragraph of rich-text inline values.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct RichTextParagraph {
     pub(crate) inlines: Vec<RichTextInline>,
 }
 
 impl RichTextParagraph {
+    /// Creates a paragraph from inline values.
     pub fn new(inlines: impl IntoIterator<Item = RichTextInline>) -> Self {
         Self {
             inlines: inlines.into_iter().collect(),
@@ -846,6 +888,7 @@ impl RichTextParagraph {
     }
 }
 
+/// An inline run, hyperlink, or line break in rich text.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum RichTextInline {
     Run(RichTextRun),
@@ -853,6 +896,7 @@ pub enum RichTextInline {
     LineBreak,
 }
 
+/// A text run with optional bold and italic styling.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct RichTextRun {
     pub text: String,
@@ -861,6 +905,7 @@ pub struct RichTextRun {
 }
 
 impl RichTextRun {
+    /// Creates an unstyled text run.
     pub fn plain(text: impl Into<String>) -> Self {
         Self {
             text: text.into(),
@@ -869,12 +914,14 @@ impl RichTextRun {
     }
 }
 
+/// A hyperlink with display text and a target URI.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RichTextHyperlink {
     pub text: String,
     pub uri: String,
 }
 
+/// A keyed node in a tree view.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TreeNode {
     pub(crate) key: Key,
@@ -884,6 +931,7 @@ pub struct TreeNode {
 }
 
 impl TreeNode {
+    /// Creates a collapsed leaf node.
     pub fn new(key: impl Into<Key>, text: impl Into<String>) -> Self {
         Self {
             key: key.into(),
@@ -893,22 +941,26 @@ impl TreeNode {
         }
     }
 
+    /// Sets whether the node is expanded.
     pub fn expanded(mut self, value: bool) -> Self {
         self.expanded = value;
         self
     }
 
+    /// Replaces the node's children.
     pub fn children(mut self, children: impl IntoIterator<Item = Self>) -> Self {
         self.children = children.into_iter().collect();
         self
     }
 
+    /// Appends one child node.
     pub fn child(mut self, child: Self) -> Self {
         self.children.push(child);
         self
     }
 }
 
+/// Supplies a keyed node hierarchy to a tree view.
 pub trait TreeViewExt: Into<View> + Sized {
     fn nodes(self, nodes: impl IntoIterator<Item = TreeNode>) -> View {
         View(ViewKind::TreeNodes {
@@ -921,6 +973,7 @@ pub trait TreeViewExt: Into<View> + Sized {
 impl<T> TreeViewExt for T where T: Into<View> {}
 
 impl View {
+    /// Creates a fragment with no children.
     pub fn empty() -> Self {
         Self::fragment(())
     }
@@ -929,14 +982,17 @@ impl View {
         Self(ViewKind::Native(control.into()))
     }
 
+    /// Creates a component view from its input.
     pub fn component<C: Component>(input: C::Input) -> Self {
         Self(ViewKind::Component(ComponentView::new::<C>(input)))
     }
 
+    /// Creates a statically shaped fragment whose children are identified by position.
     pub fn fragment(children: impl IntoViews) -> Self {
         Self(ViewKind::Fragment(positioned(children)))
     }
 
+    /// Creates a dynamic fragment whose children are reconciled by key.
     pub fn keyed_fragment<T>(children: impl IntoIterator<Item = T>) -> Self
     where
         T: Into<KeyedView>,
@@ -946,6 +1002,7 @@ impl View {
         )))
     }
 
+    /// Provides a context value to `child` and its descendants.
     pub fn provide<T>(context: &Context<T>, value: T, child: impl Into<Self>) -> Self
     where
         T: Clone + PartialEq + 'static,
@@ -983,6 +1040,7 @@ impl View {
     }
 }
 
+/// Content assigned to one typed control slot.
 #[derive(Clone, Debug, PartialEq)]
 pub struct SlotView<S> {
     slot: S,
@@ -990,6 +1048,7 @@ pub struct SlotView<S> {
 }
 
 impl<S> SlotView<S> {
+    /// Creates a slot containing one view.
     pub fn new(slot: S, view: impl Into<View>) -> Self {
         Self {
             slot,
@@ -997,6 +1056,7 @@ impl<S> SlotView<S> {
         }
     }
 
+    /// Creates a collection slot whose children are reconciled by key.
     pub fn collection<T>(slot: S, children: impl IntoIterator<Item = T>) -> Self
     where
         T: Into<KeyedView>,
@@ -1044,6 +1104,7 @@ impl From<&str> for View {
     }
 }
 
+/// A view paired with stable reconciliation identity.
 #[derive(Clone, Debug, PartialEq)]
 pub struct KeyedView {
     key: Key,
@@ -1051,6 +1112,7 @@ pub struct KeyedView {
 }
 
 impl KeyedView {
+    /// Associates `view` with `key`.
     pub fn new(key: impl Into<Key>, view: impl Into<View>) -> Self {
         Self {
             key: key.into(),
@@ -1088,6 +1150,9 @@ where
     }
 }
 
+/// A lazily materialized, keyed source for a virtualizing control.
+///
+/// Item functions are called only for indices that the control needs to realize.
 #[derive(Clone)]
 pub struct VirtualSource {
     key_revision: u64,
@@ -1306,18 +1371,22 @@ impl FourValues {
     }
 }
 
+/// Four edge values measured in device-independent pixels (DIPs).
 #[derive(Clone, Debug)]
 pub struct Thickness(FourValues);
 
 impl Thickness {
+    /// Uses the same DIP value for all four edges.
     pub fn uniform(value: f64) -> Self {
         Self(FourValues::Uniform(value))
     }
 
+    /// Uses one DIP value for horizontal edges and another for vertical edges.
     pub fn xy(horizontal: f64, vertical: f64) -> Self {
         Self::new(horizontal, vertical, horizontal, vertical)
     }
 
+    /// Creates edge values in left, top, right, bottom order, measured in DIPs.
     pub fn new(left: f64, top: f64, right: f64, bottom: f64) -> Self {
         Self(FourValues::new([left, top, right, bottom]))
     }
@@ -1371,14 +1440,17 @@ impl PartialEq for Thickness {
     }
 }
 
+/// Four corner radii measured in device-independent pixels (DIPs).
 #[derive(Clone, Debug)]
 pub struct CornerRadius(FourValues);
 
 impl CornerRadius {
+    /// Uses the same DIP radius for all four corners.
     pub fn uniform(value: f64) -> Self {
         Self(FourValues::Uniform(value))
     }
 
+    /// Creates radii in top-left, top-right, bottom-right, bottom-left order.
     pub fn new(top_left: f64, top_right: f64, bottom_right: f64, bottom_left: f64) -> Self {
         Self(FourValues::new([
             top_left,
@@ -1433,6 +1505,7 @@ impl PartialEq for CornerRadius {
     }
 }
 
+/// A supported WinUI resource override value.
 #[derive(Clone, Debug, PartialEq)]
 pub enum ResourceValue {
     Color(Color),
@@ -1458,6 +1531,7 @@ impl From<CornerRadius> for ResourceValue {
     }
 }
 
+/// Theme resource values applied to a control subtree.
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct ResourceOverrides {
     values: std::collections::BTreeMap<String, ResourceValue>,
@@ -1468,6 +1542,11 @@ impl ResourceOverrides {
         Self::default()
     }
 
+    /// Adds or replaces a resource value.
+    ///
+    /// # Panics
+    ///
+    /// Panics if the key is empty, or if a thickness or radius is negative or non-finite.
     pub fn set(mut self, key: impl Into<String>, value: impl Into<ResourceValue>) -> Self {
         let key = key.into();
         assert!(!key.is_empty(), "resource override key must not be empty");
@@ -1496,6 +1575,7 @@ impl ResourceOverrides {
     }
 }
 
+/// The theme requested for a window.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum WindowTheme {
     #[default]
@@ -1504,12 +1584,14 @@ pub enum WindowTheme {
     Dark,
 }
 
+/// Window client dimensions in device-independent pixels (DIPs).
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WindowSize {
     pub width: f64,
     pub height: f64,
 }
 
+/// Whether the active application color scheme is light or dark.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum ColorScheme {
     #[default]
@@ -1594,6 +1676,7 @@ pub enum DroppedData {
     Unsupported,
 }
 
+/// Material used behind a window's content.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum WindowBackdrop {
     #[default]
@@ -1603,6 +1686,7 @@ pub enum WindowBackdrop {
     Acrylic,
 }
 
+/// Height preset for an extended window title bar.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum WindowTitleBarHeight {
     #[default]
@@ -1610,6 +1694,7 @@ pub enum WindowTitleBarHeight {
     Tall,
 }
 
+/// Optional window client-size limits in device-independent pixels (DIPs).
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WindowConstraints {
     pub min_width: Option<f64>,
@@ -1647,6 +1732,7 @@ impl WindowConstraints {
     }
 }
 
+/// Window appearance and client sizing requested by a component publication.
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WindowVisuals {
     pub(crate) backdrop: WindowBackdrop,
@@ -1666,6 +1752,11 @@ impl WindowVisuals {
         self
     }
 
+    /// Sets the initial client size in DIPs.
+    ///
+    /// # Panics
+    ///
+    /// Panics unless both dimensions are finite and positive.
     pub fn client_size(mut self, width: f64, height: f64) -> Self {
         assert!(
             width.is_finite() && width > 0.0 && height.is_finite() && height > 0.0,
@@ -1675,12 +1766,22 @@ impl WindowVisuals {
         self
     }
 
+    /// Sets the path to the window icon.
+    ///
+    /// # Panics
+    ///
+    /// Panics if `path` is empty.
     pub fn icon(mut self, path: &'static str) -> Self {
         assert!(!path.is_empty(), "window icon path must not be empty");
         self.icon = Some(path);
         self
     }
 
+    /// Sets client-size constraints in DIPs.
+    ///
+    /// # Panics
+    ///
+    /// Panics if a bound is non-positive or non-finite, or a minimum exceeds its maximum.
     pub fn constraints(mut self, constraints: WindowConstraints) -> Self {
         constraints.validate();
         self.constraints = Some(constraints);
@@ -1731,14 +1832,19 @@ mod visual_value_tests {
     }
 }
 
+/// A Grid row or column size.
 #[derive(Clone, Copy, Debug)]
 pub enum GridLength {
+    /// Sizes to the content.
     Auto,
+    /// Uses a fixed number of device-independent pixels (DIPs).
     Pixel(f64),
+    /// Uses a weighted share of the remaining space.
     Star(f64),
 }
 
 impl GridLength {
+    /// One weighted share of the remaining space.
     pub const STAR: Self = Self::Star(1.0);
 
     pub(crate) fn is_valid(self) -> bool {
@@ -1761,6 +1867,7 @@ impl PartialEq for GridLength {
     }
 }
 
+/// Horizontal placement within the space assigned by a parent.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum HorizontalAlignment {
     Left,
@@ -1769,6 +1876,7 @@ pub enum HorizontalAlignment {
     Stretch,
 }
 
+/// Vertical placement within the space assigned by a parent.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum VerticalAlignment {
     Top,
@@ -1879,12 +1987,17 @@ impl<K: PartialEq + 'static> ErasedCallbackIdentity for TypedCallbackIdentity<K>
     }
 }
 
+/// A clonable callback used by Reactor events.
+///
+/// Clones compare equal and retain the same function. Callbacks made by a [`LocalSender`] from a
+/// captureless mapper can also compare equal across publications.
 pub struct Callback<T> {
     callback: Rc<dyn Fn(T) -> bool>,
     identity: Option<Rc<dyn ErasedCallbackIdentity>>,
 }
 
 impl<T> Callback<T> {
+    /// Wraps a callback that always reports accepted delivery.
     pub fn new(callback: impl Fn(T) + 'static) -> Self {
         Self::new_with_acceptance(move |value| {
             callback(value);
@@ -1914,6 +2027,9 @@ impl<T> Callback<T> {
     }
 
     #[must_use = "false means the adapted message was rejected"]
+    /// Calls the handler and returns whether it accepted the value.
+    ///
+    /// Sender-backed callbacks return `false` when their component message cannot be queued.
     pub fn call(&self, value: T) -> bool {
         (self.callback)(value)
     }
@@ -1988,6 +2104,7 @@ impl IntoUnitCallback for Callback<()> {
     }
 }
 
+/// A key supported by Reactor keyboard accelerators.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub enum AcceleratorKey {
     R,
@@ -2009,6 +2126,7 @@ pub enum AcceleratorKey {
     Enter,
 }
 
+/// Modifier keys for a keyboard accelerator.
 #[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
 pub enum AcceleratorModifiers {
     #[default]
@@ -2029,12 +2147,18 @@ pub enum AutomationHeadingLevel {
     Level9,
 }
 
+/// A fade applied while an element is removed from the native tree.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ExitTransition {
     duration: Duration,
 }
 
 impl ExitTransition {
+    /// Creates a fade-out transition.
+    ///
+    /// # Panics
+    ///
+    /// Panics if `duration` is zero.
     pub fn fade(duration: Duration) -> Self {
         assert!(
             !duration.is_zero(),
@@ -2048,6 +2172,7 @@ impl ExitTransition {
     }
 }
 
+/// A keyboard accelerator and its callback.
 #[derive(Clone, Debug, PartialEq)]
 pub struct KeyAccelerator {
     pub(crate) key: AcceleratorKey,
@@ -2056,6 +2181,7 @@ pub struct KeyAccelerator {
 }
 
 impl KeyAccelerator {
+    /// Creates an accelerator for `key` and `modifiers`.
     pub fn new(
         key: AcceleratorKey,
         modifiers: AcceleratorModifiers,
@@ -2069,6 +2195,7 @@ impl KeyAccelerator {
     }
 }
 
+/// A set of keyboard accelerators assigned to a control.
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct KeyAccelerators {
     pub(crate) values: Vec<KeyAccelerator>,
@@ -2082,6 +2209,10 @@ impl KeyAccelerators {
     }
 }
 
+/// Applies layout, opacity, margin, and exit-transition properties to native controls.
+///
+/// Dimensions, margins, and Canvas positions use device-independent pixels (DIPs). Passing
+/// `None` to an optional property leaves it inherited or unset.
 #[allow(private_bounds)]
 pub trait LayoutControl: sealed::LayoutControl {
     fn width(mut self, value: impl Into<Option<f64>>) -> Self
@@ -2277,12 +2408,19 @@ impl ElementState {
         self.exit_transition
     }
 }
+
+/// Assigns one content view to a native content control.
 #[allow(private_bounds)]
 pub trait ContentControl: sealed::ContentControl + Sized {
     fn content(self, content: impl Into<View>) -> View {
         sealed::ContentControl::into_content_view(self, content.into())
     }
 }
+
+/// Assigns children to a native container.
+///
+/// [`children`](Self::children) uses positional identity for static shapes.
+/// [`keyed_children`](Self::keyed_children) preserves identity by key for dynamic collections.
 #[allow(private_bounds)]
 pub trait ChildrenControl: sealed::NativeControl + Sized {
     fn children(self, children: impl IntoViews) -> View {
@@ -2302,6 +2440,8 @@ pub trait ChildrenControl: sealed::NativeControl + Sized {
         })
     }
 }
+
+/// Assigns single views or keyed collections to a control's typed slots.
 #[allow(private_bounds)]
 pub trait SlotsControl: sealed::NativeControl + sealed::SlotIndex<Self::Slot> + Sized {
     type Slot: Copy;
@@ -2493,6 +2633,7 @@ pub trait CanvasChildExt: LayoutControl + Sized {
 
 impl<T: LayoutControl> CanvasChildExt for T {}
 
+/// Adds UI Automation metadata to a native control.
 pub trait AutomationExt: LayoutControl + Sized {
     fn automation_name(mut self, value: impl Into<String>) -> Self {
         Rc::make_mut(

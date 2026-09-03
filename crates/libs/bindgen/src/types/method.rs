@@ -384,7 +384,8 @@ impl Method {
                         quote! { #name.len().try_into().unwrap(), core::mem::transmute(#name.as_ptr()) }
                     }
                 } else if param.ireference_inner(config.reader).is_some() {
-                    // Sugared `Option<T>` is materialized as `Option<IReference<T>>` in the prelude.
+                    // Sugared `Option<T>` is materialized as `Option<IReference<T>>` in the
+                    // prelude.
                     let local: TokenStream = format!("{name}__").parse().unwrap();
                     quote! { windows_core::Param::param(#local.as_ref()).abi() }
                 } else if param.is_convertible() {
@@ -785,7 +786,7 @@ impl Method {
                     // The wrapper closure uses the delegate parameters but no return type.
                     let fn_sig_no_return = invoke.write_impl_signature_no_return(config);
 
-                    // Local minimal delegates accept void closures; referenced/default delegates need `Result`.
+                    // Local minimal delegates accept void closures; other delegates need `Result`.
                     let delegate_is_local_minimal = config.bindgen.style.is_minimal()
                         && config.references.contains(d.type_name()).is_none();
 
@@ -847,7 +848,8 @@ impl Method {
                         .collect();
 
                     let event_where_clause = {
-                        // Local minimal delegates inline `DelegateBox`, so only referenced delegates need `Send`.
+                        // Local minimal delegates inline `DelegateBox`; referenced delegates need
+                        // `Send`.
                         if delegate_is_local_minimal {
                             quote! {
                                 where #(#other_constraints)* F: Fn #fn_sig_no_return + 'static,
@@ -874,7 +876,8 @@ impl Method {
                         .collect();
 
                     let event_prelude = if delegate_is_local_minimal {
-                        // Inline `DelegateBox` so the wrapper's where clause controls the `Send` bound.
+                        // Inline `DelegateBox` so the wrapper's where clause controls the `Send`
+                        // bound.
                         let boxed_name: TokenStream =
                             format!("{}Box", trim_tick(d.def.name())).parse().unwrap();
                         let generic_names = d.generics.iter().map(|ty| ty.write_name(config));
@@ -887,7 +890,8 @@ impl Method {
                             };
                         }
                     } else {
-                        // Synthetic closure argument names cannot collide with user-visible parameters.
+                        // Synthetic closure argument names cannot collide with user-visible
+                        // parameters.
                         let invoke_arg_idents: Vec<TokenStream> =
                             (0..invoke.signature.params.len())
                                 .map(|i| format!("a{i}").parse().unwrap())

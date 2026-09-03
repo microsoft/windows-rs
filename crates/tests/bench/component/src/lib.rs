@@ -228,14 +228,12 @@ impl bindings::IWidget_Impl for Widget_Impl {
     }
 
     fn ItemsView(&self, count: u32) -> Result<windows_collections::IVectorView<i32>> {
-        // Return the read-only view of the same vector so a consumer can measure the per-element
-        // cost of reading a projected `IVectorView<T>` (GetAt/get_Size/GetMany at the view's slots).
+        // Return the read-only view so consumers can measure projected `IVectorView<T>` access.
         windows_collections::IVector::<i32>::from((0..count as i32).collect::<Vec<i32>>()).GetView()
     }
 
     fn MapView(&self, count: u32) -> Result<windows_collections::IMapView<i32, i32>> {
-        // Return the read-only view of the same map so a consumer can measure the per-lookup cost of
-        // a projected `IMapView<K,V>` (Lookup/get_Size/HasKey at the view's slots).
+        // Return the read-only view so consumers can measure projected `IMapView<K, V>` access.
         windows_collections::IMap::<i32, i32>::from(
             (0..count as i32)
                 .map(|i| (i, i))

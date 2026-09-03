@@ -101,7 +101,7 @@ impl TypeMap {
         let covered = self.reference_provided_closure(config);
 
         self.0.iter().all(|(tn, _)| {
-            // An empty namespace covers core types like `HRESULT`. This way we don't exclude methods
+            // An empty namespace covers core types like `HRESULT`. This preserves methods
             // that depend on core types that aren't explicitly included in the filter.
             if tn.namespace().is_empty() {
                 return true;

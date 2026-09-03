@@ -192,7 +192,8 @@ impl CppMethod {
                 if is_retval {
                     return_hint = ReturnHint::ResultValue;
                 } else {
-                    // Non-retval HRESULT consumers preserve non-S_OK success codes; producers use `Result`.
+                    // Non-retval HRESULT consumers preserve non-S_OK success codes; producers use
+                    // `Result`.
                     return_hint = ReturnHint::HResult;
                 }
 
@@ -707,7 +708,7 @@ impl CppMethod {
                             } else {
                                 quote! { #name.as_mut_ptr() }
                             };
-                            // Transmute slice pointers only when the public element type differs from ABI.
+                            // Transmute only when the public element type differs from ABI.
                             let elem = if matches!(
                                 self.param_hints[position],
                                 ParamHint::ArrayRelativeByteLen(_)
@@ -730,7 +731,8 @@ impl CppMethod {
                         ParamHint::ArrayRelativePtr(relative) => {
                             let relative_param = &self.signature.params[relative];
                             let name = relative_param.write_ident();
-                            // Full-mode scalar count typedefs need newtype wrapping; sys/minimal aliases do not.
+                            // Full-mode scalar count typedefs need newtype wrapping; sys/minimal
+                            // aliases do not.
                             let zero = write_newtype_wrap(&param.ty, &quote! { 0 }, config);
                             let len = write_newtype_wrap(
                                 &param.ty,
