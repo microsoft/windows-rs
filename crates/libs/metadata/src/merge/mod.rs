@@ -4,6 +4,7 @@ use std::path::{Path, PathBuf};
 mod remap;
 pub use remap::Remapper;
 
+/// An error encountered while reading, combining, or writing metadata.
 pub struct Error(String);
 
 impl Error {
@@ -26,6 +27,7 @@ impl std::fmt::Display for Error {
     }
 }
 
+/// A builder for combining winmd files.
 #[derive(Default)]
 pub struct Merger {
     input: Vec<PathBuf>,
@@ -36,15 +38,18 @@ pub struct Merger {
 }
 
 impl Merger {
+    /// Creates an empty merge configuration.
     pub fn new() -> Self {
         Self::default()
     }
 
+    /// Adds an input winmd file.
     pub fn input(&mut self, input: impl AsRef<Path>) -> &mut Self {
         self.input.push(input.as_ref().to_path_buf());
         self
     }
 
+    /// Adds input winmd files.
     pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
@@ -73,11 +78,16 @@ impl Merger {
         self
     }
 
+    /// Sets the output winmd path.
     pub fn output(&mut self, output: impl AsRef<Path>) -> &mut Self {
         self.output = output.as_ref().to_path_buf();
         self
     }
 
+    /// Combines the configured inputs and writes the output winmd.
+    ///
+    /// Returns an error when the output is missing, an input cannot be read, or the metadata
+    /// cannot be merged.
     pub fn merge(&self) -> Result<(), Error> {
         if self.output.as_os_str().is_empty() {
             return Err(Error::new("output is required"));

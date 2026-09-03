@@ -3,8 +3,10 @@ use super::*;
 /// How a 32-bit BGRA bitmap's alpha channel is interpreted.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum AlphaMode {
+    /// Color channels have already been multiplied by alpha.
     #[default]
     Premultiplied,
+    /// Alpha is ignored and pixels are treated as opaque.
     Ignore,
 }
 
@@ -153,6 +155,9 @@ mod sealed {
     pub trait Sealed {}
 }
 
+/// A brush accepted by drawing and filling operations.
+///
+/// This sealed trait is implemented by solid, linear-gradient, and radial-gradient brushes.
 pub trait Paint: sealed::Sealed {
     #[doc(hidden)]
     fn as_raw_brush(&self) -> &ID2D1Brush;
@@ -162,6 +167,7 @@ pub trait Paint: sealed::Sealed {
 pub struct Brush(pub(crate) ID2D1SolidColorBrush);
 
 impl Brush {
+    /// Changes the brush color.
     pub fn set_color(&self, color: ColorF) {
         let c: D2D_COLOR_F = color.into();
         unsafe { self.0.SetColor(&c) };
@@ -219,10 +225,14 @@ impl GradientStop {
 /// Cap style applied to the start and end of stroked lines.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum CapStyle {
+    /// Ends at the endpoint without extending beyond it.
     #[default]
     Flat,
+    /// Extends by half the stroke width with a square end.
     Square,
+    /// Extends by half the stroke width with a round end.
     Round,
+    /// Extends with a triangular end.
     Triangle,
 }
 
@@ -240,9 +250,12 @@ impl CapStyle {
 /// Line join style for connected segments.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum LineJoin {
+    /// Extends edges until they meet, subject to the miter limit.
     #[default]
     Miter,
+    /// Cuts the corner between segments.
     Bevel,
+    /// Rounds the corner between segments.
     Round,
 }
 
@@ -259,10 +272,14 @@ impl LineJoin {
 /// Dash pattern for stroked lines.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum DashStyle {
+    /// A continuous stroke.
     #[default]
     Solid,
+    /// A repeating dash pattern.
     Dash,
+    /// A repeating dot pattern.
     Dot,
+    /// Alternating dashes and dots.
     DashDot,
 }
 
@@ -284,6 +301,9 @@ impl DashStyle {
 pub struct StrokeStyle(pub(crate) ID2D1StrokeStyle1);
 
 /// Builder for [`StrokeStyle`].
+///
+/// The default is a solid miter-joined stroke with flat caps, zero dash offset, and a miter limit
+/// of 10.
 #[derive(Clone, Debug, Default)]
 pub struct StrokeStyleBuilder {
     pub(crate) start_cap: CapStyle,
@@ -296,6 +316,7 @@ pub struct StrokeStyleBuilder {
 }
 
 impl StrokeStyleBuilder {
+    /// Creates a builder with the default Direct2D stroke settings.
     pub fn new() -> Self {
         Self {
             miter_limit: 10.0,
@@ -303,27 +324,32 @@ impl StrokeStyleBuilder {
         }
     }
 
+    /// Sets the cap at the start of an open stroke.
     pub fn start_cap(mut self, cap: CapStyle) -> Self {
         self.start_cap = cap;
         self
     }
 
+    /// Sets the cap at the end of an open stroke.
     pub fn end_cap(mut self, cap: CapStyle) -> Self {
         self.end_cap = cap;
         self
     }
 
+    /// Sets both the start and end caps.
     pub fn caps(mut self, cap: CapStyle) -> Self {
         self.start_cap = cap;
         self.end_cap = cap;
         self
     }
 
+    /// Sets the cap used at the ends of each dash.
     pub fn dash_cap(mut self, cap: CapStyle) -> Self {
         self.dash_cap = cap;
         self
     }
 
+    /// Sets how connected segments are joined.
     pub fn line_join(mut self, join: LineJoin) -> Self {
         self.line_join = join;
         self
@@ -335,6 +361,7 @@ impl StrokeStyleBuilder {
         self
     }
 
+    /// Sets the stroke's dash pattern.
     pub fn dash_style(mut self, style: DashStyle) -> Self {
         self.dash_style = style;
         self

@@ -77,7 +77,7 @@ fn find<P: AsRef<Path>>(path: P) -> Vec<Crate> {
     crates
 }
 
-/// Reads the string value of a `const NAME: &str = "…";` (or `pub const`) declaration from a
+/// Reads the string value of a `const NAME: &str = "...";` (or `pub const`) declaration from a
 /// Rust source file. Panics loudly if the file cannot be read or the constant is not found.
 ///
 /// This is the single shared mechanism for the *paired* dependency-pin validators: a pin is
@@ -121,9 +121,10 @@ fn str_const(text: &str, name: &str) -> Option<String> {
 
 /// Derives the "marketing" SDK/WDK include-and-lib folder name from a four-part package
 /// version. The NuGet packages nest their headers under a folder that is the version's first
-/// three components with a `.0` fourth component (e.g. `10.0.28000.2270` → `10.0.28000.0`),
+/// three components with a `.0` fourth component (for example, `10.0.28000.2270` ->
+/// `10.0.28000.0`),
 /// regardless of the package's servicing build. Deriving it means the package version is the
-/// single edit needed to bump the SDK/WDK — the folder is never a second constant to keep in
+/// single edit needed to bump the SDK/WDK - the folder is never a second constant to keep in
 /// sync. Panics if `version` does not have at least three dot-separated components.
 pub fn marketing_dir(version: &str) -> String {
     let mut parts = version.split('.');

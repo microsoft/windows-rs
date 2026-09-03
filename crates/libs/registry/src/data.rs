@@ -7,7 +7,6 @@ pub struct Data {
 }
 
 impl Data {
-    // Creates a buffer with the specified length of zero bytes.
     pub fn new(len: usize) -> Self {
         unsafe {
             let bytes = Self::alloc(len);
@@ -20,7 +19,6 @@ impl Data {
         }
     }
 
-    // Returns the buffer as a slice of u16 for reading wide characters.
     pub fn as_wide(&self) -> &[u16] {
         if self.ptr.is_null() {
             &[]
@@ -29,7 +27,6 @@ impl Data {
         }
     }
 
-    // Creates a buffer by copying the bytes from the slice.
     pub fn from_slice(slice: &[u8]) -> Self {
         unsafe {
             let bytes = Self::alloc(slice.len());
@@ -42,7 +39,6 @@ impl Data {
         }
     }
 
-    // Allocates an uninitialized buffer.
     unsafe fn alloc(len: usize) -> Self {
         if len == 0 {
             Self {

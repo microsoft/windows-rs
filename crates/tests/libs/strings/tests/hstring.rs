@@ -125,7 +125,6 @@ fn hstring_to_os_string() {
 
 #[test]
 fn hstring_hashing_equal_strings() {
-    // Checks if two strings of identical contents have the same hash
     use std::hash::{DefaultHasher, Hash, Hasher};
 
     let hstring_1 = HSTRING::from("Hello World");
@@ -147,7 +146,6 @@ fn hstring_hashing_equal_strings() {
 
 #[test]
 fn hstring_hashing_different_strings() {
-    // Checks if two strings of different contents have the same hash
     use std::hash::{DefaultHasher, Hash, Hasher};
 
     let hstring_1 = HSTRING::from("Hello World");
@@ -250,7 +248,7 @@ fn hstring_compat() -> Result<()> {
         let mut len = 0;
         let buffer = WindowsGetStringRawBuffer(&world, Some(&mut len));
         assert_eq!(len, 5);
-        // Adding +1 to the length of the slice to validate that it is null terminated.
+        // Include the terminator in the inspected slice.
         assert_eq!(
             std::slice::from_raw_parts(buffer.0, 6),
             [87, 111, 114, 108, 100, 0]
@@ -281,7 +279,7 @@ fn hstring_compat() -> Result<()> {
         let mut len = 0;
         let buffer = WindowsGetStringRawBuffer(&duplicate, Some(&mut len));
         assert_eq!(len, 5);
-        // Adding +1 to the length of the slice to validate that it is null terminated.
+        // Include the terminator in the inspected slice.
         assert_eq!(
             std::slice::from_raw_parts(buffer.0, 6),
             [87, 111, 114, 108, 100, 0]

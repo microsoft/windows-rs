@@ -52,6 +52,9 @@ impl WeakRefCount {
     }
 
     /// # Safety
+    ///
+    /// `object` must be the COM identity pointer associated with this reference count and remain
+    /// valid while the strong count is nonzero.
     pub unsafe fn query(&self, iid: &GUID, object: *mut c_void) -> *mut c_void {
         unsafe {
             if iid != &IWeakReferenceSource::IID {
@@ -183,7 +186,7 @@ impl TearOff {
                 return E_POINTER;
             }
 
-            // Only directly respond to queries for the the tear-off's strong interface. This is
+            // Only directly respond to queries for the tear-off's strong interface. This is
             // a self-query.
             if *iid == IWeakReferenceSource::IID {
                 *interface = ptr;
@@ -209,9 +212,8 @@ impl TearOff {
                 return E_POINTER;
             }
 
-            // While the weak vtable is packed into the same allocation as the strong vtable and
-            // tear-off, it represents a distinct COM identity and thus does not share or delegate to
-            // the object.
+            // The weak interface has a distinct COM identity even though its vtable shares the
+            // tear-off allocation, so it does not delegate queries to the object.
 
             *interface = if *iid == IWeakReference::IID
                 || *iid == IUnknown::IID

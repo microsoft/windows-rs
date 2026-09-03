@@ -130,8 +130,8 @@ fn gen_impl_impl(inputs: &ImplementInputs) -> syn::Item {
         impl #generics #impl_ident::#generics_idents where #constraints {}
     };
 
-    // This is here so that IInspectable::GetRuntimeClassName can work properly.
-    // For a test case for this, see crates/tests/misc/component_client.
+    // The first interface supplies the runtime class name returned by
+    // `IInspectable::GetRuntimeClassName`.
     let identity_type = if let Some(first) = inputs.interface_chains.first() {
         first.implement.to_ident()
     } else {

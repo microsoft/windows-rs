@@ -441,6 +441,9 @@ impl ElementRef<crate::Grid> {
     }
 }
 
+/// Layout and compositor events from a composition host.
+///
+/// Width and height are in device-independent pixels (DIPs). Scale converts DIPs to pixels.
 #[derive(Clone, Debug, PartialEq)]
 pub enum CompositionHostEvent {
     /// Provides the application-safe compositor capability for a newly bound host.
@@ -457,7 +460,9 @@ pub enum CompositionHostEvent {
 /// Failure reported by an asynchronous native integration request.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum IntegrationError {
+    /// A native operation failed with the given HRESULT value.
     Native(i32),
+    /// The target is not currently bound or cannot accept the request.
     Unavailable,
 }
 
@@ -470,20 +475,27 @@ impl IntegrationError {
     }
 }
 
+/// Errors from composition-host requests.
 pub type CompositionHostError = IntegrationError;
+/// Errors from focus requests.
 pub type FocusError = IntegrationError;
+/// Errors from image-source requests.
 pub type ImageSourceError = IntegrationError;
+/// Errors from swap-chain panel requests.
 pub type SwapChainPanelError = IntegrationError;
+/// Errors from WebView2 integration requests.
 pub type WebView2Error = IntegrationError;
-
+/// Rendering and layout events from a swap-chain panel.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SwapChainPanelEvent {
+    /// Reports panel dimensions in DIPs and the pixel scale for each axis.
     Metrics {
         width: f64,
         height: f64,
         scale_x: f32,
         scale_y: f32,
     },
+    /// Requests a frame during the composition rendering pass.
     Rendering,
 }
 

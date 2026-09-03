@@ -5,10 +5,9 @@ use core::ffi::c_void;
 /// A reference-counted, COM-compatible heap allocation used by generated WinRT delegate types.
 ///
 /// The bindgen-generated `*<Delegate>::new()` allocates an instance of this type and reinterprets
-/// the resulting pointer as the delegate. The generated per-delegate code only needs to provide
-/// the delegate-specific `Invoke` thunk; the generic `QueryInterface`, `AddRef`, and `Release`
-/// implementations are shared across all delegate types via this helper, removing roughly
-/// ~80 lines of identical boilerplate per delegate.
+/// the resulting pointer as the delegate. This type supplies the shared `QueryInterface`,
+/// `AddRef`, and `Release` implementations; generated delegates provide only their `Invoke`
+/// thunk.
 #[repr(C)]
 #[doc(hidden)]
 pub struct DelegateBox<I: Interface, F> {

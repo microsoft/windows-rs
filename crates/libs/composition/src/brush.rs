@@ -41,8 +41,7 @@ impl Brush for CompositionColorBrush {
 
 /// A brush that stretches its source as a nine-grid: the four corners keep their
 /// size, the edges stretch along one axis, and the center stretches (or is left
-/// [hollow](Self::set_center_hollow)) to fill the remaining space. Used here to
-/// draw a hollow selection border.
+/// [hollow](Self::set_center_hollow)) to fill the remaining space.
 #[derive(Clone)]
 pub struct CompositionNineGridBrush(pub(crate) bindings::CompositionNineGridBrush);
 

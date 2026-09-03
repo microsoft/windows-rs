@@ -1,4 +1,4 @@
-/// Reads WinUI `.winmd` files and resolves `put_*` method → interface mappings.
+/// Reads WinUI `.winmd` files and resolves `put_*` method -> interface mappings.
 ///
 /// Given a WinUI class name (e.g. `"TextBlock"`) and a method (e.g. `"put_Text"`),
 /// the resolver finds which exclusive interface owns that method (e.g. `"ITextBlock"`).
@@ -40,14 +40,14 @@ pub struct MethodRef {
 /// Classification of a metadata parameter type for setter pattern inference.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ParamClass {
-    /// Primitive type (String, Bool, F64, etc.) → direct `put_X(value)`.
+    /// Primitive type (String, Bool, F64, etc.) -> direct `put_X(value)`.
     Primitive,
-    /// IInspectable → needs wrapping (textblock by default, or IReference when
+    /// IInspectable -> needs wrapping (textblock by default, or IReference when
     /// the TOML specifies an explicit type).
     IInspectable,
-    /// IReference<bool> → `put_X(Some(value))`.
+    /// IReference<bool> -> `put_X(Some(value))`.
     NullableBool,
-    /// Enum, struct, or other complex type → needs explicit TOML config.
+    /// Enum, struct, or other complex type -> needs explicit TOML config.
     Complex,
 }
 
@@ -66,18 +66,18 @@ pub enum ReadValueConversion {
     Nullable,
 }
 
-/// Pre-built lookup: `(class_short_name, method_name) → MethodRef`.
+/// Pre-built lookup from `(class_short_name, method_name)` to `MethodRef`.
 pub struct MetadataResolver {
     lookup: HashMap<(String, String), MethodRef>,
     base_classes: HashMap<(String, String), (String, String)>,
     /// Exclusive interface -> runtime class. Ambiguous non-exclusive interfaces map to `None`.
     interface_owners: HashMap<(String, String), Option<(String, String)>>,
     /// Value-type structs that wrap a single primitive field.
-    /// Maps `(namespace, name)` → the unwrapped inner `Type`.
+    /// Maps `(namespace, name)` to the unwrapped inner `Type`.
     single_field_types: HashMap<(String, String), (String, Type)>,
-    /// Enum types: maps `(namespace, name)` → list of variant names.
+    /// Maps enum `(namespace, name)` pairs to their variant names.
     enum_variants: HashMap<(String, String), Vec<String>>,
-    /// Non-generic delegate → args class short name, resolved from the
+    /// Maps non-generic delegates to argument class short names, resolved from the
     /// delegate's `Invoke` method signature.
     delegate_args: HashMap<String, String>,
     content_properties: HashMap<(String, String), String>,
@@ -119,7 +119,7 @@ impl MetadataResolver {
         let mut base_classes = HashMap::new();
         let mut content_properties = HashMap::new();
 
-        // Walk all types in the index, collecting method→interface for classes
+        // Walk all types in the index, collecting method-to-interface mappings for classes
         // in Microsoft.UI.Xaml namespaces.
         for (namespace, name, typedef) in index.iter() {
             if namespace.starts_with("Microsoft.UI.Xaml")
@@ -185,8 +185,7 @@ impl MetadataResolver {
                 .is_some()
         });
 
-        // Build single-field struct map: value types with exactly one field
-        // get mapped to their inner primitive type (e.g. FontWeight → U16).
+        // Map single-field value types to their inner primitive type.
         let mut single_field_types = HashMap::new();
         let mut enum_variants = HashMap::new();
         for (namespace, name, typedef) in index.iter() {
@@ -200,7 +199,6 @@ impl MetadataResolver {
             let has_value_field = fields.iter().any(|f| f.name() == "value__");
 
             if has_value_field && !variant_names.is_empty() {
-                // This is an enum.
                 enum_variants.insert((namespace.to_string(), name.to_string()), variant_names);
             } else if fields.len() == 1 {
                 let inner_ty = fields[0].ty();
@@ -213,7 +211,7 @@ impl MetadataResolver {
             }
         }
 
-        // Build delegate→args map: for non-generic delegates used by add_*
+        // Build the delegate-to-args map for non-generic delegates used by `add_*`
         // methods, resolve the Invoke method's second parameter to find the
         // event args class.
         let mut delegate_args = HashMap::new();
@@ -227,14 +225,12 @@ impl MetadataResolver {
             if !tn.generics.is_empty() || delegate_args.contains_key(&tn.name) {
                 continue;
             }
-            // Look up the delegate typedef and find its Invoke method.
             let Some(delegate_def) = index.get(&tn.namespace, &tn.name).next() else {
                 continue;
             };
             for method in delegate_def.methods() {
                 if method.name() == "Invoke" {
                     let sig = method.signature(&[]);
-                    // Second parameter is the args type (first is sender).
                     if let Some(args_type) = sig.types.get(1) {
                         let args_name = match args_type {
                             Type::ClassName(args_tn) => Some(args_tn.name.clone()),
@@ -560,16 +556,16 @@ impl MetadataResolver {
         match ty {
             Type::String | Type::Object | Type::ClassName(_) => false,
             Type::Generic(..) | Type::Array(_) => false,
-            // Primitives, ValueName (enums + structs), etc. → Copy
+            // Primitives and value types are `Copy`.
             _ => true,
         }
     }
 
     /// Check copy-ness after applying the same unwrapping as `value_for_type`:
-    /// IReference<T> → check T, single-field wrappers → check inner type.
+    /// `IReference<T>` uses `T`; single-field wrappers use their inner type.
     fn is_unwrapped_copy(&self, ty: &Type) -> bool {
         match ty {
-            // IReference<T> → the PropValue wraps T, not IReference
+            // `PropValue` wraps `T`, not `IReference<T>`.
             Type::ClassName(tn)
                 if tn.namespace == "Windows.Foundation" && tn.name == "IReference`1" =>
             {
@@ -578,10 +574,8 @@ impl MetadataResolver {
             Type::ValueName(tn) => {
                 let key = (tn.namespace.clone(), tn.name.clone());
                 if let Some((_, inner)) = self.single_field_types.get(&key) {
-                    // Single-field wrapper → unwraps to inner primitive
                     Self::is_copy(inner)
                 } else {
-                    // Multi-field value type or enum → Copy
                     true
                 }
             }
@@ -607,8 +601,8 @@ impl MetadataResolver {
 
     /// Map a metadata Type to a PropValue variant name.
     /// Handles primitives, IReference<bool>, single-field wrapper structs
-    /// (e.g. FontWeight{Weight: u16} → U16), and multi-field value-type
-    /// structs by using the struct's short name (e.g. Thickness → "Thickness").
+    /// (for example, `FontWeight { Weight: u16 }` -> `U16`), and multi-field value-type
+    /// structs by using the struct's short name (for example, `Thickness` -> `"Thickness"`).
     pub fn value_for_type(&self, ty: &Type) -> Option<String> {
         // Try primitives and well-known types first.
         if let Some(v) = Self::primitive_value_for_type(ty) {
@@ -617,12 +611,11 @@ impl MetadataResolver {
         match ty {
             Type::ValueName(tn) => {
                 let key = (tn.namespace.clone(), tn.name.clone());
-                // Single-field wrapper structs → unwrap to inner primitive
                 if let Some((_, inner)) = self.single_field_types.get(&key) {
                     return Self::primitive_value_for_type(inner);
                 }
-                // Multi-field value types → use the struct's short name as
-                // the PropValue variant (e.g. Thickness → "Thickness").
+                // Multi-field value types use the struct's short name as the `PropValue`
+                // variant.
                 // If there's no matching PropValue variant the generated code
                 // won't compile, signalling that an explicit override is needed.
                 Some(tn.name.clone())
@@ -872,35 +865,28 @@ mod tests {
     #[test]
     fn infer_single_field_wrapper_types() {
         let resolver = MetadataResolver::load(Path::new("winmd"));
-        // FontWeight is a struct with one field (Weight: u16) → unwraps to U16, Copy
         assert_eq!(
             resolver.infer_value_type("TextBlock", "put_FontWeight"),
             Some(("U16".to_string(), true))
         );
-        // Thickness is a multi-field struct → uses struct short name, Copy
         assert_eq!(
             resolver.infer_value_type("Border", "put_BorderThickness"),
             Some(("Thickness".to_string(), true))
         );
-        // NavigateUri takes a Uri class → not a ValueName, returns None
         assert_eq!(
             resolver.infer_value_type("HyperlinkButton", "put_NavigateUri"),
             None
         );
-        // Text takes a String → non-Copy
         assert_eq!(
             resolver.infer_value_type("TextBlock", "put_Text"),
             Some(("Str".to_string(), false))
         );
-        // IsChecked takes IReference<bool> → unwraps to Copy bool
         assert!(resolver.is_method_copy("CheckBox", "put_IsChecked"));
-        // ContentDialog.IsOpen - might not exist as put_IsOpen in metadata
-        // (uses custom ShowAsync pattern)
+        // `ContentDialog` uses `ShowAsync` rather than `put_IsOpen`.
         assert!(
             !resolver.has_method("ContentDialog", "put_IsOpen"),
             "ContentDialog.put_IsOpen should not be in metadata"
         );
-        // Text takes String → non-Copy
         assert!(!resolver.is_method_copy("TextBlock", "put_Text"));
     }
 

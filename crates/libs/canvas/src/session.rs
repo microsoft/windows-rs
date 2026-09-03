@@ -1,6 +1,9 @@
 use super::*;
 
-/// Safe wrapper over `ID2D1DeviceContext`.
+/// An active Direct2D draw pass.
+///
+/// Drawing coordinates and stroke widths use device-independent pixels (DIPs). Dropping an owned
+/// session ends its draw pass and records device loss.
 pub struct DrawingSession<'a> {
     context: &'a ID2D1DeviceContext,
     mode: Mode<'a>,
@@ -27,8 +30,8 @@ impl<'a> DrawingSession<'a> {
 
     /// Wraps a context that is already inside a caller-owned `BeginDraw`/`EndDraw` bracket.
     ///
-    /// `offset` maps surface-local coordinates into a shared atlas while keeping
-    /// caller-visible transforms relative to `(0, 0)`.
+    /// `offset` maps surface-local coordinates into a shared atlas while keeping caller-visible
+    /// transforms relative to `(0, 0)`.
     pub fn from_borrowed_context(context: &'a ID2D1DeviceContext, offset: Matrix3x2) -> Self {
         debug_assert!(
             offset.m11 == 1.0 && offset.m12 == 0.0 && offset.m21 == 0.0 && offset.m22 == 1.0,
@@ -51,11 +54,13 @@ impl<'a> DrawingSession<'a> {
         Self::from_borrowed_context(context, offset)
     }
 
+    /// Clears the current target to `color`.
     pub fn clear(&self, color: ColorF) {
         let c: D2D_COLOR_F = color.into();
         unsafe { self.context.Clear(Some(&c)) };
     }
 
+    /// Draws a line with the given DIP stroke width.
     pub fn draw_line(&self, p0: Vector2, p1: Vector2, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -63,6 +68,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws a styled line with the given DIP stroke width.
     pub fn draw_line_styled(
         &self,
         p0: Vector2,
@@ -77,6 +83,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws a rectangle outline with the given DIP stroke width.
     pub fn draw_rect(&self, rect: &Rect, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -84,6 +91,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws a styled rectangle outline with the given DIP stroke width.
     pub fn draw_rect_styled(
         &self,
         rect: &Rect,
@@ -97,6 +105,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Fills a rectangle.
     pub fn fill_rect(&self, rect: &Rect, brush: &impl Paint) {
         unsafe {
             self.context
@@ -104,6 +113,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws a rounded rectangle outline with the given DIP stroke width.
     pub fn draw_rounded_rect(&self, rect: &RoundedRect, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -111,6 +121,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws a styled rounded rectangle outline with the given DIP stroke width.
     pub fn draw_rounded_rect_styled(
         &self,
         rect: &RoundedRect,
@@ -128,6 +139,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Fills a rounded rectangle.
     pub fn fill_rounded_rect(&self, rect: &RoundedRect, brush: &impl Paint) {
         unsafe {
             self.context
@@ -135,6 +147,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws an ellipse outline with the given DIP stroke width.
     pub fn draw_ellipse(&self, ellipse: &Ellipse, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -142,6 +155,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws a styled ellipse outline with the given DIP stroke width.
     pub fn draw_ellipse_styled(
         &self,
         ellipse: &Ellipse,
@@ -155,6 +169,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Fills an ellipse.
     pub fn fill_ellipse(&self, ellipse: &Ellipse, brush: &impl Paint) {
         unsafe {
             self.context
@@ -162,6 +177,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Creates a solid-color brush for this device context.
     pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
         let c: D2D_COLOR_F = color.into();
         unsafe { self.context.CreateSolidColorBrush(&c, None).map(Brush) }
@@ -218,6 +234,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws text into a layout rectangle measured in DIPs.
     pub fn draw_text(&self, text: &str, format: &TextFormat, rect: &Rect, brush: &impl Paint) {
         let wide: Vec<u16> = text.encode_utf16().collect();
         unsafe {
@@ -247,6 +264,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws a path outline with the given DIP stroke width.
     pub fn draw_path(&self, path: &Path, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -254,6 +272,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws a styled path outline with the given DIP stroke width.
     pub fn draw_path_styled(
         &self,
         path: &Path,
@@ -267,6 +286,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Fills a path.
     pub fn fill_path(&self, path: &Path, brush: &impl Paint) {
         unsafe {
             self.context
@@ -274,6 +294,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws a bitmap into the DIP rectangle `dest` using linear interpolation.
     pub fn draw_bitmap(&self, bitmap: &Bitmap, dest: &Rect, opacity: f32) {
         unsafe {
             self.context.DrawBitmap(
@@ -287,6 +308,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Loads a bitmap from a file into this device context.
     pub fn load_bitmap(&self, path: impl AsRef<std::path::Path>) -> Result<Bitmap> {
         Bitmap::load_from_file(self.context, path.as_ref())
     }
@@ -313,6 +335,7 @@ impl<'a> DrawingSession<'a> {
         Bitmap::from_bytes(self.context, pixels, width, height, alpha)
     }
 
+    /// Sets the transform used by subsequent drawing operations.
     pub fn set_transform(&self, transform: &Matrix3x2) {
         let m = match &self.mode {
             Mode::Borrowed { offset } => *transform * *offset,
@@ -321,6 +344,7 @@ impl<'a> DrawingSession<'a> {
         unsafe { self.context.SetTransform(&m) };
     }
 
+    /// Returns the caller-visible drawing transform.
     pub fn transform(&self) -> Matrix3x2 {
         let mut transform = Matrix3x2::default();
         unsafe { self.context.GetTransform(&mut transform) };
@@ -332,7 +356,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
-    /// Apply a transform for the duration of the closure, then restore the previous one.
+    /// Applies a transform for the duration of the closure, then restores the previous one.
     pub fn with_transform(&self, transform: &Matrix3x2, f: impl FnOnce()) {
         let prev = self.transform();
         self.set_transform(transform);
@@ -340,6 +364,7 @@ impl<'a> DrawingSession<'a> {
         self.set_transform(&prev);
     }
 
+    /// Returns the underlying Direct2D device context for interop.
     pub fn raw(&self) -> &ID2D1DeviceContext {
         self.context
     }
@@ -369,6 +394,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Creates a shadow effect whose input is `source`.
     pub fn create_shadow(&self, source: &Bitmap) -> Result<Effect> {
         unsafe {
             let effect = self.context.CreateEffect(&CLSID_D2D1Shadow)?;
@@ -390,6 +416,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws a bitmap image at its natural position and size.
     pub fn draw_image(&self, bitmap: &Bitmap) {
         unsafe {
             self.context.DrawImage(
@@ -402,6 +429,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws the output of a Direct2D effect.
     pub fn draw_effect(&self, effect: &Effect) {
         if let Ok(output) = unsafe { effect.0.GetOutput() } {
             unsafe {

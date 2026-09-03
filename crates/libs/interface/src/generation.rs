@@ -176,7 +176,9 @@ impl Interface {
                             Identity: ::windows_core::IUnknownImpl,
                             const OFFSET: isize
                         >(
-                            this: *mut ::core::ffi::c_void, // <-- This is the COM "this" pointer, which is not the same as &T or &T_Impl.
+                            // COM supplies an interface pointer that must be adjusted to the root
+                            // implementer.
+                            this: *mut ::core::ffi::c_void,
                             #(#args),*
                         ) #ret
                         where

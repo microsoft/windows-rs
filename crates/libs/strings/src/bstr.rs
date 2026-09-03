@@ -36,6 +36,9 @@ impl BSTR {
     }
 
     /// # Safety
+    ///
+    /// `raw` must be null or an owned `BSTR` pointer. The returned value takes ownership and
+    /// frees the string when dropped.
     #[doc(hidden)]
     pub unsafe fn from_raw(raw: *const u16) -> Self {
         Self(raw)

@@ -11,17 +11,17 @@ pub struct GpuDevice {
 }
 
 impl GpuDevice {
+    /// Creates a device backed by the default hardware adapter.
     pub fn new() -> Result<Self> {
         unsafe { Self::create(false) }
     }
 
+    /// Creates a software-rendered device backed by WARP.
     pub fn new_warp() -> Result<Self> {
         unsafe { Self::create(true) }
     }
 
-    /// Creates a hardware device, falling back to a software (WARP) device when
-    /// no GPU is available (headless sessions, VMs, or RDP). Use this for render
-    /// loops that must produce output on any machine.
+    /// Creates a hardware device, falling back to WARP if hardware creation fails.
     pub fn new_or_warp() -> Result<Self> {
         Self::new().or_else(|_| Self::new_warp())
     }
@@ -81,16 +81,17 @@ impl GpuDevice {
         })
     }
 
+    /// Creates a composition swap chain with pixel dimensions `width` by `height`.
     pub fn create_swap_chain(&self, width: u32, height: u32) -> Result<SwapChain> {
         SwapChain::new(self, width, height)
     }
 
-    /// Creates an off-screen [`RenderTarget`] whose pixels can be copied to CPU memory.
+    /// Creates an off-screen render target with pixel dimensions `width` by `height`.
     pub fn create_render_target(&self, width: u32, height: u32) -> Result<RenderTarget> {
         RenderTarget::new(self, width, height)
     }
 
-    /// Creates a swap chain that renders directly into the given window.
+    /// Creates a window swap chain with pixel dimensions `width` by `height`.
     pub fn create_swap_chain_for_window(
         &self,
         window: &windows_window::Window,
@@ -102,7 +103,7 @@ impl GpuDevice {
         unsafe { self.create_swap_chain_for_hwnd(window.hwnd(), width, height) }
     }
 
-    /// Create an HWND swap chain for standalone windowed rendering.
+    /// Creates an HWND swap chain with pixel dimensions `width` by `height`.
     ///
     /// # Safety
     ///
@@ -116,18 +117,22 @@ impl GpuDevice {
         SwapChain::new_for_hwnd(self, hwnd, width, height)
     }
 
+    /// Returns the underlying Direct3D device for interop.
     pub fn d3d_device(&self) -> &ID3D11Device {
         &self.d3d_device
     }
 
+    /// Returns the underlying Direct2D device for interop.
     pub fn d2d_device(&self) -> &ID2D1Device {
         &self.d2d_device
     }
 
+    /// Returns the underlying Direct2D factory for interop.
     pub fn d2d_factory(&self) -> &ID2D1Factory1 {
         &self.d2d_factory
     }
 
+    /// Creates a Direct2D stroke style from `builder`.
     pub fn create_stroke_style(&self, builder: &StrokeStyleBuilder) -> Result<StrokeStyle> {
         let props = builder.to_abi();
         unsafe {
@@ -137,10 +142,12 @@ impl GpuDevice {
         }
     }
 
+    /// Returns the underlying DXGI factory for interop.
     pub fn dxgi_factory(&self) -> &IDXGIFactory2 {
         &self.dxgi_factory
     }
 
+    /// Returns the underlying DirectWrite factory for interop.
     pub fn dwrite_factory(&self) -> &IDWriteFactory {
         &self.dwrite_factory
     }
