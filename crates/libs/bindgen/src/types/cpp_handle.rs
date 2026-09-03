@@ -56,10 +56,15 @@ impl Config<'_> {
             // Arch-divergent handles are separate rows; each emitted item needs its own gate.
             let arches = write_arches(def);
             let arches = quote! { #arches #cfg };
+            let derives = if ty.is_eq(self.reader) {
+                quote! { #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)] }
+            } else {
+                quote! { #[derive(Clone, Copy, Debug, PartialEq, Default)] }
+            };
             quote! {
                 #arches
                 #[repr(transparent)]
-                #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+                #derives
                 pub struct #name(pub #ty_name);
             }
         }

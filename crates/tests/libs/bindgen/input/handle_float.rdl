@@ -1,0 +1,8 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    type Float = f32;
+    type Double = f64;
+    type Integer = i32;
+    type Handle = *mut void;
+}
