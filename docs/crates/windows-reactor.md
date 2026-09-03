@@ -2,287 +2,399 @@
 
 > A declarative WinUI 3 library built around components, typed messages, and native controls.
 
-- 📦 [crates.io](https://crates.io/crates/windows-reactor)
-- 📖 [docs.rs](https://docs.rs/windows-reactor)
-- 🚀 [Getting started](../../crates/libs/reactor/readme.md)
-- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor)
+- [crates.io](https://crates.io/crates/windows-reactor)
+- [docs.rs](https://docs.rs/windows-reactor)
+- [Getting started](../../crates/libs/reactor/readme.md)
+- [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor)
 - [Self-contained deployment](windows-reactor-setup.md)
 - [Canvas integration](windows-canvas.md)
 - [Composition integration](windows-composition.md)
 
 ## When to use it
 
-Use Reactor when an application needs native WinUI 3 controls and benefits from describing the UI
-from application state. It is a good fit for forms, navigation, data-driven views, multiple
-windows, and apps that combine WinUI controls with Canvas, Composition, or WebView2.
+Use Reactor when an application needs native WinUI 3 controls and you would rather describe what
+the UI should look like than manually keep a control tree in sync with application state. It is a
+good fit for forms, navigation, data-driven views, and apps that combine WinUI controls with
+Canvas, Composition, or WebView2.
 
 Use [`windows-window`](windows-window.md) instead when you need an HWND and message loop without
 WinUI. Use [`windows-composition`](windows-composition.md) directly for a retained visual tree
 without XAML controls.
 
-## Getting started: choose a deployment
+## The basic idea
 
-Start with the README's counter and choose how the Windows App Runtime reaches the target machine.
+A Reactor app is built from components. A component owns some state and has a `view` method that
+describes the controls currently on screen. Controls send typed messages back to the component,
+the component updates its state, and Reactor refreshes the parts of the native WinUI tree that
+changed.
 
-| Deployment | Choose it when | Setup |
-| --- | --- | --- |
-| Framework-dependent | The framework package is installed | No build helper |
-| Self-contained | The app carries the runtime | `windows-reactor-setup` in `build.rs` |
+```text
+event -> message -> update state -> build a new view -> update WinUI
+```
 
-Reactor detects the staged runtime or resolves the installed framework package at startup. Compare
-the
-[`framework_dependent`](../../crates/samples/reactor/framework_dependent) and
-[`self_contained`](../../crates/samples/reactor/self_contained) samples before packaging an app.
+This is the main pattern to learn. Component fields are the normal place for state, and imperative
+control references are not needed for everyday UI code.
 
-Run a root component with `App::run_component::<C>(input)`. The root view becomes the content of
-the first window. Set that window's title and visual options from its component's `view` method.
+For a static window, getting text on screen can be this small:
 
-## Core model
+```rust,no_run
+use windows_reactor::*;
 
-### Component, Input, and Message
-
-A `Component` has three responsibilities:
-
-| Part | Owner | Purpose |
-| --- | --- | --- |
-| Component fields | The component | Local state and long-lived handles |
-| `Input` | The parent | Declarative data passed into the component |
-| `Message` | The component | Typed events and completed work that may update state |
-
-The lifecycle is:
-
-1. `create` constructs component state from the initial input.
-2. `input_changed` runs when retained input compares unequal to new input.
-3. `update` handles one queued message and mutates component state.
-4. `view` describes the UI for the current state and input.
-
-After `create`, `input_changed`, or `update`, Reactor calls `view` as needed and publishes the
-result. Keep `view` declarative: read state, declare context dependencies and effects, and build a
-`View`. Put state changes in `update`.
-
-`Input` must implement `Clone + PartialEq`. Its equality defines whether a child receives
-`input_changed`, so include every value that changes the child's behavior. Prefer small values or
-shared handles such as `Rc<T>` when copying a large model would be expensive.
-
-Use a function returning `View` for stateless presentation:
-
-```rust,ignore
-fn status_card(title: &str, value: String) -> View {
-    StackPanel::new().spacing(4.0).children((
-        TextBlock::new().text(title),
-        TextBlock::new().text(value),
-    ))
+fn main() {
+    App::run("Hello, Windows!".into()).unwrap();
 }
 ```
 
-Use `View::component::<C>(input)` when the subtree needs local state, lifecycle work, messages, or
-an independent recomposition boundary.
+Strings convert to a `View` containing a `TextBlock`. Create a `TextBlock` yourself only when its
+properties need to be changed.
 
-### Building views
+## Your first component
 
-Controls use typed builders. Start with `Control::new()`, chain property and event methods, and
-place content with the control's structural method:
+After adding the dependency shown in the
+[crate README](../../crates/libs/reactor/readme.md), the following is a complete counter app:
 
-- `content(value)` for one content child.
-- `children(values)` for an ordered child collection.
-- `keyed_children(values)` when identity must follow keys across reordering.
-- Named slot methods for controls with several content positions.
-- `items(values)` or `virtual_source(source)` for projected item controls.
+```rust,no_run
+use windows_reactor::*;
 
-Strings and generated controls convert into `View`. Tuples and arrays work well for fixed child
-sets. Use iterators for data-driven children. `View::fragment` groups several sibling views without
-adding a native control.
+#[derive(Clone)]
+enum Message {
+    Increment,
+    Reset,
+}
 
-Most layout is expressed on the child: alignment, margin, Grid row or column, and attached
-properties are builder methods on that child. Container builders configure rows, columns,
-orientation, spacing, or padding.
+struct Counter {
+    count: i32,
+}
 
-Omitting a property preserves the native default. For optional properties, passing `None` sets an
-explicit empty value; it is not always the same as omitting the builder. Generated value and slot
-enums are non-exhaustive, so external matches need a wildcard arm.
+impl Component for Counter {
+    type Input = ();
+    type Message = Message;
 
-### Events and messages
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self { count: 0 }
+    }
 
-Event builders take typed `Callback` values from `ViewContext`:
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Increment => self.count += 1,
+            Message::Reset => self.count = 0,
+        }
+    }
 
-| Method | Use |
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Counter");
+
+        StackPanel::new().spacing(8.0).children((
+            format!("Count: {}", self.count),
+            Button::new()
+                .on_click(context.message(Message::Increment))
+                .content("Increment"),
+            Button::new()
+                .on_click(context.message(Message::Reset))
+                .content("Reset"),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<Counter>(()).unwrap();
+}
+```
+
+The four component methods have straightforward jobs:
+
+| Method | Purpose |
 | --- | --- |
-| `context.message(message)` | An event with no payload always sends one cloneable message |
-| `context.callback(map)` | Convert an event payload into a message |
-| `context.forward()` | Event payload and component message have the same type |
-| `context.sender()` | Send later from an owned closure or another component |
+| `create` | Make the initial component state |
+| `update` | Handle a message and change that state |
+| `view` | Describe the UI for the current state |
+| `input_changed` | Optionally react when a parent changes this component's input |
 
-Callbacks enqueue messages; they do not call `update` inline. Define a message enum around user
-intent, such as `Save`, `Select(u64)`, or `NameChanged(String)`, and handle it in one `update`
-match. This keeps native event details out of application state transitions.
+`Input` is `()` because the root component has no parent-owned data. `Message` is an enum because
+the component can receive two kinds of event. The button callbacks enqueue those messages; they do
+not mutate the component directly.
 
-Controlled controls report feedback through event payloads. Store the new value in component state
-and feed it back through the corresponding property builder. Selection callbacks use
-`Option<usize>` and nullable date, time, rating, and number values use `Option<T>`, so application
-code does not need to interpret native sentinel values.
+`App::run_component` creates the WinUI application and first window, mounts `Counter`, and runs the
+UI loop.
 
-## Common workflows
+## Build views from controls
 
-### State, context, effects, and background work
+WinUI controls use typed builders. Start with `Control::new()`, set properties, connect events, and
+add content or children:
 
-Store render-driving state in component fields and mutate it in `update`. Interior mutable values
-such as `Cell` or `RefCell` are useful for resources shared with callbacks, but mutating them does
-not schedule a render. Send a component message when the view must change.
+```rust,ignore
+Border::new()
+    .padding(16.0)
+    .content(
+        StackPanel::new().spacing(12.0).children((
+            TextBlock::new()
+                .text("Account")
+                .font_size(24.0),
+            TextBox::new().placeholder_text("Name"),
+            Button::new().content("Save"),
+        )),
+    )
+```
 
-Use `Context<T>` for data needed by distant descendants:
+Use `content` for a control with one child, such as a button or border. Use `children` for a
+container with an ordered set of children. Tuples are convenient because the children may have
+different control types. Put `content` or `children` last in a builder chain because it finishes
+the control and returns a `View`.
 
-1. Define a stable `Context::new(default)`.
-2. Wrap a subtree with `View::provide(&context, value, child)`.
-3. Read it with `ViewContext::use_context`.
+Values that implement `Into<View>` can be used directly with these methods. In particular, use a
+`&str` or `String` for ordinary text and reach for `TextBlock` only to set font, layout,
+accessibility, or other control properties:
 
-The consumer is recomposed when its resolved context value changes. Prefer explicit component
-input for ordinary parent-child data; context is best for app-wide values such as a theme.
+```rust,ignore
+StackPanel::new().children((
+    "A short label",
+    format!("Welcome, {}!", self.name),
+    TextBlock::new().text("Styled text").font_size(24.0),
+))
+```
 
-`ViewContext::use_effect(key, dependency, setup)` runs setup after publication when the dependency
-changes. Setup may return a cleanup closure, which runs before replacement or when the component
-retires. Keys must be unique within one component publication. Effects are appropriate for typed
-observations and external resources, not for deriving view state.
+Layout is just more builder methods. Containers describe their rows, columns, direction, or
+spacing, while children say where they belong:
 
-Use `ComponentContext::spawn_background` for blocking or CPU work. It runs on the Windows thread
-pool and returns a `ComponentTask`. The closure returns a component message, which is delivered
-back to `update`.
+```rust,ignore
+Grid::new()
+    .rows([GridLength::Auto, GridLength::Star(1.0)])
+    .columns([GridLength::Auto, GridLength::Star(1.0)])
+    .children((
+        TextBlock::new().text("Name").grid_row(0).grid_column(0),
+        TextBox::new().grid_row(0).grid_column(1),
+        TextBlock::new()
+            .text("Details go here")
+            .grid_row(1)
+            .grid_column_span(2),
+    ))
+```
 
-- Put expected failures in the message, usually as `Result<T, E>`.
-- Check the supplied `CancellationToken` during cooperative work.
-- Keep a `ComponentTask` only when explicit cancellation or status is needed; dropping it does not
-  cancel the task.
-- Scope retirement and Pump shutdown cancel owned work.
-- Use `spawn_background_with_rejection` when bounded delivery rejection needs its own message.
+The builders expose native WinUI concepts with Rust types, so invalid property values and callback
+payloads are usually caught by the compiler.
 
-Do not access Reactor UI state from the worker. Move `Send` data into it and return the result as a
-message.
+## Keep state in the component
 
-### Windows
+For an editable control, pass the current value as a property and route changes back through a
+message. This is often called a controlled control:
 
-Declare window properties from `view`:
+```rust,ignore
+struct Profile {
+    name: String,
+}
 
-- `window_title` sets the owning window title.
-- `window_visuals` configures client size, constraints, backdrop, and related visual options.
-- `on_window_size` and `on_color_scheme` route window changes to typed messages.
+impl Component for Profile {
+    type Input = ();
+    type Message = String;
 
-Declare each of these at most once per component publication. A descendant may make the
-declaration for its owning window, but centralizing it in the window's root component is easier to
-follow.
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            name: String::new(),
+        }
+    }
 
-Open another independent window with `ComponentContext::open_window(root)` during `create`,
-`input_changed`, or `update`. Use `context.window().request_close()` in those same lifecycle
-methods to close the owning window after publication. Each opened window owns an independent Pump.
-The application exits when the last window closes.
+    fn update(&mut self, name: String, _context: &ComponentContext<Self>) {
+        self.name = name;
+    }
 
-Use a `TitleBar` view for app-drawn title-bar content and events. It is separate from the native
-window title set by `window_title`.
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        StackPanel::new().spacing(8.0).children((
+            TextBox::new()
+                .text(self.name.clone())
+                .placeholder_text("Type your name")
+                .on_text_changed(context.forward()),
+            format!("Hello, {}!", self.name),
+        ))
+    }
+}
+```
 
-### Lists and stable identity
+Use `context.message(value)` when an event should always send the same message. Use
+`context.callback(function)` when the event carries a value that should become part of the
+message enum. When the event payload already is the component's message type, as in the example
+above, `context.forward()` is the shortest form.
 
-For a small changing list, produce `KeyedView` values and pass them to `keyed_children` or
-`View::keyed_fragment`. Keys preserve component state when rows move. A key must identify the
-logical item, not its current index.
+Keep event-driven state changes in `update`, and keep `view` focused on turning the current state
+into controls. That makes the direction of data flow easy to follow.
 
-For a large list, use `ItemsRepeater::virtual_source(VirtualSource::new(...))`. The source supplies:
+## Split the UI into understandable pieces
 
-1. A revision for the key sequence.
-2. The item count.
-3. A key function.
-4. A view factory called when WinUI realizes an index.
+For small, stateless pieces, use an ordinary function that returns `View`:
 
-Increment the revision whenever length, key values, or key order changes. Keep it stable for
-payload-only updates. Reactor validates keys on initial mount and revision changes, but constructs
-views only for realized rows.
+```rust,ignore
+fn section_heading(text: &str) -> View {
+    TextBlock::new()
+        .text(text)
+        .font_size(20.0)
+        .font_weight(FontWeight::BOLD)
+        .into()
+}
+```
 
-Use normal item controls when their native selection or grouping behavior is the goal. Use
-`ItemsRepeater` when realization cost and row ownership matter.
+When a piece needs its own state, messages, or lifecycle, make it a component. Parents pass data
+through the component's `Input`:
 
-### Images
+```rust,ignore
+#[derive(Clone, PartialEq)]
+struct GreetingInput {
+    name: String,
+}
 
-Use `Image::source`, `source_file`, or their icon equivalents for URI and file sources. Use
-`source_data(EncodedImage)` for PNG or other bitmap bytes supported by WinUI:
+struct Greeting;
 
-- `EncodedImage::from_static` retains a static byte slice without copying.
-- `EncodedImage::new` owns shared runtime data.
-- SVG uses the URI or file path rather than `EncodedImage`.
+impl Component for Greeting {
+    type Input = GreetingInput;
+    type Message = ();
 
-Decoding is asynchronous. `Image::on_opened` and `on_failed` report URI loads and encoded-image
-completion. Replacing the source, removing the node, or resetting the runtime cancels pending work.
+    fn create(_input: &GreetingInput, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
 
-Use a typed `ElementRef<Image>` only when another crate owns the native image source. For example,
-`windows-canvas` uses it to attach a `CanvasImageSource` and observe rasterization scale.
+    fn view(
+        &self,
+        input: &GreetingInput,
+        _context: &mut ViewContext<Self>,
+    ) -> View {
+        format!("Hello, {}!", input.name).into()
+    }
+}
+```
 
-### Typed ElementRef integrations
+The parent places it in its view like any other child:
 
-Create an `ElementRef<T>` as a component field and attach it with the control's
-`element_ref(&reference)` builder. The type prevents attaching a reference to the wrong control.
-It is unbound before publication and after removal.
+```rust,ignore
+View::component::<Greeting>(GreetingInput {
+    name: self.name.clone(),
+})
+```
 
-Supported capabilities include:
+`Input` must implement `Clone + PartialEq`. Reactor compares it with the previous input and updates
+the child when it changes. Start with explicit inputs; shared context is more useful when data must
+reach many distant descendants.
 
-| Reference | Capability |
+## Use normal Rust for conditionals
+
+There is no special syntax for conditional UI. Build a `View` with an ordinary `if` or `match`:
+
+```rust,ignore
+let status: View = if self.loading {
+    ProgressRing::new().is_active(true).into()
+} else {
+    "Ready".into()
+};
+
+StackPanel::new().children((
+    status,
+    Button::new().content("Refresh"),
+))
+```
+
+Use `View::empty()` when one branch should render nothing. `View::fragment` groups several sibling
+views without adding a native container.
+
+## Render changing lists with stable keys
+
+Use `children` for a fixed group of controls. For a changing collection, map each item to a
+`KeyedView` and use `keyed_children`:
+
+```rust,ignore
+let rows = self
+    .tasks
+    .iter()
+    .map(|task| (task.id, task.title.clone()));
+
+StackPanel::new().spacing(4.0).keyed_children(rows)
+```
+
+Each `(key, view)` tuple converts to a `KeyedView`, and the title string converts to its text view.
+The key should identify the logical item, such as a record ID. Do not use the current list index
+when items can move. Stable keys let Reactor keep the right child component state attached as items
+are inserted, removed, or reordered.
+
+For very large collections, `ItemsRepeater` and `VirtualSource` add virtualization. Start with
+`keyed_children`; move to virtualization only when the list is large enough to need it.
+
+## Move slow work off the UI thread
+
+Rendering, component updates, and native controls live on the UI thread. Use
+`spawn_background` for blocking or CPU-intensive work, then return a message with the result:
+
+```rust,ignore
+enum Message {
+    Load,
+    Loaded(String),
+}
+
+fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
+    match message {
+        Message::Load => {
+            self.loading = true;
+
+            _ = context.spawn_background(|_| {
+                let value = load_data();
+                Message::Loaded(value)
+            });
+        }
+        Message::Loaded(value) => {
+            self.value = value;
+            self.loading = false;
+        }
+    }
+}
+```
+
+The background closure must only capture `Send` data and must not touch controls or component
+state. Put expected failures in the returned message, usually as `Result<T, E>`, and display the
+result after `update` stores it.
+
+## Reach for the other APIs when you need them
+
+The component/message/view loop covers most application code. These APIs solve more specific
+problems:
+
+| API | Use it for |
 | --- | --- |
-| Focus-capable controls | `request_focus` and `request_focus_result` |
-| `ElementRef<SwapChainPanel>` | Swap-chain attachment and surface observation |
-| `ElementRef<Image>` | Native image-source attachment and rasterization-scale observation |
-| `ElementRef<Grid>` | Lifted Composition host observation and child-visual attachment |
-| `ElementRef<WebView2>` | Request the application-facing CoreWebView2 object |
+| `use_effect` | Starting and cleaning up an external subscription |
+| `Context<T>` | Sharing app-wide data such as a theme with distant descendants |
+| `ElementRef<T>` | Focus or another operation that cannot be expressed as state |
+| `open_window` | Opening an independent secondary window |
+| `ItemsRepeater` | Virtualizing a large collection |
 
-A one-shot method returning `false` means the reference is currently unbound. An accepted request
-finishes through its completion callback with a value or `IntegrationError`. An observation
-returns `ElementObservation`; retain it for as long as events are needed and drop it to stop them.
+Prefer component input over context for normal parent-to-child data, and prefer properties and
+messages over `ElementRef`. The declarative path is usually shorter and easier to maintain.
 
-Reactor keeps its XAML objects private. Integrations exchange only typed capabilities and
-application-owned native payloads. Prefer the higher-level Canvas and Composition adapters over
-managing these requests directly.
+## Deployment
 
-### Debugging
+Reactor detects a staged Windows App Runtime or resolves an installed framework package at
+startup. For self-contained deployment, use `windows-reactor-setup` from `build.rs`. Compare the
+[`framework_dependent`](../../crates/samples/reactor/framework_dependent) and
+[`self_contained`](../../crates/samples/reactor/self_contained) samples when choosing how to
+package the app.
 
-Set `WINDOWS_REACTOR_TRACE=1` in a debug build to print one reconciliation summary before each
-nonempty component update is applied. The trace names composed component types and reports native
-property, topology, subscription, creation, and destruction command counts. Because it is written
-before WinUI calls, the last line can identify the update involved in a native failure. Release
-builds omit this output.
+## What to read next
 
-When a view does not update, check these in order:
+The focused examples in
+[`samples/examples`](../../crates/samples/reactor/samples/examples) are the easiest way to learn
+one concept at a time:
 
-1. The event callback sends the intended message.
-2. `update` changes component state used by `view`.
-3. Child `Input::eq` observes every value relevant to the child.
-4. List keys are stable and a virtual source revision changes when its key sequence changes.
-5. An `ElementRef` request is made while bound and its observation handle remains alive.
+| Example | What it shows |
+| --- | --- |
+| `counter` | Components, state, messages, and events |
+| `function_component` | Child components and input |
+| `text_box` | Controlled input |
+| `stack` and `grid` | Layout |
+| `auto_suggest_box` | Ordinary Rust conditionals and collections |
+| `keyed_list_reorder` | Stable identity in changing lists |
+| `async_state` | Background work |
+| `use_effect` and `context` | Lifecycle work and shared data |
 
-## Pitfalls
-
-- Do not mutate native XAML objects outside Reactor's command path.
-- Do not perform blocking work in `view`, callbacks, or `update`; use background work.
-- Do not mutate component state from `view`.
-- Do not use list indices as keys when items can move.
-- Do not recreate a `Context` on every render; consumers identify a context by its instance.
-- Do not drop an `ElementObservation` while its callback is still required.
-- Treat unexpected native command failures as fatal. Reactor cannot safely continue with native
-  and retained trees out of sync.
-
-## Sample progression
-
-Read and run the samples in this order:
-
-1. [`counter`](../../crates/samples/reactor/counter) - the basic component and message loop.
-2. [`form`](../../crates/samples/reactor/form) - several controls and typed form state.
-3. [`controlled`](../../crates/samples/reactor/controlled) - native feedback into controlled
-   values.
-4. [`samples/examples`](../../crates/samples/reactor/samples/examples) - focused examples. Start
-   with `component_input`, `composition`, `async_state`, `use_effect`, `element_ref`, `window`,
-   `secondary_window`, `keyed_list_reorder`, and `image`.
-5. [`navigation`](../../crates/samples/reactor/navigation) - a multi-view application structure.
-6. [`virtual`](../../crates/samples/reactor/virtual) - keyed virtual rows, editing, background
-   loading, and typed focus.
-7. [`gallery`](../../crates/samples/reactor/gallery) - broad control and layout coverage.
-8. [`composition`](../../crates/samples/reactor/composition),
-   [`webview`](../../crates/samples/reactor/webview), and the
-   [Canvas samples](../../crates/samples/canvas) - native integrations.
-9. [`apps`](../../crates/samples/reactor/apps) - larger application examples.
+The [`gallery`](../../crates/samples/reactor/gallery) is a control catalog. The
+[`navigation`](../../crates/samples/reactor/navigation) and
+[`apps`](../../crates/samples/reactor/apps) samples show how these same ideas fit together in a
+larger application. See the [`composition`](../../crates/samples/reactor/composition),
+[`webview`](../../crates/samples/reactor/webview), and
+[Canvas](../../crates/samples/canvas) samples only when the app needs those integrations.
 
 ---
 
@@ -306,6 +418,10 @@ need it to use Reactor.
 Components produce the public `View` representation. The Pump plans tree and lifecycle changes,
 then publishes commands to a runtime. The WinUI runtime applies those commands to native objects.
 `RecordingRuntime` consumes the same command stream for deterministic tests.
+
+In a debug build, set `WINDOWS_REACTOR_TRACE=1` to print a reconciliation summary before each
+nonempty component update is applied. The trace reports native property, topology, subscription,
+creation, and destruction command counts.
 
 One structural tree handles controls, components, fragments, slots, dialogs, overlays, and
 windows. Keyed views retain ownership across moves. Generational window, component, and node
