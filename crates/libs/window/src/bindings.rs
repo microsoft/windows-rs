@@ -1,8 +1,10 @@
+windows_core::link!("user32.dll" "system" fn AdjustWindowRectExForDpi(lprect : *mut RECT, dwstyle : u32, bmenu : windows_core::BOOL, dwexstyle : u32, dpi : u32) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn CreateWindowExW(dwexstyle : u32, lpclassname : windows_core::PCWSTR, lpwindowname : windows_core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : HWND, hmenu : HMENU, hinstance : HINSTANCE, lpparam : *const core::ffi::c_void) -> HWND);
 windows_core::link!("user32.dll" "system" fn DefWindowProcW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> LRESULT);
 windows_core::link!("user32.dll" "system" fn DestroyWindow(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn DispatchMessageW(lpmsg : *const MSG) -> LRESULT);
 windows_core::link!("user32.dll" "system" fn GetClientRect(hwnd : HWND, lprect : *mut RECT) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn GetDpiForSystem() -> u32);
 windows_core::link!("user32.dll" "system" fn GetMessageW(lpmsg : *mut MSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> windows_core::BOOL);
 #[cfg(any(
     target_arch = "aarch64",
@@ -94,4 +96,5 @@ pub type WNDPROC = Option<
     unsafe extern "system" fn(param0: HWND, param1: u32, param2: WPARAM, param3: LPARAM) -> LRESULT,
 >;
 pub type WPARAM = usize;
+pub const WS_EX_NOREDIRECTIONBITMAP: i32 = 2097152;
 pub const WS_OVERLAPPEDWINDOW: i32 = 13565952;

@@ -31,7 +31,8 @@ fn main() -> Result<()> {
         let game_message = game.clone();
         let game_resize = game.clone();
         Window::new("Minesweeper")
-            .size(800, 600)
+            .client_size(800, 600)
+            .no_redirection_bitmap()
             .on_message(move |_hwnd, message, _wparam, lparam| {
                 if let Some(game) = game_message.borrow_mut().as_mut() {
                     match message {

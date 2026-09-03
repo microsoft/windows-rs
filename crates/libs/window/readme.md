@@ -18,7 +18,7 @@ use windows_window::*;
 
 fn main() -> Result<()> {
     let window = Window::new("Hello")
-        .size(800, 600)
+        .client_size(800, 600)
         .on_resize(|width, height| {
             println!("resized to {width} x {height}");
         })
