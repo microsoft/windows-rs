@@ -1,11 +1,10 @@
-## Windows services
+## windows-services
 
 The [windows-services](https://crates.io/crates/windows-services) crate implements Windows service
 processes.
 
-* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
-* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
-* [Releases](https://github.com/microsoft/windows-rs/releases)
+* [Getting
+  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-services.md)
 
 Start by adding the following to your Cargo.toml file:
 

@@ -1,11 +1,10 @@
-## Windows collection types
+## windows-collections
 
 The [windows-collections](https://crates.io/crates/windows-collections) crate implements Windows
 collection interfaces for Rust collections.
 
-* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
-* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
-* [Releases](https://github.com/microsoft/windows-rs/releases)
+* [Getting
+  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-collections.md)
 
 Start by adding the following to your Cargo.toml file:
 
@@ -22,22 +21,4 @@ let numbers = IIterable::<i32>::from(vec![1, 2, 3]);
 for value in numbers {
     println!("{value}");
 }
-```
-
-```rust
-use windows_collections::*;
-use windows_strings::*;
-
-let greetings =
-    IVectorView::<HSTRING>::from(vec![HSTRING::from("hello"), HSTRING::from("world")]);
-
-for value in greetings {
-    println!("{value:?}");
-}
-
-let map = std::collections::BTreeMap::from([("one".into(), 1), ("two".into(), 2)]);
-let map = IMapView::<HSTRING, i32>::from(map);
-
-assert_eq!(map.Lookup(h!("one")).unwrap(), 1);
-assert_eq!(map.Lookup(h!("two")).unwrap(), 2);
 ```

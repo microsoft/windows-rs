@@ -1,11 +1,10 @@
-## Windows numeric types
+## windows-numerics
 
 The [windows-numerics](https://crates.io/crates/windows-numerics) crate provides Windows vector,
 matrix, plane, and quaternion types.
 
-* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
-* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
-* [Releases](https://github.com/microsoft/windows-rs/releases)
+* [Getting
+  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-numerics.md)
 
 These are the same graphics math types used by composition, Direct2D, and Direct3D
 APIs, so values flow into those APIs without conversion.

@@ -1,11 +1,17 @@
-## Windows Animation
+## windows-animation
 
 Windows Animation wraps the Windows Animation Manager (`IUIAnimationManager`) for variable
 interpolation, transitions, and storyboards. It does not depend on a UI or rendering framework.
 
-* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
-* [Animation
-  guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-animation.md)
+* [Getting
+  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-animation.md)
+
+Start by adding the following to your Cargo.toml file:
+
+```toml
+[dependencies.windows-animation]
+version = "0.100"
+```
 
 ```rust,no_run
 use windows_animation::*;
@@ -29,7 +35,3 @@ fn main() -> Result<()> {
     Ok(())
 }
 ```
-
-Key types are `Manager`, `TransitionLibrary`, and `Variable`. See the [animation
-guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-animation.md) for
-the API and samples.

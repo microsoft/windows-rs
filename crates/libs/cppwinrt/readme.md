@@ -1,11 +1,10 @@
-## C++/WinRT
+## cppwinrt
 
 The [cppwinrt](https://crates.io/crates/cppwinrt) crate bundles the C++/WinRT compiler for use in
 Rust.
 
-* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
-* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
-* [Releases](https://github.com/microsoft/windows-rs/releases)
+* [Getting
+  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/cppwinrt.md)
 
 Start by adding the following to your Cargo.toml file:
 
@@ -19,9 +18,3 @@ Use `cppwinrt` function as needed:
 ```rust,ignore
 println!("{}", cppwinrt::cppwinrt(["-help"]));
 ```
-
-Source:
-
-* <https://github.com/microsoft/cppwinrt>
-* <https://www.nuget.org/packages/microsoft.windows.cppwinrt>
-* Version 2.0.250303.1

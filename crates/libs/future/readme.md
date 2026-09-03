@@ -1,11 +1,10 @@
-## Windows async types
+## windows-future
 
 The [windows-future](https://crates.io/crates/windows-future) crate adapts WinRT asynchronous
 operations to Rust futures.
 
-* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
-* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
-* [Releases](https://github.com/microsoft/windows-rs/releases)
+* [Getting
+  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-future.md)
 
 Start by adding the following to your Cargo.toml file:
 
