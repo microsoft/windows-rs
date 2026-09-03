@@ -8,5 +8,8 @@ publish = false
 windows-composition = { workspace = true, features = ["system"] }
 windows-window = { workspace = true }
 
+[features]
+show-mines = []
+
 [lints]
 workspace = true

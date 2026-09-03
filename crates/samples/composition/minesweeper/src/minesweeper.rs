@@ -388,6 +388,11 @@ impl Minesweeper {
 
             if self.mines[i] {
                 self.neighbor_counts.push(-1);
+                if cfg!(feature = "show-mines") {
+                    self.ui
+                        .update_tile_with_state(&TileCoordinate { x, y }, MineState::Question)
+                        .unwrap();
+                }
             } else {
                 let count = self.get_surrounding_mine_count(x, y);
                 self.neighbor_counts.push(count);

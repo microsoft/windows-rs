@@ -46,9 +46,11 @@ initial resize messages that arrive after the builder installs its state.
 
 ## Window creation and ownership
 
-`Window::new(title)` returns a `WindowBuilder`. `size` sets the initial outer window size.
-`style` and `ex_style` replace the defaults with raw `WS_*` and `WS_EX_*` values. The defaults are
-`WS_OVERLAPPEDWINDOW` and no extended style.
+`Window::new(title)` returns a `WindowBuilder`. `size` sets the initial outer window size, while
+`client_size` sets the size excluding non-client borders. `style` and `ex_style` replace the
+defaults with raw `WS_*` and `WS_EX_*` values. The defaults are `WS_OVERLAPPEDWINDOW` and no
+extended style. `no_redirection_bitmap` adds `WS_EX_NOREDIRECTIONBITMAP` for content supplied by
+composition.
 
 `on_message` receives `(hwnd, message, wparam, lparam)` and returns `Option<isize>`. Return
 `Some(result)` only when the application fully handled the message. Return `None` to use the
@@ -102,9 +104,8 @@ other components on the same UI thread from progressing.
 - Use `client_size()` after creation to size the initial swap chain or child content.
 - Forward resize callbacks to `Controller::set_bounds` for
   [`windows-webview`](windows-webview.md), or resize the relevant swap-chain buffers.
-- A DirectComposition host may need an extended style such as
-  `WS_EX_NOREDIRECTIONBITMAP`; obtain the constant from the consuming bindings and pass its raw
-  value to `ex_style`.
+- A composition host can use `no_redirection_bitmap()` to avoid allocating an unused DWM
+  redirection surface.
 - Raw input, paint, keyboard, mouse, DPI, and position behavior can be implemented through
   `on_message`. This crate intentionally does not project message-specific argument types.
 
