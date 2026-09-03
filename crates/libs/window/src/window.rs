@@ -134,6 +134,9 @@ impl WindowBuilder {
     }
 
     /// Creates and shows the window.
+    ///
+    /// The first call attempts to set process DPI awareness to per-monitor v2.
+    /// Set any different process DPI policy before calling this method.
     pub fn create(self) -> Result<Window> {
         unsafe {
             register_class();
