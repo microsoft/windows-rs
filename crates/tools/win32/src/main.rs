@@ -222,6 +222,7 @@ const HEADERS: &[&str] = &[
     "netfw.h",
     "wincred.h",
     "wtsapi32.h",
+    "tsvirtualchannels.h",
     "evntrace.h",
     "tdh.h",
     "powersetting.h",
