@@ -2,11 +2,11 @@
 
 > A declarative WinUI 3 library built around components, typed messages, and native controls.
 
-- [crates.io](https://crates.io/crates/windows-reactor)
-- [docs.rs](https://docs.rs/windows-reactor)
-- [Getting started](../../crates/libs/reactor/readme.md)
-- [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
-- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor)
+- 📦 [crates.io](https://crates.io/crates/windows-reactor)
+- 📖 [docs.rs](https://docs.rs/windows-reactor)
+- 🚀 [Getting started](../../crates/libs/reactor/readme.md)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor)
 - [Self-contained deployment](windows-reactor-setup.md)
 - [Canvas integration](windows-canvas.md)
 - [Composition integration](windows-composition.md)
