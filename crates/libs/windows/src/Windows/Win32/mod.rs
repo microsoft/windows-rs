@@ -1791,6 +1791,10 @@ pub use traffic::*;
 pub mod transact;
 #[cfg(feature = "transact")]
 pub use transact::*;
+#[cfg(feature = "tsvirtualchannels")]
+pub mod tsvirtualchannels;
+#[cfg(feature = "tsvirtualchannels")]
+pub use tsvirtualchannels::*;
 #[cfg(feature = "tuner")]
 pub mod tuner;
 #[cfg(feature = "tuner")]
