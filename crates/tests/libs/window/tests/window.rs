@@ -1,6 +1,6 @@
 //! Window lifecycle: creation, handle validity, client size, and destruction.
 
-use test_window::{GWL_EXSTYLE, IsWindow, WS_EX_NOREDIRECTIONBITMAP, get_window_long_ptr_w};
+use test_window::{IsWindow, WS_EX_NOREDIRECTIONBITMAP, get_window_ex_style};
 use windows_window::Window;
 
 #[test]
@@ -30,7 +30,7 @@ fn no_redirection_bitmap_sets_the_extended_style() {
         .no_redirection_bitmap()
         .create()
         .unwrap();
-    let ex_style = unsafe { get_window_long_ptr_w(window.hwnd(), GWL_EXSTYLE) };
+    let ex_style = get_window_ex_style(&window);
     assert_ne!(ex_style & WS_EX_NOREDIRECTIONBITMAP, 0);
 }
 

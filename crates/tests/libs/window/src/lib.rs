@@ -17,13 +17,13 @@ windows_link::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd: *mut core::
 #[cfg(target_pointer_width = "32")]
 windows_link::link!("user32.dll" "system" fn GetWindowLongW(hwnd: *mut core::ffi::c_void, index: i32) -> i32);
 
-pub unsafe fn get_window_long_ptr_w(hwnd: *mut core::ffi::c_void, index: i32) -> isize {
+pub fn get_window_ex_style(window: &windows_window::Window) -> isize {
     #[cfg(target_pointer_width = "64")]
     unsafe {
-        GetWindowLongPtrW(hwnd, index)
+        GetWindowLongPtrW(window.hwnd(), GWL_EXSTYLE)
     }
     #[cfg(target_pointer_width = "32")]
     unsafe {
-        GetWindowLongW(hwnd, index) as isize
+        GetWindowLongW(window.hwnd(), GWL_EXSTYLE) as isize
     }
 }
