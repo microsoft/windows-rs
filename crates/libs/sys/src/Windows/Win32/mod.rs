@@ -1443,6 +1443,10 @@ pub use sal::*;
 pub mod sapi;
 #[cfg(feature = "sapi")]
 pub use sapi::*;
+#[cfg(feature = "sapiddk")]
+pub mod sapiddk;
+#[cfg(feature = "sapiddk")]
+pub use sapiddk::*;
 #[cfg(feature = "schannel")]
 pub mod schannel;
 #[cfg(feature = "schannel")]
