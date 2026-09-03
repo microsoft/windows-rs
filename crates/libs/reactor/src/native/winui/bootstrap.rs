@@ -3,6 +3,26 @@ use windows_core::*;
 
 const FRAMEWORK_FAMILY: PCWSTR = w!("Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe");
 const PACKAGE_DEPENDENCY_LIFETIME_KIND_PROCESS: i32 = 0;
+const APPMODEL_RUNTIME_API_SET: PCWSTR = w!("api-ms-win-appmodel-runtime-l1-1-5.dll");
+
+type TryCreatePackageDependency = unsafe extern "system" fn(
+    user: PSID,
+    packagefamilyname: PCWSTR,
+    minversion: PACKAGE_VERSION,
+    packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures,
+    lifetimekind: PackageDependencyLifetimeKind,
+    lifetimeartifact: PCWSTR,
+    options: CreatePackageDependencyOptions,
+    packagedependencyid: *mut PWSTR,
+) -> HRESULT;
+
+type AddPackageDependency = unsafe extern "system" fn(
+    packagedependencyid: PCWSTR,
+    rank: i32,
+    options: AddPackageDependencyOptions,
+    packagedependencycontext: *mut PACKAGEDEPENDENCY_CONTEXT,
+    packagefullname: *mut PWSTR,
+) -> HRESULT;
 
 static BOOTSTRAPPED: std::sync::Mutex<bool> = std::sync::Mutex::new(false);
 
@@ -23,8 +43,25 @@ pub fn bootstrap() -> Result<()> {
 
 unsafe fn bootstrap_inner() -> Result<()> {
     let mut dependency_id: PWSTR = PWSTR::null();
+    let appmodel_runtime = unsafe { LoadLibraryW(APPMODEL_RUNTIME_API_SET) };
+    if appmodel_runtime.is_null() {
+        return Err(Error::from_thread());
+    }
+
+    let try_create_package_dependency: TryCreatePackageDependency = unsafe {
+        let proc = GetProcAddress(appmodel_runtime, s!("TryCreatePackageDependency"))
+            .ok_or_else(Error::from_thread)?;
+        std::mem::transmute(proc)
+    };
+
+    let add_package_dependency: AddPackageDependency = unsafe {
+        let proc = GetProcAddress(appmodel_runtime, s!("AddPackageDependency"))
+            .ok_or_else(Error::from_thread)?;
+        std::mem::transmute(proc)
+    };
+
     let hr = unsafe {
-        TryCreatePackageDependency(
+        try_create_package_dependency(
             std::ptr::null_mut(),
             FRAMEWORK_FAMILY,
             PACKAGE_VERSION {
@@ -53,8 +90,9 @@ unsafe fn bootstrap_inner() -> Result<()> {
     // of the process.
     let mut handle = std::ptr::null_mut();
     let mut package_full_name = PWSTR::null();
+
     unsafe {
-        let add_result = AddPackageDependency(
+        let add_result = add_package_dependency(
             PCWSTR(dependency_id.0),
             0,
             0,
