@@ -25,7 +25,7 @@ features = ["std"]
 
 [dev-dependencies.windows-composition]
 workspace = true
-features = ["system"]
+features = ["reactor"]
 
 [dev-dependencies.windows-core]
 workspace = true
