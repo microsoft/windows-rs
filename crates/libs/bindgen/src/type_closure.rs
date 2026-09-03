@@ -31,7 +31,7 @@ impl TypeClosure {
                 if let Type::Interface(iface) = &ty {
                     if filter.includes_full_hierarchy(namespace, name) {
                         for required in iface.required_interfaces(reader) {
-                            Type::Interface(required.clone())
+                            Type::Interface(required)
                                 .combine_closure(&mut types, reader, references);
                         }
                     }
