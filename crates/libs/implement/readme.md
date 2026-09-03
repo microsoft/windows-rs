@@ -27,7 +27,7 @@ unsafe trait IValue: IUnknown {
 struct Value(u32);
 
 impl IValue_Impl for Value_Impl {
-    fn get(&self) -> u32 {
+    unsafe fn get(&self) -> u32 {
         self.0
     }
 }
