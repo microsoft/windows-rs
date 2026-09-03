@@ -295,7 +295,7 @@ impl IAsyncAction {
 }
 
 impl<T: RuntimeType> IAsyncOperation<T> {
-    /// Creates an `IAsyncOperation<T>` that waits for the closure to execute on the Windows thread pool.
+    /// Creates an `IAsyncOperation<T>` that runs the closure on the Windows thread pool.
     pub fn spawn<F>(f: F) -> Self
     where
         F: FnOnce() -> Result<T> + Send + 'static,

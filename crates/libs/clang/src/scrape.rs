@@ -50,7 +50,7 @@ impl Arch {
 
 /// Multi-arch and output state layered on top of a configured [`Clang`](crate::Clang).
 pub struct ScrapePlan {
-    /// Root namespace; each defining header becomes `<root>.<HeaderStem>`.
+    /// Root namespace shared by all emitted header partitions.
     pub root: String,
     /// Committed per-header RDL directory.
     pub rdl_dir: PathBuf,

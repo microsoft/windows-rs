@@ -86,10 +86,8 @@ impl<T: ComObjectInner> ComObject<T> {
         unsafe { self.ptr.as_ref() }
     }
 
-    // We _do not_ provide a way to get a mutable reference to the outer box. Returning `&mut T`
-    // is OK, but `&mut T::Outer` is not: it would allow replacing the entire object (box and
-    // reference count), which could lead to UB. This could perhaps be solved by returning
-    // `Pin<&mut T::Outer>`, but that requires additional thought.
+    // `&mut T::Outer` is not exposed because replacing the outer object would also replace its
+    // reference count.
 
     /// Gets a mutable reference to the object stored in the box, if the reference count is
     /// exactly 1. Returns `None` if there are multiple references.

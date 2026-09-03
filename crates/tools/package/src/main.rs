@@ -67,8 +67,8 @@ fn main() {
 }
 
 /// Asserts the header partition took effect (every Win32/WDK header stem lands in its own
-/// `Windows.Win32.<header>` namespace and the flat `Windows.Win32` namespace no longer holds types
-/// directly) and reports the synthesised namespace/item totals.
+/// `Windows.Win32.<header>` namespace and the flat `Windows.Win32` namespace contains no types
+/// directly) and reports the synthesized namespace/item totals.
 fn verify(summary: &[(String, usize)]) {
     let index = windows_metadata::reader::Index::read(REMAP_OUTPUT)
         .unwrap_or_else(|| panic!("failed to read remapped winmd `{REMAP_OUTPUT}`"));

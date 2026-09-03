@@ -1,4 +1,4 @@
-/// An internal helper for decoding an iterator of chars and displaying them
+/// Displays decoded characters, replacing errors with the Unicode replacement character.
 pub struct Decode<F>(pub F);
 
 impl<F, R, E> core::fmt::Display for Decode<F>
@@ -16,7 +16,7 @@ where
     }
 }
 
-/// Mirror of `std::char::decode_utf16` for utf-8.
+/// Decodes UTF-8 incrementally and reports invalid sequences.
 pub fn decode_utf8(
     mut buffer: &[u8],
 ) -> impl Iterator<Item = Result<char, core::str::Utf8Error>> + '_ {
@@ -26,12 +26,10 @@ pub fn decode_utf8(
         loop {
             match (current.next(), previous_error) {
                 (Some(c), _) => return Some(Ok(c)),
-                // Return the previous error
                 (None, Some(e)) => {
                     previous_error = None;
                     return Some(Err(e));
                 }
-                // We're completely done
                 (None, None) if buffer.is_empty() => return None,
                 (None, None) => {
                     match core::str::from_utf8(buffer) {
@@ -41,7 +39,6 @@ pub fn decode_utf8(
                         }
                         Err(e) => {
                             let (valid, rest) = buffer.split_at(e.valid_up_to());
-                            // Skip the invalid sequence and stop completely if we ended early
                             let invalid_sequence_length = e.error_len()?;
                             buffer = &rest[invalid_sequence_length..];
 

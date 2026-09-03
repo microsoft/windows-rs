@@ -29,34 +29,63 @@ impl DownloadState {
 pub enum DownloadInterruptReason {
     /// No interruption; the download is progressing or completed.
     None,
+    /// A file-system operation failed.
     FileFailed,
+    /// The destination file could not be accessed.
     FileAccessDenied,
+    /// The destination has insufficient free space.
     FileNoSpace,
+    /// The destination file name is too long.
     FileNameTooLong,
+    /// The file exceeds an allowed size.
     FileTooLarge,
+    /// The file was identified as malicious.
     FileMalicious,
+    /// A temporary file-system error interrupted the download.
     FileTransientError,
+    /// Policy blocked the file.
     FileBlockedByPolicy,
+    /// A file security check failed.
     FileSecurityCheckFailed,
+    /// The received file was shorter than expected.
     FileTooShort,
+    /// The received file's hash did not match.
     FileHashMismatch,
+    /// The network request failed.
     NetworkFailed,
+    /// The network request timed out.
     NetworkTimeout,
+    /// The network connection was lost.
     NetworkDisconnected,
+    /// The network server is unavailable.
     NetworkServerDown,
+    /// The network request was invalid.
     NetworkInvalidRequest,
+    /// The server reported a failure.
     ServerFailed,
+    /// The server does not support the required byte range.
     ServerNoRange,
+    /// The server returned invalid content.
     ServerBadContent,
+    /// The server requires authorization.
     ServerUnauthorized,
+    /// The server certificate could not be accepted.
     ServerCertificateProblem,
+    /// The server forbade the request.
     ServerForbidden,
+    /// The server returned an unexpected response.
     ServerUnexpectedResponse,
+    /// The received length did not match the server's declared content length.
     ServerContentLengthMismatch,
+    /// A cross-origin server redirect interrupted the download.
     ServerCrossOriginRedirect,
+    /// The user canceled the download.
     UserCanceled,
+    /// The user shut down the browser.
     UserShutdown,
+    /// The user paused the download.
     UserPaused,
+    /// The process responsible for the download crashed.
     DownloadProcessCrashed,
     /// An interrupt reason not represented by the other variants.
     Unknown,

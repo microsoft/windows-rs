@@ -181,7 +181,7 @@ impl Controller {
     /// Sets the color painted behind the page before content loads and wherever
     /// the page is transparent. Use [`Color::TRANSPARENT`] to let the host window
     /// show through; only fully opaque (`a = 255`) and fully transparent
-    /// (`a = 0`) colours are supported.
+    /// (`a = 0`) colors are supported.
     pub fn set_default_background_color(&self, color: Color) -> Result<()> {
         let source: ICoreWebView2Controller2 = self.0.cast()?;
         unsafe { source.SetDefaultBackgroundColor(color.to_raw()) }.ok()

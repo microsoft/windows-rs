@@ -788,7 +788,8 @@ impl Encoder<'_> {
         }
     }
 
-    /// Resolves a typedef's bare sibling names in the typedef namespace, not the constant namespace.
+    /// Resolves a typedef's bare sibling names in the typedef namespace, not the constant
+    /// namespace.
     fn encode_underlying(&self, ty: &syn::Type, namespace: &str) -> Option<metadata::Type> {
         match ty {
             // MAKEINTRESOURCE-style pointer constants only need the pointer kind.

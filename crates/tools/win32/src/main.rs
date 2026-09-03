@@ -102,15 +102,13 @@ const PRELUDE: &str = "#define SECURITY_WIN32\n#define WIN32_NO_STATUS\n#include
 /// `DEFINE_AVIGUID`, ... - whose values live only in the expanded initializer are preserved.)
 const GUID_RESET: &str = "\n#undef INITGUID\n#include <guiddef.h>";
 
-// The orchestration manifest, expressed as plain `const` slices (was `win32.toml`). This is a
-// small, mechanical description of which SDK headers to emit (partitioned by their defining
-// header) and the import libraries that record which DLL exports each function. There is
-// contains no type-level curation - no per-symbol owners, no re-homing, no synthetic
-// attributes. The only inputs are mechanical; everything about the *shape* of the API comes
-// from the headers and SAL. Every declaration lands in the single flat `Windows.Win32`
-// namespace; its defining header only determines which `.rdl` file it is written to.
+// The orchestration manifest describes which SDK headers to emit, partitioned by their defining
+// header, and the import libraries that record which DLL exports each function. It contains no
+// per-symbol owners, re-homing, or synthetic attributes. The headers and SAL determine the API
+// shape. Every declaration lands in the flat `Windows.Win32` namespace; its defining header only
+// determines which `.rdl` file receives it.
 
-/// Root namespace; each emitted header becomes `<root>.<HeaderStem>`.
+/// Root namespace shared by all emitted header partitions.
 const ROOT: &str = "Windows.Win32";
 
 /// In-scope header directory segments. A declaration whose defining header lives under one of
@@ -695,10 +693,8 @@ const IMPORT_LIBS: &[&str] = &[
     "sti.lib",
     "txfw32.lib",
     "mfsensorgroup.lib",
-    // Additional per-DLL host libraries recovered from the `#[library("")]` triage: these
-    // DLLs have a real SDK import library but were previously unlisted, so their functions
-    // scraped with an empty library. Appended (first-wins keeps every mapping above), so
-    // they only fill in the previously-empty `function -> DLL` mappings.
+    // Per-DLL host libraries follow the primary list. First-wins lookup preserves every mapping
+    // established above.
     "icuuc.lib",
     "icuin.lib",
     "esent.lib",
@@ -730,10 +726,8 @@ const IMPORT_LIBS: &[&str] = &[
     "dflayout.lib",
     "wlanui.lib",
     "mmdevapi.lib",
-    // Media / DirectX per-DLL host libraries: the DirectDraw, Media Foundation (EVR,
-    // MFCore, MFPlay, source-sink), Direct3D 10.1 and DirectShow (`quartz`) DLLs ship a
-    // real SDK import library but were previously unlisted, so their functions scraped
-    // with an empty library.
+    // Media and DirectX per-DLL host libraries for DirectDraw, Media Foundation, Direct3D 10.1,
+    // and DirectShow.
     "ddraw.lib",
     "evr.lib",
     "d3d10_1.lib",
@@ -745,9 +739,8 @@ const IMPORT_LIBS: &[&str] = &[
     // claims - `CreateFileMapping2`, the `*FromApp` file APIs, the package-dependency APIs,
     // ... - are exported only through an `api-ms-win-*` apiset contract (or a host DLL the
     // umbrella records). Because resolution is first-wins and these come last, every
-    // classic host-DLL mapping above is untouched; only the previously-empty residue is
-    // stamped with the DLL the umbrella records, matching the reference metadata,
-    // which likewise leaves no function with an empty library.
+    // classic host-DLL mapping above is untouched; only functions not claimed above receive the
+    // DLL recorded by the umbrella.
     "onecore.lib",
     "onecoreuap.lib",
     // Enclave runtime, resolved dead last. `vertdll.dll` is the VBS-enclave runtime and

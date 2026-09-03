@@ -89,7 +89,6 @@ impl<T: Interface> Event<T> {
                 // No delegates to call.
                 return;
             }
-            // <-- lock is released here
         };
 
         for delegate in delegates.iter() {

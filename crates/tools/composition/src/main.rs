@@ -21,8 +21,8 @@ fn main() {
 
     // Lifted stack: Microsoft.UI.Composition (Microsoft.UI.winmd) mirrors the system
     // API, so the same wrapper source compiles against it. The filter is derived from
-    // the one above by dropping system-only regions and rewriting the namespace, so a
-    // single filter stays the source of truth for both stacks. Windows.winmd resolves
+    // the one above by dropping system-only regions and rewriting the namespace, so the
+    // system filter defines both stacks. Windows.winmd resolves
     // the shared foundation types (Color, TimeSpan, IVector, numerics).
     let lifted_filter = write_lifted_filter();
     builder()

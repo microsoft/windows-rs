@@ -51,7 +51,7 @@ impl<'a> OpenOptions<'a> {
         self
     }
 
-    /// Sets the option to create a volatile registry key that is not preserved when the system restarts.
+    /// Creates a volatile registry key that is not preserved when the system restarts.
     pub fn volatile(&mut self) -> &mut Self {
         self.options |= REG_OPTION_VOLATILE as u32;
         self

@@ -7,7 +7,9 @@ use windows_reactor::{
     SwapChainPanelEvent, View, ViewContext,
 };
 
-/// Per-frame draw context.
+/// Per-frame drawing state for a Reactor canvas.
+///
+/// `width` and `height` are the current surface dimensions in DIPs.
 pub struct DrawContext<'a> {
     session: DrawingSession<'a>,
     device: &'a GpuDevice,
@@ -17,14 +19,17 @@ pub struct DrawContext<'a> {
 }
 
 impl DrawContext<'_> {
+    /// Returns the device used by this frame.
     pub fn device(&self) -> &GpuDevice {
         self.device
     }
 
+    /// Returns `true` on the first frame and after device-loss recovery or a surface rebuild.
     pub fn device_changed(&self) -> bool {
         self.changed
     }
 
+    /// Clears the frame to `color`.
     pub fn clear(&self, color: ColorF) {
         self.session.clear(color);
     }
@@ -38,15 +43,20 @@ impl<'a> std::ops::Deref for DrawContext<'a> {
     }
 }
 
-/// Requests a repaint from a demand-driven canvas.
+/// Shared repaint state for a demand-driven canvas.
+///
+/// A new invalidator starts invalidated. Calling [`invalidate`](Self::invalidate) coalesces with
+/// any pending repaint.
 #[derive(Clone)]
 pub struct Invalidator(Rc<Cell<bool>>);
 
 impl Invalidator {
+    /// Creates invalidated repaint state.
     pub fn new() -> Self {
         Self(Rc::new(Cell::new(true)))
     }
 
+    /// Requests a future draw callback.
     pub fn invalidate(&self) {
         self.0.set(true);
     }
@@ -58,12 +68,13 @@ impl Default for Invalidator {
     }
 }
 
-/// Configures a Canvas surface hosted in a Reactor tree.
+/// Configures a Direct2D surface hosted in a Reactor tree.
 pub struct Canvas {
     input: CanvasInput,
 }
 
 impl Canvas {
+    /// Creates a canvas that draws on every composition rendering event.
     pub fn animated(draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static) -> Self {
         Self::new(
             Rc::new(GpuDevice::new_or_warp),
@@ -73,6 +84,7 @@ impl Canvas {
         )
     }
 
+    /// Creates a continuously rendered canvas using `device`.
     pub fn animated_with_device(
         device: GpuDevice,
         draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static,
@@ -85,6 +97,7 @@ impl Canvas {
         )
     }
 
+    /// Creates a canvas that draws only when `invalidator` requests a frame.
     pub fn invalidated(
         invalidator: &Invalidator,
         draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static,
@@ -97,6 +110,7 @@ impl Canvas {
         )
     }
 
+    /// Replaces the default panic-on-error handler.
     pub fn on_error(mut self, handler: impl Fn(IntegrationError) + 'static) -> Self {
         self.input.on_error = Callback::new(handler);
         self
@@ -130,10 +144,12 @@ fn fail_fast(error: IntegrationError) {
     panic!("windows-canvas Reactor integration failed: {error:?}");
 }
 
+/// Creates a canvas that draws on every composition rendering event.
 pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static) -> View {
     Canvas::animated(draw).into()
 }
 
+/// Creates a continuously rendered canvas using `device`.
 pub fn animated_canvas_with_device(
     device: GpuDevice,
     draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static,
@@ -141,10 +157,12 @@ pub fn animated_canvas_with_device(
     Canvas::animated_with_device(device, draw).into()
 }
 
+/// Creates a demand-driven canvas with initially invalidated repaint state.
 pub fn canvas(draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static) -> View {
     canvas_invalidated(&Invalidator::new(), draw)
 }
 
+/// Creates a demand-driven canvas controlled by `invalidator`.
 pub fn canvas_invalidated(
     invalidator: &Invalidator,
     draw: impl Fn(&DrawContext<'_>) -> Result<()> + 'static,
@@ -710,6 +728,9 @@ pub struct CanvasImageSource {
 }
 
 impl CanvasImageSource {
+    /// Creates an image surface with DIP dimensions `width` by `height` at `scale` pixels per DIP.
+    ///
+    /// Non-positive scales use 1.0.
     pub fn new(device: &GpuDevice, width: f32, height: f32, scale: f32) -> Result<Self> {
         let scale = if scale > 0.0 { scale } else { 1.0 };
         let pixel_width = ((width * scale).round() as i32).max(1);
@@ -732,7 +753,7 @@ impl CanvasImageSource {
         })
     }
 
-    /// Draws the surface and returns `Ok(false)` if any stage reports device loss.
+    /// Runs one draw pass and returns `Ok(false)` if any stage reports device loss.
     pub fn draw(
         &self,
         clear: ColorF,
@@ -770,6 +791,9 @@ impl CanvasImageSource {
     }
 
     #[must_use = "false means the image reference is currently unbound"]
+    /// Attaches this surface to `image`.
+    ///
+    /// Returns `false` when the image reference is not currently bound.
     pub fn attach(&self, image: &ElementRef<windows_reactor::Image>) -> bool {
         self.attach_result(image, |result| {
             if let Err(error) = result {
@@ -779,6 +803,10 @@ impl CanvasImageSource {
     }
 
     #[must_use = "false means the image reference is currently unbound"]
+    /// Attaches this surface and reports asynchronous native completion.
+    ///
+    /// Returns `false` when the image reference is not currently bound; in that case `completion`
+    /// is not queued.
     pub fn attach_result(
         &self,
         image: &ElementRef<windows_reactor::Image>,
@@ -787,6 +815,7 @@ impl CanvasImageSource {
         image.request_set_native_source(Some(self.source.clone().into()), completion)
     }
 
+    /// Returns the number of physical pixels per DIP.
     pub fn scale(&self) -> f32 {
         self.scale
     }

@@ -35,8 +35,8 @@ fn interface_conversion() -> windows::core::Result<()> {
     let uri: Uri = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
     let _default: IUriRuntimeClass = uri.cast()?;
 
-    // TODO: Convert from ??? class to (non-exclusive) default interface by reference (retaining
-    // the class).
+    // TODO: Add a runtime class with a non-exclusive default interface and test borrowed
+    // conversion while retaining the class.
     let uri: &Uri = &Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
     let _default: IUriRuntimeClass = uri.cast()?;
 
@@ -49,14 +49,6 @@ fn interface_conversion() -> windows::core::Result<()> {
     let uri: &Uri = &Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
     let default: IStringable = uri.cast()?;
     assert!(default.ToString()? == uri.ToString()?);
-
-    // Convert from ??? class to default generic interface by value.
-
-    // Convert from ??? class to default generic interface by reference.
-
-    // Convert from ??? class to non-default generic interface by value.
-
-    // Convert from ??? class to non-default generic interface by reference.
 
     Ok(())
 }
