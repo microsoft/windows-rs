@@ -1,6 +1,6 @@
 //! Window lifecycle: creation, handle validity, client size, and destruction.
 
-use test_window::IsWindow;
+use test_window::{GWL_EXSTYLE, GetWindowLongPtrW, IsWindow, WS_EX_NOREDIRECTIONBITMAP};
 use windows_window::Window;
 
 #[test]
@@ -16,6 +16,22 @@ fn client_size_fits_within_the_requested_size() {
     let (width, height) = window.client_size();
     assert!(width > 0 && height > 0);
     assert!(width <= 400 && height <= 300);
+}
+
+#[test]
+fn client_size_matches_the_requested_size() {
+    let window = Window::new("test").client_size(400, 300).create().unwrap();
+    assert_eq!(window.client_size(), (400, 300));
+}
+
+#[test]
+fn no_redirection_bitmap_sets_the_extended_style() {
+    let window = Window::new("test")
+        .no_redirection_bitmap()
+        .create()
+        .unwrap();
+    let ex_style = unsafe { GetWindowLongPtrW(window.hwnd(), GWL_EXSTYLE) };
+    assert_ne!(ex_style & WS_EX_NOREDIRECTIONBITMAP, 0);
 }
 
 #[test]

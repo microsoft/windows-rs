@@ -29,6 +29,7 @@ impl Window {
             title: title.to_string(),
             width: CW_USEDEFAULT,
             height: CW_USEDEFAULT,
+            client_size: false,
             style: WS_OVERLAPPEDWINDOW as u32,
             ex_style: 0,
             state: State {
@@ -71,6 +72,7 @@ pub struct WindowBuilder {
     title: String,
     width: i32,
     height: i32,
+    client_size: bool,
     style: u32,
     ex_style: u32,
     state: State,
@@ -81,6 +83,15 @@ impl WindowBuilder {
     pub fn size(mut self, width: i32, height: i32) -> Self {
         self.width = width;
         self.height = height;
+        self.client_size = false;
+        self
+    }
+
+    /// Sets the initial client-area size, excluding non-client borders, in pixels.
+    pub fn client_size(mut self, width: i32, height: i32) -> Self {
+        self.width = width;
+        self.height = height;
+        self.client_size = true;
         self
     }
 
@@ -93,6 +104,12 @@ impl WindowBuilder {
     /// Sets the extended window style (`WS_EX_*`). Defaults to none.
     pub fn ex_style(mut self, ex_style: u32) -> Self {
         self.ex_style = ex_style;
+        self
+    }
+
+    /// Disables the DWM redirection surface for content supplied by composition.
+    pub fn no_redirection_bitmap(mut self) -> Self {
+        self.ex_style |= WS_EX_NOREDIRECTIONBITMAP as u32;
         self
     }
 
@@ -124,6 +141,28 @@ impl WindowBuilder {
             let mut title: Vec<u16> = self.title.encode_utf16().collect();
             title.push(0);
 
+            let (width, height) = if self.client_size {
+                let mut rect = RECT {
+                    right: self.width,
+                    bottom: self.height,
+                    ..Default::default()
+                };
+                if !AdjustWindowRectExForDpi(
+                    &mut rect,
+                    self.style,
+                    false.into(),
+                    self.ex_style,
+                    GetDpiForSystem(),
+                )
+                .as_bool()
+                {
+                    return Err(Error::from_thread());
+                }
+                (rect.right - rect.left, rect.bottom - rect.top)
+            } else {
+                (self.width, self.height)
+            };
+
             let hwnd = CreateWindowExW(
                 self.ex_style,
                 class_name(),
@@ -131,8 +170,8 @@ impl WindowBuilder {
                 self.style,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
-                self.width,
-                self.height,
+                width,
+                height,
                 core::ptr::null_mut(),
                 core::ptr::null_mut(),
                 core::ptr::null_mut(),
