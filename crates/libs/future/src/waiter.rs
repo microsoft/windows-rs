@@ -28,7 +28,7 @@ mod imp {
     impl WaiterSignaler {
         /// # Safety
         ///
-        /// The associated `Waiter` must remain alive until this method returns.
+        /// The associated `Waiter` must not have been dropped.
         pub unsafe fn signal(&self) {
             // https://github.com/microsoft/windows-rs/pull/374#discussion_r535313344
             unsafe {
