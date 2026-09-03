@@ -35,7 +35,7 @@ hosted.
 
 The Microsoft Edge WebView2 runtime must be installed for native window hosting. The host also
 needs a live message loop on a single-threaded apartment. `Environment::new` initializes the
-calling thread as an STA when needed.
+calling thread as an STA when needed, as does `Environment::with_options`.
 
 ## Host your first page
 

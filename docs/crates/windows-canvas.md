@@ -254,7 +254,7 @@ essential sequence is:
 ```rust,no_run
 use windows_canvas::*;
 
-fn draw_frame(chain: &mut SwapChain) -> Result<()> {
+fn draw_frame(chain: &mut SwapChain) -> Result<bool> {
     let session = chain.begin_draw()?;
     session.clear(ColorF::DARK_SLATE_BLUE);
 
@@ -262,14 +262,13 @@ fn draw_frame(chain: &mut SwapChain) -> Result<()> {
     session.fill_rect(&Rect::from_xywh(20.0, 20.0, 200.0, 120.0), &brush);
 
     drop(session);
-    chain.present()?;
-    Ok(())
+    chain.present()
 }
 ```
 
 The drawing session borrows the swap chain, so finish and drop it before `present`. A standalone
-host must also resize the swap chain, update display scale, schedule frames, and recreate
-device-dependent state after device loss. The
+host must also resize the swap chain, update display scale, schedule frames, and recreate the
+device, swap chain, and dependent resources when `present` returns `Ok(false)`. The
 [`standalone`](../../crates/samples/canvas/standalone) sample connects those pieces to
 `windows-window`.
 

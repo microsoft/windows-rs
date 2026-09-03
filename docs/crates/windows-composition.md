@@ -82,14 +82,10 @@ fn main() -> Result<()> {
         .create()?;
     let target = compositor.create_desktop_window_target(&window, false)?;
 
-    let root = compositor.create_container_visual();
+    let root = compositor.create_sprite_visual();
+    root.set_relative_size_adjustment(Vector2::new(1.0, 1.0));
+    root.set_brush(&compositor.create_color_brush(Color::rgb(30, 30, 46)));
     target.set_root(&root);
-
-    let (width, height) = window.client_size();
-    let background = compositor.create_sprite_visual();
-    background.set_size(width as f32, height as f32);
-    background.set_brush(&compositor.create_color_brush(Color::rgb(30, 30, 46)));
-    root.children().insert_at_top(&background);
 
     run();
     Ok(())
@@ -243,6 +239,7 @@ component lifecycle; start there rather than copying only the bridge calls.
 | Sample | What it shows |
 | --- | --- |
 | [`standalone`](../../crates/samples/composition/standalone) | Window hosting and sprite visuals |
+| [`host`](../../crates/samples/reactor/composition/examples/host.rs) | Reactor host lifecycle |
 | [`animation`][composition-animation] | Key-frame animation |
 | [`circles`](../../crates/samples/reactor/composition/examples/circles.rs) | A larger shape scene |
 | [`dpi`][composition-dpi] | Reactor size and scale events |
