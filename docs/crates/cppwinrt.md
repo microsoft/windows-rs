@@ -12,6 +12,51 @@ invoked from a Rust build. It is a thin wrapper that runs the bundled `cppwinrt.
 arguments you provide, returning its output. This is primarily useful for interop scenarios that
 also generate C++/WinRT projection headers.
 
+Rust code should prefer a focused crate or `windows-bindgen` implementation support. Binary
+applications can use the broad [`windows`](windows.md) projection when convenient. Use `cppwinrt`
+when a Rust build also compiles C++ that consumes or implements WinRT types.
+
+Start with the crate [README](../../crates/libs/cppwinrt/readme.md) for setup and the help
+invocation. The bundled executable runs only on Windows.
+
+## First workflow: generate headers for a C++ build
+
+1. Produce or obtain the component winmd.
+2. Choose an output directory owned by the build, normally `OUT_DIR`.
+3. Invoke `cppwinrt::cppwinrt` with `-in` for the component metadata and any reference metadata,
+   then `-out` for the include directory.
+4. Add that directory to the C++ compiler's include paths.
+5. Link the libraries required by the generated C++ and the component.
+
+`crates/samples/robot/component_cpp/build.rs` is the component example. It compiles
+`src/robot.rdl` with [`windows-rdl`](windows-rdl.md), passes `robot.winmd` and the default metadata
+directory to C++/WinRT, then compiles `component.cpp` as C++20. The matching
+`robot/client_cpp/build.rs` consumes the component's winmd and compiles a C++ client.
+
+## Input and output model
+
+`cppwinrt(args)` accepts any iterator of values convertible to `OsStr`, so paths do not need UTF-8
+conversion. The arguments are passed unchanged to the bundled compiler. On success the function
+returns standard output as a `String`; on failure it panics with standard error.
+
+The wrapper copies `cppwinrt.exe` to a unique temporary path for each call, runs it synchronously,
+and removes the executable afterward. C++/WinRT itself writes the requested projection output.
+Call `cppwinrt(["-help"])` for the option set supported by the bundled compiler version.
+
+## Integration and pitfalls
+
+- `windows-rdl` can compile a component's reviewable RDL contract to the winmd consumed here.
+- `windows-default` contains the standard winmd files, but C++/WinRT expects input paths. The robot
+  samples pass the crate directory containing those files.
+- `windows-bindgen` is the Rust projection counterpart when both Rust and C++ consume one contract.
+- Gate build-script use to Windows with the MSVC environment when the build also invokes MSVC.
+- Add `rerun-if-changed` directives for component metadata and C++ sources. Generated headers alone
+  do not tell Cargo when to rerun the build script.
+- The wrapper panics on compiler failure and does not return a structured status. Supply only
+  validated arguments and let the build fail visibly.
+- Do not assume options from a newer standalone C++/WinRT release. Check the bundled compiler's
+  `-help` output.
+
 ---
 
 ## Internal documentation

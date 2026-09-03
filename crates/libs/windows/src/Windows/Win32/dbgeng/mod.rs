@@ -1733,7 +1733,7 @@ impl IDebugBreakpoint {
     pub unsafe fn GetAdder(&self) -> windows_core::Result<IDebugClient> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAdder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetAdder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFlags(&self) -> windows_core::Result<u32> {
@@ -2076,7 +2076,7 @@ impl IDebugBreakpoint2 {
     pub unsafe fn GetAdder(&self) -> windows_core::Result<IDebugClient> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAdder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetAdder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFlags(&self) -> windows_core::Result<u32> {
@@ -2473,7 +2473,7 @@ impl IDebugBreakpoint3 {
     pub unsafe fn GetAdder(&self) -> windows_core::Result<IDebugClient> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAdder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetAdder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFlags(&self) -> windows_core::Result<u32> {
@@ -3011,13 +3011,13 @@ impl IDebugClient {
     pub unsafe fn CreateClient(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -3029,7 +3029,7 @@ impl IDebugClient {
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -3092,7 +3092,7 @@ impl IDebugClient {
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -3729,13 +3729,13 @@ impl IDebugClient2 {
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -3747,7 +3747,7 @@ impl IDebugClient2 {
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -3810,7 +3810,7 @@ impl IDebugClient2 {
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -4550,13 +4550,13 @@ impl IDebugClient3 {
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -4568,7 +4568,7 @@ impl IDebugClient3 {
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -4631,7 +4631,7 @@ impl IDebugClient3 {
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -5437,13 +5437,13 @@ impl IDebugClient4 {
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -5455,7 +5455,7 @@ impl IDebugClient4 {
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -5518,7 +5518,7 @@ impl IDebugClient4 {
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -6415,13 +6415,13 @@ impl IDebugClient5 {
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -6433,7 +6433,7 @@ impl IDebugClient5 {
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -6496,7 +6496,7 @@ impl IDebugClient5 {
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -6639,7 +6639,7 @@ impl IDebugClient5 {
     pub unsafe fn GetOutputCallbacksWide(&self) -> windows_core::Result<IDebugOutputCallbacksWide> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetOutputCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -6669,7 +6669,7 @@ impl IDebugClient5 {
     pub unsafe fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEventCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEventCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -7875,13 +7875,13 @@ impl IDebugClient6 {
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -7893,7 +7893,7 @@ impl IDebugClient6 {
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -7956,7 +7956,7 @@ impl IDebugClient6 {
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -8099,7 +8099,7 @@ impl IDebugClient6 {
     pub unsafe fn GetOutputCallbacksWide(&self) -> windows_core::Result<IDebugOutputCallbacksWide> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetOutputCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -8129,7 +8129,7 @@ impl IDebugClient6 {
     pub unsafe fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEventCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEventCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -9350,13 +9350,13 @@ impl IDebugClient7 {
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -9368,7 +9368,7 @@ impl IDebugClient7 {
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -9431,7 +9431,7 @@ impl IDebugClient7 {
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -9574,7 +9574,7 @@ impl IDebugClient7 {
     pub unsafe fn GetOutputCallbacksWide(&self) -> windows_core::Result<IDebugOutputCallbacksWide> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetOutputCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -9604,7 +9604,7 @@ impl IDebugClient7 {
     pub unsafe fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEventCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEventCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -10837,13 +10837,13 @@ impl IDebugClient8 {
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -10855,7 +10855,7 @@ impl IDebugClient8 {
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -10918,7 +10918,7 @@ impl IDebugClient8 {
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -11061,7 +11061,7 @@ impl IDebugClient8 {
     pub unsafe fn GetOutputCallbacksWide(&self) -> windows_core::Result<IDebugOutputCallbacksWide> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetOutputCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -11091,7 +11091,7 @@ impl IDebugClient8 {
     pub unsafe fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEventCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEventCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -12339,13 +12339,13 @@ impl IDebugClient9 {
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -12357,7 +12357,7 @@ impl IDebugClient9 {
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -12420,7 +12420,7 @@ impl IDebugClient9 {
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEventCallbacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -12563,7 +12563,7 @@ impl IDebugClient9 {
     pub unsafe fn GetOutputCallbacksWide(&self) -> windows_core::Result<IDebugOutputCallbacksWide> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetOutputCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -12593,7 +12593,7 @@ impl IDebugClient9 {
     pub unsafe fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEventCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEventCallbacksWide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEventCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::HRESULT
@@ -14039,13 +14039,13 @@ impl IDebugControl {
     pub unsafe fn GetBreakpointByIndex(&self, index: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointByIndex)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointByIndex)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
@@ -14054,7 +14054,7 @@ impl IDebugControl {
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBreakpoint)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBreakpoint)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> windows_core::HRESULT
@@ -15478,13 +15478,13 @@ impl IDebugControl2 {
     pub unsafe fn GetBreakpointByIndex(&self, index: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointByIndex)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointByIndex)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
@@ -15493,7 +15493,7 @@ impl IDebugControl2 {
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBreakpoint)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBreakpoint)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> windows_core::HRESULT
@@ -17056,13 +17056,13 @@ impl IDebugControl3 {
     pub unsafe fn GetBreakpointByIndex(&self, index: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointByIndex)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointByIndex)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
@@ -17071,7 +17071,7 @@ impl IDebugControl3 {
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBreakpoint)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBreakpoint)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> windows_core::HRESULT
@@ -18850,13 +18850,13 @@ impl IDebugControl4 {
     pub unsafe fn GetBreakpointByIndex(&self, index: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointByIndex)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointByIndex)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
@@ -18865,7 +18865,7 @@ impl IDebugControl4 {
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBreakpoint)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBreakpoint)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> windows_core::HRESULT
@@ -19179,19 +19179,19 @@ impl IDebugControl4 {
     pub unsafe fn GetBreakpointByIndex2(&self, index: u32) -> windows_core::Result<IDebugBreakpoint2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointByIndex2)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointByIndex2)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointById2(&self, id: u32) -> windows_core::Result<IDebugBreakpoint2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointById2)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointById2)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AddBreakpoint2(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBreakpoint2)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBreakpoint2)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveBreakpoint2<P0>(&self, bp: P0) -> windows_core::HRESULT
@@ -21430,13 +21430,13 @@ impl IDebugControl5 {
     pub unsafe fn GetBreakpointByIndex(&self, index: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointByIndex)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointByIndex)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
@@ -21445,7 +21445,7 @@ impl IDebugControl5 {
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBreakpoint)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBreakpoint)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> windows_core::HRESULT
@@ -21759,19 +21759,19 @@ impl IDebugControl5 {
     pub unsafe fn GetBreakpointByIndex2(&self, index: u32) -> windows_core::Result<IDebugBreakpoint2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointByIndex2)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointByIndex2)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointById2(&self, id: u32) -> windows_core::Result<IDebugBreakpoint2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointById2)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointById2)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AddBreakpoint2(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBreakpoint2)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBreakpoint2)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveBreakpoint2<P0>(&self, bp: P0) -> windows_core::HRESULT
@@ -21936,7 +21936,7 @@ impl IDebugControl5 {
     pub unsafe fn GetBreakpointByGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<IDebugBreakpoint3> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointByGuid)(windows_core::Interface::as_raw(self), guid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointByGuid)(windows_core::Interface::as_raw(self), guid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -24079,13 +24079,13 @@ impl IDebugControl6 {
     pub unsafe fn GetBreakpointByIndex(&self, index: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointByIndex)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointByIndex)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
@@ -24094,7 +24094,7 @@ impl IDebugControl6 {
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBreakpoint)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBreakpoint)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> windows_core::HRESULT
@@ -24408,19 +24408,19 @@ impl IDebugControl6 {
     pub unsafe fn GetBreakpointByIndex2(&self, index: u32) -> windows_core::Result<IDebugBreakpoint2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointByIndex2)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointByIndex2)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointById2(&self, id: u32) -> windows_core::Result<IDebugBreakpoint2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointById2)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointById2)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AddBreakpoint2(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBreakpoint2)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBreakpoint2)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveBreakpoint2<P0>(&self, bp: P0) -> windows_core::HRESULT
@@ -24585,7 +24585,7 @@ impl IDebugControl6 {
     pub unsafe fn GetBreakpointByGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<IDebugBreakpoint3> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointByGuid)(windows_core::Interface::as_raw(self), guid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointByGuid)(windows_core::Interface::as_raw(self), guid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetExecutionStatusEx(&self) -> windows_core::Result<u32> {
@@ -26761,13 +26761,13 @@ impl IDebugControl7 {
     pub unsafe fn GetBreakpointByIndex(&self, index: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointByIndex)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointByIndex)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
@@ -26776,7 +26776,7 @@ impl IDebugControl7 {
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBreakpoint)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBreakpoint)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> windows_core::HRESULT
@@ -27090,19 +27090,19 @@ impl IDebugControl7 {
     pub unsafe fn GetBreakpointByIndex2(&self, index: u32) -> windows_core::Result<IDebugBreakpoint2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointByIndex2)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointByIndex2)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBreakpointById2(&self, id: u32) -> windows_core::Result<IDebugBreakpoint2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointById2)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointById2)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AddBreakpoint2(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBreakpoint2)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBreakpoint2)(windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveBreakpoint2<P0>(&self, bp: P0) -> windows_core::HRESULT
@@ -27267,7 +27267,7 @@ impl IDebugControl7 {
     pub unsafe fn GetBreakpointByGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<IDebugBreakpoint3> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakpointByGuid)(windows_core::Interface::as_raw(self), guid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBreakpointByGuid)(windows_core::Interface::as_raw(self), guid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetExecutionStatusEx(&self) -> windows_core::Result<u32> {
@@ -33326,13 +33326,13 @@ impl IDebugSymbols {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSymbolGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSymbolGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> windows_core::Result<u64>
@@ -34103,13 +34103,13 @@ impl IDebugSymbols2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSymbolGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSymbolGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> windows_core::Result<u64>
@@ -34988,13 +34988,13 @@ impl IDebugSymbols3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSymbolGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSymbolGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> windows_core::Result<u64>
@@ -35183,13 +35183,13 @@ impl IDebugSymbols3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateSymbolGroup2(&self) -> windows_core::Result<IDebugSymbolGroup2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSymbolGroup2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSymbolGroup2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn StartSymbolMatchWide<P0>(&self, pattern: P0) -> windows_core::Result<u64>
@@ -36859,13 +36859,13 @@ impl IDebugSymbols4 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSymbolGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSymbolGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> windows_core::Result<u64>
@@ -37054,13 +37054,13 @@ impl IDebugSymbols4 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateSymbolGroup2(&self) -> windows_core::Result<IDebugSymbolGroup2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSymbolGroup2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSymbolGroup2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn StartSymbolMatchWide<P0>(&self, pattern: P0) -> windows_core::Result<u64>
@@ -38814,13 +38814,13 @@ impl IDebugSymbols5 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSymbolGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSymbolGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> windows_core::Result<u64>
@@ -39009,13 +39009,13 @@ impl IDebugSymbols5 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateSymbolGroup2(&self) -> windows_core::Result<IDebugSymbolGroup2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSymbolGroup2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSymbolGroup2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn StartSymbolMatchWide<P0>(&self, pattern: P0) -> windows_core::Result<u64>

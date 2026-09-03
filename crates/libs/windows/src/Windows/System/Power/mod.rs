@@ -95,8 +95,8 @@ impl BatteryStatus {
     pub const Idle: Self = Self(2);
     pub const Charging: Self = Self(3);
 }
-impl windows_core::TypeKind for BatteryStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for BatteryStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for BatteryStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Power.BatteryStatus;i4)");
@@ -110,8 +110,8 @@ impl EnergySaverStatus {
     pub const Off: Self = Self(1);
     pub const On: Self = Self(2);
 }
-impl windows_core::TypeKind for EnergySaverStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for EnergySaverStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for EnergySaverStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Power.EnergySaverStatus;i4)");
@@ -376,8 +376,8 @@ impl PowerSupplyStatus {
     pub const Inadequate: Self = Self(1);
     pub const Adequate: Self = Self(2);
 }
-impl windows_core::TypeKind for PowerSupplyStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PowerSupplyStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PowerSupplyStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Power.PowerSupplyStatus;i4)");

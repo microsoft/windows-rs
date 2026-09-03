@@ -59,8 +59,8 @@ impl ServiceDeviceType {
     pub const SmsService: Self = Self(5);
     pub const TasksService: Self = Self(6);
 }
-impl windows_core::TypeKind for ServiceDeviceType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ServiceDeviceType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ServiceDeviceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Portable.ServiceDeviceType;i4)");
@@ -72,7 +72,7 @@ impl StorageDevice {
     pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Storage::StorageFolder> {
         Self::IStorageDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {

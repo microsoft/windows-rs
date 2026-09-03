@@ -83,7 +83,8 @@ impl File {
             return None;
         }
 
-        // The METADATA_HEADER struct is not a fixed size so have to offset a little more carefully.
+        // `METADATA_HEADER` is variable-sized, so derive the stream offset from its encoded
+        // length.
         let mut view = metadata_offset + metadata.length as usize + 20;
         let mut tables_data: (usize, usize) = (0, 0);
 

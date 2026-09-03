@@ -3,6 +3,9 @@
 
 extern crate self as windows_collections;
 
+#[cfg(feature = "std")]
+use windows_core::imp::ref_as_default;
+
 #[expect(
     non_snake_case,
     non_camel_case_types,

@@ -8,8 +8,8 @@ pub struct Matrix3x2 {
     pub m31: f32,
     pub m32: f32,
 }
-impl windows_core::TypeKind for Matrix3x2 {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Matrix3x2 {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Matrix3x2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -36,8 +36,8 @@ pub struct Matrix4x4 {
     pub m43: f32,
     pub m44: f32,
 }
-impl windows_core::TypeKind for Matrix4x4 {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Matrix4x4 {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Matrix4x4 {
     const SIGNATURE : windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice (b"struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4)") ;
@@ -48,8 +48,8 @@ pub struct Vector2 {
     pub x: f32,
     pub y: f32,
 }
-impl windows_core::TypeKind for Vector2 {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Vector2 {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Vector2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -63,8 +63,8 @@ pub struct Vector3 {
     pub y: f32,
     pub z: f32,
 }
-impl windows_core::TypeKind for Vector3 {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Vector3 {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Vector3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -79,8 +79,8 @@ pub struct Vector4 {
     pub z: f32,
     pub w: f32,
 }
-impl windows_core::TypeKind for Vector4 {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Vector4 {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Vector4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(

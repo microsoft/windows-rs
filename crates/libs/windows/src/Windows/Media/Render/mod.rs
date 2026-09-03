@@ -15,8 +15,8 @@ impl AudioRenderCategory {
     pub const Movie: Self = Self(10);
     pub const Media: Self = Self(11);
 }
-impl windows_core::TypeKind for AudioRenderCategory {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for AudioRenderCategory {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for AudioRenderCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Render.AudioRenderCategory;i4)");

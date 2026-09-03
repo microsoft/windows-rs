@@ -110,8 +110,8 @@ impl Struct {
             let name_const = config.write_value_name_const(self.def.type_name());
 
             quote! {
-                impl windows_core::TypeKind for #name {
-                    type TypeKind = windows_core::#type_kind;
+                impl windows_core::imp::TypeKind for #name {
+                    type TypeKind = windows_core::imp::#type_kind;
                 }
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#signature);

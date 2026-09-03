@@ -1,4 +1,5 @@
 use super::*;
+use windows_core::imp::Type;
 
 /// A GPU-resident bitmap.
 #[derive(Clone)]

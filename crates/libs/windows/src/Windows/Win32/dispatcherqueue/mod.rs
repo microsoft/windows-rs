@@ -4,7 +4,7 @@ pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions) -
     windows_core::link!("coremessaging.dll" "system" fn CreateDispatcherQueueController(options : DispatcherQueueOptions, dispatcherqueuecontroller : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateDispatcherQueueController(options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateDispatcherQueueController(options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 pub type DISPATCHERQUEUE_THREAD_APARTMENTTYPE = i32;

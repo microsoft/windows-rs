@@ -96,8 +96,14 @@ impl CppMethod {
                         param_hints[position] = ParamHint::None;
                         continue;
                     };
-                    // The len params must be input only.
-                    if relative_param.is_input_only() && !relative_param.is_pointer() {
+                    // Optional buffers with signed counts may use negative sentinel values that a
+                    // slice cannot represent. Required SAL-counted buffers use slices regardless
+                    // of the count's signedness.
+                    if relative_param.is_input_only()
+                        && (relative_param.ty.is_unsigned()
+                            || !signature.params[position].is_optional_or_reserved())
+                        && !relative_param.is_pointer()
+                    {
                         param_hints[relative] = ParamHint::ArrayRelativePtr(position);
                     } else {
                         param_hints[position] = ParamHint::None;
@@ -186,7 +192,8 @@ impl CppMethod {
                 if is_retval {
                     return_hint = ReturnHint::ResultValue;
                 } else {
-                    // Non-retval HRESULT consumers preserve non-S_OK success codes; producers use `Result`.
+                    // Non-retval HRESULT consumers preserve non-S_OK success codes; producers use
+                    // `Result`.
                     return_hint = ReturnHint::HResult;
                 }
 
@@ -279,7 +286,7 @@ impl CppMethod {
                 quote! {
                     #vis unsafe fn #name<#generics T>(&self, #params) -> #result Result<T> #where_clause {
                         let mut result__ = core::ptr::null_mut();
-                        unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).and_then(||windows_core::Type::from_abi(result__)) }
+                        unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).and_then(||windows_core::imp::Type::from_abi(result__)) }
                     }
                 }
             }
@@ -322,7 +329,7 @@ impl CppMethod {
                             unsafe {
                                 let mut result__ = core::mem::zeroed();
                                 (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
-                                windows_core::Type::from_abi(result__)
+                                windows_core::imp::Type::from_abi(result__)
                             }
                         }
                     }
@@ -701,7 +708,7 @@ impl CppMethod {
                             } else {
                                 quote! { #name.as_mut_ptr() }
                             };
-                            // Transmute slice pointers only when the public element type differs from ABI.
+                            // Transmute only when the public element type differs from ABI.
                             let elem = if matches!(
                                 self.param_hints[position],
                                 ParamHint::ArrayRelativeByteLen(_)
@@ -724,7 +731,8 @@ impl CppMethod {
                         ParamHint::ArrayRelativePtr(relative) => {
                             let relative_param = &self.signature.params[relative];
                             let name = relative_param.write_ident();
-                            // Full-mode scalar count typedefs need newtype wrapping; sys/minimal aliases do not.
+                            // Full-mode scalar count typedefs need newtype wrapping; sys/minimal
+                            // aliases do not.
                             let zero = write_newtype_wrap(&param.ty, &quote! { 0 }, config);
                             let len = write_newtype_wrap(
                                 &param.ty,

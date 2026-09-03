@@ -36,7 +36,7 @@ impl IUIAnimationManager2 {
                 initialvalue,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn ScheduleTransition<P0, P1>(
@@ -65,7 +65,7 @@ impl IUIAnimationManager2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn Update(
@@ -274,7 +274,7 @@ impl IUIAnimationTransitionLibrary2 {
                 finalvalue,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateLinearTransition(
@@ -290,7 +290,7 @@ impl IUIAnimationTransitionLibrary2 {
                 finalvalue,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn CreateAccelerateDecelerateTransition(
@@ -310,7 +310,7 @@ impl IUIAnimationTransitionLibrary2 {
                 decelerationratio,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

@@ -4,7 +4,12 @@ raw bindings.
 Prefer the focused crates below when they cover the functionality you need. For additional APIs,
 [`windows-bindgen`](crates/windows-bindgen.md) can generate a minimal project-specific binding,
 while [`windows`](crates/windows.md) and [`windows-sys`](crates/windows-sys.md) provide broad API
-coverage behind feature flags.
+coverage behind feature flags for binary applications.
+
+Reusable libraries should avoid the `windows` and `windows-sys` umbrella crates. They add
+dependency weight and version churn, and several libraries can bring incompatible versions of the
+same large crate into one dependency tree. Prefer the focused crates for shared Windows types and
+generate any remaining private bindings with `windows-bindgen`.
 
 Each crate page covers usage and maintenance. Generated API documentation is available on
 [docs.rs](https://docs.rs).
@@ -78,7 +83,9 @@ These crates implement macros exported by `windows-core`. Applications should us
 
 ### Windows API bindings
 
-Use these crates when the focused crates above do not cover the APIs you need.
+Use `windows-bindgen` when the focused crates above do not cover the APIs you need. Binary
+applications may instead prefer the convenience of the pre-generated `windows` or `windows-sys`
+umbrella crate.
 
 | Crate | Description |
 | --- | --- |

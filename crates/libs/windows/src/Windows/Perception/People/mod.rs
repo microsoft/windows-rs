@@ -13,13 +13,13 @@ impl EyesPose {
     pub fn Gaze(&self) -> windows_core::Result<super::Spatial::SpatialRay> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Gaze)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Spatial::SpatialRay>| r__.Value())
+            (windows_core::Interface::vtable(self).Gaze)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Spatial::SpatialRay>| r__.Value())
         }
     }
     pub fn UpdateTimestamp(&self) -> windows_core::Result<super::PerceptionTimestamp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UpdateTimestamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).UpdateTimestamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsSupported() -> windows_core::Result<bool> {
@@ -32,7 +32,7 @@ impl EyesPose {
     pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>> {
         Self::IEyesPoseStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IEyesPoseStatics<R, F: FnOnce(&IEyesPoseStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -83,8 +83,8 @@ impl HandJointKind {
     pub const LittleDistal: Self = Self(24);
     pub const LittleTip: Self = Self(25);
 }
-impl windows_core::TypeKind for HandJointKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for HandJointKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for HandJointKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.People.HandJointKind;i4)");
@@ -99,7 +99,7 @@ impl HandMeshObserver {
     pub fn Source(&self) -> windows_core::Result<super::super::UI::Input::Spatial::SpatialInteractionSource> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Source)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Source)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TriangleIndexCount(&self) -> windows_core::Result<u32> {
@@ -123,13 +123,13 @@ impl HandMeshObserver {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetVertexStateForPose)(windows_core::Interface::as_raw(self), handpose.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetVertexStateForPose)(windows_core::Interface::as_raw(self), handpose.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn NeutralPose(&self) -> windows_core::Result<HandPose> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NeutralPose)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).NeutralPose)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn NeutralPoseVersion(&self) -> windows_core::Result<i32> {
@@ -163,8 +163,8 @@ pub struct HandMeshVertex {
     pub Position: windows_numerics::Vector3,
     pub Normal: windows_numerics::Vector3,
 }
-impl windows_core::TypeKind for HandMeshVertex {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for HandMeshVertex {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for HandMeshVertex {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.People.HandMeshVertex;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
@@ -179,7 +179,7 @@ impl HandMeshVertexState {
     pub fn CoordinateSystem(&self) -> windows_core::Result<super::Spatial::SpatialCoordinateSystem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CoordinateSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CoordinateSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetVertices(&self, vertices: &mut [HandMeshVertex]) -> windows_core::Result<()> {
@@ -188,7 +188,7 @@ impl HandMeshVertexState {
     pub fn UpdateTimestamp(&self) -> windows_core::Result<super::PerceptionTimestamp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UpdateTimestamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).UpdateTimestamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -404,8 +404,8 @@ pub struct JointPose {
     pub Radius: f32,
     pub Accuracy: JointPoseAccuracy,
 }
-impl windows_core::TypeKind for JointPose {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for JointPose {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for JointPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.People.JointPose;struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4;enum(Windows.Perception.People.JointPoseAccuracy;i4))");
@@ -418,8 +418,8 @@ impl JointPoseAccuracy {
     pub const High: Self = Self(0);
     pub const Approximate: Self = Self(1);
 }
-impl windows_core::TypeKind for JointPoseAccuracy {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for JointPoseAccuracy {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for JointPoseAccuracy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.People.JointPoseAccuracy;i4)");

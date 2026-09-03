@@ -3,8 +3,8 @@
 pub struct DateTime {
     pub UniversalTime: i64,
 }
-impl windows_core::TypeKind for DateTime {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DateTime {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DateTime {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1429,8 +1429,8 @@ pub struct Point {
     pub X: f32,
     pub Y: f32,
 }
-impl windows_core::TypeKind for Point {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Point {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Point {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1484,8 +1484,8 @@ impl PropertyType {
     pub const RectArray: Self = Self(1043);
     pub const OtherTypeArray: Self = Self(1044);
 }
-impl windows_core::TypeKind for PropertyType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PropertyType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PropertyType {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1501,8 +1501,8 @@ pub struct Rect {
     pub Width: f32,
     pub Height: f32,
 }
-impl windows_core::TypeKind for Rect {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Rect {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Rect {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1516,8 +1516,8 @@ pub struct Size {
     pub Width: f32,
     pub Height: f32,
 }
-impl windows_core::TypeKind for Size {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Size {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Size {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1530,8 +1530,8 @@ impl windows_core::RuntimeType for Size {
 pub struct TimeSpan {
     pub Duration: i64,
 }
-impl windows_core::TypeKind for TimeSpan {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for TimeSpan {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for TimeSpan {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1545,8 +1545,8 @@ pub struct Vector2 {
     pub X: f32,
     pub Y: f32,
 }
-impl windows_core::TypeKind for Vector2 {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Vector2 {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Vector2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(

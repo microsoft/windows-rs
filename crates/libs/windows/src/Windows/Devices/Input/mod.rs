@@ -347,8 +347,8 @@ pub struct MouseDelta {
     pub X: i32,
     pub Y: i32,
 }
-impl windows_core::TypeKind for MouseDelta {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for MouseDelta {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for MouseDelta {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.MouseDelta;i4;i4)");
@@ -376,7 +376,7 @@ impl MouseDevice {
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IMouseDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMouseDeviceStatics<R, F: FnOnce(&IMouseDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -486,7 +486,7 @@ impl PenButtonListener {
     pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IPenButtonListenerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPenButtonListenerStatics<R, F: FnOnce(&IPenButtonListenerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -522,13 +522,13 @@ impl PenDevice {
         let this = &windows_core::Interface::cast::<IPenDevice2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SimpleHapticsController)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SimpleHapticsController)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetFromPointerId(pointerid: u32) -> windows_core::Result<Self> {
         Self::IPenDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFromPointerId)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFromPointerId)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPenDeviceStatics<R, F: FnOnce(&IPenDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -604,7 +604,7 @@ impl PenDockListener {
     pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IPenDockListenerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPenDockListenerStatics<R, F: FnOnce(&IPenDockListenerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -742,7 +742,7 @@ impl PointerDevice {
     pub fn SupportedUsages(&self) -> windows_core::Result<windows_collections::IVectorView<PointerDeviceUsage>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SupportedUsages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SupportedUsages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn MaxPointersWithZDistance(&self) -> windows_core::Result<u32> {
@@ -755,13 +755,13 @@ impl PointerDevice {
     pub fn GetPointerDevice(pointerid: u32) -> windows_core::Result<Self> {
         Self::IPointerDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPointerDevice)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPointerDevice)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetPointerDevices() -> windows_core::Result<windows_collections::IVectorView<Self>> {
         Self::IPointerDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPointerDevices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPointerDevices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPointerDeviceStatics<R, F: FnOnce(&IPointerDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -788,8 +788,8 @@ impl PointerDeviceType {
     pub const Mouse: Self = Self(2);
     pub const Touchpad: Self = Self(3);
 }
-impl windows_core::TypeKind for PointerDeviceType {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PointerDeviceType {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PointerDeviceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.PointerDeviceType;i4)");
@@ -807,8 +807,8 @@ pub struct PointerDeviceUsage {
     pub Unit: u32,
     pub PhysicalMultiplier: f32,
 }
-impl windows_core::TypeKind for PointerDeviceUsage {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PointerDeviceUsage {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PointerDeviceUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.PointerDeviceUsage;u4;u4;i4;i4;i4;i4;u4;f4)");

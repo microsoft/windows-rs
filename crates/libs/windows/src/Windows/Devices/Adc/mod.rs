@@ -9,7 +9,7 @@ impl AdcChannel {
     pub fn Controller(&self) -> windows_core::Result<AdcController> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Controller)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Controller)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ReadValue(&self) -> windows_core::Result<i32> {
@@ -48,8 +48,8 @@ impl AdcChannelMode {
     pub const SingleEnded: Self = Self(0);
     pub const Differential: Self = Self(1);
 }
-impl windows_core::TypeKind for AdcChannelMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for AdcChannelMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for AdcChannelMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.AdcChannelMode;i4)");
@@ -102,7 +102,7 @@ impl AdcController {
     pub fn OpenChannel(&self, channelnumber: i32) -> windows_core::Result<AdcChannel> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenChannel)(windows_core::Interface::as_raw(self), channelnumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenChannel)(windows_core::Interface::as_raw(self), channelnumber, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Devices_Adc_Provider")]
@@ -112,13 +112,13 @@ impl AdcController {
     {
         Self::IAdcControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IAdcControllerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IAdcControllerStatics<R, F: FnOnce(&IAdcControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

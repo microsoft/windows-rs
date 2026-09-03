@@ -11,7 +11,7 @@ impl II2cControllerProvider {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeviceProvider)(windows_core::Interface::as_raw(self), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeviceProvider)(windows_core::Interface::as_raw(self), settings.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -215,7 +215,7 @@ impl II2cProvider {
     pub fn GetControllersAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<II2cControllerProvider>>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetControllersAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetControllersAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -275,8 +275,8 @@ impl ProviderI2cBusSpeed {
     pub const StandardMode: Self = Self(0);
     pub const FastMode: Self = Self(1);
 }
-impl windows_core::TypeKind for ProviderI2cBusSpeed {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ProviderI2cBusSpeed {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ProviderI2cBusSpeed {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cBusSpeed;i4)");
@@ -334,8 +334,8 @@ impl ProviderI2cSharingMode {
     pub const Exclusive: Self = Self(0);
     pub const Shared: Self = Self(1);
 }
-impl windows_core::TypeKind for ProviderI2cSharingMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ProviderI2cSharingMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ProviderI2cSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cSharingMode;i4)");
@@ -347,8 +347,8 @@ pub struct ProviderI2cTransferResult {
     pub Status: ProviderI2cTransferStatus,
     pub BytesTransferred: u32,
 }
-impl windows_core::TypeKind for ProviderI2cTransferResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ProviderI2cTransferResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ProviderI2cTransferResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.I2c.Provider.ProviderI2cTransferResult;enum(Windows.Devices.I2c.Provider.ProviderI2cTransferStatus;i4);u4)");
@@ -362,8 +362,8 @@ impl ProviderI2cTransferStatus {
     pub const PartialTransfer: Self = Self(1);
     pub const SlaveAddressNotAcknowledged: Self = Self(2);
 }
-impl windows_core::TypeKind for ProviderI2cTransferStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ProviderI2cTransferStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ProviderI2cTransferStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cTransferStatus;i4)");

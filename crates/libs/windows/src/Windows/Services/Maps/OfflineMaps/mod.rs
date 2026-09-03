@@ -106,7 +106,7 @@ impl OfflineMapPackage {
     pub fn RequestStartDownloadAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<OfflineMapPackageStartDownloadResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestStartDownloadAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestStartDownloadAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -116,7 +116,7 @@ impl OfflineMapPackage {
     {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindPackagesAsync)(windows_core::Interface::as_raw(this), querypoint.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindPackagesAsync)(windows_core::Interface::as_raw(this), querypoint.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -126,7 +126,7 @@ impl OfflineMapPackage {
     {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindPackagesInBoundingBoxAsync)(windows_core::Interface::as_raw(this), queryboundingbox.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindPackagesInBoundingBoxAsync)(windows_core::Interface::as_raw(this), queryboundingbox.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -136,7 +136,7 @@ impl OfflineMapPackage {
     {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindPackagesInGeocircleAsync)(windows_core::Interface::as_raw(this), querycircle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindPackagesInGeocircleAsync)(windows_core::Interface::as_raw(this), querycircle.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IOfflineMapPackageStatics<R, F: FnOnce(&IOfflineMapPackageStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -170,7 +170,7 @@ impl OfflineMapPackageQueryResult {
     pub fn Packages(&self) -> windows_core::Result<windows_collections::IVectorView<OfflineMapPackage>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Packages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Packages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -195,8 +195,8 @@ impl OfflineMapPackageQueryStatus {
     pub const InvalidCredentials: Self = Self(2);
     pub const NetworkFailure: Self = Self(3);
 }
-impl windows_core::TypeKind for OfflineMapPackageQueryStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for OfflineMapPackageQueryStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for OfflineMapPackageQueryStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryStatus;i4)");
@@ -235,8 +235,8 @@ impl OfflineMapPackageStartDownloadStatus {
     pub const InvalidCredentials: Self = Self(2);
     pub const DeniedWithoutCapability: Self = Self(3);
 }
-impl windows_core::TypeKind for OfflineMapPackageStartDownloadStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for OfflineMapPackageStartDownloadStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for OfflineMapPackageStartDownloadStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadStatus;i4)");
@@ -251,8 +251,8 @@ impl OfflineMapPackageStatus {
     pub const Downloaded: Self = Self(2);
     pub const Deleting: Self = Self(3);
 }
-impl windows_core::TypeKind for OfflineMapPackageStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for OfflineMapPackageStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for OfflineMapPackageStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStatus;i4)");

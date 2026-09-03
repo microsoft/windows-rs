@@ -10,10 +10,12 @@ pub struct Path {
 const DEFAULT_FLATTENING_TOLERANCE: f32 = 0.25;
 
 impl Path {
+    /// Returns the underlying Direct2D path geometry for interop.
     pub fn raw(&self) -> &ID2D1PathGeometry1 {
         &self.raw
     }
 
+    /// Tests whether `point` lies inside the path's fill.
     pub fn fill_contains_point(&self, point: Vector2) -> bool {
         unsafe {
             self.raw
@@ -23,6 +25,7 @@ impl Path {
         }
     }
 
+    /// Tests whether `point` lies within a stroke of the given DIP width.
     pub fn stroke_contains_point(&self, point: Vector2, stroke_width: f32) -> bool {
         unsafe {
             self.raw
@@ -38,6 +41,7 @@ impl Path {
         }
     }
 
+    /// Returns the path bounds in DIPs.
     pub fn compute_bounds(&self) -> Rect {
         let bounds = unsafe { self.raw.GetBounds(None).unwrap() };
         Rect {
@@ -49,19 +53,24 @@ impl Path {
     }
 }
 
-/// Type-safe path builder.
+/// Builds a path through a sequence of figures.
+///
+/// Start a figure with [`begin`](Self::begin) or [`begin_hollow`](Self::begin_hollow), add
+/// segments, then close or end the figure. Call [`build`](Self::build) when no figure is active.
 pub struct PathBuilder {
     sink: ID2D1GeometrySink,
     geometry: ID2D1PathGeometry1,
 }
 
 impl PathBuilder {
+    /// Creates an empty path builder.
     pub fn new(device: &GpuDevice) -> Result<Self> {
         let geometry = unsafe { device.d2d_factory().CreatePathGeometry()? };
         let sink = unsafe { geometry.Open()? };
         Ok(Self { sink, geometry })
     }
 
+    /// Starts a filled figure at `start`.
     pub fn begin(self, start: Vector2) -> PathFigure {
         unsafe {
             self.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_FILLED);
@@ -72,6 +81,7 @@ impl PathBuilder {
         }
     }
 
+    /// Starts a hollow figure at `start`.
     pub fn begin_hollow(self, start: Vector2) -> PathFigure {
         unsafe {
             self.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_HOLLOW);
@@ -82,6 +92,7 @@ impl PathBuilder {
         }
     }
 
+    /// Finishes a path when no figure is active.
     pub fn build(self) -> Result<Path> {
         unsafe { self.sink.Close().ok()? };
         Ok(Path { raw: self.geometry })
@@ -110,11 +121,13 @@ pub struct PathFigure {
 }
 
 impl PathFigure {
+    /// Adds a straight segment to `point`.
     pub fn line_to(self, point: Vector2) -> Self {
         unsafe { self.sink.AddLine(point) };
         self
     }
 
+    /// Adds a cubic Bezier segment.
     pub fn bezier_to(self, control1: Vector2, control2: Vector2, end: Vector2) -> Self {
         let segment = D2D1_BEZIER_SEGMENT {
             point1: control1,
@@ -125,7 +138,7 @@ impl PathFigure {
         self
     }
 
-    /// Close the current figure and connect back to the start point.
+    /// Closes the current figure and connects it to its start point.
     pub fn close(self) -> PathBuilder {
         unsafe { self.sink.EndFigure(D2D1_FIGURE_END_CLOSED) };
         PathBuilder {
@@ -134,7 +147,7 @@ impl PathFigure {
         }
     }
 
-    /// End the current figure without closing.
+    /// Ends the current figure without closing it.
     pub fn end_open(self) -> PathBuilder {
         unsafe { self.sink.EndFigure(D2D1_FIGURE_END_OPEN) };
         PathBuilder {

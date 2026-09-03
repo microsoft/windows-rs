@@ -179,7 +179,8 @@ impl CppConst {
                 } else {
                     wide_int_cast(&constant.value())
                 };
-                // Bare-alias constants cannot use tuple constructors; wrap only concrete newtype layers.
+                // Bare-alias constants cannot use tuple constructors; wrap only concrete newtype
+                // layers.
                 let unscoped_enum_const = self.is_enum_member
                     || matches!(&field_ty, Type::CppEnum(e) if !e.def.has_attribute("ScopedEnumAttribute"));
                 let field_ty_bare_alias =
@@ -187,7 +188,8 @@ impl CppConst {
                 let emit_alias_const =
                     config.bindgen.style.is_sys() || unscoped_enum_const || field_ty_bare_alias;
                 if emit_alias_const || matches!(field_ty, Type::Bool | Type::ISize | Type::USize) {
-                    // Arch-blind lookup can find a same-name non-enum sibling; enum members stay integers.
+                    // Arch-blind lookup can find a same-name non-enum sibling; enum members stay
+                    // integers.
                     let value = if unscoped_enum_const {
                         value
                     } else {

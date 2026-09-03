@@ -1,5 +1,6 @@
 use super::bindings;
 use bindings::E_NOTIMPL;
+use windows_core::imp::Type;
 use windows_core::*;
 
 /// A boxed reference to a value of type `T`.
@@ -67,7 +68,7 @@ impl<T: RuntimeType + 'static> IReference<T> {
     }
 }
 
-/// Box a value into an `IReference<T>`.
+/// Boxes a value as an `IReference<T>`.
 impl<T> From<T> for IReference<T>
 where
     T: RuntimeType + Clone + 'static,
@@ -82,21 +83,21 @@ where
     }
 }
 
-/// Box a string slice into an `IReference<HSTRING>`.
+/// Boxes a string slice as an `IReference<HSTRING>`.
 impl From<&str> for IReference<HSTRING> {
     fn from(value: &str) -> Self {
         HSTRING::from(value).into()
     }
 }
 
-/// Box a `String` into an `IReference<HSTRING>`.
+/// Boxes a `String` as an `IReference<HSTRING>`.
 impl From<String> for IReference<HSTRING> {
     fn from(value: String) -> Self {
         HSTRING::from(value).into()
     }
 }
 
-/// Box an `&HSTRING` into an `IReference<HSTRING>`.
+/// Boxes an `&HSTRING` as an `IReference<HSTRING>`.
 impl From<&HSTRING> for IReference<HSTRING> {
     fn from(value: &HSTRING) -> Self {
         value.clone().into()

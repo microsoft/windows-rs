@@ -122,8 +122,8 @@ impl PowerThermalBackEndStatus {
     pub const Stopped: Self = Self(0);
     pub const Started: Self = Self(1);
 }
-impl windows_core::TypeKind for PowerThermalBackEndStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PowerThermalBackEndStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PowerThermalBackEndStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Power.Thermal.PowerThermalBackEndStatus;i4)");
@@ -171,8 +171,8 @@ pub struct PowerThermalChannelData {
     pub Id: PowerThermalChannelId,
     pub Value: i32,
 }
-impl windows_core::TypeKind for PowerThermalChannelData {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PowerThermalChannelData {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PowerThermalChannelData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.System.Power.Thermal.PowerThermalChannelData;struct(Windows.System.Power.Thermal.PowerThermalChannelId;g16;u2);i4)");
@@ -197,7 +197,7 @@ impl PowerThermalChannelDataConsumer {
     pub fn GetChannelConfigurations(&self) -> windows_core::Result<windows_collections::IMapView<PowerThermalChannelId, PowerThermalChannelConfiguration>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetChannelConfigurations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetChannelConfigurations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
@@ -243,7 +243,7 @@ impl PowerThermalChannelDataConsumer {
     pub fn CreateInstance(channelids: &[PowerThermalChannelId]) -> windows_core::Result<Self> {
         Self::IPowerThermalChannelDataConsumerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), channelids.len().try_into().unwrap(), channelids.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), channelids.len().try_into().unwrap(), channelids.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPowerThermalChannelDataConsumerFactory<R, F: FnOnce(&IPowerThermalChannelDataConsumerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -282,7 +282,7 @@ impl PowerThermalChannelDataProducer {
     pub fn GetChannelConfigurations(&self) -> windows_core::Result<windows_collections::IMapView<PowerThermalChannelId, PowerThermalChannelConfiguration>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetChannelConfigurations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetChannelConfigurations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DisableChannel(&self, channelid: PowerThermalChannelId) -> windows_core::Result<()> {
@@ -320,7 +320,7 @@ impl PowerThermalChannelDataProducer {
     pub fn CreateInstance(channelids: &[PowerThermalChannelId]) -> windows_core::Result<Self> {
         Self::IPowerThermalChannelDataProducerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), channelids.len().try_into().unwrap(), channelids.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), channelids.len().try_into().unwrap(), channelids.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPowerThermalChannelDataProducerFactory<R, F: FnOnce(&IPowerThermalChannelDataProducerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -372,7 +372,7 @@ impl PowerThermalChannelDiagnostics {
     pub fn Current() -> windows_core::Result<Self> {
         Self::IPowerThermalChannelDiagnosticsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetDataForChannels(channelids: &[PowerThermalChannelId]) -> windows_core::Result<windows_core::Array<PowerThermalChannelData>> {
@@ -420,8 +420,8 @@ pub struct PowerThermalChannelId {
     pub InterfaceType: windows_core::GUID,
     pub InstanceId: u16,
 }
-impl windows_core::TypeKind for PowerThermalChannelId {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for PowerThermalChannelId {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for PowerThermalChannelId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.System.Power.Thermal.PowerThermalChannelId;g16;u2)");

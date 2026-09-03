@@ -1,85 +1,71 @@
 # windows-reactor
 
-`windows-reactor` is a declarative WinUI 3 library. Applications own state in `Component` values
-and describe native UI with `View` values. The runtime reconciles each view against the retained
-tree, publishes native commands, and applies them on the UI thread.
+> A declarative WinUI 3 library built around components, typed messages, and native controls.
 
-The [crate readme](../../crates/libs/reactor/readme.md) contains the dependency setup and a complete
-counter. Samples are under `crates/samples/reactor`.
+- 📦 [crates.io](https://crates.io/crates/windows-reactor)
+- 📖 [docs.rs](https://docs.rs/windows-reactor)
+- 🚀 [Getting started](../../crates/libs/reactor/readme.md)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor)
+- [Self-contained deployment](windows-reactor-setup.md)
+- [Canvas integration](windows-canvas.md)
+- [Composition integration](windows-composition.md)
 
-## Architecture
+## When to use it
 
-| Layer | Location |
-| --- | --- |
-| Public frontend | `src/core/public.rs`, `src/generated.rs` |
-| Reconciler | `src/core/pump` |
-| Scheduling | `src/core/engine.rs`, `src/core/scheduler.rs` |
-| Native runtime | `src/native/winui` |
-| Test runtime | `src/native/recording.rs` |
-| Integration API | `src/reference.rs` |
+Use Reactor when an application needs native WinUI 3 controls and benefits from describing the UI
+from application state. It is a good fit for forms, navigation, data-driven views, multiple
+windows, and apps that combine WinUI controls with Canvas, Composition, or WebView2.
 
-Owned `Component` values produce the one public `View` frontend. One structural tree and command
-path handle controls, components, slots, overlays, dialogs, and windows. Keyed views retain
-ownership across reorder and replacement. Messages enter through queued dispatch, and
-generational identities reject work for retired components and nodes.
+Use [`windows-window`](windows-window.md) instead when you need an HWND and message loop without
+WinUI. Use [`windows-composition`](windows-composition.md) directly for a retained visual tree
+without XAML controls.
 
-The public frontend defines components, control builders, callbacks, and values. The pump plans
-tree changes, lifecycle work, and command publication. The WinUI runtime creates native objects and
-handles properties, events, and windows, while `RecordingRuntime` records the same command stream
-for deterministic tests. Typed references expose the Canvas, Composition, WebView, and focus
-integration boundaries.
+## Getting started: choose a deployment
 
-Maps and sets keyed only by runtime-generated identities use `rustc_hash`. Collections keyed by
-application-provided `Key`, effect names, strings, or other external values keep randomized
-hashing. Besides reducing lookup cost, the zero-sized internal hasher keeps retained tree nodes
-smaller.
+Start with the README's counter and choose how the Windows App Runtime reaches the target machine.
 
-Unexpected native command failures are fatal. Continuing after a partially applied WinUI update
-would leave the retained and native trees out of sync.
+| Deployment | Choose it when | Setup |
+| --- | --- | --- |
+| Framework-dependent | The framework package is installed | No build helper |
+| Self-contained | The app carries the runtime | `windows-reactor-setup` in `build.rs` |
 
-When one command batch destroys a native subtree, the WinUI runtime detaches only the subtree's
-external edge. It does not clear internal slots or collections that are destroyed in the same
-batch. This keeps stateful controls intact while WinUI drains deferred visual-state callbacks.
-`RecordingRuntime` still applies every logical detach and checks the complete command sequence.
+Reactor detects the staged runtime or resolves the installed framework package at startup. Compare
+the
+[`framework_dependent`](../../crates/samples/reactor/framework_dependent) and
+[`self_contained`](../../crates/samples/reactor/self_contained) samples before packaging an app.
 
-Set `WINDOWS_REACTOR_TRACE=1` in a debug build to print a reconciliation trace before applying each
-nonempty component update. Each line identifies the composed component types, the native event that
-triggered observation reconciliation, and counts for property, topology, subscription, creation,
-and destruction commands. The trace is emitted before calling WinUI, so the last line remains
-useful if native application does not return. Release builds omit this output.
+Run a root component with `App::run_component::<C>(input)`. The root view becomes the content of
+the first window. Set that window's title and visual options from its component's `view` method.
 
-### Component model
+## Core model
 
-`Component::Input` is parent-owned declarative data. The runtime compares it with the retained
-input by reference and calls `Component::input_changed` when it differs. The input is cloned into
-retained state only after a changed comparison. `Component::Message` is the typed request channel
-for local updates.
+### Component, Input, and Message
 
-`create`, `input_changed`, and `update` receive a shared `ComponentContext<Self>` for senders,
-background tasks, and window requests. Background tasks run on the shared Windows thread pool;
-Reactor bounds active work and routes completion back to the owning component. `view` receives a
-mutable `ViewContext<Self>` because rendering records declarations, dependencies, observations, and
-effects. Inputs remain explicit arguments to `create`, `input_changed`, and `view`.
+A `Component` has three responsibilities:
 
-Expected application failures from background work belong in the returned component message,
-usually as `Result<T, E>`. Panics and Windows thread-pool submission failures are fatal. Reactor's
-active-task and completion-queue limits use typed task rejection; cancellation and scope retirement
-do not dispatch rejection messages.
+| Part | Owner | Purpose |
+| --- | --- | --- |
+| Component fields | The component | Local state and long-lived handles |
+| `Input` | The parent | Declarative data passed into the component |
+| `Message` | The component | Typed events and completed work that may update state |
 
-Context snapshots and dependency sets keep zero or one entry inline. Multiple distinct contexts
-fall back to an internal hash set or map. Publishing an unchanged dependency set retains the
-existing set rather than cloning and replacing it for every context-driven render.
+The lifecycle is:
 
-Generated controls convert directly into `View`. The internal `Element` representation and
-structural state remain private so applications depend on builders and capability traits rather
-than generated enum variants or reconciliation storage.
+1. `create` constructs component state from the initial input.
+2. `input_changed` runs when retained input compares unequal to new input.
+3. `update` handles one queued message and mutates component state.
+4. `view` describes the UI for the current state and input.
 
-`Element` remains a 16-byte generated enum whose control payload is held by `Rc`. Cloning a view
-during reconciliation shares that payload rather than allocating and copying another control.
-Consuming a uniquely owned element moves the control out; consuming a shared element clones only
-the control value needed to construct retained properties and structure.
+After `create`, `input_changed`, or `update`, Reactor calls `view` as needed and publishes the
+result. Keep `view` declarative: read state, declare context dependencies and effects, and build a
+`View`. Put state changes in `update`.
 
-Use an ordinary function returning `View` for stateless presentation:
+`Input` must implement `Clone + PartialEq`. Its equality defines whether a child receives
+`input_changed`, so include every value that changes the child's behavior. Prefer small values or
+shared handles such as `Rc<T>` when copying a large model would be expensive.
+
+Use a function returning `View` for stateless presentation:
 
 ```rust,ignore
 fn status_card(title: &str, value: String) -> View {
@@ -90,138 +76,283 @@ fn status_card(title: &str, value: String) -> View {
 }
 ```
 
-The function is recomposed with its caller. Use a `Component` instead when the subtree owns state,
-handles messages, uses lifecycle work, or needs its own recomposition boundary.
+Use `View::component::<C>(input)` when the subtree needs local state, lifecycle work, messages, or
+an independent recomposition boundary.
 
-Generated metadata value enums and slot enums are non-exhaustive. Matches outside the crate must
-include a wildcard arm so a newly projected WinUI value or slot does not break source compatibility.
+### Building views
 
-Native sentinel values and nullable event values are represented as `Option<T>`. Selection indices
-use `Option<usize>`, while empty `NumberBox` and `RatingControl` values use `Option<f64>`. Date and
-time picker callbacks receive `Option<DateTime>` or `Option<TimeSpan>`. Applications do not need to
-handle `-1`, `NaN`, nullable WinRT references, or signed-to-unsigned index conversions.
+Controls use typed builders. Start with `Control::new()`, chain property and event methods, and
+place content with the control's structural method:
 
-Omitting one of these property builders inherits the native default. Calling the builder with
-`None` sets an explicit empty value, so controls such as `Pivot` and `TabView` can distinguish their
-default first-item selection from no selection.
+- `content(value)` for one content child.
+- `children(values)` for an ordered child collection.
+- `keyed_children(values)` when identity must follow keys across reordering.
+- Named slot methods for controls with several content positions.
+- `items(values)` or `virtual_source(source)` for projected item controls.
 
-Properties with native range requirements reject invalid values in their builders. `FontWeight`
-accepts named constants such as `FontWeight::BOLD` and custom values from `FontWeight::new` in the
-range 1 through 999. `TextBlock::max_lines` accepts non-negative values, and
-`TimePicker::minute_increment` accepts values from 0 through 59. Passing `None` still inherits the
-native default.
+Strings and generated controls convert into `View`. Tuples and arrays work well for fixed child
+sets. Use iterators for data-driven children. `View::fragment` groups several sibling views without
+adding a native control.
 
-`ItemsRepeater::virtual_source` accepts an indexed `VirtualSource`. Initial mount and key-revision
-changes enumerate keys to validate identity, but item views are constructed only when WinUI
-realizes their indices. An update with the same key revision invokes the view factory only for
-currently realized rows. Applications must increment the revision whenever source length, key
-values, or key order changes. Payload-only changes keep the revision stable.
+Most layout is expressed on the child: alignment, margin, Grid row or column, and attached
+properties are builder methods on that child. Container builders configure rows, columns,
+orientation, spacing, or padding.
 
-`Image::source_data` and `ImageIcon::source_data` accept an `EncodedImage` containing PNG or other
-bitmap data supported by WinUI. SVG remains available through the URI-based `source` and
-`source_file` methods. `EncodedImage::from_static` retains a static slice without copying;
-`EncodedImage::new` owns shared runtime data. The encoded data is compared declaratively, while
-decoding runs asynchronously on the native runtime. Replacing or clearing the source, retiring the
-node, and resetting the runtime cancel pending work. Late completions are rejected by the window
-identity and native async ticket.
+Omitting a property preserves the native default. For optional properties, passing `None` sets an
+explicit empty value; it is not always the same as omitting the builder. Generated value and slot
+enums are non-exhaustive, so external matches need a wildcard arm.
 
-A native source accepted by `ElementRef<Image>::request_set_native_source` ends encoded-source
-ownership and cancels any pending encoded load. A successfully assigned native source remains
-authoritative until the declarative source changes.
+### Events and messages
 
-`Image::on_opened` and `Image::on_failed` report URI load events and completion of encoded loads.
-Malformed encoded data produces `on_failed` when a failure callback is registered. `ImageIcon`
-does not expose image-load events, matching the underlying WinUI control. Failures while
-constructing or writing the stream or scheduling native work are reported as host errors.
+Event builders take typed `Callback` values from `ViewContext`:
 
-### Migration from the render-and-hook API
-
-The Component/View API replaces the earlier render-function and hook frontend:
-
-| Render-and-hook API | Component/View API |
+| Method | Use |
 | --- | --- |
-| `App::new().render(render)` | `App::run_component::<C>(input)` |
-| `fn render(&mut RenderCx) -> Element` | `Component::view(..) -> View` |
-| `RenderCx::use_state` | Component fields changed by typed messages |
-| Hook callbacks | `ViewContext::callback`, `message`, or `forward` |
-| Hook effects | `ViewContext::use_effect` |
-| Widget factory functions | Generated typed control builders |
-| `ReactorWindow` | `ComponentContext::open_window` and `WindowRef` |
-| `windows-reactor/canvas` | `windows-canvas` with its `reactor` feature |
+| `context.message(message)` | An event with no payload always sends one cloneable message |
+| `context.callback(map)` | Convert an event payload into a message |
+| `context.forward()` | Event payload and component message have the same type |
+| `context.sender()` | Send later from an owned closure or another component |
 
-Self-contained applications stage the Windows App Runtime from `build.rs` with
-`windows_reactor_setup::as_self_contained`. Framework-dependent applications need no build
-helper: Reactor detects the deployment mode at startup and resolves the installed Windows App
-Runtime framework package.
+Callbacks enqueue messages; they do not call `update` inline. Define a message enum around user
+intent, such as `Save`, `Select(u64)`, or `NameChanged(String)`, and handle it in one `update`
+match. This keeps native event details out of application state transitions.
+
+Controlled controls report feedback through event payloads. Store the new value in component state
+and feed it back through the corresponding property builder. Selection callbacks use
+`Option<usize>` and nullable date, time, rating, and number values use `Option<T>`, so application
+code does not need to interpret native sentinel values.
+
+## Common workflows
+
+### State, context, effects, and background work
+
+Store render-driving state in component fields and mutate it in `update`. Interior mutable values
+such as `Cell` or `RefCell` are useful for resources shared with callbacks, but mutating them does
+not schedule a render. Send a component message when the view must change.
+
+Use `Context<T>` for data needed by distant descendants:
+
+1. Define a stable `Context::new(default)`.
+2. Wrap a subtree with `View::provide(&context, value, child)`.
+3. Read it with `ViewContext::use_context`.
+
+The consumer is recomposed when its resolved context value changes. Prefer explicit component
+input for ordinary parent-child data; context is best for app-wide values such as a theme.
+
+`ViewContext::use_effect(key, dependency, setup)` runs setup after publication when the dependency
+changes. Setup may return a cleanup closure, which runs before replacement or when the component
+retires. Keys must be unique within one component publication. Effects are appropriate for typed
+observations and external resources, not for deriving view state.
+
+Use `ComponentContext::spawn_background` for blocking or CPU work. It runs on the Windows thread
+pool and returns a `ComponentTask`. The closure returns a component message, which is delivered
+back to `update`.
+
+- Put expected failures in the message, usually as `Result<T, E>`.
+- Check the supplied `CancellationToken` during cooperative work.
+- Keep a `ComponentTask` only when explicit cancellation or status is needed; dropping it does not
+  cancel the task.
+- Scope retirement and Pump shutdown cancel owned work.
+- Use `spawn_background_with_rejection` when bounded delivery rejection needs its own message.
+
+Do not access Reactor UI state from the worker. Move `Send` data into it and return the result as a
+message.
+
+### Windows
+
+Declare window properties from `view`:
+
+- `window_title` sets the owning window title.
+- `window_visuals` configures client size, constraints, backdrop, and related visual options.
+- `on_window_size` and `on_color_scheme` route window changes to typed messages.
+
+Declare each of these at most once per component publication. A descendant may make the
+declaration for its owning window, but centralizing it in the window's root component is easier to
+follow.
+
+Open another independent window with `ComponentContext::open_window(root)` during `create`,
+`input_changed`, or `update`. Use `context.window().request_close()` in those same lifecycle
+methods to close the owning window after publication. Each opened window owns an independent Pump.
+The application exits when the last window closes.
+
+Use a `TitleBar` view for app-drawn title-bar content and events. It is separate from the native
+window title set by `window_title`.
+
+### Lists and stable identity
+
+For a small changing list, produce `KeyedView` values and pass them to `keyed_children` or
+`View::keyed_fragment`. Keys preserve component state when rows move. A key must identify the
+logical item, not its current index.
+
+For a large list, use `ItemsRepeater::virtual_source(VirtualSource::new(...))`. The source supplies:
+
+1. A revision for the key sequence.
+2. The item count.
+3. A key function.
+4. A view factory called when WinUI realizes an index.
+
+Increment the revision whenever length, key values, or key order changes. Keep it stable for
+payload-only updates. Reactor validates keys on initial mount and revision changes, but constructs
+views only for realized rows.
+
+Use normal item controls when their native selection or grouping behavior is the goal. Use
+`ItemsRepeater` when realization cost and row ownership matter.
+
+### Images
+
+Use `Image::source`, `source_file`, or their icon equivalents for URI and file sources. Use
+`source_data(EncodedImage)` for PNG or other bitmap bytes supported by WinUI:
+
+- `EncodedImage::from_static` retains a static byte slice without copying.
+- `EncodedImage::new` owns shared runtime data.
+- SVG uses the URI or file path rather than `EncodedImage`.
+
+Decoding is asynchronous. `Image::on_opened` and `on_failed` report URI loads and encoded-image
+completion. Replacing the source, removing the node, or resetting the runtime cancels pending work.
+
+Use a typed `ElementRef<Image>` only when another crate owns the native image source. For example,
+`windows-canvas` uses it to attach a `CanvasImageSource` and observe rasterization scale.
+
+### Typed ElementRef integrations
+
+Create an `ElementRef<T>` as a component field and attach it with the control's
+`element_ref(&reference)` builder. The type prevents attaching a reference to the wrong control.
+It is unbound before publication and after removal.
+
+Supported capabilities include:
+
+| Reference | Capability |
+| --- | --- |
+| Focus-capable controls | `request_focus` and `request_focus_result` |
+| `ElementRef<SwapChainPanel>` | Swap-chain attachment and surface observation |
+| `ElementRef<Image>` | Native image-source attachment and rasterization-scale observation |
+| `ElementRef<Grid>` | Lifted Composition host observation and child-visual attachment |
+| `ElementRef<WebView2>` | Request the application-facing CoreWebView2 object |
+
+A one-shot method returning `false` means the reference is currently unbound. An accepted request
+finishes through its completion callback with a value or `IntegrationError`. An observation
+returns `ElementObservation`; retain it for as long as events are needed and drop it to stop them.
+
+Reactor keeps its XAML objects private. Integrations exchange only typed capabilities and
+application-owned native payloads. Prefer the higher-level Canvas and Composition adapters over
+managing these requests directly.
+
+### Debugging
+
+Set `WINDOWS_REACTOR_TRACE=1` in a debug build to print one reconciliation summary before each
+nonempty component update is applied. The trace names composed component types and reports native
+property, topology, subscription, creation, and destruction command counts. Because it is written
+before WinUI calls, the last line can identify the update involved in a native failure. Release
+builds omit this output.
+
+When a view does not update, check these in order:
+
+1. The event callback sends the intended message.
+2. `update` changes component state used by `view`.
+3. Child `Input::eq` observes every value relevant to the child.
+4. List keys are stable and a virtual source revision changes when its key sequence changes.
+5. An `ElementRef` request is made while bound and its observation handle remains alive.
+
+## Pitfalls
+
+- Do not mutate native XAML objects outside Reactor's command path.
+- Do not perform blocking work in `view`, callbacks, or `update`; use background work.
+- Do not mutate component state from `view`.
+- Do not use list indices as keys when items can move.
+- Do not recreate a `Context` on every render; consumers identify a context by its instance.
+- Do not drop an `ElementObservation` while its callback is still required.
+- Treat unexpected native command failures as fatal. Reactor cannot safely continue with native
+  and retained trees out of sync.
+
+## Sample progression
+
+Read and run the samples in this order:
+
+1. [`counter`](../../crates/samples/reactor/counter) - the basic component and message loop.
+2. [`form`](../../crates/samples/reactor/form) - several controls and typed form state.
+3. [`controlled`](../../crates/samples/reactor/controlled) - native feedback into controlled
+   values.
+4. [`samples/examples`](../../crates/samples/reactor/samples/examples) - focused examples. Start
+   with `component_input`, `composition`, `async_state`, `use_effect`, `element_ref`, `window`,
+   `secondary_window`, `keyed_list_reorder`, and `image`.
+5. [`navigation`](../../crates/samples/reactor/navigation) - a multi-view application structure.
+6. [`virtual`](../../crates/samples/reactor/virtual) - keyed virtual rows, editing, background
+   loading, and typed focus.
+7. [`gallery`](../../crates/samples/reactor/gallery) - broad control and layout coverage.
+8. [`composition`](../../crates/samples/reactor/composition),
+   [`webview`](../../crates/samples/reactor/webview), and the
+   [Canvas samples](../../crates/samples/canvas) - native integrations.
+9. [`apps`](../../crates/samples/reactor/apps) - larger application examples.
+
+---
+
+## Internal documentation
+
+The remainder of this page describes how the crate is built and maintained. Applications do not
+need it to use Reactor.
+
+### Architecture
+
+| Layer | Location |
+| --- | --- |
+| Public frontend | `src/core/public.rs`, `src/element.rs`, `src/generated.rs` |
+| Component lifecycle and effects | `src/core/component.rs` |
+| Reconciler | `src/core/pump` |
+| Scheduling | `src/core/engine.rs`, `src/core/scheduler.rs` |
+| Native runtime | `src/native/winui` |
+| Recording runtime | `src/test/recording.rs` |
+| Typed integrations | `src/reference.rs` |
+
+Components produce the public `View` representation. The Pump plans tree and lifecycle changes,
+then publishes commands to a runtime. The WinUI runtime applies those commands to native objects.
+`RecordingRuntime` consumes the same command stream for deterministic tests.
+
+One structural tree handles controls, components, fragments, slots, dialogs, overlays, and
+windows. Keyed views retain ownership across moves. Generational window, component, and node
+identities reject work that targets retired objects.
+
+Generated controls store shared payloads behind `Rc`; cloning a view shares the payload.
+Runtime-generated identity maps use `rustc_hash`. Collections keyed by application data keep
+randomized hashing.
+
+Unexpected native command failures are fatal because a partially applied batch would leave the
+native and retained trees inconsistent. Native subtree destruction detaches the subtree's external
+edge without clearing internal native collections that are destroyed in the same batch. This lets
+WinUI finish deferred visual-state work safely.
+
+`ToolTip` is an internal attachment type. The public surface is `TooltipExt` and `Tooltip`.
 
 ### Native integration boundary
 
-Reactor-owned XAML objects do not cross the public API boundary. An integration must not receive a
-raw `IInspectable` from a mount callback and mutate it outside reconciliation. Such mutation
-bypasses the command path and cannot be represented by `RecordingRuntime`.
+Reactor-owned XAML objects never cross the public API. Typed `ElementRef` commands and observations
+are represented in both the WinUI and recording runtimes. Observations follow structural
+replacement and reject late callbacks by window and node identity. Accepted one-shot requests
+complete exactly once; `IntegrationError::Native` retains the HRESULT and `Unavailable` reports a
+retired or unavailable target.
 
-An integration may add a narrow typed command when the operation is part of a public contract.
-The command may carry an application-owned native payload, such as a swap chain, but it must
-target a typed `ElementRef`, define its lifetime behavior, and remain observable in the recording
-runtime. Sample compatibility alone does not justify a new public command.
+Canvas owns its devices, swap chains, image sources, resize handling, and recovery. Composition
+owns application visual trees and animations. WebView users receive the CoreWebView2 object rather
+than Reactor's XAML control.
 
-`ReferenceControl` is the sealed capability implemented by generated controls that support
-`ElementRef`. `FocusControl` narrows that set to controls that accept focus requests.
+### Code generation
 
-The `observe_surface`, `observe_rasterization_scale`, and `observe_composition_host` methods
-register against an `ElementRef`, not one native node. Registration may happen before publication.
-A published binding queues the native subscription, and structural replacement queues it again
-for the replacement node. Native teardown retires the old subscription. Callbacks check current
-window and node identities before delivery.
-
-The returned `ElementObservation` owns the registration. Dropping it stops delivery and prevents
-later rebinding. This separate owner lets a callback capture its `ElementRef` without forming a
-reference cycle. Attachment and focus methods remain one-shot commands for the currently
-published node and return `false` while unbound.
-
-`CompositionHostEvent::Ready` exposes the host compositor and layout metrics. The host `Grid` and
-its element visual remain Reactor-owned and cannot be mutated through the public boundary.
-
-Accepted one-shot requests complete exactly once with a value or `IntegrationError`. `Native`
-preserves an HRESULT, while `Unavailable` means the published target retired or could not accept
-the request. Focus, WebView2, swap-chain, image-source, and Composition error names remain aliases
-for this shared contract. Higher-level integrations use a result-bearing readiness callback for a
-one-shot operation and `on_error` for a recurring surface.
-
-### Test support
-
-The `test` Cargo feature exposes `Pump`, `RecordingRuntime`, command payloads, live probes, and
-related retained-tree details under `windows_reactor::test`. This namespace is unstable testing
-infrastructure, not part of the stable application API. Its types and command shapes may change
-between releases as the reconciler changes.
-
-## Code generation
-
-`crates/tools/reactor` refreshes the committed WinUI, Windows App SDK, and WebView2 metadata from
-pinned NuGet packages. It then reads `src/winui.toml` and the metadata under `winmd` and
-generates:
+`crates/tools/reactor` refreshes pinned WinUI, Windows App SDK, and WebView2 metadata, resolves
+`crates/tools/reactor/src/winui.toml`, and generates:
 
 | Output | Contents |
 | --- | --- |
-| `crates/libs/reactor/src/generated.rs` | Public builders and retained property/event data |
-| `crates/libs/reactor/src/native/winui/generated.rs` | WinUI command application |
+| `crates/libs/reactor/src/generated.rs` | Public control builders and retained data |
+| `crates/libs/reactor/src/native/winui/generated.rs` | Native command application |
 | `crates/libs/reactor/src/native/winui/bindings.rs` | Minimal WinUI bindings |
-| `crates/libs/canvas/src/reactor_bindings.rs` | Minimal Canvas integration bindings |
+| `crates/libs/canvas/src/reactor_bindings.rs` | Minimal Canvas bridge bindings |
 | `crates/tests/libs/reactor_surface/src/generated_surface.rs` | Live projected API cases |
 
-`crates/tools/reactor/src/bindings.txt` contains the hand-maintained runtime binding filter.
-`control_bindings.txt` is generated from `winui.toml` and supplies control-specific entries. The
-filters name only APIs used by the runtime or live test hooks. Feedback events obtain values from
-their event payloads rather than generating property readers for the full schema. Content controls
-take their content property name from WinUI's `ContentPropertyAttribute`, including inherited
-properties.
+`bindings.txt` is the hand-maintained runtime filter. `control_bindings.txt` is generated from
+`winui.toml`. Content properties come from WinUI's `ContentPropertyAttribute`, including inherited
+properties. Feedback values come from event payloads instead of generated property readers.
 
-Bindings used only by the `test` feature are dead in a normal library build. The bindings module
-allows dead code only when that feature is disabled. Building with the feature removes the
-allowance, so the live self-test build checks the complete generated surface for unused callables.
-
-These Rust files are committed generated output. Do not edit them by hand. After changing
-`winui.toml`, the schema resolver, or either generator, run:
+Generated Rust files are committed and must not be edited by hand. After changing the schema,
+metadata inputs, filters, or generator, run:
 
 ```text
 cargo run -p tool_reactor --quiet
@@ -229,62 +360,26 @@ cargo run -p tool_reactor --quiet
 cargo check -p windows-reactor --quiet
 ```
 
-The second run must leave the tree unchanged.
+The second generator run must leave the tree unchanged.
 
-## Validation
+Bindings used only by the `test` feature are allowed to be dead in a normal build. Enabling the
+feature removes that allowance so the live surface build checks all generated test callables.
 
-The validation layers have separate owners:
+### Testing
 
 | Layer | Command or location |
 | --- | --- |
 | Internal deterministic tests | `cargo test -p windows-reactor` |
 | External API tests | `cargo test -p test_reactor` |
 | Generator tests | `cargo test -p tool_reactor` |
-| Live WinUI fixtures | `cargo run -p test_reactor_selftest -- --headless` |
-| Generated WinUI surface tests | `cargo run -p test_reactor_surface -- --headless` |
+| Live handwritten fixtures | `cargo run -p test_reactor_selftest -- --headless` |
+| Generated WinUI surface | `cargo run -p test_reactor_surface -- --headless` |
 | Planner benchmarks | `cargo run -p test_reactor_bench --release` |
 | Live grid benchmark | `cargo run -p test_reactor_bench --bin reactor-live-grid --release` |
-| Consumer coverage | `sample_reactor_virtual`, `sample_reactor_navigation`, and the gallery |
 
-`test_reactor_surface` is generated from the resolved schema. It constructs every projected
-control and exercises explicit properties, shared and attached capability properties, content,
-children, virtual items, named slots, attachment APIs, and TreeView nodes through their live set,
-update, and clear lifecycles. Each projected event is checked through callback registration,
-replacement, and omission against the live native subscription count. The generated event
-inventory names the live delivery fixture for 15 events and marks the other 46 as registration plus
-deterministic payload coverage. Imperative references, exit retirement, and other OS interaction
-remain the responsibility of the handwritten `test_reactor_selftest` fixtures.
-
-The projected WinUI `ToolTip` type is an internal attachment implementation, not a public mountable
-control. Applications attach text or rich content through `TooltipExt` and `Tooltip`.
+The generated surface test covers projected controls, properties, events, content, collections,
+slots, attachments, virtual items, and TreeView nodes. Handwritten self-tests own imperative
+references, retirement, and other OS interactions.
 
 `crates/libs/reactor/public-api.txt` is the checked public API snapshot. Regenerate it with the
 repository's pinned `cargo-public-api` process after an intentional API change.
-
-## Deployment
-
-Self-contained applications use `windows-reactor-setup` from `build.rs` to stage the Windows App
-Runtime. Framework-dependent applications need no setup crate: Reactor resolves the installed
-Windows App Runtime framework package at startup. Framework-dependent and self-contained examples
-live in `crates/samples/reactor/framework_dependent` and `crates/samples/reactor/self_contained`.
-`windows-reactor-setup` is a separate crate and is not part of Reactor's generated API.
-
-## Non-blocking API follow-ups
-
-- **Swap-chain surface:** `ElementRef<SwapChainPanel>` has separate attachment and observation
-  requests. `observe_surface` combines metrics and frame notifications, invokes the callback on
-  the UI thread for external GPU work, and follows each published binding. A future review may
-  prefer a narrower DXGI wrapper over an application-owned `IUnknown`.
-- **Native image source:** Displaying a `CanvasImageSource` requires
-  `ElementRef<Image>::request_set_native_source` plus an `observe_rasterization_scale`
-  subscription so Canvas can allocate physical pixels. A future API may combine attachment and
-  scale observation.
-- **Composition host:** Lifted Composition uses `ElementRef<Grid>` rather than a dedicated host
-  type. `observe_composition_host` reports the compositor, size, and rasterization scale, while
-  `request_set_child_visual` remains a separate command. A dedicated host object may communicate
-  the ownership contract more directly.
-- **Custom title bar:** Every `TitleBar` automatically becomes the window title bar at standard
-  height; `preferred_height` only selects standard or tall system chrome. Removing the control
-  restores the system title bar, and multiple controls are rejected. A final API review should
-  confirm that disallowing decorative `TitleBar` controls is the right tradeoff and decide whether
-  multi-row hosts justify a broader contract.

@@ -22,7 +22,9 @@ use core::mem::size_of;
 ///
 /// # References
 ///
-/// * [`IErrorInfo`](https://learn.microsoft.com/en-us/windows/win32/api/oaidl/nn-oaidl-ierrorinfo)
+/// * [`IErrorInfo`][error-info]
+///
+/// [error-info]: https://learn.microsoft.com/windows/win32/api/oaidl/nn-oaidl-ierrorinfo
 #[derive(Clone)]
 pub struct Error {
     /// The `HRESULT` error code, but represented using [`NonZeroI32`]. [`NonZeroI32`] provides
@@ -244,7 +246,9 @@ mod error_info {
     ///
     /// # References
     ///
-    /// * [`IErrorInfo`](https://learn.microsoft.com/en-us/windows/win32/api/oaidl/nn-oaidl-ierrorinfo)
+    /// * [`IErrorInfo`][error-info]
+    ///
+    /// [error-info]: https://learn.microsoft.com/windows/win32/api/oaidl/nn-oaidl-ierrorinfo
     #[derive(Clone, Default)]
     pub(crate) struct ErrorInfo {
         pub(super) ptr: Option<ComPtr>,

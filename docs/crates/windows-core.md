@@ -7,21 +7,101 @@
 - 🚀 [Getting started](../../crates/libs/core/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/core)
 
-`windows-core` is the foundation that nearly every other crate builds on. It provides the COM/WinRT
-runtime machinery - `IUnknown`, `IInspectable`, the `Interface` trait, reference counting, agile
-references, and weak references - along with `GUID` and re-exports of the
-[result](windows-result.md) and [string](windows-strings.md) types.
+## When to use this crate
 
-It is also where you **declare and implement** your own COM and WinRT interfaces. The `#[interface]`
-and `#[implement]` macros live in the separate [`windows-interface`](windows-interface.md) and
-[`windows-implement`](windows-implement.md) crates only because Rust requires procedural macros to
-ship in their own `proc-macro` crate. They are part of `windows-core` - re-exported from it behind
-the default `proc-macros` feature and documented here rather than as standalone crates.
+Use `windows-core` directly when you need the common types behind generated Windows bindings,
+author a COM or WinRT interface in Rust, or work with COM identity, apartments, factories, or
+references. It provides `IUnknown`, `IInspectable`, `Interface`, `GUID`, `RuntimeType`, and the
+support used by generated projections.
 
-## Declaring and implementing interfaces
+Most code should start with a focused windows-* crate instead. Those crates already depend on and
+re-export the core types they need. Binary applications may use the broad
+[`windows`](windows.md) projection. Add a direct `windows-core` dependency when your own public API
+names these types or when no higher-level crate
+owns the operation.
 
-Declare a COM interface as an `unsafe trait` deriving from `IUnknown` with `#[interface]` and its
-GUID, then provide a Rust type for it with `#[implement]`:
+## Getting started
+
+The crate [README](../../crates/libs/core/readme.md) has the dependency declaration and a minimal
+example using strings and results. For a first COM or WinRT workflow:
+
+1. Select or generate bindings for the Windows API you want to call.
+2. Initialize the calling thread's COM apartment when the API requires it.
+3. Keep projected interface values as owned Rust values and propagate `windows_core::Result`.
+4. Use `Interface::cast` when you need another interface implemented by the same object.
+
+For apartment-agnostic command-line code, `init_mta` initializes an uninitialized calling thread as
+MTA and keeps the process MTA alive:
+
+```rust
+use windows_core::Result;
+
+fn main() -> Result<()> {
+    windows_core::init_mta()?;
+    // Create and use projected COM or WinRT objects here.
+    Ok(())
+}
+```
+
+If a UI framework or host initializes COM for you, follow its apartment model instead. `init_mta`
+does not change a thread that is already initialized in another apartment.
+
+## Core API model
+
+| API | Role |
+| --- | --- |
+| `IUnknown` | Owning pointer to the base COM interface |
+| `IInspectable` | Base interface for WinRT objects |
+| `Interface` | Interface identity, vtable access, casts, and raw-pointer interop |
+| `GUID` | Interface IDs and other Windows GUID values |
+| `Result<T>`, `Error`, `HRESULT` | Re-exported Windows error model |
+| `HSTRING`, `PCWSTR`, `PCSTR` | Re-exported Windows string model |
+| `AgileReference<T>` | Reference that resolves an apartment-valid proxy |
+| `Weak<T>` | Non-owning reference that can be upgraded while the object is alive |
+| `EventRevoker` | Event registration that unregisters when dropped |
+| `#[interface]`, `#[implement]` | Declare an interface and implement it with a Rust type |
+
+Projected interface values are reference-counted owners. Cloning one performs the corresponding
+COM reference-count operation, dropping it releases the reference, and `cast` performs
+`QueryInterface`. Prefer these operations over manual `AddRef`, `Release`, or pointer casts.
+
+## Common tasks
+
+### Moving between interfaces
+
+Use `cast` to request another interface from the same COM identity:
+
+```rust
+use windows_core::{Interface, IInspectable, IUnknown, Result};
+
+fn as_inspectable(value: &IUnknown) -> Result<IInspectable> {
+    value.cast()
+}
+```
+
+A failed query is returned as an `Error`. A Rust type conversion is not a replacement for
+`QueryInterface` unless the generated API provides that conversion.
+
+### Sharing an apartment-bound object
+
+Do not assume that every interface can be sent to another apartment. Create an
+`AgileReference<T>`, move or clone that reference, and call `resolve` in the apartment where the
+object will be used:
+
+```rust
+use windows_core::{AgileReference, Interface, Result};
+
+fn make_agile<T: Interface>(value: &T) -> Result<AgileReference<T>> {
+    AgileReference::new(value)
+}
+```
+
+`Weak<T>` serves a different purpose: it avoids keeping an object alive and returns `None` from
+`upgrade` after the object has been destroyed.
+
+### Declaring and implementing an interface
+
+The default `proc-macros` feature re-exports `#[interface]` and `#[implement]`:
 
 ```rust
 use windows_core::*;
@@ -42,47 +122,45 @@ impl IValue_Impl for Value_Impl {
     }
 }
 
-fn main() {
+fn main() -> Result<()> {
     let object: IValue = Value { value: 42 }.into();
     assert_eq!(unsafe { object.value() }, 42);
 
-    // COM identity: `cast` queries for another interface on the same object.
-    let unknown: IUnknown = object.cast().unwrap();
-    let again: IValue = unknown.cast().unwrap();
-    assert_eq!(unsafe { again.value() }, 42);
-}
-```
+    let unknown: IUnknown = object.cast()?;
+    let object: IValue = unknown.cast()?;
+    assert_eq!(unsafe { object.value() }, 42);
 
-`#[interface]` generates the vtable, the safe caller-side wrappers, and the `IValue_Impl` trait.
-`#[implement]` generates the `Value_Impl` wrapper that carries the vtable pointers and reference
-count; you write the methods in `impl IValue_Impl for Value_Impl`. Converting the struct `.into()`
-an interface yields a reference-counted COM object, and `cast` moves between interfaces on the same
-object.
-
-## Initializing COM for apartment-agnostic code
-
-`init_mta` places an uninitialized calling thread into the multithreaded apartment and keeps
-the process MTA alive until the process exits:
-
-```rust
-fn main() -> windows_core::Result<()> {
-    windows_core::init_mta()?;
     Ok(())
 }
 ```
 
-The call does not change a thread that is already initialized in another apartment. Use the
-generated Win32 COM APIs directly when explicit MTA usage lifetime management is required.
+`#[interface]` generates the vtable, caller wrappers, and implementation trait. `#[implement]`
+generates the wrapper that owns the vtables and reference count. The implementation methods remain
+responsible for the interface contract and any safety requirements in the ABI.
 
-## Without the proc macros
+## Important choices and pitfalls
 
-Disabling the default `proc-macros` feature drops the `syn`/`quote`/`proc-macro2` build
-dependencies. The `interface_decl!` and `implement_decl!` declarative `macro_rules!` macros then
-cover the common case - an always-agile type implementing one or more `IUnknown`-derived
-interfaces - without proc macros. They are more verbose (every identifier and the IID must be
-spelled out) and narrower in scope; see the `interface_macro` and `implement_macro` module docs for
-the grammar and limits. `windows-core` uses them internally so it can build with `proc-macros`
-disabled.
+- The default features are `std` and `proc-macros`. Disable `proc-macros` when avoiding the
+  `syn`, `quote`, and `proc-macro2` build dependencies matters; the narrower `interface_decl!` and
+  `implement_decl!` macros remain available.
+- Raw interface pointers do not carry an owning lifetime. Use `from_raw`, `from_raw_borrowed`,
+  `into_raw`, and related `Interface` operations only when the ownership contract is known.
+- COM apartment initialization is per thread. Initializing one thread does not initialize worker
+  threads.
+- `EventRevoker` unregisters on drop. Keep it alive for as long as the handler should run; use
+  `into_token` only when another owner will remove the registration.
+- The `imp` module supports generated code and crate internals. Application code should prefer the
+  public projected types and traits.
+
+## Samples and next steps
+
+There is no standalone `windows-core` sample group. The
+[`windows` samples](../../crates/samples/windows) show `Result`, `init_mta`, strings, and projected
+interfaces in complete API calls. The [`robot` sample](../../crates/samples/robot) shows a Rust
+component implementing generated COM and WinRT interfaces for multiple clients.
+
+Continue with [`windows-result`](windows-result.md) for error propagation and
+[`windows-strings`](windows-strings.md) for ABI string choices.
 
 ---
 

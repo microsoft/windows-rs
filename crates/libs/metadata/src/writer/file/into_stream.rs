@@ -39,8 +39,6 @@ impl<const LEN: usize> STREAM_HEADER<LEN> {
 
 impl File {
     pub fn into_stream(mut self) -> Vec<u8> {
-        // Flatten sorted records.
-
         self.records.Constant.extend(self.Constant.values());
 
         self.records
@@ -50,8 +48,6 @@ impl File {
         self.records
             .GenericParam
             .extend(self.GenericParam.values().flatten());
-
-        // Check sorted order.
 
         debug_assert!(
             self.records

@@ -59,8 +59,9 @@ impl Pool {
     /// Create a scope for submitting closures.
     ///
     /// Within this scope local variables can be sent to the pool thread for execution.
-    /// This is possible because `scope` will wait for all submitted closures to finish before returning,
-    /// Note however that it will also wait for closures that were submitted from other threads.
+    /// This is possible because `scope` will wait for all submitted closures to finish before
+    /// returning. It also waits for closures submitted to the same `Pool` from other threads,
+    /// not just those submitted within this scope.
     pub fn scope<'env, F>(&self, f: F)
     where
         F: for<'scope> FnOnce(&'scope Scope<'scope, 'env>),

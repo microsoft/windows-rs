@@ -145,7 +145,7 @@ impl UserDataAccountProviderAddAccountOperation {
     pub fn PartnerAccountInfos(&self) -> windows_core::Result<windows_collections::IVectorView<UserDataAccountPartnerAccountInfo>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PartnerAccountInfos)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PartnerAccountInfos)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ReportCompleted(&self, userdataaccountid: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -179,8 +179,8 @@ impl UserDataAccountProviderOperationKind {
     pub const Settings: Self = Self(1);
     pub const ResolveErrors: Self = Self(2);
 }
-impl windows_core::TypeKind for UserDataAccountProviderOperationKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for UserDataAccountProviderOperationKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for UserDataAccountProviderOperationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderOperationKind;i4)");
@@ -193,8 +193,8 @@ impl UserDataAccountProviderPartnerAccountKind {
     pub const Exchange: Self = Self(0);
     pub const PopOrImap: Self = Self(1);
 }
-impl windows_core::TypeKind for UserDataAccountProviderPartnerAccountKind {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for UserDataAccountProviderPartnerAccountKind {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for UserDataAccountProviderPartnerAccountKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderPartnerAccountKind;i4)");

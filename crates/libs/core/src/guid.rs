@@ -1,7 +1,10 @@
 use super::*;
 
-/// A
-/// [globally unique identifier](https://learn.microsoft.com/windows/win32/api/guiddef/ns-guiddef-guid).
+/// A globally unique identifier (GUID).
+///
+/// See the [GUID structure] documentation.
+///
+/// [GUID structure]: https://learn.microsoft.com/windows/win32/api/guiddef/ns-guiddef-guid
 #[repr(C)]
 #[derive(Clone, Copy, Default, PartialEq, Eq, Hash)]
 pub struct GUID {

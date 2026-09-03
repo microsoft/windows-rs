@@ -1,241 +1,325 @@
 # windows-composition
 
-> Safe Rust wrappers for the Windows composition engine.
+> Safe wrappers for the Windows retained-mode composition engine.
 
 - 📦 [crates.io](https://crates.io/crates/windows-composition)
 - 📖 [docs.rs](https://docs.rs/windows-composition)
 - 🚀 [Getting started](../../crates/libs/composition/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/composition)
 - 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/composition)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/composition)
+- [Reactor hosting samples](../../crates/samples/reactor/composition)
+- [Canvas guide](windows-canvas.md)
+- [Window guide](windows-window.md)
 
-`windows-composition` wraps `Windows.UI.Composition` and `Microsoft.UI.Composition`. It gives you a
-`Compositor`, visuals, brushes, shapes, animations, and hosting helpers. The wrappers use minimal
-flat bindings and expose a small safe API.
+## When to use it
 
-## Composition stacks
+Use Composition for a retained tree of lightweight visuals, brushes, shapes, and animations. It is
+a good fit for animated backgrounds, overlays, game boards, transitions, and scenes where Windows
+should retain and compose objects between updates.
 
-The crate supports two composition stacks. They are separate COM object graphs. A visual from one
-stack cannot attach to a host from the other.
+Composition does not provide controls, text input, accessibility behavior, or layout panels. Use
+[`windows-reactor`](windows-reactor.md) for WinUI controls. Use
+[`windows-canvas`](windows-canvas.md) when custom drawing is easier as immediate-mode 2D commands.
+Composition can host Canvas-drawn surfaces.
 
-- `Windows.UI.Composition` is the system compositor. It can host a visual tree in any window through
-  `ICompositorDesktopInterop::CreateDesktopWindowTarget`. It does not need the Windows App SDK.
-- `Microsoft.UI.Composition` is the lifted WinUI 3 compositor. It has no standalone HWND target. A
-  lifted visual tree is hosted inside a WinUI element through
-  `Microsoft.UI.Xaml.Hosting.ElementCompositionPreview`.
+## Getting started: choose a hosting path
 
-The two stacks have the same class names, members, and signatures. The crate uses one wrapper
-surface and selects the stack at compile time.
+The crate supports two separate composition stacks. Select exactly one Cargo feature.
 
-- `system` is the default feature. It targets `Windows.UI.Composition` and enables
-  `DispatcherQueueController`, `DesktopWindowTarget`, and the `windows-window` dependency.
-- `reactor` targets `Microsoft.UI.Composition`. It selects the lifted bindings and adds no
-  dependency. Reactor enables this feature and hosts lifted visuals through a typed `Grid`
-  reference.
+| Feature | Stack | Host | Choose it when |
+| --- | --- | --- | --- |
+| `system` (default) | `Windows.UI.Composition` | HWND target | The app owns a window |
+| `reactor` | `Microsoft.UI.Composition` | WinUI `Grid` | The visual is in a Reactor view |
 
-The features are mutually exclusive. Enabling neither feature or both features is a compile error.
-Both binding sets are generated from one filter by `tool_composition`. The shared wrapper modules
-compile against either stack.
+The stacks are different COM object graphs. A visual created by one cannot be attached to the
+other. Cargo features are mutually exclusive, so disable default features when selecting
+`reactor`.
 
-## Hosting a visual tree in a window
+Use system composition for standalone visual applications and for the Canvas composition-surface
+bridge. Use lifted composition for visuals placed among WinUI controls.
 
-System composition needs a `DispatcherQueue` on the compositor thread. It also needs a
-`DesktopWindowTarget` bound to a window. The safe target takes a
-[`windows-window`](windows-window.md) `&Window`. An unsafe `create_desktop_window_target_for_hwnd`
-escape hatch exists for callers that own an `HWND` from another source.
+## Core model
 
-```rust,no_run
-use windows_composition::*;
-use windows_window::Window;
+A `Compositor` is the factory and owner context for a composition graph. Create visuals, brushes,
+shapes, easing functions, and animations from the same compositor as their destination tree.
 
-fn main() -> Result<()> {
-    let window = Window::new("Composition").size(800, 600).create()?;
+Visuals form an ordered retained tree:
 
-    let _queue = DispatcherQueueController::create_on_current_thread()?;
-    let compositor = Compositor::new()?;
+- `ContainerVisual` holds child visuals.
+- `SpriteVisual` fills its bounds with a brush and can also hold children.
+- `ShapeVisual` renders a collection of composition shapes.
+- `Visual` supplies size, offset, opacity, scale, visibility, relative layout, and animation.
 
-    let target = compositor.create_desktop_window_target(&window, false)?;
-    let root = compositor.create_container_visual();
-    target.set_root(&root);
+`SpriteVisual` dereferences to `ContainerVisual`, which dereferences to `Visual`. This lets a sprite
+use child and base visual methods without casts. Shape visuals dereference to `Visual`.
 
-    // ... add sprites to `root.children()` ...
+Brushes define visual content. The crate provides color, nine-grid, and system-only surface
+brushes. Shapes pair composition geometry with brushes and live in a `ShapeVisual`.
 
-    windows_window::run();
-    Ok(())
-}
-```
+All wrappers are cloneable COM handles. Keep the compositor, host target, root visual, and any
+objects that the application will update. Windows retains objects attached to the graph, but clear
+ownership in application state makes resize, input, and recovery code easier to manage.
 
-See [`composition/standalone`](../../crates/samples/composition/standalone) for a small app. See
-[`composition/minesweeper`](../../crates/samples/composition/minesweeper) for a complete app.
+## Common workflows
+
+### Host system composition in a window
+
+System composition requires a dispatcher queue on the compositor thread:
+
+1. Create `DispatcherQueueController::create_on_current_thread`.
+2. Create a `Compositor`.
+3. Create a `windows_window::Window`.
+4. Call `create_desktop_window_target(&window, is_topmost)`.
+5. Create a root `ContainerVisual` and call `target.set_root(&root)`.
+6. Add child visuals and enter the window message loop.
+
+Declare the queue before composition objects so it outlives them. Keep the
+`DesktopWindowTarget` alive while its visual tree should remain connected.
+
+Use `create_desktop_window_target_for_hwnd` only for a live HWND owned by the calling thread. The
+safe `windows-window` overload is preferred.
+
+Composition does not automatically resize the root or children. Handle the window resize callback
+and update sizes, or set relative size and offset adjustments when the visual should track its
+parent.
+
+### Host lifted composition in Reactor
+
+The Reactor bridge uses an `ElementRef<Grid>` and a retained observation:
+
+1. Store the typed reference and composition scene state in a component.
+2. Attach the reference to a `Grid`.
+3. In `use_effect`, call `observe_composition_host` and retain the returned observation in cleanup.
+4. On `CompositionHostEvent::Ready`, create a `Compositor` with `Compositor::from_host`.
+5. Build a root visual and attach it with `request_set_child_visual`.
+6. On `Ready` and `Metrics`, update the visual tree for width, height, and scale.
+
+The host `Grid` and its element visual remain owned by Reactor. Only attach application-created
+visuals. A request returning `false` means the reference is not currently bound. An accepted
+request completes with `Result<(), CompositionHostError>`.
+
+Detach with `request_set_child_visual(None, ...)` when application state requires it. Dropping the
+observation stops host events and prevents rebinding after the component retires.
+
+### Build and update a visual tree
+
+Create a root container and use its `children()` collection:
+
+- `insert_at_bottom` draws a child behind existing children.
+- `insert_at_top` draws it above existing children.
+- `remove` detaches one child.
+- `remove_all` clears the collection.
+
+Set a visual's `size` and `offset` in DIPs. For parent-relative layout,
+`set_relative_size_adjustment` scales size by the parent and
+`set_relative_offset_adjustment` adds a parent-relative offset.
+
+A `SpriteVisual` paints its bounds with any crate-defined `Brush`. Create a color brush for flat
+content. Use `CompositionNineGridBrush` when scalable edge and center regions are needed. For
+Direct2D content, create a system composition surface brush as described below.
+
+### Draw shapes
+
+For a retained vector shape:
+
+1. Create a `ShapeVisual` and set its size and offset.
+2. Create an ellipse geometry and set its radius.
+3. Create a sprite shape from the geometry.
+4. Set the sprite shape's fill brush and offset.
+5. Append it to `shape_visual.shapes()`.
+
+Use `CompositionContainerShape` to group shapes. Shape collections accept any crate-defined type
+implementing the sealed `Shape` trait.
+
+### Animate properties
+
+Create an animation type matching the property:
+
+- `ScalarKeyFrameAnimation` for properties such as `"Opacity"`.
+- `Vector3KeyFrameAnimation` for properties such as `"Scale"` or `"Offset"`.
+
+Insert key frames with progress in `0.0..=1.0`, set duration, and call
+`visual.start_animation(property, &animation)`. Use a linear or cubic-bezier easing function when
+inserting eased key frames.
+
+Use `CompositionAnimationGroup` when a lifted Reactor host API needs several animations as one
+payload. Add each animation and convert the group with `as_host`. To animate a composition visual
+directly, call `start_animation` once for each scalar or vector animation.
+
+For automatic transitions after a property changes:
+
+1. Create an implicit animation collection.
+2. Set each animation's target property.
+3. Insert each animation under the same property name.
+4. Attach the collection with `visual.set_implicit_animations(Some(&collection))`.
+5. Change the visual property normally.
+
+Create a `CompositionScopedBatch`, start related work, and call `end` to seal the tracked work.
+`BatchKind` selects animation, effect, infinite-animation, or all-animation work.
+
+Property names are composition strings such as `"Opacity"` and `"Scale"`. A typo is not checked by
+Rust, so keep names next to the animation construction and use the documented composition property
+name.
+
+### Draw Canvas content into a visual
+
+This path requires system composition and the Canvas `composition` feature:
+
+1. Create a Canvas `GpuDevice`.
+2. Create a `CompositionGraphicsDevice` from the compositor.
+3. Create and size a `CompositionDrawingSurface`.
+4. Create a surface brush and set it on a `SpriteVisual`.
+5. Import `CanvasCompositionExt` and draw into the surface.
+
+Resize both the sprite and surface when their destination changes. Canvas drawing coordinates are
+pixels on this path. Clear or cover the full surface on each draw.
+
+If `surface.draw` returns `Ok(false)`, recreate the Canvas device, composition graphics device,
+surface, and brush. The lifted Reactor stack does not expose this Direct2D surface bridge.
+
+## Pitfalls
+
+- Do not mix system and lifted visuals, compositors, or hosts.
+- Enable exactly one of the `system` and `reactor` features.
+- Keep the system dispatcher queue and desktop target alive.
+- Create graph objects from the compositor that owns their destination.
+- Update visual sizes on host resize or use relative adjustments.
+- Remember that child insertion order determines z-order.
+- Use DIPs for visual geometry and pixels for Canvas composition surfaces.
+- Check the result of Reactor child-visual attachment and retain the host observation.
+- Treat animation property names as exact, case-sensitive API strings.
 
 ## Samples
 
-`crates/samples/composition/` contains standalone system-composition samples. They use
-`ICompositorDesktopInterop::CreateDesktopWindowTarget` and do not use WinUI 3 or reactor.
+Choose a sample for the hosting path and task:
 
-- [`standalone`](../../crates/samples/composition/standalone) creates a `Compositor`, a background,
-  and colored `SpriteVisual` items in a `DesktopWindowTarget`.
-- [`minesweeper`](../../crates/samples/composition/minesweeper) is a complete app. It uses a
-  16-by-16 `SpriteVisual` tile grid, a nine-grid selection brush, `ShapeVisual` drawing, relative
-  sizing, pointer hit testing, and `Vector3` key-frame animation.
-- [`canvas`](../../crates/samples/composition/canvas) draws Direct2D content into a composition
-  surface through `windows-canvas`.
+| Goal | Sample |
+| --- | --- |
+| Create an HWND target and sprites | [`standalone`][composition-standalone] |
+| Build an interactive visual app | [`minesweeper`][composition-minesweeper] |
+| Draw Canvas content into a visual | [`canvas`](../../crates/samples/composition/canvas) |
+| Learn the Reactor host lifecycle | [`host`][composition-host] |
+| Respond to lifted host DPI and size | [`dpi`][composition-dpi] |
+| Attach and detach a lifted tree | [`toggle`][composition-toggle] |
+| Animate lifted visuals | [`animation`][composition-animation] |
+| Build many lifted shapes | [`circles`][composition-circles] |
+
+[composition-standalone]: ../../crates/samples/composition/standalone
+[composition-minesweeper]: ../../crates/samples/composition/minesweeper
+[composition-host]: ../../crates/samples/reactor/composition/examples/host.rs
+[composition-dpi]: ../../crates/samples/reactor/composition/examples/dpi.rs
+[composition-toggle]: ../../crates/samples/reactor/composition/examples/toggle.rs
+[composition-animation]: ../../crates/samples/reactor/composition/examples/animation.rs
+[composition-circles]: ../../crates/samples/reactor/composition/examples/circles.rs
+
+Start with `standalone` for system composition or `host` for Reactor. `minesweeper` demonstrates
+relative sizing, pointer hit testing, sprite and shape visuals, nine-grid brushes, and key-frame
+animation in one application.
 
 ---
 
 ## Internal documentation
 
-The rest of this page covers how the crate is built and maintained. It is for contributors and is
-not needed to use `windows-composition`.
+The remainder of this page describes how the crate is built and maintained. Applications do not
+need it to use Composition.
 
-### Dependencies
+### Dependencies and feature model
 
-`windows-composition` depends on [`windows-core`](windows-core.md),
-[`windows-numerics`](windows-numerics.md), and [`windows-collections`](windows-collections.md). It
-does not depend on the `windows` crate.
+The crate depends on `windows-core`, `windows-numerics`, `windows-collections`, and `windows-time`,
+not the umbrella `windows` crate. Visual offsets and sizes reuse `Vector2` and `Vector3`. Shape
+collections use `IVector`, implicit animation collections use `IMap`, and animation timing uses
+`TimeSpan`.
 
-The `system` feature also depends on [`windows-window`](windows-window.md). That feature provides
-safe HWND hosting.
+The `system` feature also depends on `windows-window` and enables dispatcher queue, HWND target,
+graphics-device, and drawing-surface support. The `reactor` feature selects lifted bindings and
+exposes host conversions. Compile errors reject zero or two selected stacks.
 
-The crate reuses collection and numerics crates instead of generating those bindings again. Shape
-collections use the `IVector` support from `windows-collections`. Implicit animation collections use
-its `IMap` support. Offsets and sizes use `Vector2` and `Vector3` from `windows-numerics`.
-
-Brush colors use a flat-bound `Windows.UI.Color` inside a small `Color` newtype. Callers do not use
-the raw ABI struct.
+Cargo unifies features across a build graph. Unified CI jobs that build Reactor exclude
+system-stack consumers, then check those consumers in a separate step. Add new consumers to the
+matching CI groups. `tool_yml` generates the stack-specific MSRV and feature checks.
 
 ### Wrapper model
 
-Every safe type is a newtype over one owned COM interface. There is no boxing and no per-call
-allocation. Constructors and operations with recoverable immediate failures return
-`windows_core::Result`. Retained-object property and factory convenience methods fail fast on COM
-failure. Safe callers do not use `unsafe`.
+Each safe type is a newtype over one owned COM interface. Concrete visual types dereference through
+their base hierarchy. `Brush`, `Shape`, and `Animation` are sealed traits that keep private
+generated binding types out of public signatures.
 
-Class wrappers store the most-derived interface and cast internally when needed. Each wrapper is
-`Clone`. A clone is a cheap COM `AddRef`, so handles can be stored and shared.
-
-### Class hierarchies and type families
-
-Two patterns keep private `bindings::` types out of the public API.
-
-- Concrete visual types implement `Deref` to their base types. `SpriteVisual` and `ShapeVisual`
-  deref to `ContainerVisual`, which derefs to `Visual`. A `&SpriteVisual` works where a `&Visual` is
-  expected.
-- `Brush`, `Shape`, and `Animation` are sealed marker traits. Each trait exposes an `as_brush`,
-  `as_shape`, or `as_animation` method. A method such as `SpriteVisual::set_brush(&impl Brush)`
-  accepts any crate-defined brush type. `CompositionAnimationGroup::add` accepts any `Animation`,
-  so scalar and vector animations can start together as one implicit animation.
-
-### Module layout
+Constructors and immediate recoverable operations return `windows_core::Result`. Retained-object
+property and factory conveniences fail fast on COM errors. `Color` wraps the flat
+`Windows.UI.Color` ABI value.
 
 | Module | Contents |
 | --- | --- |
-| `bindings.rs` | Generated flat minimal system bindings for `Windows.UI.Composition` and `ICompositorDesktopInterop`. |
-| `bindings_lifted.rs` | Generated flat minimal lifted bindings for `Microsoft.UI.Composition`. |
-| `stack.rs` | System-only `DispatcherQueueController` bootstrap. |
-| `compositor.rs` | `Compositor` factory for visuals, brushes, shapes, geometries, animations, batches, and system targets. `from_host` adopts a lifted WinUI compositor. |
-| `target.rs` | System-only `DesktopWindowTarget`. |
-| `visual.rs` | Visual wrappers, child collections, and visual properties. Lifted builds expose `Visual::as_raw`. |
-| `shape.rs` | Shape visuals, shape traits, sprite and container shapes, ellipse geometry, and shape collections. |
-| `brush.rs` | Brush traits, color brushes, nine-grid brushes, and surface brushes. |
-| `animation.rs` | Animation traits, key-frame animations, animation groups, easing functions, and implicit animation collections. |
-| `batch.rs` | `CompositionScopedBatch` and `BatchKind`. |
-| `color.rs` | `Color` newtype over `Windows.UI.Color`. |
+| `compositor.rs` | Factories for graph objects and stack-specific hosts |
+| `visual.rs` | Visual hierarchy, properties, and child collections |
+| `brush.rs` | Brush hierarchy and implementations |
+| `shape.rs` | Shape visuals, geometry, shapes, and collections |
+| `animation.rs` | Key frames, easing, groups, and implicit animations |
+| `batch.rs` | Scoped batches and batch kinds |
+| `surface.rs` | System graphics devices and drawing surfaces |
+| `stack.rs`, `target.rs` | System dispatcher queue and HWND hosting |
+| `color.rs` | Public color value |
 
 ### Code generation
 
-Composition uses `tool_composition` instead of `tool_bindings`. The tool needs non-default winmd
-inputs and emits two binding modules from one filter.
+Composition uses `tool_composition` because it needs system and non-default lifted metadata. The
+tool runs `windows_bindgen` twice with `--flat --minimal --dead-code`.
 
-`tool_composition` runs `windows_bindgen` twice with `--flat --minimal --dead-code`.
+- System bindings read the repository's Windows and Win32 metadata and include
+  `Windows.UI.Composition`, dispatcher queue, desktop interop, and surface interop APIs.
+- Lifted bindings read the pinned Microsoft UI metadata used by Reactor and include
+  `Microsoft.UI.Composition` with shared foundation and color types.
 
-- System bindings read the default `Windows.winmd` and `Windows.Win32.winmd`. They include
-  `Windows.UI.Composition`, `Windows.System`, `ICompositorDesktopInterop`, `HWND`, and `BOOL`.
-- Lifted bindings read `Microsoft.UI.winmd` from the reactor tool inputs and the default
-  `Windows.winmd`. They include `Microsoft.UI.Composition` plus shared `Windows.Foundation` and
-  `Windows.UI.Color` types.
+`crates/tools/composition/src/composition.txt` is the shared filter. System-only regions are omitted
+from lifted generation, and composition namespace entries are rewritten for the lifted stack.
+`lib.rs` selects `bindings.rs` or `bindings_lifted.rs`.
 
-`composition.txt` is the source filter. `// region: system-only` and `// endregion` mark entries
-that exist only in the system stack. The tool removes those regions for lifted bindings. It also
-rewrites `Windows.UI.Composition.` to `Microsoft.UI.Composition.` Shared `Windows.Foundation` and
-`Windows.UI.Color` entries stay unchanged.
+Generated binding files are committed and must not be edited by hand. After changing the filter,
+metadata inputs, or tool, run:
 
-Edit `composition.txt` to change either stack. Then run `cargo run -p tool_composition` and verify
-the affected crate.
+```text
+cargo run -p tool_composition --quiet
+cargo check -p windows-composition --quiet
+```
 
-`lib.rs` selects `bindings.rs` for `system` and `bindings_lifted.rs` for `reactor`. Compile errors
-reject invalid feature combinations.
+Run `cargo run -p tool_yml` after changing feature-matrix generation.
 
-`stack.rs` uses the `CreateDispatcherQueueController` function and supporting types generated from
-`DispatcherQueue.h` in the repo's Win32 metadata. It creates the dispatcher queue on the current
-thread.
+### Reactor bridge
 
-### Feature unification and CI
+Reactor reports `CompositionHostEvent` through a typed `ElementRef<Grid>`. A ready event contains
+an application-safe compositor capability and layout metrics. `Compositor::from_host` adopts that
+capability. `Visual::as_raw` exports only an application-owned lifted visual for attachment.
 
-The `system` and `reactor` features cannot build together. Cargo unifies features across a build
-graph. A workspace build that includes both stack consumers would enable both features and hit the
-compile error.
+Both crates generate lifted bindings from the same pinned Microsoft UI metadata. Host attachment
+and observation commands exist in Reactor's native and recording runtimes. Window and node
+identities reject late events and completions.
 
-Unified CI jobs are reactor-primary. Reactor and its tests use the lifted stack, so the unified
-clippy and test jobs exclude system-stack consumers. A second step checks those system crates
-together. Add a new system-stack crate to both the exclusion list and the second step.
-
-`tool_yml` also handles this crate. Generated MSRV and no-default-features matrices cannot use
-`--all-features` or `--no-default-features` for this crate. They check each stack directly. Re-run
-`cargo run -p tool_yml` after changing those generators.
-
-### Reactor host bridge
-
-Lifted composition is hosted inside a WinUI element owned by Reactor. A typed
-`ElementRef<Grid>` reports `CompositionHostEvent` values containing the compositor and layout
-metrics. The Reactor-owned XAML element and its visual remain private. `request_set_child_visual`
-attaches or clears an application-owned root visual without exposing either object. Accepted
-attachment requests complete exactly once with `Result<(), CompositionHostError>`;
-`CompositionHostError` is an alias for Reactor's shared `IntegrationError`.
-
-This crate provides the lifted binding set and seam helpers for that bridge.
-`Compositor::from_host` adopts the reported compositor, and `Visual::as_raw` exposes an
-application-owned visual for attachment.
-
-Both crates use the same `Microsoft.UI.winmd` input for lifted bindings. The compositor and visual
-interfaces have matching IIDs, so the casts in the seam helpers are ABI-safe. Reactor's
-animation engine also uses this crate's key-frame, animation-group, easing, and implicit-animation
-wrappers. Element lifecycle transitions use one group when opacity and scale must animate together.
+Reactor also consumes lifted key-frame, group, easing, and implicit-animation wrappers for element
+lifecycle transitions.
 
 ### Canvas bridge
 
-Direct2D content can be drawn into a composition surface and painted onto a visual. This mirrors
-Win2D's `CanvasComposition`. This crate owns the composition half.
+The system stack exposes `ICompositorInterop` and
+`ICompositionDrawingSurfaceInterop`. A Canvas device becomes a
+`CompositionGraphicsDevice`, which creates a premultiplied BGRA drawing surface. A composition
+surface brush paints that surface onto a visual.
 
-- `Compositor::create_graphics_device(&impl Interface)` wraps
-  `ICompositorInterop::CreateGraphicsDevice`. It adopts the app's Direct2D or DXGI rendering device
-  into a `CompositionGraphicsDevice`.
-- `CompositionGraphicsDevice::create_drawing_surface(width, height)` allocates a premultiplied-BGRA
-  `CompositionDrawingSurface`.
-- `Compositor::create_surface_brush(&surface)` produces a `CompositionSurfaceBrush` that implements
-  `Brush`.
-- `CompositionDrawingSurface::{begin_draw::<T>, end_draw, resize}` wraps
-  `ICompositionDrawingSurfaceInterop`. `begin_draw` returns the drawing target `T` and the
-  backing-atlas `(x, y)` pixel offset. `windows-canvas` passes them to
-  `DrawingSession::from_borrowed_context(context, offset)`.
-
-The Direct2D drawing lives in `windows-canvas` behind its `composition` feature. Import
-`windows_canvas::CanvasCompositionExt` to use `device.create_graphics_device(&compositor)` and
-`surface.draw(|session| ...)`. The draw method returns `Result<bool>`. `Ok(false)` means device
-loss.
-
-The bridge is system-only. Lifted `Microsoft.UI.Composition` has no Direct2D surface interop
-metadata. The related filter entries are inside the `system-only` region, and the wrappers use
-`#[cfg(feature = "system")]`.
+`windows-canvas` implements the drawing half behind its `composition` feature. It borrows the
+Direct2D context returned by `begin_draw`, applies the backing-atlas offset, and pairs the operation
+with `end_draw`. Surface interop remains system-only.
 
 ### Testing
 
-`test_composition` has pure-value tests and headless live tests.
+`test_composition` includes pure value tests and live headless tests. The live tests create a
+dispatcher queue and real compositor, then exercise visual, brush, shape, collection, and animation
+wrappers without a window. Getter checks also verify that wrapper methods route to the intended
+versioned COM interface.
 
-- Pure-value tests cover `Color` constructors and component round trips.
-- Headless live tests create a `DispatcherQueueController`, build a real `Compositor`, and exercise
-  visual, brush, shape, and animation wrappers. The tests do not need a window or message pump, so
-  they run in CI.
+Run:
 
-Getters read from the same COM objects that setters write. This also verifies that wrapper methods
-route to the correct versioned interface. Window hosting is covered by the runnable `standalone`
-sample.
+```text
+cargo test -p test_composition
+```
+
+Window hosting is covered by the standalone sample. Reactor host behavior is covered by Reactor's
+recording tests and live self-test fixtures.

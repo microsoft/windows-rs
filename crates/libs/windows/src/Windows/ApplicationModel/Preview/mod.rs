@@ -51,8 +51,8 @@ impl StartupAppImpactPreview {
     pub const Medium: Self = Self(3);
     pub const High: Self = Self(4);
 }
-impl windows_core::TypeKind for StartupAppImpactPreview {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for StartupAppImpactPreview {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for StartupAppImpactPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Preview.StartupAppImpactPreview;i4)");
@@ -114,13 +114,13 @@ impl StartupAppsManagerPreview {
     pub fn GetStartupAppInfos(&self) -> windows_core::Result<windows_collections::IVectorView<StartupAppInfoPreview>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStartupAppInfos)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStartupAppInfos)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IStartupAppsManagerPreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IStartupAppsManagerPreviewStatics<R, F: FnOnce(&IStartupAppsManagerPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

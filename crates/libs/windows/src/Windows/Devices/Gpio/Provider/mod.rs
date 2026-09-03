@@ -12,7 +12,7 @@ impl GpioPinProviderValueChangedEventArgs {
     pub fn Create(edge: ProviderGpioPinEdge) -> windows_core::Result<Self> {
         Self::IGpioPinProviderValueChangedEventArgsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), edge, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), edge, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IGpioPinProviderValueChangedEventArgsFactory<R, F: FnOnce(&IGpioPinProviderValueChangedEventArgsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -48,7 +48,7 @@ impl IGpioControllerProvider {
     pub fn OpenPinProvider(&self, pin: i32, sharingmode: ProviderGpioSharingMode) -> windows_core::Result<IGpioPinProvider> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenPinProvider)(windows_core::Interface::as_raw(self), pin, sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenPinProvider)(windows_core::Interface::as_raw(self), pin, sharingmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -363,7 +363,7 @@ impl IGpioProvider {
     pub fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IGpioControllerProvider>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetControllers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetControllers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -413,8 +413,8 @@ impl ProviderGpioPinDriveMode {
     pub const OutputOpenSource: Self = Self(6);
     pub const OutputOpenSourcePullDown: Self = Self(7);
 }
-impl windows_core::TypeKind for ProviderGpioPinDriveMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ProviderGpioPinDriveMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ProviderGpioPinDriveMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinDriveMode;i4)");
@@ -427,8 +427,8 @@ impl ProviderGpioPinEdge {
     pub const FallingEdge: Self = Self(0);
     pub const RisingEdge: Self = Self(1);
 }
-impl windows_core::TypeKind for ProviderGpioPinEdge {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ProviderGpioPinEdge {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ProviderGpioPinEdge {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinEdge;i4)");
@@ -441,8 +441,8 @@ impl ProviderGpioPinValue {
     pub const Low: Self = Self(0);
     pub const High: Self = Self(1);
 }
-impl windows_core::TypeKind for ProviderGpioPinValue {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ProviderGpioPinValue {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ProviderGpioPinValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinValue;i4)");
@@ -455,8 +455,8 @@ impl ProviderGpioSharingMode {
     pub const Exclusive: Self = Self(0);
     pub const SharedReadOnly: Self = Self(1);
 }
-impl windows_core::TypeKind for ProviderGpioSharingMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ProviderGpioSharingMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ProviderGpioSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioSharingMode;i4)");

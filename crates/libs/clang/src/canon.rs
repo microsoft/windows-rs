@@ -560,7 +560,8 @@ fn collapse_pointer_alias_param(
         CXType_Void => base,
         // A `DECLARE_HANDLE` tag (`struct X__ *`) is an opaque handle value.
         CXType_Record if pointee_canon.ty().name().ends_with("__") => base,
-        // A MIDL file-scope handle placeholder (`struct __MIDL___MIDL_itf_* *`) is an opaque handle.
+        // A MIDL file-scope handle placeholder (`struct __MIDL___MIDL_itf_* *`) is an opaque
+        // handle.
         CXType_Record
             if is_midl_placeholder_tag(&pointee_canon.ty().name())
                 && is_handle_shape(&pointee_canon.ty()) =>

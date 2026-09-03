@@ -7,8 +7,8 @@ impl ExtendedExecutionForegroundReason {
     pub const BackgroundAudio: Self = Self(2);
     pub const Unconstrained: Self = Self(3);
 }
-impl windows_core::TypeKind for ExtendedExecutionForegroundReason {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ExtendedExecutionForegroundReason {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ExtendedExecutionForegroundReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundReason;i4)");
@@ -21,8 +21,8 @@ impl ExtendedExecutionForegroundResult {
     pub const Allowed: Self = Self(0);
     pub const Denied: Self = Self(1);
 }
-impl windows_core::TypeKind for ExtendedExecutionForegroundResult {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ExtendedExecutionForegroundResult {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ExtendedExecutionForegroundResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult;i4)");
@@ -59,8 +59,8 @@ impl ExtendedExecutionForegroundRevokedReason {
     pub const Resumed: Self = Self(0);
     pub const SystemPolicy: Self = Self(1);
 }
-impl windows_core::TypeKind for ExtendedExecutionForegroundRevokedReason {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for ExtendedExecutionForegroundRevokedReason {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for ExtendedExecutionForegroundRevokedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedReason;i4)");
@@ -109,7 +109,7 @@ impl ExtendedExecutionForegroundSession {
     pub fn RequestExtensionAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ExtendedExecutionForegroundResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestExtensionAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestExtensionAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Reason(&self) -> windows_core::Result<ExtendedExecutionForegroundReason> {

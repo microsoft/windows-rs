@@ -87,7 +87,8 @@ impl Layout {
 
         // When all content in this module (direct items and all nested sub-modules) is winrt-only,
         // emit a single `#[winrt] mod` block rather than separate `mod` and `#[winrt] mod` blocks.
-        // This applies whether the winrt items are direct children or live exclusively in nested mods.
+        // This applies whether the winrt items are direct children or live only in nested
+        // modules.
         if !has_win32 && has_modules && self.modules.values().all(|m| m.is_all_winrt()) {
             output.push_str("#[winrt] mod ");
             output.push_str(name);

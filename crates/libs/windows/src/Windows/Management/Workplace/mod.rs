@@ -86,8 +86,8 @@ impl MessagingSyncPolicy {
     pub const Allowed: Self = Self(1);
     pub const Required: Self = Self(2);
 }
-impl windows_core::TypeKind for MessagingSyncPolicy {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for MessagingSyncPolicy {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for MessagingSyncPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Workplace.MessagingSyncPolicy;i4)");

@@ -1610,7 +1610,7 @@ fn flatten_decls(
             }
             let name = child.name();
             let full = if path.is_empty() {
-                name.clone()
+                name
             } else {
                 format!("{path}.{name}")
             };

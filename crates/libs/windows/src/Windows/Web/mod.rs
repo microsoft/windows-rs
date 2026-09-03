@@ -20,7 +20,7 @@ impl IUriToStreamResolver {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UriToStreamAsync)(windows_core::Interface::as_raw(self), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).UriToStreamAsync)(windows_core::Interface::as_raw(self), uri.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -150,8 +150,8 @@ impl WebErrorStatus {
     pub const GatewayTimeout: Self = Self(504);
     pub const HttpVersionNotSupported: Self = Self(505);
 }
-impl windows_core::TypeKind for WebErrorStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for WebErrorStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for WebErrorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.WebErrorStatus;i4)");

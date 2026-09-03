@@ -76,6 +76,24 @@ impl Interface {
             )
         }
     }
+    pub unsafe fn InSignedLen(&self, buffer: &[u32]) -> i32 {
+        unsafe {
+            (windows_core::Interface::vtable(self).InSignedLen)(
+                windows_core::Interface::as_raw(self),
+                buffer.len().try_into().unwrap(),
+                buffer.as_ptr(),
+            )
+        }
+    }
+    pub unsafe fn InOptionalSignedLen(&self, count: i32, buffer: Option<*const u32>) -> i32 {
+        unsafe {
+            (windows_core::Interface::vtable(self).InOptionalSignedLen)(
+                windows_core::Interface::as_raw(self),
+                count,
+                buffer.unwrap_or(core::mem::zeroed()) as _,
+            )
+        }
+    }
 }
 #[repr(C)]
 pub struct Interface_Vtbl {
@@ -89,6 +107,9 @@ pub struct Interface_Vtbl {
     pub SharedCount:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, *mut u32) -> i32,
     pub InLen: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32) -> i32,
+    pub InSignedLen: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const u32) -> i32,
+    pub InOptionalSignedLen:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const u32) -> i32,
 }
 pub trait Interface_Impl {
     fn OutFixed(&self, buffer: *mut u32) -> i32;
@@ -99,6 +120,8 @@ pub trait Interface_Impl {
     fn InOutLen(&self, count: u32, buffer: *mut u32) -> i32;
     fn SharedCount(&self, count: u32, input: *const u32, output: *mut u32) -> i32;
     fn InLen(&self, count: u32, buffer: *const u32) -> i32;
+    fn InSignedLen(&self, count: i32, buffer: *const u32) -> i32;
+    fn InOptionalSignedLen(&self, count: i32, buffer: *const u32) -> i32;
 }
 impl Interface_Vtbl {
     pub const fn new<Identity: Interface_Impl>() -> Self {
@@ -219,6 +242,36 @@ impl Interface_Vtbl {
                 )
             }
         }
+        unsafe extern "system" fn InSignedLen<Identity: Interface_Impl>(
+            this: *mut core::ffi::c_void,
+            count: i32,
+            buffer: *const u32,
+        ) -> i32 {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                Interface_Impl::InSignedLen(
+                    this,
+                    core::mem::transmute_copy(&count),
+                    core::mem::transmute_copy(&buffer),
+                )
+            }
+        }
+        unsafe extern "system" fn InOptionalSignedLen<Identity: Interface_Impl>(
+            this: *mut core::ffi::c_void,
+            count: i32,
+            buffer: *const u32,
+        ) -> i32 {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                Interface_Impl::InOptionalSignedLen(
+                    this,
+                    core::mem::transmute_copy(&count),
+                    core::mem::transmute_copy(&buffer),
+                )
+            }
+        }
         Self {
             OutFixed: OutFixed::<Identity>,
             OutLen: OutLen::<Identity>,
@@ -228,6 +281,8 @@ impl Interface_Vtbl {
             InOutLen: InOutLen::<Identity>,
             SharedCount: SharedCount::<Identity>,
             InLen: InLen::<Identity>,
+            InSignedLen: InSignedLen::<Identity>,
+            InOptionalSignedLen: InOptionalSignedLen::<Identity>,
         }
     }
 }

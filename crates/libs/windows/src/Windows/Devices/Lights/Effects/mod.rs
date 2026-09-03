@@ -364,7 +364,7 @@ impl LampArrayBitmapEffect {
     {
         Self::ILampArrayBitmapEffectFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
@@ -512,7 +512,7 @@ impl LampArrayBlinkEffect {
     {
         Self::ILampArrayBlinkEffectFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
@@ -593,7 +593,7 @@ impl LampArrayColorRampEffect {
     {
         Self::ILampArrayColorRampEffectFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
@@ -668,7 +668,7 @@ impl LampArrayCustomEffect {
     {
         Self::ILampArrayCustomEffectFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
@@ -706,8 +706,8 @@ impl LampArrayEffectCompletionBehavior {
     pub const ClearState: Self = Self(0);
     pub const KeepState: Self = Self(1);
 }
-impl windows_core::TypeKind for LampArrayEffectCompletionBehavior {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for LampArrayEffectCompletionBehavior {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for LampArrayEffectCompletionBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior;i4)");
@@ -730,7 +730,7 @@ impl LampArrayEffectPlaylist {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<ILampArrayEffect>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Append<P0>(&self, effect: P0) -> windows_core::Result<()>
@@ -800,7 +800,7 @@ impl LampArrayEffectPlaylist {
         let this = &windows_core::Interface::cast::<windows_collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -865,8 +865,8 @@ impl LampArrayEffectStartMode {
     pub const Sequential: Self = Self(0);
     pub const Simultaneous: Self = Self(1);
 }
-impl windows_core::TypeKind for LampArrayEffectStartMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for LampArrayEffectStartMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for LampArrayEffectStartMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectStartMode;i4)");
@@ -879,8 +879,8 @@ impl LampArrayRepetitionMode {
     pub const Occurrences: Self = Self(0);
     pub const Forever: Self = Self(1);
 }
-impl windows_core::TypeKind for LampArrayRepetitionMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for LampArrayRepetitionMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for LampArrayRepetitionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayRepetitionMode;i4)");
@@ -947,7 +947,7 @@ impl LampArraySolidEffect {
     {
         Self::ILampArraySolidEffectFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ILampArraySolidEffectFactory<R, F: FnOnce(&ILampArraySolidEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

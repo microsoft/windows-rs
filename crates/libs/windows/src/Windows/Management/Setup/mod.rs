@@ -58,7 +58,7 @@ impl AgentProvisioningProgressReport {
     pub fn Batches(&self) -> windows_core::Result<windows_collections::IVector<DeploymentWorkloadBatch>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Batches)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Batches)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CurrentBatchIndex(&self) -> windows_core::Result<u32> {
@@ -93,8 +93,8 @@ impl DeploymentAgentProgressState {
     pub const RebootRequired: Self = Self(5);
     pub const Canceled: Self = Self(6);
 }
-impl windows_core::TypeKind for DeploymentAgentProgressState {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DeploymentAgentProgressState {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DeploymentAgentProgressState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Setup.DeploymentAgentProgressState;i4)");
@@ -112,8 +112,8 @@ impl DeploymentSessionConnectionChange {
     pub const InternetConnectionLost: Self = Self(5);
     pub const InternetConnectionRestored: Self = Self(6);
 }
-impl windows_core::TypeKind for DeploymentSessionConnectionChange {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DeploymentSessionConnectionChange {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DeploymentSessionConnectionChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Setup.DeploymentSessionConnectionChange;i4)");
@@ -219,8 +219,8 @@ impl DeploymentSessionStateChange {
     pub const CancelRequestedByUser: Self = Self(1);
     pub const RetryRequestedByUser: Self = Self(2);
 }
-impl windows_core::TypeKind for DeploymentSessionStateChange {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DeploymentSessionStateChange {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DeploymentSessionStateChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Setup.DeploymentSessionStateChange;i4)");
@@ -277,7 +277,7 @@ impl DeploymentWorkload {
     pub fn StartTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     pub fn SetStartTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
@@ -287,7 +287,7 @@ impl DeploymentWorkload {
     pub fn EndTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).EndTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     pub fn SetEndTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
@@ -351,7 +351,7 @@ impl DeploymentWorkload {
     pub fn CreateInstance(id: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IDeploymentWorkloadFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IDeploymentWorkloadFactory<R, F: FnOnce(&IDeploymentWorkloadFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -392,13 +392,13 @@ impl DeploymentWorkloadBatch {
     pub fn BatchWorkloads(&self) -> windows_core::Result<windows_collections::IVector<DeploymentWorkload>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BatchWorkloads)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BatchWorkloads)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateInstance(id: u32) -> windows_core::Result<Self> {
         Self::IDeploymentWorkloadBatchFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IDeploymentWorkloadBatchFactory<R, F: FnOnce(&IDeploymentWorkloadBatchFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -429,8 +429,8 @@ impl DeploymentWorkloadState {
     pub const Uninstalled: Self = Self(6);
     pub const RebootRequired: Self = Self(7);
 }
-impl windows_core::TypeKind for DeploymentWorkloadState {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DeploymentWorkloadState {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DeploymentWorkloadState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Setup.DeploymentWorkloadState;i4)");
@@ -683,7 +683,7 @@ impl MachineProvisioningProgressReporter {
     pub fn GetDevicePreparationExecutionContextAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<DevicePreparationExecutionContext>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDevicePreparationExecutionContextAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDevicePreparationExecutionContextAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetForLaunchUri<P0, P1>(launchuri: P0, heartbeathandler: P1) -> windows_core::Result<Self>
@@ -693,7 +693,7 @@ impl MachineProvisioningProgressReporter {
     {
         Self::IMachineProvisioningProgressReporterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), heartbeathandler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), heartbeathandler.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMachineProvisioningProgressReporterStatics<R, F: FnOnce(&IMachineProvisioningProgressReporterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

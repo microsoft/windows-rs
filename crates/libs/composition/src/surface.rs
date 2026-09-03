@@ -40,6 +40,9 @@ impl CompositionDrawingSurface {
     }
 
     /// Begins drawing, returning the target and backing-atlas pixel offset.
+    ///
+    /// If this method succeeds, call [`end_draw`](Self::end_draw) even if a later drawing
+    /// operation fails.
     pub fn begin_draw<T: Interface>(&self) -> Result<(T, (i32, i32))> {
         let mut offset = bindings::POINT::default();
         let object = unsafe { self.interop.BeginDraw::<T>(None, &mut offset)? };

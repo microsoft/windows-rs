@@ -4,8 +4,8 @@ pub struct Struct {
     pub x: i32,
     pub y: i32,
 }
-impl windows_core::TypeKind for Struct {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Struct {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Struct {
     const SIGNATURE: windows_core::imp::ConstBuffer =

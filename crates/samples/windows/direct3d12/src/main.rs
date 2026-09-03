@@ -305,9 +305,7 @@ fn main() -> windows::core::Result<()> {
             0
         };
 
-        let exe_path = std::env::current_exe().ok().unwrap();
-        let asset_path = exe_path.parent().unwrap();
-        let shaders_hlsl_path = asset_path.join("shaders.hlsl");
+        let shaders_hlsl_path = std::path::Path::new(env!("OUT_DIR")).join("shaders.hlsl");
         let shaders_hlsl = shaders_hlsl_path.to_str().unwrap();
         let shaders_hlsl: HSTRING = shaders_hlsl.into();
 

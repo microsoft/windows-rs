@@ -130,8 +130,8 @@ fn gen_impl_impl(inputs: &ImplementInputs) -> syn::Item {
         impl #generics #impl_ident::#generics_idents where #constraints {}
     };
 
-    // This is here so that IInspectable::GetRuntimeClassName can work properly.
-    // For a test case for this, see crates/tests/misc/component_client.
+    // The first interface supplies the runtime class name returned by
+    // `IInspectable::GetRuntimeClassName`.
     let identity_type = if let Some(first) = inputs.interface_chains.first() {
         first.implement.to_ident()
     } else {
@@ -434,8 +434,6 @@ fn gen_into_outer(inputs: &ImplementInputs) -> syn::ImplItem {
         // Builds the outer object. Internal only: app code must never own a `Foo_Impl`,
         // since mutable access to it would shear the refcount. Callers `into_static` and
         // `into_object` uphold this by only handing out `StaticComObject` / `ComObject`.
-        //
-        // TODO: hide this in a private module so app code can't call it.
         #[inline(always)]
         #maybe_const fn into_outer(self) -> #impl_ident::#generics_idents {
             #impl_ident::#generics_idents {

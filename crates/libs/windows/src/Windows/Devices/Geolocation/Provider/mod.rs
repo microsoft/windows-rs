@@ -76,8 +76,8 @@ impl LocationOverrideStatus {
     pub const AlreadyStarted: Self = Self(2);
     pub const Other: Self = Self(3);
 }
-impl windows_core::TypeKind for LocationOverrideStatus {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for LocationOverrideStatus {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for LocationOverrideStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Provider.LocationOverrideStatus;i4)");

@@ -32,7 +32,7 @@ impl Storyboard {
         }
     }
 
-    /// Schedules the storyboard to begin at the specified time.
+    /// Schedules the storyboard to begin at the specified time in seconds.
     pub fn schedule(&self, time: f64) -> Result<()> {
         unsafe { self.0.Schedule(time, None) }.ok()?;
         Ok(())

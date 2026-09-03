@@ -1,6 +1,7 @@
 #![cfg(windows)]
 use windows::Foundation::*;
 use windows::Win32::E_BOUNDS;
+use windows::core::imp::{Type, ref_as_default};
 use windows::core::*;
 use windows_collections::*;
 

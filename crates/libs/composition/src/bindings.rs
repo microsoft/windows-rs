@@ -6,8 +6,8 @@ impl AnimationIterationBehavior {
     pub const Count: Self = Self(0);
     pub const Forever: Self = Self(1);
 }
-impl windows_core::TypeKind for AnimationIterationBehavior {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for AnimationIterationBehavior {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for AnimationIterationBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -22,8 +22,8 @@ pub struct Color {
     pub g: u8,
     pub b: u8,
 }
-impl windows_core::TypeKind for Color {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Color {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Color {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -103,8 +103,8 @@ impl CompositionBatchTypes {
     pub const InfiniteAnimation: Self = Self(4);
     pub const AllAnimations: Self = Self(5);
 }
-impl windows_core::TypeKind for CompositionBatchTypes {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CompositionBatchTypes {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CompositionBatchTypes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -152,8 +152,8 @@ impl CompositionBorderMode {
     pub const Soft: Self = Self(1);
     pub const Hard: Self = Self(2);
 }
-impl windows_core::TypeKind for CompositionBorderMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for CompositionBorderMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for CompositionBorderMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -777,8 +777,8 @@ impl DirectXAlphaMode {
     pub const Straight: Self = Self(2);
     pub const Ignore: Self = Self(3);
 }
-impl windows_core::TypeKind for DirectXAlphaMode {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DirectXAlphaMode {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DirectXAlphaMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -912,8 +912,8 @@ impl DirectXPixelFormat {
     pub const SamplerFeedbackMipRegionUsedOpaque: Self = Self(190);
     pub const A4B4G4R4: Self = Self(191);
 }
-impl windows_core::TypeKind for DirectXPixelFormat {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for DirectXPixelFormat {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for DirectXPixelFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
@@ -1133,7 +1133,7 @@ impl ICompositionContainerShape {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1182,7 +1182,7 @@ impl ICompositionDrawingSurfaceInterop {
                 &mut result__,
                 updateoffset as _,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn EndDraw(&self) -> windows_core::HRESULT {
@@ -1298,7 +1298,7 @@ impl ICompositionGraphicsDevice {
                 alphamode,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1416,7 +1416,7 @@ impl ICompositionObject {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn StartAnimation<P1>(
@@ -1634,7 +1634,7 @@ impl ICompositionTarget {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn SetRoot<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1683,7 +1683,7 @@ impl ICompositor {
                 color,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn CreateContainerVisual(&self) -> windows_core::Result<ContainerVisual> {
@@ -1693,7 +1693,7 @@ impl ICompositor {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn CreateCubicBezierEasingFunction(
@@ -1709,7 +1709,7 @@ impl ICompositor {
                 controlpoint2,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn CreateLinearEasingFunction(&self) -> windows_core::Result<LinearEasingFunction> {
@@ -1719,7 +1719,7 @@ impl ICompositor {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn CreateScalarKeyFrameAnimation(
@@ -1731,7 +1731,7 @@ impl ICompositor {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn CreateScopedBatch(
@@ -1745,7 +1745,7 @@ impl ICompositor {
                 batchtype,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn CreateSpriteVisual(&self) -> windows_core::Result<SpriteVisual> {
@@ -1755,7 +1755,7 @@ impl ICompositor {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn CreateSurfaceBrushWithSurface<P0>(
@@ -1772,7 +1772,7 @@ impl ICompositor {
                 surface.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn CreateVector3KeyFrameAnimation(
@@ -1784,7 +1784,7 @@ impl ICompositor {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1863,7 +1863,7 @@ impl ICompositor2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn CreateImplicitAnimationCollection(
@@ -1875,7 +1875,7 @@ impl ICompositor2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn CreateNineGridBrush(&self) -> windows_core::Result<CompositionNineGridBrush> {
@@ -1885,7 +1885,7 @@ impl ICompositor2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1928,7 +1928,7 @@ impl ICompositor5 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn CreateEllipseGeometry(&self) -> windows_core::Result<CompositionEllipseGeometry> {
@@ -1938,7 +1938,7 @@ impl ICompositor5 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn CreateShapeVisual(&self) -> windows_core::Result<ShapeVisual> {
@@ -1948,7 +1948,7 @@ impl ICompositor5 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn CreateSpriteShapeWithGeometry<P0>(
@@ -1965,7 +1965,7 @@ impl ICompositor5 {
                 geometry.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2024,7 +2024,7 @@ impl ICompositorDesktopInterop {
                 istopmost.into(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2061,7 +2061,7 @@ impl ICompositorInterop {
                 renderingdevice.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2094,7 +2094,7 @@ impl IContainerVisual {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2331,7 +2331,7 @@ impl IShapeVisual {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2541,7 +2541,7 @@ impl IVisual {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub(crate) fn Scale(&self) -> windows_core::Result<windows_numerics::Vector3> {
@@ -2981,8 +2981,8 @@ pub struct Size {
     pub width: f32,
     pub height: f32,
 }
-impl windows_core::TypeKind for Size {
-    type TypeKind = windows_core::CopyType;
+impl windows_core::imp::TypeKind for Size {
+    type TypeKind = windows_core::imp::CopyType;
 }
 impl windows_core::RuntimeType for Size {
     const SIGNATURE: windows_core::imp::ConstBuffer =

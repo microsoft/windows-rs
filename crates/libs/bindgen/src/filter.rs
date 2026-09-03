@@ -28,8 +28,8 @@ pub enum TypeRole {
     Shell,
 }
 
-/// Returns true if `method_name` matches either the raw metadata name or the
-/// overload-disambiguated name of `m`.
+/// Resolved `--filter` rules: which namespaces, types, methods, and enum variants to
+/// include or exclude, plus the seeds used to build the bottom-up type closure.
 #[derive(Debug, Default)]
 pub struct Filter {
     pub rules: Vec<(String, bool)>,
@@ -201,7 +201,7 @@ impl Filter {
     }
 
     /// Returns `true` if the class was explicitly marked as activatable
-    /// (i.e. `CreateInstance` or `::*` was in the filter).
+    /// (i.e. `CreateInstance` was in the filter).
     pub fn is_activatable(&self, namespace: &str, name: &str) -> bool {
         self.activatable
             .contains(&(namespace.to_string(), name.to_string()))
@@ -248,7 +248,8 @@ impl Filter {
                         if Self::is_interface(reader, namespace, name) {
                             requested_interfaces.entry(key).or_insert(MethodSet::All);
                         } else {
-                            // Unscoped enum variants are standalone constants; pull them in explicitly.
+                            // Unscoped enum variants are standalone constants; include them
+                            // explicitly.
                             if Self::is_unscoped_enum(reader, namespace, name) {
                                 enum_variants.entry(key.clone()).or_insert(MethodSet::All);
                             }
@@ -403,7 +404,6 @@ impl Filter {
         if let Some(ty) = reader.with_full_name(namespace, name).next() {
             match &ty {
                 Type::Enum(e) => {
-                    // Check variant exists
                     assert!(
                         e.def.fields().any(|f| {
                             f.flags().contains(FieldAttributes::Literal) && f.name() == member
@@ -525,7 +525,7 @@ impl Filter {
                             found = true;
                             break;
                         }
-                        // Check composable interfaces too
+
                         if !found {
                             for iface in &required {
                                 if matches!(iface.kind, InterfaceKind::Composable) {

@@ -29,6 +29,7 @@ use super::*;
 /// - `--dead-code`: Emits `pub(crate)` items for dead-code analysis.
 /// - `--etc`: Reads arguments from command files.
 /// - `--filter-file`: Reads filters from text files.
+///
 /// # `--out`
 ///
 /// Exactly one `--out` argument is required.
