@@ -16,8 +16,8 @@ windows-reactor = "0.100"
 
 Framework-dependent apps need nothing else: Reactor detects the deployment mode at startup
 and either loads the staged runtime or resolves the installed Windows App Runtime framework
-package. For a self-contained deployment, add the Windows App Runtime setup helper and call `windows_reactor_setup::as_self_contained`
-from `build.rs`:
+package. For a self-contained deployment, add the Windows App Runtime setup helper and call
+`windows_reactor_setup::as_self_contained` from `build.rs`:
 
 ```toml
 [build-dependencies]
@@ -70,5 +70,5 @@ fn main() {
 builds the view and wires typed events to component messages. Generated control builders expose
 typed properties, events, content, and child collections, and `ElementRef` provides typed
 imperative operations such as focus. See the
-[guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md) for the
-component model, virtualized lists, image loading, and the native integration boundary.
+[guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md) for
+components, layout, controlled input, child components, changing lists, and background work.
