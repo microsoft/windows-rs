@@ -20,220 +20,287 @@ to place the WinUI XAML WebView2 control in a
 The crate wraps a selected WebView2 surface rather than exposing the complete SDK. Use raw WebView2
 bindings when an application needs APIs that are not represented here.
 
-## Prerequisites
+## The basic idea
 
-- The Microsoft Edge WebView2 runtime must be installed for `HWND` hosting.
-- The host must provide a live parent window and continue dispatching messages on its UI thread.
-  [`windows-window`](windows-window.md) is a small host suitable for this purpose.
-- Create the environment on a COM single-threaded apartment (STA). `Environment::new` and
-  `Environment::with_options` initialize the calling thread as an STA when needed. They return an
-  error if that thread was already initialized as a multi-threaded apartment.
-- Keep the parent window alive longer than its `Controller`.
+A WebView host has three main objects:
 
-The README contains dependency setup and the smallest hosting example. The workflow below starts
-where that example leaves off.
-
-## First workflow: host a resizable page
-
-1. Create the parent window on the UI thread.
-2. Create one `Environment`, then a `Controller` for the window.
-3. Set the controller bounds to the current client area and repeat that operation from the window's
-   resize callback.
-4. Obtain the `WebView`, register the events needed by the application, and retain every returned
-   `EventRegistration`.
-5. Navigate, then enter the host message loop.
-6. Close the controller before destroying its parent when shutdown order is under application
-   control.
-
-The important resize and subscription work looks like this once the controller exists:
-
-```rust,no_run
-use windows_webview::*;
-
-fn configure(controller: &Controller, webview: &WebView, width: i32, height: i32)
-    -> Result<EventRegistration>
-{
-    controller.set_bounds(0, 0, width, height)?;
-    let navigation = webview.on_navigation_completed(|args| {
-        println!("navigation succeeded: {}", args.is_success());
-    })?;
-    webview.navigate("https://learn.microsoft.com/windows/apps/")?;
-    Ok(navigation)
-}
-```
-
-Dropping `navigation` immediately would unsubscribe the handler. The WebView samples keep
-registrations in a `Vec<EventRegistration>` for the lifetime of the message loop.
-
-## Object and callback lifecycle
-
-`Environment` owns the user-data location and browser process context. Reuse it to create
-controllers that should share that context. `Controller` owns the browser hosted in a parent
-window and controls bounds, visibility, focus, and display properties. `WebView` represents the
-page and provides navigation, scripting, messaging, profile, and event APIs.
-
-Environment and controller creation are asynchronous WebView2 operations. The crate presents them
-as synchronous calls by pumping the calling thread's message queue until each callback completes.
-Call them during setup, before entering the application's main message loop. The same rule applies
-to `add_script_to_execute_on_document_created`. Normal operations such as `execute_script`,
-cookie enumeration, profile cleanup, and DevTools calls remain callback-based and complete on the
-UI thread.
-
-Call `Controller::close` for explicit shutdown. In all cases, keep the `Controller` alive while
-using its `WebView`. A raw parent handle passed to an unsafe `create_*_for_hwnd` method must remain
-valid for the controller's lifetime.
-
-## Navigation and page state
-
-`WebView` supports `navigate`, `navigate_to_string`, `reload`, `stop`, `go_back`, and
-`go_forward`. Use `source` and `document_title` to read the current top-level document.
-`NavigationRequest` adds a custom method, headers, or request body:
-
-```rust,no_run
-use windows_webview::{NavigationRequest, Result, WebView};
-
-fn submit(webview: &WebView) -> Result<()> {
-    let request = NavigationRequest::new("https://example.test/session")
-        .method("POST")
-        .header("Content-Type", "application/json")
-        .body(br#"{"active":true}"#.to_vec());
-    webview.navigate_with_request(&request)
-}
-```
-
-`on_navigation_starting` can inspect and cancel a navigation. `on_content_loading` and
-`on_navigation_completed` report later stages. Use the navigation ID to correlate callbacks.
-Handle `on_process_failed`: a render-process exit can be followed by `reload`, while a browser
-process exit requires a new `WebView`.
-
-## Events, decisions, and cleanup
-
-Every `on_*` method returns a `#[must_use]` `EventRegistration`. Dropping it, or calling
-`remove`, unregisters the callback. Event callbacks run on the UI thread and are not `Send`;
-keep their work short and move longer work out of the callback without blocking message dispatch.
-
-The event set covers navigation, content loading, title and fullscreen changes, window-close and
-new-window requests, permissions, downloads, process failures, web messages, resource requests,
-focus, and accelerator keys.
-
-`NewWindowRequestedArgs` and `PermissionRequestedArgs` can be completed after the event returns by
-taking a `Deferral`. The deferral completes on drop. Keep it alive until the decision has been
-applied; dropping it early tells WebView2 that handling is complete.
-
-Download progress subscriptions have the same RAII rule. Keep the registrations returned by
-`DownloadOperation::on_bytes_received_changed` and `on_state_changed`, not just the outer
-download-starting registration.
-
-## Host integration
-
-### Size, visibility, DPI, and position
-
-- `Controller::set_bounds` uses parent-client pixel coordinates.
-- Call `notify_parent_window_position_changed` from the parent's `WM_MOVE` handling so browser
-  popups and dialogs follow the host.
-- `set_visible` hides or shows the controller. Set the `WebView` memory target to
-  `MemoryUsageTargetLevel::Low` while hidden and restore `Normal` when shown.
-- `zoom_factor` controls page zoom. `rasterization_scale` controls rendering scale.
-- Monitor DPI changes are detected by default. Disable
-  `set_should_detect_monitor_scale_changes` before setting a scale that the application owns.
-- `set_default_background_color` controls the area before the page paints. WebView2 supports fully
-  opaque or fully transparent alpha; use `Color::TRANSPARENT` to show the host behind the page.
-
-### Focus and keyboard
-
-Call `move_focus(MoveFocusReason::Programmatic)` when the parent receives `WM_SETFOCUS`.
-`on_move_focus_requested` lets the host continue Tab navigation into another native control;
-move focus and mark the request handled. `on_accelerator_key_pressed` can consume application
-shortcuts before the page handles them. The related browser accelerator setting determines
-whether WebView2's built-in shortcuts remain enabled.
-
-### Controller creation options
-
-`ControllerOptions` selects a profile name, private mode, and initial background color. Pass it to
-`Environment::create_controller_with_options`. These choices apply at controller creation and
-cannot be retrofitted through `WebView`.
-
-## Environment and browser settings
-
-`EnvironmentOptions` configures the browser executable folder, user-data folder, browser arguments,
-language, minimum compatible browser version, operating-system account sign-on, browser
-extensions, and scrollbar style. Pass it to `Environment::with_options`.
-
-Choose a writable, application-owned user-data folder when the default location is unsuitable.
-Controllers created with the same environment share its browser process and data context, while
-named profiles isolate cookies, cache, and storage inside that context.
-
-`WebView::settings` returns toggles for script, web messages, dialogs, status bar, DevTools,
-context menus, host objects, zoom controls, error pages, accelerator keys, autofill, password
-saving, pinch zoom, swipe navigation, and non-client regions. It also supports a user-agent
-override. Settings take effect on the next navigation.
-
-## Host and JavaScript communication
-
-The page calls `window.chrome.webview.postMessage(...)`; the host receives it through
-`on_web_message_received`. Inspect `source` before trusting messages from navigable content.
-Use `web_message_as_json` for any JavaScript value or `try_web_message_as_string` when the protocol
-requires a string.
-
-The host sends values with `post_web_message_as_json` or `post_web_message_as_string`.
-`execute_script` returns a JSON-encoded result through its callback. A script registered with
-`add_script_to_execute_on_document_created` runs before page script in each new document; retain
-its `ScriptId` if it may need to be removed.
-
-## Local content and request interception
-
-For files on disk, use `set_virtual_host_name_to_folder_mapping` and navigate to an HTTPS origin
-such as `https://app.example/index.html`. `HostResourceAccessKind` controls cross-origin access.
-Clear the mapping when access should end.
-
-For generated or embedded bytes, use `on_web_resource_requested`. Its wildcard filter limits which
-requests reach the handler. Return `Some(WebResourceResponse)` to provide status, headers, content
-type, and body, or `None` to continue normal browser handling. The handler runs synchronously on
-the UI thread, so prepare expensive content ahead of time.
-
-## Profiles, cookies, downloads, and DevTools
-
-- `CookieManager` creates, updates, enumerates, and deletes cookies. Enumeration is callback-based.
-- `Profile` exposes its name, path, private status, preferred color scheme, download folder, and
-  callback-based browsing-data cleanup.
-- `on_download_starting` can change the result path, cancel the operation, or retain a
-  `DownloadOperation` for pause, resume, cancellation, progress, state, and interruption details.
-- `call_dev_tools_protocol_method` sends a method and JSON parameters without opening a remote
-  debugging port. Most events registered through `on_dev_tools_protocol_event` require enabling
-  their CDP domain first.
-
-## Reactor integration
-
-Enable the `reactor` feature when the browser belongs in a Reactor visual tree. `webview` returns a
-`View` and supplies a ready `WebView` to its callback. It panics on a native initialization error;
-use `webview_result` when the component should handle `IntegrationError` itself. The returned
-`WebView` supports the same navigation, messaging, settings, and event APIs as the `HWND` path.
-
-The XAML control initializes only after it enters a live visual tree. Do not expect its callback
-during component construction. A self-contained Reactor application must also deploy
-`Microsoft.Web.WebView2.Core.dll`; [`windows-reactor-setup`](windows-reactor-setup.md) stages it.
-The [`reactor/webview`](../../crates/samples/reactor/webview) sample shows the component and
-deployment layout.
-
-## Samples
-
-Run WebView examples with `cargo run -p webview_samples --example <name>`.
-
-| Example | Workflow |
+| Type | Purpose |
 | --- | --- |
-| `minimal` | Create an `HWND` host, size its controller, and navigate. |
-| `events` | Observe navigation, popup, permission, close, and process-failure events. |
-| `ipc` | Inject script, exchange messages, and execute JavaScript. |
-| `custom_protocol` | Serve HTML and CSS from memory. |
-| `local_files` | Map a folder to an HTTPS virtual host. |
-| `downloads` | Track download progress and state. |
-| `cookies` | Add and enumerate cookies. |
-| `profile` | Use private mode, color scheme, and browsing-data cleanup. |
-| `script` | Add, execute, and remove document-created script. |
-| `devtools` | Call a CDP method and subscribe to a CDP event. |
+| `Environment` | Owns the browser process and user-data context |
+| `Controller` | Places a browser inside a native parent window |
+| `WebView` | Navigates, runs scripts, exchanges messages, and exposes page events |
 
-The shared helper in `crates/samples/webview/samples/src/lib.rs` demonstrates correct resize,
-registration, controller, and message-loop lifetimes.
+Create them in that order, navigate the `WebView`, and keep the `Controller` alive while the page is
+hosted.
+
+The Microsoft Edge WebView2 runtime must be installed for native window hosting. The host also
+needs a live message loop on a single-threaded apartment. `Environment::new` initializes the
+calling thread as an STA when needed.
+
+## Host your first page
+
+[`windows-window`](windows-window.md) provides a small parent window and message loop:
+
+```rust,ignore
+use windows_webview::*;
+use windows_window::{Window, run};
+
+fn main() -> Result<()> {
+    let window = Window::new("WebView2")
+        .size(1000, 700)
+        .create()?;
+
+    let environment = Environment::new()?;
+    let controller = environment.create_controller(&window)?;
+    let webview = controller.webview()?;
+
+    let (width, height) = window.client_size();
+    controller.set_bounds(0, 0, width, height)?;
+    webview.navigate("https://learn.microsoft.com/windows/apps/")?;
+
+    run();
+    Ok(())
+}
+```
+
+The controller bounds use parent-client pixels. Update them whenever the parent window changes
+size. The [`minimal`](../../crates/samples/webview/samples/examples/minimal.rs) example uses the
+shared sample host, which includes resize and shutdown handling.
+
+Environment and controller creation start asynchronous WebView2 operations, but these constructors
+wait for completion while pumping the UI thread. Create them during setup before entering the
+application's own message loop.
+
+Keep the parent window alive longer than its controller. When the application controls shutdown
+order, call `controller.close()` before destroying the parent window.
+
+## Keep event registrations alive
+
+Every `on_*` method returns an `EventRegistration`. The registration unsubscribes when it is
+dropped, so store it for as long as the callback should run:
+
+```rust,ignore
+let navigation = webview.on_navigation_completed(|args| {
+    println!("navigation succeeded: {}", args.is_success());
+})?;
+
+webview.navigate("https://github.com/microsoft/windows-rs")?;
+
+// Keep `navigation` alive while the message loop runs.
+```
+
+For several events, a vector is convenient:
+
+```rust,ignore
+let registrations = vec![
+    webview.on_document_title_changed(|title| {
+        println!("the title changed to {title}");
+    })?,
+    webview.on_process_failed(|args| {
+        eprintln!("browser process failed: {:?}", args.kind());
+    })?,
+];
+```
+
+Callbacks run on the UI thread. Keep them short so the window and page remain responsive.
+
+## Navigate and observe page state
+
+The common navigation methods are direct:
+
+```rust,ignore
+webview.navigate("https://example.com")?;
+webview.reload()?;
+webview.go_back()?;
+webview.go_forward()?;
+```
+
+Use `source` and `document_title` after navigation:
+
+```rust,ignore
+let page = webview.clone();
+let navigation = webview.on_navigation_completed(move |args| {
+    if args.is_success() {
+        println!("{} - {}", page.document_title(), page.source());
+    }
+})?;
+```
+
+`on_navigation_starting` can inspect or cancel a request before it begins:
+
+```rust,ignore
+let starting = webview.on_navigation_starting(|args| {
+    if !args.uri().starts_with("https://") {
+        _ = args.set_cancel(true);
+    }
+})?;
+```
+
+Keep a process-failure handler in a long-running host. A failed render process can usually be
+followed by `reload`; a failed browser process requires a new WebView.
+
+## Exchange messages with the page
+
+Page JavaScript sends a value to Rust with:
+
+```javascript
+window.chrome.webview.postMessage({ action: "save", value: 42 });
+```
+
+The host receives it through `on_web_message_received`:
+
+```rust,ignore
+let messages = webview.on_web_message_received(|args| {
+    println!("{} sent {}", args.source(), args.web_message_as_json());
+})?;
+```
+
+Inspect `source` before trusting messages from content that can navigate. Use
+`try_web_message_as_string` when the protocol accepts only strings.
+
+Rust sends a value in the other direction with:
+
+```rust,ignore
+webview.post_web_message_as_json(r#"{"status":"saved"}"#)?;
+webview.post_web_message_as_string("refresh")?;
+```
+
+The page receives those values with:
+
+```javascript
+window.chrome.webview.addEventListener("message", event => {
+    console.log("host sent", event.data);
+});
+```
+
+Use `execute_script` when Rust needs to run a specific expression:
+
+```rust,ignore
+webview.execute_script("document.title", |result| {
+    println!("title as JSON: {result:?}");
+})?;
+```
+
+Script results are JSON encoded. The callback runs later on the UI thread.
+
+## Add script before each document loads
+
+`add_script_to_execute_on_document_created` installs script before page JavaScript runs:
+
+```rust,ignore
+let script = webview.add_script_to_execute_on_document_created(
+    "document.documentElement.dataset.host = 'windows-rs';",
+)?;
+```
+
+Keep the returned `ScriptId` if the script may need to be removed:
+
+```rust,ignore
+webview.remove_script_to_execute_on_document_created(&script)?;
+```
+
+Like environment creation, adding this script waits for an asynchronous WebView2 operation while
+pumping the UI thread. Install it during setup.
+
+## Host local files
+
+Map a folder to a virtual HTTPS host rather than navigating to a `file:` URL:
+
+```rust,ignore
+let folder = concat!(env!("CARGO_MANIFEST_DIR"), "\\web");
+webview.set_virtual_host_name_to_folder_mapping(
+    "app.example",
+    folder,
+    HostResourceAccessKind::Deny,
+)?;
+webview.navigate("https://app.example/index.html")?;
+```
+
+The page can now load scripts, styles, and images relative to that origin. The access kind controls
+whether other origins may request the folder's content.
+
+For generated or embedded content, intercept a URL pattern and return a response:
+
+```rust,ignore
+let resources = webview.on_web_resource_requested("https://app.example/*", |request| {
+    if request.uri().ends_with("/style.css") {
+        Some(
+            WebResourceResponse::new("body { font-family: Segoe UI, sans-serif; }")
+                .content_type("text/css"),
+        )
+    } else {
+        None
+    }
+})?;
+```
+
+Returning `None` lets WebView2 continue the request normally. The callback is synchronous, so
+prepare expensive content outside it.
+
+## Put a WebView inside Reactor
+
+Enable the `reactor` feature when the browser should participate in a Reactor layout:
+
+```toml
+windows-webview = { version = "0.100.0", features = ["reactor"] }
+```
+
+`webview` returns a normal Reactor `View` and sends the initialized browser through a callback:
+
+```rust,ignore
+use windows_reactor::*;
+use windows_webview::{EventRegistration, WebView, webview};
+
+struct Browser {
+    webview: Option<WebView>,
+    navigation: Option<EventRegistration>,
+}
+
+#[derive(Clone)]
+enum Message {
+    Initialized(WebView),
+}
+
+fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+    let Message::Initialized(webview) = message;
+    self.navigation = webview.on_navigation_completed(|_| {}).ok();
+    _ = webview.navigate("https://learn.microsoft.com/windows/apps/");
+    self.webview = Some(webview);
+}
+
+fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+    webview(context.callback(Message::Initialized))
+}
+```
+
+These methods belong inside the corresponding `Component` implementation. Initialization happens
+after the XAML control enters a live visual tree, not during `Component::create`.
+
+The convenience function panics on a native initialization error. Use `webview_result` when the
+component should receive and display that error. A self-contained Reactor app must also deploy
+`Microsoft.Web.WebView2.Core.dll`; [`windows-reactor-setup`](windows-reactor-setup.md) stages it.
+The [`reactor/webview`](../../crates/samples/reactor/webview) sample contains the complete
+component and deployment layout.
+
+## What to read next
+
+Run an example with `cargo run -p webview_samples --example <name>`.
+
+| Example | What it shows |
+| --- | --- |
+| `minimal` | Window hosting, resize, and navigation |
+| `events` | Navigation, permissions, popups, and process failures |
+| `ipc` | Messages and script execution |
+| `local_files` | A folder mapped to an HTTPS origin |
+| `custom_protocol` | HTML and CSS served from memory |
+| `downloads` | Download progress and cancellation |
+| `cookies` | Creating and enumerating cookies |
+| `profile` | Private mode and browsing-data cleanup |
+| `devtools` | Chrome DevTools Protocol calls and events |
+| [`reactor/webview`](../../crates/samples/reactor/webview) | Hosting WebView2 in Reactor |
+
+Start with `minimal`, then `ipc` or `local_files`. Profiles, downloads, cookies, and DevTools are
+independent workflows that can wait until the basic host lifecycle is familiar.
 
 ---
 

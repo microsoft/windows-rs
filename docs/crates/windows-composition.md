@@ -22,199 +22,240 @@ Composition does not provide controls, text input, accessibility behavior, or la
 [`windows-canvas`](windows-canvas.md) when custom drawing is easier as immediate-mode 2D commands.
 Composition can host Canvas-drawn surfaces.
 
-## Getting started: choose a hosting path
+## The basic idea
 
-The crate supports two separate composition stacks. Select exactly one Cargo feature.
+Composition is a retained graphics API. You create a tree of visual objects, change their
+properties when application state changes, and let Windows draw and animate the result.
 
-| Feature | Stack | Host | Choose it when |
-| --- | --- | --- | --- |
-| `system` (default) | `Windows.UI.Composition` | HWND target | The app owns a window |
-| `reactor` | `Microsoft.UI.Composition` | WinUI `Grid` | The visual is in a Reactor view |
+```text
+create visuals -> attach them to a tree -> update properties -> Windows composes the scene
+```
 
-The stacks are different COM object graphs. A visual created by one cannot be attached to the
-other. Cargo features are mutually exclusive, so disable default features when selecting
-`reactor`.
+This differs from Canvas, where the application issues drawing commands for each frame. A
+Composition visual stays in the tree until it is removed. Changing its offset, size, brush, or
+animation is enough to change what appears on screen.
 
-Use system composition for standalone visual applications and for the Canvas composition-surface
-bridge. Use lifted composition for visuals placed among WinUI controls.
+A `Compositor` creates every object in a scene. The most common visual types are:
 
-## Core model
-
-A `Compositor` is the factory and owner context for a composition graph. Create visuals, brushes,
-shapes, easing functions, and animations from the same compositor as their destination tree.
-
-Visuals form an ordered retained tree:
-
-- `ContainerVisual` holds child visuals.
-- `SpriteVisual` fills its bounds with a brush and can also hold children.
-- `ShapeVisual` renders a collection of composition shapes.
-- `Visual` supplies size, offset, opacity, scale, visibility, relative layout, and animation.
-
-`SpriteVisual` dereferences to `ContainerVisual`, which dereferences to `Visual`. This lets a sprite
-use child and base visual methods without casts. Shape visuals dereference to `Visual`.
-
-Brushes define visual content. The crate provides color, nine-grid, and system-only surface
-brushes. Shapes pair composition geometry with brushes and live in a `ShapeVisual`.
-
-All wrappers are cloneable COM handles. Keep the compositor, host target, root visual, and any
-objects that the application will update. Windows retains objects attached to the graph, but clear
-ownership in application state makes resize, input, and recovery code easier to manage.
-
-## Common workflows
-
-### Host system composition in a window
-
-System composition requires a dispatcher queue on the compositor thread:
-
-1. Create `DispatcherQueueController::create_on_current_thread`.
-2. Create a `Compositor`.
-3. Create a `windows_window::Window`.
-4. Call `create_desktop_window_target(&window, is_topmost)`.
-5. Create a root `ContainerVisual` and call `target.set_root(&root)`.
-6. Add child visuals and enter the window message loop.
-
-Declare the queue before composition objects so it outlives them. Keep the
-`DesktopWindowTarget` alive while its visual tree should remain connected.
-
-Use `create_desktop_window_target_for_hwnd` only for a live HWND owned by the calling thread. The
-safe `windows-window` overload is preferred.
-
-Composition does not automatically resize the root or children. Handle the window resize callback
-and update sizes, or set relative size and offset adjustments when the visual should track its
-parent.
-
-### Host lifted composition in Reactor
-
-The Reactor bridge uses an `ElementRef<Grid>` and a retained observation:
-
-1. Store the typed reference and composition scene state in a component.
-2. Attach the reference to a `Grid`.
-3. In `use_effect`, call `observe_composition_host` and retain the returned observation in cleanup.
-4. On `CompositionHostEvent::Ready`, create a `Compositor` with `Compositor::from_host`.
-5. Build a root visual and attach it with `request_set_child_visual`.
-6. On `Ready` and `Metrics`, update the visual tree for width, height, and scale.
-
-The host `Grid` and its element visual remain owned by Reactor. Only attach application-created
-visuals. A request returning `false` means the reference is not currently bound. An accepted
-request completes with `Result<(), CompositionHostError>`.
-
-Detach with `request_set_child_visual(None, ...)` when application state requires it. Dropping the
-observation stops host events and prevents rebinding after the component retires.
-
-### Build and update a visual tree
-
-Create a root container and use its `children()` collection:
-
-- `insert_at_bottom` draws a child behind existing children.
-- `insert_at_top` draws it above existing children.
-- `remove` detaches one child.
-- `remove_all` clears the collection.
-
-Set a visual's `size` and `offset` in DIPs. For parent-relative layout,
-`set_relative_size_adjustment` scales size by the parent and
-`set_relative_offset_adjustment` adds a parent-relative offset.
-
-A `SpriteVisual` paints its bounds with any crate-defined `Brush`. Create a color brush for flat
-content. Use `CompositionNineGridBrush` when scalable edge and center regions are needed. For
-Direct2D content, create a system composition surface brush as described below.
-
-### Draw shapes
-
-For a retained vector shape:
-
-1. Create a `ShapeVisual` and set its size and offset.
-2. Create an ellipse geometry and set its radius.
-3. Create a sprite shape from the geometry.
-4. Set the sprite shape's fill brush and offset.
-5. Append it to `shape_visual.shapes()`.
-
-Use `CompositionContainerShape` to group shapes. Shape collections accept any crate-defined type
-implementing the sealed `Shape` trait.
-
-### Animate properties
-
-Create an animation type matching the property:
-
-- `ScalarKeyFrameAnimation` for properties such as `"Opacity"`.
-- `Vector3KeyFrameAnimation` for properties such as `"Scale"` or `"Offset"`.
-
-Insert key frames with progress in `0.0..=1.0`, set duration, and call
-`visual.start_animation(property, &animation)`. Use a linear or cubic-bezier easing function when
-inserting eased key frames.
-
-Use `CompositionAnimationGroup` when a lifted Reactor host API needs several animations as one
-payload. Add each animation and convert the group with `as_host`. To animate a composition visual
-directly, call `start_animation` once for each scalar or vector animation.
-
-For automatic transitions after a property changes:
-
-1. Create an implicit animation collection.
-2. Set each animation's target property.
-3. Insert each animation under the same property name.
-4. Attach the collection with `visual.set_implicit_animations(Some(&collection))`.
-5. Change the visual property normally.
-
-Create a `CompositionScopedBatch`, start related work, and call `end` to seal the tracked work.
-`BatchKind` selects animation, effect, infinite-animation, or all-animation work.
-
-Property names are composition strings such as `"Opacity"` and `"Scale"`. A typo is not checked by
-Rust, so keep names next to the animation construction and use the documented composition property
-name.
-
-### Draw Canvas content into a visual
-
-This path requires system composition and the Canvas `composition` feature:
-
-1. Create a Canvas `GpuDevice`.
-2. Create a `CompositionGraphicsDevice` from the compositor.
-3. Create and size a `CompositionDrawingSurface`.
-4. Create a surface brush and set it on a `SpriteVisual`.
-5. Import `CanvasCompositionExt` and draw into the surface.
-
-Resize both the sprite and surface when their destination changes. Canvas drawing coordinates are
-pixels on this path. Clear or cover the full surface on each draw.
-
-If `surface.draw` returns `Ok(false)`, recreate the Canvas device, composition graphics device,
-surface, and brush. The lifted Reactor stack does not expose this Direct2D surface bridge.
-
-## Pitfalls
-
-- Do not mix system and lifted visuals, compositors, or hosts.
-- Enable exactly one of the `system` and `reactor` features.
-- Keep the system dispatcher queue and desktop target alive.
-- Create graph objects from the compositor that owns their destination.
-- Update visual sizes on host resize or use relative adjustments.
-- Remember that child insertion order determines z-order.
-- Use DIPs for visual geometry and pixels for Canvas composition surfaces.
-- Check the result of Reactor child-visual attachment and retain the host observation.
-- Treat animation property names as exact, case-sensitive API strings.
-
-## Samples
-
-Choose a sample for the hosting path and task:
-
-| Goal | Sample |
+| Type | Purpose |
 | --- | --- |
-| Create an HWND target and sprites | [`standalone`][composition-standalone] |
-| Build an interactive visual app | [`minesweeper`][composition-minesweeper] |
-| Draw Canvas content into a visual | [`canvas`](../../crates/samples/composition/canvas) |
-| Learn the Reactor host lifecycle | [`host`][composition-host] |
-| Respond to lifted host DPI and size | [`dpi`][composition-dpi] |
-| Attach and detach a lifted tree | [`toggle`][composition-toggle] |
-| Animate lifted visuals | [`animation`][composition-animation] |
-| Build many lifted shapes | [`circles`][composition-circles] |
+| `ContainerVisual` | Groups child visuals without drawing content |
+| `SpriteVisual` | Draws a rectangular brush and can contain children |
+| `ShapeVisual` | Draws retained vector shapes |
 
-[composition-standalone]: ../../crates/samples/composition/standalone
-[composition-minesweeper]: ../../crates/samples/composition/minesweeper
-[composition-host]: ../../crates/samples/reactor/composition/examples/host.rs
-[composition-dpi]: ../../crates/samples/reactor/composition/examples/dpi.rs
-[composition-toggle]: ../../crates/samples/reactor/composition/examples/toggle.rs
+Start with sprite visuals. They are enough for backgrounds, cards, overlays, game pieces, and many
+animations.
+
+## Choose how to host the scene
+
+The crate supports two Composition stacks. Enable exactly one:
+
+| Feature | Use it when |
+| --- | --- |
+| `system` (default) | The app owns a `windows-window` window |
+| `reactor` | The scene belongs inside a Reactor view |
+
+The two stacks use different Windows APIs and their objects cannot be mixed. For Reactor, disable
+the default feature:
+
+```toml
+windows-composition = { version = "0.100.0", default-features = false, features = ["reactor"] }
+```
+
+The examples below begin with the default system stack because it shows the visual model with the
+least framework code.
+
+## Your first visual tree
+
+This complete program creates a window and fills it with a dark sprite:
+
+```rust,no_run
+use windows_composition::*;
+use windows_window::*;
+
+fn main() -> Result<()> {
+    let _queue = DispatcherQueueController::create_on_current_thread()?;
+    let compositor = Compositor::new()?;
+
+    let window = Window::new("Composition")
+        .size(800, 600)
+        .create()?;
+    let target = compositor.create_desktop_window_target(&window, false)?;
+
+    let root = compositor.create_container_visual();
+    target.set_root(&root);
+
+    let (width, height) = window.client_size();
+    let background = compositor.create_sprite_visual();
+    background.set_size(width as f32, height as f32);
+    background.set_brush(&compositor.create_color_brush(Color::rgb(30, 30, 46)));
+    root.children().insert_at_top(&background);
+
+    run();
+    Ok(())
+}
+```
+
+The dispatcher queue and target must stay alive while the scene is displayed. Declaring them in
+`main` keeps their lifetimes clear.
+
+The `Compositor` creates both the visual and its brush. Composition objects in one tree should come
+from the same compositor.
+
+## Build a scene from nested visuals
+
+Visuals form an ordered tree. Insert a child at the top to draw it in front of existing children,
+or at the bottom to draw it behind them:
+
+```rust,ignore
+let card = compositor.create_sprite_visual();
+card.set_size(240.0, 160.0);
+card.set_offset(40.0, 40.0, 0.0);
+card.set_brush(&compositor.create_color_brush(Color::rgb(0, 120, 215)));
+
+let badge = compositor.create_sprite_visual();
+badge.set_size(32.0, 32.0);
+badge.set_offset(192.0, 16.0, 0.0);
+badge.set_brush(&compositor.create_color_brush(Color::rgb(255, 255, 255)));
+
+card.children().insert_at_top(&badge);
+root.children().insert_at_top(&card);
+```
+
+The badge's offset is relative to the card. Moving the card moves both visuals. Keep handles to
+visuals that the application will change later; attached visuals remain in the scene even if a
+local clone is dropped.
+
+Use the child collection to change the tree:
+
+```rust,ignore
+root.children().remove(&card);
+root.children().remove_all();
+```
+
+## Size and position visuals
+
+`set_size` uses width and height. `set_offset` uses x, y, and z:
+
+```rust,ignore
+visual.set_size(200.0, 120.0);
+visual.set_offset(24.0, 48.0, 0.0);
+```
+
+Composition does not lay out a scene like WinUI. Either update exact sizes when the host changes or
+make a child track its parent:
+
+```rust,ignore
+background.set_relative_size_adjustment(Vector2::new(1.0, 1.0));
+```
+
+A relative size of `(1.0, 1.0)` fills the parent. Relative adjustments can be combined with an
+exact size or offset, which is useful for margins:
+
+```rust,ignore
+panel.set_relative_size_adjustment(Vector2::new(1.0, 1.0));
+panel.set_size(-32.0, -32.0);
+panel.set_offset(16.0, 16.0, 0.0);
+```
+
+Coordinates are device-independent pixels. The host is still responsible for reporting its own
+size changes when exact dimensions are used.
+
+## Animate a property
+
+Animations are retained objects too. Create an animation, add key frames, and start it on a visual:
+
+```rust,ignore
+use std::time::Duration;
+
+let pulse = compositor.create_vector3_key_frame_animation();
+pulse.insert_key_frame(0.0, Vector3::new(1.0, 1.0, 1.0));
+pulse.insert_key_frame(0.5, Vector3::new(1.2, 1.2, 1.0));
+pulse.insert_key_frame(1.0, Vector3::new(1.0, 1.0, 1.0));
+pulse.set_duration(Duration::from_millis(800));
+pulse.set_iterate_forever();
+
+card.start_animation("Scale", &pulse);
+```
+
+Windows advances the animation without an application frame loop. Use
+`ScalarKeyFrameAnimation` for one-number properties such as `"Opacity"` and
+`Vector3KeyFrameAnimation` for properties such as `"Scale"` and `"Offset"`.
+
+Property names are exact, case-sensitive Composition strings. Rust cannot catch a misspelling in
+`"Scale"`.
+
+## Draw retained shapes
+
+Use a `ShapeVisual` when the scene needs an ellipse or another vector shape rather than a
+rectangular sprite:
+
+```rust,ignore
+let visual = compositor.create_shape_visual();
+visual.set_size(200.0, 200.0);
+
+let geometry = compositor.create_ellipse_geometry();
+geometry.set_radius(Vector2::new(80.0, 80.0));
+
+let circle = compositor.create_sprite_shape(&geometry);
+circle.set_offset(Vector2::new(100.0, 100.0));
+circle.set_fill_brush(&compositor.create_color_brush(Color::rgb(0, 120, 215)));
+visual.shapes().append(&circle);
+
+root.children().insert_at_top(&visual);
+```
+
+Shapes remain editable after they are attached. Change the geometry, brush, or visual properties
+instead of rebuilding the scene for every update.
+
+## Put Composition inside Reactor
+
+With the `reactor` feature, a Reactor `Grid` provides the host. The flow is:
+
+1. Attach an `ElementRef<Grid>` to the grid.
+2. Observe the composition host from `use_effect`.
+3. On `CompositionHostEvent::Ready`, adopt the supplied compositor with
+   `Compositor::from_host`.
+4. Build a visual tree and attach it with `request_set_child_visual`.
+5. Update its size on `Ready` and `Metrics` events.
+
+The important bridge calls look like this:
+
+```rust,ignore
+let compositor = Compositor::from_host(compositor)?;
+let root = compositor.create_sprite_visual();
+root.set_relative_size_adjustment(Vector2::new(1.0, 1.0));
+root.set_brush(&compositor.create_color_brush(Color::rgb(30, 30, 46)));
+
+let _ = host.request_set_child_visual(Some(root.as_raw().into()), |result| {
+    if let Err(error) = result {
+        eprintln!("failed to attach composition visual: {error:?}");
+    }
+});
+```
+
+The observation must live until the effect is cleaned up. The
+[`host`](../../crates/samples/reactor/composition/examples/host.rs) sample contains the complete
+component lifecycle; start there rather than copying only the bridge calls.
+
+## What to read next
+
+| Sample | What it shows |
+| --- | --- |
+| [`standalone`](../../crates/samples/composition/standalone) | Window hosting and sprite visuals |
+| [`animation`][composition-animation] | Key-frame animation |
+| [`circles`](../../crates/samples/reactor/composition/examples/circles.rs) | A larger shape scene |
+| [`dpi`][composition-dpi] | Reactor size and scale events |
+| [`minesweeper`][composition-minesweeper] | Input, layout, shapes, and animation |
+| [`canvas`](../../crates/samples/composition/canvas) | Canvas drawing in a composition surface |
+
 [composition-animation]: ../../crates/samples/reactor/composition/examples/animation.rs
-[composition-circles]: ../../crates/samples/reactor/composition/examples/circles.rs
+[composition-dpi]: ../../crates/samples/reactor/composition/examples/dpi.rs
+[composition-minesweeper]: ../../crates/samples/composition/minesweeper
 
-Start with `standalone` for system composition or `host` for Reactor. `minesweeper` demonstrates
-relative sizing, pointer hit testing, sprite and shape visuals, nine-grid brushes, and key-frame
-animation in one application.
+Start with `standalone` for the system stack or `host` for Reactor. The other APIs - implicit
+animations, scoped batches, nine-grid brushes, and Canvas surfaces - are useful once the basic
+visual tree feels familiar.
 
 ---
 
