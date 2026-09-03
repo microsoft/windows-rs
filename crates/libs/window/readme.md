@@ -1,16 +1,17 @@
-## Windows Window
+## windows-window
 
-Windows Window is a small, fast-to-build crate that provides the basic window creation and
-message-loop facilities needed to host content such as
-[`windows-canvas`](https://crates.io/crates/windows-canvas) swap chains, WebView2 controllers, or
-Direct2D/Direct3D rendering - without pulling in the full `windows` crate or hand-rolling
-`windows-bindgen` build scripts.
+The [windows-window](https://crates.io/crates/windows-window) crate provides basic window creation
+and message-loop support for Canvas, WebView2, and custom rendering.
 
-It is minimal: a `Window` with a message handler and an optional resize callback, plus a message
-loop. All Win32 details are private implementation; you work with a safe Rust type and the raw
-`HWND` it exposes.
+* [Getting
+  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-window.md)
 
-* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
+Start by adding the following to your Cargo.toml file:
+
+```toml
+[dependencies.windows-window]
+version = "0.100"
+```
 
 ```rust,no_run
 use windows_window::*;
@@ -30,7 +31,3 @@ fn main() -> Result<()> {
     Ok(())
 }
 ```
-
-`Window::hwnd()` returns the raw `*mut c_void` handle for interop. Use `run()` for an event-driven
-message loop, `run_with(render)` to drive a continuous render loop (for animation), and `quit()` to
-post a quit message. An unhandled `WM_DESTROY` automatically posts a quit message.

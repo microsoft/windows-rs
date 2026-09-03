@@ -4,6 +4,81 @@ version = "0.0.0"
 edition = "2024"
 publish = false
 
+[dev-dependencies.cppwinrt]
+workspace = true
+
+[dev-dependencies.windows-animation]
+workspace = true
+
+[dev-dependencies.windows-bindgen]
+workspace = true
+
+[dev-dependencies.windows-canvas]
+workspace = true
+
+[dev-dependencies.windows-clang]
+workspace = true
+
+[dev-dependencies.windows-collections]
+workspace = true
+features = ["std"]
+
+[dev-dependencies.windows-composition]
+workspace = true
+features = ["reactor"]
+
+[dev-dependencies.windows-core]
+workspace = true
+features = ["std", "proc-macros"]
+
+[dev-dependencies.windows-default]
+workspace = true
+
+[dev-dependencies.windows-future]
+workspace = true
+features = ["std"]
+
+[dev-dependencies.windows-implement]
+workspace = true
+
+[dev-dependencies.windows-interface]
+workspace = true
+
+[dependencies.windows-link]
+workspace = true
+
+[dev-dependencies.windows-metadata]
+workspace = true
+
+[dev-dependencies.windows-numerics]
+workspace = true
+features = ["std"]
+
+[dev-dependencies.windows-rdl]
+workspace = true
+
+[dev-dependencies.windows-reactor]
+workspace = true
+
+[dev-dependencies.windows-reactor-setup]
+workspace = true
+
+[dev-dependencies.windows-reference]
+workspace = true
+features = ["std"]
+
+[dev-dependencies.windows-registry]
+workspace = true
+
+[dev-dependencies.windows-result]
+workspace = true
+
+[dev-dependencies.windows-services]
+workspace = true
+
+[dev-dependencies.windows-strings]
+workspace = true
+
 [dependencies.windows]
 workspace = true
 features = [
@@ -19,6 +94,21 @@ features = [
     "winuser",
 ]
 
+[dev-dependencies.windows-threading]
+workspace = true
+
+[dev-dependencies.windows-time]
+workspace = true
+
+[dev-dependencies.windows-version]
+workspace = true
+
+[dev-dependencies.windows-webview]
+workspace = true
+
+[dev-dependencies.windows-window]
+workspace = true
+
 [dependencies.windows-sys]
 workspace = true
 features = [
@@ -32,42 +122,6 @@ features = [
     "winnt",
     "winuser",
 ]
-
-[dev-dependencies.windows-bindgen]
-workspace = true
-
-[dependencies.windows-link]
-workspace = true
-
-[dev-dependencies.windows-result]
-workspace = true
-
-[dev-dependencies.windows-registry]
-workspace = true
-
-[dev-dependencies.windows-version]
-workspace = true
-
-[dev-dependencies.windows-strings]
-workspace = true
-
-[dev-dependencies.windows-future]
-workspace = true
-features = ["std"]
-
-[dev-dependencies.cppwinrt]
-workspace = true
-
-[dev-dependencies.windows-collections]
-workspace = true
-features = ["std"]
-
-[dev-dependencies.windows-core]
-workspace = true
-
-[dev-dependencies.windows-numerics]
-workspace = true
-features = ["std"]
 
 [lints]
 workspace = true

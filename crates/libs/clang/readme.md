@@ -1,12 +1,12 @@
-## RDL generator for C/C++ headers
+## windows-clang
 
 The [windows-clang](https://crates.io/crates/windows-clang) crate scrapes C/C++ headers with
 libclang and emits **RDL** (Rust Definition Language) source - the text format understood by
 [windows-rdl](https://crates.io/crates/windows-rdl). It is the header-facing front end of the Win32
 metadata pipeline: headers to RDL (this crate) to `.winmd` (windows-rdl).
 
-* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
-* [Releases](https://github.com/microsoft/windows-rs/releases)
+* [Getting
+  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-clang.md)
 
 Start by adding the following to your Cargo.toml file:
 
@@ -26,7 +26,3 @@ windows_clang::clang()
     .write_by_header()
     .unwrap();
 ```
-
-Use `.reference("dependency.winmd")` when the headers refer to types defined by another metadata
-file. Use `.input_text(source)` or `.input_texts(sources)` for C/C++ source already in memory. Use
-`.reference_default()` for the standard Windows metadata.

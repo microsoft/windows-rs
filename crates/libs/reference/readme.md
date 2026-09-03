@@ -1,11 +1,10 @@
-## Windows reference type
+## windows-reference
 
 The [windows-reference](https://crates.io/crates/windows-reference) crate implements
 `IReference<T>` for boxed Windows values.
 
-* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
-* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
-* [Releases](https://github.com/microsoft/windows-rs/releases)
+* [Getting
+  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reference.md)
 
 Start by adding the following to your Cargo.toml file:
 

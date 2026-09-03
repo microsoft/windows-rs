@@ -3,9 +3,8 @@
 The `windows-sys` crate provides raw Windows API declarations, structs, and constants without
 wrappers or helper traits.
 
-* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
-* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
-* [Releases](https://github.com/microsoft/windows-rs/releases)
+* [Getting
+  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-sys.md)
 
 Start by adding the following to your Cargo.toml file:
 

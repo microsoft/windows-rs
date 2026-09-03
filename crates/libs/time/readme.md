@@ -1,11 +1,10 @@
-## Windows time types
+## windows-time
 
 The [windows-time](https://crates.io/crates/windows-time) crate provides Windows `TimeSpan` and
 `DateTime` values with Rust constructors, arithmetic, and `std::time` conversions.
 
-* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
-* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
-* [Releases](https://github.com/microsoft/windows-rs/releases)
+* [Getting
+  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-time.md)
 
 `TimeSpan` is a duration and `DateTime` is a point in time. Both use 100-nanosecond ticks.
 

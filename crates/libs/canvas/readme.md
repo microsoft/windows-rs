@@ -1,9 +1,16 @@
-## Windows Canvas
+## windows-canvas
 
 Windows Canvas wraps Direct2D, Direct3D 11, DXGI, DirectWrite, and WIC for 2D drawing.
 
-* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
-* [Canvas guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md)
+* [Getting
+  started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md)
+
+Start by adding the following to your Cargo.toml file:
+
+```toml
+[dependencies.windows-canvas]
+version = "0.100"
+```
 
 ```rust,no_run
 use windows_canvas::*;
@@ -23,12 +30,3 @@ fn main() -> Result<()> {
     Ok(())
 }
 ```
-
-Core types include `GpuDevice`, `SwapChain`, `DrawingSession`, `PathBuilder`, `TextFormat`, and
-`Bitmap`. To host a canvas in [`windows-reactor`][reactor-guide], enable this crate's `reactor`
-feature. `animated_canvas()` draws each frame on the UI thread and recovers from device loss. See
-the [canvas guide][canvas-guide] for demand-driven surfaces, recoverable errors, and
-`CanvasImageSource` integration.
-
-[canvas-guide]: https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md
-[reactor-guide]: https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md
