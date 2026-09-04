@@ -3,8 +3,9 @@ fn main() -> windows::core::Result<()> {
 
     use std::cell::RefCell;
     use std::rc::Rc;
+    use windows_animation::*;
     use windows_numerics::*;
-    use windows_window::{Window, run};
+    use windows_window::*;
 
     const CARD_ROWS: usize = 3;
     const CARD_COLUMNS: usize = 6;
@@ -25,7 +26,7 @@ fn main() -> windows::core::Result<()> {
         status: Status,
         value: u8,
         offset: (f32, f32),
-        variable: IUIAnimationVariable2,
+        variable: Variable,
         rotation: Option<IDCompositionRotateTransform3D>,
     }
 
@@ -34,8 +35,8 @@ fn main() -> windows::core::Result<()> {
         dpi: (f32, f32),
         format: IDWriteTextFormat,
         image: IWICFormatConverter,
-        manager: IUIAnimationManager2,
-        library: IUIAnimationTransitionLibrary2,
+        manager: Manager,
+        library: TransitionLibrary,
         first: Option<usize>,
         cards: Vec<Card>,
         device: Option<ID3D11Device>,
@@ -46,8 +47,7 @@ fn main() -> windows::core::Result<()> {
     impl App {
         fn new() -> Result<Self> {
             unsafe {
-                let manager: IUIAnimationManager2 =
-                    CoCreateInstance(&UIAnimationManager2, None, CLSCTX_INPROC_SERVER)?;
+                let manager = Manager::new()?;
 
                 let mut values = [b'?'; CARD_ROWS * CARD_COLUMNS];
                 let mut random_bytes = vec![0u8; values.len()];
@@ -90,7 +90,7 @@ fn main() -> windows::core::Result<()> {
                         status: Status::Hidden,
                         value,
                         offset: (0.0, 0.0),
-                        variable: manager.CreateAnimationVariable(0.0)?,
+                        variable: manager.create_variable(0.0)?,
                         rotation: None,
                     });
                 }
@@ -109,8 +109,7 @@ fn main() -> windows::core::Result<()> {
                     }
                 }
 
-                let library =
-                    CoCreateInstance(&UIAnimationTransitionLibrary2, None, CLSCTX_INPROC_SERVER)?;
+                let library = TransitionLibrary::new()?;
 
                 Ok(Self {
                     handle: Default::default(),
@@ -283,8 +282,8 @@ fn main() -> windows::core::Result<()> {
                     let next_frame: f64 =
                         stats.nextEstimatedFrameTime as f64 / stats.timeFrequency as f64;
 
-                    self.manager.Update(next_frame, None).ok()?;
-                    let storyboard = self.manager.CreateStoryboard()?;
+                    self.manager.update(next_frame)?;
+                    let storyboard = self.manager.create_storyboard()?;
                     let key_frame =
                         add_show_transition(&self.library, &storyboard, &self.cards[next])?;
 
@@ -316,13 +315,13 @@ fn main() -> windows::core::Result<()> {
                             &self.cards[next],
                         )?;
 
-                        storyboard.Schedule(next_frame, None).ok()?;
+                        storyboard.schedule(next_frame)?;
                         update_animation(desktop, &self.cards[first])?;
                         update_animation(desktop, &self.cards[next])?;
                     } else {
                         self.first = Some(next);
                         self.cards[next].status = Status::Selected;
-                        storyboard.Schedule(next_frame, None).ok()?;
+                        storyboard.schedule(next_frame)?;
                         update_animation(desktop, &self.cards[next])?;
                     }
 
@@ -528,37 +527,30 @@ fn main() -> windows::core::Result<()> {
     }
 
     fn add_show_transition(
-        library: &IUIAnimationTransitionLibrary2,
-        storyboard: &IUIAnimationStoryboard2,
+        library: &TransitionLibrary,
+        storyboard: &Storyboard,
         card: &Card,
-    ) -> Result<UI_ANIMATION_KEYFRAME> {
-        unsafe {
-            let duration = (180.0 - card.variable.GetValue()?) / 180.0;
-            let transition = create_transition(library, duration, 180.0)?;
-            storyboard.AddTransition(&card.variable, &transition).ok()?;
-            storyboard.AddKeyframeAfterTransition(&transition)
-        }
+    ) -> Result<Keyframe> {
+        let duration = (180.0 - card.variable.value()?) / 180.0;
+        let transition = create_transition(library, duration, 180.0)?;
+        storyboard.add_transition(&card.variable, &transition)
     }
 
     fn add_hide_transition(
-        library: &IUIAnimationTransitionLibrary2,
-        storyboard: &IUIAnimationStoryboard2,
-        key_frame: UI_ANIMATION_KEYFRAME,
+        library: &TransitionLibrary,
+        storyboard: &Storyboard,
+        key_frame: Keyframe,
         final_value: f64,
         card: &Card,
     ) -> Result<()> {
-        unsafe {
-            let transition = create_transition(library, 1.0, final_value)?;
-            storyboard
-                .AddTransitionAtKeyframe(&card.variable, &transition, key_frame)
-                .ok()
-        }
+        let transition = create_transition(library, 1.0, final_value)?;
+        storyboard.add_transition_at_keyframe(&card.variable, &transition, key_frame)
     }
 
     fn update_animation(device: &IDCompositionDesktopDevice, card: &Card) -> Result<()> {
         unsafe {
             let animation = device.CreateAnimation()?;
-            card.variable.GetCurve(&animation).ok()?;
+            card.variable.copy_curve(&animation)?;
 
             card.rotation
                 .as_ref()
@@ -569,11 +561,11 @@ fn main() -> windows::core::Result<()> {
     }
 
     fn create_transition(
-        library: &IUIAnimationTransitionLibrary2,
+        library: &TransitionLibrary,
         duration: f64,
         final_value: f64,
-    ) -> Result<IUIAnimationTransition2> {
-        unsafe { library.CreateAccelerateDecelerateTransition(duration, final_value, 0.2, 0.8) }
+    ) -> Result<Transition> {
+        library.accelerate_decelerate(duration, final_value, 0.2, 0.8)
     }
 
     fn create_effect(

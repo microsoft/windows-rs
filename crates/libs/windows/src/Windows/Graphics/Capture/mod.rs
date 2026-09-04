@@ -231,16 +231,6 @@ impl GraphicsCaptureItem {
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveClosed))
         }
     }
-    #[cfg(feature = "UI_Composition")]
-    pub fn CreateFromVisual<P0>(visual: P0) -> windows_core::Result<Self>
-    where
-        P0: windows_core::Param<super::super::UI::Composition::Visual>,
-    {
-        Self::IGraphicsCaptureItemStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromVisual)(windows_core::Interface::as_raw(this), visual.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        })
-    }
     #[cfg(feature = "UI")]
     pub fn TryCreateFromWindowId(windowid: super::super::UI::WindowId) -> windows_core::Result<Self> {
         Self::IGraphicsCaptureItemStatics2(|this| unsafe {
@@ -615,10 +605,6 @@ impl windows_core::RuntimeType for IGraphicsCaptureItemStatics {
 #[doc(hidden)]
 pub struct IGraphicsCaptureItemStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "UI_Composition")]
-    pub CreateFromVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
-    CreateFromVisual: usize,
 }
 windows_core::imp::define_interface!(IGraphicsCaptureItemStatics2, IGraphicsCaptureItemStatics2_Vtbl, 0x3b92acc9_e584_5862_bf5c_9c316c6d2dbb);
 impl windows_core::RuntimeType for IGraphicsCaptureItemStatics2 {

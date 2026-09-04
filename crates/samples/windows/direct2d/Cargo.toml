@@ -20,13 +20,16 @@ features = [
     "profileapi",
     "strmif",
     "sysinfoapi",
-    "uianimation",
+
     "windef",
     "winerror",
     "wingdi",
     "winuser",
     "wuapi",
 ]
+
+[dependencies.windows-animation]
+workspace = true
 
 [dependencies.windows-numerics]
 workspace = true

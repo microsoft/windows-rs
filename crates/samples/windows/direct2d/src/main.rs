@@ -4,16 +4,17 @@ fn main() -> windows::core::Result<()> {
 
     use std::cell::RefCell;
     use std::rc::Rc;
+    use windows_animation::*;
     use windows_numerics::*;
-    use windows_window::{Window, run_with};
+    use windows_window::*;
 
     struct App {
         handle: HWND,
         factory: ID2D1Factory1,
         dxfactory: IDXGIFactory2,
         style: ID2D1StrokeStyle1,
-        manager: IUIAnimationManager,
-        variable: IUIAnimationVariable,
+        manager: Manager,
+        variable: Variable,
 
         target: Option<ID2D1DeviceContext>,
         swapchain: Option<IDXGISwapChain1>,
@@ -55,8 +56,7 @@ fn main() -> windows::core::Result<()> {
             let factory = create_factory()?;
             let dxfactory: IDXGIFactory2 = unsafe { CreateDXGIFactory1()? };
             let style = create_style(&factory)?;
-            let manager: IUIAnimationManager =
-                unsafe { CoCreateInstance(&UIAnimationManager, None, CLSCTX_ALL as u32)? };
+            let manager = Manager::new()?;
             let transition = create_transition()?;
 
             let mut dpi = 0.0;
@@ -66,15 +66,8 @@ fn main() -> windows::core::Result<()> {
             let mut frequency = 0;
             unsafe { QueryPerformanceFrequency(&mut frequency).ok()? };
 
-            let variable = unsafe {
-                let variable = manager.CreateAnimationVariable(0.0)?;
-
-                manager
-                    .ScheduleTransition(&variable, &transition, get_time(frequency)?)
-                    .ok()?;
-
-                variable
-            };
+            let variable = manager.create_variable(0.0)?;
+            manager.schedule_transition(&variable, &transition, get_time(frequency)?)?;
 
             Ok(Self {
                 handle: Default::default(),
@@ -155,7 +148,7 @@ fn main() -> windows::core::Result<()> {
             let shadow = self.shadow.as_ref().unwrap();
 
             unsafe {
-                self.manager.Update(get_time(self.frequency)?, None).ok()?;
+                self.manager.update(get_time(self.frequency)?)?;
 
                 target.Clear(Some(&D2D_COLOR_F {
                     r: 1.0,
@@ -211,7 +204,7 @@ fn main() -> windows::core::Result<()> {
 
             let swing = unsafe {
                 target.DrawEllipse(&ellipse, brush, radius / 20.0, None);
-                self.variable.GetValue()?
+                self.variable.value()?
             };
             let mut angles = Angles::now();
 
@@ -411,12 +404,8 @@ fn main() -> windows::core::Result<()> {
         unsafe { factory.CreateStrokeStyle(&props, None) }
     }
 
-    fn create_transition() -> Result<IUIAnimationTransition> {
-        unsafe {
-            let library: IUIAnimationTransitionLibrary =
-                CoCreateInstance(&UIAnimationTransitionLibrary, None, CLSCTX_ALL as u32)?;
-            library.CreateAccelerateDecelerateTransition(5.0, 1.0, 0.2, 0.8)
-        }
+    fn create_transition() -> Result<Transition> {
+        TransitionLibrary::new()?.accelerate_decelerate(5.0, 1.0, 0.2, 0.8)
     }
 
     fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> {
