@@ -14,7 +14,7 @@ impl Compositor {
     /// let compositor = Compositor::new()?;
     /// # windows_core::Result::Ok(())
     /// ```
-    #[cfg(feature = "system")]
+    #[cfg(all(feature = "system", not(feature = "reactor")))]
     pub fn new() -> Result<Self> {
         Ok(Self(bindings::Compositor::new()?))
     }
@@ -37,7 +37,7 @@ impl Compositor {
     /// let target = compositor.create_desktop_window_target(&window, false)?;
     /// # windows_core::Result::Ok(())
     /// ```
-    #[cfg(feature = "system")]
+    #[cfg(all(feature = "system", not(feature = "reactor")))]
     pub fn create_desktop_window_target(
         &self,
         window: &windows_window::Window,
@@ -52,7 +52,7 @@ impl Compositor {
     /// # Safety
     ///
     /// `hwnd` must be a valid, live window handle owned by the calling thread.
-    #[cfg(feature = "system")]
+    #[cfg(all(feature = "system", not(feature = "reactor")))]
     pub unsafe fn create_desktop_window_target_for_hwnd(
         &self,
         hwnd: *mut core::ffi::c_void,
@@ -102,11 +102,14 @@ impl Compositor {
         CompositionEllipseGeometry(compositor.CreateEllipseGeometry().unwrap())
     }
 
+    /// Creates a rounded rectangle geometry.
+    pub fn create_rounded_rectangle_geometry(&self) -> CompositionRoundedRectangleGeometry {
+        let compositor: bindings::ICompositor5 = self.0.cast().unwrap();
+        CompositionRoundedRectangleGeometry(compositor.CreateRoundedRectangleGeometry().unwrap())
+    }
+
     /// Creates a sprite shape that fills the given geometry with a brush.
-    pub fn create_sprite_shape(
-        &self,
-        geometry: &CompositionEllipseGeometry,
-    ) -> CompositionSpriteShape {
+    pub fn create_sprite_shape(&self, geometry: &impl Geometry) -> CompositionSpriteShape {
         let compositor: bindings::ICompositor5 = self.0.cast().unwrap();
         CompositionSpriteShape(
             compositor
@@ -166,19 +169,32 @@ impl Compositor {
     }
 
     /// Creates a composition graphics device backed by a Direct2D or DXGI device.
-    #[cfg(feature = "system")]
     pub fn create_graphics_device(
         &self,
         rendering_device: &impl Interface,
     ) -> Result<CompositionGraphicsDevice> {
+        #[cfg(all(feature = "system", not(feature = "reactor")))]
         let interop: bindings::ICompositorInterop = self.0.cast()?;
+        #[cfg(feature = "reactor")]
+        let interop: bindings::IMicrosoftCompositorInterop = self.0.cast()?;
         let device: windows_core::IUnknown = rendering_device.cast()?;
+        #[cfg(all(feature = "system", not(feature = "reactor")))]
         let graphics = unsafe { interop.CreateGraphicsDevice(&device)? };
+        #[cfg(feature = "reactor")]
+        let graphics = unsafe {
+            let mut graphics = core::ptr::null_mut();
+            interop.CreateGraphicsDevice(&device, &mut graphics).ok()?;
+            if graphics.is_null() {
+                return Err(windows_core::Error::from_hresult(
+                    windows_core::imp::E_POINTER,
+                ));
+            }
+            windows_core::IUnknown::from_raw(graphics)
+        };
         Ok(CompositionGraphicsDevice(graphics.cast()?))
     }
 
     /// Creates a brush that paints a visual with a composition drawing surface.
-    #[cfg(feature = "system")]
     pub fn create_surface_brush(
         &self,
         surface: &CompositionDrawingSurface,

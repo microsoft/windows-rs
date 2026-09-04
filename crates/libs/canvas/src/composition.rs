@@ -1,4 +1,5 @@
-//! The composition bridge (feature `composition`).
+//! The composition bridge (feature `composition`) for the selected system or
+//! lifted Composition stack.
 //!
 //! Draw Direct2D content into a `windows-composition` [`CompositionDrawingSurface`].
 //!
@@ -37,6 +38,11 @@ impl GpuDevice {
         compositor: &Compositor,
     ) -> Result<CompositionGraphicsDevice> {
         compositor.create_graphics_device(self.d2d_device())
+    }
+
+    /// Rebinds an existing Composition graphics device after Canvas device loss.
+    pub fn replace_graphics_device(&self, graphics: &CompositionGraphicsDevice) -> Result<()> {
+        graphics.set_rendering_device(self.d2d_device())
     }
 }
 

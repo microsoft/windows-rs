@@ -5,8 +5,11 @@ pub enum windows_reactor::AcceleratorKey
 pub windows_reactor::AcceleratorKey::Add
 pub windows_reactor::AcceleratorKey::Decimal
 pub windows_reactor::AcceleratorKey::Divide
+pub windows_reactor::AcceleratorKey::Down
 pub windows_reactor::AcceleratorKey::Enter
+pub windows_reactor::AcceleratorKey::Left
 pub windows_reactor::AcceleratorKey::Multiply
+pub windows_reactor::AcceleratorKey::N
 pub windows_reactor::AcceleratorKey::NumberPad0
 pub windows_reactor::AcceleratorKey::NumberPad1
 pub windows_reactor::AcceleratorKey::NumberPad2
@@ -17,8 +20,12 @@ pub windows_reactor::AcceleratorKey::NumberPad6
 pub windows_reactor::AcceleratorKey::NumberPad7
 pub windows_reactor::AcceleratorKey::NumberPad8
 pub windows_reactor::AcceleratorKey::NumberPad9
+pub windows_reactor::AcceleratorKey::P
 pub windows_reactor::AcceleratorKey::R
+pub windows_reactor::AcceleratorKey::Right
+pub windows_reactor::AcceleratorKey::Space
 pub windows_reactor::AcceleratorKey::Subtract
+pub windows_reactor::AcceleratorKey::Up
 pub enum windows_reactor::AcceleratorModifiers
 pub windows_reactor::AcceleratorModifiers::Control
 pub windows_reactor::AcceleratorModifiers::None

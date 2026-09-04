@@ -2,6 +2,9 @@
 
 Windows Canvas wraps Direct2D, Direct3D 11, DXGI, DirectWrite, and WIC for 2D drawing.
 
+Canvas can draw into either Composition stack with the `composition` feature. When Reactor selects
+lifted Composition, that stack takes precedence over the default system stack.
+
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md)
 

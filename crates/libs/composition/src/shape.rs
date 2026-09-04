@@ -18,6 +18,11 @@ pub trait Shape: Sealed {
 #[derive(Clone)]
 pub struct CompositionGeometry(pub(crate) bindings::CompositionGeometry);
 
+/// A geometry that can be used to create a [`CompositionSpriteShape`].
+pub trait Geometry: Sealed {
+    fn as_geometry(&self) -> CompositionGeometry;
+}
+
 /// An ellipse (or circle) geometry, defined by its radii.
 #[derive(Clone)]
 pub struct CompositionEllipseGeometry(pub(crate) bindings::CompositionEllipseGeometry);
@@ -27,8 +32,38 @@ impl CompositionEllipseGeometry {
     pub fn set_radius(&self, radius: Vector2) {
         self.0.SetRadius(radius).unwrap();
     }
+}
 
-    pub(crate) fn as_geometry(&self) -> CompositionGeometry {
+impl Sealed for CompositionEllipseGeometry {}
+
+impl Geometry for CompositionEllipseGeometry {
+    fn as_geometry(&self) -> CompositionGeometry {
+        CompositionGeometry(self.0.cast().unwrap())
+    }
+}
+
+/// A rounded rectangle geometry defined by its size and corner radii.
+#[derive(Clone)]
+pub struct CompositionRoundedRectangleGeometry(
+    pub(crate) bindings::CompositionRoundedRectangleGeometry,
+);
+
+impl CompositionRoundedRectangleGeometry {
+    /// Sets the geometry's width and height, in DIPs.
+    pub fn set_size(&self, size: Vector2) {
+        self.0.SetSize(size).unwrap();
+    }
+
+    /// Sets the geometry's x and y corner radii, in DIPs.
+    pub fn set_corner_radius(&self, radius: Vector2) {
+        self.0.SetCornerRadius(radius).unwrap();
+    }
+}
+
+impl Sealed for CompositionRoundedRectangleGeometry {}
+
+impl Geometry for CompositionRoundedRectangleGeometry {
+    fn as_geometry(&self) -> CompositionGeometry {
         CompositionGeometry(self.0.cast().unwrap())
     }
 }

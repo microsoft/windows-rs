@@ -81,8 +81,7 @@ jobs:
       - name: Test
         # windows-composition and its `system` consumers (test_composition, the composition samples)
         # are excluded here: windows-reactor now requires windows-composition's `reactor` stack, so the
-        # unified `--all` build is reactor-primary and the mutually-exclusive `system` stack is tested
-        # in the separate step below.
+        # unified `--all` build is reactor-primary and the system-only APIs are tested separately.
         run: cargo test --all --target ${{ matrix.target }} --exclude windows-composition --exclude test_composition --exclude composition_standalone --exclude composition_minesweeper --exclude composition_canvas
       - name: Test composition system stack
         run: cargo test -p windows-composition -p test_composition -p composition_standalone -p composition_minesweeper -p composition_canvas --target ${{ matrix.target }}

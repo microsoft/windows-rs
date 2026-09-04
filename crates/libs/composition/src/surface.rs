@@ -1,7 +1,7 @@
-//! The Direct2D bridge surface (feature `system`).
+//! Direct2D bridge surfaces for system and lifted Composition.
 //!
-//! Direct2D drawing-surface interop for system composition. Lifted composition has
-//! no Direct2D-surface interop.
+//! The selected Composition stack supplies its matching graphics-device and
+//! drawing-surface interop interfaces.
 
 use super::*;
 
@@ -24,14 +24,30 @@ impl CompositionGraphicsDevice {
         )?;
         CompositionDrawingSurface::new(surface)
     }
+
+    /// Replaces the Direct2D or DXGI device backing this Composition graphics
+    /// device while preserving its surfaces.
+    pub fn set_rendering_device(&self, rendering_device: &impl Interface) -> Result<()> {
+        #[cfg(all(feature = "system", not(feature = "reactor")))]
+        let interop: bindings::ICompositionGraphicsDeviceInterop = self.0.cast()?;
+        #[cfg(feature = "reactor")]
+        let interop: bindings::IMicrosoftCompositionGraphicsDeviceInterop = self.0.cast()?;
+        let device: windows_core::IUnknown = rendering_device.cast()?;
+        unsafe { interop.SetRenderingDevice(&device).ok() }
+    }
 }
 
 /// Composition surface that Direct2D content is drawn into.
 #[derive(Clone)]
 pub struct CompositionDrawingSurface {
     surface: bindings::CompositionDrawingSurface,
-    interop: bindings::ICompositionDrawingSurfaceInterop,
+    interop: DrawingSurfaceInterop,
 }
+
+#[cfg(all(feature = "system", not(feature = "reactor")))]
+type DrawingSurfaceInterop = bindings::ICompositionDrawingSurfaceInterop;
+#[cfg(feature = "reactor")]
+type DrawingSurfaceInterop = bindings::IMicrosoftCompositionDrawingSurfaceInterop;
 
 impl CompositionDrawingSurface {
     fn new(surface: bindings::CompositionDrawingSurface) -> Result<Self> {
@@ -76,6 +92,28 @@ impl CompositionDrawingSurface {
 /// Brush that paints a visual with a [`CompositionDrawingSurface`].
 #[derive(Clone)]
 pub struct CompositionSurfaceBrush(pub(crate) bindings::CompositionSurfaceBrush);
+
+/// How a surface brush maps its source into the visual bounds.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SurfaceStretch {
+    None,
+    Fill,
+    Uniform,
+    UniformToFill,
+}
+
+impl CompositionSurfaceBrush {
+    /// Sets how the source is stretched into the visual bounds.
+    pub fn set_stretch(&self, stretch: SurfaceStretch) {
+        let stretch = match stretch {
+            SurfaceStretch::None => bindings::CompositionStretch::None,
+            SurfaceStretch::Fill => bindings::CompositionStretch::Fill,
+            SurfaceStretch::Uniform => bindings::CompositionStretch::Uniform,
+            SurfaceStretch::UniformToFill => bindings::CompositionStretch::UniformToFill,
+        };
+        self.0.SetStretch(stretch).unwrap();
+    }
+}
 
 impl Sealed for CompositionSurfaceBrush {}
 

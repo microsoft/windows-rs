@@ -3,6 +3,11 @@
 Windows Composition wraps the retained-mode Windows composition engine for standalone windows and
 WinUI 3 applications.
 
+The default `system` feature hosts Composition in a `windows-window` window. Use the `reactor`
+feature for a Composition host inside Reactor; it takes precedence if Cargo feature unification
+also enables `system`. Both stacks support Canvas drawing surfaces through
+`windows-canvas[composition]`.
+
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-composition.md)
 

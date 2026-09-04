@@ -20,6 +20,9 @@ Use Composition when the scene is primarily a retained tree of visuals that Wind
 composes. Use Canvas when the app draws pixels and paths for each requested frame. The two can be
 combined by drawing Canvas content into a composition surface.
 
+The `composition` feature works with either Composition stack. When Reactor selects lifted
+Composition, that stack takes precedence over the default system stack.
+
 ## The basic idea
 
 Canvas is an immediate-mode drawing API. The application receives a drawing session and describes
@@ -345,4 +348,5 @@ cargo test -p test_canvas
 ```
 
 Reactor integration behavior is also covered by Reactor's recording and live surface tests. The
-Composition Canvas sample covers the system composition bridge in a runnable window.
+Composition Canvas sample covers the system bridge, and the Stacker Reactor sample covers the
+lifted bridge.

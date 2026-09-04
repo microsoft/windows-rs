@@ -48,19 +48,24 @@ animations.
 
 ## Choose how to host the scene
 
-The crate supports two Composition stacks. Enable exactly one:
+The crate supports two Composition stacks:
 
 | Feature | Use it when |
 | --- | --- |
 | `system` (default) | The app owns a `windows-window` window |
 | `reactor` | The scene belongs inside a Reactor view |
 
-The two stacks use different Windows APIs and their objects cannot be mixed. For Reactor, disable
-the default feature:
+The two stacks use different Windows APIs and their objects cannot be mixed. Cargo features are
+additive, so the `reactor` feature takes precedence if dependency feature unification also enables
+the default `system` feature. Applications can still disable the default feature to state their
+intent directly:
 
 ```toml
 windows-composition = { version = "0.100.0", default-features = false, features = ["reactor"] }
 ```
+
+Both stacks can create a graphics device and drawing surface for `windows-canvas` through Canvas's
+`composition` feature.
 
 The examples below begin with the default system stack because it shows the visual model with the
 least framework code.

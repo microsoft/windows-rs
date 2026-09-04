@@ -5,6 +5,9 @@ edition = "2024"
 publish = false
 
 [dependencies]
+windows-canvas = { workspace = true, features = ["composition"] }
+windows-composition = { workspace = true, default-features = false, features = ["reactor"] }
+windows-core = { workspace = true }
 windows-reactor = { workspace = true }
 
 [lints]

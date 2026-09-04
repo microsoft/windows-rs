@@ -1,0 +1,41 @@
+// Windows App SDK Composition interop declarations absent from its WinRT metadata.
+
+#[win32]
+mod composition_extras {
+    #[guid(0xfab19398_6d19_4d8a_b752_8f096c396069)]
+    interface IMicrosoftCompositorInterop : Windows::Win32::IUnknown {
+        fn CreateGraphicsDevice(
+            &self,
+            renderingDevice: Windows::Win32::IUnknown,
+            result: *mut *mut void,
+        ) -> HRESULT;
+    }
+
+    #[guid(0x2d6355c2_ad57_4eae_92e4_4c3eff65d578)]
+    interface IMicrosoftCompositionDrawingSurfaceInterop : Windows::Win32::IUnknown {
+        fn BeginDraw(
+            &self,
+            #[opt] updateRect: *const Windows::Win32::RECT,
+            iid: *const GUID,
+            #[iid_is] updateObject: *mut *mut void,
+            updateOffset: *mut Windows::Win32::POINT,
+        ) -> HRESULT;
+        fn EndDraw(&self) -> HRESULT;
+        fn Resize(&self, sizePixels: Windows::Win32::SIZE) -> HRESULT;
+        fn Scroll(
+            &self,
+            #[opt] scrollRect: *const Windows::Win32::RECT,
+            #[opt] clipRect: *const Windows::Win32::RECT,
+            offsetX: i32,
+            offsetY: i32,
+        ) -> HRESULT;
+        fn ResumeDraw(&self) -> HRESULT;
+        fn SuspendDraw(&self) -> HRESULT;
+    }
+
+    #[guid(0x4afa8030_bc70_4b0c_b1c7_6e69f933dc83)]
+    interface IMicrosoftCompositionGraphicsDeviceInterop : Windows::Win32::IUnknown {
+        fn GetRenderingDevice(&self, value: *mut Windows::Win32::IUnknown) -> HRESULT;
+        fn SetRenderingDevice(&self, value: Windows::Win32::IUnknown) -> HRESULT;
+    }
+}

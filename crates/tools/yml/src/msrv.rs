@@ -36,8 +36,8 @@ pub fn yml() {
             }
 
             if name == "windows-composition" {
-                // The `system` and `reactor` stacks are mutually exclusive, so
-                // `--all-features` won't compile; check each stack on its own.
+                // `reactor` takes precedence when both stacks are enabled, so
+                // check each stack on its own to cover the system bindings too.
                 writeln!(
                     yml,
                     r"      - name: Check {name}
