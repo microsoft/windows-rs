@@ -37,7 +37,7 @@ mod Windows {
         }
         #[guid(0x49353c93_516b_11d1_aea6_00c04fb68820)]
         interface IWbemHiPerfProvider: IUnknown {
-            fn QueryInstances(&self, pNamespace: IWbemServices, wszClass: *const u16, lFlags: i32, pCtx: IWbemContext, #[out] pSink: IWbemObjectSink) -> HRESULT;
+            fn QueryInstances(&self, pNamespace: IWbemServices, wszClass: *const u16, lFlags: i32, pCtx: IWbemContext, pSink: IWbemObjectSink) -> HRESULT;
             fn CreateRefresher(&self, pNamespace: IWbemServices, lFlags: i32, ppRefresher: *mut IWbemRefresher) -> HRESULT;
             fn CreateRefreshableObject(&self, pNamespace: IWbemServices, pTemplate: IWbemObjectAccess, pRefresher: IWbemRefresher, lFlags: i32, pContext: IWbemContext, ppRefreshable: *mut IWbemObjectAccess, plId: *mut i32) -> HRESULT;
             fn StopRefreshing(&self, pRefresher: IWbemRefresher, lId: i32, lFlags: i32) -> HRESULT;

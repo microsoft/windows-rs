@@ -40,13 +40,13 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn OleConvertIStorageToOLESTREAMEx(pstg: IStorage, cfFormat: CLIPFORMAT, lWidth: i32, lHeight: i32, dwSize: u32, pmedium: *const STGMEDIUM, polestm: *mut OLESTREAM) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleConvertOLESTREAMToIStorage(lpolestream: *const OLESTREAM, #[out] pstg: IStorage, ptd: *const DVTARGETDEVICE) -> HRESULT;
+        extern fn OleConvertOLESTREAMToIStorage(lpolestream: *const OLESTREAM, pstg: IStorage, ptd: *const DVTARGETDEVICE) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleConvertOLESTREAMToIStorage2(lpolestream: *const OLESTREAM, #[out] pstg: IStorage, #[opt] ptd: *const DVTARGETDEVICE, #[opt] opt: u32, #[opt] pvCallbackContext: *const void, #[opt] pQueryConvertOLELinkCallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> HRESULT;
+        extern fn OleConvertOLESTREAMToIStorage2(lpolestream: *const OLESTREAM, pstg: IStorage, #[opt] ptd: *const DVTARGETDEVICE, #[opt] opt: u32, #[opt] pvCallbackContext: *const void, #[opt] pQueryConvertOLELinkCallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleConvertOLESTREAMToIStorageEx(polestm: *const OLESTREAM, #[out] pstg: IStorage, pcfFormat: *mut CLIPFORMAT, plwWidth: *mut i32, plHeight: *mut i32, pdwSize: *mut u32, pmedium: *mut STGMEDIUM) -> HRESULT;
+        extern fn OleConvertOLESTREAMToIStorageEx(polestm: *const OLESTREAM, pstg: IStorage, pcfFormat: *mut CLIPFORMAT, plwWidth: *mut i32, plHeight: *mut i32, pdwSize: *mut u32, pmedium: *mut STGMEDIUM) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleConvertOLESTREAMToIStorageEx2(polestm: *const OLESTREAM, #[out] pstg: IStorage, pcfFormat: *mut CLIPFORMAT, plwWidth: *mut i32, plHeight: *mut i32, pdwSize: *mut u32, pmedium: *mut STGMEDIUM, #[opt] opt: u32, #[opt] pvCallbackContext: *const void, #[opt] pQueryConvertOLELinkCallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> HRESULT;
+        extern fn OleConvertOLESTREAMToIStorageEx2(polestm: *const OLESTREAM, pstg: IStorage, pcfFormat: *mut CLIPFORMAT, plwWidth: *mut i32, plHeight: *mut i32, pdwSize: *mut u32, pmedium: *mut STGMEDIUM, #[opt] opt: u32, #[opt] pvCallbackContext: *const void, #[opt] pQueryConvertOLELinkCallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleCreate(rclsid: *const GUID, riid: *const GUID, renderopt: u32, pFormatEtc: *const FORMATETC, pClientSite: IOleClientSite, pStg: IStorage, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]

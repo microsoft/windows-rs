@@ -302,7 +302,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFGetDXGIDeviceManageMode(pDeviceManager: IUnknown, mode: *mut MF_DXGI_DEVICE_MANAGER_MODE) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetMFTMerit(#[in] #[out] pMFT: IUnknown, cbVerifier: u32, #[size_param(1)] verifier: *const u8, merit: *mut u32) -> HRESULT;
+        extern fn MFGetMFTMerit(pMFT: IUnknown, cbVerifier: u32, #[size_param(1)] verifier: *const u8, merit: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFGetPlaneSize(format: u32, dwWidth: u32, dwHeight: u32, pdwPlaneSize: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]

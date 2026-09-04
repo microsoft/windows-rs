@@ -23,7 +23,7 @@ mod Windows {
         }
         #[guid(0xb1e29d58_a675_11d2_8302_00c04f8ee6c0)]
         interface ISpGrammarCompiler: IUnknown {
-            fn CompileStream(&self, pSource: IStream, #[out] pDest: IStream, #[opt] pHeader: IStream, #[opt] pReserved: IUnknown, #[opt] pErrorLog: ISpErrorLog, dwFlags: u32) -> HRESULT;
+            fn CompileStream(&self, pSource: IStream, pDest: IStream, #[opt] pHeader: IStream, #[opt] pReserved: IUnknown, #[opt] pErrorLog: ISpErrorLog, dwFlags: u32) -> HRESULT;
         }
         #[guid(0x12d7360f_a1c9_11d3_bc90_00c04f72df9f)]
         interface ISpITNProcessor: IUnknown {

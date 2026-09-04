@@ -21,17 +21,17 @@ mod Windows {
         #[library("prntvpt.dll")]
         extern fn PTCloseProvider(hProvider: HPTPROVIDER) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTConvertDevModeToPrintTicket(hProvider: HPTPROVIDER, cbDevmode: u32, pDevmode: PDEVMODE, scope: EPrintTicketScope, #[in] #[out] pPrintTicket: IStream) -> HRESULT;
+        extern fn PTConvertDevModeToPrintTicket(hProvider: HPTPROVIDER, cbDevmode: u32, pDevmode: PDEVMODE, scope: EPrintTicketScope, pPrintTicket: IStream) -> HRESULT;
         #[library("prntvpt.dll")]
         extern fn PTConvertPrintTicketToDevMode(hProvider: HPTPROVIDER, pPrintTicket: IStream, baseDevmodeType: EDefaultDevmodeType, scope: EPrintTicketScope, pcbDevmode: *mut u32, ppDevmode: *mut PDEVMODE, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTGetPrintCapabilities(hProvider: HPTPROVIDER, #[opt] pPrintTicket: IStream, #[in] #[out] pCapabilities: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTGetPrintCapabilities(hProvider: HPTPROVIDER, #[opt] pPrintTicket: IStream, pCapabilities: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTGetPrintDeviceCapabilities(hProvider: HPTPROVIDER, #[opt] pPrintTicket: IStream, #[in] #[out] pDeviceCapabilities: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTGetPrintDeviceCapabilities(hProvider: HPTPROVIDER, #[opt] pPrintTicket: IStream, pDeviceCapabilities: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTGetPrintDeviceResources(hProvider: HPTPROVIDER, pszLocaleName: PCWSTR, #[opt] pPrintTicket: IStream, #[in] #[out] pDeviceResources: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTGetPrintDeviceResources(hProvider: HPTPROVIDER, pszLocaleName: PCWSTR, #[opt] pPrintTicket: IStream, pDeviceResources: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
-        extern fn PTMergeAndValidatePrintTicket(hProvider: HPTPROVIDER, pBaseTicket: IStream, #[opt] pDeltaTicket: IStream, scope: EPrintTicketScope, #[in] #[out] pResultTicket: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
+        extern fn PTMergeAndValidatePrintTicket(hProvider: HPTPROVIDER, pBaseTicket: IStream, #[opt] pDeltaTicket: IStream, scope: EPrintTicketScope, pResultTicket: IStream, #[opt] pbstrErrorMessage: *mut BSTR) -> HRESULT;
         #[library("prntvpt.dll")]
         extern fn PTOpenProvider(pszPrinterName: PCWSTR, dwVersion: u32, phProvider: *mut HPTPROVIDER) -> HRESULT;
         #[library("prntvpt.dll")]
