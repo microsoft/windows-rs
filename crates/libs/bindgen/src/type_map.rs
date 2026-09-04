@@ -97,6 +97,16 @@ impl TypeMap {
     }
 
     pub fn included(&self, config: &Config) -> bool {
+        if self.0.iter().any(|(tn, types)| {
+            Self::is_reference(*tn, config.references)
+                && types.iter().any(|ty| {
+                    ty.dependencies(config.reader)
+                        .excluded(config.filter, config.references)
+                })
+        }) {
+            return false;
+        }
+
         // Reference-owned interface dependencies need not be locally available.
         let covered = self.reference_provided_closure(config);
 
@@ -134,15 +144,7 @@ impl TypeMap {
         let mut covered = HashSet::new();
 
         for (tn, types) in &self.0 {
-            let is_reference = config.references.contains(*tn).is_some()
-                || tn.name().find('`').is_some_and(|pos| {
-                    config
-                        .references
-                        .contains(TypeName(tn.namespace(), &tn.name()[..pos]))
-                        .is_some()
-                });
-
-            if is_reference {
+            if Self::is_reference(*tn, config.references) {
                 for ty in types {
                     for dep_tn in ty.dependencies(config.reader).0.keys() {
                         covered.insert(*dep_tn);
@@ -152,6 +154,15 @@ impl TypeMap {
         }
 
         covered
+    }
+
+    fn is_reference(tn: TypeName, references: &References) -> bool {
+        references.contains(tn).is_some()
+            || tn.name().find('`').is_some_and(|pos| {
+                references
+                    .contains(TypeName(tn.namespace(), &tn.name()[..pos]))
+                    .is_some()
+            })
     }
 
     fn excluded(&self, filter: &Filter, references: &References) -> bool {

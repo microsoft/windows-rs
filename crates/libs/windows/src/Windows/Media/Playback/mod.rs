@@ -1090,10 +1090,6 @@ impl windows_core::RuntimeType for IMediaPlayer4 {
 pub struct IMediaPlayer4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetSurfaceSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Size) -> windows_core::HRESULT,
-    #[cfg(feature = "UI_Composition")]
-    pub GetSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
-    GetSurface: usize,
 }
 windows_core::imp::define_interface!(IMediaPlayer5, IMediaPlayer5_Vtbl, 0xcfe537fd_f86a_4446_bf4d_c8e792b7b4b3);
 impl windows_core::RuntimeType for IMediaPlayer5 {
@@ -1273,13 +1269,7 @@ impl windows_core::RuntimeType for IMediaPlayerSurface {
 #[doc(hidden)]
 pub struct IMediaPlayerSurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "UI_Composition")]
-    pub CompositionSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
     CompositionSurface: usize,
-    #[cfg(feature = "UI_Composition")]
-    pub Compositor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
     Compositor: usize,
     pub MediaPlayer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -4216,17 +4206,6 @@ impl MediaPlayer {
         let this = &windows_core::Interface::cast::<IMediaPlayer4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSurfaceSize)(windows_core::Interface::as_raw(this), size).ok() }
     }
-    #[cfg(feature = "UI_Composition")]
-    pub fn GetSurface<P0>(&self, compositor: P0) -> windows_core::Result<MediaPlayerSurface>
-    where
-        P0: windows_core::Param<super::super::UI::Composition::Compositor>,
-    {
-        let this = &windows_core::Interface::cast::<IMediaPlayer4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSurface)(windows_core::Interface::as_raw(this), compositor.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
     pub fn VideoFrameAvailable<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
@@ -4576,20 +4555,6 @@ impl MediaPlayerSurface {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    #[cfg(feature = "UI_Composition")]
-    pub fn CompositionSurface(&self) -> windows_core::Result<super::super::UI::Composition::ICompositionSurface> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CompositionSurface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "UI_Composition")]
-    pub fn Compositor(&self) -> windows_core::Result<super::super::UI::Composition::Compositor> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Compositor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
     }
     pub fn MediaPlayer(&self) -> windows_core::Result<MediaPlayer> {
         unsafe {
