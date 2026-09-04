@@ -69,7 +69,7 @@ fn main() -> Result<()> {
     target.set_root(&root);
 
     let background = compositor.create_sprite_visual();
-    background.set_brush(&compositor.create_color_brush(Color::rgb(30, 30, 46)));
+    background.set_brush(&compositor.create_color_brush(CompositionColor::rgb(30, 30, 46)));
     root.children().insert_at_top(&background);
 
     let device = GpuDevice::new_or_warp()?;

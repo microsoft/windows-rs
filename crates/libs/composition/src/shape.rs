@@ -20,6 +20,7 @@ pub struct CompositionGeometry(pub(crate) bindings::CompositionGeometry);
 
 /// A geometry that can be used to create a [`CompositionSpriteShape`].
 pub trait Geometry: Sealed {
+    /// Returns this geometry as the shared [`CompositionGeometry`] base type.
     fn as_geometry(&self) -> CompositionGeometry;
 }
 

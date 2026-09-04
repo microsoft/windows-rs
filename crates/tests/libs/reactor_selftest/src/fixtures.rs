@@ -17,7 +17,7 @@ use windows::Win32::{HWND, POINT, RECT};
 use windows_canvas::{CanvasImageSource, ColorF, GpuDevice, animated_canvas};
 use windows_collections::IIterable;
 use windows_composition::{
-    Color as CompositionColor, Compositor as CompositionCompositor, ContainerVisual, SpriteVisual,
+    CompositionColor, Compositor as CompositionCompositor, ContainerVisual, SpriteVisual,
 };
 use windows_reactor::test::{LiveProbe, schedule_live_probe, schedule_live_window_handle};
 use windows_reactor::*;

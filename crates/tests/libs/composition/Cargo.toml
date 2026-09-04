@@ -6,6 +6,7 @@ rust-version = "1.95"
 publish = false
 
 [dependencies]
+windows-canvas = { workspace = true, features = ["composition"] }
 windows-composition = { workspace = true, features = ["system"] }
 windows-core = { workspace = true }
 windows-numerics = { workspace = true }

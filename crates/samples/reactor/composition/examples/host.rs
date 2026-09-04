@@ -2,7 +2,7 @@
 
 use std::cell::RefCell;
 use std::rc::Rc;
-use windows_composition::{Color, Compositor, ContainerVisual, SpriteVisual};
+use windows_composition::{CompositionColor, Compositor, ContainerVisual, SpriteVisual};
 use windows_core::Result;
 use windows_reactor::*;
 
@@ -23,12 +23,12 @@ impl Scene {
 
         let root = compositor.create_container_visual();
         let background = compositor.create_sprite_visual();
-        background.set_brush(&compositor.create_color_brush(Color::rgb(24, 24, 32)));
+        background.set_brush(&compositor.create_color_brush(CompositionColor::rgb(24, 24, 32)));
         root.children().insert_at_bottom(&background);
 
         let square = compositor.create_sprite_visual();
         square.set_size(160.0, 160.0);
-        square.set_brush(&compositor.create_color_brush(Color::rgb(0, 120, 215)));
+        square.set_brush(&compositor.create_color_brush(CompositionColor::rgb(0, 120, 215)));
         root.children().insert_at_top(&square);
 
         let _ = host.request_set_child_visual(Some(root.as_raw().into()), |result| {

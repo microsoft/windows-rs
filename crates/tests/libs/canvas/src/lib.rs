@@ -706,7 +706,7 @@ mod tests {
 
     #[test]
     fn text_format_with_weight_and_paragraph_alignment() {
-        let format = TextFormat::with_weight("Segoe UI", 18.0, FontWeight::BOLD)
+        let format = TextFormat::with_weight("Segoe UI", 18.0, CanvasFontWeight::BOLD)
             .unwrap()
             .with_paragraph_alignment(ParagraphAlignment::Center);
 

@@ -3,18 +3,9 @@
 
 #![windows_subsystem = "windows"]
 
-use std::cell::RefCell;
-use std::rc::Rc;
-use std::time::{Duration, SystemTime, UNIX_EPOCH};
-use windows_canvas::{
-    CanvasCompositionExt, ColorF, GpuDevice, Matrix3x2, ParagraphAlignment, Rect, RoundedRect,
-    TextAlignment, TextFormat, WordWrapping,
-};
-use windows_composition::{
-    Color as CompositionColor, CompositionDrawingSurface, CompositionGraphicsDevice, Compositor,
-    ContainerVisual, ShapeVisual, SpriteVisual, SurfaceStretch, Vector2 as CompositionVector2,
-    Vector3, Visual,
-};
+use std::{cell::RefCell, rc::Rc, time::*};
+use windows_canvas::*;
+use windows_composition::*;
 use windows_core::Result;
 use windows_reactor::*;
 
@@ -22,6 +13,8 @@ const COLS: usize = 8;
 const ROWS: usize = 16;
 const CELLS: usize = COLS * ROWS;
 const ASSET_SIZE: f32 = 64.0;
+const CELL_INSET: f32 = 3.0;
+const CELL_RADIUS: f32 = 9.0;
 
 type Board = [[Option<ColorId>; COLS]; ROWS];
 
@@ -69,19 +62,10 @@ impl ColorId {
 enum PieceKind {
     Bar,
     Corner,
-    Elbow,
-    Step,
-    Notch,
 }
 
 impl PieceKind {
-    const ALL: [Self; 5] = [
-        Self::Bar,
-        Self::Corner,
-        Self::Elbow,
-        Self::Step,
-        Self::Notch,
-    ];
+    const ALL: [Self; 2] = [Self::Bar, Self::Corner];
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -97,9 +81,6 @@ fn base_cells(kind: PieceKind) -> [(i32, i32); 3] {
     match kind {
         PieceKind::Bar => [(0, 0), (1, 0), (2, 0)],
         PieceKind::Corner => [(0, 0), (0, 1), (1, 1)],
-        PieceKind::Elbow => [(0, 0), (1, 0), (0, 1)],
-        PieceKind::Step => [(0, 0), (1, 0), (1, 1)],
-        PieceKind::Notch => [(0, 0), (1, 0), (0, 1)],
     }
 }
 
@@ -216,11 +197,12 @@ impl Game {
     fn next_piece(&mut self) -> Piece {
         let kind = PieceKind::ALL[self.next_random() % PieceKind::ALL.len()];
         let color = ColorId::ALL[self.next_random() % ColorId::ALL.len()];
-        let width = cells(kind, 0).into_iter().map(|(x, _)| x).max().unwrap() + 1;
+        let rot = (self.next_random() % 4) as u8;
+        let width = cells(kind, rot).into_iter().map(|(x, _)| x).max().unwrap() + 1;
         Piece {
             kind,
             color,
-            rot: 0,
+            rot,
             col: (COLS as i32 - width) / 2,
             row: 0,
         }
@@ -238,16 +220,17 @@ impl Game {
         }
     }
 
-    fn rotate(&mut self) {
+    fn rotate(&mut self) -> bool {
         let mut rotated = self.active;
         rotated.rot = (rotated.rot + 1) % 4;
         for kick in [0, -1, 1] {
             rotated.col = self.active.col + kick;
             if fits(&self.board, rotated) {
                 self.active = rotated;
-                break;
+                return true;
             }
         }
+        false
     }
 
     fn landing_piece(&self) -> Piece {
@@ -284,11 +267,13 @@ struct Scene {
     background: SpriteVisual,
     settled: ContainerVisual,
     overlay: SpriteVisual,
-    _graphics: CompositionGraphicsDevice,
+    graphics: CompositionGraphicsDevice,
     surface: CompositionDrawingSurface,
+    cell_geometry: CompositionRoundedRectangleGeometry,
+    cell_brushes: [CompositionColorBrush; ColorId::ALL.len()],
     visuals: Vec<Option<ShapeVisual>>,
-    _device: GpuDevice,
-    fading: Vec<(ShapeVisual, std::time::Instant)>,
+    device: GpuDevice,
+    fading: Vec<(ShapeVisual, Instant)>,
     width: f32,
     height: f32,
     cell: f32,
@@ -324,6 +309,15 @@ impl Scene {
         overlay.set_brush(&overlay_brush);
         root.children().insert_at_top(&overlay);
 
+        let cell_geometry = compositor.create_rounded_rectangle_geometry();
+        cell_geometry.set_size(Vector2::new(
+            ASSET_SIZE - CELL_INSET * 2.0,
+            ASSET_SIZE - CELL_INSET * 2.0,
+        ));
+        cell_geometry.set_corner_radius(Vector2::new(CELL_RADIUS, CELL_RADIUS));
+        let cell_brushes =
+            ColorId::ALL.map(|color| compositor.create_color_brush(color.composition()));
+
         let _ = host.request_set_child_visual(Some(root.as_raw().into()), |result| {
             if let Err(error) = result {
                 eprintln!("failed to attach Stacker visuals: {error:?}");
@@ -336,10 +330,12 @@ impl Scene {
             background,
             settled,
             overlay,
-            _graphics: graphics,
+            graphics,
             surface,
+            cell_geometry,
+            cell_brushes,
             visuals: std::iter::repeat_with(|| None).take(CELLS).collect(),
-            _device: device,
+            device,
             fading: Vec::new(),
             width: 1.0,
             height: 1.0,
@@ -396,12 +392,9 @@ impl Scene {
     }
 
     fn add_visual(&self, row: usize, col: usize, color: ColorId) -> ShapeVisual {
-        let geometry = self.compositor.create_rounded_rectangle_geometry();
-        geometry.set_size(CompositionVector2::new(ASSET_SIZE - 6.0, ASSET_SIZE - 6.0));
-        geometry.set_corner_radius(CompositionVector2::new(9.0, 9.0));
-        let shape = self.compositor.create_sprite_shape(&geometry);
-        shape.set_offset(CompositionVector2::new(3.0, 3.0));
-        shape.set_fill_brush(&self.compositor.create_color_brush(color.composition()));
+        let shape = self.compositor.create_sprite_shape(&self.cell_geometry);
+        shape.set_offset(Vector2::new(CELL_INSET, CELL_INSET));
+        shape.set_fill_brush(&self.cell_brushes[color as usize]);
         let visual = self.compositor.create_shape_visual();
         visual.shapes().append(&shape);
         self.place_visual(&visual, row, col);
@@ -450,7 +443,7 @@ impl Scene {
                     shrink.insert_key_frame(1.0, Vector3::new(scale * 0.65, scale * 0.65, 1.0));
                     shrink.set_duration(Duration::from_millis(180));
                     visual.start_animation("Scale", &shrink);
-                    self.fading.push((visual, std::time::Instant::now()));
+                    self.fading.push((visual, Instant::now()));
                 }
             }
         }
@@ -495,12 +488,12 @@ impl Scene {
         }
 
         let device = GpuDevice::new_or_warp()?;
-        device.replace_graphics_device(&self._graphics)?;
-        self._device = device;
+        device.replace_graphics_device(&self.graphics)?;
+        self.device = device;
         if self.try_draw_active(game)? {
             Ok(())
         } else {
-            Err(windows_canvas::device_lost_error())
+            Err(device_lost_error())
         }
     }
 
@@ -523,12 +516,18 @@ impl Scene {
             };
             let outline = session.create_solid_brush(ColorF::from_rgba8(220, 226, 232, 110))?;
             let active_brush = session.create_solid_brush(active.color.canvas())?;
-            let veil = session.create_solid_brush(ColorF::from_rgba8(15, 20, 27, 190))?;
-            let text = session.create_solid_brush(ColorF::from_rgb8(235, 239, 242))?;
-            let format = TextFormat::new_bold("Segoe UI Variable", cell * 0.62)?
-                .with_alignment(TextAlignment::Center)
-                .with_paragraph_alignment(ParagraphAlignment::Center)
-                .with_word_wrapping(WordWrapping::NoWrap);
+            let overlay = if label.is_some() {
+                Some((
+                    session.create_solid_brush(ColorF::from_rgba8(15, 20, 27, 190))?,
+                    session.create_solid_brush(ColorF::from_rgb8(235, 239, 242))?,
+                    TextFormat::new_bold("Segoe UI Variable", cell * 0.62)?
+                        .with_alignment(TextAlignment::Center)
+                        .with_paragraph_alignment(ParagraphAlignment::Center)
+                        .with_word_wrapping(WordWrapping::NoWrap),
+                ))
+            } else {
+                None
+            };
             session.with_transform(&transform, || {
                 if !game.over {
                     for (x, y) in cells(landing.kind, landing.rot) {
@@ -540,13 +539,13 @@ impl Scene {
                         session.fill_rounded_rect(&rect, &active_brush);
                     }
                 }
-                if let Some(label) = label {
-                    session.fill_rect(&Rect::from_xywh(0.0, 0.0, width, height), &veil);
+                if let (Some(label), Some((veil, text, format))) = (label, overlay.as_ref()) {
+                    session.fill_rect(&Rect::from_xywh(0.0, 0.0, width, height), veil);
                     session.draw_text(
                         label,
-                        &format,
+                        format,
                         &Rect::from_xywh(0.0, 0.0, width, height),
-                        &text,
+                        text,
                     );
                 }
             });
@@ -556,7 +555,7 @@ impl Scene {
 }
 
 fn cell_rect(col: i32, row: i32, cell: f32) -> RoundedRect {
-    let inset = (cell * 0.09).max(1.0);
+    let inset = cell * CELL_INSET / ASSET_SIZE;
     RoundedRect::uniform(
         Rect::from_xywh(
             col as f32 * cell + inset,
@@ -564,13 +563,14 @@ fn cell_rect(col: i32, row: i32, cell: f32) -> RoundedRect {
             cell - inset * 2.0,
             cell - inset * 2.0,
         ),
-        (cell * 0.15).max(2.0),
+        cell * CELL_RADIUS / ASSET_SIZE,
     )
 }
 
 #[derive(Clone, Copy)]
 enum Message {
     Tick(u64),
+    TickRejected(u64),
     MoveLeft,
     MoveRight,
     Rotate,
@@ -587,14 +587,44 @@ struct Stacker {
     host: ElementRef<Grid>,
     play_host: ElementRef<Button>,
     timer_generation: u64,
+    timer: Option<ComponentTask>,
 }
 
 impl Stacker {
-    fn schedule_tick(context: &ComponentContext<Self>, delay: Duration, generation: u64) {
-        context.spawn_background(move |_| {
-            std::thread::sleep(delay);
-            Message::Tick(generation)
-        });
+    fn schedule_tick(
+        context: &ComponentContext<Self>,
+        delay: Duration,
+        generation: u64,
+    ) -> ComponentTask {
+        context.spawn_background_with_rejection(
+            move |cancellation| {
+                let deadline = Instant::now() + delay;
+                while !cancellation.is_cancelled() {
+                    let now = Instant::now();
+                    if now >= deadline {
+                        break;
+                    }
+                    std::thread::sleep((deadline - now).min(Duration::from_millis(20)));
+                }
+                Message::Tick(generation)
+            },
+            Message::TickRejected(generation),
+        )
+    }
+
+    fn replace_timer(&mut self, context: &ComponentContext<Self>) {
+        self.cancel_timer();
+        self.timer = Some(Self::schedule_tick(
+            context,
+            self.game.tick_delay(),
+            self.timer_generation,
+        ));
+    }
+
+    fn cancel_timer(&mut self) {
+        if let Some(timer) = self.timer.take() {
+            timer.cancel();
+        }
     }
 
     fn settle(&mut self) {
@@ -620,7 +650,7 @@ impl Component for Stacker {
 
     fn create(_input: &(), context: &ComponentContext<Self>) -> Self {
         let game = Game::new(seed_from_clock());
-        Self::schedule_tick(context, game.tick_delay(), 0);
+        let timer = Some(Self::schedule_tick(context, game.tick_delay(), 0));
         Self {
             shared_game: Rc::new(RefCell::new(game.clone())),
             game,
@@ -628,6 +658,7 @@ impl Component for Stacker {
             host: ElementRef::new(),
             play_host: ElementRef::new(),
             timer_generation: 0,
+            timer,
         }
     }
 
@@ -636,50 +667,67 @@ impl Component for Stacker {
             scene.remove_finished_fades();
         }
         let can_play = !self.game.paused && !self.game.over;
-        match message {
+        let changed = match message {
             Message::Tick(generation) if generation == self.timer_generation => {
+                self.timer = None;
                 if can_play && !self.game.try_move(0, 1) {
                     self.settle();
                 }
                 if !self.game.paused && !self.game.over {
-                    Self::schedule_tick(context, self.game.tick_delay(), self.timer_generation);
+                    self.replace_timer(context);
                 }
+                can_play
             }
-            Message::MoveLeft if can_play => {
-                self.game.try_move(-1, 0);
+            Message::TickRejected(generation) if generation == self.timer_generation => {
+                self.timer = None;
+                self.game.paused = true;
+                self.timer_generation = self.timer_generation.wrapping_add(1);
+                eprintln!("Stacker gravity paused because its timer task was rejected");
+                true
             }
-            Message::MoveRight if can_play => {
-                self.game.try_move(1, 0);
-            }
+            Message::MoveLeft if can_play => self.game.try_move(-1, 0),
+            Message::MoveRight if can_play => self.game.try_move(1, 0),
             Message::Rotate if can_play => self.game.rotate(),
             Message::SoftDrop if can_play => {
                 if !self.game.try_move(0, 1) {
                     self.settle();
                 }
+                if self.game.over {
+                    self.cancel_timer();
+                }
+                true
             }
             Message::HardDrop if can_play => {
                 self.game.active = self.game.landing_piece();
                 self.settle();
+                if self.game.over {
+                    self.cancel_timer();
+                }
+                true
             }
             Message::Pause if !self.game.over => {
                 self.game.paused = !self.game.paused;
                 self.timer_generation = self.timer_generation.wrapping_add(1);
+                self.cancel_timer();
                 if !self.game.paused {
-                    Self::schedule_tick(context, self.game.tick_delay(), self.timer_generation);
+                    self.replace_timer(context);
                 }
+                true
             }
             Message::NewGame => {
                 self.game = Game::new(seed_from_clock());
                 self.timer_generation = self.timer_generation.wrapping_add(1);
-                Self::schedule_tick(context, self.game.tick_delay(), self.timer_generation);
+                self.replace_timer(context);
                 if let Some(scene) = self.scene.borrow_mut().as_mut() {
                     scene.rebuild(&self.game.board);
                 }
+                true
             }
-            _ => {}
+            _ => false,
+        };
+        if changed {
+            self.refresh_scene();
         }
-        let _ = self.play_host.request_focus();
-        self.refresh_scene();
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
@@ -881,6 +929,42 @@ mod tests {
         assert_eq!(clear_full_rows(&mut board), 1);
         assert_eq!(board[ROWS - 1][3], Some(ColorId::Olive));
         assert!(board[0].iter().all(Option::is_none));
+    }
+
+    #[test]
+    fn clear_full_rows_handles_multiple_rows() {
+        let mut board = [[None; COLS]; ROWS];
+        board[ROWS - 1].fill(Some(ColorId::Amber));
+        board[ROWS - 2].fill(Some(ColorId::Plum));
+        board[ROWS - 3][5] = Some(ColorId::Olive);
+
+        assert_eq!(clear_full_rows(&mut board), 2);
+        assert_eq!(board[ROWS - 1][5], Some(ColorId::Olive));
+        assert!(board[..ROWS - 1].iter().flatten().all(Option::is_none));
+    }
+
+    #[test]
+    fn settle_updates_lines_score_and_level() {
+        let mut game = Game::new(7);
+        game.lines = 9;
+        game.score = 9;
+        game.active = Piece {
+            kind: PieceKind::Bar,
+            color: ColorId::Teal,
+            rot: 0,
+            col: 0,
+            row: ROWS as i32 - 1,
+        };
+        game.board[ROWS - 1][3..].fill(Some(ColorId::Steel));
+
+        let (_, cleared) = game.settle();
+
+        assert_eq!(cleared, vec![ROWS - 1]);
+        assert_eq!(game.lines, 10);
+        assert_eq!(game.score, 10);
+        assert_eq!(game.level(), 2);
+        assert!(game.board.iter().flatten().all(Option::is_none));
+        assert!(!game.over);
     }
 
     #[test]

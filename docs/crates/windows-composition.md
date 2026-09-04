@@ -89,7 +89,7 @@ fn main() -> Result<()> {
 
     let root = compositor.create_sprite_visual();
     root.set_relative_size_adjustment(Vector2::new(1.0, 1.0));
-    root.set_brush(&compositor.create_color_brush(Color::rgb(30, 30, 46)));
+    root.set_brush(&compositor.create_color_brush(CompositionColor::rgb(30, 30, 46)));
     target.set_root(&root);
 
     run();
@@ -112,12 +112,12 @@ or at the bottom to draw it behind them:
 let card = compositor.create_sprite_visual();
 card.set_size(240.0, 160.0);
 card.set_offset(40.0, 40.0, 0.0);
-card.set_brush(&compositor.create_color_brush(Color::rgb(0, 120, 215)));
+card.set_brush(&compositor.create_color_brush(CompositionColor::rgb(0, 120, 215)));
 
 let badge = compositor.create_sprite_visual();
 badge.set_size(32.0, 32.0);
 badge.set_offset(192.0, 16.0, 0.0);
-badge.set_brush(&compositor.create_color_brush(Color::rgb(255, 255, 255)));
+badge.set_brush(&compositor.create_color_brush(CompositionColor::rgb(255, 255, 255)));
 
 card.children().insert_at_top(&badge);
 root.children().insert_at_top(&card);
@@ -200,7 +200,7 @@ geometry.set_radius(Vector2::new(80.0, 80.0));
 
 let circle = compositor.create_sprite_shape(&geometry);
 circle.set_offset(Vector2::new(100.0, 100.0));
-circle.set_fill_brush(&compositor.create_color_brush(Color::rgb(0, 120, 215)));
+circle.set_fill_brush(&compositor.create_color_brush(CompositionColor::rgb(0, 120, 215)));
 visual.shapes().append(&circle);
 
 root.children().insert_at_top(&visual);
@@ -226,7 +226,7 @@ The important bridge calls look like this:
 let compositor = Compositor::from_host(compositor)?;
 let root = compositor.create_sprite_visual();
 root.set_relative_size_adjustment(Vector2::new(1.0, 1.0));
-root.set_brush(&compositor.create_color_brush(Color::rgb(30, 30, 46)));
+root.set_brush(&compositor.create_color_brush(CompositionColor::rgb(30, 30, 46)));
 
 let _ = host.request_set_child_visual(Some(root.as_raw().into()), |result| {
     if let Err(error) = result {
@@ -288,7 +288,7 @@ their base hierarchy. `Brush`, `Shape`, and `Animation` are sealed traits that k
 generated binding types out of public signatures.
 
 Constructors and immediate recoverable operations return `windows_core::Result`. Retained-object
-property and factory conveniences fail fast on COM errors. `Color` wraps the flat
+property and factory conveniences fail fast on COM errors. `CompositionColor` wraps the flat
 `Windows.UI.Color` ABI value.
 
 | Module | Contents |
@@ -299,23 +299,25 @@ property and factory conveniences fail fast on COM errors. `Color` wraps the fla
 | `shape.rs` | Shape visuals, geometry, shapes, and collections |
 | `animation.rs` | Key frames, easing, groups, and implicit animations |
 | `batch.rs` | Scoped batches and batch kinds |
-| `surface.rs` | System graphics devices and drawing surfaces |
+| `surface.rs` | System and lifted graphics devices and drawing surfaces |
 | `stack.rs`, `target.rs` | System dispatcher queue and HWND hosting |
 | `color.rs` | Public color value |
 
 ### Code generation
 
 Composition uses `tool_composition` because it needs system and non-default lifted metadata. The
-tool runs `windows_bindgen` twice with `--flat --minimal --dead-code`.
+tool first uses `windows-rdl` to generate the lifted native interop metadata from `interop.rdl`,
+then runs `windows_bindgen` twice with `--flat --minimal --dead-code`.
 
 - System bindings read the repository's Windows and Win32 metadata and include
   `Windows.UI.Composition`, dispatcher queue, desktop interop, and surface interop APIs.
-- Lifted bindings read the pinned Microsoft UI metadata used by Reactor and include
-  `Microsoft.UI.Composition` with shared foundation and color types.
+- Lifted bindings read the pinned Microsoft UI and Graphics metadata used by Reactor, the
+  repository's Windows and Win32 metadata, and the generated interop metadata. They include
+  `Microsoft.UI.Composition` with shared foundation, color, DirectX, and native interop types.
 
 `crates/tools/composition/src/composition.txt` is the shared filter. System-only regions are omitted
-from lifted generation, and composition namespace entries are rewritten for the lifted stack.
-`lib.rs` selects `bindings.rs` or `bindings_lifted.rs`.
+from lifted generation. Composition, DirectX, and native interop entries are rewritten for the
+lifted stack. `lib.rs` selects `bindings.rs` or `bindings_lifted.rs`.
 
 Generated binding files are committed and must not be edited by hand. After changing the filter,
 metadata inputs, or tool, run:
@@ -342,14 +344,13 @@ lifecycle transitions.
 
 ### Canvas bridge
 
-The system stack exposes `ICompositorInterop` and
-`ICompositionDrawingSurfaceInterop`. A Canvas device becomes a
-`CompositionGraphicsDevice`, which creates a premultiplied BGRA drawing surface. A composition
-surface brush paints that surface onto a visual.
+Each stack exposes matching compositor, graphics-device, and drawing-surface interop interfaces. A
+Canvas device becomes a `CompositionGraphicsDevice`, which creates a premultiplied BGRA drawing
+surface. A composition surface brush paints that surface onto a visual.
 
 `windows-canvas` implements the drawing half behind its `composition` feature. It borrows the
 Direct2D context returned by `begin_draw`, applies the backing-atlas offset, and pairs the operation
-with `end_draw`. Surface interop remains system-only.
+with `end_draw`.
 
 ### Testing
 

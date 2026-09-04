@@ -4,7 +4,7 @@ use std::cell::RefCell;
 use std::f32::consts::TAU;
 use std::rc::Rc;
 use std::time::Duration;
-use windows_composition::{Color, Compositor, ContainerVisual, SpriteVisual};
+use windows_composition::{CompositionColor, Compositor, ContainerVisual, SpriteVisual};
 use windows_core::Result;
 use windows_numerics::Vector3;
 use windows_reactor::*;
@@ -121,7 +121,7 @@ impl Scene {
     }
 }
 
-fn ring_color(i: usize, count: usize) -> Color {
+fn ring_color(i: usize, count: usize) -> CompositionColor {
     let hue = i as f32 / count.max(1) as f32 * 6.0;
     let x = (255.0 * (1.0 - (hue % 2.0 - 1.0).abs())) as u8;
     let (r, g, b) = match hue as u32 {
@@ -132,7 +132,7 @@ fn ring_color(i: usize, count: usize) -> Color {
         4 => (x, 0, 255),
         _ => (255, 0, x),
     };
-    Color::rgb(r, g, b)
+    CompositionColor::rgb(r, g, b)
 }
 
 struct Sample {

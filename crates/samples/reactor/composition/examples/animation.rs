@@ -3,7 +3,7 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 use std::time::Duration;
-use windows_composition::{Color, Compositor, SpriteVisual};
+use windows_composition::{CompositionColor, Compositor, SpriteVisual};
 use windows_core::Result;
 use windows_numerics::Vector3;
 use windows_reactor::*;
@@ -19,7 +19,7 @@ fn build(compositor: windows_core::IUnknown, host: &ElementRef<Grid>) -> Result<
         y: SIZE / 2.0,
         z: 0.0,
     });
-    visual.set_brush(&compositor.create_color_brush(Color::rgb(0, 153, 188)));
+    visual.set_brush(&compositor.create_color_brush(CompositionColor::rgb(0, 153, 188)));
 
     let pulse = compositor.create_vector3_key_frame_animation();
     pulse.insert_key_frame(

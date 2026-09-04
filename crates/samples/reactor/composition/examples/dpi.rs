@@ -2,14 +2,14 @@
 
 use std::cell::RefCell;
 use std::rc::Rc;
-use windows_composition::{Color, Compositor, SpriteVisual};
+use windows_composition::{CompositionColor, Compositor, SpriteVisual};
 use windows_core::Result;
 use windows_reactor::*;
 
 fn build(compositor: windows_core::IUnknown, host: &ElementRef<Grid>) -> Result<SpriteVisual> {
     let compositor = Compositor::from_host(compositor)?;
     let visual = compositor.create_sprite_visual();
-    visual.set_brush(&compositor.create_color_brush(Color::rgb(96, 64, 160)));
+    visual.set_brush(&compositor.create_color_brush(CompositionColor::rgb(96, 64, 160)));
     let _ = host.request_set_child_visual(Some(visual.as_raw().into()), |_| {});
     Ok(visual)
 }

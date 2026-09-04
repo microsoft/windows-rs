@@ -25,7 +25,7 @@ fn build(compositor: &Compositor) -> SpriteVisual {
     let visual = compositor.create_sprite_visual();
     visual.set_size(200.0, 120.0);
 
-    let brush = compositor.create_color_brush(Color::rgb(0, 120, 215));
+    let brush = compositor.create_color_brush(CompositionColor::rgb(0, 120, 215));
     visual.set_brush(&brush);
     visual
 }

@@ -45,16 +45,16 @@ impl WordWrapping {
 
 /// Font weight.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct FontWeight(pub i32);
+pub struct CanvasFontWeight(pub i32);
 
-impl FontWeight {
+impl CanvasFontWeight {
     /// Normal (regular) weight, 400.
     pub const NORMAL: Self = Self(400);
     /// Bold weight, 700.
     pub const BOLD: Self = Self(700);
 }
 
-impl Default for FontWeight {
+impl Default for CanvasFontWeight {
     fn default() -> Self {
         Self::NORMAL
     }
@@ -69,16 +69,16 @@ pub struct TextFormat {
 impl TextFormat {
     /// Creates a text format with normal weight.
     pub fn new(family: &str, size: f32) -> Result<Self> {
-        Self::with_weight(family, size, FontWeight::NORMAL)
+        Self::with_weight(family, size, CanvasFontWeight::NORMAL)
     }
 
     /// Creates a text format with bold weight.
     pub fn new_bold(family: &str, size: f32) -> Result<Self> {
-        Self::with_weight(family, size, FontWeight::BOLD)
+        Self::with_weight(family, size, CanvasFontWeight::BOLD)
     }
 
     /// Creates a text format with the given font weight.
-    pub fn with_weight(family: &str, size: f32, weight: FontWeight) -> Result<Self> {
+    pub fn with_weight(family: &str, size: f32, weight: CanvasFontWeight) -> Result<Self> {
         let factory = dwrite_factory()?;
 
         let family_wide: Vec<u16> = family.encode_utf16().chain(std::iter::once(0)).collect();

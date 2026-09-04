@@ -60,7 +60,7 @@ pub use animation::{
 };
 pub use batch::{BatchKind, CompositionScopedBatch};
 pub use brush::{Brush, CompositionBrush, CompositionColorBrush, CompositionNineGridBrush};
-pub use color::Color;
+pub use color::CompositionColor;
 pub use compositor::Compositor;
 pub use shape::{
     CompositionContainerShape, CompositionEllipseGeometry, CompositionGeometry,

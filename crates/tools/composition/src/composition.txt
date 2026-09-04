@@ -1,18 +1,19 @@
 // Filter for windows-composition's bindings (Windows.UI.Composition, the SYSTEM
 // stack). tool_composition generates two modules from this single filter:
 //
-//   * bindings.rs        — the system stack, verbatim from this filter.
-//   * bindings_lifted.rs — the lifted Microsoft.UI.Composition stack, derived by
+//   * bindings.rs        - the system stack, verbatim from this filter.
+//   * bindings_lifted.rs - the lifted Microsoft.UI.Composition stack, derived by
 //                          dropping every `// region: system-only` block and
-//                          rewriting `Windows.UI.Composition.` to
-//                          `Microsoft.UI.Composition.`.
+//                          rewriting the Composition, DirectX, and native interop
+//                          names to their Microsoft equivalents.
 //
-// One filter is the single source of truth for both stacks; the wrapper source
-// (visual.rs, shape.rs, ...) is compiled against whichever module the crate's
-// features select (see docs/crates/windows-composition.md). Prune or extend the
-// safe surface by editing this file, then re-run cargo run -p tool_composition.
+// The lifted build also reads the interop metadata generated from interop.rdl.
+// One filter defines both stacks; the wrapper source (visual.rs, shape.rs, ...)
+// is compiled against whichever module the crate's features select (see
+// docs/crates/windows-composition.md). Prune or extend the safe surface by
+// editing this file, then re-run cargo run -p tool_composition.
 //
-// The system stack — unlike lifted Microsoft.UI.Composition — can host a visual
+// The system stack - unlike lifted Microsoft.UI.Composition - can host a visual
 // tree directly in an HWND via ICompositorDesktopInterop::CreateDesktopWindowTarget,
 // with no WinUI / Windows App SDK dependency. Those standalone-hosting entries are
 // marked `// region: system-only` and excluded from the lifted surface.
@@ -122,8 +123,8 @@ Windows.Win32.ICompositorDesktopInterop::{CreateDesktopWindowTarget}
 // endregion
 
 // Canvas bridge: draw Direct2D content into a composition surface, then paint a
-// visual with it via a surface brush. The Win32 graphics-device and
-// drawing-surface interop interfaces work with both composition stacks.
+// visual with it via a surface brush. The generator substitutes the matching
+// native interop interfaces for each composition stack.
 Windows.UI.Composition.ICompositor::{CreateSurfaceBrushWithSurface}
 Windows.UI.Composition.CompositionSurfaceBrush
 Windows.UI.Composition.ICompositionSurfaceBrush::{put_Stretch}

@@ -96,9 +96,13 @@ pub struct CompositionSurfaceBrush(pub(crate) bindings::CompositionSurfaceBrush)
 /// How a surface brush maps its source into the visual bounds.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SurfaceStretch {
+    /// Preserve the source size.
     None,
+    /// Scale the source independently on both axes to fill the destination.
     Fill,
+    /// Scale the source uniformly so the entire source fits in the destination.
     Uniform,
+    /// Scale the source uniformly so the destination is filled, cropping as needed.
     UniformToFill,
 }
 

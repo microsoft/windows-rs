@@ -74,7 +74,7 @@ impl Compositor {
     }
 
     /// Creates a solid-color brush.
-    pub fn create_color_brush(&self, color: Color) -> CompositionColorBrush {
+    pub fn create_color_brush(&self, color: CompositionColor) -> CompositionColorBrush {
         CompositionColorBrush(self.0.CreateColorBrushWithColor(color.0).unwrap())
     }
 

@@ -19,14 +19,14 @@ fn main() -> Result<()> {
     let (width, height) = window.client_size();
     let background = compositor.create_sprite_visual();
     background.set_size(width as f32, height as f32);
-    let background_brush = compositor.create_color_brush(Color::rgb(30, 30, 46));
+    let background_brush = compositor.create_color_brush(CompositionColor::rgb(30, 30, 46));
     background.set_brush(&background_brush);
     root.children().insert_at_top(&background);
 
     let colors = [
-        Color::rgb(0, 120, 215),
-        Color::rgb(216, 59, 1),
-        Color::rgb(16, 137, 62),
+        CompositionColor::rgb(0, 120, 215),
+        CompositionColor::rgb(216, 59, 1),
+        CompositionColor::rgb(16, 137, 62),
     ];
 
     for (index, color) in colors.iter().enumerate() {
