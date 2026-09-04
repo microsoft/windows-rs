@@ -558,7 +558,7 @@ mod Windows {
         }
         #[guid(0x1cde6309_cae0_4940_907e_c1ec9c3d1d4a)]
         interface IMFRemoteDesktopPlugin: IUnknown {
-            fn UpdateTopology(&self, #[in] #[out] pTopology: IMFTopology) -> HRESULT;
+            fn UpdateTopology(&self, pTopology: IMFTopology) -> HRESULT;
         }
         #[guid(0x994e23ad_1cc2_493c_b9fa_46f1cb040fa4)]
         interface IMFRemoteProxy: IUnknown {

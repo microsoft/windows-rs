@@ -595,9 +595,15 @@ where
     }
 }
 #[inline]
-pub unsafe fn MFGetMFTMerit(pmft: &Option<windows_core::IUnknown>, verifier: &[u8], merit: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn MFGetMFTMerit<P0>(pmft: P0, verifier: &[u8]) -> windows_core::Result<u32>
+where
+    P0: windows_core::Param<windows_core::IUnknown>,
+{
     windows_core::link!("mfplat.dll" "system" fn MFGetMFTMerit(pmft : *mut core::ffi::c_void, cbverifier : u32, verifier : *const u8, merit : *mut u32) -> windows_core::HRESULT);
-    unsafe { MFGetMFTMerit(core::mem::transmute_copy(pmft), verifier.len().try_into().unwrap(), verifier.as_ptr(), merit as _) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFGetMFTMerit(pmft.param().abi(), verifier.len().try_into().unwrap(), verifier.as_ptr(), &mut result__).map(|| result__)
+    }
 }
 #[inline]
 pub unsafe fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32) -> windows_core::Result<u32> {

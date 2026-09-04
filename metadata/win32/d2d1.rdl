@@ -524,7 +524,7 @@ mod Windows {
             fn PushLayer(&self, layerParameters: *const D2D1_LAYER_PARAMETERS, #[opt] layer: ID2D1Layer);
             fn PopLayer(&self);
             fn Flush(&self, #[opt] tag1: *mut D2D1_TAG, #[opt] tag2: *mut D2D1_TAG) -> HRESULT;
-            fn SaveDrawingState(&self, #[in] #[out] drawingStateBlock: ID2D1DrawingStateBlock);
+            fn SaveDrawingState(&self, drawingStateBlock: ID2D1DrawingStateBlock);
             fn RestoreDrawingState(&self, drawingStateBlock: ID2D1DrawingStateBlock);
             fn PushAxisAlignedClip(&self, clipRect: *const D2D_RECT_F, antialiasMode: D2D1_ANTIALIAS_MODE);
             fn PopAxisAlignedClip(&self);

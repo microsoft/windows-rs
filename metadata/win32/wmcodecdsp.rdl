@@ -316,7 +316,7 @@ mod Windows {
         #[guid(0x45bda2ac_88e2_4923_98ba_3949080711a3)]
         interface IWMVideoDecoderReconBuffer: IUnknown {
             fn GetReconstructedVideoFrameSize(&self, pdwSize: *mut u32) -> HRESULT;
-            fn GetReconstructedVideoFrame(&self, #[out] pBuf: IMediaBuffer) -> HRESULT;
+            fn GetReconstructedVideoFrame(&self, pBuf: IMediaBuffer) -> HRESULT;
             fn SetReconstructedVideoFrame(&self, pBuf: IMediaBuffer) -> HRESULT;
         }
         #[guid(0x9f8496be_5b9a_41b9_a9e8_f21cd80596c2)]

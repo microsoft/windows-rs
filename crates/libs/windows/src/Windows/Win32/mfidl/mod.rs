@@ -7515,8 +7515,11 @@ windows_core::imp::define_interface!(IMFRemoteDesktopPlugin, IMFRemoteDesktopPlu
 windows_core::imp::interface_hierarchy!(IMFRemoteDesktopPlugin, windows_core::IUnknown);
 impl IMFRemoteDesktopPlugin {
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn UpdateTopology(&self, ptopology: &Option<IMFTopology>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UpdateTopology)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(ptopology)) }
+    pub unsafe fn UpdateTopology<P0>(&self, ptopology: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<IMFTopology>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).UpdateTopology)(windows_core::Interface::as_raw(self), ptopology.param().abi()) }
     }
 }
 #[repr(C)]
@@ -7530,7 +7533,7 @@ pub struct IMFRemoteDesktopPlugin_Vtbl {
 }
 #[cfg(feature = "mfobjects")]
 pub trait IMFRemoteDesktopPlugin_Impl: windows_core::IUnknownImpl {
-    fn UpdateTopology(&self, ptopology: windows_core::OutRef<IMFTopology>) -> windows_core::Result<()>;
+    fn UpdateTopology(&self, ptopology: windows_core::Ref<IMFTopology>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "mfobjects")]
 impl IMFRemoteDesktopPlugin_Vtbl {
@@ -7538,7 +7541,7 @@ impl IMFRemoteDesktopPlugin_Vtbl {
         unsafe extern "system" fn UpdateTopology<Identity: IMFRemoteDesktopPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptopology: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFRemoteDesktopPlugin_Impl::UpdateTopology(this, core::mem::transmute(&ptopology)).into()
+                IMFRemoteDesktopPlugin_Impl::UpdateTopology(this, core::mem::transmute_copy(&ptopology)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), UpdateTopology: UpdateTopology::<Identity, OFFSET> }

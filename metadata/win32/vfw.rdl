@@ -520,7 +520,7 @@ mod Windows {
         interface IAVIEditStream: IUnknown {
             fn Cut(&self, #[in] #[out] plStart: *mut i32, #[in] #[out] plLength: *mut i32, ppResult: *mut IAVIStream) -> HRESULT;
             fn Copy(&self, #[in] #[out] plStart: *mut i32, #[in] #[out] plLength: *mut i32, ppResult: *mut IAVIStream) -> HRESULT;
-            fn Paste(&self, #[in] #[out] plPos: *mut i32, #[in] #[out] plLength: *mut i32, #[in] #[out] pstream: IAVIStream, lStart: i32, lEnd: i32) -> HRESULT;
+            fn Paste(&self, #[in] #[out] plPos: *mut i32, #[in] #[out] plLength: *mut i32, pstream: IAVIStream, lStart: i32, lEnd: i32) -> HRESULT;
             fn Clone(&self, ppResult: *mut IAVIStream) -> HRESULT;
             fn SetInfo(&self, #[size_param(1)] lpInfo: *const AVISTREAMINFOW, cbInfo: i32) -> HRESULT;
         }

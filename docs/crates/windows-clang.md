@@ -148,7 +148,7 @@ handle lifetimes, documentation mappings, struct-size conventions, or synthetic 
 
 The scraper preserves:
 
-- SAL and IDL direction, optionality, buffer sizing, retval, and interface-selection annotations;
+- SAL and IDL optionality, buffer sizing, retval, and interface-selection annotations;
 - `uuid`, `noreturn`, alignment, `dllimport`, and deprecation attributes;
 - calling conventions, packing, unions, scoped enums, bit fields, and typedefs;
 - explicit constant casts and C integer literal types;
@@ -159,6 +159,9 @@ Some C portability spellings are canonicalized for metadata consumers. Examples 
 integer typedefs, pointer-sized integer typedefs, Windows string wrappers, pointer aliases in
 parameters, GUID aliases, and Direct2D compatibility aliases. These rules live in `canon.rs`.
 Parameter SAL can change pointer constness because it expresses the function's read/write contract.
+Direction is also checked against COM interface pointer shape. A direct `IFoo*` is an input
+interface reference even if a local SDK declaration incorrectly marks it `[out]`; a returned
+interface requires the explicit `IFoo**` shape.
 
 ### Bit-field member scraping
 

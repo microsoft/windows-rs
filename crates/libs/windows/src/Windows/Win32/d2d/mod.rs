@@ -9321,9 +9321,12 @@ impl ID2D1RenderTarget {
     pub unsafe fn Flush(&self, tag1: Option<*mut D2D1_TAG>, tag2: Option<*mut D2D1_TAG>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Flush)(windows_core::Interface::as_raw(self), tag1.unwrap_or(core::mem::zeroed()) as _, tag2.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn SaveDrawingState(&self, drawingstateblock: &Option<ID2D1DrawingStateBlock>) {
+    pub unsafe fn SaveDrawingState<P0>(&self, drawingstateblock: P0)
+    where
+        P0: windows_core::Param<ID2D1DrawingStateBlock>,
+    {
         unsafe {
-            (windows_core::Interface::vtable(self).SaveDrawingState)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(drawingstateblock));
+            (windows_core::Interface::vtable(self).SaveDrawingState)(windows_core::Interface::as_raw(self), drawingstateblock.param().abi());
         }
     }
     pub unsafe fn RestoreDrawingState<P0>(&self, drawingstateblock: P0)
@@ -9575,7 +9578,7 @@ pub trait ID2D1RenderTarget_Impl: ID2D1Resource_Impl {
     fn PushLayer(&self, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: windows_core::Ref<ID2D1Layer>);
     fn PopLayer(&self);
     fn Flush(&self, tag1: *mut D2D1_TAG, tag2: *mut D2D1_TAG) -> windows_core::Result<()>;
-    fn SaveDrawingState(&self, drawingstateblock: windows_core::OutRef<ID2D1DrawingStateBlock>);
+    fn SaveDrawingState(&self, drawingstateblock: windows_core::Ref<ID2D1DrawingStateBlock>);
     fn RestoreDrawingState(&self, drawingstateblock: windows_core::Ref<ID2D1DrawingStateBlock>);
     fn PushAxisAlignedClip(&self, cliprect: *const super::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE);
     fn PopAxisAlignedClip(&self);
@@ -9890,7 +9893,7 @@ impl ID2D1RenderTarget_Vtbl {
         unsafe extern "system" fn SaveDrawingState<Identity: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drawingstateblock: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID2D1RenderTarget_Impl::SaveDrawingState(this, core::mem::transmute(&drawingstateblock));
+                ID2D1RenderTarget_Impl::SaveDrawingState(this, core::mem::transmute_copy(&drawingstateblock));
             }
         }
         unsafe extern "system" fn RestoreDrawingState<Identity: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drawingstateblock: *mut core::ffi::c_void) {

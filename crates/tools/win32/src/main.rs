@@ -269,6 +269,7 @@ const HEADERS: &[&str] = &[
     "codecapi.h",
     "directml.h",
     "sapi.h",
+    "sapiddk.h",
     "wcmapi.h",
     "uiautomationcore.h",
     "uiautomationclient.h",

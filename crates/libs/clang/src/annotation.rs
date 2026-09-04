@@ -207,6 +207,28 @@ fn is_base_interface_out_ptr(ty: &metadata::Type) -> bool {
             if tn.name == "IUnknown" || tn.name == "IInspectable")
 }
 
+/// An interface value already represents one native pointer in metadata. MIDL requires another
+/// pointer level for an output interface, but local SDK declarations are not always validated.
+fn normalize_direct_interface_annotation(ty: &Type, annotation: &mut ParamAnnotation) {
+    let direct = match ty.kind() {
+        CXType_Pointer | CXType_LValueReference => ty.pointee_type().is_interface(),
+        CXType_Typedef => {
+            let underlying = ty.ty().typedef_underlying_type();
+            underlying.is_interface()
+                || (underlying.kind() == CXType_Pointer && underlying.pointee_type().is_interface())
+        }
+        _ => false,
+    };
+
+    if direct && annotation.out_param {
+        annotation.in_param = true;
+        annotation.out_param = false;
+        annotation.retval = false;
+        annotation.com_out_ptr = false;
+        annotation.com_out_ptr_token = false;
+    }
+}
+
 /// Recovers missing `[iid_is]` for HRESULT + REFIID + single-object `void**` or base
 /// interface outputs. Array outputs, `In` parameters, and concrete interfaces are excluded.
 pub(crate) fn infer_iid_is(params: &mut [Param], return_type: &metadata::Type) {
@@ -259,7 +281,9 @@ pub(crate) fn parse_params(
         } else {
             midl_annotations.get(param_idx).cloned().unwrap_or_default()
         };
-        let mut ty = param_metadata_type(&child.ty(), &annotation, parser);
+        let cursor_ty = child.ty();
+        normalize_direct_interface_annotation(&cursor_ty, &mut annotation);
+        let mut ty = param_metadata_type(&cursor_ty, &annotation, parser);
         // Token-recovered `_COM_Outptr_` becomes ComOutPtr only for caller-chosen `void**`.
         if annotation.com_out_ptr_token && is_void_double_ptr(&ty) {
             annotation.com_out_ptr = true;
@@ -276,7 +300,7 @@ pub(crate) fn parse_params(
             && (annotation.in_param
                 || annotation.out_param
                 || matches!(ty, metadata::Type::PtrConst(..)))
-            && let Some(n) = inline_array_param_count(&child.ty())
+            && let Some(n) = inline_array_param_count(&cursor_ty)
         {
             annotation.array = Some(ArrayInfo::CountConst(n));
         }

@@ -414,12 +414,13 @@ windows_core::imp::define_interface!(IWbemHiPerfProvider, IWbemHiPerfProvider_Vt
 windows_core::imp::interface_hierarchy!(IWbemHiPerfProvider, windows_core::IUnknown);
 impl IWbemHiPerfProvider {
     #[cfg(feature = "wbemcli")]
-    pub unsafe fn QueryInstances<P0, P3>(&self, pnamespace: P0, wszclass: *const u16, lflags: i32, pctx: P3, psink: &Option<super::IWbemObjectSink>) -> windows_core::HRESULT
+    pub unsafe fn QueryInstances<P0, P3, P4>(&self, pnamespace: P0, wszclass: *const u16, lflags: i32, pctx: P3, psink: P4) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IWbemServices>,
         P3: windows_core::Param<super::IWbemContext>,
+        P4: windows_core::Param<super::IWbemObjectSink>,
     {
-        unsafe { (windows_core::Interface::vtable(self).QueryInstances)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), wszclass, lflags, pctx.param().abi(), core::mem::transmute_copy(psink)) }
+        unsafe { (windows_core::Interface::vtable(self).QueryInstances)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), wszclass, lflags, pctx.param().abi(), psink.param().abi()) }
     }
     #[cfg(feature = "wbemcli")]
     pub unsafe fn CreateRefresher<P0>(&self, pnamespace: P0, lflags: i32) -> windows_core::Result<super::IWbemRefresher>
@@ -502,7 +503,7 @@ pub struct IWbemHiPerfProvider_Vtbl {
 }
 #[cfg(feature = "wbemcli")]
 pub trait IWbemHiPerfProvider_Impl: windows_core::IUnknownImpl {
-    fn QueryInstances(&self, pnamespace: windows_core::Ref<super::IWbemServices>, wszclass: *const u16, lflags: i32, pctx: windows_core::Ref<super::IWbemContext>, psink: windows_core::OutRef<super::IWbemObjectSink>) -> windows_core::Result<()>;
+    fn QueryInstances(&self, pnamespace: windows_core::Ref<super::IWbemServices>, wszclass: *const u16, lflags: i32, pctx: windows_core::Ref<super::IWbemContext>, psink: windows_core::Ref<super::IWbemObjectSink>) -> windows_core::Result<()>;
     fn CreateRefresher(&self, pnamespace: windows_core::Ref<super::IWbemServices>, lflags: i32) -> windows_core::Result<super::IWbemRefresher>;
     fn CreateRefreshableObject(&self, pnamespace: windows_core::Ref<super::IWbemServices>, ptemplate: windows_core::Ref<super::IWbemObjectAccess>, prefresher: windows_core::Ref<super::IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<super::IWbemContext>, pprefreshable: windows_core::OutRef<super::IWbemObjectAccess>, plid: *mut i32) -> windows_core::Result<()>;
     fn StopRefreshing(&self, prefresher: windows_core::Ref<super::IWbemRefresher>, lid: i32, lflags: i32) -> windows_core::Result<()>;
@@ -515,7 +516,7 @@ impl IWbemHiPerfProvider_Vtbl {
         unsafe extern "system" fn QueryInstances<Identity: IWbemHiPerfProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnamespace: *mut core::ffi::c_void, wszclass: *const u16, lflags: i32, pctx: *mut core::ffi::c_void, psink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemHiPerfProvider_Impl::QueryInstances(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute_copy(&wszclass), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx), core::mem::transmute(&psink)).into()
+                IWbemHiPerfProvider_Impl::QueryInstances(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute_copy(&wszclass), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&psink)).into()
             }
         }
         unsafe extern "system" fn CreateRefresher<Identity: IWbemHiPerfProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnamespace: *mut core::ffi::c_void, lflags: i32, pprefresher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
