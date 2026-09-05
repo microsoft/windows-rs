@@ -8,7 +8,7 @@ publish = false
 self-contained = []
 
 [dependencies]
-windows-canvas = { workspace = true, features = ["reactor"] }
+windows-canvas = { workspace = true, features = ["composition", "reactor"] }
 windows-composition = { workspace = true, features = ["reactor"] }
 windows-collections = { workspace = true }
 windows-core = { workspace = true }

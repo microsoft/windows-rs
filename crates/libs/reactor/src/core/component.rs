@@ -570,6 +570,7 @@ impl fmt::Debug for ComponentTask {
 /// A one-shot timer that delivers a message on the component's UI thread.
 ///
 /// Dropping or explicitly cancelling the timer prevents delivery.
+#[must_use = "dropping the timer cancels message delivery"]
 pub struct ComponentTimer {
     timer: DispatcherQueueTimer,
     tick: Rc<RefCell<Option<windows_core::EventRevoker>>>,

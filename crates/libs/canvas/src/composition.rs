@@ -50,8 +50,10 @@ impl GpuDevice {
 pub trait CanvasCompositionExt {
     /// Redraws the surface: runs `f` to draw, then presents.
     ///
-    /// Returns `Ok(false)` if the GPU device was lost and the surface must be
-    /// recreated.
+    /// Returns `Ok(false)` if the GPU device was lost. Create a replacement
+    /// [`GpuDevice`], call [`GpuDevice::replace_graphics_device`], and retry
+    /// drawing. The Composition surface and the visual tree that uses it remain
+    /// valid.
     fn draw(&self, f: impl FnOnce(&DrawingSession<'_>) -> Result<()>) -> Result<bool>;
 }
 
