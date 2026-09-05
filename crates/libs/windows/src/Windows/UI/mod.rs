@@ -2,8 +2,6 @@
 pub mod Accessibility;
 #[cfg(feature = "UI_ApplicationSettings")]
 pub mod ApplicationSettings;
-#[cfg(feature = "UI_Composition")]
-pub mod Composition;
 #[cfg(feature = "UI_Core")]
 pub mod Core;
 #[cfg(feature = "UI_Input")]

@@ -1,52 +1,11 @@
 windows_core::imp::define_interface!(ICompositionCapabilitiesInteropFactory, ICompositionCapabilitiesInteropFactory_Vtbl, 0x2c9db356_e70d_4642_8298_bc4aa5b4865c);
 windows_core::imp::interface_hierarchy!(ICompositionCapabilitiesInteropFactory, windows_core::IUnknown, windows_core::IInspectable);
-impl ICompositionCapabilitiesInteropFactory {
-    #[cfg(all(feature = "UI_Composition", feature = "windef"))]
-    pub unsafe fn GetForWindow(&self, hwnd: super::HWND) -> windows_core::Result<super::super::UI::Composition::ICompositionCapabilities> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), hwnd, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionCapabilitiesInteropFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "UI_Composition", feature = "windef"))]
-    pub GetForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "UI_Composition", feature = "windef")))]
     GetForWindow: usize,
 }
-#[cfg(all(feature = "UI_Composition", feature = "windef"))]
-pub trait ICompositionCapabilitiesInteropFactory_Impl: windows_core::IUnknownImpl {
-    fn GetForWindow(&self, hwnd: super::HWND) -> windows_core::Result<super::super::UI::Composition::ICompositionCapabilities>;
-}
-#[cfg(all(feature = "UI_Composition", feature = "windef"))]
-impl ICompositionCapabilitiesInteropFactory_Vtbl {
-    pub const fn new<Identity: ICompositionCapabilitiesInteropFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetForWindow<Identity: ICompositionCapabilitiesInteropFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICompositionCapabilitiesInteropFactory_Impl::GetForWindow(this, core::mem::transmute_copy(&hwnd)) {
-                    Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, ICompositionCapabilitiesInteropFactory, OFFSET>(),
-            GetForWindow: GetForWindow::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICompositionCapabilitiesInteropFactory as windows_core::Interface>::IID
-    }
-}
-#[cfg(all(feature = "UI_Composition", feature = "windef"))]
 impl windows_core::RuntimeName for ICompositionCapabilitiesInteropFactory {}
 windows_core::imp::define_interface!(ICompositionDrawingSurfaceInterop, ICompositionDrawingSurfaceInterop_Vtbl, 0xfd04e6e3_fe0c_4c3c_ab19_a07601a576ee);
 windows_core::imp::interface_hierarchy!(ICompositionDrawingSurfaceInterop, windows_core::IUnknown);
@@ -304,13 +263,6 @@ impl windows_core::RuntimeName for ICompositionTextureInterop {}
 windows_core::imp::define_interface!(ICompositorDesktopInterop, ICompositorDesktopInterop_Vtbl, 0x29e691fa_4567_4dca_b319_d0f207eb6807);
 windows_core::imp::interface_hierarchy!(ICompositorDesktopInterop, windows_core::IUnknown);
 impl ICompositorDesktopInterop {
-    #[cfg(all(feature = "UI_Composition_Desktop", feature = "windef"))]
-    pub unsafe fn CreateDesktopWindowTarget(&self, hwndtarget: super::HWND, istopmost: bool) -> windows_core::Result<super::super::UI::Composition::Desktop::IDesktopWindowTarget> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDesktopWindowTarget)(windows_core::Interface::as_raw(self), hwndtarget, istopmost.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
     pub unsafe fn EnsureOnThread(&self, threadid: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnsureOnThread)(windows_core::Interface::as_raw(self), threadid) }
     }
@@ -319,155 +271,20 @@ impl ICompositorDesktopInterop {
 #[doc(hidden)]
 pub struct ICompositorDesktopInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "UI_Composition_Desktop", feature = "windef"))]
-    pub CreateDesktopWindowTarget: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "UI_Composition_Desktop", feature = "windef")))]
     CreateDesktopWindowTarget: usize,
     pub EnsureOnThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "UI_Composition_Desktop", feature = "windef"))]
-pub trait ICompositorDesktopInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateDesktopWindowTarget(&self, hwndtarget: super::HWND, istopmost: windows_core::BOOL) -> windows_core::Result<super::super::UI::Composition::Desktop::IDesktopWindowTarget>;
-    fn EnsureOnThread(&self, threadid: u32) -> windows_core::Result<()>;
-}
-#[cfg(all(feature = "UI_Composition_Desktop", feature = "windef"))]
-impl ICompositorDesktopInterop_Vtbl {
-    pub const fn new<Identity: ICompositorDesktopInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateDesktopWindowTarget<Identity: ICompositorDesktopInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndtarget: super::HWND, istopmost: windows_core::BOOL, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICompositorDesktopInterop_Impl::CreateDesktopWindowTarget(this, core::mem::transmute_copy(&hwndtarget), core::mem::transmute_copy(&istopmost)) {
-                    Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn EnsureOnThread<Identity: ICompositorDesktopInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadid: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICompositorDesktopInterop_Impl::EnsureOnThread(this, core::mem::transmute_copy(&threadid)).into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            CreateDesktopWindowTarget: CreateDesktopWindowTarget::<Identity, OFFSET>,
-            EnsureOnThread: EnsureOnThread::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICompositorDesktopInterop as windows_core::Interface>::IID
-    }
-}
-#[cfg(all(feature = "UI_Composition_Desktop", feature = "windef"))]
 impl windows_core::RuntimeName for ICompositorDesktopInterop {}
 windows_core::imp::define_interface!(ICompositorInterop, ICompositorInterop_Vtbl, 0x25297d5c_3ad4_4c9c_b5cf_e36a38512330);
 windows_core::imp::interface_hierarchy!(ICompositorInterop, windows_core::IUnknown);
-impl ICompositorInterop {
-    #[cfg(all(feature = "UI_Composition", feature = "winnt"))]
-    pub unsafe fn CreateCompositionSurfaceForHandle(&self, swapchain: super::HANDLE) -> windows_core::Result<super::super::UI::Composition::ICompositionSurface> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(windows_core::Interface::as_raw(self), swapchain, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "UI_Composition")]
-    pub unsafe fn CreateCompositionSurfaceForSwapChain<P0>(&self, swapchain: P0) -> windows_core::Result<super::super::UI::Composition::ICompositionSurface>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateCompositionSurfaceForSwapChain)(windows_core::Interface::as_raw(self), swapchain.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "UI_Composition")]
-    pub unsafe fn CreateGraphicsDevice<P0>(&self, renderingdevice: P0) -> windows_core::Result<super::super::UI::Composition::ICompositionGraphicsDevice>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateGraphicsDevice)(windows_core::Interface::as_raw(self), renderingdevice.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositorInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "UI_Composition", feature = "winnt"))]
-    pub CreateCompositionSurfaceForHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "UI_Composition", feature = "winnt")))]
     CreateCompositionSurfaceForHandle: usize,
-    #[cfg(feature = "UI_Composition")]
-    pub CreateCompositionSurfaceForSwapChain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
     CreateCompositionSurfaceForSwapChain: usize,
-    #[cfg(feature = "UI_Composition")]
-    pub CreateGraphicsDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
     CreateGraphicsDevice: usize,
 }
-#[cfg(all(feature = "UI_Composition", feature = "winnt"))]
-pub trait ICompositorInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateCompositionSurfaceForHandle(&self, swapchain: super::HANDLE) -> windows_core::Result<super::super::UI::Composition::ICompositionSurface>;
-    fn CreateCompositionSurfaceForSwapChain(&self, swapchain: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::super::UI::Composition::ICompositionSurface>;
-    fn CreateGraphicsDevice(&self, renderingdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::super::UI::Composition::ICompositionGraphicsDevice>;
-}
-#[cfg(all(feature = "UI_Composition", feature = "winnt"))]
-impl ICompositorInterop_Vtbl {
-    pub const fn new<Identity: ICompositorInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateCompositionSurfaceForHandle<Identity: ICompositorInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, swapchain: super::HANDLE, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICompositorInterop_Impl::CreateCompositionSurfaceForHandle(this, core::mem::transmute_copy(&swapchain)) {
-                    Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn CreateCompositionSurfaceForSwapChain<Identity: ICompositorInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, swapchain: *mut core::ffi::c_void, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICompositorInterop_Impl::CreateCompositionSurfaceForSwapChain(this, core::mem::transmute_copy(&swapchain)) {
-                    Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn CreateGraphicsDevice<Identity: ICompositorInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingdevice: *mut core::ffi::c_void, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICompositorInterop_Impl::CreateGraphicsDevice(this, core::mem::transmute_copy(&renderingdevice)) {
-                    Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            CreateCompositionSurfaceForHandle: CreateCompositionSurfaceForHandle::<Identity, OFFSET>,
-            CreateCompositionSurfaceForSwapChain: CreateCompositionSurfaceForSwapChain::<Identity, OFFSET>,
-            CreateGraphicsDevice: CreateGraphicsDevice::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICompositorInterop as windows_core::Interface>::IID
-    }
-}
-#[cfg(all(feature = "UI_Composition", feature = "winnt"))]
 impl windows_core::RuntimeName for ICompositorInterop {}
 windows_core::imp::define_interface!(ICompositorInterop2, ICompositorInterop2_Vtbl, 0xd3eef34c_0667_4afc_8d13_867607b0fe91);
 windows_core::imp::interface_hierarchy!(ICompositorInterop2, windows_core::IUnknown);
@@ -481,70 +298,14 @@ impl ICompositorInterop2 {
             (windows_core::Interface::vtable(self).CheckCompositionTextureSupport)(windows_core::Interface::as_raw(self), renderingdevice.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "UI_Composition")]
-    pub unsafe fn CreateCompositionTexture<P0>(&self, d3dtexture: P0) -> windows_core::Result<super::super::UI::Composition::ICompositionTexture>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateCompositionTexture)(windows_core::Interface::as_raw(self), d3dtexture.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositorInterop2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CheckCompositionTextureSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "UI_Composition")]
-    pub CreateCompositionTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
     CreateCompositionTexture: usize,
 }
-#[cfg(feature = "UI_Composition")]
-pub trait ICompositorInterop2_Impl: windows_core::IUnknownImpl {
-    fn CheckCompositionTextureSupport(&self, renderingdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<windows_core::BOOL>;
-    fn CreateCompositionTexture(&self, d3dtexture: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::super::UI::Composition::ICompositionTexture>;
-}
-#[cfg(feature = "UI_Composition")]
-impl ICompositorInterop2_Vtbl {
-    pub const fn new<Identity: ICompositorInterop2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CheckCompositionTextureSupport<Identity: ICompositorInterop2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingdevice: *mut core::ffi::c_void, supportscompositiontextures: *mut windows_core::BOOL) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICompositorInterop2_Impl::CheckCompositionTextureSupport(this, core::mem::transmute_copy(&renderingdevice)) {
-                    Ok(ok__) => {
-                        supportscompositiontextures.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn CreateCompositionTexture<Identity: ICompositorInterop2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, d3dtexture: *mut core::ffi::c_void, compositiontexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICompositorInterop2_Impl::CreateCompositionTexture(this, core::mem::transmute_copy(&d3dtexture)) {
-                    Ok(ok__) => {
-                        compositiontexture.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            CheckCompositionTextureSupport: CheckCompositionTextureSupport::<Identity, OFFSET>,
-            CreateCompositionTexture: CreateCompositionTexture::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICompositorInterop2 as windows_core::Interface>::IID
-    }
-}
-#[cfg(feature = "UI_Composition")]
 impl windows_core::RuntimeName for ICompositorInterop2 {}
 windows_core::imp::define_interface!(IDesktopWindowTargetInterop, IDesktopWindowTargetInterop_Vtbl, 0x35dbf59e_e3f9_45b0_81e7_fe75f4145dc9);
 windows_core::imp::interface_hierarchy!(IDesktopWindowTargetInterop, windows_core::IUnknown);

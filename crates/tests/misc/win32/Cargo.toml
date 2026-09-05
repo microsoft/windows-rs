@@ -31,7 +31,6 @@ features = [
     "minwindef",
     "objidlbase",
     "synchapi",
-    "uianimation",
     "uiautomationcore",
     "urlmon",
     "verrsrc",

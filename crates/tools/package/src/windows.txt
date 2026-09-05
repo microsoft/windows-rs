@@ -14,5 +14,7 @@
     !Windows::Services::Cortana
     !Windows::System::Power::Diagnostics
     !Windows::System::Preview
+    !Windows::UI::Composition
     !Windows::UI::Xaml
     !Windows::Win32::Metadata
+    !Windows::Win32::uianimation

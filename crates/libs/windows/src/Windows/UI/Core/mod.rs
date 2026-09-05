@@ -1121,26 +1121,6 @@ impl CoreIndependentInputSourceController {
     pub fn SetControlledInputWithFilters(&self, inputtypes: CoreInputDeviceTypes, required: CoreIndependentInputFilters, excluded: CoreIndependentInputFilters) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetControlledInputWithFilters)(windows_core::Interface::as_raw(self), inputtypes, required, excluded).ok() }
     }
-    #[cfg(feature = "UI_Composition")]
-    pub fn CreateForVisual<P0>(visual: P0) -> windows_core::Result<Self>
-    where
-        P0: windows_core::Param<super::Composition::Visual>,
-    {
-        Self::ICoreIndependentInputSourceControllerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForVisual)(windows_core::Interface::as_raw(this), visual.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "UI_Composition")]
-    pub fn CreateForIVisualElement<P0>(visualelement: P0) -> windows_core::Result<Self>
-    where
-        P0: windows_core::Param<super::Composition::IVisualElement>,
-    {
-        Self::ICoreIndependentInputSourceControllerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForIVisualElement)(windows_core::Interface::as_raw(this), visualelement.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        })
-    }
     fn ICoreIndependentInputSourceControllerStatics<R, F: FnOnce(&ICoreIndependentInputSourceControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreIndependentInputSourceController, ICoreIndependentInputSourceControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -2459,14 +2439,6 @@ impl windows_core::RuntimeType for ICoreIndependentInputSourceControllerStatics 
 #[doc(hidden)]
 pub struct ICoreIndependentInputSourceControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "UI_Composition")]
-    pub CreateForVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
-    CreateForVisual: usize,
-    #[cfg(feature = "UI_Composition")]
-    pub CreateForIVisualElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
-    CreateForIVisualElement: usize,
 }
 windows_core::imp::define_interface!(ICoreInputSourceBase, ICoreInputSourceBase_Vtbl, 0x9f488807_4580_4be8_be68_92a9311713bb);
 impl windows_core::RuntimeType for ICoreInputSourceBase {

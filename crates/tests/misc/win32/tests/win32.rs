@@ -258,6 +258,4 @@ fn empty_struct() {
     let ldap: PLDAPSearch = 123 as _;
     assert!(ldap == 123 as _);
     assert!(size_of::<PLDAPSearch>() == size_of::<usize>());
-
-    assert!(UIAnimationManager == GUID::try_from("4C1FC63A-695C-47E8-A339-1A194BE3D0B8").unwrap());
 }

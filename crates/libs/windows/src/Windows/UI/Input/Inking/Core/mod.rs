@@ -238,20 +238,6 @@ impl CoreInkPresenterHost {
             (windows_core::Interface::vtable(self).InkPresenter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "UI_Composition")]
-    pub fn RootVisual(&self) -> windows_core::Result<super::super::super::Composition::ContainerVisual> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RootVisual)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "UI_Composition")]
-    pub fn SetRootVisual<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Composition::ContainerVisual>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetRootVisual)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
-    }
 }
 impl windows_core::RuntimeType for CoreInkPresenterHost {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInkPresenterHost>();
@@ -537,14 +523,6 @@ impl windows_core::RuntimeType for ICoreInkPresenterHost {
 pub struct ICoreInkPresenterHost_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InkPresenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "UI_Composition")]
-    pub RootVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
-    RootVisual: usize,
-    #[cfg(feature = "UI_Composition")]
-    pub SetRootVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
-    SetRootVisual: usize,
 }
 windows_core::imp::define_interface!(ICoreWetStrokeUpdateEventArgs, ICoreWetStrokeUpdateEventArgs_Vtbl, 0xfb07d14c_3380_457a_a987_991357896c1b);
 impl windows_core::RuntimeType for ICoreWetStrokeUpdateEventArgs {

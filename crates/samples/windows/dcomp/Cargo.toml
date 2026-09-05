@@ -20,13 +20,15 @@ features = [
     "objbase",
     "shellscalingapi",
     "shlwapi",
-    "uianimation",
     "wincodec",
     "windef",
     "winnt",
     "winuser",
     "wtypesbase",
 ]
+
+[dependencies.windows-animation]
+workspace = true
 
 [dependencies.windows-numerics]
 workspace = true

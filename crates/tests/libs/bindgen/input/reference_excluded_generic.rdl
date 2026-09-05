@@ -1,0 +1,24 @@
+//! --flat --filter Test --filter !Windows.UI.Composition
+#[winrt]
+mod Test {
+    interface Interface {
+        fn Visuals(
+            &self,
+        ) -> Windows::Foundation::Collections::IVector<Windows::UI::Composition::IVisualElement>;
+    }
+}
+
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Collections {
+            interface IVector<T> {}
+        }
+    }
+
+    mod UI {
+        mod Composition {
+            interface IVisualElement {}
+        }
+    }
+}

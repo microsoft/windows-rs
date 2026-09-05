@@ -1827,10 +1827,6 @@ pub use types::*;
 pub mod udpmib;
 #[cfg(feature = "udpmib")]
 pub use udpmib::*;
-#[cfg(feature = "uianimation")]
-pub mod uianimation;
-#[cfg(feature = "uianimation")]
-pub use uianimation::*;
 #[cfg(feature = "uiautomationclient")]
 pub mod uiautomationclient;
 #[cfg(feature = "uiautomationclient")]

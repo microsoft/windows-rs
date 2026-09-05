@@ -343,13 +343,6 @@ impl windows_core::RuntimeType for AppWindowClosedReason {
 pub struct AppWindowFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowFrame {
-    #[cfg(feature = "UI_Composition")]
-    pub fn DragRegionVisuals(&self) -> windows_core::Result<windows_collections::IVector<super::Composition::IVisualElement>> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DragRegionVisuals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
     pub fn GetFrameStyle(&self) -> windows_core::Result<AppWindowFrameStyle> {
         let this = &windows_core::Interface::cast::<IAppWindowFrameStyle>(self)?;
         unsafe {
@@ -979,10 +972,6 @@ impl windows_core::RuntimeType for IAppWindowFrame {
 #[doc(hidden)]
 pub struct IAppWindowFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "UI_Composition")]
-    pub DragRegionVisuals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
-    DragRegionVisuals: usize,
 }
 windows_core::imp::define_interface!(IAppWindowFrameStyle, IAppWindowFrameStyle_Vtbl, 0xac412946_e1ac_5230_944a_c60873dcf4a9);
 impl windows_core::RuntimeType for IAppWindowFrameStyle {
