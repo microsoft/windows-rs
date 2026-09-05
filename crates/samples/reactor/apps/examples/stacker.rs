@@ -532,7 +532,6 @@ impl Scene {
             let active_brush = session.create_solid_brush(active.color.canvas())?;
             let overlay = if label.is_some() {
                 Some((
-                    session.create_solid_brush(ColorF::from_rgba8(15, 20, 27, 190))?,
                     session.create_solid_brush(ColorF::from_rgb8(235, 239, 242))?,
                     TextFormat::new_bold("Segoe UI Variable", cell * 0.62)?
                         .with_alignment(TextAlignment::Center)
@@ -553,8 +552,7 @@ impl Scene {
                         session.fill_rounded_rect(&rect, &active_brush);
                     }
                 }
-                if let (Some(label), Some((veil, text, format))) = (label, overlay.as_ref()) {
-                    session.fill_rect(&Rect::from_xywh(0.0, 0.0, width, height), veil);
+                if let (Some(label), Some((text, format))) = (label, overlay.as_ref()) {
                     session.draw_text(
                         label,
                         format,
@@ -773,9 +771,14 @@ impl Component for Stacker {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Stacker");
+        let inactive = self.game.paused || self.game.over;
         context.window_visuals(
             WindowVisuals::new()
-                .backdrop(WindowBackdrop::Acrylic)
+                .backdrop(if inactive {
+                    WindowBackdrop::None
+                } else {
+                    WindowBackdrop::Acrylic
+                })
                 .client_size(520.0, 760.0)
                 .constraints(WindowConstraints {
                     min_width: Some(360.0),
@@ -833,14 +836,19 @@ impl Component for Stacker {
             .margin(Thickness::new(16.0, 0.0, 16.0, 16.0))
             .grid_row(2);
 
-        Grid::new()
+        let content = Grid::new()
             .rows([GridLength::Auto, GridLength::Auto, GridLength::STAR])
-            .key_accelerators(KeyAccelerators::new(accelerators))
-            .children((
-                TitleBar::new().title("Stacker").grid_row(0),
-                header,
-                playfield,
-            ))
+            .key_accelerators(KeyAccelerators::new(accelerators));
+        let content = if inactive {
+            content.background(Color::rgb(22, 28, 36))
+        } else {
+            content
+        };
+        content.children((
+            TitleBar::new().title("Stacker").grid_row(0),
+            header,
+            playfield,
+        ))
     }
 }
 
