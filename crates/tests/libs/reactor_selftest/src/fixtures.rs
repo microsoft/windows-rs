@@ -946,11 +946,10 @@ impl Component for ImageSourceLifecycle {
         }
         let image = self.image.clone();
         let sender = context.sender();
-        context.use_effect("observe-image-scale", (), move || {
-            let observation = image.observe_rasterization_scale(move |scale| {
+        context.use_effect_guard("observe-image-scale", (), move || {
+            image.observe_rasterization_scale(move |scale| {
                 sender.send(ImageMessage::Scale(scale));
-            });
-            Some(Box::new(move || drop(observation)))
+            })
         });
         Image::new()
             .element_ref(&self.image)
@@ -1014,7 +1013,7 @@ impl Component for CompositionLifecycle {
                     root.children().insert_at_bottom(&background);
                     let sender = context.sender();
                     if !self.host.request_set_child_visual(
-                        Some(root.as_raw().into()),
+                        Some(root.host_visual()),
                         move |result| {
                             sender.send(CompositionMessage::Attached(result));
                         },
@@ -1050,7 +1049,7 @@ impl Component for CompositionLifecycle {
                 let replacement = compositor.create_container_visual();
                 let sender = context.sender();
                 if !self.host.request_set_child_visual(
-                    Some(replacement.as_raw().into()),
+                    Some(replacement.host_visual()),
                     move |result| {
                         sender.send(CompositionMessage::Replaced(result));
                     },
@@ -1101,11 +1100,10 @@ impl Component for CompositionLifecycle {
         }
         let host = self.host.clone();
         let sender = context.sender();
-        context.use_effect("observe-composition", (), move || {
-            let observation = host.observe_composition_host(move |event| {
+        context.use_effect_guard("observe-composition", (), move || {
+            host.observe_composition_host(move |event| {
                 sender.send(CompositionMessage::Host(event));
-            });
-            Some(Box::new(move || drop(observation)))
+            })
         });
         Grid::new().element_ref(&self.host).into()
     }

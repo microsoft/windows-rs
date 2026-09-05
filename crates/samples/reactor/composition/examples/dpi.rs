@@ -10,7 +10,7 @@ fn build(compositor: windows_core::IUnknown, host: &ElementRef<Grid>) -> Result<
     let compositor = Compositor::from_host(compositor)?;
     let visual = compositor.create_sprite_visual();
     visual.set_brush(&compositor.create_color_brush(CompositionColor::rgb(96, 64, 160)));
-    let _ = host.request_set_child_visual(Some(visual.as_raw().into()), |_| {});
+    let _ = host.request_set_child_visual(Some(visual.host_visual()), |_| {});
     Ok(visual)
 }
 
@@ -41,9 +41,9 @@ impl Component for Sample {
         let host = self.host.clone();
         let visual = Rc::clone(&self.visual);
         let sender = context.sender();
-        context.use_effect("composition-host", (), move || {
+        context.use_effect_guard("composition-host", (), move || {
             let event_host = host.clone();
-            let observation = host.observe_composition_host(move |event| {
+            host.observe_composition_host(move |event| {
                 let (width, height, scale) = match event {
                     CompositionHostEvent::Ready {
                         compositor,
@@ -67,8 +67,7 @@ impl Component for Sample {
                     visual.set_size(width as f32, height as f32);
                 }
                 sender.send(scale);
-            });
-            Some(Box::new(move || drop(observation)))
+            })
         });
 
         Grid::new()

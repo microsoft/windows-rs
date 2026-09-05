@@ -349,3 +349,33 @@ important work is the tromino-definition decision, focus behavior, timer design,
 consistency, shared Composition resources, declarative scene synchronization, new API tests, and
 complete documentation. The supporting bridge is technically sound, but the current diff is not
 yet as simple, idiomatic, or fully justified as it should be for a flagship sample.
+
+## Post-audit implementation status
+
+The follow-up cleanup resolves the remaining sample-level architecture problems:
+
+- `Stacker` now owns `Game` and `Option<Scene>` directly. Composition host callbacks only enqueue
+  `CompositionHostEvent` messages, so scene creation, layout, drawing, and mutation all happen in
+  `Component::update`.
+- Reactor now provides `ComponentContext::set_timeout`. It uses a one-shot dispatcher timer,
+  accepts UI-thread-only message types, does not occupy a thread-pool worker, and is cancelled when
+  its handle is dropped. Stacker no longer polls cancellation or carries timer generations.
+- Soft drop and hard drop restart gravity after locking, so a newly spawned piece receives its
+  full initial interval.
+- The retained visual board is a fixed `8 x 16` array matching the game board. Settlement reports
+  the locked piece and cleared rows, so the scene adds three cells directly rather than scanning a
+  copied board.
+- `CompositionScopedBatch::on_completed` now exposes animation completion. Stacker sends a Reactor
+  message from that callback and removes faded visuals in `Component::update`; it no longer polls
+  `Instant` or depends on another input event for cleanup.
+- The styled `Button` that existed only to receive focus is gone. Key accelerators live on the root
+  Grid, and the playfield is the Composition host Grid itself.
+- Dead width, height, score, mirrored-game, focus-effect, and wrapper state has been removed.
+
+The resulting sample keeps the intended rendering split: Reactor owns state and chrome,
+Composition retains settled cells, and Canvas redraws only the active piece, landing outline, and
+overlay. It still creates no swap chain and uses one steady-state D3D device shared with the
+Composition graphics device. Reactor's `use_effect_guard` now owns drop-based observations without
+caller-side cleanup boxing, and Composition's `Visual::host_visual` hides the raw visual conversion.
+`Compositor::from_host` remains the one explicit stack boundary. Removing it would require
+`windows-composition` to depend on `windows-reactor`, which is not warranted for one conversion.

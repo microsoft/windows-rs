@@ -4,6 +4,7 @@ use super::scope::{ScopeArena, ScopeError, ScopeId, ScopeState};
 use crate::element::{
     Callback, CallbackSource, ColorScheme, IntoPayloadCallback, View, WindowSize, WindowVisuals,
 };
+use crate::native::{DispatcherQueue, DispatcherQueueTimer};
 use crate::reference::{HostRequest, WindowEndpoint, WindowRef};
 use rustc_hash::{FxHashMap as HashMap, FxHashSet as HashSet};
 use std::any::{Any, TypeId};
@@ -15,6 +16,7 @@ use std::mem::size_of;
 use std::rc::Rc;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::{Arc, Mutex, Weak};
+use std::time::Duration;
 
 pub(crate) const BACKGROUND_MESSAGE_QUEUE_CAPACITY: usize = 4_096;
 pub(crate) const BACKGROUND_TASK_CAPACITY: usize = 64;
@@ -565,6 +567,80 @@ impl fmt::Debug for ComponentTask {
     }
 }
 
+/// A one-shot timer that delivers a message on the component's UI thread.
+///
+/// Dropping or explicitly cancelling the timer prevents delivery.
+pub struct ComponentTimer {
+    timer: DispatcherQueueTimer,
+    tick: Rc<RefCell<Option<windows_core::EventRevoker>>>,
+    control: Arc<TaskControl>,
+}
+
+impl ComponentTimer {
+    fn start<M: 'static>(
+        delay: Duration,
+        sender: LocalSender<M>,
+        message: M,
+    ) -> windows_core::Result<Self> {
+        let interval = windows_time::TimeSpan::try_from(delay).map_err(|_| {
+            windows_core::Error::new(
+                windows_core::HRESULT(0x80070057_u32 as _),
+                "timer delay cannot be represented as a TimeSpan",
+            )
+        })?;
+        let timer = DispatcherQueue::GetForCurrentThread()?.CreateTimer()?;
+        timer.SetInterval(interval)?;
+        timer.SetIsRepeating(false)?;
+
+        let control = Arc::new(TaskControl::new());
+        let tick = Rc::new(RefCell::new(None));
+        let callback_tick = Rc::downgrade(&tick);
+        let callback_timer = timer.clone();
+        let callback_control = Arc::clone(&control);
+        let message = RefCell::new(Some(message));
+        *tick.borrow_mut() = Some(timer.Tick(move |_, _| {
+            _ = callback_timer.Stop();
+            if let Some(tick) = callback_tick.upgrade() {
+                tick.borrow_mut().take();
+            }
+            if let Some(message) = message.borrow_mut().take()
+                && callback_control.queue()
+                && !sender.send_controlled(message, Arc::clone(&callback_control))
+            {
+                callback_control.cancel();
+            }
+        })?);
+        timer.Start()?;
+        Ok(Self {
+            timer,
+            tick,
+            control,
+        })
+    }
+
+    /// Cancels the timer. Calling this more than once has no effect.
+    pub fn cancel(&self) {
+        self.control.cancel();
+        _ = self.timer.Stop();
+        self.tick.borrow_mut().take();
+    }
+}
+
+impl Drop for ComponentTimer {
+    fn drop(&mut self) {
+        self.cancel();
+    }
+}
+
+impl fmt::Debug for ComponentTimer {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter
+            .debug_struct("ComponentTimer")
+            .field("active", &self.tick.borrow().is_some())
+            .finish()
+    }
+}
+
 impl TaskSpawner {
     fn spawn<M, F>(&self, work: F) -> ComponentTask
     where
@@ -756,6 +832,14 @@ impl<M> Clone for LocalSender<M> {
 impl<M: 'static> LocalSender<M> {
     /// Queues a message for later delivery.
     pub fn send(&self, message: M) -> bool {
+        self.send_inner(message, None)
+    }
+
+    fn send_controlled(&self, message: M, control: Arc<TaskControl>) -> bool {
+        self.send_inner(message, Some(control))
+    }
+
+    fn send_inner(&self, message: M, control: Option<Arc<TaskControl>>) -> bool {
         let wake = {
             let mut queue = self.queue.borrow_mut();
             if !queue.open
@@ -770,7 +854,7 @@ impl<M: 'static> LocalSender<M> {
                 .then(|| queue.wake.clone())
                 .flatten();
             queue.envelopes.push_back(MessageEnvelope {
-                control: None,
+                control,
                 token: self.token,
                 payload: Box::new(message),
             });
@@ -829,6 +913,18 @@ impl<C: Component> ComponentContext<C> {
     /// Returns a sender bound to this component instance.
     pub fn sender(&self) -> LocalSender<C::Message> {
         self.sender.clone()
+    }
+
+    /// Starts a cancellable one-shot timer on the component's UI thread.
+    ///
+    /// Unlike [`spawn_background`](Self::spawn_background), this accepts UI-thread-only message
+    /// types and does not occupy a thread-pool worker while waiting.
+    pub fn set_timeout(
+        &self,
+        delay: Duration,
+        message: C::Message,
+    ) -> windows_core::Result<ComponentTimer> {
+        ComponentTimer::start(delay, self.sender.clone(), message)
     }
 
     /// Starts scope-owned work on the Windows thread pool.
@@ -972,6 +1068,25 @@ impl<C: Component> ViewContext<C> {
         D: PartialEq + 'static,
     {
         self.effects.use_effect(key.into(), dependency, setup);
+    }
+
+    /// Declares an effect whose cleanup consists of dropping an owned guard.
+    ///
+    /// This is intended for event revokers, observations, and other values that unregister or
+    /// release their resource when dropped.
+    pub fn use_effect_guard<D, G>(
+        &mut self,
+        key: impl Into<EffectKey>,
+        dependency: D,
+        setup: impl FnOnce() -> G + 'static,
+    ) where
+        D: PartialEq + 'static,
+        G: 'static,
+    {
+        self.effects.use_effect(key.into(), dependency, move || {
+            let guard = setup();
+            Some(Box::new(move || drop(guard)))
+        });
     }
 }
 

@@ -3,7 +3,7 @@
 
 #![windows_subsystem = "windows"]
 
-use std::{cell::RefCell, rc::Rc, time::*};
+use std::time::*;
 use windows_canvas::*;
 use windows_composition::*;
 use windows_core::Result;
@@ -11,12 +11,12 @@ use windows_reactor::*;
 
 const COLS: usize = 8;
 const ROWS: usize = 16;
-const CELLS: usize = COLS * ROWS;
 const ASSET_SIZE: f32 = 64.0;
-const CELL_INSET: f32 = 3.0;
-const CELL_RADIUS: f32 = 9.0;
+const CELL_INSET: f32 = 3.0 / ASSET_SIZE;
+const CELL_RADIUS: f32 = 9.0 / ASSET_SIZE;
 
 type Board = [[Option<ColorId>; COLS]; ROWS];
+type VisualBoard = [[Option<ShapeVisual>; COLS]; ROWS];
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(usize)]
@@ -118,19 +118,15 @@ fn lock(board: &mut Board, piece: Piece) {
     }
 }
 
-fn full_rows(board: &Board) -> Vec<usize> {
-    board
+fn clear_full_rows(board: &mut Board) -> Vec<usize> {
+    let cleared: Vec<_> = board
         .iter()
         .enumerate()
         .filter_map(|(row, cells)| cells.iter().all(Option::is_some).then_some(row))
-        .collect()
-}
-
-fn clear_full_rows(board: &mut Board) -> u32 {
-    let cleared = full_rows(board).len() as u32;
+        .collect();
     let mut write = ROWS;
     for read in (0..ROWS).rev() {
-        if board[read].iter().all(Option::is_some) {
+        if cleared.contains(&read) {
             continue;
         }
         write -= 1;
@@ -142,11 +138,10 @@ fn clear_full_rows(board: &mut Board) -> u32 {
     cleared
 }
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Debug)]
 struct Game {
     board: Board,
     active: Piece,
-    score: u32,
     lines: u32,
     paused: bool,
     over: bool,
@@ -164,7 +159,6 @@ impl Game {
                 col: 2,
                 row: 0,
             },
-            score: 0,
             lines: 0,
             paused: false,
             over: false,
@@ -248,17 +242,20 @@ impl Game {
         piece
     }
 
-    fn settle(&mut self) -> (Board, Vec<usize>) {
-        lock(&mut self.board, self.active);
-        let before_clear = self.board;
-        let cleared_rows = full_rows(&self.board);
+    fn settle(&mut self) -> Settlement {
+        let piece = self.active;
+        lock(&mut self.board, piece);
         let cleared = clear_full_rows(&mut self.board);
-        self.lines += cleared;
-        self.score = self.lines;
+        self.lines += cleared.len() as u32;
         self.active = self.next_piece();
         self.over = !fits(&self.board, self.active);
-        (before_clear, cleared_rows)
+        Settlement { piece, cleared }
     }
+}
+
+struct Settlement {
+    piece: Piece,
+    cleared: Vec<usize>,
 }
 
 struct Scene {
@@ -271,15 +268,20 @@ struct Scene {
     surface: CompositionDrawingSurface,
     cell_geometry: CompositionRoundedRectangleGeometry,
     cell_brushes: [CompositionColorBrush; ColorId::ALL.len()],
-    visuals: Vec<Option<ShapeVisual>>,
+    visuals: VisualBoard,
     device: GpuDevice,
-    fading: Vec<(ShapeVisual, Instant)>,
-    width: f32,
-    height: f32,
+    fades: Vec<Fade>,
+    next_fade: u64,
     cell: f32,
     left: f32,
     top: f32,
     scale: f32,
+}
+
+struct Fade {
+    id: u64,
+    visuals: Vec<ShapeVisual>,
+    _completion: windows_core::EventRevoker,
 }
 
 impl Scene {
@@ -311,14 +313,17 @@ impl Scene {
 
         let cell_geometry = compositor.create_rounded_rectangle_geometry();
         cell_geometry.set_size(Vector2::new(
-            ASSET_SIZE - CELL_INSET * 2.0,
-            ASSET_SIZE - CELL_INSET * 2.0,
+            ASSET_SIZE * (1.0 - CELL_INSET * 2.0),
+            ASSET_SIZE * (1.0 - CELL_INSET * 2.0),
         ));
-        cell_geometry.set_corner_radius(Vector2::new(CELL_RADIUS, CELL_RADIUS));
+        cell_geometry.set_corner_radius(Vector2::new(
+            ASSET_SIZE * CELL_RADIUS,
+            ASSET_SIZE * CELL_RADIUS,
+        ));
         let cell_brushes =
             ColorId::ALL.map(|color| compositor.create_color_brush(color.composition()));
 
-        let _ = host.request_set_child_visual(Some(root.as_raw().into()), |result| {
+        let _ = host.request_set_child_visual(Some(root.host_visual()), |result| {
             if let Err(error) = result {
                 eprintln!("failed to attach Stacker visuals: {error:?}");
             }
@@ -334,11 +339,10 @@ impl Scene {
             surface,
             cell_geometry,
             cell_brushes,
-            visuals: std::iter::repeat_with(|| None).take(CELLS).collect(),
+            visuals: empty_visuals(),
             device,
-            fading: Vec::new(),
-            width: 1.0,
-            height: 1.0,
+            fades: Vec::new(),
+            next_fade: 0,
             cell: 1.0,
             left: 0.0,
             top: 0.0,
@@ -351,17 +355,15 @@ impl Scene {
     }
 
     fn layout(&mut self, width: f32, height: f32, scale: f32) -> Result<()> {
-        self.width = width.max(1.0);
-        self.height = height.max(1.0);
+        let width = width.max(1.0);
+        let height = height.max(1.0);
         self.scale = scale.max(0.01);
-        self.root.set_size(self.width, self.height);
-        self.cell = (self.width / COLS as f32)
-            .min(self.height / ROWS as f32)
-            .max(1.0);
+        self.root.set_size(width, height);
+        self.cell = (width / COLS as f32).min(height / ROWS as f32).max(1.0);
         let well_width = self.cell * COLS as f32;
         let well_height = self.cell * ROWS as f32;
-        self.left = (self.width - well_width) / 2.0;
-        self.top = (self.height - well_height) / 2.0;
+        self.left = (width - well_width) / 2.0;
+        self.top = (height - well_height) / 2.0;
 
         self.background.set_size(well_width, well_height);
         self.background.set_offset(self.left, self.top, 0.0);
@@ -372,9 +374,11 @@ impl Scene {
             (well_height * self.scale).ceil() as i32,
         )?;
 
-        for (index, visual) in self.visuals.iter().enumerate() {
-            if let Some(visual) = visual {
-                self.place_visual(visual, index / COLS, index % COLS);
+        for row in 0..ROWS {
+            for col in 0..COLS {
+                if let Some(visual) = &self.visuals[row][col] {
+                    self.place_visual(visual, row, col);
+                }
             }
         }
         Ok(())
@@ -393,7 +397,10 @@ impl Scene {
 
     fn add_visual(&self, row: usize, col: usize, color: ColorId) -> ShapeVisual {
         let shape = self.compositor.create_sprite_shape(&self.cell_geometry);
-        shape.set_offset(Vector2::new(CELL_INSET, CELL_INSET));
+        shape.set_offset(Vector2::new(
+            ASSET_SIZE * CELL_INSET,
+            ASSET_SIZE * CELL_INSET,
+        ));
         shape.set_fill_brush(&self.cell_brushes[color as usize]);
         let visual = self.compositor.create_shape_visual();
         visual.shapes().append(&shape);
@@ -404,32 +411,31 @@ impl Scene {
 
     fn rebuild(&mut self, board: &Board) {
         self.settled.children().remove_all();
-        self.visuals = std::iter::repeat_with(|| None).take(CELLS).collect();
-        self.fading.clear();
+        self.visuals = empty_visuals();
+        self.fades.clear();
         for (row, cells) in board.iter().enumerate() {
             for (col, color) in cells.iter().enumerate() {
                 if let Some(color) = color {
-                    self.visuals[row * COLS + col] = Some(self.add_visual(row, col, *color));
+                    self.visuals[row][col] = Some(self.add_visual(row, col, *color));
                 }
             }
         }
     }
 
-    fn commit(&mut self, board: &Board, cleared: &[usize]) {
-        for (row, cells) in board.iter().enumerate() {
-            for (col, color) in cells.iter().enumerate() {
-                let index = row * COLS + col;
-                if self.visuals[index].is_none()
-                    && let Some(color) = color
-                {
-                    self.visuals[index] = Some(self.add_visual(row, col, *color));
-                }
+    fn commit(&mut self, settlement: &Settlement, sender: LocalSender<Message>) -> Result<()> {
+        for (x, y) in cells(settlement.piece.kind, settlement.piece.rot) {
+            let row = (settlement.piece.row + y) as usize;
+            let col = (settlement.piece.col + x) as usize;
+            if self.visuals[row][col].is_none() {
+                self.visuals[row][col] = Some(self.add_visual(row, col, settlement.piece.color));
             }
         }
 
-        for &row in cleared {
+        let batch = self.compositor.create_scoped_batch(BatchKind::Animation);
+        let mut fading = Vec::new();
+        for &row in &settlement.cleared {
             for col in 0..COLS {
-                if let Some(visual) = self.visuals[row * COLS + col].take() {
+                if let Some(visual) = self.visuals[row][col].take() {
                     visual.set_center_point(Vector3::new(ASSET_SIZE / 2.0, ASSET_SIZE / 2.0, 0.0));
                     let fade = self.compositor.create_scalar_key_frame_animation();
                     fade.insert_key_frame(0.0, 1.0);
@@ -443,43 +449,58 @@ impl Scene {
                     shrink.insert_key_frame(1.0, Vector3::new(scale * 0.65, scale * 0.65, 1.0));
                     shrink.set_duration(Duration::from_millis(180));
                     visual.start_animation("Scale", &shrink);
-                    self.fading.push((visual, Instant::now()));
+                    fading.push(visual);
                 }
             }
         }
 
-        let mut compacted: Vec<Option<ShapeVisual>> =
-            std::iter::repeat_with(|| None).take(CELLS).collect();
+        let mut compacted = empty_visuals();
         for row in (0..ROWS).rev() {
-            if cleared.contains(&row) {
+            if settlement.cleared.contains(&row) {
                 continue;
             }
-            let drop = cleared
+            let drop = settlement
+                .cleared
                 .iter()
                 .filter(|cleared_row| **cleared_row > row)
                 .count();
             let new_row = row + drop;
             for col in 0..COLS {
-                if let Some(visual) = self.visuals[row * COLS + col].take() {
+                if let Some(visual) = self.visuals[row][col].take() {
                     visual.set_center_point(Vector3::new(0.0, 0.0, 0.0));
                     self.place_visual(&visual, new_row, col);
-                    compacted[new_row * COLS + col] = Some(visual);
+                    compacted[new_row][col] = Some(visual);
                 }
             }
         }
         self.visuals = compacted;
+        if !fading.is_empty() {
+            let id = self.next_fade;
+            self.next_fade = self.next_fade.wrapping_add(1);
+            let completion = batch.on_completed(move || {
+                sender.send(Message::FadeCompleted(id));
+            });
+            batch.end();
+            let completion = completion?;
+            self.fades.push(Fade {
+                id,
+                visuals: fading,
+                _completion: completion,
+            });
+        } else {
+            batch.end();
+        }
+        Ok(())
     }
 
-    fn remove_finished_fades(&mut self) {
-        let mut active = Vec::new();
-        for (visual, started) in self.fading.drain(..) {
-            if started.elapsed() >= Duration::from_millis(180) {
-                self.settled.children().remove(&visual);
-            } else {
-                active.push((visual, started));
-            }
+    fn finish_fade(&mut self, id: u64) {
+        let Some(index) = self.fades.iter().position(|fade| fade.id == id) else {
+            return;
+        };
+        let fade = self.fades.swap_remove(index);
+        for visual in fade.visuals {
+            self.settled.children().remove(&visual);
         }
-        self.fading = active;
     }
 
     fn draw_active(&mut self, game: &Game) -> Result<()> {
@@ -555,7 +576,7 @@ impl Scene {
 }
 
 fn cell_rect(col: i32, row: i32, cell: f32) -> RoundedRect {
-    let inset = cell * CELL_INSET / ASSET_SIZE;
+    let inset = cell * CELL_INSET;
     RoundedRect::uniform(
         Rect::from_xywh(
             col as f32 * cell + inset,
@@ -563,14 +584,19 @@ fn cell_rect(col: i32, row: i32, cell: f32) -> RoundedRect {
             cell - inset * 2.0,
             cell - inset * 2.0,
         ),
-        cell * CELL_RADIUS / ASSET_SIZE,
+        cell * CELL_RADIUS,
     )
 }
 
-#[derive(Clone, Copy)]
+fn empty_visuals() -> VisualBoard {
+    std::array::from_fn(|_| std::array::from_fn(|_| None))
+}
+
+#[derive(Clone)]
 enum Message {
-    Tick(u64),
-    TickRejected(u64),
+    Host(CompositionHostEvent),
+    FadeCompleted(u64),
+    Tick,
     MoveLeft,
     MoveRight,
     Rotate,
@@ -582,43 +608,28 @@ enum Message {
 
 struct Stacker {
     game: Game,
-    scene: Rc<RefCell<Option<Scene>>>,
-    shared_game: Rc<RefCell<Game>>,
+    scene: Option<Scene>,
     host: ElementRef<Grid>,
-    play_host: ElementRef<Button>,
-    timer_generation: u64,
-    timer: Option<ComponentTask>,
+    timer: Option<ComponentTimer>,
 }
 
 impl Stacker {
     fn schedule_tick(
         context: &ComponentContext<Self>,
         delay: Duration,
-        generation: u64,
-    ) -> ComponentTask {
-        context.spawn_background_with_rejection(
-            move |cancellation| {
-                let deadline = Instant::now() + delay;
-                while !cancellation.is_cancelled() {
-                    let now = Instant::now();
-                    if now >= deadline {
-                        break;
-                    }
-                    std::thread::sleep((deadline - now).min(Duration::from_millis(20)));
-                }
-                Message::Tick(generation)
-            },
-            Message::TickRejected(generation),
-        )
+    ) -> windows_core::Result<ComponentTimer> {
+        context.set_timeout(delay, Message::Tick)
     }
 
     fn replace_timer(&mut self, context: &ComponentContext<Self>) {
         self.cancel_timer();
-        self.timer = Some(Self::schedule_tick(
-            context,
-            self.game.tick_delay(),
-            self.timer_generation,
-        ));
+        match Self::schedule_tick(context, self.game.tick_delay()) {
+            Ok(timer) => self.timer = Some(timer),
+            Err(error) => {
+                self.game.paused = true;
+                eprintln!("Stacker gravity paused because its timer could not start: {error}");
+            }
+        }
     }
 
     fn cancel_timer(&mut self) {
@@ -627,16 +638,18 @@ impl Stacker {
         }
     }
 
-    fn settle(&mut self) {
-        let (board, cleared) = self.game.settle();
-        if let Some(scene) = self.scene.borrow_mut().as_mut() {
-            scene.commit(&board, &cleared);
+    fn settle(&mut self, context: &ComponentContext<Self>) {
+        let settlement = self.game.settle();
+        if let Some(scene) = &mut self.scene
+            && let Err(error) = scene.commit(&settlement, context.sender())
+        {
+            eprintln!("failed to animate cleared Stacker rows: {error}");
+            scene.rebuild(&self.game.board);
         }
     }
 
     fn refresh_scene(&mut self) {
-        *self.shared_game.borrow_mut() = self.game.clone();
-        if let Some(scene) = self.scene.borrow_mut().as_mut()
+        if let Some(scene) = &mut self.scene
             && let Err(error) = scene.draw_active(&self.game)
         {
             eprintln!("failed to redraw Stacker canvas: {error}");
@@ -649,65 +662,101 @@ impl Component for Stacker {
     type Input = ();
 
     fn create(_input: &(), context: &ComponentContext<Self>) -> Self {
-        let game = Game::new(seed_from_clock());
-        let timer = Some(Self::schedule_tick(context, game.tick_delay(), 0));
+        let mut game = Game::new(seed_from_clock());
+        let timer = match Self::schedule_tick(context, game.tick_delay()) {
+            Ok(timer) => Some(timer),
+            Err(error) => {
+                game.paused = true;
+                eprintln!("Stacker gravity paused because its timer could not start: {error}");
+                None
+            }
+        };
         Self {
-            shared_game: Rc::new(RefCell::new(game.clone())),
             game,
-            scene: Rc::new(RefCell::new(None)),
+            scene: None,
             host: ElementRef::new(),
-            play_host: ElementRef::new(),
-            timer_generation: 0,
             timer,
         }
     }
 
     fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
-        if let Some(scene) = self.scene.borrow_mut().as_mut() {
-            scene.remove_finished_fades();
-        }
         let can_play = !self.game.paused && !self.game.over;
         let changed = match message {
-            Message::Tick(generation) if generation == self.timer_generation => {
+            Message::Host(CompositionHostEvent::Ready {
+                compositor,
+                width,
+                height,
+                scale,
+            }) => {
+                match Scene::build(
+                    compositor,
+                    &self.host,
+                    &self.game,
+                    width as f32,
+                    height as f32,
+                    scale as f32,
+                ) {
+                    Ok(scene) => self.scene = Some(scene),
+                    Err(error) => eprintln!("failed to initialize Stacker scene: {error}"),
+                }
+                false
+            }
+            Message::Host(CompositionHostEvent::Metrics {
+                width,
+                height,
+                scale,
+            }) => {
+                if let Some(scene) = &mut self.scene {
+                    if let Err(error) = scene.layout(width as f32, height as f32, scale as f32) {
+                        eprintln!("failed to resize Stacker scene: {error}");
+                    } else if let Err(error) = scene.draw_active(&self.game) {
+                        eprintln!("failed to redraw Stacker canvas: {error}");
+                    }
+                }
+                false
+            }
+            Message::FadeCompleted(id) => {
+                if let Some(scene) = &mut self.scene {
+                    scene.finish_fade(id);
+                }
+                false
+            }
+            Message::Tick => {
                 self.timer = None;
                 if can_play && !self.game.try_move(0, 1) {
-                    self.settle();
+                    self.settle(context);
                 }
                 if !self.game.paused && !self.game.over {
                     self.replace_timer(context);
                 }
                 can_play
             }
-            Message::TickRejected(generation) if generation == self.timer_generation => {
-                self.timer = None;
-                self.game.paused = true;
-                self.timer_generation = self.timer_generation.wrapping_add(1);
-                eprintln!("Stacker gravity paused because its timer task was rejected");
-                true
-            }
             Message::MoveLeft if can_play => self.game.try_move(-1, 0),
             Message::MoveRight if can_play => self.game.try_move(1, 0),
             Message::Rotate if can_play => self.game.rotate(),
             Message::SoftDrop if can_play => {
                 if !self.game.try_move(0, 1) {
-                    self.settle();
+                    self.settle(context);
                 }
                 if self.game.over {
                     self.cancel_timer();
+                } else {
+                    self.replace_timer(context);
                 }
                 true
             }
             Message::HardDrop if can_play => {
                 self.game.active = self.game.landing_piece();
-                self.settle();
+                self.settle(context);
                 if self.game.over {
                     self.cancel_timer();
+                } else {
+                    self.replace_timer(context);
                 }
                 true
             }
             Message::Pause if !self.game.over => {
                 self.game.paused = !self.game.paused;
-                self.timer_generation = self.timer_generation.wrapping_add(1);
                 self.cancel_timer();
                 if !self.game.paused {
                     self.replace_timer(context);
@@ -716,9 +765,8 @@ impl Component for Stacker {
             }
             Message::NewGame => {
                 self.game = Game::new(seed_from_clock());
-                self.timer_generation = self.timer_generation.wrapping_add(1);
                 self.replace_timer(context);
-                if let Some(scene) = self.scene.borrow_mut().as_mut() {
+                if let Some(scene) = &mut self.scene {
                     scene.rebuild(&self.game.board);
                 }
                 true
@@ -741,52 +789,11 @@ impl Component for Stacker {
         ));
 
         let host = self.host.clone();
-        let scene = Rc::clone(&self.scene);
-        let game = Rc::clone(&self.shared_game);
-        context.use_effect("stacker-composition", (), move || {
-            let event_host = host.clone();
-            let observation = host.observe_composition_host(move |event| match event {
-                CompositionHostEvent::Ready {
-                    compositor,
-                    width,
-                    height,
-                    scale,
-                } => {
-                    scene.borrow_mut().take();
-                    match Scene::build(
-                        compositor,
-                        &event_host,
-                        &game.borrow(),
-                        width as f32,
-                        height as f32,
-                        scale as f32,
-                    ) {
-                        Ok(built) => *scene.borrow_mut() = Some(built),
-                        Err(error) => eprintln!("failed to initialize Stacker scene: {error}"),
-                    }
-                }
-                CompositionHostEvent::Metrics {
-                    width,
-                    height,
-                    scale,
-                } => {
-                    if let Some(scene) = scene.borrow_mut().as_mut() {
-                        if let Err(error) = scene.layout(width as f32, height as f32, scale as f32)
-                        {
-                            eprintln!("failed to resize Stacker scene: {error}");
-                        } else if let Err(error) = scene.draw_active(&game.borrow()) {
-                            eprintln!("failed to redraw Stacker canvas: {error}");
-                        }
-                    }
-                }
-            });
-            Some(Box::new(move || drop(observation)))
-        });
-
-        let play_host = self.play_host.clone();
-        context.use_effect("stacker-focus", (), move || {
-            let _ = play_host.request_focus();
-            None
+        let sender = context.sender();
+        context.use_effect_guard("stacker-composition", (), move || {
+            host.observe_composition_host(move |event| {
+                sender.send(Message::Host(event));
+            })
         });
 
         let accelerators = [
@@ -807,11 +814,12 @@ impl Component for Stacker {
             .spacing(16.0)
             .margin(Thickness::new(16.0, 10.0, 16.0, 10.0))
             .horizontal_alignment(HorizontalAlignment::Center)
+            .grid_row(1)
             .children((
                 TextBlock::new()
                     .text(format!(
                         "Score  {}    Lines  {}    Level  {}",
-                        self.game.score,
+                        self.game.lines,
                         self.game.lines,
                         self.game.level()
                     ))
@@ -825,28 +833,16 @@ impl Component for Stacker {
                     .content("New game"),
             ));
 
-        let playfield = Button::new()
-            .element_ref(&self.play_host)
-            .key_accelerators(KeyAccelerators::new(accelerators))
-            .horizontal_alignment(HorizontalAlignment::Stretch)
-            .vertical_alignment(VerticalAlignment::Stretch)
-            .horizontal_content_alignment(HorizontalAlignment::Stretch)
-            .vertical_content_alignment(VerticalAlignment::Stretch)
-            .resource_overrides(
-                ResourceOverrides::new()
-                    .set("ButtonBackground", Color::rgb(22, 28, 36))
-                    .set("ButtonBackgroundPointerOver", Color::rgb(22, 28, 36))
-                    .set("ButtonBackgroundPressed", Color::rgb(22, 28, 36)),
-            )
-            .content(Grid::new().element_ref(&self.host));
+        let playfield = Grid::new().element_ref(&self.host).grid_row(2);
 
         Grid::new()
             .rows([GridLength::Auto, GridLength::Auto, GridLength::STAR])
             .background(Color::rgb(22, 28, 36))
+            .key_accelerators(KeyAccelerators::new(accelerators))
             .children((
                 TitleBar::new().title("Stacker").grid_row(0),
-                Border::new().grid_row(1).content(header),
-                Border::new().grid_row(2).content(playfield),
+                header,
+                playfield,
             ))
     }
 }
@@ -926,7 +922,7 @@ mod tests {
         let mut board = [[None; COLS]; ROWS];
         board[ROWS - 1].fill(Some(ColorId::Amber));
         board[ROWS - 2][3] = Some(ColorId::Olive);
-        assert_eq!(clear_full_rows(&mut board), 1);
+        assert_eq!(clear_full_rows(&mut board), vec![ROWS - 1]);
         assert_eq!(board[ROWS - 1][3], Some(ColorId::Olive));
         assert!(board[0].iter().all(Option::is_none));
     }
@@ -938,7 +934,7 @@ mod tests {
         board[ROWS - 2].fill(Some(ColorId::Plum));
         board[ROWS - 3][5] = Some(ColorId::Olive);
 
-        assert_eq!(clear_full_rows(&mut board), 2);
+        assert_eq!(clear_full_rows(&mut board), vec![ROWS - 2, ROWS - 1]);
         assert_eq!(board[ROWS - 1][5], Some(ColorId::Olive));
         assert!(board[..ROWS - 1].iter().flatten().all(Option::is_none));
     }
@@ -947,7 +943,6 @@ mod tests {
     fn settle_updates_lines_score_and_level() {
         let mut game = Game::new(7);
         game.lines = 9;
-        game.score = 9;
         game.active = Piece {
             kind: PieceKind::Bar,
             color: ColorId::Teal,
@@ -957,11 +952,10 @@ mod tests {
         };
         game.board[ROWS - 1][3..].fill(Some(ColorId::Steel));
 
-        let (_, cleared) = game.settle();
+        let settlement = game.settle();
 
-        assert_eq!(cleared, vec![ROWS - 1]);
+        assert_eq!(settlement.cleared, vec![ROWS - 1]);
         assert_eq!(game.lines, 10);
-        assert_eq!(game.score, 10);
         assert_eq!(game.level(), 2);
         assert!(game.board.iter().flatten().all(Option::is_none));
         assert!(!game.over);

@@ -228,7 +228,7 @@ let root = compositor.create_sprite_visual();
 root.set_relative_size_adjustment(Vector2::new(1.0, 1.0));
 root.set_brush(&compositor.create_color_brush(CompositionColor::rgb(30, 30, 46)));
 
-let _ = host.request_set_child_visual(Some(root.as_raw().into()), |result| {
+let _ = host.request_set_child_visual(Some(root.host_visual()), |result| {
     if let Err(error) = result {
         eprintln!("failed to attach composition visual: {error:?}");
     }
@@ -258,6 +258,10 @@ component lifecycle; start there rather than copying only the bridge calls.
 Start with `standalone` for the system stack or `host` for Reactor. The other APIs - implicit
 animations, scoped batches, nine-grid brushes, and Canvas surfaces - are useful once the basic
 visual tree feels familiar.
+
+`CompositionScopedBatch::on_completed` returns an event revoker that must remain alive until the
+tracked work finishes. In a Reactor component, have the callback send a message and update the
+retained scene from `Component::update`.
 
 ---
 
@@ -333,7 +337,7 @@ Run `cargo run -p tool_yml` after changing feature-matrix generation.
 
 Reactor reports `CompositionHostEvent` through a typed `ElementRef<Grid>`. A ready event contains
 an application-safe compositor capability and layout metrics. `Compositor::from_host` adopts that
-capability. `Visual::as_raw` exports only an application-owned lifted visual for attachment.
+capability. `Visual::host_visual` exports only an application-owned lifted visual for attachment.
 
 Both crates generate lifted bindings from the same pinned Microsoft UI metadata. Host attachment
 and observation commands exist in Reactor's native and recording runtimes. Window and node

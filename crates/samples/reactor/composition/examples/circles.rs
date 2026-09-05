@@ -30,7 +30,7 @@ impl Scene {
     ) -> Result<Self> {
         let compositor = Compositor::from_host(compositor)?;
         let root = compositor.create_container_visual();
-        let _ = host.request_set_child_visual(Some(root.as_raw().into()), |_| {});
+        let _ = host.request_set_child_visual(Some(root.host_visual()), |_| {});
         Ok(Self {
             compositor,
             root,
@@ -181,9 +181,9 @@ impl Component for Sample {
 
         let host = self.host.clone();
         let scene = Rc::clone(&self.scene);
-        context.use_effect("composition-host", (), move || {
+        context.use_effect_guard("composition-host", (), move || {
             let event_host = host.clone();
-            let observation = host.observe_composition_host(move |event| match event {
+            host.observe_composition_host(move |event| match event {
                 CompositionHostEvent::Ready {
                     compositor,
                     width,
@@ -201,8 +201,7 @@ impl Component for Sample {
                         scene.resize(width as f32, height as f32).unwrap();
                     }
                 }
-            });
-            Some(Box::new(move || drop(observation)))
+            })
         });
 
         Grid::new()

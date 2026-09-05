@@ -93,6 +93,35 @@ impl windows_core::RuntimeName for CompositionAnimationGroup {
 unsafe impl Send for CompositionAnimationGroup {}
 unsafe impl Sync for CompositionAnimationGroup {}
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct CompositionBatchCompletedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    CompositionBatchCompletedEventArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(CompositionBatchCompletedEventArgs, CompositionObject);
+impl windows_core::RuntimeType for CompositionBatchCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ICompositionBatchCompletedEventArgs>();
+}
+unsafe impl windows_core::Interface for CompositionBatchCompletedEventArgs {
+    type Vtable = <ICompositionBatchCompletedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID =
+        <ICompositionBatchCompletedEventArgs as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for CompositionBatchCompletedEventArgs {
+    type Target = ICompositionBatchCompletedEventArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for CompositionBatchCompletedEventArgs {
+    const NAME: &'static str = "Microsoft.UI.Composition.CompositionBatchCompletedEventArgs";
+}
+unsafe impl Send for CompositionBatchCompletedEventArgs {}
+unsafe impl Sync for CompositionBatchCompletedEventArgs {}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionBatchTypes(pub u32);
 impl CompositionBatchTypes {
@@ -1004,6 +1033,19 @@ pub struct ICompositionAnimationGroup_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    ICompositionBatchCompletedEventArgs,
+    ICompositionBatchCompletedEventArgs_Vtbl,
+    0xac400334_4358_5fb0_bfc3_117fe581998f
+);
+impl windows_core::RuntimeType for ICompositionBatchCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ICompositionBatchCompletedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
     ICompositionBrush,
     ICompositionBrush_Vtbl,
     0x483924e7_99a5_5377_968b_dec6d40bbccd
@@ -1427,6 +1469,48 @@ impl ICompositionScopedBatch {
             (windows_core::Interface::vtable(self).End)(windows_core::Interface::as_raw(self)).ok()
         }
     }
+    pub(crate) fn Completed<F>(
+        &self,
+        handler: F,
+    ) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(
+                windows_core::Ref<windows_core::IInspectable>,
+                windows_core::Ref<CompositionBatchCompletedEventArgs>,
+            ) + 'static,
+    {
+        let handler: TypedEventHandler<
+            windows_core::IInspectable,
+            CompositionBatchCompletedEventArgs,
+        > = {
+            let com = windows_core::imp::DelegateBox::<
+                TypedEventHandler<windows_core::IInspectable, CompositionBatchCompletedEventArgs>,
+                F,
+            >::new(
+                &TypedEventHandlerBox::<
+                    windows_core::IInspectable,
+                    CompositionBatchCompletedEventArgs,
+                    F,
+                >::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).Completed)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveCompleted,
+            ))
+        }
+    }
 }
 #[repr(C)]
 pub struct ICompositionScopedBatch_Vtbl {
@@ -1434,6 +1518,15 @@ pub struct ICompositionScopedBatch_Vtbl {
     IsActive: usize,
     IsEnded: usize,
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    Resume: usize,
+    Suspend: usize,
+    pub Completed: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveCompleted:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICompositionShape,
@@ -3011,6 +3104,82 @@ impl windows_core::RuntimeName for SpriteVisual {
 }
 unsafe impl Send for SpriteVisual {}
 unsafe impl Sync for SpriteVisual {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct TypedEventHandler<TSender, TResult>(
+    windows_core::IUnknown,
+    core::marker::PhantomData<TSender>,
+    core::marker::PhantomData<TResult>,
+)
+where
+    TSender: windows_core::RuntimeType + 'static,
+    TResult: windows_core::RuntimeType + 'static;
+unsafe impl<
+    TSender: windows_core::RuntimeType + 'static,
+    TResult: windows_core::RuntimeType + 'static,
+> windows_core::Interface for TypedEventHandler<TSender, TResult>
+{
+    type Vtable = TypedEventHandler_Vtbl<TSender, TResult>;
+    const IID: windows_core::GUID =
+        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static>
+    windows_core::RuntimeType for TypedEventHandler<TSender, TResult>
+{
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"pinterface({9de1c534-6ae1-11e0-84e1-18a905bcc53f}")
+        .push_slice(b";")
+        .push_other(TSender::SIGNATURE)
+        .push_slice(b";")
+        .push_other(TResult::SIGNATURE)
+        .push_slice(b")");
+}
+#[repr(C)]
+pub struct TypedEventHandler_Vtbl<TSender, TResult>
+where
+    TSender: windows_core::RuntimeType + 'static,
+    TResult: windows_core::RuntimeType + 'static,
+{
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        sender: windows_core::imp::AbiType<TSender>,
+        args: windows_core::imp::AbiType<TResult>,
+    ) -> windows_core::HRESULT,
+    TSender: core::marker::PhantomData<TSender>,
+    TResult: core::marker::PhantomData<TResult>,
+}
+struct TypedEventHandlerBox<
+    TSender,
+    TResult,
+    F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) + 'static,
+>(core::marker::PhantomData<(TSender, TResult, fn() -> F)>)
+where
+    TSender: windows_core::RuntimeType + 'static,
+    TResult: windows_core::RuntimeType + 'static;
+impl<
+    TSender: windows_core::RuntimeType + 'static,
+    TResult: windows_core::RuntimeType + 'static,
+    F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) + 'static,
+> TypedEventHandlerBox<TSender, TResult, F>
+{
+    const VTABLE : TypedEventHandler_Vtbl < TSender , TResult , > = TypedEventHandler_Vtbl::< TSender , TResult , > { base__ : windows_core::IUnknown_Vtbl { QueryInterface : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::QueryInterface , AddRef : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::AddRef , Release : windows_core::imp::DelegateBox::< TypedEventHandler < TSender , TResult > , F >::Release , } , Invoke : Self::Invoke , TSender : core::marker::PhantomData::< TSender > , TResult : core::marker::PhantomData::< TResult > } ;
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: windows_core::imp::AbiType<TSender>,
+        args: windows_core::imp::AbiType<TResult>,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<TypedEventHandler<TSender, TResult>, F>);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Vector3KeyFrameAnimation(windows_core::IUnknown);

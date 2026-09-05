@@ -109,7 +109,7 @@ Windows.UI.Composition.ImplicitAnimationCollection
 
 // Scoped batch: groups the mine animations so completion could be observed.
 Windows.UI.Composition.CompositionScopedBatch
-Windows.UI.Composition.ICompositionScopedBatch::{End}
+Windows.UI.Composition.ICompositionScopedBatch::{End, Completed}
 Windows.UI.Composition.CompositionBatchTypes
 
 // region: system-only

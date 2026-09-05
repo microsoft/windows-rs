@@ -49,7 +49,7 @@ fn build(compositor: windows_core::IUnknown, host: &ElementRef<Grid>) -> Result<
     pulse.set_duration(Duration::from_millis(1500));
     pulse.set_iterate_forever();
     visual.start_animation("Scale", &pulse);
-    let _ = host.request_set_child_visual(Some(visual.as_raw().into()), |_| {});
+    let _ = host.request_set_child_visual(Some(visual.host_visual()), |_| {});
     Ok(visual)
 }
 
@@ -73,9 +73,9 @@ impl Component for Sample {
         context.window_title("Composition Animation");
         let host = self.host.clone();
         let visual = Rc::clone(&self.visual);
-        context.use_effect("composition-host", (), move || {
+        context.use_effect_guard("composition-host", (), move || {
             let event_host = host.clone();
-            let observation = host.observe_composition_host(move |event| match event {
+            host.observe_composition_host(move |event| match event {
                 CompositionHostEvent::Ready {
                     compositor,
                     width,
@@ -101,8 +101,7 @@ impl Component for Sample {
                         );
                     }
                 }
-            });
-            Some(Box::new(move || drop(observation)))
+            })
         });
         Grid::new().element_ref(&self.host).into()
     }
