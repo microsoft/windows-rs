@@ -261,7 +261,6 @@ struct Settlement {
 struct Scene {
     compositor: Compositor,
     root: ContainerVisual,
-    background: SpriteVisual,
     settled: ContainerVisual,
     overlay: SpriteVisual,
     graphics: CompositionGraphicsDevice,
@@ -295,9 +294,6 @@ impl Scene {
     ) -> Result<Self> {
         let compositor = Compositor::from_host(compositor)?;
         let root = compositor.create_container_visual();
-        let background = compositor.create_sprite_visual();
-        background.set_brush(&compositor.create_color_brush(CompositionColor::rgb(30, 38, 48)));
-        root.children().insert_at_bottom(&background);
 
         let settled = compositor.create_container_visual();
         root.children().insert_at_top(&settled);
@@ -332,7 +328,6 @@ impl Scene {
         let mut scene = Self {
             compositor,
             root,
-            background,
             settled,
             overlay,
             graphics,
@@ -365,8 +360,6 @@ impl Scene {
         self.left = (width - well_width) / 2.0;
         self.top = (height - well_height) / 2.0;
 
-        self.background.set_size(well_width, well_height);
-        self.background.set_offset(self.left, self.top, 0.0);
         self.overlay.set_size(well_width, well_height);
         self.overlay.set_offset(self.left, self.top, 0.0);
         self.surface.resize(
@@ -780,13 +773,16 @@ impl Component for Stacker {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Stacker");
-        context.window_visuals(WindowVisuals::new().client_size(520.0, 760.0).constraints(
-            WindowConstraints {
-                min_width: Some(360.0),
-                min_height: Some(560.0),
-                ..Default::default()
-            },
-        ));
+        context.window_visuals(
+            WindowVisuals::new()
+                .backdrop(WindowBackdrop::Acrylic)
+                .client_size(520.0, 760.0)
+                .constraints(WindowConstraints {
+                    min_width: Some(360.0),
+                    min_height: Some(560.0),
+                    ..Default::default()
+                }),
+        );
 
         let host = self.host.clone();
         let sender = context.sender();
@@ -818,8 +814,7 @@ impl Component for Stacker {
             .children((
                 TextBlock::new()
                     .text(format!(
-                        "Score  {}    Lines  {}    Level  {}",
-                        self.game.lines,
+                        "Lines  {}    Level  {}",
                         self.game.lines,
                         self.game.level()
                     ))
@@ -833,11 +828,13 @@ impl Component for Stacker {
                     .content("New game"),
             ));
 
-        let playfield = Grid::new().element_ref(&self.host).grid_row(2);
+        let playfield = Grid::new()
+            .element_ref(&self.host)
+            .margin(Thickness::new(16.0, 0.0, 16.0, 16.0))
+            .grid_row(2);
 
         Grid::new()
             .rows([GridLength::Auto, GridLength::Auto, GridLength::STAR])
-            .background(Color::rgb(22, 28, 36))
             .key_accelerators(KeyAccelerators::new(accelerators))
             .children((
                 TitleBar::new().title("Stacker").grid_row(0),
@@ -940,7 +937,7 @@ mod tests {
     }
 
     #[test]
-    fn settle_updates_lines_score_and_level() {
+    fn settle_updates_lines_and_level() {
         let mut game = Game::new(7);
         game.lines = 9;
         game.active = Piece {

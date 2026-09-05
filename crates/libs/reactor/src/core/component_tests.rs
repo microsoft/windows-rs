@@ -153,6 +153,14 @@ impl PartialEq for PanickingEffectInput {
 
 struct PanickingEffect;
 
+struct EffectGuard(Rc<Cell<usize>>);
+
+impl Drop for EffectGuard {
+    fn drop(&mut self) {
+        self.0.set(self.0.get() + 1);
+    }
+}
+
 impl Component for PanickingEffect {
     type Input = PanickingEffectInput;
     type Message = ();
@@ -163,11 +171,7 @@ impl Component for PanickingEffect {
 
     fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         let cleanup_count = Rc::clone(&input.cleanup_count);
-        context.use_effect("effect", (), move || {
-            Some(Box::new(move || {
-                cleanup_count.set(cleanup_count.get() + 1);
-            }))
-        });
+        context.use_effect_guard("effect", (), move || EffectGuard(cleanup_count));
         assert!(!input.panic.get(), "injected view panic");
         View::empty()
     }
@@ -638,6 +642,17 @@ fn cancelled_controlled_local_message_is_not_delivered() {
 
     assert_eq!(store.drain(1).dispatched, 0);
     assert_eq!(store.component::<State>(token).value, 0);
+}
+
+#[test]
+fn timer_rejects_an_unrepresentable_delay_before_dispatcher_access() {
+    let mut store = store();
+    let token = reserve_state(&mut store, "");
+    store.publish(token);
+
+    let error = ComponentTimer::start(Duration::MAX, store.sender::<u32>(token), 1).unwrap_err();
+
+    assert_eq!(error.code(), windows_core::HRESULT(0x80070057_u32 as _));
 }
 
 #[test]
