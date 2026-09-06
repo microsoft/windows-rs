@@ -4,7 +4,8 @@ Windows Canvas wraps Direct2D, Direct3D 11, DXGI, DirectWrite, and WIC for 2D dr
 
 The default `system` feature supports standalone drawing and system Composition. Use the `reactor`
 feature with default features disabled for Canvas controls and lifted Composition. Enable
-`composition` with either stack to draw into Composition surfaces.
+`composition` with either stack to draw into Composition surfaces. The `windows-window` dependency
+and its typed window helper are enabled only by `system`.
 
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md)

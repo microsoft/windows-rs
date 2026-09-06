@@ -22,6 +22,8 @@ combined by drawing Canvas content into a composition surface.
 
 The default `system` feature selects system Composition when `composition` is enabled. For lifted
 Composition inside Reactor, disable default features and enable `reactor` with `composition`.
+`system` also enables the typed `windows-window` swap-chain helper; raw HWND interop remains
+available without it.
 
 ## The basic idea
 
@@ -317,6 +319,10 @@ The Reactor integration lives behind this crate's `reactor` feature. The depende
 `windows-canvas[reactor] -> windows-reactor`. Canvas owns rendering resources and receives only
 typed panel metrics, rendering notifications, and attachment completion through
 `ElementRef<SwapChainPanel>`.
+
+The default `system` feature enables `windows-window` and
+`GpuDevice::create_swap_chain_for_window`. Reactor-only builds disable default features and do not
+compile `windows-window`; raw `create_swap_chain_for_hwnd` remains available without either host.
 
 Continuous mode uses WinUI's `CompositionTarget::Rendering`. Demand mode stays idle until layout,
 scale, or `Invalidator` requests a frame. Attachment attempts use generations so stale completion

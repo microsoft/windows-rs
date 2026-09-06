@@ -92,6 +92,7 @@ impl GpuDevice {
     }
 
     /// Creates a window swap chain with pixel dimensions `width` by `height`.
+    #[cfg(feature = "system")]
     pub fn create_swap_chain_for_window(
         &self,
         window: &windows_window::Window,

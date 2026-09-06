@@ -24,6 +24,7 @@ impl Environment {
     }
 
     /// Creates a [`Controller`] hosted in the given window, pumping the UI thread.
+    #[cfg(feature = "system")]
     pub fn create_controller(&self, window: &windows_window::Window) -> Result<Controller> {
         // SAFETY: `window` owns a live window handle for as long as the borrow
         // lasts.
@@ -54,6 +55,7 @@ impl Environment {
     }
 
     /// Creates an option-configured [`Controller`] hosted in the given window.
+    #[cfg(feature = "system")]
     pub fn create_controller_with_options(
         &self,
         window: &windows_window::Window,

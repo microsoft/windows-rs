@@ -79,11 +79,11 @@ jobs:
         run: echo "LIBCLANG_PATH=$(cargo run -q -p tool_clang -- path)" >> "$GITHUB_ENV"
         shell: bash
       - name: Test
-        # windows-canvas, windows-composition, and the `system` Composition consumers are excluded
-        # here because Reactor consumers require their mutually exclusive `reactor` stacks.
-        run: cargo test --all --target ${{ matrix.target }} --exclude windows-canvas --exclude windows-composition --exclude test_composition --exclude composition_standalone --exclude composition_minesweeper --exclude composition_canvas
-      - name: Test composition system stack
-        run: cargo test -p windows-canvas -p windows-composition -p test_composition -p composition_standalone -p composition_minesweeper -p composition_canvas --target ${{ matrix.target }}
+        # The default system UI stacks and their consumers are excluded because Reactor consumers
+        # require mutually exclusive `reactor` stacks.
+        run: cargo test --all --target ${{ matrix.target }} --exclude windows-canvas --exclude windows-composition --exclude windows-webview --exclude canvas_standalone --exclude test_composition --exclude composition_standalone --exclude composition_minesweeper --exclude composition_canvas --exclude test_webview --exclude webview_samples
+      - name: Test system UI stacks
+        run: cargo test -p windows-canvas -p windows-composition -p windows-webview -p canvas_standalone -p test_composition -p composition_standalone -p composition_minesweeper -p composition_canvas -p test_webview -p webview_samples --target ${{ matrix.target }}
       - name: Check diff
         shell: bash
         run: |

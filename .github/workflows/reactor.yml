@@ -55,7 +55,8 @@ jobs:
             --features reactor --all-targets --quiet
           cargo check -p windows-composition --no-default-features `
             --features reactor --all-targets --quiet
-          cargo check -p windows-webview --features reactor --all-targets --quiet
+          cargo check -p windows-webview --no-default-features `
+            --features reactor --all-targets --quiet
           cargo check -p canvas_chart -p canvas_circles -p canvas_clock `
             -p canvas_editor -p canvas_hit_test -p canvas_image_source `
             -p canvas_samples -p canvas_shared_device -p canvas_text_layout `
@@ -66,7 +67,8 @@ jobs:
             --features reactor --all-targets --quiet
           cargo clippy -p windows-composition --no-default-features `
             --features reactor --all-targets --quiet
-          cargo clippy -p windows-webview --features reactor --all-targets --quiet
+          cargo clippy -p windows-webview --no-default-features `
+            --features reactor --all-targets --quiet
           cargo build -p test_reactor_selftest -p test_reactor_surface --quiet
 
       - name: Generated output

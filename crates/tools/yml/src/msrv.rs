@@ -61,6 +61,18 @@ pub fn yml() {
                 continue;
             }
 
+            if name == "windows-webview" {
+                writeln!(
+                    yml,
+                    r"      - name: Check {name}
+        run:  cargo check -p {name}
+      - name: Check {name} (reactor)
+        run:  cargo check -p {name} --no-default-features --features reactor"
+                )
+                .unwrap();
+                continue;
+            }
+
             writeln!(
                 yml,
                 r"      - name: Check {name}

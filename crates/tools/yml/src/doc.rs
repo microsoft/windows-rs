@@ -41,7 +41,7 @@ pub fn yml() {
             "      - name: Check windows-canvas (reactor composition)\n        run: cargo doc --no-deps -p windows-canvas --no-default-features --features composition,reactor\n",
         );
         yml.push_str(
-            "      - name: Check reactor features\n        run: cargo doc --no-deps -p windows-reactor -p windows-webview --features windows-webview/reactor\n",
+            "      - name: Check reactor features\n        run: cargo doc --no-deps -p windows-reactor -p windows-webview --no-default-features --features windows-webview/reactor\n",
         );
     });
 }
