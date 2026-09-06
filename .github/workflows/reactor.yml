@@ -51,7 +51,8 @@ jobs:
             -p sample_reactor_webview --all-targets --quiet
           cargo check -p sample_reactor_controls --examples --quiet
           cargo check -p sample_reactor_virtual --features perf --all-targets --quiet
-          cargo check -p windows-canvas --features reactor --all-targets --quiet
+          cargo check -p windows-canvas --no-default-features `
+            --features reactor --all-targets --quiet
           cargo check -p windows-composition --no-default-features `
             --features reactor --all-targets --quiet
           cargo check -p windows-webview --features reactor --all-targets --quiet
@@ -61,7 +62,8 @@ jobs:
             --all-targets --quiet
           cargo clippy -p sample_reactor_virtual --features perf `
             --all-targets --quiet
-          cargo clippy -p windows-canvas --features reactor --all-targets --quiet
+          cargo clippy -p windows-canvas --no-default-features `
+            --features reactor --all-targets --quiet
           cargo clippy -p windows-composition --no-default-features `
             --features reactor --all-targets --quiet
           cargo clippy -p windows-webview --features reactor --all-targets --quiet

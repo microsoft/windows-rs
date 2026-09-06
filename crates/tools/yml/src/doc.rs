@@ -26,8 +26,8 @@ pub fn yml() {
         );
         yml.push_str(&line);
 
-        // `reactor` takes precedence under feature unification, so document each
-        // stack on its own to cover the system API too.
+        // The Composition stacks are mutually exclusive, so document each one
+        // separately.
         yml.push_str(
             "      - name: Check windows-composition\n        run: cargo doc --no-deps -p windows-composition\n",
         );
@@ -36,6 +36,9 @@ pub fn yml() {
         );
         yml.push_str(
             "      - name: Check windows-canvas (composition)\n        run: cargo doc --no-deps -p windows-canvas --features composition\n",
+        );
+        yml.push_str(
+            "      - name: Check windows-canvas (reactor composition)\n        run: cargo doc --no-deps -p windows-canvas --no-default-features --features composition,reactor\n",
         );
         yml.push_str(
             "      - name: Check reactor features\n        run: cargo doc --no-deps -p windows-reactor -p windows-webview --features windows-webview/reactor\n",

@@ -1,11 +1,14 @@
 #![doc = include_str!("../readme.md")]
 
-// `system` and `reactor` select compatible generated bindings for the same
-// handwritten wrappers. Cargo features are additive, so `reactor` takes
-// precedence when both are enabled through dependency feature unification.
+// `system` and `reactor` select incompatible generated bindings for the same
+// handwritten wrappers.
 #[cfg(all(not(feature = "system"), not(feature = "reactor")))]
 compile_error!(
-    "enable a composition stack: the `system` feature (default) or the `reactor` feature"
+    "enable exactly one composition stack: the `system` feature (default) or the `reactor` feature"
+);
+#[cfg(all(feature = "system", feature = "reactor"))]
+compile_error!(
+    "the `system` and `reactor` composition stacks are mutually exclusive; disable default features when selecting `reactor`"
 );
 
 #[cfg(all(feature = "system", not(feature = "reactor")))]

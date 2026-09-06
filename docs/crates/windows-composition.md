@@ -56,16 +56,14 @@ The crate supports two Composition stacks:
 | `reactor` | The scene belongs inside a Reactor view |
 
 The two stacks use different Windows APIs and their objects cannot be mixed. Cargo features are
-additive, so the `reactor` feature takes precedence if dependency feature unification also enables
-the default `system` feature. Applications can still disable the default feature to state their
-intent directly:
+mutually exclusive, so applications selecting Reactor must disable the default `system` feature:
 
 ```toml
 windows-composition = { version = "0.100.0", default-features = false, features = ["reactor"] }
 ```
 
-Both stacks can create a graphics device and drawing surface for `windows-canvas` through Canvas's
-`composition` feature.
+Both stacks can create a graphics device and drawing surface for `windows-canvas`. Enable Canvas's
+`composition` feature and select its matching `system` or `reactor` feature.
 
 The examples below begin with the default system stack because it shows the visual model with the
 least framework code.

@@ -20,8 +20,8 @@ Use Composition when the scene is primarily a retained tree of visuals that Wind
 composes. Use Canvas when the app draws pixels and paths for each requested frame. The two can be
 combined by drawing Canvas content into a composition surface.
 
-The `composition` feature works with either Composition stack. When Reactor selects lifted
-Composition, that stack takes precedence over the default system stack.
+The default `system` feature selects system Composition when `composition` is enabled. For lifted
+Composition inside Reactor, disable default features and enable `reactor` with `composition`.
 
 ## The basic idea
 
@@ -40,7 +40,7 @@ The simplest host is Reactor. It creates the graphics device and swap chain, tra
 scale, and handles device recovery. Enable the feature in `Cargo.toml`:
 
 ```toml
-windows-canvas = { version = "0.100.0", features = ["reactor"] }
+windows-canvas = { version = "0.100.0", default-features = false, features = ["reactor"] }
 windows-reactor = "0.100.0"
 ```
 

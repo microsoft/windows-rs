@@ -36,14 +36,26 @@ pub fn yml() {
             }
 
             if name == "windows-composition" {
-                // `reactor` takes precedence when both stacks are enabled, so
-                // check each stack on its own to cover the system bindings too.
+                // The stacks are mutually exclusive, so check each one alone.
                 writeln!(
                     yml,
                     r"      - name: Check {name}
         run:  cargo check -p {name}
       - name: Check {name} (reactor)
         run:  cargo check -p {name} --no-default-features --features reactor"
+                )
+                .unwrap();
+                continue;
+            }
+
+            if name == "windows-canvas" {
+                // Canvas selects mutually exclusive system and Reactor stacks.
+                writeln!(
+                    yml,
+                    r"      - name: Check {name}
+        run:  cargo check -p {name} --features composition
+      - name: Check {name} (reactor composition)
+        run:  cargo check -p {name} --no-default-features --features composition,reactor"
                 )
                 .unwrap();
                 continue;

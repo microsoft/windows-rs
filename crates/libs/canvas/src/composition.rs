@@ -1,5 +1,4 @@
-//! The composition bridge (feature `composition`) for the selected system or
-//! lifted Composition stack.
+//! The Composition bridge for the selected `system` or `reactor` stack.
 //!
 //! Draw Direct2D content into a `windows-composition` [`CompositionDrawingSurface`].
 //!

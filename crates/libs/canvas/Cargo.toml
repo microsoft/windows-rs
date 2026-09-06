@@ -10,9 +10,10 @@ categories = ["os::windows-apis"]
 readme = "readme.md"
 
 [features]
-default = []
-composition = ["dep:windows-composition", "windows-composition/system"]
-reactor = ["dep:windows-reactor"]
+default = ["system"]
+system = ["windows-composition?/system"]
+composition = ["dep:windows-composition"]
+reactor = ["dep:windows-reactor", "windows-composition?/reactor"]
 
 [dependencies]
 windows-core = { workspace = true }
@@ -34,3 +35,4 @@ workspace = true
 default-target = "x86_64-pc-windows-msvc"
 targets = []
 features = ["composition", "reactor"]
+no-default-features = true

@@ -43,12 +43,11 @@ jobs:
       - name: Check
         # Exclusions (both due to --all-targets feature-unification across the workspace):
         #   test_no_std - unification pulls std into its no_std graph (duplicate panic_impl).
-        #   windows-composition and its `system` consumers (test_composition, the composition
-        #     samples) - Reactor integration consumers enable windows-composition's `reactor`
-        #     stack in the unified workspace build. Reactor takes precedence, so the system-only
-        #     APIs are linted in a separate pass.
-        run:  cargo clippy --workspace --all-targets --exclude test_no_std --exclude windows-composition --exclude test_composition --exclude composition_standalone --exclude composition_minesweeper --exclude composition_canvas -- -D warnings
+        #   windows-canvas, windows-composition, and the `system` Composition consumers - Reactor
+        #     consumers enable their mutually exclusive `reactor` stacks in the unified workspace
+        #     build. The default `system` stacks are linted in a separate pass.
+        run:  cargo clippy --workspace --all-targets --exclude test_no_std --exclude windows-canvas --exclude windows-composition --exclude test_composition --exclude composition_standalone --exclude composition_minesweeper --exclude composition_canvas -- -D warnings
       - name: Check composition system stack
-        # windows-composition and its `system` consumers, linted on their own so the `system` stack
-        # is exercised separately from the reactor-primary workspace pass above.
-        run:  cargo clippy -p windows-composition -p test_composition -p composition_standalone -p composition_minesweeper -p composition_canvas --all-targets -- -D warnings
+        # Canvas, Composition, and the `system` consumers are linted separately from the
+        # reactor-primary workspace pass above.
+        run:  cargo clippy -p windows-canvas -p windows-composition -p test_composition -p composition_standalone -p composition_minesweeper -p composition_canvas --all-targets -- -D warnings
