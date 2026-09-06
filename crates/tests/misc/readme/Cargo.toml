@@ -105,6 +105,7 @@ workspace = true
 
 [dev-dependencies.windows-webview]
 workspace = true
+features = ["system"]
 
 [dev-dependencies.windows-window]
 workspace = true
