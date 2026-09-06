@@ -15,7 +15,8 @@ Use `windows-webview` when a Windows desktop application needs to host web conte
 messages with JavaScript, or use browser facilities such as profiles, cookies, downloads, and the
 Chrome DevTools Protocol. The default `system` feature hosts WebView2 through `windows-window`.
 Disable default features and enable `reactor` to place the WinUI XAML WebView2 control in a
-[`windows-reactor`](windows-reactor.md) view.
+[`windows-reactor`](windows-reactor.md) view. The features are additive when an application uses
+both host types.
 
 The crate wraps a selected WebView2 surface rather than exposing the complete SDK. Use raw WebView2
 bindings when an application needs APIs that are not represented here.

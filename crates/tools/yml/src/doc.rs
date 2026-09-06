@@ -35,7 +35,7 @@ pub fn yml() {
             "      - name: Check windows-composition (reactor)\n        run: cargo doc --no-deps -p windows-composition --no-default-features --features reactor\n",
         );
         yml.push_str(
-            "      - name: Check windows-canvas (composition)\n        run: cargo doc --no-deps -p windows-canvas --features composition\n",
+            "      - name: Check windows-canvas (system composition)\n        run: cargo doc --no-deps -p windows-canvas --features composition,system\n",
         );
         yml.push_str(
             "      - name: Check windows-canvas (reactor composition)\n        run: cargo doc --no-deps -p windows-canvas --no-default-features --features composition,reactor\n",

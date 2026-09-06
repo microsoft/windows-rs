@@ -1,10 +1,5 @@
 #![doc = include_str!("../readme.md")]
 
-#[cfg(all(feature = "system", feature = "reactor"))]
-compile_error!(
-    "the `system` and `reactor` features are mutually exclusive; disable default features when selecting `reactor`"
-);
-
 #[cfg_attr(not(feature = "reactor"), allow(dead_code))]
 #[expect(
     non_snake_case,

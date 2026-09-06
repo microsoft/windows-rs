@@ -10,7 +10,7 @@ categories = ["os::windows-apis"]
 readme = "readme.md"
 
 [features]
-default = ["system"]
+default = []
 system = ["dep:windows-window", "windows-composition?/system"]
 composition = ["dep:windows-composition"]
 reactor = ["dep:windows-reactor", "windows-composition?/reactor"]

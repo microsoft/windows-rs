@@ -50,8 +50,8 @@ jobs:
         run: cargo doc --no-deps -p windows-composition
       - name: Check windows-composition (reactor)
         run: cargo doc --no-deps -p windows-composition --no-default-features --features reactor
-      - name: Check windows-canvas (composition)
-        run: cargo doc --no-deps -p windows-canvas --features composition
+      - name: Check windows-canvas (system composition)
+        run: cargo doc --no-deps -p windows-canvas --features composition,system
       - name: Check windows-canvas (reactor composition)
         run: cargo doc --no-deps -p windows-canvas --no-default-features --features composition,reactor
       - name: Check reactor features

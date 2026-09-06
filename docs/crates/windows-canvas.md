@@ -20,10 +20,10 @@ Use Composition when the scene is primarily a retained tree of visuals that Wind
 composes. Use Canvas when the app draws pixels and paths for each requested frame. The two can be
 combined by drawing Canvas content into a composition surface.
 
-The default `system` feature selects system Composition when `composition` is enabled. For lifted
-Composition inside Reactor, disable default features and enable `reactor` with `composition`.
-`system` also enables the typed `windows-window` swap-chain helper; raw HWND interop remains
-available without it.
+Canvas is host-neutral by default. Enable `system` for the typed `windows-window` swap-chain helper
+and system Composition, or `reactor` for Reactor controls and lifted Composition. Enable
+`composition` with the selected host to draw into Composition surfaces. The host adapters can
+coexist when `composition` is not enabled; the Composition backends cannot.
 
 ## The basic idea
 
@@ -320,9 +320,9 @@ The Reactor integration lives behind this crate's `reactor` feature. The depende
 typed panel metrics, rendering notifications, and attachment completion through
 `ElementRef<SwapChainPanel>`.
 
-The default `system` feature enables `windows-window` and
-`GpuDevice::create_swap_chain_for_window`. Reactor-only builds disable default features and do not
-compile `windows-window`; raw `create_swap_chain_for_hwnd` remains available without either host.
+The `system` feature enables `windows-window` and `GpuDevice::create_swap_chain_for_window`.
+Reactor-only builds do not compile `windows-window`; raw `create_swap_chain_for_hwnd` remains
+available without either host.
 
 Continuous mode uses WinUI's `CompositionTarget::Rendering`. Demand mode stays idle until layout,
 scale, or `Invalidator` requests a frame. Attachment attempts use generations so stale completion

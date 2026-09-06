@@ -5,6 +5,7 @@ Windows WebView wraps the [WebView2](https://aka.ms/webview2) COM APIs to host M
 
 The default `system` feature provides typed `windows-window` hosting. Use the `reactor` feature with
 default features disabled to host WebView2 in a Reactor view without compiling `windows-window`.
+Enable both when an application uses both host types.
 
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-webview.md)

@@ -53,21 +53,9 @@ pub fn yml() {
                 writeln!(
                     yml,
                     r"      - name: Check {name}
-        run:  cargo check -p {name} --features composition
+        run:  cargo check -p {name} --features composition,system
       - name: Check {name} (reactor composition)
         run:  cargo check -p {name} --no-default-features --features composition,reactor"
-                )
-                .unwrap();
-                continue;
-            }
-
-            if name == "windows-webview" {
-                writeln!(
-                    yml,
-                    r"      - name: Check {name}
-        run:  cargo check -p {name}
-      - name: Check {name} (reactor)
-        run:  cargo check -p {name} --no-default-features --features reactor"
                 )
                 .unwrap();
                 continue;
