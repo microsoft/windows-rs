@@ -1,5 +1,5 @@
 [package]
-name = "sample_context_alignment"
+name = "sample-context-alignment"
 version = "0.0.0"
 edition = "2024"
 publish = false

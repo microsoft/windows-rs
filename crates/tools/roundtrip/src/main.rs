@@ -2,13 +2,13 @@ use std::collections::HashMap;
 use std::time::Instant;
 use windows_rdl::{item_names, reader, write_to_file, writer};
 
-// `tool_roundtrip` re-derives each winmd from its committed RDL, decompiles it back, and relies
+// `tool-roundtrip` re-derives each winmd from its committed RDL, decompiles it back, and relies
 // on `git diff` to catch any drift without re-running the expensive SDK scrape/merge (it needs
 // neither libclang nor NuGet). The single
-// committed `Windows.Win32.winmd` is `tool_win32`'s phase-C merge of the um and km surfaces (with
+// committed `Windows.Win32.winmd` is `tool-win32`'s phase-C merge of the um and km surfaces (with
 // same-named enums unioned) - a lossy transform that cannot be decompiled back to the split
 // Win32 and WDK RDL - so the round-trip works from that split RDL, compiling each winmd on demand.
-// Paths are relative to the workspace root, matching `tool_win32`/`tool_winrt`.
+// Paths are relative to the workspace root, matching `tool-win32`/`tool-winrt`.
 
 const WINRT_WINMD: &str = "crates/libs/default/Windows.winmd";
 const WINRT_RDL: &str = "metadata/winrt";

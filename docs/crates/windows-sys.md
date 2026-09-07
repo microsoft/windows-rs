@@ -145,7 +145,7 @@ The remainder of this page is for repository contributors.
 
 ### How it is built
 
-`tool_package` generates the crate by driving `windows-bindgen` in `--sys --package` mode from
+`tool-package` generates the crate by driving `windows-bindgen` in `--sys --package` mode from
 `crates/tools/package/src/sys.txt`. `src/lib.rs` and the small `src/core` ABI module are
 hand-maintained; the Windows namespace files and Cargo feature graph are generated.
 

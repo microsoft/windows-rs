@@ -14,10 +14,10 @@ same reason the generated `windows` and `windows-sys` crates are committed.
 
 ## Generated - do not edit by hand
 
-These files are produced by `tool_win32`:
+These files are produced by `tool-win32`:
 
 ```sh
-cargo run -p tool_win32
+cargo run -p tool-win32
 ```
 
 Re-run the tool after changing the manifest (the `const` slices in

@@ -21,7 +21,7 @@ const KM_WINMD: &str = "target/wdk/Windows.Win32.km.winmd";
 
 /// The single committed, canonical winmd: phase C merges the um ([`UM_WINMD`]) and km
 /// ([`KM_WINMD`]) surfaces with same-named enums unioned, so a value type a um header truncates
-/// (for example `FILE_INFORMATION_CLASS`) carries every member. Downstream `tool_bindings` filters
+/// (for example `FILE_INFORMATION_CLASS`) carries every member. Downstream `tool-bindings` filters
 /// point `--in` at this stable in-repo winmd (and the bundled `"default"` bindings resolve against
 /// it). Re-derived on every run; treat it as generated output.
 const MERGED_WINMD: &str = "crates/libs/default/Windows.Win32.winmd";

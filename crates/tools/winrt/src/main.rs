@@ -19,7 +19,7 @@ const RDL_DIR: &str = "metadata/winrt";
 const OUT_DIR: &str = "target/winrt";
 
 /// The NuGet package that ships the per-contract WinRT `.winmd` files. Fetched into the
-/// NuGet global cache on first use, exactly like `tool_win32`'s SDK packages.
+/// NuGet global cache on first use, exactly like `tool-win32`'s SDK packages.
 const CONTRACTS_ID: &str = "microsoft.windows.sdk.contracts";
 
 /// Pinned SDK Contracts version. The winmd is merged from this exact package so the WinRT
@@ -54,7 +54,7 @@ fn main() {
     );
 
     // Merge the per-contract winmds into one intermediate winmd, replacing the external
-    // `mdmerge` tool with `windows-metadata`'s in-house merger (the same one `tool_win32`
+    // `mdmerge` tool with `windows-metadata`'s in-house merger (the same one `tool-win32`
     // uses). The per-contract WinRT runtime-class methods and Property/Event tables
     // are dropped by the merge; `windows-bindgen` reconstructs properties/events from the
     // surviving `get_`/`put_`/`add_`/`remove_` accessor methods on the interfaces and never
@@ -70,7 +70,7 @@ fn main() {
 
     // Decompile the merged winmd into the committed per-namespace RDL snapshot, then compile
     // that snapshot back into the canonical `Windows.winmd`. This makes the RDL the source of
-    // truth - consistent with `tool_win32`, which likewise scrapes to RDL and compiles
+    // truth - consistent with `tool-win32`, which likewise scrapes to RDL and compiles
     // the winmd from it - and lets the `gen` `git diff` validate both the RDL and the winmd. The
     // WinRT surface is self-contained (`System.*` primitives are resolved by the reader), so the
     // reader needs no additional reference winmds; the `Win32` exclusion guards against any stray

@@ -30,7 +30,7 @@
   <Applications>
     <Application
       Id="App"
-      Executable="BlankWindowsReactor.exe"
+      Executable="blank-windows-reactor.exe"
       EntryPoint="Windows.FullTrustApplication">
       <uap:VisualElements
         DisplayName="Blank Windows Reactor"

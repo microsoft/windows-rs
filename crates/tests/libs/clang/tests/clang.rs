@@ -58,8 +58,8 @@ fn run(name: &str) {
     //                               feeds it as a reference (cross-namespace
     //                               resolution; the target namespace is excluded)
     //   //! flat                    - use the source-based per-header (flat) scrape
-    //                               (`write_by_header`, as `tool_win32`) instead of
-    //                               the namespaced scrape (`write`, as `tool_webview`).
+    //                               (`write_by_header`, as `tool-win32`) instead of
+    //                               the namespaced scrape (`write`, as `tool-webview`).
     //                               Enables the flat-mode collapses/normalizations
     //                               (`header_root.is_some()`); references/filters/library
     //                               do not apply.
@@ -160,7 +160,7 @@ fn run(name: &str) {
     let _guard = test_clang::libclang_guard();
 
     if flat {
-        // Source-based per-header (flat) scrape, as `tool_win32`: one flat root namespace,
+        // Source-based per-header (flat) scrape, as `tool-win32`: one flat root namespace,
         // `header_root.is_some()`. Emits every defining header in the parse into `scratch`;
         // a self-contained fixture yields a single `<stem>.rdl` (the lowercased header stem,
         // which matches `rdl_out`).
@@ -170,7 +170,7 @@ fn run(name: &str) {
             .write_by_header()
             .unwrap();
     } else {
-        // Namespaced scrape, as `tool_webview`: `header_root.is_none()`, resolves external
+        // Namespaced scrape, as `tool-webview`: `header_root.is_none()`, resolves external
         // types via the reference winmds.
         clang.write().unwrap();
     }

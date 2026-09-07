@@ -15,9 +15,9 @@ Cargo workspace (`resolver = "3"`). Members are globbed from:
 - `crates/libs/*` - the published/library crates (`windows`, `windows-sys`, `windows-core`, plus
   `windows-bindgen`, `metadata`, `rdl`, and the newer `reactor`/`canvas`/`webview`/`window` crates).
   See `docs/readme.md` for the full categorized crate index, and `docs/crates/<crate>.md` per crate.
-- `crates/tools/*` - code generators and CI helpers, run via `cargo run -p tool_*`.
+- `crates/tools/*` - code generators and CI helpers, run via `cargo run -p tool-*`.
 - `crates/tests/*/*` - test crates; `crates/tests/libs/<crate>` mirrors each library crate (e.g.
-  `test_reactor`, `test_webview`). Crate names are `test_<dir>`.
+  `test_reactor`, `test-webview`). Crate names are `test_<dir>`.
 - `crates/samples/*/*` - runnable examples.
 
 The crates fall into rough groups (see `docs/readme.md` for the authoritative list): core & errors
@@ -60,11 +60,11 @@ warnings and therefore enforced.
 ### Reactor
 
 ```sh
-# Regenerate codegen (after editing winui.toml or tool_reactor source)
-cargo run -p tool_reactor --quiet
+# Regenerate codegen (after editing winui.toml or tool-reactor source)
+cargo run -p tool-reactor --quiet
 
 # Regenerate bindings (after editing filter .txt files)
-cargo run -p tool_bindings --quiet
+cargo run -p tool-bindings --quiet
 
 # Verify reactor compiles
 cargo check -p windows-reactor --quiet
@@ -73,9 +73,9 @@ cargo check -p windows-reactor --quiet
 cargo test -p test_reactor --quiet
 
 # Integration tests (launches WinUI window)
-cargo run -p test_reactor_selftest
-cargo run -p test_reactor_selftest -- --headless    # CI mode
-cargo run -p test_reactor_selftest -- --filter Name  # single fixture
+cargo run -p test-reactor-selftest
+cargo run -p test-reactor-selftest -- --headless    # CI mode
+cargo run -p test-reactor-selftest -- --filter Name  # single fixture
 
 # Clippy
 cargo clippy -p windows-reactor --all-targets
@@ -92,30 +92,30 @@ cargo clippy -p windows-canvas --all-targets
 ### Full workspace
 
 ```sh
-cargo run -p tool_clippy_all    # runs clippy across all crates
+cargo run -p tool-clippy-all    # runs clippy across all crates
 ```
 
 ## Code Generation Pipeline
 
 **Never hand-edit generated files.** Generated outputs are committed, and CI fails if regenerating
-produces a diff (the `gen` workflow runs each `cargo run -p tool_*` and rejects any change; the
+produces a diff (the `gen` workflow runs each `cargo run -p tool-*` and rejects any change; the
 `test` workflow likewise fails if tests modify tracked files). After editing generators or filters,
 re-run the tool and commit the result.
 
 The core `windows` / `windows-sys` crates are generated from Windows metadata (`.winmd`) via
-`windows-bindgen` (driven by `tool_package`). `windows-metadata` and `windows-rdl` support
+`windows-bindgen` (driven by `tool-package`). `windows-metadata` and `windows-rdl` support
 reading/authoring that metadata. The reactor / canvas / webview pipelines layer on top:
 
-1. **`tool_reactor`** - reads `crates/tools/reactor/src/winui.toml` + WinUI `.winmd` metadata ->
+1. **`tool-reactor`** - reads `crates/tools/reactor/src/winui.toml` + WinUI `.winmd` metadata ->
    generates `generated.rs`, `generated_set_prop.rs`, `generated_attach_event.rs`, and
    `generated.txt` filter entries.
 
-2. **`tool_bindings`** - reads filter `.txt` files from `crates/tools/bindings/src/` -> runs
+2. **`tool-bindings`** - reads filter `.txt` files from `crates/tools/bindings/src/` -> runs
    `windows-bindgen` -> generates `bindings.rs` in each crate:
    - `crates/libs/canvas/src/bindings.rs` (from `canvas.txt`)
    - `crates/libs/time/src/bindings.rs`, `numerics`, `reference`, etc.
 
-3. **`tool_package`** - generates the published `windows` and `windows-sys` package crates using
+3. **`tool-package`** - generates the published `windows` and `windows-sys` package crates using
    `--package` mode (per-namespace files + Cargo.toml features).
 
 4. After regenerating, always verify: `cargo check -p <affected-crate> --quiet`
@@ -154,7 +154,7 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 - **`.unwrap()` over `.expect("...")`** - the panic hook provides full context.
 - **No `thread_local!` in app code** - use reactor hooks (`use_state`, `use_ref`) instead.
   `thread_local!` is reserved for framework plumbing.
-- **Test naming**: Unit tests in `test_reactor`, integration tests in `test_reactor_selftest`.
+- **Test naming**: Unit tests in `test_reactor`, integration tests in `test-reactor-selftest`.
   Canvas tests use WARP software rendering.
 
 ## Documentation
@@ -253,7 +253,7 @@ items below are the ones still worth revisiting. Sources:
   references is dropped (`PROCESSOR_POWER_INFORMATION`, `FIRMWARE_TABLE_PROVIDER`,
   `PROCESSOR_FEATURE_ID`). Fix: emit all named types defined in a `HEADERS` file, not only the
   reachability closure.
-- **`intsafe.h` exclusion, `drop_lib_less`, `vertdll` ordering** (`tool_win32`) - pragmatic drops
+- **`intsafe.h` exclusion, `drop_lib_less`, `vertdll` ordering** (`tool-win32`) - pragmatic drops
   and relinks of content the headers/libs provide. Low priority, defensible.
 
 **Correct as-is (do not "fix"):** overloaded-virtual vtable reversal (`interface.rs`, reproduces the
@@ -273,16 +273,16 @@ not duplicated (both sides read the shared table), but nothing guarantees a coll
 suppression site stay paired. A suppress-definition column on `Collapse` carrying the cursor kind
 (typedef/struct/union) each row suppresses would make the pairing a compiler-checked fact.
 
-Output-neutrality check for any clang change: regenerate the two scrape consumers - `tool_win32`
-(flat, `write_by_header`, both the um and km scrapes) and `tool_webview` (namespaced, `write`) - and
-confirm `git diff` shows no generated-file changes. `tool_bindings`/`tool_package`/`tool_features`
+Output-neutrality check for any clang change: regenerate the two scrape consumers - `tool-win32`
+(flat, `write_by_header`, both the um and km scrapes) and `tool-webview` (namespaced, `write`) - and
+confirm `git diff` shows no generated-file changes. `tool-bindings`/`tool-package`/`tool-features`
 derive from the winmds, so an unchanged winmd proves them unchanged too.
 
 ### Repo-wide dead-code / quality audit (2026-07)
 
 Open items across the hand-written crates (reactor, bindgen, rdl, clang, canvas, metadata, webview,
 core) that need a design decision or a larger change. Any bindgen source change must be proven
-output-neutral by running the `tool_*` generators and confirming `git diff` shows no generated-file
+output-neutral by running the `tool-*` generators and confirming `git diff` shows no generated-file
 changes (the `gen` workflow enforces this).
 
 #### Behavioral / correctness (need a design decision)

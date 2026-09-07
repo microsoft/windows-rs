@@ -2,7 +2,7 @@
 //! `gen`-matrix tools it is run by CI and "validates by running": it writes nothing, so the
 //! tree stays clean, and any inconsistency in how libclang is pinned fails the run loudly.
 //!
-//! The metadata scrapers (`tool_win32`/`tool_winrt`/`tool_webview`) all parse with
+//! The metadata scrapers (`tool-win32`/`tool-winrt`/`tool-webview`) all parse with
 //! the pinned libclang, so a drift between the loaded `libclang.dll` and the clang builtin
 //! resource headers would silently change the generated metadata. Both are keyed off the single
 //! `LIBCLANG_VERSION` const (the NuGet DLL by version, the headers by the derived `llvmorg-<ver>`
@@ -13,7 +13,7 @@ use std::path::Path;
 use windows_clang::LIBCLANG_VERSION;
 
 fn main() {
-    // `tool_clang path` prints the directory holding the pinned `libclang.dll` (respecting an
+    // `tool-clang path` prints the directory holding the pinned `libclang.dll` (respecting an
     // existing `LIBCLANG_PATH`). CI's `test.yml` captures it into `LIBCLANG_PATH` for the
     // `test_clang` suite, so the multithreaded test runner never calls the unsafe `set_var`.
     if std::env::args().nth(1).as_deref() == Some("path") {

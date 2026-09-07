@@ -51,7 +51,7 @@ For a reusable library, keep generation separate from normal consumer builds:
 4. Review and commit the generated file with the library.
 5. Run that tool in CI and reject a generated diff.
 
-The repository's `tool_bindings` follows this workflow. It reads command files from
+The repository's `tool-bindings` follows this workflow. It reads command files from
 `crates/tools/bindings/src/*.txt` and rewrites each library's committed `bindings.rs`.
 `crates/samples/bindgen/vss_backup/build.rs` shows the alternative for an application: generate a
 flat file in `OUT_DIR`, include it as a private module, and let each build recreate it.
@@ -141,8 +141,8 @@ still provide both ABI accessors.
 - `crates/samples/bindgen/context_alignment` generates a flat sys binding for `CONTEXT`.
 - `crates/samples/robot/component` compiles custom RDL and generates implementation support.
 - `crates/samples/robot/client` combines custom and default metadata for a WinRT client.
-- `tool_package` uses package mode for the published `windows` and `windows-sys` crates.
-- `tool_webview` demonstrates the complete header -> RDL -> winmd -> Rust pipeline.
+- `tool-package` uses package mode for the published `windows` and `windows-sys` crates.
+- `tool-webview` demonstrates the complete header -> RDL -> winmd -> Rust pipeline.
 
 ---
 
@@ -155,7 +155,7 @@ is **not needed to use `windows-bindgen`**.
 
 `windows-bindgen` is hand-written. It reads ECMA-335 metadata through
 [`windows-metadata`](windows-metadata.md), while [`windows-default`](windows-default.md) supplies
-the bundled inputs. `tool_bindings` generates focused library files and `tool_package` generates
+the bundled inputs. `tool-bindings` generates focused library files and `tool-package` generates
 the published `windows` and `windows-sys` packages.
 
 ### Output policies
@@ -259,7 +259,7 @@ A parent remains when it or any child still contains output.
 ### Determinism and testing
 
 Generation sorts metadata-driven maps and formats output before writing. The generator must remain
-output-neutral unless a projection change is intended. Run the owning `tool_*` generators after a
+output-neutral unless a projection change is intended. Run the owning `tool-*` generators after a
 bindgen change and inspect all generated diffs.
 
 `test_bindgen` covers filter closure, styles, layouts, methods, buffers, returns, implementation

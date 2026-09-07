@@ -43,7 +43,7 @@ fn main() {
         .write();
 
     println!(
-        "tool_composition: generated system + lifted bindings in {:.2}s",
+        "tool-composition: generated system + lifted bindings in {:.2}s",
         time.elapsed().as_secs_f32()
     );
 }

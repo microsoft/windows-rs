@@ -93,14 +93,14 @@ fn assert_reactor_setup_pins() {
     assert_eq!(
         setup_webview2, tool_webview2,
         "WebView2 pin drift: `windows-reactor-setup` stages `{setup_webview2}` but \
-         `tool_webview` generates from `{tool_webview2}`. Update `WEBVIEW2_VER` in \
+         `tool-webview` generates from `{tool_webview2}`. Update `WEBVIEW2_VER` in \
          {REACTOR_SETUP} and `WEBVIEW2_VERSION` in {WEBVIEW_TOOL} together."
     );
 
     let runtime_ver = ::helpers::read_str_const(workspace_path(REACTOR_SETUP), "RUNTIME_VER");
     assert_eq!(
         runtime_ver, WINDOWS_APP_SDK_VERSION,
-        "Windows App SDK pin drift: `tool_reactor` generates from \
+        "Windows App SDK pin drift: `tool-reactor` generates from \
          `{WINDOWS_APP_SDK_VERSION}` but `windows-reactor-setup` stages `{runtime_ver}`. Update \
          `WINDOWS_APP_SDK_VERSION` in this tool and `RUNTIME_VER` in {REACTOR_SETUP} together."
     );

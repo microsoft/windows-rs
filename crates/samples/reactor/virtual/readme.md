@@ -15,14 +15,14 @@ static labels. It includes:
 Run it with:
 
 ```powershell
-cargo run -p sample_reactor_virtual
+cargo run -p sample-reactor-virtual
 ```
 
 The same component model has a feature-gated `RecordingRuntime` performance driver. Run it in
 release mode:
 
 ```powershell
-cargo run -p sample_reactor_virtual --bin reactor-virtual-perf `
+cargo run -p sample-reactor-virtual --bin reactor-virtual-perf `
     --features perf --release -- --samples 500
 ```
 
@@ -35,9 +35,9 @@ tasks. It does not include WinUI control work, layout, rendering, or presentatio
 The live driver adds `CompositionTarget::Rendering` frame intervals and host/native phase timing:
 
 ```powershell
-cargo run -p sample_reactor_virtual --bin reactor-virtual-live-perf `
+cargo run -p sample-reactor-virtual --bin reactor-virtual-live-perf `
     --features perf --release -- --samples 300
-cargo run -p sample_reactor_virtual --bin reactor-virtual-live-perf `
+cargo run -p sample-reactor-virtual --bin reactor-virtual-live-perf `
     --features perf --release -- --baseline --samples 300
 ```
 

@@ -50,8 +50,8 @@ function Invoke-Build([string]$label, [scriptblock]$step) {
 $cw2Bin = Join-Path $cswinrt2 'bin/x64/Release/net10.0-windows10.0.19041.0'
 
 $consumers = @(
-    @{ Name = 'cppwinrt'; Exe = (Join-Path $releaseDir 'test_bench_cpp.exe') },
-    @{ Name = 'windows-rs'; Exe = (Join-Path $releaseDir 'test_bench_rust.exe') },
+    @{ Name = 'cppwinrt'; Exe = (Join-Path $releaseDir 'test-bench-cpp.exe') },
+    @{ Name = 'windows-rs'; Exe = (Join-Path $releaseDir 'test-bench-rust.exe') },
     @{ Name = 'cswinrt 2'; Exe = (Join-Path $cw2Bin 'test_bench_cswinrt2.exe') }
 )
 
@@ -64,7 +64,7 @@ Invoke-Build 'Building Rust component (release)...' {
     cargo build --release --manifest-path "$root/Cargo.toml" -p test_bench_component
 }
 Invoke-Build 'Building Rust and C++ consumers (release)...' {
-    cargo build --release --manifest-path "$root/Cargo.toml" -p test_bench_rust -p test_bench_cpp
+    cargo build --release --manifest-path "$root/Cargo.toml" -p test-bench-rust -p test-bench-cpp
 }
 Invoke-Build 'Building cswinrt 2 consumer (dotnet)...' { dotnet build $cswinrt2 -c Release }
 

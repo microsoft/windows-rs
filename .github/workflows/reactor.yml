@@ -19,7 +19,7 @@ env:
 
 jobs:
   selftest:
-    name: cargo run -p test_reactor_selftest
+    name: cargo run -p test-reactor-selftest
     runs-on: windows-2025-vs2026
     timeout-minutes: 60
     steps:
@@ -40,28 +40,28 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          cargo test -p windows-reactor -p tool_reactor `
-            -p test_reactor -p sample_reactor_virtual `
-            -p sample_reactor_navigation -p sample_reactor_gallery --quiet
-          cargo check -p test_reactor_bench `
-            -p sample_reactor_counter -p sample_reactor_controlled `
-            -p sample_reactor_form -p sample_reactor_apps `
-            -p sample_reactor_composition -p sample_reactor_framework_dependent `
-            -p sample_reactor_self_contained -p sample_reactor_startup_perf `
-            -p sample_reactor_webview --all-targets --quiet
+          cargo test -p windows-reactor -p tool-reactor `
+            -p test_reactor -p sample-reactor-virtual `
+            -p sample-reactor-navigation -p sample-reactor-gallery --quiet
+          cargo check -p test-reactor-bench `
+            -p sample_reactor_counter -p sample-reactor-controlled `
+            -p sample-reactor-form -p sample_reactor_apps `
+            -p sample_reactor_composition -p sample-reactor-framework-dependent `
+            -p sample-reactor-self-contained -p sample-reactor-startup-perf `
+            -p sample-reactor-webview --all-targets --quiet
           cargo check -p sample_reactor_controls --examples --quiet
-          cargo check -p sample_reactor_virtual --features perf --all-targets --quiet
+          cargo check -p sample-reactor-virtual --features perf --all-targets --quiet
           cargo check -p windows-canvas --no-default-features `
             --features reactor --all-targets --quiet
           cargo check -p windows-composition --no-default-features `
             --features reactor --all-targets --quiet
           cargo check -p windows-webview --no-default-features `
             --features reactor --all-targets --quiet
-          cargo check -p canvas_chart -p canvas_circles -p canvas_clock `
-            -p canvas_editor -p canvas_hit_test -p canvas_image_source `
-            -p canvas_samples -p canvas_shared_device -p canvas_text_layout `
+          cargo check -p canvas-chart -p canvas-circles -p canvas-clock `
+            -p canvas-editor -p canvas-hit-test -p canvas-image-source `
+            -p canvas_samples -p canvas-shared-device -p canvas-text-layout `
             --all-targets --quiet
-          cargo clippy -p sample_reactor_virtual --features perf `
+          cargo clippy -p sample-reactor-virtual --features perf `
             --all-targets --quiet
           cargo clippy -p windows-canvas --no-default-features `
             --features reactor --all-targets --quiet
@@ -69,7 +69,7 @@ jobs:
             --features reactor --all-targets --quiet
           cargo clippy -p windows-webview --no-default-features `
             --features reactor --all-targets --quiet
-          cargo build -p test_reactor_selftest -p test_reactor_surface --quiet
+          cargo build -p test-reactor-selftest -p test-reactor-surface --quiet
 
       - name: Generated output
         shell: pwsh
@@ -78,8 +78,8 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          cargo run -p tool_reactor --quiet
-          cargo run -p tool_reactor --quiet
+          cargo run -p tool-reactor --quiet
+          cargo run -p tool-reactor --quiet
           $status = git status --porcelain --untracked-files=all
           if ($status) {
             $status | Write-Output
@@ -115,9 +115,9 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          cargo run -p test_reactor_selftest --features self-contained `
+          cargo run -p test-reactor-selftest --features self-contained `
             --quiet -- --headless
-          cargo run -p test_reactor_surface --features self-contained `
+          cargo run -p test-reactor-surface --features self-contained `
             --quiet -- --headless
 
       - name: Install Windows App Runtime
@@ -141,8 +141,8 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          cargo run -p test_reactor_selftest --quiet -- --headless
-          cargo run -p test_reactor_surface --quiet -- --headless
+          cargo run -p test-reactor-selftest --quiet -- --headless
+          cargo run -p test-reactor-surface --quiet -- --headless
 
   reconciler-quality:
     name: reconciler coverage and performance
@@ -223,20 +223,20 @@ jobs:
           $PSNativeCommandUseErrorActionPreference = $true
           $outputDirectory = "target\reactor-performance"
           New-Item -ItemType Directory -Force -Path $outputDirectory | Out-Null
-          cargo run -p test_reactor_bench --bin reactor-live-grid `
+          cargo run -p test-reactor-bench --bin reactor-live-grid `
             --release --quiet -- --headless --percent 10 --duration 10 --churn-count 0 |
             Tee-Object -FilePath "$outputDirectory\live-grid-update.json"
-          cargo run -p test_reactor_bench --bin reactor-live-grid `
+          cargo run -p test-reactor-bench --bin reactor-live-grid `
             --release --quiet -- --headless --percent 10 --duration 10 --churn-count 400 |
             Tee-Object -FilePath "$outputDirectory\live-grid-churn.json"
-          cargo run -p sample_reactor_virtual --bin reactor-virtual-perf `
+          cargo run -p sample-reactor-virtual --bin reactor-virtual-perf `
             --features perf --release --quiet |
             Tee-Object -FilePath "$outputDirectory\virtual-recording.txt"
-          cargo run -p sample_reactor_virtual --bin reactor-virtual-live-perf `
+          cargo run -p sample-reactor-virtual --bin reactor-virtual-live-perf `
             --features perf --release --quiet -- --samples 300 --baseline
           Copy-Item target\release\reactor-virtual-live-baseline.txt `
             "$outputDirectory\virtual-live-baseline.txt"
-          cargo run -p sample_reactor_virtual --bin reactor-virtual-live-perf `
+          cargo run -p sample-reactor-virtual --bin reactor-virtual-live-perf `
             --features perf --release --quiet -- --samples 300
           Copy-Item target\release\reactor-virtual-live-perf.txt `
             "$outputDirectory\virtual-live-active.txt"

@@ -136,7 +136,7 @@ fn duplicate_typedef_ignores_excluded_owner() {
     );
 }
 
-// `tool_win32` uses this path to exclude `intsafe.h` from metadata.
+// `tool-win32` uses this path to exclude `intsafe.h` from metadata.
 #[test]
 fn exclude_headers_drops_partition() {
     let _guard = test_clang::libclang_guard();

@@ -315,7 +315,7 @@ Raw HWND controller methods remain available without either host feature.
 
 ### Binding generation
 
-WebView2 ships C/C++ headers rather than Windows metadata. `tool_webview` builds the committed
+WebView2 ships C/C++ headers rather than Windows metadata. `tool-webview` builds the committed
 bindings in three stages:
 
 | Stage | Implementation | Output |
@@ -328,7 +328,7 @@ The tool downloads the pinned `Microsoft.Web.WebView2` NuGet package. It parses 
 `WebView2Interop.h` as separate inputs because the collector emits declarations owned by each
 input, then merges both translation units. It uses `Windows.Win32.winmd` for referenced Win32
 types and targets `x86_64-pc-windows-msvc` with Microsoft extensions. Regenerate with
-`cargo run -p tool_webview`; never edit `src/bindings.rs`.
+`cargo run -p tool-webview`; never edit `src/bindings.rs`.
 
 Bindings use `--flat --minimal` and the filter in `crates/tools/webview/src/webview.txt`. Filter
 method names are raw metadata names such as `put_Bounds` and `get_CoreWebView2`, not projected
