@@ -46,7 +46,7 @@ samples for a published release, use its tag - for example
 | Crate | Sample | Run |
 | --- | --- | --- |
 | [windows-reactor](../../docs/crates/windows-reactor.md) | `sample_reactor_controls` - focused WinUI and component examples | `cargo run -p sample_reactor_controls --example <name>` |
-| | `sample_reactor_apps` - complete apps: dotsweeper, minesweeper, notepad, solitaire, tictactoe | `cargo run -p sample_reactor_apps --example <name>` |
+| | `sample_reactor_apps` - complete apps: dotsweeper, minesweeper, notepad, solitaire, stacker, tictactoe | `cargo run -p sample_reactor_apps --example <name>` |
 | | `sample_reactor_gallery` / `sample_reactor_composition` / `sample_reactor_webview` / `sample_reactor_self_contained` / `sample_reactor_framework_dependent` | `cargo run -p <crate>` |
 | | `sample_reactor_controlled` / `sample_reactor_counter` / `sample_reactor_form` / `sample_reactor_navigation` / `sample_reactor_virtual` | `cargo run -p <crate>` |
 | | `sample_reactor_startup_perf` - blank app demonstrating startup TraceLogging events | `cargo run -p sample_reactor_startup_perf --release` |

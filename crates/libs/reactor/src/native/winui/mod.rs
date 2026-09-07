@@ -1267,6 +1267,13 @@ impl WinUiRuntime {
             let value = KeyboardAccelerator::new().map_err(native_error)?;
             value
                 .SetKey(match accelerator.key {
+                    AcceleratorKey::Left => VirtualKey::Left,
+                    AcceleratorKey::Up => VirtualKey::Up,
+                    AcceleratorKey::Right => VirtualKey::Right,
+                    AcceleratorKey::Down => VirtualKey::Down,
+                    AcceleratorKey::Space => VirtualKey::Space,
+                    AcceleratorKey::N => VirtualKey::N,
+                    AcceleratorKey::P => VirtualKey::P,
                     AcceleratorKey::R => VirtualKey::R,
                     AcceleratorKey::NumberPad0 => VirtualKey::NumberPad0,
                     AcceleratorKey::NumberPad1 => VirtualKey::NumberPad1,

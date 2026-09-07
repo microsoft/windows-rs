@@ -20,6 +20,11 @@ Use Composition when the scene is primarily a retained tree of visuals that Wind
 composes. Use Canvas when the app draws pixels and paths for each requested frame. The two can be
 combined by drawing Canvas content into a composition surface.
 
+Canvas is host-neutral by default. Enable `system` for the typed `windows-window` swap-chain helper
+and system Composition, or `reactor` for Reactor controls and lifted Composition. Enable
+`composition` with the selected host to draw into Composition surfaces. The host adapters can
+coexist when `composition` is not enabled; the Composition backends cannot.
+
 ## The basic idea
 
 Canvas is an immediate-mode drawing API. The application receives a drawing session and describes
@@ -37,7 +42,7 @@ The simplest host is Reactor. It creates the graphics device and swap chain, tra
 scale, and handles device recovery. Enable the feature in `Cargo.toml`:
 
 ```toml
-windows-canvas = { version = "0.100.0", features = ["reactor"] }
+windows-canvas = { version = "0.100.0", default-features = false, features = ["reactor"] }
 windows-reactor = "0.100.0"
 ```
 
@@ -315,6 +320,10 @@ The Reactor integration lives behind this crate's `reactor` feature. The depende
 typed panel metrics, rendering notifications, and attachment completion through
 `ElementRef<SwapChainPanel>`.
 
+The `system` feature enables `windows-window` and `GpuDevice::create_swap_chain_for_window`.
+Reactor-only builds do not compile `windows-window`; raw `create_swap_chain_for_hwnd` remains
+available without either host.
+
 Continuous mode uses WinUI's `CompositionTarget::Rendering`. Demand mode stays idle until layout,
 scale, or `Invalidator` requests a frame. Attachment attempts use generations so stale completion
 callbacks cannot ready a replacement surface. `Canvas::on_error` reports initialization,
@@ -324,6 +333,10 @@ attachment, resize, drawing, presentation, and failed recovery through `Integrat
 `CanvasCompositionExt` uses a borrowed drawing session over
 `ICompositionDrawingSurfaceInterop`. Both pair every successful `BeginDraw` with `EndDraw`,
 including panic cleanup.
+
+If a composition-surface draw reports device loss, create a replacement `GpuDevice`, call
+`GpuDevice::replace_graphics_device` to rebind the existing `CompositionGraphicsDevice`, and retry
+the draw. The Composition surfaces and visuals remain in place during recovery.
 
 ### Code generation
 
@@ -345,4 +358,5 @@ cargo test -p test_canvas
 ```
 
 Reactor integration behavior is also covered by Reactor's recording and live surface tests. The
-Composition Canvas sample covers the system composition bridge in a runnable window.
+Composition Canvas sample covers the system bridge, and the Stacker Reactor sample covers the
+lifted bridge.

@@ -1,4 +1,4 @@
-//! The composition bridge (feature `composition`).
+//! The Composition bridge for the selected `system` or `reactor` stack.
 //!
 //! Draw Direct2D content into a `windows-composition` [`CompositionDrawingSurface`].
 //!
@@ -38,14 +38,21 @@ impl GpuDevice {
     ) -> Result<CompositionGraphicsDevice> {
         compositor.create_graphics_device(self.d2d_device())
     }
+
+    /// Rebinds an existing Composition graphics device after Canvas device loss.
+    pub fn replace_graphics_device(&self, graphics: &CompositionGraphicsDevice) -> Result<()> {
+        graphics.set_rendering_device(self.d2d_device())
+    }
 }
 
 /// Extends [`CompositionDrawingSurface`] with Direct2D drawing.
 pub trait CanvasCompositionExt {
     /// Redraws the surface: runs `f` to draw, then presents.
     ///
-    /// Returns `Ok(false)` if the GPU device was lost and the surface must be
-    /// recreated.
+    /// Returns `Ok(false)` if the GPU device was lost. Create a replacement
+    /// [`GpuDevice`], call [`GpuDevice::replace_graphics_device`], and retry
+    /// drawing. The Composition surface and the visual tree that uses it remain
+    /// valid.
     fn draw(&self, f: impl FnOnce(&DrawingSession<'_>) -> Result<()>) -> Result<bool>;
 }
 

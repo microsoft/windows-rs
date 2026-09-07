@@ -21,13 +21,13 @@ pub struct CompositionColorBrush(pub(crate) bindings::CompositionColorBrush);
 
 impl CompositionColorBrush {
     /// Sets the brush's color.
-    pub fn set_color(&self, color: Color) {
+    pub fn set_color(&self, color: CompositionColor) {
         self.0.SetColor(color.0).unwrap();
     }
 
     /// Returns the brush's color.
-    pub fn color(&self) -> Color {
-        Color(self.0.Color().unwrap())
+    pub fn color(&self) -> CompositionColor {
+        CompositionColor(self.0.Color().unwrap())
     }
 }
 

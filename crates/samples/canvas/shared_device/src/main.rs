@@ -45,11 +45,10 @@ impl Component for Sample {
 
         let image = self.images[0].clone();
         let sender = context.sender();
-        context.use_effect("image-scale", (), move || {
-            let observation = image.observe_rasterization_scale(move |scale| {
+        context.use_effect_guard("image-scale", (), move || {
+            image.observe_rasterization_scale(move |scale| {
                 sender.send(scale);
-            });
-            Some(Box::new(move || drop(observation)))
+            })
         });
 
         let graphics = Rc::clone(&self.graphics);

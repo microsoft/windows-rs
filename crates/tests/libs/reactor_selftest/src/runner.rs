@@ -6,7 +6,7 @@ use windows_reactor::*;
 use crate::fixtures::{
     CompositionLifecycle, EncodedImageLifecycle, FixtureInput, FixtureResult, FocusPublication,
     ImageSourceLifecycle, KeyedNativeMutations, PointerInjection, ProbeFixture, ProbeInput,
-    SwapChainLifecycle, ThemeResources, WindowLifecycle,
+    SwapChainLifecycle, ThemeResources, TimerLifecycle, WindowLifecycle,
 };
 
 const FIXTURE_TIMEOUT: Duration = Duration::from_secs(15);
@@ -24,6 +24,7 @@ enum FixtureKind {
     EncodedImageLifecycle,
     ImageSourceLifecycle,
     CompositionLifecycle,
+    TimerLifecycle,
     SwapChainLifecycle,
     ThemeResources,
     PointerInjection,
@@ -71,6 +72,10 @@ const FIXTURES: &[Fixture] = &[
     Fixture {
         name: "Composition_AttachReplaceClearRetire",
         kind: FixtureKind::CompositionLifecycle,
+    },
+    Fixture {
+        name: "Timer_FireCancelAndDrop",
+        kind: FixtureKind::TimerLifecycle,
     },
     Fixture {
         name: "SwapChain_MetricsRenderClearRetire",
@@ -223,6 +228,7 @@ impl Component for FixtureRunner {
             Some(FixtureKind::CompositionLifecycle) => {
                 View::component::<CompositionLifecycle>(input)
             }
+            Some(FixtureKind::TimerLifecycle) => View::component::<TimerLifecycle>(input),
             Some(FixtureKind::SwapChainLifecycle) => View::component::<SwapChainLifecycle>(input),
             Some(FixtureKind::ThemeResources) => View::component::<ThemeResources>(input),
             Some(FixtureKind::PointerInjection) => View::component::<PointerInjection>(input),

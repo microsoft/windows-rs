@@ -34,6 +34,11 @@ pub struct CompositionEasingFunction(pub(crate) bindings::CompositionEasingFunct
 pub struct ScalarKeyFrameAnimation(pub(crate) bindings::ScalarKeyFrameAnimation);
 
 impl ScalarKeyFrameAnimation {
+    /// Inserts a key frame at `progress` (in `0.0..=1.0`) with the given value.
+    pub fn insert_key_frame(&self, progress: f32, value: f32) {
+        self.0.InsertKeyFrame(progress, value).unwrap();
+    }
+
     /// Inserts a key frame at `progress` (in `0.0..=1.0`) that eases to `value`
     /// along `easing`.
     pub fn insert_key_frame_with_easing(

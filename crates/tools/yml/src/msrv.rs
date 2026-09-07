@@ -36,14 +36,26 @@ pub fn yml() {
             }
 
             if name == "windows-composition" {
-                // The `system` and `reactor` stacks are mutually exclusive, so
-                // `--all-features` won't compile; check each stack on its own.
+                // The stacks are mutually exclusive, so check each one alone.
                 writeln!(
                     yml,
                     r"      - name: Check {name}
         run:  cargo check -p {name}
       - name: Check {name} (reactor)
         run:  cargo check -p {name} --no-default-features --features reactor"
+                )
+                .unwrap();
+                continue;
+            }
+
+            if name == "windows-canvas" {
+                // Canvas selects mutually exclusive system and Reactor stacks.
+                writeln!(
+                    yml,
+                    r"      - name: Check {name}
+        run:  cargo check -p {name} --features composition,system
+      - name: Check {name} (reactor composition)
+        run:  cargo check -p {name} --no-default-features --features composition,reactor"
                 )
                 .unwrap();
                 continue;

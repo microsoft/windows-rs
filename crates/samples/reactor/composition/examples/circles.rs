@@ -4,7 +4,7 @@ use std::cell::RefCell;
 use std::f32::consts::TAU;
 use std::rc::Rc;
 use std::time::Duration;
-use windows_composition::{Color, Compositor, ContainerVisual, SpriteVisual};
+use windows_composition::{CompositionColor, Compositor, ContainerVisual, SpriteVisual};
 use windows_core::Result;
 use windows_numerics::Vector3;
 use windows_reactor::*;
@@ -30,7 +30,7 @@ impl Scene {
     ) -> Result<Self> {
         let compositor = Compositor::from_host(compositor)?;
         let root = compositor.create_container_visual();
-        let _ = host.request_set_child_visual(Some(root.as_raw().into()), |_| {});
+        let _ = host.request_set_child_visual(Some(root.host_visual()), |_| {});
         Ok(Self {
             compositor,
             root,
@@ -121,7 +121,7 @@ impl Scene {
     }
 }
 
-fn ring_color(i: usize, count: usize) -> Color {
+fn ring_color(i: usize, count: usize) -> CompositionColor {
     let hue = i as f32 / count.max(1) as f32 * 6.0;
     let x = (255.0 * (1.0 - (hue % 2.0 - 1.0).abs())) as u8;
     let (r, g, b) = match hue as u32 {
@@ -132,7 +132,7 @@ fn ring_color(i: usize, count: usize) -> Color {
         4 => (x, 0, 255),
         _ => (255, 0, x),
     };
-    Color::rgb(r, g, b)
+    CompositionColor::rgb(r, g, b)
 }
 
 struct Sample {
@@ -181,9 +181,9 @@ impl Component for Sample {
 
         let host = self.host.clone();
         let scene = Rc::clone(&self.scene);
-        context.use_effect("composition-host", (), move || {
+        context.use_effect_guard("composition-host", (), move || {
             let event_host = host.clone();
-            let observation = host.observe_composition_host(move |event| match event {
+            host.observe_composition_host(move |event| match event {
                 CompositionHostEvent::Ready {
                     compositor,
                     width,
@@ -201,8 +201,7 @@ impl Component for Sample {
                         scene.resize(width as f32, height as f32).unwrap();
                     }
                 }
-            });
-            Some(Box::new(move || drop(observation)))
+            })
         });
 
         Grid::new()

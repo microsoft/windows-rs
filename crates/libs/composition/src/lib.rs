@@ -1,6 +1,6 @@
 #![doc = include_str!("../readme.md")]
 
-// `system` and `reactor` select compatible generated bindings for the same
+// `system` and `reactor` select incompatible generated bindings for the same
 // handwritten wrappers.
 #[cfg(all(not(feature = "system"), not(feature = "reactor")))]
 compile_error!(
@@ -8,10 +8,10 @@ compile_error!(
 );
 #[cfg(all(feature = "system", feature = "reactor"))]
 compile_error!(
-    "the `system` and `reactor` composition stacks are mutually exclusive; enable only one"
+    "the `system` and `reactor` composition stacks are mutually exclusive; disable default features when selecting `reactor`"
 );
 
-#[cfg(feature = "system")]
+#[cfg(all(feature = "system", not(feature = "reactor")))]
 #[allow(
     non_snake_case,
     non_upper_case_globals,
@@ -40,11 +40,10 @@ mod visual;
 
 // Only system composition hosts an HWND directly. Lifted composition is hosted
 // in a WinUI element.
-#[cfg(feature = "system")]
+#[cfg(all(feature = "system", not(feature = "reactor")))]
 mod stack;
-#[cfg(feature = "system")]
 mod surface;
-#[cfg(feature = "system")]
+#[cfg(all(feature = "system", not(feature = "reactor")))]
 mod target;
 
 mod sealed {
@@ -64,19 +63,21 @@ pub use animation::{
 };
 pub use batch::{BatchKind, CompositionScopedBatch};
 pub use brush::{Brush, CompositionBrush, CompositionColorBrush, CompositionNineGridBrush};
-pub use color::Color;
+pub use color::CompositionColor;
 pub use compositor::Compositor;
 pub use shape::{
-    CompositionContainerShape, CompositionEllipseGeometry, CompositionGeometry, CompositionShape,
-    CompositionShapeCollection, CompositionSpriteShape, Shape, ShapeVisual,
+    CompositionContainerShape, CompositionEllipseGeometry, CompositionGeometry,
+    CompositionRoundedRectangleGeometry, CompositionShape, CompositionShapeCollection,
+    CompositionSpriteShape, Geometry, Shape, ShapeVisual,
 };
 pub use visual::{BorderMode, ContainerVisual, SpriteVisual, Visual, VisualCollection};
 
-#[cfg(feature = "system")]
+#[cfg(all(feature = "system", not(feature = "reactor")))]
 pub use stack::DispatcherQueueController;
-#[cfg(feature = "system")]
-pub use surface::{CompositionDrawingSurface, CompositionGraphicsDevice, CompositionSurfaceBrush};
-#[cfg(feature = "system")]
+pub use surface::{
+    CompositionDrawingSurface, CompositionGraphicsDevice, CompositionSurfaceBrush, SurfaceStretch,
+};
+#[cfg(all(feature = "system", not(feature = "reactor")))]
 pub use target::DesktopWindowTarget;
 
 pub use windows_core::Result;

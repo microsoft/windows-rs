@@ -5,8 +5,11 @@ pub enum windows_reactor::AcceleratorKey
 pub windows_reactor::AcceleratorKey::Add
 pub windows_reactor::AcceleratorKey::Decimal
 pub windows_reactor::AcceleratorKey::Divide
+pub windows_reactor::AcceleratorKey::Down
 pub windows_reactor::AcceleratorKey::Enter
+pub windows_reactor::AcceleratorKey::Left
 pub windows_reactor::AcceleratorKey::Multiply
+pub windows_reactor::AcceleratorKey::N
 pub windows_reactor::AcceleratorKey::NumberPad0
 pub windows_reactor::AcceleratorKey::NumberPad1
 pub windows_reactor::AcceleratorKey::NumberPad2
@@ -17,8 +20,12 @@ pub windows_reactor::AcceleratorKey::NumberPad6
 pub windows_reactor::AcceleratorKey::NumberPad7
 pub windows_reactor::AcceleratorKey::NumberPad8
 pub windows_reactor::AcceleratorKey::NumberPad9
+pub windows_reactor::AcceleratorKey::P
 pub windows_reactor::AcceleratorKey::R
+pub windows_reactor::AcceleratorKey::Right
+pub windows_reactor::AcceleratorKey::Space
 pub windows_reactor::AcceleratorKey::Subtract
+pub windows_reactor::AcceleratorKey::Up
 pub enum windows_reactor::AcceleratorModifiers
 pub windows_reactor::AcceleratorModifiers::Control
 pub windows_reactor::AcceleratorModifiers::None
@@ -968,6 +975,7 @@ pub struct windows_reactor::ComponentContext<C: windows_reactor::Component>
 impl<C: windows_reactor::Component> windows_reactor::ComponentContext<C>
 pub fn windows_reactor::ComponentContext<C>::open_window(&self, windows_reactor::View) -> bool
 pub fn windows_reactor::ComponentContext<C>::sender(&self) -> windows_reactor::LocalSender<<C as windows_reactor::Component>::Message>
+pub fn windows_reactor::ComponentContext<C>::set_timeout(&self, core::time::Duration, <C as windows_reactor::Component>::Message) -> windows_result::Result<windows_reactor::ComponentTimer>
 pub fn windows_reactor::ComponentContext<C>::spawn_background<F>(&self, F) -> windows_reactor::ComponentTask where <C as windows_reactor::Component>::Message: core::marker::Send, F: core::ops::function::FnOnce(windows_reactor::CancellationToken) -> <C as windows_reactor::Component>::Message + core::marker::Send + 'static
 pub fn windows_reactor::ComponentContext<C>::spawn_background_with_rejection<F>(&self, F, <C as windows_reactor::Component>::Message) -> windows_reactor::ComponentTask where <C as windows_reactor::Component>::Message: core::marker::Send, F: core::ops::function::FnOnce(windows_reactor::CancellationToken) -> <C as windows_reactor::Component>::Message + core::marker::Send + 'static
 pub fn windows_reactor::ComponentContext<C>::window(&self) -> windows_reactor::WindowRef
@@ -978,6 +986,13 @@ pub fn windows_reactor::ComponentTask::is_cancelled(&self) -> bool
 pub fn windows_reactor::ComponentTask::status(&self) -> windows_reactor::ComponentTaskStatus
 impl core::fmt::Debug for windows_reactor::ComponentTask
 pub fn windows_reactor::ComponentTask::fmt(&self, &mut core::fmt::Formatter<'_>) -> core::fmt::Result
+pub struct windows_reactor::ComponentTimer
+impl windows_reactor::ComponentTimer
+pub fn windows_reactor::ComponentTimer::cancel(&self)
+impl core::fmt::Debug for windows_reactor::ComponentTimer
+pub fn windows_reactor::ComponentTimer::fmt(&self, &mut core::fmt::Formatter<'_>) -> core::fmt::Result
+impl core::ops::drop::Drop for windows_reactor::ComponentTimer
+pub fn windows_reactor::ComponentTimer::drop(&mut self)
 pub struct windows_reactor::ContentDialog
 impl windows_reactor::ContentDialog
 pub fn windows_reactor::ContentDialog::close_button_text(self, impl core::convert::Into<alloc::string::String>) -> Self
@@ -2948,6 +2963,7 @@ pub fn windows_reactor::ViewContext<C>::on_window_size(&mut self, impl windows_r
 pub fn windows_reactor::ViewContext<C>::sender(&self) -> windows_reactor::LocalSender<<C as windows_reactor::Component>::Message>
 pub fn windows_reactor::ViewContext<C>::use_context<T: core::clone::Clone + 'static>(&mut self, &windows_reactor::Context<T>) -> T
 pub fn windows_reactor::ViewContext<C>::use_effect<D>(&mut self, impl core::convert::Into<windows_reactor::EffectKey>, D, impl core::ops::function::FnOnce() -> core::option::Option<alloc::boxed::Box<dyn core::ops::function::FnOnce()>> + 'static) where D: core::cmp::PartialEq + 'static
+pub fn windows_reactor::ViewContext<C>::use_effect_guard<D, G>(&mut self, impl core::convert::Into<windows_reactor::EffectKey>, D, impl core::ops::function::FnOnce() -> G + 'static) where D: core::cmp::PartialEq + 'static, G: 'static
 pub fn windows_reactor::ViewContext<C>::window_title(&mut self, impl core::convert::Into<alloc::string::String>)
 pub fn windows_reactor::ViewContext<C>::window_visuals(&mut self, windows_reactor::WindowVisuals)
 pub struct windows_reactor::Viewbox

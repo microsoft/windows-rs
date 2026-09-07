@@ -1,18 +1,19 @@
 // Filter for windows-composition's bindings (Windows.UI.Composition, the SYSTEM
 // stack). tool_composition generates two modules from this single filter:
 //
-//   * bindings.rs        — the system stack, verbatim from this filter.
-//   * bindings_lifted.rs — the lifted Microsoft.UI.Composition stack, derived by
+//   * bindings.rs        - the system stack, verbatim from this filter.
+//   * bindings_lifted.rs - the lifted Microsoft.UI.Composition stack, derived by
 //                          dropping every `// region: system-only` block and
-//                          rewriting `Windows.UI.Composition.` to
-//                          `Microsoft.UI.Composition.`.
+//                          rewriting the Composition, DirectX, and native interop
+//                          names to their Microsoft equivalents.
 //
-// One filter is the single source of truth for both stacks; the wrapper source
-// (visual.rs, shape.rs, ...) is compiled against whichever module the crate's
-// features select (see docs/crates/windows-composition.md). Prune or extend the
-// safe surface by editing this file, then re-run cargo run -p tool_composition.
+// The lifted build also reads the interop metadata generated from interop.rdl.
+// One filter defines both stacks; the wrapper source (visual.rs, shape.rs, ...)
+// is compiled against whichever module the crate's features select (see
+// docs/crates/windows-composition.md). Prune or extend the safe surface by
+// editing this file, then re-run cargo run -p tool_composition.
 //
-// The system stack — unlike lifted Microsoft.UI.Composition — can host a visual
+// The system stack - unlike lifted Microsoft.UI.Composition - can host a visual
 // tree directly in an HWND via ICompositorDesktopInterop::CreateDesktopWindowTarget,
 // with no WinUI / Windows App SDK dependency. Those standalone-hosting entries are
 // marked `// region: system-only` and excluded from the lifted surface.
@@ -25,7 +26,7 @@ Windows.UI.Composition.Compositor::CreateInstance
 // endregion
 Windows.UI.Composition.ICompositor::{CreateContainerVisual, CreateSpriteVisual, CreateColorBrushWithColor, CreateScopedBatch, CreateScalarKeyFrameAnimation, CreateVector3KeyFrameAnimation, CreateLinearEasingFunction, CreateCubicBezierEasingFunction}
 Windows.UI.Composition.ICompositor2::{CreateAnimationGroup, CreateNineGridBrush, CreateImplicitAnimationCollection}
-Windows.UI.Composition.ICompositor5::{CreateShapeVisual, CreateSpriteShapeWithGeometry, CreateContainerShape, CreateEllipseGeometry}
+Windows.UI.Composition.ICompositor5::{CreateShapeVisual, CreateSpriteShapeWithGeometry, CreateContainerShape, CreateEllipseGeometry, CreateRoundedRectangleGeometry}
 
 Windows.UI.Composition.CompositionObject
 Windows.UI.Composition.ICompositionObject::{get_Compositor, StartAnimation}
@@ -77,6 +78,8 @@ Windows.UI.Composition.ICompositionContainerShape::{get_Shapes}
 Windows.UI.Composition.CompositionGeometry
 Windows.UI.Composition.CompositionEllipseGeometry
 Windows.UI.Composition.ICompositionEllipseGeometry::{put_Radius}
+Windows.UI.Composition.CompositionRoundedRectangleGeometry
+Windows.UI.Composition.ICompositionRoundedRectangleGeometry::{put_Size, put_CornerRadius}
 
 // Animations: key-frame animations drive both the reactor transition engine
 // (implicit + explicit property animations, with easing and expression key
@@ -89,7 +92,7 @@ Windows.UI.Composition.ICompositionAnimationGroup::Add
 Windows.UI.Composition.KeyFrameAnimation
 Windows.UI.Composition.IKeyFrameAnimation::{put_Duration, put_DelayTime, put_IterationBehavior, put_IterationCount, InsertExpressionKeyFrameWithEasingFunction}
 Windows.UI.Composition.ScalarKeyFrameAnimation
-Windows.UI.Composition.IScalarKeyFrameAnimation::{InsertKeyFrameWithEasingFunction}
+Windows.UI.Composition.IScalarKeyFrameAnimation::{InsertKeyFrame, InsertKeyFrameWithEasingFunction}
 Windows.UI.Composition.Vector3KeyFrameAnimation
 Windows.UI.Composition.IVector3KeyFrameAnimation::{InsertKeyFrame, InsertKeyFrameWithEasingFunction}
 Windows.UI.Composition.AnimationIterationBehavior
@@ -106,7 +109,7 @@ Windows.UI.Composition.ImplicitAnimationCollection
 
 // Scoped batch: groups the mine animations so completion could be observed.
 Windows.UI.Composition.CompositionScopedBatch
-Windows.UI.Composition.ICompositionScopedBatch::{End}
+Windows.UI.Composition.ICompositionScopedBatch::{End, Completed}
 Windows.UI.Composition.CompositionBatchTypes
 
 // region: system-only
@@ -119,14 +122,13 @@ Windows.UI.Composition.Desktop.DesktopWindowTarget
 Windows.Win32.ICompositorDesktopInterop::{CreateDesktopWindowTarget}
 // endregion
 
-// region: system-only
 // Canvas bridge: draw Direct2D content into a composition surface, then paint a
-// visual with it via a surface brush. The graphics-device and drawing-surface
-// interop (ICompositorInterop / ICompositionDrawingSurfaceInterop) exists only on
-// the system stack — lifted Microsoft.UI.Composition has no D2D-surface interop
-// metadata — so the whole bridge is system-only.
+// visual with it via a surface brush. The generator substitutes the matching
+// native interop interfaces for each composition stack.
 Windows.UI.Composition.ICompositor::{CreateSurfaceBrushWithSurface}
 Windows.UI.Composition.CompositionSurfaceBrush
+Windows.UI.Composition.ICompositionSurfaceBrush::{put_Stretch}
+Windows.UI.Composition.CompositionStretch
 Windows.UI.Composition.CompositionGraphicsDevice
 Windows.UI.Composition.ICompositionGraphicsDevice::{CreateDrawingSurface}
 Windows.UI.Composition.CompositionDrawingSurface
@@ -135,6 +137,6 @@ Windows.Graphics.DirectX.DirectXPixelFormat
 Windows.Graphics.DirectX.DirectXAlphaMode
 Windows.Win32.ICompositorInterop::{CreateGraphicsDevice}
 Windows.Win32.ICompositionDrawingSurfaceInterop::{BeginDraw, EndDraw, Resize}
-// endregion
+Windows.Win32.ICompositionGraphicsDeviceInterop::{SetRenderingDevice}
 
 Windows.UI.Color

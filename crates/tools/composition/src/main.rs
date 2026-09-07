@@ -2,9 +2,11 @@ use std::io::Write;
 use windows_bindgen::builder;
 
 const FILTER: &str = "crates/tools/composition/src/composition.txt";
+const INTEROP_RDL: &str = "crates/tools/composition/src/interop.rdl";
 
 fn main() {
     let time = std::time::Instant::now();
+    let interop = write_interop_winmd();
 
     // System stack: Windows.UI.Composition lives in Windows.winmd; Windows.Win32.winmd
     // supplies ICompositorDesktopInterop and the HWND/BOOL types used to host a visual
@@ -28,7 +30,10 @@ fn main() {
     builder()
         .inputs([
             "crates/tools/reactor/winmd/Microsoft.UI.winmd",
+            "crates/tools/reactor/winmd/Microsoft.Graphics.winmd",
             "crates/libs/default/Windows.winmd",
+            "crates/libs/default/Windows.Win32.winmd",
+            interop.to_str().unwrap(),
         ])
         .output("crates/libs/composition/src/bindings_lifted.rs")
         .minimal()
@@ -63,7 +68,23 @@ fn write_lifted_filter() -> std::path::PathBuf {
         if in_system_only {
             continue;
         }
-        lifted.push_str(&line.replace("Windows.UI.Composition.", "Microsoft.UI.Composition."));
+        lifted.push_str(
+            &line
+                .replace("Windows.UI.Composition.", "Microsoft.UI.Composition.")
+                .replace("Windows.Graphics.DirectX.", "Microsoft.Graphics.DirectX.")
+                .replace(
+                    "Windows.Win32.ICompositorInterop",
+                    "composition_extras.IMicrosoftCompositorInterop",
+                )
+                .replace(
+                    "Windows.Win32.ICompositionDrawingSurfaceInterop",
+                    "composition_extras.IMicrosoftCompositionDrawingSurfaceInterop",
+                )
+                .replace(
+                    "Windows.Win32.ICompositionGraphicsDeviceInterop",
+                    "composition_extras.IMicrosoftCompositionGraphicsDeviceInterop",
+                ),
+        );
         lifted.push('\n');
     }
 
@@ -74,5 +95,16 @@ fn write_lifted_filter() -> std::path::PathBuf {
     let mut file = std::fs::File::create(&path).expect("create lifted filter");
     file.write_all(lifted.as_bytes())
         .expect("write lifted filter");
+    path
+}
+
+fn write_interop_winmd() -> std::path::PathBuf {
+    let path = std::path::Path::new("target").join("tool_composition_interop.winmd");
+    windows_rdl::Reader::new()
+        .input(INTEROP_RDL)
+        .reference_bytes(windows_default::WIN32)
+        .output(&path)
+        .write()
+        .unwrap();
     path
 }

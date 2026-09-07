@@ -2,7 +2,7 @@
 
 use std::cell::RefCell;
 use std::rc::Rc;
-use windows_composition::{Color, Compositor, ContainerVisual, SpriteVisual};
+use windows_composition::{CompositionColor, Compositor, ContainerVisual, SpriteVisual};
 use windows_core::Result;
 use windows_reactor::*;
 
@@ -23,15 +23,15 @@ impl Scene {
 
         let root = compositor.create_container_visual();
         let background = compositor.create_sprite_visual();
-        background.set_brush(&compositor.create_color_brush(Color::rgb(24, 24, 32)));
+        background.set_brush(&compositor.create_color_brush(CompositionColor::rgb(24, 24, 32)));
         root.children().insert_at_bottom(&background);
 
         let square = compositor.create_sprite_visual();
         square.set_size(160.0, 160.0);
-        square.set_brush(&compositor.create_color_brush(Color::rgb(0, 120, 215)));
+        square.set_brush(&compositor.create_color_brush(CompositionColor::rgb(0, 120, 215)));
         root.children().insert_at_top(&square);
 
-        let _ = host.request_set_child_visual(Some(root.as_raw().into()), |result| {
+        let _ = host.request_set_child_visual(Some(root.host_visual()), |result| {
             if let Err(error) = result {
                 eprintln!("failed to attach composition visual: {error:?}");
             }
@@ -75,9 +75,9 @@ impl Component for Sample {
         context.window_title("Composition Host");
         let host = self.host.clone();
         let scene = Rc::clone(&self.scene);
-        context.use_effect("composition-host", (), move || {
+        context.use_effect_guard("composition-host", (), move || {
             let event_host = host.clone();
-            let observation = host.observe_composition_host(move |event| match event {
+            host.observe_composition_host(move |event| match event {
                 CompositionHostEvent::Ready {
                     compositor,
                     width,
@@ -92,8 +92,7 @@ impl Component for Sample {
                         scene.layout(width as f32, height as f32).unwrap();
                     }
                 }
-            });
-            Some(Box::new(move || drop(observation)))
+            })
         });
         Grid::new().element_ref(&self.host).into()
     }

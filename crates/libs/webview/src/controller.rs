@@ -42,8 +42,7 @@ impl Color {
 
 /// Configures a [`Controller`] at creation time - its profile, whether it runs
 /// in private mode, and the color painted before content loads. Build one with
-/// the fluent setters and pass it to
-/// [`Environment::create_controller_with_options`].
+/// the fluent setters and pass it when creating a controller.
 #[derive(Clone, Debug, Default)]
 pub struct ControllerOptions {
     profile_name: Option<String>,

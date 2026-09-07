@@ -8,10 +8,9 @@ pub fn yml() {
                 c.package.publish != Some(false)
                     && c.package.name != "windows"
                     && c.package.name != "windows-link"
-                    // `windows-reactor` pulls in the `reactor` composition stack, so
-                    // documenting `windows-composition` (system) in the same
-                    // invocation would enable both mutually exclusive stacks at
-                    // once. Document it separately below.
+                    // `windows-reactor` selects the lifted composition stack.
+                    // Document windows-composition separately so both stacks
+                    // receive their own API documentation pass.
                     && c.package.name != "windows-composition"
             })
             .collect();
@@ -27,8 +26,8 @@ pub fn yml() {
         );
         yml.push_str(&line);
 
-        // The `system` and `reactor` stacks are mutually exclusive, so document each
-        // on its own rather than alongside the `reactor` consumers above.
+        // The Composition stacks are mutually exclusive, so document each one
+        // separately.
         yml.push_str(
             "      - name: Check windows-composition\n        run: cargo doc --no-deps -p windows-composition\n",
         );
@@ -36,10 +35,13 @@ pub fn yml() {
             "      - name: Check windows-composition (reactor)\n        run: cargo doc --no-deps -p windows-composition --no-default-features --features reactor\n",
         );
         yml.push_str(
-            "      - name: Check windows-canvas (composition)\n        run: cargo doc --no-deps -p windows-canvas --features composition\n",
+            "      - name: Check windows-canvas (system composition)\n        run: cargo doc --no-deps -p windows-canvas --features composition,system\n",
         );
         yml.push_str(
-            "      - name: Check reactor features\n        run: cargo doc --no-deps -p windows-reactor -p windows-webview --features windows-webview/reactor\n",
+            "      - name: Check windows-canvas (reactor composition)\n        run: cargo doc --no-deps -p windows-canvas --no-default-features --features composition,reactor\n",
+        );
+        yml.push_str(
+            "      - name: Check reactor features\n        run: cargo doc --no-deps -p windows-reactor -p windows-webview --no-default-features --features windows-webview/reactor\n",
         );
     });
 }

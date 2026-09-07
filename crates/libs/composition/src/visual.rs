@@ -71,10 +71,11 @@ impl Visual {
         self.0.IsVisible().unwrap()
     }
 
-    /// Surfaces the underlying visual as an [`IInspectable`](windows_core::IInspectable).
+    /// Returns the opaque visual value accepted by a Reactor composition host.
     #[cfg(feature = "reactor")]
-    pub fn as_raw(&self) -> windows_core::IInspectable {
-        self.0.clone().into()
+    pub fn host_visual(&self) -> windows_core::IUnknown {
+        let inspectable: windows_core::IInspectable = self.0.clone().into();
+        inspectable.into()
     }
 
     /// Sets the visual's scale factor about its [center point](Self::set_center_point).

@@ -32,6 +32,14 @@ impl From<BatchKind> for bindings::CompositionBatchTypes {
 pub struct CompositionScopedBatch(pub(crate) bindings::CompositionScopedBatch);
 
 impl CompositionScopedBatch {
+    /// Registers a callback for when all tracked work has completed.
+    ///
+    /// The returned revoker keeps the callback registered. Dropping it before
+    /// completion cancels the subscription.
+    pub fn on_completed(&self, handler: impl Fn() + 'static) -> Result<windows_core::EventRevoker> {
+        self.0.Completed(move |_, _| handler())
+    }
+
     /// Seals the batch. No further work started after this call is tracked by
     /// the batch.
     pub fn end(&self) {

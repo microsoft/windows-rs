@@ -5,7 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
-windows-webview = { workspace = true }
+windows-webview = { workspace = true, features = ["system"] }
 windows-window = { workspace = true }
 windows-core = { workspace = true }
 

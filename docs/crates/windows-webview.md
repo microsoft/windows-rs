@@ -13,9 +13,10 @@
 
 Use `windows-webview` when a Windows desktop application needs to host web content, exchange
 messages with JavaScript, or use browser facilities such as profiles, cookies, downloads, and the
-Chrome DevTools Protocol. The default API hosts WebView2 in an `HWND`. Enable the `reactor` feature
-to place the WinUI XAML WebView2 control in a
-[`windows-reactor`](windows-reactor.md) view.
+Chrome DevTools Protocol. The default `system` feature hosts WebView2 through `windows-window`.
+Disable default features and enable `reactor` to place the WinUI XAML WebView2 control in a
+[`windows-reactor`](windows-reactor.md) view. The features are additive when an application uses
+both host types.
 
 The crate wraps a selected WebView2 surface rather than exposing the complete SDK. Use raw WebView2
 bindings when an application needs APIs that are not represented here.
@@ -242,7 +243,7 @@ prepare expensive content outside it.
 Enable the `reactor` feature when the browser should participate in a Reactor layout:
 
 ```toml
-windows-webview = { version = "0.100.0", features = ["reactor"] }
+windows-webview = { version = "0.100.0", default-features = false, features = ["reactor"] }
 ```
 
 `webview` returns a normal Reactor `View` and sends the initialized browser through a callback:
@@ -307,6 +308,10 @@ independent workflows that can wait until the basic host lifecycle is familiar.
 ## Internal documentation
 
 This section is for contributors to `windows-webview`.
+
+The `system` feature enables the typed `windows-window` controller helpers. The `reactor` feature
+depends on `windows-reactor` and bridges its WinUI `WebView2` control to the shared browser API.
+Raw HWND controller methods remain available without either host feature.
 
 ### Binding generation
 

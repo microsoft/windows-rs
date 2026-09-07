@@ -14,11 +14,9 @@ use windows::Win32::winuser::{
     SetForegroundWindow, SetWindowPos,
 };
 use windows::Win32::{HWND, POINT, RECT};
-use windows_canvas::{CanvasImageSource, ColorF, GpuDevice, animated_canvas};
+use windows_canvas::{CanvasCompositionExt, CanvasImageSource, ColorF, GpuDevice, animated_canvas};
 use windows_collections::IIterable;
-use windows_composition::{
-    Color as CompositionColor, Compositor as CompositionCompositor, ContainerVisual, SpriteVisual,
-};
+use windows_composition::{Compositor as CompositionCompositor, ContainerVisual, SpriteVisual};
 use windows_reactor::test::{LiveProbe, schedule_live_probe, schedule_live_window_handle};
 use windows_reactor::*;
 
@@ -946,11 +944,10 @@ impl Component for ImageSourceLifecycle {
         }
         let image = self.image.clone();
         let sender = context.sender();
-        context.use_effect("observe-image-scale", (), move || {
-            let observation = image.observe_rasterization_scale(move |scale| {
+        context.use_effect_guard("observe-image-scale", (), move || {
+            image.observe_rasterization_scale(move |scale| {
                 sender.send(ImageMessage::Scale(scale));
-            });
-            Some(Box::new(move || drop(observation)))
+            })
         });
         Image::new()
             .element_ref(&self.image)
@@ -976,6 +973,84 @@ pub(crate) struct CompositionLifecycle {
     host: ElementRef<Grid>,
     removed: bool,
     scene: Option<CompositionScene>,
+}
+
+pub(crate) enum TimerMessage {
+    Fired,
+    VerifyCancellation,
+    UnexpectedDelivery,
+}
+
+pub(crate) struct TimerLifecycle {
+    complete: Callback<FixtureResult>,
+    timer: Option<ComponentTimer>,
+}
+
+impl TimerLifecycle {
+    fn fail(&self, detail: &str) {
+        if !self.complete.call(Err(detail.to_string())) {
+            eprintln!("timer fixture failure was rejected");
+            std::process::exit(1);
+        }
+    }
+}
+
+impl Component for TimerLifecycle {
+    type Input = FixtureInput;
+    type Message = TimerMessage;
+
+    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        let timer = context
+            .set_timeout(Duration::from_millis(10), TimerMessage::Fired)
+            .unwrap();
+        Self {
+            complete: input.complete.clone(),
+            timer: Some(timer),
+        }
+    }
+
+    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
+        self.complete = input.complete.clone();
+    }
+
+    fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
+        match message {
+            TimerMessage::Fired => {
+                self.timer = None;
+
+                let cancelled = context
+                    .set_timeout(Duration::from_millis(10), TimerMessage::UnexpectedDelivery)
+                    .unwrap();
+                cancelled.cancel();
+
+                drop(
+                    context
+                        .set_timeout(Duration::from_millis(10), TimerMessage::UnexpectedDelivery)
+                        .unwrap(),
+                );
+
+                self.timer = Some(
+                    context
+                        .set_timeout(Duration::from_millis(100), TimerMessage::VerifyCancellation)
+                        .unwrap(),
+                );
+            }
+            TimerMessage::VerifyCancellation => {
+                self.timer = None;
+                if !self.complete.call(Ok(())) {
+                    eprintln!("timer fixture completion was rejected");
+                    std::process::exit(1);
+                }
+            }
+            TimerMessage::UnexpectedDelivery => {
+                self.fail("a cancelled or dropped timer delivered its message");
+            }
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        TextBlock::new().text("timer lifecycle").into()
+    }
 }
 
 impl Component for CompositionLifecycle {
@@ -1008,13 +1083,46 @@ impl Component for CompositionLifecycle {
                     root.set_size(width as f32, height as f32);
                     let background = compositor.create_sprite_visual();
                     background.set_size(width as f32, height as f32);
-                    background.set_brush(
-                        &compositor.create_color_brush(CompositionColor::rgb(24, 24, 32)),
-                    );
+                    let device = GpuDevice::new_or_warp().map_err(|error| error.to_string())?;
+                    let graphics = device
+                        .create_graphics_device(&compositor)
+                        .map_err(|error| error.to_string())?;
+                    let surface = graphics
+                        .create_drawing_surface(16.0, 16.0)
+                        .map_err(|error| error.to_string())?;
+                    if !surface
+                        .draw(|session| {
+                            session.clear(ColorF::CORNFLOWER_BLUE);
+                            Ok(())
+                        })
+                        .map_err(|error| error.to_string())?
+                    {
+                        return Err(
+                            "initial lifted composition surface draw lost its device".into()
+                        );
+                    }
+                    surface.resize(24, 20).map_err(|error| error.to_string())?;
+                    let replacement =
+                        GpuDevice::new_or_warp().map_err(|error| error.to_string())?;
+                    replacement
+                        .replace_graphics_device(&graphics)
+                        .map_err(|error| error.to_string())?;
+                    if !surface
+                        .draw(|session| {
+                            session.clear(ColorF::TRANSPARENT);
+                            Ok(())
+                        })
+                        .map_err(|error| error.to_string())?
+                    {
+                        return Err(
+                            "rebound lifted composition surface draw lost its device".into()
+                        );
+                    }
+                    background.set_brush(&compositor.create_surface_brush(&surface));
                     root.children().insert_at_bottom(&background);
                     let sender = context.sender();
                     if !self.host.request_set_child_visual(
-                        Some(root.as_raw().into()),
+                        Some(root.host_visual()),
                         move |result| {
                             sender.send(CompositionMessage::Attached(result));
                         },
@@ -1050,7 +1158,7 @@ impl Component for CompositionLifecycle {
                 let replacement = compositor.create_container_visual();
                 let sender = context.sender();
                 if !self.host.request_set_child_visual(
-                    Some(replacement.as_raw().into()),
+                    Some(replacement.host_visual()),
                     move |result| {
                         sender.send(CompositionMessage::Replaced(result));
                     },
@@ -1101,11 +1209,10 @@ impl Component for CompositionLifecycle {
         }
         let host = self.host.clone();
         let sender = context.sender();
-        context.use_effect("observe-composition", (), move || {
-            let observation = host.observe_composition_host(move |event| {
+        context.use_effect_guard("observe-composition", (), move || {
+            host.observe_composition_host(move |event| {
                 sender.send(CompositionMessage::Host(event));
-            });
-            Some(Box::new(move || drop(observation)))
+            })
         });
         Grid::new().element_ref(&self.host).into()
     }

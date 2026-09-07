@@ -2,7 +2,6 @@
 
 use std::cell::RefCell;
 use std::rc::Rc;
-use windows_canvas::FontWeight as CanvasFontWeight;
 use windows_canvas::*;
 use windows_reactor::*;
 

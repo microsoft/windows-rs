@@ -6,6 +6,7 @@
 //! validating that the wrapper method routes to the correct versioned interface.
 
 use std::time::Duration;
+use windows_canvas::{CanvasCompositionExt, ColorF, GpuDevice};
 use windows_composition::*;
 
 fn compositor() -> Compositor {
@@ -74,11 +75,11 @@ fn container_children_insert_and_remove() {
 #[test]
 fn color_brush_round_trips() {
     let c = compositor();
-    let brush = c.create_color_brush(Color::rgb(10, 20, 30));
-    assert_eq!(brush.color(), Color::rgb(10, 20, 30));
+    let brush = c.create_color_brush(CompositionColor::rgb(10, 20, 30));
+    assert_eq!(brush.color(), CompositionColor::rgb(10, 20, 30));
 
-    brush.set_color(Color::rgba(1, 2, 3, 4));
-    assert_eq!(brush.color(), Color::rgba(1, 2, 3, 4));
+    brush.set_color(CompositionColor::rgba(1, 2, 3, 4));
+    assert_eq!(brush.color(), CompositionColor::rgba(1, 2, 3, 4));
 
     let visual = c.create_sprite_visual();
     visual.set_brush(&brush);
@@ -87,7 +88,7 @@ fn color_brush_round_trips() {
 #[test]
 fn nine_grid_brush_builds() {
     let c = compositor();
-    let source = c.create_color_brush(Color::rgb(0, 0, 0));
+    let source = c.create_color_brush(CompositionColor::rgb(0, 0, 0));
     let nine = c.create_nine_grid_brush();
     nine.set_insets(4.0, 4.0, 4.0, 4.0);
     nine.set_center_hollow(true);
@@ -106,17 +107,28 @@ fn shape_visual_hierarchy_builds() {
     geometry.set_radius(Vector2::new(8.0, 8.0));
 
     let sprite = c.create_sprite_shape(&geometry);
-    let fill = c.create_color_brush(Color::rgb(255, 0, 0));
+    let fill = c.create_color_brush(CompositionColor::rgb(255, 0, 0));
     sprite.set_fill_brush(&fill);
     sprite.set_offset(Vector2::new(1.0, 2.0));
 
     container.shapes().append(&sprite);
     shape_visual.shapes().append(&container);
+
+    let rounded = c.create_rounded_rectangle_geometry();
+    rounded.set_size(Vector2::new(16.0, 12.0));
+    rounded.set_corner_radius(Vector2::new(3.0, 3.0));
+    let rounded_sprite = c.create_sprite_shape(&rounded);
+    rounded_sprite.set_fill_brush(&fill);
+    shape_visual.shapes().append(&rounded_sprite);
 }
 
 #[test]
 fn key_frame_animation_starts_on_visual() {
     let c = compositor();
+    let opacity = c.create_scalar_key_frame_animation();
+    opacity.insert_key_frame(0.0, 0.0);
+    opacity.insert_key_frame(1.0, 1.0);
+
     let animation = c.create_vector3_key_frame_animation();
     animation.insert_key_frame(0.0, Vector3::new(0.0, 0.0, 0.0));
     animation.insert_key_frame(1.0, Vector3::new(2.0, 2.0, 1.0));
@@ -127,6 +139,45 @@ fn key_frame_animation_starts_on_visual() {
     let visual = c.create_sprite_visual();
     visual.set_center_point(Vector3::new(0.0, 0.0, 0.0));
     visual.start_animation("Scale", &animation);
+}
+
+#[test]
+fn canvas_surface_draws_and_rebinds() {
+    let c = compositor();
+    let device = GpuDevice::new_warp().unwrap();
+    let graphics = device.create_graphics_device(&c).unwrap();
+    let surface = graphics.create_drawing_surface(16.0, 16.0).unwrap();
+    let brush = c.create_surface_brush(&surface);
+
+    for stretch in [
+        SurfaceStretch::None,
+        SurfaceStretch::Fill,
+        SurfaceStretch::Uniform,
+        SurfaceStretch::UniformToFill,
+    ] {
+        brush.set_stretch(stretch);
+    }
+
+    assert!(
+        surface
+            .draw(|session| {
+                session.clear(ColorF::CORNFLOWER_BLUE);
+                Ok(())
+            })
+            .unwrap()
+    );
+    surface.resize(24, 20).unwrap();
+
+    let replacement = GpuDevice::new_warp().unwrap();
+    replacement.replace_graphics_device(&graphics).unwrap();
+    assert!(
+        surface
+            .draw(|session| {
+                session.clear(ColorF::TRANSPARENT);
+                Ok(())
+            })
+            .unwrap()
+    );
 }
 
 #[test]
