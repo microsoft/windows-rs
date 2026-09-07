@@ -1,5 +1,5 @@
 [package]
-name = "canvas_hit_test"
+name = "canvas-hit-test"
 version = "0.0.0"
 edition = "2024"
 publish = false

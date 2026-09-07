@@ -34,7 +34,7 @@ not extract files or perform I/O.
 3. Build one `windows_metadata::reader::Index` over the combined files.
 4. Query or transform the index without locating an SDK installation.
 
-`tool_reactor` uses this pattern when its metadata resolver combines WinUI winmds with the standard
+`tool-reactor` uses this pattern when its metadata resolver combines WinUI winmds with the standard
 definitions. If you are compiling RDL or generating Rust, use the neighboring builder methods
 instead; they already perform the byte-to-file conversion.
 
@@ -60,7 +60,7 @@ crates are intended for build tools rather than runtime dependencies.
 ## Pitfalls
 
 - `WIN32` is one flat `Windows.Win32` metadata set. Published `windows` and `windows-sys` feature
-  namespaces are created later by `tool_package`.
+  namespaces are created later by `tool-package`.
 - Adding any explicit bindgen input disables the implicit default input. Call `input_default` when
   the custom metadata references standard types.
 - `reference_default` and `resolution_default` are not synonyms in `windows-clang`. The former can
@@ -83,11 +83,11 @@ The crate has no dependencies. `src/lib.rs` exposes each committed `.winmd` thro
 
 | File | Generator | Reviewable source |
 | --- | --- | --- |
-| `Windows.winmd` | `cargo run -p tool_winrt` | `metadata/winrt` |
-| `Windows.Win32.winmd` | `cargo run -p tool_win32` | `metadata/win32` and `metadata/wdk` |
+| `Windows.winmd` | `cargo run -p tool-winrt` | `metadata/winrt` |
+| `Windows.Win32.winmd` | `cargo run -p tool-win32` | `metadata/win32` and `metadata/wdk` |
 
-`tool_winrt` merges the Windows SDK contract metadata, writes canonical RDL, and compiles that RDL
-back to `Windows.winmd`. `tool_win32` scrapes the Windows SDK and WDK headers for X64, Arm64, and
+`tool-winrt` merges the Windows SDK contract metadata, writes canonical RDL, and compiles that RDL
+back to `Windows.winmd`. `tool-win32` scrapes the Windows SDK and WDK headers for X64, Arm64, and
 X86, merges the architecture-specific RDL, and writes `Windows.Win32.winmd`.
 
 See [Dependencies](../dependencies.md#windows-sdk-wdk-and-winrt-contracts) for the package versions
@@ -104,8 +104,8 @@ separate `include` list. `cargo package -p windows-default` must contain both `.
 The metadata is exercised through its consumers:
 
 - `test_bindgen`, `test_rdl`, and `test_clang` cover default and byte inputs.
-- `tool_winrt`, `tool_win32`, and `tool_roundtrip` verify deterministic metadata generation.
-- The `tool_yml` generated workflows build and document `windows-default` like the other library
+- `tool-winrt`, `tool-win32`, and `tool-roundtrip` verify deterministic metadata generation.
+- The `tool-yml` generated workflows build and document `windows-default` like the other library
   crates.
 
 After changing the payloads or their generators, run the owning generator and confirm that the

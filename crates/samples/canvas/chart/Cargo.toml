@@ -1,5 +1,5 @@
 [package]
-name = "canvas_chart"
+name = "canvas-chart"
 version = "0.0.0"
 edition = "2024"
 publish = false

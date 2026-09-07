@@ -1,5 +1,5 @@
 [package]
-name = "windows_core_app"
+name = "windows-core-app"
 version = "0.0.0"
 edition = "2024"
 publish = false

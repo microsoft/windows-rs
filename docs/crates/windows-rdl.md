@@ -142,12 +142,12 @@ C/C++ headers -- clang() --> .rdl -- reader() --> .winmd -- bindgen() --> bindin
 ```
 
 - Skip RDL when a suitable winmd already exists.
-- Use `windows-clang` to create RDL from headers; `tool_webview` demonstrates the full path.
+- Use `windows-clang` to create RDL from headers; `tool-webview` demonstrates the full path.
 - Use `windows-metadata` for table-level inspection, merge, and namespace remapping.
 - Use `writer().split()` to maintain namespace-partitioned reviewable metadata.
 - Use `merge_arch_rdl` only for generators that have per-architecture RDL directories and winmds.
   It merges structural differences and restores the defining-header partition.
-- `tool_reactor` compiles hand-authored `extras.rdl` to fill metadata gaps before binding WinUI.
+- `tool-reactor` compiles hand-authored `extras.rdl` to fill metadata gaps before binding WinUI.
 
 ## Pitfalls
 
@@ -187,7 +187,7 @@ Dedicated test crates cover the crate:
 
 - `test_rdl` covers RDL to winmd round trips with `input/*.rdl` fixtures.
 - `test_clang` covers header to RDL output with `expected/*.rdl` goldens.
-- `tool_roundtrip` re-derives committed RDL files from committed winmd files. The `gen` workflow
+- `tool-roundtrip` re-derives committed RDL files from committed winmd files. The `gen` workflow
   enforces a clean `git diff`.
 - `test_bindgen` covers the `.winmd` to Rust step that consumes this crate's output.
 
@@ -204,8 +204,8 @@ cargo test -p test_clang
 
 | File | Source | Writer |
 |------|--------|--------|
-| `crates/libs/default/Windows.winmd` | Merged SDK contract winmds | `tool_winrt` |
-| `crates/libs/default/Windows.Win32.winmd` | Scraped SDK and WDK headers | `tool_win32` |
+| `crates/libs/default/Windows.winmd` | Merged SDK contract winmds | `tool-winrt` |
+| `crates/libs/default/Windows.Win32.winmd` | Scraped SDK and WDK headers | `tool-win32` |
 
 The committed RDL files are the reviewable source for these metadata files:
 
@@ -218,11 +218,11 @@ stages tables in `BTreeMap`s and uses a fixed zero GUID for the module MVID.
 
 Every maintained crate that needs Win32 metadata resolves against the in-repo `Windows.Win32.winmd`.
 Minimal-binding crates and `windows-reactor` use it directly. The `windows` and `windows-sys` crates
-use it through `tool_package`.
+use it through `tool-package`.
 
 ### Multi-arch merge
 
-`tool_win32` scrapes x64, arm64, and x86 into separate RDL sets. Then `merge_arch_rdl` combines them
+`tool-win32` scrapes x64, arm64, and x86 into separate RDL sets. Then `merge_arch_rdl` combines them
 into one winmd. A type with the same shape on every architecture is emitted once. A type that
 differs by architecture is split into per-architecture copies tagged `#[arch(X86|X64|Arm64)]`.
 
@@ -235,9 +235,9 @@ the combined output. `ArchInput` stores its RDL directory and winmd as `PathBuf`
 The in-repo Win32 and WDK metadata lives in flat namespaces. Published `windows` and `windows-sys`
 APIs are partitioned behind many Cargo features.
 
-`tool_package` remaps the flat metadata into header-stem namespaces under `target/package/`. It uses
+`tool-package` remaps the flat metadata into header-stem namespaces under `target/package/`. It uses
 the committed `metadata/win32` RDL directory as the routing signal. Then it runs `windows-bindgen`
-over that partition. `tool_features` uses the same remap so feature search reports the same header
+over that partition. `tool-features` uses the same remap so feature search reports the same header
 stems.
 
 The in-repo WinRT `Windows.winmd` is projected with the remapped Win32 and WDK metadata.
@@ -245,7 +245,7 @@ The in-repo WinRT `Windows.winmd` is projected with the remapped Win32 and WDK m
 ### Round-trip rules
 
 RDL is the reviewable source for WinRT, Win32, and WDK metadata. The `.winmd` files are derived
-artifacts. The `gen` workflow runs the generators and `tool_roundtrip`. It fails when regeneration
+artifacts. The `gen` workflow runs the generators and `tool-roundtrip`. It fails when regeneration
 changes tracked files.
 
 | Family | External source | RDL layout | Winmd build path |
@@ -254,7 +254,7 @@ changes tracked files.
 | Win32 | SDK headers | `metadata/win32`, per header | scrape -> arch merge -> winmd |
 | WDK | WDK headers | `metadata/wdk`, per header | scrape -> arch merge -> winmd |
 
-`tool_roundtrip` validates the reverse direction:
+`tool-roundtrip` validates the reverse direction:
 
 - WinRT uses `writer(Windows.winmd).split()` to write `metadata/winrt`.
 - Win32 and WDK cannot recover header files from flat winmd alone. The tool reads the committed RDL

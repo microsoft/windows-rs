@@ -1,5 +1,5 @@
 [package]
-name = "windows_direct2d"
+name = "windows-direct2d"
 version = "0.0.0"
 edition = "2024"
 publish = false

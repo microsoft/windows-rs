@@ -23,7 +23,7 @@ concurrency:
 
 jobs:
   gen:
-    name: tool_${{ matrix.tool }}
+    name: tool-${{ matrix.tool }}
     runs-on: windows-2025-vs2026
 
     env:
@@ -49,9 +49,9 @@ jobs:
         with:
           key: ${{ matrix.tool }}
       - name: Run
-        run: cargo run -p tool_${{ matrix.tool }} --release
+        run: cargo run -p tool-${{ matrix.tool }} --release
       - name: Check
         shell: bash
         run: |
           git add -N .
-          git diff --exit-code || (echo '::error::Generated `tool_${{ matrix.tool }}` is out-of-date. Please run `cargo run -p tool_${{ matrix.tool }}`'; exit 1)
+          git diff --exit-code || (echo '::error::Generated `tool-${{ matrix.tool }}` is out-of-date. Please run `cargo run -p tool-${{ matrix.tool }}`'; exit 1)

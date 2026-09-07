@@ -37,7 +37,7 @@ also needs libclang. `ensure_libclang` locates or downloads the pinned runtime u
 4. Compile that RDL with [`windows-rdl`](windows-rdl.md).
 5. Generate Rust from the resulting winmd with [`windows-bindgen`](windows-bindgen.md).
 
-`tool_webview` is the concrete model. It obtains a pinned WebView2 NuGet package, supplies the
+`tool-webview` is the concrete model. It obtains a pinned WebView2 NuGet package, supplies the
 header search path and MSVC target, writes `target/webview/WebView2.rdl`, compiles
 `WebView2.winmd`, and runs bindgen from a checked-in command file.
 
@@ -96,8 +96,8 @@ an optional hand-authored seed, and parallel execution; it is intended for SDK-s
 
 ## Samples and consumers
 
-- `tool_webview` is the starting example for a namespaced component scrape.
-- `tool_win32` and its WDK stage use per-header, multi-architecture generation.
+- `tool-webview` is the starting example for a namespaced component scrape.
+- `tool-win32` and its WDK stage use per-header, multi-architecture generation.
 - `test_clang` contains small header-to-RDL fixtures for annotations, constants, interfaces,
   layouts, bit fields, and canonicalization.
 
@@ -114,7 +114,7 @@ is **not needed to use `windows-clang`**.
 windows-metadata
   +- windows-rdl
        +- windows-clang
-            +- tool_win32 / tool_webview
+            +- tool-win32 / tool-webview
 ```
 
 `windows-clang` reuses `windows-rdl` for RDL emission, formatting, import-library parsing, errors,
@@ -171,7 +171,7 @@ pointer chains use the outermost direction, and bit-field runs become integer ba
 
 ### Win32 and WDK generation
 
-`tool_win32` runs these stages:
+`tool-win32` runs these stages:
 
 1. Scrape the Windows SDK `um` and `shared` headers for x64, arm64, and x86.
 2. Merge the per-architecture outputs and write `metadata/win32/*.rdl`.
@@ -226,5 +226,5 @@ Run:
 cargo test -p test_clang
 ```
 
-CI sets `LIBCLANG_PATH` with `cargo run -q -p tool_clang -- path` so the tests use the pinned
+CI sets `LIBCLANG_PATH` with `cargo run -q -p tool-clang -- path` so the tests use the pinned
 libclang.

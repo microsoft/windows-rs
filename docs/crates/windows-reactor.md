@@ -488,8 +488,8 @@ Generated Rust files are committed and must not be edited by hand. After changin
 metadata inputs, filters, or generator, run:
 
 ```text
-cargo run -p tool_reactor --quiet
-cargo run -p tool_reactor --quiet
+cargo run -p tool-reactor --quiet
+cargo run -p tool-reactor --quiet
 cargo check -p windows-reactor --quiet
 ```
 
@@ -504,11 +504,11 @@ feature removes that allowance so the live surface build checks all generated te
 | --- | --- |
 | Internal deterministic tests | `cargo test -p windows-reactor` |
 | External API tests | `cargo test -p test_reactor` |
-| Generator tests | `cargo test -p tool_reactor` |
-| Live handwritten fixtures | `cargo run -p test_reactor_selftest -- --headless` |
-| Generated WinUI surface | `cargo run -p test_reactor_surface -- --headless` |
-| Planner benchmarks | `cargo run -p test_reactor_bench --release` |
-| Live grid benchmark | `cargo run -p test_reactor_bench --bin reactor-live-grid --release` |
+| Generator tests | `cargo test -p tool-reactor` |
+| Live handwritten fixtures | `cargo run -p test-reactor-selftest -- --headless` |
+| Generated WinUI surface | `cargo run -p test-reactor-surface -- --headless` |
+| Planner benchmarks | `cargo run -p test-reactor-bench --release` |
+| Live grid benchmark | `cargo run -p test-reactor-bench --bin reactor-live-grid --release` |
 
 The generated surface test covers projected controls, properties, events, content, collections,
 slots, attachments, virtual items, and TreeView nodes. Handwritten self-tests own imperative

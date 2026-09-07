@@ -1,5 +1,5 @@
 [package]
-name = "tool_package"
+name = "tool-package"
 version = "0.0.0"
 edition = "2024"
 publish = false

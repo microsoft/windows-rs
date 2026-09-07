@@ -1,6 +1,6 @@
 //! Downstream validation for the in-house Win32 metadata.
 //!
-//! `tool_win32` scrapes the Windows SDK headers into the committed
+//! `tool-win32` scrapes the Windows SDK headers into the committed
 //! `metadata/win32/*.rdl` (flat `Windows.Win32` namespace, one file per
 //! defining header). This test feeds that committed RDL back through
 //! `windows-bindgen` for a bounded, self-contained slice and writes the result

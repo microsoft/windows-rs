@@ -1,11 +1,11 @@
 [package]
-name = "test_bench_cpp"
+name = "test-bench-cpp"
 version = "0.0.0"
 edition = "2024"
 publish = false
 
 [[bin]]
-name = "test_bench_cpp"
+name = "test-bench-cpp"
 path = "src/main.rs"
 
 [dependencies]

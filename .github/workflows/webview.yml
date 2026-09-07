@@ -1,4 +1,4 @@
-name: test_webview
+name: test-webview
 
 on:
   push:
@@ -19,7 +19,7 @@ env:
 
 jobs:
   selftest:
-    name: cargo run -p test_webview
+    name: cargo run -p test-webview
     runs-on: windows-2025-vs2026
     timeout-minutes: 30
     steps:
@@ -38,6 +38,6 @@ jobs:
           Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
           Start-Process -FilePath $installerPath -ArgumentList "/silent", "/install" -Wait -PassThru | Out-Null
 
-      - name: cargo run -p test_webview -- --headless
-        run: cargo run -p test_webview -- --headless
+      - name: cargo run -p test-webview -- --headless
+        run: cargo run -p test-webview -- --headless
         shell: pwsh

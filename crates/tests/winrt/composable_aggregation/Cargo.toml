@@ -1,11 +1,11 @@
 [package]
-name = "test_composable_aggregation"
+name = "test-composable-aggregation"
 version = "0.0.0"
 edition = "2024"
 publish = false
 
 [[bin]]
-name = "test_composable_aggregation"
+name = "test-composable-aggregation"
 path = "src/main.rs"
 
 [build-dependencies]

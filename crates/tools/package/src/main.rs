@@ -32,7 +32,7 @@ fn dump_routes(plan: &RemapPlan, path: String) {
 
 /// Generates the published `windows` and `windows-sys` package crates.
 ///
-/// This is separated from `tool_bindings` because package generation uses
+/// This is separated from `tool-bindings` because package generation uses
 /// `--package` mode (per-namespace files + Cargo.toml feature gates) which
 /// is an internal bindgen feature not intended for external use.
 fn main() {

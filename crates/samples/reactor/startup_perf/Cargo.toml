@@ -1,11 +1,11 @@
 [package]
-name = "sample_reactor_startup_perf"
+name = "sample-reactor-startup-perf"
 version = "0.0.0"
 edition = "2024"
 publish = false
 
 [[bin]]
-name = "BlankWindowsReactor"
+name = "blank-windows-reactor"
 path = "src/main.rs"
 
 [dependencies]

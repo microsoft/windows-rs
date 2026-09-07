@@ -281,7 +281,7 @@ exposes host conversions. Compile errors reject zero or two selected stacks.
 
 Cargo unifies features across a build graph. Unified CI jobs that build Reactor exclude
 system-stack consumers, then check those consumers in a separate step. Add new consumers to the
-matching CI groups. `tool_yml` generates the stack-specific MSRV and feature checks.
+matching CI groups. `tool-yml` generates the stack-specific MSRV and feature checks.
 
 ### Wrapper model
 
@@ -307,7 +307,7 @@ property and factory conveniences fail fast on COM errors. `CompositionColor` wr
 
 ### Code generation
 
-Composition uses `tool_composition` because it needs system and non-default lifted metadata. The
+Composition uses `tool-composition` because it needs system and non-default lifted metadata. The
 tool first uses `windows-rdl` to generate the lifted native interop metadata from `interop.rdl`,
 then runs `windows_bindgen` twice with `--flat --minimal --dead-code`.
 
@@ -325,11 +325,11 @@ Generated binding files are committed and must not be edited by hand. After chan
 metadata inputs, or tool, run:
 
 ```text
-cargo run -p tool_composition --quiet
+cargo run -p tool-composition --quiet
 cargo check -p windows-composition --quiet
 ```
 
-Run `cargo run -p tool_yml` after changing feature-matrix generation.
+Run `cargo run -p tool-yml` after changing feature-matrix generation.
 
 ### Reactor bridge
 

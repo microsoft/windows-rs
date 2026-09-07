@@ -69,7 +69,7 @@ jobs:
         with:
           target: x86_64-pc-windows-msvc
       - uses: Swatinem/rust-cache@v2
-# generated - run `cargo run -p tool_yml` to update
+# generated - run `cargo run -p tool-yml` to update
       - name: Check cppwinrt
         run:  cargo check -p cppwinrt --no-default-features
       - name: Check windows

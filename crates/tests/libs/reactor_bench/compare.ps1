@@ -22,7 +22,13 @@ function Invoke-Benchmark([string]$workingDirectory, [string]$rustFlags) {
     try {
         $previousRustFlags = $env:RUSTFLAGS
         $env:RUSTFLAGS = $rustFlags
-        $output = & cargo run -p test_reactor_bench --release --quiet -- `
+        $manifest = Get-Content "crates/tests/libs/reactor_bench/Cargo.toml" -Raw
+        $package = if ($manifest -match 'name\s*=\s*"test-reactor-bench"') {
+            "test-reactor-bench"
+        } else {
+            "test_reactor_bench"
+        }
+        $output = & cargo run -p $package --release --quiet -- `
             --iters 500 --reps 12
         if ($LASTEXITCODE -ne 0) {
             throw "Benchmark failed in $workingDirectory"

@@ -10,7 +10,7 @@ effect-bearing retained memory, effect mount cost, and isolated effect updates.
 Run the benchmark in release mode:
 
 ```powershell
-cargo run -p test_reactor_bench --bin test_reactor_bench `
+cargo run -p test-reactor-bench --bin test-reactor-bench `
     --release --quiet -- --iters 500 --reps 12
 ```
 
@@ -33,9 +33,9 @@ benchmark with it, capture CPU sampling with Windows Performance Recorder, and i
 Windows Performance Analyzer:
 
 ```powershell
-cargo build -p test_reactor_bench --bin test_reactor_bench --profile profiling
+cargo build -p test-reactor-bench --bin test-reactor-bench --profile profiling
 wpr.exe -start CPU -filemode
-.\target\profiling\test_reactor_bench.exe --iters 500 --reps 12
+.\target\profiling\test-reactor-bench.exe --iters 500 --reps 12
 wpr.exe -stop .\target\reactor-cpu.etl
 ```
 
@@ -43,7 +43,7 @@ Use the Heap profile when allocation call stacks are needed:
 
 ```powershell
 wpr.exe -start Heap -filemode
-.\target\profiling\test_reactor_bench.exe --iters 500 --reps 12
+.\target\profiling\test-reactor-bench.exe --iters 500 --reps 12
 wpr.exe -stop .\target\reactor-heap.etl
 ```
 
@@ -77,7 +77,7 @@ the same controlled inputs, parent-owned durable task model, contexts, effects, 
 background completion path, and virtual rows as the application. Run it with:
 
 ```powershell
-cargo run -p sample_reactor_virtual --bin reactor-virtual-perf `
+cargo run -p sample-reactor-virtual --bin reactor-virtual-perf `
     --features perf --release -- --samples 500
 ```
 
@@ -102,21 +102,21 @@ tree, which isolates component input and publication costs.
 Run an unattended ten-second update workload:
 
 ```powershell
-cargo run -p test_reactor_bench --bin reactor-live-grid `
+cargo run -p test-reactor-bench --bin reactor-live-grid `
     --release --quiet -- --headless --percent 10 --duration 10 --churn-count 0
 ```
 
 Measure the same native grid with one component per cell:
 
 ```powershell
-cargo run -p test_reactor_bench --bin reactor-live-grid `
+cargo run -p test-reactor-bench --bin reactor-live-grid `
     --release --quiet -- --headless --component-cells --percent 10 --duration 10 --churn-count 0
 ```
 
 Run the same workload while removing and restoring 400 cells per update:
 
 ```powershell
-cargo run -p test_reactor_bench --bin reactor-live-grid `
+cargo run -p test-reactor-bench --bin reactor-live-grid `
     --release --quiet -- --headless --percent 10 --duration 10 --churn-count 400
 ```
 

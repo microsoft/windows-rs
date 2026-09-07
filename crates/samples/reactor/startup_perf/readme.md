@@ -9,7 +9,7 @@ The app uses the ETW team's `tracelogging` crate to emit TraceLogging events fro
 - Provider GUID: `FD80D616-E92B-4B2B-9BED-131ADA36A8FD`
 - Keyword: `0x0000400000000000`
 - App name: `blank_windows_reactor`
-- Process name: `BlankWindowsReactor.exe`
+- Process name: `blank-windows-reactor.exe`
 
 | Event | Location |
 | --- | --- |
@@ -25,7 +25,7 @@ Every event includes `AppName`, `Seq`, and `Pid` fields.
 Run the framework-dependent app with:
 
 ```powershell
-cargo run -p sample_reactor_startup_perf --release
+cargo run -p sample-reactor-startup-perf --release
 ```
 
 ## MSIX package
@@ -47,15 +47,15 @@ Run these commands from the repository root:
 2. Build the app and prepare the package layout:
 
     ```powershell
-    cargo build -p sample_reactor_startup_perf --release --quiet
+    cargo build -p sample-reactor-startup-perf --release --quiet
     $work = "target\reactor-startup-msix"
     $layout = "$work\layout"
     Remove-Item $layout -Recurse -Force -ErrorAction Ignore
     New-Item $layout -ItemType Directory | Out-Null
     Copy-Item `
-        target\release\BlankWindowsReactor.exe `
+        target\release\blank-windows-reactor.exe `
         $layout
-    $output = "$work\BlankWindowsReactor_x64.msix"
+    $output = "$work\blank-windows-reactor_x64.msix"
     $manifest = "crates\samples\reactor\startup_perf\package\Package.appxmanifest"
     ```
 
