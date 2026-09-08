@@ -1,7 +1,8 @@
 fn main() {
     use std::io::Write;
 
-    let mut log = std::fs::File::create("D:\\service.txt").unwrap();
+    let log_path = std::env::temp_dir().join("windows-rs-services-simple.log");
+    let mut log = std::fs::File::create(&log_path).unwrap();
 
     let result =
         windows_services::Service::new()
@@ -29,8 +30,12 @@ Stop:
 
 Delete (uninstall):
     > sc delete ServiceName
+
+Log:
+    {}
 "#,
-            std::env::current_exe().unwrap().display()
+            std::env::current_exe().unwrap().display(),
+            log_path.display()
         );
     }
 }

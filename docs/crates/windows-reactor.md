@@ -391,25 +391,27 @@ package the app.
 
 ## What to read next
 
-The focused examples in
-[`samples/examples`](../../crates/samples/reactor/samples/examples) are the easiest way to learn
-one concept at a time:
+Use the [`gallery`](../../crates/samples/reactor/gallery) to explore individual WinUI controls. The
+standalone samples under [`crates/samples/reactor`](../../crates/samples/reactor) show Reactor
+concepts and behaviors:
 
 | Example | What it shows |
 | --- | --- |
-| `counter` | Components, state, messages, and events |
-| `function_component` | Child components and input |
-| `text_box` | Controlled input |
-| `stack` and `grid` | Layout |
-| `auto_suggest_box` | Ordinary Rust conditionals and collections |
-| `keyed_list_reorder` | Stable identity in changing lists |
-| `async_state` | Background work |
-| `use_effect` and `context` | Lifecycle work and shared data |
+| [`function-component`](../../crates/samples/reactor/function-component) | Child components and input |
+| [`component-input`](../../crates/samples/reactor/component-input) | Controlled component input |
+| [`keyed-list-reorder`](../../crates/samples/reactor/keyed-list-reorder) | Stable identity in changing lists |
+| [`async-state`](../../crates/samples/reactor/async-state) | Background work |
+| [`use-effect`](../../crates/samples/reactor/use-effect) and [`context`](../../crates/samples/reactor/context) | Lifecycle work and shared data |
+| [`pointer-tracking`](../../crates/samples/reactor/pointer-tracking) | Pointer capture and movement |
+| [`exit-transition`](../../crates/samples/reactor/exit-transition) | Transition-driven removal |
+| [`secondary-window`](../../crates/samples/reactor/secondary-window) | Multiple Reactor windows |
+| [`calculator`](../../crates/samples/reactor/calculator) | A larger component with derived state |
 
-The [`gallery`](../../crates/samples/reactor/gallery) is a control catalog. The
+The [`counter`](../../crates/samples/reactor/counter) demonstrates components, state, messages, and
+events. The [`gallery`](../../crates/samples/reactor/gallery) is a control catalog. The
 [`navigation`](../../crates/samples/reactor/navigation) and
-[`apps`](../../crates/samples/reactor/apps) samples show how these same ideas fit together in a
-larger application. See the [`composition`](../../crates/samples/reactor/composition),
+[`dotsweeper`](../../crates/samples/reactor/dotsweeper) samples show how these same ideas fit
+together in a larger application. See the [`composition`](../../crates/samples/composition),
 [`webview`](../../crates/samples/reactor/webview), and
 [Canvas](../../crates/samples/canvas) samples only when the app needs those integrations.
 
@@ -462,6 +464,11 @@ are represented in both the WinUI and recording runtimes. Observations follow st
 replacement and reject late callbacks by window and node identity. Accepted one-shot requests
 complete exactly once; `IntegrationError::Native` retains the HRESULT and `Unavailable` reports a
 retired or unavailable target.
+
+Swap-chain panel metrics include a binding generation so an integration can distinguish resize
+from structural panel replacement. `request_surface_frame` schedules one normal-priority
+UI-thread callback independently of `CompositionTarget::Rendering`; Canvas uses it to keep drawing
+during interactive resize without invoking application drawing code from a layout callback.
 
 Canvas owns its devices, swap chains, image sources, resize handling, and recovery. Composition
 owns application visual trees and animations. WebView users receive the CoreWebView2 object rather

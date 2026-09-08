@@ -77,10 +77,9 @@ helpers remain available.
 
 ## Sample and next steps
 
-The [`spawn` sample](../../crates/samples/future/samples/examples/spawn.rs) contrasts an immediately
-ready operation with work submitted to the Windows thread pool. Next, inspect the API that produces
-your operation to determine its result type, error behavior, cancellation support, and any thread
-affinity.
+The [`spawn` sample](../../crates/samples/future/spawn) contrasts an immediately ready operation
+with work submitted to the Windows thread pool. Next, inspect the API that produces your operation
+to determine its result type, error behavior, cancellation support, and any thread affinity.
 
 ---
 

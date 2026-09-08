@@ -1,0 +1,22 @@
+[package]
+name = "windows-bits"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows = { workspace = true, default-features = true, features = [
+    "bits",
+    "combaseapi",
+    "objbase",
+    "objidlbase",
+    "oleidl",
+    "winbase",
+    "winnt",
+    "wtypes",
+    "wtypesbase",
+] }
+windows-core = { workspace = true }
+
+[lints]
+workspace = true

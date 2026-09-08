@@ -731,6 +731,18 @@ impl RecordingRuntime {
                     return Err(RuntimeError::UnsupportedKind);
                 }
             }
+            Command::RequestSwapChainPanelFrame { node, completion } => {
+                let recorded = self
+                    .nodes
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?;
+                let result = if recorded.kind == Some(MountedKind::SwapChainPanel) {
+                    Ok(())
+                } else {
+                    Err(RuntimeError::UnsupportedKind)
+                };
+                _ = completion.call(result);
+            }
             Command::SetSwapChain {
                 node, completion, ..
             } => {

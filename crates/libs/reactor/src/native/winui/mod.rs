@@ -1610,6 +1610,7 @@ impl WinUiRuntime {
             Command::ObserveSwapChainPanel {
                 node,
                 observation,
+                binding,
                 callback,
             } => {
                 let Some(Handle::SwapChainPanel(control)) = self.handles.get(node) else {
@@ -1619,9 +1620,11 @@ impl WinUiRuntime {
                         RuntimeError::MissingNode(*node)
                     });
                 };
+                let binding = *binding;
                 let element = control.cast::<IFrameworkElement>().map_err(native_error)?;
                 let emit_metrics = |width: f64, height: f64| {
                     let event = SwapChainPanelEvent::Metrics {
+                        binding,
                         width,
                         height,
                         scale_x: control.CompositionScaleX().unwrap_or(1.0),
@@ -1644,6 +1647,7 @@ impl WinUiRuntime {
                             invoke_callback(
                                 &size_callback,
                                 SwapChainPanelEvent::Metrics {
+                                    binding,
                                     width: f64::from(value.width),
                                     height: f64::from(value.height),
                                     scale_x: size_control.CompositionScaleX().unwrap_or(1.0),
@@ -1661,6 +1665,7 @@ impl WinUiRuntime {
                             invoke_callback(
                                 &scale_callback,
                                 SwapChainPanelEvent::Metrics {
+                                    binding,
                                     width: scale_element.ActualWidth().unwrap_or(0.0),
                                     height: scale_element.ActualHeight().unwrap_or(0.0),
                                     scale_x: sender.CompositionScaleX().unwrap_or(1.0),
@@ -1683,6 +1688,34 @@ impl WinUiRuntime {
                         _size: size,
                     },
                 );
+            }
+            Command::RequestSwapChainPanelFrame { node, completion } => {
+                let result = match self.handles.get(node) {
+                    Some(Handle::SwapChainPanel(_)) => {
+                        let completion = completion.clone();
+                        let handler = DispatcherQueueHandler::new(move || {
+                            _ = completion.call(Ok(()));
+                        });
+                        DispatcherQueue::GetForCurrentThread()
+                            .map_err(native_error)
+                            .and_then(|dispatcher| {
+                                dispatcher
+                                    .TryEnqueueWithPriority(
+                                        DispatcherQueuePriority::Normal,
+                                        &handler,
+                                    )
+                                    .map_err(native_error)
+                            })
+                            .and_then(|accepted| {
+                                accepted.then_some(()).ok_or(RuntimeError::SchedulerClosed)
+                            })
+                    }
+                    Some(_) => Err(RuntimeError::UnsupportedKind),
+                    None => Err(RuntimeError::MissingNode(*node)),
+                };
+                if let Err(error) = result {
+                    _ = completion.call(Err(error));
+                }
             }
             Command::SetSwapChain {
                 node,

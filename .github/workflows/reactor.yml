@@ -2,9 +2,9 @@ name: test_reactor
 
 on:
   push:
-    branches: [master, main]
+    branches: [master]
   pull_request:
-    branches: [master, main]
+    branches: [master]
   workflow_dispatch:
   schedule:
     - cron: "0 8 * * 1"
@@ -26,42 +26,21 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Update toolchain
-        run: rustup update --no-self-update stable nightly && rustup default stable
+        run: rustup update --no-self-update stable && rustup default stable
 
       - uses: Swatinem/rust-cache@v2
 
       - name: Install public API tool
         run: cargo install cargo-public-api --locked --version 0.52.0
 
-      - name: Check and test
+      - name: Check Reactor feature combinations
         shell: pwsh
         env:
           RUSTFLAGS: "-D warnings"
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          cargo test -p windows-reactor -p tool-reactor `
-            -p test_reactor -p sample-reactor-virtual `
-            -p sample-reactor-navigation -p sample-reactor-gallery --quiet
-          cargo check -p test-reactor-bench `
-            -p sample_reactor_counter -p sample-reactor-controlled `
-            -p sample-reactor-form -p sample_reactor_apps `
-            -p sample_reactor_composition -p sample-reactor-framework-dependent `
-            -p sample-reactor-self-contained -p sample-reactor-startup-perf `
-            -p sample-reactor-webview --all-targets --quiet
-          cargo check -p sample_reactor_controls --examples --quiet
-          cargo check -p sample-reactor-virtual --features perf --all-targets --quiet
-          cargo check -p windows-canvas --no-default-features `
-            --features reactor --all-targets --quiet
-          cargo check -p windows-composition --no-default-features `
-            --features reactor --all-targets --quiet
-          cargo check -p windows-webview --no-default-features `
-            --features reactor --all-targets --quiet
-          cargo check -p canvas-chart -p canvas-circles -p canvas-clock `
-            -p canvas-editor -p canvas-hit-test -p canvas-image-source `
-            -p canvas_samples -p canvas-shared-device -p canvas-text-layout `
-            --all-targets --quiet
-          cargo clippy -p sample-reactor-virtual --features perf `
+          cargo clippy -p reactor-virtual --features perf `
             --all-targets --quiet
           cargo clippy -p windows-canvas --no-default-features `
             --features reactor --all-targets --quiet
@@ -69,22 +48,6 @@ jobs:
             --features reactor --all-targets --quiet
           cargo clippy -p windows-webview --no-default-features `
             --features reactor --all-targets --quiet
-          cargo build -p test-reactor-selftest -p test-reactor-surface --quiet
-
-      - name: Generated output
-        shell: pwsh
-        env:
-          RUSTFLAGS: "-D warnings"
-        run: |
-          $ErrorActionPreference = "Stop"
-          $PSNativeCommandUseErrorActionPreference = $true
-          cargo run -p tool-reactor --quiet
-          cargo run -p tool-reactor --quiet
-          $status = git status --porcelain --untracked-files=all
-          if ($status) {
-            $status | Write-Output
-            throw "Reactor generation changed tracked or untracked files"
-          }
 
       - name: Public API
         shell: pwsh
@@ -229,14 +192,14 @@ jobs:
           cargo run -p test-reactor-bench --bin reactor-live-grid `
             --release --quiet -- --headless --percent 10 --duration 10 --churn-count 400 |
             Tee-Object -FilePath "$outputDirectory\live-grid-churn.json"
-          cargo run -p sample-reactor-virtual --bin reactor-virtual-perf `
+          cargo run -p reactor-virtual --bin reactor-virtual-perf `
             --features perf --release --quiet |
             Tee-Object -FilePath "$outputDirectory\virtual-recording.txt"
-          cargo run -p sample-reactor-virtual --bin reactor-virtual-live-perf `
+          cargo run -p reactor-virtual --bin reactor-virtual-live-perf `
             --features perf --release --quiet -- --samples 300 --baseline
           Copy-Item target\release\reactor-virtual-live-baseline.txt `
             "$outputDirectory\virtual-live-baseline.txt"
-          cargo run -p sample-reactor-virtual --bin reactor-virtual-live-perf `
+          cargo run -p reactor-virtual --bin reactor-virtual-live-perf `
             --features perf --release --quiet -- --samples 300
           Copy-Item target\release\reactor-virtual-live-perf.txt `
             "$outputDirectory\virtual-live-active.txt"

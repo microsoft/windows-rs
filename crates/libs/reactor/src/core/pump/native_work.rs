@@ -57,6 +57,7 @@ impl<R: NativeRuntime> Pump<R> {
                 ImperativeRequest::ObserveSwapChainPanel {
                     node,
                     observation,
+                    binding,
                     callback,
                 } => {
                     if self.tree.try_native(node).is_none() {
@@ -65,8 +66,16 @@ impl<R: NativeRuntime> Pump<R> {
                     commands.push(Command::ObserveSwapChainPanel {
                         node,
                         observation,
+                        binding,
                         callback,
                     });
+                }
+                ImperativeRequest::RequestSwapChainPanelFrame { node, completion } => {
+                    if self.tree.try_native(node).is_none() {
+                        _ = completion.call(Err(RuntimeError::MissingNode(node)));
+                        continue;
+                    }
+                    commands.push(Command::RequestSwapChainPanelFrame { node, completion });
                 }
                 ImperativeRequest::SetSwapChain {
                     node,

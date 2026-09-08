@@ -1,12 +1,12 @@
 [package]
-name = "robot_client"
+name = "robot-client"
 version = "0.0.0"
 edition = "2024"
 publish = false
 
 [dependencies]
 windows-core = { workspace = true , default-features = true }
-robot = { path = "../component" }
+robot-component = { path = "../component" }
 
 [build-dependencies]
 windows-bindgen = { workspace = true }

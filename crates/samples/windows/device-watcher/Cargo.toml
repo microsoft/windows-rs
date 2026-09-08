@@ -1,0 +1,11 @@
+[package]
+name = "windows-device-watcher"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows = { workspace = true, default-features = true, features = ["Devices_Enumeration"] }
+
+[lints]
+workspace = true

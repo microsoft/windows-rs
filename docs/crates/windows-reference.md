@@ -98,10 +98,10 @@ the implementation.
 
 ## Samples and next steps
 
-There is no dedicated `windows-reference` sample group. The
-[README](../../crates/libs/reference/readme.md) is the smallest complete example. For related
-interop patterns, see [`windows-collections`](windows-collections.md) for collection interfaces and
-the [`robot` sample](../../crates/samples/robot) for a component boundary implemented in Rust.
+The [`reference-reference`](../../crates/samples/reference/reference) sample boxes scalar and
+string values and reads them through `IReference<T>`. For related interop patterns, see
+[`windows-collections`](windows-collections.md) for collection interfaces and the
+[`robot` sample](../../crates/samples/robot) for a component boundary implemented in Rust.
 
 ---
 

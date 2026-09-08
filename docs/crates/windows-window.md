@@ -113,13 +113,13 @@ other components on the same UI thread from progressing.
 
 | Sample | What to study |
 | --- | --- |
-| [`create_window`](../../crates/samples/windows/samples) | Basic creation and `run_with`. |
-| [`window_message`](../../crates/samples/windows/samples) | Paint, mouse, and keyboard messages. |
+| [`create-window`](../../crates/samples/windows/create-window) | Basic creation and `run_with`. |
+| [`window-message`](../../crates/samples/windows/window-message) | Paint, mouse, and keyboard messages. |
 | [`standalone`](../../crates/samples/canvas/standalone) | Swap-chain hosting and resize flow. |
 | [`direct2d`](../../crates/samples/windows/direct2d) | Rendering only while visible. |
 | [`direct3d12`](../../crates/samples/windows/direct3d12) | Binding a swap chain to the handle. |
 | [`dcomp`](../../crates/samples/windows/dcomp) | Composition, custom style, and DPI. |
-| [`webview`](../../crates/samples/webview/samples) | Controller lifetime and resize flow. |
+| [`webview-minimal`](../../crates/samples/webview/minimal) | Controller lifetime and resize flow. |
 
 ---
 

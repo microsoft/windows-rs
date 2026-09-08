@@ -5,7 +5,9 @@
     dead_code,
     clippy::all
 )]
-mod bindings;
+mod bindings {
+    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+}
 
 fn main() {
     use crate::bindings::*;
@@ -24,7 +26,8 @@ fn main() {
         }
     }
 
-    let mut log = std::fs::File::create("D:\\service.txt").unwrap();
+    let log_path = std::env::temp_dir().join("windows-rs-services-time.log");
+    let mut log = std::fs::File::create(&log_path).unwrap();
 
     let result = Service::new()
         .can_stop()
@@ -50,5 +53,6 @@ fn main() {
 
     if let Err(error) = result {
         println!("{error}");
+        println!("Log: {}", log_path.display());
     }
 }

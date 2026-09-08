@@ -1,10 +1,10 @@
 [package]
-name = "robot_client_cs"
+name = "robot-client-cs"
 version = "0.0.0"
 edition = "2024"
 publish = false
 
-[dependencies.robot]
+[dependencies.robot-component]
 path = "../component"
 
 [lints]

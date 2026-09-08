@@ -6,7 +6,6 @@ publish = false
 
 [dependencies]
 windows-canvas = { workspace = true, features = ["system"] }
-windows-core = { workspace = true }
 windows-window = { workspace = true }
 
 [lints]

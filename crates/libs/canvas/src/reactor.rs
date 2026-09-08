@@ -202,68 +202,101 @@ impl SurfaceMetrics {
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-enum SurfaceState {
+enum ContentState {
+    Clean,
     NeedsResize,
     NeedsRebuild,
-    Unattached,
-    Attaching(u64),
-    Ready,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum AttachmentState {
+    Detached,
+    Attaching {
+        request: u64,
+        panel: u64,
+        chain: u64,
+    },
+    Attached {
+        panel: u64,
+        chain: u64,
+    },
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 struct SurfaceLifecycle {
-    state: SurfaceState,
-    generation: u64,
+    content: ContentState,
+    attachment: AttachmentState,
+    next_request: u64,
 }
 
 impl SurfaceLifecycle {
     fn new() -> Self {
         Self {
-            state: SurfaceState::Unattached,
-            generation: 0,
+            content: ContentState::Clean,
+            attachment: AttachmentState::Detached,
+            next_request: 0,
         }
     }
 
     fn require_resize(&mut self) {
-        if self.state != SurfaceState::NeedsRebuild {
-            self.state = SurfaceState::NeedsResize;
+        if self.content != ContentState::NeedsRebuild {
+            self.content = ContentState::NeedsResize;
         }
     }
 
     fn require_rebuild(&mut self) {
-        self.state = SurfaceState::NeedsRebuild;
+        self.content = ContentState::NeedsRebuild;
     }
 
-    fn require_reattachment(&mut self) {
+    fn update_panel(&mut self, panel: u64) {
         if !matches!(
-            self.state,
-            SurfaceState::NeedsResize | SurfaceState::NeedsRebuild
+            self.attachment,
+            AttachmentState::Attaching {
+                panel: current, ..
+            } | AttachmentState::Attached {
+                panel: current, ..
+            } if current == panel
         ) {
-            self.state = SurfaceState::Unattached;
+            self.attachment = AttachmentState::Detached;
         }
     }
 
-    fn require_attachment(&mut self) {
-        self.state = SurfaceState::Unattached;
+    fn replace_chain(&mut self) {
+        self.content = ContentState::Clean;
+        self.attachment = AttachmentState::Detached;
     }
 
-    fn begin_attachment(&mut self) -> Option<u64> {
-        if self.state != SurfaceState::Unattached {
+    fn is_attached(&self, panel: u64, chain: u64) -> bool {
+        self.attachment == AttachmentState::Attached { panel, chain }
+    }
+
+    fn begin_attachment(&mut self, panel: u64, chain: u64) -> Option<u64> {
+        if self.attachment != AttachmentState::Detached {
             return None;
         }
-        self.generation = self.generation.checked_add(1).unwrap();
-        self.state = SurfaceState::Attaching(self.generation);
-        Some(self.generation)
+        self.next_request = self.next_request.checked_add(1).unwrap();
+        self.attachment = AttachmentState::Attaching {
+            request: self.next_request,
+            panel,
+            chain,
+        };
+        Some(self.next_request)
     }
 
-    fn complete_attachment(&mut self, generation: u64, success: bool) -> bool {
-        if self.state != SurfaceState::Attaching(generation) {
+    fn complete_attachment(&mut self, request: u64, panel: u64, chain: u64, success: bool) -> bool {
+        if self.attachment
+            != (AttachmentState::Attaching {
+                request,
+                panel,
+                chain,
+            })
+        {
             return false;
         }
-        self.state = if success {
-            SurfaceState::Ready
+        self.attachment = if success {
+            AttachmentState::Attached { panel, chain }
         } else {
-            SurfaceState::Unattached
+            AttachmentState::Detached
         };
         true
     }
@@ -302,11 +335,7 @@ impl PartialEq for CanvasInput {
 }
 
 struct CanvasHost {
-    panel: ElementRef<SwapChainPanel>,
-    input: Rc<RefCell<CanvasInput>>,
-    metrics: Rc<Cell<Option<SurfaceMetrics>>>,
-    state: Rc<RefCell<Option<RenderState>>>,
-    error: Rc<Cell<Option<IntegrationError>>>,
+    runtime: Rc<CanvasRuntime>,
 }
 
 impl Component for CanvasHost {
@@ -315,96 +344,151 @@ impl Component for CanvasHost {
 
     fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
         Self {
-            panel: ElementRef::new(),
-            input: Rc::new(RefCell::new(input.clone())),
-            metrics: Rc::new(Cell::new(None)),
-            state: Rc::new(RefCell::new(None)),
-            error: Rc::new(Cell::new(None)),
+            runtime: Rc::new(CanvasRuntime {
+                panel: ElementRef::new(),
+                input: RefCell::new(input.clone()),
+                surface: Cell::new(None),
+                state: RefCell::new(None),
+                error: Cell::new(None),
+                frame_requested: Cell::new(false),
+                frame_queued: Cell::new(false),
+                frame_running: Cell::new(false),
+                recovery_allowed: Cell::new(true),
+            }),
         }
     }
 
     fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.error.set(None);
-        *self.input.borrow_mut() = input.clone();
+        self.runtime.error.set(None);
+        *self.runtime.input.borrow_mut() = input.clone();
         input.invalidator.invalidate();
     }
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        let panel = self.panel.clone();
-        let effect_panel = panel.clone();
-        let metrics = Rc::clone(&self.metrics);
-        let state = Rc::clone(&self.state);
-        let input = Rc::clone(&self.input);
-        let error = Rc::clone(&self.error);
+        let runtime = Rc::clone(&self.runtime);
+        let cleanup = Rc::clone(&self.runtime);
         context.use_effect("surface", (), move || {
-            let callback_panel = effect_panel.clone();
-            let cleanup_state = Rc::clone(&state);
-            let observation = effect_panel.observe_surface(move |event| {
-                handle_surface_event(&callback_panel, &metrics, &state, &input, &error, event);
+            let callback_runtime = Rc::clone(&runtime);
+            let observation = runtime.panel.observe_surface(move |event| {
+                callback_runtime.handle_event(event);
             });
             Some(Box::new(move || {
                 drop(observation);
-                cleanup_state.borrow_mut().take();
-                _ = panel.request_clear_swap_chain(|_| {});
+                cleanup.state.borrow_mut().take();
+                _ = cleanup.panel.request_clear_swap_chain(|_| {});
             }))
         });
-        SwapChainPanel::new().element_ref(&self.panel).into()
+        SwapChainPanel::new()
+            .element_ref(&self.runtime.panel)
+            .into()
     }
+}
+
+#[derive(Clone, Copy, Debug, PartialEq)]
+struct ObservedSurface {
+    binding: u64,
+    metrics: SurfaceMetrics,
+}
+
+struct CanvasRuntime {
+    panel: ElementRef<SwapChainPanel>,
+    input: RefCell<CanvasInput>,
+    surface: Cell<Option<ObservedSurface>>,
+    state: RefCell<Option<RenderState>>,
+    error: Cell<Option<IntegrationError>>,
+    frame_requested: Cell<bool>,
+    frame_queued: Cell<bool>,
+    frame_running: Cell<bool>,
+    recovery_allowed: Cell<bool>,
 }
 
 struct RenderState {
     device: GpuDevice,
     chain: SwapChain,
+    chain_generation: u64,
     metrics: SurfaceMetrics,
     changed: bool,
     lifecycle: SurfaceLifecycle,
 }
 
-fn handle_surface_event(
-    panel: &ElementRef<SwapChainPanel>,
-    metrics: &Rc<Cell<Option<SurfaceMetrics>>>,
-    state: &Rc<RefCell<Option<RenderState>>>,
-    input: &Rc<RefCell<CanvasInput>>,
-    error: &Rc<Cell<Option<IntegrationError>>>,
-    event: SwapChainPanelEvent,
-) {
-    match event {
-        SwapChainPanelEvent::Metrics {
-            width,
-            height,
-            scale_x,
-            ..
-        } => {
-            let next = SurfaceMetrics::new(width as f32, height as f32, scale_x);
-            metrics.set(Some(next));
-            update_surface(panel, metrics, state, input, error, next);
+impl CanvasRuntime {
+    fn handle_event(self: &Rc<Self>, event: SwapChainPanelEvent) {
+        match event {
+            SwapChainPanelEvent::Metrics {
+                binding,
+                width,
+                height,
+                scale_x,
+                ..
+            } => {
+                let metrics = SurfaceMetrics::new(width as f32, height as f32, scale_x);
+                self.update_surface(ObservedSurface { binding, metrics });
+                self.request_frame(true);
+            }
+            SwapChainPanelEvent::Rendering => {
+                let input = self.input.borrow();
+                let should_render =
+                    input.mode == RenderMode::Continuous || input.invalidator.0.get();
+                drop(input);
+                if should_render {
+                    self.recovery_allowed.set(true);
+                    self.run_frame();
+                }
+            }
         }
-        SwapChainPanelEvent::Rendering => render_frame(panel, metrics, state, input, error),
     }
-}
 
-fn update_surface(
-    panel: &ElementRef<SwapChainPanel>,
-    metrics_state: &Rc<Cell<Option<SurfaceMetrics>>>,
-    state: &Rc<RefCell<Option<RenderState>>>,
-    input: &Rc<RefCell<CanvasInput>>,
-    error_state: &Rc<Cell<Option<IntegrationError>>>,
-    metrics: SurfaceMetrics,
-) {
-    let input_value = input.borrow();
-    let mut state_slot = state.borrow_mut();
-    if let Some(render_state) = state_slot.as_mut() {
-        if update_surface_metrics(&mut render_state.metrics, metrics, &input_value.invalidator) {
-            render_state.changed = true;
-            render_state.lifecycle.require_resize();
-        } else {
-            render_state.lifecycle.require_reattachment();
-        }
-        input_value.invalidator.invalidate();
+    fn update_surface(&self, surface: ObservedSurface) {
+        self.surface.set(Some(surface));
+        self.input.borrow().invalidator.invalidate();
     }
-    drop(state_slot);
-    drop(input_value);
-    _ = ensure_surface(panel, metrics_state, state, input, error_state);
+
+    fn request_frame(self: &Rc<Self>, external: bool) {
+        self.frame_requested.set(true);
+        if external {
+            self.recovery_allowed.set(true);
+        }
+        if self.frame_queued.get() || self.frame_running.get() {
+            return;
+        }
+        let binding = self.surface.get().map(|surface| surface.binding);
+        self.frame_queued.set(true);
+        let runtime = Rc::clone(self);
+        let accepted = self.panel.request_surface_frame(move |result| {
+            runtime.frame_queued.set(false);
+            match result {
+                Ok(()) => {
+                    if runtime.frame_requested.get() {
+                        runtime.run_frame();
+                    }
+                }
+                Err(error) => {
+                    let rebound = runtime.surface.get().map(|surface| surface.binding) != binding;
+                    if rebound && runtime.frame_requested.get() {
+                        runtime.request_frame(false);
+                    } else {
+                        runtime.frame_requested.set(false);
+                        report_frame_error(&runtime.input, &runtime.error, error);
+                    }
+                }
+            }
+        });
+        if !accepted {
+            self.frame_queued.set(false);
+        }
+    }
+
+    fn run_frame(self: &Rc<Self>) {
+        if self.frame_running.replace(true) {
+            return;
+        }
+        self.frame_requested.set(false);
+        self.render_frame();
+        self.frame_running.set(false);
+        if self.frame_requested.get() {
+            self.request_frame(false);
+        }
+    }
 }
 
 fn configure_surface(chain: &mut SwapChain, metrics: SurfaceMetrics) {
@@ -421,11 +505,11 @@ fn resize_surface(state: &mut RenderState) -> Result<()> {
     Ok(())
 }
 
-fn classify_resize_failure(error: &Error) -> SurfaceState {
+fn classify_resize_failure(error: &Error) -> ContentState {
     if is_device_lost(error.code()) {
-        SurfaceState::NeedsRebuild
+        ContentState::NeedsRebuild
     } else {
-        SurfaceState::NeedsResize
+        ContentState::NeedsResize
     }
 }
 
@@ -436,241 +520,230 @@ enum SurfacePreparation {
     Waiting,
 }
 
-fn prepare_surface(
-    state: &mut RenderState,
-    make_device: &Rc<dyn Fn() -> Result<GpuDevice>>,
-    input: &Rc<RefCell<CanvasInput>>,
-    error_state: &Rc<Cell<Option<IntegrationError>>>,
-) -> SurfacePreparation {
-    if state.lifecycle.state == SurfaceState::NeedsResize {
-        match resize_surface(state) {
-            Ok(()) => state.lifecycle.require_attachment(),
-            Err(error) => {
-                state.lifecycle.state = classify_resize_failure(&error);
-                if !is_device_lost(error.code()) {
-                    report_error(input, error_state, native_error(&error));
+impl CanvasRuntime {
+    fn synchronize_surface(&self, state: &mut RenderState, surface: ObservedSurface) {
+        state.lifecycle.update_panel(surface.binding);
+        let invalidator = self.input.borrow().invalidator.clone();
+        if update_surface_metrics(&mut state.metrics, surface.metrics, &invalidator) {
+            state.changed = true;
+            state.lifecycle.require_resize();
+        }
+    }
+
+    fn prepare_surface(
+        &self,
+        state: &mut RenderState,
+        surface: ObservedSurface,
+    ) -> SurfacePreparation {
+        if state.lifecycle.content == ContentState::NeedsResize {
+            match resize_surface(state) {
+                Ok(()) => state.lifecycle.content = ContentState::Clean,
+                Err(error) => {
+                    state.lifecycle.content = classify_resize_failure(&error);
+                    if !is_device_lost(error.code()) {
+                        report_error_ref(&self.input, &self.error, native_error(&error));
+                    }
                 }
             }
         }
-    }
 
-    if state.lifecycle.state == SurfaceState::NeedsRebuild
-        && let Err(error) = rebuild_surface(state, make_device)
-    {
-        report_error(input, error_state, native_error(&error));
-    }
+        if state.lifecycle.content == ContentState::NeedsRebuild {
+            let make_device = Rc::clone(&self.input.borrow().make_device);
+            if let Err(error) = rebuild_surface(state, &make_device) {
+                report_error_ref(&self.input, &self.error, native_error(&error));
+            }
+        }
 
-    match state.lifecycle.state {
-        SurfaceState::Ready => SurfacePreparation::Ready,
-        SurfaceState::Unattached => SurfacePreparation::Attach,
-        SurfaceState::NeedsResize | SurfaceState::NeedsRebuild | SurfaceState::Attaching(_) => {
+        if state.lifecycle.content != ContentState::Clean {
+            return SurfacePreparation::Waiting;
+        }
+        if state
+            .lifecycle
+            .is_attached(surface.binding, state.chain_generation)
+        {
+            SurfacePreparation::Ready
+        } else if state.lifecycle.attachment == AttachmentState::Detached {
+            SurfacePreparation::Attach
+        } else {
             SurfacePreparation::Waiting
         }
     }
-}
 
-fn ensure_surface(
-    panel: &ElementRef<SwapChainPanel>,
-    metrics: &Cell<Option<SurfaceMetrics>>,
-    state: &Rc<RefCell<Option<RenderState>>>,
-    input: &Rc<RefCell<CanvasInput>>,
-    error_state: &Rc<Cell<Option<IntegrationError>>>,
-) -> bool {
-    if state.borrow().is_none() {
-        let Some(metrics) = metrics.get() else {
+    fn ensure_surface(self: &Rc<Self>) -> bool {
+        let Some(surface) = self.surface.get() else {
             return false;
         };
-        if !initialize_surface(state, input, error_state, metrics) {
+        if self.state.borrow().is_none() && !self.initialize_surface(surface.metrics) {
             return false;
+        }
+        let preparation = {
+            let mut state_slot = self.state.borrow_mut();
+            let Some(state) = state_slot.as_mut() else {
+                return false;
+            };
+            self.synchronize_surface(state, surface);
+            self.prepare_surface(state, surface)
+        };
+        match preparation {
+            SurfacePreparation::Ready => true,
+            SurfacePreparation::Attach => {
+                self.request_surface_attachment(surface.binding);
+                false
+            }
+            SurfacePreparation::Waiting => false,
         }
     }
-    let make_device = Rc::clone(&input.borrow().make_device);
-    let preparation = {
-        let mut state = state.borrow_mut();
-        let Some(state) = state.as_mut() else {
-            return false;
+
+    fn initialize_surface(&self, metrics: SurfaceMetrics) -> bool {
+        let (make_device, invalidator) = {
+            let input = self.input.borrow();
+            (Rc::clone(&input.make_device), input.invalidator.clone())
         };
-        prepare_surface(state, &make_device, input, error_state)
-    };
-
-    match preparation {
-        SurfacePreparation::Ready => true,
-        SurfacePreparation::Attach => {
-            request_surface_attachment(panel, state, input, error_state);
-            false
-        }
-        SurfacePreparation::Waiting => false,
-    }
-}
-
-fn initialize_surface(
-    state: &RefCell<Option<RenderState>>,
-    input: &RefCell<CanvasInput>,
-    error_state: &Cell<Option<IntegrationError>>,
-    metrics: SurfaceMetrics,
-) -> bool {
-    let (make_device, invalidator) = {
-        let input = input.borrow();
-        (Rc::clone(&input.make_device), input.invalidator.clone())
-    };
-    let device = match make_device() {
-        Ok(device) => device,
-        Err(error) => {
-            report_error_ref(input, error_state, native_error(&error));
-            return false;
-        }
-    };
-    let mut chain = match device.create_swap_chain(metrics.pixel_width(), metrics.pixel_height()) {
-        Ok(chain) => chain,
-        Err(error) => {
-            report_error_ref(input, error_state, native_error(&error));
-            return false;
-        }
-    };
-    configure_surface(&mut chain, metrics);
-    *state.borrow_mut() = Some(RenderState {
-        device,
-        chain,
-        metrics,
-        changed: true,
-        lifecycle: SurfaceLifecycle::new(),
-    });
-    invalidator.invalidate();
-    true
-}
-
-fn request_surface_attachment(
-    panel: &ElementRef<SwapChainPanel>,
-    state: &Rc<RefCell<Option<RenderState>>>,
-    input: &Rc<RefCell<CanvasInput>>,
-    error_state: &Rc<Cell<Option<IntegrationError>>>,
-) {
-    let request = {
-        let mut state = state.borrow_mut();
-        let Some(state) = state.as_mut() else {
-            return;
-        };
-        let raw = match state.chain.raw_swap_chain().cast::<IUnknown>() {
-            Ok(raw) => raw,
+        let device = match make_device() {
+            Ok(device) => device,
             Err(error) => {
-                report_error(input, error_state, native_error(&error));
-                return;
+                report_error_ref(&self.input, &self.error, native_error(&error));
+                return false;
             }
         };
-        let Some(generation) = state.lifecycle.begin_attachment() else {
+        let mut chain =
+            match device.create_swap_chain(metrics.pixel_width(), metrics.pixel_height()) {
+                Ok(chain) => chain,
+                Err(error) => {
+                    report_error_ref(&self.input, &self.error, native_error(&error));
+                    return false;
+                }
+            };
+        configure_surface(&mut chain, metrics);
+        *self.state.borrow_mut() = Some(RenderState {
+            device,
+            chain,
+            chain_generation: 1,
+            metrics,
+            changed: true,
+            lifecycle: SurfaceLifecycle::new(),
+        });
+        invalidator.invalidate();
+        true
+    }
+
+    fn request_surface_attachment(self: &Rc<Self>, panel: u64) {
+        let request = {
+            let mut state_slot = self.state.borrow_mut();
+            let Some(state) = state_slot.as_mut() else {
+                return;
+            };
+            let raw = match state.chain.raw_swap_chain().cast::<IUnknown>() {
+                Ok(raw) => raw,
+                Err(error) => {
+                    report_error_ref(&self.input, &self.error, native_error(&error));
+                    return;
+                }
+            };
+            let chain = state.chain_generation;
+            let Some(request) = state.lifecycle.begin_attachment(panel, chain) else {
+                return;
+            };
+            (raw, request, chain)
+        };
+        let runtime = Rc::clone(self);
+        let accepted = self.panel.request_set_swap_chain(request.0, move |result| {
+            runtime.finish_surface_attachment(request.1, panel, request.2, result);
+        });
+        if !accepted {
+            self.finish_surface_attachment(
+                request.1,
+                panel,
+                request.2,
+                Err(IntegrationError::Unavailable),
+            );
+        }
+    }
+
+    fn finish_surface_attachment(
+        self: &Rc<Self>,
+        request: u64,
+        panel: u64,
+        chain: u64,
+        result: std::result::Result<(), IntegrationError>,
+    ) {
+        let completed = self.state.borrow_mut().as_mut().is_some_and(|state| {
+            state
+                .lifecycle
+                .complete_attachment(request, panel, chain, result.is_ok())
+        });
+        if completed {
+            match result {
+                Ok(()) => {
+                    self.error.set(None);
+                    self.input.borrow().invalidator.invalidate();
+                    self.request_frame(false);
+                }
+                Err(error) => report_error_ref(&self.input, &self.error, error),
+            }
+        }
+    }
+
+    fn render_frame(self: &Rc<Self>) {
+        let (mode, invalidator, draw) = {
+            let input = self.input.borrow();
+            (
+                input.mode,
+                input.invalidator.clone(),
+                Rc::clone(&input.draw),
+            )
+        };
+        if mode == RenderMode::Demand && !invalidator.0.get() {
+            return;
+        }
+        if !self.ensure_surface() {
+            invalidator.invalidate();
+            return;
+        }
+
+        let mut state_slot = self.state.borrow_mut();
+        let Some(state) = state_slot.as_mut() else {
             return;
         };
-        (raw, generation)
-    };
-
-    let callback_state = Rc::clone(state);
-    let callback_input = Rc::clone(input);
-    let callback_error = Rc::clone(error_state);
-    let generation = request.1;
-    let accepted = panel.request_set_swap_chain(request.0, move |result| {
-        finish_surface_attachment(
-            &callback_state,
-            &callback_input,
-            &callback_error,
-            generation,
-            result,
-        );
-    });
-    if !accepted {
-        finish_surface_attachment(
-            state,
-            input,
-            error_state,
-            generation,
-            Err(IntegrationError::Unavailable),
-        );
-    }
-}
-
-fn finish_surface_attachment(
-    state: &RefCell<Option<RenderState>>,
-    input: &RefCell<CanvasInput>,
-    error_state: &Cell<Option<IntegrationError>>,
-    generation: u64,
-    result: std::result::Result<(), IntegrationError>,
-) {
-    let completed = state.borrow_mut().as_mut().is_some_and(|state| {
-        state
-            .lifecycle
-            .complete_attachment(generation, result.is_ok())
-    });
-    if completed {
-        match result {
-            Ok(()) => error_state.set(None),
-            Err(error) => report_error_ref(input, error_state, error),
+        if state.metrics.width <= 0.0 || state.metrics.height <= 0.0 {
+            return;
         }
-        input.borrow().invalidator.invalidate();
-    }
-}
-
-fn render_frame(
-    panel: &ElementRef<SwapChainPanel>,
-    metrics: &Cell<Option<SurfaceMetrics>>,
-    state: &Rc<RefCell<Option<RenderState>>>,
-    input: &Rc<RefCell<CanvasInput>>,
-    error_state: &Rc<Cell<Option<IntegrationError>>>,
-) {
-    let (mode, invalidator, draw) = {
-        let input = input.borrow();
-        (
-            input.mode,
-            input.invalidator.clone(),
-            Rc::clone(&input.draw),
-        )
-    };
-    if mode == RenderMode::Demand && !invalidator.0.get() {
-        return;
-    }
-    if !ensure_surface(panel, metrics, state, input, error_state) {
-        invalidator.invalidate();
-        return;
-    }
-
-    let mut state_slot = state.borrow_mut();
-    let Some(render_state) = state_slot.as_mut() else {
-        return;
-    };
-    if render_state.metrics.width <= 0.0 || render_state.metrics.height <= 0.0 {
-        return;
-    }
-    invalidator.0.set(false);
-    let outcome = render_state.chain.begin_draw().and_then(|session| {
-        let context = DrawContext {
-            session,
-            device: &render_state.device,
-            width: render_state.metrics.width,
-            height: render_state.metrics.height,
-            changed: std::mem::replace(&mut render_state.changed, false),
+        invalidator.0.set(false);
+        let outcome = state.chain.begin_draw().and_then(|session| {
+            let context = DrawContext {
+                session,
+                device: &state.device,
+                width: state.metrics.width,
+                height: state.metrics.height,
+                changed: std::mem::replace(&mut state.changed, false),
+            };
+            let result = draw(&context);
+            drop(context);
+            result
+        });
+        let outcome = if state.chain.is_device_lost() {
+            Ok(false)
+        } else {
+            outcome.and_then(|()| state.chain.present())
         };
-        let result = draw(&context);
-        drop(context);
-        result
-    });
-    let outcome = if render_state.chain.is_device_lost() {
-        Ok(false)
-    } else {
-        outcome.and_then(|()| render_state.chain.present())
-    };
-    let needs_rebuild = matches!(outcome, Ok(false))
-        || matches!(&outcome, Err(error) if is_device_lost(error.code()));
-    if needs_rebuild {
-        render_state.lifecycle.require_rebuild();
-        invalidator.invalidate();
-    } else {
-        match outcome {
-            Ok(true) => error_state.set(None),
-            Ok(false) => {}
-            Err(error) => report_error(input, error_state, native_error(&error)),
+        let needs_rebuild = matches!(outcome, Ok(false))
+            || matches!(&outcome, Err(error) if is_device_lost(error.code()));
+        if needs_rebuild {
+            state.lifecycle.require_rebuild();
+            invalidator.invalidate();
+        } else {
+            match outcome {
+                Ok(true) => self.error.set(None),
+                Ok(false) => {}
+                Err(error) => {
+                    report_error_ref(&self.input, &self.error, native_error(&error));
+                }
+            }
         }
-    }
-    drop(state_slot);
-    if needs_rebuild {
-        _ = ensure_surface(panel, metrics, state, input, error_state);
+        drop(state_slot);
+        if needs_rebuild && self.recovery_allowed.replace(false) {
+            self.request_frame(false);
+        }
     }
 }
 
@@ -684,8 +757,9 @@ fn rebuild_surface(
     configure_surface(&mut chain, state.metrics);
     state.device = device;
     state.chain = chain;
+    state.chain_generation = state.chain_generation.checked_add(1).unwrap();
     state.changed = true;
-    state.lifecycle.require_attachment();
+    state.lifecycle.replace_chain();
     Ok(())
 }
 
@@ -693,12 +767,14 @@ fn native_error(error: &Error) -> IntegrationError {
     IntegrationError::Native(error.code().0)
 }
 
-fn report_error(
-    input: &Rc<RefCell<CanvasInput>>,
-    state: &Rc<Cell<Option<IntegrationError>>>,
+fn report_frame_error(
+    input: &RefCell<CanvasInput>,
+    state: &Cell<Option<IntegrationError>>,
     error: IntegrationError,
 ) {
-    report_error_ref(input, state, error);
+    if matches!(error, IntegrationError::Native(_)) {
+        report_error_ref(input, state, error);
+    }
 }
 
 fn report_error_ref(
@@ -863,52 +939,77 @@ mod tests {
     fn resize_device_loss_requires_rebuild() {
         assert_eq!(
             classify_resize_failure(&device_lost_error()),
-            SurfaceState::NeedsRebuild
+            ContentState::NeedsRebuild
         );
         assert_eq!(
             classify_resize_failure(&Error::from_hresult(HRESULT(0x8007_0057_u32 as i32))),
-            SurfaceState::NeedsResize
+            ContentState::NeedsResize
         );
     }
 
     #[test]
     fn attachment_requires_a_successful_completion() {
         let mut lifecycle = SurfaceLifecycle::new();
-        assert_eq!(lifecycle.state, SurfaceState::Unattached);
+        assert_eq!(lifecycle.attachment, AttachmentState::Detached);
 
-        let initial = lifecycle.begin_attachment().unwrap();
-        assert_eq!(lifecycle.state, SurfaceState::Attaching(initial));
-        assert!(lifecycle.complete_attachment(initial, false));
-        assert_eq!(lifecycle.state, SurfaceState::Unattached);
+        let initial = lifecycle.begin_attachment(1, 1).unwrap();
+        assert!(lifecycle.complete_attachment(initial, 1, 1, false));
+        assert_eq!(lifecycle.attachment, AttachmentState::Detached);
 
-        let retry = lifecycle.begin_attachment().unwrap();
+        let retry = lifecycle.begin_attachment(1, 1).unwrap();
         assert_ne!(retry, initial);
-        assert!(lifecycle.complete_attachment(retry, true));
-        assert_eq!(lifecycle.state, SurfaceState::Ready);
-
-        lifecycle.require_reattachment();
-        let reattachment = lifecycle.begin_attachment().unwrap();
-        assert_eq!(lifecycle.state, SurfaceState::Attaching(reattachment));
-        assert!(lifecycle.complete_attachment(reattachment, true));
-        assert_eq!(lifecycle.state, SurfaceState::Ready);
+        assert!(lifecycle.complete_attachment(retry, 1, 1, true));
+        assert!(lifecycle.is_attached(1, 1));
     }
 
     #[test]
     fn stale_attachment_completion_cannot_ready_a_rebuilt_surface() {
         let mut lifecycle = SurfaceLifecycle::new();
-        let stale = lifecycle.begin_attachment().unwrap();
+        let stale = lifecycle.begin_attachment(1, 1).unwrap();
         lifecycle.require_rebuild();
-        assert!(!lifecycle.complete_attachment(stale, true));
-        assert_eq!(lifecycle.state, SurfaceState::NeedsRebuild);
+        lifecycle.replace_chain();
+        assert!(!lifecycle.complete_attachment(stale, 1, 1, true));
 
-        lifecycle.require_attachment();
-        let current = lifecycle.begin_attachment().unwrap();
+        let current = lifecycle.begin_attachment(1, 2).unwrap();
         assert_ne!(current, stale);
-        assert!(!lifecycle.complete_attachment(stale, true));
-        assert_eq!(lifecycle.state, SurfaceState::Attaching(current));
+        assert!(!lifecycle.complete_attachment(stale, 1, 1, true));
+        assert!(!lifecycle.is_attached(1, 2));
 
-        assert!(lifecycle.complete_attachment(current, true));
-        assert_eq!(lifecycle.state, SurfaceState::Ready);
+        assert!(lifecycle.complete_attachment(current, 1, 2, true));
+        assert!(lifecycle.is_attached(1, 2));
+    }
+
+    #[test]
+    fn resize_preserves_current_and_in_flight_attachments() {
+        let mut attached = SurfaceLifecycle::new();
+        let request = attached.begin_attachment(1, 1).unwrap();
+        assert!(attached.complete_attachment(request, 1, 1, true));
+        attached.require_resize();
+        assert!(attached.is_attached(1, 1));
+
+        let mut attaching = SurfaceLifecycle::new();
+        let request = attaching.begin_attachment(1, 1).unwrap();
+        attaching.require_resize();
+        assert_eq!(
+            attaching.attachment,
+            AttachmentState::Attaching {
+                request,
+                panel: 1,
+                chain: 1
+            }
+        );
+    }
+
+    #[test]
+    fn a_new_panel_binding_requires_attachment() {
+        let mut lifecycle = SurfaceLifecycle::new();
+        let request = lifecycle.begin_attachment(1, 1).unwrap();
+        assert!(lifecycle.complete_attachment(request, 1, 1, true));
+
+        lifecycle.update_panel(1);
+        assert!(lifecycle.is_attached(1, 1));
+        lifecycle.update_panel(2);
+        assert_eq!(lifecycle.attachment, AttachmentState::Detached);
     }
 
     #[test]
@@ -918,14 +1019,14 @@ mod tests {
         let input = Canvas::animated(|_| Ok(()))
             .on_error(move |error| callback_reported.borrow_mut().push(error))
             .input;
-        let input = Rc::new(RefCell::new(input));
-        let state = Rc::new(Cell::new(None));
+        let input = RefCell::new(input);
+        let state = Cell::new(None);
 
-        report_error(&input, &state, IntegrationError::Native(-1));
-        report_error(&input, &state, IntegrationError::Native(-1));
-        report_error(&input, &state, IntegrationError::Unavailable);
+        report_error_ref(&input, &state, IntegrationError::Native(-1));
+        report_error_ref(&input, &state, IntegrationError::Native(-1));
+        report_error_ref(&input, &state, IntegrationError::Unavailable);
         state.set(None);
-        report_error(&input, &state, IntegrationError::Native(-1));
+        report_error_ref(&input, &state, IntegrationError::Native(-1));
 
         assert_eq!(
             *reported.borrow(),
@@ -935,6 +1036,22 @@ mod tests {
                 IntegrationError::Native(-1)
             ]
         );
+    }
+
+    #[test]
+    fn retired_frame_requests_do_not_report_canvas_errors() {
+        let reported = Rc::new(RefCell::new(Vec::new()));
+        let callback_reported = Rc::clone(&reported);
+        let input = Canvas::animated(|_| Ok(()))
+            .on_error(move |error| callback_reported.borrow_mut().push(error))
+            .input;
+        let input = RefCell::new(input);
+        let state = Cell::new(None);
+
+        report_frame_error(&input, &state, IntegrationError::Unavailable);
+        report_frame_error(&input, &state, IntegrationError::Native(-1));
+
+        assert_eq!(*reported.borrow(), [IntegrationError::Native(-1)]);
     }
 
     #[test]
@@ -952,22 +1069,21 @@ mod tests {
         )
         .on_error(|_| {})
         .input;
-        let state = RefCell::new(None);
-        let error = Cell::new(None);
+        let runtime = CanvasRuntime {
+            panel: ElementRef::new(),
+            input: RefCell::new(input),
+            surface: Cell::new(None),
+            state: RefCell::new(None),
+            error: Cell::new(None),
+            frame_requested: Cell::new(false),
+            frame_queued: Cell::new(false),
+            frame_running: Cell::new(false),
+            recovery_allowed: Cell::new(true),
+        };
         let metrics = SurfaceMetrics::new(100.0, 80.0, 1.0);
 
-        assert!(!initialize_surface(
-            &state,
-            &RefCell::new(input.clone()),
-            &error,
-            metrics
-        ));
-        assert!(!initialize_surface(
-            &state,
-            &RefCell::new(input),
-            &error,
-            metrics
-        ));
+        assert!(!runtime.initialize_surface(metrics));
+        assert!(!runtime.initialize_surface(metrics));
         assert_eq!(attempts.get(), 2);
     }
 }

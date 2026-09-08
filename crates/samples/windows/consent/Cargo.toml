@@ -1,0 +1,16 @@
+[package]
+name = "windows-consent"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows = { workspace = true, default-features = true, features = [
+    "Security_Credentials_UI",
+    "userconsentverifierinterop",
+    "windef",
+] }
+windows-future = { workspace = true }
+
+[lints]
+workspace = true

@@ -1,0 +1,28 @@
+[package]
+name = "windows-shell"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows = { workspace = true, default-features = true, features = [
+    "combaseapi",
+    "exdisp",
+    "oaidl",
+    "objbase",
+    "objidlbase",
+    "oleauto",
+    "oleidl",
+    "servprov",
+    "shellapi",
+    "shldisp",
+    "shlguid",
+    "shlobj_core",
+    "shobjidl_core",
+    "winnt",
+    "wtypes",
+    "wtypesbase",
+] }
+
+[lints]
+workspace = true
