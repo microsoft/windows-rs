@@ -130,7 +130,7 @@ Reactor. The two animation object models are not interchangeable.
 
 ## Samples
 
-Run the headless examples with:
+Run the headless sample with:
 
 ```text
 cargo run -p animation-storyboard

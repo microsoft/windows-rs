@@ -113,8 +113,7 @@ other components on the same UI thread from progressing.
 
 | Sample | What to study |
 | --- | --- |
-| [`create-window`](../../crates/samples/windows/create-window) | Basic creation and `run_with`. |
-| [`window-message`](../../crates/samples/windows/window-message) | Paint, mouse, and keyboard messages. |
+| [`window-message`](../../crates/samples/windows/window-message) | Creation and message handling. |
 | [`standalone`](../../crates/samples/canvas/standalone) | Swap-chain hosting and resize flow. |
 | [`direct2d`](../../crates/samples/windows/direct2d) | Rendering only while visible. |
 | [`direct3d12`](../../crates/samples/windows/direct3d12) | Binding a swap chain to the handle. |

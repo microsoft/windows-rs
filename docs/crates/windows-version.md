@@ -76,8 +76,7 @@ Keep that requirement in one named constant, and add capability checks for requi
 captured by the OS build.
 
 The [`version-version`](../../crates/samples/version/version) sample prints the current version,
-revision,
-product type, and the result of a named build comparison.
+revision, product type, and the result of a named build comparison.
 
 ---
 
