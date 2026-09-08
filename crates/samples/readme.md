@@ -3,12 +3,8 @@
 Runnable examples for the `windows-*` family of crates, grouped to mirror the [crate
 index](../../docs/readme.md).
 
-Samples come in two shapes:
-
-- **Umbrella crates** (named `<group>_samples`) collect many small, focused programs under an
-  `examples/` folder. Run one with `cargo run -p <crate> --example <name>`.
-- **Standalone crates** are a single self-contained program (often with their own build script,
-  manifest, or assets). Run one with `cargo run -p <crate>`.
+Each sample is a standalone Cargo package. Most run with `cargo run -p <crate>`; samples that need
+registration or another host include their own instructions.
 
 The samples compile against the latest, usually pre-release, versions of the crates. To browse the
 samples for a published release, use its tag - for example
@@ -18,49 +14,64 @@ samples for a published release, use its tag - for example
 
 | Crate | Sample | Run |
 | --- | --- | --- |
-| [windows-result](../../docs/crates/windows-result.md) | `result_samples` - building and propagating Windows errors: error, propagate | `cargo run -p result_samples --example <name>` |
-| [windows-strings](../../docs/crates/windows-strings.md) | `strings_samples` - the Windows string types: hstring, bstr, wide_ansi | `cargo run -p strings_samples --example <name>` |
+| [windows-result](../../docs/crates/windows-result.md) | `result-result` | `cargo run -p result-result` |
+| [windows-strings](../../docs/crates/windows-strings.md) | `strings-hstring` / `strings-bstr` / `strings-wide-ansi` | `cargo run -p <crate>` |
 
 ## Values & collections
 
 | Crate | Sample | Run |
 | --- | --- | --- |
-| [windows-time](../../docs/crates/windows-time.md) | `time_samples` - the `TimeSpan` and `DateTime` value types: time_types | `cargo run -p time_samples --example <name>` |
+| [windows-collections](../../docs/crates/windows-collections.md) | `collections-collections` | `cargo run -p collections-collections` |
+| [windows-reference](../../docs/crates/windows-reference.md) | `reference-reference` | `cargo run -p reference-reference` |
+| [windows-time](../../docs/crates/windows-time.md) | `time-time-types` | `cargo run -p time-time-types` |
 
 ## Async & threading
 
 | Crate | Sample | Run |
 | --- | --- | --- |
-| [windows-future](../../docs/crates/windows-future.md) | `future_samples` - the stock WinRT async types: spawn | `cargo run -p future_samples --example <name>` |
-| [windows-threading](../../docs/crates/windows-threading.md) | `threading_samples` - the Windows thread pool: for_each, pool | `cargo run -p threading_samples --example <name>` |
+| [windows-future](../../docs/crates/windows-future.md) | `future-spawn` | `cargo run -p future-spawn` |
+| [windows-threading](../../docs/crates/windows-threading.md) | `threading-for-each` / `threading-pool` | `cargo run -p <crate>` |
 
 ## System services
 
 | Crate | Sample | Run |
 | --- | --- | --- |
-| [windows-registry](../../docs/crates/windows-registry.md) | `registry_samples` - reading and writing the registry: read_write, transaction | `cargo run -p registry_samples --example <name>` |
+| [windows-registry](../../docs/crates/windows-registry.md) | `registry-read-write` / `registry-transaction` | `cargo run -p <crate>` |
 | [windows-services](../../docs/crates/windows-services.md) | `services-simple` / `services-time` | `cargo run -p <crate>` |
+| [windows-version](../../docs/crates/windows-version.md) | `version-version` | `cargo run -p version-version` |
 
 ## UI & graphics
 
 | Crate | Sample | Run |
 | --- | --- | --- |
-| [windows-reactor](../../docs/crates/windows-reactor.md) | `sample_reactor_controls` - focused WinUI and component examples | `cargo run -p sample_reactor_controls --example <name>` |
-| | `sample_reactor_apps` - complete apps: dotsweeper, minesweeper, notepad, solitaire, stacker, tictactoe | `cargo run -p sample_reactor_apps --example <name>` |
-| | `sample-reactor-gallery` / `sample_reactor_composition` / `sample-reactor-webview` / `sample-reactor-self-contained` / `sample-reactor-framework-dependent` | `cargo run -p <crate>` |
-| | `sample-reactor-controlled` / `sample_reactor_counter` / `sample-reactor-form` / `sample-reactor-navigation` / `sample-reactor-virtual` | `cargo run -p <crate>` |
-| | `sample-reactor-startup-perf` - blank app demonstrating startup TraceLogging events | `cargo run -p sample-reactor-startup-perf --release` |
-| [windows-canvas](../../docs/crates/windows-canvas.md) | `canvas_samples` - Direct2D drawing: bitmap, brush, color, curves, draw_text, gradient, hello, lines, path, shapes, stroke, transform | `cargo run -p canvas_samples --example <name>` |
-| | `canvas-chart` / `canvas-circles` / `canvas-clock` / `canvas-editor` / `canvas-hit-test` / `canvas-image-source` / `canvas-shared-device` / `canvas-standalone` / `canvas-text-layout` | `cargo run -p <crate>` |
-| [windows-animation](../../docs/crates/windows-animation.md) | `animation_samples` - the Windows Animation Manager, headless: variable, storyboard | `cargo run -p animation_samples --example <name>` |
-| [windows-webview](../../docs/crates/windows-webview.md) | `webview_samples` - WebView2 hosting: cookies, custom_protocol, downloads, events, ipc, local_files, minimal, profile, script | `cargo run -p webview_samples --example <name>` |
+| [windows-reactor](../../docs/crates/windows-reactor.md) | `reactor-gallery` - WinUI control catalog | `cargo run -p reactor-gallery` |
+| | `reactor-async-state` / `reactor-color-scheme` / `reactor-component-input` / `reactor-context` / `reactor-element-ref` / `reactor-function-component` / `reactor-keyed-list-reorder` / `reactor-use-effect` | `cargo run -p <crate>` |
+| | `reactor-drag-drop` / `reactor-exit-transition` / `reactor-lightweight-resources` / `reactor-opacity-transition` / `reactor-responsive-navigation` / `reactor-scale-transition` | `cargo run -p <crate>` |
+| | `reactor-pointer-position` / `reactor-pointer-resize` / `reactor-pointer-tracking` / `reactor-secondary-window` / `reactor-text-box-border` / `reactor-tooltip-placement` / `reactor-window` | `cargo run -p <crate>` |
+| | `reactor-button-icon` / `reactor-calculator` / `reactor-navigation-view-icons` / `reactor-navigation-view-pane` / `reactor-radio-buttons` / `reactor-tab-view-add-button` | `cargo run -p <crate>` |
+| | `reactor-card` / `reactor-icon` / `reactor-icon-elements` / `reactor-image-icon-size` / `reactor-scroll-viewer` / `reactor-shape` / `reactor-text-block` / `reactor-text-trimming` / `reactor-theme-brush` | `cargo run -p <crate>` |
+| | `reactor-dotsweeper` / `reactor-minesweeper` / `reactor-notepad` / `reactor-solitaire` / `reactor-stacker` / `reactor-tictactoe` | `cargo run -p <crate>` |
+| | `reactor-webview` / `reactor-self-contained` / `reactor-framework-dependent` | `cargo run -p <crate>` |
+| | `reactor-controlled` / `reactor-counter` / `reactor-form` / `reactor-navigation` / `reactor-virtual` | `cargo run -p <crate>` |
+| | `reactor-startup-perf` - blank app demonstrating startup TraceLogging events | `cargo run -p reactor-startup-perf --release` |
+| [windows-canvas](../../docs/crates/windows-canvas.md) | `canvas-bitmap` / `canvas-bitmap-from-bytes` / `canvas-color` / `canvas-curves` / `canvas-draw-text` / `canvas-gradient` / `canvas-hello` / `canvas-invalidate` / `canvas-lines` / `canvas-path` / `canvas-shapes` / `canvas-stroke` / `canvas-transform` | `cargo run -p <crate>` |
+| | `canvas-chart` / `canvas-circles` / `canvas-clock` / `canvas-editor` / `canvas-hit-test` / `canvas-image-source` / `canvas-readback` / `canvas-shared-device` / `canvas-standalone` / `canvas-text-layout` | `cargo run -p <crate>` |
+| [windows-composition](../../docs/crates/windows-composition.md) | `composition-animation` / `composition-canvas` / `composition-circles` / `composition-host` / `composition-minesweeper` / `composition-standalone` / `composition-toggle` | `cargo run -p <crate>` |
+| [windows-animation](../../docs/crates/windows-animation.md) | `animation-storyboard` | `cargo run -p animation-storyboard` |
+| [windows-webview](../../docs/crates/windows-webview.md) | `webview-cookies` / `webview-custom-protocol` / `webview-devtools` / `webview-downloads` / `webview-events` / `webview-ipc` / `webview-local-files` / `webview-minimal` / `webview-profile` / `webview-script` | `cargo run -p <crate>` |
 
 ## Interop (cross-language)
 
 | Sample | Description |
 | --- | --- |
-| `robot` / `robot_client` / `robot_client_cpp` / `robot_client_cs` / `robot_cpp` | A component whose metadata is authored once (RDL) and consumed from Rust, C++, and C#. |
-| `csharp_component` / `csharp_client` | Author a component in Rust and host it from C#. |
+| `robot-component` / `robot-client` / `robot-client-cpp` / `robot-client-cs` / `robot-component-cpp` | A component whose metadata is authored once (RDL) and consumed from Rust, C++, and C#. |
+| `csharp-component` / `csharp-client` | Author a component in Rust and host it from C#. |
+
+## Code generation
+
+| Crate | Sample | Run |
+| --- | --- | --- |
+| [windows-bindgen](../../docs/crates/windows-bindgen.md) | `bindgen-context-alignment` / `bindgen-vss-backup` | `cargo run -p <crate>` |
 
 ## Whole-API projection
 
@@ -71,9 +82,10 @@ surface. For new projects, prefer the focused crates above or generate a minimal
 
 | Crate | Sample | Run |
 | --- | --- | --- |
-| [windows](../../docs/crates/windows.md) | `windows_samples` - Win32, COM, and WinRT: bits, com_uri, consent, counter, create_window, credentials, data_protection, delay_load, device_watcher, enum_windows, kernel_event, memory_buffer, message_box, privileges, rss, shell, simple, thread_pool_work, window_message, wmi, xml | `cargo run -p windows_samples --example <name>` |
-| | `windows-core-app` / `windows-dcomp` / `windows-direct2d` / `windows-direct3d12` / `windows-file-dialogs` / `windows-ocr` / `windows-overlapped` / `windows-spellchecker` / `windows-task-dialog` / `windows-uiautomation` | `cargo run -p <crate>` |
-| [windows-sys](../../docs/crates/windows-sys.md) | `windows_sys_samples` - raw C-style bindings: create_window, message_box, service | `cargo run -p windows_sys_samples --example <name>` |
+| [windows](../../docs/crates/windows.md) | One crate per Win32, COM, or WinRT sample under [`windows/`](windows) | `cargo run -p windows-<name>` |
+| | `windows-dcomp` / `windows-direct2d` / `windows-direct3d12` / `windows-file-dialogs` / `windows-ocr` / `windows-overlapped` / `windows-spellchecker` / `windows-task-dialog` / `windows-uiautomation` | `cargo run -p <crate>` |
+| | `windows-core-app` (packaged CoreApplication) | `crates\samples\windows\core_app\register.cmd`, then launch from Start |
+| [windows-sys](../../docs/crates/windows-sys.md) | `windows-sys-create-window` / `windows-sys-service` | `cargo run -p <crate>` |
 | | `windows-sys-task-dialog` | `cargo run -p windows-sys-task-dialog` |
 
 ---

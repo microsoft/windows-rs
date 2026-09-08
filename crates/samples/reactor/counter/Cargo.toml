@@ -1,5 +1,5 @@
 [package]
-name = "sample_reactor_counter"
+name = "reactor-counter"
 version = "0.0.0"
 edition = "2024"
 publish = false

@@ -54,7 +54,9 @@ fn main() -> windows::core::Result<()> {
         if let Err(result) = Package::Current() {
             MessageBoxW(
                 None,
-                w!("This sample must be registered (via register.cmd) and launched from Start."),
+                w!(
+                    "Run crates\\samples\\windows\\core_app\\register.cmd, then launch \"Rust CoreApp\" from Start."
+                ),
                 w!("Error"),
                 (MB_ICONSTOP | MB_OK) as u32,
             );

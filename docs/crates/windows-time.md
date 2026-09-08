@@ -73,8 +73,8 @@ UTC instant to serialize with `Display` or convert back to `SystemTime`.
 
 ## Sample and next steps
 
-The [`time_types` sample](../../crates/samples/time/samples/examples/time_types.rs) demonstrates
-duration construction, checked date arithmetic, Unix timestamps, and formatting.
+The [`time-time-types` sample](../../crates/samples/time/time-types) demonstrates duration
+construction, checked date arithmetic, Unix timestamps, and formatting.
 
 ---
 

@@ -25,7 +25,7 @@ Every event includes `AppName`, `Seq`, and `Pid` fields.
 Run the framework-dependent app with:
 
 ```powershell
-cargo run -p sample-reactor-startup-perf --release
+cargo run -p reactor-startup-perf --release
 ```
 
 ## MSIX package
@@ -47,7 +47,7 @@ Run these commands from the repository root:
 2. Build the app and prepare the package layout:
 
     ```powershell
-    cargo build -p sample-reactor-startup-perf --release --quiet
+    cargo build -p reactor-startup-perf --release --quiet
     $work = "target\reactor-startup-msix"
     $layout = "$work\layout"
     Remove-Item $layout -Recurse -Force -ErrorAction Ignore

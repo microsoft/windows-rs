@@ -112,8 +112,8 @@ Win32 APIs use several other failure conventions. A function may return `BOOL`, 
 - Do not treat every zero as failure. Some APIs use zero as a valid result or require a separate
   status query.
 
-The `kernel_event` sample demonstrates both patterns: `CreateEventW` requires a null-handle check,
-while `SetEvent` and `CloseHandle` return values support `.ok()?`.
+The getting-started example demonstrates both patterns: `CreateEventW` requires a null-handle
+check, while `SetEvent` and `CloseHandle` return values support `.ok()?`.
 
 ### Strings
 

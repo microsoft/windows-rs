@@ -1,0 +1,16 @@
+[package]
+name = "windows-sys-create-window"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-sys = { workspace = true, features = [
+    "libloaderapi",
+    "minwindef",
+    "windef",
+    "winuser",
+] }
+
+[lints]
+workspace = true

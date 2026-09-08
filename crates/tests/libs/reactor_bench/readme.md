@@ -77,7 +77,7 @@ the same controlled inputs, parent-owned durable task model, contexts, effects, 
 background completion path, and virtual rows as the application. Run it with:
 
 ```powershell
-cargo run -p sample-reactor-virtual --bin reactor-virtual-perf `
+cargo run -p reactor-virtual --bin reactor-virtual-perf `
     --features perf --release -- --samples 500
 ```
 

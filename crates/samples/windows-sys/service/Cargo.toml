@@ -1,0 +1,17 @@
+[package]
+name = "windows-sys-service"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-sys = { workspace = true, features = [
+    "fileapi",
+    "handleapi",
+    "minwinbase",
+    "winnt",
+    "winsvc",
+] }
+
+[lints]
+workspace = true

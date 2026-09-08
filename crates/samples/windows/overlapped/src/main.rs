@@ -1,14 +1,16 @@
 fn main() -> windows::core::Result<()> {
+    use std::os::windows::ffi::OsStrExt;
     use windows::{Win32::*, core::WIN32_ERROR, core::*};
 
     unsafe {
-        let mut filename = std::env::current_dir().unwrap();
-        filename.push("message.txt");
-
-        let mut string = filename.as_path().to_str().unwrap().to_owned();
-        string.push('\0');
-        let file = CreateFileA(
-            PCSTR(string.as_ptr()),
+        let filename: Vec<u16> = std::path::Path::new(env!("OUT_DIR"))
+            .join("message.txt")
+            .as_os_str()
+            .encode_wide()
+            .chain(Some(0))
+            .collect();
+        let file = CreateFileW(
+            PCWSTR(filename.as_ptr()),
             FILE_GENERIC_READ as u32,
             FILE_SHARE_READ as u32,
             None,
@@ -20,6 +22,11 @@ fn main() -> windows::core::Result<()> {
             return Err(Error::from_thread());
         }
 
+        let event = CreateEventW(None, true, false, None);
+        if event.0.is_null() {
+            return Err(Error::from_thread());
+        }
+
         let mut overlapped = OVERLAPPED {
             Anonymous: OVERLAPPED_0 {
                 Anonymous: OVERLAPPED_0_0 {
@@ -27,7 +34,7 @@ fn main() -> windows::core::Result<()> {
                     OffsetHigh: 0,
                 },
             },
-            hEvent: CreateEventA(None, true, false, None),
+            hEvent: event,
             Internal: 0,
             InternalHigh: 0,
         };
@@ -46,7 +53,11 @@ fn main() -> windows::core::Result<()> {
             assert_eq!(error.code(), WIN32_ERROR(ERROR_IO_PENDING as u32).into());
         }
 
-        WaitForSingleObject(overlapped.hEvent, 2000);
+        let wait = WaitForSingleObject(overlapped.hEvent, INFINITE);
+        if wait == WAIT_FAILED {
+            return Err(Error::from_thread());
+        }
+        assert_eq!(wait, WAIT_OBJECT_0 as u32);
 
         let mut bytes_copied = 0;
         GetOverlappedResult(file, &overlapped, &mut bytes_copied, false).ok()?;
@@ -54,7 +65,7 @@ fn main() -> windows::core::Result<()> {
 
         println!("{}", String::from_utf8_lossy(&buffer));
 
-        CloseHandle(overlapped.hEvent).ok()?;
+        CloseHandle(event).ok()?;
         CloseHandle(file).ok()?;
     }
 

@@ -173,7 +173,6 @@ fn main() -> windows::core::Result<()> {
             if fence_event.0.is_null() {
                 return Err(Error::from_thread());
             }
-
             self.resources = Some(Resources {
                 command_queue,
                 swap_chain,

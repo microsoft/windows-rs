@@ -6,5 +6,5 @@ fn main() {
         .skip_while(|argument| argument != "--samples")
         .nth(1)
         .map_or(300, |value| value.parse::<usize>().unwrap());
-    sample_reactor_virtual::performance::run_live(samples, active);
+    reactor_virtual::performance::run_live(samples, active);
 }

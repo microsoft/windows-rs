@@ -846,7 +846,7 @@ impl Component for EncodedImageLifecycle {
         }
         let source = match self.stage {
             0 => EncodedImage::from_static(include_bytes!(
-                "../../../../samples/reactor/samples/examples/image.png"
+                "../../../../samples/reactor/icon-elements/image.png"
             )),
             1 => EncodedImage::from_static(include_bytes!(
                 "../../../../samples/reactor/gallery/assets/Image.png"

@@ -119,13 +119,11 @@ Some Win32 functions use other return conventions.
 
 ## Samples and next steps
 
-The [result samples](../../crates/samples/result/samples/examples) contain two focused programs:
-`error.rs` creates an error with a message, and `propagate.rs` propagates and inspects failures.
-Run them from the workspace with:
+The [`result-result`](../../crates/samples/result/result) sample creates an error with a message,
+propagates status failures, and inspects the resulting error. Run it from the workspace with:
 
 ```text
-cargo run -p result_samples --example error
-cargo run -p result_samples --example propagate
+cargo run -p result-result
 ```
 
 For error handling alongside projected COM types, continue with

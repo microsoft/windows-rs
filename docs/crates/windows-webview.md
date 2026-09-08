@@ -65,8 +65,8 @@ fn main() -> Result<()> {
 ```
 
 The controller bounds use parent-client pixels. Update them whenever the parent window changes
-size. The [`minimal`](../../crates/samples/webview/samples/examples/minimal.rs) example uses the
-shared sample host, which includes resize and shutdown handling.
+size. The [`minimal`](../../crates/samples/webview/minimal) example includes resize and shutdown
+handling.
 
 Environment and controller creation start asynchronous WebView2 operations, but these constructors
 wait for completion while pumping the UI thread. Create them during setup before entering the
@@ -285,22 +285,23 @@ component and deployment layout.
 
 ## What to read next
 
-Run an example with `cargo run -p webview_samples --example <name>`.
+Run an example with `cargo run -p webview-<name>`.
 
 | Example | What it shows |
 | --- | --- |
-| `minimal` | Window hosting, resize, and navigation |
-| `events` | Navigation, permissions, popups, and process failures |
-| `ipc` | Messages and script execution |
-| `local_files` | A folder mapped to an HTTPS origin |
-| `custom_protocol` | HTML and CSS served from memory |
-| `downloads` | Download progress and cancellation |
-| `cookies` | Creating and enumerating cookies |
-| `profile` | Private mode and browsing-data cleanup |
-| `devtools` | Chrome DevTools Protocol calls and events |
+| [`minimal`](../../crates/samples/webview/minimal) | Window hosting, resize, and navigation |
+| [`events`](../../crates/samples/webview/events) | Navigation, permissions, popups, and process failures |
+| [`ipc`](../../crates/samples/webview/ipc) | Messages and script execution |
+| [`local-files`](../../crates/samples/webview/local-files) | A folder mapped to an HTTPS origin |
+| [`custom-protocol`](../../crates/samples/webview/custom-protocol) | HTML and CSS served from memory |
+| [`downloads`](../../crates/samples/webview/downloads) | Download progress and cancellation |
+| [`cookies`](../../crates/samples/webview/cookies) | Creating and enumerating cookies |
+| [`profile`](../../crates/samples/webview/profile) | Private mode and browsing-data cleanup |
+| [`devtools`](../../crates/samples/webview/devtools) | Chrome DevTools Protocol calls and events |
+| [`script`](../../crates/samples/webview/script) | Document-created script injection |
 | [`reactor/webview`](../../crates/samples/reactor/webview) | Hosting WebView2 in Reactor |
 
-Start with `minimal`, then `ipc` or `local_files`. Profiles, downloads, cookies, and DevTools are
+Start with `minimal`, then `ipc` or `local-files`. Profiles, downloads, cookies, and DevTools are
 independent workflows that can wait until the basic host lifecycle is familiar.
 
 ---

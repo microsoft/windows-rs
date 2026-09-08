@@ -9,7 +9,7 @@ window-lifecycle notifications.
 Run it with:
 
 ```powershell
-cargo run -p sample-reactor-navigation
+cargo run -p reactor-navigation
 ```
 
 Try this sequence:

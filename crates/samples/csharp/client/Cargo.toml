@@ -1,10 +1,10 @@
 [package]
-name = "csharp_client"
+name = "csharp-client"
 version = "0.0.0"
 edition = "2024"
 publish = false
 
-[dependencies.csharp_component]
+[dependencies.csharp-component]
 path = "../component"
 
 [lints]

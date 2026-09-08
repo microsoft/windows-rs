@@ -1,5 +1,5 @@
 [package]
-name = "robot_cpp"
+name = "robot-component-cpp"
 version = "0.0.0"
 edition = "2024"
 publish = false

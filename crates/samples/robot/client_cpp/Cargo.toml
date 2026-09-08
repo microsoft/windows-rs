@@ -1,12 +1,12 @@
 [package]
-name = "robot_client_cpp"
+name = "robot-client-cpp"
 version = "0.0.0"
 edition = "2024"
 publish = false
 
 [dependencies]
 windows-result = { workspace = true }
-robot_cpp = { path = "../component_cpp" }
+robot-component-cpp = { path = "../component_cpp" }
 
 [build-dependencies]
 cppwinrt = { workspace = true }

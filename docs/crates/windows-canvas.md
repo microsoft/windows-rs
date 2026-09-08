@@ -275,22 +275,21 @@ The drawing session borrows the swap chain, so finish and drop it before `presen
 host must also resize the swap chain, update display scale, schedule frames, and recreate the
 device, swap chain, and dependent resources when `present` returns `Ok(false)`. The
 [`standalone`](../../crates/samples/canvas/standalone) sample connects those pieces to
-`windows-window`.
+`windows-window`. Its resize callback redraws the existing swap chain because the outer render loop
+is suspended while Windows runs its modal interactive-sizing loop.
 
 ## What to read next
 
 | Sample | What it shows |
 | --- | --- |
-| [`examples`](../../crates/samples/canvas/samples/examples) | One drawing operation at a time |
-| [`invalidate`][canvas-invalidate] | Input-driven repainting |
+| [`drawing examples`](../../crates/samples/canvas) | One drawing operation at a time |
+| [`invalidate`](../../crates/samples/canvas/invalidate) | Input-driven repainting |
 | [`clock`](../../crates/samples/canvas/clock) | Continuous animation |
 | [`chart`](../../crates/samples/canvas/chart) | A demand-driven chart |
 | [`hit_test`](../../crates/samples/canvas/hit_test) | Geometry hit testing |
 | [`image_source`](../../crates/samples/canvas/image_source) | An on-demand WinUI image |
 | [`readback`](../../crates/samples/canvas/readback) | Off-screen rendering and pixel readback |
 | [`composition`](../../crates/samples/composition/canvas) | Drawing into a Composition visual |
-
-[canvas-invalidate]: ../../crates/samples/canvas/samples/examples/invalidate.rs
 
 Start with the small examples. `CanvasImageSource`, off-screen targets, shared devices, and
 Composition surfaces solve specific hosting problems and are easier to learn after the normal draw
@@ -317,17 +316,22 @@ Reactor host rebuilds its device, swap chain, and cached state after loss.
 
 The Reactor integration lives behind this crate's `reactor` feature. The dependency direction is
 `windows-canvas[reactor] -> windows-reactor`. Canvas owns rendering resources and receives only
-typed panel metrics, rendering notifications, and attachment completion through
-`ElementRef<SwapChainPanel>`.
+typed panel metrics, rendering notifications, deferred frame callbacks, and attachment completion
+through `ElementRef<SwapChainPanel>`.
 
 The `system` feature enables `windows-window` and `GpuDevice::create_swap_chain_for_window`.
 Reactor-only builds do not compile `windows-window`; raw `create_swap_chain_for_hwnd` remains
 available without either host.
 
-Continuous mode uses WinUI's `CompositionTarget::Rendering`. Demand mode stays idle until layout,
-scale, or `Invalidator` requests a frame. Attachment attempts use generations so stale completion
-callbacks cannot ready a replacement surface. `Canvas::on_error` reports initialization,
-attachment, resize, drawing, presentation, and failed recovery through `IntegrationError`.
+Continuous mode uses WinUI's `CompositionTarget::Rendering` for its normal animation clock. Layout
+and scale changes also request a coalesced dispatcher frame because composition rendering can be
+delayed while WinUI processes interactive resize input. Demand mode stays idle until layout, scale,
+or `Invalidator` requests a frame.
+
+Panel binding, swap-chain, and attachment-request generations reject stale completion callbacks.
+Resizing buffers preserves the existing panel attachment; only panel replacement or swap-chain
+rebuilding requires `SetSwapChain`. `Canvas::on_error` reports initialization, attachment, resize,
+drawing, presentation, and failed recovery through `IntegrationError`.
 
 `CanvasImageSource` uses a borrowed drawing session over a WinUI `SurfaceImageSource`.
 `CanvasCompositionExt` uses a borrowed drawing session over

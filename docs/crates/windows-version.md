@@ -75,6 +75,9 @@ Find the minimum supported build in the documentation for the Windows API or fea
 Keep that requirement in one named constant, and add capability checks for requirements not
 captured by the OS build.
 
+The [`version-version`](../../crates/samples/version/version) sample prints the current version,
+revision, product type, and the result of a named build comparison.
+
 ---
 
 ## Internal documentation

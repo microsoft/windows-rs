@@ -119,13 +119,13 @@ builder into `HSTRING`.
 
 ## Samples and next steps
 
-The [string samples](../../crates/samples/strings/samples/examples) cover `HSTRING`, `BSTR`, and
-the wide and 8-bit literal macros. Run them from the workspace with:
+The string samples cover `HSTRING`, `BSTR`, and the wide and 8-bit literal macros. Run them from the
+workspace with:
 
 ```text
-cargo run -p strings_samples --example hstring
-cargo run -p strings_samples --example bstr
-cargo run -p strings_samples --example wide_ansi
+cargo run -p strings-hstring
+cargo run -p strings-bstr
+cargo run -p strings-wide-ansi
 ```
 
 Continue with [`windows-core`](windows-core.md) when the string is part of a projected COM or WinRT

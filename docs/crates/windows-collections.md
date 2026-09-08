@@ -123,8 +123,9 @@ observable interface raises insertion, removal, replacement, or reset notificati
 
 ## Samples and next steps
 
-There is no dedicated collection sample group. Start with the two runnable snippets in the
-[README](../../crates/libs/collections/readme.md), then consult the
+The [`collections-collections`](../../crates/samples/collections/collections) sample converts a
+`Vec` and a `BTreeMap`, mutates the projected interfaces, and iterates their values. Continue with
+the
 [docs.rs API](https://docs.rs/windows-collections) for the methods on the interface required by
 your Windows API. [`windows-reference`](windows-reference.md) covers boxed WinRT values that can
 also appear as collection elements.

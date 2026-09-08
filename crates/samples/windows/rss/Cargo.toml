@@ -1,0 +1,15 @@
+[package]
+name = "windows-rss"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+futures = "0.3"
+windows = { workspace = true, default-features = true, features = [
+    "Foundation",
+    "Web_Syndication",
+] }
+
+[lints]
+workspace = true

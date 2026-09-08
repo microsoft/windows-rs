@@ -84,10 +84,9 @@ Dropping an uncommitted transaction rolls it back.
 
 ## Samples and next steps
 
-The [`read_write` sample](../../crates/samples/registry/samples/examples/read_write.rs) creates,
-reads, and removes a test key. The
-[`transaction` sample](../../crates/samples/registry/samples/examples/transaction.rs) performs the
-write through a transaction.
+The [`read-write` sample](../../crates/samples/registry/read-write) creates, reads, and removes a
+test key. The [`transaction` sample](../../crates/samples/registry/transaction) performs the write
+through a transaction.
 
 ---
 

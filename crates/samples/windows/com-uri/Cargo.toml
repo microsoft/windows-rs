@@ -1,0 +1,11 @@
+[package]
+name = "windows-com-uri"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows = { workspace = true, default-features = true, features = ["urlmon"] }
+
+[lints]
+workspace = true

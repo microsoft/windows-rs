@@ -10,6 +10,7 @@ use crate::element::{Callback, View};
 
 const IMPERATIVE_QUEUE_CAPACITY: usize = 4_096;
 static NEXT_OBSERVATION_ID: AtomicU64 = AtomicU64::new(1);
+static NEXT_BINDING_ID: AtomicU64 = AtomicU64::new(1);
 
 #[derive(Debug)]
 pub(crate) enum HostRequest {
@@ -346,6 +347,42 @@ impl ElementRef<crate::SwapChainPanel> {
         )))
     }
 
+    /// Requests one deferred UI-thread frame for the published panel.
+    ///
+    /// Unlike [`SwapChainPanelEvent::Rendering`], this request is dispatched independently of the
+    /// XAML composition rendering pass. It is intended for resize and attachment continuations.
+    #[must_use = "false means the reference is currently unbound"]
+    pub fn request_surface_frame(
+        &self,
+        completion: impl Fn(Result<(), SwapChainPanelError>) + 'static,
+    ) -> bool {
+        let Some(binding) = self.target.borrow().binding.clone() else {
+            return false;
+        };
+        let target = Rc::downgrade(&self.target);
+        let binding_id = binding.id;
+        binding.endpoint.enqueue(NativeWork {
+            identity: binding.identity,
+            work: ImperativeRequest::RequestSwapChainPanelFrame {
+                node: binding.node,
+                completion: Callback::new(move |result: Result<(), RuntimeError>| {
+                    let current = target.upgrade().is_some_and(|target| {
+                        target
+                            .borrow()
+                            .binding
+                            .as_ref()
+                            .is_some_and(|binding| binding.id == binding_id)
+                    });
+                    completion(if current {
+                        result.map_err(SwapChainPanelError::from_runtime)
+                    } else {
+                        Err(SwapChainPanelError::Unavailable)
+                    });
+                }),
+            },
+        })
+    }
+
     fn request_swap_chain(
         &self,
         swap_chain: Option<windows_core::IUnknown>,
@@ -490,6 +527,8 @@ pub type WebView2Error = IntegrationError;
 pub enum SwapChainPanelEvent {
     /// Reports panel dimensions in DIPs and the pixel scale for each axis.
     Metrics {
+        /// Identifies the current native panel binding.
+        binding: u64,
         width: f64,
         height: f64,
         scale_x: f32,
@@ -572,6 +611,9 @@ impl NativeElementRef {
             }
         }
         let binding = ReferenceBinding {
+            id: NEXT_BINDING_ID
+                .try_update(Ordering::Relaxed, Ordering::Relaxed, |id| id.checked_add(1))
+                .unwrap_or_else(|_| panic!("element binding identity exhausted")),
             endpoint,
             identity,
             node,
@@ -640,6 +682,7 @@ impl Eq for NativeElementRef {}
 
 #[derive(Clone)]
 struct ReferenceBinding {
+    id: u64,
     endpoint: ImperativeEndpoint,
     identity: WindowToken,
     node: NodeId,
@@ -679,6 +722,7 @@ impl ObservationRegistration {
                 ImperativeRequest::ObserveSwapChainPanel {
                     node,
                     observation: this.id,
+                    binding: binding.id,
                     callback: current_binding_callback(
                         target,
                         registration,
@@ -818,7 +862,12 @@ pub(crate) enum ImperativeRequest {
     ObserveSwapChainPanel {
         node: NodeId,
         observation: u64,
+        binding: u64,
         callback: Callback<SwapChainPanelEvent>,
+    },
+    RequestSwapChainPanelFrame {
+        node: NodeId,
+        completion: Callback<Result<(), RuntimeError>>,
     },
     SetSwapChain {
         node: NodeId,
@@ -863,6 +912,7 @@ impl ImperativeRequest {
             Self::SetSwapChain {
                 node, completion, ..
             }
+            | Self::RequestSwapChainPanelFrame { node, completion }
             | Self::SetNativeImageSource {
                 node, completion, ..
             }

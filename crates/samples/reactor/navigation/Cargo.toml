@@ -1,5 +1,5 @@
 [package]
-name = "sample-reactor-navigation"
+name = "reactor-navigation"
 version = "0.0.0"
 edition = "2024"
 publish = false

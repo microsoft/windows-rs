@@ -18,7 +18,7 @@ destinations across 11 categories:
 Run it with:
 
 ```powershell
-cargo run -p sample-reactor-gallery
+cargo run -p reactor-gallery
 ```
 
 The shell uses a generated `TitleBar` and `NavigationView`. The pane lists categories by default.

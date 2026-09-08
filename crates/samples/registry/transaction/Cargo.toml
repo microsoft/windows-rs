@@ -1,0 +1,11 @@
+[package]
+name = "registry-transaction"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-registry = { workspace = true }
+
+[lints]
+workspace = true

@@ -9,8 +9,5 @@ windows-canvas = { workspace = true, features = ["reactor"] }
 windows-numerics = { workspace = true, features = ["std"] }
 windows-reactor = { workspace = true }
 
-[build-dependencies]
-windows-reactor-setup = { workspace = true }
-
 [lints]
 workspace = true

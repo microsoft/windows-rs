@@ -7,7 +7,7 @@
 - 🚀 [Getting started](../../crates/libs/composition/readme.md)
 - 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/composition)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/composition)
-- [Reactor hosting samples](../../crates/samples/reactor/composition)
+- [Reactor hosting samples](../../crates/samples/composition)
 - [Canvas guide](windows-canvas.md)
 - [Window guide](windows-window.md)
 
@@ -234,7 +234,7 @@ let _ = host.request_set_child_visual(Some(root.host_visual()), |result| {
 ```
 
 The observation must live until the effect is cleaned up. The
-[`host`](../../crates/samples/reactor/composition/examples/host.rs) sample contains the complete
+[`host`](../../crates/samples/composition/host) sample contains the complete
 component lifecycle; start there rather than copying only the bridge calls.
 
 ## What to read next
@@ -242,15 +242,13 @@ component lifecycle; start there rather than copying only the bridge calls.
 | Sample | What it shows |
 | --- | --- |
 | [`standalone`](../../crates/samples/composition/standalone) | Window hosting and sprite visuals |
-| [`host`](../../crates/samples/reactor/composition/examples/host.rs) | Reactor host lifecycle |
+| [`host`](../../crates/samples/composition/host) | Reactor host lifecycle, size, and scale events |
 | [`animation`][composition-animation] | Key-frame animation |
-| [`circles`](../../crates/samples/reactor/composition/examples/circles.rs) | A larger shape scene |
-| [`dpi`][composition-dpi] | Reactor size and scale events |
+| [`circles`](../../crates/samples/composition/circles) | A larger shape scene |
 | [`minesweeper`][composition-minesweeper] | Input, layout, shapes, and animation |
 | [`canvas`](../../crates/samples/composition/canvas) | Canvas drawing in a composition surface |
 
-[composition-animation]: ../../crates/samples/reactor/composition/examples/animation.rs
-[composition-dpi]: ../../crates/samples/reactor/composition/examples/dpi.rs
+[composition-animation]: ../../crates/samples/composition/animation
 [composition-minesweeper]: ../../crates/samples/composition/minesweeper
 
 Start with `standalone` for the system stack or `host` for Reactor. The other APIs - implicit

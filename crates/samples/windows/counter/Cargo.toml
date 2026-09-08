@@ -1,0 +1,11 @@
+[package]
+name = "windows-counter"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows = { workspace = true, default-features = true, features = ["pdh"] }
+
+[lints]
+workspace = true

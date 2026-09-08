@@ -311,7 +311,12 @@ pub enum Command {
     ObserveSwapChainPanel {
         node: NodeId,
         observation: u64,
+        binding: u64,
         callback: Callback<SwapChainPanelEvent>,
+    },
+    RequestSwapChainPanelFrame {
+        node: NodeId,
+        completion: Callback<Result<(), RuntimeError>>,
     },
     SetSwapChain {
         node: NodeId,
@@ -434,6 +439,7 @@ impl Command {
             Self::SetSwapChain {
                 node, completion, ..
             }
+            | Self::RequestSwapChainPanelFrame { node, completion }
             | Self::SetNativeImageSource {
                 node, completion, ..
             }

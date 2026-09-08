@@ -77,9 +77,9 @@ the result with representative points rather than assuming another math library'
 
 The canvas, composition, Direct2D, and DirectComposition samples use these types in real graphics
 workflows. Start with the
-[`canvas transform` sample](../../crates/samples/canvas/samples/examples/transform.rs) for a 2D
+[`canvas transform` sample](../../crates/samples/canvas/transform) for a 2D
 matrix and the
-[`composition animation` sample](../../crates/samples/reactor/composition/examples/animation.rs)
+[`composition animation` sample](../../crates/samples/composition/animation)
 for vectors passed to composition APIs.
 
 ---

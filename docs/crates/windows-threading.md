@@ -77,9 +77,9 @@ current worker; it does not schedule a timer or yield an async task.
 
 ## Samples and next steps
 
-The [`for_each` sample](../../crates/samples/threading/samples/examples/for_each.rs) shows parallel
-aggregation. The [`pool` sample](../../crates/samples/threading/samples/examples/pool.rs) shows
-thread limits, scoped borrowing, and how work is distributed among pool threads.
+The [`for-each` sample](../../crates/samples/threading/for-each) shows parallel aggregation. The
+[`pool` sample](../../crates/samples/threading/pool) shows thread limits, scoped borrowing, and how
+work is distributed among pool threads.
 
 ---
 
