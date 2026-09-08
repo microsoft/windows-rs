@@ -33,7 +33,7 @@ impl Component for RadioButtonsSample {
                 .selected_index(self.selected)
                 .max_columns(3)
                 .on_selection_changed(context.callback(|index| index))
-                .slot(RadioButtonsSlot::Header, "Notifications"),
+                .header("Notifications"),
             format!("selected_index = {:?} ({label})", self.selected),
         ))
     }

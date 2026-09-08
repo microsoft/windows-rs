@@ -29,35 +29,37 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
     let selected_capture = Rc::clone(&selected);
     let view = NavigationView::new()
         .on_selected_tag_changed(move |tag| selected_capture.borrow_mut().push(tag))
-        .slots([SlotView::collection(
-            NavigationViewSlot::MenuItems,
-            [
-                KeyedView::new("empty", NavigationViewItem::new().tag("").is_selected(true)),
-                KeyedView::new(
-                    "home",
-                    NavigationViewItem::new().tag("home").is_selected(false),
-                ),
-            ],
+        .menu_items([KeyedView::new(
+            "empty",
+            NavigationViewItem::new().tag("").is_selected(true),
+        )])
+        .footer_menu_items([KeyedView::new(
+            "home",
+            NavigationViewItem::new().tag("home").is_selected(false),
         )]);
     let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount_view(view.clone()).unwrap();
+    pump.mount_view(view.clone().into()).unwrap();
     let navigation = pump.root().unwrap();
     let revision = pump
         .event_revision(navigation, EventId::NavigationViewSelectionChanged)
         .unwrap();
-    let items = pump
+    let menu_item = pump
         .runtime()
         .node(navigation)
         .unwrap()
-        .slot_children(SlotId::NavigationViewMenuItems)
-        .to_vec();
+        .slot_children(SlotId::NavigationViewMenuItems)[0];
+    let footer_item = pump
+        .runtime()
+        .node(navigation)
+        .unwrap()
+        .slot_children(SlotId::NavigationViewFooterMenuItems)[0];
 
     pump.queue_event(QueuedEvent::new(
         navigation,
         EventId::NavigationViewSelectionChanged,
         revision,
         EventPayload::SelectionChange(SelectionChange {
-            item: Some(items[1]),
+            item: Some(footer_item),
             tag: Some("home".into()),
         }),
     ));
@@ -65,21 +67,21 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
     assert_eq!(&*selected.borrow(), &[Some("home".into())]);
     assert_eq!(
         pump.tree
-            .native(items[0])
+            .native(menu_item)
             .properties
             .get(&PropertyId::NavigationViewItemIsSelected),
         Some(&Some(PropertyValue::Bool(false)))
     );
     assert_eq!(
         pump.tree
-            .native(items[1])
+            .native(footer_item)
             .properties
             .get(&PropertyId::NavigationViewItemIsSelected),
         Some(&Some(PropertyValue::Bool(true)))
     );
 
     let batches = pump.runtime().commands().len();
-    pump.update_view(view).unwrap();
+    pump.update_view(view.into()).unwrap();
     let commands = pump.runtime().commands()[batches..]
         .iter()
         .flatten()
@@ -103,7 +105,7 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
     ));
     assert_eq!(pump.dispatch_events(), Ok(1));
     assert_eq!(&*selected.borrow(), &[Some("home".into()), None]);
-    assert!(items.iter().all(|item| {
+    assert!([menu_item, footer_item].iter().all(|item| {
         pump.tree
             .native(*item)
             .properties
@@ -113,13 +115,14 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
 
     let mut passive = Pump::new(RecordingRuntime::default());
     passive
-        .mount_view(NavigationView::new().slots([SlotView::collection(
-            NavigationViewSlot::MenuItems,
-            [KeyedView::new(
-                "home",
-                NavigationViewItem::new().tag("home").is_selected(false),
-            )],
-        )]))
+        .mount_view(
+            NavigationView::new()
+                .menu_items([KeyedView::new(
+                    "home",
+                    NavigationViewItem::new().tag("home").is_selected(false),
+                )])
+                .into(),
+        )
         .unwrap();
     let navigation = passive.root().unwrap();
     let item = passive
@@ -151,13 +154,14 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
 
     let mut uncontrolled = Pump::new(RecordingRuntime::default());
     uncontrolled
-        .mount_view(NavigationView::new().slots([SlotView::collection(
-            NavigationViewSlot::MenuItems,
-            [KeyedView::new(
-                "native",
-                NavigationViewItem::new().tag("native"),
-            )],
-        )]))
+        .mount_view(
+            NavigationView::new()
+                .menu_items([KeyedView::new(
+                    "native",
+                    NavigationViewItem::new().tag("native"),
+                )])
+                .into(),
+        )
         .unwrap();
     let navigation = uncontrolled.root().unwrap();
     let item = uncontrolled
@@ -211,13 +215,11 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
         .mount_view(
             NavigationView::new()
                 .on_selected_tag_changed(|_| {})
-                .slots([SlotView::collection(
-                    NavigationViewSlot::MenuItems,
-                    [
-                        KeyedView::new("first", View::component::<Item>(("first", true))),
-                        KeyedView::new("second", View::component::<Item>(("second", false))),
-                    ],
-                )]),
+                .menu_items([
+                    KeyedView::new("first", View::component::<Item>(("first", true))),
+                    KeyedView::new("second", View::component::<Item>(("second", false))),
+                ])
+                .into(),
         )
         .unwrap();
     let navigation = nested.root().unwrap();
@@ -1522,13 +1524,11 @@ fn tab_view_routes_selected_index_feedback() {
         TabView::new()
             .selected_index(0)
             .on_selection_changed(move |index| capture.set(index))
-            .slots([SlotView::collection(
-                TabViewSlot::TabItems,
-                [
-                    KeyedView::new("a", TabViewItem::new().header("A").tag("a")),
-                    KeyedView::new("b", TabViewItem::new().header("B").tag("b")),
-                ],
-            )]),
+            .tab_items([
+                KeyedView::new("a", TabViewItem::new().header("A").tag("a")),
+                KeyedView::new("b", TabViewItem::new().header("B").tag("b")),
+            ])
+            .into(),
     )
     .unwrap();
     let root = pump.root().unwrap();
@@ -1555,13 +1555,11 @@ fn tab_view_close_requested_routes_key_string() {
     pump.mount_view(
         TabView::new()
             .on_close_requested(move |key: String| *capture.borrow_mut() = key)
-            .slots([SlotView::collection(
-                TabViewSlot::TabItems,
-                [
-                    KeyedView::new("first", TabViewItem::new().header("First").tag("first")),
-                    KeyedView::new("second", TabViewItem::new().header("Second").tag("second")),
-                ],
-            )]),
+            .tab_items([
+                KeyedView::new("first", TabViewItem::new().header("First").tag("first")),
+                KeyedView::new("second", TabViewItem::new().header("Second").tag("second")),
+            ])
+            .into(),
     )
     .unwrap();
     let root = pump.root().unwrap();
@@ -1589,10 +1587,8 @@ fn tab_view_add_button_click_routes_unit() {
         TabView::new()
             .is_add_tab_button_visible(true)
             .on_add_tab_button_click(move || capture.set(true))
-            .slots([SlotView::collection(
-                TabViewSlot::TabItems,
-                [KeyedView::new("tab", TabViewItem::new().header("Tab"))],
-            )]),
+            .tab_items([KeyedView::new("tab", TabViewItem::new().header("Tab"))])
+            .into(),
     )
     .unwrap();
     let root = pump.root().unwrap();
@@ -1621,13 +1617,11 @@ fn tab_view_reorder_routes_item_tags() {
             .on_reordered(move |order: Vec<String>| {
                 *capture.borrow_mut() = order;
             })
-            .slots([SlotView::collection(
-                TabViewSlot::TabItems,
-                [
-                    KeyedView::new("first", TabViewItem::new().header("First").tag("first")),
-                    KeyedView::new("second", TabViewItem::new().header("Second").tag("second")),
-                ],
-            )]),
+            .tab_items([
+                KeyedView::new("first", TabViewItem::new().header("First").tag("first")),
+                KeyedView::new("second", TabViewItem::new().header("Second").tag("second")),
+            ])
+            .into(),
     )
     .unwrap();
     let root = pump.root().unwrap();
@@ -1855,13 +1849,11 @@ fn list_and_grid_views_route_selection_and_reordered_tags() {
             .on_reordered(move |items: Vec<String>| {
                 *reordered_capture.borrow_mut() = items;
             })
-            .slots([SlotView::collection(
-                ListViewSlot::Items,
-                [
-                    KeyedView::new("a", ListViewItem::new().tag("a")),
-                    KeyedView::new("b", ListViewItem::new().tag("b")),
-                ],
-            )]),
+            .items([
+                KeyedView::new("a", ListViewItem::new().tag("a")),
+                KeyedView::new("b", ListViewItem::new().tag("b")),
+            ])
+            .into(),
     )
     .unwrap();
     let root = list.root().unwrap();
@@ -1895,13 +1887,11 @@ fn list_and_grid_views_route_selection_and_reordered_tags() {
             .on_reordered(move |items: Vec<String>| {
                 *capture.borrow_mut() = items;
             })
-            .slots([SlotView::collection(
-                GridViewSlot::Items,
-                [
-                    KeyedView::new("x", GridViewItem::new().tag("x")),
-                    KeyedView::new("y", GridViewItem::new().tag("y")),
-                ],
-            )]),
+            .items([
+                KeyedView::new("x", GridViewItem::new().tag("x")),
+                KeyedView::new("y", GridViewItem::new().tag("y")),
+            ])
+            .into(),
     )
     .unwrap();
     let root = grid.root().unwrap();
@@ -1973,14 +1963,12 @@ fn tab_view_collection_preserves_identity_through_reorder() {
     pump.mount_view(
         TabView::new()
             .selected_index(0)
-            .slots([SlotView::collection(
-                TabViewSlot::TabItems,
-                [
-                    KeyedView::new("a", TabViewItem::new().header("A").tag("a")),
-                    KeyedView::new("b", TabViewItem::new().header("B").tag("b")),
-                    KeyedView::new("c", TabViewItem::new().header("C").tag("c")),
-                ],
-            )]),
+            .tab_items([
+                KeyedView::new("a", TabViewItem::new().header("A").tag("a")),
+                KeyedView::new("b", TabViewItem::new().header("B").tag("b")),
+                KeyedView::new("c", TabViewItem::new().header("C").tag("c")),
+            ])
+            .into(),
     )
     .unwrap();
     let root = pump.root().unwrap();
@@ -1995,14 +1983,12 @@ fn tab_view_collection_preserves_identity_through_reorder() {
     pump.update_view(
         TabView::new()
             .selected_index(0)
-            .slots([SlotView::collection(
-                TabViewSlot::TabItems,
-                [
-                    KeyedView::new("c", TabViewItem::new().header("C").tag("c")),
-                    KeyedView::new("a", TabViewItem::new().header("A").tag("a")),
-                    KeyedView::new("b", TabViewItem::new().header("B").tag("b")),
-                ],
-            )]),
+            .tab_items([
+                KeyedView::new("c", TabViewItem::new().header("C").tag("c")),
+                KeyedView::new("a", TabViewItem::new().header("A").tag("a")),
+                KeyedView::new("b", TabViewItem::new().header("B").tag("b")),
+            ])
+            .into(),
     )
     .unwrap();
     let reordered_children: Vec<_> = pump

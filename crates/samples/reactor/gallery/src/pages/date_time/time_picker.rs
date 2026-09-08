@@ -38,7 +38,7 @@ impl Component for TimePickerPage {
                         StackPanel::new().spacing(8.0).children((
                             TimePicker::new()
                                 .on_selected_time_changed(context.forward())
-                                .slot(TimePickerSlot::Header, "Select time"),
+                                .header("Select time"),
                             TextBlock::new().text(&self.label).opacity(0.6),
                         )),
                         "TimePicker::new()\n    .on_selected_time_changed(|time| ...)",
@@ -50,7 +50,7 @@ impl Component for TimePickerPage {
                         "15-Minute Increments",
                         TimePicker::new()
                             .minute_increment(15)
-                            .slot(TimePickerSlot::Header, "Meeting time"),
+                            .header("Meeting time"),
                         "TimePicker::new().minute_increment(15)",
                     ),
                 ),

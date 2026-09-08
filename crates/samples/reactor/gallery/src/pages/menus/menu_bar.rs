@@ -36,39 +36,36 @@ impl Component for MenuBarPage {
                 sample_card(
                     "Basic MenuBar",
                     StackPanel::new().spacing(8.0).children((
-                        MenuBar::new().collection_slot(
-                            MenuBarSlot::Items,
-                            [
-                                KeyedView::new(
-                                    "file",
-                                    MenuBarItem::new().title("File").menu(Menu::new(
-                                        [
-                                            MenuItem::item("new", "New"),
-                                            MenuItem::item("open", "Open"),
-                                            MenuItem::item("save", "Save"),
-                                        ],
-                                        callback.clone(),
-                                    )),
-                                ),
-                                KeyedView::new(
-                                    "edit",
-                                    MenuBarItem::new().title("Edit").menu(Menu::new(
-                                        [
-                                            MenuItem::item("undo", "Undo"),
-                                            MenuItem::item("cut", "Cut"),
-                                            MenuItem::item("copy", "Copy"),
-                                            MenuItem::item("paste", "Paste"),
-                                        ],
-                                        callback,
-                                    )),
-                                ),
-                            ],
-                        ),
+                        MenuBar::new().items([
+                            KeyedView::new(
+                                "file",
+                                MenuBarItem::new().title("File").menu(Menu::new(
+                                    [
+                                        MenuItem::item("new", "New"),
+                                        MenuItem::item("open", "Open"),
+                                        MenuItem::item("save", "Save"),
+                                    ],
+                                    callback.clone(),
+                                )),
+                            ),
+                            KeyedView::new(
+                                "edit",
+                                MenuBarItem::new().title("Edit").menu(Menu::new(
+                                    [
+                                        MenuItem::item("undo", "Undo"),
+                                        MenuItem::item("cut", "Cut"),
+                                        MenuItem::item("copy", "Copy"),
+                                        MenuItem::item("paste", "Paste"),
+                                    ],
+                                    callback,
+                                )),
+                            ),
+                        ]),
                         TextBlock::new()
                             .text(format!("Last clicked: {}", self.last_click))
                             .opacity(0.6),
                     )),
-                    r#"MenuBar::new().collection_slot(MenuBarSlot::Items, [...])"#,
+                    r#"MenuBar::new().items([...])"#,
                 ),
             )],
         )

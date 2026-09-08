@@ -61,8 +61,7 @@ impl Component for ListViewPage {
                     "basic-list-view",
                     sample_card(
                         "Basic ListView",
-                        ListView::new().height(220.0).collection_slot(
-                            ListViewSlot::Items,
+                        ListView::new().height(220.0).items(
                             INBOX_ITEMS.into_iter().enumerate().map(|(index, subject)| {
                                 KeyedView::new(
                                     subject,
@@ -82,7 +81,7 @@ impl Component for ListViewPage {
                                 )
                             }),
                         ),
-                        r#"ListView::new().collection_slot(ListViewSlot::Items, items)"#,
+                        r#"ListView::new().items(items)"#,
                     ),
                 ),
                 KeyedView::new(
@@ -94,22 +93,19 @@ impl Component for ListViewPage {
                                 .height(180.0)
                                 .selected_index(self.selected_contact)
                                 .on_selection_changed(context.callback(Message::SelectContact))
-                                .collection_slot(
-                                    ListViewSlot::Items,
-                                    CONTACTS.into_iter().map(|name| {
-                                        KeyedView::new(
-                                            name,
-                                            ListViewItem::new().tag(name).content(name),
-                                        )
-                                    }),
-                                ),
+                                .items(CONTACTS.into_iter().map(|name| {
+                                    KeyedView::new(
+                                        name,
+                                        ListViewItem::new().tag(name).content(name),
+                                    )
+                                })),
                             TextBlock::new()
                                 .text(format!("Selected contact: {contact_label}"))
                                 .opacity(0.6),
                         )),
                         r#"ListView::new().selected_index(selected_contact)
     .on_selection_changed(...)
-    .collection_slot(ListViewSlot::Items, contacts)"#,
+    .items(contacts)"#,
                     ),
                 ),
                 KeyedView::new(
@@ -121,34 +117,31 @@ impl Component for ListViewPage {
                                 .height(200.0)
                                 .selected_index(self.selected_playlist)
                                 .on_selection_changed(context.callback(Message::SelectPlaylist))
-                                .collection_slot(
-                                    ListViewSlot::Items,
-                                    PLAYLISTS.into_iter().enumerate().map(|(index, name)| {
-                                        KeyedView::new(
-                                            name,
-                                            ListViewItem::new().tag(name).content(
-                                                StackPanel::new().spacing(2.0).children((
-                                                    TextBlock::new()
-                                                        .text(name)
-                                                        .font_weight(FontWeight::BOLD),
-                                                    TextBlock::new()
-                                                        .text(format!(
-                                                            "{} tracks ready to play",
-                                                            12 + index * 5
-                                                        ))
-                                                        .opacity(0.6),
-                                                )),
-                                            ),
-                                        )
-                                    }),
-                                ),
+                                .items(PLAYLISTS.into_iter().enumerate().map(|(index, name)| {
+                                    KeyedView::new(
+                                        name,
+                                        ListViewItem::new().tag(name).content(
+                                            StackPanel::new().spacing(2.0).children((
+                                                TextBlock::new()
+                                                    .text(name)
+                                                    .font_weight(FontWeight::BOLD),
+                                                TextBlock::new()
+                                                    .text(format!(
+                                                        "{} tracks ready to play",
+                                                        12 + index * 5
+                                                    ))
+                                                    .opacity(0.6),
+                                            )),
+                                        ),
+                                    )
+                                })),
                             TextBlock::new()
                                 .text(format!("Now browsing: {playlist_label}"))
                                 .opacity(0.6),
                         )),
                         r#"ListView::new().selected_index(selected_playlist)
     .on_selection_changed(...)
-    .collection_slot(ListViewSlot::Items, playlists)"#,
+    .items(playlists)"#,
                     ),
                 ),
             ],

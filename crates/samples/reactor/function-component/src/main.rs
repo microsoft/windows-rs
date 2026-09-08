@@ -83,7 +83,7 @@ impl Component for FunctionComponentSample {
                 .text(self.name.clone())
                 .placeholder_text("Type a name...")
                 .on_text_changed(context.forward())
-                .slot(TextBoxSlot::Header, "Your name"),
+                .header("Your name"),
             View::component::<Counter>(()),
         ))
     }

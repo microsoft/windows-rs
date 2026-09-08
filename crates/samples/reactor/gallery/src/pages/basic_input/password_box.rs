@@ -33,7 +33,7 @@ impl Component for PasswordBoxPage {
                                 .password(&self.password)
                                 .placeholder_text("Enter password")
                                 .on_password_changed(context.forward())
-                                .slot(PasswordBoxSlot::Header, "Password"),
+                                .header("Password"),
                             TextBlock::new()
                                 .text(format!("Length: {} chars", self.password.len()))
                                 .opacity(0.6),

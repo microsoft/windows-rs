@@ -104,7 +104,7 @@ impl Component for TabViewAddButtonSample {
                 .on_add_tab_button_click(context.message(Message::Add))
                 .on_close_requested(context.callback(Message::Close))
                 .on_reordered(context.callback(Message::Reordered))
-                .collection_slot(TabViewSlot::TabItems, items),
+                .tab_items(items),
             format!(
                 "selected = {:?}, total tabs = {}",
                 self.selected,

@@ -139,8 +139,29 @@ Border::new()
 
 Use `content` for a control with one child, such as a button or border. Use `children` for a
 container with an ordered set of children. Tuples are convenient because the children may have
-different control types. Put `content` or `children` last in a builder chain because it finishes
-the control and returns a `View`.
+different control types. For these ordinary content and container controls, put `content` or
+`children` last in a builder chain because it finishes the control and returns a `View`.
+
+Controls with several named content areas expose one builder method for each area. The method
+signature distinguishes a single view from a keyed collection:
+
+```rust,ignore
+NavigationView::new()
+    .menu_items([
+        ("home", NavigationViewItem::new().content("Home")),
+        ("files", NavigationViewItem::new().content("Files")),
+    ])
+    .footer_menu_items([(
+        "settings",
+        NavigationViewItem::new().content("Settings"),
+    )])
+    .content("Page content")
+    .into()
+```
+
+These named methods remain part of the control builder, so properties and other named areas can be
+chained after them. The compiler rejects passing one view to a collection area or a collection to
+a single-view area. Assigning the same named area more than once replaces its earlier value.
 
 Values that implement `Into<View>` can be used directly with these methods. In particular, use a
 `&str` or `String` for ordinary text and reach for `TextBlock` only to set font, layout,

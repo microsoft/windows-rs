@@ -57,15 +57,12 @@ impl Component for FlipViewPage {
                             .selected_index(self.selected)
                             .on_selection_changed(context.callback(Message::Selected))
                             .height(200.0)
-                            .collection_slot(
-                                FlipViewSlot::Items,
-                                [
-                                    slide("welcome", "Welcome", 0),
-                                    slide("features", "Features", 1),
-                                    slide("getting-started", "Getting Started", 2),
-                                    slide("resources", "Resources", 3),
-                                ],
-                            ),
+                            .items([
+                                slide("welcome", "Welcome", 0),
+                                slide("features", "Features", 1),
+                                slide("getting-started", "Getting Started", 2),
+                                slide("resources", "Resources", 3),
+                            ]),
                         TextBlock::new()
                             .text(format!(
                                 "Current slide: {}",
@@ -74,7 +71,7 @@ impl Component for FlipViewPage {
                             .opacity(0.6),
                     )),
                     r#"FlipView::new().selected_index(selected).on_selection_changed(...)
-    .collection_slot(FlipViewSlot::Items, [...])"#,
+    .items([...])"#,
                 ),
             )],
         )

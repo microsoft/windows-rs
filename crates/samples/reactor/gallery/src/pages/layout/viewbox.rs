@@ -30,8 +30,7 @@ impl Component for ViewboxPage {
                             .width(self.size)
                             .height(100.0)
                             .stretch(Stretch::Uniform)
-                            .slot(
-                                ViewboxSlot::Child,
+                            .child(
                                 Border::new()
                                     .width(200.0)
                                     .height(100.0)
@@ -49,7 +48,7 @@ impl Component for ViewboxPage {
     .width(viewport_width)
     .height(100.0)
     .stretch(Stretch::Uniform)
-    .slot(ViewboxSlot::Child, content)"#,
+    .child(content)"#,
                 ),
             )],
         )

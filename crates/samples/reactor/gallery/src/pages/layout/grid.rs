@@ -97,7 +97,7 @@ impl Component for GridPage {
                             ToggleSwitch::new()
                                 .is_on(self.wide)
                                 .on_toggled(context.forward())
-                                .slot(ToggleSwitchSlot::Header, "Wide layout"),
+                                .header("Wide layout"),
                             dynamic,
                         )),
                         "if wide { three columns } else { two by two }",

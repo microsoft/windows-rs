@@ -41,9 +41,9 @@ impl Component for PivotPage {
                         Pivot::new()
                             .selected_index(self.selected)
                             .on_selection_changed(context.forward())
-                            .collection_slot(PivotSlot::Items, items("basic")),
+                            .items(items("basic")),
                         "Pivot::new().selected_index(index)\n    \
-                         .collection_slot(PivotSlot::Items, items)",
+                         .items(items)",
                     ),
                 ),
                 KeyedView::new(
@@ -54,7 +54,7 @@ impl Component for PivotPage {
                             Pivot::new()
                                 .selected_index(self.selected)
                                 .on_selection_changed(context.forward())
-                                .collection_slot(PivotSlot::Items, items("tracking")),
+                                .items(items("tracking")),
                             TextBlock::new()
                                 .text(format!("Active tab index: {:?}", self.selected))
                                 .opacity(0.6),

@@ -49,7 +49,7 @@ pub(crate) const PROJECTED_CONTROL_COUNT: usize = 79usize;
 pub(crate) const PROJECTED_PROPERTY_COUNT: usize = 230usize;
 pub(crate) const PROJECTED_EVENT_COUNT: usize = 63usize;
 pub(crate) const CAPABILITY_PROPERTY_COUNT: usize = 27usize;
-pub(crate) const STRUCTURAL_COUNT: usize = 64usize;
+pub(crate) const STRUCTURAL_COUNT: usize = 65usize;
 pub(crate) const EXTENSION_COUNT: usize = 5;
 fn construct_text_block(_stage: usize) -> View {
     Grid::new().children((TextBlock::new(),))
@@ -94,7 +94,7 @@ fn construct_slider(_stage: usize) -> View {
     Grid::new().children((Slider::new(),))
 }
 fn construct_title_bar(_stage: usize) -> View {
-    Grid::new().children((TitleBar::new().slots(std::iter::empty::<SlotView<TitleBarSlot>>()),))
+    Grid::new().children((TitleBar::new(),))
 }
 fn construct_navigation_view(_stage: usize) -> View {
     Grid::new().children((NavigationView::new(),))
@@ -2183,56 +2183,41 @@ fn property_viewbox_stretch(stage: usize) -> View {
 }
 fn property_title_bar_title(stage: usize) -> View {
     match stage {
-        0 | 3 => Grid::new()
-            .children(((TitleBar::new()).slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        1 => Grid::new().children(((TitleBar::new().title("surface a"))
-            .slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        2 => Grid::new().children(((TitleBar::new().title("surface b"))
-            .slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
+        0 | 3 => Grid::new().children((TitleBar::new(),)),
+        1 => Grid::new().children((TitleBar::new().title("surface a"),)),
+        2 => Grid::new().children((TitleBar::new().title("surface b"),)),
         _ => unreachable!(),
     }
 }
 fn property_title_bar_subtitle(stage: usize) -> View {
     match stage {
-        0 | 3 => Grid::new()
-            .children(((TitleBar::new()).slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        1 => Grid::new().children(((TitleBar::new().subtitle("surface a"))
-            .slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        2 => Grid::new().children(((TitleBar::new().subtitle("surface b"))
-            .slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
+        0 | 3 => Grid::new().children((TitleBar::new(),)),
+        1 => Grid::new().children((TitleBar::new().subtitle("surface a"),)),
+        2 => Grid::new().children((TitleBar::new().subtitle("surface b"),)),
         _ => unreachable!(),
     }
 }
 fn property_title_bar_is_back_button_visible(stage: usize) -> View {
     match stage {
-        0 | 3 => Grid::new()
-            .children(((TitleBar::new()).slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        1 => Grid::new().children(((TitleBar::new().is_back_button_visible(true))
-            .slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        2 => Grid::new().children(((TitleBar::new().is_back_button_visible(false))
-            .slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
+        0 | 3 => Grid::new().children((TitleBar::new(),)),
+        1 => Grid::new().children((TitleBar::new().is_back_button_visible(true),)),
+        2 => Grid::new().children((TitleBar::new().is_back_button_visible(false),)),
         _ => unreachable!(),
     }
 }
 fn property_title_bar_is_back_button_enabled(stage: usize) -> View {
     match stage {
-        0 | 3 => Grid::new()
-            .children(((TitleBar::new()).slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        1 => Grid::new().children(((TitleBar::new().is_back_button_enabled(true))
-            .slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        2 => Grid::new().children(((TitleBar::new().is_back_button_enabled(false))
-            .slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
+        0 | 3 => Grid::new().children((TitleBar::new(),)),
+        1 => Grid::new().children((TitleBar::new().is_back_button_enabled(true),)),
+        2 => Grid::new().children((TitleBar::new().is_back_button_enabled(false),)),
         _ => unreachable!(),
     }
 }
 fn property_title_bar_is_pane_toggle_button_visible(stage: usize) -> View {
     match stage {
-        0 | 3 => Grid::new()
-            .children(((TitleBar::new()).slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        1 => Grid::new().children(((TitleBar::new().is_pane_toggle_button_visible(true))
-            .slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        2 => Grid::new().children(((TitleBar::new().is_pane_toggle_button_visible(false))
-            .slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
+        0 | 3 => Grid::new().children((TitleBar::new(),)),
+        1 => Grid::new().children((TitleBar::new().is_pane_toggle_button_visible(true),)),
+        2 => Grid::new().children((TitleBar::new().is_pane_toggle_button_visible(false),)),
         _ => unreachable!(),
     }
 }
@@ -2970,31 +2955,25 @@ fn event_rich_edit_box_on_text_changed(stage: usize) -> View {
 }
 fn event_title_bar_on_back_requested(stage: usize) -> View {
     match stage {
-        0 | 3 => Grid::new()
-            .children(((TitleBar::new()).slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        1 => Grid::new().children(((TitleBar::new().on_back_requested(move || {
+        0 | 3 => Grid::new().children((TitleBar::new(),)),
+        1 => Grid::new().children((TitleBar::new().on_back_requested(move || {
             let _ = 0u8;
-        }))
-        .slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        2 => Grid::new().children(((TitleBar::new().on_back_requested(move || {
+        }),)),
+        2 => Grid::new().children((TitleBar::new().on_back_requested(move || {
             let _ = 1u8;
-        }))
-        .slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
+        }),)),
         _ => unreachable!(),
     }
 }
 fn event_title_bar_on_pane_toggle_requested(stage: usize) -> View {
     match stage {
-        0 | 3 => Grid::new()
-            .children(((TitleBar::new()).slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        1 => Grid::new().children(((TitleBar::new().on_pane_toggle_requested(move || {
+        0 | 3 => Grid::new().children((TitleBar::new(),)),
+        1 => Grid::new().children((TitleBar::new().on_pane_toggle_requested(move || {
             let _ = 0u8;
-        }))
-        .slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        2 => Grid::new().children(((TitleBar::new().on_pane_toggle_requested(move || {
+        }),)),
+        2 => Grid::new().children((TitleBar::new().on_pane_toggle_requested(move || {
             let _ = 1u8;
-        }))
-        .slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
+        }),)),
         _ => unreachable!(),
     }
 }
@@ -3298,283 +3277,177 @@ fn structural_grid_children(stage: usize) -> View {
 }
 fn structural_text_box_slot_header(stage: usize) -> View {
     match stage {
-        0 | 3 => (TextBox::new().slots(std::iter::empty::<SlotView<TextBoxSlot>>())).into(),
-        1 => (TextBox::new().slot(TextBoxSlot::Header, TextBlock::new().text("surface a"))).into(),
-        2 => (TextBox::new().slot(TextBoxSlot::Header, TextBlock::new().text("surface b"))).into(),
+        0 | 3 => (TextBox::new()).into(),
+        1 => (TextBox::new().header(TextBlock::new().text("surface a"))).into(),
+        2 => (TextBox::new().header(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_auto_suggest_box_slot_header(stage: usize) -> View {
     match stage {
-        0 | 3 => {
-            (AutoSuggestBox::new().slots(std::iter::empty::<SlotView<AutoSuggestBoxSlot>>())).into()
-        }
-        1 => (AutoSuggestBox::new().slot(
-            AutoSuggestBoxSlot::Header,
-            TextBlock::new().text("surface a"),
-        ))
-        .into(),
-        2 => (AutoSuggestBox::new().slot(
-            AutoSuggestBoxSlot::Header,
-            TextBlock::new().text("surface b"),
-        ))
-        .into(),
+        0 | 3 => (AutoSuggestBox::new()).into(),
+        1 => (AutoSuggestBox::new().header(TextBlock::new().text("surface a"))).into(),
+        2 => (AutoSuggestBox::new().header(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_password_box_slot_header(stage: usize) -> View {
     match stage {
-        0 | 3 => (PasswordBox::new().slots(std::iter::empty::<SlotView<PasswordBoxSlot>>())).into(),
-        1 => (PasswordBox::new().slot(PasswordBoxSlot::Header, TextBlock::new().text("surface a")))
-            .into(),
-        2 => (PasswordBox::new().slot(PasswordBoxSlot::Header, TextBlock::new().text("surface b")))
-            .into(),
+        0 | 3 => (PasswordBox::new()).into(),
+        1 => (PasswordBox::new().header(TextBlock::new().text("surface a"))).into(),
+        2 => (PasswordBox::new().header(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_number_box_slot_header(stage: usize) -> View {
     match stage {
-        0 | 3 => (NumberBox::new().slots(std::iter::empty::<SlotView<NumberBoxSlot>>())).into(),
-        1 => (NumberBox::new().slot(NumberBoxSlot::Header, TextBlock::new().text("surface a")))
-            .into(),
-        2 => (NumberBox::new().slot(NumberBoxSlot::Header, TextBlock::new().text("surface b")))
-            .into(),
+        0 | 3 => (NumberBox::new()).into(),
+        1 => (NumberBox::new().header(TextBlock::new().text("surface a"))).into(),
+        2 => (NumberBox::new().header(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_slider_slot_header(stage: usize) -> View {
     match stage {
-        0 | 3 => (Slider::new().slots(std::iter::empty::<SlotView<SliderSlot>>())).into(),
-        1 => (Slider::new().slot(SliderSlot::Header, TextBlock::new().text("surface a"))).into(),
-        2 => (Slider::new().slot(SliderSlot::Header, TextBlock::new().text("surface b"))).into(),
+        0 | 3 => (Slider::new()).into(),
+        1 => (Slider::new().header(TextBlock::new().text("surface a"))).into(),
+        2 => (Slider::new().header(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_navigation_view_slot_content(stage: usize) -> View {
     match stage {
-        0 | 3 => {
-            (NavigationView::new().slots(std::iter::empty::<SlotView<NavigationViewSlot>>())).into()
-        }
-        1 => (NavigationView::new().slot(
-            NavigationViewSlot::Content,
-            TextBlock::new().text("surface a"),
-        ))
-        .into(),
-        2 => (NavigationView::new().slot(
-            NavigationViewSlot::Content,
-            TextBlock::new().text("surface b"),
-        ))
-        .into(),
+        0 | 3 => (NavigationView::new()).into(),
+        1 => (NavigationView::new().content(TextBlock::new().text("surface a"))).into(),
+        2 => (NavigationView::new().content(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_navigation_view_slot_header(stage: usize) -> View {
     match stage {
-        0 | 3 => {
-            (NavigationView::new().slots(std::iter::empty::<SlotView<NavigationViewSlot>>())).into()
-        }
-        1 => (NavigationView::new().slot(
-            NavigationViewSlot::Header,
-            TextBlock::new().text("surface a"),
-        ))
-        .into(),
-        2 => (NavigationView::new().slot(
-            NavigationViewSlot::Header,
-            TextBlock::new().text("surface b"),
-        ))
-        .into(),
+        0 | 3 => (NavigationView::new()).into(),
+        1 => (NavigationView::new().header(TextBlock::new().text("surface a"))).into(),
+        2 => (NavigationView::new().header(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_navigation_view_slot_pane_custom_content(stage: usize) -> View {
     match stage {
-        0 | 3 => {
-            (NavigationView::new().slots(std::iter::empty::<SlotView<NavigationViewSlot>>())).into()
-        }
-        1 => (NavigationView::new().slot(
-            NavigationViewSlot::PaneCustomContent,
-            TextBlock::new().text("surface a"),
-        ))
-        .into(),
-        2 => (NavigationView::new().slot(
-            NavigationViewSlot::PaneCustomContent,
-            TextBlock::new().text("surface b"),
-        ))
-        .into(),
+        0 | 3 => (NavigationView::new()).into(),
+        1 => (NavigationView::new().pane_custom_content(TextBlock::new().text("surface a"))).into(),
+        2 => (NavigationView::new().pane_custom_content(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_navigation_view_slot_pane_footer(stage: usize) -> View {
     match stage {
-        0 | 3 => {
-            (NavigationView::new().slots(std::iter::empty::<SlotView<NavigationViewSlot>>())).into()
-        }
-        1 => (NavigationView::new().slot(
-            NavigationViewSlot::PaneFooter,
-            TextBlock::new().text("surface a"),
-        ))
-        .into(),
-        2 => (NavigationView::new().slot(
-            NavigationViewSlot::PaneFooter,
-            TextBlock::new().text("surface b"),
-        ))
-        .into(),
+        0 | 3 => (NavigationView::new()).into(),
+        1 => (NavigationView::new().pane_footer(TextBlock::new().text("surface a"))).into(),
+        2 => (NavigationView::new().pane_footer(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_navigation_view_slot_menu_items(stage: usize) -> View {
     match stage {
-        0 | 3 => {
-            (NavigationView::new().slots(std::iter::empty::<SlotView<NavigationViewSlot>>())).into()
-        }
-        1 => (NavigationView::new().collection_slot(
-            NavigationViewSlot::MenuItems,
-            [KeyedView::new(
-                "surface",
-                NavigationViewItem::new().width(40.0),
-            )],
-        ))
+        0 | 3 => (NavigationView::new()).into(),
+        1 => (NavigationView::new().menu_items([KeyedView::new(
+            "surface",
+            NavigationViewItem::new().width(40.0),
+        )]))
         .into(),
-        2 => (NavigationView::new().collection_slot(
-            NavigationViewSlot::MenuItems,
-            [KeyedView::new(
-                "surface",
-                NavigationViewItem::new().width(80.0),
-            )],
-        ))
+        2 => (NavigationView::new().menu_items([KeyedView::new(
+            "surface",
+            NavigationViewItem::new().width(80.0),
+        )]))
+        .into(),
+        _ => unreachable!(),
+    }
+}
+fn structural_navigation_view_slot_footer_menu_items(stage: usize) -> View {
+    match stage {
+        0 | 3 => (NavigationView::new()).into(),
+        1 => (NavigationView::new().footer_menu_items([KeyedView::new(
+            "surface",
+            NavigationViewItem::new().width(40.0),
+        )]))
+        .into(),
+        2 => (NavigationView::new().footer_menu_items([KeyedView::new(
+            "surface",
+            NavigationViewItem::new().width(80.0),
+        )]))
         .into(),
         _ => unreachable!(),
     }
 }
 fn structural_navigation_view_item_slot_content(stage: usize) -> View {
     match stage {
-        0 | 3 => (NavigationViewItem::new()
-            .slots(std::iter::empty::<SlotView<NavigationViewItemSlot>>()))
-        .into(),
-        1 => (NavigationViewItem::new().slot(
-            NavigationViewItemSlot::Content,
-            TextBlock::new().text("surface a"),
-        ))
-        .into(),
-        2 => (NavigationViewItem::new().slot(
-            NavigationViewItemSlot::Content,
-            TextBlock::new().text("surface b"),
-        ))
-        .into(),
+        0 | 3 => (NavigationViewItem::new()).into(),
+        1 => (NavigationViewItem::new().content(TextBlock::new().text("surface a"))).into(),
+        2 => (NavigationViewItem::new().content(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_navigation_view_item_slot_icon(stage: usize) -> View {
     match stage {
-        0 | 3 => (NavigationViewItem::new()
-            .slots(std::iter::empty::<SlotView<NavigationViewItemSlot>>()))
-        .into(),
-        1 => (NavigationViewItem::new().slot(
-            NavigationViewItemSlot::Icon,
-            SymbolIcon::new().symbol(Symbol::Add),
-        ))
-        .into(),
-        2 => (NavigationViewItem::new().slot(
-            NavigationViewItemSlot::Icon,
-            SymbolIcon::new().symbol(Symbol::Accept),
-        ))
-        .into(),
+        0 | 3 => (NavigationViewItem::new()).into(),
+        1 => (NavigationViewItem::new().icon(SymbolIcon::new().symbol(Symbol::Add))).into(),
+        2 => (NavigationViewItem::new().icon(SymbolIcon::new().symbol(Symbol::Accept))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_navigation_view_item_slot_menu_items(stage: usize) -> View {
     match stage {
-        0 | 3 => (NavigationViewItem::new()
-            .slots(std::iter::empty::<SlotView<NavigationViewItemSlot>>()))
+        0 | 3 => (NavigationViewItem::new()).into(),
+        1 => (NavigationViewItem::new().menu_items([KeyedView::new(
+            "surface",
+            TextBlock::new().text("surface a"),
+        )]))
         .into(),
-        1 => (NavigationViewItem::new().collection_slot(
-            NavigationViewItemSlot::MenuItems,
-            [KeyedView::new(
-                "surface",
-                TextBlock::new().text("surface a"),
-            )],
-        ))
-        .into(),
-        2 => (NavigationViewItem::new().collection_slot(
-            NavigationViewItemSlot::MenuItems,
-            [KeyedView::new(
-                "surface",
-                TextBlock::new().text("surface b"),
-            )],
-        ))
+        2 => (NavigationViewItem::new().menu_items([KeyedView::new(
+            "surface",
+            TextBlock::new().text("surface b"),
+        )]))
         .into(),
         _ => unreachable!(),
     }
 }
 fn structural_split_view_slot_pane(stage: usize) -> View {
     match stage {
-        0 | 3 => (SplitView::new().slots(std::iter::empty::<SlotView<SplitViewSlot>>())).into(),
-        1 => {
-            (SplitView::new().slot(SplitViewSlot::Pane, TextBlock::new().text("surface a"))).into()
-        }
-        2 => {
-            (SplitView::new().slot(SplitViewSlot::Pane, TextBlock::new().text("surface b"))).into()
-        }
+        0 | 3 => (SplitView::new()).into(),
+        1 => (SplitView::new().pane(TextBlock::new().text("surface a"))).into(),
+        2 => (SplitView::new().pane(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_split_view_slot_content(stage: usize) -> View {
     match stage {
-        0 | 3 => (SplitView::new().slots(std::iter::empty::<SlotView<SplitViewSlot>>())).into(),
-        1 => (SplitView::new().slot(SplitViewSlot::Content, TextBlock::new().text("surface a")))
-            .into(),
-        2 => (SplitView::new().slot(SplitViewSlot::Content, TextBlock::new().text("surface b")))
-            .into(),
+        0 | 3 => (SplitView::new()).into(),
+        1 => (SplitView::new().content(TextBlock::new().text("surface a"))).into(),
+        2 => (SplitView::new().content(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_toggle_switch_slot_header(stage: usize) -> View {
     match stage {
-        0 | 3 => {
-            (ToggleSwitch::new().slots(std::iter::empty::<SlotView<ToggleSwitchSlot>>())).into()
-        }
-        1 => (ToggleSwitch::new()
-            .slot(ToggleSwitchSlot::Header, TextBlock::new().text("surface a")))
-        .into(),
-        2 => (ToggleSwitch::new()
-            .slot(ToggleSwitchSlot::Header, TextBlock::new().text("surface b")))
-        .into(),
+        0 | 3 => (ToggleSwitch::new()).into(),
+        1 => (ToggleSwitch::new().header(TextBlock::new().text("surface a"))).into(),
+        2 => (ToggleSwitch::new().header(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_toggle_switch_slot_on_content(stage: usize) -> View {
     match stage {
-        0 | 3 => {
-            (ToggleSwitch::new().slots(std::iter::empty::<SlotView<ToggleSwitchSlot>>())).into()
-        }
-        1 => (ToggleSwitch::new().slot(
-            ToggleSwitchSlot::OnContent,
-            TextBlock::new().text("surface a"),
-        ))
-        .into(),
-        2 => (ToggleSwitch::new().slot(
-            ToggleSwitchSlot::OnContent,
-            TextBlock::new().text("surface b"),
-        ))
-        .into(),
+        0 | 3 => (ToggleSwitch::new()).into(),
+        1 => (ToggleSwitch::new().on_content(TextBlock::new().text("surface a"))).into(),
+        2 => (ToggleSwitch::new().on_content(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_toggle_switch_slot_off_content(stage: usize) -> View {
     match stage {
-        0 | 3 => {
-            (ToggleSwitch::new().slots(std::iter::empty::<SlotView<ToggleSwitchSlot>>())).into()
-        }
-        1 => (ToggleSwitch::new().slot(
-            ToggleSwitchSlot::OffContent,
-            TextBlock::new().text("surface a"),
-        ))
-        .into(),
-        2 => (ToggleSwitch::new().slot(
-            ToggleSwitchSlot::OffContent,
-            TextBlock::new().text("surface b"),
-        ))
-        .into(),
+        0 | 3 => (ToggleSwitch::new()).into(),
+        1 => (ToggleSwitch::new().off_content(TextBlock::new().text("surface a"))).into(),
+        2 => (ToggleSwitch::new().off_content(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
@@ -3604,15 +3477,9 @@ fn structural_radio_button_content(stage: usize) -> View {
 }
 fn structural_radio_buttons_slot_header(stage: usize) -> View {
     match stage {
-        0 | 3 => {
-            (RadioButtons::new().slots(std::iter::empty::<SlotView<RadioButtonsSlot>>())).into()
-        }
-        1 => (RadioButtons::new()
-            .slot(RadioButtonsSlot::Header, TextBlock::new().text("surface a")))
-        .into(),
-        2 => (RadioButtons::new()
-            .slot(RadioButtonsSlot::Header, TextBlock::new().text("surface b")))
-        .into(),
+        0 | 3 => (RadioButtons::new()).into(),
+        1 => (RadioButtons::new().header(TextBlock::new().text("surface a"))).into(),
+        2 => (RadioButtons::new().header(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
@@ -3645,17 +3512,11 @@ fn structural_scroll_view_content(stage: usize) -> View {
 }
 fn structural_list_box_slot_items(stage: usize) -> View {
     match stage {
-        0 | 3 => (ListBox::new().slots(std::iter::empty::<SlotView<ListBoxSlot>>())).into(),
-        1 => (ListBox::new().collection_slot(
-            ListBoxSlot::Items,
-            [KeyedView::new("surface", ListBoxItem::new().width(40.0))],
-        ))
-        .into(),
-        2 => (ListBox::new().collection_slot(
-            ListBoxSlot::Items,
-            [KeyedView::new("surface", ListBoxItem::new().width(80.0))],
-        ))
-        .into(),
+        0 | 3 => (ListBox::new()).into(),
+        1 => (ListBox::new().items([KeyedView::new("surface", ListBoxItem::new().width(40.0))]))
+            .into(),
+        2 => (ListBox::new().items([KeyedView::new("surface", ListBoxItem::new().width(80.0))]))
+            .into(),
         _ => unreachable!(),
     }
 }
@@ -3669,53 +3530,33 @@ fn structural_list_box_item_content(stage: usize) -> View {
 }
 fn structural_expander_slot_header(stage: usize) -> View {
     match stage {
-        0 | 3 => (Expander::new().slots(std::iter::empty::<SlotView<ExpanderSlot>>())).into(),
-        1 => {
-            (Expander::new().slot(ExpanderSlot::Header, TextBlock::new().text("surface a"))).into()
-        }
-        2 => {
-            (Expander::new().slot(ExpanderSlot::Header, TextBlock::new().text("surface b"))).into()
-        }
+        0 | 3 => (Expander::new()).into(),
+        1 => (Expander::new().header(TextBlock::new().text("surface a"))).into(),
+        2 => (Expander::new().header(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_expander_slot_content(stage: usize) -> View {
     match stage {
-        0 | 3 => (Expander::new().slots(std::iter::empty::<SlotView<ExpanderSlot>>())).into(),
-        1 => {
-            (Expander::new().slot(ExpanderSlot::Content, TextBlock::new().text("surface a"))).into()
-        }
-        2 => {
-            (Expander::new().slot(ExpanderSlot::Content, TextBlock::new().text("surface b"))).into()
-        }
+        0 | 3 => (Expander::new()).into(),
+        1 => (Expander::new().content(TextBlock::new().text("surface a"))).into(),
+        2 => (Expander::new().content(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_combo_box_slot_header(stage: usize) -> View {
     match stage {
-        0 | 3 => (ComboBox::new().slots(std::iter::empty::<SlotView<ComboBoxSlot>>())).into(),
-        1 => {
-            (ComboBox::new().slot(ComboBoxSlot::Header, TextBlock::new().text("surface a"))).into()
-        }
-        2 => {
-            (ComboBox::new().slot(ComboBoxSlot::Header, TextBlock::new().text("surface b"))).into()
-        }
+        0 | 3 => (ComboBox::new()).into(),
+        1 => (ComboBox::new().header(TextBlock::new().text("surface a"))).into(),
+        2 => (ComboBox::new().header(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_pivot_slot_items(stage: usize) -> View {
     match stage {
-        0 | 3 => (Pivot::new().slots(std::iter::empty::<SlotView<PivotSlot>>())).into(),
-        1 => (Pivot::new().collection_slot(
-            PivotSlot::Items,
-            [KeyedView::new("surface", PivotItem::new().width(40.0))],
-        ))
-        .into(),
-        2 => (Pivot::new().collection_slot(
-            PivotSlot::Items,
-            [KeyedView::new("surface", PivotItem::new().width(80.0))],
-        ))
-        .into(),
+        0 | 3 => (Pivot::new()).into(),
+        1 => (Pivot::new().items([KeyedView::new("surface", PivotItem::new().width(40.0))])).into(),
+        2 => (Pivot::new().items([KeyedView::new("surface", PivotItem::new().width(80.0))])).into(),
         _ => unreachable!(),
     }
 }
@@ -3729,84 +3570,56 @@ fn structural_pivot_item_content(stage: usize) -> View {
 }
 fn structural_flip_view_slot_items(stage: usize) -> View {
     match stage {
-        0 | 3 => (FlipView::new().slots(std::iter::empty::<SlotView<FlipViewSlot>>())).into(),
-        1 => (FlipView::new().collection_slot(
-            FlipViewSlot::Items,
-            [KeyedView::new(
-                "surface",
-                TextBlock::new().text("surface a"),
-            )],
-        ))
+        0 | 3 => (FlipView::new()).into(),
+        1 => (FlipView::new().items([KeyedView::new(
+            "surface",
+            TextBlock::new().text("surface a"),
+        )]))
         .into(),
-        2 => (FlipView::new().collection_slot(
-            FlipViewSlot::Items,
-            [KeyedView::new(
-                "surface",
-                TextBlock::new().text("surface b"),
-            )],
-        ))
+        2 => (FlipView::new().items([KeyedView::new(
+            "surface",
+            TextBlock::new().text("surface b"),
+        )]))
         .into(),
         _ => unreachable!(),
     }
 }
 fn structural_selector_bar_slot_items(stage: usize) -> View {
     match stage {
-        0 | 3 => (SelectorBar::new().slots(std::iter::empty::<SlotView<SelectorBarSlot>>())).into(),
-        1 => (SelectorBar::new().collection_slot(
-            SelectorBarSlot::Items,
-            [KeyedView::new(
-                "surface",
-                SelectorBarItem::new().width(40.0),
-            )],
-        ))
+        0 | 3 => (SelectorBar::new()).into(),
+        1 => (SelectorBar::new().items([KeyedView::new(
+            "surface",
+            SelectorBarItem::new().width(40.0),
+        )]))
         .into(),
-        2 => (SelectorBar::new().collection_slot(
-            SelectorBarSlot::Items,
-            [KeyedView::new(
-                "surface",
-                SelectorBarItem::new().width(80.0),
-            )],
-        ))
+        2 => (SelectorBar::new().items([KeyedView::new(
+            "surface",
+            SelectorBarItem::new().width(80.0),
+        )]))
         .into(),
         _ => unreachable!(),
     }
 }
 fn structural_selector_bar_item_slot_icon(stage: usize) -> View {
     match stage {
-        0 | 3 => (SelectorBarItem::new()
-            .slots(std::iter::empty::<SlotView<SelectorBarItemSlot>>()))
-        .into(),
-        1 => (SelectorBarItem::new().slot(
-            SelectorBarItemSlot::Icon,
-            SymbolIcon::new().symbol(Symbol::Add),
-        ))
-        .into(),
-        2 => (SelectorBarItem::new().slot(
-            SelectorBarItemSlot::Icon,
-            SymbolIcon::new().symbol(Symbol::Accept),
-        ))
-        .into(),
+        0 | 3 => (SelectorBarItem::new()).into(),
+        1 => (SelectorBarItem::new().icon(SymbolIcon::new().symbol(Symbol::Add))).into(),
+        2 => (SelectorBarItem::new().icon(SymbolIcon::new().symbol(Symbol::Accept))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_tab_view_slot_tab_items(stage: usize) -> View {
     match stage {
-        0 | 3 => (TabView::new().slots(std::iter::empty::<SlotView<TabViewSlot>>())).into(),
-        1 => (TabView::new().collection_slot(
-            TabViewSlot::TabItems,
-            [KeyedView::new(
-                "surface",
-                TextBlock::new().text("surface a"),
-            )],
-        ))
+        0 | 3 => (TabView::new()).into(),
+        1 => (TabView::new().tab_items([KeyedView::new(
+            "surface",
+            TextBlock::new().text("surface a"),
+        )]))
         .into(),
-        2 => (TabView::new().collection_slot(
-            TabViewSlot::TabItems,
-            [KeyedView::new(
-                "surface",
-                TextBlock::new().text("surface b"),
-            )],
-        ))
+        2 => (TabView::new().tab_items([KeyedView::new(
+            "surface",
+            TextBlock::new().text("surface b"),
+        )]))
         .into(),
         _ => unreachable!(),
     }
@@ -3829,67 +3642,43 @@ fn structural_drop_down_button_content(stage: usize) -> View {
 }
 fn structural_command_bar_slot_primary_commands(stage: usize) -> View {
     match stage {
-        0 | 3 => (CommandBar::new().slots(std::iter::empty::<SlotView<CommandBarSlot>>())).into(),
-        1 => (CommandBar::new().collection_slot(
-            CommandBarSlot::PrimaryCommands,
-            [KeyedView::new("surface", AppBarButton::new().width(40.0))],
-        ))
+        0 | 3 => (CommandBar::new()).into(),
+        1 => (CommandBar::new()
+            .primary_commands([KeyedView::new("surface", AppBarButton::new().width(40.0))]))
         .into(),
-        2 => (CommandBar::new().collection_slot(
-            CommandBarSlot::PrimaryCommands,
-            [KeyedView::new("surface", AppBarButton::new().width(80.0))],
-        ))
+        2 => (CommandBar::new()
+            .primary_commands([KeyedView::new("surface", AppBarButton::new().width(80.0))]))
         .into(),
         _ => unreachable!(),
     }
 }
 fn structural_command_bar_slot_secondary_commands(stage: usize) -> View {
     match stage {
-        0 | 3 => (CommandBar::new().slots(std::iter::empty::<SlotView<CommandBarSlot>>())).into(),
-        1 => (CommandBar::new().collection_slot(
-            CommandBarSlot::SecondaryCommands,
-            [KeyedView::new("surface", AppBarButton::new().width(40.0))],
-        ))
+        0 | 3 => (CommandBar::new()).into(),
+        1 => (CommandBar::new()
+            .secondary_commands([KeyedView::new("surface", AppBarButton::new().width(40.0))]))
         .into(),
-        2 => (CommandBar::new().collection_slot(
-            CommandBarSlot::SecondaryCommands,
-            [KeyedView::new("surface", AppBarButton::new().width(80.0))],
-        ))
+        2 => (CommandBar::new()
+            .secondary_commands([KeyedView::new("surface", AppBarButton::new().width(80.0))]))
         .into(),
         _ => unreachable!(),
     }
 }
 fn structural_app_bar_button_slot_icon(stage: usize) -> View {
     match stage {
-        0 | 3 => {
-            (AppBarButton::new().slots(std::iter::empty::<SlotView<AppBarButtonSlot>>())).into()
-        }
-        1 => (AppBarButton::new().slot(
-            AppBarButtonSlot::Icon,
-            SymbolIcon::new().symbol(Symbol::Add),
-        ))
-        .into(),
-        2 => (AppBarButton::new().slot(
-            AppBarButtonSlot::Icon,
-            SymbolIcon::new().symbol(Symbol::Accept),
-        ))
-        .into(),
+        0 | 3 => (AppBarButton::new()).into(),
+        1 => (AppBarButton::new().icon(SymbolIcon::new().symbol(Symbol::Add))).into(),
+        2 => (AppBarButton::new().icon(SymbolIcon::new().symbol(Symbol::Accept))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_menu_bar_slot_items(stage: usize) -> View {
     match stage {
-        0 | 3 => (MenuBar::new().slots(std::iter::empty::<SlotView<MenuBarSlot>>())).into(),
-        1 => (MenuBar::new().collection_slot(
-            MenuBarSlot::Items,
-            [KeyedView::new("surface", MenuBarItem::new().width(40.0))],
-        ))
-        .into(),
-        2 => (MenuBar::new().collection_slot(
-            MenuBarSlot::Items,
-            [KeyedView::new("surface", MenuBarItem::new().width(80.0))],
-        ))
-        .into(),
+        0 | 3 => (MenuBar::new()).into(),
+        1 => (MenuBar::new().items([KeyedView::new("surface", MenuBarItem::new().width(40.0))]))
+            .into(),
+        2 => (MenuBar::new().items([KeyedView::new("surface", MenuBarItem::new().width(80.0))]))
+            .into(),
         _ => unreachable!(),
     }
 }
@@ -3903,39 +3692,25 @@ fn structural_split_button_content(stage: usize) -> View {
 }
 fn structural_date_picker_slot_header(stage: usize) -> View {
     match stage {
-        0 | 3 => (DatePicker::new().slots(std::iter::empty::<SlotView<DatePickerSlot>>())).into(),
-        1 => (DatePicker::new().slot(DatePickerSlot::Header, TextBlock::new().text("surface a")))
-            .into(),
-        2 => (DatePicker::new().slot(DatePickerSlot::Header, TextBlock::new().text("surface b")))
-            .into(),
+        0 | 3 => (DatePicker::new()).into(),
+        1 => (DatePicker::new().header(TextBlock::new().text("surface a"))).into(),
+        2 => (DatePicker::new().header(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_time_picker_slot_header(stage: usize) -> View {
     match stage {
-        0 | 3 => (TimePicker::new().slots(std::iter::empty::<SlotView<TimePickerSlot>>())).into(),
-        1 => (TimePicker::new().slot(TimePickerSlot::Header, TextBlock::new().text("surface a")))
-            .into(),
-        2 => (TimePicker::new().slot(TimePickerSlot::Header, TextBlock::new().text("surface b")))
-            .into(),
+        0 | 3 => (TimePicker::new()).into(),
+        1 => (TimePicker::new().header(TextBlock::new().text("surface a"))).into(),
+        2 => (TimePicker::new().header(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_calendar_date_picker_slot_header(stage: usize) -> View {
     match stage {
-        0 | 3 => (CalendarDatePicker::new()
-            .slots(std::iter::empty::<SlotView<CalendarDatePickerSlot>>()))
-        .into(),
-        1 => (CalendarDatePicker::new().slot(
-            CalendarDatePickerSlot::Header,
-            TextBlock::new().text("surface a"),
-        ))
-        .into(),
-        2 => (CalendarDatePicker::new().slot(
-            CalendarDatePickerSlot::Header,
-            TextBlock::new().text("surface b"),
-        ))
-        .into(),
+        0 | 3 => (CalendarDatePicker::new()).into(),
+        1 => (CalendarDatePicker::new().header(TextBlock::new().text("surface a"))).into(),
+        2 => (CalendarDatePicker::new().header(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
@@ -3951,22 +3726,16 @@ fn structural_content_dialog_content(stage: usize) -> View {
 }
 fn structural_list_view_slot_items(stage: usize) -> View {
     match stage {
-        0 | 3 => (ListView::new().slots(std::iter::empty::<SlotView<ListViewSlot>>())).into(),
-        1 => (ListView::new().collection_slot(
-            ListViewSlot::Items,
-            [KeyedView::new(
-                "surface",
-                TextBlock::new().text("surface a"),
-            )],
-        ))
+        0 | 3 => (ListView::new()).into(),
+        1 => (ListView::new().items([KeyedView::new(
+            "surface",
+            TextBlock::new().text("surface a"),
+        )]))
         .into(),
-        2 => (ListView::new().collection_slot(
-            ListViewSlot::Items,
-            [KeyedView::new(
-                "surface",
-                TextBlock::new().text("surface b"),
-            )],
-        ))
+        2 => (ListView::new().items([KeyedView::new(
+            "surface",
+            TextBlock::new().text("surface b"),
+        )]))
         .into(),
         _ => unreachable!(),
     }
@@ -3981,22 +3750,16 @@ fn structural_list_view_item_content(stage: usize) -> View {
 }
 fn structural_grid_view_slot_items(stage: usize) -> View {
     match stage {
-        0 | 3 => (GridView::new().slots(std::iter::empty::<SlotView<GridViewSlot>>())).into(),
-        1 => (GridView::new().collection_slot(
-            GridViewSlot::Items,
-            [KeyedView::new(
-                "surface",
-                TextBlock::new().text("surface a"),
-            )],
-        ))
+        0 | 3 => (GridView::new()).into(),
+        1 => (GridView::new().items([KeyedView::new(
+            "surface",
+            TextBlock::new().text("surface a"),
+        )]))
         .into(),
-        2 => (GridView::new().collection_slot(
-            GridViewSlot::Items,
-            [KeyedView::new(
-                "surface",
-                TextBlock::new().text("surface b"),
-            )],
-        ))
+        2 => (GridView::new().items([KeyedView::new(
+            "surface",
+            TextBlock::new().text("surface b"),
+        )]))
         .into(),
         _ => unreachable!(),
     }
@@ -4035,47 +3798,35 @@ fn structural_canvas_children(stage: usize) -> View {
 }
 fn structural_rich_edit_box_slot_header(stage: usize) -> View {
     match stage {
-        0 | 3 => (RichEditBox::new().slots(std::iter::empty::<SlotView<RichEditBoxSlot>>())).into(),
-        1 => (RichEditBox::new().slot(RichEditBoxSlot::Header, TextBlock::new().text("surface a")))
-            .into(),
-        2 => (RichEditBox::new().slot(RichEditBoxSlot::Header, TextBlock::new().text("surface b")))
-            .into(),
+        0 | 3 => (RichEditBox::new()).into(),
+        1 => (RichEditBox::new().header(TextBlock::new().text("surface a"))).into(),
+        2 => (RichEditBox::new().header(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_viewbox_slot_child(stage: usize) -> View {
     match stage {
-        0 | 3 => (Viewbox::new().slots(std::iter::empty::<SlotView<ViewboxSlot>>())).into(),
-        1 => (Viewbox::new().slot(ViewboxSlot::Child, TextBlock::new().text("surface a"))).into(),
-        2 => (Viewbox::new().slot(ViewboxSlot::Child, TextBlock::new().text("surface b"))).into(),
+        0 | 3 => (Viewbox::new()).into(),
+        1 => (Viewbox::new().child(TextBlock::new().text("surface a"))).into(),
+        2 => (Viewbox::new().child(TextBlock::new().text("surface b"))).into(),
         _ => unreachable!(),
     }
 }
 fn structural_title_bar_slot_content(stage: usize) -> View {
     match stage {
-        0 | 3 => Grid::new()
-            .children((TitleBar::new().slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        1 => Grid::new().children((
-            TitleBar::new().slot(TitleBarSlot::Content, TextBlock::new().text("surface a")),
-        )),
-        2 => Grid::new().children((
-            TitleBar::new().slot(TitleBarSlot::Content, TextBlock::new().text("surface b")),
-        )),
+        0 | 3 => Grid::new().children((TitleBar::new(),)),
+        1 => Grid::new().children((TitleBar::new().content(TextBlock::new().text("surface a")),)),
+        2 => Grid::new().children((TitleBar::new().content(TextBlock::new().text("surface b")),)),
         _ => unreachable!(),
     }
 }
 fn structural_title_bar_slot_right_header(stage: usize) -> View {
     match stage {
-        0 | 3 => Grid::new()
-            .children((TitleBar::new().slots(std::iter::empty::<SlotView<TitleBarSlot>>()),)),
-        1 => Grid::new().children((TitleBar::new().slot(
-            TitleBarSlot::RightHeader,
-            TextBlock::new().text("surface a"),
-        ),)),
-        2 => Grid::new().children((TitleBar::new().slot(
-            TitleBarSlot::RightHeader,
-            TextBlock::new().text("surface b"),
-        ),)),
+        0 | 3 => Grid::new().children((TitleBar::new(),)),
+        1 => Grid::new()
+            .children((TitleBar::new().right_header(TextBlock::new().text("surface a")),)),
+        2 => Grid::new()
+            .children((TitleBar::new().right_header(TextBlock::new().text("surface b")),)),
         _ => unreachable!(),
     }
 }
@@ -5281,6 +5032,13 @@ pub(crate) static SURFACE_CASES: &[SurfaceCase] = &[
         stages: 4,
         subscription_delta: None,
         build: structural_navigation_view_slot_menu_items,
+    },
+    SurfaceCase {
+        name: "structural.NavigationView.Slot.FooterMenuItems",
+        kind: SurfaceKind::Structural,
+        stages: 4,
+        subscription_delta: None,
+        build: structural_navigation_view_slot_footer_menu_items,
     },
     SurfaceCase {
         name: "event.NavigationView.IsPaneOpenChanged",
@@ -10265,6 +10023,10 @@ pub static STRUCTURAL_SURFACES: &[StructuralSurface] = &[
     StructuralSurface {
         control: "NavigationView",
         member: "Slot.MenuItems",
+    },
+    StructuralSurface {
+        control: "NavigationView",
+        member: "Slot.FooterMenuItems",
     },
     StructuralSurface {
         control: "NavigationViewItem",

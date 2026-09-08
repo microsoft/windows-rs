@@ -27,19 +27,14 @@ impl Component for NavigationPaneSample {
                 NavigationViewItem::new()
                     .tag(tag)
                     .is_selected(self.page == tag)
-                    .slots([
-                        SlotView::new(NavigationViewItemSlot::Content, label),
-                        SlotView::new(
-                            NavigationViewItemSlot::Icon,
-                            SymbolIcon::new().symbol(symbol),
-                        ),
-                    ]),
+                    .content(label)
+                    .icon(SymbolIcon::new().symbol(symbol)),
             )
         };
-        let body = if self.page == "docs" {
-            "Documents page"
-        } else {
-            "Home page"
+        let body = match self.page.as_str() {
+            "docs" => "Documents page",
+            "settings" => "Settings page",
+            _ => "Home page",
         };
 
         context.window_title("NavigationView pane");
@@ -49,22 +44,18 @@ impl Component for NavigationPaneSample {
             .open_pane_length(400.0)
             .is_settings_visible(false)
             .on_selected_tag_changed(context.forward())
-            .slots([
-                SlotView::collection(
-                    NavigationViewSlot::MenuItems,
-                    [
-                        item("home", "Home", Symbol::Home),
-                        item("docs", "Documents", Symbol::Document),
-                    ],
-                ),
-                SlotView::new(NavigationViewSlot::Content, body),
-                SlotView::new(
-                    NavigationViewSlot::PaneFooter,
-                    Button::new()
-                        .on_click(|| println!("signed out"))
-                        .content("Sign out"),
-                ),
+            .menu_items([
+                item("home", "Home", Symbol::Home),
+                item("docs", "Documents", Symbol::Document),
             ])
+            .footer_menu_items([item("settings", "Settings", Symbol::Setting)])
+            .content(body)
+            .pane_footer(
+                Button::new()
+                    .on_click(|| println!("signed out"))
+                    .content("Sign out"),
+            )
+            .into()
     }
 }
 

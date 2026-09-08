@@ -6,34 +6,33 @@ use std::collections::HashSet;
 use std::rc::Rc;
 
 fn navigation(content: Option<View>, header: Option<View>) -> View {
-    let mut slots = Vec::new();
+    let mut view = NavigationView::new();
     if let Some(content) = content {
-        slots.push(SlotView::new(NavigationViewSlot::Content, content));
+        view = view.content(content);
     }
     if let Some(header) = header {
-        slots.push(SlotView::new(NavigationViewSlot::Header, header));
+        view = view.header(header);
     }
-    NavigationView::new().slots(slots)
+    view.into()
 }
 
 fn split_view(content: Option<View>, pane: Option<View>) -> View {
-    let mut slots = Vec::new();
-    if let Some(pane) = pane {
-        slots.push(SlotView::new(SplitViewSlot::Pane, pane));
-    }
-    if let Some(content) = content {
-        slots.push(SlotView::new(SplitViewSlot::Content, content));
-    }
-    SplitView::new()
+    let mut view = SplitView::new()
         .open_pane_length(280.0)
         .compact_pane_length(48.0)
         .display_mode(SplitViewDisplayMode::CompactInline)
-        .is_pane_open(true)
-        .slots(slots)
+        .is_pane_open(true);
+    if let Some(pane) = pane {
+        view = view.pane(pane);
+    }
+    if let Some(content) = content {
+        view = view.content(content);
+    }
+    view.into()
 }
 
 fn navigation_menu(items: impl IntoIterator<Item = KeyedView>) -> View {
-    NavigationView::new().collection_slot(NavigationViewSlot::MenuItems, items)
+    NavigationView::new().menu_items(items).into()
 }
 
 #[test]
@@ -110,6 +109,7 @@ fn split_view_properties_and_ui_element_slots_follow_generated_paths() {
     );
 
     pump.update_view(split_view(None, None)).unwrap();
+    let root = pump.root().unwrap();
     let recorded = pump.runtime().node(root).unwrap();
     assert_eq!(recorded.slot(SlotId::SplitViewPane), None);
     assert_eq!(recorded.slot(SlotId::SplitViewContent), None);
@@ -153,17 +153,13 @@ fn navigation_view_sets_display_mode_before_initial_pane_state() {
 #[test]
 fn navigation_view_third_slot_uses_the_shared_slot_path() {
     let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount_view(NavigationView::new().slots([
-        SlotView::new(
-            NavigationViewSlot::Content,
-            TextBlock::new().text("content"),
-        ),
-        SlotView::new(NavigationViewSlot::Header, TextBlock::new().text("header")),
-        SlotView::new(
-            NavigationViewSlot::PaneCustomContent,
-            StackPanel::new().children((Button::new(),)),
-        ),
-    ]))
+    pump.mount_view(
+        NavigationView::new()
+            .content(TextBlock::new().text("content"))
+            .header(TextBlock::new().text("header"))
+            .pane_custom_content(StackPanel::new().children((Button::new(),)))
+            .into(),
+    )
     .unwrap();
     let root = pump.root().unwrap();
     let recorded = pump.runtime().node(root).unwrap();
@@ -180,17 +176,11 @@ fn navigation_view_third_slot_uses_the_shared_slot_path() {
 #[test]
 fn navigation_item_content_and_typed_icon_slots_update_independently() {
     let view = |icon| {
-        let mut slots = vec![SlotView::new(
-            NavigationViewItemSlot::Content,
-            TextBlock::new().text("Home"),
-        )];
+        let mut item = NavigationViewItem::new().content(TextBlock::new().text("Home"));
         if icon {
-            slots.push(SlotView::new(
-                NavigationViewItemSlot::Icon,
-                SymbolIcon::new().symbol(Symbol::Home),
-            ));
+            item = item.icon(SymbolIcon::new().symbol(Symbol::Home));
         }
-        NavigationViewItem::new().slots(slots)
+        item.into()
     };
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(view(true)).unwrap();
@@ -236,20 +226,18 @@ fn selector_bar_uses_keyed_typed_items_and_icon_slots() {
         KeyedView::new(
             text,
             if icon {
-                item.slots([SlotView::new(
-                    SelectorBarItemSlot::Icon,
-                    SymbolIcon::new().symbol(Symbol::Favorite),
-                )])
+                item.icon(SymbolIcon::new().symbol(Symbol::Favorite))
             } else {
-                item.into()
+                item
             },
         )
     };
     let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount_view(SelectorBar::new().slots([SlotView::collection(
-        SelectorBarSlot::Items,
-        [item("Recent", false), item("Favorites", true)],
-    )]))
+    pump.mount_view(
+        SelectorBar::new()
+            .items([item("Recent", false), item("Favorites", true)])
+            .into(),
+    )
     .unwrap();
 
     let root = pump.root().unwrap();
@@ -284,17 +272,13 @@ fn keyed_collection_slot_mounts_updates_reorders_and_removes_items() {
             NavigationViewItem::new()
                 .tag("home")
                 .is_selected(true)
-                .slots([SlotView::new(
-                    NavigationViewItemSlot::Content,
-                    TextBlock::new().text("Home"),
-                )]),
+                .content(TextBlock::new().text("Home")),
         ),
         KeyedView::new(
             "text",
-            NavigationViewItem::new().tag("text").slots([SlotView::new(
-                NavigationViewItemSlot::Content,
-                TextBlock::new().text("Text input"),
-            )]),
+            NavigationViewItem::new()
+                .tag("text")
+                .content(TextBlock::new().text("Text input")),
         ),
     ]))
     .unwrap();
@@ -328,19 +312,13 @@ fn keyed_collection_slot_mounts_updates_reorders_and_removes_items() {
             NavigationViewItem::new()
                 .tag("text")
                 .is_selected(true)
-                .slots([SlotView::new(
-                    NavigationViewItemSlot::Content,
-                    TextBlock::new().text("Text entry"),
-                )]),
+                .content(TextBlock::new().text("Text entry")),
         ),
         KeyedView::new(
             "numeric",
             NavigationViewItem::new()
                 .tag("numeric")
-                .slots([SlotView::new(
-                    NavigationViewItemSlot::Content,
-                    TextBlock::new().text("Numeric input"),
-                )]),
+                .content(TextBlock::new().text("Numeric input")),
         ),
     ]))
     .unwrap();
@@ -375,10 +353,9 @@ fn collection_slot_pure_reorder_moves_retained_items() {
         navigation_menu(order.iter().map(|tag| {
             KeyedView::new(
                 *tag,
-                NavigationViewItem::new().tag(*tag).slots([SlotView::new(
-                    NavigationViewItemSlot::Content,
-                    TextBlock::new().text(*tag),
-                )]),
+                NavigationViewItem::new()
+                    .tag(*tag)
+                    .content(TextBlock::new().text(*tag)),
             )
         }))
     };
@@ -492,10 +469,9 @@ fn dense_collection_slot_reorder_preserves_item_identity() {
         navigation_menu(labels.iter().map(|label| {
             KeyedView::new(
                 label.clone(),
-                NavigationViewItem::new().tag(label).slots([SlotView::new(
-                    NavigationViewItemSlot::Content,
-                    TextBlock::new().text(label),
-                )]),
+                NavigationViewItem::new()
+                    .tag(label)
+                    .content(TextBlock::new().text(label)),
             )
         }))
     };
@@ -534,17 +510,8 @@ fn dense_collection_slot_reorder_preserves_item_identity() {
 }
 
 #[test]
-fn collection_slots_reject_single_views_and_multiple_native_roots() {
+fn collection_slots_reject_multiple_native_roots() {
     let mut pump = Pump::new(RecordingRuntime::default());
-    assert_eq!(
-        pump.mount_view(NavigationView::new().slots([SlotView::new(
-            NavigationViewSlot::MenuItems,
-            NavigationViewItem::new(),
-        )])),
-        Err(PumpError::StructureUnsupported)
-    );
-    assert!(pump.root().is_none());
-
     assert_eq!(
         pump.mount_view(navigation_menu([KeyedView::new(
             "multiple",
@@ -582,13 +549,54 @@ fn collection_slots_reject_single_views_and_multiple_native_roots() {
 }
 
 #[test]
-fn single_slots_reject_collection_content() {
+fn malformed_slot_content_is_rejected() {
+    let mut single_collection = Pump::new(RecordingRuntime::default());
+    assert_eq!(
+        single_collection.mount_view(View::slotted(
+            NavigationView::new().into(),
+            Rc::new(vec![SlottedView {
+                slot: SlotId::NavigationViewMenuItems,
+                content: SlotContent::Single(NavigationViewItem::new().into()),
+            }]),
+        )),
+        Err(PumpError::StructureUnsupported)
+    );
+    assert!(single_collection.root().is_none());
+
+    let mut collection_single = Pump::new(RecordingRuntime::default());
+    assert_eq!(
+        collection_single.mount_view(View::slotted(
+            NavigationView::new().into(),
+            Rc::new(vec![SlottedView {
+                slot: SlotId::NavigationViewContent,
+                content: SlotContent::Collection(Rc::new(vec![KeyedView::new(
+                    "content",
+                    TextBlock::new(),
+                )])),
+            }]),
+        )),
+        Err(PumpError::StructureUnsupported)
+    );
+    assert!(collection_single.root().is_none());
+}
+
+#[test]
+fn malformed_duplicate_slots_are_rejected() {
     let mut pump = Pump::new(RecordingRuntime::default());
     assert_eq!(
-        pump.mount_view(NavigationView::new().slots([SlotView::collection(
-            NavigationViewSlot::Content,
-            [KeyedView::new("content", TextBlock::new())],
-        )])),
+        pump.mount_view(View::slotted(
+            NavigationView::new().into(),
+            Rc::new(vec![
+                SlottedView {
+                    slot: SlotId::NavigationViewContent,
+                    content: SlotContent::Single(TextBlock::new().into()),
+                },
+                SlottedView {
+                    slot: SlotId::NavigationViewContent,
+                    content: SlotContent::Single(Button::new().into()),
+                },
+            ]),
+        )),
         Err(PumpError::StructureUnsupported)
     );
     assert!(pump.root().is_none());
@@ -664,19 +672,29 @@ fn named_slots_mount_update_replace_and_clear_independently() {
 }
 
 #[test]
-fn named_slot_rejects_duplicate_assignments_and_multiple_native_roots() {
-    let duplicate = NavigationView::new().slots([
-        SlotView::new(NavigationViewSlot::Content, View::native(TextBlock::new())),
-        SlotView::new(NavigationViewSlot::Content, View::native(Button::new())),
-    ]);
+fn named_slot_last_assignment_wins_and_multiple_native_roots_are_rejected() {
     let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(
+        NavigationView::new()
+            .content(TextBlock::new())
+            .content(Button::new())
+            .into(),
+    )
+    .unwrap();
+    let root = pump.root().unwrap();
+    let content = pump
+        .runtime()
+        .node(root)
+        .unwrap()
+        .slot(SlotId::NavigationViewContent)
+        .unwrap();
     assert_eq!(
-        pump.mount_view(duplicate),
-        Err(PumpError::StructureUnsupported)
+        pump.tree.kind(content),
+        NodeKind::Native(MountedKind::Button)
     );
-    assert!(pump.root().is_none());
 
     let multiple = View::fragment((TextBlock::new(), Button::new()));
+    let mut pump = Pump::new(RecordingRuntime::default());
     assert_eq!(
         pump.mount_view(navigation(Some(multiple), None)),
         Err(PumpError::StructureUnsupported)

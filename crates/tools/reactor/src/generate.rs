@@ -26,6 +26,25 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 let open = value.is_open;
                 Self::content_dialog(value.into(), None, open)
             }
+        } else if matches!(control.role, Role::Slots)
+            && control.placement == ResolvedPlacement::WindowLifetime
+        {
+            quote! {
+                let mut value = value;
+                let slots = value
+                    .slots
+                    .take()
+                    .unwrap_or_else(|| std::rc::Rc::new(Vec::new()));
+                Self::slotted(value.into(), slots)
+            }
+        } else if matches!(control.role, Role::Slots) {
+            quote! {
+                let mut value = value;
+                match value.slots.take() {
+                    Some(slots) => Self::slotted(value.into(), slots),
+                    None => Self::native(value),
+                }
+            }
         } else {
             quote! { Self::native(value) }
         };
@@ -105,24 +124,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             .iter()
             .map(|slot| ident(&format!("{}{}", control.name, slot.name)))
     });
-    let slot_id_lookups = schema
-        .controls
-        .iter()
-        .filter(|control| !control.slots.is_empty())
-        .map(|control| {
-            let kind = ident(&control.name);
-            let indexes = control.slots.iter().enumerate().map(|(index, slot)| {
-                let index = u8::try_from(index).unwrap();
-                let slot = ident(&format!("{}{}", control.name, slot.name));
-                quote! { #index => Some(SlotId::#slot) }
-            });
-            quote! {
-                MountedKind::#kind => match index {
-                    #(#indexes,)*
-                    _ => None,
-                }
-            }
-        });
     let slot_lists = schema.controls.iter().map(|control| {
         let kind = ident(&control.name);
         let slots = control.slots.iter().map(|slot| {
@@ -303,13 +304,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             #(#slot_ids),*
         }
 
-        pub fn slot_id(kind: MountedKind, index: u8) -> Option<SlotId> {
-            match kind {
-                #(#slot_id_lookups,)*
-                _ => None,
-            }
-        }
-
         pub fn slots(kind: MountedKind) -> &'static [SlotId] {
             match kind {
                 #(#slot_lists),*
@@ -452,7 +446,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
 
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
         pub struct SelectionDescriptor {
-            pub slot: SlotId,
+            pub slots: &'static [SlotId],
             pub item: MountedKind,
             pub selected_property: PropertyId,
             pub event: EventId,
@@ -495,7 +489,11 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         pub fn selection_for_slot(slot: SlotId) -> Option<SelectionDescriptor> {
             CONTROLS
                 .iter()
-                .find_map(|control| control.selection.filter(|selection| selection.slot == slot))
+                .find_map(|control| {
+                    control
+                        .selection
+                        .filter(|selection| selection.slots.contains(&slot))
+                })
         }
 
         pub fn selection_for_item_property(
@@ -504,7 +502,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         ) -> Option<SelectionDescriptor> {
             CONTROLS.iter().find_map(|control| {
                 control.selection.filter(|selection| {
-                    selection.selected_property == property && selection.slot == slot
+                    selection.selected_property == property && selection.slots.contains(&slot)
                 })
             })
         }
@@ -757,6 +755,7 @@ fn generate_element_parts(control: &ResolvedControl) -> TokenStream {
         ),
         Role::Leaf | Role::Slots => (TokenStream::new(), quote! { ElementStructure::None }),
     };
+    let slot_pattern = matches!(control.role, Role::Slots).then(|| quote! { slots: _, });
     let lifecycle_pattern =
         (control.lifecycle == Some(Lifecycle::ContentDialog)).then(|| quote! { , is_open: _ });
 
@@ -768,6 +767,7 @@ fn generate_element_parts(control: &ResolvedControl) -> TokenStream {
                 #reference_pattern
                 #element_state_pattern
                 #window_title_bar_pattern
+                #slot_pattern
                 #structural_pattern
                 #lifecycle_pattern
             } = value;
@@ -1545,6 +1545,42 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
             }
         }
     });
+    let slot_field = (!control.slots.is_empty())
+        .then(|| quote! { slots: Option<std::rc::Rc<Vec<SlottedView>>>, });
+    let slot_methods = control.slots.iter().map(|slot| {
+        let method = ident(&crate::helpers::to_snake_case(&slot.name));
+        let slot_id = ident(&format!("{}{}", control.name, slot.name));
+        match &slot.shape {
+            crate::schema::SlotShape::Single(_) => quote! {
+                #visibility fn #method(mut self, view: impl Into<View>) -> Self {
+                    set_control_slot(
+                        &mut self.slots,
+                        SlotId::#slot_id,
+                        SlotContent::Single(view.into()),
+                    );
+                    self
+                }
+            },
+            crate::schema::SlotShape::Collection(_) => quote! {
+                #visibility fn #method<T>(
+                    mut self,
+                    children: impl IntoIterator<Item = T>,
+                ) -> Self
+                where
+                    T: Into<KeyedView>,
+                {
+                    set_control_slot(
+                        &mut self.slots,
+                        SlotId::#slot_id,
+                        SlotContent::Collection(std::rc::Rc::new(
+                            children.into_iter().map(Into::into).collect(),
+                        )),
+                    );
+                    self
+                }
+            },
+        }
+    });
     let property_methods = control.properties.iter().map(|property| {
         let field = ident(&property.field);
         let value = value_type(&property.value);
@@ -1956,30 +1992,6 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
             Some(quote! { impl #capability for #name {} })
         }
     });
-    let slots = if control.slots.is_empty() {
-        TokenStream::new()
-    } else {
-        let slot_name = ident(&format!("{}Slot", control.name));
-        let variants = control.slots.iter().map(|slot| ident(&slot.name));
-        quote! {
-            #[non_exhaustive]
-            #[repr(u8)]
-            #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-            pub enum #slot_name {
-                #(#variants),*
-            }
-
-            impl sealed::SlotIndex<#slot_name> for #name {
-                fn slot_index(slot: #slot_name) -> u8 {
-                    slot as u8
-                }
-            }
-
-            impl SlotsControl for #name {
-                type Slot = #slot_name;
-            }
-        }
-    };
     quote! {
         #[derive(Clone, Debug, Default, PartialEq)]
         #visibility struct #name {
@@ -1989,6 +2001,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
             #element_state_field
             #window_title_bar_field
             #grid_definition_fields
+            #slot_field
             #structural_field
             #lifecycle_field
         }
@@ -2004,6 +2017,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
 
             #(#property_methods)*
             #(#event_methods)*
+            #(#slot_methods)*
             #grid_definition_methods
             #structural_methods
         }
@@ -2016,7 +2030,6 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         }
         #reference_impls
         #(#capability_impls)*
-        #slots
         #structural_test_impl
     }
 }
@@ -2280,7 +2293,10 @@ fn generate_control(control: &ResolvedControl) -> TokenStream {
     let selection = control.selection.as_ref().map_or_else(
         || quote! { None },
         |selection| {
-            let slot = ident(&format!("{}{}", control.name, selection.slot));
+            let slots = selection
+                .slots
+                .iter()
+                .map(|slot| ident(&format!("{}{}", control.name, slot)));
             let item = ident(&selection.item);
             let selected_property = ident(&format!(
                 "{}{}",
@@ -2291,7 +2307,7 @@ fn generate_control(control: &ResolvedControl) -> TokenStream {
                 ident(&format!("{}{}", selection.item, selection.payload_property));
             quote! {
                 Some(SelectionDescriptor {
-                    slot: SlotId::#slot,
+                    slots: &[#(SlotId::#slots),*],
                     item: MountedKind::#item,
                     selected_property: PropertyId::#selected_property,
                     event: EventId::#event,
@@ -2513,7 +2529,7 @@ property = "NewValue"
         let resolved = Schema::parse(&source).unwrap().resolve(&metadata).unwrap();
         let output = generate(&resolved);
 
-        for name in ["Orientation", "ContentDialogResult", "NavigationViewSlot"] {
+        for name in ["Orientation", "ContentDialogResult"] {
             let enum_start = output.find(&format!("pub enum {name}")).unwrap();
             let attributes = &output[enum_start.saturating_sub(160)..enum_start];
             assert!(
@@ -2521,5 +2537,6 @@ property = "NewValue"
                 "{name} must be non-exhaustive"
             );
         }
+        assert!(!output.contains("enum NavigationViewSlot"));
     }
 }

@@ -508,7 +508,7 @@ name = "SelectionChanged"
 field = "on_selected_tag_changed"
 
 [control.selection]
-slot = "MenuItems"
+slots = ["MenuItems", "FooterMenuItems"]
 item = "NavigationViewItem"
 selected_property = "IsSelected"
 selected_item_property = "SelectedItem"
@@ -530,6 +530,10 @@ name = "PaneFooter"
 
 [[control.slot]]
 name = "MenuItems"
+collection = true
+
+[[control.slot]]
+name = "FooterMenuItems"
 collection = true
 
 [[control]]
@@ -838,7 +842,7 @@ name = "SelectionChanged"
 field = "on_selected_tag_changed"
 
 [control.selection]
-slot = "Items"
+slots = ["Items"]
 item = "ListBoxItem"
 selected_property = "IsSelected"
 selected_item_property = "SelectedItem"
@@ -1106,7 +1110,7 @@ name = "SelectionChanged"
 field = "on_selected_text_changed"
 
 [control.selection]
-slot = "Items"
+slots = ["Items"]
 item = "SelectorBarItem"
 selected_property = "IsSelected"
 selected_item_property = "SelectedItem"

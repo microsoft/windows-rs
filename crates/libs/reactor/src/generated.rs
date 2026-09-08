@@ -1253,6 +1253,7 @@ pub mod public {
         on_text_changed: Option<Callback<String>>,
         reference: Option<NativeElementRef>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl TextBox {
         pub fn new() -> Self {
@@ -1348,6 +1349,14 @@ pub mod public {
             self.on_text_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::TextBoxHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for TextBox {}
     impl sealed::NativeControl for TextBox {
@@ -1364,20 +1373,6 @@ pub mod public {
     }
     impl LayoutControl for TextBox {}
     impl FocusControl for TextBox {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum TextBoxSlot {
-        Header,
-    }
-    impl sealed::SlotIndex<TextBoxSlot> for TextBox {
-        fn slot_index(slot: TextBoxSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for TextBox {
-        type Slot = TextBoxSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct AutoSuggestBox {
         text: Property<String>,
@@ -1387,6 +1382,7 @@ pub mod public {
         events: Option<std::rc::Rc<AutoSuggestBoxEvents>>,
         reference: Option<NativeElementRef>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl AutoSuggestBox {
         pub fn new() -> Self {
@@ -1459,6 +1455,14 @@ pub mod public {
             .on_suggestion_chosen = Some(callback.into_payload_callback());
             self
         }
+        pub fn header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::AutoSuggestBoxHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for AutoSuggestBox {}
     impl sealed::NativeControl for AutoSuggestBox {
@@ -1475,20 +1479,6 @@ pub mod public {
     }
     impl LayoutControl for AutoSuggestBox {}
     impl FocusControl for AutoSuggestBox {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum AutoSuggestBoxSlot {
-        Header,
-    }
-    impl sealed::SlotIndex<AutoSuggestBoxSlot> for AutoSuggestBox {
-        fn slot_index(slot: AutoSuggestBoxSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for AutoSuggestBox {
-        type Slot = AutoSuggestBoxSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct PasswordBox {
         password: Property<String>,
@@ -1498,6 +1488,7 @@ pub mod public {
         on_password_changed: Option<Callback<String>>,
         reference: Option<NativeElementRef>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl PasswordBox {
         pub fn new() -> Self {
@@ -1546,6 +1537,14 @@ pub mod public {
             self.on_password_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::PasswordBoxHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for PasswordBox {}
     impl sealed::NativeControl for PasswordBox {
@@ -1562,20 +1561,6 @@ pub mod public {
     }
     impl LayoutControl for PasswordBox {}
     impl FocusControl for PasswordBox {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum PasswordBoxSlot {
-        Header,
-    }
-    impl sealed::SlotIndex<PasswordBoxSlot> for PasswordBox {
-        fn slot_index(slot: PasswordBoxSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for PasswordBox {
-        type Slot = PasswordBoxSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct NumberBox {
         minimum: Property<f64>,
@@ -1585,6 +1570,7 @@ pub mod public {
         on_value_changed: Option<Callback<Option<f64>>>,
         reference: Option<NativeElementRef>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl NumberBox {
         pub fn new() -> Self {
@@ -1618,6 +1604,14 @@ pub mod public {
             self.on_value_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::NumberBoxHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for NumberBox {}
     impl sealed::NativeControl for NumberBox {
@@ -1634,20 +1628,6 @@ pub mod public {
     }
     impl LayoutControl for NumberBox {}
     impl FocusControl for NumberBox {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum NumberBoxSlot {
-        Header,
-    }
-    impl sealed::SlotIndex<NumberBoxSlot> for NumberBox {
-        fn slot_index(slot: NumberBoxSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for NumberBox {
-        type Slot = NumberBoxSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Slider {
         minimum: Property<f64>,
@@ -1659,6 +1639,7 @@ pub mod public {
         on_value_changed: Option<Callback<f64>>,
         reference: Option<NativeElementRef>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl Slider {
         pub fn new() -> Self {
@@ -1708,6 +1689,14 @@ pub mod public {
             self.on_value_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::SliderHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for Slider {}
     impl sealed::NativeControl for Slider {
@@ -1724,20 +1713,6 @@ pub mod public {
     }
     impl LayoutControl for Slider {}
     impl FocusControl for Slider {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum SliderSlot {
-        Header,
-    }
-    impl sealed::SlotIndex<SliderSlot> for Slider {
-        fn slot_index(slot: SliderSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for Slider {
-        type Slot = SliderSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TitleBar {
         title: Property<String>,
@@ -1748,6 +1723,7 @@ pub mod public {
         events: Option<std::rc::Rc<TitleBarEvents>>,
         element_state: Option<std::rc::Rc<ElementState>>,
         preferred_height: WindowTitleBarHeight,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl TitleBar {
         pub fn new() -> Self {
@@ -1810,6 +1786,22 @@ pub mod public {
             .on_pane_toggle_requested = Some(callback.into_unit_callback());
             self
         }
+        pub fn content(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::TitleBarContent,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
+        pub fn right_header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::TitleBarRightHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for TitleBar {}
     impl sealed::NativeControl for TitleBar {
@@ -1823,21 +1815,6 @@ pub mod public {
         }
     }
     impl LayoutControl for TitleBar {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum TitleBarSlot {
-        Content,
-        RightHeader,
-    }
-    impl sealed::SlotIndex<TitleBarSlot> for TitleBar {
-        fn slot_index(slot: TitleBarSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for TitleBar {
-        type Slot = TitleBarSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct NavigationView {
         is_enabled: Property<bool>,
@@ -1851,6 +1828,7 @@ pub mod public {
         is_pane_open: Property<bool>,
         events: Option<std::rc::Rc<NavigationViewEvents>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl NavigationView {
         pub fn new() -> Self {
@@ -1949,6 +1927,64 @@ pub mod public {
             .on_selected_tag_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn content(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::NavigationViewContent,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
+        pub fn header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::NavigationViewHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
+        pub fn pane_custom_content(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::NavigationViewPaneCustomContent,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
+        pub fn pane_footer(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::NavigationViewPaneFooter,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
+        pub fn menu_items<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
+        where
+            T: Into<KeyedView>,
+        {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::NavigationViewMenuItems,
+                SlotContent::Collection(std::rc::Rc::new(
+                    children.into_iter().map(Into::into).collect(),
+                )),
+            );
+            self
+        }
+        pub fn footer_menu_items<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
+        where
+            T: Into<KeyedView>,
+        {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::NavigationViewFooterMenuItems,
+                SlotContent::Collection(std::rc::Rc::new(
+                    children.into_iter().map(Into::into).collect(),
+                )),
+            );
+            self
+        }
     }
     impl sealed::Sealed for NavigationView {}
     impl sealed::NativeControl for NavigationView {
@@ -1962,24 +1998,6 @@ pub mod public {
         }
     }
     impl LayoutControl for NavigationView {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum NavigationViewSlot {
-        Content,
-        Header,
-        PaneCustomContent,
-        PaneFooter,
-        MenuItems,
-    }
-    impl sealed::SlotIndex<NavigationViewSlot> for NavigationView {
-        fn slot_index(slot: NavigationViewSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for NavigationView {
-        type Slot = NavigationViewSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct NavigationViewItem {
         tag: Property<String>,
@@ -1987,6 +2005,7 @@ pub mod public {
         selects_on_invoked: Property<bool>,
         is_expanded: Property<bool>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl NavigationViewItem {
         pub fn new() -> Self {
@@ -2018,6 +2037,35 @@ pub mod public {
             self.is_expanded = Property::from(value);
             self
         }
+        pub fn content(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::NavigationViewItemContent,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
+        pub fn icon(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::NavigationViewItemIcon,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
+        pub fn menu_items<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
+        where
+            T: Into<KeyedView>,
+        {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::NavigationViewItemMenuItems,
+                SlotContent::Collection(std::rc::Rc::new(
+                    children.into_iter().map(Into::into).collect(),
+                )),
+            );
+            self
+        }
     }
     impl sealed::Sealed for NavigationViewItem {}
     impl sealed::NativeControl for NavigationViewItem {
@@ -2031,22 +2079,6 @@ pub mod public {
         }
     }
     impl LayoutControl for NavigationViewItem {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum NavigationViewItemSlot {
-        Content,
-        Icon,
-        MenuItems,
-    }
-    impl sealed::SlotIndex<NavigationViewItemSlot> for NavigationViewItem {
-        fn slot_index(slot: NavigationViewItemSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for NavigationViewItem {
-        type Slot = NavigationViewItemSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct SplitView {
         open_pane_length: Property<f64>,
@@ -2055,6 +2087,7 @@ pub mod public {
         is_pane_open: Property<bool>,
         on_pane_closed: Option<Callback<bool>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl SplitView {
         pub fn new() -> Self {
@@ -2084,6 +2117,22 @@ pub mod public {
             self.on_pane_closed = Some(callback.into_payload_callback());
             self
         }
+        pub fn pane(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::SplitViewPane,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
+        pub fn content(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::SplitViewContent,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for SplitView {}
     impl sealed::NativeControl for SplitView {
@@ -2097,21 +2146,6 @@ pub mod public {
         }
     }
     impl LayoutControl for SplitView {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum SplitViewSlot {
-        Pane,
-        Content,
-    }
-    impl sealed::SlotIndex<SplitViewSlot> for SplitView {
-        fn slot_index(slot: SplitViewSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for SplitView {
-        type Slot = SplitViewSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ProgressBar {
         minimum: Property<f64>,
@@ -2182,6 +2216,7 @@ pub mod public {
         on_toggled: Option<Callback<bool>>,
         reference: Option<NativeElementRef>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl ToggleSwitch {
         pub fn new() -> Self {
@@ -2205,6 +2240,30 @@ pub mod public {
             self.on_toggled = Some(callback.into_payload_callback());
             self
         }
+        pub fn header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::ToggleSwitchHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
+        pub fn on_content(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::ToggleSwitchOnContent,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
+        pub fn off_content(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::ToggleSwitchOffContent,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for ToggleSwitch {}
     impl sealed::NativeControl for ToggleSwitch {
@@ -2221,22 +2280,6 @@ pub mod public {
     }
     impl LayoutControl for ToggleSwitch {}
     impl FocusControl for ToggleSwitch {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum ToggleSwitchSlot {
-        Header,
-        OnContent,
-        OffContent,
-    }
-    impl sealed::SlotIndex<ToggleSwitchSlot> for ToggleSwitch {
-        fn slot_index(slot: ToggleSwitchSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for ToggleSwitch {
-        type Slot = ToggleSwitchSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct CheckBox {
         is_checked: Property<bool>,
@@ -2424,6 +2467,7 @@ pub mod public {
         max_columns: Property<i32>,
         on_selection_changed: Option<Callback<Option<usize>>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl RadioButtons {
         pub fn new() -> Self {
@@ -2466,6 +2510,14 @@ pub mod public {
             self.on_selection_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::RadioButtonsHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for RadioButtons {}
     impl sealed::NativeControl for RadioButtons {
@@ -2479,20 +2531,6 @@ pub mod public {
         }
     }
     impl LayoutControl for RadioButtons {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum RadioButtonsSlot {
-        Header,
-    }
-    impl sealed::SlotIndex<RadioButtonsSlot> for RadioButtons {
-        fn slot_index(slot: RadioButtonsSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for RadioButtons {
-        type Slot = RadioButtonsSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ItemsRepeater {
         element_state: Option<std::rc::Rc<ElementState>>,
@@ -2916,6 +2954,7 @@ pub mod public {
         is_enabled: Property<bool>,
         on_selected_tag_changed: Option<Callback<Option<String>>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl ListBox {
         pub fn new() -> Self {
@@ -2933,6 +2972,19 @@ pub mod public {
             self.on_selected_tag_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn items<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
+        where
+            T: Into<KeyedView>,
+        {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::ListBoxItems,
+                SlotContent::Collection(std::rc::Rc::new(
+                    children.into_iter().map(Into::into).collect(),
+                )),
+            );
+            self
+        }
     }
     impl sealed::Sealed for ListBox {}
     impl sealed::NativeControl for ListBox {
@@ -2946,20 +2998,6 @@ pub mod public {
         }
     }
     impl LayoutControl for ListBox {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum ListBoxSlot {
-        Items,
-    }
-    impl sealed::SlotIndex<ListBoxSlot> for ListBox {
-        fn slot_index(slot: ListBoxSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for ListBox {
-        type Slot = ListBoxSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Rectangle {
         fill: Property<Brush>,
@@ -3491,6 +3529,7 @@ pub mod public {
         is_expanded: Property<bool>,
         on_is_expanded_changed: Option<Callback<bool>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl Expander {
         pub fn new() -> Self {
@@ -3503,6 +3542,22 @@ pub mod public {
         }
         pub fn on_is_expanded_changed(mut self, callback: impl IntoPayloadCallback<bool>) -> Self {
             self.on_is_expanded_changed = Some(callback.into_payload_callback());
+            self
+        }
+        pub fn header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::ExpanderHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
+        pub fn content(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::ExpanderContent,
+                SlotContent::Single(view.into()),
+            );
             self
         }
     }
@@ -3518,21 +3573,6 @@ pub mod public {
         }
     }
     impl LayoutControl for Expander {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum ExpanderSlot {
-        Header,
-        Content,
-    }
-    impl sealed::SlotIndex<ExpanderSlot> for Expander {
-        fn slot_index(slot: ExpanderSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for Expander {
-        type Slot = ExpanderSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ComboBox {
         items_source: Property<std::rc::Rc<Vec<String>>>,
@@ -3543,6 +3583,7 @@ pub mod public {
         on_selection_changed: Option<Callback<Option<usize>>>,
         reference: Option<NativeElementRef>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl ComboBox {
         pub fn new() -> Self {
@@ -3605,6 +3646,14 @@ pub mod public {
             self.on_selection_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::ComboBoxHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for ComboBox {}
     impl sealed::NativeControl for ComboBox {
@@ -3621,26 +3670,13 @@ pub mod public {
     }
     impl LayoutControl for ComboBox {}
     impl FocusControl for ComboBox {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum ComboBoxSlot {
-        Header,
-    }
-    impl sealed::SlotIndex<ComboBoxSlot> for ComboBox {
-        fn slot_index(slot: ComboBoxSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for ComboBox {
-        type Slot = ComboBoxSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Pivot {
         selected_index: Property<Option<usize>>,
         title: Property<String>,
         on_selection_changed: Option<Callback<Option<usize>>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl Pivot {
         pub fn new() -> Self {
@@ -3669,6 +3705,19 @@ pub mod public {
             self.on_selection_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn items<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
+        where
+            T: Into<KeyedView>,
+        {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::PivotItems,
+                SlotContent::Collection(std::rc::Rc::new(
+                    children.into_iter().map(Into::into).collect(),
+                )),
+            );
+            self
+        }
     }
     impl sealed::Sealed for Pivot {}
     impl sealed::NativeControl for Pivot {
@@ -3682,20 +3731,6 @@ pub mod public {
         }
     }
     impl LayoutControl for Pivot {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum PivotSlot {
-        Items,
-    }
-    impl sealed::SlotIndex<PivotSlot> for Pivot {
-        fn slot_index(slot: PivotSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for Pivot {
-        type Slot = PivotSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct PivotItem {
         header: Property<String>,
@@ -3744,6 +3779,7 @@ pub mod public {
         selected_index: Property<Option<usize>>,
         on_selection_changed: Option<Callback<Option<usize>>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl FlipView {
         pub fn new() -> Self {
@@ -3761,6 +3797,19 @@ pub mod public {
             self.on_selection_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn items<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
+        where
+            T: Into<KeyedView>,
+        {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::FlipViewItems,
+                SlotContent::Collection(std::rc::Rc::new(
+                    children.into_iter().map(Into::into).collect(),
+                )),
+            );
+            self
+        }
     }
     impl sealed::Sealed for FlipView {}
     impl sealed::NativeControl for FlipView {
@@ -3774,24 +3823,11 @@ pub mod public {
         }
     }
     impl LayoutControl for FlipView {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum FlipViewSlot {
-        Items,
-    }
-    impl sealed::SlotIndex<FlipViewSlot> for FlipView {
-        fn slot_index(slot: FlipViewSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for FlipView {
-        type Slot = FlipViewSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct SelectorBar {
         on_selected_text_changed: Option<Callback<Option<String>>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl SelectorBar {
         pub fn new() -> Self {
@@ -3802,6 +3838,19 @@ pub mod public {
             callback: impl IntoPayloadCallback<Option<String>>,
         ) -> Self {
             self.on_selected_text_changed = Some(callback.into_payload_callback());
+            self
+        }
+        pub fn items<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
+        where
+            T: Into<KeyedView>,
+        {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::SelectorBarItems,
+                SlotContent::Collection(std::rc::Rc::new(
+                    children.into_iter().map(Into::into).collect(),
+                )),
+            );
             self
         }
     }
@@ -3817,25 +3866,12 @@ pub mod public {
         }
     }
     impl LayoutControl for SelectorBar {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum SelectorBarSlot {
-        Items,
-    }
-    impl sealed::SlotIndex<SelectorBarSlot> for SelectorBar {
-        fn slot_index(slot: SelectorBarSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for SelectorBar {
-        type Slot = SelectorBarSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct SelectorBarItem {
         text: Property<String>,
         is_selected: Property<bool>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl SelectorBarItem {
         pub fn new() -> Self {
@@ -3857,6 +3893,14 @@ pub mod public {
             self.is_selected = Property::from(value);
             self
         }
+        pub fn icon(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::SelectorBarItemIcon,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for SelectorBarItem {}
     impl sealed::NativeControl for SelectorBarItem {
@@ -3870,20 +3914,6 @@ pub mod public {
         }
     }
     impl LayoutControl for SelectorBarItem {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum SelectorBarItemSlot {
-        Icon,
-    }
-    impl sealed::SlotIndex<SelectorBarItemSlot> for SelectorBarItem {
-        fn slot_index(slot: SelectorBarItemSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for SelectorBarItem {
-        type Slot = SelectorBarItemSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TabView {
         selected_index: Property<Option<usize>>,
@@ -3891,6 +3921,7 @@ pub mod public {
         is_add_tab_button_visible: Property<bool>,
         events: Option<std::rc::Rc<TabViewEvents>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl TabView {
         pub fn new() -> Self {
@@ -3946,6 +3977,19 @@ pub mod public {
             .on_reordered = Some(callback.into_payload_callback());
             self
         }
+        pub fn tab_items<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
+        where
+            T: Into<KeyedView>,
+        {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::TabViewTabItems,
+                SlotContent::Collection(std::rc::Rc::new(
+                    children.into_iter().map(Into::into).collect(),
+                )),
+            );
+            self
+        }
     }
     impl sealed::Sealed for TabView {}
     impl sealed::NativeControl for TabView {
@@ -3959,20 +4003,6 @@ pub mod public {
         }
     }
     impl LayoutControl for TabView {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum TabViewSlot {
-        TabItems,
-    }
-    impl sealed::SlotIndex<TabViewSlot> for TabView {
-        fn slot_index(slot: TabViewSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for TabView {
-        type Slot = TabViewSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TabViewItem {
         header: Property<String>,
@@ -4186,10 +4216,37 @@ pub mod public {
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct CommandBar {
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl CommandBar {
         pub fn new() -> Self {
             Self::default()
+        }
+        pub fn primary_commands<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
+        where
+            T: Into<KeyedView>,
+        {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::CommandBarPrimaryCommands,
+                SlotContent::Collection(std::rc::Rc::new(
+                    children.into_iter().map(Into::into).collect(),
+                )),
+            );
+            self
+        }
+        pub fn secondary_commands<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
+        where
+            T: Into<KeyedView>,
+        {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::CommandBarSecondaryCommands,
+                SlotContent::Collection(std::rc::Rc::new(
+                    children.into_iter().map(Into::into).collect(),
+                )),
+            );
+            self
         }
     }
     impl sealed::Sealed for CommandBar {}
@@ -4204,27 +4261,13 @@ pub mod public {
         }
     }
     impl LayoutControl for CommandBar {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum CommandBarSlot {
-        PrimaryCommands,
-        SecondaryCommands,
-    }
-    impl sealed::SlotIndex<CommandBarSlot> for CommandBar {
-        fn slot_index(slot: CommandBarSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for CommandBar {
-        type Slot = CommandBarSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct AppBarButton {
         label: Property<String>,
         is_enabled: Property<bool>,
         on_click: Option<Callback<()>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl AppBarButton {
         pub fn new() -> Self {
@@ -4250,6 +4293,14 @@ pub mod public {
             self.on_click = Some(callback.into_unit_callback());
             self
         }
+        pub fn icon(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::AppBarButtonIcon,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for AppBarButton {}
     impl sealed::NativeControl for AppBarButton {
@@ -4263,20 +4314,6 @@ pub mod public {
         }
     }
     impl LayoutControl for AppBarButton {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum AppBarButtonSlot {
-        Icon,
-    }
-    impl sealed::SlotIndex<AppBarButtonSlot> for AppBarButton {
-        fn slot_index(slot: AppBarButtonSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for AppBarButton {
-        type Slot = AppBarButtonSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct AppBarSeparator {
         element_state: Option<std::rc::Rc<ElementState>>,
@@ -4301,10 +4338,24 @@ pub mod public {
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct MenuBar {
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl MenuBar {
         pub fn new() -> Self {
             Self::default()
+        }
+        pub fn items<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
+        where
+            T: Into<KeyedView>,
+        {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::MenuBarItems,
+                SlotContent::Collection(std::rc::Rc::new(
+                    children.into_iter().map(Into::into).collect(),
+                )),
+            );
+            self
         }
     }
     impl sealed::Sealed for MenuBar {}
@@ -4319,20 +4370,6 @@ pub mod public {
         }
     }
     impl LayoutControl for MenuBar {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum MenuBarSlot {
-        Items,
-    }
-    impl sealed::SlotIndex<MenuBarSlot> for MenuBar {
-        fn slot_index(slot: MenuBarSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for MenuBar {
-        type Slot = MenuBarSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct MenuBarItem {
         title: Property<String>,
@@ -4481,6 +4518,7 @@ pub mod public {
         is_enabled: Property<bool>,
         on_selected_date_changed: Option<Callback<Option<windows_time::DateTime>>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl DatePicker {
         pub fn new() -> Self {
@@ -4513,6 +4551,14 @@ pub mod public {
             self.on_selected_date_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::DatePickerHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for DatePicker {}
     impl sealed::NativeControl for DatePicker {
@@ -4526,20 +4572,6 @@ pub mod public {
         }
     }
     impl LayoutControl for DatePicker {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum DatePickerSlot {
-        Header,
-    }
-    impl sealed::SlotIndex<DatePickerSlot> for DatePicker {
-        fn slot_index(slot: DatePickerSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for DatePicker {
-        type Slot = DatePickerSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TimePicker {
         clock_identifier: Property<String>,
@@ -4547,6 +4579,7 @@ pub mod public {
         is_enabled: Property<bool>,
         on_selected_time_changed: Option<Callback<Option<windows_time::TimeSpan>>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl TimePicker {
         pub fn new() -> Self {
@@ -4584,6 +4617,14 @@ pub mod public {
             self.on_selected_time_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::TimePickerHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for TimePicker {}
     impl sealed::NativeControl for TimePicker {
@@ -4597,20 +4638,6 @@ pub mod public {
         }
     }
     impl LayoutControl for TimePicker {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum TimePickerSlot {
-        Header,
-    }
-    impl sealed::SlotIndex<TimePickerSlot> for TimePicker {
-        fn slot_index(slot: TimePickerSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for TimePicker {
-        type Slot = TimePickerSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct CalendarDatePicker {
         placeholder_text: Property<String>,
@@ -4619,6 +4646,7 @@ pub mod public {
         is_enabled: Property<bool>,
         on_date_changed: Option<Callback<Option<windows_time::DateTime>>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl CalendarDatePicker {
         pub fn new() -> Self {
@@ -4657,6 +4685,14 @@ pub mod public {
             self.on_date_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::CalendarDatePickerHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for CalendarDatePicker {}
     impl sealed::NativeControl for CalendarDatePicker {
@@ -4670,20 +4706,6 @@ pub mod public {
         }
     }
     impl LayoutControl for CalendarDatePicker {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum CalendarDatePickerSlot {
-        Header,
-    }
-    impl sealed::SlotIndex<CalendarDatePickerSlot> for CalendarDatePicker {
-        fn slot_index(slot: CalendarDatePickerSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for CalendarDatePicker {
-        type Slot = CalendarDatePickerSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub(crate) struct ToolTip {
         content: Option<Box<Element>>,
@@ -4863,6 +4885,7 @@ pub mod public {
         allow_drop: Property<bool>,
         events: Option<std::rc::Rc<ListViewEvents>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl ListView {
         pub fn new() -> Self {
@@ -4912,6 +4935,19 @@ pub mod public {
             .on_reordered = Some(callback.into_payload_callback());
             self
         }
+        pub fn items<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
+        where
+            T: Into<KeyedView>,
+        {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::ListViewItems,
+                SlotContent::Collection(std::rc::Rc::new(
+                    children.into_iter().map(Into::into).collect(),
+                )),
+            );
+            self
+        }
     }
     impl sealed::Sealed for ListView {}
     impl sealed::NativeControl for ListView {
@@ -4925,20 +4961,6 @@ pub mod public {
         }
     }
     impl LayoutControl for ListView {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum ListViewSlot {
-        Items,
-    }
-    impl sealed::SlotIndex<ListViewSlot> for ListView {
-        fn slot_index(slot: ListViewSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for ListView {
-        type Slot = ListViewSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ListViewItem {
         tag: Property<String>,
@@ -5022,6 +5044,7 @@ pub mod public {
         allow_drop: Property<bool>,
         events: Option<std::rc::Rc<GridViewEvents>>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl GridView {
         pub fn new() -> Self {
@@ -5066,6 +5089,19 @@ pub mod public {
             .on_selection_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn items<T>(mut self, children: impl IntoIterator<Item = T>) -> Self
+        where
+            T: Into<KeyedView>,
+        {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::GridViewItems,
+                SlotContent::Collection(std::rc::Rc::new(
+                    children.into_iter().map(Into::into).collect(),
+                )),
+            );
+            self
+        }
     }
     impl sealed::Sealed for GridView {}
     impl sealed::NativeControl for GridView {
@@ -5079,20 +5115,6 @@ pub mod public {
         }
     }
     impl LayoutControl for GridView {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum GridViewSlot {
-        Items,
-    }
-    impl sealed::SlotIndex<GridViewSlot> for GridView {
-        fn slot_index(slot: GridViewSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for GridView {
-        type Slot = GridViewSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct GridViewItem {
         tag: Property<String>,
@@ -5213,6 +5235,7 @@ pub mod public {
         on_text_changed: Option<Callback<String>>,
         reference: Option<NativeElementRef>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl RichEditBox {
         pub fn new() -> Self {
@@ -5258,6 +5281,14 @@ pub mod public {
             self.on_text_changed = Some(callback.into_payload_callback());
             self
         }
+        pub fn header(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::RichEditBoxHeader,
+                SlotContent::Single(view.into()),
+            );
+            self
+        }
     }
     impl sealed::Sealed for RichEditBox {}
     impl sealed::NativeControl for RichEditBox {
@@ -5274,20 +5305,6 @@ pub mod public {
     }
     impl LayoutControl for RichEditBox {}
     impl FocusControl for RichEditBox {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum RichEditBoxSlot {
-        Header,
-    }
-    impl sealed::SlotIndex<RichEditBoxSlot> for RichEditBox {
-        fn slot_index(slot: RichEditBoxSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for RichEditBox {
-        type Slot = RichEditBoxSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct RichTextBlock {
         paragraphs: Property<RichText>,
@@ -5343,6 +5360,7 @@ pub mod public {
     pub struct Viewbox {
         stretch: Property<Stretch>,
         element_state: Option<std::rc::Rc<ElementState>>,
+        slots: Option<std::rc::Rc<Vec<SlottedView>>>,
     }
     impl Viewbox {
         pub fn new() -> Self {
@@ -5351,6 +5369,14 @@ pub mod public {
         pub fn stretch(mut self, value: impl Into<Option<Stretch>>) -> Self {
             let value = value.into();
             self.stretch = Property::from(value);
+            self
+        }
+        pub fn child(mut self, view: impl Into<View>) -> Self {
+            set_control_slot(
+                &mut self.slots,
+                SlotId::ViewboxChild,
+                SlotContent::Single(view.into()),
+            );
             self
         }
     }
@@ -5366,20 +5392,6 @@ pub mod public {
         }
     }
     impl LayoutControl for Viewbox {}
-    #[non_exhaustive]
-    #[repr(u8)]
-    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-    pub enum ViewboxSlot {
-        Child,
-    }
-    impl sealed::SlotIndex<ViewboxSlot> for Viewbox {
-        fn slot_index(slot: ViewboxSlot) -> u8 {
-            slot as u8
-        }
-    }
-    impl SlotsControl for Viewbox {
-        type Slot = ViewboxSlot;
-    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct WebView2 {
         reference: Option<NativeElementRef>,
@@ -5615,7 +5627,11 @@ pub mod public {
     }
     impl From<TextBox> for View {
         fn from(value: TextBox) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<AutoSuggestBox> for Element {
@@ -5625,7 +5641,11 @@ pub mod public {
     }
     impl From<AutoSuggestBox> for View {
         fn from(value: AutoSuggestBox) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<PasswordBox> for Element {
@@ -5635,7 +5655,11 @@ pub mod public {
     }
     impl From<PasswordBox> for View {
         fn from(value: PasswordBox) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<NumberBox> for Element {
@@ -5645,7 +5669,11 @@ pub mod public {
     }
     impl From<NumberBox> for View {
         fn from(value: NumberBox) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<Slider> for Element {
@@ -5655,7 +5683,11 @@ pub mod public {
     }
     impl From<Slider> for View {
         fn from(value: Slider) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<TitleBar> for Element {
@@ -5665,7 +5697,12 @@ pub mod public {
     }
     impl From<TitleBar> for View {
         fn from(value: TitleBar) -> Self {
-            Self::native(value)
+            let mut value = value;
+            let slots = value
+                .slots
+                .take()
+                .unwrap_or_else(|| std::rc::Rc::new(Vec::new()));
+            Self::slotted(value.into(), slots)
         }
     }
     impl From<NavigationView> for Element {
@@ -5675,7 +5712,11 @@ pub mod public {
     }
     impl From<NavigationView> for View {
         fn from(value: NavigationView) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<NavigationViewItem> for Element {
@@ -5685,7 +5726,11 @@ pub mod public {
     }
     impl From<NavigationViewItem> for View {
         fn from(value: NavigationViewItem) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<SplitView> for Element {
@@ -5695,7 +5740,11 @@ pub mod public {
     }
     impl From<SplitView> for View {
         fn from(value: SplitView) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<ProgressBar> for Element {
@@ -5715,7 +5764,11 @@ pub mod public {
     }
     impl From<ToggleSwitch> for View {
         fn from(value: ToggleSwitch) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<CheckBox> for Element {
@@ -5755,7 +5808,11 @@ pub mod public {
     }
     impl From<RadioButtons> for View {
         fn from(value: RadioButtons) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<ItemsRepeater> for Element {
@@ -5845,7 +5902,11 @@ pub mod public {
     }
     impl From<ListBox> for View {
         fn from(value: ListBox) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<Rectangle> for Element {
@@ -5955,7 +6016,11 @@ pub mod public {
     }
     impl From<Expander> for View {
         fn from(value: Expander) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<ComboBox> for Element {
@@ -5965,7 +6030,11 @@ pub mod public {
     }
     impl From<ComboBox> for View {
         fn from(value: ComboBox) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<Pivot> for Element {
@@ -5975,7 +6044,11 @@ pub mod public {
     }
     impl From<Pivot> for View {
         fn from(value: Pivot) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<PivotItem> for Element {
@@ -5995,7 +6068,11 @@ pub mod public {
     }
     impl From<FlipView> for View {
         fn from(value: FlipView) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<SelectorBar> for Element {
@@ -6005,7 +6082,11 @@ pub mod public {
     }
     impl From<SelectorBar> for View {
         fn from(value: SelectorBar) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<SelectorBarItem> for Element {
@@ -6015,7 +6096,11 @@ pub mod public {
     }
     impl From<SelectorBarItem> for View {
         fn from(value: SelectorBarItem) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<TabView> for Element {
@@ -6025,7 +6110,11 @@ pub mod public {
     }
     impl From<TabView> for View {
         fn from(value: TabView) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<TabViewItem> for Element {
@@ -6065,7 +6154,11 @@ pub mod public {
     }
     impl From<CommandBar> for View {
         fn from(value: CommandBar) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<AppBarButton> for Element {
@@ -6075,7 +6168,11 @@ pub mod public {
     }
     impl From<AppBarButton> for View {
         fn from(value: AppBarButton) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<AppBarSeparator> for Element {
@@ -6095,7 +6192,11 @@ pub mod public {
     }
     impl From<MenuBar> for View {
         fn from(value: MenuBar) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<MenuBarItem> for Element {
@@ -6135,7 +6236,11 @@ pub mod public {
     }
     impl From<DatePicker> for View {
         fn from(value: DatePicker) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<TimePicker> for Element {
@@ -6145,7 +6250,11 @@ pub mod public {
     }
     impl From<TimePicker> for View {
         fn from(value: TimePicker) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<CalendarDatePicker> for Element {
@@ -6155,7 +6264,11 @@ pub mod public {
     }
     impl From<CalendarDatePicker> for View {
         fn from(value: CalendarDatePicker) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<ToolTip> for Element {
@@ -6196,7 +6309,11 @@ pub mod public {
     }
     impl From<ListView> for View {
         fn from(value: ListView) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<ListViewItem> for Element {
@@ -6226,7 +6343,11 @@ pub mod public {
     }
     impl From<GridView> for View {
         fn from(value: GridView) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<GridViewItem> for Element {
@@ -6266,7 +6387,11 @@ pub mod public {
     }
     impl From<RichEditBox> for View {
         fn from(value: RichEditBox) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<RichTextBlock> for Element {
@@ -6286,7 +6411,11 @@ pub mod public {
     }
     impl From<Viewbox> for View {
         fn from(value: Viewbox) -> Self {
-            Self::native(value)
+            let mut value = value;
+            match value.slots.take() {
+                Some(slots) => Self::slotted(value.into(), slots),
+                None => Self::native(value),
+            }
         }
     }
     impl From<WebView2> for Element {
@@ -6654,6 +6783,7 @@ pub mod public {
                         on_text_changed,
                         reference,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::TextBox,
@@ -6684,6 +6814,7 @@ pub mod public {
                         events,
                         reference,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::AutoSuggestBox,
@@ -6712,6 +6843,7 @@ pub mod public {
                         on_password_changed,
                         reference,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::PasswordBox,
@@ -6740,6 +6872,7 @@ pub mod public {
                         on_value_changed,
                         reference,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::NumberBox,
@@ -6768,6 +6901,7 @@ pub mod public {
                         on_value_changed,
                         reference,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::Slider,
@@ -6797,6 +6931,7 @@ pub mod public {
                         events,
                         element_state,
                         preferred_height,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::TitleBar,
@@ -6828,6 +6963,7 @@ pub mod public {
                         is_pane_open,
                         events,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::NavigationView,
@@ -6859,6 +6995,7 @@ pub mod public {
                         selects_on_invoked,
                         is_expanded,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::NavigationViewItem,
@@ -6885,6 +7022,7 @@ pub mod public {
                         is_pane_open,
                         on_pane_closed,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::SplitView,
@@ -6940,6 +7078,7 @@ pub mod public {
                         on_toggled,
                         reference,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::ToggleSwitch,
@@ -7039,6 +7178,7 @@ pub mod public {
                         max_columns,
                         on_selection_changed,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::RadioButtons,
@@ -7237,6 +7377,7 @@ pub mod public {
                         is_enabled,
                         on_selected_tag_changed,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::ListBox,
@@ -7463,6 +7604,7 @@ pub mod public {
                         is_expanded,
                         on_is_expanded_changed,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::Expander,
@@ -7487,6 +7629,7 @@ pub mod public {
                         on_selection_changed,
                         reference,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::ComboBox,
@@ -7511,6 +7654,7 @@ pub mod public {
                         title,
                         on_selection_changed,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::Pivot,
@@ -7549,6 +7693,7 @@ pub mod public {
                         selected_index,
                         on_selection_changed,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::FlipView,
@@ -7567,6 +7712,7 @@ pub mod public {
                     let SelectorBar {
                         on_selected_text_changed,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::SelectorBar,
@@ -7587,6 +7733,7 @@ pub mod public {
                         text,
                         is_selected,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::SelectorBarItem,
@@ -7607,6 +7754,7 @@ pub mod public {
                         is_add_tab_button_visible,
                         events,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::TabView,
@@ -7703,7 +7851,10 @@ pub mod public {
                 }
                 Self::CommandBar(value) => {
                     let value = std::rc::Rc::unwrap_or_clone(value);
-                    let CommandBar { element_state } = value;
+                    let CommandBar {
+                        element_state,
+                        slots: _,
+                    } = value;
                     ElementParts {
                         kind: MountedKind::CommandBar,
                         props: MountedProps::CommandBar(std::rc::Rc::new(
@@ -7722,6 +7873,7 @@ pub mod public {
                         is_enabled,
                         on_click,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::AppBarButton,
@@ -7754,7 +7906,10 @@ pub mod public {
                 }
                 Self::MenuBar(value) => {
                     let value = std::rc::Rc::unwrap_or_clone(value);
-                    let MenuBar { element_state } = value;
+                    let MenuBar {
+                        element_state,
+                        slots: _,
+                    } = value;
                     ElementParts {
                         kind: MountedKind::MenuBar,
                         props: MountedProps::MenuBar(std::rc::Rc::new(MenuBarMountedProps {})),
@@ -7843,6 +7998,7 @@ pub mod public {
                         is_enabled,
                         on_selected_date_changed,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::DatePicker,
@@ -7867,6 +8023,7 @@ pub mod public {
                         is_enabled,
                         on_selected_time_changed,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::TimePicker,
@@ -7891,6 +8048,7 @@ pub mod public {
                         is_enabled,
                         on_date_changed,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::CalendarDatePicker,
@@ -7988,6 +8146,7 @@ pub mod public {
                         allow_drop,
                         events,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::ListView,
@@ -8051,6 +8210,7 @@ pub mod public {
                         allow_drop,
                         events,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::GridView,
@@ -8127,6 +8287,7 @@ pub mod public {
                         on_text_changed,
                         reference,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::RichEditBox,
@@ -8175,6 +8336,7 @@ pub mod public {
                     let Viewbox {
                         stretch,
                         element_state,
+                        slots: _,
                     } = value;
                     ElementParts {
                         kind: MountedKind::Viewbox,
@@ -12323,6 +12485,7 @@ pub enum SlotId {
     NavigationViewPaneCustomContent,
     NavigationViewPaneFooter,
     NavigationViewMenuItems,
+    NavigationViewFooterMenuItems,
     NavigationViewItemContent,
     NavigationViewItemIcon,
     NavigationViewItemMenuItems,
@@ -12353,139 +12516,6 @@ pub enum SlotId {
     RichEditBoxHeader,
     ViewboxChild,
 }
-pub fn slot_id(kind: MountedKind, index: u8) -> Option<SlotId> {
-    match kind {
-        MountedKind::TextBox => match index {
-            0u8 => Some(SlotId::TextBoxHeader),
-            _ => None,
-        },
-        MountedKind::AutoSuggestBox => match index {
-            0u8 => Some(SlotId::AutoSuggestBoxHeader),
-            _ => None,
-        },
-        MountedKind::PasswordBox => match index {
-            0u8 => Some(SlotId::PasswordBoxHeader),
-            _ => None,
-        },
-        MountedKind::NumberBox => match index {
-            0u8 => Some(SlotId::NumberBoxHeader),
-            _ => None,
-        },
-        MountedKind::Slider => match index {
-            0u8 => Some(SlotId::SliderHeader),
-            _ => None,
-        },
-        MountedKind::TitleBar => match index {
-            0u8 => Some(SlotId::TitleBarContent),
-            1u8 => Some(SlotId::TitleBarRightHeader),
-            _ => None,
-        },
-        MountedKind::NavigationView => match index {
-            0u8 => Some(SlotId::NavigationViewContent),
-            1u8 => Some(SlotId::NavigationViewHeader),
-            2u8 => Some(SlotId::NavigationViewPaneCustomContent),
-            3u8 => Some(SlotId::NavigationViewPaneFooter),
-            4u8 => Some(SlotId::NavigationViewMenuItems),
-            _ => None,
-        },
-        MountedKind::NavigationViewItem => match index {
-            0u8 => Some(SlotId::NavigationViewItemContent),
-            1u8 => Some(SlotId::NavigationViewItemIcon),
-            2u8 => Some(SlotId::NavigationViewItemMenuItems),
-            _ => None,
-        },
-        MountedKind::SplitView => match index {
-            0u8 => Some(SlotId::SplitViewPane),
-            1u8 => Some(SlotId::SplitViewContent),
-            _ => None,
-        },
-        MountedKind::ToggleSwitch => match index {
-            0u8 => Some(SlotId::ToggleSwitchHeader),
-            1u8 => Some(SlotId::ToggleSwitchOnContent),
-            2u8 => Some(SlotId::ToggleSwitchOffContent),
-            _ => None,
-        },
-        MountedKind::RadioButtons => match index {
-            0u8 => Some(SlotId::RadioButtonsHeader),
-            _ => None,
-        },
-        MountedKind::ListBox => match index {
-            0u8 => Some(SlotId::ListBoxItems),
-            _ => None,
-        },
-        MountedKind::Expander => match index {
-            0u8 => Some(SlotId::ExpanderHeader),
-            1u8 => Some(SlotId::ExpanderContent),
-            _ => None,
-        },
-        MountedKind::ComboBox => match index {
-            0u8 => Some(SlotId::ComboBoxHeader),
-            _ => None,
-        },
-        MountedKind::Pivot => match index {
-            0u8 => Some(SlotId::PivotItems),
-            _ => None,
-        },
-        MountedKind::FlipView => match index {
-            0u8 => Some(SlotId::FlipViewItems),
-            _ => None,
-        },
-        MountedKind::SelectorBar => match index {
-            0u8 => Some(SlotId::SelectorBarItems),
-            _ => None,
-        },
-        MountedKind::SelectorBarItem => match index {
-            0u8 => Some(SlotId::SelectorBarItemIcon),
-            _ => None,
-        },
-        MountedKind::TabView => match index {
-            0u8 => Some(SlotId::TabViewTabItems),
-            _ => None,
-        },
-        MountedKind::CommandBar => match index {
-            0u8 => Some(SlotId::CommandBarPrimaryCommands),
-            1u8 => Some(SlotId::CommandBarSecondaryCommands),
-            _ => None,
-        },
-        MountedKind::AppBarButton => match index {
-            0u8 => Some(SlotId::AppBarButtonIcon),
-            _ => None,
-        },
-        MountedKind::MenuBar => match index {
-            0u8 => Some(SlotId::MenuBarItems),
-            _ => None,
-        },
-        MountedKind::DatePicker => match index {
-            0u8 => Some(SlotId::DatePickerHeader),
-            _ => None,
-        },
-        MountedKind::TimePicker => match index {
-            0u8 => Some(SlotId::TimePickerHeader),
-            _ => None,
-        },
-        MountedKind::CalendarDatePicker => match index {
-            0u8 => Some(SlotId::CalendarDatePickerHeader),
-            _ => None,
-        },
-        MountedKind::ListView => match index {
-            0u8 => Some(SlotId::ListViewItems),
-            _ => None,
-        },
-        MountedKind::GridView => match index {
-            0u8 => Some(SlotId::GridViewItems),
-            _ => None,
-        },
-        MountedKind::RichEditBox => match index {
-            0u8 => Some(SlotId::RichEditBoxHeader),
-            _ => None,
-        },
-        MountedKind::Viewbox => match index {
-            0u8 => Some(SlotId::ViewboxChild),
-            _ => None,
-        },
-        _ => None,
-    }
-}
 pub fn slots(kind: MountedKind) -> &'static [SlotId] {
     match kind {
         MountedKind::TextBlock => &[],
@@ -12509,6 +12539,7 @@ pub fn slots(kind: MountedKind) -> &'static [SlotId] {
             SlotId::NavigationViewPaneCustomContent,
             SlotId::NavigationViewPaneFooter,
             SlotId::NavigationViewMenuItems,
+            SlotId::NavigationViewFooterMenuItems,
         ],
         MountedKind::NavigationViewItem => &[
             SlotId::NavigationViewItemContent,
@@ -12590,6 +12621,7 @@ pub fn slot_is_collection(slot: SlotId) -> bool {
     matches!(
         slot,
         SlotId::NavigationViewMenuItems
+            | SlotId::NavigationViewFooterMenuItems
             | SlotId::NavigationViewItemMenuItems
             | SlotId::ListBoxItems
             | SlotId::PivotItems
@@ -14690,7 +14722,7 @@ pub struct SlotDescriptor {
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SelectionDescriptor {
-    pub slot: SlotId,
+    pub slots: &'static [SlotId],
     pub item: MountedKind,
     pub selected_property: PropertyId,
     pub event: EventId,
@@ -15900,6 +15932,13 @@ const NAVIGATION_VIEW_SLOTS: &[SlotDescriptor] = &[
     SlotDescriptor {
         id: SlotId::NavigationViewMenuItems,
         name: "MenuItems",
+        interface: "Microsoft.UI.Xaml.Controls.INavigationView",
+        target: "inspectable",
+        collection: true,
+    },
+    SlotDescriptor {
+        id: SlotId::NavigationViewFooterMenuItems,
+        name: "FooterMenuItems",
         interface: "Microsoft.UI.Xaml.Controls.INavigationView",
         target: "inspectable",
         collection: true,
@@ -18418,7 +18457,10 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         events: NAVIGATION_VIEW_EVENTS,
         slots: NAVIGATION_VIEW_SLOTS,
         selection: Some(SelectionDescriptor {
-            slot: SlotId::NavigationViewMenuItems,
+            slots: &[
+                SlotId::NavigationViewMenuItems,
+                SlotId::NavigationViewFooterMenuItems,
+            ],
             item: MountedKind::NavigationViewItem,
             selected_property: PropertyId::NavigationViewItemIsSelected,
             event: EventId::NavigationViewSelectionChanged,
@@ -18643,7 +18685,7 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         events: LIST_BOX_EVENTS,
         slots: LIST_BOX_SLOTS,
         selection: Some(SelectionDescriptor {
-            slot: SlotId::ListBoxItems,
+            slots: &[SlotId::ListBoxItems],
             item: MountedKind::ListBoxItem,
             selected_property: PropertyId::ListBoxItemIsSelected,
             event: EventId::ListBoxSelectionChanged,
@@ -18849,7 +18891,7 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         events: SELECTOR_BAR_EVENTS,
         slots: SELECTOR_BAR_SLOTS,
         selection: Some(SelectionDescriptor {
-            slot: SlotId::SelectorBarItems,
+            slots: &[SlotId::SelectorBarItems],
             item: MountedKind::SelectorBarItem,
             selected_property: PropertyId::SelectorBarItemIsSelected,
             event: EventId::SelectorBarSelectionChanged,
@@ -19243,18 +19285,20 @@ pub fn selection_for_event(event: EventId) -> Option<SelectionDescriptor> {
     })
 }
 pub fn selection_for_slot(slot: SlotId) -> Option<SelectionDescriptor> {
-    CONTROLS
-        .iter()
-        .find_map(|control| control.selection.filter(|selection| selection.slot == slot))
+    CONTROLS.iter().find_map(|control| {
+        control
+            .selection
+            .filter(|selection| selection.slots.contains(&slot))
+    })
 }
 pub fn selection_for_item_property(
     property: PropertyId,
     slot: SlotId,
 ) -> Option<SelectionDescriptor> {
     CONTROLS.iter().find_map(|control| {
-        control
-            .selection
-            .filter(|selection| selection.selected_property == property && selection.slot == slot)
+        control.selection.filter(|selection| {
+            selection.selected_property == property && selection.slots.contains(&slot)
+        })
     })
 }
 pub fn controlled_collection_for_slot(slot: SlotId) -> Option<ControlledCollectionDescriptor> {

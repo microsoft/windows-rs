@@ -29,22 +29,14 @@ impl Component for SplitViewPage {
                         ToggleSwitch::new()
                             .is_on(self.open)
                             .on_toggled(context.forward())
-                            .slot(ToggleSwitchSlot::Header, "Pane open"),
+                            .header("Pane open"),
                         SplitView::new()
                             .is_pane_open(self.open)
                             .open_pane_length(180.0)
-                            .slots([
-                                SlotView::new(
-                                    SplitViewSlot::Pane,
-                                    Border::new().padding(16.0).content("Pane content"),
-                                ),
-                                SlotView::new(
-                                    SplitViewSlot::Content,
-                                    Border::new().padding(16.0).content("Main content area"),
-                                ),
-                            ]),
+                            .pane(Border::new().padding(16.0).content("Pane content"))
+                            .content(Border::new().padding(16.0).content("Main content area")),
                     )),
-                    "SplitView::new().is_pane_open(open).slots([pane, content])",
+                    "SplitView::new().is_pane_open(open).pane(pane).content(content)",
                 ),
             )],
         )

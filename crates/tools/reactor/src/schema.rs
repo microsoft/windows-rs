@@ -521,7 +521,7 @@ pub(crate) enum SlotTarget {
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct Selection {
-    pub(crate) slot: String,
+    pub(crate) slots: Vec<String>,
     pub(crate) item: String,
     pub(crate) selected_property: String,
     pub(crate) selected_item_property: String,
@@ -604,7 +604,7 @@ pub(crate) struct ResolvedSlot {
 }
 
 pub(crate) struct ResolvedSelection {
-    pub(crate) slot: String,
+    pub(crate) slots: Vec<String>,
     pub(crate) item: String,
     pub(crate) selected_property: String,
     pub(crate) selected_item_property: String,
@@ -1718,7 +1718,7 @@ impl Schema {
                         &format!("get_{}", selection.payload_property),
                     );
                     Ok(ResolvedSelection {
-                        slot: selection.slot,
+                        slots: selection.slots,
                         item: selection.item,
                         selected_property: selection.selected_property,
                         selected_item_property: selection.selected_item_property,
@@ -1807,21 +1807,36 @@ fn validate_selections(controls: &[ResolvedControl]) -> Result<(), String> {
         let Some(selection) = control.selection.as_ref() else {
             continue;
         };
-        let slot = control
-            .slots
-            .iter()
-            .find(|slot| slot.name == selection.slot)
-            .ok_or_else(|| {
-                format!(
-                    "{} selection names missing slot {}",
-                    control.type_name, selection.slot
-                )
-            })?;
-        if !matches!(&slot.shape, SlotShape::Collection(_)) {
+        if selection.slots.is_empty() {
             return Err(format!(
-                "{} selection slot {} is not a collection",
-                control.type_name, selection.slot
+                "{} selection must name at least one slot",
+                control.type_name
             ));
+        }
+        let mut unique_slots = HashSet::new();
+        for selection_slot in &selection.slots {
+            if !unique_slots.insert(selection_slot) {
+                return Err(format!(
+                    "{} selection names duplicate slot {}",
+                    control.type_name, selection_slot
+                ));
+            }
+            let slot = control
+                .slots
+                .iter()
+                .find(|slot| slot.name == *selection_slot)
+                .ok_or_else(|| {
+                    format!(
+                        "{} selection names missing slot {}",
+                        control.type_name, selection_slot
+                    )
+                })?;
+            if !matches!(&slot.shape, SlotShape::Collection(_)) {
+                return Err(format!(
+                    "{} selection slot {} is not a collection",
+                    control.type_name, selection_slot
+                ));
+            }
         }
         let event = control
             .events
@@ -2037,14 +2052,24 @@ mod tests {
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
         let cases = [
             (
-                "slot = \"MenuItems\"",
-                "slot = \"Missing\"",
+                "slots = [\"MenuItems\", \"FooterMenuItems\"]",
+                "slots = [\"Missing\"]",
                 "selection names missing slot Missing",
             ),
             (
-                "slot = \"MenuItems\"",
-                "slot = \"Content\"",
+                "slots = [\"MenuItems\", \"FooterMenuItems\"]",
+                "slots = [\"Content\"]",
                 "selection slot Content is not a collection",
+            ),
+            (
+                "slots = [\"MenuItems\", \"FooterMenuItems\"]",
+                "slots = []",
+                "selection must name at least one slot",
+            ),
+            (
+                "slots = [\"MenuItems\", \"FooterMenuItems\"]",
+                "slots = [\"MenuItems\", \"MenuItems\"]",
+                "selection names duplicate slot MenuItems",
             ),
             (
                 "item = \"NavigationViewItem\"",

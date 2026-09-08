@@ -36,7 +36,7 @@ impl Component for RadioButtonPage {
                                 .items_source(options)
                                 .selected_index(self.selected)
                                 .on_selection_changed(context.forward())
-                                .slot(RadioButtonsSlot::Header, "Pick one"),
+                                .header("Pick one"),
                             TextBlock::new()
                                 .text(format!("Selected: {label}"))
                                 .opacity(0.6),
@@ -51,7 +51,7 @@ impl Component for RadioButtonPage {
                         RadioButtons::new()
                             .items_source(["Small", "Medium", "Large", "Extra Large"])
                             .selected_index(1)
-                            .slot(RadioButtonsSlot::Header, "T-shirt size"),
+                            .header("T-shirt size"),
                         "RadioButtons::new().items_source(sizes).selected_index(1)",
                     ),
                 ),

@@ -19,10 +19,8 @@ fn item(tag: &str, label: &str, icon: Symbol, selected: bool) -> KeyedView {
             .tag(tag)
             .is_selected(selected)
             .selects_on_invoked(true)
-            .slots([
-                SlotView::new(NavigationViewItemSlot::Content, label),
-                SlotView::new(NavigationViewItemSlot::Icon, SymbolIcon::new().symbol(icon)),
-            ]),
+            .content(label)
+            .icon(SymbolIcon::new().symbol(icon)),
     )
 }
 
@@ -69,31 +67,18 @@ impl Component for NavigationViewPage {
                             .is_settings_visible(false)
                             .height(300.0)
                             .on_selected_tag_changed(context.callback(Message::Left))
-                            .slots([
-                                SlotView::collection(
-                                    NavigationViewSlot::MenuItems,
-                                    [
-                                        item("home", "Home", Symbol::Home, self.selected == "home"),
-                                        item(
-                                            "browse",
-                                            "Browse",
-                                            Symbol::Find,
-                                            self.selected == "browse",
-                                        ),
-                                        item(
-                                            "settings",
-                                            "Settings",
-                                            Symbol::Setting,
-                                            self.selected == "settings",
-                                        ),
-                                    ],
+                            .menu_items([
+                                item("home", "Home", Symbol::Home, self.selected == "home"),
+                                item("browse", "Browse", Symbol::Find, self.selected == "browse"),
+                                item(
+                                    "settings",
+                                    "Settings",
+                                    Symbol::Setting,
+                                    self.selected == "settings",
                                 ),
-                                SlotView::new(
-                                    NavigationViewSlot::Content,
-                                    Border::new().padding(20.0).content(left_body),
-                                ),
-                            ]),
-                        "NavigationView::new().slots([menu_items, content])",
+                            ])
+                            .content(Border::new().padding(20.0).content(left_body)),
+                        "NavigationView::new().menu_items(menu_items).content(content)",
                     ),
                 ),
                 KeyedView::new(
@@ -105,35 +90,27 @@ impl Component for NavigationViewPage {
                             .is_settings_visible(false)
                             .height(200.0)
                             .on_selected_tag_changed(context.callback(Message::Top))
-                            .slots([
-                                SlotView::collection(
-                                    NavigationViewSlot::MenuItems,
-                                    [
-                                        item(
-                                            "overview",
-                                            "Overview",
-                                            Symbol::Home,
-                                            self.top_selected == "overview",
-                                        ),
-                                        item(
-                                            "documents",
-                                            "Documents",
-                                            Symbol::Edit,
-                                            self.top_selected == "documents",
-                                        ),
-                                        item(
-                                            "downloads",
-                                            "Downloads",
-                                            Symbol::Download,
-                                            self.top_selected == "downloads",
-                                        ),
-                                    ],
+                            .menu_items([
+                                item(
+                                    "overview",
+                                    "Overview",
+                                    Symbol::Home,
+                                    self.top_selected == "overview",
                                 ),
-                                SlotView::new(
-                                    NavigationViewSlot::Content,
-                                    Border::new().padding(20.0).content(top_body),
+                                item(
+                                    "documents",
+                                    "Documents",
+                                    Symbol::Edit,
+                                    self.top_selected == "documents",
                                 ),
-                            ]),
+                                item(
+                                    "downloads",
+                                    "Downloads",
+                                    Symbol::Download,
+                                    self.top_selected == "downloads",
+                                ),
+                            ])
+                            .content(Border::new().padding(20.0).content(top_body)),
                         "NavigationView::new().pane_display_mode(NavigationViewPaneDisplayMode::Top)",
                     ),
                 ),
