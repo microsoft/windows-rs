@@ -45,6 +45,8 @@ impl Window {
     pub fn new(title: &str) -> WindowBuilder {
         WindowBuilder {
             title: title.to_string(),
+            x: CW_USEDEFAULT,
+            y: CW_USEDEFAULT,
             width: CW_USEDEFAULT,
             height: CW_USEDEFAULT,
             client_size: false,
@@ -106,6 +108,8 @@ impl Drop for Window {
 /// Builder for a [`Window`].
 pub struct WindowBuilder {
     title: String,
+    x: i32,
+    y: i32,
     width: i32,
     height: i32,
     client_size: bool,
@@ -119,6 +123,13 @@ pub struct WindowBuilder {
 }
 
 impl WindowBuilder {
+    /// Sets the initial screen position of the window, in pixels.
+    pub fn position(mut self, x: i32, y: i32) -> Self {
+        self.x = x;
+        self.y = y;
+        self
+    }
+
     /// Sets the initial outer window size, including non-client borders, in pixels.
     pub fn size(mut self, width: i32, height: i32) -> Self {
         self.width = width;
@@ -242,8 +253,8 @@ impl WindowBuilder {
                 class_name(),
                 PCWSTR(title.as_ptr()),
                 self.style,
-                CW_USEDEFAULT,
-                CW_USEDEFAULT,
+                self.x,
+                self.y,
                 width,
                 height,
                 core::ptr::null_mut(),

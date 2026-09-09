@@ -1,7 +1,8 @@
 //! Window lifecycle: creation, handle validity, client size, and destruction.
 
 use test_window::{
-    IsWindow, SendMessageW, WM_CLOSE, WS_EX_NOREDIRECTIONBITMAP, get_window_ex_style,
+    GetWindowRect, IsWindow, Rect, SendMessageW, WM_CLOSE, WS_EX_NOREDIRECTIONBITMAP,
+    get_window_ex_style,
 };
 use windows_window::Window;
 
@@ -24,6 +25,18 @@ fn client_size_fits_within_the_requested_size() {
 fn client_size_matches_the_requested_size() {
     let window = Window::new("test").client_size(400, 300).create().unwrap();
     assert_eq!(window.client_size(), (400, 300));
+}
+
+#[test]
+fn position_sets_the_initial_screen_position() {
+    let window = Window::new("test")
+        .position(120, 140)
+        .size(400, 300)
+        .create()
+        .unwrap();
+    let mut rect = Rect::default();
+    assert_ne!(unsafe { GetWindowRect(window.hwnd(), &mut rect) }, 0);
+    assert_eq!((rect.left, rect.top), (120, 140));
 }
 
 #[test]

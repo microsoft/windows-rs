@@ -37,5 +37,5 @@ fn main() -> Result<()> {
 Use `WebViewHost::builder` when another framework owns the parent HWND and message loop. It chains
 environment and controller creation into one callback and returns one host object for the
 framework to retain. The [`raw-window`](../../crates/samples/webview/raw-window) sample shows the
-raw HWND contract, while [`reactor/webview`](../../crates/samples/reactor/webview) shows the WinUI
-integration path.
+raw HWND contract, while [`reactor/webview`](../../crates/samples/reactor/webview) runs equivalent
+operations against a Reactor/WinUI control and a `windows-window` host side by side.

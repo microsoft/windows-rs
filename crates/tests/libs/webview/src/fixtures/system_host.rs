@@ -63,10 +63,13 @@ pub fn framework_host_rejects_null_parent(harness: &Harness) {
 }
 
 pub fn creates_and_closes(harness: &Harness) {
+    let closed = Rc::new(Cell::new(false));
+    let close_callback = Rc::clone(&closed);
     let Some(result) = Harness::complete(|handler| {
         WebViewWindow::new("windows-webview - system host fixture")
             .client_size(640, 480)
             .quit_on_close(false)
+            .on_close(move || close_callback.set(true))
             .create(handler)
     }) else {
         harness.check("system host creation completed", false);
@@ -91,6 +94,7 @@ pub fn creates_and_closes(harness: &Harness) {
         "system parent closes after host shutdown",
         host.window().hwnd().is_null(),
     );
+    harness.check("system close callback runs", closed.get());
 }
 
 pub fn close_during_creation_cancels_and_destroys(harness: &Harness) {

@@ -6,7 +6,7 @@ publish = false
 
 [dependencies]
 windows-reactor = { workspace = true }
-windows-webview = { workspace = true, features = ["reactor"] }
+windows-webview = { workspace = true, features = ["reactor", "system"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

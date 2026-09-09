@@ -27,6 +27,7 @@ impl WebViewWindow {
             window: windows_window::Window::new(title),
             environment_options: None,
             controller_options: None,
+            close: None,
         }
     }
 
@@ -82,9 +83,16 @@ pub struct WebViewWindowBuilder {
     window: windows_window::WindowBuilder,
     environment_options: Option<EnvironmentOptions>,
     controller_options: Option<ControllerOptions>,
+    close: Option<Box<dyn FnMut()>>,
 }
 
 impl WebViewWindowBuilder {
+    /// Sets the initial screen position of the parent window, in pixels.
+    pub fn position(mut self, x: i32, y: i32) -> Self {
+        self.window = self.window.position(x, y);
+        self
+    }
+
     /// Sets the initial outer window size, including non-client borders, in pixels.
     pub fn size(mut self, width: i32, height: i32) -> Self {
         self.window = self.window.size(width, height);
@@ -118,6 +126,15 @@ impl WebViewWindowBuilder {
         self
     }
 
+    /// Sets a handler called during normal close processing, before the parent window is
+    /// destroyed.
+    ///
+    /// Dropping a live `WebViewWindow` destroys its parent directly and does not call this handler.
+    pub fn on_close<F: FnMut() + 'static>(mut self, handler: F) -> Self {
+        self.close = Some(Box::new(handler));
+        self
+    }
+
     /// Starts creating the window and WebView2 host.
     ///
     /// The calling thread must be a COM STA. The application must run its UI message loop after
@@ -148,6 +165,7 @@ impl WebViewWindowBuilder {
         let move_closed = Rc::clone(&closed);
         let close_host_slot = Rc::clone(&host_slot);
         let close_closed = Rc::clone(&closed);
+        let mut close = self.close;
         let window = Rc::new(
             self.window
                 .on_message(move |_hwnd, message, _wparam, _lparam| {
@@ -187,6 +205,9 @@ impl WebViewWindowBuilder {
                     close_closed.set(true);
                     if let Some(host) = close_host_slot.borrow().as_ref().and_then(Weak::upgrade) {
                         _ = host.close();
+                    }
+                    if let Some(close) = close.as_mut() {
+                        close();
                     }
                 })
                 .create()?,
