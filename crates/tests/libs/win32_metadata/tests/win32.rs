@@ -130,7 +130,7 @@ fn assert_dispatcher_queue_function(winmd: &str) {
     let signature = function.signature(&[]);
     assert_eq!(
         signature.return_type,
-        Type::value_named("Windows.Win32", "HRESULT")
+        Type::value_named("Windows.Foundation", "HResult")
     );
     assert_eq!(
         signature.types,
