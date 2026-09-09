@@ -1,4 +1,4 @@
-use windows_core::GUID;
+use super::*;
 
 /// A Windows known folder used as a picker location.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

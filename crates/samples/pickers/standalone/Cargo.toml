@@ -5,7 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
-windows-core = { workspace = true }
+windows = { workspace = true, features = ["combaseapi", "objbase"] }
 windows-pickers = { workspace = true, features = ["system"] }
 windows-window = { workspace = true }
 

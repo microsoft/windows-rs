@@ -54,6 +54,7 @@ fn native_close_marks_the_window_dead() {
         SendMessageW(hwnd, WM_CLOSE, 0, 0);
     }
 
+    assert!(window.hwnd().is_null());
     assert_eq!(window.client_size(), (0, 0));
     assert!(unsafe { IsWindow(hwnd) } == 0);
 }

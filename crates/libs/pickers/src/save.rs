@@ -1,11 +1,4 @@
-use crate::bindings::*;
-use crate::dialog::{
-    DialogConfig, DialogSettings, PreparedDialog, show_dialog, validate_owner, wide,
-};
-use crate::filter::{FileFilter, PreparedFilters};
-use crate::{GUID, PickerLocation};
-use std::path::PathBuf;
-use windows_core::{PCWSTR, Result, create_instance};
+use super::*;
 
 /// Configures a Windows dialog that selects a filesystem path for saving a file.
 #[derive(Clone, Debug, Default)]
@@ -130,7 +123,7 @@ impl SaveFilePicker {
 
     /// Shows the picker owned by a raw window handle.
     ///
-    /// The calling thread must be initialized for COM and suitable for a modal UI operation.
+    /// The calling thread must be a COM single-threaded apartment (STA).
     pub fn show_for_hwnd(self, owner: *mut core::ffi::c_void) -> Result<Option<PathBuf>> {
         validate_owner(owner)?;
         let filters = PreparedFilters::new(&self.filters, self.initial_filter)?;

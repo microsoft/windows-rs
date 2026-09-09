@@ -1,9 +1,4 @@
-use crate::bindings::*;
-use crate::{GUID, PickerLocation};
-use std::ffi::OsString;
-use std::os::windows::ffi::{OsStrExt, OsStringExt};
-use std::path::{Path, PathBuf};
-use windows_core::{Error, HRESULT, Interface, PCWSTR, PWSTR, Result};
+use super::*;
 
 const ERROR_CANCELLED: u32 = 1223;
 const ERROR_CANCELLED_HRESULT: HRESULT = HRESULT((0x8007_0000_u32 | ERROR_CANCELLED) as i32);
@@ -182,7 +177,7 @@ fn shell_item(folder: &DialogFolder) -> Result<IShellItem> {
                 .ok()?;
             }
         }
-        windows_core::imp::Type::from_abi(result)
+        imp::Type::from_abi(result)
     }
 }
 

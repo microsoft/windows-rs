@@ -36,5 +36,5 @@ fn pick_rust_file(window: &Window) -> Result<()> {
 # }
 ```
 
-The calling thread must be initialized for COM before showing a picker. Cancellation returns
-`Ok(None)`; other Windows failures are returned as errors.
+The calling thread must be a COM single-threaded apartment (STA). Cancellation returns `Ok(None)`;
+other Windows failures are returned as errors.

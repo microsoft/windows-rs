@@ -43,9 +43,14 @@ impl Window {
         }
     }
 
-    /// Returns the raw window handle for interop with other Windows APIs.
+    /// Returns the raw window handle for interop with other Windows APIs, or null after the native
+    /// window is destroyed.
     pub fn hwnd(&self) -> *mut core::ffi::c_void {
-        self.hwnd
+        if self.live.get() {
+            self.hwnd
+        } else {
+            core::ptr::null_mut()
+        }
     }
 
     /// Returns the current client-area size in pixels as `(width, height)`.

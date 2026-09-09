@@ -1,6 +1,4 @@
-use crate::bindings::{COMDLG_FILTERSPEC, IFileDialog};
-use crate::dialog::wide;
-use windows_core::{Error, HRESULT, PCWSTR, Result};
+use super::*;
 
 const E_INVALIDARG: HRESULT = HRESULT(0x8007_0057_u32 as i32);
 
@@ -54,7 +52,8 @@ impl FileFilter {
         {
             return Err(Error::new(
                 E_INVALIDARG,
-                "file filters require a nonempty name and at least one nonempty pattern",
+                "file filters require a nonempty null-free name and at least one nonempty \
+                 null-free pattern other than \"*.\"",
             ));
         }
         Ok(())

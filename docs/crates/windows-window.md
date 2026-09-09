@@ -59,8 +59,8 @@ crate's built-in handling and `DefWindowProcW`. `on_resize` is the focused alter
 run.
 
 `create` registers the shared window class, creates and shows the window, and returns an error if
-creation fails. `Window::client_size` returns `(0, 0)` when the window is no longer live or
-`GetClientRect` fails.
+creation fails. After native destruction, `Window::hwnd` returns null and `Window::client_size`
+returns `(0, 0)`.
 
 Dropping a live `Window` calls `DestroyWindow`. An unhandled `WM_DESTROY` posts `WM_QUIT`, so
 closing any window created by this crate ends the thread's message loop. Applications with several

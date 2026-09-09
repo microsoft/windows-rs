@@ -40,7 +40,7 @@ The default `system` feature accepts a borrowed `windows_window::Window`:
 
 ```toml
 [dependencies]
-windows-core = "0.100"
+windows = { version = "0.100", features = ["combaseapi", "objbase"] }
 windows-pickers = "0.100"
 windows-window = "0.100"
 ```
@@ -67,11 +67,27 @@ host types.
 This complete program initializes COM, creates an owner window, and shows an open-file picker:
 
 ```rust,no_run
+use windows::Win32::{COINIT_APARTMENTTHREADED, CoInitializeEx, CoUninitialize};
 use windows_pickers::{OpenFilePicker, Result};
 use windows_window::Window;
 
+struct ComApartment;
+
+impl ComApartment {
+    fn sta() -> Result<Self> {
+        unsafe { CoInitializeEx(None, COINIT_APARTMENTTHREADED as u32).ok()? };
+        Ok(Self)
+    }
+}
+
+impl Drop for ComApartment {
+    fn drop(&mut self) {
+        unsafe { CoUninitialize() };
+    }
+}
+
 fn main() -> Result<()> {
-    windows_core::init_mta()?;
+    let _apartment = ComApartment::sta()?;
     let window = Window::new("Open a file").create()?;
 
     let path = OpenFilePicker::new()
@@ -88,9 +104,9 @@ fn main() -> Result<()> {
 }
 ```
 
-The calling thread must be initialized for COM and suitable for modal UI. An application with an
-existing UI framework normally uses that framework's UI apartment rather than initializing COM
-again. Keep the owner window alive until `show` returns.
+The calling UI thread must be a COM single-threaded apartment (STA). An application with an
+existing UI framework normally uses the apartment initialized by that framework rather than
+initializing COM again. Keep the owner window alive until `show` returns.
 
 ## Pick files and folders
 
@@ -220,8 +236,8 @@ let path = OpenFilePicker::new().show_for_hwnd(hwnd)?;
 ```
 
 The pointer must be a valid, non-null owner HWND on the calling UI thread and remain live until the
-method returns. The calling thread must already be initialized for COM. The raw methods are
-available without the `system` feature.
+method returns. The calling thread must be a COM single-threaded apartment (STA). The raw methods
+are available without the `system` feature.
 
 ## Request a picker from Reactor
 

@@ -16,6 +16,16 @@ mod open;
 mod reactor;
 mod save;
 
+use bindings::*;
+use dialog::*;
+use filter::*;
+use std::ffi::OsString;
+use std::os::windows::ffi::{OsStrExt, OsStringExt};
+use std::path::{Path, PathBuf};
+use windows_core::*;
+#[cfg(feature = "reactor")]
+use windows_reactor::{Component, ComponentContext};
+
 pub use folder::FolderPicker;
 pub use location::PickerLocation;
 pub use open::OpenFilePicker;

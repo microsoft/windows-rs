@@ -58,10 +58,12 @@ fn reentrant_close_invalidates_the_window() {
         })
         .create()
         .unwrap();
+    let hwnd = window.hwnd();
 
     unsafe {
-        SendMessageW(window.hwnd(), WM_USER, 0, 0);
+        SendMessageW(hwnd, WM_USER, 0, 0);
     }
 
-    assert!(unsafe { IsWindow(window.hwnd()) } == 0);
+    assert!(window.hwnd().is_null());
+    assert!(unsafe { IsWindow(hwnd) } == 0);
 }

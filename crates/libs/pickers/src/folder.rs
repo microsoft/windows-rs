@@ -1,10 +1,4 @@
-use crate::bindings::*;
-use crate::dialog::{
-    DialogConfig, DialogSettings, PreparedDialog, show_dialog, show_dialog_multiple, validate_owner,
-};
-use crate::{GUID, PickerLocation};
-use std::path::PathBuf;
-use windows_core::{Result, create_instance};
+use super::*;
 
 /// Configures a Windows dialog that selects one filesystem folder.
 #[derive(Clone, Debug, Default)]
@@ -70,7 +64,7 @@ impl FolderPicker {
 
     /// Shows the picker owned by a raw window handle.
     ///
-    /// The calling thread must be initialized for COM and suitable for a modal UI operation.
+    /// The calling thread must be a COM single-threaded apartment (STA).
     pub fn show_for_hwnd(self, owner: *mut core::ffi::c_void) -> Result<Option<PathBuf>> {
         validate_owner(owner)?;
         let (dialog, _prepared) = self.prepare(FOS_FORCEFILESYSTEM | FOS_PICKFOLDERS)?;
@@ -87,8 +81,8 @@ impl FolderPicker {
 
     /// Shows the picker with multiple selection enabled and owned by a raw window handle.
     ///
-    /// An empty vector means the user cancelled. The calling thread must be initialized for COM
-    /// and suitable for a modal UI operation.
+    /// An empty vector means the user cancelled. The calling thread must be a COM single-threaded
+    /// apartment (STA).
     pub fn show_multiple_for_hwnd(self, owner: *mut core::ffi::c_void) -> Result<Vec<PathBuf>> {
         validate_owner(owner)?;
         let (dialog, _prepared) =
