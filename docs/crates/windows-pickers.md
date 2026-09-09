@@ -67,7 +67,7 @@ host types.
 This complete program initializes COM, creates an owner window, and shows an open-file picker:
 
 ```rust,no_run
-use windows_pickers::{FileFilter, OpenFilePicker, Result};
+use windows_pickers::{OpenFilePicker, Result};
 use windows_window::Window;
 
 fn main() -> Result<()> {
@@ -76,8 +76,8 @@ fn main() -> Result<()> {
 
     let path = OpenFilePicker::new()
         .title("Open a Rust source file")
-        .filter(FileFilter::extensions("Rust source", ["rs"]))
-        .filter(FileFilter::all())
+        .filter_extensions("Rust source", ["rs"])
+        .filter_all()
         .show(&window)?;
 
     if let Some(path) = path {
@@ -107,7 +107,7 @@ Use `show_multiple` when the user may select more than one item:
 let files = OpenFilePicker::new()
     .title("Attach files")
     .commit_label("Attach")
-    .filter(FileFilter::all())
+    .filter_all()
     .show_multiple(&window)?;
 
 let folders = FolderPicker::new()
@@ -125,7 +125,7 @@ let folders = FolderPicker::new()
 ```rust,ignore
 let path = SaveFilePicker::new()
     .title("Save report")
-    .filter(FileFilter::extensions("Text", ["txt"]))
+    .filter_extensions("Text", ["txt"])
     .suggested_name("report")
     .default_extension("txt")
     .overwrite_prompt(true)
@@ -142,19 +142,33 @@ file and handling races, permissions, sharing violations, and any final overwrit
 
 ## Configure file filters
 
-`FileFilter::extensions` is the normal way to build a filter:
+Add extension filters directly to an open or save picker:
 
 ```rust,ignore
 let picker = OpenFilePicker::new()
-    .filter(FileFilter::extensions("Images", ["png", "jpg", "jpeg"]))
-    .filter(FileFilter::extensions("Portable Network Graphics", ["png"]))
-    .filter(FileFilter::all())
+    .filter_extensions("Images", ["png", "jpg", "jpeg"])
+    .filter_extensions("Portable Network Graphics", ["png"])
+    .filter_all()
     .initial_filter(0);
 ```
 
-Extensions may include a leading period. Use `FileFilter::patterns` for native wildcard patterns
-such as `"*.jpg"` or `"report-*.csv"`. Each filter must have a nonempty name and at least one
-nonempty pattern.
+Extensions may include a leading period. Use `filter_patterns` for native wildcard patterns:
+
+```rust,ignore
+let picker = OpenFilePicker::new()
+    .filter_patterns("Reports", ["report-*.csv", "summary-*.csv"])
+    .filter_all();
+```
+
+Each filter must have a nonempty name and at least one nonempty extension or pattern.
+
+`FileFilter` remains available when a named filter should be built once and reused:
+
+```rust,ignore
+let source = FileFilter::extensions("Source", ["rs", "toml"]);
+let open = OpenFilePicker::new().filter(source.clone()).filter_all();
+let save = SaveFilePicker::new().filter(source);
+```
 
 `initial_filter` uses a zero-based index into the configured filters. An out-of-range index is
 reported as an error before the dialog opens.
@@ -233,7 +247,7 @@ fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
     match message {
         Message::Open => {
             if !OpenFilePicker::new()
-                .filter(FileFilter::all())
+                .filter_all()
                 .request(context, Message::Picked)
             {
                 self.status = "Another window operation is pending".to_string();

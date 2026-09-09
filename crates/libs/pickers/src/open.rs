@@ -41,6 +41,29 @@ impl OpenFilePicker {
         self
     }
 
+    /// Adds a file-type filter from extensions such as `"rs"` or `".rs"`.
+    pub fn filter_extensions<I, S>(self, name: impl Into<String>, extensions: I) -> Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        self.filter(FileFilter::extensions(name, extensions))
+    }
+
+    /// Adds a file-type filter from native wildcard patterns such as `"*.jpg"`.
+    pub fn filter_patterns<I, S>(self, name: impl Into<String>, patterns: I) -> Self
+    where
+        I: IntoIterator<Item = S>,
+        S: Into<String>,
+    {
+        self.filter(FileFilter::patterns(name, patterns))
+    }
+
+    /// Adds an unrestricted "All files" filter.
+    pub fn filter_all(self) -> Self {
+        self.filter(FileFilter::all())
+    }
+
     /// Selects the initially active file filter by zero-based index.
     pub fn initial_filter(mut self, index: usize) -> Self {
         self.initial_filter = Some(index);
@@ -130,5 +153,27 @@ impl OpenFilePicker {
         filters.apply(&dialog)?;
 
         Ok((dialog, prepared, filters))
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn filter_helpers_append_named_filters() {
+        let picker = OpenFilePicker::new()
+            .filter_extensions("Rust", ["rs", ".rlib"])
+            .filter_patterns("Reports", ["report-*.csv"])
+            .filter_all();
+
+        assert_eq!(
+            picker.filters,
+            [
+                FileFilter::extensions("Rust", ["rs", ".rlib"]),
+                FileFilter::patterns("Reports", ["report-*.csv"]),
+                FileFilter::all(),
+            ]
+        );
     }
 }

@@ -1,6 +1,4 @@
-use windows_pickers::{
-    FileFilter, FolderPicker, GUID, OpenFilePicker, PickerLocation, Result, SaveFilePicker,
-};
+use windows_pickers::{FolderPicker, GUID, OpenFilePicker, PickerLocation, Result, SaveFilePicker};
 use windows_window::Window;
 
 fn main() -> Result<()> {
@@ -23,8 +21,8 @@ fn main() -> Result<()> {
 fn open(window: &Window) -> Result<()> {
     let path = OpenFilePicker::new()
         .title("Open a Rust source file")
-        .filter(FileFilter::extensions("Rust source", ["rs"]))
-        .filter(FileFilter::all())
+        .filter_extensions("Rust source", ["rs"])
+        .filter_all()
         .initial_filter(0)
         .default_location(PickerLocation::Documents)
         .client_id(GUID::from_u128(0x6d81d46c_77da_4874_8ca7_754546ba6803))
@@ -39,7 +37,7 @@ fn open(window: &Window) -> Result<()> {
 fn open_multiple(window: &Window) -> Result<()> {
     for path in OpenFilePicker::new()
         .title("Open files")
-        .filter(FileFilter::all())
+        .filter_all()
         .show_multiple(window)?
     {
         println!("{}", path.display());
@@ -72,7 +70,7 @@ fn folder_multiple(window: &Window) -> Result<()> {
 fn save(window: &Window) -> Result<()> {
     if let Some(path) = SaveFilePicker::new()
         .title("Save report")
-        .filter(FileFilter::extensions("Text", ["txt"]))
+        .filter_extensions("Text", ["txt"])
         .suggested_name("report")
         .default_extension("txt")
         .overwrite_prompt(true)

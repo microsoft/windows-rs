@@ -15,14 +15,14 @@ windows-window = "0.100"
 ```
 
 ```rust,no_run
-use windows_pickers::{FileFilter, OpenFilePicker, Result};
+use windows_pickers::{OpenFilePicker, Result};
 use windows_window::Window;
 
 fn pick_rust_file(window: &Window) -> Result<()> {
     let path = OpenFilePicker::new()
         .title("Open a Rust source file")
-        .filter(FileFilter::extensions("Rust source", ["rs"]))
-        .filter(FileFilter::all())
+        .filter_extensions("Rust source", ["rs"])
+        .filter_all()
         .show(window)?;
 
     if let Some(path) = path {

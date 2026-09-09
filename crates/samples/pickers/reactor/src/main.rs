@@ -1,7 +1,7 @@
 #![windows_subsystem = "windows"]
 
 use std::path::PathBuf;
-use windows_pickers::{FileFilter, FolderPicker, OpenFilePicker, Result, SaveFilePicker};
+use windows_pickers::{FolderPicker, OpenFilePicker, Result, SaveFilePicker};
 use windows_reactor::*;
 
 enum Message {
@@ -34,8 +34,8 @@ impl Component for PickerSample {
                 self.status = "Choose a file...".to_string();
                 let accepted = OpenFilePicker::new()
                     .title("Open a Rust source file")
-                    .filter(FileFilter::extensions("Rust source", ["rs"]))
-                    .filter(FileFilter::all())
+                    .filter_extensions("Rust source", ["rs"])
+                    .filter_all()
                     .request(context, Message::Picked);
                 if !accepted {
                     self.status = "Picker request unavailable".to_string();
@@ -45,7 +45,7 @@ impl Component for PickerSample {
                 self.status = "Choose files...".to_string();
                 let accepted = OpenFilePicker::new()
                     .title("Open files")
-                    .filter(FileFilter::all())
+                    .filter_all()
                     .request_multiple(context, Message::PickedMultiple);
                 if !accepted {
                     self.status = "Picker request unavailable".to_string();
@@ -73,7 +73,7 @@ impl Component for PickerSample {
                 self.status = "Choose where to save...".to_string();
                 let accepted = SaveFilePicker::new()
                     .title("Save report")
-                    .filter(FileFilter::extensions("Text", ["txt"]))
+                    .filter_extensions("Text", ["txt"])
                     .suggested_name("report")
                     .default_extension("txt")
                     .request(context, Message::Picked);
