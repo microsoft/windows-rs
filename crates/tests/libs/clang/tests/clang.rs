@@ -13,6 +13,64 @@ fn reference_rejects_non_winmd_input() {
 }
 
 #[test]
+fn accepts_c_and_cpp_header_extensions() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("header_extensions");
+    std::fs::create_dir_all(&scratch).unwrap();
+
+    let headers = [
+        ("one.H", "typedef int HeaderOne;"),
+        ("two.HpP", "typedef int HeaderTwo;"),
+        ("three.hXx", "typedef int HeaderThree;"),
+        ("four.HH", "typedef int HeaderFour;"),
+    ];
+    let paths: Vec<_> = headers
+        .iter()
+        .map(|(name, contents)| {
+            let path = scratch.join(name);
+            std::fs::write(&path, contents).unwrap();
+            path
+        })
+        .collect();
+
+    let _guard = test_clang::libclang_guard();
+
+    let explicit_output = scratch.join("explicit.rdl");
+    windows_clang::clang()
+        .inputs(&paths)
+        .args(["-x", "c++"])
+        .output(&explicit_output)
+        .namespace("Test")
+        .write()
+        .unwrap();
+
+    let directory_output = scratch.join("directory.rdl");
+    windows_clang::clang()
+        .input(&scratch)
+        .args(["-x", "c++"])
+        .output(&directory_output)
+        .namespace("Test")
+        .write()
+        .unwrap();
+
+    let explicit = std::fs::read_to_string(explicit_output).unwrap();
+    let directory = std::fs::read_to_string(directory_output).unwrap();
+    for name in ["HeaderOne", "HeaderTwo", "HeaderThree", "HeaderFour"] {
+        assert!(explicit.contains(name));
+        assert!(directory.contains(name));
+    }
+}
+
+#[test]
+fn rejects_non_header_input_extension() {
+    let error = windows_clang::clang()
+        .input("input.txt")
+        .output("unused.rdl")
+        .write()
+        .unwrap_err();
+    assert_eq!(error.message, "expected .h, .hpp, .hxx, or .hh file");
+}
+
+#[test]
 fn terminals_require_output() {
     let write = windows_clang::clang().write().unwrap_err();
     assert_eq!(write.message, "output is required");

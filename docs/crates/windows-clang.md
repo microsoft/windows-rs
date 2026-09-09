@@ -49,7 +49,7 @@ emitted as declarations owned by the input header. List each owning header expli
 
 | Builder input | Purpose |
 | --- | --- |
-| `input`, `inputs` | Header files or directories containing `.h` files. |
+| `input`, `inputs` | `.h`, `.hpp`, `.hxx`, or `.hh` files, or directories containing them. |
 | `arg`, `args`, `target` | libclang language, include, define, extension, and target options. |
 | `reference*` | Existing metadata used for type resolution and duplicate suppression. |
 | `resolution*` | Metadata used only to classify `ABI::Windows::*` projection declarations. |
