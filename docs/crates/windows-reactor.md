@@ -388,21 +388,27 @@ result after `update` stores it.
 ## Run modal work with the owning window
 
 Use `run_window` for a native operation that must run on the owning UI thread with the window's
-HWND. A file picker is the main example:
+HWND. For example, a Win32 message box can return its selection as a component message:
 
 ```rust,ignore
-Message::Open => {
-    self.status = "Choose a file...".to_string();
-    _ = context.run_window(|window| {
-        Message::Picked(
-            OpenFilePicker::new()
-                .filter(FileFilter::all())
-                .show_for_hwnd(window.as_raw()),
-        )
+Message::Confirm => {
+    let accepted = context.run_window(|window| {
+        let answer = unsafe {
+            MessageBoxW(
+                window.as_raw(),
+                w!("Continue with this operation?"),
+                w!("Confirm"),
+                (MB_YESNO | MB_ICONQUESTION) as u32,
+            )
+        };
+        Message::Answered(answer)
     });
+    if !accepted {
+        self.status = "Another window operation is pending".to_string();
+    }
 }
-Message::Picked(result) => {
-    // Store the result in component state.
+Message::Answered(IDYES) => {
+    self.status = "You chose Yes".to_string();
 }
 ```
 
@@ -417,6 +423,10 @@ Component dispatch for the owning window is suspended until the closure returns.
 loop can continue drawing and processing its own input, and other Reactor windows remain
 independent. Keep slow non-UI work in `spawn_background`; `run_window` is for native calls such as
 modal dialogs that must remain on the UI thread.
+
+The [`message-box`](../../crates/samples/reactor/message-box) sample contains the complete
+component. `windows-pickers` builds on the same mechanism and provides `request` methods that map
+picker results into component messages.
 
 ## Reach for the other APIs when you need them
 
@@ -456,6 +466,7 @@ concepts and behaviors:
 | [`component-input`](../../crates/samples/reactor/component-input) | Controlled component input |
 | [`keyed-list-reorder`](../../crates/samples/reactor/keyed-list-reorder) | Stable identity in changing lists |
 | [`async-state`](../../crates/samples/reactor/async-state) | Background work |
+| [`message-box`](../../crates/samples/reactor/message-box) | Modal native window work |
 | [`use-effect`](../../crates/samples/reactor/use-effect) and [`context`](../../crates/samples/reactor/context) | Lifecycle work and shared data |
 | [`pointer-tracking`](../../crates/samples/reactor/pointer-tracking) | Pointer capture and movement |
 | [`exit-transition`](../../crates/samples/reactor/exit-transition) | Transition-driven removal |

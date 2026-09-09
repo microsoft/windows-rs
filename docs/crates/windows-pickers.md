@@ -264,7 +264,9 @@ mapped message for a later component update. It discards the operation if public
 component retires, or the window starts closing.
 
 Each Reactor window accepts one pending native window operation at a time. Other Reactor windows
-remain independent. No additional COM initialization is needed in a Reactor application.
+remain independent. No additional COM initialization is needed in a Reactor application. The
+[`reactor/message-box`](../../crates/samples/reactor/message-box) sample uses the same
+`ComponentContext::run_window` support with another native modal API.
 
 ## Samples
 

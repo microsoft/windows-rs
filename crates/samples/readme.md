@@ -45,6 +45,7 @@ samples for a published release, use its tag - for example
 | Crate | Sample | Run |
 | --- | --- | --- |
 | [windows-reactor](../../docs/crates/windows-reactor.md) | `reactor-gallery` - WinUI control catalog | `cargo run -p reactor-gallery` |
+| | `reactor-message-box` - modal native window work | `cargo run -p reactor-message-box` |
 | | `reactor-async-state` / `reactor-color-scheme` / `reactor-component-input` / `reactor-context` / `reactor-element-ref` / `reactor-function-component` / `reactor-keyed-list-reorder` / `reactor-use-effect` | `cargo run -p <crate>` |
 | | `reactor-drag-drop` / `reactor-exit-transition` / `reactor-lightweight-resources` / `reactor-opacity-transition` / `reactor-responsive-navigation` / `reactor-scale-transition` | `cargo run -p <crate>` |
 | | `reactor-pointer-position` / `reactor-pointer-resize` / `reactor-pointer-tracking` / `reactor-secondary-window` / `reactor-text-box-border` / `reactor-tooltip-placement` / `reactor-window` | `cargo run -p <crate>` |
