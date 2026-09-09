@@ -807,6 +807,10 @@ pub use joystickapi::*;
 pub mod kernelspecs;
 #[cfg(feature = "kernelspecs")]
 pub use kernelspecs::*;
+#[cfg(feature = "knownfolders")]
+pub mod knownfolders;
+#[cfg(feature = "knownfolders")]
+pub use knownfolders::*;
 #[cfg(feature = "ks")]
 pub mod ks;
 #[cfg(feature = "ks")]

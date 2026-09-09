@@ -152,6 +152,7 @@ The scraper preserves:
 - `uuid`, `noreturn`, alignment, `dllimport`, and deprecation attributes;
 - calling conventions, packing, unions, scoped enums, bit fields, and typedefs;
 - explicit constant casts and C integer literal types;
+- GUID values from `DEFINE_GUID`, `DEFINE_OLEGUID`, and `DEFINE_KNOWN_FOLDER`;
 - `DEFINE_ENUM_FLAG_OPERATORS` as a flags-enum signal;
 - symbol-to-DLL mappings recovered from import libraries.
 

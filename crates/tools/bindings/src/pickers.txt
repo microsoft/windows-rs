@@ -6,6 +6,14 @@
     CoTaskMemFree
     FileOpenDialog
     FileSaveDialog
+    FOLDERID_ComputerFolder
+    FOLDERID_Desktop
+    FOLDERID_Documents
+    FOLDERID_Downloads
+    FOLDERID_MusicLibrary
+    FOLDERID_Objects3D
+    FOLDERID_PicturesLibrary
+    FOLDERID_VideosLibrary
     FOS_ALLOWMULTISELECT
     FOS_FORCEFILESYSTEM
     FOS_OVERWRITEPROMPT

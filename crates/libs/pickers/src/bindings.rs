@@ -8,6 +8,22 @@ pub struct COMDLG_FILTERSPEC {
     pub pszSpec: windows_core::PCWSTR,
 }
 pub type FILEOPENDIALOGOPTIONS = u32;
+pub const FOLDERID_ComputerFolder: windows_core::GUID =
+    windows_core::GUID::from_u128(0x0ac0837c_bbf8_452a_850d_79d08e667ca7);
+pub const FOLDERID_Desktop: windows_core::GUID =
+    windows_core::GUID::from_u128(0xb4bfcc3a_db2c_424c_b029_7fe99a87c641);
+pub const FOLDERID_Documents: windows_core::GUID =
+    windows_core::GUID::from_u128(0xfdd39ad0_238f_46af_adb4_6c85480369c7);
+pub const FOLDERID_Downloads: windows_core::GUID =
+    windows_core::GUID::from_u128(0x374de290_123f_4565_9164_39c4925e467b);
+pub const FOLDERID_MusicLibrary: windows_core::GUID =
+    windows_core::GUID::from_u128(0x2112ab0a_c86a_4ffe_a368_0de96e47012e);
+pub const FOLDERID_Objects3D: windows_core::GUID =
+    windows_core::GUID::from_u128(0x31c0dd25_9439_4f12_bf41_7ff4eda38722);
+pub const FOLDERID_PicturesLibrary: windows_core::GUID =
+    windows_core::GUID::from_u128(0xa990ae9f_a03b_4e80_94bc_9912d7504104);
+pub const FOLDERID_VideosLibrary: windows_core::GUID =
+    windows_core::GUID::from_u128(0x491e922f_5643_4af4_a7eb_4e7a138d8174);
 pub const FOS_ALLOWMULTISELECT: FILEOPENDIALOGOPTIONS = 512;
 pub const FOS_FORCEFILESYSTEM: FILEOPENDIALOGOPTIONS = 64;
 pub const FOS_OVERWRITEPROMPT: FILEOPENDIALOGOPTIONS = 2;

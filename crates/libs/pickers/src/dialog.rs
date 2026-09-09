@@ -51,10 +51,14 @@ impl DialogSettings {
         self.folder = Some(DialogFolder::Known(value));
     }
 
-    fn apply(&self, dialog: &IFileDialog) -> Result<()> {
+    fn apply_client_id(&self, dialog: &IFileDialog) -> Result<()> {
         if let Some(client_id) = &self.client_id {
             unsafe { dialog.SetClientGuid(client_id).ok()? };
         }
+        Ok(())
+    }
+
+    fn apply_folders(&self, dialog: &IFileDialog) -> Result<()> {
         if let Some(folder) = &self.default {
             let item = shell_item(folder)?;
             unsafe { dialog.SetDefaultFolder(&item).ok()? };
@@ -69,6 +73,8 @@ impl DialogSettings {
 
 impl PreparedDialog {
     pub(crate) fn new(dialog: &IFileDialog, config: DialogConfig<'_>) -> Result<Self> {
+        config.settings.apply_client_id(dialog)?;
+
         let title = config.title.map(wide).transpose()?;
         if let Some(title) = &title {
             unsafe { dialog.SetTitle(PCWSTR(title.as_ptr())).ok()? };
@@ -93,7 +99,7 @@ impl PreparedDialog {
                 ))
                 .ok()?;
         };
-        config.settings.apply(dialog)?;
+        config.settings.apply_folders(dialog)?;
 
         Ok(Self {
             _title: title,
