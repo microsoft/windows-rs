@@ -311,10 +311,21 @@ pub(crate) mod sealed {
 ///
 /// Reactor creates this value only while running work queued with
 /// [`ComponentContext::run_window`](crate::ComponentContext::run_window). The handle belongs to
-/// the component's current window and is valid for the duration of that call.
+/// the component's current window, is valid for the duration of that call, and cannot be sent to
+/// or shared with another thread.
+///
+/// ```compile_fail
+/// fn require_send<T: Send>() {}
+/// require_send::<windows_reactor::WindowHandle<'static>>();
+/// ```
+///
+/// ```compile_fail
+/// fn require_sync<T: Sync>() {}
+/// require_sync::<windows_reactor::WindowHandle<'static>>();
+/// ```
 pub struct WindowHandle<'a> {
     raw: isize,
-    marker: PhantomData<&'a mut ()>,
+    marker: PhantomData<(&'a mut (), Rc<()>)>,
 }
 
 impl WindowHandle<'_> {
