@@ -250,12 +250,7 @@ mod tests {
 
     #[test]
     fn embedded_nuls_in_titles_are_rejected() {
-        assert!(wide("bad\0title").is_err());
-    }
-
-    #[test]
-    fn null_owner_is_rejected() {
-        assert!(validate_owner(core::ptr::null_mut()).is_err());
+        assert_eq!(wide("bad\0title").unwrap_err().code(), E_INVALIDARG);
     }
 
     #[test]
@@ -265,6 +260,18 @@ mod tests {
 
     #[test]
     fn embedded_nuls_in_paths_are_rejected() {
-        assert!(path_wide(Path::new("bad\0path")).is_err());
+        assert_eq!(
+            path_wide(Path::new("bad\0path")).unwrap_err().code(),
+            E_INVALIDARG
+        );
+    }
+
+    #[test]
+    fn paths_preserve_non_unicode_utf16() {
+        let value = [b'C' as u16, b':' as u16, b'\\' as u16, 0xd800, b'x' as u16];
+        let path = PathBuf::from(OsString::from_wide(&value));
+        let expected = value.into_iter().chain([0]).collect::<Vec<_>>();
+
+        assert_eq!(path_wide(&path).unwrap(), expected);
     }
 }

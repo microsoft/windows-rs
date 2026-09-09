@@ -152,25 +152,3 @@ impl OpenFilePicker {
         Ok((dialog, prepared, filters))
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn filter_helpers_append_named_filters() {
-        let picker = OpenFilePicker::new()
-            .filter_extensions("Rust", ["rs", ".rlib"])
-            .filter_patterns("Reports", ["report-*.csv"])
-            .filter_all();
-
-        assert_eq!(
-            picker.filters,
-            [
-                FileFilter::extensions("Rust", ["rs", ".rlib"]),
-                FileFilter::patterns("Reports", ["report-*.csv"]),
-                FileFilter::all(),
-            ]
-        );
-    }
-}

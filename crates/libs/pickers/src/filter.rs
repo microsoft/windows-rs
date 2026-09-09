@@ -136,6 +136,10 @@ impl PreparedFilters {
 mod tests {
     use super::*;
 
+    fn assert_invalid(filter: &FileFilter) {
+        assert_eq!(filter.validate().unwrap_err().code(), E_INVALIDARG);
+    }
+
     #[test]
     fn extensions_are_normalized_to_patterns() {
         assert_eq!(
@@ -146,33 +150,26 @@ mod tests {
 
     #[test]
     fn empty_filters_are_rejected() {
-        assert!(
-            FileFilter::patterns("Empty", [] as [&str; 0])
-                .validate()
-                .is_err()
-        );
-        assert!(FileFilter::patterns("", ["*.txt"]).validate().is_err());
-        assert!(FileFilter::extensions("Empty", [""]).validate().is_err());
+        assert_invalid(&FileFilter::patterns("Empty", [] as [&str; 0]));
+        assert_invalid(&FileFilter::patterns("", ["*.txt"]));
+        assert_invalid(&FileFilter::extensions("Empty", [""]));
     }
 
     #[test]
     fn embedded_nuls_are_rejected() {
-        assert!(
-            FileFilter::patterns("Invalid", ["*.txt\0*.md"])
-                .validate()
-                .is_err()
-        );
+        assert_invalid(&FileFilter::patterns("Invalid", ["*.txt\0*.md"]));
     }
 
     #[test]
     fn prepared_storage_is_stable_and_ordered() {
         let filters = [
             FileFilter::extensions("Rust", ["rs", "rlib"]),
+            FileFilter::patterns("Reports", ["report-*.csv", "summary-*.csv"]),
             FileFilter::all(),
         ];
         let prepared = PreparedFilters::new(&filters, Some(1)).unwrap();
 
-        assert_eq!(prepared.specs.len(), 2);
+        assert_eq!(prepared.specs.len(), 3);
         assert_eq!(prepared.initial, Some(2));
         assert_eq!(
             unsafe { prepared.specs[0].pszName.to_string() }.unwrap(),
@@ -184,6 +181,10 @@ mod tests {
         );
         assert_eq!(
             unsafe { prepared.specs[1].pszSpec.to_string() }.unwrap(),
+            "report-*.csv;summary-*.csv"
+        );
+        assert_eq!(
+            unsafe { prepared.specs[2].pszSpec.to_string() }.unwrap(),
             "*.*"
         );
     }
@@ -191,7 +192,16 @@ mod tests {
     #[test]
     fn initial_filter_must_exist() {
         let filters = [FileFilter::all()];
-        assert!(PreparedFilters::new(&filters, Some(1)).is_err());
-        assert!(PreparedFilters::new(&[], Some(0)).is_err());
+        assert_eq!(
+            PreparedFilters::new(&filters, Some(1))
+                .err()
+                .unwrap()
+                .code(),
+            E_INVALIDARG
+        );
+        assert_eq!(
+            PreparedFilters::new(&[], Some(0)).err().unwrap().code(),
+            E_INVALIDARG
+        );
     }
 }

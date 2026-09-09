@@ -15,6 +15,8 @@ windows-window = "0.100"
 ```
 
 ```rust,no_run
+# #[cfg(feature = "system")]
+# mod example {
 use windows_pickers::{OpenFilePicker, Result};
 use windows_window::Window;
 
@@ -31,6 +33,7 @@ fn pick_rust_file(window: &Window) -> Result<()> {
 
     Ok(())
 }
+# }
 ```
 
 The calling thread must be initialized for COM before showing a picker. Cancellation returns

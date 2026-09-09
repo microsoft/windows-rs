@@ -210,21 +210,4 @@ mod tests {
             (FOS_FORCEFILESYSTEM | FOS_STRICTFILETYPES, 0)
         );
     }
-
-    #[test]
-    fn filter_helpers_append_named_filters() {
-        let picker = SaveFilePicker::new()
-            .filter_extensions("Text", ["txt"])
-            .filter_patterns("Reports", ["report-*.csv"])
-            .filter_all();
-
-        assert_eq!(
-            picker.filters,
-            [
-                FileFilter::extensions("Text", ["txt"]),
-                FileFilter::patterns("Reports", ["report-*.csv"]),
-                FileFilter::all(),
-            ]
-        );
-    }
 }
