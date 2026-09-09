@@ -157,8 +157,8 @@ The scraper preserves:
 - symbol-to-DLL mappings recovered from import libraries.
 
 Some C portability spellings are canonicalized for metadata consumers. Examples include fixed-width
-integer typedefs, pointer-sized integer typedefs, Windows string wrappers, pointer aliases in
-parameters, GUID aliases, and Direct2D compatibility aliases. These rules live in `canon.rs`.
+integer typedefs, pointer-sized integer typedefs, Windows string wrappers, COM interface aliases,
+GUID aliases, and Direct2D compatibility aliases. These rules live in `canon.rs`.
 `HRESULT` always maps to the `Windows.Foundation.HResult` metadata system type rather than a local
 integer typedef.
 Parameter SAL can change pointer constness because it expresses the function's read/write contract.

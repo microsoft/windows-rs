@@ -1,0 +1,25 @@
+#[win32]
+mod Test {
+    #[library("")]
+    extern fn AcceptDirect(value: IExample);
+    #[library("")]
+    extern fn AcceptExternal(value: Shared::IExternal);
+    #[library("")]
+    extern fn AcceptPointer(value: IExample);
+    #[library("")]
+    extern fn GetDirect(value: *mut IExample);
+    #[library("")]
+    extern fn GetExternal(value: *mut Shared::IExternal);
+    #[library("")]
+    extern fn GetPointer(value: *mut IExample);
+    #[guid(0x11111111_1111_1111_1111_111111111111)]
+    interface IExample {
+        fn Method(&self,);
+    }
+    #[library("")]
+    extern fn ReturnDirect() -> IExample;
+    #[library("")]
+    extern fn ReturnExternal() -> Shared::IExternal;
+    #[library("")]
+    extern fn ReturnPointer() -> IExample;
+}

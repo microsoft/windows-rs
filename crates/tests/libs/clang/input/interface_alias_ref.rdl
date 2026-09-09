@@ -1,0 +1,7 @@
+#[win32]
+mod Shared {
+    #[guid(0x22222222_2222_2222_2222_222222222222)]
+    interface IExternal {
+        fn Method(&self);
+    }
+}
