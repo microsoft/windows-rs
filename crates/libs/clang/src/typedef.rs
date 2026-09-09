@@ -33,6 +33,10 @@ impl Typedef {
             return Ok(None);
         }
 
+        if canonical_hresult(&name).is_some() {
+            return Ok(None);
+        }
+
         // GUID synonyms collapse to `GUID` at reference sites.
         if guid_alias(&name) {
             return Ok(None);

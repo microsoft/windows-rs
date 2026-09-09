@@ -1,16 +1,15 @@
 #[win32]
 mod Test {
     #[library("test.dll")]
-    extern "C" fn GetScalar(#[opt] value: *mut i32) -> i32;
+    extern "C" fn GetScalar(#[opt] value: *mut i32) -> HRESULT;
     #[library("test.dll")]
-    extern "C" fn GetThing(#[opt] thing: *mut IThing) -> i32;
-    type HRESULT = i32;
+    extern "C" fn GetThing(#[opt] thing: *mut IThing) -> HRESULT;
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IThing {
-        fn M(&self,) -> i32;
+        fn M(&self,) -> HRESULT;
     }
     #[library("test.dll")]
-    extern "C" fn MakeThing(thing: *mut IThing) -> i32;
+    extern "C" fn MakeThing(thing: *mut IThing) -> HRESULT;
     #[library("test.dll")]
-    extern "C" fn QueryThing(#[iid_is] #[opt] thing: *mut *mut void) -> i32;
+    extern "C" fn QueryThing(#[iid_is] #[opt] thing: *mut *mut void) -> HRESULT;
 }

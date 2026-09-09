@@ -98,6 +98,135 @@ fn malformed_metadata_reports_its_role() {
     assert_eq!(resolution.file_name, "<memory>");
 }
 
+#[test]
+fn namespaced_hresult_survives_the_binding_round_trip() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("namespaced_hresult");
+    std::fs::create_dir_all(&scratch).unwrap();
+
+    let direct_header = scratch.join("direct.h");
+    std::fs::write(
+        &direct_header,
+        "typedef long HRESULT;\n\
+         typedef struct _GUID { unsigned long Data1; } GUID;\n\
+         typedef const GUID *REFIID;\n\
+         #define DIRECT_STATUS ((HRESULT)0)\n\
+         HRESULT DirectStatus(void);\n\
+         HRESULT CreateThing(REFIID iid, void **object);",
+    )
+    .unwrap();
+
+    let included_header = scratch.join("dependency.h");
+    std::fs::write(&included_header, "typedef long HRESULT;").unwrap();
+    let main_header = scratch.join("included.h");
+    std::fs::write(
+        &main_header,
+        "#include \"dependency.h\"\n\
+         #define INCLUDED_STATUS ((HRESULT)0)\n\
+         HRESULT IncludedStatus(void);",
+    )
+    .unwrap();
+
+    let hostile_reference = scratch.join("reference.winmd");
+    windows_rdl::reader()
+        .input_text("#[win32] mod Other { type HRESULT = i16; }")
+        .output(&hostile_reference)
+        .write()
+        .unwrap();
+
+    let direct_rdl = scratch.join("direct.rdl");
+    let included_rdl = scratch.join("included.rdl");
+    {
+        let _guard = test_clang::libclang_guard();
+
+        windows_clang::clang()
+            .input(&direct_header)
+            .output(&direct_rdl)
+            .namespace("Direct")
+            .library("test.dll")
+            .write()
+            .unwrap();
+
+        windows_clang::clang()
+            .input(&main_header)
+            .reference(&hostile_reference)
+            .output(&included_rdl)
+            .namespace("Included")
+            .library("test.dll")
+            .write()
+            .unwrap();
+    }
+
+    for (rdl, function, constant) in [
+        (&direct_rdl, "DirectStatus", "DIRECT_STATUS"),
+        (&included_rdl, "IncludedStatus", "INCLUDED_STATUS"),
+    ] {
+        let contents = std::fs::read_to_string(rdl).unwrap();
+        assert!(!contents.contains("type HRESULT"));
+        assert!(contents.contains(&format!("fn {function}() -> HRESULT")));
+        assert!(contents.contains(&format!("const {constant}: HRESULT")));
+    }
+    let included = std::fs::read_to_string(&included_rdl).unwrap();
+    assert!(!included.contains("Other::HRESULT"));
+    let direct = std::fs::read_to_string(&direct_rdl).unwrap();
+    assert!(direct.contains("#[iid_is] object: *mut *mut void"));
+
+    let flat_dir = scratch.join("flat");
+    std::fs::create_dir_all(&flat_dir).unwrap();
+    {
+        let _guard = test_clang::libclang_guard();
+        windows_clang::clang()
+            .input(&direct_header)
+            .output(&flat_dir)
+            .namespace("Windows.Win32")
+            .write_by_header()
+            .unwrap();
+    }
+    let flat = std::fs::read_to_string(flat_dir.join("direct.rdl")).unwrap();
+    assert!(!flat.contains("type HRESULT"));
+    assert!(flat.contains("fn DirectStatus() -> HRESULT"));
+    assert!(flat.contains("const DIRECT_STATUS: HRESULT"));
+
+    let winmd = scratch.join("out.winmd");
+    windows_rdl::reader()
+        .input(&direct_rdl)
+        .input(&included_rdl)
+        .output(&winmd)
+        .write()
+        .unwrap();
+
+    let rich = scratch.join("rich.rs");
+    windows_bindgen::bindgen([
+        "--in",
+        winmd.to_str().unwrap(),
+        "--out",
+        rich.to_str().unwrap(),
+        "--filter",
+        "Direct",
+        "--filter",
+        "Included",
+    ]);
+    let rich = std::fs::read_to_string(rich).unwrap();
+    assert!(rich.contains("fn DirectStatus() -> windows_core::HRESULT"));
+    assert!(rich.contains("fn IncludedStatus() -> windows_core::HRESULT"));
+
+    let sys = scratch.join("sys.rs");
+    windows_bindgen::bindgen([
+        "--in",
+        winmd.to_str().unwrap(),
+        "--out",
+        sys.to_str().unwrap(),
+        "--filter",
+        "Direct",
+        "--filter",
+        "Included",
+        "--sys",
+    ]);
+    let sys = std::fs::read_to_string(sys).unwrap();
+    assert!(sys.contains("pub type HRESULT = i32"));
+    assert!(sys.contains("fn DirectStatus() -> super::HRESULT"));
+    assert!(sys.contains("fn IncludedStatus() -> super::HRESULT"));
+}
+
 fn run(name: &str) {
     let input_path = format!("input/{name}.h");
     let expected_path = format!("expected/{name}.rdl");
