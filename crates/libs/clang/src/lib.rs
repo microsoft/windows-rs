@@ -547,7 +547,7 @@ impl Clang {
         Self::default()
     }
 
-    /// Adds an input header (`.h`) file or directory.
+    /// Adds an input header (`.h`, `.hpp`, `.hxx`, or `.hh`) file or directory.
     pub fn input(&mut self, input: impl AsRef<Path>) -> &mut Self {
         self.input.push(input.as_ref().to_path_buf());
         self
@@ -886,7 +886,7 @@ impl Clang {
 
     /// Parses inputs once and returns the libclang state that keeps the TUs valid.
     fn parse_inputs(&self) -> Result<ParsedInputs, Error> {
-        let h_paths = expand_input_files(&self.input, "h")?;
+        let h_paths = expand_header_inputs(&self.input)?;
         let library = Library::new()?;
         let index = Index::new()?;
 
@@ -1525,6 +1525,62 @@ struct ParsedInputs {
     str_tus: Vec<(String, TranslationUnit)>,
     index: Index,
     _library: Library,
+}
+
+const HEADER_EXTENSIONS: [&str; 4] = ["h", "hpp", "hxx", "hh"];
+
+fn expand_header_inputs<P: AsRef<Path>>(inputs: &[P]) -> Result<Vec<PathBuf>, Error> {
+    let mut paths = vec![];
+
+    for input in inputs {
+        let path = input.as_ref();
+        let display = path.to_string_lossy();
+
+        if path.is_dir() {
+            let previous_len = paths.len();
+
+            for entry_path in path
+                .read_dir()
+                .map_err(|_| Error::new("failed to read directory", &display, 0, 0))?
+                .flatten()
+                .map(|entry| entry.path())
+            {
+                if entry_path.is_file()
+                    && entry_path.extension().is_some_and(|extension| {
+                        HEADER_EXTENSIONS
+                            .iter()
+                            .any(|expected| extension.eq_ignore_ascii_case(expected))
+                    })
+                {
+                    paths.push(entry_path);
+                }
+            }
+
+            if paths.len() == previous_len {
+                return Err(Error::new(
+                    "failed to find .h, .hpp, .hxx, or .hh files in directory",
+                    &display,
+                    0,
+                    0,
+                ));
+            }
+        } else if path.extension().is_some_and(|extension| {
+            HEADER_EXTENSIONS
+                .iter()
+                .any(|expected| extension.eq_ignore_ascii_case(expected))
+        }) {
+            paths.push(path.to_path_buf());
+        } else {
+            return Err(Error::new(
+                "expected .h, .hpp, .hxx, or .hh file",
+                &display,
+                0,
+                0,
+            ));
+        }
+    }
+
+    Ok(paths)
 }
 
 /// Keep one stable definition when separate headers repeat an equivalent typedef.

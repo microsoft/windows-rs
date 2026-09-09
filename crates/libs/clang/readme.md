@@ -15,8 +15,8 @@ Start by adding the following to your Cargo.toml file:
 version = "0.100"
 ```
 
-Point it at one or more headers and write the resulting per-header RDL, then feed that RDL to
-`windows_rdl::reader()` to compile a `.winmd`:
+Point it at one or more `.h`, `.hpp`, `.hxx`, or `.hh` headers and write the resulting per-header
+RDL, then feed that RDL to `windows_rdl::reader()` to compile a `.winmd`:
 
 ```rust,no_run
 windows_clang::clang()
