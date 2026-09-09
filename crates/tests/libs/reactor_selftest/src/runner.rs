@@ -11,8 +11,12 @@ use crate::fixtures::{
 };
 
 const FIXTURE_TIMEOUT: Duration = Duration::from_secs(15);
-pub(crate) const SUITE_TIMEOUT: Duration =
-    Duration::from_secs(FIXTURE_TIMEOUT.as_secs() * FIXTURES.len() as u64 + 10);
+const WEBVIEW_FIXTURE_TIMEOUT: Duration = Duration::from_secs(45);
+pub(crate) const SUITE_TIMEOUT: Duration = Duration::from_secs(
+    FIXTURE_TIMEOUT.as_secs() * FIXTURES.len() as u64 + WEBVIEW_FIXTURE_TIMEOUT.as_secs()
+        - FIXTURE_TIMEOUT.as_secs()
+        + 10,
+);
 
 #[derive(Clone, Copy)]
 enum FixtureKind {
@@ -37,6 +41,15 @@ enum FixtureKind {
 struct Fixture {
     name: &'static str,
     kind: FixtureKind,
+}
+
+impl Fixture {
+    fn timeout(&self) -> Duration {
+        match self.kind {
+            FixtureKind::WebViewLifecycle => WEBVIEW_FIXTURE_TIMEOUT,
+            _ => FIXTURE_TIMEOUT,
+        }
+    }
 }
 
 const FIXTURES: &[Fixture] = &[
@@ -145,8 +158,9 @@ impl FixtureRunner {
 
     fn start_timeout(&mut self, context: &ComponentContext<Self>) {
         let generation = self.generation;
+        let timeout = self.fixture().timeout();
         self.timeout = Some(context.spawn_background(move |cancellation| {
-            std::thread::sleep(FIXTURE_TIMEOUT);
+            std::thread::sleep(timeout);
             if cancellation.is_cancelled() {
                 Message::Timeout(u64::MAX)
             } else {

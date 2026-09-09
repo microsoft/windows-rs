@@ -412,5 +412,5 @@ is disabled. Keep those expectations synchronized with generator output.
 
 `test-webview` runs the raw host and browser feature fixtures against a live WebView2 runtime.
 `test-reactor-selftest` covers WinUI control initialization, the COM bridge, navigation, and script
-execution. Both tests run with real windows and message pumps; `--headless` suppresses interactive
-UI rather than replacing the native hosts.
+execution. Both tests run with real windows and message pumps. `test-webview --headless` suppresses
+its interactive UI; the Reactor selftest manages and closes its own test windows.

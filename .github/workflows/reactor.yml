@@ -30,6 +30,20 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
 
+      - name: Install WebView2 Evergreen runtime
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          $installerUrl = "https://go.microsoft.com/fwlink/p/?LinkId=2124703"
+          $installerPath = Join-Path $env:RUNNER_TEMP "MicrosoftEdgeWebview2Setup.exe"
+          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
+          $installer = Start-Process -FilePath $installerPath `
+            -ArgumentList "/silent", "/install" -Wait -PassThru
+          if ($installer.ExitCode -ne 0) {
+            throw "WebView2 installer exited with code $($installer.ExitCode)"
+          }
+
       - name: Install public API tool
         run: cargo install cargo-public-api --locked --version 0.52.0
 
