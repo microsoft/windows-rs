@@ -11,6 +11,7 @@ impl<R: NativeRuntime> Pump<R> {
                 || !self.host_events.is_empty()
                 || !self.imperative.is_empty()
                 || !self.realizations.is_empty()
+                || self.window_operation.is_some()
                 || self.components.pending() != 0
                 || !self.dirty_components.is_empty()
                 || self.native_observation_pending)

@@ -1,0 +1,84 @@
+use windows_pickers::{
+    FileFilter, FolderPicker, GUID, OpenFilePicker, PickerLocation, Result, SaveFilePicker,
+};
+use windows_window::Window;
+
+fn main() -> Result<()> {
+    windows_core::init_mta()?;
+    let window = Window::new("Windows Pickers").create()?;
+
+    match std::env::args().nth(1).as_deref() {
+        None | Some("open") => open(&window),
+        Some("open-multiple") => open_multiple(&window),
+        Some("folder") => folder(&window),
+        Some("folder-multiple") => folder_multiple(&window),
+        Some("save") => save(&window),
+        Some(_) => {
+            println!("usage: pickers-standalone [open|open-multiple|folder|folder-multiple|save]");
+            Ok(())
+        }
+    }
+}
+
+fn open(window: &Window) -> Result<()> {
+    let path = OpenFilePicker::new()
+        .title("Open a Rust source file")
+        .filter(FileFilter::extensions("Rust source", ["rs"]))
+        .filter(FileFilter::all())
+        .initial_filter(0)
+        .default_location(PickerLocation::Documents)
+        .client_id(GUID::from_u128(0x6d81d46c_77da_4874_8ca7_754546ba6803))
+        .show(window)?;
+
+    if let Some(path) = path {
+        println!("{}", path.display());
+    }
+    Ok(())
+}
+
+fn open_multiple(window: &Window) -> Result<()> {
+    for path in OpenFilePicker::new()
+        .title("Open files")
+        .filter(FileFilter::all())
+        .show_multiple(window)?
+    {
+        println!("{}", path.display());
+    }
+    Ok(())
+}
+
+fn folder(window: &Window) -> Result<()> {
+    if let Some(path) = FolderPicker::new()
+        .title("Choose a folder")
+        .commit_label("Choose")
+        .default_location(PickerLocation::Documents)
+        .show(window)?
+    {
+        println!("{}", path.display());
+    }
+    Ok(())
+}
+
+fn folder_multiple(window: &Window) -> Result<()> {
+    for path in FolderPicker::new()
+        .title("Choose folders")
+        .show_multiple(window)?
+    {
+        println!("{}", path.display());
+    }
+    Ok(())
+}
+
+fn save(window: &Window) -> Result<()> {
+    if let Some(path) = SaveFilePicker::new()
+        .title("Save report")
+        .filter(FileFilter::extensions("Text", ["txt"]))
+        .suggested_name("report")
+        .default_extension("txt")
+        .overwrite_prompt(true)
+        .show(window)?
+    {
+        println!("{}", path.display());
+    }
+    Ok(())
+}

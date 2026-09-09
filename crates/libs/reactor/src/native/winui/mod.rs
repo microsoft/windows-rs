@@ -3622,6 +3622,23 @@ impl NativeRuntime for WinUiRuntime {
         open_live_windows(roots)
     }
 
+    fn window_handle(&self, node: NodeId) -> Result<isize, RuntimeError> {
+        let window = self
+            .windows
+            .get(&node)
+            .ok_or(RuntimeError::MissingNode(node))?;
+        let mut hwnd = std::ptr::null_mut();
+        unsafe {
+            window
+                .cast::<IWindowNative>()
+                .map_err(native_error)?
+                .WindowHandle(&mut hwnd)
+                .ok()
+                .map_err(native_error)?;
+        }
+        Ok(hwnd as isize)
+    }
+
     fn reset(&mut self) {
         for root in self.retained_subtrees.keys().copied().collect::<Vec<_>>() {
             _ = self.cancel_retirement(root);

@@ -952,6 +952,27 @@ impl<C: Component> ComponentContext<C> {
         self.tasks.spawn_with_rejection(work, rejected)
     }
 
+    /// Queues work against the owning native window for the next host dispatch after the current
+    /// publication commits.
+    ///
+    /// `work` runs on the UI thread and its returned message is queued rather than delivered
+    /// inline. It does not run if the publication fails, the component retires, or the window
+    /// starts closing before the work is committed. While `work` runs, component dispatch for the
+    /// owning window is suspended. Use this for native modal UI, not slow non-UI work.
+    ///
+    /// A `true` return means the work was staged. A later publication outcome can still discard
+    /// it. Reactor accepts at most one pending window operation for each window.
+    #[must_use = "false means the window operation was not staged"]
+    pub fn run_window<F>(&self, work: F) -> bool
+    where
+        F: for<'a> FnOnce(crate::WindowHandle<'a>) -> C::Message + 'static,
+    {
+        let sender = self.sender.clone();
+        self.window.request_run(Box::new(move |hwnd| {
+            _ = sender.send(work(crate::WindowHandle::new(hwnd)));
+        }))
+    }
+
     /// Returns a token-bound capability for the component's owning window.
     pub fn window(&self) -> WindowRef {
         self.window.clone()
@@ -1471,7 +1492,7 @@ where
             &self.input,
             self.sender.clone(),
             tasks,
-            self.window.reference(),
+            self.window.reference(self.sender.token),
         );
         self.window.finish();
         true
@@ -1498,7 +1519,7 @@ where
             *message,
             self.sender.clone(),
             tasks,
-            self.window.reference(),
+            self.window.reference(self.sender.token),
         );
         self.window.finish();
     }
@@ -1713,7 +1734,7 @@ impl ComponentStore {
                 &ComponentContext {
                     sender: sender.clone(),
                     tasks,
-                    window: window_endpoint.reference(),
+                    window: window_endpoint.reference(sender.token),
                 },
             );
             window_endpoint.finish();
@@ -1750,6 +1771,10 @@ impl ComponentStore {
 
     pub(crate) fn commit_window_close(&self) {
         self.window_endpoint.commit_close();
+    }
+
+    pub(crate) fn contains(&self, token: ComponentToken) -> bool {
+        token.window == self.window && self.queue.borrow().active.contains(&token.scope)
     }
 
     pub fn remove(&mut self, token: ComponentToken) {

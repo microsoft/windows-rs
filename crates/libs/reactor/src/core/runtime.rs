@@ -93,6 +93,10 @@ pub trait NativeRuntime {
     fn apply(&mut self, commands: &[Command]) -> Result<(), NativeApplyError>;
     fn reset(&mut self);
 
+    fn window_handle(&self, _node: NodeId) -> Result<isize, RuntimeError> {
+        Err(RuntimeError::UnsupportedKind)
+    }
+
     fn open_windows(&mut self, _roots: Vec<View>) -> Result<(), RuntimeError> {
         Err(RuntimeError::UnsupportedKind)
     }

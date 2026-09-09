@@ -8,10 +8,11 @@ use windows::UI::Input::Preview::Injection::{
     InjectedInputMouseInfo, InjectedInputMouseOptions, InputInjector,
 };
 use windows::Win32::winuser::{
-    BringWindowToTop, ClientToScreen, GetClientRect, GetMonitorInfoW, GetSystemMetrics,
-    GetWindowRect, MONITOR_DEFAULTTONEAREST, MONITORINFO, MonitorFromWindow, SM_CXVIRTUALSCREEN,
-    SM_CYVIRTUALSCREEN, SM_XVIRTUALSCREEN, SM_YVIRTUALSCREEN, SWP_NOSIZE, SWP_NOZORDER,
-    SetForegroundWindow, SetWindowPos,
+    BringWindowToTop, ClientToScreen, DispatchMessageW, GetClientRect, GetMessageW,
+    GetMonitorInfoW, GetSystemMetrics, GetWindowRect, KillTimer, MONITOR_DEFAULTTONEAREST,
+    MONITORINFO, MSG, MonitorFromWindow, PostQuitMessage, SM_CXVIRTUALSCREEN, SM_CYVIRTUALSCREEN,
+    SM_XVIRTUALSCREEN, SM_YVIRTUALSCREEN, SWP_NOSIZE, SWP_NOZORDER, SetForegroundWindow, SetTimer,
+    SetWindowPos, TranslateMessage, WM_TIMER,
 };
 use windows::Win32::{HWND, POINT, RECT};
 use windows_canvas::{CanvasCompositionExt, CanvasImageSource, ColorF, GpuDevice, animated_canvas};
@@ -35,6 +36,160 @@ pub(crate) struct ProbeInput {
 
 pub(crate) struct ProbeFixture {
     started: bool,
+}
+
+pub(crate) struct NestedWindowOperation {
+    complete: Callback<FixtureResult>,
+    dispatch_started: bool,
+    finished: bool,
+    mount_during: bool,
+    mount_returned: bool,
+    dispatch_during: bool,
+    dispatch_returned: bool,
+}
+
+pub(crate) enum NestedWindowMessage {
+    MountDuring,
+    MountReturned(FixtureResult),
+    DispatchDuring,
+    DispatchReturned(FixtureResult),
+}
+
+impl NestedWindowOperation {
+    fn complete(&mut self, result: FixtureResult) {
+        if self.finished {
+            return;
+        }
+        self.finished = true;
+        if !self.complete.call(result) {
+            eprintln!("nested window operation fixture completion was rejected");
+            std::process::exit(1);
+        }
+    }
+}
+
+impl Component for NestedWindowOperation {
+    type Input = FixtureInput;
+    type Message = NestedWindowMessage;
+
+    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        let sender = context.sender();
+        assert!(context.run_window(move |_| {
+            NestedWindowMessage::MountReturned(run_nested_message_loop(
+                sender,
+                NestedWindowMessage::MountDuring,
+            ))
+        }));
+        Self {
+            complete: input.complete.clone(),
+            dispatch_started: false,
+            finished: false,
+            mount_during: false,
+            mount_returned: false,
+            dispatch_during: false,
+            dispatch_returned: false,
+        }
+    }
+
+    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
+        self.complete = input.complete.clone();
+    }
+
+    fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
+        match message {
+            NestedWindowMessage::MountDuring => self.mount_during = true,
+            NestedWindowMessage::MountReturned(Ok(())) => self.mount_returned = true,
+            NestedWindowMessage::MountReturned(Err(error))
+            | NestedWindowMessage::DispatchReturned(Err(error)) => {
+                self.complete(Err(error));
+                return;
+            }
+            NestedWindowMessage::DispatchDuring => self.dispatch_during = true,
+            NestedWindowMessage::DispatchReturned(Ok(())) => self.dispatch_returned = true,
+        }
+
+        if self.mount_during && self.mount_returned && !self.dispatch_started {
+            self.dispatch_started = true;
+            let sender = context.sender();
+            if !context.run_window(move |_| {
+                NestedWindowMessage::DispatchReturned(run_nested_message_loop(
+                    sender,
+                    NestedWindowMessage::DispatchDuring,
+                ))
+            }) {
+                self.complete(Err("dispatch window operation was not staged".to_string()));
+            }
+        }
+
+        if self.dispatch_during && self.dispatch_returned {
+            self.complete(Ok(()));
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        TextBlock::new().text("nested window operation").into()
+    }
+}
+
+fn run_nested_message_loop(
+    sender: LocalSender<NestedWindowMessage>,
+    message: NestedWindowMessage,
+) -> FixtureResult {
+    let mut timer = unsafe { SetTimer(None, 0, 10, None) };
+    if timer == 0 {
+        return Err("could not start nested-loop timer".to_string());
+    }
+    let callback_seen = Rc::new(Cell::new(false));
+    let mut message = Some(message);
+    let mut sent = false;
+
+    loop {
+        let mut native = MSG::default();
+        let status = unsafe { GetMessageW(&mut native, None, 0, 0) };
+        if status.0 == -1 {
+            unsafe {
+                _ = KillTimer(None, timer);
+            }
+            return Err("nested GetMessageW failed".to_string());
+        }
+        if !status.as_bool() {
+            unsafe {
+                PostQuitMessage(native.wParam.0 as i32);
+            }
+            return Err("nested loop received WM_QUIT".to_string());
+        }
+        if native.message == WM_TIMER as u32 && native.wParam.0 == timer {
+            unsafe {
+                _ = KillTimer(None, timer);
+            }
+            if sent {
+                if !callback_seen.get() {
+                    return Err("nested dispatcher callback did not run".to_string());
+                }
+                return Ok(());
+            }
+            if !sender.send(message.take().unwrap()) {
+                return Err("nested component message was rejected".to_string());
+            }
+            let observed = Rc::clone(&callback_seen);
+            schedule_live_window_handle(move |result| {
+                if result.is_err() {
+                    observed.set(true);
+                }
+            })
+            .map_err(|error| format!("nested dispatcher callback was rejected: {error}"))?;
+            sent = true;
+            timer = unsafe { SetTimer(None, 0, 100, None) };
+            if timer == 0 {
+                return Err("could not start nested-loop verification timer".to_string());
+            }
+            continue;
+        }
+        unsafe {
+            _ = TranslateMessage(&native);
+            DispatchMessageW(&native);
+        }
+    }
 }
 
 pub(crate) enum ProbeMessage {

@@ -1,5 +1,4 @@
 use super::*;
-use windows_core::imp::Type;
 
 /// A GPU-resident bitmap.
 #[derive(Clone)]
@@ -108,18 +107,7 @@ fn wic_factory() -> Result<IWICImagingFactory> {
             return Ok(factory.clone());
         }
 
-        let factory: IWICImagingFactory = unsafe {
-            let mut ptr = core::ptr::null_mut();
-            CoCreateInstance(
-                &CLSID_WICImagingFactory,
-                core::ptr::null_mut(),
-                CLSCTX_INPROC_SERVER,
-                &<IWICImagingFactory as Interface>::IID,
-                &mut ptr,
-            )
-            .ok()?;
-            Type::from_abi(ptr)?
-        };
+        let factory: IWICImagingFactory = create_instance(&CLSID_WICImagingFactory)?;
 
         Ok(cell.get_or_init(|| factory).clone())
     })

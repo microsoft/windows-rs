@@ -4,7 +4,9 @@
 --filter
     AGILEREFERENCE_DEFAULT
     CO_E_NOTINITIALIZED
+    CoCreateInstance
     CoCreateFreeThreadedMarshaler
+    CLSCTX_INPROC_SERVER
     CoIncrementMTAUsage
     CoTaskMemAlloc
     CoTaskMemFree

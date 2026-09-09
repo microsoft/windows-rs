@@ -34,6 +34,7 @@ pub struct RecordingRuntime {
     host_events: Vec<NativeWork<HostEvent>>,
     record_commands: bool,
     fail_at: HashSet<(usize, usize)>,
+    fail_window_handle: bool,
     fail_window_open: bool,
     identity: Option<WindowToken>,
     realizations: Vec<NativeWork<RealizationRequest>>,
@@ -69,6 +70,7 @@ impl Default for RecordingRuntime {
             host_events: Vec::new(),
             record_commands: true,
             fail_at: HashSet::new(),
+            fail_window_handle: false,
             fail_window_open: false,
             identity: None,
             realizations: Vec::new(),
@@ -149,6 +151,11 @@ impl RecordingRuntime {
     pub fn fail_after(&mut self, batches: usize, command_index: usize) {
         self.fail_at
             .insert((self.batches + batches + 1, command_index));
+    }
+
+    #[cfg(any(test, feature = "test"))]
+    pub fn fail_window_handle(&mut self) {
+        self.fail_window_handle = true;
     }
 
     #[cfg(any(test, feature = "test"))]
@@ -1294,6 +1301,16 @@ impl NativeRuntime for RecordingRuntime {
         Ok(())
     }
 
+    fn window_handle(&self, node: NodeId) -> Result<isize, RuntimeError> {
+        if self.fail_window_handle {
+            return Err(RuntimeError::Injected);
+        }
+        self.windows
+            .contains(&node)
+            .then_some(1)
+            .ok_or(RuntimeError::MissingNode(node))
+    }
+
     fn reset(&mut self) {
         self.application = None;
         self.attachments.clear();
@@ -1302,6 +1319,7 @@ impl NativeRuntime for RecordingRuntime {
         self.content_dialog_request_order = 0;
         self.events.clear();
         self.host_events.clear();
+        self.fail_window_handle = false;
         self.nodes.clear();
         self.realizations.clear();
         self.retained_subtrees.clear();

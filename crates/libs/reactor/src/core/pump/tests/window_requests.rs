@@ -288,6 +288,530 @@ fn window_reference_rejects_outside_lifecycle_and_after_shutdown() {
 }
 
 #[derive(Clone)]
+struct RunInput {
+    accepted: Rc<Cell<bool>>,
+    completed: Rc<Cell<bool>>,
+    operations: Rc<Cell<usize>>,
+    second_accepted: Rc<Cell<bool>>,
+    sender: Rc<RefCell<Option<LocalSender<RunMessage>>>>,
+    trace: Rc<RefCell<Vec<&'static str>>>,
+}
+
+impl PartialEq for RunInput {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.accepted, &other.accepted)
+            && Rc::ptr_eq(&self.completed, &other.completed)
+            && Rc::ptr_eq(&self.operations, &other.operations)
+            && Rc::ptr_eq(&self.second_accepted, &other.second_accepted)
+            && Rc::ptr_eq(&self.sender, &other.sender)
+            && Rc::ptr_eq(&self.trace, &other.trace)
+    }
+}
+
+#[derive(Clone)]
+enum RunMessage {
+    Run,
+    RunAndClose,
+    RunTwice,
+    RunWithInvalidView,
+    Complete,
+    Fix,
+}
+
+struct RunningComponent {
+    invalid: bool,
+    input: RunInput,
+}
+
+impl Component for RunningComponent {
+    type Message = RunMessage;
+    type Input = RunInput;
+
+    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        *input.sender.borrow_mut() = Some(context.sender());
+        Self {
+            invalid: false,
+            input: input.clone(),
+        }
+    }
+
+    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
+        self.input = input.clone();
+    }
+
+    fn update(&mut self, message: RunMessage, context: &ComponentContext<Self>) {
+        match message {
+            RunMessage::Run | RunMessage::RunAndClose | RunMessage::RunWithInvalidView => {
+                self.input.trace.borrow_mut().push("update");
+                let operations = Rc::clone(&self.input.operations);
+                let trace = Rc::clone(&self.input.trace);
+                self.input.accepted.set(context.run_window(move |window| {
+                    assert_eq!(window.as_raw() as isize, 1);
+                    operations.set(operations.get() + 1);
+                    trace.borrow_mut().push("operation");
+                    RunMessage::Complete
+                }));
+                self.input.trace.borrow_mut().push("update-returned");
+                if matches!(message, RunMessage::RunAndClose) {
+                    assert!(context.window().request_close());
+                }
+                self.invalid = matches!(message, RunMessage::RunWithInvalidView);
+            }
+            RunMessage::RunTwice => {
+                let operations = Rc::clone(&self.input.operations);
+                self.input.accepted.set(context.run_window(move |_| {
+                    operations.set(operations.get() + 1);
+                    RunMessage::Complete
+                }));
+                let operations = Rc::clone(&self.input.operations);
+                self.input.second_accepted.set(context.run_window(move |_| {
+                    operations.set(operations.get() + 100);
+                    RunMessage::Complete
+                }));
+            }
+            RunMessage::Complete => {
+                self.input.completed.set(true);
+            }
+            RunMessage::Fix => self.invalid = false,
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        self.input.trace.borrow_mut().push("view");
+        if self.invalid {
+            View::fragment((TextBlock::new(), TextBlock::new()))
+        } else {
+            TextBlock::new().text("running").into()
+        }
+    }
+}
+
+fn run_input() -> RunInput {
+    RunInput {
+        accepted: Rc::new(Cell::new(false)),
+        completed: Rc::new(Cell::new(false)),
+        operations: Rc::new(Cell::new(0)),
+        second_accepted: Rc::new(Cell::new(false)),
+        sender: Rc::new(RefCell::new(None)),
+        trace: Rc::new(RefCell::new(Vec::new())),
+    }
+}
+
+#[test]
+fn window_work_runs_after_publication_and_queues_its_message() {
+    let input = run_input();
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<RunningComponent>(input.clone()))
+        .unwrap();
+    input.trace.borrow_mut().clear();
+
+    assert!(
+        input
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(RunMessage::Run)
+    );
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+
+    assert!(input.accepted.get());
+    assert_eq!(
+        input.trace.borrow().as_slice(),
+        ["update", "update-returned", "view"]
+    );
+    assert_eq!(input.operations.get(), 0);
+    assert!(!input.completed.get());
+
+    assert_eq!(pump.process_window_operations(), Ok(1));
+    assert_eq!(
+        input.trace.borrow().as_slice(),
+        ["update", "update-returned", "view", "operation"]
+    );
+    assert_eq!(input.operations.get(), 1);
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert!(input.completed.get());
+}
+
+#[test]
+fn only_one_window_operation_is_pending_per_window() {
+    let input = run_input();
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<RunningComponent>(input.clone()))
+        .unwrap();
+
+    assert!(
+        input
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(RunMessage::RunTwice)
+    );
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert!(input.accepted.get());
+    assert!(!input.second_accepted.get());
+    assert_eq!(input.operations.get(), 0);
+
+    assert!(
+        input
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(RunMessage::Run)
+    );
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert!(!input.accepted.get());
+
+    assert_eq!(pump.process_window_operations(), Ok(1));
+    assert_eq!(input.operations.get(), 1);
+
+    assert!(
+        input
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(RunMessage::Run)
+    );
+    assert_eq!(pump.dispatch_components(2), Ok(2));
+    assert!(input.accepted.get());
+    assert_eq!(pump.process_window_operations(), Ok(1));
+    assert_eq!(input.operations.get(), 2);
+}
+
+#[test]
+fn failed_publication_discards_window_work() {
+    let input = run_input();
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<RunningComponent>(input.clone()))
+        .unwrap();
+
+    assert!(
+        input
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(RunMessage::RunWithInvalidView)
+    );
+    assert_eq!(
+        pump.dispatch_components(1),
+        Err(PumpError::StructureUnsupported)
+    );
+    assert!(input.accepted.get());
+    assert_eq!(input.operations.get(), 0);
+
+    assert!(
+        input
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(RunMessage::Fix)
+    );
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert_eq!(input.operations.get(), 0);
+
+    assert!(
+        input
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(RunMessage::Run)
+    );
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert!(input.accepted.get());
+    assert_eq!(pump.process_window_operations(), Ok(1));
+    assert_eq!(input.operations.get(), 1);
+}
+
+#[test]
+fn window_handle_failure_is_fail_stop() {
+    let input = run_input();
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<RunningComponent>(input.clone()))
+        .unwrap();
+    pump.runtime_mut().fail_window_handle();
+
+    assert!(
+        input
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(RunMessage::Run)
+    );
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert_eq!(
+        pump.process_window_operations(),
+        Err(PumpError::WindowHandleFailed(RuntimeError::Injected))
+    );
+    assert!(pump.poisoned());
+    assert_eq!(input.operations.get(), 0);
+}
+
+#[test]
+fn closing_window_discards_window_work() {
+    let input = run_input();
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<RunningComponent>(input.clone()))
+        .unwrap();
+
+    assert!(
+        input
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(RunMessage::RunAndClose)
+    );
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert!(input.accepted.get());
+    assert_eq!(input.operations.get(), 0);
+    assert_eq!(pump.runtime().close_requests(), &[pump.window.unwrap()]);
+}
+
+#[test]
+fn later_close_discards_pending_window_work() {
+    let input = run_input();
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<RunningComponent>(input.clone()))
+        .unwrap();
+
+    assert!(
+        input
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(RunMessage::Run)
+    );
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert!(input.accepted.get());
+
+    assert!(
+        input
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(RunMessage::RunAndClose)
+    );
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert!(!input.accepted.get());
+    assert_eq!(pump.process_window_operations(), Ok(0));
+    assert_eq!(input.operations.get(), 0);
+    assert_eq!(pump.runtime().close_requests(), &[pump.window.unwrap()]);
+}
+
+#[test]
+fn native_window_close_discards_pending_window_work() {
+    let input = run_input();
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<RunningComponent>(input.clone()))
+        .unwrap();
+
+    assert!(
+        input
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(RunMessage::Run)
+    );
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert!(input.accepted.get());
+    assert!(pump.native_work_pending());
+
+    pump.native_window_closed();
+
+    assert_eq!(pump.process_window_operations(), Ok(0));
+    assert_eq!(input.operations.get(), 0);
+    assert!(!pump.native_work_pending());
+}
+
+#[test]
+fn separate_windows_have_independent_operation_slots() {
+    let first = run_input();
+    let second = run_input();
+    let mut first_pump = Pump::new(RecordingRuntime::default());
+    let mut second_pump = Pump::new(RecordingRuntime::default());
+    first_pump
+        .mount_view(View::component::<RunningComponent>(first.clone()))
+        .unwrap();
+    second_pump
+        .mount_view(View::component::<RunningComponent>(second.clone()))
+        .unwrap();
+
+    assert!(
+        first
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(RunMessage::Run)
+    );
+    assert!(
+        second
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(RunMessage::Run)
+    );
+    assert_eq!(first_pump.dispatch_components(1), Ok(1));
+    assert_eq!(second_pump.dispatch_components(1), Ok(1));
+    assert!(first.accepted.get());
+    assert!(second.accepted.get());
+
+    assert_eq!(first_pump.process_window_operations(), Ok(1));
+    assert_eq!(first.operations.get(), 1);
+    assert_eq!(second.operations.get(), 0);
+    assert_eq!(second_pump.process_window_operations(), Ok(1));
+    assert_eq!(second.operations.get(), 1);
+}
+
+struct RunOnCreate {
+    completed: Rc<Cell<bool>>,
+}
+
+impl Component for RunOnCreate {
+    type Message = ();
+    type Input = (Rc<Cell<usize>>, Rc<Cell<bool>>);
+
+    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        let operations = Rc::clone(&input.0);
+        assert!(context.run_window(move |_| {
+            operations.set(operations.get() + 1);
+        }));
+        Self {
+            completed: Rc::clone(&input.1),
+        }
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {
+        self.completed.set(true);
+    }
+
+    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        TextBlock::new().text("created").into()
+    }
+}
+
+#[test]
+fn create_can_queue_window_work_for_initial_publication() {
+    let operations = Rc::new(Cell::new(0));
+    let completed = Rc::new(Cell::new(false));
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<RunOnCreate>((
+        Rc::clone(&operations),
+        Rc::clone(&completed),
+    )))
+    .unwrap();
+
+    assert_eq!(operations.get(), 0);
+    assert!(pump.native_work_pending());
+    assert_eq!(pump.process_window_operations(), Ok(1));
+    assert_eq!(operations.get(), 1);
+    assert!(!completed.get());
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert!(completed.get());
+}
+
+#[derive(Clone)]
+struct RetirementInput {
+    child_sender: Rc<RefCell<Option<LocalSender<()>>>>,
+    operations: Rc<Cell<usize>>,
+    parent_sender: Rc<RefCell<Option<LocalSender<()>>>>,
+}
+
+impl PartialEq for RetirementInput {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.child_sender, &other.child_sender)
+            && Rc::ptr_eq(&self.operations, &other.operations)
+            && Rc::ptr_eq(&self.parent_sender, &other.parent_sender)
+    }
+}
+
+struct RetiringChild {
+    operations: Rc<Cell<usize>>,
+}
+
+impl Component for RetiringChild {
+    type Message = ();
+    type Input = RetirementInput;
+
+    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        *input.child_sender.borrow_mut() = Some(context.sender());
+        Self {
+            operations: Rc::clone(&input.operations),
+        }
+    }
+
+    fn update(&mut self, _message: (), context: &ComponentContext<Self>) {
+        let operations = Rc::clone(&self.operations);
+        assert!(context.run_window(move |_| {
+            operations.set(operations.get() + 1);
+        }));
+    }
+
+    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        TextBlock::new().text("child").into()
+    }
+}
+
+struct RetiringParent {
+    input: RetirementInput,
+    show_child: bool,
+}
+
+impl Component for RetiringParent {
+    type Message = ();
+    type Input = RetirementInput;
+
+    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        *input.parent_sender.borrow_mut() = Some(context.sender());
+        Self {
+            input: input.clone(),
+            show_child: true,
+        }
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {
+        self.show_child = false;
+    }
+
+    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        if self.show_child {
+            View::component::<RetiringChild>(self.input.clone())
+        } else {
+            TextBlock::new().text("retired").into()
+        }
+    }
+}
+
+#[test]
+fn retiring_component_discards_its_window_work() {
+    let input = RetirementInput {
+        child_sender: Rc::new(RefCell::new(None)),
+        operations: Rc::new(Cell::new(0)),
+        parent_sender: Rc::new(RefCell::new(None)),
+    };
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<RetiringParent>(input.clone()))
+        .unwrap();
+
+    assert!(input.child_sender.borrow().as_ref().unwrap().send(()));
+    assert!(input.parent_sender.borrow().as_ref().unwrap().send(()));
+    assert_eq!(pump.dispatch_components(2), Ok(2));
+    assert_eq!(pump.process_window_operations(), Ok(0));
+    assert_eq!(input.operations.get(), 0);
+}
+
+#[derive(Clone)]
 struct OpenInput {
     accepted: Rc<Cell<bool>>,
     sender: Rc<RefCell<Option<LocalSender<OpenMessage>>>>,

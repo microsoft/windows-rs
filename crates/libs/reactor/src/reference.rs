@@ -5,7 +5,7 @@ use std::marker::PhantomData;
 use std::rc::{Rc, Weak};
 use std::sync::atomic::{AtomicU64, Ordering};
 
-use crate::core::{NativeWork, NodeId, RuntimeError, WindowToken};
+use crate::core::{ComponentToken, NativeWork, NodeId, RuntimeError, WindowToken};
 use crate::element::{Callback, View};
 
 const IMPERATIVE_QUEUE_CAPACITY: usize = 4_096;
@@ -14,21 +14,76 @@ static NEXT_BINDING_ID: AtomicU64 = AtomicU64::new(1);
 
 #[derive(Debug)]
 pub(crate) enum HostRequest {
-    CloseWindow { identity: WindowToken },
-    OpenWindow { identity: WindowToken, root: View },
+    Close {
+        identity: WindowToken,
+    },
+    Open {
+        identity: WindowToken,
+        root: View,
+    },
+    Run {
+        identity: WindowToken,
+        operation: WindowOperation,
+    },
+}
+
+pub(crate) struct WindowOperation {
+    busy: Rc<Cell<bool>>,
+    owner: ComponentToken,
+    work: Option<Box<dyn FnOnce(isize)>>,
+}
+
+impl fmt::Debug for WindowOperation {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter
+            .debug_struct("WindowOperation")
+            .field("owner", &self.owner)
+            .finish_non_exhaustive()
+    }
+}
+
+impl WindowOperation {
+    pub(crate) fn new(
+        owner: ComponentToken,
+        work: Box<dyn FnOnce(isize)>,
+        busy: Rc<Cell<bool>>,
+    ) -> Self {
+        Self {
+            busy,
+            owner,
+            work: Some(work),
+        }
+    }
+
+    pub(crate) fn owner(&self) -> ComponentToken {
+        self.owner
+    }
+
+    pub(crate) fn run(mut self, hwnd: isize) {
+        (self.work.take().unwrap())(hwnd);
+    }
+}
+
+impl Drop for WindowOperation {
+    fn drop(&mut self) {
+        self.busy.set(false);
+    }
 }
 
 struct WindowRequestState {
     active: Option<ActiveWindowRequests>,
     lifecycle: WindowRequestLifecycle,
+    operation_busy: Rc<Cell<bool>>,
     staged_close: bool,
     staged_opens: Vec<View>,
+    staged_operation: Option<WindowOperation>,
 }
 
 #[derive(Default)]
 struct ActiveWindowRequests {
     close: bool,
     opens: Vec<View>,
+    operation: Option<WindowOperation>,
 }
 
 #[derive(Clone, Copy, Eq, PartialEq)]
@@ -52,8 +107,10 @@ impl WindowEndpoint {
             state: Rc::new(RefCell::new(WindowRequestState {
                 active: None,
                 lifecycle: WindowRequestLifecycle::Open,
+                operation_busy: Rc::new(Cell::new(false)),
                 staged_close: false,
                 staged_opens: Vec::new(),
+                staged_operation: None,
             })),
         }
     }
@@ -75,6 +132,10 @@ impl WindowEndpoint {
             .expect("component lifecycle invocation was not active");
         state.staged_close |= active.close;
         state.staged_opens.extend(active.opens);
+        if let Some(operation) = active.operation {
+            assert!(state.staged_operation.is_none());
+            state.staged_operation = Some(operation);
+        }
     }
 
     pub(crate) fn take_requests(&self) -> Vec<HostRequest> {
@@ -82,15 +143,21 @@ impl WindowEndpoint {
         let mut requests = state
             .staged_opens
             .drain(..)
-            .map(|root| HostRequest::OpenWindow {
+            .map(|root| HostRequest::Open {
                 identity: self.identity,
                 root,
             })
             .collect::<Vec<_>>();
         if state.staged_close {
             state.staged_close = false;
-            requests.push(HostRequest::CloseWindow {
+            state.staged_operation = None;
+            requests.push(HostRequest::Close {
                 identity: self.identity,
+            });
+        } else if let Some(operation) = state.staged_operation.take() {
+            requests.push(HostRequest::Run {
+                identity: self.identity,
+                operation,
             });
         }
         requests
@@ -109,6 +176,7 @@ impl WindowEndpoint {
         state.active = None;
         state.staged_close = false;
         state.staged_opens.clear();
+        state.staged_operation = None;
     }
 
     pub(crate) fn commit_close(&self) {
@@ -123,9 +191,10 @@ impl WindowEndpoint {
         };
     }
 
-    pub(crate) fn reference(&self) -> WindowRef {
+    pub(crate) fn reference(&self, owner: ComponentToken) -> WindowRef {
         WindowRef {
             endpoint: self.clone(),
+            owner,
         }
     }
 
@@ -140,6 +209,20 @@ impl WindowEndpoint {
         active.opens.push(root);
         true
     }
+
+    fn request_run(&self, owner: ComponentToken, work: Box<dyn FnOnce(isize)>) -> bool {
+        let mut state = self.state.borrow_mut();
+        if state.lifecycle != WindowRequestLifecycle::Open || state.operation_busy.get() {
+            return false;
+        }
+        let busy = Rc::clone(&state.operation_busy);
+        let Some(active) = state.active.as_mut() else {
+            return false;
+        };
+        busy.set(true);
+        active.operation = Some(WindowOperation::new(owner, work, busy));
+        true
+    }
 }
 
 /// A token-bound capability for a component's owning window.
@@ -149,6 +232,7 @@ impl WindowEndpoint {
 #[derive(Clone)]
 pub struct WindowRef {
     endpoint: WindowEndpoint,
+    owner: ComponentToken,
 }
 
 impl WindowRef {
@@ -176,6 +260,10 @@ impl WindowRef {
 
     pub(crate) fn request_open(&self, root: View) -> bool {
         self.endpoint.request_open(root)
+    }
+
+    pub(crate) fn request_run(&self, work: Box<dyn FnOnce(isize)>) -> bool {
+        self.endpoint.request_run(self.owner, work)
     }
 }
 
@@ -206,6 +294,30 @@ impl fmt::Debug for WindowRef {
 
 pub(crate) mod sealed {
     pub trait Sealed {}
+}
+
+/// A temporary view of a Reactor window's native handle.
+///
+/// Reactor creates this value only while running work queued with
+/// [`ComponentContext::run_window`](crate::ComponentContext::run_window). The handle belongs to
+/// the component's current window and is valid for the duration of that call.
+pub struct WindowHandle<'a> {
+    raw: isize,
+    marker: PhantomData<&'a mut ()>,
+}
+
+impl WindowHandle<'_> {
+    pub(crate) fn new(raw: isize) -> Self {
+        Self {
+            raw,
+            marker: PhantomData,
+        }
+    }
+
+    /// Returns the native `HWND`.
+    pub fn as_raw(&self) -> *mut core::ffi::c_void {
+        self.raw as _
+    }
 }
 
 /// A native control that can be bound to an [`ElementRef`].

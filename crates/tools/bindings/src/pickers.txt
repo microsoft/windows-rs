@@ -1,0 +1,22 @@
+--out crates/libs/pickers/src/bindings.rs
+--flat --minimal --dead-code
+
+--filter
+    COMDLG_FILTERSPEC
+    CoTaskMemFree
+    FileOpenDialog
+    FileSaveDialog
+    FOS_ALLOWMULTISELECT
+    FOS_FORCEFILESYSTEM
+    FOS_OVERWRITEPROMPT
+    FOS_PICKFOLDERS
+    FOS_STRICTFILETYPES
+    IFileDialog::{GetOptions, SetOptions, SetFileTypes, SetFileTypeIndex, SetTitle, SetOkButtonLabel, SetFileName, SetDefaultExtension, SetDefaultFolder, SetFolder, SetClientGuid, GetResult}
+    IFileOpenDialog::GetResults
+    IFileSaveDialog::{}
+    IModalWindow::Show
+    IShellItem::GetDisplayName
+    IShellItemArray::{GetCount, GetItemAt}
+    SHCreateItemInKnownFolder
+    SHCreateItemFromParsingName
+    SIGDN_FILESYSPATH

@@ -54,6 +54,7 @@ does not change a thread that is already initialized in another apartment.
 | `IInspectable` | Base interface for WinRT objects |
 | `Interface` | Interface identity, vtable access, casts, and raw-pointer interop |
 | `GUID` | Interface IDs and other Windows GUID values |
+| `create_instance` | Activates an in-process COM class as a requested interface |
 | `Result<T>`, `Error`, `HRESULT` | Re-exported Windows error model |
 | `HSTRING`, `PCWSTR`, `PCSTR` | Re-exported Windows string model |
 | `AgileReference<T>` | Reference that resolves an apartment-valid proxy |
@@ -64,6 +65,10 @@ does not change a thread that is already initialized in another apartment.
 Projected interface values are reference-counted owners. Cloning one performs the corresponding
 COM reference-count operation, dropping it releases the reference, and `cast` performs
 `QueryInterface`. Prefer these operations over manual `AddRef`, `Release`, or pointer casts.
+
+`create_instance::<T>(&class_id)` wraps the common non-aggregated
+`CoCreateInstance(..., CLSCTX_INPROC_SERVER, ...)` call. The caller remains responsible for COM
+apartment initialization and for choosing a class that supports the calling apartment.
 
 ## Common tasks
 

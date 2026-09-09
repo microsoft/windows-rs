@@ -385,6 +385,39 @@ The background closure must only capture `Send` data and must not touch controls
 state. Put expected failures in the returned message, usually as `Result<T, E>`, and display the
 result after `update` stores it.
 
+## Run modal work with the owning window
+
+Use `run_window` for a native operation that must run on the owning UI thread with the window's
+HWND. A file picker is the main example:
+
+```rust,ignore
+Message::Open => {
+    self.status = "Choose a file...".to_string();
+    _ = context.run_window(|window| {
+        Message::Picked(
+            OpenFilePicker::new()
+                .filter(FileFilter::all())
+                .show_for_hwnd(window.as_raw()),
+        )
+    });
+}
+Message::Picked(result) => {
+    // Store the result in component state.
+}
+```
+
+Reactor runs the closure in the next host dispatch after the current publication commits and
+queues its returned message. It discards the work if publication fails, the requesting component
+retires, or the window starts closing. A `true` return means that the work was staged, not that it
+is guaranteed to run. The `WindowHandle` is scoped to the closure. Each Reactor window accepts one
+pending operation at a time, so a second request returns `false` until the first operation runs or
+is discarded.
+
+Component dispatch for the owning window is suspended until the closure returns. A native modal
+loop can continue drawing and processing its own input, and other Reactor windows remain
+independent. Keep slow non-UI work in `spawn_background`; `run_window` is for native calls such as
+modal dialogs that must remain on the UI thread.
+
 ## Reach for the other APIs when you need them
 
 The component/message/view loop covers most application code. These APIs solve more specific
@@ -397,6 +430,7 @@ problems:
 | `Context<T>` | Sharing app-wide data such as a theme with distant descendants |
 | `ElementRef<T>` | Focus or another operation that cannot be expressed as state |
 | `open_window` | Opening an independent secondary window |
+| `run_window` | Running a native modal operation with the owning HWND |
 | `ItemsRepeater` | Virtualizing a large collection |
 
 Prefer component input over context for normal parent-to-child data, and prefer properties and
@@ -541,6 +575,12 @@ feature removes that allowance so the live surface build checks all generated te
 The generated surface test covers projected controls, properties, events, content, collections,
 slots, attachments, virtual items, and TreeView nodes. Handwritten self-tests own imperative
 references, retirement, and other OS interactions.
+
+Pass `--filter <name>` to run matching handwritten fixtures. For example:
+
+```text
+cargo run -p test-reactor-selftest -- --headless --filter Window_NestedOperationRearming
+```
 
 `crates/libs/reactor/public-api.txt` is the checked public API snapshot. Regenerate it with the
 repository's pinned `cargo-public-api` process after an intentional API change.

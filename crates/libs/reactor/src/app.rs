@@ -424,6 +424,7 @@ impl LivePump for ComponentLoop {
     }
 
     fn dispatch_events(&mut self) -> Result<(), PumpError> {
+        self.pump.process_window_operations()?;
         self.pump.dispatch_events()?;
         self.pump.dispatch_components(64)?;
         self.pump.process_imperatives().map(|_| ())
@@ -894,6 +895,17 @@ impl App {
 
 fn publish_mounted_window(pump: Box<dyn LivePump>) {
     let token = pump.window_token();
+    let rearm = pump.native_work_pending();
+    if rearm && let Err(error) = pump.schedule_dispatch() {
+        let error = runtime_error(error);
+        eprintln!("windows-reactor mounted window scheduling fault: {error}");
+        HOST.with(|host| {
+            if let Some(host) = host.borrow_mut().as_mut() {
+                host.fault = Some(error);
+            }
+        });
+        exit_ui_thread();
+    }
     let mut pump = Some(pump);
     let finalize = HOST.with(|host| {
         let mut host = host.borrow_mut();

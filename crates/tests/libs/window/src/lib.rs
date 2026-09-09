@@ -5,6 +5,7 @@
 //! check handle validity.
 
 pub const WM_SIZE: u32 = 0x0005;
+pub const WM_CLOSE: u32 = 0x0010;
 pub const WM_USER: u32 = 0x0400;
 pub const GWL_EXSTYLE: i32 = -20;
 pub const WS_EX_NOREDIRECTIONBITMAP: isize = 0x0020_0000;

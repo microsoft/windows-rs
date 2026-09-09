@@ -19,7 +19,6 @@
     GetWindowLongPtrW
     GWLP_USERDATA
     IDC_ARROW
-    IsWindow
     LoadCursorW
     MSG
     PeekMessageW

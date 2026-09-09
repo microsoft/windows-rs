@@ -15,7 +15,6 @@ windows_core::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : HWND, nind
 #[cfg(target_pointer_width = "32")]
 pub use GetWindowLongW as GetWindowLongPtrW;
 windows_core::link!("user32.dll" "system" fn GetWindowLongW(hwnd : HWND, nindex : i32) -> i32);
-windows_core::link!("user32.dll" "system" fn IsWindow(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn LoadCursorW(hinstance : HINSTANCE, lpcursorname : windows_core::PCWSTR) -> HCURSOR);
 windows_core::link!("user32.dll" "system" fn PeekMessageW(lpmsg : *mut MSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32, wremovemsg : u32) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));

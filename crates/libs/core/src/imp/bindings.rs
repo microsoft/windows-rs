@@ -1,4 +1,5 @@
 windows_core::link!("ole32.dll" "system" fn CoCreateFreeThreadedMarshaler(punkouter : *mut core::ffi::c_void, ppunkmarshal : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclscontext : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("ole32.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> windows_core::HRESULT);
 windows_core::link!("ole32.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
 windows_core::link!("ole32.dll" "system" fn CoTaskMemFree(pv : *mut core::ffi::c_void));
@@ -11,6 +12,8 @@ windows_core::link!("ole32.dll" "system" fn RoGetAgileReference(options : AgileR
 windows_core::link!("rpcrt4.dll" "system" fn UuidCreate(uuid : *mut windows_core::GUID) -> windows_core::RPC_STATUS);
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = 0;
 pub type AgileReferenceOptions = i32;
+pub type CLSCTX = u32;
+pub const CLSCTX_INPROC_SERVER: CLSCTX = 1;
 pub const CO_E_NOTINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x800401F0_u32 as _);
 pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
 pub const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);

@@ -63,6 +63,8 @@ jobs:
         run:  cargo check -p windows-metadata --all-features
       - name: Check windows-numerics
         run:  cargo check -p windows-numerics --all-features
+      - name: Check windows-pickers
+        run:  cargo check -p windows-pickers --all-features
       - name: Check windows-rdl
         run:  cargo check -p windows-rdl --all-features
       - name: Check windows-reactor

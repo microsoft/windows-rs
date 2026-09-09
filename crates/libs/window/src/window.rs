@@ -1,4 +1,6 @@
 use crate::bindings::*;
+use std::cell::Cell;
+use std::rc::Rc;
 use std::sync::OnceLock;
 use windows_core::*;
 
@@ -11,6 +13,7 @@ type MessageHandler = Box<dyn FnMut(*mut core::ffi::c_void, u32, usize, isize) -
 type ResizeHandler = Box<dyn FnMut(i32, i32)>;
 
 struct State {
+    live: Rc<Cell<bool>>,
     message: Option<MessageHandler>,
     resize: Option<ResizeHandler>,
 }
@@ -19,7 +22,10 @@ struct State {
 ///
 /// The window lives until it is dropped or closed by the user. Its raw `HWND`
 /// is available via [`Window::hwnd`] for interop with other Windows APIs.
-pub struct Window(HWND);
+pub struct Window {
+    hwnd: HWND,
+    live: Rc<Cell<bool>>,
+}
 
 impl Window {
     /// Begins configuring a new window with the given title.
@@ -32,23 +38,24 @@ impl Window {
             client_size: false,
             style: WS_OVERLAPPEDWINDOW as u32,
             ex_style: 0,
-            state: State {
-                message: None,
-                resize: None,
-            },
+            message: None,
+            resize: None,
         }
     }
 
     /// Returns the raw window handle for interop with other Windows APIs.
     pub fn hwnd(&self) -> *mut core::ffi::c_void {
-        self.0
+        self.hwnd
     }
 
     /// Returns the current client-area size in pixels as `(width, height)`.
     pub fn client_size(&self) -> (i32, i32) {
+        if !self.live.get() {
+            return (0, 0);
+        }
         let mut rect = RECT::default();
         unsafe {
-            if GetClientRect(self.0, &mut rect).as_bool() {
+            if GetClientRect(self.hwnd, &mut rect).as_bool() {
                 (rect.right - rect.left, rect.bottom - rect.top)
             } else {
                 (0, 0)
@@ -59,9 +66,9 @@ impl Window {
 
 impl Drop for Window {
     fn drop(&mut self) {
-        unsafe {
-            if IsWindow(self.0).as_bool() {
-                _ = DestroyWindow(self.0);
+        if self.live.get() {
+            unsafe {
+                _ = DestroyWindow(self.hwnd);
             }
         }
     }
@@ -75,7 +82,8 @@ pub struct WindowBuilder {
     client_size: bool,
     style: u32,
     ex_style: u32,
-    state: State,
+    message: Option<MessageHandler>,
+    resize: Option<ResizeHandler>,
 }
 
 impl WindowBuilder {
@@ -119,7 +127,7 @@ impl WindowBuilder {
     where
         F: FnMut(*mut core::ffi::c_void, u32, usize, isize) -> Option<isize> + 'static,
     {
-        self.state.message = Some(Box::new(handler));
+        self.message = Some(Box::new(handler));
         self
     }
 
@@ -129,7 +137,7 @@ impl WindowBuilder {
     where
         F: FnMut(i32, i32) + 'static,
     {
-        self.state.resize = Some(Box::new(handler));
+        self.resize = Some(Box::new(handler));
         self
     }
 
@@ -185,11 +193,16 @@ impl WindowBuilder {
                 return Err(Error::from_thread());
             }
 
-            let state = Box::new(self.state);
+            let live = Rc::new(Cell::new(true));
+            let state = Box::new(State {
+                live: Rc::clone(&live),
+                message: self.message,
+                resize: self.resize,
+            });
             SetWindowLongPtrW(hwnd, GWLP_USERDATA, Box::into_raw(state) as _);
 
             _ = ShowWindow(hwnd, SW_SHOWNORMAL);
-            Ok(Window(hwnd))
+            Ok(Window { hwnd, live })
         }
     }
 }
@@ -341,6 +354,7 @@ unsafe extern "system" fn wndproc(
         if message == WM_NCDESTROY as u32 {
             let state = GetWindowLongPtrW(hwnd, GWLP_USERDATA) as *mut State;
             if !state.is_null() {
+                (*state).live.set(false);
                 SetWindowLongPtrW(hwnd, GWLP_USERDATA, 0);
                 drop(Box::from_raw(state));
             }
