@@ -17,7 +17,7 @@ impl PickerLocation {
     pub(crate) const fn id(self) -> GUID {
         match self {
             Self::Desktop => FOLDERID_Desktop,
-            Self::Documents => FOLDERID_Documents,
+            Self::Documents => FOLDERID_DocumentsLibrary,
             Self::Downloads => FOLDERID_Downloads,
             Self::Music => FOLDERID_MusicLibrary,
             Self::Pictures => FOLDERID_PicturesLibrary,

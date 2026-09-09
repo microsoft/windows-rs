@@ -49,7 +49,7 @@ fn folder(window: &Window) -> Result<()> {
     if let Some(path) = FolderPicker::new()
         .title("Choose a folder")
         .commit_label("Choose")
-        .default_location(PickerLocation::Documents)
+        .location(PickerLocation::Documents)
         .show(window)?
     {
         println!("{}", path.display());

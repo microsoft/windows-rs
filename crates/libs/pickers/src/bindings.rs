@@ -12,8 +12,8 @@ pub const FOLDERID_ComputerFolder: windows_core::GUID =
     windows_core::GUID::from_u128(0x0ac0837c_bbf8_452a_850d_79d08e667ca7);
 pub const FOLDERID_Desktop: windows_core::GUID =
     windows_core::GUID::from_u128(0xb4bfcc3a_db2c_424c_b029_7fe99a87c641);
-pub const FOLDERID_Documents: windows_core::GUID =
-    windows_core::GUID::from_u128(0xfdd39ad0_238f_46af_adb4_6c85480369c7);
+pub const FOLDERID_DocumentsLibrary: windows_core::GUID =
+    windows_core::GUID::from_u128(0x7b0db17d_9cd2_4a93_9733_46cc89022e7c);
 pub const FOLDERID_Downloads: windows_core::GUID =
     windows_core::GUID::from_u128(0x374de290_123f_4565_9164_39c4925e467b);
 pub const FOLDERID_MusicLibrary: windows_core::GUID =

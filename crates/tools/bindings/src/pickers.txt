@@ -8,7 +8,7 @@
     FileSaveDialog
     FOLDERID_ComputerFolder
     FOLDERID_Desktop
-    FOLDERID_Documents
+    FOLDERID_DocumentsLibrary
     FOLDERID_Downloads
     FOLDERID_MusicLibrary
     FOLDERID_Objects3D
