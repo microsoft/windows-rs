@@ -1,0 +1,34 @@
+[package]
+name = "windows-pickers"
+version = "0.100.0"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT OR Apache-2.0"
+description = "Windows file and folder pickers"
+repository = "https://github.com/microsoft/windows-rs"
+categories = ["os::windows-apis"]
+readme = "readme.md"
+
+[features]
+default = ["system"]
+reactor = ["dep:windows-reactor"]
+system = ["dep:windows-window"]
+
+[dependencies]
+windows-core = { workspace = true }
+
+[dependencies.windows-reactor]
+workspace = true
+optional = true
+
+[dependencies.windows-window]
+workspace = true
+optional = true
+
+[lints]
+workspace = true
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = []
+features = ["reactor"]

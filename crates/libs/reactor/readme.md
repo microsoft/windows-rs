@@ -49,3 +49,26 @@ fn main() {
     App::run_component::<Counter>(()).unwrap();
 }
 ```
+
+Native operations that need the owning HWND can be staged from a component update:
+
+```rust,ignore
+let accepted = context.run_window(move |window| {
+    let answer = unsafe {
+        MessageBoxW(
+            window.as_raw(),
+            w!("Continue with this operation?"),
+            w!("Confirm"),
+            (MB_YESNO | MB_ICONQUESTION) as u32,
+        )
+    };
+    Message::Answered(answer)
+});
+```
+
+The operation runs on the UI thread in the next host dispatch after the current view publishes,
+and its returned message is queued for a later update. Work is discarded if publication fails,
+the component retires, or the window starts closing. Component dispatch for that window is
+suspended until the operation returns, so use this for native modal UI rather than slow non-UI
+work. Each window accepts one pending operation at a time. The
+[`reactor-message-box`](../../samples/reactor/message-box) sample contains the complete component.

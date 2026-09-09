@@ -886,6 +886,7 @@ pub fn windows_reactor::CommandBarFlyout::new(impl core::iter::traits::collect::
 pub struct windows_reactor::ComponentContext<C: windows_reactor::Component>
 impl<C: windows_reactor::Component> windows_reactor::ComponentContext<C>
 pub fn windows_reactor::ComponentContext<C>::open_window(&self, windows_reactor::View) -> bool
+pub fn windows_reactor::ComponentContext<C>::run_window<F>(&self, F) -> bool where F: for<'a> core::ops::function::FnOnce(windows_reactor::WindowHandle<'a>) -> <C as windows_reactor::Component>::Message + 'static
 pub fn windows_reactor::ComponentContext<C>::sender(&self) -> windows_reactor::LocalSender<<C as windows_reactor::Component>::Message>
 pub fn windows_reactor::ComponentContext<C>::set_timeout(&self, core::time::Duration, <C as windows_reactor::Component>::Message) -> windows_result::Result<windows_reactor::ComponentTimer>
 pub fn windows_reactor::ComponentContext<C>::spawn_background<F>(&self, F) -> windows_reactor::ComponentTask where <C as windows_reactor::Component>::Message: core::marker::Send, F: core::ops::function::FnOnce(windows_reactor::CancellationToken) -> <C as windows_reactor::Component>::Message + core::marker::Send + 'static
@@ -2850,6 +2851,9 @@ pub windows_reactor::WindowConstraints::max_height: core::option::Option<f64>
 pub windows_reactor::WindowConstraints::max_width: core::option::Option<f64>
 pub windows_reactor::WindowConstraints::min_height: core::option::Option<f64>
 pub windows_reactor::WindowConstraints::min_width: core::option::Option<f64>
+pub struct windows_reactor::WindowHandle<'a>
+impl windows_reactor::WindowHandle<'_>
+pub fn windows_reactor::WindowHandle<'_>::as_raw(&self) -> *mut core::ffi::c_void
 pub struct windows_reactor::WindowRef
 impl windows_reactor::WindowRef
 pub fn windows_reactor::WindowRef::request_close(&self) -> bool

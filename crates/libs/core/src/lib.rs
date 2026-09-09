@@ -22,6 +22,8 @@ pub mod imp;
 
 mod agile_reference;
 mod as_impl;
+#[cfg(windows)]
+mod com;
 mod com_object;
 mod compose;
 #[cfg(feature = "std")]
@@ -48,6 +50,8 @@ mod weak;
 
 pub use agile_reference::*;
 pub use as_impl::*;
+#[cfg(windows)]
+pub use com::*;
 pub use com_object::*;
 pub use compose::*;
 #[cfg(feature = "std")]

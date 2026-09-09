@@ -30,3 +30,9 @@ fn check(code: HRESULT) -> Result<()> {
 assert!(check(HRESULT(0)).is_ok());
 assert!(check(HRESULT(-2147467259)).is_err());
 ```
+
+`create_instance` activates an in-process COM class and returns a requested interface. The
+application must initialize the calling thread for COM before using it.
+
+Use `init_mta` for apartment-agnostic code. UI threads that require a single-threaded apartment can
+hold the value returned by `init_sta` for the lifetime of their COM objects.

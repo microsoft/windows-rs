@@ -83,7 +83,7 @@ pub(crate) fn parse_guid_initializer_tokens(tokens: &[(CXTokenKind, String)]) ->
     format_guid_from_values(&values)
 }
 
-/// Parse `DEFINE_GUID`/`DEFINE_OLEGUID` tokens into `(name, uuid)`.
+/// Parse `DEFINE_GUID`/`DEFINE_OLEGUID`/`DEFINE_KNOWN_FOLDER` tokens into `(name, uuid)`.
 ///
 /// `DEFINE_OLEGUID` omits the fixed OLE tail bytes.
 pub(crate) fn parse_define_guid_tokens(

@@ -11,18 +11,7 @@ pub struct TransitionLibrary(IUIAnimationTransitionLibrary2);
 impl TransitionLibrary {
     /// Creates a new transition library.
     pub fn new() -> Result<Self> {
-        unsafe {
-            let mut ptr = core::ptr::null_mut();
-            CoCreateInstance(
-                &UIAnimationTransitionLibrary2,
-                core::ptr::null_mut(),
-                CLSCTX_INPROC_SERVER,
-                &IUIAnimationTransitionLibrary2::IID,
-                &mut ptr,
-            )
-            .ok()?;
-            Ok(Self(windows_core::imp::Type::from_abi(ptr)?))
-        }
+        Ok(Self(create_instance(&UIAnimationTransitionLibrary2)?))
     }
 
     /// Creates a transition that accelerates then decelerates.

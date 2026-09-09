@@ -58,6 +58,7 @@ Each crate page covers usage and maintenance. Generated API documentation is ava
 | [windows-composition](crates/windows-composition.md) | Windows composition visuals. |
 | [windows-webview](crates/windows-webview.md) | Safe wrapper around the WebView2 browser control. |
 | [windows-window](crates/windows-window.md) | Window creation and message dispatch. |
+| [windows-pickers](crates/windows-pickers.md) | Windows file and folder pickers. |
 | [windows-animation](crates/windows-animation.md) | Wrapper around the Windows Animation Manager. |
 | [windows-reactor-setup](crates/windows-reactor-setup.md) | Stages the Windows App Runtime. |
 

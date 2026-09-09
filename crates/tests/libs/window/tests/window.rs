@@ -1,6 +1,8 @@
 //! Window lifecycle: creation, handle validity, client size, and destruction.
 
-use test_window::{IsWindow, WS_EX_NOREDIRECTIONBITMAP, get_window_ex_style};
+use test_window::{
+    IsWindow, SendMessageW, WM_CLOSE, WS_EX_NOREDIRECTIONBITMAP, get_window_ex_style,
+};
 use windows_window::Window;
 
 #[test]
@@ -40,5 +42,19 @@ fn drop_destroys_the_window() {
     let hwnd = window.hwnd();
     assert!(unsafe { IsWindow(hwnd) } != 0);
     drop(window);
+    assert!(unsafe { IsWindow(hwnd) } == 0);
+}
+
+#[test]
+fn native_close_marks_the_window_dead() {
+    let window = Window::new("test").create().unwrap();
+    let hwnd = window.hwnd();
+
+    unsafe {
+        SendMessageW(hwnd, WM_CLOSE, 0, 0);
+    }
+
+    assert!(window.hwnd().is_null());
+    assert_eq!(window.client_size(), (0, 0));
     assert!(unsafe { IsWindow(hwnd) } == 0);
 }

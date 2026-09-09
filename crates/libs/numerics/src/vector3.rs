@@ -49,8 +49,7 @@ impl Vector3 {
     pub fn dot(&self, rhs: &Self) -> f32 {
         self.x * rhs.x + self.y * rhs.y + self.z * rhs.z
     }
-    /// Returns the squared length of the vector, avoiding the square root
-    /// computed by [`length`](Self::length).
+    /// Returns the squared length of the vector, avoiding a square-root calculation.
     pub fn length_squared(&self) -> f32 {
         self.dot(self)
     }

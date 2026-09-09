@@ -3,8 +3,6 @@
 
 
 --filter
-    CoCreateInstance
-    CLSCTX_INPROC_SERVER
     IUIAnimationManager2::{CreateAnimationVariable, CreateStoryboard, Update, ScheduleTransition}
     IUIAnimationStoryboard2::{AddTransition, AddKeyframeAfterTransition, AddTransitionAtKeyframe, Schedule}
     IUIAnimationTransition2::{}

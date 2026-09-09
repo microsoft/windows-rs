@@ -2,7 +2,7 @@
 
 use std::cell::Cell;
 use std::rc::Rc;
-use test_window::{SendMessageW, WM_SIZE, WM_USER};
+use test_window::{IsWindow, SendMessageW, WM_CLOSE, WM_SIZE, WM_USER};
 use windows_window::Window;
 
 #[test]
@@ -41,4 +41,29 @@ fn on_resize_receives_the_new_client_size() {
         SendMessageW(window.hwnd(), WM_SIZE, 0, lparam);
     }
     assert_eq!(size.get(), (640, 480));
+}
+
+#[test]
+fn reentrant_close_invalidates_the_window() {
+    let window = Window::new("test")
+        .on_message(|hwnd, message, _wparam, _lparam| {
+            if message == WM_USER {
+                unsafe {
+                    SendMessageW(hwnd, WM_CLOSE, 0, 0);
+                }
+                Some(0)
+            } else {
+                None
+            }
+        })
+        .create()
+        .unwrap();
+    let hwnd = window.hwnd();
+
+    unsafe {
+        SendMessageW(hwnd, WM_USER, 0, 0);
+    }
+
+    assert!(window.hwnd().is_null());
+    assert!(unsafe { IsWindow(hwnd) } == 0);
 }

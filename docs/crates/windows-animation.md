@@ -153,7 +153,8 @@ This section is for contributors to `windows-animation`.
 `Storyboard`, `Transition`, `Keyframe`, and `Variable` wrappers expose the selected Windows
 Animation Manager 2 interfaces.
 
-`Manager::new` and `TransitionLibrary::new` create their COM classes with `CoCreateInstance`.
+`Manager::new` and `TransitionLibrary::new` create their COM classes with
+`windows_core::create_instance`.
 Manager methods delegate scheduling and updates to `IUIAnimationManager2`. Storyboards add an
 explicit keyframe after each transition so the returned opaque `Keyframe` can anchor another
 transition. `Variable::copy_curve` casts the supplied interface to `IDCompositionAnimation` before

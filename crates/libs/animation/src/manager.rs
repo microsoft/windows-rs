@@ -7,18 +7,7 @@ pub struct Manager(pub(crate) IUIAnimationManager2);
 impl Manager {
     /// Creates a new animation manager.
     pub fn new() -> Result<Self> {
-        unsafe {
-            let mut ptr = core::ptr::null_mut();
-            CoCreateInstance(
-                &UIAnimationManager2,
-                core::ptr::null_mut(),
-                CLSCTX_INPROC_SERVER,
-                &IUIAnimationManager2::IID,
-                &mut ptr,
-            )
-            .ok()?;
-            Ok(Self(windows_core::imp::Type::from_abi(ptr)?))
-        }
+        Ok(Self(create_instance(&UIAnimationManager2)?))
     }
 
     /// Creates a new animation variable with the given initial value.

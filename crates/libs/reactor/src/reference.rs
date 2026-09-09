@@ -5,7 +5,7 @@ use std::marker::PhantomData;
 use std::rc::{Rc, Weak};
 use std::sync::atomic::{AtomicU64, Ordering};
 
-use crate::core::{NativeWork, NodeId, RuntimeError, WindowToken};
+use crate::core::{ComponentToken, NativeWork, NodeId, RuntimeError, WindowToken};
 use crate::element::{Callback, View};
 
 const IMPERATIVE_QUEUE_CAPACITY: usize = 4_096;
@@ -14,21 +14,82 @@ static NEXT_BINDING_ID: AtomicU64 = AtomicU64::new(1);
 
 #[derive(Debug)]
 pub(crate) enum HostRequest {
-    CloseWindow { identity: WindowToken },
-    OpenWindow { identity: WindowToken, root: View },
+    Close {
+        identity: WindowToken,
+    },
+    Open {
+        identity: WindowToken,
+        root: View,
+    },
+    Run {
+        identity: WindowToken,
+        operation: WindowOperation,
+    },
+}
+
+pub(crate) struct WindowOperation {
+    state: Weak<WindowRequestState>,
+    owner: ComponentToken,
+    work: Option<Box<dyn FnOnce(isize)>>,
+}
+
+impl fmt::Debug for WindowOperation {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter
+            .debug_struct("WindowOperation")
+            .field("owner", &self.owner)
+            .finish_non_exhaustive()
+    }
+}
+
+impl WindowOperation {
+    fn new(
+        owner: ComponentToken,
+        work: Box<dyn FnOnce(isize)>,
+        state: Weak<WindowRequestState>,
+    ) -> Self {
+        Self {
+            state,
+            owner,
+            work: Some(work),
+        }
+    }
+
+    pub(crate) fn owner(&self) -> ComponentToken {
+        self.owner
+    }
+
+    pub(crate) fn run(mut self, hwnd: isize) {
+        (self.work.take().unwrap())(hwnd);
+    }
+}
+
+impl Drop for WindowOperation {
+    fn drop(&mut self) {
+        if let Some(state) = self.state.upgrade() {
+            state.operation_busy.set(false);
+        }
+    }
 }
 
 struct WindowRequestState {
+    operation_busy: Cell<bool>,
+    data: RefCell<WindowRequestData>,
+}
+
+struct WindowRequestData {
     active: Option<ActiveWindowRequests>,
     lifecycle: WindowRequestLifecycle,
     staged_close: bool,
     staged_opens: Vec<View>,
+    staged_operation: Option<WindowOperation>,
 }
 
 #[derive(Default)]
 struct ActiveWindowRequests {
     close: bool,
     opens: Vec<View>,
+    operation: Option<WindowOperation>,
 }
 
 #[derive(Clone, Copy, Eq, PartialEq)]
@@ -42,24 +103,28 @@ enum WindowRequestLifecycle {
 #[derive(Clone)]
 pub(crate) struct WindowEndpoint {
     identity: WindowToken,
-    state: Rc<RefCell<WindowRequestState>>,
+    state: Rc<WindowRequestState>,
 }
 
 impl WindowEndpoint {
     pub(crate) fn new(identity: WindowToken) -> Self {
         Self {
             identity,
-            state: Rc::new(RefCell::new(WindowRequestState {
-                active: None,
-                lifecycle: WindowRequestLifecycle::Open,
-                staged_close: false,
-                staged_opens: Vec::new(),
-            })),
+            state: Rc::new(WindowRequestState {
+                operation_busy: Cell::new(false),
+                data: RefCell::new(WindowRequestData {
+                    active: None,
+                    lifecycle: WindowRequestLifecycle::Open,
+                    staged_close: false,
+                    staged_opens: Vec::new(),
+                    staged_operation: None,
+                }),
+            }),
         }
     }
 
     pub(crate) fn begin(&self) {
-        let mut state = self.state.borrow_mut();
+        let mut state = self.state.data.borrow_mut();
         assert!(
             state.active.is_none(),
             "component lifecycle invocation reentered"
@@ -68,36 +133,46 @@ impl WindowEndpoint {
     }
 
     pub(crate) fn finish(&self) {
-        let mut state = self.state.borrow_mut();
+        let mut state = self.state.data.borrow_mut();
         let active = state
             .active
             .take()
             .expect("component lifecycle invocation was not active");
         state.staged_close |= active.close;
         state.staged_opens.extend(active.opens);
+        if let Some(operation) = active.operation {
+            assert!(state.staged_operation.is_none());
+            state.staged_operation = Some(operation);
+        }
     }
 
     pub(crate) fn take_requests(&self) -> Vec<HostRequest> {
-        let mut state = self.state.borrow_mut();
+        let mut state = self.state.data.borrow_mut();
         let mut requests = state
             .staged_opens
             .drain(..)
-            .map(|root| HostRequest::OpenWindow {
+            .map(|root| HostRequest::Open {
                 identity: self.identity,
                 root,
             })
             .collect::<Vec<_>>();
         if state.staged_close {
             state.staged_close = false;
-            requests.push(HostRequest::CloseWindow {
+            state.staged_operation = None;
+            requests.push(HostRequest::Close {
                 identity: self.identity,
+            });
+        } else if let Some(operation) = state.staged_operation.take() {
+            requests.push(HostRequest::Run {
+                identity: self.identity,
+                operation,
             });
         }
         requests
     }
 
     pub(crate) fn close(&self) {
-        let mut state = self.state.borrow_mut();
+        let mut state = self.state.data.borrow_mut();
         state.lifecycle = match state.lifecycle {
             WindowRequestLifecycle::Open | WindowRequestLifecycle::Closed => {
                 WindowRequestLifecycle::Closed
@@ -109,10 +184,11 @@ impl WindowEndpoint {
         state.active = None;
         state.staged_close = false;
         state.staged_opens.clear();
+        state.staged_operation = None;
     }
 
     pub(crate) fn commit_close(&self) {
-        let mut state = self.state.borrow_mut();
+        let mut state = self.state.data.borrow_mut();
         state.lifecycle = match state.lifecycle {
             WindowRequestLifecycle::Open | WindowRequestLifecycle::CloseCommitted => {
                 WindowRequestLifecycle::CloseCommitted
@@ -123,14 +199,15 @@ impl WindowEndpoint {
         };
     }
 
-    pub(crate) fn reference(&self) -> WindowRef {
+    pub(crate) fn reference(&self, owner: ComponentToken) -> WindowRef {
         WindowRef {
             endpoint: self.clone(),
+            owner,
         }
     }
 
     fn request_open(&self, root: View) -> bool {
-        let mut state = self.state.borrow_mut();
+        let mut state = self.state.data.borrow_mut();
         if state.lifecycle != WindowRequestLifecycle::Open {
             return false;
         }
@@ -138,6 +215,23 @@ impl WindowEndpoint {
             return false;
         };
         active.opens.push(root);
+        true
+    }
+
+    fn request_run(&self, owner: ComponentToken, work: Box<dyn FnOnce(isize)>) -> bool {
+        let mut state = self.state.data.borrow_mut();
+        if state.lifecycle != WindowRequestLifecycle::Open || self.state.operation_busy.get() {
+            return false;
+        }
+        let Some(active) = state.active.as_mut() else {
+            return false;
+        };
+        self.state.operation_busy.set(true);
+        active.operation = Some(WindowOperation::new(
+            owner,
+            work,
+            Rc::downgrade(&self.state),
+        ));
         true
     }
 }
@@ -149,13 +243,14 @@ impl WindowEndpoint {
 #[derive(Clone)]
 pub struct WindowRef {
     endpoint: WindowEndpoint,
+    owner: ComponentToken,
 }
 
 impl WindowRef {
     /// Requests that the owning window close after the current component turn publishes.
     #[must_use = "false means there is no active component publication"]
     pub fn request_close(&self) -> bool {
-        let mut state = self.endpoint.state.borrow_mut();
+        let mut state = self.endpoint.state.data.borrow_mut();
         if state.lifecycle != WindowRequestLifecycle::Open {
             return false;
         }
@@ -169,7 +264,7 @@ impl WindowRef {
     #[cfg(test)]
     pub(crate) fn close_committed(&self) -> bool {
         matches!(
-            self.endpoint.state.borrow().lifecycle,
+            self.endpoint.state.data.borrow().lifecycle,
             WindowRequestLifecycle::CloseCommitted | WindowRequestLifecycle::ClosedCommitted
         )
     }
@@ -177,11 +272,15 @@ impl WindowRef {
     pub(crate) fn request_open(&self, root: View) -> bool {
         self.endpoint.request_open(root)
     }
+
+    pub(crate) fn request_run(&self, work: Box<dyn FnOnce(isize)>) -> bool {
+        self.endpoint.request_run(self.owner, work)
+    }
 }
 
 impl fmt::Debug for WindowRef {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
-        let state = self.endpoint.state.borrow();
+        let state = self.endpoint.state.data.borrow();
         formatter
             .debug_struct("WindowRef")
             .field("active", &state.active.is_some())
@@ -206,6 +305,41 @@ impl fmt::Debug for WindowRef {
 
 pub(crate) mod sealed {
     pub trait Sealed {}
+}
+
+/// A temporary view of a Reactor window's native handle.
+///
+/// Reactor creates this value only while running work queued with
+/// [`ComponentContext::run_window`](crate::ComponentContext::run_window). The handle belongs to
+/// the component's current window, is valid for the duration of that call, and cannot be sent to
+/// or shared with another thread.
+///
+/// ```compile_fail
+/// fn require_send<T: Send>() {}
+/// require_send::<windows_reactor::WindowHandle<'static>>();
+/// ```
+///
+/// ```compile_fail
+/// fn require_sync<T: Sync>() {}
+/// require_sync::<windows_reactor::WindowHandle<'static>>();
+/// ```
+pub struct WindowHandle<'a> {
+    raw: isize,
+    marker: PhantomData<(&'a mut (), Rc<()>)>,
+}
+
+impl WindowHandle<'_> {
+    pub(crate) fn new(raw: isize) -> Self {
+        Self {
+            raw,
+            marker: PhantomData,
+        }
+    }
+
+    /// Returns the native `HWND`.
+    pub fn as_raw(&self) -> *mut core::ffi::c_void {
+        self.raw as _
+    }
 }
 
 /// A native control that can be bound to an [`ElementRef`].

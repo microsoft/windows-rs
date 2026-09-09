@@ -59,7 +59,8 @@ crate's built-in handling and `DefWindowProcW`. `on_resize` is the focused alter
 run.
 
 `create` registers the shared window class, creates and shows the window, and returns an error if
-creation fails. `Window::client_size` returns `(0, 0)` if `GetClientRect` fails.
+creation fails. After native destruction, `Window::hwnd` returns null and `Window::client_size`
+returns `(0, 0)`.
 
 Dropping a live `Window` calls `DestroyWindow`. An unhandled `WM_DESTROY` posts `WM_QUIT`, so
 closing any window created by this crate ends the thread's message loop. Applications with several
@@ -132,8 +133,10 @@ registration, creation, DPI setup, destruction, and message dispatch. The hand-w
 `window.rs` depends only on [`windows-core`](windows-core.md).
 
 One class is registered lazily for the process. A boxed state containing optional message and
-resize handlers is stored in `GWLP_USERDATA` after `CreateWindowExW`. `wndproc` removes the state
-on `WM_NCDESTROY`; `Window::drop` checks whether the handle is still live before destroying it.
+resize handlers and a shared liveness bit is stored in `GWLP_USERDATA` after `CreateWindowExW`.
+`wndproc` clears the bit and removes the state on `WM_NCDESTROY`. `Window::drop` destroys only the
+original native window while it remains live. This prevents a late drop from acting on an HWND
+value that Windows has recycled for another window.
 
 Before invoking a callback, `wndproc` takes both handlers out of state. After the callback it reads
 `GWLP_USERDATA` again because synchronous handling may have destroyed the window and freed the

@@ -395,7 +395,10 @@ impl<'a> Parser<'a> {
             }
             // GUID macro values live in the arguments unless `INITGUID` is defined.
             CXCursor_MacroExpansion
-                if matches!(child.name().as_str(), "DEFINE_GUID" | "DEFINE_OLEGUID") =>
+                if matches!(
+                    child.name().as_str(),
+                    "DEFINE_GUID" | "DEFINE_OLEGUID" | "DEFINE_KNOWN_FOLDER"
+                ) =>
             {
                 let ole = child.name() == "DEFINE_OLEGUID";
                 let tokens = self.tu.tokenize(child.extent());
