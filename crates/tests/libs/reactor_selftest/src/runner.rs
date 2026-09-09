@@ -6,7 +6,8 @@ use windows_reactor::*;
 use crate::fixtures::{
     CompositionLifecycle, EncodedImageLifecycle, FixtureInput, FixtureResult, FocusPublication,
     ImageSourceLifecycle, KeyedNativeMutations, NestedWindowOperation, PointerInjection,
-    ProbeFixture, ProbeInput, SwapChainLifecycle, ThemeResources, TimerLifecycle, WindowLifecycle,
+    ProbeFixture, ProbeInput, SwapChainLifecycle, ThemeResources, TimerLifecycle, WebViewLifecycle,
+    WindowLifecycle,
 };
 
 const FIXTURE_TIMEOUT: Duration = Duration::from_secs(15);
@@ -22,6 +23,7 @@ enum FixtureKind {
     ControlledFeedback,
     NestedWindowOperation,
     WindowLifecycle,
+    WebViewLifecycle,
     EncodedImageLifecycle,
     ImageSourceLifecycle,
     CompositionLifecycle,
@@ -65,6 +67,10 @@ const FIXTURES: &[Fixture] = &[
     Fixture {
         name: "Window_ClosureTaskAndEffectCleanup",
         kind: FixtureKind::WindowLifecycle,
+    },
+    Fixture {
+        name: "WebView_InitializeBridgeAndScript",
+        kind: FixtureKind::WebViewLifecycle,
     },
     Fixture {
         name: "ImageSource_DpiAttachClearRetire",
@@ -250,6 +256,7 @@ impl Component for FixtureRunner {
                 View::component::<NestedWindowOperation>(input)
             }
             Some(FixtureKind::WindowLifecycle) => View::component::<WindowLifecycle>(input),
+            Some(FixtureKind::WebViewLifecycle) => View::component::<WebViewLifecycle>(input),
             Some(FixtureKind::ImageSourceLifecycle) => {
                 View::component::<ImageSourceLifecycle>(input)
             }

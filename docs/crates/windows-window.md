@@ -47,11 +47,11 @@ initial resize messages that arrive after the builder installs its state.
 
 ## Window creation and ownership
 
-`Window::new(title)` returns a `WindowBuilder`. `position` sets the initial screen position in
-physical pixels. `size` sets the initial outer window size, while `client_size` sets the size
-excluding non-client borders. `style` and `ex_style` replace the defaults with raw `WS_*` and
-`WS_EX_*` values. The defaults are `WS_OVERLAPPEDWINDOW` and no extended style.
-`no_redirection_bitmap` adds `WS_EX_NOREDIRECTIONBITMAP` for content supplied by composition.
+`Window::new(title)` returns a `WindowBuilder`. `size` sets the initial outer window size, while
+`client_size` sets the size excluding non-client borders. `style` and `ex_style` replace the
+defaults with raw `WS_*` and `WS_EX_*` values. The defaults are `WS_OVERLAPPEDWINDOW` and no
+extended style. `no_redirection_bitmap` adds `WS_EX_NOREDIRECTIONBITMAP` for content supplied by
+composition.
 
 `on_message` receives `(hwnd, message, wparam, lparam)` and returns `Option<isize>`. Return
 `Some(result)` only when the application fully handled the message. Return `None` to use the

@@ -11,19 +11,9 @@ pub const WM_USER: u32 = 0x0400;
 pub const GWL_EXSTYLE: i32 = -20;
 pub const WS_EX_NOREDIRECTIONBITMAP: isize = 0x0020_0000;
 
-#[repr(C)]
-#[derive(Default)]
-pub struct Rect {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
-}
-
 windows_link::link!("user32.dll" "system" fn SendMessageW(hwnd: *mut core::ffi::c_void, msg: u32, wparam: usize, lparam: isize) -> isize);
 windows_link::link!("user32.dll" "system" fn IsWindow(hwnd: *mut core::ffi::c_void) -> i32);
 windows_link::link!("user32.dll" "system" fn DestroyWindow(hwnd: *mut core::ffi::c_void) -> i32);
-windows_link::link!("user32.dll" "system" fn GetWindowRect(hwnd: *mut core::ffi::c_void, rect: *mut Rect) -> i32);
 
 #[cfg(target_pointer_width = "64")]
 windows_link::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd: *mut core::ffi::c_void, index: i32) -> isize);

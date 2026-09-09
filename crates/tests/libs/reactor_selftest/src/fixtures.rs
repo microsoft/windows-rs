@@ -20,8 +20,93 @@ use windows_collections::IIterable;
 use windows_composition::{Compositor as CompositionCompositor, ContainerVisual, SpriteVisual};
 use windows_reactor::test::{LiveProbe, schedule_live_probe, schedule_live_window_handle};
 use windows_reactor::*;
+use windows_webview::{EventRegistration, WebView, webview_result};
 
 pub type FixtureResult = Result<(), String>;
+
+pub(crate) struct WebViewLifecycle {
+    complete: Callback<FixtureResult>,
+    navigation: Option<EventRegistration>,
+    webview: Option<WebView>,
+}
+
+pub(crate) enum WebViewMessage {
+    Initialized(Result<WebView, IntegrationError>),
+    Navigated(bool),
+    Script(Result<String, windows_core::Error>),
+}
+
+impl Component for WebViewLifecycle {
+    type Input = FixtureInput;
+    type Message = WebViewMessage;
+
+    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            complete: input.complete.clone(),
+            navigation: None,
+            webview: None,
+        }
+    }
+
+    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
+        self.complete = input.complete.clone();
+    }
+
+    fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
+        let complete = matches!(&message, WebViewMessage::Script(Ok(_)));
+        let result = match message {
+            WebViewMessage::Initialized(Ok(webview)) => {
+                let sender = context.sender();
+                match webview.on_navigation_completed(move |args| {
+                    _ = sender.send(WebViewMessage::Navigated(args.is_success()));
+                }) {
+                    Ok(navigation) => {
+                        self.navigation = Some(navigation);
+                        let result = webview
+                            .navigate_to_string("<!DOCTYPE html><title>Reactor WebView</title>");
+                        self.webview = Some(webview);
+                        result.map_err(|error| format!("navigation did not start: {error}"))
+                    }
+                    Err(error) => Err(format!("navigation subscription failed: {error}")),
+                }
+            }
+            WebViewMessage::Initialized(Err(error)) => {
+                Err(format!("Reactor WebView initialization failed: {error:?}"))
+            }
+            WebViewMessage::Navigated(true) => {
+                let Some(webview) = &self.webview else {
+                    return;
+                };
+                let sender = context.sender();
+                webview
+                    .execute_script("6 * 7", move |result| {
+                        _ = sender.send(WebViewMessage::Script(result));
+                    })
+                    .map_err(|error| format!("script did not start: {error}"))
+            }
+            WebViewMessage::Navigated(false) => {
+                Err("Reactor WebView navigation failed".to_string())
+            }
+            WebViewMessage::Script(Ok(value)) if value == "42" => Ok(()),
+            WebViewMessage::Script(Ok(value)) => Err(format!(
+                "Reactor WebView returned unexpected script result {value}"
+            )),
+            WebViewMessage::Script(Err(error)) => {
+                Err(format!("Reactor WebView script failed: {error}"))
+            }
+        };
+
+        if let Err(error) = result {
+            _ = self.complete.call(Err(error));
+        } else if complete {
+            _ = self.complete.call(Ok(()));
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        webview_result(context.callback(WebViewMessage::Initialized))
+    }
+}
 
 #[derive(Clone, PartialEq)]
 pub struct FixtureInput {

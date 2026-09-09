@@ -75,9 +75,9 @@ fn main() -> Result<()> {
 
 The host resizes the controller with its parent and closes WebView2 before the HWND is destroyed.
 Call `host.retain` or `host.retain_all` for event registrations that should remain active for the
-host lifetime. `WebViewWindowBuilder::position` places the parent window initially, and
-`WebViewWindowBuilder::on_close` reports user-initiated closure when another UI framework
-coordinates several windows.
+host lifetime. `WebViewWindowBuilder::on_close` reports normal close processing, including
+programmatic closure, when another UI framework coordinates several windows. Direct destruction
+during drop does not call it.
 
 Use `WebViewHostBuilder` when a framework already owns the parent HWND and UI loop:
 
@@ -410,5 +410,7 @@ self-contained deployment.
 Generated bindings carry casing lint expectations and allow dead code only when the Reactor bridge
 is disabled. Keep those expectations synchronized with generator output.
 
-There is no headless integration suite because WebView2 requires a runtime, window, and message
-pump. The example applications are the end-to-end coverage for hosting and feature workflows.
+`test-webview` runs the raw host and browser feature fixtures against a live WebView2 runtime.
+`test-reactor-selftest` covers WinUI control initialization, the COM bridge, navigation, and script
+execution. Both tests run with real windows and message pumps; `--headless` suppresses interactive
+UI rather than replacing the native hosts.

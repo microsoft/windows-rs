@@ -305,7 +305,6 @@ fn create_window(sender: LocalSender<Message>) -> String {
     let closed = sender.clone();
     let user_data = std::env::temp_dir().join("windows-rs-reactor-webview-raw");
     let result = WebViewWindow::new("WebView2 - windows-window host")
-        .position(980, 80)
         .client_size(900, 760)
         .environment_options(
             EnvironmentOptions::new().user_data_folder(user_data.to_string_lossy()),

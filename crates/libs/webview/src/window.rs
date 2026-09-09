@@ -87,12 +87,6 @@ pub struct WebViewWindowBuilder {
 }
 
 impl WebViewWindowBuilder {
-    /// Sets the initial screen position of the parent window, in pixels.
-    pub fn position(mut self, x: i32, y: i32) -> Self {
-        self.window = self.window.position(x, y);
-        self
-    }
-
     /// Sets the initial outer window size, including non-client borders, in pixels.
     pub fn size(mut self, width: i32, height: i32) -> Self {
         self.window = self.window.size(width, height);
