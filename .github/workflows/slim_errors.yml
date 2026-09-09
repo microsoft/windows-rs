@@ -40,7 +40,7 @@ jobs:
         uses: actions/checkout@v7
         
       - name: Update toolchain
-        run: rustup update --no-self-update stable && rustup default stable-${{ matrix.target }}
+        run: rustup update --no-self-update stable && rustup default stable-x86_64-pc-windows-msvc
         
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
@@ -54,4 +54,4 @@ jobs:
         with:
           key: ${{ matrix.target }}
       - name: Test
-        run: cargo test -p test_result
+        run: cargo test -p test_result --target ${{ matrix.target }}
