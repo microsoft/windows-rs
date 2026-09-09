@@ -20,22 +20,26 @@ use windows_collections::IIterable;
 use windows_composition::{Compositor as CompositionCompositor, ContainerVisual, SpriteVisual};
 use windows_reactor::test::{LiveProbe, schedule_live_probe, schedule_live_window_handle};
 use windows_reactor::*;
+#[cfg(feature = "self-contained")]
 use windows_webview::{EventRegistration, WebView, webview_result};
 
 pub type FixtureResult = Result<(), String>;
 
+#[cfg(feature = "self-contained")]
 pub(crate) struct WebViewLifecycle {
     complete: Callback<FixtureResult>,
     navigation: Option<EventRegistration>,
     webview: Option<WebView>,
 }
 
+#[cfg(feature = "self-contained")]
 pub(crate) enum WebViewMessage {
     Initialized(Result<WebView, IntegrationError>),
     Navigated(bool),
     Script(Result<String, windows_core::Error>),
 }
 
+#[cfg(feature = "self-contained")]
 impl Component for WebViewLifecycle {
     type Input = FixtureInput;
     type Message = WebViewMessage;

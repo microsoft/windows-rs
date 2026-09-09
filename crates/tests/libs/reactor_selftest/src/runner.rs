@@ -3,18 +3,23 @@ use std::time::Duration;
 use windows_reactor::test::{LiveProbe, take_live_diagnostics};
 use windows_reactor::*;
 
+#[cfg(feature = "self-contained")]
+use crate::fixtures::WebViewLifecycle;
 use crate::fixtures::{
     CompositionLifecycle, EncodedImageLifecycle, FixtureInput, FixtureResult, FocusPublication,
     ImageSourceLifecycle, KeyedNativeMutations, NestedWindowOperation, PointerInjection,
-    ProbeFixture, ProbeInput, SwapChainLifecycle, ThemeResources, TimerLifecycle, WebViewLifecycle,
-    WindowLifecycle,
+    ProbeFixture, ProbeInput, SwapChainLifecycle, ThemeResources, TimerLifecycle, WindowLifecycle,
 };
 
 const FIXTURE_TIMEOUT: Duration = Duration::from_secs(15);
 const WEBVIEW_FIXTURE_TIMEOUT: Duration = Duration::from_secs(45);
 pub(crate) const SUITE_TIMEOUT: Duration = Duration::from_secs(
-    FIXTURE_TIMEOUT.as_secs() * FIXTURES.len() as u64 + WEBVIEW_FIXTURE_TIMEOUT.as_secs()
-        - FIXTURE_TIMEOUT.as_secs()
+    FIXTURE_TIMEOUT.as_secs() * FIXTURES.len() as u64
+        + if cfg!(feature = "self-contained") {
+            WEBVIEW_FIXTURE_TIMEOUT.as_secs() - FIXTURE_TIMEOUT.as_secs()
+        } else {
+            0
+        }
         + 10,
 );
 
@@ -27,6 +32,7 @@ enum FixtureKind {
     ControlledFeedback,
     NestedWindowOperation,
     WindowLifecycle,
+    #[cfg(feature = "self-contained")]
     WebViewLifecycle,
     EncodedImageLifecycle,
     ImageSourceLifecycle,
@@ -46,6 +52,7 @@ struct Fixture {
 impl Fixture {
     fn timeout(&self) -> Duration {
         match self.kind {
+            #[cfg(feature = "self-contained")]
             FixtureKind::WebViewLifecycle => WEBVIEW_FIXTURE_TIMEOUT,
             _ => FIXTURE_TIMEOUT,
         }
@@ -81,6 +88,7 @@ const FIXTURES: &[Fixture] = &[
         name: "Window_ClosureTaskAndEffectCleanup",
         kind: FixtureKind::WindowLifecycle,
     },
+    #[cfg(feature = "self-contained")]
     Fixture {
         name: "WebView_InitializeBridgeAndScript",
         kind: FixtureKind::WebViewLifecycle,
@@ -270,6 +278,7 @@ impl Component for FixtureRunner {
                 View::component::<NestedWindowOperation>(input)
             }
             Some(FixtureKind::WindowLifecycle) => View::component::<WindowLifecycle>(input),
+            #[cfg(feature = "self-contained")]
             Some(FixtureKind::WebViewLifecycle) => View::component::<WebViewLifecycle>(input),
             Some(FixtureKind::ImageSourceLifecycle) => {
                 View::component::<ImageSourceLifecycle>(input)
