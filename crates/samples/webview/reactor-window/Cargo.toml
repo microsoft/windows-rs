@@ -1,12 +1,12 @@
 [package]
-name = "reactor-webview"
+name = "webview-reactor-window"
 version = "0.0.0"
 edition = "2024"
 publish = false
 
 [dependencies]
 windows-reactor = { workspace = true }
-windows-webview = { workspace = true, features = ["reactor", "system"] }
+windows-webview = { workspace = true, features = ["system"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

@@ -52,7 +52,7 @@ samples for a published release, use its tag - for example
 | | `reactor-button-icon` / `reactor-calculator` / `reactor-navigation-view-icons` / `reactor-navigation-view-pane` / `reactor-radio-buttons` / `reactor-tab-view-add-button` | `cargo run -p <crate>` |
 | | `reactor-card` / `reactor-icon` / `reactor-icon-elements` / `reactor-image-icon-size` / `reactor-scroll-viewer` / `reactor-shape` / `reactor-text-block` / `reactor-text-trimming` / `reactor-theme-brush` | `cargo run -p <crate>` |
 | | `reactor-dotsweeper` / `reactor-minesweeper` / `reactor-notepad` / `reactor-solitaire` / `reactor-stacker` / `reactor-tictactoe` | `cargo run -p <crate>` |
-| | `reactor-webview` / `reactor-self-contained` / `reactor-framework-dependent` | `cargo run -p <crate>` |
+| | `reactor-self-contained` / `reactor-framework-dependent` | `cargo run -p <crate>` |
 | | `reactor-controlled` / `reactor-counter` / `reactor-form` / `reactor-navigation` / `reactor-virtual` | `cargo run -p <crate>` |
 | | `reactor-startup-perf` - blank app demonstrating startup TraceLogging events | `cargo run -p reactor-startup-perf --release` |
 | [windows-canvas](../../docs/crates/windows-canvas.md) | `canvas-bitmap` / `canvas-bitmap-from-bytes` / `canvas-color` / `canvas-curves` / `canvas-draw-text` / `canvas-gradient` / `canvas-hello` / `canvas-invalidate` / `canvas-lines` / `canvas-path` / `canvas-shapes` / `canvas-stroke` / `canvas-transform` | `cargo run -p <crate>` |
@@ -60,7 +60,7 @@ samples for a published release, use its tag - for example
 | [windows-composition](../../docs/crates/windows-composition.md) | `composition-animation` / `composition-canvas` / `composition-circles` / `composition-host` / `composition-minesweeper` / `composition-standalone` / `composition-toggle` | `cargo run -p <crate>` |
 | [windows-animation](../../docs/crates/windows-animation.md) | `animation-storyboard` | `cargo run -p animation-storyboard` |
 | [windows-pickers](../../docs/crates/windows-pickers.md) | `pickers-standalone` / `pickers-reactor` | `cargo run -p <crate>` |
-| [windows-webview](../../docs/crates/windows-webview.md) | `webview-cookies` / `webview-custom-protocol` / `webview-devtools` / `webview-downloads` / `webview-events` / `webview-ipc` / `webview-local-files` / `webview-minimal` / `webview-profile` / `webview-script` | `cargo run -p <crate>` |
+| [windows-webview](../../docs/crates/windows-webview.md) | `webview-cookies` / `webview-custom-protocol` / `webview-devtools` / `webview-downloads` / `webview-events` / `webview-ipc` / `webview-local-files` / `webview-minimal` / `webview-profile` / `webview-reactor` / `webview-reactor-window` / `webview-script` | `cargo run -p <crate>` |
 
 ## Interop (cross-language)
 

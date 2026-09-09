@@ -47,7 +47,7 @@ The README contains the build-dependency declaration and one-line `build.rs`.
    by a framework-dependent build.
 
 The [`reactor/self_contained`](../../crates/samples/reactor/self_contained) sample is the reference
-project layout. The [`reactor/webview`](../../crates/samples/reactor/webview) sample shows the same
+project layout. The [`webview/reactor`](../../crates/samples/webview/reactor) sample shows the same
 setup for a Reactor app containing the XAML WebView2 control.
 
 ## What the build step does

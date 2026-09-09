@@ -308,15 +308,14 @@ after the XAML control enters a live visual tree, not during `Component::create`
 The convenience function panics on a native initialization error. Use `webview_result` when the
 component should receive and display that error. A self-contained Reactor app must also deploy
 `Microsoft.Web.WebView2.Core.dll`; [`windows-reactor-setup`](windows-reactor-setup.md) stages it.
-The [`reactor/webview`](../../crates/samples/reactor/webview) sample runs a Reactor/WinUI WebView2
-control and a callback-driven `WebViewWindow` side by side. Shared Reactor controls exercise the
-same navigation, script, messaging, DevTools, and event APIs against both hosts. It also shows how
-a `WebViewWindow` can share Reactor's UI thread and message loop by setting `quit_on_close(false)`.
-The raw host uses a separate user-data folder because the WinUI control owns its environment
-configuration; a native environment created with incompatible options cannot join that browser
-process. Navigation, script, messaging, DevTools, and browser events use the shared `WebView` API.
-Controller zoom and parent-window lifecycle are shown separately because the WinUI WebView2
-control does not expose its controller through supported interop.
+The [`reactor`](../../crates/samples/webview/reactor) sample embeds a WinUI WebView2 control in a
+Reactor view and exercises navigation, scripts, messaging, DevTools, and events through the shared
+`WebView` API. The [`reactor-window`](../../crates/samples/webview/reactor-window) sample instead
+uses a Reactor window as a toolbar for a callback-driven `WebViewWindow`. It sets
+`quit_on_close(false)` so both windows share Reactor's UI thread and message loop, and uses
+`on_close` to keep the Reactor component synchronized with the external window. This sample also
+exercises controller zoom and parent-window lifecycle, which the WinUI WebView2 control does not
+expose through supported interop.
 
 ## What to read next
 
@@ -326,7 +325,8 @@ Run an example with `cargo run -p webview-<name>`.
 | --- | --- |
 | [`minimal`](../../crates/samples/webview/minimal) | Complete `WebViewWindow` hosting |
 | [`raw-window`](../../crates/samples/webview/raw-window) | Framework-owned HWND and message loop |
-| [`reactor/webview`](../../crates/samples/reactor/webview) | Side-by-side Reactor and `windows-window` hosting |
+| [`reactor`](../../crates/samples/webview/reactor) | WebView2 embedded in a Reactor view |
+| [`reactor-window`](../../crates/samples/webview/reactor-window) | Reactor controls driving a separate `windows-window` host |
 | [`events`](../../crates/samples/webview/events) | Navigation, permissions, popups, and process failures |
 | [`ipc`](../../crates/samples/webview/ipc) | Messages and script execution |
 | [`local-files`](../../crates/samples/webview/local-files) | A folder mapped to an HTTPS origin |
@@ -337,9 +337,9 @@ Run an example with `cargo run -p webview-<name>`.
 | [`devtools`](../../crates/samples/webview/devtools) | Chrome DevTools Protocol calls and events |
 | [`script`](../../crates/samples/webview/script) | Document-created script injection |
 
-Start with `minimal`, `raw-window` when another framework owns the HWND, or `reactor/webview` when
-Reactor owns the UI. The remaining samples use the complete system host so they can focus on
-individual browser features.
+Start with `minimal`, `raw-window` when another framework owns the HWND, or `reactor` when Reactor
+owns the UI. The remaining samples use the complete system host so they can focus on individual
+browser features.
 
 ---
 
