@@ -14,7 +14,6 @@ mod Windows {
         }
         #[library("")]
         extern fn GetThing(providerGuid: *const GUID, ppData: *mut *mut void) -> HRESULT;
-        type HRESULT = i32;
         #[no_guid]
         interface IFoo: IUnknown {
             fn Bar(&self,) -> HRESULT;

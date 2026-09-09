@@ -964,6 +964,13 @@ fn parse_named_cast(
     } else {
         raw as i64
     };
+    if let Some(metadata::Type::ValueName(type_name)) = canonical_hresult(type_name) {
+        return Some(metadata::Value::EnumValue(
+            type_name,
+            Box::new(metadata::Value::I64(v)),
+        ));
+    }
+
     Some(metadata::Value::EnumValue(
         metadata::TypeName::named(ns, type_name),
         Box::new(metadata::Value::I64(v)),
@@ -990,6 +997,10 @@ fn parse_named_complement(
         && let Some(ty) = fundamental_scalar(type_name)
     {
         return cast_integer_value(&ty, &value);
+    }
+
+    if let Some(metadata::Type::ValueName(type_name)) = canonical_hresult(type_name) {
+        return Some(metadata::Value::EnumValue(type_name, Box::new(value)));
     }
 
     let ns = header_names

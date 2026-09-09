@@ -9,6 +9,10 @@ use super::*;
 pub(crate) fn resolve_typedef(cursor: &Type, parser: &mut Parser<'_>) -> metadata::Type {
     let decl = cursor.ty();
     let name = decl.name();
+    if let Some(ty) = canonical_hresult(&name) {
+        return ty;
+    }
+
     // String normalisation and the flat collapses are gated to the per-header scrape: a
     // namespaced scrape (WebView2) resolves `PCWSTR`/`PCSTR` through a reference winmd where they
     // are `const PWSTR`, not distinct types, so forcing them here would leave the reference
@@ -25,6 +29,8 @@ pub(crate) fn resolve_typedef(cursor: &Type, parser: &mut Parser<'_>) -> metadat
     // name; an external one is scheduled for a follow-up pass.
     if let Some(ns) = parser.ref_map.get(&name) {
         metadata::Type::value_named(ns, &name)
+    } else if let Some(ty) = interface_alias(cursor, parser) {
+        ty
     } else if let Some(ty) = universal_alias(parser.namespace, &name) {
         ty
     } else if let Some(scalar) = collapse_scalar_typedef(&name, cursor) {
@@ -110,7 +116,7 @@ pub(crate) fn is_interface_alias(underlying: &Type) -> bool {
 /// resolved canonical type is a builtin scalar, so handle/pointer/record typedefs are untouched.
 ///
 /// Callers must check the reference metadata first: a scalar typedef the reference preserves
-/// (`HRESULT`, `BOOL`) must resolve to that type, not collapse.
+/// (`BOOL`, for example) must resolve to that type, not collapse.
 fn collapse_scalar_typedef(name: &str, ty: &Type) -> Option<metadata::Type> {
     if let Some(scalar) = pointer_sized_abi(name) {
         return Some(scalar);
@@ -118,6 +124,17 @@ fn collapse_scalar_typedef(name: &str, ty: &Type) -> Option<metadata::Type> {
 
     let canonical = ty.canonical_type();
     is_fundamental_scalar_kind(canonical.kind()).then(|| scalar_kind_to_type(canonical.kind()))
+}
+
+/// Map the Windows `HRESULT` spelling to its metadata system type.
+pub(crate) fn canonical_hresult(name: &str) -> Option<metadata::Type> {
+    (name == "HRESULT").then(|| metadata::Type::value_named("Windows.Foundation", "HResult"))
+}
+
+pub(crate) fn is_hresult(ty: &metadata::Type) -> bool {
+    matches!(ty, metadata::Type::ValueName(tn)
+        if tn.name == "HRESULT"
+            || (tn.namespace == "Windows.Foundation" && tn.name == "HResult"))
 }
 
 /// Collapse a typedef whose canonical type is floating-point to the bare primitive
@@ -405,8 +422,9 @@ fn decay_array_param(
     }
 }
 
-/// Resolve a parameter's metadata type. Fields, returns and constants keep their named aliases and
-/// array shapes; only parameters are collapsed and decayed.
+/// Resolve a parameter's metadata type after general typedef canonicalization. This path also
+/// decays arrays, collapses remaining pointer aliases, applies SAL constness, and normalizes
+/// pointer shapes.
 pub(crate) fn param_metadata_type(
     cursor_ty: &Type,
     annotation: &ParamAnnotation,

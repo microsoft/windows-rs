@@ -33,6 +33,10 @@ impl Typedef {
             return Ok(None);
         }
 
+        if canonical_hresult(&name).is_some() {
+            return Ok(None);
+        }
+
         // GUID synonyms collapse to `GUID` at reference sites.
         if guid_alias(&name) {
             return Ok(None);
@@ -75,8 +79,8 @@ impl Typedef {
             return Ok(None);
         }
 
-        // Flat Win32 scrapes collapse COM interface pointer aliases to the interface type.
-        if parser.header_root.is_some() && is_interface_alias(&underlying) {
+        // COM interfaces already carry their native pointer in metadata.
+        if is_interface_alias(&underlying) {
             return Ok(None);
         }
 

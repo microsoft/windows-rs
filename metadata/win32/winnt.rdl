@@ -2129,7 +2129,6 @@ mod Windows {
         const HIBERFILE_TYPE_MAX: i32 = 3;
         const HIBERFILE_TYPE_NONE: i32 = 0;
         const HIBERFILE_TYPE_REDUCED: i32 = 1;
-        type HRESULT = i32;
         #[packed(4)]
         struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
             BeginAddress: u64,
