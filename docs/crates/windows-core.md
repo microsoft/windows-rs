@@ -46,6 +46,19 @@ fn main() -> Result<()> {
 If a UI framework or host initializes COM for you, follow its apartment model instead. `init_mta`
 does not change a thread that is already initialized in another apartment.
 
+For a standalone UI thread, `init_sta` initializes COM as a single-threaded apartment. Keep the
+returned value alive until after the apartment's COM interface values are dropped:
+
+```rust
+use windows_core::Result;
+
+fn main() -> Result<()> {
+    let _apartment = windows_core::init_sta()?;
+    // Create and use apartment-bound COM objects here.
+    Ok(())
+}
+```
+
 ## Core API model
 
 | API | Role |
@@ -55,6 +68,8 @@ does not change a thread that is already initialized in another apartment.
 | `Interface` | Interface identity, vtable access, casts, and raw-pointer interop |
 | `GUID` | Interface IDs and other Windows GUID values |
 | `create_instance` | Activates an in-process COM class as a requested interface |
+| `init_mta`, `init_sta` | Initializes COM using the required apartment model |
+| `StaApartment` | Keeps an STA initialized on its owning thread |
 | `Result<T>`, `Error`, `HRESULT` | Re-exported Windows error model |
 | `HSTRING`, `PCWSTR`, `PCSTR` | Re-exported Windows string model |
 | `AgileReference<T>` | Reference that resolves an apartment-valid proxy |

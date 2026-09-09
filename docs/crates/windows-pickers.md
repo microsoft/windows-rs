@@ -40,7 +40,7 @@ The default `system` feature accepts a borrowed `windows_window::Window`:
 
 ```toml
 [dependencies]
-windows = { version = "0.100", features = ["combaseapi", "objbase"] }
+windows-core = "0.100"
 windows-pickers = "0.100"
 windows-window = "0.100"
 ```
@@ -67,27 +67,11 @@ host types.
 This complete program initializes COM, creates an owner window, and shows an open-file picker:
 
 ```rust,no_run
-use windows::Win32::{COINIT_APARTMENTTHREADED, CoInitializeEx, CoUninitialize};
 use windows_pickers::{OpenFilePicker, Result};
 use windows_window::Window;
 
-struct ComApartment;
-
-impl ComApartment {
-    fn sta() -> Result<Self> {
-        unsafe { CoInitializeEx(None, COINIT_APARTMENTTHREADED as u32).ok()? };
-        Ok(Self)
-    }
-}
-
-impl Drop for ComApartment {
-    fn drop(&mut self) {
-        unsafe { CoUninitialize() };
-    }
-}
-
 fn main() -> Result<()> {
-    let _apartment = ComApartment::sta()?;
+    let _apartment = windows_core::init_sta()?;
     let window = Window::new("Open a file").create()?;
 
     let path = OpenFilePicker::new()

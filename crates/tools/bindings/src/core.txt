@@ -8,8 +8,11 @@
     CoCreateFreeThreadedMarshaler
     CLSCTX_INPROC_SERVER
     CoIncrementMTAUsage
+    CoInitializeEx
     CoTaskMemAlloc
     CoTaskMemFree
+    CoUninitialize
+    COINIT_APARTMENTTHREADED
     E_INVALIDARG
     E_NOINTERFACE
     E_POINTER
