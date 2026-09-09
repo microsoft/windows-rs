@@ -54,7 +54,7 @@ impl Component for BorderPage {
                             ToggleSwitch::new()
                                 .is_on(self.thick)
                                 .on_toggled(context.callback(Message::Thick))
-                                .slot(ToggleSwitchSlot::Header, "Thick border"),
+                                .header("Thick border"),
                         )),
                         "Border::new().corner_radius(radius).border_thickness(thickness)",
                     ),

@@ -66,27 +66,18 @@ fn nav_item(
     children: Vec<KeyedView>,
 ) -> KeyedView {
     let has_children = !children.is_empty();
-    let mut slots = vec![SlotView::new(NavigationViewItemSlot::Content, label)];
-    if let Some(symbol) = icon {
-        slots.push(SlotView::new(
-            NavigationViewItemSlot::Icon,
-            SymbolIcon::new().symbol(symbol),
-        ));
-    }
-    if has_children {
-        slots.push(SlotView::collection(
-            NavigationViewItemSlot::MenuItems,
-            children,
-        ));
-    }
     let mut item = NavigationViewItem::new()
         .tag(tag)
         .is_selected(selected)
-        .selects_on_invoked(true);
-    if has_children {
-        item = item.is_expanded(expanded);
+        .selects_on_invoked(true)
+        .content(label);
+    if let Some(symbol) = icon {
+        item = item.icon(SymbolIcon::new().symbol(symbol));
     }
-    KeyedView::new(tag.to_string(), item.slots(slots))
+    if has_children {
+        item = item.menu_items(children).is_expanded(expanded);
+    }
+    KeyedView::new(tag.to_string(), item)
 }
 
 /// Renders a category's control list as a card grid, matching the incumbent gallery's category
@@ -293,10 +284,8 @@ impl Component for Gallery {
             .on_is_pane_open_changed(context.callback(Message::PaneOpenChanged))
             .on_selected_tag_changed(context.callback(Message::SelectedTagChanged))
             .grid_row(1)
-            .slots([
-                SlotView::collection(NavigationViewSlot::MenuItems, menu_items),
-                SlotView::new(NavigationViewSlot::Content, content),
-            ]);
+            .menu_items(menu_items)
+            .content(content);
 
         let title_bar = TitleBar::new()
             .preferred_height(WindowTitleBarHeight::Tall)
@@ -308,21 +297,17 @@ impl Component for Gallery {
             .on_back_requested(context.message(Message::Back))
             .on_pane_toggle_requested(context.message(Message::TogglePane))
             .grid_row(0)
-            .slots([
-                SlotView::new(
-                    TitleBarSlot::Content,
-                    TextBox::new()
-                        .text(self.search.clone())
-                        .placeholder_text("Search controls and samples...")
-                        .on_text_changed(context.callback(Message::SearchChanged)),
-                ),
-                SlotView::new(
-                    TitleBarSlot::RightHeader,
-                    Button::new()
-                        .on_click(context.message(Message::CycleTheme))
-                        .content(format!("Theme: {}", theme_name(self.theme))),
-                ),
-            ]);
+            .content(
+                TextBox::new()
+                    .text(self.search.clone())
+                    .placeholder_text("Search controls and samples...")
+                    .on_text_changed(context.callback(Message::SearchChanged)),
+            )
+            .right_header(
+                Button::new()
+                    .on_click(context.message(Message::CycleTheme))
+                    .content(format!("Theme: {}", theme_name(self.theme))),
+            );
 
         Grid::new()
             .rows([GridLength::Auto, GridLength::Star(1.0)])

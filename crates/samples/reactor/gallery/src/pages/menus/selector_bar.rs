@@ -47,17 +47,14 @@ impl Component for SelectorBarPage {
                     StackPanel::new().spacing(8.0).children((
                         SelectorBar::new()
                             .on_selected_text_changed(context.callback(Message::SelectionChanged))
-                            .collection_slot(
-                                SelectorBarSlot::Items,
-                                [item("Recent"), item("Shared"), item("Favorites")],
-                            ),
+                            .items([item("Recent"), item("Shared"), item("Favorites")]),
                         TextBlock::new()
                             .text(format!("Selected: {}", self.selected))
                             .opacity(0.6),
                     )),
                     r#"SelectorBar::new()
     .on_selected_text_changed(h)
-    .collection_slot(SelectorBarSlot::Items, [...])"#,
+    .items([...])"#,
                 ),
             )],
         )

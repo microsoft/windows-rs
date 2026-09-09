@@ -401,23 +401,22 @@ impl<R: NativeRuntime> Pump<R> {
         selection: SelectionDescriptor,
         selected_item: Option<NodeId>,
     ) -> bool {
-        let Some(slot) = self
-            .tree
-            .children(owner)
-            .iter()
-            .copied()
-            .find(|child| self.tree.kind(*child) == NodeKind::NamedSlot(selection.slot))
-        else {
-            return false;
-        };
         let mut items = Vec::new();
-        for child in self.tree.children(slot).to_vec() {
-            let mut roots = Vec::new();
-            Self::collect_native_roots(&self.tree, child, &mut roots);
-            if let [item] = roots.as_slice()
-                && self.tree.kind(*item) == NodeKind::Native(selection.item)
-            {
-                items.push(*item);
+        for slot in self.tree.children(owner).to_vec() {
+            let NodeKind::NamedSlot(slot_id) = self.tree.kind(slot) else {
+                continue;
+            };
+            if !selection.slots.contains(&slot_id) {
+                continue;
+            }
+            for child in self.tree.children(slot).to_vec() {
+                let mut roots = Vec::new();
+                Self::collect_native_roots(&self.tree, child, &mut roots);
+                if let [item] = roots.as_slice()
+                    && self.tree.kind(*item) == NodeKind::Native(selection.item)
+                {
+                    items.push(*item);
+                }
             }
         }
         let mut changed = false;

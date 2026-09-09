@@ -70,10 +70,8 @@ impl Component for ProgressBarPage {
                             ToggleSwitch::new()
                                 .is_on(self.loading)
                                 .on_toggled(context.callback(Message::Loading))
-                                .slots([
-                                    SlotView::new(ToggleSwitchSlot::OnContent, "Loading"),
-                                    SlotView::new(ToggleSwitchSlot::OffContent, "Complete"),
-                                ]),
+                                .on_content("Loading")
+                                .off_content("Complete"),
                         )),
                         "ProgressBar::new().is_indeterminate(loading)",
                     ),

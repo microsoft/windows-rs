@@ -34,7 +34,7 @@ impl Component for RichEditBoxPage {
                                 .placeholder_text("Start typing...")
                                 .height(200.0)
                                 .on_text_changed(context.forward())
-                                .slot(RichEditBoxSlot::Header, "Document"),
+                                .header("Document"),
                             TextBlock::new()
                                 .text(if self.text.is_empty() {
                                     "No changes yet".to_string()

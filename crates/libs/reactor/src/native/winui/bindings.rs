@@ -11663,6 +11663,18 @@ impl INavigationView {
             .ok()
         }
     }
+    pub(crate) fn FooterMenuItems(
+        &self,
+    ) -> windows_core::Result<windows_collections::IVector<windows_core::IInspectable>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FooterMenuItems)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
+        }
+    }
     pub(crate) fn SetPaneFooter<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<UIElement>,
@@ -11849,7 +11861,10 @@ pub struct INavigationView_Vtbl {
     SetCompactModeThresholdWidth: usize,
     ExpandedModeThresholdWidth: usize,
     SetExpandedModeThresholdWidth: usize,
-    FooterMenuItems: usize,
+    pub FooterMenuItems: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     FooterMenuItemsSource: usize,
     SetFooterMenuItemsSource: usize,
     PaneFooter: usize,

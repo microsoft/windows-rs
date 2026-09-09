@@ -495,10 +495,7 @@ impl Component for Solitaire {
                 .children((
                     title_bar,
                     header,
-                    Viewbox::new().slot(
-                        ViewboxSlot::Child,
-                        build_board(&self.game, context.callback(Message::Click)),
-                    ),
+                    Viewbox::new().child(build_board(&self.game, context.callback(Message::Click))),
                 )),
         )
     }

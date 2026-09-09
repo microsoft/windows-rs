@@ -65,16 +65,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                     Grid::new().children((#name::new(),))
                 }
             },
-            ResolvedPlacement::WindowLifetime if !control.slots.is_empty() => {
-                let slot_type = ident(&format!("{}Slot", control.name));
-                quote! {
-                    fn #function(_stage: usize) -> View {
-                        Grid::new().children((
-                            #name::new().slots(std::iter::empty::<SlotView<#slot_type>>()),
-                        ))
-                    }
-                }
-            }
             ResolvedPlacement::WindowLifetime => quote! {
                 fn #function(_stage: usize) -> View {
                     Grid::new().children((#name::new(),))
@@ -221,12 +211,11 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 );
             }
             for slot in &control.slots {
-                let slot_type = ident(&format!("{}Slot", control.name));
-                let slot_name = ident(&slot.name);
+                let slot_method = ident(&to_snake_case(&slot.name));
                 let item_control = control
                     .selection
                     .as_ref()
-                    .filter(|selection| selection.slot == slot.name)
+                    .filter(|selection| selection.slots.contains(&slot.name))
                     .map(|selection| selection.item.as_str())
                     .or_else(|| slot.item_controls.first().map(String::as_str))
                     .or_else(|| {
@@ -256,22 +245,20 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 };
                 let initial = match &slot.shape {
                     SlotShape::Single(_) => quote! {
-                        #control_name::new().slot(#slot_type::#slot_name, #initial_child)
+                        #control_name::new().#slot_method(#initial_child)
                     },
                     SlotShape::Collection(_) => quote! {
-                        #control_name::new().collection_slot(
-                            #slot_type::#slot_name,
+                        #control_name::new().#slot_method(
                             [KeyedView::new("surface", #initial_child)],
                         )
                     },
                 };
                 let alternate = match &slot.shape {
                     SlotShape::Single(_) => quote! {
-                        #control_name::new().slot(#slot_type::#slot_name, #alternate_child)
+                        #control_name::new().#slot_method(#alternate_child)
                     },
                     SlotShape::Collection(_) => quote! {
-                        #control_name::new().collection_slot(
-                            #slot_type::#slot_name,
+                        #control_name::new().#slot_method(
                             [KeyedView::new("surface", #alternate_child)],
                         )
                     },
@@ -279,13 +266,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 add_structural_case(
                     control,
                     &format!("Slot.{}", slot.name),
-                    wrap_structural(
-                        control,
-                        quote! {
-                            #control_name::new()
-                                .slots(std::iter::empty::<SlotView<#slot_type>>())
-                        },
-                    ),
+                    wrap_structural(control, quote! { #control_name::new() }),
                     wrap_structural(control, initial),
                     wrap_structural(control, alternate),
                     &mut structural_builders,
@@ -970,14 +951,6 @@ fn wrap_control(
     match control.placement {
         ResolvedPlacement::Visual | ResolvedPlacement::Declaration => {
             quote! { Grid::new().children((#value,)) }
-        }
-        ResolvedPlacement::WindowLifetime if !control.slots.is_empty() => {
-            let slot_type = ident(&format!("{}Slot", control.name));
-            quote! {
-                Grid::new().children((
-                    (#value).slots(std::iter::empty::<SlotView<#slot_type>>()),
-                ))
-            }
         }
         ResolvedPlacement::WindowLifetime => quote! { Grid::new().children((#value,)) },
         ResolvedPlacement::TooltipAttachment => unreachable!(),

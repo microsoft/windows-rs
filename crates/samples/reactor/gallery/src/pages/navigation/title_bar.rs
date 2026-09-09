@@ -24,7 +24,7 @@ impl Component for TitleBarPage {
                         "Live TitleBar",
                         "The gallery title bar above is the live control. Its buttons, search box, \
                          title, and subtitle are all declarative.",
-                        "TitleBar::new().title(title).subtitle(subtitle).slots(content)",
+                        "TitleBar::new().title(title).subtitle(subtitle).content(content)",
                     ),
                 ),
                 KeyedView::new(

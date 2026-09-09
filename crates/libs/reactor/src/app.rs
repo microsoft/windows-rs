@@ -266,23 +266,20 @@ impl ComponentLoop {
                 ListView::new()
                     .selected_index(None)
                     .on_selection_changed(move |value| callback.set(value == Some(1)))
-                    .collection_slot(
-                        ListViewSlot::Items,
-                        [
-                            KeyedView::new(
-                                "first",
-                                ListViewItem::new()
-                                    .tag("first")
-                                    .content(TextBlock::new().text("First")),
-                            ),
-                            KeyedView::new(
-                                "second",
-                                ListViewItem::new()
-                                    .tag("second")
-                                    .content(TextBlock::new().text("Second")),
-                            ),
-                        ],
-                    ),
+                    .items([
+                        KeyedView::new(
+                            "first",
+                            ListViewItem::new()
+                                .tag("first")
+                                .content(TextBlock::new().text("First")),
+                        ),
+                        KeyedView::new(
+                            "second",
+                            ListViewItem::new()
+                                .tag("second")
+                                .content(TextBlock::new().text("Second")),
+                        ),
+                    ]),
                 "selection index",
                 observed,
                 |runtime, node| {
@@ -665,26 +662,23 @@ impl LivePump for ComponentLoop {
         let selected_callback = Rc::clone(&selected);
         let list = ListBox::new()
             .on_selected_tag_changed(move |tag| *selected_callback.borrow_mut() = tag)
-            .slots([SlotView::collection(
-                ListBoxSlot::Items,
-                [
-                    KeyedView::new(
-                        "one",
-                        ListBoxItem::new()
-                            .tag("one")
-                            .is_selected(true)
-                            .content(TextBlock::new().text("One")),
-                    ),
-                    KeyedView::new(
-                        "two",
-                        ListBoxItem::new()
-                            .tag("two")
-                            .is_selected(false)
-                            .content(TextBlock::new().text("Two")),
-                    ),
-                ],
-            )]);
-        if self.pump.update_view(list).is_err() || self.pump.dispatch_events() != Ok(0) {
+            .items([
+                KeyedView::new(
+                    "one",
+                    ListBoxItem::new()
+                        .tag("one")
+                        .is_selected(true)
+                        .content(TextBlock::new().text("One")),
+                ),
+                KeyedView::new(
+                    "two",
+                    ListBoxItem::new()
+                        .tag("two")
+                        .is_selected(false)
+                        .content(TextBlock::new().text("Two")),
+                ),
+            ]);
+        if self.pump.update_view(list.into()).is_err() || self.pump.dispatch_events() != Ok(0) {
             eprintln!("controlled selection feedback failed");
             return false;
         }

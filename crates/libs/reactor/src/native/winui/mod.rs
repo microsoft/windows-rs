@@ -2562,6 +2562,10 @@ impl WinUiRuntime {
         let collection = slot_collection(parent, slot)?;
         let child: windows_core::IInspectable = self.ui_element(child)?.into();
         let selection = selection_for_slot(slot);
+        let selected = selection
+            .map(|selection| selected_item(parent, selection))
+            .transpose()?
+            .flatten();
         let retained = self.retained_identities(parent_id, Some(slot))?;
         let current = (0..collection.Size()?)
             .map(|index| {
@@ -2573,10 +2577,12 @@ impl WinUiRuntime {
         let result = self.with_controlled_collection_preserved(parent_id, parent, slot, || {
             self.with_selection_suppressed(selection.map(|_| (parent_id, slot)), || {
                 collection.InsertAt(index32(index)?, &child)?;
-                if let Some(selection) = selection
-                    && selection_item_is_selected(selection, &child)?
-                {
-                    set_selected_item(parent, selection, &child)?;
+                if let Some(selection) = selection {
+                    if selection_item_is_selected(selection, &child)? {
+                        set_selected_item(parent, selection, &child)?;
+                    } else if let Some(selected) = selected.as_ref() {
+                        set_selected_item(parent, selection, selected)?;
+                    }
                 }
                 Ok(())
             })
@@ -2603,10 +2609,21 @@ impl WinUiRuntime {
         let collection = slot_collection(parent, slot)?;
         let child: windows_core::IInspectable = self.ui_element(child)?.into();
         let selection = selection_for_slot(slot);
+        let selected = selection
+            .map(|selection| selected_item(parent, selection))
+            .transpose()?
+            .flatten();
         let result = self.with_controlled_collection_preserved(parent_id, parent, slot, || {
             self.with_selection_suppressed(selection.map(|_| (parent_id, slot)), || {
                 let index = inspectable_child_index(&collection, child_id, &child)?;
-                collection.RemoveAt(index)
+                collection.RemoveAt(index)?;
+                if let Some(selection) = selection
+                    && let Some(selected) = selected.as_ref()
+                    && selected != &child
+                {
+                    set_selected_item(parent, selection, selected)?;
+                }
+                Ok(())
             })
         });
         if result.is_ok() {
@@ -2638,12 +2655,10 @@ impl WinUiRuntime {
             .flatten();
         let collection = slot_collection(parent, slot)?;
         let child: windows_core::IInspectable = self.ui_element(child)?.into();
-        let restore_selection = match selection {
-            Some(selection) => {
-                selected.as_ref() == Some(&child) || selection_item_is_selected(selection, &child)?
-            }
-            None => false,
-        };
+        let child_selected = selection
+            .map(|selection| selection_item_is_selected(selection, &child))
+            .transpose()?
+            .unwrap_or(false);
         let child_identity = com_identity(&child)?;
         let retained = self.retained_identities(parent_id, Some(slot))?;
         let current = (0..collection.Size()?)
@@ -2661,8 +2676,12 @@ impl WinUiRuntime {
                 let from = inspectable_child_index(&collection, child_id, &child)?;
                 collection.RemoveAt(from)?;
                 collection.InsertAt(index32(index)?, &child)?;
-                if restore_selection {
-                    set_selected_item(parent, selection.unwrap(), &child)?;
+                if let Some(selection) = selection {
+                    if child_selected {
+                        set_selected_item(parent, selection, &child)?;
+                    } else if let Some(selected) = selected.as_ref() {
+                        set_selected_item(parent, selection, selected)?;
+                    }
                 }
                 Ok(())
             })
@@ -2727,10 +2746,12 @@ impl WinUiRuntime {
             .collect::<Vec<_>>();
         let retained = retained_subsequence(&current_ids, &target_ids);
         let restore_selection = selected.as_ref().is_some_and(|selected| {
-            current
-                .iter()
-                .any(|(identity, item)| !retained.contains(identity) && item == selected)
-                && desired.iter().any(|(_, _, item)| item == selected)
+            let selected_in_current = current.iter().any(|(_, item)| item == selected);
+            !selected_in_current
+                || current
+                    .iter()
+                    .any(|(identity, item)| !retained.contains(identity) && item == selected)
+                    && desired.iter().any(|(_, _, item)| item == selected)
         });
 
         let result = self.with_controlled_collection_preserved(parent_id, parent, slot, || {

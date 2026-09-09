@@ -43,27 +43,24 @@ impl Component for GridViewPage {
                             .height(300.0)
                             .selected_index(self.selected)
                             .on_selection_changed(context.callback(Message::Selected))
-                            .collection_slot(
-                                GridViewSlot::Items,
-                                items.iter().map(|item| {
-                                    KeyedView::new(
-                                        item.clone(),
-                                        GridViewItem::new().tag(item).content(
-                                            Border::new().padding(16.0).corner_radius(4.0).content(
-                                                TextBlock::new()
-                                                    .text(item)
-                                                    .font_weight(FontWeight::BOLD),
-                                            ),
+                            .items(items.iter().map(|item| {
+                                KeyedView::new(
+                                    item.clone(),
+                                    GridViewItem::new().tag(item).content(
+                                        Border::new().padding(16.0).corner_radius(4.0).content(
+                                            TextBlock::new()
+                                                .text(item)
+                                                .font_weight(FontWeight::BOLD),
                                         ),
-                                    )
-                                }),
-                            ),
+                                    ),
+                                )
+                            })),
                         TextBlock::new().text(label).opacity(0.6),
                     )),
                     r#"GridView::new()
     .selected_index(selected)
     .on_selection_changed(handler)
-    .collection_slot(GridViewSlot::Items, selectable_items)"#,
+    .items(selectable_items)"#,
                 ),
             )],
         )

@@ -29,10 +29,6 @@ pub windows_reactor::AcceleratorKey::Up
 pub enum windows_reactor::AcceleratorModifiers
 pub windows_reactor::AcceleratorModifiers::Control
 pub windows_reactor::AcceleratorModifiers::None
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::AppBarButtonSlot
-pub windows_reactor::AppBarButtonSlot::Icon
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::AutoSuggestBoxSlot
-pub windows_reactor::AutoSuggestBoxSlot::Header
 pub enum windows_reactor::AutomationHeadingLevel
 pub windows_reactor::AutomationHeadingLevel::Level1
 pub windows_reactor::AutomationHeadingLevel::Level2
@@ -55,13 +51,9 @@ pub windows_reactor::ButtonStyle::Accent
 pub windows_reactor::ButtonStyle::Default
 pub windows_reactor::ButtonStyle::Subtle
 pub windows_reactor::ButtonStyle::TextLink
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::CalendarDatePickerSlot
-pub windows_reactor::CalendarDatePickerSlot::Header
 pub enum windows_reactor::ColorScheme
 pub windows_reactor::ColorScheme::Dark
 pub windows_reactor::ColorScheme::Light
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::ComboBoxSlot
-pub windows_reactor::ComboBoxSlot::Header
 pub enum windows_reactor::CommandBarCommand
 pub windows_reactor::CommandBarCommand::Button
 pub windows_reactor::CommandBarCommand::Button::enabled: bool
@@ -74,9 +66,6 @@ impl windows_reactor::CommandBarCommand
 pub fn windows_reactor::CommandBarCommand::button(impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::CommandBarCommand::button_with_icon(impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<alloc::string::String>, windows_reactor::Symbol) -> Self
 pub fn windows_reactor::CommandBarCommand::separator(impl core::convert::Into<windows_reactor::Key>) -> Self
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::CommandBarSlot
-pub windows_reactor::CommandBarSlot::PrimaryCommands
-pub windows_reactor::CommandBarSlot::SecondaryCommands
 #[repr(u8)] pub enum windows_reactor::ComponentTaskStatus
 pub windows_reactor::ComponentTaskStatus::Cancelled
 pub windows_reactor::ComponentTaskStatus::Delivered
@@ -97,8 +86,6 @@ pub windows_reactor::CompositionHostEvent::Ready::width: f64
 pub windows_reactor::ContentDialogResult::None
 pub windows_reactor::ContentDialogResult::Primary
 pub windows_reactor::ContentDialogResult::Secondary
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::DatePickerSlot
-pub windows_reactor::DatePickerSlot::Header
 pub enum windows_reactor::DragDropOperation
 pub windows_reactor::DragDropOperation::Copy
 pub windows_reactor::DragDropOperation::Link
@@ -111,11 +98,6 @@ pub enum windows_reactor::DroppedData
 pub windows_reactor::DroppedData::StorageItems(alloc::vec::Vec<windows_reactor::DroppedStorageItem>)
 pub windows_reactor::DroppedData::Text(alloc::string::String)
 pub windows_reactor::DroppedData::Unsupported
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::ExpanderSlot
-pub windows_reactor::ExpanderSlot::Content
-pub windows_reactor::ExpanderSlot::Header
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::FlipViewSlot
-pub windows_reactor::FlipViewSlot::Items
 pub enum windows_reactor::FlyoutPlacement
 pub windows_reactor::FlyoutPlacement::Auto
 pub windows_reactor::FlyoutPlacement::Bottom
@@ -139,8 +121,6 @@ impl windows_reactor::GridLength
 pub const windows_reactor::GridLength::STAR: Self
 impl core::cmp::PartialEq for windows_reactor::GridLength
 pub fn windows_reactor::GridLength::eq(&self, &Self) -> bool
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::GridViewSlot
-pub windows_reactor::GridViewSlot::Items
 pub enum windows_reactor::HorizontalAlignment
 pub windows_reactor::HorizontalAlignment::Center
 pub windows_reactor::HorizontalAlignment::Left
@@ -154,17 +134,11 @@ pub windows_reactor::InfoBarSeverity::Warning
 pub enum windows_reactor::IntegrationError
 pub windows_reactor::IntegrationError::Native(i32)
 pub windows_reactor::IntegrationError::Unavailable
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::ListBoxSlot
-pub windows_reactor::ListBoxSlot::Items
 #[non_exhaustive] pub enum windows_reactor::ListViewSelectionMode
 pub windows_reactor::ListViewSelectionMode::Extended
 pub windows_reactor::ListViewSelectionMode::Multiple
 pub windows_reactor::ListViewSelectionMode::None
 pub windows_reactor::ListViewSelectionMode::Single
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::ListViewSlot
-pub windows_reactor::ListViewSlot::Items
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::MenuBarSlot
-pub windows_reactor::MenuBarSlot::Items
 pub enum windows_reactor::MenuItem
 pub windows_reactor::MenuItem::Item
 pub windows_reactor::MenuItem::Item::enabled: bool
@@ -189,35 +163,19 @@ pub enum windows_reactor::NavigationViewDisplayMode
 pub windows_reactor::NavigationViewDisplayMode::Compact
 pub windows_reactor::NavigationViewDisplayMode::Expanded
 pub windows_reactor::NavigationViewDisplayMode::Minimal
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::NavigationViewItemSlot
-pub windows_reactor::NavigationViewItemSlot::Content
-pub windows_reactor::NavigationViewItemSlot::Icon
-pub windows_reactor::NavigationViewItemSlot::MenuItems
 #[non_exhaustive] pub enum windows_reactor::NavigationViewPaneDisplayMode
 pub windows_reactor::NavigationViewPaneDisplayMode::Auto
 pub windows_reactor::NavigationViewPaneDisplayMode::Left
 pub windows_reactor::NavigationViewPaneDisplayMode::LeftCompact
 pub windows_reactor::NavigationViewPaneDisplayMode::LeftMinimal
 pub windows_reactor::NavigationViewPaneDisplayMode::Top
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::NavigationViewSlot
-pub windows_reactor::NavigationViewSlot::Content
-pub windows_reactor::NavigationViewSlot::Header
-pub windows_reactor::NavigationViewSlot::MenuItems
-pub windows_reactor::NavigationViewSlot::PaneCustomContent
-pub windows_reactor::NavigationViewSlot::PaneFooter
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::NumberBoxSlot
-pub windows_reactor::NumberBoxSlot::Header
 #[non_exhaustive] pub enum windows_reactor::Orientation
 pub windows_reactor::Orientation::Horizontal
 pub windows_reactor::Orientation::Vertical
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::PasswordBoxSlot
-pub windows_reactor::PasswordBoxSlot::Header
 #[non_exhaustive] pub enum windows_reactor::PasswordRevealMode
 pub windows_reactor::PasswordRevealMode::Hidden
 pub windows_reactor::PasswordRevealMode::Peek
 pub windows_reactor::PasswordRevealMode::Visible
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::PivotSlot
-pub windows_reactor::PivotSlot::Items
 pub enum windows_reactor::PumpDiagnostic
 pub windows_reactor::PumpDiagnostic::VirtualRowRootCount
 pub windows_reactor::PumpDiagnostic::VirtualRowRootCount::actual: usize
@@ -225,8 +183,6 @@ pub windows_reactor::PumpDiagnostic::VirtualRowRootCount::collection: windows_re
 pub windows_reactor::PumpDiagnostic::VirtualRowRootCount::key: windows_reactor::Key
 pub windows_reactor::PumpDiagnostic::WindowOpenRejected
 pub windows_reactor::PumpDiagnostic::WindowOpenRejected::error: windows_reactor::core::runtime::RuntimeError
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::RadioButtonsSlot
-pub windows_reactor::RadioButtonsSlot::Header
 pub enum windows_reactor::ResourceValue
 pub windows_reactor::ResourceValue::Color(windows_reactor::Color)
 pub windows_reactor::ResourceValue::CornerRadius(windows_reactor::CornerRadius)
@@ -237,8 +193,6 @@ impl core::convert::From<windows_reactor::CornerRadius> for windows_reactor::Res
 pub fn windows_reactor::ResourceValue::from(windows_reactor::CornerRadius) -> Self
 impl core::convert::From<windows_reactor::Thickness> for windows_reactor::ResourceValue
 pub fn windows_reactor::ResourceValue::from(windows_reactor::Thickness) -> Self
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::RichEditBoxSlot
-pub windows_reactor::RichEditBoxSlot::Header
 pub enum windows_reactor::RichTextInline
 pub windows_reactor::RichTextInline::Hyperlink(windows_reactor::RichTextHyperlink)
 pub windows_reactor::RichTextInline::LineBreak
@@ -252,20 +206,11 @@ pub windows_reactor::ScrollBarVisibility::Visible
 pub windows_reactor::ScrollingScrollBarVisibility::Auto
 pub windows_reactor::ScrollingScrollBarVisibility::Hidden
 pub windows_reactor::ScrollingScrollBarVisibility::Visible
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::SelectorBarItemSlot
-pub windows_reactor::SelectorBarItemSlot::Icon
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::SelectorBarSlot
-pub windows_reactor::SelectorBarSlot::Items
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::SliderSlot
-pub windows_reactor::SliderSlot::Header
 #[non_exhaustive] pub enum windows_reactor::SplitViewDisplayMode
 pub windows_reactor::SplitViewDisplayMode::CompactInline
 pub windows_reactor::SplitViewDisplayMode::CompactOverlay
 pub windows_reactor::SplitViewDisplayMode::Inline
 pub windows_reactor::SplitViewDisplayMode::Overlay
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::SplitViewSlot
-pub windows_reactor::SplitViewSlot::Content
-pub windows_reactor::SplitViewSlot::Pane
 #[non_exhaustive] pub enum windows_reactor::Stretch
 pub windows_reactor::Stretch::Fill
 pub windows_reactor::Stretch::None
@@ -477,8 +422,6 @@ pub windows_reactor::Symbol::ZeroBars
 pub windows_reactor::Symbol::Zoom
 pub windows_reactor::Symbol::ZoomIn
 pub windows_reactor::Symbol::ZoomOut
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::TabViewSlot
-pub windows_reactor::TabViewSlot::TabItems
 #[non_exhaustive] pub enum windows_reactor::TeachingTipPlacementMode
 pub windows_reactor::TeachingTipPlacementMode::Auto
 pub windows_reactor::TeachingTipPlacementMode::Bottom
@@ -494,8 +437,6 @@ pub windows_reactor::TeachingTipPlacementMode::RightTop
 pub windows_reactor::TeachingTipPlacementMode::Top
 pub windows_reactor::TeachingTipPlacementMode::TopLeft
 pub windows_reactor::TeachingTipPlacementMode::TopRight
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::TextBoxSlot
-pub windows_reactor::TextBoxSlot::Header
 #[non_exhaustive] pub enum windows_reactor::TextTrimming
 pub windows_reactor::TextTrimming::CharacterEllipsis
 pub windows_reactor::TextTrimming::Clip
@@ -516,15 +457,6 @@ pub windows_reactor::ThemeBrush::SystemCritical
 pub windows_reactor::ThemeBrush::SystemCriticalBackground
 impl core::convert::From<windows_reactor::ThemeBrush> for windows_reactor::Brush
 pub fn windows_reactor::Brush::from(windows_reactor::ThemeBrush) -> Self
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::TimePickerSlot
-pub windows_reactor::TimePickerSlot::Header
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::TitleBarSlot
-pub windows_reactor::TitleBarSlot::Content
-pub windows_reactor::TitleBarSlot::RightHeader
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::ToggleSwitchSlot
-pub windows_reactor::ToggleSwitchSlot::Header
-pub windows_reactor::ToggleSwitchSlot::OffContent
-pub windows_reactor::ToggleSwitchSlot::OnContent
 pub enum windows_reactor::TooltipPlacement
 pub windows_reactor::TooltipPlacement::Bottom
 pub windows_reactor::TooltipPlacement::Left
@@ -540,8 +472,6 @@ pub windows_reactor::VerticalAlignment::Bottom
 pub windows_reactor::VerticalAlignment::Center
 pub windows_reactor::VerticalAlignment::Stretch
 pub windows_reactor::VerticalAlignment::Top
-#[non_exhaustive] #[repr(u8)] pub enum windows_reactor::ViewboxSlot
-pub windows_reactor::ViewboxSlot::Child
 pub enum windows_reactor::WindowBackdrop
 pub windows_reactor::WindowBackdrop::Acrylic
 pub windows_reactor::WindowBackdrop::Mica
@@ -561,6 +491,7 @@ pub fn windows_reactor::App::run_component<C: windows_reactor::Component>(<C as 
 pub fn windows_reactor::App::run_windows<I>(I) -> windows_result::Result<()> where I: core::iter::traits::collect::IntoIterator<Item = windows_reactor::View>
 pub struct windows_reactor::AppBarButton
 impl windows_reactor::AppBarButton
+pub fn windows_reactor::AppBarButton::icon(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::AppBarButton::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::AppBarButton::label(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::AppBarButton::label_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
@@ -581,11 +512,6 @@ pub fn windows_reactor::AppBarButton::min_width(self, impl core::convert::Into<c
 pub fn windows_reactor::AppBarButton::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::AppBarButton::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::AppBarButton::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::AppBarButton
-pub type windows_reactor::AppBarButton::Slot = windows_reactor::AppBarButtonSlot
-pub fn windows_reactor::AppBarButton::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::AppBarButton::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::AppBarButton::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::AppBarSeparator
 impl windows_reactor::AppBarSeparator
 pub fn windows_reactor::AppBarSeparator::new() -> Self
@@ -607,6 +533,7 @@ pub fn windows_reactor::AppBarSeparator::width(self, impl core::convert::Into<co
 pub struct windows_reactor::AutoSuggestBox
 impl windows_reactor::AutoSuggestBox
 pub fn windows_reactor::AutoSuggestBox::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
+pub fn windows_reactor::AutoSuggestBox::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::AutoSuggestBox::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::AutoSuggestBox::items_source<I, S>(self, I) -> Self where I: core::iter::traits::collect::IntoIterator<Item = S>, S: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::AutoSuggestBox::items_source_optional<I, S>(self, core::option::Option<I>) -> Self where I: core::iter::traits::collect::IntoIterator<Item = S>, S: core::convert::Into<alloc::string::String>
@@ -634,11 +561,6 @@ pub fn windows_reactor::AutoSuggestBox::opacity(self, impl core::convert::Into<c
 pub fn windows_reactor::AutoSuggestBox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::AutoSuggestBox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 impl windows_reactor::ReferenceControl for windows_reactor::AutoSuggestBox
-impl windows_reactor::SlotsControl for windows_reactor::AutoSuggestBox
-pub type windows_reactor::AutoSuggestBox::Slot = windows_reactor::AutoSuggestBoxSlot
-pub fn windows_reactor::AutoSuggestBox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::AutoSuggestBox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::AutoSuggestBox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::BitmapIcon
 impl windows_reactor::BitmapIcon
 pub fn windows_reactor::BitmapIcon::new() -> Self
@@ -759,6 +681,7 @@ pub fn windows_reactor::Button::width(self, impl core::convert::Into<core::optio
 impl windows_reactor::ReferenceControl for windows_reactor::Button
 pub struct windows_reactor::CalendarDatePicker
 impl windows_reactor::CalendarDatePicker
+pub fn windows_reactor::CalendarDatePicker::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::CalendarDatePicker::is_calendar_open(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::CalendarDatePicker::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::CalendarDatePicker::is_today_highlighted(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
@@ -781,11 +704,6 @@ pub fn windows_reactor::CalendarDatePicker::min_width(self, impl core::convert::
 pub fn windows_reactor::CalendarDatePicker::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::CalendarDatePicker::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::CalendarDatePicker::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::CalendarDatePicker
-pub type windows_reactor::CalendarDatePicker::Slot = windows_reactor::CalendarDatePickerSlot
-pub fn windows_reactor::CalendarDatePicker::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::CalendarDatePicker::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::CalendarDatePicker::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::CalendarView
 impl windows_reactor::CalendarView
 pub fn windows_reactor::CalendarView::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
@@ -913,6 +831,7 @@ pub fn windows_reactor::ColorPicker::width(self, impl core::convert::Into<core::
 pub struct windows_reactor::ComboBox
 impl windows_reactor::ComboBox
 pub fn windows_reactor::ComboBox::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
+pub fn windows_reactor::ComboBox::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::ComboBox::is_editable(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::ComboBox::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::ComboBox::items_source<I, S>(self, I) -> Self where I: core::iter::traits::collect::IntoIterator<Item = S>, S: core::convert::Into<alloc::string::String>
@@ -939,14 +858,11 @@ pub fn windows_reactor::ComboBox::opacity(self, impl core::convert::Into<core::o
 pub fn windows_reactor::ComboBox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::ComboBox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 impl windows_reactor::ReferenceControl for windows_reactor::ComboBox
-impl windows_reactor::SlotsControl for windows_reactor::ComboBox
-pub type windows_reactor::ComboBox::Slot = windows_reactor::ComboBoxSlot
-pub fn windows_reactor::ComboBox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::ComboBox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::ComboBox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::CommandBar
 impl windows_reactor::CommandBar
 pub fn windows_reactor::CommandBar::new() -> Self
+pub fn windows_reactor::CommandBar::primary_commands<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
+pub fn windows_reactor::CommandBar::secondary_commands<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
 impl windows_reactor::CommandBar
 pub fn windows_reactor::CommandBar::owned_commands(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::CommandBarCommand>, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::CommandBarCommand>, impl windows_reactor::IntoPayloadCallback<alloc::string::String>) -> windows_reactor::View
 impl core::convert::From<windows_reactor::CommandBar> for windows_reactor::View
@@ -964,11 +880,6 @@ pub fn windows_reactor::CommandBar::min_width(self, impl core::convert::Into<cor
 pub fn windows_reactor::CommandBar::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::CommandBar::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::CommandBar::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::CommandBar
-pub type windows_reactor::CommandBar::Slot = windows_reactor::CommandBarSlot
-pub fn windows_reactor::CommandBar::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::CommandBar::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::CommandBar::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::CommandBarFlyout
 impl windows_reactor::CommandBarFlyout
 pub fn windows_reactor::CommandBarFlyout::new(impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::CommandBarCommand>, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::CommandBarCommand>, impl windows_reactor::IntoPayloadCallback<alloc::string::String>) -> Self
@@ -1038,6 +949,7 @@ pub fn windows_reactor::CornerRadius::default() -> Self
 pub struct windows_reactor::DatePicker
 impl windows_reactor::DatePicker
 pub fn windows_reactor::DatePicker::day_visible(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
+pub fn windows_reactor::DatePicker::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::DatePicker::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::DatePicker::month_visible(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::DatePicker::new() -> Self
@@ -1058,11 +970,6 @@ pub fn windows_reactor::DatePicker::min_width(self, impl core::convert::Into<cor
 pub fn windows_reactor::DatePicker::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::DatePicker::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::DatePicker::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::DatePicker
-pub type windows_reactor::DatePicker::Slot = windows_reactor::DatePickerSlot
-pub fn windows_reactor::DatePicker::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::DatePicker::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::DatePicker::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::DragDropAction
 pub windows_reactor::DragDropAction::caption: core::option::Option<alloc::string::String>
 pub windows_reactor::DragDropAction::operation: windows_reactor::DragDropOperation
@@ -1181,6 +1088,8 @@ pub fn windows_reactor::ExitTransition::duration(self) -> core::time::Duration
 pub fn windows_reactor::ExitTransition::fade(core::time::Duration) -> Self
 pub struct windows_reactor::Expander
 impl windows_reactor::Expander
+pub fn windows_reactor::Expander::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
+pub fn windows_reactor::Expander::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::Expander::is_expanded(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::Expander::new() -> Self
 pub fn windows_reactor::Expander::on_is_expanded_changed(self, impl windows_reactor::IntoPayloadCallback<bool>) -> Self
@@ -1199,13 +1108,9 @@ pub fn windows_reactor::Expander::min_width(self, impl core::convert::Into<core:
 pub fn windows_reactor::Expander::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Expander::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Expander::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::Expander
-pub type windows_reactor::Expander::Slot = windows_reactor::ExpanderSlot
-pub fn windows_reactor::Expander::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::Expander::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::Expander::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::FlipView
 impl windows_reactor::FlipView
+pub fn windows_reactor::FlipView::items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
 pub fn windows_reactor::FlipView::new() -> Self
 pub fn windows_reactor::FlipView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
 pub fn windows_reactor::FlipView::selected_index(self, impl core::convert::Into<core::option::Option<usize>>) -> Self
@@ -1224,11 +1129,6 @@ pub fn windows_reactor::FlipView::min_width(self, impl core::convert::Into<core:
 pub fn windows_reactor::FlipView::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::FlipView::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::FlipView::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::FlipView
-pub type windows_reactor::FlipView::Slot = windows_reactor::FlipViewSlot
-pub fn windows_reactor::FlipView::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::FlipView::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::FlipView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::Flyout
 impl windows_reactor::Flyout
 pub fn windows_reactor::Flyout::placement(self, windows_reactor::FlyoutPlacement) -> Self
@@ -1308,6 +1208,7 @@ impl windows_reactor::GridView
 pub fn windows_reactor::GridView::allow_drop(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::GridView::can_drag_items(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::GridView::can_reorder_items(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
+pub fn windows_reactor::GridView::items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
 pub fn windows_reactor::GridView::new() -> Self
 pub fn windows_reactor::GridView::on_reordered(self, impl windows_reactor::IntoPayloadCallback<alloc::vec::Vec<alloc::string::String>>) -> Self
 pub fn windows_reactor::GridView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
@@ -1327,11 +1228,6 @@ pub fn windows_reactor::GridView::min_width(self, impl core::convert::Into<core:
 pub fn windows_reactor::GridView::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::GridView::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::GridView::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::GridView
-pub type windows_reactor::GridView::Slot = windows_reactor::GridViewSlot
-pub fn windows_reactor::GridView::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::GridView::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::GridView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::GridViewItem
 impl windows_reactor::GridViewItem
 pub fn windows_reactor::GridViewItem::new() -> Self
@@ -1548,6 +1444,7 @@ pub fn windows_reactor::Line::width(self, impl core::convert::Into<core::option:
 pub struct windows_reactor::ListBox
 impl windows_reactor::ListBox
 pub fn windows_reactor::ListBox::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
+pub fn windows_reactor::ListBox::items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
 pub fn windows_reactor::ListBox::new() -> Self
 pub fn windows_reactor::ListBox::on_selected_tag_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<alloc::string::String>>) -> Self
 impl core::convert::From<windows_reactor::ListBox> for windows_reactor::View
@@ -1565,11 +1462,6 @@ pub fn windows_reactor::ListBox::min_width(self, impl core::convert::Into<core::
 pub fn windows_reactor::ListBox::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::ListBox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::ListBox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::ListBox
-pub type windows_reactor::ListBox::Slot = windows_reactor::ListBoxSlot
-pub fn windows_reactor::ListBox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::ListBox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::ListBox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::ListBoxItem
 impl windows_reactor::ListBoxItem
 pub fn windows_reactor::ListBoxItem::is_selected(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
@@ -1598,6 +1490,7 @@ impl windows_reactor::ListView
 pub fn windows_reactor::ListView::allow_drop(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::ListView::can_drag_items(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::ListView::can_reorder_items(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
+pub fn windows_reactor::ListView::items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
 pub fn windows_reactor::ListView::new() -> Self
 pub fn windows_reactor::ListView::on_reordered(self, impl windows_reactor::IntoPayloadCallback<alloc::vec::Vec<alloc::string::String>>) -> Self
 pub fn windows_reactor::ListView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
@@ -1618,11 +1511,6 @@ pub fn windows_reactor::ListView::min_width(self, impl core::convert::Into<core:
 pub fn windows_reactor::ListView::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::ListView::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::ListView::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::ListView
-pub type windows_reactor::ListView::Slot = windows_reactor::ListViewSlot
-pub fn windows_reactor::ListView::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::ListView::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::ListView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::ListViewItem
 impl windows_reactor::ListViewItem
 pub fn windows_reactor::ListViewItem::new() -> Self
@@ -1657,6 +1545,7 @@ impl windows_reactor::Menu
 pub fn windows_reactor::Menu::new(impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::MenuItem>, impl windows_reactor::IntoPayloadCallback<alloc::string::String>) -> Self
 pub struct windows_reactor::MenuBar
 impl windows_reactor::MenuBar
+pub fn windows_reactor::MenuBar::items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
 pub fn windows_reactor::MenuBar::new() -> Self
 impl core::convert::From<windows_reactor::MenuBar> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::MenuBar) -> Self
@@ -1673,11 +1562,6 @@ pub fn windows_reactor::MenuBar::min_width(self, impl core::convert::Into<core::
 pub fn windows_reactor::MenuBar::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::MenuBar::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::MenuBar::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::MenuBar
-pub type windows_reactor::MenuBar::Slot = windows_reactor::MenuBarSlot
-pub fn windows_reactor::MenuBar::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::MenuBar::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::MenuBar::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::MenuBarItem
 impl windows_reactor::MenuBarItem
 pub fn windows_reactor::MenuBarItem::new() -> Self
@@ -1701,17 +1585,23 @@ pub fn windows_reactor::MenuBarItem::width(self, impl core::convert::Into<core::
 pub struct windows_reactor::NavigationView
 impl windows_reactor::NavigationView
 pub fn windows_reactor::NavigationView::always_show_header(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
+pub fn windows_reactor::NavigationView::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
+pub fn windows_reactor::NavigationView::footer_menu_items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
+pub fn windows_reactor::NavigationView::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::NavigationView::is_back_button_visible(self, impl core::convert::Into<core::option::Option<windows_reactor::NavigationViewBackButtonVisible>>) -> Self
 pub fn windows_reactor::NavigationView::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::NavigationView::is_pane_open(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::NavigationView::is_pane_toggle_button_visible(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::NavigationView::is_settings_visible(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
+pub fn windows_reactor::NavigationView::menu_items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
 pub fn windows_reactor::NavigationView::new() -> Self
 pub fn windows_reactor::NavigationView::on_display_mode_changed(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::NavigationViewDisplayMode>) -> Self
 pub fn windows_reactor::NavigationView::on_is_pane_open_changed(self, impl windows_reactor::IntoPayloadCallback<bool>) -> Self
 pub fn windows_reactor::NavigationView::on_selected_tag_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<alloc::string::String>>) -> Self
 pub fn windows_reactor::NavigationView::open_pane_length(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
+pub fn windows_reactor::NavigationView::pane_custom_content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::NavigationView::pane_display_mode(self, impl core::convert::Into<core::option::Option<windows_reactor::NavigationViewPaneDisplayMode>>) -> Self
+pub fn windows_reactor::NavigationView::pane_footer(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::NavigationView::pane_title(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::NavigationView::pane_title_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 impl core::convert::From<windows_reactor::NavigationView> for windows_reactor::View
@@ -1729,15 +1619,13 @@ pub fn windows_reactor::NavigationView::min_width(self, impl core::convert::Into
 pub fn windows_reactor::NavigationView::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::NavigationView::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::NavigationView::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::NavigationView
-pub type windows_reactor::NavigationView::Slot = windows_reactor::NavigationViewSlot
-pub fn windows_reactor::NavigationView::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::NavigationView::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::NavigationView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::NavigationViewItem
 impl windows_reactor::NavigationViewItem
+pub fn windows_reactor::NavigationViewItem::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
+pub fn windows_reactor::NavigationViewItem::icon(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::NavigationViewItem::is_expanded(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::NavigationViewItem::is_selected(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
+pub fn windows_reactor::NavigationViewItem::menu_items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
 pub fn windows_reactor::NavigationViewItem::new() -> Self
 pub fn windows_reactor::NavigationViewItem::selects_on_invoked(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::NavigationViewItem::tag(self, impl core::convert::Into<alloc::string::String>) -> Self
@@ -1757,14 +1645,10 @@ pub fn windows_reactor::NavigationViewItem::min_width(self, impl core::convert::
 pub fn windows_reactor::NavigationViewItem::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::NavigationViewItem::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::NavigationViewItem::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::NavigationViewItem
-pub type windows_reactor::NavigationViewItem::Slot = windows_reactor::NavigationViewItemSlot
-pub fn windows_reactor::NavigationViewItem::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::NavigationViewItem::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::NavigationViewItem::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::NumberBox
 impl windows_reactor::NumberBox
 pub fn windows_reactor::NumberBox::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
+pub fn windows_reactor::NumberBox::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::NumberBox::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::NumberBox::maximum(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
 pub fn windows_reactor::NumberBox::minimum(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
@@ -1788,14 +1672,10 @@ pub fn windows_reactor::NumberBox::opacity(self, impl core::convert::Into<core::
 pub fn windows_reactor::NumberBox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::NumberBox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 impl windows_reactor::ReferenceControl for windows_reactor::NumberBox
-impl windows_reactor::SlotsControl for windows_reactor::NumberBox
-pub type windows_reactor::NumberBox::Slot = windows_reactor::NumberBoxSlot
-pub fn windows_reactor::NumberBox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::NumberBox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::NumberBox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::PasswordBox
 impl windows_reactor::PasswordBox
 pub fn windows_reactor::PasswordBox::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
+pub fn windows_reactor::PasswordBox::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::PasswordBox::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::PasswordBox::new() -> Self
 pub fn windows_reactor::PasswordBox::on_password_changed(self, impl windows_reactor::IntoPayloadCallback<alloc::string::String>) -> Self
@@ -1821,11 +1701,6 @@ pub fn windows_reactor::PasswordBox::opacity(self, impl core::convert::Into<core
 pub fn windows_reactor::PasswordBox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::PasswordBox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 impl windows_reactor::ReferenceControl for windows_reactor::PasswordBox
-impl windows_reactor::SlotsControl for windows_reactor::PasswordBox
-pub type windows_reactor::PasswordBox::Slot = windows_reactor::PasswordBoxSlot
-pub fn windows_reactor::PasswordBox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::PasswordBox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::PasswordBox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::PathIcon
 impl windows_reactor::PathIcon
 pub fn windows_reactor::PathIcon::data(self, impl core::convert::Into<alloc::string::String>) -> Self
@@ -1870,6 +1745,7 @@ pub fn windows_reactor::PersonPicture::vertical_alignment(self, impl core::conve
 pub fn windows_reactor::PersonPicture::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub struct windows_reactor::Pivot
 impl windows_reactor::Pivot
+pub fn windows_reactor::Pivot::items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
 pub fn windows_reactor::Pivot::new() -> Self
 pub fn windows_reactor::Pivot::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
 pub fn windows_reactor::Pivot::selected_index(self, impl core::convert::Into<core::option::Option<usize>>) -> Self
@@ -1890,11 +1766,6 @@ pub fn windows_reactor::Pivot::min_width(self, impl core::convert::Into<core::op
 pub fn windows_reactor::Pivot::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Pivot::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Pivot::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::Pivot
-pub type windows_reactor::Pivot::Slot = windows_reactor::PivotSlot
-pub fn windows_reactor::Pivot::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::Pivot::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::Pivot::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::PivotItem
 impl windows_reactor::PivotItem
 pub fn windows_reactor::PivotItem::header(self, impl core::convert::Into<alloc::string::String>) -> Self
@@ -2005,6 +1876,7 @@ pub fn windows_reactor::RadioButton::width(self, impl core::convert::Into<core::
 impl windows_reactor::ReferenceControl for windows_reactor::RadioButton
 pub struct windows_reactor::RadioButtons
 impl windows_reactor::RadioButtons
+pub fn windows_reactor::RadioButtons::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::RadioButtons::items_source<I, S>(self, I) -> Self where I: core::iter::traits::collect::IntoIterator<Item = S>, S: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::RadioButtons::items_source_optional<I, S>(self, core::option::Option<I>) -> Self where I: core::iter::traits::collect::IntoIterator<Item = S>, S: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::RadioButtons::max_columns(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
@@ -2026,11 +1898,6 @@ pub fn windows_reactor::RadioButtons::min_width(self, impl core::convert::Into<c
 pub fn windows_reactor::RadioButtons::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::RadioButtons::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::RadioButtons::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::RadioButtons
-pub type windows_reactor::RadioButtons::Slot = windows_reactor::RadioButtonsSlot
-pub fn windows_reactor::RadioButtons::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::RadioButtons::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::RadioButtons::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::RatingControl
 impl windows_reactor::RatingControl
 pub fn windows_reactor::RatingControl::caption(self, impl core::convert::Into<alloc::string::String>) -> Self
@@ -2135,6 +2002,7 @@ pub fn windows_reactor::ResourceOverrides::set(self, impl core::convert::Into<al
 pub struct windows_reactor::RichEditBox
 impl windows_reactor::RichEditBox
 pub fn windows_reactor::RichEditBox::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
+pub fn windows_reactor::RichEditBox::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::RichEditBox::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::RichEditBox::is_read_only(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::RichEditBox::new() -> Self
@@ -2160,11 +2028,6 @@ pub fn windows_reactor::RichEditBox::opacity(self, impl core::convert::Into<core
 pub fn windows_reactor::RichEditBox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::RichEditBox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 impl windows_reactor::ReferenceControl for windows_reactor::RichEditBox
-impl windows_reactor::SlotsControl for windows_reactor::RichEditBox
-pub type windows_reactor::RichEditBox::Slot = windows_reactor::RichEditBoxSlot
-pub fn windows_reactor::RichEditBox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::RichEditBox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::RichEditBox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::RichText
 impl windows_reactor::RichText
 pub fn windows_reactor::RichText::new(impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::RichTextParagraph>) -> Self
@@ -2249,6 +2112,7 @@ pub fn windows_reactor::ScrollViewer::vertical_alignment(self, impl core::conver
 pub fn windows_reactor::ScrollViewer::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub struct windows_reactor::SelectorBar
 impl windows_reactor::SelectorBar
+pub fn windows_reactor::SelectorBar::items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
 pub fn windows_reactor::SelectorBar::new() -> Self
 pub fn windows_reactor::SelectorBar::on_selected_text_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<alloc::string::String>>) -> Self
 impl core::convert::From<windows_reactor::SelectorBar> for windows_reactor::View
@@ -2266,13 +2130,9 @@ pub fn windows_reactor::SelectorBar::min_width(self, impl core::convert::Into<co
 pub fn windows_reactor::SelectorBar::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::SelectorBar::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::SelectorBar::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::SelectorBar
-pub type windows_reactor::SelectorBar::Slot = windows_reactor::SelectorBarSlot
-pub fn windows_reactor::SelectorBar::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::SelectorBar::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::SelectorBar::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::SelectorBarItem
 impl windows_reactor::SelectorBarItem
+pub fn windows_reactor::SelectorBarItem::icon(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::SelectorBarItem::is_selected(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::SelectorBarItem::new() -> Self
 pub fn windows_reactor::SelectorBarItem::text(self, impl core::convert::Into<alloc::string::String>) -> Self
@@ -2292,14 +2152,10 @@ pub fn windows_reactor::SelectorBarItem::min_width(self, impl core::convert::Int
 pub fn windows_reactor::SelectorBarItem::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::SelectorBarItem::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::SelectorBarItem::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::SelectorBarItem
-pub type windows_reactor::SelectorBarItem::Slot = windows_reactor::SelectorBarItemSlot
-pub fn windows_reactor::SelectorBarItem::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::SelectorBarItem::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::SelectorBarItem::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::Slider
 impl windows_reactor::Slider
 pub fn windows_reactor::Slider::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
+pub fn windows_reactor::Slider::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::Slider::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::Slider::maximum(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
 pub fn windows_reactor::Slider::minimum(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
@@ -2325,15 +2181,6 @@ pub fn windows_reactor::Slider::opacity(self, impl core::convert::Into<core::opt
 pub fn windows_reactor::Slider::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Slider::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 impl windows_reactor::ReferenceControl for windows_reactor::Slider
-impl windows_reactor::SlotsControl for windows_reactor::Slider
-pub type windows_reactor::Slider::Slot = windows_reactor::SliderSlot
-pub fn windows_reactor::Slider::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::Slider::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::Slider::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-pub struct windows_reactor::SlotView<S>
-impl<S> windows_reactor::SlotView<S>
-pub fn windows_reactor::SlotView<S>::collection<T>(S, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::SlotView<S>::new(S, impl core::convert::Into<windows_reactor::View>) -> Self
 pub struct windows_reactor::SplitButton
 impl windows_reactor::SplitButton
 pub fn windows_reactor::SplitButton::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
@@ -2359,11 +2206,13 @@ pub fn windows_reactor::SplitButton::width(self, impl core::convert::Into<core::
 pub struct windows_reactor::SplitView
 impl windows_reactor::SplitView
 pub fn windows_reactor::SplitView::compact_pane_length(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
+pub fn windows_reactor::SplitView::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::SplitView::display_mode(self, impl core::convert::Into<core::option::Option<windows_reactor::SplitViewDisplayMode>>) -> Self
 pub fn windows_reactor::SplitView::is_pane_open(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::SplitView::new() -> Self
 pub fn windows_reactor::SplitView::on_pane_closed(self, impl windows_reactor::IntoPayloadCallback<bool>) -> Self
 pub fn windows_reactor::SplitView::open_pane_length(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
+pub fn windows_reactor::SplitView::pane(self, impl core::convert::Into<windows_reactor::View>) -> Self
 impl core::convert::From<windows_reactor::SplitView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::SplitView) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::SplitView
@@ -2379,11 +2228,6 @@ pub fn windows_reactor::SplitView::min_width(self, impl core::convert::Into<core
 pub fn windows_reactor::SplitView::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::SplitView::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::SplitView::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::SplitView
-pub type windows_reactor::SplitView::Slot = windows_reactor::SplitViewSlot
-pub fn windows_reactor::SplitView::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::SplitView::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::SplitView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::StackPanel
 impl windows_reactor::StackPanel
 pub fn windows_reactor::StackPanel::new() -> Self
@@ -2456,6 +2300,7 @@ pub fn windows_reactor::TabView::on_close_requested(self, impl windows_reactor::
 pub fn windows_reactor::TabView::on_reordered(self, impl windows_reactor::IntoPayloadCallback<alloc::vec::Vec<alloc::string::String>>) -> Self
 pub fn windows_reactor::TabView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
 pub fn windows_reactor::TabView::selected_index(self, impl core::convert::Into<core::option::Option<usize>>) -> Self
+pub fn windows_reactor::TabView::tab_items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
 impl core::convert::From<windows_reactor::TabView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TabView) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::TabView
@@ -2471,11 +2316,6 @@ pub fn windows_reactor::TabView::min_width(self, impl core::convert::Into<core::
 pub fn windows_reactor::TabView::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::TabView::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::TabView::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::TabView
-pub type windows_reactor::TabView::Slot = windows_reactor::TabViewSlot
-pub fn windows_reactor::TabView::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::TabView::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::TabView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::TabViewItem
 impl windows_reactor::TabViewItem
 pub fn windows_reactor::TabViewItem::header(self, impl core::convert::Into<alloc::string::String>) -> Self
@@ -2570,6 +2410,7 @@ pub fn windows_reactor::TextBox::border_brush_optional<T>(self, core::option::Op
 pub fn windows_reactor::TextBox::border_thickness(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::TextBox::border_thickness_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<windows_reactor::Thickness>
 pub fn windows_reactor::TextBox::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
+pub fn windows_reactor::TextBox::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::TextBox::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::TextBox::new() -> Self
 pub fn windows_reactor::TextBox::on_text_changed(self, impl windows_reactor::IntoPayloadCallback<alloc::string::String>) -> Self
@@ -2595,11 +2436,6 @@ pub fn windows_reactor::TextBox::opacity(self, impl core::convert::Into<core::op
 pub fn windows_reactor::TextBox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::TextBox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 impl windows_reactor::ReferenceControl for windows_reactor::TextBox
-impl windows_reactor::SlotsControl for windows_reactor::TextBox
-pub type windows_reactor::TextBox::Slot = windows_reactor::TextBoxSlot
-pub fn windows_reactor::TextBox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::TextBox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::TextBox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::Thickness(_)
 impl windows_reactor::Thickness
 pub fn windows_reactor::Thickness::bottom(&self) -> f64
@@ -2621,6 +2457,7 @@ pub struct windows_reactor::TimePicker
 impl windows_reactor::TimePicker
 pub fn windows_reactor::TimePicker::clock_identifier(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::TimePicker::clock_identifier_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
+pub fn windows_reactor::TimePicker::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::TimePicker::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::TimePicker::minute_increment(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
 pub fn windows_reactor::TimePicker::new() -> Self
@@ -2640,13 +2477,9 @@ pub fn windows_reactor::TimePicker::min_width(self, impl core::convert::Into<cor
 pub fn windows_reactor::TimePicker::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::TimePicker::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::TimePicker::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::TimePicker
-pub type windows_reactor::TimePicker::Slot = windows_reactor::TimePickerSlot
-pub fn windows_reactor::TimePicker::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::TimePicker::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::TimePicker::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::TitleBar
 impl windows_reactor::TitleBar
+pub fn windows_reactor::TitleBar::content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::TitleBar::is_back_button_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::TitleBar::is_back_button_visible(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::TitleBar::is_pane_toggle_button_visible(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
@@ -2654,6 +2487,7 @@ pub fn windows_reactor::TitleBar::new() -> Self
 pub fn windows_reactor::TitleBar::on_back_requested(self, impl windows_reactor::IntoUnitCallback) -> Self
 pub fn windows_reactor::TitleBar::on_pane_toggle_requested(self, impl windows_reactor::IntoUnitCallback) -> Self
 pub fn windows_reactor::TitleBar::preferred_height(self, windows_reactor::WindowTitleBarHeight) -> Self
+pub fn windows_reactor::TitleBar::right_header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::TitleBar::subtitle(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::TitleBar::subtitle_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::TitleBar::title(self, impl core::convert::Into<alloc::string::String>) -> Self
@@ -2673,11 +2507,6 @@ pub fn windows_reactor::TitleBar::min_width(self, impl core::convert::Into<core:
 pub fn windows_reactor::TitleBar::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::TitleBar::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::TitleBar::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::TitleBar
-pub type windows_reactor::TitleBar::Slot = windows_reactor::TitleBarSlot
-pub fn windows_reactor::TitleBar::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::TitleBar::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::TitleBar::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::ToggleButton
 impl windows_reactor::ToggleButton
 pub fn windows_reactor::ToggleButton::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
@@ -2707,9 +2536,12 @@ impl windows_reactor::ReferenceControl for windows_reactor::ToggleButton
 pub struct windows_reactor::ToggleSwitch
 impl windows_reactor::ToggleSwitch
 pub fn windows_reactor::ToggleSwitch::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
+pub fn windows_reactor::ToggleSwitch::header(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::ToggleSwitch::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::ToggleSwitch::is_on(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::ToggleSwitch::new() -> Self
+pub fn windows_reactor::ToggleSwitch::off_content(self, impl core::convert::Into<windows_reactor::View>) -> Self
+pub fn windows_reactor::ToggleSwitch::on_content(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::ToggleSwitch::on_toggled(self, impl windows_reactor::IntoPayloadCallback<bool>) -> Self
 impl core::convert::From<windows_reactor::ToggleSwitch> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ToggleSwitch) -> Self
@@ -2728,11 +2560,6 @@ pub fn windows_reactor::ToggleSwitch::opacity(self, impl core::convert::Into<cor
 pub fn windows_reactor::ToggleSwitch::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::ToggleSwitch::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 impl windows_reactor::ReferenceControl for windows_reactor::ToggleSwitch
-impl windows_reactor::SlotsControl for windows_reactor::ToggleSwitch
-pub type windows_reactor::ToggleSwitch::Slot = windows_reactor::ToggleSwitchSlot
-pub fn windows_reactor::ToggleSwitch::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::ToggleSwitch::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::ToggleSwitch::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::Tooltip
 impl windows_reactor::Tooltip
 pub fn windows_reactor::Tooltip::placement(self, windows_reactor::TooltipPlacement) -> Self
@@ -2970,6 +2797,7 @@ pub fn windows_reactor::ViewContext<C>::window_title(&mut self, impl core::conve
 pub fn windows_reactor::ViewContext<C>::window_visuals(&mut self, windows_reactor::WindowVisuals)
 pub struct windows_reactor::Viewbox
 impl windows_reactor::Viewbox
+pub fn windows_reactor::Viewbox::child(self, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::Viewbox::new() -> Self
 pub fn windows_reactor::Viewbox::stretch(self, impl core::convert::Into<core::option::Option<windows_reactor::Stretch>>) -> Self
 impl core::convert::From<windows_reactor::Viewbox> for windows_reactor::View
@@ -2987,11 +2815,6 @@ pub fn windows_reactor::Viewbox::min_width(self, impl core::convert::Into<core::
 pub fn windows_reactor::Viewbox::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Viewbox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Viewbox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
-impl windows_reactor::SlotsControl for windows_reactor::Viewbox
-pub type windows_reactor::Viewbox::Slot = windows_reactor::ViewboxSlot
-pub fn windows_reactor::Viewbox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::Viewbox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::Viewbox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::VirtualSource
 impl windows_reactor::VirtualSource
 pub fn windows_reactor::VirtualSource::is_empty(&self) -> bool
@@ -4235,156 +4058,6 @@ pub fn T::relative_align_left(self) -> Self
 pub fn T::relative_align_right(self) -> Self
 pub fn T::relative_align_top(self) -> Self
 pub fn T::relative_align_vertical_center(self) -> Self
-pub trait windows_reactor::SlotsControl: sealed::NativeControl + sealed::SlotIndex<Self::Slot> + core::marker::Sized
-pub type windows_reactor::SlotsControl::Slot: core::marker::Copy
-pub fn windows_reactor::SlotsControl::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::SlotsControl::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::SlotsControl::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::AppBarButton
-pub type windows_reactor::AppBarButton::Slot = windows_reactor::AppBarButtonSlot
-pub fn windows_reactor::AppBarButton::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::AppBarButton::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::AppBarButton::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::AutoSuggestBox
-pub type windows_reactor::AutoSuggestBox::Slot = windows_reactor::AutoSuggestBoxSlot
-pub fn windows_reactor::AutoSuggestBox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::AutoSuggestBox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::AutoSuggestBox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::CalendarDatePicker
-pub type windows_reactor::CalendarDatePicker::Slot = windows_reactor::CalendarDatePickerSlot
-pub fn windows_reactor::CalendarDatePicker::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::CalendarDatePicker::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::CalendarDatePicker::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::ComboBox
-pub type windows_reactor::ComboBox::Slot = windows_reactor::ComboBoxSlot
-pub fn windows_reactor::ComboBox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::ComboBox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::ComboBox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::CommandBar
-pub type windows_reactor::CommandBar::Slot = windows_reactor::CommandBarSlot
-pub fn windows_reactor::CommandBar::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::CommandBar::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::CommandBar::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::DatePicker
-pub type windows_reactor::DatePicker::Slot = windows_reactor::DatePickerSlot
-pub fn windows_reactor::DatePicker::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::DatePicker::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::DatePicker::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::Expander
-pub type windows_reactor::Expander::Slot = windows_reactor::ExpanderSlot
-pub fn windows_reactor::Expander::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::Expander::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::Expander::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::FlipView
-pub type windows_reactor::FlipView::Slot = windows_reactor::FlipViewSlot
-pub fn windows_reactor::FlipView::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::FlipView::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::FlipView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::GridView
-pub type windows_reactor::GridView::Slot = windows_reactor::GridViewSlot
-pub fn windows_reactor::GridView::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::GridView::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::GridView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::ListBox
-pub type windows_reactor::ListBox::Slot = windows_reactor::ListBoxSlot
-pub fn windows_reactor::ListBox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::ListBox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::ListBox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::ListView
-pub type windows_reactor::ListView::Slot = windows_reactor::ListViewSlot
-pub fn windows_reactor::ListView::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::ListView::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::ListView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::MenuBar
-pub type windows_reactor::MenuBar::Slot = windows_reactor::MenuBarSlot
-pub fn windows_reactor::MenuBar::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::MenuBar::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::MenuBar::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::NavigationView
-pub type windows_reactor::NavigationView::Slot = windows_reactor::NavigationViewSlot
-pub fn windows_reactor::NavigationView::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::NavigationView::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::NavigationView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::NavigationViewItem
-pub type windows_reactor::NavigationViewItem::Slot = windows_reactor::NavigationViewItemSlot
-pub fn windows_reactor::NavigationViewItem::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::NavigationViewItem::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::NavigationViewItem::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::NumberBox
-pub type windows_reactor::NumberBox::Slot = windows_reactor::NumberBoxSlot
-pub fn windows_reactor::NumberBox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::NumberBox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::NumberBox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::PasswordBox
-pub type windows_reactor::PasswordBox::Slot = windows_reactor::PasswordBoxSlot
-pub fn windows_reactor::PasswordBox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::PasswordBox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::PasswordBox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::Pivot
-pub type windows_reactor::Pivot::Slot = windows_reactor::PivotSlot
-pub fn windows_reactor::Pivot::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::Pivot::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::Pivot::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::RadioButtons
-pub type windows_reactor::RadioButtons::Slot = windows_reactor::RadioButtonsSlot
-pub fn windows_reactor::RadioButtons::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::RadioButtons::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::RadioButtons::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::RichEditBox
-pub type windows_reactor::RichEditBox::Slot = windows_reactor::RichEditBoxSlot
-pub fn windows_reactor::RichEditBox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::RichEditBox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::RichEditBox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::SelectorBar
-pub type windows_reactor::SelectorBar::Slot = windows_reactor::SelectorBarSlot
-pub fn windows_reactor::SelectorBar::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::SelectorBar::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::SelectorBar::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::SelectorBarItem
-pub type windows_reactor::SelectorBarItem::Slot = windows_reactor::SelectorBarItemSlot
-pub fn windows_reactor::SelectorBarItem::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::SelectorBarItem::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::SelectorBarItem::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::Slider
-pub type windows_reactor::Slider::Slot = windows_reactor::SliderSlot
-pub fn windows_reactor::Slider::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::Slider::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::Slider::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::SplitView
-pub type windows_reactor::SplitView::Slot = windows_reactor::SplitViewSlot
-pub fn windows_reactor::SplitView::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::SplitView::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::SplitView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::TabView
-pub type windows_reactor::TabView::Slot = windows_reactor::TabViewSlot
-pub fn windows_reactor::TabView::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::TabView::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::TabView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::TextBox
-pub type windows_reactor::TextBox::Slot = windows_reactor::TextBoxSlot
-pub fn windows_reactor::TextBox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::TextBox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::TextBox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::TimePicker
-pub type windows_reactor::TimePicker::Slot = windows_reactor::TimePickerSlot
-pub fn windows_reactor::TimePicker::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::TimePicker::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::TimePicker::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::TitleBar
-pub type windows_reactor::TitleBar::Slot = windows_reactor::TitleBarSlot
-pub fn windows_reactor::TitleBar::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::TitleBar::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::TitleBar::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::ToggleSwitch
-pub type windows_reactor::ToggleSwitch::Slot = windows_reactor::ToggleSwitchSlot
-pub fn windows_reactor::ToggleSwitch::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::ToggleSwitch::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::ToggleSwitch::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-impl windows_reactor::SlotsControl for windows_reactor::Viewbox
-pub type windows_reactor::Viewbox::Slot = windows_reactor::ViewboxSlot
-pub fn windows_reactor::Viewbox::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
-pub fn windows_reactor::Viewbox::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-pub fn windows_reactor::Viewbox::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub trait windows_reactor::TooltipExt: core::convert::Into<windows_reactor::View> + core::marker::Sized
 pub fn windows_reactor::TooltipExt::tooltip(self, impl core::convert::Into<alloc::string::String>) -> windows_reactor::View
 pub fn windows_reactor::TooltipExt::tooltip_with(self, windows_reactor::Tooltip) -> windows_reactor::View

@@ -34,7 +34,7 @@ impl Component for DatePickerPage {
                         StackPanel::new().spacing(8.0).children((
                             DatePicker::new()
                                 .on_selected_date_changed(context.forward())
-                                .slot(DatePickerSlot::Header, "Select date"),
+                                .header("Select date"),
                             TextBlock::new().text(&self.label).opacity(0.6),
                         )),
                         "DatePicker::new()\n    .on_selected_date_changed(|date| ...)",
@@ -44,9 +44,7 @@ impl Component for DatePickerPage {
                     "month-year-date-picker",
                     sample_card(
                         "Month and Year Only",
-                        DatePicker::new()
-                            .day_visible(false)
-                            .slot(DatePickerSlot::Header, "Month/Year"),
+                        DatePicker::new().day_visible(false).header("Month/Year"),
                         "DatePicker::new().day_visible(false)",
                     ),
                 ),

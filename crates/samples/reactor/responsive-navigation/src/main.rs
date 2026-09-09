@@ -55,13 +55,10 @@ impl Component for ResponsiveNavigation {
         .map(|(tag, label, symbol)| {
             KeyedView::new(
                 tag,
-                NavigationViewItem::new().tag(tag).slots([
-                    SlotView::new(NavigationViewItemSlot::Content, label),
-                    SlotView::new(
-                        NavigationViewItemSlot::Icon,
-                        SymbolIcon::new().symbol(symbol),
-                    ),
-                ]),
+                NavigationViewItem::new()
+                    .tag(tag)
+                    .content(label)
+                    .icon(SymbolIcon::new().symbol(symbol)),
             )
         });
         NavigationView::new()
@@ -71,28 +68,26 @@ impl Component for ResponsiveNavigation {
             .on_display_mode_changed(context.callback(NavigationMessage::DisplayMode))
             .pane_title("Responsive navigation")
             .is_settings_visible(false)
-            .slots([
-                SlotView::collection(NavigationViewSlot::MenuItems, items),
-                SlotView::new(
-                    NavigationViewSlot::Content,
-                    StackPanel::new().spacing(12.0).children((
-                        format!(
-                            "Actual display mode: {}",
-                            display_mode_name(self.display_mode)
-                        ),
-                        if self.pane_open {
-                            "Pane is open"
-                        } else {
-                            "Pane is closed"
-                        },
-                        Button::new()
-                            .on_click(context.callback(|_| NavigationMessage::TogglePane))
-                            .content("Toggle pane"),
-                        "Resize the window to cross compact and minimal thresholds.",
-                    )),
-                ),
-                SlotView::new(NavigationViewSlot::PaneFooter, footer),
-            ])
+            .menu_items(items)
+            .content(
+                StackPanel::new().spacing(12.0).children((
+                    format!(
+                        "Actual display mode: {}",
+                        display_mode_name(self.display_mode)
+                    ),
+                    if self.pane_open {
+                        "Pane is open"
+                    } else {
+                        "Pane is closed"
+                    },
+                    Button::new()
+                        .on_click(context.callback(|_| NavigationMessage::TogglePane))
+                        .content("Toggle pane"),
+                    "Resize the window to cross compact and minimal thresholds.",
+                )),
+            )
+            .pane_footer(footer)
+            .into()
     }
 }
 

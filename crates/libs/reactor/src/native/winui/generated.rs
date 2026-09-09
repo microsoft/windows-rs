@@ -3983,6 +3983,9 @@ pub fn slot_collection(handle: &Handle, slot: SlotId) -> Result<SlotCollection, 
         (Handle::NavigationView(control), SlotId::NavigationViewMenuItems) => Ok(
             SlotCollection::Inspectable(control.MenuItems().map_err(native_error)?),
         ),
+        (Handle::NavigationView(control), SlotId::NavigationViewFooterMenuItems) => Ok(
+            SlotCollection::Inspectable(control.FooterMenuItems().map_err(native_error)?),
+        ),
         (Handle::NavigationViewItem(control), SlotId::NavigationViewItemMenuItems) => {
             Ok(SlotCollection::Inspectable(
                 control
@@ -4071,15 +4074,15 @@ pub fn selected_item(
     handle: &Handle,
     selection: SelectionDescriptor,
 ) -> Result<Option<windows_core::IInspectable>, RuntimeError> {
-    match (handle, selection.slot) {
-        (Handle::NavigationView(value), SlotId::NavigationViewMenuItems) => {
+    match (handle, selection.event) {
+        (Handle::NavigationView(value), EventId::NavigationViewSelectionChanged) => {
             match value.SelectedItem() {
                 Ok(selected) => Ok(Some(selected)),
                 Err(error) if error.code().is_ok() => Ok(None),
                 Err(error) => Err(native_error(error)),
             }
         }
-        (Handle::ListBox(value), SlotId::ListBoxItems) => {
+        (Handle::ListBox(value), EventId::ListBoxSelectionChanged) => {
             match value
                 .cast::<ISelector>()
                 .and_then(|value| value.SelectedItem())
@@ -4089,11 +4092,13 @@ pub fn selected_item(
                 Err(error) => Err(native_error(error)),
             }
         }
-        (Handle::SelectorBar(value), SlotId::SelectorBarItems) => match value.SelectedItem() {
-            Ok(selected) => Ok(Some(selected.into())),
-            Err(error) if error.code().is_ok() => Ok(None),
-            Err(error) => Err(native_error(error)),
-        },
+        (Handle::SelectorBar(value), EventId::SelectorBarSelectionChanged) => {
+            match value.SelectedItem() {
+                Ok(selected) => Ok(Some(selected.into())),
+                Err(error) if error.code().is_ok() => Ok(None),
+                Err(error) => Err(native_error(error)),
+            }
+        }
         _ => Ok(None),
     }
 }
@@ -4102,15 +4107,15 @@ pub fn set_selected_item(
     selection: SelectionDescriptor,
     selected: &windows_core::IInspectable,
 ) -> Result<(), RuntimeError> {
-    match (handle, selection.slot) {
-        (Handle::NavigationView(value), SlotId::NavigationViewMenuItems) => {
+    match (handle, selection.event) {
+        (Handle::NavigationView(value), EventId::NavigationViewSelectionChanged) => {
             value.SetSelectedItem(selected).map_err(native_error)
         }
-        (Handle::ListBox(value), SlotId::ListBoxItems) => value
+        (Handle::ListBox(value), EventId::ListBoxSelectionChanged) => value
             .cast::<ISelector>()
             .and_then(|value| value.SetSelectedItem(selected))
             .map_err(native_error),
-        (Handle::SelectorBar(value), SlotId::SelectorBarItems) => selected
+        (Handle::SelectorBar(value), EventId::SelectorBarSelectionChanged) => selected
             .cast::<bindings::SelectorBarItem>()
             .and_then(|selected| value.SetSelectedItem(&selected))
             .map_err(native_error),

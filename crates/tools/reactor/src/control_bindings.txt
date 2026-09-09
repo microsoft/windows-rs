@@ -160,6 +160,7 @@ Microsoft::UI::Xaml::Controls::INavigationView2::put_IsBackButtonVisible
 Microsoft::UI::Xaml::Controls::INavigationView2::put_PaneCustomContent
 Microsoft::UI::Xaml::Controls::INavigationView2::put_PaneDisplayMode
 Microsoft::UI::Xaml::Controls::INavigationView2::put_PaneTitle
+Microsoft::UI::Xaml::Controls::INavigationView::get_FooterMenuItems
 Microsoft::UI::Xaml::Controls::INavigationView::get_IsPaneOpen
 Microsoft::UI::Xaml::Controls::INavigationView::get_MenuItems
 Microsoft::UI::Xaml::Controls::INavigationView::put_AlwaysShowHeader

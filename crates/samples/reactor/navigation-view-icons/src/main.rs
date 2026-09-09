@@ -27,13 +27,8 @@ impl Component for NavigationIconsSample {
                 NavigationViewItem::new()
                     .tag(tag)
                     .is_selected(self.page == tag)
-                    .slots([
-                        SlotView::new(NavigationViewItemSlot::Content, label),
-                        SlotView::new(
-                            NavigationViewItemSlot::Icon,
-                            SymbolIcon::new().symbol(symbol),
-                        ),
-                    ]),
+                    .content(label)
+                    .icon(SymbolIcon::new().symbol(symbol)),
             )
         };
         let content = match self.page.as_str() {
@@ -48,18 +43,14 @@ impl Component for NavigationIconsSample {
         NavigationView::new()
             .is_settings_visible(false)
             .on_selected_tag_changed(context.forward())
-            .slots([
-                SlotView::collection(
-                    NavigationViewSlot::MenuItems,
-                    [
-                        item("home", "Home", Symbol::Home),
-                        item("mail", "Mail", Symbol::Mail),
-                        item("people", "People", Symbol::People),
-                        item("settings", "Settings", Symbol::Setting),
-                    ],
-                ),
-                SlotView::new(NavigationViewSlot::Content, content),
+            .menu_items([
+                item("home", "Home", Symbol::Home),
+                item("mail", "Mail", Symbol::Mail),
+                item("people", "People", Symbol::People),
+                item("settings", "Settings", Symbol::Setting),
             ])
+            .content(content)
+            .into()
     }
 }
 

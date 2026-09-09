@@ -331,10 +331,6 @@ pub(crate) mod sealed {
         }
     }
 
-    pub(crate) trait SlotIndex<S> {
-        fn slot_index(slot: S) -> u8;
-    }
-
     pub trait StaticViews {
         fn into_positioned(self) -> Vec<super::KeyedView>;
     }
@@ -778,10 +774,7 @@ impl CommandBarCommand {
                         let _ = callback.call(clicked.clone());
                     });
                 let view = match icon {
-                    Some(icon) => button.slots([SlotView::new(
-                        AppBarButtonSlot::Icon,
-                        SymbolIcon::new().symbol(icon),
-                    )]),
+                    Some(icon) => button.icon(SymbolIcon::new().symbol(icon)).into(),
                     None => button.into(),
                 };
                 KeyedView { key, view }
@@ -802,20 +795,17 @@ impl CommandBar {
         on_click: impl IntoPayloadCallback<String>,
     ) -> View {
         let on_click = on_click.into_payload_callback();
-        self.slots([
-            SlotView::collection(
-                CommandBarSlot::PrimaryCommands,
-                primary
-                    .into_iter()
-                    .map(|command| command.into_keyed_view(&on_click)),
-            ),
-            SlotView::collection(
-                CommandBarSlot::SecondaryCommands,
-                secondary
-                    .into_iter()
-                    .map(|command| command.into_keyed_view(&on_click)),
-            ),
-        ])
+        self.primary_commands(
+            primary
+                .into_iter()
+                .map(|command| command.into_keyed_view(&on_click)),
+        )
+        .secondary_commands(
+            secondary
+                .into_iter()
+                .map(|command| command.into_keyed_view(&on_click)),
+        )
+        .into()
     }
 }
 
@@ -1031,46 +1021,16 @@ impl View {
         })
     }
 
+    pub(crate) fn slotted(control: Element, slots: Rc<Vec<SlottedView>>) -> Self {
+        Self(ViewKind::Slots { control, slots })
+    }
+
     pub(crate) fn as_kind(&self) -> &ViewKind {
         &self.0
     }
 
     pub(crate) fn into_kind(self) -> ViewKind {
         self.0
-    }
-}
-
-/// Content assigned to one typed control slot.
-#[derive(Clone, Debug, PartialEq)]
-pub struct SlotView<S> {
-    slot: S,
-    content: SlotContent,
-}
-
-impl<S> SlotView<S> {
-    /// Creates a slot containing one view.
-    pub fn new(slot: S, view: impl Into<View>) -> Self {
-        Self {
-            slot,
-            content: SlotContent::Single(view.into()),
-        }
-    }
-
-    /// Creates a collection slot whose children are reconciled by key.
-    pub fn collection<T>(slot: S, children: impl IntoIterator<Item = T>) -> Self
-    where
-        T: Into<KeyedView>,
-    {
-        Self {
-            slot,
-            content: SlotContent::Collection(Rc::new(
-                children.into_iter().map(Into::into).collect(),
-            )),
-        }
-    }
-
-    fn into_parts(self) -> (S, SlotContent) {
-        (self.slot, self.content)
     }
 }
 
@@ -1084,6 +1044,19 @@ pub(crate) enum SlotContent {
 pub(crate) struct SlottedView {
     pub(crate) slot: SlotId,
     pub(crate) content: SlotContent,
+}
+
+pub(crate) fn set_control_slot(
+    slots: &mut Option<Rc<Vec<SlottedView>>>,
+    slot: SlotId,
+    content: SlotContent,
+) {
+    let slots = Rc::make_mut(slots.get_or_insert_with(|| Rc::new(Vec::new())));
+    if let Some(existing) = slots.iter_mut().find(|existing| existing.slot == slot) {
+        existing.content = content;
+    } else {
+        slots.push(SlottedView { slot, content });
+    }
 }
 
 impl From<Element> for View {
@@ -2444,46 +2417,6 @@ pub trait ChildrenControl: sealed::NativeControl + Sized {
         View(ViewKind::Children {
             control: sealed::NativeControl::into_element(self),
             children: Rc::new(children.into_iter().map(Into::into).collect()),
-        })
-    }
-}
-
-/// Assigns single views or keyed collections to a control's typed slots.
-#[allow(private_bounds)]
-pub trait SlotsControl: sealed::NativeControl + sealed::SlotIndex<Self::Slot> + Sized {
-    type Slot: Copy;
-
-    fn slot(self, slot: Self::Slot, view: impl Into<View>) -> View {
-        self.slots([SlotView::new(slot, view)])
-    }
-
-    fn collection_slot<T>(self, slot: Self::Slot, children: impl IntoIterator<Item = T>) -> View
-    where
-        T: Into<KeyedView>,
-    {
-        self.slots([SlotView::collection(slot, children)])
-    }
-
-    fn slots(self, slots: impl IntoIterator<Item = SlotView<Self::Slot>>) -> View {
-        let control = sealed::NativeControl::into_element(self);
-        let kind = control.kind();
-        let slots = slots
-            .into_iter()
-            .map(|slot| {
-                let (slot, content) = slot.into_parts();
-                SlottedView {
-                    slot: slot_id(
-                        kind,
-                        <Self as sealed::SlotIndex<Self::Slot>>::slot_index(slot),
-                    )
-                    .unwrap(),
-                    content,
-                }
-            })
-            .collect();
-        View(ViewKind::Slots {
-            control,
-            slots: Rc::new(slots),
         })
     }
 }

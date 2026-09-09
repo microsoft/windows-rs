@@ -35,10 +35,8 @@ impl Component for IconElementsSample {
                 NavigationViewItem::new()
                     .tag(tag)
                     .is_selected(self.page == tag)
-                    .slots([
-                        SlotView::new(NavigationViewItemSlot::Content, label),
-                        SlotView::new(NavigationViewItemSlot::Icon, icon),
-                    ]),
+                    .content(label)
+                    .icon(icon),
             )
         };
         let content = match self.page.as_str() {
@@ -54,45 +52,41 @@ impl Component for IconElementsSample {
         NavigationView::new()
             .is_settings_visible(false)
             .on_selected_tag_changed(context.forward())
-            .slots([
-                SlotView::collection(
-                    NavigationViewSlot::MenuItems,
-                    [
-                        item(
-                            "home",
-                            "Home",
-                            SymbolIcon::new().symbol(Symbol::Home).into(),
-                        ),
-                        item(
-                            "starred",
-                            "Starred",
-                            FontIcon::new().glyph("\u{E734}").into(),
-                        ),
-                        item(
-                            "repo",
-                            "Repository",
-                            ImageIcon::new().source(image).unwrap().into(),
-                        ),
-                        item(
-                            "bitmap",
-                            "Bitmap mask",
-                            BitmapIcon::new()
-                                .uri_source(bitmap)
-                                .unwrap()
-                                .show_as_monochrome(true)
-                                .into(),
-                        ),
-                        item(
-                            "path",
-                            "Path",
-                            PathIcon::new()
-                                .data("F1 M 0,8 L 6,14 L 16,2 L 14,0 L 6,10 L 2,6 Z")
-                                .into(),
-                        ),
-                    ],
+            .menu_items([
+                item(
+                    "home",
+                    "Home",
+                    SymbolIcon::new().symbol(Symbol::Home).into(),
                 ),
-                SlotView::new(NavigationViewSlot::Content, content),
+                item(
+                    "starred",
+                    "Starred",
+                    FontIcon::new().glyph("\u{E734}").into(),
+                ),
+                item(
+                    "repo",
+                    "Repository",
+                    ImageIcon::new().source(image).unwrap().into(),
+                ),
+                item(
+                    "bitmap",
+                    "Bitmap mask",
+                    BitmapIcon::new()
+                        .uri_source(bitmap)
+                        .unwrap()
+                        .show_as_monochrome(true)
+                        .into(),
+                ),
+                item(
+                    "path",
+                    "Path",
+                    PathIcon::new()
+                        .data("F1 M 0,8 L 6,14 L 16,2 L 14,0 L 6,10 L 2,6 Z")
+                        .into(),
+                ),
             ])
+            .content(content)
+            .into()
     }
 }
 

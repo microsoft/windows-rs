@@ -51,7 +51,7 @@ impl Component for RelativePanelPage {
                         ToggleSwitch::new()
                             .is_on(self.bottom)
                             .on_toggled(context.forward())
-                            .slot(ToggleSwitchSlot::Header, "Show bottom corners"),
+                            .header("Show bottom corners"),
                         RelativePanel::new().height(200.0).children((
                             left,
                             right,

@@ -314,10 +314,8 @@ impl Component for Workspace {
                 .compact_pane_length(48.0)
                 .display_mode(SplitViewDisplayMode::CompactInline)
                 .is_pane_open(true)
-                .slots([
-                    SlotView::new(SplitViewSlot::Pane, header),
-                    SlotView::new(SplitViewSlot::Content, page),
-                ]),
+                .pane(header)
+                .content(page),
         )
     }
 }

@@ -505,7 +505,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let selected_items = schema.controls.iter().filter_map(|control| {
         let selection = control.selection.as_ref()?;
         let control_name = ident(&control.name);
-        let slot = ident(&format!("{}{}", control.name, selection.slot));
+        let event = ident(&format!("{}{}", control.name, selection.event));
         let interface = path_ident(&selection.owner_interface);
         let getter = ident(&selection.selected_item_property);
         let get = if is_default_interface(control, &selection.owner_interface) {
@@ -519,7 +519,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             quote! { Ok(Some(selected)) }
         };
         Some(quote! {
-            (Handle::#control_name(value), SlotId::#slot) => {
+            (Handle::#control_name(value), EventId::#event) => {
                 match #get {
                     Ok(selected) => #selected,
                     Err(error) if error.code().is_ok() => Ok(None),
@@ -531,7 +531,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let set_selected_items = schema.controls.iter().filter_map(|control| {
         let selection = control.selection.as_ref()?;
         let control_name = ident(&control.name);
-        let slot = ident(&format!("{}{}", control.name, selection.slot));
+        let event = ident(&format!("{}{}", control.name, selection.event));
         let interface = path_ident(&selection.owner_interface);
         let setter = ident(&format!("Set{}", selection.selected_item_property));
         let set = if let Some(item) = selection.selected_item.as_deref() {
@@ -560,7 +560,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             }
         };
         Some(quote! {
-            (Handle::#control_name(value), SlotId::#slot) => #set.map_err(native_error),
+            (Handle::#control_name(value), EventId::#event) => #set.map_err(native_error),
         })
     });
     let selection_item_states = schema.controls.iter().filter_map(|control| {
@@ -759,7 +759,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             handle: &Handle,
             selection: SelectionDescriptor,
         ) -> Result<Option<windows_core::IInspectable>, RuntimeError> {
-            match (handle, selection.slot) {
+            match (handle, selection.event) {
                 #(#selected_items,)*
                 _ => Ok(None),
             }
@@ -770,7 +770,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             selection: SelectionDescriptor,
             selected: &windows_core::IInspectable,
         ) -> Result<(), RuntimeError> {
-            match (handle, selection.slot) {
+            match (handle, selection.event) {
                 #(#set_selected_items)*
                 _ => Ok(()),
             }

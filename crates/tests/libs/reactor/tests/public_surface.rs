@@ -52,36 +52,19 @@ fn generated_structural_capabilities_compose_views() {
         .item("first", TextBlock::new().text("one"))
         .items([(2_u64, View::component::<TestComponent>("two".to_string()))]);
     let _: View = ScrollViewer::new().content(repeater);
-    let _: View = NavigationView::new().slots([
-        SlotView::new(NavigationViewSlot::Content, TextBlock::new()),
-        SlotView::new(NavigationViewSlot::Header, Button::new()),
-    ]);
-    let _: View = NavigationView::new().collection_slot(
-        NavigationViewSlot::MenuItems,
-        [
-            (
-                "first",
-                NavigationViewItem::new().slot(NavigationViewItemSlot::Content, "one"),
-            ),
-            (
-                "second",
-                NavigationViewItem::new().slot(NavigationViewItemSlot::Content, "two"),
-            ),
-        ],
-    );
-    let _: SlotView<NavigationViewSlot> = SlotView::collection(
-        NavigationViewSlot::MenuItems,
-        [
-            (
-                "first",
-                NavigationViewItem::new().slot(NavigationViewItemSlot::Content, "one"),
-            ),
-            (
-                "second",
-                NavigationViewItem::new().slot(NavigationViewItemSlot::Content, "two"),
-            ),
-        ],
-    );
+    let _: View = NavigationView::new()
+        .content(TextBlock::new())
+        .header(Button::new())
+        .into();
+    let _: View = NavigationView::new()
+        .menu_items([
+            ("first", NavigationViewItem::new().content("one")),
+            ("second", NavigationViewItem::new().content("two")),
+        ])
+        .into();
+    let _: View = NavigationView::new()
+        .footer_menu_items([("settings", NavigationViewItem::new().content("Settings"))])
+        .into();
     let _: View = View::keyed_fragment([
         ("first", TextBlock::new().text("one")),
         ("second", TextBlock::new().text("two")),
@@ -89,8 +72,8 @@ fn generated_structural_capabilities_compose_views() {
     let _: KeyedView = ("key", TextBlock::new().text("value")).into();
     let _: View = TitleBar::new()
         .preferred_height(WindowTitleBarHeight::Tall)
-        .slots(std::iter::empty::<SlotView<TitleBarSlot>>());
-    let _: View = TitleBar::new().slots(std::iter::empty::<SlotView<TitleBarSlot>>());
+        .into();
+    let _: View = TitleBar::new().into();
 }
 
 struct TestComponent;
