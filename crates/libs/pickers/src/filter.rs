@@ -4,16 +4,14 @@ use windows_core::{Error, HRESULT, PCWSTR, Result};
 
 const E_INVALIDARG: HRESULT = HRESULT(0x8007_0057_u32 as i32);
 
-/// A named file-type filter shown by an open or save picker.
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct FileFilter {
-    pub(crate) name: String,
-    pub(crate) patterns: Vec<String>,
+pub(crate) struct FileFilter {
+    name: String,
+    patterns: Vec<String>,
 }
 
 impl FileFilter {
-    /// Creates a filter from file extensions such as `"rs"` or `".rs"`.
-    pub fn extensions<I, S>(name: impl Into<String>, extensions: I) -> Self
+    pub(crate) fn extensions<I, S>(name: impl Into<String>, extensions: I) -> Self
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
@@ -30,8 +28,7 @@ impl FileFilter {
         }
     }
 
-    /// Creates a filter from native wildcard patterns such as `"*.jpg"`.
-    pub fn patterns<I, S>(name: impl Into<String>, patterns: I) -> Self
+    pub(crate) fn patterns<I, S>(name: impl Into<String>, patterns: I) -> Self
     where
         I: IntoIterator<Item = S>,
         S: Into<String>,
@@ -42,8 +39,7 @@ impl FileFilter {
         }
     }
 
-    /// Creates an unrestricted file filter.
-    pub fn all() -> Self {
+    pub(crate) fn all() -> Self {
         Self::patterns("All files", ["*.*"])
     }
 

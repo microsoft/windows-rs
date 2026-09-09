@@ -162,14 +162,6 @@ let picker = OpenFilePicker::new()
 
 Each filter must have a nonempty name and at least one nonempty extension or pattern.
 
-`FileFilter` remains available when a named filter should be built once and reused:
-
-```rust,ignore
-let source = FileFilter::extensions("Source", ["rs", "toml"]);
-let open = OpenFilePicker::new().filter(source.clone()).filter_all();
-let save = SaveFilePicker::new().filter(source);
-```
-
 `initial_filter` uses a zero-based index into the configured filters. An out-of-range index is
 reported as an error before the dialog opens.
 

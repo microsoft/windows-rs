@@ -16,7 +16,6 @@ mod open;
 mod reactor;
 mod save;
 
-pub use filter::FileFilter;
 pub use folder::FolderPicker;
 pub use location::PickerLocation;
 pub use open::OpenFilePicker;

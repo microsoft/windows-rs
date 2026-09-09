@@ -2,8 +2,8 @@ use crate::bindings::*;
 use crate::dialog::{
     DialogConfig, DialogSettings, PreparedDialog, show_dialog, show_dialog_multiple, validate_owner,
 };
-use crate::filter::PreparedFilters;
-use crate::{FileFilter, GUID, PickerLocation};
+use crate::filter::{FileFilter, PreparedFilters};
+use crate::{GUID, PickerLocation};
 use std::path::PathBuf;
 use windows_core::{Result, create_instance};
 
@@ -35,33 +35,30 @@ impl OpenFilePicker {
         self
     }
 
-    /// Adds a file-type filter.
-    pub fn filter(mut self, value: FileFilter) -> Self {
-        self.filters.push(value);
-        self
-    }
-
     /// Adds a file-type filter from extensions such as `"rs"` or `".rs"`.
-    pub fn filter_extensions<I, S>(self, name: impl Into<String>, extensions: I) -> Self
+    pub fn filter_extensions<I, S>(mut self, name: impl Into<String>, extensions: I) -> Self
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
     {
-        self.filter(FileFilter::extensions(name, extensions))
+        self.filters.push(FileFilter::extensions(name, extensions));
+        self
     }
 
     /// Adds a file-type filter from native wildcard patterns such as `"*.jpg"`.
-    pub fn filter_patterns<I, S>(self, name: impl Into<String>, patterns: I) -> Self
+    pub fn filter_patterns<I, S>(mut self, name: impl Into<String>, patterns: I) -> Self
     where
         I: IntoIterator<Item = S>,
         S: Into<String>,
     {
-        self.filter(FileFilter::patterns(name, patterns))
+        self.filters.push(FileFilter::patterns(name, patterns));
+        self
     }
 
     /// Adds an unrestricted "All files" filter.
-    pub fn filter_all(self) -> Self {
-        self.filter(FileFilter::all())
+    pub fn filter_all(mut self) -> Self {
+        self.filters.push(FileFilter::all());
+        self
     }
 
     /// Selects the initially active file filter by zero-based index.
