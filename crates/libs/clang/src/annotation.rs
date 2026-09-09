@@ -186,10 +186,6 @@ fn is_void_double_ptr(ty: &metadata::Type) -> bool {
 /// Conventional `REFIID` selector names for caller-chosen COM out-pointers.
 const IID_SELECTOR_PARAM_NAMES: [&str; 3] = ["riid", "iid", "riidltf"];
 
-fn is_hresult(ty: &metadata::Type) -> bool {
-    matches!(ty, metadata::Type::ValueName(tn) if tn.name == "HRESULT")
-}
-
 /// `REFIID`/`REFCLSID` shape after IID aliases have collapsed to `GUID`.
 fn is_const_guid_ptr(ty: &metadata::Type) -> bool {
     matches!(ty, metadata::Type::PtrConst(inner, 1)

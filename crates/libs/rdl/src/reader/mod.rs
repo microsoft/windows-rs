@@ -709,6 +709,10 @@ impl Encoder<'_> {
                 }
             }
             metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {
+                if tn == ("Windows.Foundation", "HResult") {
+                    return self.encode_value(&metadata::Type::I32, value);
+                }
+
                 let underlying = self
                     .output
                     .reference()
