@@ -29,6 +29,8 @@ pub(crate) fn resolve_typedef(cursor: &Type, parser: &mut Parser<'_>) -> metadat
     // name; an external one is scheduled for a follow-up pass.
     if let Some(ns) = parser.ref_map.get(&name) {
         metadata::Type::value_named(ns, &name)
+    } else if let Some(ty) = interface_alias(cursor, parser) {
+        ty
     } else if let Some(ty) = universal_alias(parser.namespace, &name) {
         ty
     } else if let Some(scalar) = collapse_scalar_typedef(&name, cursor) {
@@ -420,8 +422,9 @@ fn decay_array_param(
     }
 }
 
-/// Resolve a parameter's metadata type. Fields, returns and constants keep their named aliases and
-/// array shapes; only parameters are collapsed and decayed.
+/// Resolve a parameter's metadata type after general typedef canonicalization. This path also
+/// decays arrays, collapses remaining pointer aliases, applies SAL constness, and normalizes
+/// pointer shapes.
 pub(crate) fn param_metadata_type(
     cursor_ty: &Type,
     annotation: &ParamAnnotation,
