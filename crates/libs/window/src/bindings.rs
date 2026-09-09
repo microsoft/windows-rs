@@ -19,6 +19,7 @@ windows_core::link!("user32.dll" "system" fn LoadCursorW(hinstance : HINSTANCE, 
 windows_core::link!("user32.dll" "system" fn PeekMessageW(lpmsg : *mut MSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32, wremovemsg : u32) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
 windows_core::link!("user32.dll" "system" fn RegisterClassW(lpwndclass : *const WNDCLASSW) -> ATOM);
+windows_core::link!("user32.dll" "system" fn SendMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> LRESULT);
 windows_core::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : DPI_AWARENESS_CONTEXT) -> windows_core::BOOL);
 #[cfg(any(
     target_arch = "aarch64",
@@ -73,7 +74,9 @@ pub struct RECT {
     pub bottom: i32,
 }
 pub const SW_SHOWNORMAL: i32 = 1;
+pub const WM_CLOSE: i32 = 16;
 pub const WM_DESTROY: i32 = 2;
+pub const WM_MOVE: i32 = 3;
 pub const WM_NCDESTROY: i32 = 130;
 pub const WM_QUIT: i32 = 18;
 pub const WM_SIZE: i32 = 5;

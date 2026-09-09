@@ -15,8 +15,9 @@ pub fn execute_returns_value(harness: &Harness) {
 
 pub fn on_document_created(harness: &Harness) {
     let webview = harness.webview();
-    let Ok(id) = webview.add_script_to_execute_on_document_created("window.__selftest = 42;")
-    else {
+    let Some(Ok(id)) = Harness::complete(|handler| {
+        webview.add_script_to_execute_on_document_created("window.__selftest = 42;", handler)
+    }) else {
         harness.check("Script_DocCreated_Add", false);
         return;
     };

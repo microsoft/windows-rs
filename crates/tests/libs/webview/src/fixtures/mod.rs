@@ -8,3 +8,4 @@ pub mod profile;
 pub mod protocol;
 pub mod scripting;
 pub mod settings;
+pub mod system_host;

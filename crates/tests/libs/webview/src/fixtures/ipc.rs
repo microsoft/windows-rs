@@ -17,9 +17,12 @@ pub fn page_to_host(harness: &Harness) {
         return;
     };
 
-    let Ok(script_id) = webview
-        .add_script_to_execute_on_document_created("window.chrome.webview.postMessage('ping');")
-    else {
+    let Some(Ok(script_id)) = Harness::complete(|handler| {
+        webview.add_script_to_execute_on_document_created(
+            "window.chrome.webview.postMessage('ping');",
+            handler,
+        )
+    }) else {
         harness.check("Ipc_PageToHost_Inject", false);
         drop(registration);
         return;
