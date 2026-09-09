@@ -92,11 +92,7 @@
 
     CoTaskMemAlloc
     CoTaskMemFree
-    CoInitializeEx
-    COINIT_APARTMENTTHREADED
-    RPC_E_CHANGED_MODE
+    E_ABORT
+    E_INVALIDARG
     E_OUTOFMEMORY
-    GetMessageW
-    TranslateMessage
-    DispatchMessageW
-    MSG
+    E_PENDING

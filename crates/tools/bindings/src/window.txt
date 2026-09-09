@@ -25,11 +25,14 @@
     PM_REMOVE
     PostQuitMessage
     RegisterClassW
+    SendMessageW
     SetWindowLongPtrW
     ShowWindow
     SW_SHOWNORMAL
     TranslateMessage
+    WM_CLOSE
     WM_DESTROY
+    WM_MOVE
     WM_NCDESTROY
     WM_QUIT
     WM_SIZE

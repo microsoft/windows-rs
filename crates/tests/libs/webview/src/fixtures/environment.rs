@@ -10,7 +10,9 @@ pub fn with_options_creates_environment(harness: &Harness) {
     let options = EnvironmentOptions::new()
         .user_data_folder(user_data.to_string_lossy())
         .additional_browser_arguments("--disable-features=msSmartScreenProtection");
-    let Ok(environment) = Environment::with_options(&options) else {
+    let Some(Ok(environment)) =
+        Harness::complete(|handler| Environment::create_with_options(&options, handler))
+    else {
         harness.check("Environment_WithOptions", false);
         return;
     };
@@ -20,7 +22,9 @@ pub fn with_options_creates_environment(harness: &Harness) {
         return;
     };
 
-    let Ok(controller) = environment.create_controller(&window) else {
+    let Some(Ok(controller)) =
+        Harness::complete(|handler| environment.create_controller_for_hwnd(window.hwnd(), handler))
+    else {
         harness.check("Environment_Controller", false);
         return;
     };

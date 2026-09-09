@@ -306,18 +306,20 @@ impl WebView {
 
     /// Registers JavaScript to run before any other script in each new document.
     ///
-    /// Pumps the calling thread's message loop until registration completes, so
-    /// call it during setup before handing control to your own message loop.
-    pub fn add_script_to_execute_on_document_created(&self, javascript: &str) -> Result<ScriptId> {
+    /// `handler` receives the registration identifier later on the UI thread.
+    pub fn add_script_to_execute_on_document_created<F: FnOnce(Result<ScriptId>) + 'static>(
+        &self,
+        javascript: &str,
+        handler: F,
+    ) -> Result<()> {
         let javascript = HSTRING::from(javascript);
-        let slot = pump::slot();
-        let handler = handler::AddScriptCompleted::create(pump::slot_handler(&slot));
+        let handler =
+            handler::AddScriptCompleted::create(move |result| handler(result.map(ScriptId)));
         unsafe {
             self.0
                 .AddScriptToExecuteOnDocumentCreated(&javascript, &handler)
-                .ok()?;
         }
-        Ok(ScriptId(pump::wait(&slot)?))
+        .ok()
     }
 
     /// Removes a script previously registered on document creation.

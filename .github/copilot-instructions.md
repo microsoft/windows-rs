@@ -285,12 +285,6 @@ core) that need a design decision or a larger change. Any bindgen source change 
 output-neutral by running the `tool-*` generators and confirming `git diff` shows no generated-file
 changes (the `gen` workflow enforces this).
 
-#### Behavioral / correctness (need a design decision)
-
-| Location | Issue |
-| --- | --- |
-| `webview` `pump.rs` (`WM_QUIT` arm) | `Err(Error::empty())` reports a success `HRESULT(0)` (the empty sentinel maps back to 0). Intentional but easy to misread as success. |
-
 #### Duplication / refactor candidates
 
 | Location | Issue |

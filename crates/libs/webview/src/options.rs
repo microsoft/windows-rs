@@ -24,7 +24,7 @@ impl ScrollBarStyle {
 /// Configures the WebView2 [`Environment`], including the user data folder, the
 /// browser executable folder, additional browser command-line arguments, and the
 /// UI language. Build one with the fluent setters and pass it to
-/// [`Environment::with_options`].
+/// [`Environment::create_with_options`].
 ///
 /// ```
 /// use windows_webview::EnvironmentOptions;

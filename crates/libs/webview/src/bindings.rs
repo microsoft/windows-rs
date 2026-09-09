@@ -1,14 +1,8 @@
-windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_core::HRESULT);
 windows_core::link!("ole32.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
 windows_core::link!("ole32.dll" "system" fn CoTaskMemFree(pv : *mut core::ffi::c_void));
 windows_core::link!("webview2loader.dll" "system" fn CreateCoreWebView2Environment(environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("webview2loader.dll" "system" fn CreateCoreWebView2EnvironmentWithOptions(browserexecutablefolder : windows_core::PCWSTR, userdatafolder : windows_core::PCWSTR, environmentoptions : *mut core::ffi::c_void, environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
-windows_core::link!("user32.dll" "system" fn DispatchMessageW(lpmsg : *const MSG) -> LRESULT);
-windows_core::link!("user32.dll" "system" fn GetMessageW(lpmsg : *mut MSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> windows_core::BOOL);
 windows_core::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const u8, cbinit : u32) -> Option < IStream >);
-windows_core::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG) -> windows_core::BOOL);
-pub type COINIT = i32;
-pub const COINIT_APARTMENTTHREADED: COINIT = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COREWEBVIEW2_COLOR {
@@ -31,7 +25,10 @@ pub type COREWEBVIEW2_PROCESS_FAILED_KIND = i32;
 pub type COREWEBVIEW2_SCROLLBAR_STYLE = i32;
 pub type COREWEBVIEW2_WEB_RESOURCE_CONTEXT = i32;
 pub type COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS = u32;
+pub const E_ABORT: windows_core::HRESULT = windows_core::HRESULT(0x80004004_u32 as _);
+pub const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
 pub const E_OUTOFMEMORY: windows_core::HRESULT = windows_core::HRESULT(0x8007000E_u32 as _);
+pub const E_PENDING: windows_core::HRESULT = windows_core::HRESULT(0x8000000A_u32 as _);
 pub type HWND = *mut core::ffi::c_void;
 windows_core::imp::define_interface!(
     ICoreWebView2,
@@ -6828,25 +6825,7 @@ pub struct IStream_Vtbl {
     Stat: usize,
     Clone: usize,
 }
-pub type LPARAM = isize;
 pub type LPWSTR = *mut u16;
-pub type LRESULT = isize;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MSG {
-    pub hwnd: HWND,
-    pub message: u32,
-    pub wParam: WPARAM,
-    pub lParam: LPARAM,
-    pub time: u32,
-    pub pt: POINT,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct POINT {
-    pub x: i32,
-    pub y: i32,
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECT {
@@ -6855,5 +6834,3 @@ pub struct RECT {
     pub right: i32,
     pub bottom: i32,
 }
-pub const RPC_E_CHANGED_MODE: windows_core::HRESULT = windows_core::HRESULT(0x80010106_u32 as _);
-pub type WPARAM = usize;

@@ -4,6 +4,7 @@
 //! `windows-link` declarations are all that is needed to send messages and
 //! check handle validity.
 
+pub const WM_MOVE: u32 = 0x0003;
 pub const WM_SIZE: u32 = 0x0005;
 pub const WM_CLOSE: u32 = 0x0010;
 pub const WM_USER: u32 = 0x0400;
@@ -12,6 +13,7 @@ pub const WS_EX_NOREDIRECTIONBITMAP: isize = 0x0020_0000;
 
 windows_link::link!("user32.dll" "system" fn SendMessageW(hwnd: *mut core::ffi::c_void, msg: u32, wparam: usize, lparam: isize) -> isize);
 windows_link::link!("user32.dll" "system" fn IsWindow(hwnd: *mut core::ffi::c_void) -> i32);
+windows_link::link!("user32.dll" "system" fn DestroyWindow(hwnd: *mut core::ffi::c_void) -> i32);
 
 #[cfg(target_pointer_width = "64")]
 windows_link::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd: *mut core::ffi::c_void, index: i32) -> isize);

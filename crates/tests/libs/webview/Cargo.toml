@@ -8,6 +8,7 @@ publish = false
 windows-webview = { workspace = true, features = ["system"] }
 windows-window = { workspace = true }
 windows-core = { workspace = true }
+windows-link = { workspace = true }
 
 [lints]
 workspace = true

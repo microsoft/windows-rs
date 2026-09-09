@@ -75,4 +75,17 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         "Environment_WithOptions",
         environment::with_options_creates_environment,
     ),
+    (
+        "FrameworkHost_CreateAndClose",
+        system_host::framework_host_creates_and_closes,
+    ),
+    (
+        "FrameworkHost_RejectsNullParent",
+        system_host::framework_host_rejects_null_parent,
+    ),
+    ("SystemHost_CreateAndClose", system_host::creates_and_closes),
+    (
+        "SystemHost_CloseDuringCreation",
+        system_host::close_during_creation_cancels_and_destroys,
+    ),
 ];
