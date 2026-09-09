@@ -10,7 +10,7 @@ categories = ["os::windows-apis"]
 readme = "readme.md"
 
 [features]
-default = ["system"]
+default = []
 system = ["dep:windows-window"]
 reactor = ["dep:windows-reactor"]
 
@@ -31,5 +31,5 @@ workspace = true
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
-features = ["reactor"]
+features = ["reactor", "system"]
 no-default-features = true

@@ -22,6 +22,10 @@ fn main() -> Result<()> {
         .on_resize(|width, height| {
             println!("resized to {width} x {height}");
         })
+        .on_close(|| {
+            println!("release HWND-hosted resources here");
+        })
+        .quit_on_close(true)
         .create()?;
 
     // `window.hwnd()` can be handed to windows-canvas, WebView2, Direct2D, etc.

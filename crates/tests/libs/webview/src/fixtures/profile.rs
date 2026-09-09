@@ -10,10 +10,11 @@ pub fn private_mode(harness: &Harness) {
     };
 
     let options = ControllerOptions::new().in_private_mode(true);
-    let Ok(controller) = harness
-        .environment()
-        .create_controller_with_options(&window, &options)
-    else {
+    let Some(Ok(controller)) = Harness::complete(|handler| {
+        harness
+            .environment()
+            .create_controller_with_options_for_hwnd(window.hwnd(), &options, handler)
+    }) else {
         harness.check("Profile_Controller", false);
         return;
     };

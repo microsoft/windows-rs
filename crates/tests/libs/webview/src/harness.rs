@@ -4,7 +4,7 @@ use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 use std::time::{Duration, Instant};
 
-use windows_core::Result;
+use windows_core::{Error, HRESULT, Result, StaApartment};
 use windows_webview::*;
 use windows_window::Window;
 
@@ -12,28 +12,34 @@ use windows_window::Window;
 const TIMEOUT: Duration = Duration::from_secs(15);
 
 pub struct Harness {
+    webview: WebView,
+    controller: Controller,
     environment: Environment,
     _window: Window,
-    controller: Controller,
-    webview: WebView,
     failures: Cell<u32>,
+    _apartment: StaApartment,
 }
 
 impl Harness {
     pub fn bootstrap(title: &str) -> Result<Self> {
+        let apartment = windows_core::init_sta()?;
         let window = Window::new(title).size(1024, 768).create()?;
-        let environment = Environment::new()?;
-        let controller = environment.create_controller(&window)?;
+        let environment = Self::complete(Environment::create).ok_or_else(Self::timeout_error)??;
+        let controller = Self::complete(|handler| {
+            environment.create_controller_for_hwnd(window.hwnd(), handler)
+        })
+        .ok_or_else(Self::timeout_error)??;
         let (width, height) = window.client_size();
         controller.set_bounds(0, 0, width, height)?;
         let webview = controller.webview()?;
 
         Ok(Self {
+            webview,
+            controller,
             environment,
             _window: window,
-            controller,
-            webview,
             failures: Cell::new(0),
+            _apartment: apartment,
         })
     }
 
@@ -60,7 +66,33 @@ impl Harness {
         }
     }
 
-    pub fn pump_until(&self, mut predicate: impl FnMut() -> bool, timeout: Duration) -> bool {
+    pub fn pump_until(&self, predicate: impl FnMut() -> bool, timeout: Duration) -> bool {
+        Self::drive_until(predicate, timeout)
+    }
+
+    pub fn wait(&self, predicate: impl FnMut() -> bool) -> bool {
+        self.pump_until(predicate, TIMEOUT)
+    }
+
+    pub fn complete<T: 'static>(
+        start: impl FnOnce(Box<dyn FnOnce(Result<T>)>) -> Result<()>,
+    ) -> Option<Result<T>> {
+        let slot = Rc::new(RefCell::new(None));
+        let sink = Rc::clone(&slot);
+        if let Err(error) = start(Box::new(move |result| *sink.borrow_mut() = Some(result))) {
+            return Some(Err(error));
+        }
+        if !Self::drive_until(|| slot.borrow().is_some(), TIMEOUT) {
+            return None;
+        }
+        slot.borrow_mut().take()
+    }
+
+    pub fn reset(&self) {
+        self.navigate_html("<!DOCTYPE html><html></html>");
+    }
+
+    fn drive_until(mut predicate: impl FnMut() -> bool, timeout: Duration) -> bool {
         let deadline = Instant::now() + timeout;
         loop {
             if predicate() {
@@ -76,12 +108,11 @@ impl Harness {
         }
     }
 
-    pub fn wait(&self, predicate: impl FnMut() -> bool) -> bool {
-        self.pump_until(predicate, TIMEOUT)
-    }
-
-    pub fn reset(&self) {
-        self.navigate_html("<!DOCTYPE html><html></html>");
+    fn timeout_error() -> Error {
+        Error::new(
+            HRESULT(0x8000_4005_u32 as i32),
+            "WebView2 startup timed out",
+        )
     }
 
     pub fn navigate_html(&self, html: &str) -> bool {

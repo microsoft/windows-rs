@@ -15,16 +15,18 @@ mod download;
 mod environment;
 mod event;
 mod handler;
+mod host;
 mod options;
 mod profile;
 mod protocol;
-mod pump;
 #[cfg(feature = "reactor")]
 mod reactor;
 mod script;
 mod settings;
 mod string;
 mod webview;
+#[cfg(feature = "system")]
+mod window;
 
 use bindings::*;
 use windows_core::*;
@@ -43,6 +45,7 @@ pub use event::{
     PermissionRequestedArgs, PermissionState, ProcessFailedArgs, ProcessFailedKind,
     WebMessageReceivedArgs,
 };
+pub use host::{WebViewHost, WebViewHostBuilder};
 pub use options::{EnvironmentOptions, ScrollBarStyle};
 pub use profile::{PreferredColorScheme, Profile};
 pub use protocol::{WebResourceRequest, WebResourceResponse};
@@ -51,4 +54,6 @@ pub use reactor::{webview, webview_result};
 pub use script::ScriptId;
 pub use settings::Settings;
 pub use webview::{HostResourceAccessKind, MemoryUsageTargetLevel, NavigationRequest, WebView};
+#[cfg(feature = "system")]
+pub use window::{WebViewWindow, WebViewWindowBuilder};
 pub use windows_core::Result;
