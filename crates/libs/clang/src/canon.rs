@@ -422,8 +422,9 @@ fn decay_array_param(
     }
 }
 
-/// Resolve a parameter's metadata type. Fields, returns and constants keep their named aliases and
-/// array shapes; only parameters are collapsed and decayed.
+/// Resolve a parameter's metadata type after general typedef canonicalization. This path also
+/// decays arrays, collapses remaining pointer aliases, applies SAL constness, and normalizes
+/// pointer shapes.
 pub(crate) fn param_metadata_type(
     cursor_ty: &Type,
     annotation: &ParamAnnotation,
