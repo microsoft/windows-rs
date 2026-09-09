@@ -193,6 +193,10 @@ impl<'a> Parser<'a> {
                 } else {
                     self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
                 };
+                // Scalar records collapse to primitives; skip before lifting nested records.
+                if semantic_scalar_definition(&name, child.kind()).is_some() {
+                    return Ok(());
+                }
                 // Numerics aliases collapse to shared value types; skip before lifting overlays.
                 if numerics_alias(&name).is_some() {
                     return Ok(());
@@ -224,6 +228,9 @@ impl<'a> Parser<'a> {
                 let tag_name = child.name();
                 if !is_anonymous_name(&tag_name) && !tag_name.ends_with("__") {
                     let name = self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
+                    if semantic_scalar_definition(&name, child.kind()).is_some() {
+                        return Ok(());
+                    }
                     // Do not clobber a real definition aliased by another tag.
                     if !self.ref_map.contains_key(&name) && !collector.contains_key(&name) {
                         collector.insert(Item::Struct(Struct::opaque(&name)));
@@ -241,7 +248,7 @@ impl<'a> Parser<'a> {
                     self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
                 };
                 // Scalar overlay unions collapse to scalars; skip before lifting overlays.
-                if semantic_scalar(&name).is_some() {
+                if semantic_scalar_definition(&name, child.kind()).is_some() {
                     return Ok(());
                 }
                 // Lift nested records first so field type references resolve.

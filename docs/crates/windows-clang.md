@@ -160,7 +160,8 @@ Some C portability spellings are canonicalized for metadata consumers. Examples 
 integer typedefs, pointer-sized integer typedefs, Windows string wrappers, COM interface aliases,
 GUID aliases, and Direct2D compatibility aliases. These rules live in `canon.rs`.
 `HRESULT` always maps to the `Windows.Foundation.HResult` metadata system type rather than a local
-integer typedef.
+integer typedef. `BOOLEAN`, `LARGE_INTEGER`, and `ULARGE_INTEGER` always map to `bool`, `i64`, and
+`u64` in both namespaced and per-header scrapes.
 Parameter SAL can change pointer constness because it expresses the function's read/write contract.
 Direction is also checked against COM interface pointer shape. A direct `IFoo*` is an input
 interface reference even if a local SDK declaration incorrectly marks it `[out]`; a returned

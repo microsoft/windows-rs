@@ -1,7 +1,8 @@
 //! Canonical C header type mappings for Win32 metadata.
 //!
 //! [`resolve_typedef`] handles references. [`param_metadata_type`] adds parameter-only rules.
-//! Definition suppression in `typedef.rs`, `const.rs`, and `lib.rs` must match these mappings.
+//! Definition suppression in `typedef.rs`, `const.rs`, `cx.rs`, and `lib.rs` must match these
+//! mappings.
 
 use super::*;
 
@@ -10,6 +11,9 @@ pub(crate) fn resolve_typedef(cursor: &Type, parser: &mut Parser<'_>) -> metadat
     let decl = cursor.ty();
     let name = decl.name();
     if let Some(ty) = canonical_hresult(&name) {
+        return ty;
+    }
+    if let Some(ty) = semantic_scalar(&name) {
         return ty;
     }
 
@@ -52,9 +56,6 @@ fn flat_canonical(
     cursor: &Type,
     parser: &mut Parser<'_>,
 ) -> Option<metadata::Type> {
-    if let Some(scalar) = semantic_scalar(name) {
-        return Some(scalar);
-    }
     if let Some(scalar) = fundamental_scalar(name) {
         return Some(scalar);
     }
@@ -201,17 +202,56 @@ pub(crate) fn fundamental_scalar(name: &str) -> Option<metadata::Type> {
     })
 }
 
+struct SemanticScalar {
+    ty: metadata::Type,
+    declaration: SemanticScalarDeclaration,
+}
+
+enum SemanticScalarDeclaration {
+    Typedef,
+    Record,
+}
+
+impl SemanticScalarDeclaration {
+    fn matches(&self, kind: CXCursorKind) -> bool {
+        match self {
+            Self::Typedef => kind == CXCursor_TypedefDecl,
+            Self::Record => matches!(kind, CXCursor_StructDecl | CXCursor_UnionDecl),
+        }
+    }
+}
+
 /// Named Win32 types whose canonical projection is a primitive, not their header shape:
 /// `BOOLEAN` -> `bool` (a semantically-boolean `BYTE`) and `LARGE_INTEGER`/`ULARGE_INTEGER` ->
 /// `i64`/`u64` (64-bit overlay unions every consumer uses as one scalar). Collapsed at every
 /// reference like `DWORD` -> `u32`. Name-keyed because the collapse cannot be structural
 /// (`BOOLEAN` is byte-identical to `BYTE`, and RPC's lowercase `boolean` stays `u8`); the
-/// definitions are suppressed in `typedef.rs` (`BOOLEAN`) and `lib.rs` (the union records).
+/// declaration kind keeps definition suppression paired with each reference mapping.
 pub(crate) fn semantic_scalar(name: &str) -> Option<metadata::Type> {
+    semantic_scalar_entry(name).map(|entry| entry.ty)
+}
+
+/// Returns the scalar only when `kind` is the declaration replaced by the canonical mapping.
+pub(crate) fn semantic_scalar_definition(name: &str, kind: CXCursorKind) -> Option<metadata::Type> {
+    semantic_scalar_entry(name)
+        .filter(|entry| entry.declaration.matches(kind))
+        .map(|entry| entry.ty)
+}
+
+fn semantic_scalar_entry(name: &str) -> Option<SemanticScalar> {
     Some(match name {
-        "BOOLEAN" => metadata::Type::Bool,
-        "LARGE_INTEGER" => metadata::Type::I64,
-        "ULARGE_INTEGER" => metadata::Type::U64,
+        "BOOLEAN" => SemanticScalar {
+            ty: metadata::Type::Bool,
+            declaration: SemanticScalarDeclaration::Typedef,
+        },
+        "LARGE_INTEGER" => SemanticScalar {
+            ty: metadata::Type::I64,
+            declaration: SemanticScalarDeclaration::Record,
+        },
+        "ULARGE_INTEGER" => SemanticScalar {
+            ty: metadata::Type::U64,
+            declaration: SemanticScalarDeclaration::Record,
+        },
         _ => return None,
     })
 }

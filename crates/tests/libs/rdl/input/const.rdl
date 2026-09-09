@@ -12,4 +12,6 @@ mod Test {
     const J: isize = 18446744073709551615u64;
     const K: usize = -1i32;
     const L: usize = -1i64;
+    const M: bool = true;
+    const N: bool = false;
 }
