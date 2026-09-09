@@ -3,13 +3,13 @@ use super::*;
 const E_INVALIDARG: HRESULT = HRESULT(0x8007_0057_u32 as i32);
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub(crate) struct FileFilter {
+pub struct FileFilter {
     name: String,
     patterns: Vec<String>,
 }
 
 impl FileFilter {
-    pub(crate) fn extensions<I, S>(name: impl Into<String>, extensions: I) -> Self
+    pub fn extensions<I, S>(name: impl Into<String>, extensions: I) -> Self
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
@@ -26,7 +26,7 @@ impl FileFilter {
         }
     }
 
-    pub(crate) fn patterns<I, S>(name: impl Into<String>, patterns: I) -> Self
+    pub fn patterns<I, S>(name: impl Into<String>, patterns: I) -> Self
     where
         I: IntoIterator<Item = S>,
         S: Into<String>,
@@ -37,11 +37,11 @@ impl FileFilter {
         }
     }
 
-    pub(crate) fn all() -> Self {
+    pub fn all() -> Self {
         Self::patterns("All files", ["*.*"])
     }
 
-    pub(crate) fn validate(&self) -> Result<()> {
+    pub fn validate(&self) -> Result<()> {
         if self.name.is_empty()
             || self.name.contains('\0')
             || self.patterns.is_empty()
@@ -60,7 +60,7 @@ impl FileFilter {
     }
 }
 
-pub(crate) struct PreparedFilters {
+pub struct PreparedFilters {
     _names: Vec<Vec<u16>>,
     _patterns: Vec<Vec<u16>>,
     specs: Vec<COMDLG_FILTERSPEC>,
@@ -68,7 +68,7 @@ pub(crate) struct PreparedFilters {
 }
 
 impl PreparedFilters {
-    pub(crate) fn new(filters: &[FileFilter], initial: Option<usize>) -> Result<Self> {
+    pub fn new(filters: &[FileFilter], initial: Option<usize>) -> Result<Self> {
         for filter in filters {
             filter.validate()?;
         }
@@ -116,7 +116,7 @@ impl PreparedFilters {
         })
     }
 
-    pub(crate) fn apply(&self, dialog: &IFileDialog) -> Result<()> {
+    pub fn apply(&self, dialog: &IFileDialog) -> Result<()> {
         if !self.specs.is_empty() {
             unsafe {
                 dialog

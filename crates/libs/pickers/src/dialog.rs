@@ -4,21 +4,21 @@ const ERROR_CANCELLED: u32 = 1223;
 const ERROR_CANCELLED_HRESULT: HRESULT = HRESULT((0x8007_0000_u32 | ERROR_CANCELLED) as i32);
 const E_INVALIDARG: HRESULT = HRESULT(0x8007_0057_u32 as i32);
 
-pub(crate) struct PreparedDialog {
+pub struct PreparedDialog {
     _title: Option<Vec<u16>>,
     _commit_label: Option<Vec<u16>>,
 }
 
-pub(crate) struct DialogConfig<'a> {
-    pub(crate) title: Option<&'a str>,
-    pub(crate) commit_label: Option<&'a str>,
-    pub(crate) set_options: FILEOPENDIALOGOPTIONS,
-    pub(crate) clear_options: FILEOPENDIALOGOPTIONS,
-    pub(crate) settings: &'a DialogSettings,
+pub struct DialogConfig<'a> {
+    pub title: Option<&'a str>,
+    pub commit_label: Option<&'a str>,
+    pub set_options: FILEOPENDIALOGOPTIONS,
+    pub clear_options: FILEOPENDIALOGOPTIONS,
+    pub settings: &'a DialogSettings,
 }
 
 #[derive(Clone, Debug, Default)]
-pub(crate) struct DialogSettings {
+pub struct DialogSettings {
     client_id: Option<GUID>,
     default: Option<DialogFolder>,
     folder: Option<DialogFolder>,
@@ -31,23 +31,23 @@ enum DialogFolder {
 }
 
 impl DialogSettings {
-    pub(crate) fn set_client_id(&mut self, value: GUID) {
+    pub fn set_client_id(&mut self, value: GUID) {
         self.client_id = Some(value);
     }
 
-    pub(crate) fn set_default(&mut self, value: impl Into<PathBuf>) {
+    pub fn set_default(&mut self, value: impl Into<PathBuf>) {
         self.default = Some(DialogFolder::Path(value.into()));
     }
 
-    pub(crate) fn set_folder(&mut self, value: impl Into<PathBuf>) {
+    pub fn set_folder(&mut self, value: impl Into<PathBuf>) {
         self.folder = Some(DialogFolder::Path(value.into()));
     }
 
-    pub(crate) fn set_default_location(&mut self, value: PickerLocation) {
+    pub fn set_default_location(&mut self, value: PickerLocation) {
         self.default = Some(DialogFolder::Known(value));
     }
 
-    pub(crate) fn set_location(&mut self, value: PickerLocation) {
+    pub fn set_location(&mut self, value: PickerLocation) {
         self.folder = Some(DialogFolder::Known(value));
     }
 
@@ -72,7 +72,7 @@ impl DialogSettings {
 }
 
 impl PreparedDialog {
-    pub(crate) fn new(dialog: &IFileDialog, config: DialogConfig<'_>) -> Result<Self> {
+    pub fn new(dialog: &IFileDialog, config: DialogConfig<'_>) -> Result<Self> {
         config.settings.apply_client_id(dialog)?;
 
         let title = config.title.map(wide).transpose()?;
@@ -108,10 +108,7 @@ impl PreparedDialog {
     }
 }
 
-pub(crate) fn show_dialog(
-    dialog: &IFileDialog,
-    owner: *mut core::ffi::c_void,
-) -> Result<Option<PathBuf>> {
+pub fn show_dialog(dialog: &IFileDialog, owner: *mut core::ffi::c_void) -> Result<Option<PathBuf>> {
     if !show_modal(dialog, owner)? {
         return Ok(None);
     }
@@ -120,7 +117,7 @@ pub(crate) fn show_dialog(
     Ok(Some(item_path(&item)?))
 }
 
-pub(crate) fn show_dialog_multiple(
+pub fn show_dialog_multiple(
     dialog: &IFileOpenDialog,
     owner: *mut core::ffi::c_void,
 ) -> Result<Vec<PathBuf>> {
@@ -138,7 +135,7 @@ pub(crate) fn show_dialog_multiple(
         .collect()
 }
 
-pub(crate) fn validate_owner(owner: *mut core::ffi::c_void) -> Result<()> {
+pub fn validate_owner(owner: *mut core::ffi::c_void) -> Result<()> {
     if owner.is_null() {
         return Err(Error::new(
             E_INVALIDARG,
@@ -148,7 +145,7 @@ pub(crate) fn validate_owner(owner: *mut core::ffi::c_void) -> Result<()> {
     Ok(())
 }
 
-pub(crate) fn wide(value: &str) -> Result<Vec<u16>> {
+pub fn wide(value: &str) -> Result<Vec<u16>> {
     if value.contains('\0') {
         return Err(Error::new(
             E_INVALIDARG,
