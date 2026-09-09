@@ -846,6 +846,9 @@ impl Type {
                 if self.kind() == CXType_Enum && is_anonymous_name(&name) {
                     return decl.enum_repr().to_type(parser);
                 }
+                if let Some(scalar) = semantic_scalar_definition(&name, decl.kind()) {
+                    return scalar;
+                }
                 // Flat scrape Numerics aliases collapse to the shared Numerics projection.
                 if parser.header_root.is_some()
                     && let Some(num) = numerics_alias(&name)

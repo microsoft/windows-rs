@@ -12,7 +12,6 @@ mod Windows {
     mod Win32 {
         mod Foundation {
             type BOOL = i32;
-            type BOOLEAN = u8;
             type HANDLE = *mut void;
             type LPARAM = isize;
             type LRESULT = isize;

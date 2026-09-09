@@ -933,6 +933,10 @@ fn parse_named_cast(
     let (digits, _suffix) = split_int_suffix(lit);
     let raw: u64 = parse_int_digits(digits)?;
 
+    if let Some(ty) = semantic_scalar(type_name) {
+        return scalar_value(&ty, raw, negate);
+    }
+
     // Collapsed scalar typedefs have no emitted name; preserved seed scalars/enums stay named.
     if !ref_map.contains_key(type_name)
         && let Some(ty) = fundamental_scalar(type_name)
@@ -988,6 +992,10 @@ fn parse_named_complement(
     let (digits, suffix) = split_int_suffix(lit);
     let raw = parse_int_digits(digits)?;
     let value = integer_complement_value(raw, int_literal_is_decimal(digits), suffix)?;
+
+    if let Some(ty) = semantic_scalar(type_name) {
+        return cast_integer_value(&ty, &value);
+    }
 
     if !ref_map.contains_key(type_name) && pointer_sized_abi(type_name).is_some() {
         return None;
@@ -1107,6 +1115,10 @@ fn parse_nested_cast(
     let raw: u64 = parse_int_digits(digits)?;
     let inner_value = inner_scalar_value(inner, raw, negate);
 
+    if let Some(ty) = semantic_scalar(outer) {
+        return cast_integer_value(&ty, &inner_value);
+    }
+
     let ns = header_names
         .and_then(|m| m.get(outer))
         .or_else(|| ref_map.get(outer))
@@ -1140,6 +1152,7 @@ fn scalar_value(ty: &metadata::Type, raw: u64, negate: bool) -> Option<metadata:
         raw as i64
     };
     Some(match ty {
+        metadata::Type::Bool => metadata::Value::Bool(signed != 0),
         metadata::Type::U8 => metadata::Value::U8(signed as u8),
         metadata::Type::U16 => metadata::Value::U16(signed as u16),
         metadata::Type::U32 => metadata::Value::U32(signed as u32),

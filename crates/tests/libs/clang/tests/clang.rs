@@ -227,6 +227,196 @@ fn namespaced_hresult_survives_the_binding_round_trip() {
     assert!(sys.contains("fn IncludedStatus() -> super::HRESULT"));
 }
 
+#[test]
+fn semantic_scalars_are_universal() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("semantic_scalars");
+    std::fs::create_dir_all(&scratch).unwrap();
+
+    let header = scratch.join("semantic.h");
+    std::fs::write(
+        &header,
+        "typedef unsigned char BOOLEAN;\n\
+         typedef union _LARGE_INTEGER { long long QuadPart; } LARGE_INTEGER;\n\
+         typedef union _ULARGE_INTEGER { unsigned long long QuadPart; } ULARGE_INTEGER;\n\
+         typedef BOOLEAN *PBOOLEAN;\n\
+         typedef LARGE_INTEGER *PLARGE_INTEGER;\n\
+         typedef ULARGE_INTEGER *PULARGE_INTEGER;\n\
+         typedef struct Holder {\n\
+             BOOLEAN Boolean;\n\
+             LARGE_INTEGER Signed;\n\
+             ULARGE_INTEGER Unsigned;\n\
+             union _LARGE_INTEGER DirectSigned;\n\
+             union _ULARGE_INTEGER DirectUnsigned;\n\
+         } Holder;\n\
+         #define BOOLEAN_TRUE ((BOOLEAN)1)\n\
+         #define BOOLEAN_COMPLEMENT (BOOLEAN)(~0)\n\
+         BOOLEAN ReadBoolean(void);\n\
+         LARGE_INTEGER ReadSigned(void);\n\
+         ULARGE_INTEGER ReadUnsigned(void);\n\
+         union _LARGE_INTEGER ReadDirectSigned(void);\n\
+         union _ULARGE_INTEGER ReadDirectUnsigned(void);\n\
+         void GetValues(PBOOLEAN boolean, PLARGE_INTEGER signed_value,\n\
+                        PULARGE_INTEGER unsigned_value);",
+    )
+    .unwrap();
+
+    let midl_header = scratch.join("midl.h");
+    std::fs::write(
+        &midl_header,
+        "typedef unsigned char BOOLEAN;\n\
+         typedef struct _LARGE_INTEGER { long long QuadPart; } LARGE_INTEGER;\n\
+         typedef struct _ULARGE_INTEGER { unsigned long long QuadPart; } ULARGE_INTEGER;\n\
+         typedef struct MidlHolder {\n\
+             BOOLEAN Boolean;\n\
+             LARGE_INTEGER Signed;\n\
+             ULARGE_INTEGER Unsigned;\n\
+             struct _LARGE_INTEGER DirectSigned;\n\
+             struct _ULARGE_INTEGER DirectUnsigned;\n\
+         } MidlHolder;\n\
+         LARGE_INTEGER ReadSigned(void);\n\
+         ULARGE_INTEGER ReadUnsigned(void);",
+    )
+    .unwrap();
+
+    let forward_header = scratch.join("forward.h");
+    std::fs::write(
+        &forward_header,
+        "typedef union _LARGE_INTEGER LARGE_INTEGER;\n\
+         typedef union _ULARGE_INTEGER ULARGE_INTEGER;\n\
+         void UseForward(union _LARGE_INTEGER *signed_value,\n\
+                         union _ULARGE_INTEGER *unsigned_value);",
+    )
+    .unwrap();
+
+    let hostile_reference = scratch.join("reference.winmd");
+    windows_rdl::reader()
+        .input_text(
+            "#[win32] mod Other {\n\
+                 type BOOLEAN = u8;\n\
+                 struct LARGE_INTEGER { LowPart: u32, HighPart: i32 }\n\
+                 struct ULARGE_INTEGER { LowPart: u32, HighPart: u32 }\n\
+             }",
+        )
+        .output(&hostile_reference)
+        .write()
+        .unwrap();
+
+    let direct_rdl = scratch.join("direct.rdl");
+    let referenced_rdl = scratch.join("referenced.rdl");
+    let midl_rdl = scratch.join("midl.rdl");
+    let forward_rdl = scratch.join("forward.rdl");
+    let flat_dir = scratch.join("flat");
+    std::fs::create_dir_all(&flat_dir).unwrap();
+    {
+        let _guard = test_clang::libclang_guard();
+
+        windows_clang::clang()
+            .input(&header)
+            .output(&direct_rdl)
+            .namespace("Direct")
+            .library("test.dll")
+            .write()
+            .unwrap();
+
+        windows_clang::clang()
+            .input(&forward_header)
+            .output(&forward_rdl)
+            .namespace("Forward")
+            .library("test.dll")
+            .write()
+            .unwrap();
+
+        windows_clang::clang()
+            .input(&midl_header)
+            .output(&midl_rdl)
+            .namespace("Midl")
+            .library("test.dll")
+            .write()
+            .unwrap();
+
+        windows_clang::clang()
+            .input(&header)
+            .reference(&hostile_reference)
+            .output(&referenced_rdl)
+            .namespace("Referenced")
+            .library("test.dll")
+            .write()
+            .unwrap();
+
+        windows_clang::clang()
+            .input(&header)
+            .output(&flat_dir)
+            .namespace("Flat")
+            .write_by_header()
+            .unwrap();
+    }
+
+    for path in [
+        direct_rdl.as_path(),
+        referenced_rdl.as_path(),
+        flat_dir.join("semantic.rdl").as_path(),
+    ] {
+        let contents = std::fs::read_to_string(path).unwrap();
+        assert!(!contents.contains("type BOOLEAN"));
+        for declaration in [
+            "struct LARGE_INTEGER {",
+            "union LARGE_INTEGER {",
+            "struct ULARGE_INTEGER {",
+            "union ULARGE_INTEGER {",
+        ] {
+            assert!(!contents.contains(declaration));
+        }
+        assert!(!contents.contains("Other::"));
+        assert!(contents.contains("Boolean: bool"));
+        assert!(contents.contains("Signed: i64"));
+        assert!(contents.contains("Unsigned: u64"));
+        assert!(contents.contains("DirectSigned: i64"));
+        assert!(contents.contains("DirectUnsigned: u64"));
+        assert!(contents.contains("const BOOLEAN_TRUE: bool = true"));
+        assert!(contents.contains("const BOOLEAN_COMPLEMENT: bool = true"));
+        assert!(contents.contains("fn ReadBoolean() -> bool"));
+        assert!(contents.contains("fn ReadSigned() -> i64"));
+        assert!(contents.contains("fn ReadUnsigned() -> u64"));
+        assert!(contents.contains("fn ReadDirectSigned() -> i64"));
+        assert!(contents.contains("fn ReadDirectUnsigned() -> u64"));
+        assert!(contents.contains("boolean: *mut bool"));
+        assert!(contents.contains("signed_value: *mut i64"));
+        assert!(contents.contains("unsigned_value: *mut u64"));
+    }
+
+    let midl = std::fs::read_to_string(&midl_rdl).unwrap();
+    for declaration in ["struct LARGE_INTEGER {", "struct ULARGE_INTEGER {"] {
+        assert!(!midl.contains(declaration));
+    }
+    assert!(midl.contains("Boolean: bool"));
+    assert!(midl.contains("Signed: i64"));
+    assert!(midl.contains("Unsigned: u64"));
+    assert!(midl.contains("DirectSigned: i64"));
+    assert!(midl.contains("DirectUnsigned: u64"));
+    assert!(midl.contains("fn ReadSigned() -> i64"));
+    assert!(midl.contains("fn ReadUnsigned() -> u64"));
+
+    let forward = std::fs::read_to_string(&forward_rdl).unwrap();
+    for declaration in [
+        "struct LARGE_INTEGER {",
+        "union LARGE_INTEGER {",
+        "struct ULARGE_INTEGER {",
+        "union ULARGE_INTEGER {",
+    ] {
+        assert!(!forward.contains(declaration));
+    }
+    assert!(forward.contains("signed_value: *mut i64"));
+    assert!(forward.contains("unsigned_value: *mut u64"));
+
+    let winmd = scratch.join("out.winmd");
+    windows_rdl::reader()
+        .input(&direct_rdl)
+        .input(&referenced_rdl)
+        .output(winmd)
+        .write()
+        .unwrap();
+}
+
 fn run(name: &str) {
     let input_path = format!("input/{name}.h");
     let expected_path = format!("expected/{name}.rdl");

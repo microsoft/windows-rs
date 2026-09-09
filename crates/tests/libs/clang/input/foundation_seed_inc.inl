@@ -1,8 +1,8 @@
 // Fundamental typedefs as they appear in the Windows SDK system headers
 // (winnt.h / windef.h / basetsd.h). They reach the scraper as *included*
 // declarations, not main-file ones — exactly as they would in a real namespace
-// build. The semantic ones are preserved by the Foundation seed reference; the
-// universal C fundamentals (DWORD, UINT) collapse to primitives.
+// build. The named scalar types are preserved by the Foundation seed reference;
+// BOOLEAN and the universal C fundamentals (DWORD, UINT) collapse to primitives.
 typedef int BOOL;
 typedef unsigned char BOOLEAN;
 typedef long HRESULT;

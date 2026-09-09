@@ -69,8 +69,8 @@ impl Typedef {
             return Ok(None);
         }
 
-        // Semantic scalar aliases such as `BOOLEAN` collapse to primitives.
-        if parser.header_root.is_some() && semantic_scalar(&name).is_some() {
+        // Semantic scalar typedefs such as `BOOLEAN` collapse to primitives in every mode.
+        if semantic_scalar_definition(&name, CXCursor_TypedefDecl).is_some() {
             return Ok(None);
         }
 
