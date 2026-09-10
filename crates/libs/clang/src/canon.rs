@@ -39,7 +39,7 @@ pub(crate) fn resolve_typedef(cursor: &Type, parser: &mut Parser<'_>) -> metadat
         ty
     } else if let Some(scalar) = collapse_scalar_typedef(&name, cursor) {
         scalar
-    } else if decl.is_from_main_file() {
+    } else if decl.is_from_main_file() && parser.symbols.is_empty() {
         metadata::Type::value_named(parser.namespace, &name)
     } else {
         parser.pending_typedefs.push(decl);

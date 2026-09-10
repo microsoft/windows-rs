@@ -865,6 +865,17 @@ impl Type {
                         .map_or(parser.namespace, |s| s.as_str())
                         .to_string()
                 };
+                let definition = decl.definition();
+                if self.kind() == CXType_Record
+                    && parser.header_root.is_none()
+                    && ns == parser.namespace
+                    && decl.has_definition()
+                    && (!definition.is_from_main_file() || !parser.symbols.is_empty())
+                {
+                    parser.pending_records.push(definition);
+                }
+                // Incomplete namespaced records remain unresolved. Deciding whether a particular
+                // use can be represented by an opaque declaration requires usage-shape analysis.
                 // Pointer-only incomplete records need an opaque forward declaration target.
                 if parser.header_root.is_some()
                     && !is_anonymous_name(&name)
