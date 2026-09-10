@@ -156,6 +156,11 @@ The scraper preserves:
 - `DEFINE_ENUM_FLAG_OPERATORS` as a flags-enum signal;
 - symbol-to-DLL mappings recovered from import libraries.
 
+Namespaced scrapes follow referenced record definitions from included headers. Available layouts
+are emitted for both by-value and pointer dependencies; they are not replaced with opaque records.
+Per-header scrapes discover the same definitions globally and retain them in their owning header
+partition.
+
 Some C portability spellings are canonicalized for metadata consumers. Examples include fixed-width
 integer typedefs, pointer-sized integer typedefs, Windows string wrappers, COM interface aliases,
 GUID aliases, and Direct2D compatibility aliases. These rules live in `canon.rs`.

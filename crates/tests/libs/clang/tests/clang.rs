@@ -417,6 +417,99 @@ fn semantic_scalars_are_universal() {
         .unwrap();
 }
 
+#[test]
+fn namespaced_record_dependencies_preserve_layout() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("record_dependency");
+    std::fs::create_dir_all(&scratch).unwrap();
+
+    let rdl = scratch.join("record_dependency.rdl");
+    let symbols_rdl = scratch.join("record_dependency_symbols.rdl");
+    let flat = scratch.join("flat");
+    std::fs::create_dir_all(&flat).unwrap();
+    {
+        let _guard = test_clang::libclang_guard();
+        windows_clang::clang()
+            .input("input/record_dependency.hpp")
+            .output(&rdl)
+            .namespace("RecordDependency")
+            .library("test.dll")
+            .write()
+            .unwrap();
+
+        windows_clang::clang()
+            .input("input/record_dependency.hpp")
+            .output(&symbols_rdl)
+            .namespace("RecordDependencySymbols")
+            .library("test.dll")
+            .symbol("ReturnRemote")
+            .write()
+            .unwrap();
+
+        windows_clang::clang()
+            .input("input/record_dependency.hpp")
+            .output(&flat)
+            .namespace("RecordDependency")
+            .write_by_header()
+            .unwrap();
+    }
+
+    let contents = std::fs::read_to_string(&rdl).unwrap();
+    assert!(contents.contains("struct RemoteValue"));
+    assert!(contents.contains("payload: i64"));
+    assert!(contents.contains("nested: NestedValue"));
+    assert!(contents.contains("struct NestedValue"));
+    assert!(contents.contains("code: i16"));
+    assert!(contents.contains("struct PointerValue"));
+    assert!(contents.contains("payload: u32"));
+    assert!(contents.contains("type RemoteAlias = RemoteValue"));
+    assert!(contents.contains("alias_value: RemoteAlias"));
+    assert!(contents.contains("fn ReturnDirect() -> RemoteValue"));
+    assert!(contents.contains("fn ReturnAlias() -> RemoteAlias"));
+    assert!(contents.contains("fn ReturnPointer() -> *mut PointerValue"));
+
+    windows_rdl::reader()
+        .input(&rdl)
+        .output(scratch.join("record_dependency.winmd"))
+        .write()
+        .unwrap();
+
+    let symbols = std::fs::read_to_string(&symbols_rdl).unwrap();
+    assert!(symbols.contains("fn ReturnRemote() -> RemoteValue"));
+    assert!(symbols.contains("struct RemoteValue"));
+    assert!(symbols.contains("payload: i64"));
+    assert!(symbols.contains("nested: NestedValue"));
+    assert!(symbols.contains("struct NestedValue"));
+    assert!(!symbols.contains("struct Envelope"));
+    windows_rdl::reader()
+        .input(&symbols_rdl)
+        .output(scratch.join("record_dependency_symbols.winmd"))
+        .write()
+        .unwrap();
+
+    let flat_main = flat.join("record_dependency.rdl");
+    let flat_dependency = flat.join("record_dependency_inc.rdl");
+    let main_contents = std::fs::read_to_string(&flat_main).unwrap();
+    let dependency_contents = std::fs::read_to_string(&flat_dependency).unwrap();
+    assert!(!main_contents.contains("struct RemoteValue"));
+    assert!(!main_contents.contains("struct NestedValue"));
+    assert!(!main_contents.contains("struct PointerValue"));
+    assert!(dependency_contents.contains("struct RemoteValue"));
+    assert!(dependency_contents.contains("payload: i64"));
+    assert!(dependency_contents.contains("nested: NestedValue"));
+    assert!(dependency_contents.contains("struct NestedValue"));
+    assert!(dependency_contents.contains("code: i16"));
+    assert!(dependency_contents.contains("struct PointerValue"));
+    assert!(dependency_contents.contains("payload: u32"));
+    assert!(dependency_contents.contains("type RemoteAlias = RemoteValue"));
+
+    windows_rdl::reader()
+        .input(flat_main)
+        .input(flat_dependency)
+        .output(scratch.join("record_dependency_flat.winmd"))
+        .write()
+        .unwrap();
+}
+
 fn run(name: &str) {
     let input_path = format!("input/{name}.h");
     let expected_path = format!("expected/{name}.rdl");
