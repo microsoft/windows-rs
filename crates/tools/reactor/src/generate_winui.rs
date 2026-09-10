@@ -1591,8 +1591,15 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                     Ok(info) => {
                         let handled =
                             sink.route_key(node, EventId::#event_id, revision, info);
-                        if let Some(args) = args.as_ref() {
-                            _ = args.SetHandled(handled);
+                        if let Some(args) = args.as_ref()
+                            && let Err(error) = args.SetHandled(handled)
+                        {
+                            sink.error(
+                                node,
+                                EventId::#event_id,
+                                revision,
+                                native_error(error),
+                            );
                         }
                     }
                     Err(error) => {
@@ -1616,8 +1623,15 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                     Ok(info) => {
                         let handled =
                             sink.route_character(node, EventId::#event_id, revision, info);
-                        if let Some(args) = args.as_ref() {
-                            _ = args.SetHandled(handled);
+                        if let Some(args) = args.as_ref()
+                            && let Err(error) = args.SetHandled(handled)
+                        {
+                            sink.error(
+                                node,
+                                EventId::#event_id,
+                                revision,
+                                native_error(error),
+                            );
                         }
                     }
                     Err(error) => {

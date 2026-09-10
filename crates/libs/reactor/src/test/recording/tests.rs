@@ -48,6 +48,64 @@ fn records_native_property_observations_without_commands() {
 }
 
 #[test]
+fn records_routed_callback_decisions_and_removal() {
+    let mut runtime = RecordingRuntime::default();
+    let event = EventId::BorderPreviewKeyDown;
+    let key = KeyEventInfo {
+        key: VirtualKey::A,
+        original_key: VirtualKey::A,
+        status: PhysicalKeyStatus::default(),
+        modifiers: InputModifiers::NONE,
+    };
+    let character = CharacterEventInfo {
+        character: b'a'.into(),
+        status: PhysicalKeyStatus::default(),
+        modifiers: InputModifiers::NONE,
+    };
+
+    assert!(!runtime.route_key(ROOT, event, 1, key));
+    runtime
+        .apply(&[Command::SetRoutedCallback {
+            node: ROOT,
+            event,
+            callback: Some(RoutedEventCallback::KeyEventInfo(RoutedCallback::new(
+                |_| RoutedDispatch {
+                    message: None,
+                    handled: true,
+                },
+            ))),
+        }])
+        .unwrap();
+    assert!(runtime.route_key(ROOT, event, 1, key));
+    assert!(!runtime.route_character(ROOT, event, 1, character));
+    assert!(runtime.drain_events().is_empty());
+
+    runtime
+        .apply(&[Command::SetRoutedCallback {
+            node: ROOT,
+            event,
+            callback: Some(RoutedEventCallback::CharacterEventInfo(
+                RoutedCallback::new(|_| RoutedDispatch {
+                    message: None,
+                    handled: false,
+                }),
+            )),
+        }])
+        .unwrap();
+    assert!(!runtime.route_key(ROOT, event, 2, key));
+    assert!(!runtime.route_character(ROOT, event, 2, character));
+
+    runtime
+        .apply(&[Command::SetRoutedCallback {
+            node: ROOT,
+            event,
+            callback: None,
+        }])
+        .unwrap();
+    assert!(!runtime.route_character(ROOT, event, 3, character));
+}
+
+#[test]
 fn records_tree_and_property_mutations() {
     let mut runtime = RecordingRuntime::default();
     runtime

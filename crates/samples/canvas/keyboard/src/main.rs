@@ -71,6 +71,7 @@ impl Component for Sample {
         let canvas = canvas(move |ctx| draw(ctx, &text, &format));
         let surface = Border::new()
             .is_tab_stop(true)
+            .automation_name("Keyboard input canvas")
             .focus_on_pointer_release(true)
             .background(Color::rgb(16, 20, 28))
             .border_brush(if self.focused {

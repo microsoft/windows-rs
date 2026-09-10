@@ -447,6 +447,8 @@ pub(crate) enum KeyboardMessage {
     LostFocus(FocusEventInfo),
     WindowHandle(Result<isize, String>),
     Activated(Result<isize, String>),
+    InitialFocused(Result<bool, FocusError>),
+    FirstClick(Result<(), String>),
     SecondClick(Result<(), String>),
     SameTargetClick(Result<(), String>),
     SameTargetSettled,
@@ -684,13 +686,35 @@ impl Component for KeyboardInput {
             KeyboardMessage::WindowHandle(Err(error)) => Some(error),
             KeyboardMessage::Activated(Ok(hwnd)) => {
                 self.hwnd = Some(hwnd);
-                let failure = inject_keyboard_focus_click(hwnd).err();
-                if failure.is_none() {
-                    schedule_focus_timeout(context, false);
+                let sender = context.sender();
+                if !self.blur_reference.request_focus_result(move |result| {
+                    sender.send(KeyboardMessage::InitialFocused(result));
+                }) {
+                    Some("keyboard blur target was not published".to_string())
+                } else {
+                    None
                 }
-                failure
             }
             KeyboardMessage::Activated(Err(error)) => Some(error),
+            KeyboardMessage::InitialFocused(Ok(true)) => {
+                let hwnd = self.hwnd.unwrap();
+                context.spawn_background(move |_| {
+                    std::thread::sleep(Duration::from_millis(100));
+                    KeyboardMessage::FirstClick(inject_keyboard_focus_click(hwnd))
+                });
+                None
+            }
+            KeyboardMessage::InitialFocused(Ok(false)) => {
+                Some("WinUI rejected the initial focus-readiness request".to_string())
+            }
+            KeyboardMessage::InitialFocused(Err(error)) => {
+                Some(format!("initial focus-readiness request failed: {error:?}"))
+            }
+            KeyboardMessage::FirstClick(Ok(())) => {
+                schedule_focus_timeout(context, false);
+                None
+            }
+            KeyboardMessage::FirstClick(Err(error)) => Some(error),
             KeyboardMessage::SecondClick(Ok(())) => {
                 schedule_focus_timeout(context, true);
                 None

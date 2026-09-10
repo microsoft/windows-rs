@@ -4473,10 +4473,10 @@ fn native_drag_operation(operation: DragDropOperation) -> DataPackageOperation {
     }
 }
 
-fn input_modifiers() -> InputModifiers {
+fn input_modifiers() -> windows_core::Result<InputModifiers> {
     let mut keys = [0u8; 256];
     if !unsafe { GetKeyboardState(keys.as_mut_ptr()) }.as_bool() {
-        return InputModifiers::NONE;
+        return Err(windows_core::Error::from_thread());
     }
     let mut modifiers = InputModifiers::NONE;
     if keys[0x10] & 0x80 != 0 {
@@ -4491,7 +4491,7 @@ fn input_modifiers() -> InputModifiers {
     if keys[0x5b] & 0x80 != 0 || keys[0x5c] & 0x80 != 0 {
         modifiers |= InputModifiers::WINDOWS;
     }
-    modifiers
+    Ok(modifiers)
 }
 
 fn physical_key_status(value: CorePhysicalKeyStatus) -> PhysicalKeyStatus {
@@ -4510,7 +4510,7 @@ fn key_event_info(args: &KeyRoutedEventArgs) -> windows_core::Result<KeyEventInf
         key: ReactorVirtualKey(args.Key()?.0 as u32),
         original_key: ReactorVirtualKey(args.OriginalKey()?.0 as u32),
         status: physical_key_status(args.KeyStatus()?),
-        modifiers: input_modifiers(),
+        modifiers: input_modifiers()?,
     })
 }
 
@@ -4520,7 +4520,7 @@ fn character_event_info(
     Ok(CharacterEventInfo {
         character: args.Character()?,
         status: physical_key_status(args.KeyStatus()?),
-        modifiers: input_modifiers(),
+        modifiers: input_modifiers()?,
     })
 }
 

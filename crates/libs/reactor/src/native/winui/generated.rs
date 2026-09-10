@@ -5005,8 +5005,15 @@ pub fn subscribe_event(
                     Ok(info) => {
                         let handled =
                             sink.route_key(node, EventId::BorderPreviewKeyDown, revision, info);
-                        if let Some(args) = args.as_ref() {
-                            _ = args.SetHandled(handled);
+                        if let Some(args) = args.as_ref()
+                            && let Err(error) = args.SetHandled(handled)
+                        {
+                            sink.error(
+                                node,
+                                EventId::BorderPreviewKeyDown,
+                                revision,
+                                native_error(error),
+                            );
                         }
                     }
                     Err(error) => {
@@ -5035,8 +5042,10 @@ pub fn subscribe_event(
                 match result {
                     Ok(info) => {
                         let handled = sink.route_key(node, EventId::BorderKeyUp, revision, info);
-                        if let Some(args) = args.as_ref() {
-                            _ = args.SetHandled(handled);
+                        if let Some(args) = args.as_ref()
+                            && let Err(error) = args.SetHandled(handled)
+                        {
+                            sink.error(node, EventId::BorderKeyUp, revision, native_error(error));
                         }
                     }
                     Err(error) => {
@@ -5065,8 +5074,15 @@ pub fn subscribe_event(
                             revision,
                             info,
                         );
-                        if let Some(args) = args.as_ref() {
-                            _ = args.SetHandled(handled);
+                        if let Some(args) = args.as_ref()
+                            && let Err(error) = args.SetHandled(handled)
+                        {
+                            sink.error(
+                                node,
+                                EventId::BorderCharacterReceived,
+                                revision,
+                                native_error(error),
+                            );
                         }
                     }
                     Err(error) => {

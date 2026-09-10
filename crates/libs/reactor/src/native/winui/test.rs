@@ -1,7 +1,7 @@
 use super::*;
 use windows_core::EventRevoker;
 
-const INPUT_PROBE_SUBCLASS_ID: usize = 0x0052_5449_4E50_5554;
+const INPUT_PROBE_SUBCLASS_ID: usize = 0x5254_4950;
 const WM_KEYDOWN: u32 = 0x0100;
 const WM_CHAR: u32 = 0x0102;
 const WM_SYSKEYDOWN: u32 = 0x0104;
