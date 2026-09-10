@@ -1,7 +1,5 @@
 #![windows_subsystem = "windows"]
 
-use std::cell::RefCell;
-use std::rc::Rc;
 use windows_canvas::*;
 use windows_reactor::*;
 
@@ -16,8 +14,7 @@ struct Sample {
     text: Vec<u16>,
     focused: bool,
     status: String,
-    format: Rc<RefCell<Option<TextFormat>>>,
-    invalidator: Invalidator,
+    format: TextFormat,
 }
 
 impl Component for Sample {
@@ -29,8 +26,7 @@ impl Component for Sample {
             text: "Type here".encode_utf16().collect(),
             focused: false,
             status: "Click the canvas or press Tab to focus".to_string(),
-            format: Rc::new(RefCell::new(None)),
-            invalidator: Invalidator::new(),
+            format: TextFormat::new("Cascadia Mono", 28.0).unwrap(),
         }
     }
 
@@ -64,7 +60,6 @@ impl Component for Sample {
                 self.status = "Text cleared - click the canvas or press Shift+Tab".to_string();
             }
         }
-        self.invalidator.invalidate();
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
@@ -72,8 +67,8 @@ impl Component for Sample {
         context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
 
         let text = String::from_utf16_lossy(&self.text);
-        let format = Rc::clone(&self.format);
-        let canvas = canvas_invalidated(&self.invalidator, move |ctx| draw(ctx, &text, &format));
+        let format = self.format.clone();
+        let canvas = canvas(move |ctx| draw(ctx, &text, &format));
         let surface = Border::new()
             .is_tab_stop(true)
             .focus_on_pointer_release(true)
@@ -147,17 +142,13 @@ fn pop_utf16_character(text: &mut Vec<u16>) {
     }
 }
 
-fn draw(ctx: &DrawContext, text: &str, current_format: &RefCell<Option<TextFormat>>) -> Result<()> {
+fn draw(ctx: &DrawContext, text: &str, format: &TextFormat) -> Result<()> {
     ctx.clear(ColorF::from_rgb8(16, 20, 28));
 
-    if current_format.borrow().is_none() {
-        *current_format.borrow_mut() = Some(TextFormat::new("Cascadia Mono", 28.0)?);
-    }
-    let format = current_format.borrow();
     let text_brush = ctx.create_solid_brush(ColorF::WHITE)?;
     ctx.draw_text(
         text,
-        format.as_ref().unwrap(),
+        format,
         &Rect::new(32.0, 32.0, ctx.width - 32.0, 80.0),
         &text_brush,
     );
