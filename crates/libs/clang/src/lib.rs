@@ -1395,6 +1395,12 @@ impl Clang {
         // Reuse translation units across all specs.
         let parsed = self.parse_inputs()?;
         let arg_refs: Vec<&str> = parsed.args.iter().map(String::as_str).collect();
+        let mut declarations = HashMap::new();
+        for (_, tu) in parsed.h_tus.iter().chain(&parsed.str_tus) {
+            let mut tag_rename = build_tag_rename_map(tu);
+            assign_nested_names(tu, &mut tag_rename);
+            extend_declaration_map(&mut declarations, tu, &tag_rename);
+        }
 
         // Pass 1: learn unique type-name owners across specs. Shared typedef artifacts stay
         // local by being dropped from the owner table.
@@ -1403,11 +1409,18 @@ impl Clang {
             let ref_map = build_ref_map(reference, spec.namespace);
             let mut collector = Collector::new();
             for (_, tu) in &parsed.h_tus {
-                self.process_tu(tu, &mut collector, &ref_map, spec)?;
+                self.process_tu(tu, &mut collector, &ref_map, &declarations, spec, None)?;
             }
             for (_, tu) in &parsed.str_tus {
-                self.process_tu(tu, &mut collector, &ref_map, spec)?;
+                self.process_tu(tu, &mut collector, &ref_map, &declarations, spec, None)?;
             }
+            self.process_cross_tu_layout_dependencies(
+                &parsed,
+                &mut collector,
+                &ref_map,
+                &declarations,
+                spec,
+            )?;
             for name in collector.keys() {
                 owners
                     .entry(name.clone())
@@ -1432,18 +1445,27 @@ impl Clang {
             let mut collector = Collector::new();
 
             for (input, tu) in &parsed.h_tus {
-                let pending = self.process_tu(tu, &mut collector, &ref_map, spec)?;
+                let pending =
+                    self.process_tu(tu, &mut collector, &ref_map, &declarations, spec, None)?;
                 for c in Const::evaluate_macros(input, &pending, &parsed.index, &arg_refs)? {
                     collector.insert(Item::Const(c));
                 }
             }
 
             for (content, tu) in &parsed.str_tus {
-                let pending = self.process_tu(tu, &mut collector, &ref_map, spec)?;
+                let pending =
+                    self.process_tu(tu, &mut collector, &ref_map, &declarations, spec, None)?;
                 for c in Const::evaluate_macros_str(content, &pending, &parsed.index, &arg_refs)? {
                     collector.insert(Item::Const(c));
                 }
             }
+            self.process_cross_tu_layout_dependencies(
+                &parsed,
+                &mut collector,
+                &ref_map,
+                &declarations,
+                spec,
+            )?;
 
             outputs.push(emit_module(spec.namespace, &collector)?);
         }
@@ -1457,7 +1479,9 @@ impl Clang {
         tu: &TranslationUnit,
         collector: &mut Collector,
         ref_map: &HashMap<String, String>,
+        declarations: &HashMap<String, Cursor>,
         spec: &NamespaceSpec<'_>,
+        required_declarations: Option<&HashSet<String>>,
     ) -> Result<Vec<String>, Error> {
         for diag in tu.diagnostics() {
             if diag.is_err() {
@@ -1477,7 +1501,7 @@ impl Clang {
         assign_nested_names(tu, &mut tag_rename);
         let enum_merge = merge_enum_typedef_idiom(tu, &mut tag_rename);
         let macro_defs = collect_macro_defs(tu);
-        let declarations = build_declaration_map(tu, &tag_rename);
+        let local_declarations = build_declaration_map(tu, &tag_rename);
 
         let mut parser = Parser::new(
             spec.namespace,
@@ -1486,7 +1510,7 @@ impl Clang {
             ref_map,
             &tag_rename,
             &enum_merge,
-            &declarations,
+            &local_declarations,
             &macro_defs,
             tu,
             spec.symbols,
@@ -1514,6 +1538,24 @@ impl Clang {
             }
 
             parser.process_cursor(child, collector, false)?;
+        }
+
+        if let Some(required) = required_declarations {
+            for name in required {
+                let is_complete = match collector.get(name) {
+                    Some(Item::Struct(item)) => !item.is_opaque,
+                    Some(_) => true,
+                    None => false,
+                };
+                if is_complete || parser.ref_map.contains_key(name) {
+                    continue;
+                }
+                if let Some(cursor) = parser.declarations.get(name)
+                    && (cursor.kind() == CXCursor_TypedefDecl || cursor.has_definition())
+                {
+                    parser.pending_declarations.push(*cursor);
+                }
+            }
         }
 
         // Constants have no type cursor, so seed their named dependencies from the TU index.
@@ -1591,7 +1633,7 @@ impl Clang {
             item_layout_refs(item, &mut layout_refs);
         }
         for name in &layout_refs {
-            let Some(cursor) = parser.declarations.get(name) else {
+            let Some(cursor) = declarations.get(name) else {
                 continue;
             };
             let ty = if cursor.kind() == CXCursor_TypedefDecl {
@@ -1599,7 +1641,21 @@ impl Clang {
             } else {
                 cursor.ty()
             };
-            if ty.is_incomplete_record() {
+            let canonical = ty.canonical_type().ty();
+            let canonical_usr = canonical.usr();
+            let complete_elsewhere = ty.is_incomplete_record()
+                && declarations.values().any(|candidate| {
+                    matches!(
+                        candidate.kind(),
+                        CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_ClassDecl
+                    ) && candidate.has_definition()
+                        && if canonical_usr.is_empty() {
+                            candidate.name() == canonical.name()
+                        } else {
+                            candidate.usr() == canonical_usr
+                        }
+                });
+            if ty.is_incomplete_record() && !complete_elsewhere {
                 return Err(Error::new(
                     "incomplete record used by value",
                     &cursor.file_name(),
@@ -1618,6 +1674,54 @@ impl Clang {
         collector.apply_iid_vars(&parser.iid_vars);
 
         Ok(parser.pending_macros)
+    }
+
+    fn process_cross_tu_layout_dependencies(
+        &self,
+        parsed: &ParsedInputs,
+        collector: &mut Collector,
+        ref_map: &HashMap<String, String>,
+        declarations: &HashMap<String, Cursor>,
+        spec: &NamespaceSpec<'_>,
+    ) -> Result<(), Error> {
+        if spec.symbols.is_empty() {
+            return Ok(());
+        }
+
+        let mut processed = HashSet::new();
+        loop {
+            let mut required = HashSet::new();
+            for item in collector.values() {
+                item_layout_refs(item, &mut required);
+            }
+            loop {
+                let len = required.len();
+                let aliases: Vec<_> = required
+                    .iter()
+                    .filter_map(|name| match collector.get(name) {
+                        Some(Item::Typedef(item)) => Some(&item.ty),
+                        _ => None,
+                    })
+                    .collect();
+                for ty in aliases {
+                    type_layout_refs(ty, &mut required);
+                }
+                if required.len() == len {
+                    break;
+                }
+            }
+            required.retain(|name| !processed.contains(name));
+            if required.is_empty() {
+                break;
+            }
+            processed.extend(required.iter().cloned());
+
+            for (_, tu) in parsed.h_tus.iter().chain(&parsed.str_tus) {
+                self.process_tu(tu, collector, ref_map, declarations, spec, Some(&required))?;
+            }
+        }
+
+        Ok(())
     }
 }
 
@@ -1927,6 +2031,7 @@ mod tests {
                 bitfields: vec![],
             }],
             is_union: true,
+            is_opaque: false,
             packing: None,
             alignment: None,
         };

@@ -582,6 +582,57 @@ fn namespaced_incomplete_records_cannot_be_used_by_value() {
 }
 
 #[test]
+fn namespaced_complete_record_wins_across_translation_units() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("multi_tu_record");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let rdl = scratch.join("out.rdl");
+
+    {
+        let _guard = test_clang::libclang_guard();
+        windows_clang::clang()
+            .input("input/multi_tu_complete.hpp")
+            .input("input/multi_tu_forward.hpp")
+            .output(&rdl)
+            .namespace("MultiTuRecord")
+            .library("test.dll")
+            .symbol("GetMultiValuePointer")
+            .symbol("ReturnMultiValue")
+            .write()
+            .unwrap();
+    }
+
+    let contents = std::fs::read_to_string(&rdl).unwrap();
+    assert!(contents.contains("struct MultiValue"));
+    assert!(contents.contains("value: i32"));
+    assert!(contents.contains("type MultiValueAliasInner = MultiValue"));
+    assert!(contents.contains("type MultiValueAlias = MultiValueAliasInner"));
+    assert!(contents.contains("fn GetMultiValuePointer() -> *mut MultiValue"));
+    assert!(contents.contains("fn ReturnMultiValue() -> MultiValueAlias"));
+}
+
+#[test]
+fn namespaced_incomplete_classes_cannot_be_used_by_value() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("incomplete_class_by_value");
+    std::fs::create_dir_all(&scratch).unwrap();
+
+    let error = {
+        let _guard = test_clang::libclang_guard();
+        windows_clang::clang()
+            .input("input/incomplete_class_by_value.hpp")
+            .output(scratch.join("out.rdl"))
+            .namespace("IncompleteClassByValue")
+            .library("test.dll")
+            .write()
+            .unwrap_err()
+    };
+    assert!(
+        error
+            .to_string()
+            .contains("incomplete record used by value")
+    );
+}
+
+#[test]
 fn namespaced_enum_dependencies_preserve_definitions() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("enum_dependency");
     std::fs::create_dir_all(&scratch).unwrap();

@@ -29,9 +29,20 @@ pub(crate) fn build_declaration_map(
     tu: &TranslationUnit,
     tag_rename: &HashMap<String, String>,
 ) -> HashMap<String, Cursor> {
+    let mut map = HashMap::new();
+    extend_declaration_map(&mut map, tu, tag_rename);
+    map
+}
+
+/// Add one translation unit's declarations to a shared projected-name index.
+pub(crate) fn extend_declaration_map(
+    map: &mut HashMap<String, Cursor>,
+    tu: &TranslationUnit,
+    tag_rename: &HashMap<String, String>,
+) {
     fn rank(cursor: Cursor) -> u8 {
         match cursor.kind() {
-            CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_EnumDecl
+            CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_ClassDecl | CXCursor_EnumDecl
                 if cursor.is_definition() =>
             {
                 2
@@ -64,7 +75,8 @@ pub(crate) fn build_declaration_map(
 
             match child.kind() {
                 CXCursor_TypedefDecl => insert(map, child.name(), child),
-                CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_EnumDecl => {
+                CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_ClassDecl
+                | CXCursor_EnumDecl => {
                     let tag = child.name();
                     let name = if is_anonymous_name(&tag) {
                         tag_rename.get(&child.location_id()).cloned().unwrap_or(tag)
@@ -80,9 +92,7 @@ pub(crate) fn build_declaration_map(
         }
     }
 
-    let mut map = HashMap::new();
-    walk(tu.cursor(), tag_rename, &mut map);
-    map
+    walk(tu.cursor(), tag_rename, map);
 }
 
 /// Merge `enum _FOO { ... }; typedef DWORD FOO;` into one public enum.

@@ -204,6 +204,10 @@ fn collect_layout_type_refs(ty: &metadata::Type, out: &mut HashSet<String>) {
     }
 }
 
+pub(crate) fn type_layout_refs(ty: &metadata::Type, out: &mut HashSet<String>) {
+    collect_layout_type_refs(ty, out);
+}
+
 fn collect_layout_field_refs(fields: &[Field], out: &mut HashSet<String>) {
     for field in fields {
         collect_layout_type_refs(&field.ty, out);
