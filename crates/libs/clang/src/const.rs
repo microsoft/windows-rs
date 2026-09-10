@@ -48,6 +48,34 @@ impl Const {
         }))
     }
 
+    /// Restore a named cast that batch evaluation folded to a plain integer.
+    pub(crate) fn apply_cast_type(
+        &mut self,
+        namespace: &str,
+        ref_map: &HashMap<String, String>,
+        type_name: &str,
+    ) {
+        let Some(bits) = const_value_bits(&self.value) else {
+            return;
+        };
+        if let Some(value) = named_cast_value(namespace, ref_map, None, type_name, bits, false) {
+            self.value = value;
+            self.ty = None;
+        }
+    }
+
+    /// Return the local type dependency retained by a named cast, if canonicalization keeps it.
+    pub(crate) fn cast_type_dependency(
+        namespace: &str,
+        ref_map: &HashMap<String, String>,
+        type_name: &str,
+    ) -> Option<String> {
+        match named_cast_value(namespace, ref_map, None, type_name, 0, false)? {
+            metadata::Value::EnumValue(name, _) => Some(name.name),
+            _ => None,
+        }
+    }
+
     /// Parse file-scope floating-point `const` variables that flat metadata would otherwise lose.
     pub fn parse_var_decl(cursor: &Cursor) -> Option<Self> {
         let name = cursor.name();
@@ -932,7 +960,17 @@ fn parse_named_cast(
 ) -> Option<metadata::Value> {
     let (digits, _suffix) = split_int_suffix(lit);
     let raw: u64 = parse_int_digits(digits)?;
+    named_cast_value(namespace, ref_map, header_names, type_name, raw, negate)
+}
 
+fn named_cast_value(
+    namespace: &str,
+    ref_map: &HashMap<String, String>,
+    header_names: Option<&HashMap<String, String>>,
+    type_name: &str,
+    raw: u64,
+    negate: bool,
+) -> Option<metadata::Value> {
     if let Some(ty) = semantic_scalar(type_name) {
         return scalar_value(&ty, raw, negate);
     }
@@ -979,6 +1017,73 @@ fn parse_named_cast(
         metadata::TypeName::named(ns, type_name),
         Box::new(metadata::Value::I64(v)),
     ))
+}
+
+fn const_value_bits(value: &metadata::Value) -> Option<u64> {
+    Some(match value {
+        metadata::Value::Bool(v) => *v as u64,
+        metadata::Value::U8(v) => *v as u64,
+        metadata::Value::I8(v) => *v as i64 as u64,
+        metadata::Value::U16(v) => *v as u64,
+        metadata::Value::I16(v) => *v as i64 as u64,
+        metadata::Value::U32(v) => *v as u64,
+        metadata::Value::I32(v) => *v as i64 as u64,
+        metadata::Value::U64(v) => *v,
+        metadata::Value::I64(v) => *v as u64,
+        metadata::Value::USize(v) => *v,
+        metadata::Value::ISize(v) => *v as u64,
+        _ => return None,
+    })
+}
+
+/// Return the leading named cast in a deferred macro body.
+pub(crate) fn detect_leading_cast_type(
+    body: &[(CXTokenKind, String)],
+    is_type: impl core::ops::Fn(&str) -> bool,
+) -> Option<String> {
+    let mut body = body;
+    while body.len() > 2 && outer_parens_wrap(body) {
+        body = &body[1..body.len() - 1];
+    }
+    if let [
+        (CXToken_Punctuation, lp),
+        (CXToken_Identifier, ty),
+        (CXToken_Punctuation, rp),
+        rest @ ..,
+    ] = body
+        && lp == "("
+        && rp == ")"
+        && !rest.is_empty()
+        && is_type(ty)
+    {
+        return Some(ty.clone());
+    }
+    None
+}
+
+fn outer_parens_wrap(body: &[(CXTokenKind, String)]) -> bool {
+    let (Some((CXToken_Punctuation, first)), Some((CXToken_Punctuation, last))) =
+        (body.first(), body.last())
+    else {
+        return false;
+    };
+    if first != "(" || last != ")" {
+        return false;
+    }
+    let mut depth = 0i32;
+    for (index, (kind, token)) in body.iter().enumerate() {
+        if *kind == CXToken_Punctuation {
+            match token.as_str() {
+                "(" => depth += 1,
+                ")" => depth -= 1,
+                _ => {}
+            }
+        }
+        if depth == 0 && index + 1 != body.len() {
+            return false;
+        }
+    }
+    depth == 0
 }
 
 /// Parse a named cast of a complemented integer literal such as `(SOCKET)(~0)`.
@@ -1306,5 +1411,27 @@ mod tests {
             native_integer_value(i64::MAX as u64, i64::MAX, &metadata::Type::ISize),
             I64(i64::MAX)
         );
+    }
+
+    #[test]
+    fn leading_cast_requires_a_type_name() {
+        let token = |kind, value: &str| (kind, value.to_string());
+        let cast = vec![
+            token(CXToken_Punctuation, "("),
+            token(CXToken_Punctuation, "("),
+            token(CXToken_Identifier, "Status"),
+            token(CXToken_Punctuation, ")"),
+            token(CXToken_Punctuation, "("),
+            token(CXToken_Literal, "1"),
+            token(CXToken_Punctuation, "+"),
+            token(CXToken_Literal, "2"),
+            token(CXToken_Punctuation, ")"),
+            token(CXToken_Punctuation, ")"),
+        ];
+        assert_eq!(
+            detect_leading_cast_type(&cast, |name| name == "Status"),
+            Some("Status".to_string())
+        );
+        assert_eq!(detect_leading_cast_type(&cast, |_| false), None);
     }
 }

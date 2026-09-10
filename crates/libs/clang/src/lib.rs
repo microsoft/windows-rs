@@ -78,10 +78,14 @@ pub(crate) struct Parser<'a> {
     pub tag_rename: &'a HashMap<String, String>,
     /// Enum reprs taken from integer typedefs in the C flags/enum idiom.
     pub enum_merge: &'a HashMap<String, &'static str>,
+    /// Typedef declarations visible through this translation unit's include graph.
+    pub typedefs: &'a HashMap<String, Cursor>,
     pub tu: &'a TranslationUnit,
     pub pending_typedefs: Vec<Cursor>,
     pub pending_records: Vec<Cursor>,
     pub pending_macros: Vec<String>,
+    pub pending_macro_casts: HashMap<String, String>,
+    pub pending_constant_refs: HashSet<String>,
     processing_dependency: bool,
     /// Per-header mode: incomplete pointer-only records emitted as opaque structs.
     pub pending_opaque: Vec<(String, String)>,
@@ -111,6 +115,11 @@ struct NamespaceSpec<'a> {
     symbols: &'a HashSet<String>,
 }
 
+struct PendingMacros {
+    names: Vec<String>,
+    casts: HashMap<String, String>,
+}
+
 impl<'a> Parser<'a> {
     #[expect(clippy::too_many_arguments)]
     fn new(
@@ -120,6 +129,7 @@ impl<'a> Parser<'a> {
         ref_map: &'a HashMap<String, String>,
         tag_rename: &'a HashMap<String, String>,
         enum_merge: &'a HashMap<String, &'static str>,
+        typedefs: &'a HashMap<String, Cursor>,
         macro_defs: &'a HashMap<String, Vec<String>>,
         tu: &'a TranslationUnit,
         symbols: &'a HashSet<String>,
@@ -133,10 +143,13 @@ impl<'a> Parser<'a> {
             header_names: None,
             tag_rename,
             enum_merge,
+            typedefs,
             tu,
             pending_typedefs: vec![],
             pending_records: vec![],
             pending_macros: vec![],
+            pending_macro_casts: HashMap::new(),
+            pending_constant_refs: HashSet::new(),
             processing_dependency: false,
             pending_opaque: vec![],
             flag_enums: HashSet::new(),
@@ -155,6 +168,12 @@ impl<'a> Parser<'a> {
             return;
         }
         collector.insert(Item::Fn(item));
+    }
+
+    fn track_constant_refs(&mut self, item: &Item) {
+        if self.header_root.is_none() {
+            item_refs(item, &mut self.pending_constant_refs);
+        }
     }
 
     /// Processes one cursor, inserting items or queuing macros for the second pass.
@@ -343,12 +362,17 @@ impl<'a> Parser<'a> {
                 }
             }
             CXCursor_MacroDefinition => {
+                let name = child.name();
+                self.pending_macros.retain(|pending| pending != &name);
+                self.pending_macro_casts.remove(&name);
                 if let Some(c) = Const::parse(child, self)? {
-                    collector.insert(Item::Const(c));
+                    let item = Item::Const(c);
+                    self.track_constant_refs(&item);
+                    collector.insert(item);
                 } else if !child.is_macro_builtin()
                     && !child.is_macro_function_like()
-                    && !child.name().is_empty()
-                    && !child.name().starts_with('_')
+                    && !name.is_empty()
+                    && !name.starts_with('_')
                 {
                     // Non-type keywords and string literals are not integer constants.
                     let tokens = self.tu.tokenize(child.extent());
@@ -374,7 +398,19 @@ impl<'a> Parser<'a> {
                         && body_is_balanced
                     {
                         // Defer object-like macro constants to the batch evaluator.
-                        self.pending_macros.push(child.name());
+                        if self.header_root.is_none() {
+                            let body: Vec<_> = tokens.iter().skip(1).cloned().collect();
+                            if let Some(cast) = detect_leading_cast_type(&body, |name| {
+                                self.typedefs.contains_key(name)
+                                    || self.ref_map.contains_key(name)
+                                    || semantic_scalar(name).is_some()
+                                    || fundamental_scalar(name).is_some()
+                                    || pointer_sized_abi(name).is_some()
+                            }) {
+                                self.pending_macro_casts.insert(name.clone(), cast);
+                            }
+                        }
+                        self.pending_macros.push(name);
                     }
                 }
             }
@@ -444,12 +480,14 @@ impl<'a> Parser<'a> {
                     && !self.ref_map.contains_key(&name)
                     && !collector.contains_key(&name)
                 {
-                    collector.insert(Item::PropertyKeyConst(PropertyKeyConst {
+                    let item = Item::PropertyKeyConst(PropertyKeyConst {
                         name,
                         ty: ty.to_string(),
                         uuid,
                         pid,
-                    }));
+                    });
+                    self.track_constant_refs(&item);
+                    collector.insert(item);
                 }
             }
             // `IID_XXX` variables can provide UUIDs missing from interface declarations.
@@ -471,7 +509,9 @@ impl<'a> Parser<'a> {
                     && !self.ref_map.contains_key(&c.name)
                     && !collector.contains_key(&c.name)
                 {
-                    collector.insert(Item::Const(c));
+                    let item = Item::Const(c);
+                    self.track_constant_refs(&item);
+                    collector.insert(item);
                 }
             }
             _ => {}
@@ -1244,6 +1284,7 @@ impl Clang {
 
         let empty_ref: HashMap<String, String> = HashMap::new();
         let empty_symbols: HashSet<String> = HashSet::new();
+        let typedefs = build_typedef_map(tu);
         let mut all_opaque: Vec<(String, String)> = vec![];
         // Macro constants are per-bucket values but are deduplicated globally.
         let mut all_consts: Vec<(String, Vec<String>)> = vec![];
@@ -1257,6 +1298,7 @@ impl Clang {
                 &empty_ref,
                 &tag_rename,
                 &enum_merge,
+                &typedefs,
                 &macro_defs,
                 tu,
                 &empty_symbols,
@@ -1419,14 +1461,24 @@ impl Clang {
 
             for (input, tu) in &parsed.h_tus {
                 let pending = self.process_tu(tu, &mut collector, &ref_map, spec)?;
-                for c in Const::evaluate_macros(input, &pending, &parsed.index, &arg_refs)? {
+                for mut c in
+                    Const::evaluate_macros(input, &pending.names, &parsed.index, &arg_refs)?
+                {
+                    if let Some(cast) = pending.casts.get(&c.name) {
+                        c.apply_cast_type(spec.namespace, &ref_map, cast);
+                    }
                     collector.insert(Item::Const(c));
                 }
             }
 
             for (content, tu) in &parsed.str_tus {
                 let pending = self.process_tu(tu, &mut collector, &ref_map, spec)?;
-                for c in Const::evaluate_macros_str(content, &pending, &parsed.index, &arg_refs)? {
+                for mut c in
+                    Const::evaluate_macros_str(content, &pending.names, &parsed.index, &arg_refs)?
+                {
+                    if let Some(cast) = pending.casts.get(&c.name) {
+                        c.apply_cast_type(spec.namespace, &ref_map, cast);
+                    }
                     collector.insert(Item::Const(c));
                 }
             }
@@ -1444,7 +1496,7 @@ impl Clang {
         collector: &mut Collector,
         ref_map: &HashMap<String, String>,
         spec: &NamespaceSpec<'_>,
-    ) -> Result<Vec<String>, Error> {
+    ) -> Result<PendingMacros, Error> {
         for diag in tu.diagnostics() {
             if diag.is_err() {
                 return Err(Error::new(
@@ -1462,6 +1514,7 @@ impl Clang {
         // Give nested records synthetic names keyed by tag or source location.
         assign_nested_names(tu, &mut tag_rename);
         let enum_merge = merge_enum_typedef_idiom(tu, &mut tag_rename);
+        let typedefs = build_typedef_map(tu);
         let macro_defs = collect_macro_defs(tu);
 
         let mut parser = Parser::new(
@@ -1471,6 +1524,7 @@ impl Clang {
             ref_map,
             &tag_rename,
             &enum_merge,
+            &typedefs,
             &macro_defs,
             tu,
             spec.symbols,
@@ -1498,6 +1552,24 @@ impl Clang {
             }
 
             parser.process_cursor(child, collector, false)?;
+        }
+
+        // Constants have no type cursor, so queue local typedefs named by their values or by casts
+        // whose expressions require batch evaluation.
+        let mut referenced = std::mem::take(&mut parser.pending_constant_refs);
+        referenced.extend(
+            parser
+                .pending_macro_casts
+                .values()
+                .filter_map(|cast| Const::cast_type_dependency(spec.namespace, ref_map, cast)),
+        );
+        for name in referenced {
+            if !collector.contains_key(&name)
+                && !parser.ref_map.contains_key(&name)
+                && let Some(cursor) = parser.typedefs.get(&name)
+            {
+                parser.pending_typedefs.push(*cursor);
+            }
         }
 
         // Drain referenced type dependencies; parsing one definition can enqueue more.
@@ -1541,7 +1613,10 @@ impl Clang {
         // Apply `IID_IFoo` variables to interfaces that lack `uuid` attributes.
         collector.apply_iid_vars(&parser.iid_vars);
 
-        Ok(parser.pending_macros)
+        Ok(PendingMacros {
+            names: parser.pending_macros,
+            casts: parser.pending_macro_casts,
+        })
     }
 }
 
