@@ -2145,7 +2145,7 @@ impl Default for DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO {
     }
 }
 pub type DXGK_DISPLAYMUX_SUPPORT_LEVEL = i32;
-pub type DXGK_DISPLAY_DESCRIPTOR_TYPE = i32;
+pub type DXGK_DISPLAY_DESCRIPTOR_TYPE = u8;
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "usb"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2158,8 +2158,8 @@ pub struct DXGK_DISPLAY_INFORMATION {
     pub TargetId: super::D3DDDI_VIDEO_PRESENT_TARGET_ID,
     pub AcpiId: u32,
 }
-pub type DXGK_DISPLAY_TECHNOLOGY = i32;
-pub type DXGK_DISPLAY_USAGE = i32;
+pub type DXGK_DISPLAY_TECHNOLOGY = u8;
+pub type DXGK_DISPLAY_USAGE = u8;
 pub const DXGK_DT_INVALID: DXGK_DISPLAY_TECHNOLOGY = 0;
 pub const DXGK_DT_LCD: DXGK_DISPLAY_TECHNOLOGY = 2;
 pub const DXGK_DT_MAX: DXGK_DISPLAY_TECHNOLOGY = 5;

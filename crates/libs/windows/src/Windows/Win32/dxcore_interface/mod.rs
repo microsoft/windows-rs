@@ -29,7 +29,7 @@ pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXCoreAdapterPreference(pub i32);
+pub struct DXCoreAdapterPreference(pub u32);
 impl DXCoreAdapterPreference {
     pub const Hardware: Self = Self(0);
     pub const MinimumPower: Self = Self(1);
@@ -49,7 +49,7 @@ pub struct DXCoreAdapterProcessSetQueryOutput {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXCoreAdapterProperty(pub i32);
+pub struct DXCoreAdapterProperty(pub u32);
 impl DXCoreAdapterProperty {
     pub const InstanceLuid: Self = Self(0);
     pub const DriverVersion: Self = Self(1);
@@ -72,7 +72,7 @@ impl DXCoreAdapterProperty {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXCoreAdapterState(pub i32);
+pub struct DXCoreAdapterState(pub u32);
 impl DXCoreAdapterState {
     pub const IsDriverUpdateInProgress: Self = Self(0);
     pub const AdapterMemoryBudget: Self = Self(1);
@@ -186,7 +186,7 @@ pub struct DXCoreMemoryQueryInput {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXCoreMemoryType(pub i32);
+pub struct DXCoreMemoryType(pub u32);
 impl DXCoreMemoryType {
     pub const Dedicated: Self = Self(0);
     pub const Shared: Self = Self(1);
@@ -199,7 +199,7 @@ pub struct DXCoreMemoryUsage {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXCoreNotificationType(pub i32);
+pub struct DXCoreNotificationType(pub u32);
 impl DXCoreNotificationType {
     pub const AdapterListStale: Self = Self(0);
     pub const AdapterNoLongerValid: Self = Self(1);
@@ -262,14 +262,14 @@ impl core::ops::Not for DXCoreRuntimeFilterFlags {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXCoreSegmentGroup(pub i32);
+pub struct DXCoreSegmentGroup(pub u32);
 impl DXCoreSegmentGroup {
     pub const Local: Self = Self(0);
     pub const NonLocal: Self = Self(1);
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXCoreSingleAdapterHybridMode(pub i32);
+pub struct DXCoreSingleAdapterHybridMode(pub u32);
 impl DXCoreSingleAdapterHybridMode {
     pub const Unspecified: Self = Self(0);
     pub const MinimumPower: Self = Self(1);
@@ -277,7 +277,7 @@ impl DXCoreSingleAdapterHybridMode {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DXCoreWorkload(pub i32);
+pub struct DXCoreWorkload(pub u32);
 impl DXCoreWorkload {
     pub const Graphics: Self = Self(0);
     pub const Compute: Self = Self(1);

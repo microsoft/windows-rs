@@ -688,6 +688,21 @@ impl Type {
         self.function_pointee().is_some()
     }
 
+    pub fn is_incomplete_record(&self) -> bool {
+        let ty = self.canonical_type();
+        ty.kind() == CXType_Record && !ty.ty().has_definition()
+    }
+
+    fn incomplete_record_name(&self, parser: &Parser<'_>) -> Option<String> {
+        let ty = self.canonical_type();
+        if ty.kind() != CXType_Record || ty.ty().has_definition() {
+            return None;
+        }
+        let decl = ty.ty();
+        let tag = decl.name();
+        Some(parser.tag_rename.get(&tag).cloned().unwrap_or(tag))
+    }
+
     pub fn function_pointee(&self) -> Option<Self> {
         match self.kind() {
             // Function-type typedefs emit as callbacks like pointer typedefs.
@@ -866,17 +881,25 @@ impl Type {
                         .to_string()
                 };
                 let definition = decl.definition();
-                if self.kind() == CXType_Record
+                if matches!(self.kind(), CXType_Record | CXType_Enum)
                     && parser.header_root.is_none()
                     && ns == parser.namespace
                     && decl.has_definition()
                     && (!definition.is_from_main_file() || !parser.symbols.is_empty())
                 {
-                    parser.pending_records.push(definition);
+                    parser.pending_declarations.push(definition);
+                } else if self.kind() == CXType_Enum
+                    && parser.header_root.is_none()
+                    && ns == parser.namespace
+                    && !decl.has_definition()
+                {
+                    if let Some((_, repr)) = enum_repr_type(decl) {
+                        parser.pending_enum_aliases.push((name.clone(), repr));
+                    } else {
+                        parser.pending_invalid_enums.push(decl);
+                    }
                 }
-                // Incomplete namespaced records remain unresolved. Deciding whether a particular
-                // use can be represented by an opaque declaration requires usage-shape analysis.
-                // Pointer-only incomplete records need an opaque forward declaration target.
+                // Per-header pointer-only records need an opaque target in their owning partition.
                 if parser.header_root.is_some()
                     && !is_anonymous_name(&name)
                     && !name.ends_with("__")
@@ -924,6 +947,14 @@ impl Type {
                     return pointee.to_type(parser);
                 }
                 let inner = pointee.to_type(parser);
+                if parser.header_root.is_none()
+                    && pointee.is_incomplete_record()
+                    && let metadata::Type::ValueName(name) = &inner
+                    && name.namespace == parser.namespace
+                    && let Some(name) = pointee.incomplete_record_name(parser)
+                {
+                    parser.pending_opaque_records.push(name);
+                }
                 if pointee.is_const() {
                     match inner {
                         metadata::Type::PtrConst(t, n) => metadata::Type::PtrConst(t, n + 1),
@@ -945,6 +976,14 @@ impl Type {
                     return pointee.to_type(parser);
                 }
                 let inner = pointee.to_type(parser);
+                if parser.header_root.is_none()
+                    && pointee.is_incomplete_record()
+                    && let metadata::Type::ValueName(name) = &inner
+                    && name.namespace == parser.namespace
+                    && let Some(name) = pointee.incomplete_record_name(parser)
+                {
+                    parser.pending_opaque_records.push(name);
+                }
                 if pointee.is_const() {
                     match inner {
                         metadata::Type::PtrConst(t, n) => metadata::Type::PtrConst(t, n + 1),

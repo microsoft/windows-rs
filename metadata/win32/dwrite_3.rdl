@@ -70,7 +70,7 @@ mod Windows {
             minValue: f32,
             maxValue: f32,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         enum DWRITE_FONT_AXIS_TAG {
             DWRITE_FONT_AXIS_TAG_WEIGHT = 1952999287,
             DWRITE_FONT_AXIS_TAG_WIDTH = 1752458359,

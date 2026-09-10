@@ -34,7 +34,7 @@ impl Default for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct DXCoreAdapterPreference(pub i32);
+pub struct DXCoreAdapterPreference(pub u32);
 impl DXCoreAdapterPreference {
     pub const Hardware: Self = Self(0);
     pub const MinimumPower: Self = Self(1);
@@ -54,7 +54,7 @@ pub struct DXCoreAdapterProcessSetQueryOutput {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct DXCoreAdapterProperty(pub i32);
+pub struct DXCoreAdapterProperty(pub u32);
 impl DXCoreAdapterProperty {
     pub const InstanceLuid: Self = Self(0);
     pub const DriverVersion: Self = Self(1);
@@ -77,7 +77,7 @@ impl DXCoreAdapterProperty {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct DXCoreAdapterState(pub i32);
+pub struct DXCoreAdapterState(pub u32);
 impl DXCoreAdapterState {
     pub const IsDriverUpdateInProgress: Self = Self(0);
     pub const AdapterMemoryBudget: Self = Self(1);
@@ -163,7 +163,7 @@ impl Default for DXCoreMemoryQueryInput {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct DXCoreMemoryType(pub i32);
+pub struct DXCoreMemoryType(pub u32);
 impl DXCoreMemoryType {
     pub const Dedicated: Self = Self(0);
     pub const Shared: Self = Self(1);
@@ -176,7 +176,7 @@ pub struct DXCoreMemoryUsage {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct DXCoreNotificationType(pub i32);
+pub struct DXCoreNotificationType(pub u32);
 impl DXCoreNotificationType {
     pub const AdapterListStale: Self = Self(0);
     pub const AdapterNoLongerValid: Self = Self(1);
@@ -211,14 +211,14 @@ impl DXCoreRuntimeFilterFlags {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct DXCoreSegmentGroup(pub i32);
+pub struct DXCoreSegmentGroup(pub u32);
 impl DXCoreSegmentGroup {
     pub const Local: Self = Self(0);
     pub const NonLocal: Self = Self(1);
 }
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct DXCoreSingleAdapterHybridMode(pub i32);
+pub struct DXCoreSingleAdapterHybridMode(pub u32);
 impl DXCoreSingleAdapterHybridMode {
     pub const Unspecified: Self = Self(0);
     pub const MinimumPower: Self = Self(1);
@@ -226,7 +226,7 @@ impl DXCoreSingleAdapterHybridMode {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct DXCoreWorkload(pub i32);
+pub struct DXCoreWorkload(pub u32);
 impl DXCoreWorkload {
     pub const Graphics: Self = Self(0);
     pub const Compute: Self = Self(1);

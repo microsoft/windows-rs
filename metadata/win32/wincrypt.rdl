@@ -3619,7 +3619,7 @@ mod Windows {
         extern fn CertIsValidCRLForCertificate(pCert: *const CERT_CONTEXT, pCrl: *const CRL_CONTEXT, dwFlags: u32, #[reserved] pvReserved: *const void) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CertIsWeakHash(dwHashUseType: u32, pwszCNGHashAlgid: PCWSTR, dwChainFlags: u32, #[opt] pSignerChainContext: *const CERT_CHAIN_CONTEXT, #[opt] pTimeStamp: *const FILETIME, #[opt] pwszFileName: PCWSTR) -> BOOL;
-        #[repr(i32)]
+        #[repr(u32)]
         enum CertKeyType {
             KeyTypeOther = 0,
             KeyTypeVirtualSmartCard = 1,

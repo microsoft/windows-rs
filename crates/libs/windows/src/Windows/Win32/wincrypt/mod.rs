@@ -5943,7 +5943,7 @@ pub struct CT_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cValidated: u32,
 }
 pub const CUR_BLOB_VERSION: i32 = 2;
-pub type CertKeyType = i32;
+pub type CertKeyType = u32;
 pub type DATA_BLOB = CRYPT_INTEGER_BLOB;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

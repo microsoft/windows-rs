@@ -42,7 +42,7 @@ pub(crate) fn resolve_typedef(cursor: &Type, parser: &mut Parser<'_>) -> metadat
     } else if decl.is_from_main_file() && parser.symbols.is_empty() {
         metadata::Type::value_named(parser.namespace, &name)
     } else {
-        parser.pending_typedefs.push(decl);
+        parser.pending_declarations.push(decl);
         metadata::Type::value_named(parser.namespace, &name)
     }
 }

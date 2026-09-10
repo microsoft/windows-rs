@@ -172,6 +172,88 @@ pub(crate) fn item_refs(item: &Item, out: &mut HashSet<String>) {
     }
 }
 
+fn collect_layout_type_refs(ty: &metadata::Type, out: &mut HashSet<String>) {
+    match ty {
+        metadata::Type::ClassName(name) | metadata::Type::ValueName(name) => {
+            out.insert(name.name.clone());
+        }
+        metadata::Type::ArrayFixed(inner, _) => collect_layout_type_refs(inner, out),
+        metadata::Type::Array(_)
+        | metadata::Type::RefMut(_)
+        | metadata::Type::RefConst(_)
+        | metadata::Type::PtrMut(_, _)
+        | metadata::Type::PtrConst(_, _)
+        | metadata::Type::Bool
+        | metadata::Type::Char
+        | metadata::Type::I8
+        | metadata::Type::U8
+        | metadata::Type::I16
+        | metadata::Type::U16
+        | metadata::Type::I32
+        | metadata::Type::U32
+        | metadata::Type::I64
+        | metadata::Type::U64
+        | metadata::Type::F32
+        | metadata::Type::F64
+        | metadata::Type::ISize
+        | metadata::Type::USize
+        | metadata::Type::String
+        | metadata::Type::Object
+        | metadata::Type::Generic(_, _)
+        | metadata::Type::Void => {}
+    }
+}
+
+fn collect_layout_field_refs(fields: &[Field], out: &mut HashSet<String>) {
+    for field in fields {
+        collect_layout_type_refs(&field.ty, out);
+        if let Some(nested) = &field.nested {
+            collect_layout_field_refs(&nested.fields, out);
+        }
+    }
+}
+
+/// Collect nominal types whose ABI use requires a complete layout.
+pub(crate) fn item_layout_refs(item: &Item, out: &mut HashSet<String>) {
+    match item {
+        Item::Fn(item) => {
+            for param in &item.params {
+                collect_layout_type_refs(&param.ty, out);
+            }
+            collect_layout_type_refs(&item.return_type, out);
+        }
+        Item::Callback(item) => {
+            for param in &item.params {
+                collect_layout_type_refs(&param.ty, out);
+            }
+            collect_layout_type_refs(&item.return_type, out);
+        }
+        Item::Interface(item) => {
+            if let Some(base) = &item.base {
+                collect_layout_type_refs(base, out);
+            }
+            for method in &item.methods {
+                for param in &method.params {
+                    collect_layout_type_refs(&param.ty, out);
+                }
+                collect_layout_type_refs(&method.return_type, out);
+            }
+        }
+        Item::Struct(item) => collect_layout_field_refs(&item.fields, out),
+        // A typedef names a type but does not itself use that type by value.
+        Item::Typedef(_) => {}
+        Item::Const(item) => {
+            if let Some(ty) = &item.ty {
+                collect_layout_type_refs(ty, out);
+            }
+        }
+        Item::PropertyKeyConst(item) => {
+            out.insert(item.ty.clone());
+        }
+        Item::Enum(_) | Item::GuidConst(_) => {}
+    }
+}
+
 /// Remove out-of-scope declarations not reachable from an in-scope declaration.
 pub(crate) fn sweep_unreferenced(
     collectors: &mut BTreeMap<String, Collector>,

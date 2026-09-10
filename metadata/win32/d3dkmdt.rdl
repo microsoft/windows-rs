@@ -1183,7 +1183,7 @@ mod Windows {
             DXGK_DISPLAYMUX_DRIVER_SUPPORT_LEVEL_EXPERIMENTAL = 3,
             DXGK_DISPLAYMUX_DRIVER_SUPPORT_LEVEL_FULL = 4,
         }
-        #[repr(i32)]
+        #[repr(u8)]
         enum DXGK_DISPLAY_DESCRIPTOR_TYPE {
             DXGK_DDT_INVALID = 0,
             DXGK_DDT_EDID = 1,
@@ -1198,7 +1198,7 @@ mod Windows {
             TargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
             AcpiId: u32,
         }
-        #[repr(i32)]
+        #[repr(u8)]
         enum DXGK_DISPLAY_TECHNOLOGY {
             DXGK_DT_INVALID = 0,
             DXGK_DT_OTHER = 1,
@@ -1207,7 +1207,7 @@ mod Windows {
             DXGK_DT_PROJECTOR = 4,
             DXGK_DT_MAX = 5,
         }
-        #[repr(i32)]
+        #[repr(u8)]
         enum DXGK_DISPLAY_USAGE {
             DXGK_DU_INVALID = 0,
             DXGK_DU_GENERIC = 1,

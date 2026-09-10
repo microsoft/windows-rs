@@ -12,17 +12,9 @@ pub struct Enum {
 
 impl Enum {
     pub fn parse(cursor: Cursor) -> Result<Self, Error> {
-        let repr = match cursor.enum_repr().kind() {
-            CXType_Int | CXType_Long => "i32",
-            CXType_UInt | CXType_ULong => "u32",
-            CXType_Short => "i16",
-            CXType_UShort => "u16",
-            CXType_Char_S | CXType_SChar => "i8",
-            CXType_Char_U | CXType_UChar => "u8",
-            CXType_LongLong => "i64",
-            CXType_ULongLong => "u64",
-            _ => "i32",
-        };
+        let (repr, _) = enum_repr_type(cursor).ok_or_else(|| {
+            Error::new("unsupported enum representation", &cursor.file_name(), 0, 0)
+        })?;
 
         let name = cursor.name();
         let scoped = cursor.is_scoped_enum();
@@ -99,4 +91,18 @@ impl Enum {
             }
         })
     }
+}
+
+pub(crate) fn enum_repr_type(cursor: Cursor) -> Option<(&'static str, metadata::Type)> {
+    Some(match cursor.enum_repr().canonical_type().kind() {
+        CXType_Int | CXType_Long => ("i32", metadata::Type::I32),
+        CXType_UInt | CXType_ULong => ("u32", metadata::Type::U32),
+        CXType_Short => ("i16", metadata::Type::I16),
+        CXType_UShort => ("u16", metadata::Type::U16),
+        CXType_Char_S | CXType_SChar => ("i8", metadata::Type::I8),
+        CXType_Char_U | CXType_UChar => ("u8", metadata::Type::U8),
+        CXType_LongLong => ("i64", metadata::Type::I64),
+        CXType_ULongLong => ("u64", metadata::Type::U64),
+        _ => return None,
+    })
 }

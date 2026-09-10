@@ -24,6 +24,67 @@ pub(crate) fn build_tag_rename_map(tu: &TranslationUnit) -> HashMap<String, Stri
     map
 }
 
+/// Index top-level nominal declarations by the names emitted into metadata.
+pub(crate) fn build_declaration_map(
+    tu: &TranslationUnit,
+    tag_rename: &HashMap<String, String>,
+) -> HashMap<String, Cursor> {
+    fn rank(cursor: Cursor) -> u8 {
+        match cursor.kind() {
+            CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_EnumDecl
+                if cursor.is_definition() =>
+            {
+                2
+            }
+            CXCursor_TypedefDecl => 1,
+            _ => 0,
+        }
+    }
+
+    fn insert(map: &mut HashMap<String, Cursor>, name: String, cursor: Cursor) {
+        map.entry(name)
+            .and_modify(|existing| {
+                if rank(cursor) > rank(*existing) {
+                    *existing = cursor;
+                }
+            })
+            .or_insert(cursor);
+    }
+
+    fn walk(
+        cursor: Cursor,
+        tag_rename: &HashMap<String, String>,
+        map: &mut HashMap<String, Cursor>,
+    ) {
+        for child in cursor.children() {
+            if child.kind() == CXCursor_LinkageSpec {
+                walk(child, tag_rename, map);
+                continue;
+            }
+
+            match child.kind() {
+                CXCursor_TypedefDecl => insert(map, child.name(), child),
+                CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_EnumDecl => {
+                    let tag = child.name();
+                    let name = if is_anonymous_name(&tag) {
+                        tag_rename.get(&child.location_id()).cloned().unwrap_or(tag)
+                    } else {
+                        tag_rename.get(&tag).cloned().unwrap_or(tag)
+                    };
+                    if !is_anonymous_name(&name) {
+                        insert(map, name, child);
+                    }
+                }
+                _ => {}
+            }
+        }
+    }
+
+    let mut map = HashMap::new();
+    walk(tu.cursor(), tag_rename, &mut map);
+    map
+}
+
 /// Merge `enum _FOO { ... }; typedef DWORD FOO;` into one public enum.
 ///
 /// The typedef supplies the backing type and signedness; the enum supplies the members.

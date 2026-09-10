@@ -156,10 +156,10 @@ The scraper preserves:
 - `DEFINE_ENUM_FLAG_OPERATORS` as a flags-enum signal;
 - symbol-to-DLL mappings recovered from import libraries.
 
-Namespaced scrapes follow referenced record definitions from included headers. Available layouts
-are emitted for both by-value and pointer dependencies; they are not replaced with opaque records.
-Per-header scrapes discover the same definitions globally and retain them in their owning header
-partition.
+Namespaced scrapes follow referenced typedef, record, and enum declarations from included headers,
+including types referenced only by constants. Available layouts and enum definitions retain their
+source representation. Genuinely incomplete pointer-only records are emitted as opaque records;
+using one by value is an error. Per-header scrapes retain definitions in their owning partition.
 
 Some C portability spellings are canonicalized for metadata consumers. Examples include fixed-width
 integer typedefs, pointer-sized integer typedefs, Windows string wrappers, COM interface aliases,

@@ -78,9 +78,13 @@ pub(crate) struct Parser<'a> {
     pub tag_rename: &'a HashMap<String, String>,
     /// Enum reprs taken from integer typedefs in the C flags/enum idiom.
     pub enum_merge: &'a HashMap<String, &'static str>,
+    /// Nominal declarations available in this translation unit, keyed by projected name.
+    pub declarations: &'a HashMap<String, Cursor>,
     pub tu: &'a TranslationUnit,
-    pub pending_typedefs: Vec<Cursor>,
-    pub pending_records: Vec<Cursor>,
+    pub pending_declarations: Vec<Cursor>,
+    pub pending_opaque_records: Vec<String>,
+    pub pending_enum_aliases: Vec<(String, metadata::Type)>,
+    pub pending_invalid_enums: Vec<Cursor>,
     pub pending_macros: Vec<String>,
     processing_dependency: bool,
     /// Per-header mode: incomplete pointer-only records emitted as opaque structs.
@@ -120,6 +124,7 @@ impl<'a> Parser<'a> {
         ref_map: &'a HashMap<String, String>,
         tag_rename: &'a HashMap<String, String>,
         enum_merge: &'a HashMap<String, &'static str>,
+        declarations: &'a HashMap<String, Cursor>,
         macro_defs: &'a HashMap<String, Vec<String>>,
         tu: &'a TranslationUnit,
         symbols: &'a HashSet<String>,
@@ -133,9 +138,12 @@ impl<'a> Parser<'a> {
             header_names: None,
             tag_rename,
             enum_merge,
+            declarations,
             tu,
-            pending_typedefs: vec![],
-            pending_records: vec![],
+            pending_declarations: vec![],
+            pending_opaque_records: vec![],
+            pending_enum_aliases: vec![],
+            pending_invalid_enums: vec![],
             pending_macros: vec![],
             processing_dependency: false,
             pending_opaque: vec![],
@@ -234,8 +242,12 @@ impl<'a> Parser<'a> {
                     if semantic_scalar_definition(&name, child.kind()).is_some() {
                         return Ok(());
                     }
-                    // Do not clobber a real definition aliased by another tag.
-                    if !self.ref_map.contains_key(&name) && !collector.contains_key(&name) {
+                    // Per-header mode retains declarations in their owning partition. Namespaced
+                    // mode emits an opaque record only after observing a pointer-only use.
+                    if self.header_root.is_some()
+                        && !self.ref_map.contains_key(&name)
+                        && !collector.contains_key(&name)
+                    {
                         collector.insert(Item::Struct(Struct::opaque(&name)));
                     }
                 }
@@ -1183,6 +1195,7 @@ impl Clang {
         let enum_merge = merge_enum_typedef_idiom(tu, &mut tag_rename);
         // Share TU-wide macro definitions across per-header parsers.
         let macro_defs = collect_macro_defs(tu);
+        let declarations = HashMap::new();
 
         // Flatten linkage blocks and deduplicate by clang identity across repeated SDK
         // declarations; the defining header only selects the output file.
@@ -1257,6 +1270,7 @@ impl Clang {
                 &empty_ref,
                 &tag_rename,
                 &enum_merge,
+                &declarations,
                 &macro_defs,
                 tu,
                 &empty_symbols,
@@ -1463,6 +1477,7 @@ impl Clang {
         assign_nested_names(tu, &mut tag_rename);
         let enum_merge = merge_enum_typedef_idiom(tu, &mut tag_rename);
         let macro_defs = collect_macro_defs(tu);
+        let declarations = build_declaration_map(tu, &tag_rename);
 
         let mut parser = Parser::new(
             spec.namespace,
@@ -1471,6 +1486,7 @@ impl Clang {
             ref_map,
             &tag_rename,
             &enum_merge,
+            &declarations,
             &macro_defs,
             tu,
             spec.symbols,
@@ -1500,23 +1516,47 @@ impl Clang {
             parser.process_cursor(child, collector, false)?;
         }
 
-        // Drain referenced type dependencies; parsing one definition can enqueue more.
-        let mut seen_typedefs: HashSet<String> = HashSet::new();
-        let mut seen_records: HashSet<String> = HashSet::new();
-        let mut typedef_index = 0;
-        let mut record_index = 0;
-        while typedef_index < parser.pending_typedefs.len()
-            || record_index < parser.pending_records.len()
-        {
-            while typedef_index < parser.pending_typedefs.len() {
-                let cursor = parser.pending_typedefs[typedef_index];
-                typedef_index += 1;
+        // Constants have no type cursor, so seed their named dependencies from the TU index.
+        let mut referenced = HashSet::new();
+        for item in collector.values() {
+            if matches!(item, Item::Const(_) | Item::PropertyKeyConst(_)) {
+                item_refs(item, &mut referenced);
+            }
+        }
+        for name in referenced {
+            if collector.contains_key(&name) || parser.ref_map.contains_key(&name) {
+                continue;
+            }
+            if let Some(cursor) = parser.declarations.get(&name) {
+                if cursor.kind() == CXCursor_EnumDecl && !cursor.has_definition() {
+                    if let Some((_, repr)) = enum_repr_type(*cursor) {
+                        parser.pending_enum_aliases.push((name, repr));
+                    } else {
+                        parser.pending_invalid_enums.push(*cursor);
+                    }
+                } else if cursor.kind() == CXCursor_TypedefDecl || cursor.has_definition() {
+                    parser.pending_declarations.push(*cursor);
+                }
+            }
+        }
+
+        // Drain the declaration worklist; parsing one declaration can enqueue more.
+        let mut seen: HashSet<String> = HashSet::new();
+        let mut index = 0;
+        while index < parser.pending_declarations.len() {
+            let cursor = parser.pending_declarations[index];
+            index += 1;
+            let mut identity = cursor.usr();
+            if identity.is_empty() {
+                identity = cursor.location_id();
+            }
+            if !seen.insert(identity) {
+                continue;
+            }
+
+            if cursor.kind() == CXCursor_TypedefDecl {
                 let name = cursor.name();
-                // Skip anything already resolved.
-                if !seen_typedefs.insert(name.clone())
-                    || collector.contains_key(&name)
-                    || parser.ref_map.contains_key(&name)
-                {
+                if collector.contains_key(&name) || parser.ref_map.contains_key(&name) {
                     continue;
                 }
                 if let Some(cb) = Callback::parse(cursor, &mut parser)? {
@@ -1524,17 +1564,53 @@ impl Clang {
                 } else if let Some(td) = Typedef::parse(cursor, &mut parser)? {
                     collector.insert(Item::Typedef(td));
                 }
+            } else {
+                parser.processing_dependency = true;
+                let result = parser.process_cursor(cursor, collector, false);
+                parser.processing_dependency = false;
+                result?;
             }
+        }
 
-            while record_index < parser.pending_records.len() {
-                let cursor = parser.pending_records[record_index];
-                record_index += 1;
-                if seen_records.insert(cursor.usr()) {
-                    parser.processing_dependency = true;
-                    let result = parser.process_cursor(cursor, collector, false);
-                    parser.processing_dependency = false;
-                    result?;
-                }
+        for (name, ty) in std::mem::take(&mut parser.pending_enum_aliases) {
+            if !collector.contains_key(&name) && !parser.ref_map.contains_key(&name) {
+                collector.insert(Item::Typedef(Typedef { name, ty }));
+            }
+        }
+        if let Some(cursor) = parser.pending_invalid_enums.first() {
+            return Err(Error::new(
+                "unsupported enum representation",
+                &cursor.file_name(),
+                0,
+                0,
+            ));
+        }
+
+        let mut layout_refs = HashSet::new();
+        for item in collector.values() {
+            item_layout_refs(item, &mut layout_refs);
+        }
+        for name in &layout_refs {
+            let Some(cursor) = parser.declarations.get(name) else {
+                continue;
+            };
+            let ty = if cursor.kind() == CXCursor_TypedefDecl {
+                cursor.typedef_underlying_type()
+            } else {
+                cursor.ty()
+            };
+            if ty.is_incomplete_record() {
+                return Err(Error::new(
+                    "incomplete record used by value",
+                    &cursor.file_name(),
+                    0,
+                    0,
+                ));
+            }
+        }
+        for name in std::mem::take(&mut parser.pending_opaque_records) {
+            if !collector.contains_key(&name) && !parser.ref_map.contains_key(&name) {
+                collector.insert(Item::Struct(Struct::opaque(&name)));
             }
         }
 

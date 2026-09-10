@@ -24,7 +24,7 @@ mod Windows {
             nodeIndex: u32,
             segmentGroup: DXCoreSegmentGroup,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreAdapterPreference {
             Hardware = 0,
@@ -39,7 +39,7 @@ mod Windows {
             processesWritten: u32,
             processesTotal: u32,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreAdapterProperty {
             InstanceLuid = 0,
@@ -61,7 +61,7 @@ mod Windows {
             AdapterEngineCount = 16,
             AdapterEngineName = 17,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreAdapterState {
             IsDriverUpdateInProgress = 0,
@@ -125,7 +125,7 @@ mod Windows {
             physicalAdapterIndex: u32,
             memoryType: DXCoreMemoryType,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreMemoryType {
             Dedicated = 0,
@@ -135,7 +135,7 @@ mod Windows {
             committed: u64,
             resident: u64,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreNotificationType {
             AdapterListStale = 0,
@@ -160,20 +160,20 @@ mod Windows {
             D3D11 = 1,
             D3D12 = 2,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreSegmentGroup {
             Local = 0,
             NonLocal = 1,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreSingleAdapterHybridMode {
             Unspecified = 0,
             MinimumPower = 1,
             HighPerformance = 2,
         }
-        #[repr(i32)]
+        #[repr(u32)]
         #[scoped]
         enum DXCoreWorkload {
             Graphics = 0,

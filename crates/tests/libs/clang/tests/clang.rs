@@ -530,6 +530,122 @@ fn namespaced_record_dependencies_preserve_layout() {
         .unwrap();
 }
 
+#[test]
+fn namespaced_incomplete_pointer_records_are_opaque() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("incomplete_record_dependency");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let rdl = scratch.join("out.rdl");
+
+    {
+        let _guard = test_clang::libclang_guard();
+        windows_clang::clang()
+            .input("input/incomplete_record_dependency.hpp")
+            .output(&rdl)
+            .namespace("IncompleteRecordDependency")
+            .library("test.dll")
+            .write()
+            .unwrap();
+    }
+
+    let contents = std::fs::read_to_string(&rdl).unwrap();
+    assert!(contents.contains("struct DirectOpaque"));
+    assert!(contents.contains("struct AliasOpaque"));
+    assert!(contents.contains("type AliasOpaqueChain = AliasOpaque"));
+    assert!(contents.contains("fn ReturnConstDirectOpaque() -> *const DirectOpaque"));
+    windows_rdl::reader()
+        .input(&rdl)
+        .output(scratch.join("out.winmd"))
+        .write()
+        .unwrap();
+}
+
+#[test]
+fn namespaced_incomplete_records_cannot_be_used_by_value() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("incomplete_record_by_value");
+    std::fs::create_dir_all(&scratch).unwrap();
+
+    let error = {
+        let _guard = test_clang::libclang_guard();
+        windows_clang::clang()
+            .input("input/incomplete_record_by_value.hpp")
+            .output(scratch.join("out.rdl"))
+            .namespace("IncompleteRecordByValue")
+            .library("test.dll")
+            .write()
+            .unwrap_err()
+    };
+    assert!(
+        error
+            .to_string()
+            .contains("incomplete record used by value")
+    );
+}
+
+#[test]
+fn namespaced_enum_dependencies_preserve_definitions() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("enum_dependency");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let rdl = scratch.join("out.rdl");
+
+    {
+        let _guard = test_clang::libclang_guard();
+        windows_clang::clang()
+            .input("input/enum_dependency.hpp")
+            .output(&rdl)
+            .namespace("EnumDependency")
+            .library("test.dll")
+            .write()
+            .unwrap();
+    }
+
+    let contents = std::fs::read_to_string(&rdl).unwrap();
+    assert!(contents.contains("#[repr(u16)]"));
+    assert!(contents.contains("enum IncludedForward"));
+    assert!(contents.contains("IncludedForwardOne = 1"));
+    assert!(contents.contains("#[repr(u32)]"));
+    assert!(contents.contains("enum IncludedEnum"));
+    assert!(contents.contains("IncludedEnumOne = 1"));
+    assert!(contents.contains("enum TypedefBacked"));
+    assert!(contents.contains("TypedefBackedOne = 1"));
+    assert!(contents.contains("type ForwardOnly = u16"));
+    windows_rdl::reader()
+        .input(&rdl)
+        .output(scratch.join("out.winmd"))
+        .write()
+        .unwrap();
+}
+
+#[test]
+fn namespaced_constants_retain_type_dependencies() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("const_dependency");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let rdl = scratch.join("out.rdl");
+
+    {
+        let _guard = test_clang::libclang_guard();
+        windows_clang::clang()
+            .input("input/const_dependency.hpp")
+            .output(&rdl)
+            .namespace("ConstDependency")
+            .write()
+            .unwrap();
+    }
+
+    let contents = std::fs::read_to_string(&rdl).unwrap();
+    assert!(contents.contains("type IncludedStatus = u16"));
+    assert!(contents.contains("type ChainedStatus = u16"));
+    assert!(contents.contains("type ForwardStatus = u16"));
+    assert!(contents.contains("STATUS_LITERAL: IncludedStatus = 7"));
+    assert!(contents.contains("STATUS_CHAINED: ChainedStatus = 9"));
+    assert!(contents.contains("STATUS_EVALUATED: u32 = 3"));
+    assert!(contents.contains("STATUS_FORWARD: ForwardStatus = 11"));
+    windows_rdl::reader()
+        .input(&rdl)
+        .output(scratch.join("out.winmd"))
+        .write()
+        .unwrap();
+}
+
 fn run(name: &str) {
     let input_path = format!("input/{name}.h");
     let expected_path = format!("expected/{name}.rdl");
