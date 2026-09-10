@@ -1124,6 +1124,9 @@ pub fn set_property(
         (Handle::Border(_), PropertyId::BorderCapturePointerOnPress, PropertyValue::Bool(_)) => {
             Err(RuntimeError::UnsupportedKind)
         }
+        (Handle::Border(_), PropertyId::BorderFocusOnPointerRelease, PropertyValue::Bool(_)) => {
+            Err(RuntimeError::UnsupportedKind)
+        }
         (Handle::Border(_), PropertyId::BorderAllowDrop, PropertyValue::DragDropPolicy(_)) => {
             Err(RuntimeError::UnsupportedKind)
         }
@@ -3083,6 +3086,9 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
         (Handle::Border(_), PropertyId::BorderCapturePointerOnPress) => {
             Err(RuntimeError::UnsupportedKind)
         }
+        (Handle::Border(_), PropertyId::BorderFocusOnPointerRelease) => {
+            Err(RuntimeError::UnsupportedKind)
+        }
         (Handle::Border(_), PropertyId::BorderAllowDrop) => Err(RuntimeError::UnsupportedKind),
         (Handle::BreadcrumbBar(_), PropertyId::BreadcrumbBarItemsSource) => dependency_object
             .ClearValue(&bindings::BreadcrumbBar::ItemsSourceProperty().map_err(native_error)?)
@@ -4757,7 +4763,7 @@ pub fn subscribe_event(
                         }
                     }
                     info.capture_succeeded =
-                        match sink.capture_pointer_on_press(node, &element, args) {
+                        match sink.apply_pointer_press_policy(node, &element, args) {
                             Ok(value) => value,
                             Err(error) => {
                                 sink.error(node, EventId::BorderPointerPressed, revision, error);
@@ -4932,7 +4938,13 @@ pub fn subscribe_event(
                             info.window_y = f64::from(position.y);
                         }
                     }
-                    if let Err(error) = sink.release_pointer_after_event(node, &element, args) {
+                    if let Err(error) = sink.apply_pointer_release_policy(
+                        node,
+                        EventId::BorderPointerReleased,
+                        revision,
+                        &element,
+                        args,
+                    ) {
                         sink.error(node, EventId::BorderPointerReleased, revision, error);
                         return;
                     }
@@ -5081,7 +5093,14 @@ pub fn subscribe_event(
                     let result = args
                         .as_ref()
                         .ok_or_else(windows_core::Error::empty)
-                        .and_then(|args| focus_event_info(&element, args));
+                        .and_then(|args| {
+                            focus_event_info(
+                                &element,
+                                args,
+                                sink.take_pending_focus_state(node),
+                                true,
+                            )
+                        });
                     match result {
                         Ok(info) => sink.enqueue(
                             node,
@@ -5114,7 +5133,7 @@ pub fn subscribe_event(
                     let result = args
                         .as_ref()
                         .ok_or_else(windows_core::Error::empty)
-                        .and_then(|args| focus_event_info(&element, args));
+                        .and_then(|args| focus_event_info(&element, args, None, false));
                     match result {
                         Ok(info) => sink.enqueue(
                             node,

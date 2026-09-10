@@ -715,6 +715,7 @@ pub mod public {
         scale: Property<f64>,
         scale_transition: Property<std::time::Duration>,
         capture_pointer_on_press: Property<bool>,
+        focus_on_pointer_release: Property<bool>,
         drop_policy: Property<DragDropPolicy>,
         events: Option<std::rc::Rc<BorderEvents>>,
         reference: Option<NativeElementRef>,
@@ -854,6 +855,11 @@ pub mod public {
         pub fn capture_pointer_on_press(mut self, value: impl Into<Option<bool>>) -> Self {
             let value = value.into();
             self.capture_pointer_on_press = Property::from(value);
+            self
+        }
+        pub fn focus_on_pointer_release(mut self, value: impl Into<Option<bool>>) -> Self {
+            let value = value.into();
+            self.focus_on_pointer_release = Property::from(value);
             self
         }
         pub fn drop_policy(mut self, value: impl Into<Option<DragDropPolicy>>) -> Self {
@@ -6719,6 +6725,7 @@ pub mod public {
                         scale,
                         scale_transition,
                         capture_pointer_on_press,
+                        focus_on_pointer_release,
                         drop_policy,
                         events,
                         reference,
@@ -6739,6 +6746,7 @@ pub mod public {
                             scale,
                             scale_transition,
                             capture_pointer_on_press,
+                            focus_on_pointer_release,
                             drop_policy,
                             events,
                         })),
@@ -8501,6 +8509,7 @@ pub mod public {
                         && f64_property_eq(&value.scale, &mounted.scale)
                         && value.scale_transition == mounted.scale_transition
                         && value.capture_pointer_on_press == mounted.capture_pointer_on_press
+                        && value.focus_on_pointer_release == mounted.focus_on_pointer_release
                         && value.drop_policy == mounted.drop_policy
                         && value.events == mounted.events
                 }
@@ -9314,7 +9323,9 @@ pub mod public {
                         value
                             .events
                             .as_ref()
-                            .is_some_and(|events| events.on_pointer_released.is_some()),
+                            .is_some_and(|events| events.on_pointer_released.is_some())
+                            || !matches!(value.capture_pointer_on_press, Property::Inherited)
+                            || !matches!(value.focus_on_pointer_release, Property::Inherited),
                     );
                     visit(
                         EventId::BorderPointerCaptureLost,
@@ -9876,6 +9887,13 @@ impl MountedPropsExt for MountedProps {
                 visit(
                     PropertyId::BorderCapturePointerOnPress,
                     match &values.capture_pointer_on_press {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
+                    },
+                );
+                visit(
+                    PropertyId::BorderFocusOnPointerRelease,
+                    match &values.focus_on_pointer_release {
                         Property::Inherited => None,
                         Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
                     },
@@ -11682,7 +11700,9 @@ impl MountedEventsExt for MountedProps {
                     values
                         .events
                         .as_ref()
-                        .is_some_and(|events| events.on_pointer_released.is_some()),
+                        .is_some_and(|events| events.on_pointer_released.is_some())
+                        || !matches!(values.capture_pointer_on_press, Property::Inherited)
+                        || !matches!(values.focus_on_pointer_release, Property::Inherited),
                 );
                 visit(
                     EventId::BorderPointerCaptureLost,
@@ -12918,6 +12938,7 @@ pub(crate) struct BorderMountedProps {
     scale: Property<f64>,
     scale_transition: Property<std::time::Duration>,
     capture_pointer_on_press: Property<bool>,
+    focus_on_pointer_release: Property<bool>,
     drop_policy: Property<DragDropPolicy>,
     events: Option<std::rc::Rc<BorderEvents>>,
 }
@@ -12934,6 +12955,7 @@ impl PartialEq for BorderMountedProps {
             && f64_property_eq(&self.scale, &other.scale)
             && self.scale_transition == other.scale_transition
             && self.capture_pointer_on_press == other.capture_pointer_on_press
+            && self.focus_on_pointer_release == other.focus_on_pointer_release
             && self.drop_policy == other.drop_policy
             && self.events == other.events
     }
@@ -14097,6 +14119,7 @@ pub enum PropertyId {
     BorderScale,
     BorderScaleTransition,
     BorderCapturePointerOnPress,
+    BorderFocusOnPointerRelease,
     BorderAllowDrop,
     BreadcrumbBarItemsSource,
     StackPanelOrientation,
@@ -15320,6 +15343,17 @@ const BORDER_PROPERTIES: &[PropertyDescriptor] = &[
         id: PropertyId::BorderCapturePointerOnPress,
         name: "CapturePointerOnPress",
         field: "capture_pointer_on_press",
+        value: "Bool",
+        interface: "Microsoft.UI.Xaml.IUIElement",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::BorderFocusOnPointerRelease,
+        name: "FocusOnPointerRelease",
+        field: "focus_on_pointer_release",
         value: "Bool",
         interface: "Microsoft.UI.Xaml.IUIElement",
         clearable: true,

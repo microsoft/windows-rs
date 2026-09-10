@@ -69,7 +69,7 @@ fn removing_pointer_callback_retires_its_revision() {
 }
 
 #[test]
-fn pointer_capture_policy_and_completion_callbacks_reconcile() {
+fn pointer_policies_and_completion_callbacks_reconcile() {
     let completed = Rc::new(RefCell::new(Vec::new()));
     let released = Rc::clone(&completed);
     let lost = Rc::clone(&completed);
@@ -78,6 +78,7 @@ fn pointer_capture_policy_and_completion_callbacks_reconcile() {
     pump.mount(
         Border::new()
             .capture_pointer_on_press(true)
+            .focus_on_pointer_release(true)
             .on_pointer_released(move |_| released.borrow_mut().push("released"))
             .on_pointer_capture_lost(move || lost.borrow_mut().push("lost"))
             .on_pointer_canceled(move || canceled.borrow_mut().push("canceled"))
@@ -89,11 +90,22 @@ fn pointer_capture_policy_and_completion_callbacks_reconcile() {
         pump.event_revision(root, EventId::BorderPointerPressed)
             .is_some()
     );
+    assert!(
+        pump.event_revision(root, EventId::BorderPointerReleased)
+            .is_some()
+    );
     assert_eq!(
         pump.runtime()
             .node(root)
             .unwrap()
             .property(PropertyId::BorderCapturePointerOnPress),
+        Some(&PropertyValue::Bool(true))
+    );
+    assert_eq!(
+        pump.runtime()
+            .node(root)
+            .unwrap()
+            .property(PropertyId::BorderFocusOnPointerRelease),
         Some(&PropertyValue::Bool(true))
     );
 
@@ -112,13 +124,39 @@ fn pointer_capture_policy_and_completion_callbacks_reconcile() {
     assert_eq!(pump.dispatch_events(), Ok(3));
     assert_eq!(&*completed.borrow(), &["released", "lost", "canceled"]);
 
-    pump.update(Border::new().into()).unwrap();
+    pump.update(Border::new().focus_on_pointer_release(true).into())
+        .unwrap();
     assert_eq!(
         pump.runtime()
             .node(root)
             .unwrap()
             .property(PropertyId::BorderCapturePointerOnPress),
         None
+    );
+    assert!(
+        pump.event_revision(root, EventId::BorderPointerPressed)
+            .is_none()
+    );
+    assert!(
+        pump.event_revision(root, EventId::BorderPointerReleased)
+            .is_some()
+    );
+
+    pump.update(Border::new().capture_pointer_on_press(true).into())
+        .unwrap();
+    assert!(
+        pump.event_revision(root, EventId::BorderPointerPressed)
+            .is_some()
+    );
+    assert!(
+        pump.event_revision(root, EventId::BorderPointerReleased)
+            .is_some()
+    );
+
+    pump.update(Border::new().into()).unwrap();
+    assert!(
+        pump.event_revision(root, EventId::BorderPointerReleased)
+            .is_none()
     );
 }
 

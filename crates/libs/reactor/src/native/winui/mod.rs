@@ -130,6 +130,18 @@ pub enum NativeSubscription {
     },
 }
 
+#[derive(Clone, Copy, Default)]
+struct PointerInteractionPolicy {
+    capture: bool,
+    focus_on_release: bool,
+}
+
+impl PointerInteractionPolicy {
+    fn is_empty(self) -> bool {
+        !self.capture && !self.focus_on_release
+    }
+}
+
 impl Drop for NativeSubscription {
     fn drop(&mut self) {
         if let Self::Property {
@@ -159,7 +171,8 @@ pub struct WinUiRuntime {
     drop_policies: Rc<RefCell<HashMap<NodeId, DragDropPolicy>>>,
     flyouts: HashMap<NodeId, (bindings::Flyout, NodeId)>,
     owned_menus: HashMap<NodeId, NativeOwnedMenu>,
-    pointer_capture: Rc<RefCell<HashMap<NodeId, bool>>>,
+    pending_focus_states: Rc<RefCell<HashMap<NodeId, ElementFocusState>>>,
+    pointer_policies: Rc<RefCell<HashMap<NodeId, PointerInteractionPolicy>>>,
     routed_callbacks: Rc<RefCell<HashMap<(NodeId, EventId), RoutedEventCallback>>>,
     resource_override_keys: HashMap<NodeId, HashSet<String>>,
     command_bar_flyouts: HashMap<NodeId, NativeCommandBarFlyout>,
@@ -1316,6 +1329,44 @@ impl WinUiRuntime {
         Ok(())
     }
 
+    fn set_pointer_policy(
+        &self,
+        node: NodeId,
+        property: PropertyId,
+        value: &PropertyValue,
+    ) -> Result<(), RuntimeError> {
+        let PropertyValue::Bool(value) = value else {
+            return Err(RuntimeError::UnsupportedKind);
+        };
+        let element = self.ui_element(node)?;
+        let mut policy = self
+            .pointer_policies
+            .borrow()
+            .get(&node)
+            .copied()
+            .unwrap_or_default();
+        match property {
+            PropertyId::BorderCapturePointerOnPress => {
+                policy.capture = *value;
+                if !value {
+                    element.ReleasePointerCaptures().map_err(native_error)?;
+                }
+            }
+            PropertyId::BorderFocusOnPointerRelease => policy.focus_on_release = *value,
+            _ => return Err(RuntimeError::UnsupportedKind),
+        }
+        if policy.is_empty() {
+            self.pointer_policies.borrow_mut().remove(&node);
+        } else {
+            self.pointer_policies.borrow_mut().insert(node, policy);
+        }
+        Ok(())
+    }
+
+    fn clear_pointer_policy(&self, node: NodeId, property: PropertyId) -> Result<(), RuntimeError> {
+        self.set_pointer_policy(node, property, &PropertyValue::Bool(false))
+    }
+
     fn apply_one(&mut self, command: &Command) -> Result<(), RuntimeError> {
         match command {
             Command::CreateApplication { node } => {
@@ -1497,9 +1548,43 @@ impl WinUiRuntime {
 
             Command::Focus { node, completion } => {
                 let result = self.ui_element(*node).and_then(|element| {
-                    element
+                    self.pending_focus_states
+                        .borrow_mut()
+                        .insert(*node, ElementFocusState::Programmatic);
+                    match element
                         .Focus(FocusState::Programmatic)
                         .map_err(native_error)
+                    {
+                        Ok(true) => {
+                            let pending = Rc::clone(&self.pending_focus_states);
+                            let focus_node = *node;
+                            let cleanup = DispatcherQueueHandler::new(move || {
+                                pending.borrow_mut().remove(&focus_node);
+                            });
+                            let accepted = DispatcherQueue::GetForCurrentThread()
+                                .and_then(|dispatcher| {
+                                    dispatcher.TryEnqueueWithPriority(
+                                        DispatcherQueuePriority::Low,
+                                        &cleanup,
+                                    )
+                                })
+                                .map_err(native_error)?;
+                            if accepted {
+                                Ok(true)
+                            } else {
+                                self.pending_focus_states.borrow_mut().remove(node);
+                                Err(RuntimeError::DispatcherRejected)
+                            }
+                        }
+                        Ok(false) => {
+                            self.pending_focus_states.borrow_mut().remove(node);
+                            Ok(false)
+                        }
+                        Err(error) => {
+                            self.pending_focus_states.borrow_mut().remove(node);
+                            Err(error)
+                        }
+                    }
                 });
                 _ = completion.call(result);
             }
@@ -1948,21 +2033,12 @@ impl WinUiRuntime {
                         .insert((*node, event), expectation);
                 }
                 let (result, observation) = self.with_selection_suppressed(selection_owner, || {
-                    let result = if *property == PropertyId::BorderCapturePointerOnPress {
-                        match value {
-                            PropertyValue::Bool(true) => self.ui_element(*node).map(|_| {
-                                self.pointer_capture.borrow_mut().insert(*node, true);
-                            }),
-                            PropertyValue::Bool(false) => self
-                                .ui_element(*node)
-                                .and_then(|element| {
-                                    element.ReleasePointerCaptures().map_err(native_error)
-                                })
-                                .map(|_| {
-                                    self.pointer_capture.borrow_mut().remove(node);
-                                }),
-                            _ => Err(RuntimeError::UnsupportedKind),
-                        }
+                    let result = if matches!(
+                        property,
+                        PropertyId::BorderCapturePointerOnPress
+                            | PropertyId::BorderFocusOnPointerRelease
+                    ) {
+                        self.set_pointer_policy(*node, *property, value)
                     } else if *property == PropertyId::BorderAllowDrop {
                         match value {
                             PropertyValue::DragDropPolicy(policy) => self
@@ -2041,12 +2117,12 @@ impl WinUiRuntime {
                         .insert((*node, event), expectation);
                 }
                 let result = self.with_selection_suppressed(selection_owner, || {
-                    let result = if *property == PropertyId::BorderCapturePointerOnPress {
-                        self.ui_element(*node)?
-                            .ReleasePointerCaptures()
-                            .map_err(native_error)?;
-                        self.pointer_capture.borrow_mut().remove(node);
-                        Ok(())
+                    let result = if matches!(
+                        property,
+                        PropertyId::BorderCapturePointerOnPress
+                            | PropertyId::BorderFocusOnPointerRelease
+                    ) {
+                        self.clear_pointer_policy(*node, *property)
                     } else if *property == PropertyId::BorderAllowDrop {
                         self.ui_element(*node)?
                             .SetAllowDrop(false)
@@ -3027,7 +3103,8 @@ impl WinUiRuntime {
             encoded_image_nodes: Rc::clone(&self.encoded_image_nodes),
             feedback: Rc::clone(&self.feedback),
             content_dialogs: Rc::clone(&self.content_dialogs),
-            pointer_capture: Rc::clone(&self.pointer_capture),
+            pending_focus_states: Rc::clone(&self.pending_focus_states),
+            pointer_policies: Rc::clone(&self.pointer_policies),
             routed_callbacks: Rc::clone(&self.routed_callbacks),
             selection_items: Rc::clone(&self.selection_items),
             dispatcher,
@@ -3110,7 +3187,8 @@ pub struct EventSink {
     encoded_image_nodes: Rc<RefCell<HashSet<NodeId>>>,
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), FeedbackExpectation>>>,
     content_dialogs: Rc<RefCell<ContentDialogScheduler>>,
-    pointer_capture: Rc<RefCell<HashMap<NodeId, bool>>>,
+    pending_focus_states: Rc<RefCell<HashMap<NodeId, ElementFocusState>>>,
+    pointer_policies: Rc<RefCell<HashMap<NodeId, PointerInteractionPolicy>>>,
     routed_callbacks: Rc<RefCell<HashMap<(NodeId, EventId), RoutedEventCallback>>>,
     selection_items: Rc<RefCell<Vec<(NodeId, windows_core::IInspectable)>>>,
     dispatcher: DispatcherQueue,
@@ -3199,13 +3277,16 @@ impl EventSink {
         }
     }
 
-    pub fn capture_pointer_on_press(
+    pub fn apply_pointer_press_policy(
         &self,
         node: NodeId,
         element: &UIElement,
         args: windows_core::InRef<'_, PointerRoutedEventArgs>,
     ) -> Result<bool, RuntimeError> {
-        if !self.pointer_capture.borrow().contains_key(&node) {
+        let Some(policy) = self.pointer_policies.borrow().get(&node).copied() else {
+            return Ok(false);
+        };
+        if !policy.capture {
             return Ok(false);
         }
         let Some(args) = args.as_ref() else {
@@ -3215,22 +3296,85 @@ impl EventSink {
         element.CapturePointer(&pointer).map_err(native_error)
     }
 
-    pub fn release_pointer_after_event(
+    pub fn apply_pointer_release_policy(
         &self,
         node: NodeId,
+        event: EventId,
+        revision: u32,
         element: &UIElement,
         args: windows_core::InRef<'_, PointerRoutedEventArgs>,
     ) -> Result<(), RuntimeError> {
-        if !self.pointer_capture.borrow().contains_key(&node) {
-            return Ok(());
-        }
-        let Some(args) = args.as_ref() else {
+        let Some(policy) = self.pointer_policies.borrow().get(&node).copied() else {
             return Ok(());
         };
-        let pointer = args.Pointer().map_err(native_error)?;
-        element
-            .ReleasePointerCapture(&pointer)
-            .map_err(native_error)
+        if policy.capture
+            && let Some(args) = args.as_ref()
+        {
+            let pointer = args.Pointer().map_err(native_error)?;
+            element
+                .ReleasePointerCapture(&pointer)
+                .map_err(native_error)?;
+        }
+        if policy.focus_on_release {
+            let sink = self.clone();
+            let element = element.clone();
+            let handler = DispatcherQueueHandler::new(move || {
+                if sink.current_identity.get() != Some(sink.identity)
+                    || !sink
+                        .pointer_policies
+                        .borrow()
+                        .get(&node)
+                        .is_some_and(|policy| policy.focus_on_release)
+                {
+                    return;
+                }
+                sink.pending_focus_states
+                    .borrow_mut()
+                    .insert(node, ElementFocusState::Pointer);
+                match element.Focus(FocusState::Pointer).map_err(native_error) {
+                    Ok(true) => {
+                        let pending = Rc::clone(&sink.pending_focus_states);
+                        let cleanup = DispatcherQueueHandler::new(move || {
+                            pending.borrow_mut().remove(&node);
+                        });
+                        match sink
+                            .dispatcher
+                            .TryEnqueueWithPriority(DispatcherQueuePriority::Low, &cleanup)
+                            .map_err(native_error)
+                        {
+                            Ok(true) => {}
+                            Ok(false) => {
+                                sink.pending_focus_states.borrow_mut().remove(&node);
+                                sink.error(node, event, revision, RuntimeError::DispatcherRejected);
+                            }
+                            Err(error) => {
+                                sink.pending_focus_states.borrow_mut().remove(&node);
+                                sink.error(node, event, revision, error);
+                            }
+                        }
+                    }
+                    Ok(false) => {
+                        sink.pending_focus_states.borrow_mut().remove(&node);
+                    }
+                    Err(error) => {
+                        sink.pending_focus_states.borrow_mut().remove(&node);
+                        sink.error(node, event, revision, error);
+                    }
+                }
+            });
+            let accepted = self
+                .dispatcher
+                .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &handler)
+                .map_err(native_error)?;
+            if !accepted {
+                return Err(RuntimeError::DispatcherRejected);
+            }
+        }
+        Ok(())
+    }
+
+    pub fn take_pending_focus_state(&self, node: NodeId) -> Option<ElementFocusState> {
+        self.pending_focus_states.borrow_mut().remove(&node)
     }
 
     fn content_dialog_root_ready(
@@ -3789,7 +3933,8 @@ impl NativeRuntime for WinUiRuntime {
         self.host_events.borrow_mut().clear();
         self.feedback.borrow_mut().clear();
         self.drop_policies.borrow_mut().clear();
-        self.pointer_capture.borrow_mut().clear();
+        self.pending_focus_states.borrow_mut().clear();
+        self.pointer_policies.borrow_mut().clear();
         self.routed_callbacks.borrow_mut().clear();
         self.resource_override_keys.clear();
         self.controlled_collection_indices.clear();
@@ -4190,7 +4335,8 @@ impl WinUiRuntime {
         self.observation_subscriptions
             .retain(|(subscription_node, _), _| *subscription_node != node);
         self.drop_policies.borrow_mut().remove(&node);
-        self.pointer_capture.borrow_mut().remove(&node);
+        self.pending_focus_states.borrow_mut().remove(&node);
+        self.pointer_policies.borrow_mut().remove(&node);
         self.routed_callbacks
             .borrow_mut()
             .retain(|(callback_node, _), _| *callback_node != node);
@@ -4381,15 +4527,26 @@ fn character_event_info(
 fn focus_event_info(
     element: &UIElement,
     args: &RoutedEventArgs,
+    pending_focus_state: Option<ElementFocusState>,
+    got_focus: bool,
 ) -> windows_core::Result<FocusEventInfo> {
     let original = args.OriginalSource()?;
     let is_direct =
         element.cast::<windows_core::IUnknown>()? == original.cast::<windows_core::IUnknown>()?;
-    let state = match element.FocusState()? {
-        FocusState::Pointer => ElementFocusState::Pointer,
-        FocusState::Keyboard => ElementFocusState::Keyboard,
-        FocusState::Programmatic => ElementFocusState::Programmatic,
-        _ => ElementFocusState::Unfocused,
+    let state = if got_focus {
+        // FocusState can still describe the previous state while GotFocus is being raised.
+        if let Some(state) = pending_focus_state {
+            state
+        } else {
+            match element.FocusState()? {
+                FocusState::Pointer => ElementFocusState::Pointer,
+                FocusState::Keyboard => ElementFocusState::Keyboard,
+                FocusState::Programmatic => ElementFocusState::Programmatic,
+                _ => ElementFocusState::Unfocused,
+            }
+        }
+    } else {
+        ElementFocusState::Unfocused
     };
     Ok(FocusEventInfo { state, is_direct })
 }

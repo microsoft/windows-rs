@@ -62,7 +62,7 @@ fn keyboard_surface<C: Component<Message = Message>>(
 ) -> View {
     Border::new()
         .is_tab_stop(true)
-        .allow_focus_on_interaction(true)
+        .focus_on_pointer_release(true)
         .on_preview_key_down(context.routed_callback(|info: KeyEventInfo| {
             if info.key == VirtualKey::LEFT {
                 RoutedMessage::handled(Message::MoveLeft)

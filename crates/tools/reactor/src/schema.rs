@@ -128,6 +128,7 @@ pub(crate) enum PropertyAdapter {
     NumberBoxValue,
     PathData,
     PointerCapture,
+    PointerFocus,
     PointerEvent,
     DragInfo,
     DropData,
@@ -192,6 +193,7 @@ impl PropertyAdapter {
             Self::DropPolicy
             | Self::KeyAccelerators
             | Self::PointerCapture
+            | Self::PointerFocus
             | Self::ResourceOverrides
             | Self::RichEditText
             | Self::RichTextBlocks => PropertyAdapterCapabilities {
@@ -361,6 +363,13 @@ impl PropertyAdapter {
                 true,
                 "pointer_capture requires Border.CapturePointerOnPress",
             ),
+            Self::PointerFocus => property(
+                OneOf(&[(BORDER, "FocusOnPointerRelease")]),
+                None,
+                "Bool",
+                true,
+                "pointer_focus requires Border.FocusOnPointerRelease",
+            ),
             Self::RatingValue => property(
                 OneOf(&[(RATING_CONTROL, "Value")]),
                 ValueType("F64", true),
@@ -510,7 +519,7 @@ pub(crate) struct Event {
     #[serde(default)]
     pub(crate) adapter: Option<PropertyAdapter>,
     #[serde(default)]
-    pub(crate) active_property: Option<String>,
+    pub(crate) active_properties: Vec<String>,
     #[serde(default)]
     pub(crate) routed: bool,
 }
@@ -608,7 +617,7 @@ pub(crate) struct ResolvedEvent {
     pub(crate) source: EventPayloadSource,
     pub(crate) conversion: EventPayloadConversion,
     pub(crate) subscription: EventSubscription,
-    pub(crate) active_property: Option<String>,
+    pub(crate) active_properties: Vec<String>,
     pub(crate) routed: bool,
 }
 
@@ -893,6 +902,7 @@ impl Schema {
                         format!("get_{}", property.name)
                     }
                     Some(PropertyAdapter::PointerCapture) => "add_PointerPressed".to_string(),
+                    Some(PropertyAdapter::PointerFocus) => "add_PointerReleased".to_string(),
                     Some(PropertyAdapter::DropPolicy) => "put_AllowDrop".to_string(),
                     _ => format!("put_{}", property.name),
                 };
@@ -1106,15 +1116,16 @@ impl Schema {
                         control.type_name, event.name
                     ));
                 }
-                if let Some(active_property) = event.active_property.as_deref()
-                    && !properties
+                for active_property in &event.active_properties {
+                    if !properties
                         .iter()
-                        .any(|property| property.field == active_property)
-                {
-                    return Err(format!(
-                        "{}.{} active_property `{active_property}` is not a property field",
-                        control.type_name, event.name
-                    ));
+                        .any(|property| property.field == *active_property)
+                    {
+                        return Err(format!(
+                            "{}.{} active property `{active_property}` is not a property field",
+                            control.type_name, event.name
+                        ));
+                    }
                 }
                 if event.adapter.is_some()
                     && !matches!(
@@ -1624,7 +1635,7 @@ impl Schema {
                     source,
                     conversion,
                     subscription,
-                    active_property: event.active_property,
+                    active_properties: event.active_properties,
                     routed: event.routed,
                 });
             }

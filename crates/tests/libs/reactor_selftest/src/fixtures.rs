@@ -19,7 +19,9 @@ use windows::Win32::{
     HWND, INPUT, INPUT_0, INPUT_KEYBOARD, KEYBDINPUT, KEYEVENTF_KEYUP, KEYEVENTF_UNICODE, POINT,
     RECT,
 };
-use windows_canvas::{CanvasCompositionExt, CanvasImageSource, ColorF, GpuDevice, animated_canvas};
+use windows_canvas::{
+    CanvasCompositionExt, CanvasImageSource, ColorF, GpuDevice, animated_canvas, canvas,
+};
 use windows_collections::IIterable;
 use windows_composition::{Compositor as CompositionCompositor, ContainerVisual, SpriteVisual};
 use windows_reactor::test::{LiveProbe, schedule_live_probe, schedule_live_window_handle};
@@ -411,6 +413,16 @@ pub(crate) struct KeyboardInput {
     reference: ElementRef<Border>,
     blur_reference: ElementRef<Border>,
     focus_observed: bool,
+    refocus_observed: bool,
+    same_target_click_started: bool,
+    same_target_click_complete: bool,
+    same_target_lost_observed: bool,
+    same_target_refocus_observed: bool,
+    second_defocus_requested: bool,
+    second_defocus_complete: bool,
+    second_lost_focus_observed: bool,
+    programmatic_refocus_complete: bool,
+    programmatic_refocus_observed: bool,
     key_observed: bool,
     key_up_observed: bool,
     character_observed: bool,
@@ -422,7 +434,6 @@ pub(crate) struct KeyboardInput {
 }
 
 pub(crate) enum KeyboardMessage {
-    Focused(Result<bool, FocusError>),
     GotFocus(FocusEventInfo),
     Key(KeyEventInfo),
     KeyUp(KeyEventInfo),
@@ -431,6 +442,12 @@ pub(crate) enum KeyboardMessage {
     LostFocus(FocusEventInfo),
     WindowHandle(Result<isize, String>),
     Activated(Result<isize, String>),
+    SecondClick(Result<(), String>),
+    SameTargetClick(Result<(), String>),
+    SameTargetSettled,
+    SecondDefocused(Result<bool, FocusError>),
+    ProgrammaticRefocused(Result<bool, FocusError>),
+    FocusTimeout(bool),
     Injected(Result<(), String>),
 }
 
@@ -443,6 +460,13 @@ impl KeyboardInput {
             && self.injection_complete
             && self.defocus_complete
             && self.lost_focus_observed
+            && self.refocus_observed
+            && self.same_target_click_complete
+            && self.same_target_refocus_observed
+            && self.second_defocus_complete
+            && self.second_lost_focus_observed
+            && self.programmatic_refocus_complete
+            && self.programmatic_refocus_observed
             && !self.complete.call(Ok(()))
         {
             eprintln!("keyboard fixture completion was rejected");
@@ -461,6 +485,16 @@ impl Component for KeyboardInput {
             reference: ElementRef::new(),
             blur_reference: ElementRef::new(),
             focus_observed: false,
+            refocus_observed: false,
+            same_target_click_started: false,
+            same_target_click_complete: false,
+            same_target_lost_observed: false,
+            same_target_refocus_observed: false,
+            second_defocus_requested: false,
+            second_defocus_complete: false,
+            second_lost_focus_observed: false,
+            programmatic_refocus_complete: false,
+            programmatic_refocus_observed: false,
             key_observed: false,
             key_up_observed: false,
             character_observed: false,
@@ -478,26 +512,56 @@ impl Component for KeyboardInput {
 
     fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
         let mut failure = match message {
-            KeyboardMessage::Focused(Ok(true)) => {
-                let hwnd = self.hwnd.unwrap();
-                context.spawn_background(move |_| {
-                    std::thread::sleep(Duration::from_millis(100));
-                    KeyboardMessage::Injected(inject_keyboard(hwnd))
-                });
-                None
-            }
-            KeyboardMessage::Focused(Ok(false)) => {
-                Some("WinUI rejected the keyboard focus request".to_string())
-            }
-            KeyboardMessage::Focused(Err(error)) => {
-                Some(format!("keyboard focus request failed: {error:?}"))
-            }
             KeyboardMessage::GotFocus(info) => {
                 if !info.is_direct || info.state == ElementFocusState::Unfocused {
                     Some(format!("unexpected focus payload: {info:?}"))
-                } else {
-                    self.focus_observed = true;
+                } else if !self.focus_observed {
+                    if info.state != ElementFocusState::Pointer {
+                        Some(format!(
+                            "first click reported unexpected focus state: {info:?}"
+                        ))
+                    } else {
+                        self.focus_observed = true;
+                        let hwnd = self.hwnd.unwrap();
+                        context.spawn_background(move |_| {
+                            std::thread::sleep(Duration::from_millis(100));
+                            KeyboardMessage::Injected(inject_keyboard(hwnd))
+                        });
+                        None
+                    }
+                } else if !self.refocus_observed {
+                    if info.state != ElementFocusState::Pointer {
+                        Some(format!(
+                            "second click reported unexpected focus state: {info:?}"
+                        ))
+                    } else {
+                        self.refocus_observed = true;
+                        self.same_target_click_started = true;
+                        let hwnd = self.hwnd.unwrap();
+                        context.spawn_background(move |_| {
+                            std::thread::sleep(Duration::from_millis(100));
+                            let result = inject_keyboard_focus_click(hwnd);
+                            std::thread::sleep(Duration::from_millis(100));
+                            KeyboardMessage::SameTargetClick(result)
+                        });
+                        None
+                    }
+                } else if self.same_target_click_started && !self.same_target_refocus_observed {
+                    if info.state != ElementFocusState::Pointer {
+                        Some(format!(
+                            "focused click reported unexpected focus state: {info:?}"
+                        ))
+                    } else {
+                        self.same_target_refocus_observed = true;
+                        None
+                    }
+                } else if self.second_lost_focus_observed
+                    && info.state == ElementFocusState::Programmatic
+                {
+                    self.programmatic_refocus_observed = true;
                     None
+                } else {
+                    Some(format!("unexpected additional focus payload: {info:?}"))
                 }
             }
             KeyboardMessage::Key(info) => {
@@ -545,8 +609,29 @@ impl Component for KeyboardInput {
             KeyboardMessage::LostFocus(info) => {
                 if !info.is_direct || info.state != ElementFocusState::Unfocused {
                     Some(format!("unexpected lost-focus payload: {info:?}"))
+                } else if self.second_defocus_requested {
+                    self.second_lost_focus_observed = true;
+                    let sender = context.sender();
+                    if !self.reference.request_focus_result(move |result| {
+                        sender.send(KeyboardMessage::ProgrammaticRefocused(result));
+                    }) {
+                        Some("keyboard target was not published".to_string())
+                    } else {
+                        None
+                    }
+                } else if self.lost_focus_observed && self.same_target_click_started {
+                    self.same_target_lost_observed = true;
+                    None
                 } else {
                     self.lost_focus_observed = true;
+                    let hwnd = self.hwnd.unwrap();
+                    context.spawn_background(move |_| {
+                        std::thread::sleep(Duration::from_millis(100));
+                        KeyboardMessage::SecondClick(
+                            inject_keyboard_focus_click(hwnd)
+                                .map_err(|error| format!("second click failed: {error}")),
+                        )
+                    });
                     None
                 }
             }
@@ -566,16 +651,70 @@ impl Component for KeyboardInput {
             KeyboardMessage::WindowHandle(Err(error)) => Some(error),
             KeyboardMessage::Activated(Ok(hwnd)) => {
                 self.hwnd = Some(hwnd);
-                let sender = context.sender();
-                if !self.reference.request_focus_result(move |result| {
-                    sender.send(KeyboardMessage::Focused(result));
-                }) {
-                    Some("keyboard target was not published".to_string())
-                } else {
-                    None
+                let failure = inject_keyboard_focus_click(hwnd).err();
+                if failure.is_none() {
+                    schedule_focus_timeout(context, false);
                 }
+                failure
             }
             KeyboardMessage::Activated(Err(error)) => Some(error),
+            KeyboardMessage::SecondClick(Ok(())) => {
+                schedule_focus_timeout(context, true);
+                None
+            }
+            KeyboardMessage::SecondClick(Err(error)) => Some(error),
+            KeyboardMessage::SameTargetClick(Ok(())) => {
+                self.same_target_click_complete = true;
+                context.spawn_background(move |_| {
+                    std::thread::sleep(Duration::from_millis(200));
+                    KeyboardMessage::SameTargetSettled
+                });
+                None
+            }
+            KeyboardMessage::SameTargetSettled => {
+                if self.same_target_lost_observed && !self.same_target_refocus_observed {
+                    Some("clicking the focused target did not restore focus".to_string())
+                } else {
+                    self.same_target_refocus_observed = true;
+                    self.second_defocus_requested = true;
+                    let sender = context.sender();
+                    if !self.blur_reference.request_focus_result(move |result| {
+                        sender.send(KeyboardMessage::SecondDefocused(result));
+                    }) {
+                        Some("keyboard blur target was not published".to_string())
+                    } else {
+                        None
+                    }
+                }
+            }
+            KeyboardMessage::SameTargetClick(Err(error)) => Some(error),
+            KeyboardMessage::SecondDefocused(Ok(true)) => {
+                self.second_defocus_complete = true;
+                None
+            }
+            KeyboardMessage::SecondDefocused(Ok(false)) => {
+                Some("WinUI rejected the second keyboard defocus request".to_string())
+            }
+            KeyboardMessage::SecondDefocused(Err(error)) => {
+                Some(format!("second keyboard defocus request failed: {error:?}"))
+            }
+            KeyboardMessage::ProgrammaticRefocused(Ok(true)) => {
+                self.programmatic_refocus_complete = true;
+                None
+            }
+            KeyboardMessage::ProgrammaticRefocused(Ok(false)) => {
+                Some("WinUI rejected the programmatic refocus request".to_string())
+            }
+            KeyboardMessage::ProgrammaticRefocused(Err(error)) => {
+                Some(format!("programmatic refocus request failed: {error:?}"))
+            }
+            KeyboardMessage::FocusTimeout(false) if !self.focus_observed => {
+                Some("first click did not focus the keyboard target".to_string())
+            }
+            KeyboardMessage::FocusTimeout(true) if !self.refocus_observed => {
+                Some("second click did not refocus the keyboard target".to_string())
+            }
+            KeyboardMessage::FocusTimeout(_) => None,
             KeyboardMessage::Injected(Ok(())) => {
                 self.injection_complete = true;
                 None
@@ -619,7 +758,10 @@ impl Component for KeyboardInput {
 
         StackPanel::new().children((
             Border::new()
+                .height(240.0)
                 .is_tab_stop(true)
+                .focus_on_pointer_release(true)
+                .background(Color::transparent())
                 .element_ref(&self.reference)
                 .on_got_focus(context.callback(KeyboardMessage::GotFocus))
                 .on_lost_focus(context.callback(KeyboardMessage::LostFocus))
@@ -640,7 +782,10 @@ impl Component for KeyboardInput {
                 .on_character_received(context.routed_callback(|info: CharacterEventInfo| {
                     RoutedMessage::handled(KeyboardMessage::Character(info))
                 }))
-                .content("Keyboard input target"),
+                .content(canvas(|context| {
+                    context.clear(ColorF::from_rgb8(32, 32, 40));
+                    Ok(())
+                })),
             Border::new()
                 .is_tab_stop(true)
                 .element_ref(&self.blur_reference)
@@ -679,6 +824,47 @@ fn inject_keyboard(hwnd: isize) -> Result<(), String> {
             inputs.len()
         ))
     }
+}
+
+fn inject_keyboard_focus_click(handle: isize) -> Result<(), String> {
+    let hwnd = HWND(handle as *mut _);
+    fit_window_to_work_area(hwnd)?;
+    unsafe {
+        let _ = SetForegroundWindow(hwnd);
+        let _ = BringWindowToTop(hwnd);
+    }
+    let injector = InputInjector::TryCreate().map_err(|error| error.to_string())?;
+    let (origin_x, origin_y) = virtual_screen_origin();
+    inject_at(
+        &injector,
+        origin_x,
+        origin_y,
+        InjectedInputMouseOptions::Move | InjectedInputMouseOptions::MoveNoCoalesce,
+    )
+    .map_err(|error| error.to_string())?;
+    inject_at(
+        &injector,
+        origin_x,
+        origin_y,
+        InjectedInputMouseOptions::LeftUp | InjectedInputMouseOptions::RightUp,
+    )
+    .map_err(|error| error.to_string())?;
+    let (x, y) = client_screen_point(hwnd, 0.5, 0.1)?;
+    for options in [
+        InjectedInputMouseOptions::Move | InjectedInputMouseOptions::MoveNoCoalesce,
+        InjectedInputMouseOptions::LeftDown,
+        InjectedInputMouseOptions::LeftUp,
+    ] {
+        inject_at(&injector, x, y, options).map_err(|error| error.to_string())?;
+    }
+    Ok(())
+}
+
+fn schedule_focus_timeout(context: &ComponentContext<KeyboardInput>, second: bool) {
+    context.spawn_background(move |_| {
+        std::thread::sleep(Duration::from_secs(1));
+        KeyboardMessage::FocusTimeout(second)
+    });
 }
 
 #[derive(Clone, Copy, PartialEq)]

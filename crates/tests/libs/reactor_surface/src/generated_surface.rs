@@ -32,7 +32,7 @@ pub struct EventSurface {
     pub conversion: &'static str,
     pub subscription: &'static str,
     pub delivery: &'static str,
-    pub active_property: Option<&'static str>,
+    pub active_properties: &'static [&'static str],
 }
 pub struct CapabilityPropertySurface {
     pub capability: &'static str,
@@ -46,7 +46,7 @@ pub struct ExtensionSurface {
     pub name: &'static str,
 }
 pub(crate) const PROJECTED_CONTROL_COUNT: usize = 79usize;
-pub(crate) const PROJECTED_PROPERTY_COUNT: usize = 232usize;
+pub(crate) const PROJECTED_PROPERTY_COUNT: usize = 233usize;
 pub(crate) const PROJECTED_EVENT_COUNT: usize = 68usize;
 pub(crate) const CAPABILITY_PROPERTY_COUNT: usize = 27usize;
 pub(crate) const STRUCTURAL_COUNT: usize = 65usize;
@@ -549,6 +549,14 @@ fn property_border_capture_pointer_on_press(stage: usize) -> View {
         0 | 3 => Grid::new().children((Border::new(),)),
         1 => Grid::new().children((Border::new().capture_pointer_on_press(true),)),
         2 => Grid::new().children((Border::new().capture_pointer_on_press(false),)),
+        _ => unreachable!(),
+    }
+}
+fn property_border_focus_on_pointer_release(stage: usize) -> View {
+    match stage {
+        0 | 3 => Grid::new().children((Border::new(),)),
+        1 => Grid::new().children((Border::new().focus_on_pointer_release(true),)),
+        2 => Grid::new().children((Border::new().focus_on_pointer_release(false),)),
         _ => unreachable!(),
     }
 }
@@ -4544,6 +4552,13 @@ pub(crate) static SURFACE_CASES: &[SurfaceCase] = &[
         build: property_border_capture_pointer_on_press,
     },
     SurfaceCase {
+        name: "property.Border.FocusOnPointerRelease",
+        kind: SurfaceKind::Property,
+        stages: 4,
+        subscription_delta: None,
+        build: property_border_focus_on_pointer_release,
+    },
+    SurfaceCase {
         name: "property.Border.AllowDrop",
         kind: SurfaceKind::Property,
         stages: 4,
@@ -7638,6 +7653,15 @@ pub static PROJECTED_PROPERTIES: &[PropertySurface] = &[
     },
     PropertySurface {
         control: "Border",
+        property: "FocusOnPointerRelease",
+        value: "Bool",
+        adapter: "PointerFocus",
+        validation: None,
+        clearable: true,
+        theme_style: false,
+    },
+    PropertySurface {
+        control: "Border",
         property: "AllowDrop",
         value: "DragDropPolicy",
         adapter: "DropPolicy",
@@ -9463,7 +9487,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "HyperlinkButton",
@@ -9472,7 +9496,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "RepeatButton",
@@ -9481,7 +9505,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Border",
@@ -9490,7 +9514,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: Some("drop_policy"),
+        active_properties: &["drop_policy"],
     },
     EventSurface {
         control: "Border",
@@ -9499,7 +9523,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: Some("drop_policy"),
+        active_properties: &["drop_policy"],
     },
     EventSurface {
         control: "Border",
@@ -9508,7 +9532,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Border",
@@ -9517,7 +9541,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Border",
@@ -9526,7 +9550,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "live:Pointer_RealInputGesture",
-        active_property: Some("capture_pointer_on_press"),
+        active_properties: &["capture_pointer_on_press"],
     },
     EventSurface {
         control: "Border",
@@ -9535,7 +9559,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "live:Pointer_RealInputGesture",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Border",
@@ -9544,7 +9568,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "live:Pointer_RealInputGesture",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Border",
@@ -9553,7 +9577,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "live:Pointer_RealInputGesture",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Border",
@@ -9562,7 +9586,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "live:Pointer_RealInputGesture",
-        active_property: None,
+        active_properties: &["capture_pointer_on_press", "focus_on_pointer_release"],
     },
     EventSurface {
         control: "Border",
@@ -9571,7 +9595,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Border",
@@ -9580,7 +9604,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Border",
@@ -9589,7 +9613,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Border",
@@ -9598,7 +9622,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Border",
@@ -9607,7 +9631,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Border",
@@ -9616,7 +9640,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Border",
@@ -9625,7 +9649,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "BreadcrumbBar",
@@ -9634,7 +9658,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "TextBox",
@@ -9643,7 +9667,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "AutoSuggestBox",
@@ -9652,7 +9676,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "AutoSuggestBox",
@@ -9661,7 +9685,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "PasswordBox",
@@ -9670,7 +9694,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "always",
         delivery: "live:Events_NativePayloadDelivery",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "NumberBox",
@@ -9679,7 +9703,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "NumberBoxValue",
         subscription: "always",
         delivery: "live:Events_NativePayloadDelivery",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Slider",
@@ -9688,7 +9712,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "always",
         delivery: "live:Events_NativePayloadDelivery",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "TitleBar",
@@ -9697,7 +9721,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "TitleBar",
@@ -9706,7 +9730,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "NavigationView",
@@ -9715,7 +9739,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "NavigationView",
@@ -9724,7 +9748,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "NavigationView",
@@ -9733,7 +9757,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Selection",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "SplitView",
@@ -9742,7 +9766,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "ToggleSwitch",
@@ -9751,7 +9775,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "always",
         delivery: "live:Events_NativePayloadDelivery",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "CheckBox",
@@ -9760,7 +9784,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "always",
         delivery: "live:Events_ReplacementAndRevocation",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "ToggleButton",
@@ -9769,7 +9793,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "RadioButton",
@@ -9778,7 +9802,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "RadioButtons",
@@ -9787,7 +9811,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "SelectionIndex",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "InfoBar",
@@ -9796,7 +9820,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Image",
@@ -9805,7 +9829,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Image",
@@ -9814,7 +9838,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "ListBox",
@@ -9823,7 +9847,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Selection",
         subscription: "always",
         delivery: "live:Controlled_NativeFeedback",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "RatingControl",
@@ -9832,7 +9856,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "RatingValue",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Expander",
@@ -9841,7 +9865,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "ComboBox",
@@ -9850,7 +9874,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "SelectionIndex",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "Pivot",
@@ -9859,7 +9883,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "SelectionIndex",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "FlipView",
@@ -9868,7 +9892,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "SelectionIndex",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "SelectorBar",
@@ -9877,7 +9901,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Selection",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "TabView",
@@ -9886,7 +9910,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "SelectionIndex",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "TabView",
@@ -9895,7 +9919,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "TabView",
@@ -9904,7 +9928,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "TabView",
@@ -9913,7 +9937,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "TeachingTip",
@@ -9922,7 +9946,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "TeachingTip",
@@ -9931,7 +9955,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "DropDownButton",
@@ -9940,7 +9964,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "AppBarButton",
@@ -9949,7 +9973,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "SplitButton",
@@ -9958,7 +9982,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "ColorPicker",
@@ -9967,7 +9991,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "always",
         delivery: "live:Events_NativePayloadDelivery",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "DatePicker",
@@ -9976,7 +10000,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Nullable",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "TimePicker",
@@ -9985,7 +10009,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Nullable",
         subscription: "callback",
         delivery: "live:Events_NativePayloadDelivery",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "CalendarDatePicker",
@@ -9994,7 +10018,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Nullable",
         subscription: "callback",
         delivery: "live:Events_NativePayloadDelivery",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "ContentDialog",
@@ -10003,7 +10027,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "CalendarView",
@@ -10012,7 +10036,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "ListView",
@@ -10021,7 +10045,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "SelectionIndex",
         subscription: "always",
         delivery: "live:Events_NativePayloadDelivery",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "ListView",
@@ -10030,7 +10054,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "TreeView",
@@ -10039,7 +10063,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "GridView",
@@ -10048,7 +10072,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "GridView",
@@ -10057,7 +10081,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "SelectionIndex",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
     EventSurface {
         control: "RichEditBox",
@@ -10066,7 +10090,7 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         conversion: "Identity",
         subscription: "always",
         delivery: "registration+deterministic",
-        active_property: None,
+        active_properties: &[],
     },
 ];
 pub static CAPABILITY_PROPERTIES: &[CapabilityPropertySurface] = &[

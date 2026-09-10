@@ -242,13 +242,13 @@ into controls. That makes the direction of data flow easy to follow.
 ## Handle keyboard input on custom surfaces
 
 `Border` can act as a focusable interaction surface around Canvas, Composition, or another custom
-view. Enable tab focus, opt into pointer focus, and use routed callbacks for input events whose
-WinUI `Handled` value must be set before the native callback returns:
+view. Enable tab focus and native post-event pointer focus, then use routed callbacks for input
+events whose WinUI `Handled` value must be set before the native callback returns:
 
 ```rust,ignore
 Border::new()
     .is_tab_stop(true)
-    .allow_focus_on_interaction(true)
+    .focus_on_pointer_release(true)
     .on_preview_key_down(context.routed_callback(|info: KeyEventInfo| {
         match info.key {
             VirtualKey::LEFT => RoutedMessage::handled(Message::MoveLeft),
@@ -271,8 +271,10 @@ as Tab that should retain their normal XAML behavior.
 
 `KeyEventInfo` includes the mapped and original virtual key, physical-key status, and modifier
 state. `CharacterEventInfo::character` is one UTF-16 code unit so surrogate pairs are preserved
-without lossy conversion. `ElementRef<Border>` supports programmatic focus when pointer or tab
-focus is not sufficient.
+without lossy conversion. `focus_on_pointer_release(true)` queues a native
+`FocusState::Pointer` request from the routed pointer event. The request runs after the native
+callback returns. It works when a child such as Canvas is the direct hit-test source.
+`ElementRef<Border>` supports other programmatic focus cases.
 
 ## Split the UI into understandable pieces
 

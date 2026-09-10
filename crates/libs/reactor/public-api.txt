@@ -604,6 +604,7 @@ pub fn windows_reactor::Border::corner_radius(self, impl core::convert::Into<win
 pub fn windows_reactor::Border::corner_radius_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<windows_reactor::CornerRadius>
 pub fn windows_reactor::Border::drop_policy(self, impl core::convert::Into<core::option::Option<windows_reactor::DragDropPolicy>>) -> Self
 pub fn windows_reactor::Border::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
+pub fn windows_reactor::Border::focus_on_pointer_release(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::Border::is_tab_stop(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::Border::new() -> Self
 pub fn windows_reactor::Border::on_character_received(self, windows_reactor::RoutedCallback<windows_reactor::CharacterEventInfo>) -> Self

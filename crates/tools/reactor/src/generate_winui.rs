@@ -100,6 +100,7 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                 | Some(PropertyAdapter::NumberBoxValue)
                 | Some(PropertyAdapter::PathData)
                 | Some(PropertyAdapter::PointerCapture)
+                | Some(PropertyAdapter::PointerFocus)
                 | Some(PropertyAdapter::PointerEvent)
                 | Some(PropertyAdapter::RatingValue)
                 | Some(PropertyAdapter::DragInfo)
@@ -1063,9 +1064,9 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
     let interface = path_ident(&event.interface);
     let method = ident(&event.name);
     let payload = ident(&event.payload);
-    let pointer_capture = (event.name == "PointerPressed").then(|| {
+    let pointer_press_policy = (event.name == "PointerPressed").then(|| {
         quote! {
-            info.capture_succeeded = match sink.capture_pointer_on_press(node, &element, args) {
+            info.capture_succeeded = match sink.apply_pointer_press_policy(node, &element, args) {
                 Ok(value) => value,
                 Err(error) => {
                     sink.error(node, EventId::#event_id, revision, error);
@@ -1076,7 +1077,13 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
     });
     let pointer_release = (event.name == "PointerReleased").then(|| {
         quote! {
-            if let Err(error) = sink.release_pointer_after_event(node, &element, args) {
+            if let Err(error) = sink.apply_pointer_release_policy(
+                node,
+                EventId::#event_id,
+                revision,
+                &element,
+                args,
+            ) {
                 sink.error(node, EventId::#event_id, revision, error);
                 return;
             }
@@ -1166,6 +1173,12 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
             EventPayloadSource::SenderProperty { interface, .. } if interface == &event.interface
         );
     let text_input_probe = control.name == "TextBox" && event.name == "TextChanged";
+    let got_focus = event.name == "GotFocus";
+    let pending_focus_state = if got_focus {
+        quote! { sink.take_pending_focus_state(node) }
+    } else {
+        quote! { None }
+    };
     let callback = match &event.source {
         EventPayloadSource::Unit => quote! {
             move |_, _| {
@@ -1557,7 +1570,7 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                             info.window_y = f64::from(position.y);
                         }
                     }
-                    #pointer_capture
+                    #pointer_press_policy
                     #pointer_release
                     sink.enqueue(
                         node,
@@ -1625,7 +1638,14 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                     let result = args
                         .as_ref()
                         .ok_or_else(windows_core::Error::empty)
-                        .and_then(|args| focus_event_info(&element, args));
+                        .and_then(|args| {
+                            focus_event_info(
+                                &element,
+                                args,
+                                #pending_focus_state,
+                                #got_focus,
+                            )
+                        });
                     match result {
                         Ok(info) => sink.enqueue(
                             node,
@@ -2024,7 +2044,10 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
             ) => set_rich_edit_text(control, value)
         };
     }
-    if property.adapter == Some(PropertyAdapter::PointerCapture) {
+    if matches!(
+        property.adapter,
+        Some(PropertyAdapter::PointerCapture | PropertyAdapter::PointerFocus)
+    ) {
         return quote! {
             (Handle::#control_name(_), PropertyId::#property_id, PropertyValue::Bool(_)) => {
                 Err(RuntimeError::UnsupportedKind)
@@ -2340,7 +2363,10 @@ fn generate_clear_property(control: &ResolvedControl, property: &ResolvedPropert
             }
         };
     }
-    if property.adapter == Some(PropertyAdapter::PointerCapture) {
+    if matches!(
+        property.adapter,
+        Some(PropertyAdapter::PointerCapture | PropertyAdapter::PointerFocus)
+    ) {
         return quote! {
             (Handle::#control_name(_), PropertyId::#property_id) => {
                 Err(RuntimeError::UnsupportedKind)

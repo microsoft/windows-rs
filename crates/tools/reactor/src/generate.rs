@@ -886,7 +886,7 @@ fn generate_element_event_visitor(control: &ResolvedControl) -> TokenStream {
             if control.event_always_active(event) {
                 quote! { visit(EventId::#id, true); }
             } else {
-                let active_property = event.active_property.as_ref().map(|property| {
+                let active_properties = event.active_properties.iter().map(|property| {
                     let property = ident(property);
                     quote! { || !matches!(value.#property, Property::Inherited) }
                 });
@@ -897,7 +897,7 @@ fn generate_element_event_visitor(control: &ResolvedControl) -> TokenStream {
                             .events
                             .as_ref()
                             .is_some_and(|events| events.#field.is_some())
-                            #active_property,
+                            #(#active_properties)*,
                     );
                 }
             }
@@ -1069,7 +1069,7 @@ fn generate_mounted_event_visitor(control: &ResolvedControl) -> TokenStream {
             if control.event_always_active(event) {
                 quote! { visit(EventId::#id, true); }
             } else {
-                let active_property = event.active_property.as_ref().map(|property| {
+                let active_properties = event.active_properties.iter().map(|property| {
                     let property = ident(property);
                     quote! { || !matches!(values.#property, Property::Inherited) }
                 });
@@ -1080,7 +1080,7 @@ fn generate_mounted_event_visitor(control: &ResolvedControl) -> TokenStream {
                             .events
                             .as_ref()
                             .is_some_and(|events| events.#field.is_some())
-                            #active_property,
+                            #(#active_properties)*,
                     );
                 }
             }

@@ -425,10 +425,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 "callback"
             };
             let delivery = event_delivery_owner(control, event);
-            let active_property = event
-                .active_property
-                .as_ref()
-                .map_or_else(|| quote! { None }, |property| quote! { Some(#property) });
+            let active_properties = &event.active_properties;
             quote! {
                 EventSurface {
                     control: #control_name,
@@ -437,7 +434,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                     conversion: #conversion,
                     subscription: #subscription,
                     delivery: #delivery,
-                    active_property: #active_property,
+                    active_properties: &[#(#active_properties),*],
                 }
             }
         })
@@ -485,7 +482,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             pub conversion: &'static str,
             pub subscription: &'static str,
             pub delivery: &'static str,
-            pub active_property: Option<&'static str>,
+            pub active_properties: &'static [&'static str],
         }
 
         pub struct CapabilityPropertySurface {
