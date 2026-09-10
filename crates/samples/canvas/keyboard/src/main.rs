@@ -5,21 +5,15 @@ use std::rc::Rc;
 use windows_canvas::*;
 use windows_reactor::*;
 
-#[derive(Clone)]
-struct DrawSnapshot {
-    text: String,
-    marker: f32,
-}
-
 enum Message {
     Key(KeyEventInfo),
     Character(u16),
     Focus(bool),
+    Clear,
 }
 
 struct Sample {
     text: Vec<u16>,
-    marker: f32,
     focused: bool,
     status: String,
     format: Rc<RefCell<Option<TextFormat>>>,
@@ -33,7 +27,6 @@ impl Component for Sample {
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         Self {
             text: "Type here".encode_utf16().collect(),
-            marker: 0.5,
             focused: false,
             status: "Click the canvas or press Tab to focus".to_string(),
             format: Rc::new(RefCell::new(None)),
@@ -44,16 +37,7 @@ impl Component for Sample {
     fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
         match message {
             Message::Key(info) => {
-                let step = if info.modifiers.contains(InputModifiers::SHIFT) {
-                    0.2
-                } else {
-                    0.05
-                };
                 match info.key {
-                    VirtualKey::LEFT => self.marker = (self.marker - step).max(0.0),
-                    VirtualKey::RIGHT => self.marker = (self.marker + step).min(1.0),
-                    VirtualKey::HOME => self.marker = 0.0,
-                    VirtualKey::END => self.marker = 1.0,
                     VirtualKey::BACK => pop_utf16_character(&mut self.text),
                     VirtualKey::DELETE => self.text.clear(),
                     _ => {}
@@ -70,10 +54,14 @@ impl Component for Sample {
             Message::Focus(focused) => {
                 self.focused = focused;
                 self.status = if focused {
-                    "Focused - type text or move the square with Left/Right".to_string()
+                    "Canvas focused - type text, Backspace, or Delete".to_string()
                 } else {
                     "Not focused - click the canvas or press Tab".to_string()
                 };
+            }
+            Message::Clear => {
+                self.text.clear();
+                self.status = "Text cleared - click the canvas or press Shift+Tab".to_string();
             }
         }
         self.invalidator.invalidate();
@@ -83,13 +71,9 @@ impl Component for Sample {
         context.window_title("Canvas keyboard input");
         context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
 
-        let snapshot = DrawSnapshot {
-            text: String::from_utf16_lossy(&self.text),
-            marker: self.marker,
-        };
+        let text = String::from_utf16_lossy(&self.text);
         let format = Rc::clone(&self.format);
-        let canvas =
-            canvas_invalidated(&self.invalidator, move |ctx| draw(ctx, &snapshot, &format));
+        let canvas = canvas_invalidated(&self.invalidator, move |ctx| draw(ctx, &text, &format));
         let surface = Border::new()
             .is_tab_stop(true)
             .focus_on_pointer_release(true)
@@ -115,12 +99,17 @@ impl Component for Sample {
             .content(canvas);
 
         Grid::new()
-            .rows([GridLength::Auto, GridLength::STAR, GridLength::Auto])
+            .rows([
+                GridLength::Auto,
+                GridLength::STAR,
+                GridLength::Auto,
+                GridLength::Auto,
+            ])
             .row_spacing(12.0)
             .margin(Thickness::uniform(24.0))
             .children((
                 TextBlock::new()
-                    .text("Type on Canvas; use arrows to move the square")
+                    .text("Type on the Canvas, then use the button to transfer focus")
                     .font_size(18.0)
                     .font_weight(FontWeight::BOLD),
                 surface,
@@ -128,20 +117,17 @@ impl Component for Sample {
                     .text(self.status.clone())
                     .font_size(14.0)
                     .grid_row(2),
+                Button::new()
+                    .horizontal_alignment(HorizontalAlignment::Left)
+                    .grid_row(3)
+                    .on_click(context.callback(|()| Message::Clear))
+                    .content("Clear text"),
             ))
     }
 }
 
 fn route_key(info: KeyEventInfo) -> RoutedMessage<Message> {
-    if matches!(
-        info.key,
-        VirtualKey::LEFT
-            | VirtualKey::RIGHT
-            | VirtualKey::HOME
-            | VirtualKey::END
-            | VirtualKey::BACK
-            | VirtualKey::DELETE
-    ) {
+    if matches!(info.key, VirtualKey::BACK | VirtualKey::DELETE) {
         RoutedMessage::handled(Message::Key(info))
     } else {
         RoutedMessage::bubble_without_message()
@@ -161,11 +147,7 @@ fn pop_utf16_character(text: &mut Vec<u16>) {
     }
 }
 
-fn draw(
-    ctx: &DrawContext,
-    snapshot: &DrawSnapshot,
-    current_format: &RefCell<Option<TextFormat>>,
-) -> Result<()> {
+fn draw(ctx: &DrawContext, text: &str, current_format: &RefCell<Option<TextFormat>>) -> Result<()> {
     ctx.clear(ColorF::from_rgb8(16, 20, 28));
 
     if current_format.borrow().is_none() {
@@ -174,16 +156,12 @@ fn draw(
     let format = current_format.borrow();
     let text_brush = ctx.create_solid_brush(ColorF::WHITE)?;
     ctx.draw_text(
-        &snapshot.text,
+        text,
         format.as_ref().unwrap(),
         &Rect::new(32.0, 32.0, ctx.width - 32.0, 80.0),
         &text_brush,
     );
 
-    let marker_x = 32.0 + (ctx.width - 96.0).max(0.0) * snapshot.marker;
-    let marker = Rect::from_xywh(marker_x, 120.0, 32.0, 32.0);
-    let marker_brush = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
-    ctx.fill_rect(&marker, &marker_brush);
     Ok(())
 }
 

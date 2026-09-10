@@ -518,9 +518,9 @@ together in a larger application. See the [`composition`](../../crates/samples/c
 [`webview`](../../crates/samples/webview/reactor), and
 [Canvas](../../crates/samples/canvas) samples only when the app needs those integrations.
 The [`canvas-keyboard`](../../crates/samples/canvas/keyboard) sample is a focusable custom-rendered
-line editor with pointer caret placement, routed navigation and edit keys, UTF-16 character input,
-and visible focus state. It shows when custom input is useful without replacing `TextBox` for
-ordinary text editing.
+text surface with routed edit keys, UTF-16 character input, visible focus state, and a standard
+WinUI button that demonstrates focus transfer. It shows when custom input is useful without
+replacing `TextBox` for ordinary text editing.
 
 ---
 
