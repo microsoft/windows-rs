@@ -441,7 +441,12 @@ fn namespaced_record_dependencies_preserve_layout() {
             .output(&symbols_rdl)
             .namespace("RecordDependencySymbols")
             .library("test.dll")
-            .symbol("ReturnRemote")
+            .symbols([
+                "ReturnRemote",
+                "ReturnLocalRecord",
+                "ReturnLocalAlias",
+                "ReturnIncludedForward",
+            ])
             .write()
             .unwrap();
 
@@ -482,6 +487,15 @@ fn namespaced_record_dependencies_preserve_layout() {
     assert!(symbols.contains("payload: i64"));
     assert!(symbols.contains("nested: NestedValue"));
     assert!(symbols.contains("struct NestedValue"));
+    assert!(symbols.contains("fn ReturnLocalRecord() -> LocalRecord"));
+    assert!(symbols.contains("struct LocalRecord"));
+    assert!(symbols.contains("value: i32"));
+    assert!(symbols.contains("fn ReturnLocalAlias() -> LocalAlias"));
+    assert!(symbols.contains("struct LocalAlias"));
+    assert!(symbols.contains("alias: i32"));
+    assert!(symbols.contains("fn ReturnIncludedForward() -> IncludedForward"));
+    assert!(symbols.contains("struct IncludedForward"));
+    assert!(symbols.contains("included: i32"));
     assert!(!symbols.contains("struct Envelope"));
     windows_rdl::reader()
         .input(&symbols_rdl)

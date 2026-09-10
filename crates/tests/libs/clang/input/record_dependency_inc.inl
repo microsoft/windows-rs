@@ -16,3 +16,7 @@ typedef struct PointerValue {
 typedef struct {
     int marker;
 } AnonymousValue;
+
+typedef struct IncludedForward {
+    int included;
+} IncludedForward;
