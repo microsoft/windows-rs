@@ -1,7 +1,6 @@
 //! Property publication and fatal native-failure contract tests.
 
-use super::super::*;
-use super::support::*;
+use super::*;
 
 #[test]
 fn successful_property_updates_publish_known_values() {

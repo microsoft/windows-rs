@@ -5,8 +5,8 @@ use std::marker::PhantomData;
 use std::rc::{Rc, Weak};
 use std::sync::atomic::{AtomicU64, Ordering};
 
+use super::*;
 use crate::core::{ComponentToken, NativeWork, NodeId, RuntimeError, WindowToken};
-use crate::element::{Callback, View};
 
 const IMPERATIVE_QUEUE_CAPACITY: usize = 4_096;
 static NEXT_OBSERVATION_ID: AtomicU64 = AtomicU64::new(1);
@@ -337,7 +337,7 @@ impl WindowHandle<'_> {
     }
 
     /// Returns the native `HWND`.
-    pub fn as_raw(&self) -> *mut core::ffi::c_void {
+    pub fn as_raw(&self) -> *mut ::core::ffi::c_void {
         self.raw as _
     }
 }
@@ -420,7 +420,7 @@ impl<T: FocusControl> ElementRef<T> {
     }
 }
 
-impl ElementRef<crate::WebView2> {
+impl ElementRef<WebView2> {
     /// Requests creation of the CoreWebView2 object for the currently published control.
     ///
     /// The returned COM object is the application-facing WebView2 core, not the XAML control
@@ -447,7 +447,7 @@ impl ElementRef<crate::WebView2> {
     }
 }
 
-impl ElementRef<crate::SwapChainPanel> {
+impl ElementRef<SwapChainPanel> {
     /// Attaches an application-owned DXGI swap chain to the published panel.
     #[must_use = "false means the reference is currently unbound"]
     pub fn request_set_swap_chain(
@@ -538,7 +538,7 @@ impl ElementRef<crate::SwapChainPanel> {
     }
 }
 
-impl ElementRef<crate::Image> {
+impl ElementRef<Image> {
     /// Assigns an application-owned native ImageSource to the published image.
     #[must_use = "false means the reference is currently unbound"]
     pub fn request_set_native_source(
@@ -574,7 +574,7 @@ impl ElementRef<crate::Image> {
     }
 }
 
-impl ElementRef<crate::Grid> {
+impl ElementRef<Grid> {
     /// Observes an application-owned lifted Composition host across published bindings.
     ///
     /// Registration is accepted before publication. Each new binding creates a native

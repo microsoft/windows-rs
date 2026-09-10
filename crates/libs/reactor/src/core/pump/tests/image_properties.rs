@@ -1,6 +1,6 @@
 //! Image URI property reconciliation tests.
 
-use super::super::*;
+use super::*;
 
 #[test]
 fn image_uri_source_rejects_invalid_declarations() {

@@ -1,4 +1,4 @@
-use super::super::*;
+use super::*;
 
 #[derive(Clone, Copy, PartialEq)]
 struct TitleBarInput {

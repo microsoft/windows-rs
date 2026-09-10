@@ -1,8 +1,7 @@
 //! Planning for [`View`] trees: component, fragment, and keyed-children
 //! reconciliation and mounting, built on top of `element` and `topology`.
 
-use super::super::*;
-use super::topology::NativeAttachment;
+use super::*;
 
 fn validate_commands(commands: &[CommandBarCommand]) -> Result<(), PumpError> {
     let mut keys = HashSet::new();
@@ -737,7 +736,7 @@ impl<R: NativeRuntime> Pump<R> {
 
         tree.set_children(target.logical_parent, reconciliation.order()?);
         let new_native = Self::native_children(tree, target.logical_parent)?;
-        let dense = super::is_dense_keyed_update(&reconciliation.operations);
+        let dense = is_dense_keyed_update(&reconciliation.operations);
         if (requires_sync || dense) && old_native != new_native {
             plan.synchronize_children(target.native_parent, target.slot, new_native);
         } else if !requires_sync {

@@ -1,7 +1,6 @@
 //! Typed context propagation, shadowing, locality, and publication tests.
 
-use super::super::*;
-use super::support::*;
+use super::*;
 use std::cell::Cell;
 use std::cell::RefCell;
 use std::rc::Rc;
