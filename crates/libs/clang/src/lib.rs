@@ -82,9 +82,8 @@ pub(crate) struct Parser<'a> {
     pub typedefs: &'a HashMap<String, Cursor>,
     pub tu: &'a TranslationUnit,
     pub pending_typedefs: Vec<Cursor>,
-    pub pending_records: Vec<Cursor>,
-    pub pending_macros: Vec<String>,
-    pub pending_macro_casts: HashMap<String, String>,
+    pub pending_definitions: Vec<Cursor>,
+    pending_macros: BTreeMap<String, PendingMacro>,
     pub pending_constant_refs: HashSet<String>,
     processing_dependency: bool,
     /// Per-header mode: incomplete pointer-only records emitted as opaque structs.
@@ -120,6 +119,11 @@ struct PendingMacros {
     casts: HashMap<String, String>,
 }
 
+enum PendingMacro {
+    Direct(Const),
+    Evaluate(Option<String>),
+}
+
 impl<'a> Parser<'a> {
     #[expect(clippy::too_many_arguments)]
     fn new(
@@ -146,9 +150,8 @@ impl<'a> Parser<'a> {
             typedefs,
             tu,
             pending_typedefs: vec![],
-            pending_records: vec![],
-            pending_macros: vec![],
-            pending_macro_casts: HashMap::new(),
+            pending_definitions: vec![],
+            pending_macros: BTreeMap::new(),
             pending_constant_refs: HashSet::new(),
             processing_dependency: false,
             pending_opaque: vec![],
@@ -173,6 +176,23 @@ impl<'a> Parser<'a> {
     fn track_constant_refs(&mut self, item: &Item) {
         if self.header_root.is_none() {
             item_refs(item, &mut self.pending_constant_refs);
+        }
+    }
+
+    fn finalize_direct_macros(&mut self, collector: &mut Collector) {
+        let pending = std::mem::take(&mut self.pending_macros);
+        for (name, state) in pending {
+            match state {
+                PendingMacro::Direct(c) => {
+                    let item = Item::Const(c);
+                    self.track_constant_refs(&item);
+                    collector.insert(item);
+                }
+                PendingMacro::Evaluate(cast) => {
+                    self.pending_macros
+                        .insert(name, PendingMacro::Evaluate(cast));
+                }
+            }
         }
     }
 
@@ -363,12 +383,16 @@ impl<'a> Parser<'a> {
             }
             CXCursor_MacroDefinition => {
                 let name = child.name();
-                self.pending_macros.retain(|pending| pending != &name);
-                self.pending_macro_casts.remove(&name);
+                let namespaced = self.header_root.is_none();
+                if namespaced {
+                    self.pending_macros.remove(&name);
+                }
                 if let Some(c) = Const::parse(child, self)? {
-                    let item = Item::Const(c);
-                    self.track_constant_refs(&item);
-                    collector.insert(item);
+                    if namespaced {
+                        self.pending_macros.insert(name, PendingMacro::Direct(c));
+                    } else {
+                        collector.insert(Item::Const(c));
+                    }
                 } else if !child.is_macro_builtin()
                     && !child.is_macro_function_like()
                     && !name.is_empty()
@@ -398,19 +422,21 @@ impl<'a> Parser<'a> {
                         && body_is_balanced
                     {
                         // Defer object-like macro constants to the batch evaluator.
-                        if self.header_root.is_none() {
+                        if namespaced {
                             let body: Vec<_> = tokens.iter().skip(1).cloned().collect();
-                            if let Some(cast) = detect_leading_cast_type(&body, |name| {
+                            let cast = detect_leading_cast_type(&body, |name| {
                                 self.typedefs.contains_key(name)
                                     || self.ref_map.contains_key(name)
                                     || semantic_scalar(name).is_some()
                                     || fundamental_scalar(name).is_some()
                                     || pointer_sized_abi(name).is_some()
-                            }) {
-                                self.pending_macro_casts.insert(name.clone(), cast);
-                            }
+                            });
+                            self.pending_macros
+                                .insert(name, PendingMacro::Evaluate(cast));
+                        } else {
+                            self.pending_macros
+                                .insert(name, PendingMacro::Evaluate(None));
                         }
-                        self.pending_macros.push(name);
                     }
                 }
             }
@@ -1311,11 +1337,12 @@ impl Clang {
                 parser.process_cursor(child, collector, extern_c)?;
             }
 
+            parser.finalize_direct_macros(collector);
             collector.apply_iid_vars(&parser.iid_vars);
 
             let pending = std::mem::take(&mut parser.pending_macros);
             if !pending.is_empty() {
-                all_consts.push((stem.clone(), pending));
+                all_consts.push((stem.clone(), pending.into_keys().collect()));
             }
             for (_ns, name) in std::mem::take(&mut parser.pending_opaque) {
                 all_opaque.push((stem.clone(), name));
@@ -1554,17 +1581,23 @@ impl Clang {
             parser.process_cursor(child, collector, false)?;
         }
 
+        parser.finalize_direct_macros(collector);
+
         // Constants have no type cursor, so queue local typedefs named by their values or by casts
         // whose expressions require batch evaluation.
         let mut referenced = std::mem::take(&mut parser.pending_constant_refs);
         referenced.extend(
             parser
-                .pending_macro_casts
+                .pending_macros
                 .values()
+                .filter_map(|state| match state {
+                    PendingMacro::Evaluate(cast) => cast.as_deref(),
+                    PendingMacro::Direct(_) => None,
+                })
                 .filter_map(|cast| Const::cast_type_dependency(spec.namespace, ref_map, cast)),
         );
         for name in referenced {
-            if !collector.contains_key(&name)
+            if !collector.get(&name).is_some_and(Item::is_type)
                 && !parser.ref_map.contains_key(&name)
                 && let Some(cursor) = parser.typedefs.get(&name)
             {
@@ -1574,11 +1607,11 @@ impl Clang {
 
         // Drain referenced type dependencies; parsing one definition can enqueue more.
         let mut seen_typedefs: HashSet<String> = HashSet::new();
-        let mut seen_records: HashSet<String> = HashSet::new();
+        let mut seen_definitions: HashSet<String> = HashSet::new();
         let mut typedef_index = 0;
-        let mut record_index = 0;
+        let mut definition_index = 0;
         while typedef_index < parser.pending_typedefs.len()
-            || record_index < parser.pending_records.len()
+            || definition_index < parser.pending_definitions.len()
         {
             while typedef_index < parser.pending_typedefs.len() {
                 let cursor = parser.pending_typedefs[typedef_index];
@@ -1586,7 +1619,7 @@ impl Clang {
                 let name = cursor.name();
                 // Skip anything already resolved.
                 if !seen_typedefs.insert(name.clone())
-                    || collector.contains_key(&name)
+                    || collector.get(&name).is_some_and(Item::is_type)
                     || parser.ref_map.contains_key(&name)
                 {
                     continue;
@@ -1598,10 +1631,10 @@ impl Clang {
                 }
             }
 
-            while record_index < parser.pending_records.len() {
-                let cursor = parser.pending_records[record_index];
-                record_index += 1;
-                if seen_records.insert(cursor.usr()) {
+            while definition_index < parser.pending_definitions.len() {
+                let cursor = parser.pending_definitions[definition_index];
+                definition_index += 1;
+                if seen_definitions.insert(cursor.usr()) {
                     parser.processing_dependency = true;
                     let result = parser.process_cursor(cursor, collector, false);
                     parser.processing_dependency = false;
@@ -1613,10 +1646,16 @@ impl Clang {
         // Apply `IID_IFoo` variables to interfaces that lack `uuid` attributes.
         collector.apply_iid_vars(&parser.iid_vars);
 
-        Ok(PendingMacros {
-            names: parser.pending_macros,
-            casts: parser.pending_macro_casts,
-        })
+        let names = parser.pending_macros.keys().cloned().collect();
+        let casts = parser
+            .pending_macros
+            .into_iter()
+            .filter_map(|(name, state)| match state {
+                PendingMacro::Evaluate(Some(cast)) => Some((name, cast)),
+                PendingMacro::Evaluate(None) | PendingMacro::Direct(_) => None,
+            })
+            .collect();
+        Ok(PendingMacros { names, casts })
     }
 }
 

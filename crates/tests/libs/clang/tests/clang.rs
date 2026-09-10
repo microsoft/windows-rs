@@ -555,10 +555,40 @@ fn namespaced_constants_retain_type_dependencies() {
     assert!(contents.contains("STATUS_FUNDAMENTAL: u32 = 3"));
     assert!(contents.contains("STATUS_NONCAST: i32 = 5"));
     assert!(contents.contains("STATUS_REDEFINED: i32 = 9"));
+    assert!(contents.contains("STATUS_DIRECT_REDEFINED: i32 = 9"));
+    assert!(!contents.contains("STATUS_DROPPED_REDEFINITION"));
+    assert!(contents.contains("#[repr(u32)]"));
+    assert!(contents.contains("enum ConstantState"));
+    assert!(contents.contains("ConstantStateReady = 1"));
+    assert!(contents.contains("STATUS_ENUM: ConstantState = 1"));
     assert!(!contents.contains("type DWORD"));
+    assert!(!contents.contains("type UnusedStatus"));
+    assert!(contents.contains("type MacroNameCollision = u32"));
     windows_rdl::reader()
         .input(&rdl)
         .output(scratch.join("out.winmd"))
+        .write()
+        .unwrap();
+
+    let collision_rdl = scratch.join("collision.rdl");
+    {
+        let _guard = test_clang::libclang_guard();
+        windows_clang::clang()
+            .input("input/const_dependency_value_collision.hpp")
+            .input("input/const_dependency_type_collision.hpp")
+            .output(&collision_rdl)
+            .namespace("ConstDependencyCollision")
+            .write()
+            .unwrap();
+    }
+
+    let collision = std::fs::read_to_string(&collision_rdl).unwrap();
+    assert!(collision.contains("type CollisionStatus = u16"));
+    assert!(collision.contains("COLLISION_STATUS_VALUE: CollisionStatus = 3"));
+    assert!(!collision.contains("const CollisionStatus"));
+    windows_rdl::reader()
+        .input(&collision_rdl)
+        .output(scratch.join("collision.winmd"))
         .write()
         .unwrap();
 }

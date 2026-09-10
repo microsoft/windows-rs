@@ -9,3 +9,15 @@
 #define STATUS_REDEFINED ((ChainedStatus)(1 + 2))
 #undef STATUS_REDEFINED
 #define STATUS_REDEFINED (4 + 5)
+#define STATUS_DIRECT_REDEFINED ((UnusedStatus)1)
+#undef STATUS_DIRECT_REDEFINED
+#define STATUS_DIRECT_REDEFINED 9
+#define STATUS_DROPPED_REDEFINITION ((UnusedStatus)2)
+#undef STATUS_DROPPED_REDEFINITION
+#define STATUS_DROPPED_REDEFINITION(value) value
+#define STATUS_ENUM ((ConstantState)1)
+
+typedef unsigned int MacroNameCollision;
+#define MacroNameCollision 1
+#undef MacroNameCollision
+#define MacroNameCollision(value) value
