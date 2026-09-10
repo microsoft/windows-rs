@@ -22,5 +22,9 @@ path = "src/live.rs"
 name = "reactor-live-input"
 path = "src/live_input.rs"
 
+[[bin]]
+name = "reactor-live-notepad"
+path = "src/live_notepad.rs"
+
 [lints]
 workspace = true

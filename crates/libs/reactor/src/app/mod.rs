@@ -1076,6 +1076,8 @@ pub(crate) fn dispatch_native_events(token: WindowToken) {
                 .borrow_mut()
                 .push(dispatch_started.elapsed().as_secs_f64() * 1_000_000.0);
         });
+        #[cfg(feature = "test")]
+        finish_live_text_input_dispatch();
         for diagnostic in live.drain_diagnostics() {
             match diagnostic {
                 PumpDiagnostic::HandledInputDropped { node, event } => {

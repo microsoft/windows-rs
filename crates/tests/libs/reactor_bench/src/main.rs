@@ -967,7 +967,7 @@ fn bench_component_leaf(count: usize, iters: u64, reps: u32) -> Row {
     }
 }
 
-fn bench_textbox_input(iters: u64, reps: u32) -> Row {
+fn bench_textbox_input(size: usize, iters: u64, reps: u32) -> Row {
     let mut runtime = RecordingRuntime::default();
     runtime.record_commands(true);
     let mut pump = Pump::new(runtime);
@@ -987,14 +987,16 @@ fn bench_textbox_input(iters: u64, reps: u32) -> Row {
         .event_revision(node, EventId::TextBoxTextChanged)
         .unwrap();
     pump.runtime_mut().record_commands(false);
+    let first = "a".repeat(size);
+    let second = "b".repeat(size);
     let mut value = false;
     let perf = measure(iters, reps, || {
-        let text = if value { "first" } else { "second" };
+        let text = if value { &first } else { &second };
         pump.queue_event(QueuedEvent::new(
             node,
             EventId::TextBoxTextChanged,
             revision,
-            EventPayload::Str(text.to_string()),
+            EventPayload::Str(text.clone()),
         ));
         assert_eq!(pump.dispatch_events(), Ok(1));
         assert_eq!(pump.dispatch_components(1), Ok(1));
@@ -1002,7 +1004,7 @@ fn bench_textbox_input(iters: u64, reps: u32) -> Row {
     });
     Row {
         name: "textbox_input",
-        n: 1,
+        n: size,
         perf,
     }
 }
@@ -1448,7 +1450,9 @@ fn main() {
         bench_component_leaf(512, iters, reps),
         bench_component_leaf(4_096, (iters / 4).max(1), reps),
         bench_component_leaf(16_384, (iters / 16).max(1), reps),
-        bench_textbox_input(iters, reps),
+        bench_textbox_input(8, iters, reps),
+        bench_textbox_input(4_096, (iters / 4).max(1), reps),
+        bench_textbox_input(65_536, (iters / 32).max(1), reps),
         bench_queued_pointer_input(iters, reps),
         bench_routed_key_input(iters, reps),
         bench_component_keyed(

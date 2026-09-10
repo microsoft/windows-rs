@@ -3,6 +3,7 @@ use windows_core::EventRevoker;
 
 const INPUT_PROBE_SUBCLASS_ID: usize = 0x0052_5449_4E50_5554;
 const WM_KEYDOWN: u32 = 0x0100;
+const WM_CHAR: u32 = 0x0102;
 const WM_SYSKEYDOWN: u32 = 0x0104;
 
 type SubclassProc = Option<
@@ -17,12 +18,17 @@ windows_core::link!("user32.dll" "system" fn GetFocus() -> *mut std::ffi::c_void
 thread_local! {
     static INPUT_PROBE_CALLBACK: RefCell<Option<Rc<dyn Fn(LiveInputProbeStage)>>> =
         const { RefCell::new(None) };
+    static TEXT_INPUT_PENDING: Cell<usize> = const { Cell::new(0) };
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum LiveInputProbeStage {
     RawWindowMessage,
     InputKeyboardSource,
+    RawCharacter,
+    NativeTextChanged,
+    NativeTextReady,
+    ReactorDispatchComplete,
 }
 
 pub struct LiveInputProbe {
@@ -78,6 +84,7 @@ impl Drop for LiveInputProbe {
             );
         }
         let _ = INPUT_PROBE_CALLBACK.try_with(|callback| callback.borrow_mut().take());
+        let _ = TEXT_INPUT_PENDING.try_with(|pending| pending.set(0));
     }
 }
 
@@ -90,13 +97,29 @@ unsafe extern "system" fn live_input_probe_subclass(
     _data: usize,
 ) -> isize {
     if matches!(message, WM_KEYDOWN | WM_SYSKEYDOWN) {
-        let _ = INPUT_PROBE_CALLBACK.try_with(|callback| {
-            if let Some(callback) = callback.borrow().as_ref() {
-                callback(LiveInputProbeStage::RawWindowMessage);
-            }
-        });
+        record_live_input_probe_stage(LiveInputProbeStage::RawWindowMessage);
+    } else if message == WM_CHAR {
+        record_live_input_probe_stage(LiveInputProbeStage::RawCharacter);
     }
     unsafe { DefSubclassProc(hwnd, message, wparam, lparam) }
+}
+
+pub(crate) fn record_live_input_probe_stage(stage: LiveInputProbeStage) {
+    if stage == LiveInputProbeStage::NativeTextChanged {
+        TEXT_INPUT_PENDING.with(|pending| pending.set(pending.get() + 1));
+    }
+    let _ = INPUT_PROBE_CALLBACK.try_with(|callback| {
+        if let Some(callback) = callback.borrow().as_ref() {
+            callback(stage);
+        }
+    });
+}
+
+pub(crate) fn finish_live_text_input_dispatch() {
+    let pending = TEXT_INPUT_PENDING.with(|pending| pending.replace(0));
+    for _ in 0..pending {
+        record_live_input_probe_stage(LiveInputProbeStage::ReactorDispatchComplete);
+    }
 }
 
 pub(crate) fn native_window_handle(window: &Window) -> windows_core::Result<isize> {
@@ -131,6 +154,7 @@ pub(crate) fn subscribe_live_input_probe(
             "only one live input probe may be active"
         );
     });
+    TEXT_INPUT_PENDING.with(|pending| pending.set(0));
     if unsafe {
         SetWindowSubclass(
             hwnd,

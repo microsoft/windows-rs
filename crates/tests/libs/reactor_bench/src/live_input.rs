@@ -132,6 +132,10 @@ impl Measurements {
         match stage {
             LiveInputProbeStage::RawWindowMessage => self.raw.mark(timestamp),
             LiveInputProbeStage::InputKeyboardSource => self.source.mark(timestamp),
+            LiveInputProbeStage::RawCharacter
+            | LiveInputProbeStage::NativeTextChanged
+            | LiveInputProbeStage::NativeTextReady
+            | LiveInputProbeStage::ReactorDispatchComplete => {}
         }
     }
 

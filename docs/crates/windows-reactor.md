@@ -515,8 +515,10 @@ events. The [`gallery`](../../crates/samples/reactor/gallery) is a control catal
 together in a larger application. See the [`composition`](../../crates/samples/composition),
 [`webview`](../../crates/samples/webview/reactor), and
 [Canvas](../../crates/samples/canvas) samples only when the app needs those integrations.
-The [`canvas-editor`](../../crates/samples/canvas/editor) sample uses a focusable Canvas surface
-with pointer selection, routed keyboard navigation, character labels, and focus visuals.
+The [`canvas-keyboard`](../../crates/samples/canvas/keyboard) sample is a focusable custom-rendered
+line editor with pointer caret placement, routed navigation and edit keys, UTF-16 character input,
+and visible focus state. It shows when custom input is useful without replacing `TextBox` for
+ordinary text editing.
 
 ---
 
@@ -626,10 +628,19 @@ feature removes that allowance so the live surface build checks all generated te
 | Planner benchmarks | `cargo run -p test-reactor-bench --release` |
 | Live grid benchmark | `cargo run -p test-reactor-bench --bin reactor-live-grid --release` |
 | Live input benchmark | `cargo run -p test-reactor-bench --bin reactor-live-input --release` |
+| Live Notepad benchmark | `cargo run -p test-reactor-bench --bin reactor-live-notepad --release` |
 
 The generated surface test covers projected controls, properties, events, content, collections,
 slots, attachments, virtual items, and TreeView nodes. Handwritten self-tests own imperative
 references, retirement, and other OS interactions.
+
+The live Notepad benchmark uses the same controlled `TextBox` shape as the `reactor-notepad`
+sample. It injects Unicode keyboard input and measures raw `WM_CHAR`, WinUI `TextChanged`,
+`Text()` retrieval, Reactor event and component queues, reconciliation, Rust allocations, and
+whether controlled feedback causes a native write-back. Use `--text-size` to test document-size
+scaling. Run the release build with its window in the foreground and leave the machine idle while
+collecting results. The test-only probes add instrumentation overhead, and the injected
+`KEYEVENTF_UNICODE` path does not measure physical-key translation or IME composition.
 
 Pass `--filter <name>` to run matching handwritten fixtures. For example:
 

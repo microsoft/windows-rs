@@ -5173,19 +5173,31 @@ pub fn subscribe_event(
         (Handle::TextBox(value), EventId::TextBoxTextChanged) => {
             let event_source = (*value).clone();
             value.TextChanged({
-                move |_, _| match event_source.Text() {
-                    Ok(value) => sink.enqueue(
-                        node,
-                        EventId::TextBoxTextChanged,
-                        revision,
-                        EventPayload::Str(value),
-                    ),
-                    Err(error) => sink.error(
-                        node,
-                        EventId::TextBoxTextChanged,
-                        revision,
-                        native_error(error),
-                    ),
+                move |_, _| {
+                    #[cfg(feature = "test")]
+                    test::record_live_input_probe_stage(
+                        test::LiveInputProbeStage::NativeTextChanged,
+                    );
+                    match event_source.Text() {
+                        Ok(value) => {
+                            #[cfg(feature = "test")]
+                            test::record_live_input_probe_stage(
+                                test::LiveInputProbeStage::NativeTextReady,
+                            );
+                            sink.enqueue(
+                                node,
+                                EventId::TextBoxTextChanged,
+                                revision,
+                                EventPayload::Str(value),
+                            );
+                        }
+                        Err(error) => sink.error(
+                            node,
+                            EventId::TextBoxTextChanged,
+                            revision,
+                            native_error(error),
+                        ),
+                    }
                 }
             })
         }

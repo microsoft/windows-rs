@@ -1165,6 +1165,7 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
             &event.source,
             EventPayloadSource::SenderProperty { interface, .. } if interface == &event.interface
         );
+    let text_input_probe = control.name == "TextBox" && event.name == "TextChanged";
     let callback = match &event.source {
         EventPayloadSource::Unit => quote! {
             move |_, _| {
@@ -1373,13 +1374,23 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                         }
                     }
                 }
-            } else {
+            } else if text_input_probe {
                 quote! {
                     {
                         #event_source
                         move |_, _| {
+                            #[cfg(feature = "test")]
+                            test::record_live_input_probe_stage(
+                                test::LiveInputProbeStage::NativeTextChanged,
+                            );
                             match event_source.#property() {
-                                Ok(value) => #enqueue_payload,
+                                Ok(value) => {
+                                    #[cfg(feature = "test")]
+                                    test::record_live_input_probe_stage(
+                                        test::LiveInputProbeStage::NativeTextReady,
+                                    );
+                                    #enqueue_payload;
+                                }
                                 #nullable_error
                                 Err(error) => sink.error(
                                     node,
@@ -1388,6 +1399,22 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                                     native_error(error),
                                 ),
                             }
+                        }
+                    }
+                }
+            } else {
+                quote! {
+                    {
+                        #event_source
+                        move |_, _| match event_source.#property() {
+                            Ok(value) => #enqueue_payload,
+                            #nullable_error
+                            Err(error) => sink.error(
+                                node,
+                                EventId::#event_id,
+                                revision,
+                                native_error(error),
+                            ),
                         }
                     }
                 }
