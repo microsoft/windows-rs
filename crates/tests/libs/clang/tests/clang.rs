@@ -530,6 +530,39 @@ fn namespaced_record_dependencies_preserve_layout() {
         .unwrap();
 }
 
+#[test]
+fn namespaced_constants_retain_type_dependencies() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("const_dependency");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let rdl = scratch.join("out.rdl");
+
+    {
+        let _guard = test_clang::libclang_guard();
+        windows_clang::clang()
+            .input("input/const_dependency.hpp")
+            .output(&rdl)
+            .namespace("ConstDependency")
+            .write()
+            .unwrap();
+    }
+
+    let contents = std::fs::read_to_string(&rdl).unwrap();
+    assert!(contents.contains("type IncludedStatus = u16"));
+    assert!(contents.contains("type ChainedStatus = u16"));
+    assert!(contents.contains("STATUS_LITERAL: IncludedStatus = 7"));
+    assert!(contents.contains("STATUS_CHAINED: ChainedStatus = 9"));
+    assert!(contents.contains("STATUS_EVALUATED: IncludedStatus = 3"));
+    assert!(contents.contains("STATUS_FUNDAMENTAL: u32 = 3"));
+    assert!(contents.contains("STATUS_NONCAST: i32 = 5"));
+    assert!(contents.contains("STATUS_REDEFINED: i32 = 9"));
+    assert!(!contents.contains("type DWORD"));
+    windows_rdl::reader()
+        .input(&rdl)
+        .output(scratch.join("out.winmd"))
+        .write()
+        .unwrap();
+}
+
 fn run(name: &str) {
     let input_path = format!("input/{name}.h");
     let expected_path = format!("expected/{name}.rdl");
