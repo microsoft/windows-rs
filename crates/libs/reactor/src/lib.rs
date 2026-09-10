@@ -10,8 +10,6 @@ mod reference;
 pub mod test;
 
 use generated::*;
-#[cfg(test)]
-pub(crate) use test::*;
 
 pub use app::*;
 pub use core::public::*;

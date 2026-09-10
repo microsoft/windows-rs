@@ -1,11 +1,7 @@
-use super::arena::NodeId;
-use super::runtime::WindowToken;
-use super::scope::{ScopeArena, ScopeError, ScopeId, ScopeState};
-use crate::element::{
-    Callback, CallbackSource, ColorScheme, IntoPayloadCallback, View, WindowSize, WindowVisuals,
-};
-use crate::native::{DispatcherQueue, DispatcherQueueTimer};
-use crate::reference::{HostRequest, WindowEndpoint, WindowRef};
+use super::scope::*;
+use super::*;
+use crate::native::*;
+use crate::reference::*;
 use rustc_hash::{FxHashMap as HashMap, FxHashSet as HashSet};
 use std::any::{Any, TypeId};
 use std::cell::RefCell;
@@ -583,7 +579,7 @@ impl ComponentTimer {
         sender: LocalSender<M>,
         message: M,
     ) -> windows_core::Result<Self> {
-        let interval = windows_time::TimeSpan::try_from(delay).map_err(|_| {
+        let interval = TimeSpan::try_from(delay).map_err(|_| {
             windows_core::Error::new(
                 windows_core::HRESULT(0x80070057_u32 as _),
                 "timer delay cannot be represented as a TimeSpan",
@@ -965,11 +961,11 @@ impl<C: Component> ComponentContext<C> {
     #[must_use = "false means the window operation was not staged"]
     pub fn run_window<F>(&self, work: F) -> bool
     where
-        F: for<'a> FnOnce(crate::WindowHandle<'a>) -> C::Message + 'static,
+        F: for<'a> FnOnce(WindowHandle<'a>) -> C::Message + 'static,
     {
         let sender = self.sender.clone();
         self.window.request_run(Box::new(move |hwnd| {
-            _ = sender.send(work(crate::WindowHandle::new(hwnd)));
+            _ = sender.send(work(WindowHandle::new(hwnd)));
         }))
     }
 
@@ -2206,5 +2202,4 @@ impl Drop for ComponentStore {
 }
 
 #[cfg(test)]
-#[path = "component_tests.rs"]
 mod tests;

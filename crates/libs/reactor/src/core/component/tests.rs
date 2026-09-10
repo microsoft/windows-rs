@@ -111,8 +111,6 @@ fn effect_guard_drops_its_value_during_cleanup() {
     assert_eq!(drops.get(), 1);
 }
 
-use crate::TextBlock;
-use crate::core::{WindowId, WindowToken};
 use std::cell::Cell;
 use std::sync::Barrier;
 use std::sync::atomic::AtomicUsize;

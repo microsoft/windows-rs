@@ -1,6 +1,6 @@
 //! Hyperlink URI property reconciliation tests.
 
-use super::super::*;
+use super::*;
 
 #[test]
 fn hyperlink_uri_rejects_invalid_declarations() {

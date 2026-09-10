@@ -37,3 +37,8 @@ mod window_requests;
 mod window_title_bars;
 mod window_titles;
 mod window_visuals;
+
+use super::*;
+use crate::native::*;
+use crate::test::*;
+use support::*;

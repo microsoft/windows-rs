@@ -2,7 +2,7 @@
 //! lookup, native parent/location/children queries, arity validation, subtree
 //! and subtree retirement.
 
-use super::super::*;
+use super::*;
 
 #[derive(Clone, Copy)]
 pub(super) enum NativeAttachment {

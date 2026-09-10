@@ -1,4 +1,4 @@
-use super::super::*;
+use super::*;
 
 #[test]
 fn resource_overrides_mount_update_and_clear() {

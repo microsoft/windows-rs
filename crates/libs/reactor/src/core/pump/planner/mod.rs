@@ -10,7 +10,8 @@ mod element;
 mod topology;
 mod view;
 
-use crate::core::keyed::KeyedOperation;
+use super::*;
+use topology::*;
 
 fn is_dense_keyed_update<K>(operations: &[KeyedOperation<K>]) -> bool {
     operations

@@ -1,7 +1,6 @@
 use std::collections::{BTreeMap, HashMap, HashSet};
 
-use crate::core::*;
-use crate::*;
+use super::*;
 
 #[derive(Debug)]
 pub struct RecordedNode {
@@ -1364,5 +1363,4 @@ pub struct RecordedContentDialog {
 }
 
 #[cfg(test)]
-#[path = "recording_tests.rs"]
 mod tests;

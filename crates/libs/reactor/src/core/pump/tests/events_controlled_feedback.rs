@@ -1,8 +1,6 @@
 //! Queued event dispatch and controlled-feedback contract tests for [`Pump`].
 
-use super::super::*;
-use super::support::*;
-use crate::native::{FeedbackExpectation, expected_feedback};
+use super::*;
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
