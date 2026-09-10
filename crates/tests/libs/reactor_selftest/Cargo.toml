@@ -13,6 +13,7 @@ windows-composition = { workspace = true, features = ["reactor"] }
 windows-collections = { workspace = true }
 windows-core = { workspace = true }
 windows-reactor = { workspace = true, features = ["test"] }
+windows-webview = { workspace = true, features = ["reactor"] }
 windows = { workspace = true, features = ["UI_Input_Preview_Injection", "winuser"] }
 
 [build-dependencies]

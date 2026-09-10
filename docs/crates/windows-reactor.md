@@ -478,7 +478,7 @@ events. The [`gallery`](../../crates/samples/reactor/gallery) is a control catal
 [`navigation`](../../crates/samples/reactor/navigation) and
 [`dotsweeper`](../../crates/samples/reactor/dotsweeper) samples show how these same ideas fit
 together in a larger application. See the [`composition`](../../crates/samples/composition),
-[`webview`](../../crates/samples/reactor/webview), and
+[`webview`](../../crates/samples/webview/reactor), and
 [Canvas](../../crates/samples/canvas) samples only when the app needs those integrations.
 
 ---

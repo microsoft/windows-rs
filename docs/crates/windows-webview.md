@@ -75,7 +75,9 @@ fn main() -> Result<()> {
 
 The host resizes the controller with its parent and closes WebView2 before the HWND is destroyed.
 Call `host.retain` or `host.retain_all` for event registrations that should remain active for the
-host lifetime.
+host lifetime. `WebViewWindowBuilder::on_close` reports normal close processing, including
+programmatic closure, when another UI framework coordinates several windows. Direct destruction
+during drop does not call it.
 
 Use `WebViewHostBuilder` when a framework already owns the parent HWND and UI loop:
 
@@ -306,8 +308,14 @@ after the XAML control enters a live visual tree, not during `Component::create`
 The convenience function panics on a native initialization error. Use `webview_result` when the
 component should receive and display that error. A self-contained Reactor app must also deploy
 `Microsoft.Web.WebView2.Core.dll`; [`windows-reactor-setup`](windows-reactor-setup.md) stages it.
-The [`reactor/webview`](../../crates/samples/reactor/webview) sample contains the complete
-component and deployment layout.
+The [`reactor`](../../crates/samples/webview/reactor) sample embeds a WinUI WebView2 control in a
+Reactor view and exercises navigation, scripts, messaging, DevTools, and events through the shared
+`WebView` API. The [`reactor-window`](../../crates/samples/webview/reactor-window) sample instead
+uses a Reactor window as a toolbar for a callback-driven `WebViewWindow`. It sets
+`quit_on_close(false)` so both windows share Reactor's UI thread and message loop, and uses
+`on_close` to keep the Reactor component synchronized with the external window. This sample also
+exercises controller zoom and parent-window lifecycle, which the WinUI WebView2 control does not
+expose through supported interop.
 
 ## What to read next
 
@@ -317,7 +325,8 @@ Run an example with `cargo run -p webview-<name>`.
 | --- | --- |
 | [`minimal`](../../crates/samples/webview/minimal) | Complete `WebViewWindow` hosting |
 | [`raw-window`](../../crates/samples/webview/raw-window) | Framework-owned HWND and message loop |
-| [`reactor/webview`](../../crates/samples/reactor/webview) | Nonblocking WebView2 in a Reactor component |
+| [`reactor`](../../crates/samples/webview/reactor) | WebView2 embedded in a Reactor view |
+| [`reactor-window`](../../crates/samples/webview/reactor-window) | Reactor controls driving a separate `windows-window` host |
 | [`events`](../../crates/samples/webview/events) | Navigation, permissions, popups, and process failures |
 | [`ipc`](../../crates/samples/webview/ipc) | Messages and script execution |
 | [`local-files`](../../crates/samples/webview/local-files) | A folder mapped to an HTTPS origin |
@@ -328,9 +337,9 @@ Run an example with `cargo run -p webview-<name>`.
 | [`devtools`](../../crates/samples/webview/devtools) | Chrome DevTools Protocol calls and events |
 | [`script`](../../crates/samples/webview/script) | Document-created script injection |
 
-Start with `minimal`, `raw-window` when another framework owns the HWND, or `reactor/webview` when
-Reactor owns the UI. The remaining samples use the complete system host so they can focus on
-individual browser features.
+Start with `minimal`, `raw-window` when another framework owns the HWND, or `reactor` when Reactor
+owns the UI. The remaining samples use the complete system host so they can focus on individual
+browser features.
 
 ---
 
@@ -401,5 +410,8 @@ self-contained deployment.
 Generated bindings carry casing lint expectations and allow dead code only when the Reactor bridge
 is disabled. Keep those expectations synchronized with generator output.
 
-There is no headless integration suite because WebView2 requires a runtime, window, and message
-pump. The example applications are the end-to-end coverage for hosting and feature workflows.
+`test-webview` runs the raw host and browser feature fixtures against a live WebView2 runtime.
+The self-contained `test-reactor-selftest` configuration covers WinUI control initialization, the
+COM bridge, navigation, and script execution. Both tests run with real windows and message pumps.
+`test-webview --headless` suppresses its interactive UI; the Reactor selftest manages and closes
+its own test windows.

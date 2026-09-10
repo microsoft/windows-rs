@@ -63,10 +63,13 @@ pub fn framework_host_rejects_null_parent(harness: &Harness) {
 }
 
 pub fn creates_and_closes(harness: &Harness) {
+    let closed = Rc::new(Cell::new(0));
+    let close_callback = Rc::clone(&closed);
     let Some(result) = Harness::complete(|handler| {
         WebViewWindow::new("windows-webview - system host fixture")
             .client_size(640, 480)
             .quit_on_close(false)
+            .on_close(move || close_callback.set(close_callback.get() + 1))
             .create(handler)
     }) else {
         harness.check("system host creation completed", false);
@@ -91,6 +94,27 @@ pub fn creates_and_closes(harness: &Harness) {
         "system parent closes after host shutdown",
         host.window().hwnd().is_null(),
     );
+    harness.check("system close callback runs once", closed.get() == 1);
+
+    let dropped = Rc::new(Cell::new(0));
+    let drop_callback = Rc::clone(&dropped);
+    let Some(result) = Harness::complete(|handler| {
+        WebViewWindow::new("windows-webview - system host drop fixture")
+            .client_size(640, 480)
+            .quit_on_close(false)
+            .on_close(move || drop_callback.set(drop_callback.get() + 1))
+            .create(handler)
+    }) else {
+        harness.check("system drop host creation completed", false);
+        return;
+    };
+    let Ok(host) = result else {
+        harness.check("system drop host creation succeeded", false);
+        return;
+    };
+
+    drop(host);
+    harness.check("system drop skips close callback", dropped.get() == 0);
 }
 
 pub fn close_during_creation_cancels_and_destroys(harness: &Harness) {
