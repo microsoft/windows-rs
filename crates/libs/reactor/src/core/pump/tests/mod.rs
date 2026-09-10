@@ -26,6 +26,7 @@ mod pointer_events;
 mod properties_native_failure;
 mod resource_overrides;
 mod rich_text;
+mod routed_input;
 mod scrolling_properties;
 mod slots;
 mod tooltips;

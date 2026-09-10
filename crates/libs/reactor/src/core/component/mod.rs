@@ -806,6 +806,37 @@ struct ComponentQueue {
     wake: Option<Rc<dyn Fn()>>,
 }
 
+pub(crate) struct DeferredMessage {
+    queue: Rc<RefCell<ComponentQueue>>,
+    envelope: Option<MessageEnvelope>,
+}
+
+impl DeferredMessage {
+    pub(crate) fn enqueue(mut self) -> bool {
+        let envelope = self.envelope.take().unwrap();
+        let wake = {
+            let mut queue = self.queue.borrow_mut();
+            if !queue.open
+                || !queue.active.contains(&envelope.token.scope)
+                || queue.envelopes.len() >= LOCAL_MESSAGE_QUEUE_CAPACITY
+            {
+                return false;
+            }
+            let wake = queue
+                .envelopes
+                .is_empty()
+                .then(|| queue.wake.clone())
+                .flatten();
+            queue.envelopes.push_back(envelope);
+            wake
+        };
+        if let Some(wake) = wake {
+            wake();
+        }
+        true
+    }
+}
+
 /// Sends typed messages to a component's queued update loop.
 ///
 /// Delivery never calls [`Component::update`] inline. A send returns `false` when the component
@@ -863,6 +894,26 @@ impl<M: 'static> LocalSender<M> {
         true
     }
 
+    pub(crate) fn defer(&self, message: M) -> Option<DeferredMessage> {
+        {
+            let queue = self.queue.borrow();
+            if !queue.open
+                || !queue.active.contains(&self.token.scope)
+                || queue.envelopes.len() >= LOCAL_MESSAGE_QUEUE_CAPACITY
+            {
+                return None;
+            }
+        }
+        Some(DeferredMessage {
+            queue: Rc::clone(&self.queue),
+            envelope: Some(MessageEnvelope {
+                control: None,
+                token: self.token,
+                payload: Box::new(message),
+            }),
+        })
+    }
+
     /// Adapts values into queued component messages.
     ///
     /// Captureless mapper functions retain callback identity across publications. Capturing
@@ -879,6 +930,21 @@ impl<M: 'static> LocalSender<M> {
             })
         } else {
             Callback::new_with_acceptance(move |value| sender.send(map(value)))
+        }
+    }
+
+    pub(crate) fn routed_callback<T, F>(&self, map: F) -> RoutedCallback<T>
+    where
+        F: Fn(T) -> RoutedMessage<M> + 'static,
+    {
+        let sender = self.clone();
+        if size_of::<F>() == 0 {
+            let source = CallbackSource::new(Rc::as_ptr(&self.queue) as usize, self.token);
+            RoutedCallback::new_identified(source, TypeId::of::<F>(), move |value| {
+                RoutedDispatch::from_message(map(value), &sender)
+            })
+        } else {
+            RoutedCallback::new(move |value| RoutedDispatch::from_message(map(value), &sender))
         }
     }
 
@@ -1047,6 +1113,16 @@ impl<C: Component> ViewContext<C> {
     /// Creates a callback that maps its argument to a queued component message.
     pub fn callback<T>(&self, map: impl Fn(T) -> C::Message + 'static) -> Callback<T> {
         self.sender.callback(map)
+    }
+
+    /// Creates a synchronous routing decision that queues any resulting component message.
+    ///
+    /// The mapper runs in the native input callback. Component updates remain deferred.
+    pub fn routed_callback<T>(
+        &self,
+        map: impl Fn(T) -> RoutedMessage<C::Message> + 'static,
+    ) -> RoutedCallback<T> {
+        self.sender.routed_callback(map)
     }
 
     /// Creates a callback that forwards its argument as a queued component message.

@@ -460,6 +460,15 @@ impl<R: NativeRuntime> Pump<R> {
             desired_events.push((event, active));
         });
         for (event, active) in desired_events {
+            let current_callback = native.desired.routed_callback(event);
+            let desired_callback = desired.routed_callback(event);
+            if current_callback != desired_callback {
+                plan.post_publish_commands.push(Command::SetRoutedCallback {
+                    node,
+                    event,
+                    callback: desired_callback,
+                });
+            }
             let state = native.events.entry(event).or_insert(EventState {
                 revision: 0,
                 active: false,
@@ -598,6 +607,13 @@ impl<R: NativeRuntime> Pump<R> {
         }
         for (event, state) in &tree.native(node).events {
             if state.active {
+                if let Some(callback) = props.routed_callback(*event) {
+                    plan.push(Command::SetRoutedCallback {
+                        node,
+                        event: *event,
+                        callback: Some(callback),
+                    });
+                }
                 plan.push(Command::SubscribeEvent {
                     node,
                     event: *event,

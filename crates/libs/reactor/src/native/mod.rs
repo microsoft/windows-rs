@@ -10,5 +10,9 @@ pub(crate) enum FeedbackExpectation {
 mod winui;
 
 #[cfg(feature = "test")]
-pub use winui::test::{schedule_live_test_exit, subscribe_live_rendering};
+pub(crate) use winui::test::subscribe_live_input_probe;
+#[cfg(feature = "test")]
+pub use winui::test::{
+    LiveInputProbe, LiveInputProbeStage, schedule_live_test_exit, subscribe_live_rendering,
+};
 pub use winui::*;

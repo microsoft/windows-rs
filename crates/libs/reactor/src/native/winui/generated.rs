@@ -979,6 +979,22 @@ pub fn set_property(
             .map_err(native_error)?
             .SetIsEnabled(*value)
             .map_err(native_error),
+        (Handle::Border(control), PropertyId::BorderIsTabStop, PropertyValue::Bool(value)) => {
+            control
+                .cast::<IUIElement>()
+                .map_err(native_error)?
+                .SetIsTabStop(*value)
+                .map_err(native_error)
+        }
+        (
+            Handle::Border(control),
+            PropertyId::BorderAllowFocusOnInteraction,
+            PropertyValue::Bool(value),
+        ) => control
+            .cast::<IFrameworkElement>()
+            .map_err(native_error)?
+            .SetAllowFocusOnInteraction(*value)
+            .map_err(native_error),
         (Handle::Border(control), PropertyId::BorderPadding, PropertyValue::Thickness(value)) => {
             control
                 .SetPadding({
@@ -3021,6 +3037,15 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
         (Handle::RepeatButton(_), PropertyId::RepeatButtonIsEnabled) => dependency_object
             .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
             .map_err(native_error),
+        (Handle::Border(_), PropertyId::BorderIsTabStop) => dependency_object
+            .ClearValue(&bindings::UIElement::IsTabStopProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::Border(_), PropertyId::BorderAllowFocusOnInteraction) => dependency_object
+            .ClearValue(
+                &bindings::FrameworkElement::AllowFocusOnInteractionProperty()
+                    .map_err(native_error)?,
+            )
+            .map_err(native_error),
         (Handle::Border(_), PropertyId::BorderPadding) => dependency_object
             .ClearValue(&bindings::Border::PaddingProperty().map_err(native_error)?)
             .map_err(native_error),
@@ -4950,6 +4975,163 @@ pub fn subscribe_event(
                     revision,
                     EventPayload::Unit,
                 );
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::Border(value), EventId::BorderPreviewKeyDown) => {
+            let source = value.cast::<IUIElement>().map_err(native_error)?;
+            source.PreviewKeyDown(move |_, args| {
+                let result = args
+                    .as_ref()
+                    .ok_or_else(windows_core::Error::empty)
+                    .and_then(key_event_info);
+                match result {
+                    Ok(info) => {
+                        let handled =
+                            sink.route_key(node, EventId::BorderPreviewKeyDown, revision, info);
+                        if let Some(args) = args.as_ref() {
+                            _ = args.SetHandled(handled);
+                        }
+                    }
+                    Err(error) => {
+                        sink.error(
+                            node,
+                            EventId::BorderPreviewKeyDown,
+                            revision,
+                            native_error(error),
+                        );
+                    }
+                }
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::Border(value), EventId::BorderKeyUp) => {
+            let source = value.cast::<IUIElement>().map_err(native_error)?;
+            source.KeyUp(move |_, args| {
+                let result = args
+                    .as_ref()
+                    .ok_or_else(windows_core::Error::empty)
+                    .and_then(key_event_info);
+                match result {
+                    Ok(info) => {
+                        let handled = sink.route_key(node, EventId::BorderKeyUp, revision, info);
+                        if let Some(args) = args.as_ref() {
+                            _ = args.SetHandled(handled);
+                        }
+                    }
+                    Err(error) => {
+                        sink.error(node, EventId::BorderKeyUp, revision, native_error(error));
+                    }
+                }
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::Border(value), EventId::BorderCharacterReceived) => {
+            let source = value.cast::<IUIElement>().map_err(native_error)?;
+            source.CharacterReceived(move |_, args| {
+                let result = args
+                    .as_ref()
+                    .ok_or_else(windows_core::Error::empty)
+                    .and_then(character_event_info);
+                match result {
+                    Ok(info) => {
+                        let handled = sink.route_character(
+                            node,
+                            EventId::BorderCharacterReceived,
+                            revision,
+                            info,
+                        );
+                        if let Some(args) = args.as_ref() {
+                            _ = args.SetHandled(handled);
+                        }
+                    }
+                    Err(error) => {
+                        sink.error(
+                            node,
+                            EventId::BorderCharacterReceived,
+                            revision,
+                            native_error(error),
+                        );
+                    }
+                }
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::Border(value), EventId::BorderGotFocus) => {
+            let source = value.cast::<IUIElement>().map_err(native_error)?;
+            source.GotFocus({
+                let element = value.cast::<UIElement>().map_err(native_error)?;
+                move |_, args| {
+                    let result = args
+                        .as_ref()
+                        .ok_or_else(windows_core::Error::empty)
+                        .and_then(|args| focus_event_info(&element, args));
+                    match result {
+                        Ok(info) => sink.enqueue(
+                            node,
+                            EventId::BorderGotFocus,
+                            revision,
+                            EventPayload::FocusEventInfo(info),
+                        ),
+                        Err(error) => {
+                            sink.error(
+                                node,
+                                EventId::BorderGotFocus,
+                                revision,
+                                native_error(error),
+                            );
+                        }
+                    }
+                }
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::Border(value), EventId::BorderLostFocus) => {
+            let source = value.cast::<IUIElement>().map_err(native_error)?;
+            source.LostFocus({
+                let element = value.cast::<UIElement>().map_err(native_error)?;
+                move |_, args| {
+                    let result = args
+                        .as_ref()
+                        .ok_or_else(windows_core::Error::empty)
+                        .and_then(|args| focus_event_info(&element, args));
+                    match result {
+                        Ok(info) => sink.enqueue(
+                            node,
+                            EventId::BorderLostFocus,
+                            revision,
+                            EventPayload::FocusEventInfo(info),
+                        ),
+                        Err(error) => {
+                            sink.error(
+                                node,
+                                EventId::BorderLostFocus,
+                                revision,
+                                native_error(error),
+                            );
+                        }
+                    }
+                }
             })
         }
         .map(|revoker| NativeSubscription::Event {

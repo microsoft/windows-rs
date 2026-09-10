@@ -107,7 +107,13 @@ name = "Click"
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.Border"
-capabilities = ["layout", "content"]
+capabilities = ["layout", "content", "focus"]
+
+[[control.property]]
+name = "IsTabStop"
+
+[[control.property]]
+name = "AllowFocusOnInteraction"
 
 [[control.property]]
 name = "Padding"
@@ -205,6 +211,29 @@ name = "PointerCaptureLost"
 
 [[control.event]]
 name = "PointerCanceled"
+
+[[control.event]]
+name = "PreviewKeyDown"
+adapter = "key_event"
+routed = true
+
+[[control.event]]
+name = "KeyUp"
+adapter = "key_event"
+routed = true
+
+[[control.event]]
+name = "CharacterReceived"
+adapter = "character_event"
+routed = true
+
+[[control.event]]
+name = "GotFocus"
+adapter = "focus_event"
+
+[[control.event]]
+name = "LostFocus"
+adapter = "focus_event"
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.BreadcrumbBar"

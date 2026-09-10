@@ -46,8 +46,8 @@ pub struct ExtensionSurface {
     pub name: &'static str,
 }
 pub(crate) const PROJECTED_CONTROL_COUNT: usize = 79usize;
-pub(crate) const PROJECTED_PROPERTY_COUNT: usize = 230usize;
-pub(crate) const PROJECTED_EVENT_COUNT: usize = 63usize;
+pub(crate) const PROJECTED_PROPERTY_COUNT: usize = 232usize;
+pub(crate) const PROJECTED_EVENT_COUNT: usize = 68usize;
 pub(crate) const CAPABILITY_PROPERTY_COUNT: usize = 27usize;
 pub(crate) const STRUCTURAL_COUNT: usize = 65usize;
 pub(crate) const EXTENSION_COUNT: usize = 5;
@@ -457,6 +457,22 @@ fn property_repeat_button_is_enabled(stage: usize) -> View {
         0 | 3 => Grid::new().children((RepeatButton::new(),)),
         1 => Grid::new().children((RepeatButton::new().is_enabled(true),)),
         2 => Grid::new().children((RepeatButton::new().is_enabled(false),)),
+        _ => unreachable!(),
+    }
+}
+fn property_border_is_tab_stop(stage: usize) -> View {
+    match stage {
+        0 | 3 => Grid::new().children((Border::new(),)),
+        1 => Grid::new().children((Border::new().is_tab_stop(true),)),
+        2 => Grid::new().children((Border::new().is_tab_stop(false),)),
+        _ => unreachable!(),
+    }
+}
+fn property_border_allow_focus_on_interaction(stage: usize) -> View {
+    match stage {
+        0 | 3 => Grid::new().children((Border::new(),)),
+        1 => Grid::new().children((Border::new().allow_focus_on_interaction(true),)),
+        2 => Grid::new().children((Border::new().allow_focus_on_interaction(false),)),
         _ => unreachable!(),
     }
 }
@@ -2384,6 +2400,102 @@ fn event_border_on_pointer_canceled(stage: usize) -> View {
             let _ = 0u8;
         }),)),
         2 => Grid::new().children((Border::new().on_pointer_canceled(move || {
+            let _ = 1u8;
+        }),)),
+        _ => unreachable!(),
+    }
+}
+struct BorderPreviewKeyDownEventSurface;
+impl Component for BorderPreviewKeyDownEventSurface {
+    type Input = usize;
+    type Message = ();
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+    fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        let marker = *input;
+        match marker {
+            0 | 3 => Grid::new().children((Border::new(),)),
+            1 | 2 => Grid::new().children((Border::new().on_preview_key_down(
+                context.routed_callback(move |_| {
+                    let _ = marker;
+                    RoutedMessage::bubble(())
+                }),
+            ),)),
+            _ => unreachable!(),
+        }
+    }
+}
+fn event_border_on_preview_key_down(stage: usize) -> View {
+    View::component::<BorderPreviewKeyDownEventSurface>(stage)
+}
+struct BorderKeyUpEventSurface;
+impl Component for BorderKeyUpEventSurface {
+    type Input = usize;
+    type Message = ();
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+    fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        let marker = *input;
+        match marker {
+            0 | 3 => Grid::new().children((Border::new(),)),
+            1 | 2 => Grid::new().children((Border::new().on_key_up(context.routed_callback(
+                move |_| {
+                    let _ = marker;
+                    RoutedMessage::bubble(())
+                },
+            )),)),
+            _ => unreachable!(),
+        }
+    }
+}
+fn event_border_on_key_up(stage: usize) -> View {
+    View::component::<BorderKeyUpEventSurface>(stage)
+}
+struct BorderCharacterReceivedEventSurface;
+impl Component for BorderCharacterReceivedEventSurface {
+    type Input = usize;
+    type Message = ();
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+    fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        let marker = *input;
+        match marker {
+            0 | 3 => Grid::new().children((Border::new(),)),
+            1 | 2 => Grid::new().children((Border::new().on_character_received(
+                context.routed_callback(move |_| {
+                    let _ = marker;
+                    RoutedMessage::bubble(())
+                }),
+            ),)),
+            _ => unreachable!(),
+        }
+    }
+}
+fn event_border_on_character_received(stage: usize) -> View {
+    View::component::<BorderCharacterReceivedEventSurface>(stage)
+}
+fn event_border_on_got_focus(stage: usize) -> View {
+    match stage {
+        0 | 3 => Grid::new().children((Border::new(),)),
+        1 => Grid::new().children((Border::new().on_got_focus(move |_| {
+            let _ = 0u8;
+        }),)),
+        2 => Grid::new().children((Border::new().on_got_focus(move |_| {
+            let _ = 1u8;
+        }),)),
+        _ => unreachable!(),
+    }
+}
+fn event_border_on_lost_focus(stage: usize) -> View {
+    match stage {
+        0 | 3 => Grid::new().children((Border::new(),)),
+        1 => Grid::new().children((Border::new().on_lost_focus(move |_| {
+            let _ = 0u8;
+        }),)),
+        2 => Grid::new().children((Border::new().on_lost_focus(move |_| {
             let _ = 1u8;
         }),)),
         _ => unreachable!(),
@@ -4355,6 +4467,20 @@ pub(crate) static SURFACE_CASES: &[SurfaceCase] = &[
         build: construct_border,
     },
     SurfaceCase {
+        name: "property.Border.IsTabStop",
+        kind: SurfaceKind::Property,
+        stages: 4,
+        subscription_delta: None,
+        build: property_border_is_tab_stop,
+    },
+    SurfaceCase {
+        name: "property.Border.AllowFocusOnInteraction",
+        kind: SurfaceKind::Property,
+        stages: 4,
+        subscription_delta: None,
+        build: property_border_allow_focus_on_interaction,
+    },
+    SurfaceCase {
         name: "property.Border.Padding",
         kind: SurfaceKind::Property,
         stages: 4,
@@ -4507,6 +4633,41 @@ pub(crate) static SURFACE_CASES: &[SurfaceCase] = &[
         stages: 4,
         subscription_delta: Some(1usize),
         build: event_border_on_pointer_canceled,
+    },
+    SurfaceCase {
+        name: "event.Border.PreviewKeyDown",
+        kind: SurfaceKind::Event,
+        stages: 4,
+        subscription_delta: Some(1usize),
+        build: event_border_on_preview_key_down,
+    },
+    SurfaceCase {
+        name: "event.Border.KeyUp",
+        kind: SurfaceKind::Event,
+        stages: 4,
+        subscription_delta: Some(1usize),
+        build: event_border_on_key_up,
+    },
+    SurfaceCase {
+        name: "event.Border.CharacterReceived",
+        kind: SurfaceKind::Event,
+        stages: 4,
+        subscription_delta: Some(1usize),
+        build: event_border_on_character_received,
+    },
+    SurfaceCase {
+        name: "event.Border.GotFocus",
+        kind: SurfaceKind::Event,
+        stages: 4,
+        subscription_delta: Some(1usize),
+        build: event_border_on_got_focus,
+    },
+    SurfaceCase {
+        name: "event.Border.LostFocus",
+        kind: SurfaceKind::Event,
+        stages: 4,
+        subscription_delta: Some(1usize),
+        build: event_border_on_lost_focus,
     },
     SurfaceCase {
         name: "control.BreadcrumbBar.construct",
@@ -7378,6 +7539,24 @@ pub static PROJECTED_PROPERTIES: &[PropertySurface] = &[
     },
     PropertySurface {
         control: "Border",
+        property: "IsTabStop",
+        value: "Bool",
+        adapter: "direct",
+        validation: None,
+        clearable: true,
+        theme_style: false,
+    },
+    PropertySurface {
+        control: "Border",
+        property: "AllowFocusOnInteraction",
+        value: "Bool",
+        adapter: "direct",
+        validation: None,
+        clearable: true,
+        theme_style: false,
+    },
+    PropertySurface {
+        control: "Border",
         property: "Padding",
         value: "Thickness",
         adapter: "direct",
@@ -9398,6 +9577,51 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
         control: "Border",
         event: "PointerCanceled",
         payload: "Unit",
+        conversion: "Identity",
+        subscription: "callback",
+        delivery: "registration+deterministic",
+        active_property: None,
+    },
+    EventSurface {
+        control: "Border",
+        event: "PreviewKeyDown",
+        payload: "KeyEventInfo",
+        conversion: "Identity",
+        subscription: "callback",
+        delivery: "registration+deterministic",
+        active_property: None,
+    },
+    EventSurface {
+        control: "Border",
+        event: "KeyUp",
+        payload: "KeyEventInfo",
+        conversion: "Identity",
+        subscription: "callback",
+        delivery: "registration+deterministic",
+        active_property: None,
+    },
+    EventSurface {
+        control: "Border",
+        event: "CharacterReceived",
+        payload: "CharacterEventInfo",
+        conversion: "Identity",
+        subscription: "callback",
+        delivery: "registration+deterministic",
+        active_property: None,
+    },
+    EventSurface {
+        control: "Border",
+        event: "GotFocus",
+        payload: "FocusEventInfo",
+        conversion: "Identity",
+        subscription: "callback",
+        delivery: "registration+deterministic",
+        active_property: None,
+    },
+    EventSurface {
+        control: "Border",
+        event: "LostFocus",
+        payload: "FocusEventInfo",
         conversion: "Identity",
         subscription: "callback",
         delivery: "registration+deterministic",

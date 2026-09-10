@@ -85,7 +85,8 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                             .to_string(),
                     );
                 }
-                Some(PropertyAdapter::ClockIdentifier)
+                Some(PropertyAdapter::CharacterEvent)
+                | Some(PropertyAdapter::ClockIdentifier)
                 | Some(PropertyAdapter::ContentDialogResult)
                 | Some(PropertyAdapter::FontWeight)
                 | Some(PropertyAdapter::HorizontalContentAlignment)
@@ -94,6 +95,7 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                 | Some(PropertyAdapter::InspectableStringList)
                 | Some(PropertyAdapter::ItemTag)
                 | Some(PropertyAdapter::ItemTags)
+                | Some(PropertyAdapter::KeyEvent)
                 | Some(PropertyAdapter::NavigationDisplayMode)
                 | Some(PropertyAdapter::NumberBoxValue)
                 | Some(PropertyAdapter::PathData)
@@ -103,6 +105,7 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                 | Some(PropertyAdapter::DragInfo)
                 | Some(PropertyAdapter::DropData)
                 | Some(PropertyAdapter::DropPolicy)
+                | Some(PropertyAdapter::FocusEvent)
                 | Some(PropertyAdapter::ResourceOverrides)
                 | Some(PropertyAdapter::ResourceStyle)
                 | Some(PropertyAdapter::RichEditText)
@@ -1535,6 +1538,83 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                         revision,
                         EventPayload::PointerEventInfo(info),
                     );
+                }
+            }
+        },
+        EventPayloadSource::KeyEvent => quote! {
+            move |_, args| {
+                let result = args
+                    .as_ref()
+                    .ok_or_else(windows_core::Error::empty)
+                    .and_then(key_event_info);
+                match result {
+                    Ok(info) => {
+                        let handled =
+                            sink.route_key(node, EventId::#event_id, revision, info);
+                        if let Some(args) = args.as_ref() {
+                            _ = args.SetHandled(handled);
+                        }
+                    }
+                    Err(error) => {
+                        sink.error(
+                            node,
+                            EventId::#event_id,
+                            revision,
+                            native_error(error),
+                        );
+                    }
+                }
+            }
+        },
+        EventPayloadSource::CharacterEvent => quote! {
+            move |_, args| {
+                let result = args
+                    .as_ref()
+                    .ok_or_else(windows_core::Error::empty)
+                    .and_then(character_event_info);
+                match result {
+                    Ok(info) => {
+                        let handled =
+                            sink.route_character(node, EventId::#event_id, revision, info);
+                        if let Some(args) = args.as_ref() {
+                            _ = args.SetHandled(handled);
+                        }
+                    }
+                    Err(error) => {
+                        sink.error(
+                            node,
+                            EventId::#event_id,
+                            revision,
+                            native_error(error),
+                        );
+                    }
+                }
+            }
+        },
+        EventPayloadSource::FocusEvent => quote! {
+            {
+                let element = value.cast::<UIElement>().map_err(native_error)?;
+                move |_, args| {
+                    let result = args
+                        .as_ref()
+                        .ok_or_else(windows_core::Error::empty)
+                        .and_then(|args| focus_event_info(&element, args));
+                    match result {
+                        Ok(info) => sink.enqueue(
+                            node,
+                            EventId::#event_id,
+                            revision,
+                            EventPayload::FocusEventInfo(info),
+                        ),
+                        Err(error) => {
+                            sink.error(
+                                node,
+                                EventId::#event_id,
+                                revision,
+                                native_error(error),
+                            );
+                        }
+                    }
                 }
             }
         },

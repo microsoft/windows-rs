@@ -7,8 +7,9 @@ use windows_reactor::*;
 use crate::fixtures::WebViewLifecycle;
 use crate::fixtures::{
     CompositionLifecycle, EncodedImageLifecycle, FixtureInput, FixtureResult, FocusPublication,
-    ImageSourceLifecycle, KeyedNativeMutations, NestedWindowOperation, PointerInjection,
-    ProbeFixture, ProbeInput, SwapChainLifecycle, ThemeResources, TimerLifecycle, WindowLifecycle,
+    ImageSourceLifecycle, KeyboardInput, KeyedNativeMutations, NestedWindowOperation,
+    PointerInjection, ProbeFixture, ProbeInput, SwapChainLifecycle, ThemeResources, TimerLifecycle,
+    WindowLifecycle,
 };
 
 const FIXTURE_TIMEOUT: Duration = Duration::from_secs(15);
@@ -27,6 +28,7 @@ pub(crate) const SUITE_TIMEOUT: Duration = Duration::from_secs(
 enum FixtureKind {
     ContentDialogLifecycle,
     FocusPublication,
+    KeyboardInput,
     EventDelivery,
     EventRevokers,
     ControlledFeedback,
@@ -63,6 +65,10 @@ const FIXTURES: &[Fixture] = &[
     Fixture {
         name: "Focus_PublicationAndRetirement",
         kind: FixtureKind::FocusPublication,
+    },
+    Fixture {
+        name: "Keyboard_RoutedInput",
+        kind: FixtureKind::KeyboardInput,
     },
     Fixture {
         name: "ContentDialog_QueuedReopenLifecycle",
@@ -267,6 +273,7 @@ impl Component for FixtureRunner {
                 .text("ContentDialog lifecycle probe")
                 .into(),
             Some(FixtureKind::FocusPublication) => View::component::<FocusPublication>(input),
+            Some(FixtureKind::KeyboardInput) => View::component::<KeyboardInput>(input),
             Some(FixtureKind::EventDelivery) => {
                 TextBlock::new().text("event delivery probe").into()
             }

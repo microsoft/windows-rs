@@ -239,6 +239,41 @@ above, `context.forward()` is the shortest form.
 Keep event-driven state changes in `update`, and keep `view` focused on turning the current state
 into controls. That makes the direction of data flow easy to follow.
 
+## Handle keyboard input on custom surfaces
+
+`Border` can act as a focusable interaction surface around Canvas, Composition, or another custom
+view. Enable tab focus, opt into pointer focus, and use routed callbacks for input events whose
+WinUI `Handled` value must be set before the native callback returns:
+
+```rust,ignore
+Border::new()
+    .is_tab_stop(true)
+    .allow_focus_on_interaction(true)
+    .on_preview_key_down(context.routed_callback(|info: KeyEventInfo| {
+        match info.key {
+            VirtualKey::LEFT => RoutedMessage::handled(Message::MoveLeft),
+            VirtualKey::RIGHT => RoutedMessage::handled(Message::MoveRight),
+            _ => RoutedMessage::bubble_without_message(),
+        }
+    }))
+    .on_character_received(context.routed_callback(|info: CharacterEventInfo| {
+        RoutedMessage::handled(Message::Character(info.character))
+    }))
+    .on_got_focus(context.callback(Message::Focused))
+    .on_lost_focus(context.callback(Message::Blurred))
+    .content(custom_surface)
+```
+
+The routed callback inspects an owned payload and decides whether the native event is handled.
+Its optional component message still enters the normal queue, so `Component::update` and
+reconciliation never run inside the WinUI callback. Return `bubble_without_message` for keys such
+as Tab that should retain their normal XAML behavior.
+
+`KeyEventInfo` includes the mapped and original virtual key, physical-key status, and modifier
+state. `CharacterEventInfo::character` is one UTF-16 code unit so surrogate pairs are preserved
+without lossy conversion. `ElementRef<Border>` supports programmatic focus when pointer or tab
+focus is not sufficient.
+
 ## Split the UI into understandable pieces
 
 For small, stateless pieces, use an ordinary function that returns `View`:
@@ -480,6 +515,8 @@ events. The [`gallery`](../../crates/samples/reactor/gallery) is a control catal
 together in a larger application. See the [`composition`](../../crates/samples/composition),
 [`webview`](../../crates/samples/webview/reactor), and
 [Canvas](../../crates/samples/canvas) samples only when the app needs those integrations.
+The [`canvas-editor`](../../crates/samples/canvas/editor) sample uses a focusable Canvas surface
+with pointer selection, routed keyboard navigation, character labels, and focus visuals.
 
 ---
 
@@ -540,6 +577,12 @@ Canvas owns its devices, swap chains, image sources, resize handling, and recove
 owns application visual trees and animations. WebView users receive the CoreWebView2 object rather
 than Reactor's XAML control.
 
+Routed keyboard callbacks are stored separately from ordinary event callbacks. WinUI key and
+character arguments are copied into owned payloads, the callback decides `Handled` synchronously,
+and any resulting component message is placed in the existing native-event FIFO. This preserves
+native event order without running component code or reconciliation across a WinRT callback.
+Callback replacements publish transactionally and do not replace the native subscription.
+
 ### Code generation
 
 `crates/tools/reactor` refreshes pinned WinUI, Windows App SDK, and WebView2 metadata, resolves
@@ -582,6 +625,7 @@ feature removes that allowance so the live surface build checks all generated te
 | Generated WinUI surface | `cargo run -p test-reactor-surface -- --headless` |
 | Planner benchmarks | `cargo run -p test-reactor-bench --release` |
 | Live grid benchmark | `cargo run -p test-reactor-bench --bin reactor-live-grid --release` |
+| Live input benchmark | `cargo run -p test-reactor-bench --bin reactor-live-input --release` |
 
 The generated surface test covers projected controls, properties, events, content, collections,
 slots, attachments, virtual items, and TreeView nodes. Handwritten self-tests own imperative

@@ -284,9 +284,64 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             let case_name = format!("event.{}.{}", control.name, event.name);
             let control_name = ident(&control.name);
             let field = ident(&event.field);
+            let subscription_delta = usize::from(!control.event_always_active(event));
+            let cleared = wrap_control(control, quote! { #control_name::new() });
+            if event.routed {
+                let component = ident(&format!("{}{}EventSurface", control.name, event.name));
+                let initial = wrap_control(
+                    control,
+                    quote! {
+                        #control_name::new().#field(context.routed_callback(move |_| {
+                            let _ = marker;
+                            RoutedMessage::bubble(())
+                        }))
+                    },
+                );
+                event_builders.push(quote! {
+                    struct #component;
+
+                    impl Component for #component {
+                        type Input = usize;
+                        type Message = ();
+
+                        fn create(
+                            _input: &Self::Input,
+                            _context: &ComponentContext<Self>,
+                        ) -> Self {
+                            Self
+                        }
+
+                        fn view(
+                            &self,
+                            input: &Self::Input,
+                            context: &mut ViewContext<Self>,
+                        ) -> View {
+                            let marker = *input;
+                            match marker {
+                                0 | 3 => #cleared,
+                                1 | 2 => #initial,
+                                _ => unreachable!(),
+                            }
+                        }
+                    }
+
+                    fn #function(stage: usize) -> View {
+                        View::component::<#component>(stage)
+                    }
+                });
+                cases.push(quote! {
+                    SurfaceCase {
+                        name: #case_name,
+                        kind: SurfaceKind::Event,
+                        stages: 4,
+                        subscription_delta: Some(#subscription_delta),
+                        build: #function,
+                    }
+                });
+                continue;
+            }
             let first_callback = event_callback(event, false);
             let alternate_callback = event_callback(event, true);
-            let cleared = wrap_control(control, quote! { #control_name::new() });
             let initial = wrap_control(
                 control,
                 quote! { #control_name::new().#field(#first_callback) },
@@ -295,7 +350,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 control,
                 quote! { #control_name::new().#field(#alternate_callback) },
             );
-            let subscription_delta = usize::from(!control.event_always_active(event));
             event_builders.push(quote! {
                 fn #function(stage: usize) -> View {
                     match stage {

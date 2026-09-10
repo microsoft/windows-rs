@@ -8,13 +8,17 @@ use windows::UI::Input::Preview::Injection::{
     InjectedInputMouseInfo, InjectedInputMouseOptions, InputInjector,
 };
 use windows::Win32::winuser::{
-    BringWindowToTop, ClientToScreen, DispatchMessageW, GetClientRect, GetMessageW,
-    GetMonitorInfoW, GetSystemMetrics, GetWindowRect, KillTimer, MONITOR_DEFAULTTONEAREST,
-    MONITORINFO, MSG, MonitorFromWindow, PostQuitMessage, SM_CXVIRTUALSCREEN, SM_CYVIRTUALSCREEN,
-    SM_XVIRTUALSCREEN, SM_YVIRTUALSCREEN, SWP_NOSIZE, SWP_NOZORDER, SetForegroundWindow, SetTimer,
-    SetWindowPos, TranslateMessage, WM_TIMER,
+    BringWindowToTop, ClientToScreen, DispatchMessageW, GetClientRect, GetForegroundWindow,
+    GetMessageW, GetMonitorInfoW, GetSystemMetrics, GetWindowRect, KillTimer,
+    MONITOR_DEFAULTTONEAREST, MONITORINFO, MSG, MonitorFromWindow, PostQuitMessage,
+    SM_CXVIRTUALSCREEN, SM_CYVIRTUALSCREEN, SM_XVIRTUALSCREEN, SM_YVIRTUALSCREEN, SWP_NOSIZE,
+    SWP_NOZORDER, SendInput, SetForegroundWindow, SetTimer, SetWindowPos, TranslateMessage,
+    WM_TIMER,
 };
-use windows::Win32::{HWND, POINT, RECT};
+use windows::Win32::{
+    HWND, INPUT, INPUT_0, INPUT_KEYBOARD, KEYBDINPUT, KEYEVENTF_KEYUP, KEYEVENTF_UNICODE, POINT,
+    RECT,
+};
 use windows_canvas::{CanvasCompositionExt, CanvasImageSource, ColorF, GpuDevice, animated_canvas};
 use windows_collections::IIterable;
 use windows_composition::{Compositor as CompositionCompositor, ContainerVisual, SpriteVisual};
@@ -24,6 +28,8 @@ use windows_reactor::*;
 use windows_webview::{EventRegistration, WebView, webview_result};
 
 pub type FixtureResult = Result<(), String>;
+
+const F13: VirtualKey = VirtualKey(0x7C);
 
 #[cfg(feature = "self-contained")]
 pub(crate) struct WebViewLifecycle {
@@ -397,6 +403,206 @@ impl Component for FocusPublication {
                 TextBlock::new().text("focus fixture complete").into()
             }
         }
+    }
+}
+
+pub(crate) struct KeyboardInput {
+    complete: Callback<FixtureResult>,
+    reference: ElementRef<Border>,
+    focus_observed: bool,
+    key_observed: bool,
+    character_observed: bool,
+    injection_complete: bool,
+    hwnd: Option<isize>,
+}
+
+pub(crate) enum KeyboardMessage {
+    Focused(Result<bool, FocusError>),
+    GotFocus(FocusEventInfo),
+    Key(KeyEventInfo),
+    Character(CharacterEventInfo),
+    WindowHandle(Result<isize, String>),
+    Activated(Result<isize, String>),
+    Injected(Result<(), String>),
+}
+
+impl KeyboardInput {
+    fn complete_if_ready(&self) {
+        if self.focus_observed
+            && self.key_observed
+            && self.character_observed
+            && self.injection_complete
+            && !self.complete.call(Ok(()))
+        {
+            eprintln!("keyboard fixture completion was rejected");
+            std::process::exit(1);
+        }
+    }
+}
+
+impl Component for KeyboardInput {
+    type Input = FixtureInput;
+    type Message = KeyboardMessage;
+
+    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            complete: input.complete.clone(),
+            reference: ElementRef::new(),
+            focus_observed: false,
+            key_observed: false,
+            character_observed: false,
+            injection_complete: false,
+            hwnd: None,
+        }
+    }
+
+    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
+        self.complete = input.complete.clone();
+    }
+
+    fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
+        let failure = match message {
+            KeyboardMessage::Focused(Ok(true)) => {
+                let hwnd = self.hwnd.unwrap();
+                context.spawn_background(move |_| {
+                    std::thread::sleep(Duration::from_millis(100));
+                    KeyboardMessage::Injected(inject_keyboard(hwnd))
+                });
+                None
+            }
+            KeyboardMessage::Focused(Ok(false)) => {
+                Some("WinUI rejected the keyboard focus request".to_string())
+            }
+            KeyboardMessage::Focused(Err(error)) => {
+                Some(format!("keyboard focus request failed: {error:?}"))
+            }
+            KeyboardMessage::GotFocus(info) => {
+                if !info.is_direct || info.state == ElementFocusState::Unfocused {
+                    Some(format!("unexpected focus payload: {info:?}"))
+                } else {
+                    self.focus_observed = true;
+                    None
+                }
+            }
+            KeyboardMessage::Key(info) => {
+                if info.key != F13
+                    || info.original_key != F13
+                    || info.status.is_released
+                    || info.modifiers != InputModifiers::NONE
+                {
+                    Some(format!("unexpected key payload: {info:?}"))
+                } else {
+                    self.key_observed = true;
+                    None
+                }
+            }
+            KeyboardMessage::Character(info) => {
+                if info.character != b'x'.into() || info.status.is_released {
+                    Some(format!("unexpected character payload: {info:?}"))
+                } else {
+                    self.character_observed = true;
+                    None
+                }
+            }
+            KeyboardMessage::WindowHandle(Ok(hwnd)) => {
+                context.spawn_background(move |_| {
+                    unsafe {
+                        let _ = SetForegroundWindow(HWND(hwnd as *mut _));
+                    }
+                    std::thread::sleep(Duration::from_millis(100));
+                    let result = (unsafe { GetForegroundWindow() } == HWND(hwnd as *mut _))
+                        .then_some(hwnd)
+                        .ok_or_else(|| "self-test window could not become foreground".to_string());
+                    KeyboardMessage::Activated(result)
+                });
+                None
+            }
+            KeyboardMessage::WindowHandle(Err(error)) => Some(error),
+            KeyboardMessage::Activated(Ok(hwnd)) => {
+                self.hwnd = Some(hwnd);
+                let sender = context.sender();
+                if !self.reference.request_focus_result(move |result| {
+                    sender.send(KeyboardMessage::Focused(result));
+                }) {
+                    Some("keyboard target was not published".to_string())
+                } else {
+                    None
+                }
+            }
+            KeyboardMessage::Activated(Err(error)) => Some(error),
+            KeyboardMessage::Injected(Ok(())) => {
+                self.injection_complete = true;
+                None
+            }
+            KeyboardMessage::Injected(Err(error)) => Some(error),
+        };
+        if let Some(failure) = failure {
+            if !self.complete.call(Err(failure)) {
+                eprintln!("keyboard fixture failure was rejected");
+                std::process::exit(1);
+            }
+            return;
+        }
+        self.complete_if_ready();
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        let sender = context.sender();
+        context.use_effect("request-focus", (), move || {
+            schedule_live_window_handle(move |result| {
+                sender.send(KeyboardMessage::WindowHandle(result));
+            })
+            .unwrap();
+            None
+        });
+
+        Border::new()
+            .is_tab_stop(true)
+            .element_ref(&self.reference)
+            .on_got_focus(context.callback(KeyboardMessage::GotFocus))
+            .on_preview_key_down(context.routed_callback(|info: KeyEventInfo| {
+                if info.key == F13 {
+                    RoutedMessage::handled(KeyboardMessage::Key(info))
+                } else {
+                    RoutedMessage::bubble_without_message()
+                }
+            }))
+            .on_character_received(context.routed_callback(|info: CharacterEventInfo| {
+                RoutedMessage::handled(KeyboardMessage::Character(info))
+            }))
+            .content("Keyboard input target")
+    }
+}
+
+fn inject_keyboard(hwnd: isize) -> Result<(), String> {
+    if unsafe { GetForegroundWindow() } != HWND(hwnd as *mut _) {
+        return Err("self-test window lost foreground focus".to_string());
+    }
+    let key = |virtual_key, scan_code, flags| INPUT {
+        r#type: INPUT_KEYBOARD as u32,
+        Anonymous: INPUT_0 {
+            ki: KEYBDINPUT {
+                wVk: virtual_key,
+                wScan: scan_code,
+                dwFlags: flags,
+                ..Default::default()
+            },
+        },
+    };
+    let inputs = [
+        key(F13.0 as u16, 0, 0),
+        key(F13.0 as u16, 0, KEYEVENTF_KEYUP as u32),
+        key(0, b'x'.into(), KEYEVENTF_UNICODE as u32),
+        key(0, b'x'.into(), (KEYEVENTF_UNICODE | KEYEVENTF_KEYUP) as u32),
+    ];
+    let inserted = unsafe { SendInput(&inputs, size_of::<INPUT>() as i32) };
+    if inserted == inputs.len() as u32 {
+        Ok(())
+    } else {
+        Err(format!(
+            "SendInput inserted {inserted} of {} keyboard events",
+            inputs.len()
+        ))
     }
 }
 

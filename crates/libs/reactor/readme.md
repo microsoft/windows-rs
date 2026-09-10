@@ -50,6 +50,34 @@ fn main() {
 }
 ```
 
+Focusable custom surfaces can make synchronous WinUI routing decisions without running component
+updates inside native callbacks:
+
+```rust,no_run
+use windows_reactor::*;
+
+fn keyboard_surface<C: Component<Message = Message>>(
+    context: &mut ViewContext<C>,
+    content: impl Into<View>,
+) -> View {
+    Border::new()
+        .is_tab_stop(true)
+        .allow_focus_on_interaction(true)
+        .on_preview_key_down(context.routed_callback(|info: KeyEventInfo| {
+            if info.key == VirtualKey::LEFT {
+                RoutedMessage::handled(Message::MoveLeft)
+            } else {
+                RoutedMessage::bubble_without_message()
+            }
+        }))
+        .content(content)
+}
+
+enum Message {
+    MoveLeft,
+}
+```
+
 Native operations that need the owning HWND can be staged from a component update:
 
 ```rust,ignore

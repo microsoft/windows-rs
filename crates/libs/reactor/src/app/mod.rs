@@ -1078,6 +1078,13 @@ pub(crate) fn dispatch_native_events(token: WindowToken) {
         });
         for diagnostic in live.drain_diagnostics() {
             match diagnostic {
+                PumpDiagnostic::HandledInputDropped { node, event } => {
+                    let message =
+                        format!("handled input {event:?} for {node:?} could not be delivered");
+                    #[cfg(feature = "test")]
+                    test::record_live_diagnostic(message.clone());
+                    eprintln!("windows-reactor warning: {message}");
+                }
                 PumpDiagnostic::WindowOpenRejected { error } => {
                     let message = format!("runtime window open was rejected: {error:?}");
                     #[cfg(feature = "test")]

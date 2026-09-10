@@ -54,6 +54,77 @@ struct BenchLeaf {
     active: bool,
 }
 
+struct BenchNotepad {
+    text: String,
+}
+
+struct BenchRoutedInput {
+    events: u64,
+}
+
+struct BenchQueuedInput {
+    events: u64,
+}
+
+impl Component for BenchQueuedInput {
+    type Input = ();
+    type Message = PointerEventInfo;
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { events: 0 }
+    }
+
+    fn update(&mut self, _message: Self::Message, _context: &ComponentContext<Self>) {
+        self.events += 1;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        Border::new().on_pointer_pressed(context.forward()).into()
+    }
+}
+
+impl Component for BenchRoutedInput {
+    type Input = ();
+    type Message = KeyEventInfo;
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { events: 0 }
+    }
+
+    fn update(&mut self, _message: Self::Message, _context: &ComponentContext<Self>) {
+        self.events += 1;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        Border::new()
+            .is_tab_stop(true)
+            .on_preview_key_down(context.routed_callback(RoutedMessage::handled))
+            .into()
+    }
+}
+
+impl Component for BenchNotepad {
+    type Input = ();
+    type Message = String;
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            text: String::new(),
+        }
+    }
+
+    fn update(&mut self, message: Self::Message, _context: &ComponentContext<Self>) {
+        self.text = message;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        TextBox::new()
+            .text(self.text.clone())
+            .on_text_changed(context.forward())
+            .into()
+    }
+}
+
 enum BackgroundMessage {
     Complete,
     Start,
@@ -896,6 +967,125 @@ fn bench_component_leaf(count: usize, iters: u64, reps: u32) -> Row {
     }
 }
 
+fn bench_textbox_input(iters: u64, reps: u32) -> Row {
+    let mut runtime = RecordingRuntime::default();
+    runtime.record_commands(true);
+    let mut pump = Pump::new(runtime);
+    pump.mount_view(View::component::<BenchNotepad>(()))
+        .unwrap();
+    let node = pump
+        .runtime()
+        .commands()
+        .iter()
+        .flatten()
+        .find_map(|command| match command {
+            Command::Create { node, .. } => Some(*node),
+            _ => None,
+        })
+        .unwrap();
+    let revision = pump
+        .event_revision(node, EventId::TextBoxTextChanged)
+        .unwrap();
+    pump.runtime_mut().record_commands(false);
+    let mut value = false;
+    let perf = measure(iters, reps, || {
+        let text = if value { "first" } else { "second" };
+        pump.queue_event(QueuedEvent::new(
+            node,
+            EventId::TextBoxTextChanged,
+            revision,
+            EventPayload::Str(text.to_string()),
+        ));
+        assert_eq!(pump.dispatch_events(), Ok(1));
+        assert_eq!(pump.dispatch_components(1), Ok(1));
+        value = !value;
+    });
+    Row {
+        name: "textbox_input",
+        n: 1,
+        perf,
+    }
+}
+
+fn bench_routed_key_input(iters: u64, reps: u32) -> Row {
+    let mut runtime = RecordingRuntime::default();
+    runtime.record_commands(true);
+    let mut pump = Pump::new(runtime);
+    pump.mount_view(View::component::<BenchRoutedInput>(()))
+        .unwrap();
+    let node = pump
+        .runtime()
+        .commands()
+        .iter()
+        .flatten()
+        .find_map(|command| match command {
+            Command::Create { node, .. } => Some(*node),
+            _ => None,
+        })
+        .unwrap();
+    let revision = pump
+        .event_revision(node, EventId::BorderPreviewKeyDown)
+        .unwrap();
+    pump.runtime_mut().record_commands(false);
+    let event = KeyEventInfo {
+        key: VirtualKey::A,
+        original_key: VirtualKey::A,
+        status: PhysicalKeyStatus::default(),
+        modifiers: InputModifiers::CONTROL,
+    };
+    let perf = measure(iters, reps, || {
+        assert!(
+            pump.runtime_mut()
+                .route_key(node, EventId::BorderPreviewKeyDown, revision, event,)
+        );
+        assert_eq!(pump.dispatch_events(), Ok(1));
+        assert_eq!(pump.dispatch_components(1), Ok(1));
+    });
+    Row {
+        name: "routed_key_input",
+        n: 1,
+        perf,
+    }
+}
+
+fn bench_queued_pointer_input(iters: u64, reps: u32) -> Row {
+    let mut runtime = RecordingRuntime::default();
+    runtime.record_commands(true);
+    let mut pump = Pump::new(runtime);
+    pump.mount_view(View::component::<BenchQueuedInput>(()))
+        .unwrap();
+    let node = pump
+        .runtime()
+        .commands()
+        .iter()
+        .flatten()
+        .find_map(|command| match command {
+            Command::Create { node, .. } => Some(*node),
+            _ => None,
+        })
+        .unwrap();
+    let revision = pump
+        .event_revision(node, EventId::BorderPointerPressed)
+        .unwrap();
+    pump.runtime_mut().record_commands(false);
+    let event = PointerEventInfo::default();
+    let perf = measure(iters, reps, || {
+        pump.queue_event(QueuedEvent::new(
+            node,
+            EventId::BorderPointerPressed,
+            revision,
+            EventPayload::PointerEventInfo(event),
+        ));
+        assert_eq!(pump.dispatch_events(), Ok(1));
+        assert_eq!(pump.dispatch_components(1), Ok(1));
+    });
+    Row {
+        name: "queued_pointer_input",
+        n: 1,
+        perf,
+    }
+}
+
 fn effect_tree(count: usize) -> View {
     View::component::<EffectRoot>(RootInput(effect_senders(count)))
 }
@@ -1258,6 +1448,9 @@ fn main() {
         bench_component_leaf(512, iters, reps),
         bench_component_leaf(4_096, (iters / 4).max(1), reps),
         bench_component_leaf(16_384, (iters / 16).max(1), reps),
+        bench_textbox_input(iters, reps),
+        bench_queued_pointer_input(iters, reps),
+        bench_routed_key_input(iters, reps),
         bench_component_keyed(
             "component_same_order",
             512,

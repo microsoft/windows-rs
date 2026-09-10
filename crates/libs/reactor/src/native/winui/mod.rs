@@ -8,6 +8,7 @@ use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
 
 use super::*;
+use crate::VirtualKey as ReactorVirtualKey;
 use windows_core::Interface;
 
 windows_core::link!("kernel32.dll" "system" fn FindResourceW(module: *mut std::ffi::c_void, name: *const u16, resource_type: *const u16) -> *mut std::ffi::c_void);
@@ -159,6 +160,7 @@ pub struct WinUiRuntime {
     flyouts: HashMap<NodeId, (bindings::Flyout, NodeId)>,
     owned_menus: HashMap<NodeId, NativeOwnedMenu>,
     pointer_capture: Rc<RefCell<HashMap<NodeId, bool>>>,
+    routed_callbacks: Rc<RefCell<HashMap<(NodeId, EventId), RoutedEventCallback>>>,
     resource_override_keys: HashMap<NodeId, HashSet<String>>,
     command_bar_flyouts: HashMap<NodeId, NativeCommandBarFlyout>,
     identity: Rc<Cell<Option<WindowToken>>>,
@@ -1267,30 +1269,30 @@ impl WinUiRuntime {
             let value = KeyboardAccelerator::new().map_err(native_error)?;
             value
                 .SetKey(match accelerator.key {
-                    AcceleratorKey::Left => VirtualKey::Left,
-                    AcceleratorKey::Up => VirtualKey::Up,
-                    AcceleratorKey::Right => VirtualKey::Right,
-                    AcceleratorKey::Down => VirtualKey::Down,
-                    AcceleratorKey::Space => VirtualKey::Space,
-                    AcceleratorKey::N => VirtualKey::N,
-                    AcceleratorKey::P => VirtualKey::P,
-                    AcceleratorKey::R => VirtualKey::R,
-                    AcceleratorKey::NumberPad0 => VirtualKey::NumberPad0,
-                    AcceleratorKey::NumberPad1 => VirtualKey::NumberPad1,
-                    AcceleratorKey::NumberPad2 => VirtualKey::NumberPad2,
-                    AcceleratorKey::NumberPad3 => VirtualKey::NumberPad3,
-                    AcceleratorKey::NumberPad4 => VirtualKey::NumberPad4,
-                    AcceleratorKey::NumberPad5 => VirtualKey::NumberPad5,
-                    AcceleratorKey::NumberPad6 => VirtualKey::NumberPad6,
-                    AcceleratorKey::NumberPad7 => VirtualKey::NumberPad7,
-                    AcceleratorKey::NumberPad8 => VirtualKey::NumberPad8,
-                    AcceleratorKey::NumberPad9 => VirtualKey::NumberPad9,
-                    AcceleratorKey::Divide => VirtualKey::Divide,
-                    AcceleratorKey::Multiply => VirtualKey::Multiply,
-                    AcceleratorKey::Subtract => VirtualKey::Subtract,
-                    AcceleratorKey::Add => VirtualKey::Add,
-                    AcceleratorKey::Decimal => VirtualKey::Decimal,
-                    AcceleratorKey::Enter => VirtualKey::Enter,
+                    AcceleratorKey::Left => bindings::VirtualKey::Left,
+                    AcceleratorKey::Up => bindings::VirtualKey::Up,
+                    AcceleratorKey::Right => bindings::VirtualKey::Right,
+                    AcceleratorKey::Down => bindings::VirtualKey::Down,
+                    AcceleratorKey::Space => bindings::VirtualKey::Space,
+                    AcceleratorKey::N => bindings::VirtualKey::N,
+                    AcceleratorKey::P => bindings::VirtualKey::P,
+                    AcceleratorKey::R => bindings::VirtualKey::R,
+                    AcceleratorKey::NumberPad0 => bindings::VirtualKey::NumberPad0,
+                    AcceleratorKey::NumberPad1 => bindings::VirtualKey::NumberPad1,
+                    AcceleratorKey::NumberPad2 => bindings::VirtualKey::NumberPad2,
+                    AcceleratorKey::NumberPad3 => bindings::VirtualKey::NumberPad3,
+                    AcceleratorKey::NumberPad4 => bindings::VirtualKey::NumberPad4,
+                    AcceleratorKey::NumberPad5 => bindings::VirtualKey::NumberPad5,
+                    AcceleratorKey::NumberPad6 => bindings::VirtualKey::NumberPad6,
+                    AcceleratorKey::NumberPad7 => bindings::VirtualKey::NumberPad7,
+                    AcceleratorKey::NumberPad8 => bindings::VirtualKey::NumberPad8,
+                    AcceleratorKey::NumberPad9 => bindings::VirtualKey::NumberPad9,
+                    AcceleratorKey::Divide => bindings::VirtualKey::Divide,
+                    AcceleratorKey::Multiply => bindings::VirtualKey::Multiply,
+                    AcceleratorKey::Subtract => bindings::VirtualKey::Subtract,
+                    AcceleratorKey::Add => bindings::VirtualKey::Add,
+                    AcceleratorKey::Decimal => bindings::VirtualKey::Decimal,
+                    AcceleratorKey::Enter => bindings::VirtualKey::Enter,
                 })
                 .map_err(native_error)?;
             value
@@ -2459,6 +2461,18 @@ impl WinUiRuntime {
                 Some(slot) => self.move_slot_child(*parent, *slot, *child, *index)?,
                 None => self.move_child(*parent, *child, *index)?,
             },
+            Command::SetRoutedCallback {
+                node,
+                event,
+                callback,
+            } => {
+                let mut callbacks = self.routed_callbacks.borrow_mut();
+                if let Some(callback) = callback {
+                    callbacks.insert((*node, *event), callback.clone());
+                } else {
+                    callbacks.remove(&(*node, *event));
+                }
+            }
         }
         Ok(())
     }
@@ -3014,6 +3028,7 @@ impl WinUiRuntime {
             feedback: Rc::clone(&self.feedback),
             content_dialogs: Rc::clone(&self.content_dialogs),
             pointer_capture: Rc::clone(&self.pointer_capture),
+            routed_callbacks: Rc::clone(&self.routed_callbacks),
             selection_items: Rc::clone(&self.selection_items),
             dispatcher,
             identity,
@@ -3096,6 +3111,7 @@ pub struct EventSink {
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), FeedbackExpectation>>>,
     content_dialogs: Rc<RefCell<ContentDialogScheduler>>,
     pointer_capture: Rc<RefCell<HashMap<NodeId, bool>>>,
+    routed_callbacks: Rc<RefCell<HashMap<(NodeId, EventId), RoutedEventCallback>>>,
     selection_items: Rc<RefCell<Vec<(NodeId, windows_core::IInspectable)>>>,
     dispatcher: DispatcherQueue,
     identity: WindowToken,
@@ -3271,6 +3287,76 @@ impl EventSink {
             work: QueuedEvent::new(node, event, revision, payload),
         });
         self.schedule();
+    }
+
+    pub fn route_key(
+        &self,
+        node: NodeId,
+        event: EventId,
+        revision: u32,
+        value: KeyEventInfo,
+    ) -> bool {
+        self.route(
+            node,
+            event,
+            revision,
+            EventPayload::KeyEventInfo(value),
+            |callback| callback.key(value),
+        )
+    }
+
+    pub fn route_character(
+        &self,
+        node: NodeId,
+        event: EventId,
+        revision: u32,
+        value: CharacterEventInfo,
+    ) -> bool {
+        self.route(
+            node,
+            event,
+            revision,
+            EventPayload::CharacterEventInfo(value),
+            |callback| callback.character(value),
+        )
+    }
+
+    fn route(
+        &self,
+        node: NodeId,
+        event: EventId,
+        revision: u32,
+        payload: EventPayload,
+        invoke: impl FnOnce(&RoutedEventCallback) -> Option<RoutedDispatch>,
+    ) -> bool {
+        if self.current_identity.get() != Some(self.identity) {
+            return false;
+        }
+        let callback = self.routed_callbacks.borrow().get(&(node, event)).cloned();
+        let Some(callback) = callback else {
+            return false;
+        };
+        let dispatch =
+            match std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| invoke(&callback))) {
+                Ok(Some(dispatch)) => dispatch,
+                Ok(None) => return false,
+                Err(_) => std::process::abort(),
+            };
+        if let Some(message) = dispatch.message {
+            self.queue.borrow_mut().push(NativeWork {
+                identity: self.identity,
+                work: QueuedEvent::routed(
+                    node,
+                    event,
+                    revision,
+                    payload,
+                    message,
+                    dispatch.handled,
+                ),
+            });
+            self.schedule();
+        }
+        dispatch.handled
     }
 
     pub fn observe(&self, node: NodeId, event: EventId, revision: u32, payload: EventPayload) {
@@ -3604,6 +3690,7 @@ impl NativeRuntime for WinUiRuntime {
                 continue;
             }
             if let Err(error) = self.apply_one(command) {
+                self.routed_callbacks.borrow_mut().clear();
                 eprintln!("windows-reactor failed command {index}: {command:?}: {error:?}");
                 return Err(NativeApplyError {
                     command: index,
@@ -3703,6 +3790,7 @@ impl NativeRuntime for WinUiRuntime {
         self.feedback.borrow_mut().clear();
         self.drop_policies.borrow_mut().clear();
         self.pointer_capture.borrow_mut().clear();
+        self.routed_callbacks.borrow_mut().clear();
         self.resource_override_keys.clear();
         self.controlled_collection_indices.clear();
         self.selection_owners.clear();
@@ -4103,6 +4191,9 @@ impl WinUiRuntime {
             .retain(|(subscription_node, _), _| *subscription_node != node);
         self.drop_policies.borrow_mut().remove(&node);
         self.pointer_capture.borrow_mut().remove(&node);
+        self.routed_callbacks
+            .borrow_mut()
+            .retain(|(callback_node, _), _| *callback_node != node);
         if self.resource_override_keys.contains_key(&node) {
             self.clear_resource_overrides(node)?;
         }
@@ -4234,6 +4325,73 @@ fn native_drag_operation(operation: DragDropOperation) -> DataPackageOperation {
         DragDropOperation::Move => DataPackageOperation::Move,
         DragDropOperation::Link => DataPackageOperation::Link,
     }
+}
+
+fn input_modifiers() -> InputModifiers {
+    let mut keys = [0u8; 256];
+    if !unsafe { GetKeyboardState(keys.as_mut_ptr()) }.as_bool() {
+        return InputModifiers::NONE;
+    }
+    let mut modifiers = InputModifiers::NONE;
+    if keys[0x10] & 0x80 != 0 {
+        modifiers |= InputModifiers::SHIFT;
+    }
+    if keys[0x11] & 0x80 != 0 {
+        modifiers |= InputModifiers::CONTROL;
+    }
+    if keys[0x12] & 0x80 != 0 {
+        modifiers |= InputModifiers::ALT;
+    }
+    if keys[0x5b] & 0x80 != 0 || keys[0x5c] & 0x80 != 0 {
+        modifiers |= InputModifiers::WINDOWS;
+    }
+    modifiers
+}
+
+fn physical_key_status(value: CorePhysicalKeyStatus) -> PhysicalKeyStatus {
+    PhysicalKeyStatus {
+        repeat_count: value.repeat_count,
+        scan_code: value.scan_code,
+        is_extended: value.is_extended_key,
+        is_menu_down: value.is_menu_key_down,
+        was_down: value.was_key_down,
+        is_released: value.is_key_released,
+    }
+}
+
+fn key_event_info(args: &KeyRoutedEventArgs) -> windows_core::Result<KeyEventInfo> {
+    Ok(KeyEventInfo {
+        key: ReactorVirtualKey(args.Key()?.0 as u32),
+        original_key: ReactorVirtualKey(args.OriginalKey()?.0 as u32),
+        status: physical_key_status(args.KeyStatus()?),
+        modifiers: input_modifiers(),
+    })
+}
+
+fn character_event_info(
+    args: &CharacterReceivedRoutedEventArgs,
+) -> windows_core::Result<CharacterEventInfo> {
+    Ok(CharacterEventInfo {
+        character: args.Character()?,
+        status: physical_key_status(args.KeyStatus()?),
+        modifiers: input_modifiers(),
+    })
+}
+
+fn focus_event_info(
+    element: &UIElement,
+    args: &RoutedEventArgs,
+) -> windows_core::Result<FocusEventInfo> {
+    let original = args.OriginalSource()?;
+    let is_direct =
+        element.cast::<windows_core::IUnknown>()? == original.cast::<windows_core::IUnknown>()?;
+    let state = match element.FocusState()? {
+        FocusState::Pointer => ElementFocusState::Pointer,
+        FocusState::Keyboard => ElementFocusState::Keyboard,
+        FocusState::Programmatic => ElementFocusState::Programmatic,
+        _ => ElementFocusState::Unfocused,
+    };
+    Ok(FocusEventInfo { state, is_direct })
 }
 
 fn native_error(error: windows_core::Error) -> RuntimeError {

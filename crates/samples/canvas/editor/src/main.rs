@@ -27,6 +27,7 @@ struct Shape {
     x: f32,
     y: f32,
     color: ColorF,
+    label: Vec<u16>,
     path: Option<Path>,
     built_at: Option<(f32, f32)>,
 }
@@ -38,6 +39,7 @@ impl Shape {
             x,
             y,
             color,
+            label: Vec::new(),
             path: None,
             built_at: None,
         }
@@ -49,6 +51,7 @@ struct Model {
     kind: Kind,
     selected: Option<usize>,
     drag_offset: Option<(f32, f32)>,
+    focused: bool,
     next_color: usize,
 }
 
@@ -59,6 +62,7 @@ impl Model {
             kind: Kind::Star,
             selected: None,
             drag_offset: None,
+            focused: false,
             next_color: 0,
         }
     }
@@ -87,6 +91,11 @@ enum Message {
     Pressed(PointerEventInfo),
     Moved(PointerEventInfo),
     Released,
+    MoveSelected(f32, f32),
+    DeleteSelected,
+    Backspace,
+    Character(u16),
+    FocusChanged(bool),
     Select(Kind),
     Clear,
 }
@@ -139,6 +148,29 @@ impl Component for Sample {
             }
             Message::Moved(_) => {}
             Message::Released => model.drag_offset = None,
+            Message::MoveSelected(dx, dy) => {
+                if let Some(shape) = model.selected.and_then(|index| model.shapes.get_mut(index)) {
+                    shape.x += dx;
+                    shape.y += dy;
+                }
+            }
+            Message::DeleteSelected => {
+                if let Some(index) = model.selected.take() {
+                    model.shapes.remove(index);
+                    model.drag_offset = None;
+                }
+            }
+            Message::Backspace => {
+                if let Some(shape) = model.selected.and_then(|index| model.shapes.get_mut(index)) {
+                    pop_utf16_character(&mut shape.label);
+                }
+            }
+            Message::Character(character) => {
+                if let Some(shape) = model.selected.and_then(|index| model.shapes.get_mut(index)) {
+                    shape.label.push(character);
+                }
+            }
+            Message::FocusChanged(focused) => model.focused = focused,
             Message::Select(kind) => model.kind = kind,
             Message::Clear => {
                 model.shapes.clear();
@@ -153,8 +185,23 @@ impl Component for Sample {
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Canvas editor");
         context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        let selected = self.model.borrow().selected.is_some();
         let model = Rc::clone(&self.model);
         let surface = Border::new()
+            .is_tab_stop(true)
+            .allow_focus_on_interaction(true)
+            .on_preview_key_down(context.routed_callback(move |info| route_key(info, selected)))
+            .on_character_received(context.routed_callback(move |info: CharacterEventInfo| {
+                if selected && info.character >= 0x20 {
+                    RoutedMessage::handled(Message::Character(info.character))
+                } else {
+                    RoutedMessage::bubble_without_message()
+                }
+            }))
+            .on_got_focus(
+                context.callback(|info: FocusEventInfo| Message::FocusChanged(info.is_direct)),
+            )
+            .on_lost_focus(context.callback(|_| Message::FocusChanged(false)))
             .on_pointer_pressed(context.callback(Message::Pressed))
             .on_pointer_moved(context.callback(Message::Moved))
             .on_pointer_released(context.callback(|_| Message::Released))
@@ -189,6 +236,40 @@ impl Component for Sample {
     }
 }
 
+fn route_key(info: KeyEventInfo, selected: bool) -> RoutedMessage<Message> {
+    if !selected {
+        return RoutedMessage::bubble_without_message();
+    }
+    let distance = if info.modifiers.contains(InputModifiers::SHIFT) {
+        16.0
+    } else {
+        4.0
+    };
+    let message = match info.key {
+        VirtualKey::LEFT => Message::MoveSelected(-distance, 0.0),
+        VirtualKey::UP => Message::MoveSelected(0.0, -distance),
+        VirtualKey::RIGHT => Message::MoveSelected(distance, 0.0),
+        VirtualKey::DOWN => Message::MoveSelected(0.0, distance),
+        VirtualKey::DELETE => Message::DeleteSelected,
+        VirtualKey::BACK => Message::Backspace,
+        _ => return RoutedMessage::bubble_without_message(),
+    };
+    RoutedMessage::handled(message)
+}
+
+fn pop_utf16_character(value: &mut Vec<u16>) {
+    let Some(last) = value.pop() else {
+        return;
+    };
+    if (0xDC00..=0xDFFF).contains(&last)
+        && value
+            .last()
+            .is_some_and(|previous| (0xD800..=0xDBFF).contains(previous))
+    {
+        value.pop();
+    }
+}
+
 fn draw(ctx: &DrawContext<'_>, model: &RefCell<Model>) -> Result<()> {
     ctx.clear(ColorF::new(0.11, 0.12, 0.16, 1.0));
 
@@ -218,6 +299,7 @@ fn draw(ctx: &DrawContext<'_>, model: &RefCell<Model>) -> Result<()> {
     let device_changed = ctx.device_changed();
     let mut m = model.borrow_mut();
     let selected = m.selected;
+    let focused = m.focused;
 
     for (i, s) in m.shapes.iter_mut().enumerate() {
         if device_changed || s.built_at != Some((s.x, s.y)) {
@@ -232,7 +314,12 @@ fn draw(ctx: &DrawContext<'_>, model: &RefCell<Model>) -> Result<()> {
         ctx.fill_path(path, &brush);
 
         if Some(i) == selected {
-            let brush = ctx.create_solid_brush(ColorF::WHITE)?;
+            let color = if focused {
+                ColorF::new(0.45, 0.75, 1.0, 1.0)
+            } else {
+                ColorF::WHITE
+            };
+            let brush = ctx.create_solid_brush(color)?;
             let b = path.compute_bounds();
             let pad = 4.0;
             ctx.draw_rect(
@@ -241,12 +328,19 @@ fn draw(ctx: &DrawContext<'_>, model: &RefCell<Model>) -> Result<()> {
                 1.5,
             );
         }
+        if !s.label.is_empty() {
+            let label = String::from_utf16_lossy(&s.label);
+            let format = TextFormat::with_weight("Segoe UI", 14.0, CanvasFontWeight::BOLD)?;
+            let brush = ctx.create_solid_brush(ColorF::WHITE)?;
+            let rect = Rect::new(s.x - SIZE, s.y - 10.0, s.x + SIZE, s.y + 20.0);
+            ctx.draw_text(&label, &format, &rect, &brush);
+        }
     }
 
     let format = TextFormat::with_weight("Segoe UI", 16.0, CanvasFontWeight::BOLD)?;
     let brush = ctx.create_solid_brush(ColorF::WHITE)?;
     let label = format!(
-        "{} shape(s)  ·  tool: {}  ·  click to add, left-drag to move, right-click to delete",
+        "{} shape(s) | tool: {} | click to focus, arrows to move, type to label, Delete to remove",
         m.shapes.len(),
         m.kind.label()
     );

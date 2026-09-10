@@ -16,6 +16,11 @@ pub(crate) struct BorderEvents {
     on_pointer_released: Option<Callback<PointerEventInfo>>,
     on_pointer_capture_lost: Option<Callback<()>>,
     on_pointer_canceled: Option<Callback<()>>,
+    on_preview_key_down: Option<RoutedCallback<KeyEventInfo>>,
+    on_key_up: Option<RoutedCallback<KeyEventInfo>>,
+    on_character_received: Option<RoutedCallback<CharacterEventInfo>>,
+    on_got_focus: Option<Callback<FocusEventInfo>>,
+    on_lost_focus: Option<Callback<FocusEventInfo>>,
 }
 #[derive(Clone, Debug, Default, PartialEq)]
 pub(crate) struct AutoSuggestBoxEvents {
@@ -699,6 +704,8 @@ pub mod public {
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Border {
+        is_tab_stop: Property<bool>,
+        allow_focus_on_interaction: Property<bool>,
         padding: Property<Thickness>,
         border_thickness: Property<Thickness>,
         corner_radius: Property<CornerRadius>,
@@ -710,12 +717,27 @@ pub mod public {
         capture_pointer_on_press: Property<bool>,
         drop_policy: Property<DragDropPolicy>,
         events: Option<std::rc::Rc<BorderEvents>>,
+        reference: Option<NativeElementRef>,
         element_state: Option<std::rc::Rc<ElementState>>,
         content: Option<Box<Element>>,
     }
     impl Border {
         pub fn new() -> Self {
             Self::default()
+        }
+        pub fn element_ref(mut self, reference: &ElementRef<Self>) -> Self {
+            self.reference = Some(reference.binding());
+            self
+        }
+        pub fn is_tab_stop(mut self, value: impl Into<Option<bool>>) -> Self {
+            let value = value.into();
+            self.is_tab_stop = Property::from(value);
+            self
+        }
+        pub fn allow_focus_on_interaction(mut self, value: impl Into<Option<bool>>) -> Self {
+            let value = value.into();
+            self.allow_focus_on_interaction = Property::from(value);
+            self
         }
         pub fn padding(mut self, value: impl Into<Thickness>) -> Self {
             let value = value.into();
@@ -942,6 +964,49 @@ pub mod public {
             .on_pointer_canceled = Some(callback.into_unit_callback());
             self
         }
+        pub fn on_preview_key_down(mut self, callback: RoutedCallback<KeyEventInfo>) -> Self {
+            std::rc::Rc::make_mut(
+                self.events
+                    .get_or_insert_with(|| std::rc::Rc::new(Default::default())),
+            )
+            .on_preview_key_down = Some(callback);
+            self
+        }
+        pub fn on_key_up(mut self, callback: RoutedCallback<KeyEventInfo>) -> Self {
+            std::rc::Rc::make_mut(
+                self.events
+                    .get_or_insert_with(|| std::rc::Rc::new(Default::default())),
+            )
+            .on_key_up = Some(callback);
+            self
+        }
+        pub fn on_character_received(
+            mut self,
+            callback: RoutedCallback<CharacterEventInfo>,
+        ) -> Self {
+            std::rc::Rc::make_mut(
+                self.events
+                    .get_or_insert_with(|| std::rc::Rc::new(Default::default())),
+            )
+            .on_character_received = Some(callback);
+            self
+        }
+        pub fn on_got_focus(mut self, callback: impl IntoPayloadCallback<FocusEventInfo>) -> Self {
+            std::rc::Rc::make_mut(
+                self.events
+                    .get_or_insert_with(|| std::rc::Rc::new(Default::default())),
+            )
+            .on_got_focus = Some(callback.into_payload_callback());
+            self
+        }
+        pub fn on_lost_focus(mut self, callback: impl IntoPayloadCallback<FocusEventInfo>) -> Self {
+            std::rc::Rc::make_mut(
+                self.events
+                    .get_or_insert_with(|| std::rc::Rc::new(Default::default())),
+            )
+            .on_lost_focus = Some(callback.into_payload_callback());
+            self
+        }
     }
     impl sealed::Sealed for Border {}
     impl sealed::NativeControl for Border {
@@ -949,6 +1014,8 @@ pub mod public {
             self.into()
         }
     }
+    impl crate::reference::sealed::Sealed for Border {}
+    impl crate::reference::ReferenceControl for Border {}
     impl sealed::LayoutControl for Border {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -957,6 +1024,7 @@ pub mod public {
     impl LayoutControl for Border {}
     impl sealed::ContentControl for Border {}
     impl ContentControl for Border {}
+    impl FocusControl for Border {}
     #[cfg(test)]
     impl NativeContentTestExt for Border {
         fn native_content(mut self, content: impl Into<Element>) -> Self {
@@ -6640,6 +6708,8 @@ pub mod public {
                 Self::Border(value) => {
                     let value = std::rc::Rc::unwrap_or_clone(value);
                     let Border {
+                        is_tab_stop,
+                        allow_focus_on_interaction,
                         padding,
                         border_thickness,
                         corner_radius,
@@ -6651,12 +6721,15 @@ pub mod public {
                         capture_pointer_on_press,
                         drop_policy,
                         events,
+                        reference,
                         element_state,
                         content,
                     } = value;
                     ElementParts {
                         kind: MountedKind::Border,
                         props: MountedProps::Border(std::rc::Rc::new(BorderMountedProps {
+                            is_tab_stop,
+                            allow_focus_on_interaction,
                             padding,
                             border_thickness,
                             corner_radius,
@@ -6669,7 +6742,7 @@ pub mod public {
                             drop_policy,
                             events,
                         })),
-                        reference: None,
+                        reference,
                         element_state,
                         window_title_bar: None,
                         structure: ElementStructure::Content(content.map(|element| *element)),
@@ -8417,7 +8490,9 @@ pub mod public {
                         && value.on_click == mounted.on_click
                 }
                 (Self::Border(value), MountedProps::Border(mounted)) => {
-                    true && value.padding == mounted.padding
+                    true && value.is_tab_stop == mounted.is_tab_stop
+                        && value.allow_focus_on_interaction == mounted.allow_focus_on_interaction
+                        && value.padding == mounted.padding
                         && value.border_thickness == mounted.border_thickness
                         && value.corner_radius == mounted.corner_radius
                         && value.background == mounted.background
@@ -8826,7 +8901,7 @@ pub mod public {
                 Self::Button(value) => value.reference.as_ref(),
                 Self::HyperlinkButton(value) => value.reference.as_ref(),
                 Self::RepeatButton(_) => None,
-                Self::Border(_) => None,
+                Self::Border(value) => value.reference.as_ref(),
                 Self::BreadcrumbBar(_) => None,
                 Self::StackPanel(_) => None,
                 Self::VariableSizedWrapGrid(_) => None,
@@ -9255,6 +9330,41 @@ pub mod public {
                             .as_ref()
                             .is_some_and(|events| events.on_pointer_canceled.is_some()),
                     );
+                    visit(
+                        EventId::BorderPreviewKeyDown,
+                        value
+                            .events
+                            .as_ref()
+                            .is_some_and(|events| events.on_preview_key_down.is_some()),
+                    );
+                    visit(
+                        EventId::BorderKeyUp,
+                        value
+                            .events
+                            .as_ref()
+                            .is_some_and(|events| events.on_key_up.is_some()),
+                    );
+                    visit(
+                        EventId::BorderCharacterReceived,
+                        value
+                            .events
+                            .as_ref()
+                            .is_some_and(|events| events.on_character_received.is_some()),
+                    );
+                    visit(
+                        EventId::BorderGotFocus,
+                        value
+                            .events
+                            .as_ref()
+                            .is_some_and(|events| events.on_got_focus.is_some()),
+                    );
+                    visit(
+                        EventId::BorderLostFocus,
+                        value
+                            .events
+                            .as_ref()
+                            .is_some_and(|events| events.on_lost_focus.is_some()),
+                    );
                 }
                 Self::BreadcrumbBar(value) => {
                     visit(
@@ -9535,6 +9645,7 @@ pub trait MountedPropsExt {
 pub trait MountedEventsExt {
     fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool));
     fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> Option<bool>;
+    fn routed_callback(&self, event: EventId) -> Option<RoutedEventCallback>;
     fn observe_event(
         &self,
         event: EventId,
@@ -9688,6 +9799,20 @@ impl MountedPropsExt for MountedProps {
                 );
             }
             Self::Border(values) => {
+                visit(
+                    PropertyId::BorderIsTabStop,
+                    match &values.is_tab_stop {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
+                    },
+                );
+                visit(
+                    PropertyId::BorderAllowFocusOnInteraction,
+                    match &values.allow_focus_on_interaction {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
+                    },
+                );
                 visit(
                     PropertyId::BorderPadding,
                     match &values.padding {
@@ -11573,6 +11698,41 @@ impl MountedEventsExt for MountedProps {
                         .as_ref()
                         .is_some_and(|events| events.on_pointer_canceled.is_some()),
                 );
+                visit(
+                    EventId::BorderPreviewKeyDown,
+                    values
+                        .events
+                        .as_ref()
+                        .is_some_and(|events| events.on_preview_key_down.is_some()),
+                );
+                visit(
+                    EventId::BorderKeyUp,
+                    values
+                        .events
+                        .as_ref()
+                        .is_some_and(|events| events.on_key_up.is_some()),
+                );
+                visit(
+                    EventId::BorderCharacterReceived,
+                    values
+                        .events
+                        .as_ref()
+                        .is_some_and(|events| events.on_character_received.is_some()),
+                );
+                visit(
+                    EventId::BorderGotFocus,
+                    values
+                        .events
+                        .as_ref()
+                        .is_some_and(|events| events.on_got_focus.is_some()),
+                );
+                visit(
+                    EventId::BorderLostFocus,
+                    values
+                        .events
+                        .as_ref()
+                        .is_some_and(|events| events.on_lost_focus.is_some()),
+                );
             }
             Self::BreadcrumbBar(values) => {
                 visit(
@@ -11923,6 +12083,24 @@ impl MountedEventsExt for MountedProps {
                 .as_ref()
                 .and_then(|events| events.on_pointer_canceled.as_ref())
                 .map(|callback| callback.call(())),
+            (
+                Self::Border(values),
+                EventId::BorderGotFocus,
+                EventPayload::FocusEventInfo(value),
+            ) => values
+                .events
+                .as_ref()
+                .and_then(|events| events.on_got_focus.as_ref())
+                .map(|callback| callback.call(*value)),
+            (
+                Self::Border(values),
+                EventId::BorderLostFocus,
+                EventPayload::FocusEventInfo(value),
+            ) => values
+                .events
+                .as_ref()
+                .and_then(|events| events.on_lost_focus.as_ref())
+                .map(|callback| callback.call(*value)),
             (
                 Self::BreadcrumbBar(values),
                 EventId::BreadcrumbBarItemClicked,
@@ -12282,6 +12460,26 @@ impl MountedEventsExt for MountedProps {
                 .on_text_changed
                 .as_ref()
                 .map(|callback| callback.call(value.clone())),
+            _ => None,
+        }
+    }
+    fn routed_callback(&self, event: EventId) -> Option<RoutedEventCallback> {
+        match (self, event) {
+            (Self::Border(values), EventId::BorderPreviewKeyDown) => values
+                .events
+                .as_ref()
+                .and_then(|events| events.on_preview_key_down.clone())
+                .map(RoutedEventCallback::KeyEventInfo),
+            (Self::Border(values), EventId::BorderKeyUp) => values
+                .events
+                .as_ref()
+                .and_then(|events| events.on_key_up.clone())
+                .map(RoutedEventCallback::KeyEventInfo),
+            (Self::Border(values), EventId::BorderCharacterReceived) => values
+                .events
+                .as_ref()
+                .and_then(|events| events.on_character_received.clone())
+                .map(RoutedEventCallback::CharacterEventInfo),
             _ => None,
         }
     }
@@ -12709,6 +12907,8 @@ impl PartialEq for RepeatButtonMountedProps {
 }
 #[derive(Clone, Debug)]
 pub(crate) struct BorderMountedProps {
+    is_tab_stop: Property<bool>,
+    allow_focus_on_interaction: Property<bool>,
     padding: Property<Thickness>,
     border_thickness: Property<Thickness>,
     corner_radius: Property<CornerRadius>,
@@ -12723,7 +12923,9 @@ pub(crate) struct BorderMountedProps {
 }
 impl PartialEq for BorderMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.padding == other.padding
+        true && self.is_tab_stop == other.is_tab_stop
+            && self.allow_focus_on_interaction == other.allow_focus_on_interaction
+            && self.padding == other.padding
             && self.border_thickness == other.border_thickness
             && self.corner_radius == other.corner_radius
             && self.background == other.background
@@ -13884,6 +14086,8 @@ pub enum PropertyId {
     RepeatButtonDelay,
     RepeatButtonInterval,
     RepeatButtonIsEnabled,
+    BorderIsTabStop,
+    BorderAllowFocusOnInteraction,
     BorderPadding,
     BorderBorderThickness,
     BorderCornerRadius,
@@ -14114,6 +14318,11 @@ pub enum EventId {
     BorderPointerReleased,
     BorderPointerCaptureLost,
     BorderPointerCanceled,
+    BorderPreviewKeyDown,
+    BorderKeyUp,
+    BorderCharacterReceived,
+    BorderGotFocus,
+    BorderLostFocus,
     BreadcrumbBarItemClicked,
     TextBoxTextChanged,
     AutoSuggestBoxTextChanged,
@@ -14623,11 +14832,14 @@ pub struct SelectionChange {
 #[derive(Clone, Debug)]
 pub enum EventPayload {
     Bool(bool),
+    CharacterEventInfo(CharacterEventInfo),
     Color(Color),
     ContentDialogResult(ContentDialogResult),
     DragKind(DragKind),
     DroppedData(DroppedData),
     F64(f64),
+    FocusEventInfo(FocusEventInfo),
+    KeyEventInfo(KeyEventInfo),
     NavigationViewDisplayMode(NavigationViewDisplayMode),
     OptionalDateTime(Option<windows_time::DateTime>),
     OptionalF64(Option<f64>),
@@ -14644,11 +14856,14 @@ impl PartialEq for EventPayload {
     fn eq(&self, other: &Self) -> bool {
         match (self, other) {
             (Self::Bool(left), Self::Bool(right)) => left == right,
+            (Self::CharacterEventInfo(left), Self::CharacterEventInfo(right)) => left == right,
             (Self::Color(left), Self::Color(right)) => left == right,
             (Self::ContentDialogResult(left), Self::ContentDialogResult(right)) => left == right,
             (Self::DragKind(left), Self::DragKind(right)) => left == right,
             (Self::DroppedData(left), Self::DroppedData(right)) => left == right,
             (Self::F64(left), Self::F64(right)) => f64_eq(*left, *right),
+            (Self::FocusEventInfo(left), Self::FocusEventInfo(right)) => left == right,
+            (Self::KeyEventInfo(left), Self::KeyEventInfo(right)) => left == right,
             (Self::NavigationViewDisplayMode(left), Self::NavigationViewDisplayMode(right)) => {
                 left == right
             }
@@ -14992,6 +15207,28 @@ const REPEAT_BUTTON_EVENTS: &[EventDescriptor] = &[EventDescriptor {
 const REPEAT_BUTTON_SLOTS: &[SlotDescriptor] = &[];
 const BORDER_PROPERTIES: &[PropertyDescriptor] = &[
     PropertyDescriptor {
+        id: PropertyId::BorderIsTabStop,
+        name: "IsTabStop",
+        field: "is_tab_stop",
+        value: "Bool",
+        interface: "Microsoft.UI.Xaml.IUIElement",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::BorderAllowFocusOnInteraction,
+        name: "AllowFocusOnInteraction",
+        field: "allow_focus_on_interaction",
+        value: "Bool",
+        interface: "Microsoft.UI.Xaml.IFrameworkElement",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
         id: PropertyId::BorderPadding,
         name: "Padding",
         field: "padding",
@@ -15178,6 +15415,41 @@ const BORDER_EVENTS: &[EventDescriptor] = &[
         name: "PointerCanceled",
         field: "on_pointer_canceled",
         payload: "Unit",
+        interface: "Microsoft.UI.Xaml.IUIElement",
+    },
+    EventDescriptor {
+        id: EventId::BorderPreviewKeyDown,
+        name: "PreviewKeyDown",
+        field: "on_preview_key_down",
+        payload: "KeyEventInfo",
+        interface: "Microsoft.UI.Xaml.IUIElement",
+    },
+    EventDescriptor {
+        id: EventId::BorderKeyUp,
+        name: "KeyUp",
+        field: "on_key_up",
+        payload: "KeyEventInfo",
+        interface: "Microsoft.UI.Xaml.IUIElement",
+    },
+    EventDescriptor {
+        id: EventId::BorderCharacterReceived,
+        name: "CharacterReceived",
+        field: "on_character_received",
+        payload: "CharacterEventInfo",
+        interface: "Microsoft.UI.Xaml.IUIElement",
+    },
+    EventDescriptor {
+        id: EventId::BorderGotFocus,
+        name: "GotFocus",
+        field: "on_got_focus",
+        payload: "FocusEventInfo",
+        interface: "Microsoft.UI.Xaml.IUIElement",
+    },
+    EventDescriptor {
+        id: EventId::BorderLostFocus,
+        name: "LostFocus",
+        field: "on_lost_focus",
+        payload: "FocusEventInfo",
         interface: "Microsoft.UI.Xaml.IUIElement",
     },
 ];
@@ -18309,7 +18581,7 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         name: "Border",
         type_name: "Microsoft.UI.Xaml.Controls.Border",
         role: ControlRole::Content,
-        capabilities: &[Capability::Layout, Capability::Content],
+        capabilities: &[Capability::Layout, Capability::Content, Capability::Focus],
         properties: BORDER_PROPERTIES,
         events: BORDER_EVENTS,
         slots: BORDER_SLOTS,
