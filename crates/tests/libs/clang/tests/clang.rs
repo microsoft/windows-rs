@@ -461,11 +461,14 @@ fn namespaced_record_dependencies_preserve_layout() {
     assert!(contents.contains("code: i16"));
     assert!(contents.contains("struct PointerValue"));
     assert!(contents.contains("payload: u32"));
+    assert!(contents.contains("struct AnonymousValue"));
+    assert!(contents.contains("marker: i32"));
     assert!(contents.contains("type RemoteAlias = RemoteValue"));
     assert!(contents.contains("alias_value: RemoteAlias"));
     assert!(contents.contains("fn ReturnDirect() -> RemoteValue"));
     assert!(contents.contains("fn ReturnAlias() -> RemoteAlias"));
     assert!(contents.contains("fn ReturnPointer() -> *mut PointerValue"));
+    assert!(contents.contains("fn ReturnAnonymous() -> AnonymousValue"));
 
     windows_rdl::reader()
         .input(&rdl)
@@ -493,6 +496,7 @@ fn namespaced_record_dependencies_preserve_layout() {
     assert!(!main_contents.contains("struct RemoteValue"));
     assert!(!main_contents.contains("struct NestedValue"));
     assert!(!main_contents.contains("struct PointerValue"));
+    assert!(!main_contents.contains("struct AnonymousValue"));
     assert!(dependency_contents.contains("struct RemoteValue"));
     assert!(dependency_contents.contains("payload: i64"));
     assert!(dependency_contents.contains("nested: NestedValue"));
@@ -500,6 +504,8 @@ fn namespaced_record_dependencies_preserve_layout() {
     assert!(dependency_contents.contains("code: i16"));
     assert!(dependency_contents.contains("struct PointerValue"));
     assert!(dependency_contents.contains("payload: u32"));
+    assert!(dependency_contents.contains("struct AnonymousValue"));
+    assert!(dependency_contents.contains("marker: i32"));
     assert!(dependency_contents.contains("type RemoteAlias = RemoteValue"));
 
     windows_rdl::reader()

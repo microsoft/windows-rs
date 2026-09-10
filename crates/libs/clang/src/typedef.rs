@@ -103,7 +103,7 @@ impl Typedef {
                 .get(&tag)
                 .cloned()
                 .unwrap_or_else(|| tag.clone());
-            if parser.header_root.is_none() && !is_anonymous_name(&tag) {
+            if parser.header_root.is_none() && inner_kind == CXType_Record {
                 // Pull the backing definition into namespaced output before deciding whether this
                 // typedef is the public name or a secondary alias.
                 inner.to_type(parser);

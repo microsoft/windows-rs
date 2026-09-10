@@ -12,3 +12,7 @@ typedef struct _RemoteValue RemoteAlias;
 typedef struct PointerValue {
     unsigned int payload;
 } PointerValue;
+
+typedef struct {
+    int marker;
+} AnonymousValue;
