@@ -215,8 +215,8 @@ impl QueuedEvent {
         self.invoke_callback
     }
 
-    pub(crate) fn take_routed_message(&mut self) -> Option<DeferredMessage> {
-        self.routed_message.take()
+    pub(crate) fn routed_message_mut(&mut self) -> Option<&mut DeferredMessage> {
+        self.routed_message.as_mut()
     }
 
     pub(crate) fn claimed_handled(&self) -> bool {

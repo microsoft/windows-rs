@@ -17,6 +17,7 @@ impl PartialEq for Input {
 enum Message {
     Bubble,
     Disable,
+    Enable,
     Key,
     Pointer,
 }
@@ -44,6 +45,7 @@ impl Component for RoutedInput {
         match message {
             Message::Bubble => self.handled = false,
             Message::Disable => self.enabled = false,
+            Message::Enable => self.enabled = true,
             Message::Key => self.updates.borrow_mut().push("key"),
             Message::Pointer => self.updates.borrow_mut().push("pointer"),
         }
@@ -187,6 +189,46 @@ fn routed_callback_updates_without_resubscribing() {
 }
 
 #[test]
+fn routed_callback_installs_before_new_subscription() {
+    let (mut pump, border, _, sender, _) = setup();
+    let sender = sender.borrow();
+    let sender = sender.as_ref().unwrap();
+    assert!(sender.send(Message::Disable));
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert!(sender.send(Message::Enable));
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+
+    let commands = pump.runtime().commands().last().unwrap();
+    let callback = commands
+        .iter()
+        .position(|command| {
+            matches!(
+                command,
+                Command::SetRoutedCallback {
+                    node,
+                    event: EventId::BorderPreviewKeyDown,
+                    callback: Some(_),
+                } if *node == border
+            )
+        })
+        .unwrap();
+    let subscription = commands
+        .iter()
+        .position(|command| {
+            matches!(
+                command,
+                Command::SubscribeEvent {
+                    node,
+                    event: EventId::BorderPreviewKeyDown,
+                    ..
+                } if *node == border
+            )
+        })
+        .unwrap();
+    assert!(callback < subscription);
+}
+
+#[test]
 fn full_component_queue_bubbles_input() {
     let (mut pump, border, revision, sender, _) = setup();
     let sender = sender.borrow();
@@ -201,6 +243,38 @@ fn full_component_queue_bubbles_input() {
             .route_key(border, EventId::BorderPreviewKeyDown, revision, key())
     );
     assert_eq!(pump.dispatch_events(), Ok(0));
+}
+
+#[test]
+fn accepted_input_waits_for_component_queue_capacity() {
+    let (mut pump, border, revision, sender, updates) = setup();
+    let sender = sender.borrow();
+    let sender = sender.as_ref().unwrap();
+    for _ in 1..component::LOCAL_MESSAGE_QUEUE_CAPACITY {
+        assert!(sender.send(Message::Pointer));
+    }
+
+    assert!(
+        pump.runtime_mut()
+            .route_key(border, EventId::BorderPreviewKeyDown, revision, key())
+    );
+    assert!(
+        pump.runtime_mut()
+            .route_key(border, EventId::BorderPreviewKeyDown, revision, key())
+    );
+
+    assert_eq!(pump.dispatch_events(), Ok(1));
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert_eq!(pump.dispatch_events(), Ok(1));
+    assert!(pump.drain_diagnostics().is_empty());
+
+    assert_eq!(
+        pump.dispatch_components(component::LOCAL_MESSAGE_QUEUE_CAPACITY),
+        Ok(component::LOCAL_MESSAGE_QUEUE_CAPACITY)
+    );
+    let updates = updates.borrow();
+    assert_eq!(updates.len(), component::LOCAL_MESSAGE_QUEUE_CAPACITY + 1);
+    assert_eq!(&updates[updates.len() - 2..], &["key", "key"],);
 }
 
 #[test]

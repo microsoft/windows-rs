@@ -14,7 +14,8 @@ mod virtual_model;
 pub use arena::*;
 pub(crate) use component::{
     ComponentDeclarationError, ComponentRender, ComponentStore, ComponentToken, ComponentView,
-    ContextDependencies, ContextDependency, ContextProvision, ContextSnapshot, DeferredMessage,
+    ContextDependencies, ContextDependency, ContextProvision, ContextSnapshot, DeferredEnqueue,
+    DeferredMessage,
 };
 pub use engine::*;
 pub use keyed::*;

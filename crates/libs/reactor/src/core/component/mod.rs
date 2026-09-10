@@ -811,29 +811,37 @@ pub(crate) struct DeferredMessage {
     envelope: Option<MessageEnvelope>,
 }
 
+pub(crate) enum DeferredEnqueue {
+    Enqueued,
+    Full,
+    Rejected,
+}
+
 impl DeferredMessage {
-    pub(crate) fn enqueue(mut self) -> bool {
-        let envelope = self.envelope.take().unwrap();
+    pub(crate) fn enqueue(&mut self) -> DeferredEnqueue {
         let wake = {
             let mut queue = self.queue.borrow_mut();
-            if !queue.open
-                || !queue.active.contains(&envelope.token.scope)
-                || queue.envelopes.len() >= LOCAL_MESSAGE_QUEUE_CAPACITY
-            {
-                return false;
+            let Some(envelope) = self.envelope.as_ref() else {
+                return DeferredEnqueue::Rejected;
+            };
+            if !queue.open || !queue.active.contains(&envelope.token.scope) {
+                return DeferredEnqueue::Rejected;
+            }
+            if queue.envelopes.len() >= LOCAL_MESSAGE_QUEUE_CAPACITY {
+                return DeferredEnqueue::Full;
             }
             let wake = queue
                 .envelopes
                 .is_empty()
                 .then(|| queue.wake.clone())
                 .flatten();
-            queue.envelopes.push_back(envelope);
+            queue.envelopes.push_back(self.envelope.take().unwrap());
             wake
         };
         if let Some(wake) = wake {
             wake();
         }
-        true
+        DeferredEnqueue::Enqueued
     }
 }
 

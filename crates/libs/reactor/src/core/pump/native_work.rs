@@ -373,15 +373,25 @@ impl<R: NativeRuntime> Pump<R> {
                 }
                 native.desired.observe_event(event.event, &event.payload)
             };
-            if let Some(message) = event.take_routed_message() {
-                if message.enqueue() {
-                    dispatched += 1;
-                } else if event.claimed_handled() {
-                    self.diagnostics
-                        .push_back(PumpDiagnostic::HandledInputDropped {
-                            node: event.node,
-                            event: event.event,
+            if let Some(message) = event.routed_message_mut() {
+                match message.enqueue() {
+                    DeferredEnqueue::Enqueued => dispatched += 1,
+                    DeferredEnqueue::Full => {
+                        self.events.push_front(NativeWork {
+                            identity,
+                            work: event,
                         });
+                        break;
+                    }
+                    DeferredEnqueue::Rejected => {
+                        if event.claimed_handled() {
+                            self.diagnostics
+                                .push_back(PumpDiagnostic::HandledInputDropped {
+                                    node: event.node,
+                                    event: event.event,
+                                });
+                        }
+                    }
                 }
                 continue;
             }

@@ -267,7 +267,9 @@ Border::new()
 The routed callback inspects an owned payload and decides whether the native event is handled.
 Its optional component message still enters the normal queue, so `Component::update` and
 reconciliation never run inside the WinUI callback. Return `bubble_without_message` for keys such
-as Tab that should retain their normal XAML behavior.
+as Tab that should retain their normal XAML behavior. Input bubbles when the component queue is
+already full. Once handled, its deferred message retains its native FIFO position and waits for
+component queue capacity.
 
 `KeyEventInfo` includes the mapped and original virtual key, physical-key status, and modifier
 state. `CharacterEventInfo::character` is one UTF-16 code unit so surrogate pairs are preserved

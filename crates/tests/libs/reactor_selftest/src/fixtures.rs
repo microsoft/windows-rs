@@ -423,6 +423,11 @@ pub(crate) struct KeyboardInput {
     second_lost_focus_observed: bool,
     programmatic_refocus_complete: bool,
     programmatic_refocus_observed: bool,
+    tab_cycle_started: bool,
+    tab_defocus_complete: bool,
+    tab_lost_observed: bool,
+    tab_injection_complete: bool,
+    keyboard_refocus_observed: bool,
     key_observed: bool,
     key_up_observed: bool,
     character_observed: bool,
@@ -447,6 +452,8 @@ pub(crate) enum KeyboardMessage {
     SameTargetSettled,
     SecondDefocused(Result<bool, FocusError>),
     ProgrammaticRefocused(Result<bool, FocusError>),
+    TabDefocused(Result<bool, FocusError>),
+    TabInjected(Result<(), String>),
     FocusTimeout(bool),
     Injected(Result<(), String>),
 }
@@ -467,6 +474,10 @@ impl KeyboardInput {
             && self.second_lost_focus_observed
             && self.programmatic_refocus_complete
             && self.programmatic_refocus_observed
+            && self.tab_defocus_complete
+            && self.tab_lost_observed
+            && self.tab_injection_complete
+            && self.keyboard_refocus_observed
             && !self.complete.call(Ok(()))
         {
             eprintln!("keyboard fixture completion was rejected");
@@ -495,6 +506,11 @@ impl Component for KeyboardInput {
             second_lost_focus_observed: false,
             programmatic_refocus_complete: false,
             programmatic_refocus_observed: false,
+            tab_cycle_started: false,
+            tab_defocus_complete: false,
+            tab_lost_observed: false,
+            tab_injection_complete: false,
+            keyboard_refocus_observed: false,
             key_observed: false,
             key_up_observed: false,
             character_observed: false,
@@ -515,6 +531,15 @@ impl Component for KeyboardInput {
             KeyboardMessage::GotFocus(info) => {
                 if !info.is_direct || info.state == ElementFocusState::Unfocused {
                     Some(format!("unexpected focus payload: {info:?}"))
+                } else if self.tab_lost_observed && !self.keyboard_refocus_observed {
+                    if info.state != ElementFocusState::Keyboard {
+                        Some(format!(
+                            "keyboard navigation reported unexpected focus state: {info:?}"
+                        ))
+                    } else {
+                        self.keyboard_refocus_observed = true;
+                        None
+                    }
                 } else if !self.focus_observed {
                     if info.state != ElementFocusState::Pointer {
                         Some(format!(
@@ -609,6 +634,14 @@ impl Component for KeyboardInput {
             KeyboardMessage::LostFocus(info) => {
                 if !info.is_direct || info.state != ElementFocusState::Unfocused {
                     Some(format!("unexpected lost-focus payload: {info:?}"))
+                } else if self.tab_cycle_started {
+                    self.tab_lost_observed = true;
+                    let hwnd = self.hwnd.unwrap();
+                    context.spawn_background(move |_| {
+                        std::thread::sleep(Duration::from_millis(100));
+                        KeyboardMessage::TabInjected(inject_reverse_tab(hwnd))
+                    });
+                    None
                 } else if self.second_defocus_requested {
                     self.second_lost_focus_observed = true;
                     let sender = context.sender();
@@ -708,6 +741,21 @@ impl Component for KeyboardInput {
             KeyboardMessage::ProgrammaticRefocused(Err(error)) => {
                 Some(format!("programmatic refocus request failed: {error:?}"))
             }
+            KeyboardMessage::TabDefocused(Ok(true)) => {
+                self.tab_defocus_complete = true;
+                None
+            }
+            KeyboardMessage::TabDefocused(Ok(false)) => {
+                Some("WinUI rejected the Tab-cycle defocus request".to_string())
+            }
+            KeyboardMessage::TabDefocused(Err(error)) => {
+                Some(format!("Tab-cycle defocus request failed: {error:?}"))
+            }
+            KeyboardMessage::TabInjected(Ok(())) => {
+                self.tab_injection_complete = true;
+                None
+            }
+            KeyboardMessage::TabInjected(Err(error)) => Some(error),
             KeyboardMessage::FocusTimeout(false) if !self.focus_observed => {
                 Some("first click did not focus the keyboard target".to_string())
             }
@@ -732,6 +780,19 @@ impl Component for KeyboardInput {
             let sender = context.sender();
             if !self.blur_reference.request_focus_result(move |result| {
                 sender.send(KeyboardMessage::Defocused(result));
+            }) {
+                failure = Some("keyboard blur target was not published".to_string());
+            }
+        }
+        if failure.is_none()
+            && self.programmatic_refocus_complete
+            && self.programmatic_refocus_observed
+            && !self.tab_cycle_started
+        {
+            self.tab_cycle_started = true;
+            let sender = context.sender();
+            if !self.blur_reference.request_focus_result(move |result| {
+                sender.send(KeyboardMessage::TabDefocused(result));
             }) {
                 failure = Some("keyboard blur target was not published".to_string());
             }
@@ -821,6 +882,37 @@ fn inject_keyboard(hwnd: isize) -> Result<(), String> {
     } else {
         Err(format!(
             "SendInput inserted {inserted} of {} keyboard events",
+            inputs.len()
+        ))
+    }
+}
+
+fn inject_reverse_tab(hwnd: isize) -> Result<(), String> {
+    if unsafe { GetForegroundWindow() } != HWND(hwnd as *mut _) {
+        return Err("self-test window lost foreground focus".to_string());
+    }
+    let key = |virtual_key, flags| INPUT {
+        r#type: INPUT_KEYBOARD as u32,
+        Anonymous: INPUT_0 {
+            ki: KEYBDINPUT {
+                wVk: virtual_key,
+                dwFlags: flags,
+                ..Default::default()
+            },
+        },
+    };
+    let inputs = [
+        key(0x10, 0),
+        key(0x09, 0),
+        key(0x09, KEYEVENTF_KEYUP as u32),
+        key(0x10, KEYEVENTF_KEYUP as u32),
+    ];
+    let inserted = unsafe { SendInput(&inputs, size_of::<INPUT>() as i32) };
+    if inserted == inputs.len() as u32 {
+        Ok(())
+    } else {
+        Err(format!(
+            "SendInput inserted {inserted} of {} keyboard navigation events",
             inputs.len()
         ))
     }
