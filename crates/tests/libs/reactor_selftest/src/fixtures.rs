@@ -409,10 +409,15 @@ impl Component for FocusPublication {
 pub(crate) struct KeyboardInput {
     complete: Callback<FixtureResult>,
     reference: ElementRef<Border>,
+    blur_reference: ElementRef<Border>,
     focus_observed: bool,
     key_observed: bool,
+    key_up_observed: bool,
     character_observed: bool,
     injection_complete: bool,
+    defocus_requested: bool,
+    defocus_complete: bool,
+    lost_focus_observed: bool,
     hwnd: Option<isize>,
 }
 
@@ -420,7 +425,10 @@ pub(crate) enum KeyboardMessage {
     Focused(Result<bool, FocusError>),
     GotFocus(FocusEventInfo),
     Key(KeyEventInfo),
+    KeyUp(KeyEventInfo),
     Character(CharacterEventInfo),
+    Defocused(Result<bool, FocusError>),
+    LostFocus(FocusEventInfo),
     WindowHandle(Result<isize, String>),
     Activated(Result<isize, String>),
     Injected(Result<(), String>),
@@ -430,8 +438,11 @@ impl KeyboardInput {
     fn complete_if_ready(&self) {
         if self.focus_observed
             && self.key_observed
+            && self.key_up_observed
             && self.character_observed
             && self.injection_complete
+            && self.defocus_complete
+            && self.lost_focus_observed
             && !self.complete.call(Ok(()))
         {
             eprintln!("keyboard fixture completion was rejected");
@@ -448,10 +459,15 @@ impl Component for KeyboardInput {
         Self {
             complete: input.complete.clone(),
             reference: ElementRef::new(),
+            blur_reference: ElementRef::new(),
             focus_observed: false,
             key_observed: false,
+            key_up_observed: false,
             character_observed: false,
             injection_complete: false,
+            defocus_requested: false,
+            defocus_complete: false,
+            lost_focus_observed: false,
             hwnd: None,
         }
     }
@@ -461,7 +477,7 @@ impl Component for KeyboardInput {
     }
 
     fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
-        let failure = match message {
+        let mut failure = match message {
             KeyboardMessage::Focused(Ok(true)) => {
                 let hwnd = self.hwnd.unwrap();
                 context.spawn_background(move |_| {
@@ -496,11 +512,41 @@ impl Component for KeyboardInput {
                     None
                 }
             }
+            KeyboardMessage::KeyUp(info) => {
+                if info.key != F13
+                    || info.original_key != F13
+                    || !info.status.is_released
+                    || info.modifiers != InputModifiers::NONE
+                {
+                    Some(format!("unexpected key-up payload: {info:?}"))
+                } else {
+                    self.key_up_observed = true;
+                    None
+                }
+            }
             KeyboardMessage::Character(info) => {
                 if info.character != b'x'.into() || info.status.is_released {
                     Some(format!("unexpected character payload: {info:?}"))
                 } else {
                     self.character_observed = true;
+                    None
+                }
+            }
+            KeyboardMessage::Defocused(Ok(true)) => {
+                self.defocus_complete = true;
+                None
+            }
+            KeyboardMessage::Defocused(Ok(false)) => {
+                Some("WinUI rejected the keyboard defocus request".to_string())
+            }
+            KeyboardMessage::Defocused(Err(error)) => {
+                Some(format!("keyboard defocus request failed: {error:?}"))
+            }
+            KeyboardMessage::LostFocus(info) => {
+                if !info.is_direct || info.state != ElementFocusState::Unfocused {
+                    Some(format!("unexpected lost-focus payload: {info:?}"))
+                } else {
+                    self.lost_focus_observed = true;
                     None
                 }
             }
@@ -536,6 +582,21 @@ impl Component for KeyboardInput {
             }
             KeyboardMessage::Injected(Err(error)) => Some(error),
         };
+        if failure.is_none()
+            && self.key_observed
+            && self.key_up_observed
+            && self.character_observed
+            && self.injection_complete
+            && !self.defocus_requested
+        {
+            self.defocus_requested = true;
+            let sender = context.sender();
+            if !self.blur_reference.request_focus_result(move |result| {
+                sender.send(KeyboardMessage::Defocused(result));
+            }) {
+                failure = Some("keyboard blur target was not published".to_string());
+            }
+        }
         if let Some(failure) = failure {
             if !self.complete.call(Err(failure)) {
                 eprintln!("keyboard fixture failure was rejected");
@@ -556,21 +617,35 @@ impl Component for KeyboardInput {
             None
         });
 
-        Border::new()
-            .is_tab_stop(true)
-            .element_ref(&self.reference)
-            .on_got_focus(context.callback(KeyboardMessage::GotFocus))
-            .on_preview_key_down(context.routed_callback(|info: KeyEventInfo| {
-                if info.key == F13 {
-                    RoutedMessage::handled(KeyboardMessage::Key(info))
-                } else {
-                    RoutedMessage::bubble_without_message()
-                }
-            }))
-            .on_character_received(context.routed_callback(|info: CharacterEventInfo| {
-                RoutedMessage::handled(KeyboardMessage::Character(info))
-            }))
-            .content("Keyboard input target")
+        StackPanel::new().children((
+            Border::new()
+                .is_tab_stop(true)
+                .element_ref(&self.reference)
+                .on_got_focus(context.callback(KeyboardMessage::GotFocus))
+                .on_lost_focus(context.callback(KeyboardMessage::LostFocus))
+                .on_preview_key_down(context.routed_callback(|info: KeyEventInfo| {
+                    if info.key == F13 {
+                        RoutedMessage::handled(KeyboardMessage::Key(info))
+                    } else {
+                        RoutedMessage::bubble_without_message()
+                    }
+                }))
+                .on_key_up(context.routed_callback(|info: KeyEventInfo| {
+                    if info.key == F13 {
+                        RoutedMessage::handled(KeyboardMessage::KeyUp(info))
+                    } else {
+                        RoutedMessage::bubble_without_message()
+                    }
+                }))
+                .on_character_received(context.routed_callback(|info: CharacterEventInfo| {
+                    RoutedMessage::handled(KeyboardMessage::Character(info))
+                }))
+                .content("Keyboard input target"),
+            Border::new()
+                .is_tab_stop(true)
+                .element_ref(&self.blur_reference)
+                .content("Keyboard blur target"),
+        ))
     }
 }
 
