@@ -1,5 +1,4 @@
-use super::super::*;
-use crate::test::RecordingRuntime;
+use super::*;
 
 fn visual_view(styled: bool) -> View {
     let border = Border::new();

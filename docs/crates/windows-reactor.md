@@ -493,11 +493,11 @@ need it to use Reactor.
 | Layer | Location |
 | --- | --- |
 | Public frontend | `src/core/public.rs`, `src/element.rs`, `src/generated.rs` |
-| Component lifecycle and effects | `src/core/component.rs` |
+| Component lifecycle and effects | `src/core/component/mod.rs` |
 | Reconciler | `src/core/pump` |
-| Scheduling | `src/core/engine.rs`, `src/core/scheduler.rs` |
+| Scheduling | `src/core/engine/mod.rs`, `src/core/scheduler.rs` |
 | Native runtime | `src/native/winui` |
-| Recording runtime | `src/test/recording.rs` |
+| Recording runtime | `src/test/recording/mod.rs` |
 | Typed integrations | `src/reference.rs` |
 
 Components produce the public `View` representation. The Pump plans tree and lifecycle changes,

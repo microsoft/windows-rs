@@ -1,4 +1,4 @@
-use super::super::*;
+use super::*;
 
 #[derive(Clone, PartialEq)]
 struct VisualInput {

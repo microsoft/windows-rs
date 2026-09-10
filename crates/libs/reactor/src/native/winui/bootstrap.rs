@@ -1,10 +1,10 @@
-use crate::native::winui::bindings::*;
+use super::*;
 use windows_core::*;
 
 const FRAMEWORK_FAMILY: PCWSTR = w!("Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe");
 const PACKAGE_DEPENDENCY_LIFETIME_KIND_PROCESS: i32 = 0;
 
-static BOOTSTRAPPED: std::sync::Mutex<bool> = std::sync::Mutex::new(false);
+static BOOTSTRAPPED: Mutex<bool> = Mutex::new(false);
 
 /// Initializes the Windows App Runtime for framework-dependent apps by resolving the installed
 /// framework package and adding it to the process package graph directly.

@@ -1,7 +1,6 @@
 //! Keyed reconciliation and fragment contract tests for [`Pump`].
 
-use super::super::*;
-use super::support::*;
+use super::*;
 use std::collections::HashSet;
 
 #[test]

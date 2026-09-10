@@ -1,6 +1,6 @@
 //! Named-slot mounting and reconciliation contracts.
 
-use super::super::*;
+use super::*;
 use std::cell::RefCell;
 use std::collections::HashSet;
 use std::rc::Rc;

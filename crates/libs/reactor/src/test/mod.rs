@@ -1,5 +1,8 @@
 mod recording;
 
+use super::*;
+use crate::core::*;
+
 #[cfg(feature = "test")]
 pub use crate::app::test::{
     LiveProbe, bring_live_virtual_index, clear_live_performance_times, live_virtual_shell_counts,

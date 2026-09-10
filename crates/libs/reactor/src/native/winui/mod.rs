@@ -3525,7 +3525,6 @@ fn child_index(
 }
 
 #[cfg(test)]
-#[path = "tests.rs"]
 mod tests;
 
 fn inspectable_child_index(

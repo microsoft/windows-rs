@@ -1,7 +1,7 @@
 //! Shared fixtures and helper functions used across the [`super::super`] test
 //! categories.
 
-use super::super::*;
+use super::*;
 use std::cell::Cell;
 use std::rc::Rc;
 

@@ -1,7 +1,7 @@
 //! Planning for plain [`Element`] trees: native/virtual reconciliation and
 //! mounting, independent of [`View`]/component structure.
 
-use super::super::*;
+use super::*;
 
 impl<R: NativeRuntime> Pump<R> {
     fn visit_element_properties(
@@ -316,7 +316,7 @@ impl<R: NativeRuntime> Pump<R> {
                     .collect::<Result<Vec<_>, _>>()?;
                 tree.set_children(node, order);
                 let new_native = Self::native_children(tree, node)?;
-                if super::is_dense_keyed_update(&operations) && old_native != new_native {
+                if is_dense_keyed_update(&operations) && old_native != new_native {
                     plan.synchronize_children(node, None, new_native);
                 } else {
                     Self::replay_keyed_child_list(

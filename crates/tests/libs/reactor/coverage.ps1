@@ -6,8 +6,8 @@ $ErrorActionPreference = "Stop"
 $report = Get-Content $Path -Raw | ConvertFrom-Json
 $files = $report.data[0].files
 $requirements = @(
-    @{ Suffix = "core\component.rs"; Branches = 65; Lines = 89 },
-    @{ Suffix = "core\engine.rs"; Branches = 65; Lines = 93 },
+    @{ Suffix = "core\component\mod.rs"; Branches = 65; Lines = 89 },
+    @{ Suffix = "core\engine\mod.rs"; Branches = 65; Lines = 93 },
     @{ Suffix = "core\pump\lifecycle.rs"; Branches = 55; Lines = 91 },
     @{ Suffix = "core\pump\mod.rs"; Branches = 78; Lines = 92 },
     @{ Suffix = "core\pump\native_work.rs"; Branches = 65; Lines = 80 },
@@ -19,7 +19,7 @@ $requirements = @(
     @{ Suffix = "core\pump\turn.rs"; Branches = 54; Lines = 80 },
     @{ Suffix = "core\scheduler.rs"; Branches = 62; Lines = 87 },
     @{ Suffix = "core\virtual_model.rs"; Branches = 70; Lines = 97 },
-    @{ Suffix = "test\recording.rs"; Branches = 63; Lines = 91 },
+    @{ Suffix = "test\recording\mod.rs"; Branches = 63; Lines = 91 },
     @{ Suffix = "src\reference.rs"; Branches = 65; Lines = 87 }
 )
 

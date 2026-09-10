@@ -1,7 +1,6 @@
 //! Component scope, dirty tracking, and turn ordering contract tests for [`Pump`].
 
-use super::super::*;
-use super::support::*;
+use super::*;
 use std::any::TypeId;
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
