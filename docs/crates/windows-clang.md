@@ -151,15 +151,13 @@ The scraper preserves:
 - SAL and IDL optionality, buffer sizing, retval, and interface-selection annotations;
 - `uuid`, `noreturn`, alignment, `dllimport`, and deprecation attributes;
 - calling conventions, packing, unions, scoped enums, bit fields, and typedefs;
-- explicit constant casts, including casts whose expressions require batch evaluation, and C
-  integer literal types;
+- explicit constant casts and C integer literal types;
 - GUID values from `DEFINE_GUID`, `DEFINE_OLEGUID`, and `DEFINE_KNOWN_FOLDER`;
 - `DEFINE_ENUM_FLAG_OPERATORS` as a flags-enum signal;
 - symbol-to-DLL mappings recovered from import libraries.
 
 Namespaced scrapes follow referenced record definitions from included headers. Available layouts
 are emitted for both by-value and pointer dependencies; they are not replaced with opaque records.
-Typedefs referenced only by constants are retained in the same namespace.
 Per-header scrapes discover the same definitions globally and retain them in their owning header
 partition.
 

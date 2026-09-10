@@ -24,23 +24,6 @@ pub(crate) fn build_tag_rename_map(tu: &TranslationUnit) -> HashMap<String, Stri
     map
 }
 
-/// Index typedef declarations visible in one translation unit.
-pub(crate) fn build_typedef_map(tu: &TranslationUnit) -> HashMap<String, Cursor> {
-    fn collect(cursor: Cursor, map: &mut HashMap<String, Cursor>) {
-        for child in cursor.children() {
-            if child.kind() == CXCursor_LinkageSpec {
-                collect(child, map);
-            } else if child.kind() == CXCursor_TypedefDecl {
-                map.entry(child.name()).or_insert(child);
-            }
-        }
-    }
-
-    let mut map = HashMap::new();
-    collect(tu.cursor(), &mut map);
-    map
-}
-
 /// Merge `enum _FOO { ... }; typedef DWORD FOO;` into one public enum.
 ///
 /// The typedef supplies the backing type and signedness; the enum supplies the members.
