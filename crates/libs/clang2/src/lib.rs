@@ -53,6 +53,7 @@ pub enum TypeRef {
     Scalar(Scalar),
     Named { name: String, declaration: Location },
     Pointer { mutable: bool, target: Box<Self> },
+    Reference { mutable: bool, target: Box<Self> },
     Array { target: Box<Self>, len: usize },
     InlineRecord(Box<InlineRecord>),
 }
@@ -95,6 +96,7 @@ pub struct Method {
     pub name: String,
     pub params: Vec<Parameter>,
     pub result: TypeRef,
+    pub special: bool,
 }
 
 #[derive(Clone, Debug, Default, Eq, Ord, PartialEq, PartialOrd)]
@@ -104,6 +106,7 @@ pub struct ParamAnnotation {
     pub optional: bool,
     pub reserved: bool,
     pub com_out_ptr: bool,
+    pub retval: bool,
     pub null_terminated: bool,
     pub size: Option<SalSize>,
     pub unsupported: Option<String>,
@@ -221,6 +224,16 @@ impl Snapshot {
 
     pub fn constants(&self) -> &[Constant] {
         &self.constants
+    }
+
+    pub fn unsupported(&self) -> impl Iterator<Item = (&Fact, &str)> {
+        self.facts.iter().filter_map(|fact| {
+            if let FactData::Unsupported { reason } = &fact.data {
+                Some((fact, reason.as_str()))
+            } else {
+                None
+            }
+        })
     }
 
     pub fn dump(&self) -> String {
@@ -395,16 +408,17 @@ impl Snapshot {
             let params = params
                 .iter()
                 .map(|param| -> Result<_, Error> {
+                    let ty = planned_param_type_name(
+                        param,
+                        &plan.type_names,
+                        &plan.interface_names,
+                        &function.origin.tu,
+                    );
                     Ok(format!(
                         "{}{}: {}",
-                        param_attributes(&param.annotation, params)?,
+                        param_attributes(param, params, ty.starts_with("*mut "))?,
                         rdl_ident(&param.name),
-                        planned_param_type_name(
-                            param,
-                            &plan.type_names,
-                            &plan.interface_names,
-                            &function.origin.tu,
-                        )
+                        ty
                     ))
                 })
                 .collect::<Result<Vec<_>, _>>()?
@@ -551,7 +565,7 @@ impl Snapshot {
 
             while let Some((tu, ty)) = queue.pop() {
                 let (name, declaration) = match ty {
-                    TypeRef::Pointer { target, .. } => {
+                    TypeRef::Pointer { target, .. } | TypeRef::Reference { target, .. } => {
                         queue.push((tu, target));
                         continue;
                     }
@@ -730,13 +744,18 @@ impl Snapshot {
                 fact,
             })
             .collect();
-        let mut interface_names: BTreeSet<_> = types
-            .iter()
-            .filter_map(|planned| {
-                matches!(planned.fact.data, FactData::Interface { .. })
-                    .then_some((planned.fact.origin.tu.clone(), planned.fact.name.clone()))
-            })
-            .collect();
+        let mut interface_names = BTreeSet::new();
+        for planned in &types {
+            if matches!(planned.fact.data, FactData::Interface { .. }) {
+                for fact in &self.facts {
+                    if matches!(fact.data, FactData::Interface { .. })
+                        && same_source_declaration(planned.fact, fact)
+                    {
+                        interface_names.insert((fact.origin.tu.clone(), fact.name.clone()));
+                    }
+                }
+            }
+        }
         loop {
             let mut changed = false;
             for fact in &self.facts {
@@ -983,9 +1002,13 @@ fn queue_function_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, &'a TypeRe
 fn insert_required_type_names(ty: &TypeRef, required: &mut BTreeSet<String>) {
     match ty {
         TypeRef::Named { name, .. } => {
-            required.insert(name.clone());
+            if canonical_named_type(name).is_none() {
+                required.insert(name.clone());
+            }
         }
-        TypeRef::Pointer { target, .. } => insert_required_type_names(target, required),
+        TypeRef::Pointer { target, .. } | TypeRef::Reference { target, .. } => {
+            insert_required_type_names(target, required);
+        }
         TypeRef::Array { target, .. } => insert_required_type_names(target, required),
         TypeRef::InlineRecord(record) => {
             for field in &record.fields {
@@ -1235,9 +1258,8 @@ fn extract_children(cursor: CXCursor, parent: Option<Origin>, traversal: &mut Tr
                 {
                     child_parent = Some(origin.clone());
                     repeated = true;
-                } else if let Some((spelling, expansion, main_file, system)) =
-                    cursor_locations(child)
-                {
+                } else if let Some((spelling, expansion, _, system)) = cursor_locations(child) {
+                    let main_file = spelling.file == traversal.tu;
                     let origin = Origin {
                         tu: traversal.tu.to_string(),
                         local,
@@ -1530,30 +1552,10 @@ fn fact_data(cursor: CXCursor, kind: FactKind) -> FactData {
                     ),
                 };
             };
-            let mut params = vec![];
-            for child in cursor_children(cursor)
-                .into_iter()
-                .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
-            {
-                let param_ty = unsafe { clang_getCursorType(child) };
-                let Some(ty) = type_ref(param_ty) else {
-                    return FactData::Unsupported {
-                        reason: format!(
-                            "parameter has unsupported type `{}`",
-                            cx_string(unsafe { clang_getTypeSpelling(param_ty) })
-                        ),
-                    };
-                };
-                let mut name = cx_string(unsafe { clang_getCursorSpelling(child) });
-                if name.is_empty() {
-                    name = format!("param{}", params.len());
-                }
-                params.push(Parameter {
-                    name,
-                    ty,
-                    annotation: parameter_annotation(child),
-                });
-            }
+            let params = match callable_params(cursor) {
+                Ok(params) => params,
+                Err(reason) => return FactData::Unsupported { reason },
+            };
             let function_ty = unsafe { clang_getCursorType(cursor) };
             let Some(convention) = calling_convention_fact(function_ty) else {
                 return FactData::Unsupported {
@@ -1698,14 +1700,24 @@ fn interface_fact(cursor: CXCursor) -> FactData {
                         reason: "interface method has an unsupported result".to_string(),
                     };
                 };
-                let params = match callable_params(child) {
+                let mut params = match callable_params(child) {
                     Ok(params) => params,
                     Err(reason) => return FactData::Unsupported { reason },
                 };
+                let tokens = cursor_tokens(child);
+                apply_midl_annotations(&tokens, &mut params);
+                let special =
+                    tokens_before_method_name(&tokens, child)
+                        .iter()
+                        .any(|(kind, token)| {
+                            *kind == CXToken_Comment
+                                && (token.contains("[propget]") || token.contains("[propput]"))
+                        });
                 methods.push(Method {
                     name: cx_string(unsafe { clang_getCursorSpelling(child) }),
                     params,
                     result,
+                    special,
                 });
             }
             CXCursor_CXXMethod => {
@@ -1823,13 +1835,95 @@ fn callable_params(cursor: CXCursor) -> Result<Vec<Parameter>, String> {
         if name.is_empty() {
             name = format!("param{}", params.len());
         }
+        let annotation = parameter_annotation(child);
+        if let Some(reason) = &annotation.unsupported {
+            return Err(reason.clone());
+        }
         params.push(Parameter {
             name,
             ty,
-            annotation: parameter_annotation(child),
+            annotation,
         });
     }
+    for param in &params {
+        if let Some(size) = &param.annotation.size {
+            match &size.value {
+                SalSizeValue::Parameter(name)
+                    if !params.iter().any(|param| param.name == *name) =>
+                {
+                    return Err(format!("unresolved SAL size parameter `{name}`"));
+                }
+                SalSizeValue::Constant(_) if size.bytes => {
+                    return Err("constant byte-size SAL annotations are unsupported".to_string());
+                }
+                _ => {}
+            }
+        }
+    }
     Ok(params)
+}
+
+fn cursor_tokens(cursor: CXCursor) -> Vec<(CXTokenKind, String)> {
+    let tu = unsafe { clang_Cursor_getTranslationUnit(cursor) };
+    let range = expansion_range(tu, unsafe { clang_getCursorExtent(cursor) });
+    let mut tokens = std::ptr::null_mut();
+    let mut count = 0;
+    unsafe { clang_tokenize(tu, range, &mut tokens, &mut count) };
+    let result = (0..count)
+        .map(|index| {
+            let token = unsafe { *tokens.add(index as usize) };
+            (
+                unsafe { clang_getTokenKind(token) },
+                cx_string(unsafe { clang_getTokenSpelling(tu, token) }),
+            )
+        })
+        .collect();
+    unsafe { clang_disposeTokens(tu, tokens, count) };
+    result
+}
+
+fn tokens_before_method_name(
+    tokens: &[(CXTokenKind, String)],
+    cursor: CXCursor,
+) -> &[(CXTokenKind, String)] {
+    let name = cx_string(unsafe { clang_getCursorSpelling(cursor) });
+    let end = tokens
+        .iter()
+        .position(|(kind, token)| *kind == CXToken_Identifier && token == &name)
+        .unwrap_or(0);
+    &tokens[..end]
+}
+
+fn apply_midl_annotations(tokens: &[(CXTokenKind, String)], params: &mut [Parameter]) {
+    let Some(open) = tokens
+        .iter()
+        .position(|(kind, token)| *kind == CXToken_Punctuation && token == "(")
+    else {
+        return;
+    };
+    let mut index = 0;
+    let mut depth = 1;
+    for (kind, token) in &tokens[open + 1..] {
+        match (*kind, token.as_str()) {
+            (CXToken_Punctuation, "(") => depth += 1,
+            (CXToken_Punctuation, ")") => {
+                depth -= 1;
+                if depth == 0 {
+                    break;
+                }
+            }
+            (CXToken_Punctuation, ",") if depth == 1 => index += 1,
+            (CXToken_Comment, comment) if depth == 1 && index < params.len() => {
+                let annotation = &mut params[index].annotation;
+                annotation.input |= comment.contains("[in]");
+                annotation.output |= comment.contains("[out]");
+                annotation.optional |= comment.contains("[optional]");
+                annotation.retval |= comment.contains("[retval]");
+                annotation.com_out_ptr |= comment.contains("[iid_is]") && annotation.output;
+            }
+            _ => {}
+        }
+    }
 }
 
 fn parameter_annotation(cursor: CXCursor) -> ParamAnnotation {
@@ -1956,14 +2050,26 @@ fn inline_record(cursor: CXCursor, union: bool) -> Result<InlineRecord, String> 
                     cx_string(unsafe { clang_getTypeSpelling(field_ty) })
                 )
             })?;
+            let bit_width = if unsafe { clang_Cursor_isBitField(child) } != 0 {
+                let width = unsafe { clang_getFieldDeclBitWidth(child) };
+                if width < 0 {
+                    return Err(format!("bitfield `{name}` width is unavailable"));
+                }
+                Some(
+                    width
+                        .try_into()
+                        .map_err(|_| format!("bitfield `{name}` width is out of range"))?,
+                )
+            } else {
+                None
+            };
             fields.push(Field {
                 name,
                 ty,
                 offset: unsafe { clang_Cursor_getOffsetOfField(child) },
                 align: unsafe { clang_Type_getAlignOf(field_ty) },
                 size: unsafe { clang_Type_getSizeOf(field_ty) },
-                bit_width: (unsafe { clang_Cursor_isBitField(child) } != 0)
-                    .then(|| unsafe { clang_getFieldDeclBitWidth(child).try_into().unwrap() }),
+                bit_width,
             });
         } else if matches!(kind, CXCursor_StructDecl | CXCursor_UnionDecl)
             && unsafe { clang_Cursor_isAnonymousRecordDecl(child) } != 0
@@ -2101,7 +2207,12 @@ fn write_callable(
     )
 }
 
-fn param_attributes(annotation: &ParamAnnotation, params: &[Parameter]) -> Result<String, Error> {
+fn param_attributes(
+    param: &Parameter,
+    params: &[Parameter],
+    emitted_mutable: bool,
+) -> Result<String, Error> {
+    let annotation = &param.annotation;
     if let Some(reason) = &annotation.unsupported {
         return Err(Error(reason.clone()));
     }
@@ -2136,14 +2247,17 @@ fn param_attributes(annotation: &ParamAnnotation, params: &[Parameter]) -> Resul
     if annotation.com_out_ptr {
         result.push_str("#[iid_is] ");
     }
-    if annotation.input {
+    if annotation.input && (annotation.output || emitted_mutable) {
         result.push_str("#[in] ");
     }
-    if annotation.output {
+    if annotation.output && (annotation.input || !emitted_mutable) {
         result.push_str("#[out] ");
     }
     if annotation.optional {
         result.push_str("#[opt] ");
+    }
+    if annotation.retval {
+        result.push_str("#[retval] ");
     }
     Ok(result)
 }
@@ -2179,11 +2293,12 @@ fn write_interface(
                 .params
                 .iter()
                 .map(|param| -> Result<_, Error> {
+                    let ty = planned_param_type_name(param, type_names, interface_names, tu);
                     Ok(format!(
                         "{}{}: {}",
-                        param_attributes(&param.annotation, &method.params)?,
+                        param_attributes(param, &method.params, ty.starts_with("*mut "))?,
                         rdl_ident(&param.name),
-                        planned_param_type_name(param, type_names, interface_names, tu)
+                        ty
                     ))
                 })
                 .collect::<Result<Vec<_>, _>>()?
@@ -2197,7 +2312,8 @@ fn write_interface(
                 )
             };
             result.push_str(&format!(
-                "        fn {}(&self{}{}){return_type};\n",
+                "        {}fn {}(&self{}{}){return_type};\n",
+                if method.special { "#[special] " } else { "" },
                 rdl_ident(&method.name),
                 if params.is_empty() { "" } else { ", " },
                 params
@@ -2251,6 +2367,23 @@ fn planned_emitted_type_name(
     interface_names: &BTreeSet<(String, String)>,
     tu: &str,
 ) -> String {
+    if let TypeRef::Named { name, .. } = ty
+        && let Some(name) = canonical_named_type(name)
+    {
+        return name.to_string();
+    }
+    if let TypeRef::Reference { mutable, target } = ty {
+        if let TypeRef::Named { name, .. } = target.as_ref()
+            && interface_names.contains(&(tu.to_string(), name.clone()))
+        {
+            return planned_type_name(target, type_names);
+        }
+        return format!(
+            "*{} {}",
+            if *mutable { "mut" } else { "const" },
+            planned_emitted_type_name(target, type_names, interface_names, tu)
+        );
+    }
     if let TypeRef::Array { target, len } = ty {
         return format!(
             "[{}; {len}]",
@@ -2265,10 +2398,32 @@ fn planned_emitted_type_name(
         return format!(
             "{}{}",
             format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth - 1),
-            planned_type_name(target, type_names)
+            planned_emitted_type_name(target, type_names, interface_names, tu)
+        );
+    }
+    if depth != 0 {
+        return format!(
+            "{}{}",
+            format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth),
+            planned_emitted_type_name(target, type_names, interface_names, tu)
         );
     }
     planned_type_name(ty, type_names)
+}
+
+fn canonical_named_type(name: &str) -> Option<&'static str> {
+    Some(match name {
+        "BYTE" | "UCHAR" | "UINT8" | "uint8_t" => "u8",
+        "WORD" | "USHORT" | "WCHAR" | "UINT16" | "uint16_t" => "u16",
+        "DWORD" | "UINT" | "ULONG" | "DWORD32" | "UINT32" | "ULONG32" | "uint32_t" => "u32",
+        "QWORD" | "ULONGLONG" | "DWORD64" | "UINT64" | "ULONG64" | "uint64_t" => "u64",
+        "CHAR" | "INT8" | "int8_t" => "i8",
+        "SHORT" | "INT16" | "int16_t" => "i16",
+        "INT" | "LONG" | "INT32" | "LONG32" | "int32_t" => "i32",
+        "LONGLONG" | "INT64" | "LONG64" | "int64_t" => "i64",
+        "IID" | "CLSID" | "FMTID" | "UUID" => "GUID",
+        _ => return None,
+    })
 }
 
 fn calling_convention(convention: CallingConvention) -> &'static str {
@@ -2353,7 +2508,7 @@ fn write_record_fields(
         };
         result.push_str(&format!(
             "{spaces}{backing}: {} {{\n",
-            planned_type_name(&field.ty, projection.type_names)
+            projection.name(&field.ty)
         ));
         let mut cursor = group.offset;
         for member in &fields[group.start..group.end] {
@@ -2477,6 +2632,17 @@ fn type_ref(ty: CXType) -> Option<TypeRef> {
             target: Box::new(target),
         });
     }
+    if ty.kind == CXType_LValueReference || ty.kind == CXType_RValueReference {
+        let referent = unsafe { clang_getPointeeType(ty) };
+        let target = type_ref(referent)?;
+        if matches!(target, TypeRef::InlineRecord(_)) {
+            return None;
+        }
+        return Some(TypeRef::Reference {
+            mutable: unsafe { clang_isConstQualifiedType(referent) } == 0,
+            target: Box::new(target),
+        });
+    }
     if ty.kind == CXType_ConstantArray {
         let target = unsafe { clang_getArrayElementType(ty) };
         let len = unsafe { clang_getArraySize(ty) };
@@ -2493,6 +2659,12 @@ fn type_ref(ty: CXType) -> Option<TypeRef> {
         });
     }
     let declaration = unsafe { clang_getTypeDeclaration(ty) };
+    let definition = unsafe { clang_getCursorDefinition(declaration) };
+    let declaration = if unsafe { clang_Cursor_isNull(definition) } == 0 {
+        definition
+    } else {
+        declaration
+    };
     if unsafe { clang_Cursor_isNull(declaration) } == 0 {
         let kind = unsafe { clang_getCursorKind(declaration) };
         if matches!(kind, CXCursor_StructDecl | CXCursor_UnionDecl)
@@ -2568,6 +2740,11 @@ fn type_name(ty: &TypeRef) -> String {
                 type_name(target)
             )
         }
+        TypeRef::Reference { mutable, target } => format!(
+            "*{} {}",
+            if *mutable { "mut" } else { "const" },
+            type_name(target)
+        ),
         TypeRef::Array { target, len } => format!("[{}; {len}]", type_name(target)),
         TypeRef::InlineRecord(_) => "<inline record>".to_string(),
     }
@@ -2584,6 +2761,11 @@ fn planned_type_name(ty: &TypeRef, type_names: &BTreeMap<String, String>) -> Str
                 planned_type_name(target, type_names)
             )
         }
+        TypeRef::Reference { mutable, target } => format!(
+            "*{} {}",
+            if *mutable { "mut" } else { "const" },
+            planned_type_name(target, type_names)
+        ),
         TypeRef::Array { target, len } => {
             format!("[{}; {len}]", planned_type_name(target, type_names))
         }
@@ -2610,6 +2792,8 @@ fn pointer_run(mut ty: &TypeRef) -> (bool, usize, &TypeRef) {
 fn constant_type_name(ty: &TypeRef, type_names: &BTreeMap<String, String>) -> String {
     match ty {
         TypeRef::Scalar(Scalar::Bool) => "u32".to_string(),
+        TypeRef::Named { name, .. } => canonical_named_type(name)
+            .map_or_else(|| planned_type_name(ty, type_names), str::to_string),
         _ => planned_type_name(ty, type_names),
     }
 }

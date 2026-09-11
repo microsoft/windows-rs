@@ -59,6 +59,8 @@ typedef struct _FLOATS {
     wchar_t wide;
 } FLOATS;
 typedef const char **MIXED_POINTER;
+typedef unsigned long DWORD;
+#define CANONICAL_DWORD ((DWORD)7)
 
 typedef struct _FLAGS {
     unsigned int low : 3;
@@ -67,6 +69,9 @@ typedef struct _FLAGS {
     unsigned int wide : 24;
     unsigned int next : 16;
 } FLAGS;
+typedef struct _CANONICAL_BITS {
+    DWORD value : 3;
+} CANONICAL_BITS;
 
 typedef struct _NESTED {
     struct {
@@ -144,6 +149,10 @@ struct INTERFACE_HOLDER {
 };
 struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IGuid {
     virtual void Guided() = 0;
+    virtual /* [propget] */ int get_Value(/* [out][retval] */ int *value) = 0;
+    virtual int Query(/* [in] */ int input,
+                      /* [out][optional] */ int *output,
+                      /* [out][iid_is] */ void **object) = 0;
 };
 ";
 
@@ -205,6 +214,8 @@ struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IGuid {
     assert!(rdl.contains("wide: u16"));
     assert!(rdl.contains("type MIXED_POINTER = *const *const i8"));
     assert!(rdl.contains("_bitfield1: u32"));
+    assert!(rdl.contains("struct CANONICAL_BITS {\n        _bitfield: u32"));
+    assert!(rdl.contains("const CANONICAL_DWORD: u32 = 7"));
     assert!(rdl.contains("low: 3"));
     assert!(rdl.contains("_: 2"));
     assert!(rdl.contains("high: 3"));
@@ -233,19 +244,19 @@ struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IGuid {
     ));
     assert!(rdl.contains("type r#type = i32"));
     assert!(rdl.contains("extern \"C\" fn KeywordType(value: r#type) -> r#type"));
-    assert!(rdl.contains("#[in] input: *const POINT"));
-    assert!(rdl.contains("#[out] #[opt] output: *mut POINT"));
+    assert!(rdl.contains("input: *const POINT"));
+    assert!(rdl.contains("#[opt] output: *mut POINT"));
     assert!(rdl.contains("#[in] #[out] flags: *mut u32"));
     assert!(rdl.contains("#[reserved] context: *mut void"));
-    assert!(rdl.contains("#[len_param(1)] #[in] points: *const POINT"));
-    assert!(rdl.contains("#[size_param(3)] #[out] buffer: *mut void"));
-    assert!(rdl.contains("#[len_const(16)] #[in] fixed: *const i8"));
-    assert!(rdl.contains("#[len_param(6)] #[out] text: *mut i8"));
+    assert!(rdl.contains("#[len_param(1)] points: *const POINT"));
+    assert!(rdl.contains("#[size_param(3)] buffer: *mut void"));
+    assert!(rdl.contains("#[len_const(16)] fixed: *const i8"));
+    assert!(rdl.contains("#[len_param(6)] text: *mut i8"));
     assert!(rdl.contains(
-        "extern \"C\" fn Strings(#[in] narrow: PCSTR, #[out] wide: PWSTR, \
-         #[len_param(3)] #[in] counted: *const i8, count: u32)"
+        "extern \"C\" fn Strings(narrow: PCSTR, #[out] wide: PWSTR, \
+         #[len_param(3)] counted: *const i8, count: u32)"
     ));
-    assert!(rdl.contains("extern \"C\" fn Create(#[iid_is] #[out] object: *mut *mut void)"));
+    assert!(rdl.contains("extern \"C\" fn Create(#[iid_is] object: *mut *mut void)"));
     assert!(rdl.contains("#[no_guid]\n    interface IBase"));
     assert!(rdl.contains("fn First(&self, value: i32) -> i32"));
     let float_over = rdl.find("fn Over(&self, floating: f32)").unwrap();
@@ -255,7 +266,7 @@ struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IGuid {
     assert!(!rdl.contains("interface IDerived: IBase {\n        fn First"));
     assert!(rdl.contains(
         "fn Next(&self, other: IBase, out_other: *mut IBase, \
-             #[iid_is] #[out] object: *mut *mut void) -> i32"
+         #[iid_is] object: *mut *mut void) -> i32"
     ));
     assert!(rdl.contains("interface IAlias"));
     assert!(!rdl.contains("interface _IAlias"));
@@ -265,6 +276,14 @@ struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IGuid {
     assert!(rdl.contains("type PIBASE = IBase"));
     assert!(rdl.contains("struct INTERFACE_HOLDER {\n        value: IBase,"));
     assert!(rdl.contains("#[guid(0x12345678_1234_abcd_9876_0123456789ab)]\n    interface IGuid"));
+    assert!(
+        rdl.contains("#[special] fn get_Value(&self, #[retval] value: *mut i32)"),
+        "{rdl}"
+    );
+    assert!(rdl.contains(
+        "fn Query(&self, input: i32, #[opt] output: *mut i32, \
+     #[iid_is] object: *mut *mut void)"
+    ));
     assert!(!rdl.contains("struct _POINT"));
     assert!(!rdl.contains("union _NUMBER"));
 
@@ -362,6 +381,44 @@ struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IGuid {
             .attributes()
             .any(|attribute| attribute.name() == "ComOutPtrAttribute")
     );
+    let windows_metadata::reader::Item::Type(guided) = index.expect_item("Records", "IGuid") else {
+        panic!("IGuid was not emitted as an interface");
+    };
+    let get_value = guided
+        .methods()
+        .find(|method| method.name() == "get_Value")
+        .unwrap();
+    let params = get_value.params_by_sequence(1).unwrap();
+    let [Some(value)] = params.params() else {
+        panic!("get_Value parameter metadata is incomplete");
+    };
+    assert!(value.is_retval_attribute());
+    assert_eq!(
+        value.direction(),
+        windows_metadata::reader::ParamDirection::Output
+    );
+    let query = guided
+        .methods()
+        .find(|method| method.name() == "Query")
+        .unwrap();
+    let params = query.params_by_sequence(3).unwrap();
+    let [Some(input), Some(output_param), Some(object)] = params.params() else {
+        panic!("Query parameter metadata is incomplete");
+    };
+    assert_eq!(
+        input.direction(),
+        windows_metadata::reader::ParamDirection::Input
+    );
+    assert_eq!(
+        output_param.direction(),
+        windows_metadata::reader::ParamDirection::Output
+    );
+    assert!(output_param.is_optional());
+    assert!(
+        object
+            .attributes()
+            .any(|attribute| attribute.name() == "ComOutPtrAttribute")
+    );
     std::fs::remove_file(output).unwrap();
 }
 
@@ -385,12 +442,13 @@ fn unsupported_sal_size_relations_are_reported() {
              __attribute__((annotate(\"{annotation}\"))) void *buffer, unsigned int count);"
         );
         let snapshot = extract([Input::new("invalid.hpp", source)], &["-x", "c++"]).unwrap();
+        let (_, reason) = snapshot
+            .unsupported()
+            .find(|(fact, _)| fact.name == "Invalid")
+            .unwrap();
         assert!(
-            snapshot
-                .emit_with_library("Invalid", "test.dll")
-                .unwrap_err()
-                .to_string()
-                .contains(expected)
+            reason.contains(expected),
+            "unexpected unsupported reason: {reason}"
         );
     }
 
@@ -508,14 +566,47 @@ struct IBadDestructor {
             "interface has a constructor or destructor",
         ),
     ] {
-        let fact = snapshot
-            .facts()
-            .iter()
-            .find(|fact| fact.name == name)
+        let (fact, reason) = snapshot
+            .unsupported()
+            .find(|(fact, _)| fact.name == name)
             .unwrap();
-        let FactData::Unsupported { reason } = &fact.data else {
-            panic!("{name} was not classified as unsupported");
-        };
         assert!(reason.contains(expected), "{reason}");
+        assert!(matches!(fact.data, FactData::Unsupported { .. }));
     }
+}
+
+#[test]
+fn interface_projection_is_stable_across_translation_units() {
+    windows_clang::ensure_libclang();
+    let scratch = std::env::temp_dir().join(format!(
+        "windows-clang2-interface-tu-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(&scratch).unwrap();
+    std::fs::write(
+        scratch.join("shared.hpp"),
+        "struct IShared { virtual void Method() = 0; };\n",
+    )
+    .unwrap();
+    let include = format!("-I{}", scratch.display());
+    let first = Input::new(
+        scratch.join("first.hpp").to_string_lossy(),
+        "#include \"shared.hpp\"\nextern \"C\" IShared *GetShared();\n",
+    );
+    let second = Input::new(
+        scratch.join("second.hpp").to_string_lossy(),
+        "#include \"shared.hpp\"\nstruct HOLDER { IShared *value; };\n",
+    );
+    let left = extract([first.clone(), second.clone()], &["-x", "c++", &include])
+        .unwrap()
+        .emit_with_library("Stable", "test.dll")
+        .unwrap();
+    let right = extract([second, first], &["-x", "c++", &include])
+        .unwrap()
+        .emit_with_library("Stable", "test.dll")
+        .unwrap();
+    assert_eq!(left, right);
+    assert!(left.contains("extern \"C\" fn GetShared() -> IShared"));
+    assert!(left.contains("struct HOLDER {\n        value: IShared,"));
+    std::fs::remove_dir_all(scratch).unwrap();
 }

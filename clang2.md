@@ -24,11 +24,8 @@ input-order-independent architecture. The experiment is unpublished and may be d
 | [x] | 2. Constants slice: typedefs, enums, direct/computed macros, RDL output | Single-TU adversarial fixtures pass and RDL compiles to winmd. |
 | [x] | 3. Planner: root selection, name arbitration, TU-local dependency closure | Both input orders match; no dangling or orphan dependencies. |
 | [x] | 4. Real headers: run selected SDK headers against committed RDL | Supported declarations match, except fixture-backed corrections. |
-| [ ] | 5. Breadth: records, functions, interfaces, annotations, layouts | Each added kind preserves the same pipeline and expands corpus parity. |
+| [x] | 5. Breadth: records, functions, interfaces, annotations, layouts | Each added kind preserves the same pipeline and expands corpus parity. |
 | [ ] | 6. Decision: run `tool-win32` and `tool-webview` through clang2 | Outputs match or every difference is reviewed and tested. |
-
-Checkpoint 5 has records/layouts, functions/callbacks, SAL direction/size/string annotations, and
-the interface ABI foundation. MIDL comments and real-header interface coverage remain.
 
 ## Stop gates
 
