@@ -126,6 +126,8 @@ jobs:
         run:  cargo check -p windows-threading --no-default-features
       - name: Check windows-time
         run:  cargo check -p windows-time --no-default-features
+      - name: Check windows-trayicon
+        run:  cargo check -p windows-trayicon --no-default-features
       - name: Check windows-version
         run:  cargo check -p windows-version --no-default-features
       - name: Check windows-webview

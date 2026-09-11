@@ -13,6 +13,7 @@ pub const WS_EX_NOREDIRECTIONBITMAP: isize = 0x0020_0000;
 
 windows_link::link!("user32.dll" "system" fn SendMessageW(hwnd: *mut core::ffi::c_void, msg: u32, wparam: usize, lparam: isize) -> isize);
 windows_link::link!("user32.dll" "system" fn IsWindow(hwnd: *mut core::ffi::c_void) -> i32);
+windows_link::link!("user32.dll" "system" fn IsWindowVisible(hwnd: *mut core::ffi::c_void) -> i32);
 windows_link::link!("user32.dll" "system" fn DestroyWindow(hwnd: *mut core::ffi::c_void) -> i32);
 
 #[cfg(target_pointer_width = "64")]

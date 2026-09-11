@@ -1,0 +1,21 @@
+[package]
+name = "windows-trayicon"
+version = "0.100.0"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT OR Apache-2.0"
+description = "Windows notification-area icon library"
+repository = "https://github.com/microsoft/windows-rs"
+categories = ["os::windows-apis"]
+readme = "readme.md"
+
+[dependencies]
+windows-core = { workspace = true }
+windows-window = { workspace = true }
+
+[lints]
+workspace = true
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = []

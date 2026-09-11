@@ -85,6 +85,8 @@ jobs:
         run:  cargo check -p windows-threading --all-features
       - name: Check windows-time
         run:  cargo check -p windows-time --all-features
+      - name: Check windows-trayicon
+        run:  cargo check -p windows-trayicon --all-features
       - name: Check windows-version
         run:  cargo check -p windows-version --all-features
       - name: Check windows-webview

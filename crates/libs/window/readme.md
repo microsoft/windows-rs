@@ -35,3 +35,8 @@ fn main() -> Result<()> {
     Ok(())
 }
 ```
+
+Use `visible(false)` for an integration that needs a top-level message target without showing a
+window. Hidden windows still receive messages and do not change the message-loop lifetime when
+they are dropped.
+Use `process_dpi_awareness(false)` when the host application owns its process DPI policy.
