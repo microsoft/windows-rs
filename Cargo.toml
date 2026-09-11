@@ -55,6 +55,7 @@ windows-animation = { version = "0.100.0", path = "crates/libs/animation", defau
 windows-bindgen = { version = "0.100.0", path = "crates/libs/bindgen", default-features = false }
 windows-canvas = { version = "0.100.0", path = "crates/libs/canvas", default-features = false }
 windows-clang = { version = "0.100.0", path = "crates/libs/clang", default-features = false }
+windows-clang2 = { path = "crates/libs/clang2" }
 windows-collections = { version = "0.100.0", path = "crates/libs/collections", default-features = false }
 windows-composition = { version = "0.100.0", path = "crates/libs/composition", default-features = false }
 windows-core = { version = "0.100.0", path = "crates/libs/core", default-features = false }

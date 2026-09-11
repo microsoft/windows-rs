@@ -11,6 +11,21 @@ pub struct Input {
     pub source: String,
 }
 
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct TypeReference {
+    pub namespace: String,
+    pub interface: bool,
+}
+
+impl TypeReference {
+    pub fn new(namespace: impl Into<String>, interface: bool) -> Self {
+        Self {
+            namespace: namespace.into(),
+            interface,
+        }
+    }
+}
+
 impl Input {
     pub fn new(name: impl Into<String>, source: impl Into<String>) -> Self {
         Self {
@@ -51,10 +66,31 @@ pub enum Scalar {
 pub enum TypeRef {
     Void,
     Scalar(Scalar),
-    Named { name: String, declaration: Location },
-    Pointer { mutable: bool, target: Box<Self> },
-    Reference { mutable: bool, target: Box<Self> },
-    Array { target: Box<Self>, len: usize },
+    Named {
+        name: String,
+        declaration: Location,
+    },
+    Pointer {
+        mutable: bool,
+        target: Box<Self>,
+    },
+    Reference {
+        mutable: bool,
+        target: Box<Self>,
+    },
+    FunctionPointer {
+        convention: CallingConvention,
+        params: Vec<Self>,
+        result: Box<Self>,
+    },
+    OpaquePointer {
+        mutable: bool,
+        tag: String,
+    },
+    Array {
+        target: Box<Self>,
+        len: usize,
+    },
     InlineRecord(Box<InlineRecord>),
 }
 
@@ -273,19 +309,29 @@ impl Snapshot {
     }
 
     pub fn emit(&self, namespace: &str) -> Result<String, Error> {
-        self.emit_with_optional_library(namespace, None)
+        self.emit_with_options(namespace, None, &BTreeMap::new())
     }
 
     pub fn emit_with_library(&self, namespace: &str, library: &str) -> Result<String, Error> {
-        self.emit_with_optional_library(namespace, Some(library))
+        self.emit_with_options(namespace, Some(library), &BTreeMap::new())
     }
 
-    fn emit_with_optional_library(
+    pub fn emit_with_library_and_references(
+        &self,
+        namespace: &str,
+        library: &str,
+        references: &BTreeMap<String, TypeReference>,
+    ) -> Result<String, Error> {
+        self.emit_with_options(namespace, Some(library), references)
+    }
+
+    fn emit_with_options(
         &self,
         namespace: &str,
         library: Option<&str>,
+        references: &BTreeMap<String, TypeReference>,
     ) -> Result<String, Error> {
-        let plan = self.plan()?;
+        let plan = self.plan(references)?;
         let mut items = BTreeMap::new();
         for planned in plan.types {
             let fact = planned.fact;
@@ -492,7 +538,7 @@ impl Snapshot {
         Ok(result)
     }
 
-    fn plan(&self) -> Result<Plan<'_>, Error> {
+    fn plan(&self, references: &BTreeMap<String, TypeReference>) -> Result<Plan<'_>, Error> {
         #[derive(Default)]
         struct Roots<'a> {
             types: Vec<&'a Fact>,
@@ -569,6 +615,7 @@ impl Snapshot {
                         queue.push((tu, target));
                         continue;
                     }
+                    TypeRef::FunctionPointer { .. } | TypeRef::OpaquePointer { .. } => continue,
                     TypeRef::Array { target, .. } => {
                         queue.push((tu, target));
                         continue;
@@ -582,6 +629,12 @@ impl Snapshot {
                     TypeRef::Named { name, declaration } => (name, declaration),
                     _ => continue,
                 };
+                if canonical_named_type(name).is_some() {
+                    continue;
+                }
+                if references.contains_key(name) && !root_names.contains(name) {
+                    continue;
+                }
                 let matches: Vec<_> = self
                     .facts
                     .iter()
@@ -640,6 +693,7 @@ impl Snapshot {
             break facts_by_name;
         };
 
+        let local_roots = root_names.clone();
         let mut required = root_names;
         for constant in &constants {
             insert_required_type_names(&constant.ty, &mut required);
@@ -650,6 +704,8 @@ impl Snapshot {
                 for param in params {
                     insert_required_type_names(&param.ty, &mut required);
                 }
+                required
+                    .retain(|name| local_roots.contains(name) || !references.contains_key(name));
             }
         }
         let mut queue: Vec<_> = required.iter().rev().cloned().collect();
@@ -687,6 +743,9 @@ impl Snapshot {
                 _ => {}
             }
             for dependency in dependencies {
+                if references.contains_key(&dependency) && !local_roots.contains(&dependency) {
+                    continue;
+                }
                 if required.insert(dependency.clone()) {
                     queue.push(dependency);
                 }
@@ -721,7 +780,7 @@ impl Snapshot {
                     .push(fact.name.as_str());
             }
         }
-        let type_names: BTreeMap<_, _> = enum_alias_candidates
+        let mut type_names: BTreeMap<_, _> = enum_alias_candidates
             .into_iter()
             .filter_map(|(target, aliases)| {
                 let aliases: BTreeSet<_> = aliases.into_iter().collect();
@@ -731,6 +790,13 @@ impl Snapshot {
                 Some((target.to_string(), (*aliases.first().unwrap()).to_string()))
             })
             .collect();
+        for (name, reference) in references {
+            if !local_roots.contains(name) {
+                type_names.entry(name.clone()).or_insert_with(|| {
+                    format!("{}::{name}", reference.namespace.replace('.', "::"))
+                });
+            }
+        }
         let alias_names: BTreeSet<_> = type_names.values().map(String::as_str).collect();
         let types: Vec<_> = facts_by_name
             .into_iter()
@@ -752,6 +818,20 @@ impl Snapshot {
                         && same_source_declaration(planned.fact, fact)
                     {
                         interface_names.insert((fact.origin.tu.clone(), fact.name.clone()));
+                    }
+                }
+                let translation_units: BTreeSet<_> = self
+                    .facts
+                    .iter()
+                    .map(|fact| fact.origin.tu.as_str())
+                    .collect();
+                for (name, reference) in references {
+                    if reference.interface && !local_roots.contains(name) {
+                        interface_names.extend(
+                            translation_units
+                                .iter()
+                                .map(|tu| ((*tu).to_string(), name.clone())),
+                        );
                     }
                 }
             }
@@ -854,6 +934,7 @@ fn is_type_fact(fact: &Fact) -> bool {
 
 fn is_root_type_fact(fact: &Fact) -> bool {
     is_type_fact(fact)
+        && canonical_named_type(&fact.name).is_none()
         && (!matches!(
             fact.data,
             FactData::Record { .. } | FactData::Interface { .. }
@@ -1009,6 +1090,7 @@ fn insert_required_type_names(ty: &TypeRef, required: &mut BTreeSet<String>) {
         TypeRef::Pointer { target, .. } | TypeRef::Reference { target, .. } => {
             insert_required_type_names(target, required);
         }
+        TypeRef::FunctionPointer { .. } | TypeRef::OpaquePointer { .. } => {}
         TypeRef::Array { target, .. } => insert_required_type_names(target, required),
         TypeRef::InlineRecord(record) => {
             for field in &record.fields {
@@ -2343,19 +2425,29 @@ fn planned_param_type_name(
     interface_names: &BTreeSet<(String, String)>,
     tu: &str,
 ) -> String {
-    if param.annotation.null_terminated
-        && param.annotation.size.is_none()
-        && let TypeRef::Pointer { mutable, target } = &param.ty
-    {
-        let name = match (mutable, target.as_ref()) {
-            (false, TypeRef::Scalar(Scalar::I8 | Scalar::U8)) => Some("PCSTR"),
-            (true, TypeRef::Scalar(Scalar::I8 | Scalar::U8)) => Some("PSTR"),
-            (false, TypeRef::Scalar(Scalar::U16)) => Some("PCWSTR"),
-            (true, TypeRef::Scalar(Scalar::U16)) => Some("PWSTR"),
+    if param.annotation.null_terminated && param.annotation.size.is_none() {
+        let name = match &param.ty {
+            TypeRef::Pointer { mutable, target } => match (mutable, target.as_ref()) {
+                (false, TypeRef::Scalar(Scalar::I8 | Scalar::U8)) => Some("PCSTR"),
+                (true, TypeRef::Scalar(Scalar::I8 | Scalar::U8)) => Some("PSTR"),
+                (false, TypeRef::Scalar(Scalar::U16)) => Some("PCWSTR"),
+                (true, TypeRef::Scalar(Scalar::U16)) => Some("PWSTR"),
+                _ => None,
+            },
+            TypeRef::Named { name, .. } => match name.as_str() {
+                "LPCSTR" => Some("PCSTR"),
+                "LPSTR" => Some("PSTR"),
+                "LPCWSTR" => Some("PCWSTR"),
+                "LPWSTR" => Some("PWSTR"),
+                _ => None,
+            },
             _ => None,
         };
         if let Some(name) = name {
-            return name.to_string();
+            return type_names
+                .get(name)
+                .cloned()
+                .unwrap_or_else(|| name.to_string());
         }
     }
     planned_emitted_type_name(&param.ty, type_names, interface_names, tu)
@@ -2367,6 +2459,12 @@ fn planned_emitted_type_name(
     interface_names: &BTreeSet<(String, String)>,
     tu: &str,
 ) -> String {
+    if matches!(ty, TypeRef::FunctionPointer { .. }) {
+        return "*mut u8".to_string();
+    }
+    if let TypeRef::OpaquePointer { mutable, .. } = ty {
+        return format!("*{} void", if *mutable { "mut" } else { "const" });
+    }
     if let TypeRef::Named { name, .. } = ty
         && let Some(name) = canonical_named_type(name)
     {
@@ -2422,6 +2520,7 @@ fn canonical_named_type(name: &str) -> Option<&'static str> {
         "INT" | "LONG" | "INT32" | "LONG32" | "int32_t" => "i32",
         "LONGLONG" | "INT64" | "LONG64" | "int64_t" => "i64",
         "IID" | "CLSID" | "FMTID" | "UUID" => "GUID",
+        "HRESULT" => "HRESULT",
         _ => return None,
     })
 }
@@ -2618,12 +2717,34 @@ fn align_up(value: i64, align: i64) -> i64 {
 }
 
 fn type_ref(ty: CXType) -> Option<TypeRef> {
+    if ty.kind == CXType_Elaborated {
+        return type_ref(unsafe { clang_Type_getNamedType(ty) });
+    }
     if ty.kind == CXType_Void {
         return Some(TypeRef::Void);
     }
     if ty.kind == CXType_Pointer {
         let pointee = unsafe { clang_getPointeeType(ty) };
-        let target = type_ref(pointee)?;
+        if matches!(pointee.kind, CXType_FunctionProto | CXType_FunctionNoProto) {
+            let (convention, params, result) = function_signature(pointee)?;
+            return Some(TypeRef::FunctionPointer {
+                convention,
+                params,
+                result: Box::new(result),
+            });
+        }
+        let target = if let Some(target) = type_ref(pointee) {
+            target
+        } else {
+            let spelling = cx_string(unsafe { clang_getTypeSpelling(pointee) });
+            let tag = spelling
+                .strip_prefix("struct ")
+                .filter(|tag| tag.ends_with("__"))?;
+            return Some(TypeRef::OpaquePointer {
+                mutable: unsafe { clang_isConstQualifiedType(pointee) } == 0,
+                tag: tag.to_string(),
+            });
+        };
         if matches!(target, TypeRef::InlineRecord(_)) {
             return None;
         }
@@ -2683,6 +2804,10 @@ fn type_ref(ty: CXType) -> Option<TypeRef> {
                 declaration: location,
             });
         }
+    }
+    let canonical = unsafe { clang_getCanonicalType(ty) };
+    if canonical.kind != ty.kind {
+        return type_ref(canonical);
     }
     scalar(ty).map(TypeRef::Scalar)
 }
@@ -2745,6 +2870,10 @@ fn type_name(ty: &TypeRef) -> String {
             if *mutable { "mut" } else { "const" },
             type_name(target)
         ),
+        TypeRef::FunctionPointer { .. } => "*mut u8".to_string(),
+        TypeRef::OpaquePointer { mutable, .. } => {
+            format!("*{} void", if *mutable { "mut" } else { "const" })
+        }
         TypeRef::Array { target, len } => format!("[{}; {len}]", type_name(target)),
         TypeRef::InlineRecord(_) => "<inline record>".to_string(),
     }
@@ -2766,6 +2895,10 @@ fn planned_type_name(ty: &TypeRef, type_names: &BTreeMap<String, String>) -> Str
             if *mutable { "mut" } else { "const" },
             planned_type_name(target, type_names)
         ),
+        TypeRef::FunctionPointer { .. } => "*mut u8".to_string(),
+        TypeRef::OpaquePointer { mutable, .. } => {
+            format!("*{} void", if *mutable { "mut" } else { "const" })
+        }
         TypeRef::Array { target, len } => {
             format!("[{}; {len}]", planned_type_name(target, type_names))
         }

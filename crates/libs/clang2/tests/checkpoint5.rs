@@ -58,6 +58,9 @@ typedef struct _FLOATS {
     double pair;
     wchar_t wide;
 } FLOATS;
+typedef struct _FUNCTION_FIELD {
+    int (*callback)(int value);
+} FUNCTION_FIELD;
 typedef const char **MIXED_POINTER;
 typedef unsigned long DWORD;
 #define CANONICAL_DWORD ((DWORD)7)
@@ -212,6 +215,7 @@ struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IGuid {
     assert!(rdl.contains("single: f32"));
     assert!(rdl.contains("pair: f64"));
     assert!(rdl.contains("wide: u16"));
+    assert!(rdl.contains("struct FUNCTION_FIELD {\n        callback: *mut u8,"));
     assert!(rdl.contains("type MIXED_POINTER = *const *const i8"));
     assert!(rdl.contains("_bitfield1: u32"));
     assert!(rdl.contains("struct CANONICAL_BITS {\n        _bitfield: u32"));
