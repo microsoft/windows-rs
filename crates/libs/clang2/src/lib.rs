@@ -63,6 +63,7 @@ pub struct Field {
     pub offset: i64,
     pub align: i64,
     pub size: i64,
+    pub bit_width: Option<u32>,
 }
 
 #[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
@@ -229,12 +230,53 @@ impl Snapshot {
                         item.push_str(&format!("    #[align({alignment})]\n"));
                     }
                     item.push_str(&format!("    {keyword} {} {{\n", planned.name));
-                    for field in fields {
+                    let bitfield_groups = bitfield_groups(fields)?;
+                    let mut group_index = 0;
+                    let mut index = 0;
+                    while index < fields.len() {
+                        let field = &fields[index];
+                        if field.bit_width == Some(0) {
+                            index += 1;
+                            continue;
+                        }
+                        if field.bit_width.is_none() {
+                            item.push_str(&format!(
+                                "        {}: {},\n",
+                                field.name,
+                                planned_type_name(&field.ty, &plan.type_names)
+                            ));
+                            index += 1;
+                            continue;
+                        }
+                        let group = &bitfield_groups[group_index];
+                        group_index += 1;
+                        let backing = if bitfield_groups.len() == 1 {
+                            "_bitfield".to_string()
+                        } else {
+                            format!("_bitfield{group_index}")
+                        };
                         item.push_str(&format!(
-                            "        {}: {},\n",
-                            field.name,
+                            "        {backing}: {} {{\n",
                             planned_type_name(&field.ty, &plan.type_names)
                         ));
+                        let mut cursor = group.offset;
+                        for member in &fields[group.start..group.end] {
+                            if member.offset > cursor {
+                                item.push_str(&format!(
+                                    "            _: {},\n",
+                                    member.offset - cursor
+                                ));
+                            }
+                            let width = member.bit_width.unwrap();
+                            if member.name.is_empty() {
+                                item.push_str(&format!("            _: {width},\n"));
+                            } else {
+                                item.push_str(&format!("            {}: {width},\n", member.name));
+                            }
+                            cursor = member.offset + i64::from(width);
+                        }
+                        item.push_str("        },\n");
+                        index = group.end;
                     }
                     item.push_str("    }\n");
                     item
@@ -1165,6 +1207,9 @@ fn fact_data(cursor: CXCursor, kind: FactKind) -> FactData {
                         offset: unsafe { clang_Cursor_getOffsetOfField(child) },
                         align: unsafe { clang_Type_getAlignOf(field_ty) },
                         size: unsafe { clang_Type_getSizeOf(field_ty) },
+                        bit_width: (unsafe { clang_Cursor_isBitField(child) } != 0).then(
+                            || unsafe { clang_getFieldDeclBitWidth(child).try_into().unwrap() },
+                        ),
                     });
                 }
                 fields
@@ -1208,6 +1253,52 @@ fn fact_data(cursor: CXCursor, kind: FactKind) -> FactData {
     }
 }
 
+struct BitfieldGroup {
+    start: usize,
+    end: usize,
+    offset: i64,
+}
+
+fn bitfield_groups(fields: &[Field]) -> Result<Vec<BitfieldGroup>, Error> {
+    let mut groups = vec![];
+    let mut index = 0;
+    while index < fields.len() {
+        let field = &fields[index];
+        let Some(width) = field.bit_width else {
+            index += 1;
+            continue;
+        };
+        if width == 0 {
+            index += 1;
+            continue;
+        }
+        let start = index;
+        let offset = field.offset;
+        let limit = offset + field.size * 8;
+        index += 1;
+        while index < fields.len() {
+            let next = &fields[index];
+            let Some(width) = next.bit_width else {
+                break;
+            };
+            if width == 0
+                || next.ty != field.ty
+                || next.size != field.size
+                || next.offset + i64::from(width) > limit
+            {
+                break;
+            }
+            index += 1;
+        }
+        groups.push(BitfieldGroup {
+            start,
+            end: index,
+            offset,
+        });
+    }
+    Ok(groups)
+}
+
 fn record_layout(
     fields: &[Field],
     size: i64,
@@ -1233,7 +1324,11 @@ fn record_layout(
         let mut cursor = 0;
         let mut natural_align = 1;
         let mut matches = true;
-        for field in fields {
+        let groups = bitfield_groups(fields).map_err(|error| error.0)?;
+        let mut group_index = 0;
+        let mut index = 0;
+        while index < fields.len() {
+            let field = &fields[index];
             let field_align = packing.map_or(field.align, |packing| packing.min(field.align));
             natural_align = natural_align.max(field_align);
             let offset = if union {
@@ -1241,9 +1336,29 @@ fn record_layout(
             } else {
                 align_up(cursor, field_align)
             };
-            if offset * 8 != field.offset {
+            let expected = offset * 8;
+            if expected != field.offset {
                 matches = false;
                 break;
+            }
+            if field.bit_width == Some(0) {
+                index += 1;
+                continue;
+            }
+            if field.bit_width.is_some() {
+                let group = &groups[group_index];
+                group_index += 1;
+                if fields[group.start..group.end].iter().any(|member| {
+                    member.offset < expected
+                        || member.offset + i64::from(member.bit_width.unwrap())
+                            > expected + field.size * 8
+                }) {
+                    matches = false;
+                    break;
+                }
+                index = group.end;
+            } else {
+                index += 1;
             }
             if union {
                 cursor = cursor.max(field.size);

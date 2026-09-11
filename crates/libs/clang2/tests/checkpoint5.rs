@@ -57,6 +57,14 @@ typedef struct _FLOATS {
 } FLOATS;
 typedef const char **MIXED_POINTER;
 
+typedef struct _FLAGS {
+    unsigned int low : 3;
+    unsigned int : 2;
+    unsigned int high : 3;
+    unsigned int wide : 24;
+    unsigned int next : 16;
+} FLAGS;
+
 struct OPAQUE;
 typedef struct OPAQUE *POPAQUE;
 ";
@@ -107,6 +115,12 @@ typedef struct OPAQUE *POPAQUE;
     assert!(rdl.contains("pair: f64"));
     assert!(rdl.contains("wide: u16"));
     assert!(rdl.contains("type MIXED_POINTER = *const *const i8"));
+    assert!(rdl.contains("_bitfield1: u32"));
+    assert!(rdl.contains("low: 3"));
+    assert!(rdl.contains("_: 2"));
+    assert!(rdl.contains("high: 3"));
+    assert!(rdl.contains("_bitfield2: u32"));
+    assert!(rdl.contains("next: 16"));
     assert!(rdl.contains("struct OPAQUE {\n"));
     assert!(rdl.contains("type POPAQUE = *mut OPAQUE"));
     assert!(!rdl.contains("struct _POINT"));
@@ -142,6 +156,36 @@ typedef struct OPAQUE *POPAQUE;
             .to_string()
             .contains("record fields cannot reproduce Clang's layout")
     );
+
+    let zero_width = extract(
+        [Input::new(
+            "zero-width.hpp",
+            "typedef struct ZERO_WIDTH {\n\
+                 unsigned int first : 1;\n\
+                 unsigned int : 0;\n\
+                 unsigned int second : 1;\n\
+             } ZERO_WIDTH;\n\
+             typedef ZERO_WIDTH *PZERO_WIDTH;\n",
+        )],
+        &["-x", "c++"],
+    )
+    .unwrap()
+    .emit("ZeroWidth")
+    .unwrap();
+    assert!(zero_width.contains("_bitfield1: u32"));
+    assert!(zero_width.contains("_bitfield2: u32"));
+    assert!(zero_width.contains("first: 1"));
+    assert!(zero_width.contains("second: 1"));
+    let zero_output = std::env::temp_dir().join(format!(
+        "windows-clang2-zero-width-{}.winmd",
+        std::process::id()
+    ));
+    windows_rdl::reader()
+        .input_text(&zero_width)
+        .output(&zero_output)
+        .write()
+        .unwrap();
+    std::fs::remove_file(zero_output).unwrap();
 
     let scratch = std::env::temp_dir().join(format!(
         "windows-clang2-record-alias-{}",
