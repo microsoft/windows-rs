@@ -31,6 +31,7 @@ pub enum LiveInputProbeStage {
     ReactorDispatchComplete,
 }
 
+#[must_use = "dropping the probe stops input observation"]
 pub struct LiveInputProbe {
     input_hwnd: *mut std::ffi::c_void,
     window_hwnd: *mut std::ffi::c_void,

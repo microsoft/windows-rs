@@ -586,7 +586,7 @@ than Reactor's XAML control.
 Routed keyboard callbacks are stored separately from ordinary event callbacks. WinUI key and
 character arguments are copied into owned payloads, the callback decides `Handled` synchronously,
 and any resulting component message is placed in the existing native-event FIFO. This preserves
-native event order without running component code or reconciliation across a WinRT callback.
+native event order without running `Component::update` or reconciliation across a WinRT callback.
 Callback replacements publish transactionally and do not replace the native subscription.
 
 ### Code generation

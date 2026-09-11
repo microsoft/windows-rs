@@ -1620,7 +1620,8 @@ impl Schema {
                     )
                 {
                     return Err(format!(
-                        "{}.{} routed events require a key_event or character_event adapter",
+                        "{}.{} routed must be true exactly when using a key_event or \
+                         character_event adapter",
                         control.type_name, event.name
                     ));
                 }
