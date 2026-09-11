@@ -35,6 +35,8 @@ pub struct Location {
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub enum Scalar {
     Bool,
+    F32,
+    F64,
     I8,
     U8,
     I16,
@@ -47,8 +49,20 @@ pub enum Scalar {
 
 #[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub enum TypeRef {
+    Void,
     Scalar(Scalar),
     Named { name: String, declaration: Location },
+    Pointer { mutable: bool, target: Box<Self> },
+    Array { target: Box<Self>, len: usize },
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct Field {
+    pub name: String,
+    pub ty: TypeRef,
+    pub offset: i64,
+    pub align: i64,
+    pub size: i64,
 }
 
 #[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
@@ -66,8 +80,19 @@ pub enum FactData {
     Macro {
         function_like: bool,
     },
+    Record {
+        fields: Vec<Field>,
+        size: i64,
+        align: i64,
+        packing: Option<i64>,
+        alignment: Option<i64>,
+        union: bool,
+    },
     Typedef {
         target: TypeRef,
+    },
+    Unsupported {
+        reason: String,
     },
     None,
 }
@@ -188,6 +213,32 @@ impl Snapshot {
                     item.push_str("    }\n");
                     item
                 }
+                FactData::Record {
+                    fields,
+                    packing,
+                    alignment,
+                    union,
+                    ..
+                } => {
+                    let keyword = if *union { "union" } else { "struct" };
+                    let mut item = String::new();
+                    if let Some(packing) = packing {
+                        item.push_str(&format!("    #[packed({packing})]\n"));
+                    }
+                    if let Some(alignment) = alignment {
+                        item.push_str(&format!("    #[align({alignment})]\n"));
+                    }
+                    item.push_str(&format!("    {keyword} {} {{\n", planned.name));
+                    for field in fields {
+                        item.push_str(&format!(
+                            "        {}: {},\n",
+                            field.name,
+                            planned_type_name(&field.ty, &plan.type_names)
+                        ));
+                    }
+                    item.push_str("    }\n");
+                    item
+                }
                 _ => {
                     return Err(Error(format!(
                         "planned type `{}` is not emittable",
@@ -247,7 +298,7 @@ impl Snapshot {
         for fact in self
             .facts
             .iter()
-            .filter(|fact| fact.main_file && is_type_fact(fact))
+            .filter(|fact| fact.main_file && is_root_type_fact(fact))
         {
             roots.entry(&fact.name).or_default().types.push(fact);
         }
@@ -289,17 +340,23 @@ impl Snapshot {
             }
 
             while let Some((tu, ty)) = queue.pop() {
-                let TypeRef::Named { name, declaration } = ty else {
-                    continue;
+                let (name, declaration) = match ty {
+                    TypeRef::Pointer { target, .. } => {
+                        queue.push((tu, target));
+                        continue;
+                    }
+                    TypeRef::Array { target, .. } => {
+                        queue.push((tu, target));
+                        continue;
+                    }
+                    TypeRef::Named { name, declaration } => (name, declaration),
+                    _ => continue,
                 };
                 let matches: Vec<_> = self
                     .facts
                     .iter()
                     .filter(|fact| {
-                        fact.origin.tu == tu
-                            && fact.name == *name
-                            && fact.spelling == *declaration
-                            && is_type_fact(fact)
+                        fact.origin.tu == tu && fact.name == *name && fact.spelling == *declaration
                     })
                     .collect();
                 let [fact] = matches.as_slice() else {
@@ -307,6 +364,16 @@ impl Snapshot {
                         "unresolved local type `{name}` in translation unit `{tu}`"
                     )));
                 };
+                if let FactData::Unsupported { reason } = &fact.data {
+                    return Err(Error(format!(
+                        "unsupported type `{name}` in translation unit `{tu}`: {reason}"
+                    )));
+                }
+                if !is_type_fact(fact) {
+                    return Err(Error(format!(
+                        "unresolved local type `{name}` in translation unit `{tu}`"
+                    )));
+                }
                 if facts.insert(fact.origin.clone()) {
                     queue_type_edges(fact, &mut queue);
                 }
@@ -345,37 +412,51 @@ impl Snapshot {
 
         let mut required = root_names;
         for constant in &constants {
-            if let TypeRef::Named { name, .. } = &constant.ty {
-                required.insert(name.clone());
-            }
+            insert_required_type_names(&constant.ty, &mut required);
         }
         let mut queue: Vec<_> = required.iter().rev().cloned().collect();
         while let Some(name) = queue.pop() {
             let Some(fact) = facts_by_name.get(name.as_str()) else {
                 return Err(Error(format!("planned type `{name}` is not emittable")));
             };
-            if let FactData::Typedef {
-                target: TypeRef::Named { name, .. },
-            } = &fact.data
-                && required.insert(name.clone())
-            {
-                queue.push(name.clone());
+            let mut dependencies = BTreeSet::new();
+            match &fact.data {
+                FactData::Typedef { target } => {
+                    insert_required_type_names(target, &mut dependencies);
+                }
+                FactData::Record { fields, .. } => {
+                    for field in fields {
+                        insert_required_type_names(&field.ty, &mut dependencies);
+                    }
+                }
+                _ => {}
+            }
+            for dependency in dependencies {
+                if required.insert(dependency.clone()) {
+                    queue.push(dependency);
+                }
             }
         }
 
         let mut enum_alias_candidates: BTreeMap<&str, Vec<&str>> = BTreeMap::new();
-        for fact in facts_by_name.values() {
+        for fact in &self.facts {
             if let FactData::Typedef {
                 target: TypeRef::Named { name, declaration },
             } = &fact.data
                 && name != &fact.name
-                && let Some(target) = facts_by_name.get(name.as_str())
-                && target.spelling == *declaration
-                && matches!(target.data, FactData::Enum { .. })
-                && target.definition
+                && let Some(selected) = facts_by_name.get(name.as_str())
+                && self.facts.iter().any(|target| {
+                    target.origin.tu == fact.origin.tu
+                        && target.name == *name
+                        && target.spelling == *declaration
+                        && target.spelling.file == fact.spelling.file
+                        && target.definition
+                        && matches!(target.data, FactData::Enum { .. } | FactData::Record { .. })
+                        && same_source_declaration(selected, target)
+                })
             {
                 enum_alias_candidates
-                    .entry(target.name.as_str())
+                    .entry(selected.name.as_str())
                     .or_default()
                     .push(fact.name.as_str());
             }
@@ -383,10 +464,11 @@ impl Snapshot {
         let type_names: BTreeMap<_, _> = enum_alias_candidates
             .into_iter()
             .filter_map(|(target, aliases)| {
-                let [alias] = aliases.as_slice() else {
+                let aliases: BTreeSet<_> = aliases.into_iter().collect();
+                if aliases.len() != 1 {
                     return None;
-                };
-                Some((target.to_string(), (*alias).to_string()))
+                }
+                Some((target.to_string(), (*aliases.first().unwrap()).to_string()))
             })
             .collect();
         let alias_names: BTreeSet<_> = type_names.values().map(String::as_str).collect();
@@ -434,7 +516,14 @@ struct Plan<'a> {
 }
 
 fn is_type_fact(fact: &Fact) -> bool {
-    matches!(fact.data, FactData::Enum { .. } | FactData::Typedef { .. })
+    matches!(
+        fact.data,
+        FactData::Enum { .. } | FactData::Record { .. } | FactData::Typedef { .. }
+    )
+}
+
+fn is_root_type_fact(fact: &Fact) -> bool {
+    is_type_fact(fact) && (!matches!(fact.data, FactData::Record { .. }) || fact.definition)
 }
 
 fn choose_type_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Error> {
@@ -450,12 +539,14 @@ fn choose_type_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Erro
     if let [root] = distinct.as_slice() {
         return emittable_type(name, root);
     }
-    let enums: Vec<_> = distinct
+    let definitions: Vec<_> = distinct
         .iter()
         .copied()
-        .filter(|fact| matches!(fact.data, FactData::Enum { .. }) && fact.definition)
+        .filter(|fact| {
+            matches!(fact.data, FactData::Enum { .. } | FactData::Record { .. }) && fact.definition
+        })
         .collect();
-    if let [root] = enums.as_slice() {
+    if let [root] = definitions.as_slice() {
         let aliases_target_root = distinct.iter().all(|fact| {
             fact.origin == root.origin
                 || matches!(
@@ -473,7 +564,11 @@ fn choose_type_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Erro
                 || (!fact.definition
                     && fact.origin.tu == root.origin.tu
                     && fact.parent == root.parent
-                    && matches!(fact.data, FactData::Enum { .. }))
+                    && matches!(
+                        (&fact.data, &root.data),
+                        (FactData::Enum { .. }, FactData::Enum { .. })
+                            | (FactData::Record { .. }, FactData::Record { .. })
+                    ))
         });
         if same_tu_declarations {
             return Ok(root);
@@ -507,6 +602,7 @@ fn same_source_declaration(left: &Fact, right: &Fact) -> bool {
 fn emittable_type<'a>(name: &str, fact: &'a Fact) -> Result<&'a Fact, Error> {
     match fact.data {
         FactData::Typedef { .. } | FactData::Enum { .. } if fact.definition => Ok(fact),
+        FactData::Record { .. } => Ok(fact),
         _ => Err(Error(format!("type root `{name}` is not emittable"))),
     }
 }
@@ -514,6 +610,21 @@ fn emittable_type<'a>(name: &str, fact: &'a Fact) -> Result<&'a Fact, Error> {
 fn queue_type_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, &'a TypeRef)>) {
     if let FactData::Typedef { target } = &fact.data {
         queue.push((fact.origin.tu.as_str(), target));
+    } else if let FactData::Record { fields, .. } = &fact.data {
+        for field in fields {
+            queue.push((fact.origin.tu.as_str(), &field.ty));
+        }
+    }
+}
+
+fn insert_required_type_names(ty: &TypeRef, required: &mut BTreeSet<String>) {
+    match ty {
+        TypeRef::Named { name, .. } => {
+            required.insert(name.clone());
+        }
+        TypeRef::Pointer { target, .. } => insert_required_type_names(target, required),
+        TypeRef::Array { target, .. } => insert_required_type_names(target, required),
+        _ => {}
     }
 }
 
@@ -1030,15 +1141,154 @@ fn fact_data(cursor: CXCursor, kind: FactKind) -> FactData {
         FactKind::Macro => FactData::Macro {
             function_like: unsafe { clang_Cursor_isMacroFunctionLike(cursor) } != 0,
         },
+        FactKind::Struct | FactKind::Union => {
+            let definition = unsafe { clang_isCursorDefinition(cursor) } != 0;
+            let fields = if definition {
+                let mut fields = vec![];
+                for child in cursor_children(cursor)
+                    .into_iter()
+                    .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_FieldDecl)
+                {
+                    let name = cx_string(unsafe { clang_getCursorSpelling(child) });
+                    let field_ty = unsafe { clang_getCursorType(child) };
+                    let Some(ty) = type_ref(field_ty) else {
+                        return FactData::Unsupported {
+                            reason: format!(
+                                "field `{name}` has unsupported type `{}`",
+                                cx_string(unsafe { clang_getTypeSpelling(field_ty) })
+                            ),
+                        };
+                    };
+                    fields.push(Field {
+                        name,
+                        ty,
+                        offset: unsafe { clang_Cursor_getOffsetOfField(child) },
+                        align: unsafe { clang_Type_getAlignOf(field_ty) },
+                        size: unsafe { clang_Type_getSizeOf(field_ty) },
+                    });
+                }
+                fields
+            } else {
+                vec![]
+            };
+            let ty = unsafe { clang_getCursorType(cursor) };
+            let size = unsafe { clang_Type_getSizeOf(ty) };
+            let align = unsafe { clang_Type_getAlignOf(ty) };
+            let union = kind == FactKind::Union;
+            let (packing, alignment) = if definition {
+                match record_layout(&fields, size, align, union) {
+                    Ok(layout) => layout,
+                    Err(reason) => return FactData::Unsupported { reason },
+                }
+            } else {
+                (None, None)
+            };
+            FactData::Record {
+                fields,
+                size,
+                align,
+                packing,
+                alignment,
+                union,
+            }
+        }
         FactKind::Typedef => {
             let ty = unsafe { clang_getTypedefDeclUnderlyingType(cursor) };
-            type_ref(ty).map_or(FactData::None, |target| FactData::Typedef { target })
+            type_ref(ty).map_or_else(
+                || FactData::Unsupported {
+                    reason: format!(
+                        "typedef has unsupported type `{}`",
+                        cx_string(unsafe { clang_getTypeSpelling(ty) })
+                    ),
+                },
+                |target| FactData::Typedef { target },
+            )
         }
         _ => FactData::None,
     }
 }
 
+fn record_layout(
+    fields: &[Field],
+    size: i64,
+    align: i64,
+    union: bool,
+) -> Result<(Option<i64>, Option<i64>), String> {
+    if size < 0 || align <= 0 {
+        return Err(format!(
+            "invalid record layout: size {size}, alignment {align}"
+        ));
+    }
+    if let Some(field) = fields
+        .iter()
+        .find(|field| field.offset < 0 || field.align <= 0 || field.size < 0)
+    {
+        return Err(format!(
+            "invalid layout for field `{}`: offset {}, size {}, alignment {}",
+            field.name, field.offset, field.size, field.align
+        ));
+    }
+
+    for packing in [None, Some(1), Some(2), Some(4), Some(8), Some(16)] {
+        let mut cursor = 0;
+        let mut natural_align = 1;
+        let mut matches = true;
+        for field in fields {
+            let field_align = packing.map_or(field.align, |packing| packing.min(field.align));
+            natural_align = natural_align.max(field_align);
+            let offset = if union {
+                0
+            } else {
+                align_up(cursor, field_align)
+            };
+            if offset * 8 != field.offset {
+                matches = false;
+                break;
+            }
+            if union {
+                cursor = cursor.max(field.size);
+            } else {
+                cursor = offset + field.size;
+            }
+        }
+        if !matches || align < natural_align {
+            continue;
+        }
+        let alignment = (align > natural_align).then_some(align);
+        let content_size = if fields.is_empty() { size } else { cursor };
+        if align_up(content_size, align) == size {
+            return Ok((packing, alignment));
+        }
+    }
+    Err("record fields cannot reproduce Clang's layout".to_string())
+}
+
+fn align_up(value: i64, align: i64) -> i64 {
+    (value + align - 1) / align * align
+}
+
 fn type_ref(ty: CXType) -> Option<TypeRef> {
+    if ty.kind == CXType_Void {
+        return Some(TypeRef::Void);
+    }
+    if ty.kind == CXType_Pointer {
+        let pointee = unsafe { clang_getPointeeType(ty) };
+        return Some(TypeRef::Pointer {
+            mutable: unsafe { clang_isConstQualifiedType(pointee) } == 0,
+            target: Box::new(type_ref(pointee)?),
+        });
+    }
+    if ty.kind == CXType_ConstantArray {
+        let target = unsafe { clang_getArrayElementType(ty) };
+        let len = unsafe { clang_getArraySize(ty) };
+        if len < 0 {
+            return None;
+        }
+        return Some(TypeRef::Array {
+            target: Box::new(type_ref(target)?),
+            len: len.try_into().unwrap(),
+        });
+    }
     let declaration = unsafe { clang_getTypeDeclaration(ty) };
     if unsafe { clang_Cursor_isNull(declaration) } == 0 {
         let name = cx_string(unsafe { clang_getCursorSpelling(declaration) });
@@ -1058,6 +1308,10 @@ fn scalar(ty: CXType) -> Option<Scalar> {
     let ty = unsafe { clang_getCanonicalType(ty) };
     Some(match ty.kind {
         CXType_Bool => Scalar::Bool,
+        CXType_Float => Scalar::F32,
+        CXType_Double | CXType_LongDouble => Scalar::F64,
+        CXType_WChar | CXType_Char16 => Scalar::U16,
+        CXType_Char32 => Scalar::U32,
         CXType_Char_S | CXType_SChar => Scalar::I8,
         CXType_Char_U | CXType_UChar => Scalar::U8,
         CXType_Short => Scalar::I16,
@@ -1077,6 +1331,8 @@ fn scalar(ty: CXType) -> Option<Scalar> {
 fn scalar_name(scalar: Scalar) -> &'static str {
     match scalar {
         Scalar::Bool => "bool",
+        Scalar::F32 => "f32",
+        Scalar::F64 => "f64",
         Scalar::I8 => "i8",
         Scalar::U8 => "u8",
         Scalar::I16 => "i16",
@@ -1088,23 +1344,59 @@ fn scalar_name(scalar: Scalar) -> &'static str {
     }
 }
 
-fn type_name(ty: &TypeRef) -> &str {
+fn type_name(ty: &TypeRef) -> String {
     match ty {
-        TypeRef::Scalar(scalar) => scalar_name(*scalar),
-        TypeRef::Named { name, .. } => name,
+        TypeRef::Void => "void".to_string(),
+        TypeRef::Scalar(scalar) => scalar_name(*scalar).to_string(),
+        TypeRef::Named { name, .. } => name.clone(),
+        TypeRef::Pointer { .. } => {
+            let (mutable, depth, target) = pointer_run(ty);
+            format!(
+                "{}{}",
+                format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth),
+                type_name(target)
+            )
+        }
+        TypeRef::Array { target, len } => format!("[{}; {len}]", type_name(target)),
     }
 }
 
-fn planned_type_name<'a>(ty: &'a TypeRef, type_names: &'a BTreeMap<String, String>) -> &'a str {
+fn planned_type_name(ty: &TypeRef, type_names: &BTreeMap<String, String>) -> String {
     match ty {
-        TypeRef::Named { name, .. } => type_names.get(name).map_or(name, |name| name),
+        TypeRef::Named { name, .. } => type_names.get(name).unwrap_or(name).clone(),
+        TypeRef::Pointer { .. } => {
+            let (mutable, depth, target) = pointer_run(ty);
+            format!(
+                "{}{}",
+                format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth),
+                planned_type_name(target, type_names)
+            )
+        }
+        TypeRef::Array { target, len } => {
+            format!("[{}; {len}]", planned_type_name(target, type_names))
+        }
         _ => type_name(ty),
     }
 }
 
-fn constant_type_name<'a>(ty: &'a TypeRef, type_names: &'a BTreeMap<String, String>) -> &'a str {
+fn pointer_run(mut ty: &TypeRef) -> (bool, usize, &TypeRef) {
+    let mut mutable = true;
+    let mut depth = 0;
+    while let TypeRef::Pointer {
+        mutable: level_mutable,
+        target,
+    } = ty
+    {
+        mutable = *level_mutable;
+        depth += 1;
+        ty = target;
+    }
+    (mutable, depth, ty)
+}
+
+fn constant_type_name(ty: &TypeRef, type_names: &BTreeMap<String, String>) -> String {
     match ty {
-        TypeRef::Scalar(Scalar::Bool) => "u32",
+        TypeRef::Scalar(Scalar::Bool) => "u32".to_string(),
         _ => planned_type_name(ty, type_names),
     }
 }
