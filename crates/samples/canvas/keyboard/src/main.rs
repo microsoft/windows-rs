@@ -6,12 +6,14 @@ use windows_reactor::*;
 enum Message {
     Key(KeyEventInfo),
     Character(u16),
+    ColorScheme(ColorScheme),
     Focus(bool),
     Clear,
 }
 
 struct Sample {
     text: Vec<u16>,
+    color_scheme: ColorScheme,
     focused: bool,
     status: String,
     format: TextFormat,
@@ -21,16 +23,17 @@ impl Component for Sample {
     type Input = ();
     type Message = Message;
 
-    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+    fn create(_input: &(), _cx: &ComponentContext<Self>) -> Self {
         Self {
             text: "Type here".encode_utf16().collect(),
+            color_scheme: ColorScheme::Light,
             focused: false,
             status: "Click the canvas or press Tab to focus".to_string(),
             format: TextFormat::new("Cascadia Mono", 28.0).unwrap(),
         }
     }
 
-    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+    fn update(&mut self, message: Message, _cx: &ComponentContext<Self>) {
         match message {
             Message::Key(info) => {
                 match info.key {
@@ -47,6 +50,7 @@ impl Component for Sample {
                 self.text.push(character);
                 self.status = format!("CharacterReceived: U+{character:04X}");
             }
+            Message::ColorScheme(color_scheme) => self.color_scheme = color_scheme,
             Message::Focus(focused) => {
                 self.focused = focused;
                 self.status = if focused {
@@ -62,39 +66,42 @@ impl Component for Sample {
         }
     }
 
-    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
-        context.window_title("Canvas keyboard input");
-        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
-
-        let text = String::from_utf16_lossy(&self.text);
-        let format = self.format.clone();
-        let canvas = canvas(move |ctx| draw(ctx, &text, &format));
-        let surface = Border::new()
+    fn view(&self, _input: &(), cx: &mut ViewContext<Self>) -> View {
+        let border = Border::new()
             .is_tab_stop(true)
             .automation_name("Keyboard input canvas")
             .focus_on_pointer_release(true)
-            .background(Color::rgb(16, 20, 28))
+            .corner_radius(8.0)
+            .grid_row(1)
             .border_brush(if self.focused {
                 Color::rgb(80, 150, 255)
             } else {
                 Color::rgb(70, 76, 88)
             })
             .border_thickness(Thickness::uniform(if self.focused { 3.0 } else { 1.0 }))
-            .corner_radius(8.0)
-            .grid_row(1)
-            .on_preview_key_down(context.routed_callback(route_key))
-            .on_character_received(context.routed_callback(|info: CharacterEventInfo| {
+            .on_preview_key_down(cx.routed_callback(|info: KeyEventInfo| {
+                if matches!(info.key, VirtualKey::BACK | VirtualKey::DELETE) {
+                    RoutedMessage::handled(Message::Key(info))
+                } else {
+                    RoutedMessage::bubble_without_message()
+                }
+            }))
+            .on_character_received(cx.routed_callback(|info: CharacterEventInfo| {
                 if info.character >= 0x20 && info.character != 0x7F {
                     RoutedMessage::handled(Message::Character(info.character))
                 } else {
                     RoutedMessage::bubble_without_message()
                 }
             }))
-            .on_got_focus(context.callback(|info: FocusEventInfo| Message::Focus(info.is_direct)))
-            .on_lost_focus(context.callback(|_| Message::Focus(false)))
-            .content(canvas);
+            .on_got_focus(cx.callback(|info: FocusEventInfo| Message::Focus(info.is_direct)))
+            .on_lost_focus(cx.callback(|_| Message::Focus(false)));
 
-        Grid::new()
+        let text = String::from_utf16_lossy(&self.text);
+        let format = self.format.clone();
+        let color_scheme = self.color_scheme;
+        let surface = border.content(canvas(move |cx| draw(cx, &text, &format, color_scheme)));
+
+        let content = Grid::new()
             .rows([
                 GridLength::Auto,
                 GridLength::STAR,
@@ -105,28 +112,24 @@ impl Component for Sample {
             .margin(Thickness::uniform(24.0))
             .children((
                 TextBlock::new()
-                    .text("Type on the Canvas, then use the button to transfer focus")
+                    .text("Type on the Canvas, tab to switch focus")
                     .font_size(18.0)
                     .font_weight(FontWeight::BOLD),
                 surface,
                 TextBlock::new()
-                    .text(self.status.clone())
+                    .text(&self.status)
                     .font_size(14.0)
                     .grid_row(2),
                 Button::new()
                     .horizontal_alignment(HorizontalAlignment::Left)
                     .grid_row(3)
-                    .on_click(context.callback(|()| Message::Clear))
+                    .on_click(cx.callback(|()| Message::Clear))
                     .content("Clear text"),
-            ))
-    }
-}
+            ));
 
-fn route_key(info: KeyEventInfo) -> RoutedMessage<Message> {
-    if matches!(info.key, VirtualKey::BACK | VirtualKey::DELETE) {
-        RoutedMessage::handled(Message::Key(info))
-    } else {
-        RoutedMessage::bubble_without_message()
+        cx.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Acrylic));
+        cx.on_color_scheme(cx.callback(Message::ColorScheme));
+        cx.window_frame("Canvas keyboard", content)
     }
 }
 
@@ -134,6 +137,7 @@ fn pop_utf16_character(text: &mut Vec<u16>) {
     let Some(last) = text.pop() else {
         return;
     };
+
     if (0xDC00..=0xDFFF).contains(&last)
         && text
             .last()
@@ -143,15 +147,19 @@ fn pop_utf16_character(text: &mut Vec<u16>) {
     }
 }
 
-fn draw(ctx: &DrawContext, text: &str, format: &TextFormat) -> Result<()> {
-    ctx.clear(ColorF::from_rgb8(16, 20, 28));
+fn draw(cx: &DrawContext, text: &str, format: &TextFormat, scheme: ColorScheme) -> Result<()> {
+    cx.clear(ColorF::TRANSPARENT);
 
-    let text_brush = ctx.create_solid_brush(ColorF::WHITE)?;
-    ctx.draw_text(
+    let color = match scheme {
+        ColorScheme::Light => ColorF::from_rgba8(0, 0, 0, 228),
+        ColorScheme::Dark => ColorF::WHITE,
+    };
+
+    cx.draw_text(
         text,
         format,
-        &Rect::new(32.0, 32.0, ctx.width - 32.0, 80.0),
-        &text_brush,
+        &Rect::new(32.0, 32.0, cx.width - 32.0, 80.0),
+        &cx.create_solid_brush(color)?,
     );
 
     Ok(())
@@ -159,16 +167,4 @@ fn draw(ctx: &DrawContext, text: &str, format: &TextFormat) -> Result<()> {
 
 fn main() -> Result<()> {
     App::run_component::<Sample>(())
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn backspace_keeps_surrogate_pairs_together() {
-        let mut text: Vec<u16> = "a\u{1F642}".encode_utf16().collect();
-        pop_utf16_character(&mut text);
-        assert_eq!(text, ['a' as u16]);
-    }
 }

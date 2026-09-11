@@ -36,12 +36,13 @@ impl Component for Counter {
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
-        StackPanel::new().spacing(8.0).children((
+        let content = StackPanel::new().spacing(8.0).children((
             TextBlock::new().text(format!("Count: {}", self.count)),
             Button::new()
                 .on_click(context.forward())
                 .content("Increment"),
-        ))
+        ));
+        context.window_frame("Counter", content)
     }
 }
 
@@ -49,6 +50,15 @@ fn main() {
     App::run_component::<Counter>(()).unwrap();
 }
 ```
+
+`window_frame` creates an integrated WinUI title bar and places the application content below it:
+
+```rust,ignore
+context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Acrylic));
+context.window_frame("Canvas keyboard input", content)
+```
+
+Use `ViewContext::window_title` directly when the window should retain the system title bar.
 
 Focusable custom surfaces can make synchronous WinUI routing decisions without running component
 updates inside native callbacks:

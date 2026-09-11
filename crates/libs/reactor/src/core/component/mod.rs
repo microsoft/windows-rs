@@ -1108,6 +1108,19 @@ impl<C: Component> ViewContext<C> {
         self.window_title.declare(title.into());
     }
 
+    /// Creates the standard window layout with `content` below an integrated WinUI title bar.
+    #[must_use = "the returned frame must be included in the component view"]
+    pub fn window_frame(&mut self, title: impl Into<String>, content: impl Into<View>) -> View {
+        let title = title.into();
+        self.window_title(title.clone());
+        Grid::new()
+            .rows([GridLength::Auto, GridLength::STAR])
+            .children((
+                TitleBar::new().title(title),
+                Border::new().grid_row(1).content(content),
+            ))
+    }
+
     /// Declares the owning window's visual environment for this publication.
     pub fn window_visuals(&mut self, visuals: WindowVisuals) {
         self.window_visuals.declare(visuals);
