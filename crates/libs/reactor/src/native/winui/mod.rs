@@ -945,8 +945,9 @@ impl WinUiRuntime {
             .get(&node)
             .ok_or(RuntimeError::MissingNode(node))?;
         let title_bar_element = self.ui_element(title_bar)?;
-        window
-            .SetExtendsContentIntoTitleBar(true)
+        title_bar_element
+            .SetIsTabStop(false)
+            .and_then(|()| window.SetExtendsContentIntoTitleBar(true))
             .and_then(|()| window.SetTitleBar(&title_bar_element))
             .map_err(native_error)?;
         let height_option = match height {

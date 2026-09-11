@@ -83,9 +83,7 @@ impl Component for Counter {
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
-        context.window_title("Counter");
-
-        StackPanel::new().spacing(8.0).children((
+        let content = StackPanel::new().spacing(8.0).children((
             format!("Count: {}", self.count),
             Button::new()
                 .on_click(context.message(Message::Increment))
@@ -93,7 +91,8 @@ impl Component for Counter {
             Button::new()
                 .on_click(context.message(Message::Reset))
                 .content("Reset"),
-        ))
+        ));
+        context.window_frame("Counter", content)
     }
 }
 
@@ -117,6 +116,25 @@ not mutate the component directly.
 
 `App::run_component` creates the WinUI application and first window, mounts `Counter`, and runs the
 UI loop.
+
+## Window title bars
+
+`window_frame` gives a Reactor window an integrated WinUI title bar. It creates the required
+two-row layout, uses the same text for the native and visible window titles, and places the
+component's content below the title bar:
+
+```rust,ignore
+context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Acrylic));
+context.window_frame("Canvas keyboard input", content)
+```
+
+Call `window_frame` from the component that supplies the window's native root so the frame fills
+the window. The title-bar container is not a tab stop.
+
+`window_title` and `window_visuals` remain available for windows that use the system title bar.
+They declare native window state without adding title-bar content to the view. Material backdrops
+do not extend through the system title bar, so use `window_frame` when Mica or Acrylic should cover
+the complete window.
 
 ## Build views from controls
 

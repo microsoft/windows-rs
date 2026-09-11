@@ -2859,6 +2859,7 @@ pub fn windows_reactor::ViewContext<C>::sender(&self) -> windows_reactor::LocalS
 pub fn windows_reactor::ViewContext<C>::use_context<T: core::clone::Clone + 'static>(&mut self, &windows_reactor::Context<T>) -> T
 pub fn windows_reactor::ViewContext<C>::use_effect<D>(&mut self, impl core::convert::Into<windows_reactor::EffectKey>, D, impl core::ops::function::FnOnce() -> core::option::Option<alloc::boxed::Box<dyn core::ops::function::FnOnce()>> + 'static) where D: core::cmp::PartialEq + 'static
 pub fn windows_reactor::ViewContext<C>::use_effect_guard<D, G>(&mut self, impl core::convert::Into<windows_reactor::EffectKey>, D, impl core::ops::function::FnOnce() -> G + 'static) where D: core::cmp::PartialEq + 'static, G: 'static
+pub fn windows_reactor::ViewContext<C>::window_frame(&mut self, impl core::convert::Into<alloc::string::String>, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
 pub fn windows_reactor::ViewContext<C>::window_title(&mut self, impl core::convert::Into<alloc::string::String>)
 pub fn windows_reactor::ViewContext<C>::window_visuals(&mut self, windows_reactor::WindowVisuals)
 pub struct windows_reactor::Viewbox

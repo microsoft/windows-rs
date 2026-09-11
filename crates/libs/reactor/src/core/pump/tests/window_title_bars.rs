@@ -230,3 +230,41 @@ fn failed_native_apply_does_not_publish_title_bar_height() {
     );
     assert_eq!(pump.tree.window_title_bar().unwrap(), published);
 }
+
+struct FramedComponent;
+
+impl Component for FramedComponent {
+    type Input = ();
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Acrylic));
+        context.window_frame("Window title", TextBlock::new().text("content"))
+    }
+}
+
+#[test]
+fn window_frame_publishes_native_title_and_visuals() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<FramedComponent>(()))
+        .unwrap();
+    let window = pump.window.unwrap();
+
+    assert_eq!(pump.runtime().window_title(window), Some("Window title"));
+    assert_eq!(
+        pump.runtime().window_visuals(window),
+        Some(WindowVisuals::new().backdrop(WindowBackdrop::Acrylic))
+    );
+    assert_eq!(
+        pump.runtime()
+            .window_title_bar(window)
+            .map(|(_, height)| height),
+        Some(WindowTitleBarHeight::Standard)
+    );
+}
