@@ -1,7 +1,7 @@
 #![allow(non_upper_case_globals)]
 
 use clang_sys::*;
-use std::collections::{BTreeMap, HashMap, HashSet};
+use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
 use std::ffi::{CStr, CString};
 use std::fmt::{Display, Formatter};
 
@@ -34,6 +34,7 @@ pub struct Location {
 
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub enum Scalar {
+    Bool,
     I8,
     U8,
     I16,
@@ -162,49 +163,357 @@ impl Snapshot {
         result
     }
 
-    pub fn emit(&self, namespace: &str) -> String {
+    pub fn emit(&self, namespace: &str) -> Result<String, Error> {
+        let plan = self.plan()?;
         let mut items = BTreeMap::new();
-        for fact in self.facts.iter().filter(|fact| fact.main_file) {
-            match &fact.data {
+        for planned in plan.types {
+            let fact = planned.fact;
+            let item = match &fact.data {
                 FactData::Typedef { target } => {
-                    items.insert(
-                        fact.name.clone(),
-                        format!("    type {} = {};\n", fact.name, type_name(target)),
-                    );
+                    format!(
+                        "    type {} = {};\n",
+                        planned.name,
+                        planned_type_name(target, &plan.type_names)
+                    )
                 }
                 FactData::Enum { repr, variants } if fact.definition => {
                     let mut item = format!(
                         "    #[repr({})]\n    enum {} {{\n",
                         scalar_name(*repr),
-                        fact.name
+                        planned.name
                     );
                     for variant in variants {
                         item.push_str(&format!("        {} = {},\n", variant.name, variant.value));
                     }
                     item.push_str("    }\n");
-                    items.insert(fact.name.clone(), item);
+                    item
                 }
-                _ => {}
+                _ => {
+                    return Err(Error(format!(
+                        "planned type `{}` is not emittable",
+                        fact.name
+                    )));
+                }
+            };
+            if items.insert(planned.name.clone(), item).is_some() {
+                return Err(Error(format!("duplicate planned name `{}`", planned.name)));
             }
         }
-        for constant in &self.constants {
-            items.insert(
-                constant.name.clone(),
-                format!(
-                    "    const {}: {} = {};\n",
-                    constant.name,
-                    type_name(&constant.ty),
-                    value_name(&constant.value)
-                ),
+        for constant in plan.constants {
+            let item = format!(
+                "    const {}: {} = {};\n",
+                constant.name,
+                constant_type_name(&constant.ty, &plan.type_names),
+                value_name(&constant.value)
             );
+            if items.insert(constant.name.clone(), item).is_some() {
+                return Err(Error(format!("duplicate planned name `{}`", constant.name)));
+            }
         }
 
-        let mut result = format!("#[win32]\nmod {namespace} {{\n");
-        for item in items.values() {
-            result.push_str(item);
+        let namespaces: Vec<_> = namespace
+            .split('.')
+            .filter(|name| !name.is_empty())
+            .collect();
+        if namespaces.is_empty() {
+            return Err(Error("namespace is empty".to_string()));
         }
-        result.push_str("}\n");
-        result
+        let mut result = String::from("#[win32]\n");
+        for (depth, namespace) in namespaces.iter().enumerate() {
+            result.push_str(&format!("{}mod {namespace} {{\n", "    ".repeat(depth)));
+        }
+        let indent = "    ".repeat(namespaces.len() - 1);
+        for item in items.values() {
+            for line in item.lines() {
+                result.push_str(&indent);
+                result.push_str(line);
+                result.push('\n');
+            }
+        }
+        for depth in (0..namespaces.len()).rev() {
+            result.push_str(&format!("{}}}\n", "    ".repeat(depth)));
+        }
+        Ok(result)
+    }
+
+    fn plan(&self) -> Result<Plan<'_>, Error> {
+        #[derive(Default)]
+        struct Roots<'a> {
+            types: Vec<&'a Fact>,
+            values: Vec<&'a Constant>,
+        }
+
+        let mut roots: BTreeMap<&str, Roots<'_>> = BTreeMap::new();
+        for fact in self
+            .facts
+            .iter()
+            .filter(|fact| fact.main_file && is_type_fact(fact))
+        {
+            roots.entry(&fact.name).or_default().types.push(fact);
+        }
+        for constant in &self.constants {
+            roots
+                .entry(&constant.name)
+                .or_default()
+                .values
+                .push(constant);
+        }
+
+        let facts_by_origin: HashMap<_, _> =
+            self.facts.iter().map(|fact| (&fact.origin, fact)).collect();
+        let mut type_roots = vec![];
+        let mut constants = vec![];
+        let mut root_names = BTreeSet::new();
+
+        for (name, roots) in roots {
+            if !roots.types.is_empty() {
+                let root = choose_type_root(name, &roots.types)?;
+                root_names.insert(name.to_string());
+                type_roots.push(root);
+            } else {
+                let constant = choose_constant_root(name, &roots.values)?;
+                constants.push(constant);
+            }
+        }
+
+        let facts_by_name = loop {
+            let mut facts = BTreeSet::new();
+            let mut queue = vec![];
+            for root in &type_roots {
+                if facts.insert(root.origin.clone()) {
+                    queue_type_edges(root, &mut queue);
+                }
+            }
+            for constant in &constants {
+                queue.push((constant.root.tu.as_str(), &constant.ty));
+            }
+
+            while let Some((tu, ty)) = queue.pop() {
+                let TypeRef::Named { name, declaration } = ty else {
+                    continue;
+                };
+                let matches: Vec<_> = self
+                    .facts
+                    .iter()
+                    .filter(|fact| {
+                        fact.origin.tu == tu
+                            && fact.name == *name
+                            && fact.spelling == *declaration
+                            && is_type_fact(fact)
+                    })
+                    .collect();
+                let [fact] = matches.as_slice() else {
+                    return Err(Error(format!(
+                        "unresolved local type `{name}` in translation unit `{tu}`"
+                    )));
+                };
+                if facts.insert(fact.origin.clone()) {
+                    queue_type_edges(fact, &mut queue);
+                }
+            }
+
+            let mut grouped: BTreeMap<&str, Vec<&Fact>> = BTreeMap::new();
+            for fact in facts.into_iter().map(|origin| facts_by_origin[&origin]) {
+                grouped.entry(&fact.name).or_default().push(fact);
+            }
+
+            let collisions: Vec<_> = constants
+                .iter()
+                .filter_map(|constant| {
+                    grouped
+                        .get(constant.name.as_str())
+                        .map(|choices| (constant.name.as_str(), choices))
+                })
+                .collect();
+            if !collisions.is_empty() {
+                for (name, choices) in collisions {
+                    let root = choose_type_root(name, choices)?;
+                    if root_names.insert(name.to_string()) {
+                        type_roots.push(root);
+                    }
+                }
+                constants.retain(|constant| !root_names.contains(constant.name.as_str()));
+                continue;
+            }
+
+            let mut facts_by_name = BTreeMap::new();
+            for (name, choices) in grouped {
+                facts_by_name.insert(name, choose_type_root(name, &choices)?);
+            }
+            break facts_by_name;
+        };
+
+        let mut required = root_names;
+        for constant in &constants {
+            if let TypeRef::Named { name, .. } = &constant.ty {
+                required.insert(name.clone());
+            }
+        }
+        let mut queue: Vec<_> = required.iter().rev().cloned().collect();
+        while let Some(name) = queue.pop() {
+            let Some(fact) = facts_by_name.get(name.as_str()) else {
+                return Err(Error(format!("planned type `{name}` is not emittable")));
+            };
+            if let FactData::Typedef {
+                target: TypeRef::Named { name, .. },
+            } = &fact.data
+                && required.insert(name.clone())
+            {
+                queue.push(name.clone());
+            }
+        }
+
+        let mut enum_alias_candidates: BTreeMap<&str, Vec<&str>> = BTreeMap::new();
+        for fact in facts_by_name.values() {
+            if let FactData::Typedef {
+                target: TypeRef::Named { name, declaration },
+            } = &fact.data
+                && name != &fact.name
+                && let Some(target) = facts_by_name.get(name.as_str())
+                && target.spelling == *declaration
+                && matches!(target.data, FactData::Enum { .. })
+                && target.definition
+            {
+                enum_alias_candidates
+                    .entry(target.name.as_str())
+                    .or_default()
+                    .push(fact.name.as_str());
+            }
+        }
+        let type_names: BTreeMap<_, _> = enum_alias_candidates
+            .into_iter()
+            .filter_map(|(target, aliases)| {
+                let [alias] = aliases.as_slice() else {
+                    return None;
+                };
+                Some((target.to_string(), (*alias).to_string()))
+            })
+            .collect();
+        let alias_names: BTreeSet<_> = type_names.values().map(String::as_str).collect();
+        let types: Vec<_> = facts_by_name
+            .into_iter()
+            .filter(|(name, _)| required.contains(*name))
+            .filter(|(name, _)| !alias_names.contains(*name))
+            .map(|(_, fact)| PlannedType {
+                name: type_names
+                    .get(fact.name.as_str())
+                    .cloned()
+                    .unwrap_or_else(|| fact.name.clone()),
+                fact,
+            })
+            .collect();
+        let mut output_names = BTreeSet::new();
+        for planned in &types {
+            if !output_names.insert(planned.name.as_str()) {
+                return Err(Error(format!("duplicate planned name `{}`", planned.name)));
+            }
+        }
+        for constant in &constants {
+            if !output_names.insert(constant.name.as_str()) {
+                return Err(Error(format!("duplicate planned name `{}`", constant.name)));
+            }
+        }
+        constants.sort_by(|left, right| left.name.cmp(&right.name));
+        Ok(Plan {
+            types,
+            constants,
+            type_names,
+        })
+    }
+}
+
+struct PlannedType<'a> {
+    fact: &'a Fact,
+    name: String,
+}
+
+struct Plan<'a> {
+    types: Vec<PlannedType<'a>>,
+    constants: Vec<&'a Constant>,
+    type_names: BTreeMap<String, String>,
+}
+
+fn is_type_fact(fact: &Fact) -> bool {
+    matches!(fact.data, FactData::Enum { .. } | FactData::Typedef { .. })
+}
+
+fn choose_type_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Error> {
+    let mut distinct: Vec<&Fact> = vec![];
+    for &root in roots {
+        if !distinct
+            .iter()
+            .any(|existing| same_source_declaration(existing, root))
+        {
+            distinct.push(root);
+        }
+    }
+    if let [root] = distinct.as_slice() {
+        return emittable_type(name, root);
+    }
+    let enums: Vec<_> = distinct
+        .iter()
+        .copied()
+        .filter(|fact| matches!(fact.data, FactData::Enum { .. }) && fact.definition)
+        .collect();
+    if let [root] = enums.as_slice() {
+        let aliases_target_root = distinct.iter().all(|fact| {
+            fact.origin == root.origin
+                || matches!(
+                    &fact.data,
+                    FactData::Typedef {
+                        target: TypeRef::Named { declaration, .. }
+                    } if declaration == &root.spelling
+                )
+        });
+        if aliases_target_root {
+            return Ok(root);
+        }
+        let same_tu_declarations = distinct.iter().all(|fact| {
+            fact.origin == root.origin
+                || (!fact.definition
+                    && fact.origin.tu == root.origin.tu
+                    && fact.parent == root.parent
+                    && matches!(fact.data, FactData::Enum { .. }))
+        });
+        if same_tu_declarations {
+            return Ok(root);
+        }
+    }
+    Err(Error(format!("ambiguous type root `{name}`")))
+}
+
+fn choose_constant_root<'a>(name: &str, roots: &[&'a Constant]) -> Result<&'a Constant, Error> {
+    let Some(first) = roots.first() else {
+        return Err(Error(format!("missing constant root `{name}`")));
+    };
+    if roots
+        .iter()
+        .all(|constant| constant.ty == first.ty && constant.value == first.value)
+    {
+        Ok(first)
+    } else {
+        Err(Error(format!("ambiguous constant root `{name}`")))
+    }
+}
+
+fn same_source_declaration(left: &Fact, right: &Fact) -> bool {
+    left.kind == right.kind
+        && left.name == right.name
+        && left.spelling == right.spelling
+        && left.definition == right.definition
+        && left.data == right.data
+}
+
+fn emittable_type<'a>(name: &str, fact: &'a Fact) -> Result<&'a Fact, Error> {
+    match fact.data {
+        FactData::Typedef { .. } | FactData::Enum { .. } if fact.definition => Ok(fact),
+        _ => Err(Error(format!("type root `{name}` is not emittable"))),
+    }
+}
+
+fn queue_type_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, &'a TypeRef)>) {
+    if let FactData::Typedef { target } = &fact.data {
+        queue.push((fact.origin.tu.as_str(), target));
     }
 }
 
@@ -621,7 +930,7 @@ fn evaluate_probe(
         };
         let value = if matches!(
             value_scalar,
-            Scalar::U8 | Scalar::U16 | Scalar::U32 | Scalar::U64
+            Scalar::Bool | Scalar::U8 | Scalar::U16 | Scalar::U32 | Scalar::U64
         ) {
             Value::Unsigned(value.0)
         } else {
@@ -748,8 +1057,9 @@ fn type_ref(ty: CXType) -> Option<TypeRef> {
 fn scalar(ty: CXType) -> Option<Scalar> {
     let ty = unsafe { clang_getCanonicalType(ty) };
     Some(match ty.kind {
+        CXType_Bool => Scalar::Bool,
         CXType_Char_S | CXType_SChar => Scalar::I8,
-        CXType_Char_U | CXType_UChar | CXType_Bool => Scalar::U8,
+        CXType_Char_U | CXType_UChar => Scalar::U8,
         CXType_Short => Scalar::I16,
         CXType_UShort => Scalar::U16,
         CXType_Int | CXType_Long => Scalar::I32,
@@ -766,6 +1076,7 @@ fn scalar(ty: CXType) -> Option<Scalar> {
 
 fn scalar_name(scalar: Scalar) -> &'static str {
     match scalar {
+        Scalar::Bool => "bool",
         Scalar::I8 => "i8",
         Scalar::U8 => "u8",
         Scalar::I16 => "i16",
@@ -781,6 +1092,20 @@ fn type_name(ty: &TypeRef) -> &str {
     match ty {
         TypeRef::Scalar(scalar) => scalar_name(*scalar),
         TypeRef::Named { name, .. } => name,
+    }
+}
+
+fn planned_type_name<'a>(ty: &'a TypeRef, type_names: &'a BTreeMap<String, String>) -> &'a str {
+    match ty {
+        TypeRef::Named { name, .. } => type_names.get(name).map_or(name, |name| name),
+        _ => type_name(ty),
+    }
+}
+
+fn constant_type_name<'a>(ty: &'a TypeRef, type_names: &'a BTreeMap<String, String>) -> &'a str {
+    match ty {
+        TypeRef::Scalar(Scalar::Bool) => "u32",
+        _ => planned_type_name(ty, type_names),
     }
 }
 

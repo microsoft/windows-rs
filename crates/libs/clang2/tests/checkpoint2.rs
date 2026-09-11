@@ -34,7 +34,7 @@ extern int runtime_value;
 ";
 
     let snapshot = extract([Input::new("constants.hpp", source)], &["-x", "c++"]).unwrap();
-    let rdl = snapshot.emit("Clang2");
+    let rdl = snapshot.emit("Clang2").unwrap();
 
     assert!(rdl.contains("type Status = u16"));
     assert!(rdl.contains("type Chained = Status"));
@@ -108,7 +108,7 @@ typedef unsigned short IncludedStatus;
         &["-x", "c++", &include_arg],
     )
     .unwrap();
-    let rdl = snapshot.emit("IncludedRedefinition");
+    let rdl = snapshot.emit("IncludedRedefinition").unwrap();
     assert!(rdl.contains("const INCLUDED_REDEFINED: i32 = 11"), "{rdl}");
     assert!(!rdl.contains("const INCLUDED_REDEFINED: IncludedStatus"));
     let constant = snapshot
