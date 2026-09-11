@@ -84,6 +84,9 @@ typedef struct _NESTED {
     union {
         int integer;
         float floating;
+        struct {
+            int item;
+        } chunk;
     };
 } NESTED;
 
@@ -231,6 +234,8 @@ struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IGuid {
     assert!(rdl.contains("Anonymous: union {"));
     assert!(rdl.contains("integer: i32"));
     assert!(rdl.contains("floating: f32"));
+    assert!(rdl.contains("chunk: struct {"));
+    assert!(rdl.contains("item: i32"));
     assert!(rdl.contains("struct ANONYMOUS_TYPE"));
     assert!(rdl.contains("item: i32"));
     assert!(rdl.contains("union ANONYMOUS_UNION"));
@@ -431,7 +436,6 @@ fn unsupported_sal_size_relations_are_reported() {
     windows_clang::ensure_libclang();
 
     for (annotation, expected) in [
-        ("_In_reads_(count + 1)", "unsupported SAL size expression"),
         (
             "_In_reads_(missing)",
             "unresolved SAL size parameter `missing`",
@@ -455,6 +459,35 @@ fn unsupported_sal_size_relations_are_reported() {
             "unexpected unsupported reason: {reason}"
         );
     }
+
+    let expression = extract(
+        [Input::new(
+            "expression.hpp",
+            "extern \"C\" void Expression(\
+             __attribute__((annotate(\"_In_reads_(rows * columns)\"))) void *buffer, \
+             unsigned int rows, unsigned int columns);",
+        )],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    let function = expression
+        .facts()
+        .iter()
+        .find(|fact| fact.name == "Expression")
+        .unwrap();
+    let FactData::Function { params, .. } = &function.data else {
+        panic!("Expression is not a function");
+    };
+    assert_eq!(
+        params[0].annotation.size.as_ref().unwrap().value,
+        windows_clang2::SalSizeValue::Expression("rows * columns".to_string())
+    );
+    assert!(
+        expression
+            .emit_with_library("Expression", "test.dll")
+            .unwrap()
+            .contains("buffer: *mut void")
+    );
 
     let collision = extract(
         [Input::new(

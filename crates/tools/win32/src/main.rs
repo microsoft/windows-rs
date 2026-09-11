@@ -130,6 +130,32 @@ const SCOPE: &[&str] = &["um", "shared"];
 /// the metadata and prevents clang `stdint.h` changes from affecting the multi-arch scrape.
 const EXCLUDE_HEADERS: &[&str] = &["intsafe.h"];
 
+fn default_type_references() -> std::collections::BTreeMap<String, windows_clang2::TypeReference> {
+    let files = [windows_default::WINRT, windows_default::WIN32]
+        .into_iter()
+        .map(|bytes| windows_metadata::reader::File::new(bytes.to_vec()).unwrap())
+        .collect();
+    let index = windows_metadata::reader::Index::new(files);
+    let mut references = std::collections::BTreeMap::new();
+    let mut ambiguous = std::collections::BTreeSet::new();
+    for (namespace, name, ty) in index.iter() {
+        let kind = if ty.category() == windows_metadata::reader::TypeCategory::Interface {
+            windows_clang2::TypeReferenceKind::Interface
+        } else {
+            windows_clang2::TypeReferenceKind::Type
+        };
+        let reference = windows_clang2::TypeReference::new(namespace, name, kind);
+        if references
+            .insert(name.to_string(), reference.clone())
+            .is_some_and(|existing| existing != reference)
+        {
+            ambiguous.insert(name.to_string());
+        }
+    }
+    references.retain(|name, _| !ambiguous.contains(name));
+    references
+}
+
 /// Architectures to scrape and arch-merge. The committed RDL is always x64-canonical; any
 /// additional arch listed here (`arm64`, `x86`) is scraped to a throwaway winmd and folded in via
 /// `SupportedArchitecture` so symbols that exist on only a subset of arches are tagged.
@@ -862,6 +888,11 @@ fn main() {
     ensure_libclang();
     assert_libclang_version();
 
+    if let Some(headers) = std::env::var_os("WINDOWS_CLANG2") {
+        scrape_um_clang2(&headers.to_string_lossy());
+        return;
+    }
+
     // Phase A: scrape the user-mode Win32 surface into `metadata/win32` (committed RDL) and
     // [`UM_WINMD`] (uncommitted).
     let um = scrape_um();
@@ -981,6 +1012,127 @@ fn scrape_um() -> Summary {
     print!("{summary}");
     println!("Wrote {UM_WINMD} ({} partition(s))", summary.partitions);
     summary
+}
+
+fn scrape_um_clang2(headers: &str) {
+    let headers: Vec<_> = if headers.trim() == "all" {
+        HEADERS.to_vec()
+    } else if let Some(count) = headers.trim().strip_prefix("first:") {
+        let count: usize = count.parse().expect("invalid WINDOWS_CLANG2 header count");
+        HEADERS[..count.min(HEADERS.len())].to_vec()
+    } else {
+        headers
+            .split(',')
+            .map(str::trim)
+            .filter(|header| !header.is_empty())
+            .collect()
+    };
+    assert!(
+        !headers.is_empty(),
+        "WINDOWS_CLANG2 must name at least one comma-separated header"
+    );
+
+    let include_dirs = sdk_include_dirs();
+    let roots: Vec<_> = headers
+        .iter()
+        .map(|header| resolve(header, &include_dirs, "header", "pinned SDK include"))
+        .collect();
+    let mut source = String::from(PRELUDE);
+    for header in &headers {
+        source.push_str(&format!("\n#include <{header}>"));
+    }
+    let include_args: Vec<String> = include_dirs
+        .iter()
+        .cloned()
+        .flat_map(|dir| ["-isystem".to_string(), dir])
+        .collect();
+    let mut args: Vec<&str> = CLANG_ARGS.into_iter().collect();
+    args.extend([
+        "--target=x86_64-pc-windows-msvc",
+        "-fms-extensions",
+        "-include",
+        SAL_SHIM,
+    ]);
+    args.extend(include_args.iter().map(String::as_str));
+
+    let time = std::time::Instant::now();
+    println!("Extracting {} header(s)...", headers.len());
+    let snapshot = windows_clang2::extract(
+        [windows_clang2::Input::new("clang2-win32.hpp", source).with_roots(roots)],
+        &args,
+    )
+    .unwrap();
+    println!("Extracted facts in {:.2}s", time.elapsed().as_secs_f32());
+    let unsupported = snapshot
+        .unsupported()
+        .filter(|(fact, _)| fact.root)
+        .map(|(fact, reason)| format!("{}: {reason}", fact.name))
+        .collect::<Vec<_>>();
+
+    let lib_dirs = sdk_lib_dirs();
+    let import_libs: Vec<String> = IMPORT_LIBS
+        .iter()
+        .map(|lib| resolve(lib, &lib_dirs, "import library", "pinned SDK lib"))
+        .collect();
+    let mut clang = clang();
+    for lib in &import_libs {
+        clang
+            .import_library(lib)
+            .unwrap_or_else(|e| panic!("failed to read import library `{lib}`: {e}"));
+    }
+    apply_library_overrides(&mut clang);
+
+    let libraries: std::collections::BTreeMap<_, _> = snapshot
+        .facts()
+        .iter()
+        .filter(|fact| fact.root)
+        .filter_map(|fact| {
+            if let windows_clang2::FactData::Function { link_name, .. } = &fact.data {
+                Some(link_name)
+            } else {
+                None
+            }
+        })
+        .filter_map(|fact| {
+            clang
+                .resolved_library(fact)
+                .map(|library| (fact.clone(), library.to_string()))
+        })
+        .collect();
+    let functions = libraries.keys().cloned().collect();
+    let references = default_type_references();
+    let mut options = windows_clang2::EmitOptions::new(ROOT, &references);
+    options.libraries = Some(&libraries);
+    options.functions = Some(&functions);
+    let emit_time = std::time::Instant::now();
+    let rdl = snapshot.emit_with_options(&options).unwrap();
+    println!("Planned RDL in {:.2}s", emit_time.elapsed().as_secs_f32());
+
+    std::fs::create_dir_all("target/win32-clang2").unwrap();
+    std::fs::write("target/win32-clang2/Windows.Win32.rdl", rdl).unwrap();
+    std::fs::write(
+        "target/win32-clang2/unsupported.txt",
+        unsupported.join("\n"),
+    )
+    .unwrap();
+    let metadata_time = std::time::Instant::now();
+    windows_rdl::reader()
+        .input(METADATA_SEED)
+        .input("target/win32-clang2/Windows.Win32.rdl")
+        .reference_default()
+        .output("target/win32-clang2/Windows.Win32.winmd")
+        .write()
+        .unwrap();
+    println!(
+        "Compiled winmd in {:.2}s",
+        metadata_time.elapsed().as_secs_f32()
+    );
+    println!(
+        "Wrote target/win32-clang2/Windows.Win32.winmd from {} header(s), {} exported function(s), {} unsupported root declaration(s)",
+        headers.len(),
+        libraries.len(),
+        unsupported.len()
+    );
 }
 
 fn apply_library_overrides(clang: &mut Clang) {
