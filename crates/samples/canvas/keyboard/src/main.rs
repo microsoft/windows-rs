@@ -78,11 +78,7 @@ impl Component for Sample {
             } else {
                 Color::rgb(70, 76, 88)
             })
-            .border_thickness(Thickness::uniform(if self.focused {
-                3.0
-            } else {
-                1.0
-            }))
+            .border_thickness(Thickness::uniform(if self.focused { 3.0 } else { 1.0 }))
             .on_preview_key_down(cx.routed_callback(|info: KeyEventInfo| {
                 if matches!(info.key, VirtualKey::BACK | VirtualKey::DELETE) {
                     RoutedMessage::handled(Message::Key(info))
