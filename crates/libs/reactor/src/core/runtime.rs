@@ -158,6 +158,8 @@ pub struct QueuedEvent {
     pub revision: u32,
     pub payload: EventPayload,
     invoke_callback: bool,
+    routed_message: Option<DeferredMessage>,
+    claimed_handled: bool,
 }
 
 impl QueuedEvent {
@@ -168,6 +170,8 @@ impl QueuedEvent {
             revision,
             payload,
             invoke_callback: true,
+            routed_message: None,
+            claimed_handled: false,
         }
     }
 
@@ -183,11 +187,40 @@ impl QueuedEvent {
             revision,
             payload,
             invoke_callback: false,
+            routed_message: None,
+            claimed_handled: false,
+        }
+    }
+
+    pub(crate) fn routed(
+        node: NodeId,
+        event: EventId,
+        revision: u32,
+        payload: EventPayload,
+        message: DeferredMessage,
+        claimed_handled: bool,
+    ) -> Self {
+        Self {
+            node,
+            event,
+            revision,
+            payload,
+            invoke_callback: false,
+            routed_message: Some(message),
+            claimed_handled,
         }
     }
 
     pub(crate) fn invokes_callback(&self) -> bool {
         self.invoke_callback
+    }
+
+    pub(crate) fn routed_message_mut(&mut self) -> Option<&mut DeferredMessage> {
+        self.routed_message.as_mut()
+    }
+
+    pub(crate) fn claimed_handled(&self) -> bool {
+        self.claimed_handled
     }
 }
 
@@ -368,6 +401,11 @@ pub enum Command {
     UnsubscribeEvent {
         node: NodeId,
         event: EventId,
+    },
+    SetRoutedCallback {
+        node: NodeId,
+        event: EventId,
+        callback: Option<RoutedEventCallback>,
     },
     SetSlot {
         parent: NodeId,

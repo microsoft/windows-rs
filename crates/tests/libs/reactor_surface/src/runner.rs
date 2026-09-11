@@ -195,14 +195,18 @@ impl Component for SurfaceRunner {
             }
             for event in PROJECTED_EVENTS {
                 println!(
-                    "event.{}.{} payload={} conversion={} subscription={} delivery={} active_property={}",
+                    "event.{}.{} payload={} conversion={} subscription={} delivery={} active_properties={}",
                     event.control,
                     event.event,
                     event.payload,
                     event.conversion,
                     event.subscription,
                     event.delivery,
-                    event.active_property.unwrap_or("none")
+                    if event.active_properties.is_empty() {
+                        "none".to_string()
+                    } else {
+                        event.active_properties.join(",")
+                    }
                 );
             }
             for property in CAPABILITY_PROPERTIES {

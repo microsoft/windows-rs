@@ -78,6 +78,10 @@ impl From<ComponentDeclarationError> for PumpError {
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum PumpDiagnostic {
+    HandledInputDropped {
+        node: NodeId,
+        event: EventId,
+    },
     WindowOpenRejected {
         error: RuntimeError,
     },

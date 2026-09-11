@@ -7,6 +7,10 @@ Microsoft::UI::Dispatching::IDispatcherQueue::TryEnqueueWithPriority
 Microsoft::UI::Dispatching::IDispatcherQueueTimer::{put_Interval, put_IsRepeating, add_Tick, remove_Tick, Start, Stop}
 Microsoft::UI::Input::IPointerPoint::{get_Position, get_Properties}
 Microsoft::UI::Input::IPointerPointProperties::{get_IsLeftButtonPressed, get_IsMiddleButtonPressed, get_IsRightButtonPressed}
+Microsoft::UI::Input::InputKeyboardSource::{add_KeyDown, remove_KeyDown, GetForIsland}
+Microsoft::UI::Xaml::UIElement::get_XamlRoot
+Microsoft::UI::Xaml::Window::get_Content
+Microsoft::UI::Xaml::XamlRoot::get_ContentIsland
 Microsoft::UI::Text::ITextDocument::{GetText, SetText}
 Microsoft::UI::Text::TextGetOptions::None
 Microsoft::UI::Text::TextSetOptions::None
@@ -96,7 +100,7 @@ Microsoft::UI::Xaml::IFrameworkElement::put_Style
 Microsoft::UI::Xaml::IFrameworkElementStatics::{get_WidthProperty, get_HeightProperty, get_MinWidthProperty, get_MaxWidthProperty, get_MinHeightProperty, get_MaxHeightProperty, get_HorizontalAlignmentProperty, get_VerticalAlignmentProperty, get_MarginProperty}
 Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
 Microsoft::UI::Xaml::ISizeChangedEventArgs::get_NewSize
-Microsoft::UI::Xaml::IUIElement::{CapturePointer, Focus, ReleasePointerCapture, ReleasePointerCaptures, get_XamlRoot, put_XamlRoot, put_Opacity, StartBringIntoView}
+Microsoft::UI::Xaml::IUIElement::{CapturePointer, Focus, ReleasePointerCapture, ReleasePointerCaptures, get_XamlRoot, put_XamlRoot, get_FocusState, put_Opacity, StartBringIntoView}
 Microsoft::UI::Xaml::IUIElement::{add_PointerEntered, add_PointerExited, add_PointerMoved, add_PointerPressed, add_PointerReleased, remove_PointerEntered, remove_PointerExited, remove_PointerMoved, remove_PointerPressed, remove_PointerReleased}
 Microsoft::UI::Xaml::IUIElementStatics::get_OpacityProperty
 Microsoft::UI::Xaml::IWindow2::{get_AppWindow, put_SystemBackdrop}
@@ -104,6 +108,9 @@ Microsoft::UI::Xaml::IWindow::{Activate, Close, Closed, put_Content, put_Title}
 Microsoft::UI::Xaml::IWindow::{put_ExtendsContentIntoTitleBar, SetTitleBar}
 Microsoft::UI::Xaml::IXamlRoot::{get_RasterizationScale, add_Changed, remove_Changed}
 Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::{GetCurrentPoint, get_Pointer}
+Microsoft::UI::Xaml::Input::IKeyRoutedEventArgs::{get_Key, get_OriginalKey, get_KeyStatus, put_Handled}
+Microsoft::UI::Xaml::Input::ICharacterReceivedRoutedEventArgs::{get_Character, get_KeyStatus, put_Handled}
+Microsoft::UI::Xaml::IRoutedEventArgs::get_OriginalSource
 Microsoft::UI::Xaml::LaunchActivatedEventArgs
 Microsoft::UI::Xaml::Markup::IXamlMetadataProvider
 Microsoft::UI::Xaml::Markup::IXamlType::{}
@@ -131,6 +138,7 @@ Windows::Win32::E_FAIL
 Windows::Win32::ERROR_INSUFFICIENT_BUFFER
 Windows::Win32::GetCurrentPackageFullName
 Windows::Win32::GetDpiForWindow
+Windows::Win32::GetKeyboardState
 Windows::Win32::GetProcessHeap
 Windows::Win32::HeapFree
 Windows::Win32::IDYES

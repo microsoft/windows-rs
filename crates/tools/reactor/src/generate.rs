@@ -73,6 +73,10 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let mounted_theme_styles = schema.controls.iter().map(generate_mounted_theme_style);
     let mounted_event_visitors = schema.controls.iter().map(generate_mounted_event_visitor);
     let mounted_event_dispatchers = schema.controls.iter().flat_map(generate_event_dispatchers);
+    let mounted_routed_callbacks = schema
+        .controls
+        .iter()
+        .flat_map(generate_mounted_routed_callbacks);
     let mounted_event_observers = schema.controls.iter().flat_map(generate_event_observers);
     let element_parts = schema.controls.iter().map(generate_element_parts);
     let element_props_matches = schema.controls.iter().map(generate_element_props_match);
@@ -244,6 +248,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         pub trait MountedEventsExt {
             fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool));
             fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> Option<bool>;
+            fn routed_callback(&self, event: EventId) -> Option<RoutedEventCallback>;
             fn observe_event(
                 &self,
                 event: EventId,
@@ -278,6 +283,13 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> Option<bool> {
                 match (self, event, payload) {
                     #(#mounted_event_dispatchers,)*
+                    _ => None,
+                }
+            }
+
+            fn routed_callback(&self, event: EventId) -> Option<RoutedEventCallback> {
+                match (self, event) {
+                    #(#mounted_routed_callbacks,)*
                     _ => None,
                 }
             }
@@ -600,7 +612,12 @@ fn generate_event_group(control: &ResolvedControl) -> TokenStream {
     let fields = control.events.iter().map(|event| {
         let field = ident(&event.field);
         let payload = event_callback_type(event);
-        quote! { #field: Option<Callback<#payload>> }
+        let callback = if event.routed {
+            quote! { RoutedCallback<#payload> }
+        } else {
+            quote! { Callback<#payload> }
+        };
+        quote! { #field: Option<#callback> }
     });
     quote! {
         #[derive(Clone, Debug, Default, PartialEq)]
@@ -662,7 +679,12 @@ fn generate_mounted_props_structure(control: &ResolvedControl) -> TokenStream {
         let fields = control.events.iter().map(|event| {
             let field = ident(&event.field);
             let payload = event_callback_type(event);
-            quote! { #field: Option<Callback<#payload>>, }
+            let callback = if event.routed {
+                quote! { RoutedCallback<#payload> }
+            } else {
+                quote! { Callback<#payload> }
+            };
+            quote! { #field: Option<#callback>, }
         });
         quote! { #(#fields)* }
     };
@@ -864,7 +886,7 @@ fn generate_element_event_visitor(control: &ResolvedControl) -> TokenStream {
             if control.event_always_active(event) {
                 quote! { visit(EventId::#id, true); }
             } else {
-                let active_property = event.active_property.as_ref().map(|property| {
+                let active_properties = event.active_properties.iter().map(|property| {
                     let property = ident(property);
                     quote! { || !matches!(value.#property, Property::Inherited) }
                 });
@@ -875,7 +897,7 @@ fn generate_element_event_visitor(control: &ResolvedControl) -> TokenStream {
                             .events
                             .as_ref()
                             .is_some_and(|events| events.#field.is_some())
-                            #active_property,
+                            #(#active_properties)*,
                     );
                 }
             }
@@ -1047,7 +1069,7 @@ fn generate_mounted_event_visitor(control: &ResolvedControl) -> TokenStream {
             if control.event_always_active(event) {
                 quote! { visit(EventId::#id, true); }
             } else {
-                let active_property = event.active_property.as_ref().map(|property| {
+                let active_properties = event.active_properties.iter().map(|property| {
                     let property = ident(property);
                     quote! { || !matches!(values.#property, Property::Inherited) }
                 });
@@ -1058,7 +1080,7 @@ fn generate_mounted_event_visitor(control: &ResolvedControl) -> TokenStream {
                             .events
                             .as_ref()
                             .is_some_and(|events| events.#field.is_some())
-                            #active_property,
+                            #(#active_properties)*,
                     );
                 }
             }
@@ -1107,6 +1129,7 @@ fn generate_event_dispatchers(control: &ResolvedControl) -> Vec<TokenStream> {
     control
         .events
         .iter()
+        .filter(|event| !event.routed)
         .map(|event| {
             let field = ident(&event.field);
             let id = ident(&format!("{}{}", control.name, event.name));
@@ -1146,6 +1169,36 @@ fn generate_event_dispatchers(control: &ResolvedControl) -> Vec<TokenStream> {
                         EventId::#id,
                         #payload_pattern,
                     ) => values.#field.as_ref().map(|callback| #call)
+                }
+            }
+        })
+        .collect()
+}
+
+fn generate_mounted_routed_callbacks(control: &ResolvedControl) -> Vec<TokenStream> {
+    let name = ident(&control.name);
+    control
+        .events
+        .iter()
+        .filter(|event| event.routed)
+        .map(|event| {
+            let field = ident(&event.field);
+            let id = ident(&format!("{}{}", control.name, event.name));
+            let payload = ident(&event.payload);
+            if has_grouped_events(control) {
+                quote! {
+                    (Self::#name(values), EventId::#id) => values
+                        .events
+                        .as_ref()
+                        .and_then(|events| events.#field.clone())
+                        .map(RoutedEventCallback::#payload)
+                }
+            } else {
+                quote! {
+                    (Self::#name(values), EventId::#id) => values
+                        .#field
+                        .clone()
+                        .map(RoutedEventCallback::#payload)
                 }
             }
         })
@@ -1507,7 +1560,12 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         let fields = control.events.iter().map(|event| {
             let field = ident(&event.field);
             let payload = event_callback_type(event);
-            quote! { #field: Option<Callback<#payload>>, }
+            let callback = if event.routed {
+                quote! { RoutedCallback<#payload> }
+            } else {
+                quote! { Callback<#payload> }
+            };
+            quote! { #field: Option<#callback>, }
         });
         quote! { #(#fields)* }
     };
@@ -1790,7 +1848,14 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         } else {
             quote! { self.#field }
         };
-        if event.payload == "Unit" {
+        if event.routed {
+            quote! {
+                pub fn #field(mut self, callback: RoutedCallback<#payload>) -> Self {
+                    #assignment = Some(callback);
+                    self
+                }
+            }
+        } else if event.payload == "Unit" {
             quote! {
                 pub fn #field(mut self, callback: impl IntoUnitCallback) -> Self {
                     #assignment = Some(callback.into_unit_callback());

@@ -8,7 +8,7 @@ default-run = "test-reactor-bench"
 [dependencies]
 windows-core = { workspace = true }
 windows-reactor = { workspace = true, features = ["test"] }
-windows = { workspace = true, features = ["processthreadsapi", "psapi", "winnt"] }
+windows = { workspace = true, features = ["processthreadsapi", "psapi", "winnt", "winuser"] }
 
 [[bin]]
 name = "test-reactor-bench"
@@ -17,6 +17,14 @@ path = "src/main.rs"
 [[bin]]
 name = "reactor-live-grid"
 path = "src/live.rs"
+
+[[bin]]
+name = "reactor-live-input"
+path = "src/live_input.rs"
+
+[[bin]]
+name = "reactor-live-notepad"
+path = "src/live_notepad.rs"
 
 [lints]
 workspace = true

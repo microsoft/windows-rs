@@ -524,6 +524,7 @@ Microsoft::UI::Xaml::Controls::Viewbox::CreateInstance
 Microsoft::UI::Xaml::Controls::Viewbox::StretchProperty
 Microsoft::UI::Xaml::Controls::WebView2::CreateInstance
 Microsoft::UI::Xaml::DependencyPropertyChangedCallback
+Microsoft::UI::Xaml::FrameworkElement::AllowFocusOnInteractionProperty
 Microsoft::UI::Xaml::FrameworkElement::StyleProperty
 Microsoft::UI::Xaml::FrameworkElement::TagProperty
 Microsoft::UI::Xaml::IDependencyObject::{RegisterPropertyChangedCallback, UnregisterPropertyChangedCallback}
@@ -533,17 +534,23 @@ Microsoft::UI::Xaml::IDragUIOverride::{put_Caption, put_IsCaptionVisible}
 Microsoft::UI::Xaml::IFrameworkElement::get_ActualHeight
 Microsoft::UI::Xaml::IFrameworkElement::get_ActualWidth
 Microsoft::UI::Xaml::IFrameworkElement::get_Tag
+Microsoft::UI::Xaml::IFrameworkElement::put_AllowFocusOnInteraction
 Microsoft::UI::Xaml::IFrameworkElement::put_Tag
 Microsoft::UI::Xaml::IScalarTransition::put_Duration
 Microsoft::UI::Xaml::IUIElement::put_AllowDrop
 Microsoft::UI::Xaml::IUIElement::put_CenterPoint
+Microsoft::UI::Xaml::IUIElement::put_IsTabStop
 Microsoft::UI::Xaml::IUIElement::put_OpacityTransition
 Microsoft::UI::Xaml::IUIElement::put_Scale
 Microsoft::UI::Xaml::IUIElement::put_ScaleTransition
+Microsoft::UI::Xaml::IUIElement::{add_CharacterReceived, remove_CharacterReceived}
 Microsoft::UI::Xaml::IUIElement::{add_DragEnter, remove_DragEnter}
 Microsoft::UI::Xaml::IUIElement::{add_DragLeave, remove_DragLeave}
 Microsoft::UI::Xaml::IUIElement::{add_DragOver, remove_DragOver}
 Microsoft::UI::Xaml::IUIElement::{add_Drop, remove_Drop}
+Microsoft::UI::Xaml::IUIElement::{add_GotFocus, remove_GotFocus}
+Microsoft::UI::Xaml::IUIElement::{add_KeyUp, remove_KeyUp}
+Microsoft::UI::Xaml::IUIElement::{add_LostFocus, remove_LostFocus}
 Microsoft::UI::Xaml::IUIElement::{add_PointerCanceled, remove_PointerCanceled}
 Microsoft::UI::Xaml::IUIElement::{add_PointerCaptureLost, remove_PointerCaptureLost}
 Microsoft::UI::Xaml::IUIElement::{add_PointerEntered, remove_PointerEntered}
@@ -551,6 +558,7 @@ Microsoft::UI::Xaml::IUIElement::{add_PointerExited, remove_PointerExited}
 Microsoft::UI::Xaml::IUIElement::{add_PointerMoved, remove_PointerMoved}
 Microsoft::UI::Xaml::IUIElement::{add_PointerPressed, remove_PointerPressed}
 Microsoft::UI::Xaml::IUIElement::{add_PointerReleased, remove_PointerReleased}
+Microsoft::UI::Xaml::IUIElement::{add_PreviewKeyDown, remove_PreviewKeyDown}
 Microsoft::UI::Xaml::IUIElement::{get_KeyboardAccelerators, put_KeyboardAcceleratorPlacementMode}
 Microsoft::UI::Xaml::IVector3Transition::put_Duration
 Microsoft::UI::Xaml::Input::IKeyboardAccelerator::{put_Key, put_Modifiers, Invoked}
@@ -590,6 +598,7 @@ Microsoft::UI::Xaml::Shapes::Shape::StrokeThicknessProperty
 Microsoft::UI::Xaml::TextTrimming
 Microsoft::UI::Xaml::TextWrapping
 Microsoft::UI::Xaml::UIElement::AllowDropProperty
+Microsoft::UI::Xaml::UIElement::IsTabStopProperty
 Microsoft::UI::Xaml::Vector3Transition::CreateInstance
 Windows::ApplicationModel::DataTransfer::IDataPackageView::{Contains, GetTextAsync, GetStorageItemsAsync}
 Windows::Foundation::Uri::CreateUri

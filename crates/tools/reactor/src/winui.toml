@@ -107,7 +107,13 @@ name = "Click"
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.Border"
-capabilities = ["layout", "content"]
+capabilities = ["layout", "content", "focus"]
+
+[[control.property]]
+name = "IsTabStop"
+
+[[control.property]]
+name = "AllowFocusOnInteraction"
 
 [[control.property]]
 name = "Padding"
@@ -154,6 +160,10 @@ name = "CapturePointerOnPress"
 adapter = "pointer_capture"
 
 [[control.property]]
+name = "FocusOnPointerRelease"
+adapter = "pointer_focus"
+
+[[control.property]]
 name = "AllowDrop"
 field = "drop_policy"
 adapter = "drop_policy"
@@ -162,13 +172,13 @@ adapter = "drop_policy"
 name = "DragEnter"
 field = "on_drag_enter"
 adapter = "drag_info"
-active_property = "drop_policy"
+active_properties = ["drop_policy"]
 
 [[control.event]]
 name = "DragOver"
 field = "on_drag_over"
 adapter = "drag_info"
-active_property = "drop_policy"
+active_properties = ["drop_policy"]
 
 [[control.event]]
 name = "DragLeave"
@@ -182,7 +192,7 @@ adapter = "drop_data"
 [[control.event]]
 name = "PointerPressed"
 adapter = "pointer_event"
-active_property = "capture_pointer_on_press"
+active_properties = ["capture_pointer_on_press"]
 
 [[control.event]]
 name = "PointerMoved"
@@ -199,12 +209,36 @@ adapter = "pointer_event"
 [[control.event]]
 name = "PointerReleased"
 adapter = "pointer_event"
+active_properties = ["capture_pointer_on_press", "focus_on_pointer_release"]
 
 [[control.event]]
 name = "PointerCaptureLost"
 
 [[control.event]]
 name = "PointerCanceled"
+
+[[control.event]]
+name = "PreviewKeyDown"
+adapter = "key_event"
+routed = true
+
+[[control.event]]
+name = "KeyUp"
+adapter = "key_event"
+routed = true
+
+[[control.event]]
+name = "CharacterReceived"
+adapter = "character_event"
+routed = true
+
+[[control.event]]
+name = "GotFocus"
+adapter = "focus_event"
+
+[[control.event]]
+name = "LostFocus"
+adapter = "focus_event"
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.BreadcrumbBar"

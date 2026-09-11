@@ -110,6 +110,8 @@ pub(crate) struct Property {
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
 #[serde(rename_all = "snake_case")]
 pub(crate) enum PropertyAdapter {
+    CharacterEvent,
+    FocusEvent,
     ClockIdentifier,
     ContentDialogResult,
     ImageUri,
@@ -119,12 +121,14 @@ pub(crate) enum PropertyAdapter {
     ImplicitScale,
     ImplicitScaleTransition,
     KeyAccelerators,
+    KeyEvent,
     ItemTag,
     ItemTags,
     NavigationDisplayMode,
     NumberBoxValue,
     PathData,
     PointerCapture,
+    PointerFocus,
     PointerEvent,
     DragInfo,
     DropData,
@@ -189,6 +193,7 @@ impl PropertyAdapter {
             Self::DropPolicy
             | Self::KeyAccelerators
             | Self::PointerCapture
+            | Self::PointerFocus
             | Self::ResourceOverrides
             | Self::RichEditText
             | Self::RichTextBlocks => PropertyAdapterCapabilities {
@@ -201,17 +206,20 @@ impl PropertyAdapter {
                 uses_dependency_property: false,
                 uses_property_setter: true,
             },
-            Self::ClockIdentifier
+            Self::CharacterEvent
+            | Self::ClockIdentifier
             | Self::ContentDialogResult
             | Self::DragInfo
             | Self::DropData
             | Self::FontWeight
+            | Self::FocusEvent
             | Self::HorizontalContentAlignment
             | Self::ImageUri
             | Self::InspectableString
             | Self::InspectableStringList
             | Self::ItemTag
             | Self::ItemTags
+            | Self::KeyEvent
             | Self::NavigationDisplayMode
             | Self::NumberBoxValue
             | Self::PathData
@@ -355,6 +363,13 @@ impl PropertyAdapter {
                 true,
                 "pointer_capture requires Border.CapturePointerOnPress",
             ),
+            Self::PointerFocus => property(
+                OneOf(&[(BORDER, "FocusOnPointerRelease")]),
+                None,
+                "Bool",
+                true,
+                "pointer_focus requires Border.FocusOnPointerRelease",
+            ),
             Self::RatingValue => property(
                 OneOf(&[(RATING_CONTROL, "Value")]),
                 ValueType("F64", true),
@@ -418,6 +433,13 @@ impl PropertyAdapter {
             }
             Self::PointerEvent => {
                 PropertyAdapterKind::EventOnly("pointer_event is an event-only adapter")
+            }
+            Self::KeyEvent => PropertyAdapterKind::EventOnly("key_event is an event-only adapter"),
+            Self::CharacterEvent => {
+                PropertyAdapterKind::EventOnly("character_event is an event-only adapter")
+            }
+            Self::FocusEvent => {
+                PropertyAdapterKind::EventOnly("focus_event is an event-only adapter")
             }
             Self::DragInfo | Self::DropData => {
                 PropertyAdapterKind::EventOnly("drag adapters are event-only")
@@ -497,7 +519,9 @@ pub(crate) struct Event {
     #[serde(default)]
     pub(crate) adapter: Option<PropertyAdapter>,
     #[serde(default)]
-    pub(crate) active_property: Option<String>,
+    pub(crate) active_properties: Vec<String>,
+    #[serde(default)]
+    pub(crate) routed: bool,
 }
 
 #[derive(Deserialize)]
@@ -593,7 +617,8 @@ pub(crate) struct ResolvedEvent {
     pub(crate) source: EventPayloadSource,
     pub(crate) conversion: EventPayloadConversion,
     pub(crate) subscription: EventSubscription,
-    pub(crate) active_property: Option<String>,
+    pub(crate) active_properties: Vec<String>,
+    pub(crate) routed: bool,
 }
 
 pub(crate) struct ResolvedSlot {
@@ -648,6 +673,9 @@ pub(crate) enum EventPayloadSource {
     EventArgsTreeNodeContent { interface: String, property: String },
     SenderRichEditText { interface: String, property: String },
     PointerEvent,
+    KeyEvent,
+    CharacterEvent,
+    FocusEvent,
     SenderItemTags { interface: String, property: String },
 }
 
@@ -682,7 +710,13 @@ impl EventPayloadSource {
                 interface,
                 property,
             } => Some((interface, property)),
-            Self::Unit | Self::DragInfo { .. } | Self::DropData { .. } | Self::PointerEvent => None,
+            Self::Unit
+            | Self::DragInfo { .. }
+            | Self::DropData { .. }
+            | Self::PointerEvent
+            | Self::KeyEvent
+            | Self::CharacterEvent
+            | Self::FocusEvent => None,
         }
     }
 
@@ -868,6 +902,7 @@ impl Schema {
                         format!("get_{}", property.name)
                     }
                     Some(PropertyAdapter::PointerCapture) => "add_PointerPressed".to_string(),
+                    Some(PropertyAdapter::PointerFocus) => "add_PointerReleased".to_string(),
                     Some(PropertyAdapter::DropPolicy) => "put_AllowDrop".to_string(),
                     _ => format!("put_{}", property.name),
                 };
@@ -1081,15 +1116,16 @@ impl Schema {
                         control.type_name, event.name
                     ));
                 }
-                if let Some(active_property) = event.active_property.as_deref()
-                    && !properties
+                for active_property in &event.active_properties {
+                    if !properties
                         .iter()
-                        .any(|property| property.field == active_property)
-                {
-                    return Err(format!(
-                        "{}.{} active_property `{active_property}` is not a property field",
-                        control.type_name, event.name
-                    ));
+                        .any(|property| property.field == *active_property)
+                    {
+                        return Err(format!(
+                            "{}.{} active property `{active_property}` is not a property field",
+                            control.type_name, event.name
+                        ));
+                    }
                 }
                 if event.adapter.is_some()
                     && !matches!(
@@ -1097,6 +1133,9 @@ impl Schema {
                         Some(
                             PropertyAdapter::ItemTags
                                 | PropertyAdapter::PointerEvent
+                                | PropertyAdapter::KeyEvent
+                                | PropertyAdapter::CharacterEvent
+                                | PropertyAdapter::FocusEvent
                                 | PropertyAdapter::DragInfo
                                 | PropertyAdapter::DropData
                         )
@@ -1242,6 +1281,20 @@ impl Schema {
                             },
                             ReadValueConversion::Identity,
                         )
+                    } else if event.adapter == Some(PropertyAdapter::FocusEvent) {
+                        if event.property.is_some()
+                            || !matches!(event.name.as_str(), "GotFocus" | "LostFocus")
+                        {
+                            return Err(format!(
+                                "{}.{} has an invalid focus_event contract",
+                                control.type_name, event.name
+                            ));
+                        }
+                        (
+                            "FocusEventInfo".to_string(),
+                            EventPayloadSource::FocusEvent,
+                            ReadValueConversion::Identity,
+                        )
                     } else if event.adapter == Some(PropertyAdapter::PointerEvent) {
                         if event.property.is_some()
                             || !matches!(
@@ -1261,6 +1314,32 @@ impl Schema {
                         (
                             "PointerEventInfo".to_string(),
                             EventPayloadSource::PointerEvent,
+                            ReadValueConversion::Identity,
+                        )
+                    } else if event.adapter == Some(PropertyAdapter::KeyEvent) {
+                        if event.property.is_some()
+                            || !matches!(event.name.as_str(), "PreviewKeyDown" | "KeyUp")
+                        {
+                            return Err(format!(
+                                "{}.{} has an invalid key_event contract",
+                                control.type_name, event.name
+                            ));
+                        }
+                        (
+                            "KeyEventInfo".to_string(),
+                            EventPayloadSource::KeyEvent,
+                            ReadValueConversion::Identity,
+                        )
+                    } else if event.adapter == Some(PropertyAdapter::CharacterEvent) {
+                        if event.property.is_some() || event.name != "CharacterReceived" {
+                            return Err(format!(
+                                "{}.{} has an invalid character_event contract",
+                                control.type_name, event.name
+                            ));
+                        }
+                        (
+                            "CharacterEventInfo".to_string(),
+                            EventPayloadSource::CharacterEvent,
                             ReadValueConversion::Identity,
                         )
                     } else if matches!(
@@ -1534,6 +1613,19 @@ impl Schema {
                     payload = format!("Optional{payload}");
                 }
 
+                if event.routed
+                    != matches!(
+                        source,
+                        EventPayloadSource::KeyEvent | EventPayloadSource::CharacterEvent
+                    )
+                {
+                    return Err(format!(
+                        "{}.{} routed must be true exactly when using a key_event or \
+                         character_event adapter",
+                        control.type_name, event.name
+                    ));
+                }
+
                 events.push(ResolvedEvent {
                     field: event
                         .field
@@ -1544,7 +1636,8 @@ impl Schema {
                     source,
                     conversion,
                     subscription,
-                    active_property: event.active_property,
+                    active_properties: event.active_properties,
+                    routed: event.routed,
                 });
             }
 

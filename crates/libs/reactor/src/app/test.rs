@@ -119,6 +119,38 @@ pub fn schedule_live_window_handle(
     }
 }
 
+pub fn schedule_live_input_probe(
+    callback: impl Fn(LiveInputProbeStage) + 'static,
+    completion: impl FnOnce(Result<LiveInputProbe, String>) + 'static,
+) -> windows_core::Result<()> {
+    let dispatcher = DispatcherQueue::GetForCurrentThread()?;
+    let callback = RefCell::new(Some(callback));
+    let completion = RefCell::new(Some(completion));
+    let handler = DispatcherQueueHandler::new(move || {
+        let result = HOST.with(|host| {
+            let window = host
+                .borrow()
+                .as_ref()
+                .and_then(LiveHost::primary)
+                .and_then(|live| live.live_window().ok())
+                .ok_or_else(|| "live primary window is unavailable".to_string())?;
+            subscribe_live_input_probe(&window, callback.take().unwrap())
+                .map_err(|error| error.to_string())
+        });
+        if let Some(completion) = completion.take() {
+            completion(result);
+        }
+    });
+    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &handler)? {
+        Ok(())
+    } else {
+        Err(windows_core::Error::new(
+            E_FAIL,
+            "dispatcher rejected live input probe request",
+        ))
+    }
+}
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum LiveProbe {
     ContentDialogLifecycle,

@@ -98,6 +98,11 @@ pub enum windows_reactor::DroppedData
 pub windows_reactor::DroppedData::StorageItems(alloc::vec::Vec<windows_reactor::DroppedStorageItem>)
 pub windows_reactor::DroppedData::Text(alloc::string::String)
 pub windows_reactor::DroppedData::Unsupported
+pub enum windows_reactor::ElementFocusState
+pub windows_reactor::ElementFocusState::Keyboard
+pub windows_reactor::ElementFocusState::Pointer
+pub windows_reactor::ElementFocusState::Programmatic
+pub windows_reactor::ElementFocusState::Unfocused
 pub enum windows_reactor::FlyoutPlacement
 pub windows_reactor::FlyoutPlacement::Auto
 pub windows_reactor::FlyoutPlacement::Bottom
@@ -177,6 +182,9 @@ pub windows_reactor::PasswordRevealMode::Hidden
 pub windows_reactor::PasswordRevealMode::Peek
 pub windows_reactor::PasswordRevealMode::Visible
 pub enum windows_reactor::PumpDiagnostic
+pub windows_reactor::PumpDiagnostic::HandledInputDropped
+pub windows_reactor::PumpDiagnostic::HandledInputDropped::event: windows_reactor::generated::EventId
+pub windows_reactor::PumpDiagnostic::HandledInputDropped::node: windows_reactor::core::arena::NodeId
 pub windows_reactor::PumpDiagnostic::VirtualRowRootCount
 pub windows_reactor::PumpDiagnostic::VirtualRowRootCount::actual: usize
 pub windows_reactor::PumpDiagnostic::VirtualRowRootCount::collection: windows_reactor::core::arena::NodeId
@@ -584,6 +592,7 @@ pub fn windows_reactor::BitmapIcon::vertical_alignment(self, impl core::convert:
 pub fn windows_reactor::BitmapIcon::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub struct windows_reactor::Border
 impl windows_reactor::Border
+pub fn windows_reactor::Border::allow_focus_on_interaction(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::Border::background(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
 pub fn windows_reactor::Border::background_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<windows_reactor::Brush>
 pub fn windows_reactor::Border::border_brush(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
@@ -594,11 +603,18 @@ pub fn windows_reactor::Border::capture_pointer_on_press(self, impl core::conver
 pub fn windows_reactor::Border::corner_radius(self, impl core::convert::Into<windows_reactor::CornerRadius>) -> Self
 pub fn windows_reactor::Border::corner_radius_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<windows_reactor::CornerRadius>
 pub fn windows_reactor::Border::drop_policy(self, impl core::convert::Into<core::option::Option<windows_reactor::DragDropPolicy>>) -> Self
+pub fn windows_reactor::Border::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
+pub fn windows_reactor::Border::focus_on_pointer_release(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
+pub fn windows_reactor::Border::is_tab_stop(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::Border::new() -> Self
+pub fn windows_reactor::Border::on_character_received(self, windows_reactor::RoutedCallback<windows_reactor::CharacterEventInfo>) -> Self
 pub fn windows_reactor::Border::on_drag_enter(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::DragKind>) -> Self
 pub fn windows_reactor::Border::on_drag_leave(self, impl windows_reactor::IntoUnitCallback) -> Self
 pub fn windows_reactor::Border::on_drag_over(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::DragKind>) -> Self
 pub fn windows_reactor::Border::on_drop(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::DroppedData>) -> Self
+pub fn windows_reactor::Border::on_got_focus(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::FocusEventInfo>) -> Self
+pub fn windows_reactor::Border::on_key_up(self, windows_reactor::RoutedCallback<windows_reactor::KeyEventInfo>) -> Self
+pub fn windows_reactor::Border::on_lost_focus(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::FocusEventInfo>) -> Self
 pub fn windows_reactor::Border::on_pointer_canceled(self, impl windows_reactor::IntoUnitCallback) -> Self
 pub fn windows_reactor::Border::on_pointer_capture_lost(self, impl windows_reactor::IntoUnitCallback) -> Self
 pub fn windows_reactor::Border::on_pointer_entered(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::PointerEventInfo>) -> Self
@@ -606,6 +622,7 @@ pub fn windows_reactor::Border::on_pointer_exited(self, impl windows_reactor::In
 pub fn windows_reactor::Border::on_pointer_moved(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::PointerEventInfo>) -> Self
 pub fn windows_reactor::Border::on_pointer_pressed(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::PointerEventInfo>) -> Self
 pub fn windows_reactor::Border::on_pointer_released(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::PointerEventInfo>) -> Self
+pub fn windows_reactor::Border::on_preview_key_down(self, windows_reactor::RoutedCallback<windows_reactor::KeyEventInfo>) -> Self
 pub fn windows_reactor::Border::opacity_transition(self, impl core::convert::Into<core::option::Option<core::time::Duration>>) -> Self
 pub fn windows_reactor::Border::padding(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self
 pub fn windows_reactor::Border::padding_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<windows_reactor::Thickness>
@@ -615,6 +632,7 @@ impl core::convert::From<windows_reactor::Border> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Border) -> Self
 impl windows_reactor::ContentControl for windows_reactor::Border
 pub fn windows_reactor::Border::content(self, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
+impl windows_reactor::FocusControl for windows_reactor::Border
 impl windows_reactor::LayoutControl for windows_reactor::Border
 pub fn windows_reactor::Border::exit_transition(self, windows_reactor::ExitTransition) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Border::height(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
@@ -628,6 +646,7 @@ pub fn windows_reactor::Border::min_width(self, impl core::convert::Into<core::o
 pub fn windows_reactor::Border::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Border::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Border::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::Border
 pub struct windows_reactor::BreadcrumbBar
 impl windows_reactor::BreadcrumbBar
 pub fn windows_reactor::BreadcrumbBar::items_source<I, S>(self, I) -> Self where I: core::iter::traits::collect::IntoIterator<Item = S>, S: core::convert::Into<alloc::string::String>
@@ -764,6 +783,10 @@ pub fn windows_reactor::Canvas::min_width(self, impl core::convert::Into<core::o
 pub fn windows_reactor::Canvas::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Canvas::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Canvas::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub struct windows_reactor::CharacterEventInfo
+pub windows_reactor::CharacterEventInfo::character: u16
+pub windows_reactor::CharacterEventInfo::modifiers: windows_reactor::InputModifiers
+pub windows_reactor::CharacterEventInfo::status: windows_reactor::PhysicalKeyStatus
 pub struct windows_reactor::CheckBox
 impl windows_reactor::CheckBox
 pub fn windows_reactor::CheckBox::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
@@ -1135,6 +1158,9 @@ impl windows_reactor::Flyout
 pub fn windows_reactor::Flyout::placement(self, windows_reactor::FlyoutPlacement) -> Self
 pub fn windows_reactor::Flyout::rich(impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::Flyout::text(impl core::convert::Into<alloc::string::String>) -> Self
+pub struct windows_reactor::FocusEventInfo
+pub windows_reactor::FocusEventInfo::is_direct: bool
+pub windows_reactor::FocusEventInfo::state: windows_reactor::ElementFocusState
 pub struct windows_reactor::FontIcon
 impl windows_reactor::FontIcon
 pub fn windows_reactor::FontIcon::glyph(self, impl core::convert::Into<alloc::string::String>) -> Self
@@ -1372,6 +1398,19 @@ pub fn windows_reactor::InfoBar::min_width(self, impl core::convert::Into<core::
 pub fn windows_reactor::InfoBar::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::InfoBar::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::InfoBar::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub struct windows_reactor::InputModifiers(_)
+impl windows_reactor::InputModifiers
+pub const windows_reactor::InputModifiers::ALT: Self
+pub const windows_reactor::InputModifiers::CONTROL: Self
+pub const windows_reactor::InputModifiers::NONE: Self
+pub const windows_reactor::InputModifiers::SHIFT: Self
+pub const windows_reactor::InputModifiers::WINDOWS: Self
+pub const fn windows_reactor::InputModifiers::contains(self, Self) -> bool
+impl core::ops::bit::BitOr for windows_reactor::InputModifiers
+pub type windows_reactor::InputModifiers::Output = windows_reactor::InputModifiers
+pub fn windows_reactor::InputModifiers::bitor(self, Self) -> Self::Output
+impl core::ops::bit::BitOrAssign for windows_reactor::InputModifiers
+pub fn windows_reactor::InputModifiers::bitor_assign(&mut self, Self)
 pub struct windows_reactor::ItemsRepeater
 impl windows_reactor::ItemsRepeater
 pub fn windows_reactor::ItemsRepeater::item(self, impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<windows_reactor::View>) -> Self
@@ -1410,6 +1449,11 @@ pub fn windows_reactor::KeyAccelerator::new(windows_reactor::AcceleratorKey, win
 pub struct windows_reactor::KeyAccelerators
 impl windows_reactor::KeyAccelerators
 pub fn windows_reactor::KeyAccelerators::new(impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyAccelerator>) -> Self
+pub struct windows_reactor::KeyEventInfo
+pub windows_reactor::KeyEventInfo::key: windows_reactor::VirtualKey
+pub windows_reactor::KeyEventInfo::modifiers: windows_reactor::InputModifiers
+pub windows_reactor::KeyEventInfo::original_key: windows_reactor::VirtualKey
+pub windows_reactor::KeyEventInfo::status: windows_reactor::PhysicalKeyStatus
 pub struct windows_reactor::KeyedView
 impl windows_reactor::KeyedView
 pub fn windows_reactor::KeyedView::key(&self) -> &windows_reactor::Key
@@ -1744,6 +1788,13 @@ pub fn windows_reactor::PersonPicture::min_width(self, impl core::convert::Into<
 pub fn windows_reactor::PersonPicture::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::PersonPicture::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::PersonPicture::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub struct windows_reactor::PhysicalKeyStatus
+pub windows_reactor::PhysicalKeyStatus::is_extended: bool
+pub windows_reactor::PhysicalKeyStatus::is_menu_down: bool
+pub windows_reactor::PhysicalKeyStatus::is_released: bool
+pub windows_reactor::PhysicalKeyStatus::repeat_count: u32
+pub windows_reactor::PhysicalKeyStatus::scan_code: u32
+pub windows_reactor::PhysicalKeyStatus::was_down: bool
 pub struct windows_reactor::Pivot
 impl windows_reactor::Pivot
 pub fn windows_reactor::Pivot::items<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> Self where T: core::convert::Into<windows_reactor::KeyedView>
@@ -2067,6 +2118,19 @@ pub windows_reactor::RichTextRun::is_italic: bool
 pub windows_reactor::RichTextRun::text: alloc::string::String
 impl windows_reactor::RichTextRun
 pub fn windows_reactor::RichTextRun::plain(impl core::convert::Into<alloc::string::String>) -> Self
+pub struct windows_reactor::RoutedCallback<T>
+impl<T> core::clone::Clone for windows_reactor::RoutedCallback<T>
+pub fn windows_reactor::RoutedCallback<T>::clone(&self) -> Self
+impl<T> core::cmp::PartialEq for windows_reactor::RoutedCallback<T>
+pub fn windows_reactor::RoutedCallback<T>::eq(&self, &Self) -> bool
+impl<T> core::fmt::Debug for windows_reactor::RoutedCallback<T>
+pub fn windows_reactor::RoutedCallback<T>::fmt(&self, &mut core::fmt::Formatter<'_>) -> core::fmt::Result
+pub struct windows_reactor::RoutedMessage<M>
+impl<M> windows_reactor::RoutedMessage<M>
+pub fn windows_reactor::RoutedMessage<M>::bubble(M) -> Self
+pub fn windows_reactor::RoutedMessage<M>::bubble_without_message() -> Self
+pub fn windows_reactor::RoutedMessage<M>::handled(M) -> Self
+pub fn windows_reactor::RoutedMessage<M>::handled_without_message() -> Self
 pub struct windows_reactor::ScrollView
 impl windows_reactor::ScrollView
 pub fn windows_reactor::ScrollView::horizontal_scroll_bar_visibility(self, impl core::convert::Into<core::option::Option<windows_reactor::ScrollingScrollBarVisibility>>) -> Self
@@ -2790,6 +2854,7 @@ pub fn windows_reactor::ViewContext<C>::forward(&self) -> windows_reactor::Callb
 pub fn windows_reactor::ViewContext<C>::message(&self, <C as windows_reactor::Component>::Message) -> windows_reactor::Callback<()> where <C as windows_reactor::Component>::Message: core::clone::Clone
 pub fn windows_reactor::ViewContext<C>::on_color_scheme(&mut self, impl windows_reactor::IntoPayloadCallback<windows_reactor::ColorScheme>)
 pub fn windows_reactor::ViewContext<C>::on_window_size(&mut self, impl windows_reactor::IntoPayloadCallback<windows_reactor::WindowSize>)
+pub fn windows_reactor::ViewContext<C>::routed_callback<T>(&self, impl core::ops::function::Fn(T) -> windows_reactor::RoutedMessage<<C as windows_reactor::Component>::Message> + 'static) -> windows_reactor::RoutedCallback<T>
 pub fn windows_reactor::ViewContext<C>::sender(&self) -> windows_reactor::LocalSender<<C as windows_reactor::Component>::Message>
 pub fn windows_reactor::ViewContext<C>::use_context<T: core::clone::Clone + 'static>(&mut self, &windows_reactor::Context<T>) -> T
 pub fn windows_reactor::ViewContext<C>::use_effect<D>(&mut self, impl core::convert::Into<windows_reactor::EffectKey>, D, impl core::ops::function::FnOnce() -> core::option::Option<alloc::boxed::Box<dyn core::ops::function::FnOnce()>> + 'static) where D: core::cmp::PartialEq + 'static
@@ -2816,6 +2881,52 @@ pub fn windows_reactor::Viewbox::min_width(self, impl core::convert::Into<core::
 pub fn windows_reactor::Viewbox::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Viewbox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Viewbox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub struct windows_reactor::VirtualKey(pub u32)
+impl windows_reactor::VirtualKey
+pub const windows_reactor::VirtualKey::A: Self
+pub const windows_reactor::VirtualKey::B: Self
+pub const windows_reactor::VirtualKey::BACK: Self
+pub const windows_reactor::VirtualKey::C: Self
+pub const windows_reactor::VirtualKey::CONTROL: Self
+pub const windows_reactor::VirtualKey::D: Self
+pub const windows_reactor::VirtualKey::DELETE: Self
+pub const windows_reactor::VirtualKey::DOWN: Self
+pub const windows_reactor::VirtualKey::E: Self
+pub const windows_reactor::VirtualKey::END: Self
+pub const windows_reactor::VirtualKey::ENTER: Self
+pub const windows_reactor::VirtualKey::ESCAPE: Self
+pub const windows_reactor::VirtualKey::F: Self
+pub const windows_reactor::VirtualKey::G: Self
+pub const windows_reactor::VirtualKey::H: Self
+pub const windows_reactor::VirtualKey::HOME: Self
+pub const windows_reactor::VirtualKey::I: Self
+pub const windows_reactor::VirtualKey::INSERT: Self
+pub const windows_reactor::VirtualKey::J: Self
+pub const windows_reactor::VirtualKey::K: Self
+pub const windows_reactor::VirtualKey::L: Self
+pub const windows_reactor::VirtualKey::LEFT: Self
+pub const windows_reactor::VirtualKey::M: Self
+pub const windows_reactor::VirtualKey::MENU: Self
+pub const windows_reactor::VirtualKey::N: Self
+pub const windows_reactor::VirtualKey::O: Self
+pub const windows_reactor::VirtualKey::P: Self
+pub const windows_reactor::VirtualKey::PAGE_DOWN: Self
+pub const windows_reactor::VirtualKey::PAGE_UP: Self
+pub const windows_reactor::VirtualKey::Q: Self
+pub const windows_reactor::VirtualKey::R: Self
+pub const windows_reactor::VirtualKey::RIGHT: Self
+pub const windows_reactor::VirtualKey::S: Self
+pub const windows_reactor::VirtualKey::SHIFT: Self
+pub const windows_reactor::VirtualKey::SPACE: Self
+pub const windows_reactor::VirtualKey::T: Self
+pub const windows_reactor::VirtualKey::TAB: Self
+pub const windows_reactor::VirtualKey::U: Self
+pub const windows_reactor::VirtualKey::UP: Self
+pub const windows_reactor::VirtualKey::V: Self
+pub const windows_reactor::VirtualKey::W: Self
+pub const windows_reactor::VirtualKey::X: Self
+pub const windows_reactor::VirtualKey::Y: Self
+pub const windows_reactor::VirtualKey::Z: Self
 pub struct windows_reactor::VirtualSource
 impl windows_reactor::VirtualSource
 pub fn windows_reactor::VirtualSource::is_empty(&self) -> bool
@@ -2957,6 +3068,7 @@ pub fn T::flyout(self, impl core::convert::Into<alloc::string::String>) -> windo
 pub fn T::flyout_with(self, windows_reactor::Flyout) -> windows_reactor::View
 pub trait windows_reactor::FocusControl: windows_reactor::ReferenceControl
 impl windows_reactor::FocusControl for windows_reactor::AutoSuggestBox
+impl windows_reactor::FocusControl for windows_reactor::Border
 impl windows_reactor::FocusControl for windows_reactor::Button
 impl windows_reactor::FocusControl for windows_reactor::CheckBox
 impl windows_reactor::FocusControl for windows_reactor::ComboBox
@@ -4031,6 +4143,7 @@ impl<T> windows_reactor::MenuExt for T where T: core::convert::Into<windows_reac
 pub fn T::menu(self, windows_reactor::Menu) -> windows_reactor::View
 pub trait windows_reactor::ReferenceControl: windows_reactor::reference::sealed::Sealed + 'static
 impl windows_reactor::ReferenceControl for windows_reactor::AutoSuggestBox
+impl windows_reactor::ReferenceControl for windows_reactor::Border
 impl windows_reactor::ReferenceControl for windows_reactor::Button
 impl windows_reactor::ReferenceControl for windows_reactor::CheckBox
 impl windows_reactor::ReferenceControl for windows_reactor::ComboBox

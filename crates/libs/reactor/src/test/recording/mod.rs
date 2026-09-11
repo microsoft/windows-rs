@@ -38,6 +38,7 @@ pub struct RecordingRuntime {
     identity: Option<WindowToken>,
     realizations: Vec<NativeWork<RealizationRequest>>,
     retained_subtrees: HashMap<NodeId, RecordedRetainedSubtree>,
+    routed_callbacks: HashMap<(NodeId, EventId), RoutedEventCallback>,
     source_revisions: HashMap<NodeId, u64>,
     subscriptions: HashSet<(NodeId, EventId)>,
     tooltips: HashMap<NodeId, (NodeId, TooltipPlacement)>,
@@ -74,6 +75,7 @@ impl Default for RecordingRuntime {
             identity: None,
             realizations: Vec::new(),
             retained_subtrees: HashMap::new(),
+            routed_callbacks: HashMap::new(),
             source_revisions: HashMap::new(),
             subscriptions: HashSet::new(),
             tooltips: HashMap::new(),
@@ -94,6 +96,66 @@ impl RecordingRuntime {
     #[cfg(any(test, feature = "test"))]
     pub fn retained_subtrees(&self) -> usize {
         self.retained_subtrees.len()
+    }
+
+    pub fn route_key(
+        &mut self,
+        node: NodeId,
+        event: EventId,
+        revision: u32,
+        value: KeyEventInfo,
+    ) -> bool {
+        let Some(dispatch) = self
+            .routed_callbacks
+            .get(&(node, event))
+            .and_then(|callback| callback.key(value))
+        else {
+            return false;
+        };
+        if let Some(message) = dispatch.message {
+            self.events.push(NativeWork {
+                identity: self.identity.unwrap(),
+                work: QueuedEvent::routed(
+                    node,
+                    event,
+                    revision,
+                    EventPayload::KeyEventInfo(value),
+                    message,
+                    dispatch.handled,
+                ),
+            });
+        }
+        dispatch.handled
+    }
+
+    pub fn route_character(
+        &mut self,
+        node: NodeId,
+        event: EventId,
+        revision: u32,
+        value: CharacterEventInfo,
+    ) -> bool {
+        let Some(dispatch) = self
+            .routed_callbacks
+            .get(&(node, event))
+            .and_then(|callback| callback.character(value))
+        else {
+            return false;
+        };
+        if let Some(message) = dispatch.message {
+            self.events.push(NativeWork {
+                identity: self.identity.unwrap(),
+                work: QueuedEvent::routed(
+                    node,
+                    event,
+                    revision,
+                    EventPayload::CharacterEventInfo(value),
+                    message,
+                    dispatch.handled,
+                ),
+            });
+        }
+        dispatch.handled
     }
 
     #[cfg(any(test, feature = "test"))]
@@ -672,6 +734,8 @@ impl RecordingRuntime {
                 self.source_revisions.remove(node);
                 self.subscriptions
                     .retain(|(subscription_node, _)| subscription_node != node);
+                self.routed_callbacks
+                    .retain(|(callback_node, _), _| callback_node != node);
                 self.window_titles.remove(node);
                 self.window_title_bars.remove(node);
                 self.window_title_bars
@@ -848,6 +912,18 @@ impl RecordingRuntime {
                     .ok_or(RuntimeError::MissingNode(*node))?;
                 if !self.subscriptions.remove(&(*node, *event)) {
                     return Err(RuntimeError::MissingSubscription(*node, *event));
+                }
+            }
+            Command::SetRoutedCallback {
+                node,
+                event,
+                callback,
+            } => {
+                if let Some(callback) = callback {
+                    self.routed_callbacks
+                        .insert((*node, *event), callback.clone());
+                } else {
+                    self.routed_callbacks.remove(&(*node, *event));
                 }
             }
             Command::SetSlot {
@@ -1322,6 +1398,7 @@ impl NativeRuntime for RecordingRuntime {
         self.nodes.clear();
         self.realizations.clear();
         self.retained_subtrees.clear();
+        self.routed_callbacks.clear();
         self.source_revisions.clear();
         self.subscriptions.clear();
         self.tooltips.clear();

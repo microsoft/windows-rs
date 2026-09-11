@@ -298,10 +298,17 @@ impl<R: NativeRuntime> Pump<R> {
                 break;
             };
             let identity = queued.identity;
+            let mut event = queued.work;
             if identity != self.identity {
+                if event.claimed_handled() {
+                    self.diagnostics
+                        .push_back(PumpDiagnostic::HandledInputDropped {
+                            node: event.node,
+                            event: event.event,
+                        });
+                }
                 continue;
             }
-            let event = queued.work;
             if matches!(
                 event.event,
                 EventId::OwnedCommandInvoked | EventId::OwnedMenuItemInvoked
@@ -335,16 +342,59 @@ impl<R: NativeRuntime> Pump<R> {
             }
             let observation = {
                 let Some(native) = self.tree.try_native(event.node) else {
+                    if event.claimed_handled() {
+                        self.diagnostics
+                            .push_back(PumpDiagnostic::HandledInputDropped {
+                                node: event.node,
+                                event: event.event,
+                            });
+                    }
                     continue;
                 };
                 let Some(state) = native.events.get(&event.event) else {
+                    if event.claimed_handled() {
+                        self.diagnostics
+                            .push_back(PumpDiagnostic::HandledInputDropped {
+                                node: event.node,
+                                event: event.event,
+                            });
+                    }
                     continue;
                 };
                 if !state.active || state.revision != event.revision {
+                    if event.claimed_handled() {
+                        self.diagnostics
+                            .push_back(PumpDiagnostic::HandledInputDropped {
+                                node: event.node,
+                                event: event.event,
+                            });
+                    }
                     continue;
                 }
                 native.desired.observe_event(event.event, &event.payload)
             };
+            if let Some(message) = event.routed_message_mut() {
+                match message.enqueue() {
+                    DeferredEnqueue::Enqueued => dispatched += 1,
+                    DeferredEnqueue::Full => {
+                        self.events.push_front(NativeWork {
+                            identity,
+                            work: event,
+                        });
+                        break;
+                    }
+                    DeferredEnqueue::Rejected => {
+                        if event.claimed_handled() {
+                            self.diagnostics
+                                .push_back(PumpDiagnostic::HandledInputDropped {
+                                    node: event.node,
+                                    event: event.event,
+                                });
+                        }
+                    }
+                }
+                continue;
+            }
             let selection_observation = match &event.payload {
                 EventPayload::SelectionChange(selected) => match selection_for_event(event.event) {
                     Some(selection) => self.observe_selection(event.node, selection, selected.item),
