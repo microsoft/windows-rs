@@ -10,10 +10,12 @@ fn default_type_references() -> std::collections::BTreeMap<String, windows_clang
     let mut references = std::collections::BTreeMap::new();
     let mut ambiguous = std::collections::BTreeSet::new();
     for (namespace, name, ty) in index.iter() {
-        let reference = windows_clang2::TypeReference::new(
-            namespace,
-            ty.category() == windows_metadata::reader::TypeCategory::Interface,
-        );
+        let kind = if ty.category() == windows_metadata::reader::TypeCategory::Interface {
+            windows_clang2::TypeReferenceKind::Interface
+        } else {
+            windows_clang2::TypeReferenceKind::Type
+        };
+        let reference = windows_clang2::TypeReference::new(namespace, name, kind);
         if references
             .insert(name.to_string(), reference.clone())
             .is_some_and(|existing| existing != reference)
@@ -77,10 +79,21 @@ fn main() {
             )
         });
         let references = default_type_references();
+        let functions = [
+            "CompareBrowserVersions",
+            "CreateCoreWebView2Environment",
+            "CreateCoreWebView2EnvironmentWithOptions",
+            "GetAvailableCoreWebView2BrowserVersionString",
+            "GetAvailableCoreWebView2BrowserVersionStringWithOptions",
+        ]
+        .into_iter()
+        .map(str::to_string)
+        .collect();
         let rdl = windows_clang2::extract(inputs, &args).unwrap();
-        let rdl = rdl
-            .emit_with_library_and_references("WebView2", "WebView2Loader.dll", &references)
-            .unwrap();
+        let mut options = windows_clang2::EmitOptions::new("WebView2", &references);
+        options.library = Some("WebView2Loader.dll");
+        options.functions = Some(&functions);
+        let rdl = rdl.emit_with_options(&options).unwrap();
         std::fs::create_dir_all("target/webview").unwrap();
         std::fs::write("target/webview/WebView2.rdl", rdl).unwrap();
     } else {

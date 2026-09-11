@@ -27,6 +27,13 @@ input-order-independent architecture. The experiment is unpublished and may be d
 | [x] | 5. Breadth: records, functions, interfaces, annotations, layouts | Each added kind preserves the same pipeline and expands corpus parity. |
 | [ ] | 6. Decision: run `tool-win32` and `tool-webview` through clang2 | Outputs match or every difference is reviewed and tested. |
 
+Checkpoint 6 status:
+
+- `tool-webview` completes through RDL, winmd, and bindings with matching interface and enum sets.
+- External type identity, export selection, flag enums, and source calling conventions are explicit.
+- A real `fileapi.h` slice passes through a combined TU with included-header root ownership.
+- Full `tool-win32` routing, partitioning, and architecture merge remain.
+
 ## Stop gates
 
 Stop the experiment if it requires cross-TU identity guesses, output mutation during extraction,

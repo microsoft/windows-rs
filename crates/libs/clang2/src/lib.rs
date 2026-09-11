@@ -9,29 +9,68 @@ use std::fmt::{Display, Formatter};
 pub struct Input {
     pub name: String,
     pub source: String,
+    pub roots: BTreeSet<String>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TypeReference {
     pub namespace: String,
-    pub interface: bool,
+    pub name: String,
+    pub kind: TypeReferenceKind,
 }
 
 impl TypeReference {
-    pub fn new(namespace: impl Into<String>, interface: bool) -> Self {
+    pub fn new(
+        namespace: impl Into<String>,
+        name: impl Into<String>,
+        kind: TypeReferenceKind,
+    ) -> Self {
         Self {
             namespace: namespace.into(),
-            interface,
+            name: name.into(),
+            kind,
+        }
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum TypeReferenceKind {
+    Interface,
+    Type,
+}
+
+pub struct EmitOptions<'a> {
+    pub namespace: &'a str,
+    pub library: Option<&'a str>,
+    pub references: &'a BTreeMap<String, TypeReference>,
+    pub functions: Option<&'a BTreeSet<String>>,
+}
+
+impl<'a> EmitOptions<'a> {
+    pub fn new(namespace: &'a str, references: &'a BTreeMap<String, TypeReference>) -> Self {
+        Self {
+            namespace,
+            library: None,
+            references,
+            functions: None,
         }
     }
 }
 
 impl Input {
     pub fn new(name: impl Into<String>, source: impl Into<String>) -> Self {
+        let name = normalize_name(&name.into());
         Self {
-            name: normalize_name(&name.into()),
+            roots: BTreeSet::from([name.clone()]),
+            name,
             source: source.into(),
         }
+    }
+
+    pub fn with_roots(mut self, roots: impl IntoIterator<Item = impl Into<String>>) -> Self {
+        self.roots
+            .extend(roots.into_iter().map(|root| normalize_name(&root.into())));
+        self
     }
 }
 
@@ -177,6 +216,9 @@ pub enum FactData {
         repr: Scalar,
         variants: Vec<Variant>,
     },
+    EnumFlag {
+        target: String,
+    },
     Macro {
         function_like: bool,
     },
@@ -210,6 +252,7 @@ pub enum FactData {
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub enum FactKind {
     Enum,
+    EnumFlag,
     Function,
     Macro,
     Namespace,
@@ -228,6 +271,7 @@ pub struct Fact {
     pub expansion: Location,
     pub definition: bool,
     pub main_file: bool,
+    pub root: bool,
     pub system: bool,
     pub data: FactData,
 }
@@ -309,29 +353,19 @@ impl Snapshot {
     }
 
     pub fn emit(&self, namespace: &str) -> Result<String, Error> {
-        self.emit_with_options(namespace, None, &BTreeMap::new())
+        let references = BTreeMap::new();
+        self.emit_with_options(&EmitOptions::new(namespace, &references))
     }
 
     pub fn emit_with_library(&self, namespace: &str, library: &str) -> Result<String, Error> {
-        self.emit_with_options(namespace, Some(library), &BTreeMap::new())
+        let references = BTreeMap::new();
+        let mut options = EmitOptions::new(namespace, &references);
+        options.library = Some(library);
+        self.emit_with_options(&options)
     }
 
-    pub fn emit_with_library_and_references(
-        &self,
-        namespace: &str,
-        library: &str,
-        references: &BTreeMap<String, TypeReference>,
-    ) -> Result<String, Error> {
-        self.emit_with_options(namespace, Some(library), references)
-    }
-
-    fn emit_with_options(
-        &self,
-        namespace: &str,
-        library: Option<&str>,
-        references: &BTreeMap<String, TypeReference>,
-    ) -> Result<String, Error> {
-        let plan = self.plan(references)?;
+    pub fn emit_with_options(&self, options: &EmitOptions<'_>) -> Result<String, Error> {
+        let plan = self.plan(options.references, options.functions)?;
         let mut items = BTreeMap::new();
         for planned in plan.types {
             let fact = planned.fact;
@@ -379,16 +413,21 @@ impl Snapshot {
                     )
                 }
                 FactData::Enum { repr, variants } if fact.definition => {
+                    let flags = plan
+                        .flag_enums
+                        .contains(&(fact.origin.tu.clone(), planned.name.clone()));
+                    let repr = if flags { unsigned_scalar(*repr) } else { *repr };
                     let mut item = format!(
-                        "    #[repr({})]\n    enum {} {{\n",
-                        scalar_name(*repr),
+                        "    #[repr({})]\n{}    enum {} {{\n",
+                        scalar_name(repr),
+                        if flags { "    #[flags]\n" } else { "" },
                         rdl_ident(&planned.name)
                     );
                     for variant in variants {
                         item.push_str(&format!(
                             "        {} = {},\n",
                             rdl_ident(&variant.name),
-                            variant.value
+                            enum_value(variant.value, repr)
                         ));
                     }
                     item.push_str("    }\n");
@@ -482,7 +521,7 @@ impl Snapshot {
                     )
                 )
             };
-            let library = library.ok_or_else(|| {
+            let library = options.library.ok_or_else(|| {
                 Error(format!(
                     "function `{}` requires an import library",
                     function.name
@@ -509,7 +548,8 @@ impl Snapshot {
             }
         }
 
-        let namespaces: Vec<_> = namespace
+        let namespaces: Vec<_> = options
+            .namespace
             .split('.')
             .filter(|name| !name.is_empty())
             .collect();
@@ -538,7 +578,11 @@ impl Snapshot {
         Ok(result)
     }
 
-    fn plan(&self, references: &BTreeMap<String, TypeReference>) -> Result<Plan<'_>, Error> {
+    fn plan(
+        &self,
+        references: &BTreeMap<String, TypeReference>,
+        selected_functions: Option<&BTreeSet<String>>,
+    ) -> Result<Plan<'_>, Error> {
         #[derive(Default)]
         struct Roots<'a> {
             types: Vec<&'a Fact>,
@@ -550,14 +594,17 @@ impl Snapshot {
         for fact in self
             .facts
             .iter()
-            .filter(|fact| fact.main_file && is_root_type_fact(fact))
+            .filter(|fact| fact.root && is_root_type_fact(fact))
         {
             roots.entry(&fact.name).or_default().types.push(fact);
         }
         for fact in self
             .facts
             .iter()
-            .filter(|fact| fact.main_file && matches!(fact.data, FactData::Function { .. }))
+            .filter(|fact| fact.root && matches!(fact.data, FactData::Function { .. }))
+            .filter(|fact| {
+                selected_functions.is_none_or(|functions| functions.contains(&fact.name))
+            })
         {
             roots.entry(&fact.name).or_default().functions.push(fact);
         }
@@ -591,6 +638,17 @@ impl Snapshot {
             } else {
                 let constant = choose_constant_root(name, &roots.values)?;
                 constants.push(constant);
+            }
+        }
+        if let Some(selected) = selected_functions {
+            let found: BTreeSet<_> = functions
+                .iter()
+                .map(|function| function.name.as_str())
+                .collect();
+            if let Some(missing) = selected.iter().find(|name| !found.contains(name.as_str())) {
+                return Err(Error(format!(
+                    "selected function `{missing}` was not found"
+                )));
             }
         }
 
@@ -793,7 +851,11 @@ impl Snapshot {
         for (name, reference) in references {
             if !local_roots.contains(name) {
                 type_names.entry(name.clone()).or_insert_with(|| {
-                    format!("{}::{name}", reference.namespace.replace('.', "::"))
+                    format!(
+                        "{}::{}",
+                        reference.namespace.replace('.', "::"),
+                        reference.name
+                    )
                 });
             }
         }
@@ -820,20 +882,20 @@ impl Snapshot {
                         interface_names.insert((fact.origin.tu.clone(), fact.name.clone()));
                     }
                 }
-                let translation_units: BTreeSet<_> = self
-                    .facts
-                    .iter()
-                    .map(|fact| fact.origin.tu.as_str())
-                    .collect();
-                for (name, reference) in references {
-                    if reference.interface && !local_roots.contains(name) {
-                        interface_names.extend(
-                            translation_units
-                                .iter()
-                                .map(|tu| ((*tu).to_string(), name.clone())),
-                        );
-                    }
-                }
+            }
+        }
+        let translation_units: BTreeSet<_> = self
+            .facts
+            .iter()
+            .map(|fact| fact.origin.tu.as_str())
+            .collect();
+        for (name, reference) in references {
+            if reference.kind == TypeReferenceKind::Interface && !local_roots.contains(name) {
+                interface_names.extend(
+                    translation_units
+                        .iter()
+                        .map(|tu| ((*tu).to_string(), name.clone())),
+                );
             }
         }
         loop {
@@ -856,6 +918,17 @@ impl Snapshot {
                 break;
             }
         }
+        let flag_enums = self
+            .facts
+            .iter()
+            .filter_map(|fact| {
+                if let FactData::EnumFlag { target } = &fact.data {
+                    Some((fact.origin.tu.clone(), target.clone()))
+                } else {
+                    None
+                }
+            })
+            .collect();
         let mut output_names = BTreeSet::new();
         for planned in &types {
             if !output_names.insert(planned.name.as_str()) {
@@ -880,6 +953,7 @@ impl Snapshot {
             constants,
             type_names,
             interface_names,
+            flag_enums,
         })
     }
 }
@@ -895,6 +969,7 @@ struct Plan<'a> {
     constants: Vec<&'a Constant>,
     type_names: BTreeMap<String, String>,
     interface_names: BTreeSet<(String, String)>,
+    flag_enums: BTreeSet<(String, String)>,
 }
 
 struct TypeProjection<'a> {
@@ -1133,7 +1208,8 @@ pub fn extract(inputs: impl IntoIterator<Item = Input>, args: &[&str]) -> Result
 
     let mut facts = vec![];
     for (name, translation_unit) in &translation_units {
-        translation_unit.extract(name, &mut facts);
+        let input = inputs.iter().find(|input| input.name == *name).unwrap();
+        translation_unit.extract(input, &mut facts);
     }
     facts.sort();
     for pair in facts.windows(2) {
@@ -1291,11 +1367,14 @@ impl TranslationUnit {
         result
     }
 
-    fn extract(&self, tu: &str, facts: &mut Vec<Fact>) {
+    fn extract(&self, input: &Input, facts: &mut Vec<Fact>) {
+        let macros = macro_definitions(unsafe { clang_getTranslationUnitCursor(self.0) });
         let mut traversal = Traversal {
-            tu,
+            tu: &input.name,
+            roots: &input.roots,
             next: 0,
             seen: HashMap::new(),
+            macros: &macros,
             facts,
         };
         extract_children(
@@ -1314,8 +1393,10 @@ impl Drop for TranslationUnit {
 
 struct Traversal<'a> {
     tu: &'a str,
+    roots: &'a BTreeSet<String>,
     next: u32,
     seen: HashMap<u32, Vec<(CXCursor, Origin)>>,
+    macros: &'a HashMap<String, Vec<String>>,
     facts: &'a mut Vec<Fact>,
 }
 
@@ -1327,8 +1408,13 @@ fn extract_children(cursor: CXCursor, parent: Option<Origin>, traversal: &mut Tr
         let mut child_parent = parent.clone();
         let mut repeated = false;
 
-        if let Some(fact_kind) = fact_kind(kind) {
-            let name = cx_string(unsafe { clang_getCursorSpelling(child) });
+        let name = cx_string(unsafe { clang_getCursorSpelling(child) });
+        let fact_kind = if kind == CXCursor_MacroExpansion && name == "DEFINE_ENUM_FLAG_OPERATORS" {
+            Some(FactKind::EnumFlag)
+        } else {
+            fact_kind(kind)
+        };
+        if let Some(fact_kind) = fact_kind {
             let anonymous_record = matches!(kind, CXCursor_StructDecl | CXCursor_UnionDecl)
                 && unsafe { clang_Cursor_isAnonymous(child) } != 0;
             if !name.is_empty() && !anonymous_record {
@@ -1342,6 +1428,7 @@ fn extract_children(cursor: CXCursor, parent: Option<Origin>, traversal: &mut Tr
                     repeated = true;
                 } else if let Some((spelling, expansion, _, system)) = cursor_locations(child) {
                     let main_file = spelling.file == traversal.tu;
+                    let root = traversal.roots.contains(&spelling.file);
                     let origin = Origin {
                         tu: traversal.tu.to_string(),
                         local,
@@ -1357,8 +1444,9 @@ fn extract_children(cursor: CXCursor, parent: Option<Origin>, traversal: &mut Tr
                         expansion,
                         definition: unsafe { clang_isCursorDefinition(child) } != 0,
                         main_file,
+                        root,
                         system,
-                        data: fact_data(child, fact_kind),
+                        data: fact_data(child, fact_kind, traversal.macros),
                     });
                 }
             }
@@ -1388,6 +1476,27 @@ fn cursor_children(cursor: CXCursor) -> Vec<CXCursor> {
     children
 }
 
+fn macro_definitions(cursor: CXCursor) -> HashMap<String, Vec<String>> {
+    fn collect(cursor: CXCursor, result: &mut HashMap<String, Vec<String>>) {
+        for child in cursor_children(cursor) {
+            if unsafe { clang_getCursorKind(child) } == CXCursor_MacroDefinition {
+                let name = cx_string(unsafe { clang_getCursorSpelling(child) });
+                let tokens = cursor_tokens(child)
+                    .into_iter()
+                    .map(|(_, token)| token)
+                    .skip(1)
+                    .collect();
+                result.insert(name, tokens);
+            }
+            collect(child, result);
+        }
+    }
+
+    let mut result = HashMap::new();
+    collect(cursor, &mut result);
+    result
+}
+
 fn evaluate_constants(
     index: &Index,
     input: &Input,
@@ -1397,7 +1506,7 @@ fn evaluate_constants(
     let mut roots = BTreeMap::new();
     for fact in facts
         .iter()
-        .filter(|fact| fact.origin.tu == input.name && fact.main_file)
+        .filter(|fact| fact.origin.tu == input.name && fact.root)
     {
         if let FactData::Macro {
             function_like: false,
@@ -1595,7 +1704,7 @@ fn fact_kind(kind: CXCursorKind) -> Option<FactKind> {
     })
 }
 
-fn fact_data(cursor: CXCursor, kind: FactKind) -> FactData {
+fn fact_data(cursor: CXCursor, kind: FactKind, macros: &HashMap<String, Vec<String>>) -> FactData {
     match kind {
         FactKind::Enum => {
             let ty = unsafe { clang_getEnumDeclIntegerType(cursor) };
@@ -1639,7 +1748,9 @@ fn fact_data(cursor: CXCursor, kind: FactKind) -> FactData {
                 Err(reason) => return FactData::Unsupported { reason },
             };
             let function_ty = unsafe { clang_getCursorType(cursor) };
-            let Some(convention) = calling_convention_fact(function_ty) else {
+            let Some(convention) = source_calling_convention(cursor, macros)
+                .or_else(|| calling_convention_fact(function_ty))
+            else {
                 return FactData::Unsupported {
                     reason: "function has an unsupported calling convention".to_string(),
                 };
@@ -1653,6 +1764,19 @@ fn fact_data(cursor: CXCursor, kind: FactKind) -> FactData {
         FactKind::Macro => FactData::Macro {
             function_like: unsafe { clang_Cursor_isMacroFunctionLike(cursor) } != 0,
         },
+        FactKind::EnumFlag => {
+            let macro_name = cx_string(unsafe { clang_getCursorSpelling(cursor) });
+            let target = cursor_tokens(cursor).into_iter().find_map(|(kind, token)| {
+                (kind == CXToken_Identifier && token != macro_name).then_some(token)
+            });
+            if let Some(target) = target {
+                FactData::EnumFlag { target }
+            } else {
+                FactData::Unsupported {
+                    reason: "enum flag macro has no type argument".to_string(),
+                }
+            }
+        }
         FactKind::Struct | FactKind::Union => {
             if kind == FactKind::Struct && is_interface(cursor) {
                 return interface_fact(cursor);
@@ -2116,6 +2240,35 @@ fn calling_convention_fact(ty: CXType) -> Option<CallingConvention> {
         }
         _ => return None,
     })
+}
+
+fn source_calling_convention(
+    cursor: CXCursor,
+    macros: &HashMap<String, Vec<String>>,
+) -> Option<CallingConvention> {
+    fn resolve(
+        token: &str,
+        macros: &HashMap<String, Vec<String>>,
+        visited: &mut HashSet<String>,
+    ) -> Option<CallingConvention> {
+        match token {
+            "__stdcall" | "_stdcall" => return Some(CallingConvention::Platform),
+            "__cdecl" | "_cdecl" => return Some(CallingConvention::C),
+            _ => {}
+        }
+        if !visited.insert(token.to_string()) {
+            return None;
+        }
+        macros
+            .get(token)?
+            .iter()
+            .find_map(|token| resolve(token, macros, visited))
+    }
+
+    let tokens = cursor_tokens(cursor);
+    tokens_before_method_name(&tokens, cursor)
+        .iter()
+        .find_map(|(_, token)| resolve(token, macros, &mut HashSet::new()))
 }
 
 fn inline_record(cursor: CXCursor, union: bool) -> Result<InlineRecord, String> {
@@ -2733,9 +2886,7 @@ fn type_ref(ty: CXType) -> Option<TypeRef> {
                 result: Box::new(result),
             });
         }
-        let target = if let Some(target) = type_ref(pointee) {
-            target
-        } else {
+        let Some(target) = type_ref(pointee) else {
             let spelling = cx_string(unsafe { clang_getTypeSpelling(pointee) });
             let tag = spelling
                 .strip_prefix("struct ")
@@ -2849,6 +3000,26 @@ fn scalar_name(scalar: Scalar) -> &'static str {
         Scalar::U32 => "u32",
         Scalar::I64 => "i64",
         Scalar::U64 => "u64",
+    }
+}
+
+fn unsigned_scalar(scalar: Scalar) -> Scalar {
+    match scalar {
+        Scalar::I8 => Scalar::U8,
+        Scalar::I16 => Scalar::U16,
+        Scalar::I32 => Scalar::U32,
+        Scalar::I64 => Scalar::U64,
+        _ => scalar,
+    }
+}
+
+fn enum_value(value: i64, repr: Scalar) -> String {
+    match repr {
+        Scalar::U8 => (value as u8).to_string(),
+        Scalar::U16 => (value as u16).to_string(),
+        Scalar::U32 => (value as u32).to_string(),
+        Scalar::U64 => (value as u64).to_string(),
+        _ => value.to_string(),
     }
 }
 
