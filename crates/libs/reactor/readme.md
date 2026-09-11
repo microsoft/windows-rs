@@ -51,6 +51,31 @@ fn main() {
 }
 ```
 
+Applications with resources that outlive any one window can use `App::run_with`:
+
+```rust,ignore
+App::run_with(|app| {
+    app.open_window(View::component::<Counter>(()))?;
+
+    let exit = app.proxy();
+    let tray = TrayIcon::new("app.ico")
+        .menu(Menu::new().item(1, "Exit"))
+        .on_event(move |event| {
+            if matches!(event, TrayIconEvent::MenuItem { id: 1 }) {
+                _ = exit.exit();
+            }
+        })
+        .build()?;
+
+    Ok(tray)
+})
+```
+
+The returned value remains alive until explicit application exit. The application may start with
+no Reactor windows, and closing its last window does not end the message loop. `AppContext` opens
+windows and exits from the UI thread and may be cloned into UI-thread callbacks. Its cloneable
+`AppProxy` posts work or requests exit from other threads.
+
 `window_frame` creates an integrated WinUI title bar and places the application content below it:
 
 ```rust,ignore

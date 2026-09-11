@@ -5,7 +5,8 @@
 - 📦 [crates.io](https://crates.io/crates/windows-trayicon)
 - 📖 [docs.rs](https://docs.rs/windows-trayicon)
 - 🚀 [Getting started](../../crates/libs/trayicon/readme.md)
-- 🧩 [Sample](../../crates/samples/trayicon/basic)
+- 🧩 [Standalone sample](../../crates/samples/trayicon/basic)
+- 🧩 [Reactor sample](../../crates/samples/reactor/trayicon)
 - 📁 [Source](../../crates/libs/trayicon)
 - [Window guide](windows-window.md)
 
@@ -118,6 +119,10 @@ The ignored UI Automation test injects version-4 callbacks into the hidden test 
 real native popup menu, finds its item through UI Automation, and invokes it. Windows 11 does not
 consistently expose notification icons themselves in the desktop UIA tree, so real icon mouse and
 keyboard input remains part of the manual gate.
+
+The Reactor sample starts with no Reactor windows, opens them from tray events, and demonstrates
+that either the window or tray icon can be removed while the other remains active. It exits when
+the last window closes after the tray icon has been removed.
 
 Run the interactive sample from a terminal. It logs each activation and updates the tooltip with
 an activation count while reloading the icon. Its native context menu contains an Exit command:

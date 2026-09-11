@@ -117,6 +117,45 @@ not mutate the component directly.
 `App::run_component` creates the WinUI application and first window, mounts `Counter`, and runs the
 UI loop.
 
+## Application lifetime
+
+`App::run`, `App::run_windows`, and `App::run_component` exit after the last Reactor window closes.
+This is convenient when windows define the complete application lifetime.
+
+Use `App::run_with` when tray icons, services, or other process resources are peers of the Reactor
+windows:
+
+```rust,ignore
+App::run_with(|app| {
+    let exit = app.proxy();
+    let tray = TrayIcon::new("app.ico")
+        .menu(Menu::new().item(1, "Exit"))
+        .on_event(move |event| {
+            if matches!(event, TrayIconEvent::MenuItem { id: 1 }) {
+                _ = exit.exit();
+            }
+        })
+        .build()?;
+
+    Ok(tray)
+})
+```
+
+The startup closure runs on the UI thread. It may call `AppContext::open_window` immediately or
+later from work posted through `AppProxy::dispatch`. Its return value remains owned by the
+application until explicit exit, so the example keeps the tray icon alive even while no Reactor
+window exists.
+
+`AppContext` is UI-thread-bound and may be cloned into callbacks on that thread. `AppProxy` is
+`Send + Sync` and may be cloned into worker threads. Closing the last Reactor window in this mode
+does not exit the process; call `AppContext::exit` on the UI thread or `AppProxy::exit` from
+another thread.
+
+The [`reactor-trayicon`](../../crates/samples/reactor/trayicon) sample starts with only a tray icon,
+opens Reactor windows on demand, keeps running when its last window closes, and can remove the tray
+icon while a Reactor window remains. After removing the tray icon, closing that window exits the
+sample so it cannot leave an invisible process running.
+
 ## Window title bars
 
 `window_frame` gives a Reactor window an integrated WinUI title bar. It creates the required

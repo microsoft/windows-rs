@@ -118,6 +118,8 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
+          cargo test -p test_reactor application_lifetime_is_independent_of_windows `
+            -- --ignored --test-threads=1
           cargo run -p test-reactor-selftest --quiet -- --headless
           cargo run -p test-reactor-surface --quiet -- --headless
 

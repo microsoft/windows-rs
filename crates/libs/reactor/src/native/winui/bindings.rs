@@ -3181,6 +3181,21 @@ impl windows_core::RuntimeName for DispatcherQueueTimer {
 unsafe impl Send for DispatcherQueueTimer {}
 unsafe impl Sync for DispatcherQueueTimer {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DispatcherShutdownMode(pub i32);
+impl DispatcherShutdownMode {
+    pub const OnLastWindowClose: Self = Self(0);
+    pub const OnExplicitShutdown: Self = Self(1);
+}
+impl windows_core::imp::TypeKind for DispatcherShutdownMode {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for DispatcherShutdownMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.DispatcherShutdownMode;i4)",
+    );
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DragEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
@@ -5078,6 +5093,11 @@ impl IApplication {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    pub(crate) fn Exit(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Exit)(windows_core::Interface::as_raw(self)).ok()
+        }
+    }
 }
 #[repr(C)]
 pub struct IApplication_Vtbl {
@@ -5085,6 +5105,49 @@ pub struct IApplication_Vtbl {
     pub Resources: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    SetResources: usize,
+    DebugSettings: usize,
+    RequestedTheme: usize,
+    SetRequestedTheme: usize,
+    FocusVisualKind: usize,
+    SetFocusVisualKind: usize,
+    HighContrastAdjustment: usize,
+    SetHighContrastAdjustment: usize,
+    UnhandledException: usize,
+    RemoveUnhandledException: usize,
+    pub Exit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IApplication3,
+    IApplication3_Vtbl,
+    0xbe941595_61fe_5b36_a3d3_962a647d7c6f
+);
+impl windows_core::RuntimeType for IApplication3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IApplication3 {
+    pub(crate) fn SetDispatcherShutdownMode(
+        &self,
+        value: DispatcherShutdownMode,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetDispatcherShutdownMode)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IApplication3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    DispatcherShutdownMode: usize,
+    pub SetDispatcherShutdownMode: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        DispatcherShutdownMode,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(

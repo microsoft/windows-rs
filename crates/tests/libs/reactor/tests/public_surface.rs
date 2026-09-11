@@ -1,5 +1,9 @@
 use windows_reactor::*;
 
+use std::sync::Arc;
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::time::{Duration, Instant};
+
 #[test]
 fn generated_builders_convert_to_views() {
     let optional_text = Some("value");
@@ -136,4 +140,166 @@ impl Component for WindowVisualComponent {
 #[test]
 fn window_visual_environment_is_public() {
     let _: View = View::component::<WindowVisualComponent>(());
+}
+
+#[derive(Clone)]
+struct ClosingWindowInput {
+    dropped: Arc<AtomicBool>,
+}
+
+impl PartialEq for ClosingWindowInput {
+    fn eq(&self, other: &Self) -> bool {
+        Arc::ptr_eq(&self.dropped, &other.dropped)
+    }
+}
+
+struct ClosingWindow {
+    _close: ComponentTask,
+    dropped: Arc<AtomicBool>,
+}
+
+impl Component for ClosingWindow {
+    type Input = ClosingWindowInput;
+    type Message = ();
+
+    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        Self {
+            _close: context.spawn_background(|_| {
+                std::thread::sleep(Duration::from_millis(100));
+            }),
+            dropped: Arc::clone(&input.dropped),
+        }
+    }
+
+    fn update(&mut self, _message: (), context: &ComponentContext<Self>) {
+        assert!(context.window().request_close());
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_frame("Application lifetime test", "Closing...")
+    }
+}
+
+impl Drop for ClosingWindow {
+    fn drop(&mut self) {
+        self.dropped.store(true, Ordering::Release);
+    }
+}
+
+#[derive(Clone)]
+struct HoldingWindowInput(Arc<AtomicBool>);
+
+impl PartialEq for HoldingWindowInput {
+    fn eq(&self, other: &Self) -> bool {
+        Arc::ptr_eq(&self.0, &other.0)
+    }
+}
+
+struct HoldingWindow;
+
+impl Component for HoldingWindow {
+    type Input = HoldingWindowInput;
+    type Message = ();
+
+    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        input.0.store(true, Ordering::Release);
+        Self
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_frame("Application exit test", "Waiting for explicit exit...")
+    }
+}
+
+struct AppResource {
+    dropped: Arc<AtomicBool>,
+    worker: Option<std::thread::JoinHandle<()>>,
+}
+
+impl Drop for AppResource {
+    fn drop(&mut self) {
+        self.worker.take().unwrap().join().unwrap();
+        self.dropped.store(true, Ordering::Release);
+    }
+}
+
+#[test]
+#[ignore = "runs the interactive WinUI application loop"]
+fn application_lifetime_is_independent_of_windows() {
+    let opened = Arc::new(AtomicBool::new(false));
+    let window_dropped = Arc::new(AtomicBool::new(false));
+    let active_window = Arc::new(AtomicBool::new(false));
+    let explicit_exit = Arc::new(AtomicBool::new(false));
+    let resource_dropped = Arc::new(AtomicBool::new(false));
+
+    App::run_with({
+        let opened = Arc::clone(&opened);
+        let window_dropped = Arc::clone(&window_dropped);
+        let active_window = Arc::clone(&active_window);
+        let explicit_exit = Arc::clone(&explicit_exit);
+        let resource_dropped = Arc::clone(&resource_dropped);
+        move |app| {
+            let proxy = app.proxy();
+            let worker = std::thread::spawn(move || {
+                std::thread::sleep(Duration::from_millis(50));
+                let opened_window = Arc::clone(&opened);
+                let dropped = Arc::clone(&window_dropped);
+                proxy
+                    .dispatch(move |app| {
+                        app.open_window(View::component::<ClosingWindow>(ClosingWindowInput {
+                            dropped,
+                        }))
+                        .unwrap();
+                        opened_window.store(true, Ordering::Release);
+                    })
+                    .unwrap();
+
+                let deadline = Instant::now() + Duration::from_secs(5);
+                while Instant::now() < deadline && !window_dropped.load(Ordering::Acquire) {
+                    std::thread::sleep(Duration::from_millis(10));
+                }
+                std::thread::sleep(Duration::from_millis(500));
+
+                let mounted = Arc::clone(&active_window);
+                proxy
+                    .dispatch(move |app| {
+                        app.open_window(View::component::<HoldingWindow>(HoldingWindowInput(
+                            mounted,
+                        )))
+                        .unwrap();
+                    })
+                    .unwrap();
+                let deadline = Instant::now() + Duration::from_secs(5);
+                while Instant::now() < deadline && !active_window.load(Ordering::Acquire) {
+                    std::thread::sleep(Duration::from_millis(10));
+                }
+
+                proxy
+                    .dispatch(move |app| {
+                        explicit_exit.store(true, Ordering::Release);
+                        app.exit().unwrap();
+                    })
+                    .unwrap();
+            });
+            Ok(AppResource {
+                dropped: resource_dropped,
+                worker: Some(worker),
+            })
+        }
+    })
+    .unwrap();
+
+    assert!(opened.load(Ordering::Acquire));
+    assert!(window_dropped.load(Ordering::Acquire));
+    assert!(active_window.load(Ordering::Acquire));
+    assert!(explicit_exit.load(Ordering::Acquire));
+    assert!(resource_dropped.load(Ordering::Acquire));
+}
+
+#[test]
+fn app_proxy_is_send_and_sync() {
+    fn assert_send_sync<T: Send + Sync>() {}
+    assert_send_sync::<AppProxy>();
 }
