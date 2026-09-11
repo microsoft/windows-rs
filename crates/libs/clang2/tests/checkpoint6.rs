@@ -17,7 +17,10 @@ fn generator_policies_route_references_and_exports() {
     let snapshot = extract(
         [Input::new(
             scratch.join("api.hpp").to_string_lossy(),
-            "#include \"external.hpp\"\nextern \"C\" void Keep(IExternal* value);\nextern \"C\" void Drop();\n",
+            "#include \"external.hpp\"\n\
+             typedef struct IExternal IExternal;\n\
+             extern \"C\" void Keep(IExternal* value);\n\
+             extern \"C\" void Drop();\n",
         )],
         &["-x", "c++", &include],
     )
@@ -196,7 +199,8 @@ fn concrete_record_inheritance_flattens_verified_layout() {
         [Input::new(
             "inheritance.hpp",
             "typedef struct BASE { int first; } BASE;\n\
-             typedef struct DERIVED : BASE { void* second; } DERIVED;\n",
+             typedef struct OTHER { short third; } OTHER;\n\
+             typedef struct DERIVED : BASE, OTHER { void* second; } DERIVED;\n",
         )],
         &["-x", "c++", "--target=x86_64-pc-windows-msvc"],
     )
@@ -210,11 +214,13 @@ fn concrete_record_inheritance_flattens_verified_layout() {
         panic!("DERIVED is not a record");
     };
     assert!(base.is_some());
-    assert_eq!(fields[0].name, "first");
-    assert_eq!(fields[1].name, "second");
+    assert_eq!(fields[0].name, "Base");
+    assert_eq!(fields[1].name, "Base2");
+    assert_eq!(fields[2].name, "second");
 
     let rdl = snapshot.emit("Inheritance").unwrap();
-    assert!(rdl.contains("first: i32"));
+    assert!(rdl.contains("Base: BASE"));
+    assert!(rdl.contains("Base2: OTHER"));
     assert!(rdl.contains("second: *mut void"));
 }
 
@@ -260,7 +266,15 @@ fn same_tu_compatible_typedef_redeclarations_collapse() {
             "typedef void* HANDLE;\n\
              typedef HANDLE* PHANDLE;\n\
              typedef void* HANDLE;\n\
-             typedef HANDLE* PHANDLE;\n",
+             typedef HANDLE* PHANDLE;\n\
+             typedef unsigned char BYTE;\n\
+             typedef BYTE BOOLEAN;\n\
+             typedef unsigned char boolean;\n\
+             typedef boolean BOOLEAN;\n\
+             typedef long LONG;\n\
+             typedef long NTSTATUS;\n\
+             typedef NTSTATUS* PNTSTATUS;\n\
+             typedef LONG* PNTSTATUS;\n",
         )],
         &["-x", "c++"],
     )
@@ -269,6 +283,8 @@ fn same_tu_compatible_typedef_redeclarations_collapse() {
 
     assert_eq!(rdl.matches("type HANDLE =").count(), 1);
     assert_eq!(rdl.matches("type PHANDLE =").count(), 1);
+    assert_eq!(rdl.matches("type BOOLEAN =").count(), 1);
+    assert_eq!(rdl.matches("type PNTSTATUS =").count(), 1);
 }
 
 #[test]

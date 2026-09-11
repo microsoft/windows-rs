@@ -32,7 +32,8 @@ Checkpoint 6 status:
 - `tool-webview` completes through RDL, winmd, and bindings with matching interface and enum sets.
 - External type identity, export selection, flag enums, and source calling conventions are explicit.
 - A real `fileapi.h` slice passes through a combined TU with included-header root ownership.
-- Full `tool-win32` routing, partitioning, and architecture merge remain.
+- The first 100 user-mode headers complete through winmd with 5,194 routed exports.
+- Larger user-mode slices, partitioning, satellite inputs, and architecture merge remain.
 
 ## Stop gates
 

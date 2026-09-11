@@ -20,6 +20,45 @@ typedef union _NUMBER {
     unsigned int u;
 } NUMBER;
 
+enum FORMAT : unsigned int {
+    FORMAT_NONE = 0
+};
+
+enum {
+    GLOBAL_VALUE = 7
+};
+
+typedef struct _MIXED_BITFIELDS {
+    unsigned int level : 16;
+    FORMAT format : 16;
+} MIXED_BITFIELDS;
+
+typedef struct _INLINE_ARRAY {
+    struct {
+        int value;
+    } items[1];
+} INLINE_ARRAY;
+
+typedef struct _INLINE_POINTER {
+    struct {
+        int value;
+    } *item;
+} INLINE_POINTER;
+
+typedef struct _FLEXIBLE_ARRAY {
+    int count;
+    int items[];
+} FLEXIBLE_ARRAY;
+
+typedef union _FLEXIBLE_UNION {
+    int first[];
+    short second[];
+} FLEXIBLE_UNION;
+
+typedef struct _ONLY_FLEXIBLE_ARRAY {
+    short items[];
+} ONLY_FLEXIBLE_ARRAY;
+
 typedef struct _BOX {
     POINT origin;
     PPOINT mutable_point;
@@ -154,6 +193,7 @@ struct INTERFACE_HOLDER {
     IBase *value;
 };
 struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IGuid {
+    int Helper() { return 1; }
     virtual void Guided() = 0;
     virtual /* [propget] */ int get_Value(/* [out][retval] */ int *value) = 0;
     virtual int Query(/* [in] */ int input,
@@ -203,6 +243,21 @@ struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IGuid {
     assert!(rdl.contains("type PPOINT = *mut POINT"));
     assert!(rdl.contains("type PCPOINT = *const POINT"));
     assert!(rdl.contains("union NUMBER"));
+    assert!(rdl.contains("struct MIXED_BITFIELDS"));
+    assert!(rdl.contains("_bitfield: u32"));
+    assert!(rdl.contains("level: 16"));
+    assert!(rdl.contains("format: 16"));
+    assert!(rdl.contains("const GLOBAL_VALUE: i32 = 7"));
+    assert!(rdl.contains("items: [INLINE_ARRAY_0; 1]"));
+    assert!(rdl.contains("struct INLINE_ARRAY_0"));
+    assert!(rdl.contains("item: *mut INLINE_POINTER_0"));
+    assert!(rdl.contains("struct INLINE_POINTER_0"));
+    assert!(rdl.contains("struct FLEXIBLE_ARRAY"));
+    assert!(rdl.contains("items: [i32; 0]"));
+    assert!(rdl.contains("union FLEXIBLE_UNION"));
+    assert!(rdl.contains("first: [i32; 0]"));
+    assert!(rdl.contains("struct ONLY_FLEXIBLE_ARRAY"));
+    assert!(rdl.contains("items: [i16; 0]"));
     assert!(rdl.contains("struct BOX"));
     assert!(rdl.contains("origin: POINT"));
     assert!(rdl.contains("mutable_point: PPOINT"));
@@ -285,6 +340,7 @@ struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IGuid {
     assert!(rdl.contains("type PIBASE = IBase"));
     assert!(rdl.contains("struct INTERFACE_HOLDER {\n        value: IBase,"));
     assert!(rdl.contains("#[guid(0x12345678_1234_abcd_9876_0123456789ab)]\n    interface IGuid"));
+    assert!(!rdl.contains("fn Helper(&self)"));
     assert!(
         rdl.contains("#[special] fn get_Value(&self, #[retval] value: *mut i32)"),
         "{rdl}"
@@ -487,6 +543,29 @@ fn unsupported_sal_size_relations_are_reported() {
             .emit_with_library("Expression", "test.dll")
             .unwrap()
             .contains("buffer: *mut void")
+    );
+
+    let symbolic_constant = extract(
+        [Input::new(
+            "symbolic_constant.hpp",
+            "#define COUNT 2\n\
+             extern \"C\" void SymbolicConstant(\
+             __attribute__((annotate(\"_In_reads_(COUNT)\"))) void *buffer);",
+        )],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    let function = symbolic_constant
+        .facts()
+        .iter()
+        .find(|fact| fact.name == "SymbolicConstant")
+        .unwrap();
+    let FactData::Function { params, .. } = &function.data else {
+        panic!("SymbolicConstant is not a function");
+    };
+    assert_eq!(
+        params[0].annotation.size.as_ref().unwrap().value,
+        windows_clang2::SalSizeValue::Expression("COUNT".to_string())
     );
 
     let collision = extract(
