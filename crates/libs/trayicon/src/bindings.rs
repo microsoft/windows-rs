@@ -1,15 +1,25 @@
+windows_core::link!("user32.dll" "system" fn AppendMenuW(hmenu : HMENU, uflags : u32, uidnewitem : usize, lpnewitem : windows_core::PCWSTR) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn CreatePopupMenu() -> HMENU);
 windows_core::link!("user32.dll" "system" fn DestroyIcon(hicon : HICON) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn DestroyMenu(hmenu : HMENU) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn GetSystemMetrics(nindex : i32) -> i32);
 windows_core::link!("user32.dll" "system" fn LoadImageW(hinst : HINSTANCE, name : windows_core::PCWSTR, r#type : u32, cx : i32, cy : i32, fuload : u32) -> HANDLE);
+windows_core::link!("user32.dll" "system" fn PostMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn RegisterWindowMessageW(lpstring : windows_core::PCWSTR) -> u32);
+windows_core::link!("user32.dll" "system" fn SetForegroundWindow(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconGetRect(identifier : *const NOTIFYICONIDENTIFIER, iconlocation : *mut RECT) -> windows_core::HRESULT);
 windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : u32, lpdata : *const NOTIFYICONDATAW) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn TrackPopupMenu(hmenu : HMENU, uflags : u32, x : i32, y : i32, nreserved : i32, hwnd : HWND, prcrect : *const RECT) -> windows_core::BOOL);
 pub type HANDLE = *mut core::ffi::c_void;
 pub type HICON = *mut core::ffi::c_void;
 pub type HINSTANCE = *mut core::ffi::c_void;
+pub type HMENU = *mut core::ffi::c_void;
 pub type HWND = *mut core::ffi::c_void;
 pub const IMAGE_ICON: i32 = 1;
+pub type LPARAM = isize;
 pub const LR_LOADFROMFILE: i32 = 16;
+pub const MF_SEPARATOR: i32 = 2048;
+pub const MF_STRING: i32 = 0;
 pub const NIF_ICON: i32 = 2;
 pub const NIF_MESSAGE: i32 = 1;
 pub const NIF_SHOWTIP: i32 = 128;
@@ -147,5 +157,9 @@ pub struct RECT {
 }
 pub const SM_CXSMICON: i32 = 49;
 pub const SM_CYSMICON: i32 = 50;
+pub const TPM_RETURNCMD: i32 = 256;
+pub const TPM_RIGHTBUTTON: i32 = 2;
 pub const WM_CONTEXTMENU: i32 = 123;
+pub const WM_NULL: i32 = 0;
 pub const WM_USER: i32 = 1024;
+pub type WPARAM = usize;

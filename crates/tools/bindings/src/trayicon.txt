@@ -2,11 +2,16 @@
 --flat --minimal --dead-code
 
 --filter
+    AppendMenuW
+    CreatePopupMenu
     DestroyIcon
+    DestroyMenu
     GetSystemMetrics
     IMAGE_ICON
     LoadImageW
     LR_LOADFROMFILE
+    MF_SEPARATOR
+    MF_STRING
     NIF_ICON
     NIF_MESSAGE
     NIF_SHOWTIP
@@ -20,10 +25,16 @@
     NOTIFYICON_VERSION_4
     NOTIFYICONDATAW
     NOTIFYICONIDENTIFIER
+    PostMessageW
     RegisterWindowMessageW
+    SetForegroundWindow
     Shell_NotifyIconGetRect
     Shell_NotifyIconW
     SM_CXSMICON
     SM_CYSMICON
+    TPM_RETURNCMD
+    TPM_RIGHTBUTTON
+    TrackPopupMenu
     WM_CONTEXTMENU
+    WM_NULL
     WM_USER

@@ -1,14 +1,18 @@
-use windows_trayicon::{TrayIcon, TrayIconEvent};
+use windows_trayicon::{Menu, TrayIcon, TrayIconEvent};
 
 #[test]
 fn builder_accepts_the_public_configuration() {
     let _builder = TrayIcon::new("icon.ico")
         .tooltip("Example")
+        .menu(Menu::new().item(1, "Exit").separator().item(2, "Settings"))
         .on_event(|event| match event {
             TrayIconEvent::Activate { position } | TrayIconEvent::ContextMenu { position } => {
                 let _ = position;
             }
             TrayIconEvent::Unavailable => {}
+            TrayIconEvent::MenuItem { id } => {
+                let _ = id;
+            }
             _ => {}
         });
 }
@@ -16,12 +20,15 @@ fn builder_accepts_the_public_configuration() {
 #[test]
 #[ignore = "requires an interactive Windows shell"]
 fn live_icon_has_a_window_and_shell_rectangle() {
-    let icon = concat!(
+    let path = concat!(
         env!("CARGO_MANIFEST_DIR"),
         "\\..\\..\\..\\samples\\reactor\\icon\\icon.ico"
     );
-    let icon = TrayIcon::new(icon).tooltip("Live test").build().unwrap();
+    let mut icon = TrayIcon::new(path).tooltip("Live test").build().unwrap();
     assert!(!icon.hwnd().is_null());
+    icon.set_tooltip(Some("Updated live test")).unwrap();
+    icon.set_icon(path).unwrap();
+    icon.set_tooltip(None).unwrap();
     let rect = icon.rect().unwrap();
     assert!(rect.right > rect.left);
     assert!(rect.bottom > rect.top);

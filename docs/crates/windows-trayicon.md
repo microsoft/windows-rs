@@ -15,20 +15,21 @@ Use `windows-trayicon` when a desktop application needs an icon in the taskbar n
 The crate manages Shell registration and a hidden callback window without depending on the
 `windows` or `windows-sys` umbrella crates.
 
-The initial API covers icon files, standard tooltips, activation, context-menu requests, icon
-geometry, and runtime icon or tooltip replacement. It does not provide balloon notifications,
-promotion policy, raw input, or a menu-control library.
+The initial API covers icon files, standard tooltips, activation, context-menu requests, a minimal
+native popup menu, icon geometry, and runtime icon or tooltip replacement. It does not provide
+balloon notifications, promotion policy, raw input, submenus, or owner-drawn menus.
 
 ## Create an icon
 
 Create the icon on the thread that owns the application message loop:
 
 ```rust,no_run
-use windows_trayicon::{TrayIcon, TrayIconEvent};
+use windows_trayicon::{Menu, TrayIcon, TrayIconEvent};
 
 fn main() -> windows_trayicon::Result<()> {
     let _icon = TrayIcon::new("icon.ico")
         .tooltip("Example")
+        .menu(Menu::new().item(1, "Exit"))
         .on_event(|event| match event {
             TrayIconEvent::Activate { position } => {
                 println!("selected at {}, {}", position.x, position.y);
@@ -36,6 +37,7 @@ fn main() -> windows_trayicon::Result<()> {
             TrayIconEvent::ContextMenu { position } => {
                 println!("menu requested at {}, {}", position.x, position.y);
             }
+            TrayIconEvent::MenuItem { id: 1 } => windows_window::quit(),
             TrayIconEvent::Unavailable => {
                 eprintln!("the Windows Shell could not restore the icon");
             }
@@ -51,6 +53,8 @@ fn main() -> windows_trayicon::Result<()> {
 `TrayIcon` owns an unshown top-level `windows-window` window. Any message loop running on that
 thread can dispatch its callbacks; the application does not need to use `windows_window::run`.
 Dropping the value removes the Shell icon before destroying the callback window and loaded icon.
+Shell callbacks are reposted before the application handler runs, avoiding reentrant application
+work inside a Shell call and waking message loops blocked while waiting for posted messages.
 
 ## Respond to events
 
@@ -58,8 +62,21 @@ Dropping the value removes the Shell icon before destroying the callback window 
 reported by the Shell. Applications can use the event position or call `rect` to anchor a popup
 without assuming which monitor or taskbar edge contains the icon.
 
-Applications that show a Win32 popup menu remain responsible for choosing its owner window and
-making that window foreground before calling `TrackPopupMenu`.
+Without a configured `Menu`, `ContextMenu` reports the requested position so the application can
+show a custom popup. With a configured menu, the crate applies the foreground-window and
+light-dismiss rules, displays the native popup at that position, and reports a selected item as
+`MenuItem { id }`.
+
+The initial menu API supports labeled items and separators:
+
+```rust,ignore
+let menu = Menu::new()
+    .item(1, "Open")
+    .separator()
+    .item(2, "Exit");
+```
+
+Item identifiers must be nonzero and unique.
 
 The crate requests `NOTIFYICON_VERSION_4`, which provides consistent selection events, keyboard
 activation, signed screen coordinates, and better accessibility. Lower-level mouse messages are
@@ -97,7 +114,13 @@ An ignored live test exercises Shell registration and `Shell_NotifyIconGetRect`:
 cargo test -p test_trayicon -- --ignored --nocapture
 ```
 
-Run the interactive sample and select the icon to exit:
+The ignored UI Automation test injects version-4 callbacks into the hidden test window, opens the
+real native popup menu, finds its item through UI Automation, and invokes it. Windows 11 does not
+consistently expose notification icons themselves in the desktop UIA tree, so real icon mouse and
+keyboard input remains part of the manual gate.
+
+Run the interactive sample from a terminal. It logs each activation and updates the tooltip with
+an activation count while reloading the icon. Its native context menu contains an Exit command:
 
 ```text
 cargo run -p trayicon-basic

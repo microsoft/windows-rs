@@ -1,0 +1,17 @@
+--out crates/tests/libs/trayicon/tests/support/bindings.rs
+--flat --minimal --dead-code
+
+--filter
+    COINIT_MULTITHREADED
+    CUIAutomation
+    CoCreateInstance
+    CoInitializeEx
+    IUIAutomation::{CreateTrueCondition, GetRootElement}
+    IUIAutomationElement::{CurrentControlType, CurrentName, FindAll, GetCurrentPatternAs}
+    IUIAutomationElementArray::{GetElement, Length}
+    IUIAutomationInvokePattern::Invoke
+    NIN_SELECT
+    SendMessageW
+    TreeScope_Descendants
+    WM_CONTEXTMENU
+    WM_USER

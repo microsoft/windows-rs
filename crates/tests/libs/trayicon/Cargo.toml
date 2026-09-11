@@ -9,7 +9,9 @@ doc = false
 doctest = false
 
 [dependencies]
+windows-core = { workspace = true }
 windows-trayicon = { workspace = true }
+windows-window = { workspace = true }
 
 [lints]
 workspace = true
