@@ -230,6 +230,7 @@ pub enum FactData {
     },
     Macro {
         function_like: bool,
+        tokens: Vec<String>,
     },
     Function {
         link_name: String,
@@ -1807,23 +1808,18 @@ fn cursor_children(cursor: CXCursor) -> Vec<CXCursor> {
 }
 
 fn macro_definitions(cursor: CXCursor) -> HashMap<String, Vec<String>> {
-    fn collect(cursor: CXCursor, result: &mut HashMap<String, Vec<String>>) {
-        for child in cursor_children(cursor) {
-            if unsafe { clang_getCursorKind(child) } == CXCursor_MacroDefinition {
-                let name = cx_string(unsafe { clang_getCursorSpelling(child) });
-                let tokens = cursor_tokens(child)
-                    .into_iter()
-                    .map(|(_, token)| token)
-                    .skip(1)
-                    .collect();
-                result.insert(name, tokens);
-            }
-            collect(child, result);
+    let mut result = HashMap::new();
+    for child in cursor_children(cursor) {
+        if unsafe { clang_getCursorKind(child) } == CXCursor_MacroDefinition {
+            let name = cx_string(unsafe { clang_getCursorSpelling(child) });
+            let tokens = cursor_tokens(child)
+                .into_iter()
+                .map(|(_, token)| token)
+                .skip(1)
+                .collect();
+            result.insert(name, tokens);
         }
     }
-
-    let mut result = HashMap::new();
-    collect(cursor, &mut result);
     result
 }
 
@@ -1840,7 +1836,9 @@ fn evaluate_constants(
     {
         if let FactData::Macro {
             function_like: false,
+            ref tokens,
         } = fact.data
+            && macro_may_be_integer(tokens)
         {
             roots
                 .entry(fact.name.clone())
@@ -1853,11 +1851,13 @@ fn evaluate_constants(
             match fact.data {
                 FactData::Macro {
                     function_like: false,
+                    ..
                 } => {
                     candidates.insert(fact.name.clone(), (root.clone(), fact.origin.clone()));
                 }
                 FactData::Macro {
                     function_like: true,
+                    ..
                 } => {
                     candidates.remove(&fact.name);
                 }
@@ -2013,6 +2013,13 @@ fn evaluate_constants(
         });
     }
     Ok(constants)
+}
+
+fn macro_may_be_integer(tokens: &[String]) -> bool {
+    !tokens.is_empty()
+        && !tokens
+            .iter()
+            .any(|token| token.contains('"') || matches!(token.as_str(), "{" | "}"))
 }
 
 fn evaluate_probe(
@@ -2223,6 +2230,10 @@ fn fact_data(cursor: CXCursor, kind: FactKind, macros: &HashMap<String, Vec<Stri
         }
         FactKind::Macro => FactData::Macro {
             function_like: unsafe { clang_Cursor_isMacroFunctionLike(cursor) } != 0,
+            tokens: macros
+                .get(&cx_string(unsafe { clang_getCursorSpelling(cursor) }))
+                .cloned()
+                .unwrap_or_default(),
         },
         FactKind::EnumFlag => {
             let macro_name = cx_string(unsafe { clang_getCursorSpelling(cursor) });

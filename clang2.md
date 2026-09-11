@@ -33,9 +33,13 @@ Checkpoint 6 status:
 - External type identity, export selection, flag enums, and source calling conventions are explicit.
 - A real `fileapi.h` slice passes through a combined TU with included-header root ownership.
 - All 356 user-mode headers complete through winmd with 11,164 routed exports.
-- The full run takes about 200 seconds; planning is about one second and extraction dominates.
-- Per-header partitioning, satellite inputs, unsupported classification, and architecture merge
-  remain.
+- The full run takes about 133 seconds: 4 seconds parsing, 76 seconds traversing, 49 seconds
+  evaluating constants, 1 second planning, and 3 seconds compiling winmd.
+- Macro replacement-token filtering reduces the full probe set to 45,178 candidates without
+  changing the export or unsupported-root counts.
+- The 852 unsupported roots are classified; 569 are UUID-less source C++ classes and 225 have
+  unsupported callback or field types.
+- Per-header partitioning, satellite inputs, architecture merge, and kernel-mode generation remain.
 
 ## Stop gates
 
