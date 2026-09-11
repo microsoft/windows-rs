@@ -150,7 +150,36 @@ pub(crate) fn select_fixtures(filter: Option<&str>) -> Result<Vec<usize>, String
     }
 }
 
+#[derive(Clone)]
+pub(crate) struct RunnerInput {
+    app: Option<AppContext>,
+    selected: Vec<usize>,
+}
+
+impl RunnerInput {
+    pub(crate) fn legacy(selected: Vec<usize>) -> Self {
+        Self {
+            app: None,
+            selected,
+        }
+    }
+
+    pub(crate) fn explicit(selected: Vec<usize>, app: AppContext) -> Self {
+        Self {
+            app: Some(app),
+            selected,
+        }
+    }
+}
+
+impl PartialEq for RunnerInput {
+    fn eq(&self, other: &Self) -> bool {
+        self.selected == other.selected && self.app.is_some() == other.app.is_some()
+    }
+}
+
 pub(crate) struct FixtureRunner {
+    app: Option<AppContext>,
     current: usize,
     generation: u64,
     selected: Vec<usize>,
@@ -211,14 +240,15 @@ impl FixtureRunner {
 }
 
 impl Component for FixtureRunner {
-    type Input = Vec<usize>;
+    type Input = RunnerInput;
     type Message = Message;
 
     fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
         let mut runner = Self {
+            app: input.app.clone(),
             current: 0,
             generation: 0,
-            selected: input.clone(),
+            selected: input.selected.clone(),
             timeout: None,
         };
         runner.start_timeout(context);
@@ -243,7 +273,11 @@ impl Component for FixtureRunner {
                 self.generation += 1;
                 if self.current == self.selected.len() {
                     println!("1..{}", self.selected.len());
-                    if !context.window().request_close() {
+                    if let Some(app) = self.app.as_ref() {
+                        if let Err(error) = app.exit() {
+                            self.fail(&format!("explicit application exit failed: {error}"));
+                        }
+                    } else if !context.window().request_close() {
                         self.fail("fixture runner could not close its window");
                     }
                 } else {

@@ -7,14 +7,14 @@ mod fixtures;
 mod runner;
 
 fn main() -> Result<()> {
-    let filter = match parse_filter(std::env::args().skip(1)) {
-        Ok(filter) => filter,
+    let options = match parse_options(std::env::args().skip(1)) {
+        Ok(options) => options,
         Err(error) => {
             eprintln!("{error}");
             std::process::exit(1);
         }
     };
-    let selected = match runner::select_fixtures(filter.as_deref()) {
+    let selected = match runner::select_fixtures(options.filter.as_deref()) {
         Ok(selected) => selected,
         Err(error) => {
             eprintln!("{error}");
@@ -28,23 +28,39 @@ fn main() -> Result<()> {
         std::process::exit(1);
     });
 
-    App::run_component::<runner::FixtureRunner>(selected)
+    if options.explicit_lifetime {
+        App::run_with(move |context| {
+            context.open_window(View::component::<runner::FixtureRunner>(
+                runner::RunnerInput::explicit(selected, context.clone()),
+            ))
+        })
+    } else {
+        App::run_component::<runner::FixtureRunner>(runner::RunnerInput::legacy(selected))
+    }
 }
 
-fn parse_filter(
+#[derive(Default, PartialEq, Debug)]
+struct Options {
+    explicit_lifetime: bool,
+    filter: Option<String>,
+}
+
+fn parse_options(
     arguments: impl IntoIterator<Item = String>,
-) -> std::result::Result<Option<String>, &'static str> {
+) -> std::result::Result<Options, &'static str> {
     let mut arguments = arguments.into_iter();
-    let mut filter = None;
+    let mut options = Options::default();
     while let Some(argument) = arguments.next() {
         if argument == "--filter" {
-            filter = Some(arguments.next().ok_or("missing value for --filter")?);
+            options.filter = Some(arguments.next().ok_or("missing value for --filter")?);
         } else if let Some(value) = argument.strip_prefix("--filter=") {
-            filter = Some(value.to_string());
+            options.filter = Some(value.to_string());
+        } else if argument == "--explicit-lifetime" {
+            options.explicit_lifetime = true;
         }
     }
 
-    Ok(filter)
+    Ok(options)
 }
 
 #[cfg(test)]
@@ -54,8 +70,19 @@ mod tests {
     #[test]
     fn filter_requires_a_value() {
         assert_eq!(
-            parse_filter(["--filter".to_string()]),
+            parse_options(["--filter".to_string()]),
             Err("missing value for --filter")
+        );
+    }
+
+    #[test]
+    fn parses_explicit_lifetime() {
+        assert_eq!(
+            parse_options(["--explicit-lifetime".to_string()]),
+            Ok(Options {
+                explicit_lifetime: true,
+                filter: None,
+            })
         );
     }
 }

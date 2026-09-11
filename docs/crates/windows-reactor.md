@@ -10,6 +10,7 @@
 - [Self-contained deployment](windows-reactor-setup.md)
 - [Canvas integration](windows-canvas.md)
 - [Composition integration](windows-composition.md)
+- [Tray icon integration](windows-trayicon.md)
 
 ## When to use it
 

@@ -7,6 +7,7 @@
 - 🚀 [Getting started](../../crates/libs/window/readme.md)
 - 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/window)
+- [Tray icon guide](windows-trayicon.md)
 
 ## When to use it
 

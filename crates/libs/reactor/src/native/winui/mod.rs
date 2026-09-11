@@ -1403,25 +1403,28 @@ impl WinUiRuntime {
                 self.windows.insert(*node, window);
             }
             Command::ActivateWindow { node } => {
+                self.windows
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?
+                    .Activate()
+                    .map_err(native_error)?;
+            }
+            Command::RequestWindowActivation { node } => {
                 let window = self
                     .windows
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;
-                let mut hwnd = std::ptr::null_mut();
-                unsafe {
-                    window
-                        .cast::<IWindowNative>()
-                        .map_err(native_error)?
-                        .WindowHandle(&mut hwnd)
-                        .ok()
-                        .map_err(native_error)?;
-                    if IsIconic(hwnd).as_bool() {
-                        _ = ShowWindow(hwnd, SW_RESTORE);
-                    }
-                }
                 window.Activate().map_err(native_error)?;
-                unsafe {
-                    _ = SetForegroundWindow(hwnd);
+                if let Ok(native) = window.cast::<IWindowNative>() {
+                    let mut hwnd = std::ptr::null_mut();
+                    unsafe {
+                        if native.WindowHandle(&mut hwnd).is_ok() {
+                            if IsIconic(hwnd).as_bool() {
+                                _ = ShowWindow(hwnd, SW_RESTORE);
+                            }
+                            _ = SetForegroundWindow(hwnd);
+                        }
+                    }
                 }
             }
             Command::CloseWindow { node } => {
@@ -4716,8 +4719,26 @@ pub fn initialize_ui_thread() -> windows_core::Result<()> {
     result.ok()
 }
 
+pub fn exit_application() -> windows_core::Result<()> {
+    let result = Application::Current().and_then(|application| application.Exit());
+    if result.is_err() {
+        unsafe {
+            PostQuitMessage(0);
+        }
+    }
+    result
+}
+
 pub fn exit_ui_thread() {
-    unsafe {
-        PostQuitMessage(0);
+    let handler = DispatcherQueueHandler::new(|| {
+        _ = exit_application();
+    });
+    let queued = DispatcherQueue::GetForCurrentThread().and_then(|dispatcher| {
+        dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::High, &handler)
+    });
+    if !matches!(queued, Ok(true)) {
+        unsafe {
+            PostQuitMessage(0);
+        }
     }
 }

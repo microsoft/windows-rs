@@ -10,6 +10,7 @@
     GetMonitorInfoW
     GetSystemMetrics
     IMAGE_ICON
+    KillTimer
     LoadImageW
     LR_LOADFROMFILE
     MF_SEPARATOR
@@ -36,6 +37,7 @@
     RegisterWindowMessageW
     SetForegroundWindow
     SetThreadDpiAwarenessContext
+    SetTimer
     Shell_NotifyIconGetRect
     Shell_NotifyIconW
     SM_CXSMICON
@@ -46,8 +48,8 @@
     TPM_RIGHTALIGN
     TPM_RIGHTBUTTON
     TPM_TOPALIGN
-    TPM_WORKAREA
     TrackPopupMenu
     WM_CONTEXTMENU
     WM_NULL
+    WM_TIMER
     WM_USER

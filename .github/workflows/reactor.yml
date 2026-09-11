@@ -94,6 +94,8 @@ jobs:
           $PSNativeCommandUseErrorActionPreference = $true
           cargo run -p test-reactor-selftest --features self-contained `
             --quiet -- --headless
+          cargo run -p test-reactor-selftest --features self-contained `
+            --quiet -- --headless --explicit-lifetime
           cargo run -p test-reactor-surface --features self-contained `
             --quiet -- --headless
 
@@ -118,8 +120,27 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
-          cargo test -p test_reactor application_lifetime_is_independent_of_windows `
-            -- --ignored --test-threads=1
+          $lifetime = cargo test -p test_reactor --test public_surface `
+            application_lifetime_is_independent_of_windows `
+            -- --ignored --exact --test-threads=1 2>&1
+          $lifetime | Write-Output
+          if ($LASTEXITCODE -ne 0 -or -not ($lifetime -match "1 passed")) {
+            throw "Reactor application lifetime test did not run successfully"
+          }
+          $startup = cargo test -p test_reactor --test public_surface `
+            application_startup_error_is_returned `
+            -- --ignored --exact --test-threads=1 2>&1
+          $startup | Write-Output
+          if ($LASTEXITCODE -ne 0 -or -not ($startup -match "1 passed")) {
+            throw "Reactor application startup error test did not run successfully"
+          }
+          $rejected = cargo test -p test_reactor --test public_surface `
+            excessive_startup_windows_are_rejected `
+            -- --ignored --exact --test-threads=1 2>&1
+          $rejected | Write-Output
+          if ($LASTEXITCODE -ne 0 -or -not ($rejected -match "1 passed")) {
+            throw "Reactor rejected-window test did not run successfully"
+          }
           cargo run -p test-reactor-selftest --quiet -- --headless
           cargo run -p test-reactor-surface --quiet -- --headless
 

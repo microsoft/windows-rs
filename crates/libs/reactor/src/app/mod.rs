@@ -81,6 +81,17 @@ impl LiveHost {
         }
         None
     }
+
+    #[cfg(feature = "test")]
+    fn retire_test_window(&mut self, token: WindowToken) {
+        if self.primary == Some(token) {
+            self.primary = self
+                .windows
+                .keys()
+                .copied()
+                .find(|candidate| *candidate != token);
+        }
+    }
 }
 
 trait LivePump {
@@ -765,7 +776,16 @@ impl AppContext {
 
     /// Exits the application message loop.
     pub fn exit(&self) -> windows_core::Result<()> {
-        Application::Current()?.Exit()
+        let result = exit_application();
+        if let Err(error) = &result {
+            eprintln!("windows-reactor application exit fault: {error}");
+            HOST.with(|host| {
+                if let Some(host) = host.borrow_mut().as_mut() {
+                    host.fault = Some(error.clone());
+                }
+            });
+        }
+        result
     }
 }
 
@@ -806,15 +826,7 @@ impl AppProxy {
     /// Requests application exit from any thread.
     pub fn exit(&self) -> windows_core::Result<()> {
         self.dispatch(|context| {
-            if let Err(error) = context.exit() {
-                eprintln!("windows-reactor application exit fault: {error}");
-                HOST.with(|host| {
-                    if let Some(host) = host.borrow_mut().as_mut() {
-                        host.fault = Some(error);
-                    }
-                });
-                exit_ui_thread();
-            }
+            _ = context.exit();
         })
     }
 }
@@ -876,7 +888,8 @@ impl App {
     /// `startup` runs on the UI thread and may open windows or create other application resources.
     /// Its return value remains alive until [`AppContext::exit`] or [`AppProxy::exit`] ends the
     /// message loop. Unlike the other run methods, the application may start with no windows and
-    /// closing its last Reactor window does not exit it.
+    /// closing its last Reactor window does not exit it. The retained value is dropped on the UI
+    /// thread after the message loop has stopped and must not enqueue additional UI work.
     pub fn run_with<T>(
         startup: impl FnOnce(&AppContext) -> windows_core::Result<T> + 'static,
     ) -> windows_core::Result<()>
@@ -1022,7 +1035,7 @@ impl App {
                     *launch_result.borrow_mut() = Err(error.clone());
                     exit_ui_thread();
                 }
-                launched
+                Ok(())
             });
             match create_application(on_launched) {
                 Ok(created) => *application.borrow_mut() = Some(created),
@@ -1076,8 +1089,14 @@ fn publish_mounted_window(pump: Box<dyn LivePump>) {
         assert!(host.in_flight.remove(&token));
         host.pending_opens = host.pending_opens.checked_sub(1).unwrap();
         if host.closed_in_flight.remove(&token) {
+            #[cfg(feature = "test")]
+            host.retire_test_window(token);
             Some((pump.take().unwrap(), host.should_exit()))
         } else {
+            #[cfg(feature = "test")]
+            if host.primary.is_none() {
+                host.primary = Some(token);
+            }
             assert!(host.windows.insert(token, pump.take().unwrap()).is_none());
             None
         }
@@ -1186,6 +1205,8 @@ fn reject_pending_window(mut pump: Box<dyn LivePump>, error: PumpError) {
         assert!(host.in_flight.remove(&token));
         host.closed_in_flight.remove(&token);
         host.pending_opens = host.pending_opens.checked_sub(1).unwrap();
+        #[cfg(feature = "test")]
+        host.retire_test_window(token);
         if !rejected {
             host.fault = Some(pump_error(error.clone()));
         }
@@ -1286,8 +1307,12 @@ pub(crate) fn dispatch_native_events(token: WindowToken) {
             host.in_flight.remove(&token);
             let closed = host.closed_in_flight.remove(&token);
             if let Some(error) = fault {
+                #[cfg(feature = "test")]
+                host.retire_test_window(token);
                 host.fault = Some(error);
             } else if closed {
+                #[cfg(feature = "test")]
+                host.retire_test_window(token);
                 finalize = Some((live, host.should_exit()));
             } else {
                 host.windows.insert(token, live);
@@ -1310,6 +1335,10 @@ pub(crate) fn dispatch_window_closed(token: WindowToken) {
             return (None, false);
         }
         let live = host.windows.remove(&token);
+        #[cfg(feature = "test")]
+        if live.is_some() {
+            host.retire_test_window(token);
+        }
         (live, host.should_exit())
     });
     if let Some(live) = live {

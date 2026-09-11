@@ -20,10 +20,7 @@ fn builder_accepts_the_public_configuration() {
 #[test]
 #[ignore = "requires an interactive Windows shell"]
 fn live_icon_has_a_window_and_shell_rectangle() {
-    let path = concat!(
-        env!("CARGO_MANIFEST_DIR"),
-        "\\..\\..\\..\\samples\\reactor\\icon\\icon.ico"
-    );
+    let path = concat!(env!("CARGO_MANIFEST_DIR"), "\\assets\\icon.ico");
     let mut icon = TrayIcon::new(path).tooltip("Live test").build().unwrap();
     assert!(!icon.hwnd().is_null());
     icon.set_tooltip(Some("Updated live test")).unwrap();
@@ -37,10 +34,7 @@ fn live_icon_has_a_window_and_shell_rectangle() {
 #[test]
 #[ignore = "requires an interactive Windows shell"]
 fn window_and_tray_icon_lifetimes_are_independent() {
-    let path = concat!(
-        env!("CARGO_MANIFEST_DIR"),
-        "\\..\\..\\..\\samples\\reactor\\icon\\icon.ico"
-    );
+    let path = concat!(env!("CARGO_MANIFEST_DIR"), "\\assets\\icon.ico");
 
     let window = windows_window::Window::new("Tray icon lifetime test")
         .quit_on_close(false)

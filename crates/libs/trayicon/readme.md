@@ -22,9 +22,10 @@ fn main() -> windows_trayicon::Result<()> {
         .menu(Menu::new().item(1, "Exit"))
         .on_event(|event| match event {
             TrayIconEvent::Activate { .. } => println!("activated"),
-            TrayIconEvent::ContextMenu { .. } => println!("context menu requested"),
             TrayIconEvent::MenuItem { id: 1 } => windows_window::quit(),
-            TrayIconEvent::Unavailable => eprintln!("the Windows Shell rejected the tray icon"),
+            TrayIconEvent::Unavailable => {
+                eprintln!("the Windows Shell could not restore the tray icon");
+            }
             _ => {}
         })
         .build()?;

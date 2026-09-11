@@ -739,7 +739,7 @@ impl<R: NativeRuntime> Pump<R> {
                 .push(Command::CloseWindow { node: window });
         } else if activate {
             plan.post_publish_commands
-                .push(Command::ActivateWindow { node: window });
+                .push(Command::RequestWindowActivation { node: window });
         }
     }
 

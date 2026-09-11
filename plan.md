@@ -150,6 +150,26 @@ last-Reactor-window-exits behavior.
 Gate: windows, tray icons, pickers, WebViews, and background services are peers under application
 lifetime rather than implicit owners of the process.
 
+## Gate 6: deep review and release polish
+
+- [x] Separate initial WinUI activation from explicit restore-and-foreground requests.
+- [x] Keep HWND lookup best-effort for explicit foreground activation.
+- [x] Bound Explorer recovery retries and test the retry state.
+- [x] Avoid application callback reentrancy when posting a tray event fails.
+- [x] Clean up partial Shell registration after add/version failures.
+- [x] Propagate startup errors without returning an error through WinUI's `OnLaunched` callback.
+- [x] Test startup failure, rejected startup windows, and explicit exit with an active window.
+- [x] Run the self-test harness under explicit application lifetime in self-contained CI.
+- [x] Give the tray sample and tests tray-specific icon assets.
+- [x] Resolve and document the popup-coordinate contract for hosts with mixed DPI-awareness
+      contexts.
+- [ ] Run the complete framework-dependent and self-contained live suites on CI.
+- [ ] Repeat the interactive tray, Explorer recovery, foreground, and explicit-exit checks after
+      the final implementation changes.
+
+Gate: deterministic tests and CI cover failure paths and both lifetime modes, with no unresolved
+coordinate or shutdown behavior.
+
 ## Pull request gates
 
 ### Standalone tray-icon pull request

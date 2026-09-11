@@ -1,3 +1,4 @@
+use windows_core::{Error, HRESULT};
 use windows_reactor::*;
 
 use std::sync::Arc;
@@ -187,15 +188,17 @@ impl Drop for ClosingWindow {
 }
 
 #[derive(Clone)]
-struct HoldingWindowInput(Arc<AtomicBool>);
+struct HoldingWindowInput(Arc<AtomicBool>, Arc<AtomicBool>);
 
 impl PartialEq for HoldingWindowInput {
     fn eq(&self, other: &Self) -> bool {
-        Arc::ptr_eq(&self.0, &other.0)
+        Arc::ptr_eq(&self.0, &other.0) && Arc::ptr_eq(&self.1, &other.1)
     }
 }
 
-struct HoldingWindow;
+struct HoldingWindow {
+    dropped: Arc<AtomicBool>,
+}
 
 impl Component for HoldingWindow {
     type Input = HoldingWindowInput;
@@ -203,13 +206,21 @@ impl Component for HoldingWindow {
 
     fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
         input.0.store(true, Ordering::Release);
-        Self
+        Self {
+            dropped: Arc::clone(&input.1),
+        }
     }
 
     fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         context.window_frame("Application exit test", "Waiting for explicit exit...")
+    }
+}
+
+impl Drop for HoldingWindow {
+    fn drop(&mut self) {
+        self.dropped.store(true, Ordering::Release);
     }
 }
 
@@ -228,9 +239,20 @@ impl Drop for AppResource {
 #[test]
 #[ignore = "runs the interactive WinUI application loop"]
 fn application_lifetime_is_independent_of_windows() {
+    let completed = Arc::new(AtomicBool::new(false));
+    let watchdog_completed = Arc::clone(&completed);
+    std::thread::spawn(move || {
+        std::thread::sleep(Duration::from_secs(20));
+        if !watchdog_completed.load(Ordering::Acquire) {
+            eprintln!("Reactor application lifetime test timed out");
+            std::process::exit(1);
+        }
+    });
+
     let opened = Arc::new(AtomicBool::new(false));
     let window_dropped = Arc::new(AtomicBool::new(false));
     let active_window = Arc::new(AtomicBool::new(false));
+    let active_window_dropped = Arc::new(AtomicBool::new(false));
     let explicit_exit = Arc::new(AtomicBool::new(false));
     let resource_dropped = Arc::new(AtomicBool::new(false));
 
@@ -238,6 +260,7 @@ fn application_lifetime_is_independent_of_windows() {
         let opened = Arc::clone(&opened);
         let window_dropped = Arc::clone(&window_dropped);
         let active_window = Arc::clone(&active_window);
+        let active_window_dropped = Arc::clone(&active_window_dropped);
         let explicit_exit = Arc::clone(&explicit_exit);
         let resource_dropped = Arc::clone(&resource_dropped);
         move |app| {
@@ -263,10 +286,11 @@ fn application_lifetime_is_independent_of_windows() {
                 std::thread::sleep(Duration::from_millis(500));
 
                 let mounted = Arc::clone(&active_window);
+                let dropped = Arc::clone(&active_window_dropped);
                 proxy
                     .dispatch(move |app| {
                         app.open_window(View::component::<HoldingWindow>(HoldingWindowInput(
-                            mounted,
+                            mounted, dropped,
                         )))
                         .unwrap();
                     })
@@ -294,8 +318,32 @@ fn application_lifetime_is_independent_of_windows() {
     assert!(opened.load(Ordering::Acquire));
     assert!(window_dropped.load(Ordering::Acquire));
     assert!(active_window.load(Ordering::Acquire));
+    assert!(active_window_dropped.load(Ordering::Acquire));
     assert!(explicit_exit.load(Ordering::Acquire));
     assert!(resource_dropped.load(Ordering::Acquire));
+    completed.store(true, Ordering::Release);
+}
+
+#[test]
+#[ignore = "runs the interactive WinUI application loop"]
+fn application_startup_error_is_returned() {
+    let expected = HRESULT(0x8000_4005_u32 as i32);
+    let error =
+        App::run_with(move |_| Err::<(), _>(Error::new(expected, "startup failed"))).unwrap_err();
+    assert_eq!(error.code(), expected);
+}
+
+#[test]
+#[ignore = "runs the interactive WinUI application loop"]
+fn excessive_startup_windows_are_rejected() {
+    assert!(
+        App::run_with(|app| {
+            app.open_windows(
+                (0..100).map(|index| TextBlock::new().text(format!("Window {index}")).into()),
+            )
+        })
+        .is_err()
+    );
 }
 
 #[test]

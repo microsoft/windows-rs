@@ -106,7 +106,7 @@ fn activate_request_runs_after_component_publication() {
         .commands()
         .iter()
         .flatten()
-        .filter(|command| matches!(command, Command::ActivateWindow { .. }))
+        .filter(|command| matches!(command, Command::RequestWindowActivation { .. }))
         .count();
 
     assert!(!input.window.borrow().as_ref().unwrap().request_activate());
@@ -125,7 +125,7 @@ fn activate_request_runs_after_component_publication() {
             .commands()
             .iter()
             .flatten()
-            .filter(|command| matches!(command, Command::ActivateWindow { .. }))
+            .filter(|command| matches!(command, Command::RequestWindowActivation { .. }))
             .count(),
         initial + 1
     );

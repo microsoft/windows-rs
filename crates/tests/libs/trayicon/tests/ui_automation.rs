@@ -23,10 +23,7 @@ const CALLBACK_MESSAGE: u32 = WM_USER as u32 + 1;
 #[test]
 #[ignore = "requires an unlocked interactive Windows desktop"]
 fn automates_native_menu_selection() {
-    let path = concat!(
-        env!("CARGO_MANIFEST_DIR"),
-        "\\..\\..\\..\\samples\\reactor\\icon\\icon.ico"
-    );
+    let path = concat!(env!("CARGO_MANIFEST_DIR"), "\\assets\\icon.ico");
     let activated = Arc::new(AtomicBool::new(false));
     let selected = Arc::new(AtomicBool::new(false));
     let callback_activated = Arc::clone(&activated);
@@ -65,10 +62,7 @@ fn automates_native_menu_selection() {
 #[test]
 #[ignore = "requires an interactive Windows shell"]
 fn raw_message_loop_dispatches_posted_events() {
-    let path = concat!(
-        env!("CARGO_MANIFEST_DIR"),
-        "\\..\\..\\..\\samples\\reactor\\icon\\icon.ico"
-    );
+    let path = concat!(env!("CARGO_MANIFEST_DIR"), "\\assets\\icon.ico");
     let activated = std::rc::Rc::new(std::cell::Cell::new(false));
     let callback_activated = std::rc::Rc::clone(&activated);
     let icon = TrayIcon::new(path)

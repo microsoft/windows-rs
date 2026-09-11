@@ -11,6 +11,8 @@ use windows_window::{Window, WindowBuilder};
 const CALLBACK_MESSAGE: u32 = WM_USER as u32 + 1;
 const DISPATCH_MESSAGE: u32 = WM_USER as u32 + 2;
 const ICON_ID: u32 = 1;
+const RECOVERY_TIMER_ID: usize = 1;
+const MAX_RECOVERY_ATTEMPTS: u8 = 3;
 const E_FAIL: HRESULT = HRESULT(0x8000_4005_u32 as i32);
 const E_INVALIDARG: HRESULT = HRESULT(0x8007_0057_u32 as i32);
 
@@ -128,6 +130,8 @@ impl OwnedMenu {
             let _dpi = ThreadDpiContext::per_monitor_v2();
             popup_anchor(hwnd, position)
         };
+        // The callback window's creation context is restored automatically while its window
+        // procedure runs, so convert the physical Shell point before entering the menu's modal loop.
         let mut position = POINT {
             x: position.x,
             y: position.y,
@@ -142,7 +146,7 @@ impl OwnedMenu {
             _ = SetForegroundWindow(hwnd);
             let command = TrackPopupMenu(
                 self.0,
-                (TPM_RETURNCMD | TPM_RIGHTBUTTON | TPM_WORKAREA) as u32 | alignment,
+                (TPM_RETURNCMD | TPM_RIGHTBUTTON) as u32 | alignment,
                 position.x,
                 position.y,
                 0,
@@ -309,6 +313,7 @@ impl Registration {
     {
         let data = self.data(hwnd);
         if !notify(NIM_ADD as u32, &data) {
+            _ = notify(NIM_DELETE as u32, &data);
             return Err(shell_error("failed to add notification-area icon"));
         }
 
@@ -428,7 +433,25 @@ struct Shared {
     events: RefCell<VecDeque<TrayIconEvent>>,
     handler: RefCell<Option<EventHandler>>,
     menu: Option<OwnedMenu>,
+    recovery: RecoveryState,
     registration: RefCell<Registration>,
+}
+
+#[derive(Default)]
+struct RecoveryState {
+    attempts: Cell<u8>,
+}
+
+impl RecoveryState {
+    fn reset(&self) {
+        self.attempts.set(0);
+    }
+
+    fn failed(&self) -> bool {
+        let attempts = self.attempts.get() + 1;
+        self.attempts.set(attempts);
+        attempts < MAX_RECOVERY_ATTEMPTS
+    }
 }
 
 impl Shared {
@@ -440,10 +463,9 @@ impl Shared {
 
     fn post(&self, hwnd: *mut core::ffi::c_void, event: TrayIconEvent) {
         self.events.borrow_mut().push_back(event);
-        if !unsafe { PostMessageW(hwnd, DISPATCH_MESSAGE, 0, 0) }.as_bool()
-            && let Some(event) = self.events.borrow_mut().pop_back()
-        {
-            self.dispatch(event);
+        if !unsafe { PostMessageW(hwnd, DISPATCH_MESSAGE, 0, 0) }.as_bool() {
+            self.events.borrow_mut().pop_back();
+            eprintln!("windows-trayicon could not queue a Shell event");
         }
     }
 
@@ -470,7 +492,9 @@ impl Shared {
 
     fn recover(&self, hwnd: *mut core::ffi::c_void) -> Result<()> {
         let Ok(registration) = self.registration.try_borrow() else {
-            return Ok(());
+            return Err(shell_error(
+                "notification-area icon recovery was requested during an update",
+            ));
         };
         registration.recover(hwnd)
     }
@@ -481,6 +505,27 @@ impl Shared {
         } else {
             self.recover(hwnd)
         }
+    }
+
+    fn start_recovery(&self, hwnd: *mut core::ffi::c_void) {
+        self.recovery.reset();
+        self.retry_recovery(hwnd);
+    }
+
+    fn retry_recovery(&self, hwnd: *mut core::ffi::c_void) {
+        unsafe {
+            _ = KillTimer(hwnd, RECOVERY_TIMER_ID);
+        }
+        if self.recover(hwnd).is_ok() {
+            self.recovery.reset();
+            return;
+        }
+
+        if self.recovery.failed() && unsafe { SetTimer(hwnd, RECOVERY_TIMER_ID, 1_000, None) } != 0
+        {
+            return;
+        }
+        self.post(hwnd, TrayIconEvent::Unavailable);
     }
 }
 
@@ -509,7 +554,9 @@ impl TrayIcon {
         self.window.hwnd()
     }
 
-    /// Returns the icon's current bounding rectangle in screen coordinates.
+    /// Returns the Shell's current icon anchor rectangle in screen coordinates.
+    ///
+    /// For an icon hidden in the overflow area, Windows may return the overflow button rectangle.
     pub fn rect(&self) -> Result<Rect> {
         let value = icon_rect(self.window.hwnd())?;
         Ok(Rect {
@@ -546,7 +593,9 @@ impl TrayIcon {
 impl Drop for TrayIcon {
     fn drop(&mut self) {
         self.shared.active.set(false);
-        self.shared.registration.borrow().delete(self.window.hwnd());
+        if let Ok(registration) = self.shared.registration.try_borrow() {
+            registration.delete(self.window.hwnd());
+        }
     }
 }
 
@@ -589,6 +638,7 @@ impl TrayIconBuilder {
             events: RefCell::new(VecDeque::new()),
             handler: RefCell::new(self.handler),
             menu,
+            recovery: RecoveryState::default(),
             registration: RefCell::new(Registration {
                 icon: OwnedIcon::load(&self.icon)?,
                 tooltip: self.tooltip.as_deref().map(tooltip_text).transpose()?,
@@ -613,10 +663,11 @@ fn callback_window(shared: Weak<Shared>, taskbar_created: u32) -> WindowBuilder 
                 if !shared.active.get() {
                     return Some(0);
                 }
-                let result = shared.recover(hwnd);
-                if result.is_err() {
-                    shared.post(hwnd, TrayIconEvent::Unavailable);
-                }
+                shared.start_recovery(hwnd);
+                return Some(0);
+            }
+            if message == WM_TIMER as u32 && wparam == RECOVERY_TIMER_ID {
+                shared.retry_recovery(hwnd);
                 return Some(0);
             }
             if message == CALLBACK_MESSAGE {
@@ -820,7 +871,7 @@ mod tests {
     #[test]
     fn failed_icon_replacement_restores_the_previous_icon() {
         let mut registration = registration(1);
-        let mut results = [false, false, true].into_iter();
+        let mut results = [false, false, true, true].into_iter();
         let mut payloads = Vec::new();
         let mut notify = |message, data: &NOTIFYICONDATAW| {
             payloads.push((message, data.hIcon as usize));
@@ -838,8 +889,49 @@ mod tests {
             [
                 (NIM_MODIFY as u32, 2),
                 (NIM_ADD as u32, 2),
+                (NIM_DELETE as u32, 2),
                 (NIM_MODIFY as u32, 1)
             ]
+        );
+    }
+
+    #[test]
+    fn failed_version_selection_deletes_the_added_icon() {
+        let registration = registration(1);
+        let mut results = [true, false, true].into_iter();
+        let mut calls = Vec::new();
+        let mut notify = |message, _: &NOTIFYICONDATAW| {
+            calls.push(message);
+            results.next().unwrap()
+        };
+
+        assert!(
+            registration
+                .add_with(core::ptr::null_mut(), &mut notify)
+                .is_err()
+        );
+        assert_eq!(
+            calls,
+            [NIM_ADD as u32, NIM_SETVERSION as u32, NIM_DELETE as u32]
+        );
+    }
+
+    #[test]
+    fn failed_modify_can_restore_registration() {
+        let registration = registration(1);
+        let mut results = [false, true, true].into_iter();
+        let mut calls = Vec::new();
+        let mut notify = |message, _: &NOTIFYICONDATAW| {
+            calls.push(message);
+            results.next().unwrap()
+        };
+
+        registration
+            .update_with(core::ptr::null_mut(), &mut notify)
+            .unwrap();
+        assert_eq!(
+            calls,
+            [NIM_MODIFY as u32, NIM_ADD as u32, NIM_SETVERSION as u32]
         );
     }
 
@@ -859,6 +951,17 @@ mod tests {
             calls,
             [NIM_DELETE as u32, NIM_ADD as u32, NIM_SETVERSION as u32]
         );
+    }
+
+    #[test]
+    fn recovery_attempts_are_bounded_and_resettable() {
+        let recovery = RecoveryState::default();
+        assert!(recovery.failed());
+        assert!(recovery.failed());
+        assert!(!recovery.failed());
+
+        recovery.reset();
+        assert!(recovery.failed());
     }
 
     #[test]
@@ -883,7 +986,10 @@ mod tests {
                     right: 420,
                     bottom: 20,
                 },
-                Point { x: 420, y: 20 },
+                (
+                    Point { x: 420, y: 20 },
+                    (TPM_RIGHTALIGN | TPM_TOPALIGN) as u32,
+                ),
             ),
             (
                 RECT {
@@ -892,7 +998,10 @@ mod tests {
                     right: 1000,
                     bottom: 420,
                 },
-                Point { x: 980, y: 420 },
+                (
+                    Point { x: 980, y: 420 },
+                    (TPM_RIGHTALIGN | TPM_BOTTOMALIGN) as u32,
+                ),
             ),
             (
                 RECT {
@@ -901,7 +1010,10 @@ mod tests {
                     right: 420,
                     bottom: 1000,
                 },
-                Point { x: 420, y: 980 },
+                (
+                    Point { x: 420, y: 980 },
+                    (TPM_RIGHTALIGN | TPM_BOTTOMALIGN) as u32,
+                ),
             ),
             (
                 RECT {
@@ -910,11 +1022,14 @@ mod tests {
                     right: 20,
                     bottom: 420,
                 },
-                Point { x: 20, y: 420 },
+                (
+                    Point { x: 20, y: 420 },
+                    (TPM_LEFTALIGN | TPM_BOTTOMALIGN) as u32,
+                ),
             ),
         ];
         for (icon, expected) in cases {
-            assert_eq!(anchor_for_rect(icon, monitor).0, expected);
+            assert_eq!(anchor_for_rect(icon, monitor), expected);
         }
     }
 }

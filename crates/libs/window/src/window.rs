@@ -377,7 +377,11 @@ pub fn pump() -> bool {
 
 fn class_name() -> PCWSTR {
     static NAME: OnceLock<Vec<u16>> = OnceLock::new();
-    let name = NAME.get_or_init(|| "windows-window.Window\0".encode_utf16().collect());
+    let name = NAME.get_or_init(|| {
+        concat!("windows-window.Window.", env!("CARGO_PKG_VERSION"), "\0")
+            .encode_utf16()
+            .collect()
+    });
     PCWSTR(name.as_ptr())
 }
 

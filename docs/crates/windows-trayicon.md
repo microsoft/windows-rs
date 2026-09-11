@@ -7,7 +7,7 @@
 - 🚀 [Getting started](../../crates/libs/trayicon/readme.md)
 - 🧩 [Standalone sample](../../crates/samples/trayicon/basic)
 - 🧩 [Reactor sample](../../crates/samples/reactor/trayicon)
-- 📁 [Source](../../crates/libs/trayicon)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/trayicon)
 - [Window guide](windows-window.md)
 
 ## When to use it
@@ -34,9 +34,6 @@ fn main() -> windows_trayicon::Result<()> {
         .on_event(|event| match event {
             TrayIconEvent::Activate { position } => {
                 println!("selected at {}, {}", position.x, position.y);
-            }
-            TrayIconEvent::ContextMenu { position } => {
-                println!("menu requested at {}, {}", position.x, position.y);
             }
             TrayIconEvent::MenuItem { id: 1 } => windows_window::quit(),
             TrayIconEvent::Unavailable => {
@@ -99,8 +96,9 @@ Failed changes retain the previous owned resource and return a `windows_core::Er
 ## Shell restarts
 
 The hidden callback window listens for the registered `TaskbarCreated` message. When Explorer
-restarts, the crate adds the icon again and reapplies `NOTIFYICON_VERSION_4`. `Unavailable` reports
-that the Shell rejected this recovery.
+restarts, the crate adds the icon again and reapplies `NOTIFYICON_VERSION_4`. Transient failures
+receive three attempts one second apart. `Unavailable` reports that all recovery attempts failed;
+the application can drop the value and build another `TrayIcon` to try again later.
 
 The crate uses window-plus-numeric identity internally. It does not manipulate notification-area
 promotion settings; visibility in the main notification area or overflow remains under user and
@@ -124,8 +122,7 @@ The Reactor sample starts with no Reactor windows, opens them from tray events, 
 that either the window or tray icon can be removed and created again while the other remains
 active. It exits when the last window closes after the tray icon has been removed.
 
-Run the interactive sample from a terminal. It logs each activation and updates the tooltip with
-an activation count while reloading the icon. Its native context menu contains an Exit command:
+Run the standalone sample from a terminal. It reports activation and provides a native Exit menu:
 
 ```text
 cargo run -p trayicon-basic
@@ -139,6 +136,10 @@ cargo run -p trayicon-basic
 `crates/tools/bindings/src/trayicon.txt`. It contains only the Shell notification-icon, icon-file,
 registered-message, and geometry APIs used by the wrapper.
 
+`crates/tests/libs/trayicon/tests/support/bindings.rs` is generated from
+`crates/tools/bindings/src/trayicon_test.txt`. These private test bindings provide UI Automation
+and raw message-loop APIs without adding them to the published crate.
+
 `TrayIconBuilder::build` loads the icon, registers `TaskbarCreated`, creates an unshown
 `windows-window` top-level window without changing the host's process DPI policy, calls `NIM_ADD`,
 and then calls `NIM_SETVERSION` with `NOTIFYICON_VERSION_4`. Failure to set the version deletes the
@@ -147,6 +148,12 @@ partially added icon.
 `NIM_MODIFY` failures receive one full add-and-version attempt in case Explorer restarted between
 operations. The callback window decodes only activation and context-menu events. Keep additional
 Shell messages private until a public use case requires them.
+
+Popup placement queries Shell geometry under a temporary per-monitor-v2 thread context, then
+restores the host context and converts the physical anchor through the hidden callback window
+before calling `TrackPopupMenu`. Windows restores that window's creation-time DPI context while
+dispatching its window procedure. This keeps the menu's modal loop in the host context instead of
+holding a temporary DPI override while it dispatches unrelated windows.
 
 After changing the binding filter, run:
 
