@@ -4531,8 +4531,9 @@ fn focus_event_info(
     got_focus: bool,
 ) -> windows_core::Result<FocusEventInfo> {
     let original = args.OriginalSource()?;
-    let is_direct =
-        element.cast::<windows_core::IUnknown>()? == original.cast::<windows_core::IUnknown>()?;
+    let element_identity: &windows_core::IUnknown = element.into();
+    let original_identity: &windows_core::IUnknown = (&original).into();
+    let is_direct = element_identity == original_identity;
     let state = if got_focus {
         // FocusState can still describe the previous state while GotFocus is being raised.
         if let Some(state) = pending_focus_state {
