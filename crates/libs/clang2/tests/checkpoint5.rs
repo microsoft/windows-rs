@@ -59,6 +59,10 @@ typedef struct _ONLY_FLEXIBLE_ARRAY {
     short items[];
 } ONLY_FLEXIBLE_ARRAY;
 
+typedef struct _UNDERSCORE_FIELD {
+    int _;
+} UNDERSCORE_FIELD;
+
 typedef struct _BOX {
     POINT origin;
     PPOINT mutable_point;
@@ -258,6 +262,8 @@ struct __declspec(uuid(\"12345678-1234-abcd-9876-0123456789ab\")) IGuid {
     assert!(rdl.contains("first: [i32; 0]"));
     assert!(rdl.contains("struct ONLY_FLEXIBLE_ARRAY"));
     assert!(rdl.contains("items: [i16; 0]"));
+    assert!(rdl.contains("struct UNDERSCORE_FIELD"));
+    assert!(rdl.contains("__: i32"));
     assert!(rdl.contains("struct BOX"));
     assert!(rdl.contains("origin: POINT"));
     assert!(rdl.contains("mutable_point: PPOINT"));

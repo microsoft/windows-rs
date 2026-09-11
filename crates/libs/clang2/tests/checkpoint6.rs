@@ -257,6 +257,46 @@ fn interface_record_base_preserves_base_subobject() {
 }
 
 #[test]
+fn public_alias_bridges_to_nested_c_tag_definition() {
+    windows_clang::ensure_libclang();
+
+    let snapshot = extract(
+        [Input::new(
+            "nested_tag.hpp",
+            "typedef struct OWNER {\n\
+                 union _SEARCH { int value; } search;\n\
+             } OWNER;\n\
+             typedef union _SEARCH SEARCH;\n",
+        )],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    let rdl = snapshot.emit("NestedTag").unwrap();
+
+    assert!(rdl.contains("type SEARCH = _SEARCH"));
+    assert!(rdl.contains("union _SEARCH"));
+    assert!(rdl.contains("value: i32"));
+}
+
+#[test]
+fn identical_namespaced_types_collapse_in_flat_output() {
+    windows_clang::ensure_libclang();
+
+    let snapshot = extract(
+        [Input::new(
+            "namespaces.hpp",
+            "namespace First { typedef enum { None = 0, One = 1 } Flags; }\n\
+             namespace Second { typedef enum { None = 0, One = 1 } Flags; }\n",
+        )],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    let rdl = snapshot.emit("Namespaced").unwrap();
+
+    assert_eq!(rdl.matches("enum Flags").count(), 1);
+}
+
+#[test]
 fn same_tu_compatible_typedef_redeclarations_collapse() {
     windows_clang::ensure_libclang();
 
@@ -294,7 +334,9 @@ fn same_tu_compatible_function_redeclarations_collapse() {
     let snapshot = extract(
         [Input::new(
             "redeclared-function.hpp",
-            "extern \"C\" void Shared(int value);\nextern \"C\" void Shared(int value);\n",
+            "#define IN __attribute__((annotate(\"_In_\")))\n\
+             extern \"C\" void Shared(int first);\n\
+             extern \"C\" void Shared(IN int second);\n",
         )],
         &["-x", "c++"],
     )
@@ -320,6 +362,25 @@ fn indirect_sal_size_parameter_is_preserved() {
     let rdl = snapshot.emit_with_library("Sal", "api.dll").unwrap();
 
     assert!(rdl.contains("#[size_param(0)] data: *mut void"));
+}
+
+#[test]
+fn function_parameters_decay_to_function_pointers() {
+    windows_clang::ensure_libclang();
+
+    let snapshot = extract(
+        [Input::new(
+            "function-parameter.hpp",
+            "extern \"C\" void UseCallback(void Callback(int value));\n",
+        )],
+        &["-x", "c++"],
+    )
+    .unwrap();
+    let rdl = snapshot
+        .emit_with_library("FunctionParameter", "api.dll")
+        .unwrap();
+
+    assert!(rdl.contains("fn UseCallback(Callback: *mut u8)"));
 }
 
 #[test]

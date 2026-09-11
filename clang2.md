@@ -32,8 +32,10 @@ Checkpoint 6 status:
 - `tool-webview` completes through RDL, winmd, and bindings with matching interface and enum sets.
 - External type identity, export selection, flag enums, and source calling conventions are explicit.
 - A real `fileapi.h` slice passes through a combined TU with included-header root ownership.
-- The first 100 user-mode headers complete through winmd with 5,194 routed exports.
-- Larger user-mode slices, partitioning, satellite inputs, and architecture merge remain.
+- All 356 user-mode headers complete through winmd with 11,164 routed exports.
+- The full run takes about 200 seconds; planning is about one second and extraction dominates.
+- Per-header partitioning, satellite inputs, unsupported classification, and architecture merge
+  remain.
 
 ## Stop gates
 

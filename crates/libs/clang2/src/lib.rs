@@ -377,7 +377,13 @@ impl Snapshot {
     }
 
     pub fn emit_with_options(&self, options: &EmitOptions<'_>) -> Result<String, Error> {
+        let timing = std::env::var_os("WINDOWS_CLANG2").is_some();
+        let plan_time = std::time::Instant::now();
         let plan = self.plan(options.references, options.functions)?;
+        if timing {
+            eprintln!("clang2 planning: {:.2}s", plan_time.elapsed().as_secs_f32());
+        }
+        let emission_time = std::time::Instant::now();
         let mut items = BTreeMap::new();
         for planned in plan.types {
             let fact = planned.fact;
@@ -599,6 +605,12 @@ impl Snapshot {
         for depth in (0..namespaces.len()).rev() {
             result.push_str(&format!("{}}}\n", "    ".repeat(depth)));
         }
+        if timing {
+            eprintln!(
+                "clang2 emission: {:.2}s",
+                emission_time.elapsed().as_secs_f32()
+            );
+        }
         Ok(result)
     }
 
@@ -607,6 +619,8 @@ impl Snapshot {
         references: &BTreeMap<String, TypeReference>,
         selected_functions: Option<&BTreeSet<String>>,
     ) -> Result<Plan<'_>, Error> {
+        let timing = std::env::var_os("WINDOWS_CLANG2").is_some();
+        let mut phase_time = std::time::Instant::now();
         #[derive(Default)]
         struct Roots<'a> {
             types: Vec<&'a Fact>,
@@ -694,6 +708,13 @@ impl Snapshot {
                     "selected function `{missing}` was not found"
                 )));
             }
+        }
+        if timing {
+            eprintln!(
+                "clang2 plan roots: {:.2}s",
+                phase_time.elapsed().as_secs_f32()
+            );
+            phase_time = std::time::Instant::now();
         }
 
         let facts_by_name = loop {
@@ -814,71 +835,25 @@ impl Snapshot {
             }
             break facts_by_name;
         };
+        if timing {
+            eprintln!(
+                "clang2 plan closure: {:.2}s",
+                phase_time.elapsed().as_secs_f32()
+            );
+            phase_time = std::time::Instant::now();
+        }
 
         let local_roots = root_names.clone();
-        let mut required: BTreeSet<String> = facts_by_name
+        let required: BTreeSet<String> = facts_by_name
             .keys()
             .map(|name| (*name).to_string())
             .collect();
-        required.extend(root_names);
-        for constant in &constants {
-            insert_required_type_names(&constant.ty, &mut required);
-        }
-        for function in &functions {
-            if let FactData::Function { params, result, .. } = &function.data {
-                insert_required_type_names(result, &mut required);
-                for param in params {
-                    insert_required_type_names(&param.ty, &mut required);
-                }
-                required
-                    .retain(|name| local_roots.contains(name) || !references.contains_key(name));
-            }
-        }
-        let mut queue: Vec<_> = required.iter().rev().cloned().collect();
-        while let Some(name) = queue.pop() {
-            let Some(fact) = facts_by_name.get(name.as_str()) else {
-                return Err(Error(format!("planned type `{name}` is not emittable")));
-            };
-            let mut dependencies = BTreeSet::new();
-            match &fact.data {
-                FactData::Callback { params, result, .. } => {
-                    insert_required_type_names(result, &mut dependencies);
-                    for param in params {
-                        insert_required_type_names(param, &mut dependencies);
-                    }
-                }
-                FactData::Typedef { target } => {
-                    insert_required_type_names(target, &mut dependencies);
-                }
-                FactData::Record { base, fields, .. } => {
-                    if let Some(base) = base {
-                        insert_required_type_names(base, &mut dependencies);
-                    }
-                    for field in fields {
-                        insert_required_type_names(&field.ty, &mut dependencies);
-                    }
-                }
-                FactData::Interface { base, methods, .. } => {
-                    if let Some(base) = base {
-                        insert_required_type_names(base, &mut dependencies);
-                    }
-                    for method in methods {
-                        insert_required_type_names(&method.result, &mut dependencies);
-                        for param in &method.params {
-                            insert_required_type_names(&param.ty, &mut dependencies);
-                        }
-                    }
-                }
-                _ => {}
-            }
-            for dependency in dependencies {
-                if references.contains_key(&dependency) && !local_roots.contains(&dependency) {
-                    continue;
-                }
-                if required.insert(dependency.clone()) {
-                    queue.push(dependency);
-                }
-            }
+        if timing {
+            eprintln!(
+                "clang2 plan required: {:.2}s",
+                phase_time.elapsed().as_secs_f32()
+            );
+            phase_time = std::time::Instant::now();
         }
 
         let mut enum_alias_candidates: BTreeMap<&str, Vec<&str>> = BTreeMap::new();
@@ -922,6 +897,13 @@ impl Snapshot {
                 Some((target.to_string(), (*aliases.first().unwrap()).to_string()))
             })
             .collect();
+        if timing {
+            eprintln!(
+                "clang2 plan aliases: {:.2}s",
+                phase_time.elapsed().as_secs_f32()
+            );
+            phase_time = std::time::Instant::now();
+        }
         for (name, reference) in references {
             if !local_roots.contains(name) {
                 type_names.entry(name.clone()).or_insert_with(|| {
@@ -976,27 +958,40 @@ impl Snapshot {
                 );
             }
         }
-        loop {
-            let mut changed = false;
-            for fact in &self.facts {
-                if let FactData::Typedef {
-                    target: TypeRef::Named { name, declaration },
-                } = &fact.data
-                    && interface_names.contains(&(fact.origin.tu.clone(), name.clone()))
-                    && facts_index
-                        .get(name.as_str())
-                        .into_iter()
-                        .flatten()
-                        .any(|target| {
-                            target.origin.tu == fact.origin.tu && target.spelling == *declaration
-                        })
-                {
-                    changed |= interface_names.insert((fact.origin.tu.clone(), fact.name.clone()));
+        let mut interface_aliases: BTreeMap<(String, String), Vec<String>> = BTreeMap::new();
+        for fact in &self.facts {
+            if let FactData::Typedef {
+                target: TypeRef::Named { name, declaration },
+            } = &fact.data
+                && facts_index
+                    .get(name.as_str())
+                    .into_iter()
+                    .flatten()
+                    .any(|target| {
+                        target.origin.tu == fact.origin.tu && target.spelling == *declaration
+                    })
+            {
+                interface_aliases
+                    .entry((fact.origin.tu.clone(), name.clone()))
+                    .or_default()
+                    .push(fact.name.clone());
+            }
+        }
+        let mut interface_queue: Vec<_> = interface_names.iter().cloned().collect();
+        while let Some(key) = interface_queue.pop() {
+            for alias in interface_aliases.get(&key).into_iter().flatten() {
+                let alias = (key.0.clone(), alias.clone());
+                if interface_names.insert(alias.clone()) {
+                    interface_queue.push(alias);
                 }
             }
-            if !changed {
-                break;
-            }
+        }
+        if timing {
+            eprintln!(
+                "clang2 plan interfaces: {:.2}s",
+                phase_time.elapsed().as_secs_f32()
+            );
+            phase_time = std::time::Instant::now();
         }
         let flag_enums = self
             .facts
@@ -1027,6 +1022,12 @@ impl Snapshot {
         }
         constants.sort_by(|left, right| left.name.cmp(&right.name));
         functions.sort_by(|left, right| left.name.cmp(&right.name));
+        if timing {
+            eprintln!(
+                "clang2 plan finalize: {:.2}s",
+                phase_time.elapsed().as_secs_f32()
+            );
+        }
         Ok(Plan {
             types,
             functions,
@@ -1127,6 +1128,23 @@ fn choose_type_root<'a>(
     }
     if let [root] = distinct.as_slice() {
         return emittable_type(name, root);
+    }
+    if let Some(first) = distinct.first()
+        && distinct.iter().all(|fact| {
+            fact.origin.tu == first.origin.tu
+                && fact.kind == first.kind
+                && fact.definition == first.definition
+                && fact.data == first.data
+        })
+    {
+        return emittable_type(
+            name,
+            distinct
+                .iter()
+                .min_by_key(|fact| &fact.spelling)
+                .copied()
+                .unwrap(),
+        );
     }
     if let Some(class) = distinct
         .iter()
@@ -1248,6 +1266,28 @@ fn choose_type_root<'a>(
             ) && fact.definition
         })
         .collect();
+    if definitions.len() > 1 {
+        let root = definitions
+            .iter()
+            .min_by_key(|fact| &fact.spelling)
+            .copied()
+            .unwrap();
+        let equivalent_definitions = definitions.iter().all(|fact| {
+            fact.origin.tu == root.origin.tu && fact.kind == root.kind && fact.data == root.data
+        });
+        let definitions_and_aliases = distinct.iter().all(|fact| {
+            definitions.contains(fact)
+                || matches!(
+                    &fact.data,
+                    FactData::Typedef {
+                        target: TypeRef::Named { declaration, .. }
+                    } if definitions.iter().any(|definition| definition.spelling == *declaration)
+                )
+        });
+        if equivalent_definitions && definitions_and_aliases {
+            return Ok(root);
+        }
+    }
     if let [root] = definitions.as_slice() {
         let aliases_target_root = distinct.iter().all(|fact| {
             fact.origin == root.origin
@@ -1265,95 +1305,31 @@ fn choose_type_root<'a>(
             fact.origin == root.origin
                 || (!fact.definition
                     && fact.origin.tu == root.origin.tu
-                    && fact.parent == root.parent
                     && matches!(
                         (&fact.data, &root.data),
                         (FactData::Enum { .. }, FactData::Enum { .. })
                             | (FactData::Record { .. }, FactData::Record { .. })
                             | (FactData::Interface { .. }, FactData::Interface { .. })
-                    ))
+                    )
+                    && (fact.parent == root.parent
+                        || (root.parent.is_some()
+                            && fact.parent.is_none()
+                            && facts_index.values().flatten().any(|alias| {
+                                alias.root
+                                    && alias.origin.tu == fact.origin.tu
+                                    && matches!(
+                                        &alias.data,
+                                        FactData::Typedef {
+                                            target: TypeRef::Named { declaration, .. }
+                                        } if declaration == &fact.spelling
+                                    )
+                            }))))
         });
         if same_tu_declarations {
             return Ok(root);
         }
     }
     Err(Error(format!("ambiguous type root `{name}`")))
-}
-
-fn same_type_shape(left: &TypeRef, right: &TypeRef) -> bool {
-    match (left, right) {
-        (TypeRef::Void, TypeRef::Void) => true,
-        (TypeRef::Scalar(left), TypeRef::Scalar(right)) => left == right,
-        (TypeRef::Named { name: left, .. }, TypeRef::Named { name: right, .. }) => {
-            left == right
-                || matches!(
-                    (named_type_shape(left), named_type_shape(right)),
-                    (Some(left), Some(right)) if left == right
-                )
-        }
-        (
-            TypeRef::Pointer {
-                mutable: left_mutable,
-                target: left,
-            },
-            TypeRef::Pointer {
-                mutable: right_mutable,
-                target: right,
-            },
-        )
-        | (
-            TypeRef::Reference {
-                mutable: left_mutable,
-                target: left,
-            },
-            TypeRef::Reference {
-                mutable: right_mutable,
-                target: right,
-            },
-        ) => left_mutable == right_mutable && same_type_shape(left, right),
-        (
-            TypeRef::FunctionPointer {
-                convention: left_convention,
-                params: left_params,
-                result: left_result,
-            },
-            TypeRef::FunctionPointer {
-                convention: right_convention,
-                params: right_params,
-                result: right_result,
-            },
-        ) => {
-            left_convention == right_convention
-                && left_params.len() == right_params.len()
-                && left_params
-                    .iter()
-                    .zip(right_params)
-                    .all(|(left, right)| same_type_shape(left, right))
-                && same_type_shape(left_result, right_result)
-        }
-        (
-            TypeRef::OpaquePointer {
-                mutable: left_mutable,
-                tag: left_tag,
-            },
-            TypeRef::OpaquePointer {
-                mutable: right_mutable,
-                tag: right_tag,
-            },
-        ) => left_mutable == right_mutable && left_tag == right_tag,
-        (
-            TypeRef::Array {
-                target: left,
-                len: left_len,
-            },
-            TypeRef::Array {
-                target: right,
-                len: right_len,
-            },
-        ) => left_len == right_len && same_type_shape(left, right),
-        (TypeRef::InlineRecord(left), TypeRef::InlineRecord(right)) => left == right,
-        _ => false,
-    }
 }
 
 fn choose_constant_root<'a>(name: &str, roots: &[&'a Constant]) -> Result<&'a Constant, Error> {
@@ -1386,24 +1362,14 @@ fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, 
     if let Some(first) = distinct.first()
         && let FactData::Function {
             link_name: first_link_name,
-            convention: first_convention,
-            params: first_params,
-            result: first_result,
+            ..
         } = &first.data
         && distinct.iter().all(|fact| {
             fact.origin.tu == first.origin.tu
                 && fact.parent == first.parent
                 && matches!(
                     &fact.data,
-                    FactData::Function {
-                        link_name,
-                        convention,
-                        params,
-                        result,
-                    } if link_name == first_link_name
-                        && convention == first_convention
-                        && same_parameter_shapes(params, first_params)
-                        && same_type_shape(result, first_result)
+                    FactData::Function { link_name, .. } if link_name == first_link_name
                 )
         })
     {
@@ -1414,15 +1380,6 @@ fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, 
             .unwrap());
     }
     Err(Error(format!("ambiguous function root `{name}`")))
-}
-
-fn same_parameter_shapes(left: &[Parameter], right: &[Parameter]) -> bool {
-    left.len() == right.len()
-        && left.iter().zip(right).all(|(left, right)| {
-            left.name == right.name
-                && left.annotation == right.annotation
-                && same_type_shape(&left.ty, &right.ty)
-        })
 }
 
 fn same_source_declaration(left: &Fact, right: &Fact) -> bool {
@@ -1493,27 +1450,6 @@ fn queue_function_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, TypeEdge<'
     }
 }
 
-fn insert_required_type_names(ty: &TypeRef, required: &mut BTreeSet<String>) {
-    match ty {
-        TypeRef::Named { name, .. } => {
-            if canonical_named_type(name).is_none() {
-                required.insert(name.clone());
-            }
-        }
-        TypeRef::Pointer { target, .. } | TypeRef::Reference { target, .. } => {
-            insert_required_type_names(target, required);
-        }
-        TypeRef::FunctionPointer { .. } | TypeRef::OpaquePointer { .. } => {}
-        TypeRef::Array { target, .. } => insert_required_type_names(target, required),
-        TypeRef::InlineRecord(record) => {
-            for field in &record.fields {
-                insert_required_type_names(&field.ty, required);
-            }
-        }
-        _ => {}
-    }
-}
-
 #[derive(Debug)]
 pub struct Error(String);
 
@@ -1536,6 +1472,8 @@ pub fn extract(inputs: impl IntoIterator<Item = Input>, args: &[&str]) -> Result
 
     let _library = Library::new()?;
     let index = Index::new()?;
+    let timing = std::env::var_os("WINDOWS_CLANG2").is_some();
+    let parse_time = std::time::Instant::now();
     let mut translation_units = Vec::with_capacity(inputs.len());
     for input in &inputs {
         translation_units.push((
@@ -1543,12 +1481,22 @@ pub fn extract(inputs: impl IntoIterator<Item = Input>, args: &[&str]) -> Result
             TranslationUnit::parse(&index, input, args)?,
         ));
     }
+    if timing {
+        eprintln!("clang2 parse: {:.2}s", parse_time.elapsed().as_secs_f32());
+    }
 
+    let traversal_time = std::time::Instant::now();
     let mut facts = vec![];
     let mut constants = vec![];
     for (name, translation_unit) in &translation_units {
         let input = inputs.iter().find(|input| input.name == *name).unwrap();
         translation_unit.extract(input, &mut facts, &mut constants);
+    }
+    if timing {
+        eprintln!(
+            "clang2 traversal: {:.2}s",
+            traversal_time.elapsed().as_secs_f32()
+        );
     }
     facts.sort();
     for pair in facts.windows(2) {
@@ -1559,8 +1507,15 @@ pub fn extract(inputs: impl IntoIterator<Item = Input>, args: &[&str]) -> Result
             )));
         }
     }
+    let constant_time = std::time::Instant::now();
     for input in &inputs {
         constants.extend(evaluate_constants(&index, input, args, &facts)?);
+    }
+    if timing {
+        eprintln!(
+            "clang2 constants: {:.2}s",
+            constant_time.elapsed().as_secs_f32()
+        );
     }
     constants.sort();
     Ok(Snapshot { facts, constants })
@@ -1873,7 +1828,7 @@ fn macro_definitions(cursor: CXCursor) -> HashMap<String, Vec<String>> {
 }
 
 fn evaluate_constants(
-    index: &Index,
+    _index: &Index,
     input: &Input,
     args: &[&str],
     facts: &[Fact],
@@ -1912,14 +1867,136 @@ fn evaluate_constants(
     }
 
     let names: Vec<_> = candidates.keys().cloned().collect();
-    let (mut evaluated, reached) = evaluate_probe(index, input, args, &names)?;
+    if names.is_empty() {
+        return Ok(vec![]);
+    }
+    let probe_time = std::time::Instant::now();
+    let mut evaluated = vec![];
+    let mut reached = HashSet::new();
+    let workers = std::thread::available_parallelism()
+        .map_or(1, usize::from)
+        .min(4);
+    let batches: Vec<_> = names.chunks(4096).collect();
+    let worker_count = workers.min(batches.len());
+    let batch_results = std::thread::scope(|scope| {
+        (0..worker_count)
+            .map(|worker| {
+                let batches = &batches;
+                scope.spawn(move || {
+                    let _library = Library::new()?;
+                    let index = Index::new()?;
+                    let mut evaluated = vec![];
+                    let mut reached = HashSet::new();
+                    for batch_index in (worker..batches.len()).step_by(worker_count) {
+                        let batch = batches[batch_index];
+                        let (batch_evaluated, batch_reached) =
+                            evaluate_probe(&index, input, args, batch)?;
+                        evaluated.extend(batch_evaluated);
+                        reached.extend(batch_reached);
+                    }
+                    Ok((evaluated, reached))
+                })
+            })
+            .collect::<Vec<_>>()
+            .into_iter()
+            .map(|thread| {
+                thread
+                    .join()
+                    .map_err(|_| Error("macro probe worker panicked".to_string()))?
+            })
+            .collect::<Result<Vec<_>, Error>>()
+    })?;
+    for (batch_evaluated, batch_reached) in batch_results {
+        evaluated.extend(batch_evaluated);
+        reached.extend(batch_reached);
+    }
     let missing: Vec<_> = names
         .iter()
         .filter(|name| !reached.contains(name.as_str()))
         .cloned()
         .collect();
-    for name in missing {
-        evaluated.extend(evaluate_probe(index, input, args, &[name])?.0);
+    let recovery_batches: Vec<_> = missing.chunks(128).collect();
+    let recovery_batch_count = recovery_batches.len();
+    let recovery_worker_count = workers.min(recovery_batches.len());
+    let recovery_results = std::thread::scope(|scope| {
+        (0..recovery_worker_count)
+            .map(|worker| {
+                let recovery_batches = &recovery_batches;
+                scope.spawn(move || {
+                    let _library = Library::new()?;
+                    let index = Index::new()?;
+                    let mut evaluated = vec![];
+                    let mut reached = HashSet::new();
+                    for batch in recovery_batches
+                        .iter()
+                        .skip(worker)
+                        .step_by(recovery_worker_count)
+                    {
+                        let (batch_evaluated, batch_reached) =
+                            evaluate_probe(&index, input, args, batch)?;
+                        evaluated.extend(batch_evaluated);
+                        reached.extend(batch_reached);
+                    }
+                    Ok((evaluated, reached))
+                })
+            })
+            .collect::<Vec<_>>()
+            .into_iter()
+            .map(|thread| {
+                thread
+                    .join()
+                    .map_err(|_| Error("macro probe worker panicked".to_string()))?
+            })
+            .collect::<Result<Vec<_>, Error>>()
+    })?;
+    for (recovery_evaluated, recovery_reached) in recovery_results {
+        evaluated.extend(recovery_evaluated);
+        reached.extend(recovery_reached);
+    }
+    let fallback: Vec<_> = missing
+        .into_iter()
+        .filter(|name| !reached.contains(name.as_str()))
+        .collect();
+    let fallback_count = fallback.len();
+    let fallback_size = fallback.len().div_ceil(workers).max(1);
+    let fallback_batches: Vec<_> = fallback.chunks(fallback_size).collect();
+    let fallback_results = std::thread::scope(|scope| {
+        fallback_batches
+            .iter()
+            .map(|batch| {
+                scope.spawn(move || {
+                    let _library = Library::new()?;
+                    let index = Index::new()?;
+                    let mut evaluated = vec![];
+                    for name in *batch {
+                        evaluated.extend(
+                            evaluate_probe(&index, input, args, std::slice::from_ref(name))?.0,
+                        );
+                    }
+                    Ok(evaluated)
+                })
+            })
+            .collect::<Vec<_>>()
+            .into_iter()
+            .map(|thread| {
+                thread
+                    .join()
+                    .map_err(|_| Error("macro probe worker panicked".to_string()))?
+            })
+            .collect::<Result<Vec<_>, Error>>()
+    })?;
+    for fallback in fallback_results {
+        evaluated.extend(fallback);
+    }
+    if std::env::var_os("WINDOWS_CLANG2").is_some() {
+        eprintln!(
+            "clang2 macro probes: {} candidates, {} bulk batches, {} recovery batches, {} fallback probes, {:.2}s",
+            names.len(),
+            batches.len(),
+            recovery_batch_count,
+            fallback_count,
+            probe_time.elapsed().as_secs_f32()
+        );
     }
 
     let mut constants = vec![];
@@ -2429,7 +2506,7 @@ fn callable_params(
         .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
     {
         let param_ty = unsafe { clang_getCursorType(child) };
-        let Some(ty) = type_ref(param_ty) else {
+        let Some(ty) = function_param_type(param_ty) else {
             return Err(format!(
                 "parameter has unsupported type `{}`",
                 cx_string(unsafe { clang_getTypeSpelling(param_ty) })
@@ -2643,6 +2720,14 @@ fn function_param_type(ty: CXType) -> Option<TypeRef> {
         return Some(TypeRef::Pointer {
             mutable: unsafe { clang_isConstQualifiedType(element) } == 0,
             target: Box::new(type_ref(element)?),
+        });
+    }
+    if matches!(ty.kind, CXType_FunctionProto | CXType_FunctionNoProto) {
+        let (convention, params, result) = function_signature(ty)?;
+        return Some(TypeRef::FunctionPointer {
+            convention,
+            params,
+            result: Box::new(result),
         });
     }
     type_ref(ty)
@@ -3675,7 +3760,9 @@ fn rdl_ident(name: &str) -> String {
         "type", "typeof", "union", "unsafe", "unsized", "use", "virtual", "where", "while",
         "yield",
     ];
-    if ["crate", "self", "Self", "super"].contains(&name) {
+    if name == "_" {
+        "__".to_string()
+    } else if ["crate", "self", "Self", "super"].contains(&name) {
         format!("{name}_")
     } else if KEYWORDS.contains(&name) {
         format!("r#{name}")
