@@ -123,11 +123,26 @@ impl OwnedMenu {
     }
 
     fn show(&self, hwnd: HWND, position: Point) -> Option<u32> {
+        let fallback = position;
+        let (position, alignment) = {
+            let _dpi = ThreadDpiContext::per_monitor_v2();
+            popup_anchor(hwnd, position)
+        };
+        let mut position = POINT {
+            x: position.x,
+            y: position.y,
+        };
+        if !unsafe { PhysicalToLogicalPointForPerMonitorDPI(hwnd, &mut position) }.as_bool() {
+            position = POINT {
+                x: fallback.x,
+                y: fallback.y,
+            };
+        }
         unsafe {
             _ = SetForegroundWindow(hwnd);
             let command = TrackPopupMenu(
                 self.0,
-                (TPM_RETURNCMD | TPM_RIGHTBUTTON) as u32,
+                (TPM_RETURNCMD | TPM_RIGHTBUTTON | TPM_WORKAREA) as u32 | alignment,
                 position.x,
                 position.y,
                 0,
@@ -137,6 +152,89 @@ impl OwnedMenu {
             _ = PostMessageW(hwnd, WM_NULL as u32, 0, 0);
             (command.0 != 0).then_some(command.0 as u32)
         }
+    }
+}
+
+struct ThreadDpiContext(DPI_AWARENESS_CONTEXT);
+
+impl ThreadDpiContext {
+    fn per_monitor_v2() -> Self {
+        Self(unsafe { SetThreadDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2) })
+    }
+}
+
+impl Drop for ThreadDpiContext {
+    fn drop(&mut self) {
+        if !self.0.is_null() {
+            unsafe {
+                _ = SetThreadDpiAwarenessContext(self.0);
+            }
+        }
+    }
+}
+
+fn popup_anchor(hwnd: HWND, fallback: Point) -> (Point, u32) {
+    let Ok(icon) = icon_rect(hwnd) else {
+        return (fallback, (TPM_LEFTALIGN | TPM_TOPALIGN) as u32);
+    };
+    let center = POINT {
+        x: (icon.left + icon.right) / 2,
+        y: (icon.top + icon.bottom) / 2,
+    };
+    let monitor = unsafe { MonitorFromPoint(center, MONITOR_DEFAULTTONEAREST as u32) };
+    let mut info = MONITORINFO {
+        cbSize: size_of::<MONITORINFO>() as u32,
+        ..Default::default()
+    };
+    if monitor.is_null() || !unsafe { GetMonitorInfoW(monitor, &mut info) }.as_bool() {
+        return (fallback, (TPM_LEFTALIGN | TPM_TOPALIGN) as u32);
+    }
+    anchor_for_rect(icon, info.rcMonitor)
+}
+
+fn anchor_for_rect(icon: RECT, monitor: RECT) -> (Point, u32) {
+    let center_x = (icon.left + icon.right) / 2;
+    let center_y = (icon.top + icon.bottom) / 2;
+    let distances = [
+        (center_y - monitor.top, 0),
+        (monitor.right - center_x, 1),
+        (monitor.bottom - center_y, 2),
+        (center_x - monitor.left, 3),
+    ];
+    match distances
+        .into_iter()
+        .min_by_key(|(distance, _)| *distance)
+        .unwrap()
+        .1
+    {
+        0 => (
+            Point {
+                x: icon.right,
+                y: icon.bottom,
+            },
+            (TPM_RIGHTALIGN | TPM_TOPALIGN) as u32,
+        ),
+        1 => (
+            Point {
+                x: icon.left,
+                y: icon.bottom,
+            },
+            (TPM_RIGHTALIGN | TPM_BOTTOMALIGN) as u32,
+        ),
+        2 => (
+            Point {
+                x: icon.right,
+                y: icon.top,
+            },
+            (TPM_RIGHTALIGN | TPM_BOTTOMALIGN) as u32,
+        ),
+        _ => (
+            Point {
+                x: icon.right,
+                y: icon.bottom,
+            },
+            (TPM_LEFTALIGN | TPM_BOTTOMALIGN) as u32,
+        ),
     }
 }
 
@@ -768,5 +866,55 @@ mod tests {
         assert!(OwnedMenu::new(Menu::new().item(0, "Invalid")).is_err());
         assert!(OwnedMenu::new(Menu::new().item(1, "First").item(1, "Duplicate")).is_err());
         assert!(OwnedMenu::new(Menu::new().item(1, "before\0after")).is_err());
+    }
+
+    #[test]
+    fn anchors_popup_toward_the_monitor_interior() {
+        let monitor = RECT {
+            right: 1000,
+            bottom: 1000,
+            ..Default::default()
+        };
+        let cases = [
+            (
+                RECT {
+                    left: 400,
+                    top: 0,
+                    right: 420,
+                    bottom: 20,
+                },
+                Point { x: 420, y: 20 },
+            ),
+            (
+                RECT {
+                    left: 980,
+                    top: 400,
+                    right: 1000,
+                    bottom: 420,
+                },
+                Point { x: 980, y: 420 },
+            ),
+            (
+                RECT {
+                    left: 400,
+                    top: 980,
+                    right: 420,
+                    bottom: 1000,
+                },
+                Point { x: 420, y: 980 },
+            ),
+            (
+                RECT {
+                    left: 0,
+                    top: 400,
+                    right: 20,
+                    bottom: 420,
+                },
+                Point { x: 20, y: 420 },
+            ),
+        ];
+        for (icon, expected) in cases {
+            assert_eq!(anchor_for_rect(icon, monitor).0, expected);
+        }
     }
 }

@@ -1,6 +1,9 @@
 windows_core::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclscontext : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_core::HRESULT);
+windows_core::link!("user32.dll" "system" fn DispatchMessageW(lpmsg : *const MSG) -> LRESULT);
+windows_core::link!("user32.dll" "system" fn PeekMessageW(lpmsg : *mut MSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32, wremovemsg : u32) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SendMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> LRESULT);
+windows_core::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG) -> windows_core::BOOL);
 pub type COINIT = i32;
 pub const COINIT_MULTITHREADED: COINIT = 0;
 pub type CONTROLTYPEID = i32;
@@ -442,8 +445,25 @@ impl IUIAutomationInvokePattern_Vtbl {
 impl windows_core::RuntimeName for IUIAutomationInvokePattern {}
 pub type LPARAM = isize;
 pub type LRESULT = isize;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSG {
+    pub hwnd: HWND,
+    pub message: u32,
+    pub wParam: WPARAM,
+    pub lParam: LPARAM,
+    pub time: u32,
+    pub pt: POINT,
+}
 pub const NIN_SELECT: i32 = 1024;
 pub type PATTERNID = i32;
+pub const PM_REMOVE: i32 = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POINT {
+    pub x: i32,
+    pub y: i32,
+}
 pub type TreeScope = i32;
 pub const TreeScope_Descendants: TreeScope = 4;
 pub const WM_CONTEXTMENU: i32 = 123;

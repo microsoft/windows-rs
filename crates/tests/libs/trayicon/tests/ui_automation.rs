@@ -62,6 +62,46 @@ fn automates_native_menu_selection() {
     assert!(selected.load(Ordering::Acquire));
 }
 
+#[test]
+#[ignore = "requires an interactive Windows shell"]
+fn raw_message_loop_dispatches_posted_events() {
+    let path = concat!(
+        env!("CARGO_MANIFEST_DIR"),
+        "\\..\\..\\..\\samples\\reactor\\icon\\icon.ico"
+    );
+    let activated = std::rc::Rc::new(std::cell::Cell::new(false));
+    let callback_activated = std::rc::Rc::clone(&activated);
+    let icon = TrayIcon::new(path)
+        .on_event(move |event| {
+            if matches!(event, TrayIconEvent::Activate { .. }) {
+                callback_activated.set(true);
+            }
+        })
+        .build()
+        .unwrap();
+    let hwnd = icon.hwnd() as usize;
+    let driver = std::thread::spawn(move || unsafe {
+        SendMessageW(hwnd as _, CALLBACK_MESSAGE, 0, NIN_SELECT as isize);
+    });
+
+    let deadline = Instant::now() + Duration::from_secs(5);
+    let mut message = MSG::default();
+    while Instant::now() < deadline && !activated.get() {
+        while unsafe { PeekMessageW(&mut message, core::ptr::null_mut(), 0, 0, PM_REMOVE as u32) }
+            .as_bool()
+        {
+            unsafe {
+                _ = TranslateMessage(&message);
+                DispatchMessageW(&message);
+            }
+        }
+        std::thread::sleep(Duration::from_millis(1));
+    }
+
+    driver.join().unwrap();
+    assert!(activated.get());
+}
+
 fn automate(hwnd: usize, point: usize, activated: &AtomicBool) -> Result<()> {
     unsafe {
         CoInitializeEx(core::ptr::null(), COINIT_MULTITHREADED as u32).ok()?;

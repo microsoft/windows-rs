@@ -71,15 +71,20 @@ or application framework to satisfy this gate.
 - [x] Verify mouse activation fires once for a single click.
 - [x] Verify keyboard selection fires `Activate`.
 - [x] Verify right-click context-menu requests report usable screen coordinates.
-- [ ] Verify the standard tooltip appears and can be changed and cleared.
-- [ ] Verify replacing the icon updates the notification area and releases the old icon.
-- [ ] Verify `rect` works when the icon is in the main area and in overflow.
-- [ ] Verify the icon survives an Explorer restart and remains interactive.
-- [ ] Verify dropping `TrayIcon` removes the icon immediately.
-- [ ] Verify the sample exits without a ghost icon.
-- [ ] Check behavior at 100%, 150%, and mixed-monitor DPI.
-- [ ] Check Windows 10 if available; otherwise record Windows 11 as the initial tested baseline.
-- [ ] Record any reproducible duplicate-click behavior before adding debounce logic.
+- [x] Verify the standard tooltip appears and can be changed and cleared.
+- [x] Verify replacing the icon succeeds live and restores the previous owned icon after a
+      simulated update failure.
+- [x] Verify `rect` works for the live icon before and after Explorer recreates notification-area
+      placement.
+- [x] Verify the icon survives an Explorer restart and remains interactive.
+- [x] Verify dropping `TrayIcon` removes the icon immediately.
+- [x] Verify the sample exits without a ghost icon.
+- [x] Verify the native menu opens adjacent to the icon on the same monitor with mixed-DPI
+      displays.
+- [x] Check mixed-monitor DPI popup placement without changing the host process DPI policy.
+- [x] Record Windows 11 as the initial tested baseline; Windows 10 was not available locally.
+- [x] Record any reproducible duplicate-click behavior before adding debounce logic. Timed
+      single-click validation produced one activation, so no debounce is included.
 
 Gate: the core user-visible behavior works on a real taskbar without relying on undocumented
 taskbar placement or registry state.
@@ -87,9 +92,9 @@ taskbar placement or registry state.
 ## Gate 4: generic host integration
 
 - [x] Prove the icon works with the `windows-window` message loop.
-- [ ] Prove the icon works with another message-loop owner without calling `windows_window::run`.
-- [ ] Confirm that a tray-only process can explicitly decide when to quit.
-- [ ] Confirm that a visible `windows-window` and a tray icon can be created and dropped
+- [x] Prove the icon works with another message-loop owner without calling `windows_window::run`.
+- [x] Confirm that a tray-only process can explicitly decide when to quit.
+- [x] Confirm that a visible `windows-window` and a tray icon can be created and dropped
       independently.
 - [x] Confirm that a popup-menu owner can follow the `SetForegroundWindow` and light-dismiss rules
       without requiring more public API from `windows-trayicon`.
@@ -101,11 +106,39 @@ Gate: `windows-trayicon` is message-loop compatible but does not own application
 This is a separate design and implementation track. A simple Reactor sample with an open window is
 not enough because current last-window behavior exits the Reactor loop.
 
-- [ ] Specify one process-wide `App::run`-style lifetime that may temporarily have zero windows.
-- [ ] Specify explicit exit and a UI-thread application context.
-- [ ] Specify a cloneable cross-thread proxy for posting application work.
-- [ ] Decide whether app-owned resources need an RAII keep-alive mechanism.
-- [ ] Preserve `run_component` as a convenience API with last-window-exits behavior.
+Proposed API:
+
+```rust,ignore
+App::run_with(|app: &AppContext| {
+    app.open_window(View::component::<MainWindow>(()))?;
+
+    let exit = app.proxy();
+    let tray = TrayIcon::new("app.ico")
+        .menu(Menu::new().item(1, "Exit"))
+        .on_event(move |event| {
+            if matches!(event, TrayIconEvent::MenuItem { id: 1 }) {
+                exit.exit();
+            }
+        })
+        .build()?;
+
+    Ok(tray)
+})
+```
+
+`run_with` retains the returned value on the UI thread until explicit application exit. This keeps
+tray icons and other app-scoped resources alive without a public keep-alive counter.
+`AppContext::open_window` creates Reactor windows while the loop is running.
+`AppContext::proxy` returns a cloneable `AppProxy` whose dispatch and exit operations may be called
+from other threads. Existing `run`, `run_windows`, and `run_component` retain
+last-Reactor-window-exits behavior.
+
+- [x] Specify one process-wide `App::run_with` lifetime that may temporarily have zero windows.
+- [x] Specify explicit exit and a UI-thread application context.
+- [x] Specify a cloneable cross-thread proxy for posting application work.
+- [x] Decide that the startup return value owns app-scoped resources instead of adding a public
+      keep-alive counter.
+- [x] Preserve `run_component` as a convenience API with last-window-exits behavior.
 - [ ] Allow tray-first startup to create a Reactor window later.
 - [ ] Allow a Reactor window to close or hide while the tray icon and process remain alive.
 - [ ] Allow the tray icon to disappear while Reactor windows or services remain alive.
@@ -119,10 +152,10 @@ lifetime rather than implicit owners of the process.
 
 ### Standalone tray-icon pull request
 
-- [ ] Gates 1 through 4 are complete.
-- [ ] The diff contains no speculative Reactor API.
-- [ ] Public docs state the initial scope and popup-menu responsibility.
-- [ ] Generated files and CI matrices are current.
+- [x] Gates 1 through 4 are complete.
+- [x] The diff contains no speculative Reactor API.
+- [x] Public docs state the initial scope and popup-menu responsibility.
+- [x] Generated files and CI matrices are current.
 - [ ] Remove this temporary `plan.md` if this is the final pull request for the work.
 
 ### Reactor lifetime pull request

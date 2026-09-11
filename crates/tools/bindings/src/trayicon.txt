@@ -6,12 +6,17 @@
     CreatePopupMenu
     DestroyIcon
     DestroyMenu
+    DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2
+    GetMonitorInfoW
     GetSystemMetrics
     IMAGE_ICON
     LoadImageW
     LR_LOADFROMFILE
     MF_SEPARATOR
     MF_STRING
+    MONITORINFO
+    MONITOR_DEFAULTTONEAREST
+    MonitorFromPoint
     NIF_ICON
     NIF_MESSAGE
     NIF_SHOWTIP
@@ -25,15 +30,23 @@
     NOTIFYICON_VERSION_4
     NOTIFYICONDATAW
     NOTIFYICONIDENTIFIER
+    PhysicalToLogicalPointForPerMonitorDPI
     PostMessageW
+    POINT
     RegisterWindowMessageW
     SetForegroundWindow
+    SetThreadDpiAwarenessContext
     Shell_NotifyIconGetRect
     Shell_NotifyIconW
     SM_CXSMICON
     SM_CYSMICON
+    TPM_BOTTOMALIGN
+    TPM_LEFTALIGN
     TPM_RETURNCMD
+    TPM_RIGHTALIGN
     TPM_RIGHTBUTTON
+    TPM_TOPALIGN
+    TPM_WORKAREA
     TrackPopupMenu
     WM_CONTEXTMENU
     WM_NULL

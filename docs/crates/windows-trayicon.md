@@ -64,8 +64,8 @@ without assuming which monitor or taskbar edge contains the icon.
 
 Without a configured `Menu`, `ContextMenu` reports the requested position so the application can
 show a custom popup. With a configured menu, the crate applies the foreground-window and
-light-dismiss rules, displays the native popup at that position, and reports a selected item as
-`MenuItem { id }`.
+light-dismiss rules, anchors the popup to the icon on its monitor, and reports a selected item as
+`MenuItem { id }`. The Shell-reported position is used if icon geometry is unavailable.
 
 The initial menu API supports labeled items and separators:
 
@@ -111,7 +111,7 @@ Unit tests cover callback decoding and tooltip validation without modifying the 
 An ignored live test exercises Shell registration and `Shell_NotifyIconGetRect`:
 
 ```text
-cargo test -p test_trayicon -- --ignored --nocapture
+cargo test -p test_trayicon -- --ignored --nocapture --test-threads=1
 ```
 
 The ignored UI Automation test injects version-4 callbacks into the hidden test window, opens the
