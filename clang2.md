@@ -27,6 +27,9 @@ input-order-independent architecture. The experiment is unpublished and may be d
 | [ ] | 5. Breadth: records, functions, interfaces, annotations, layouts | Each added kind preserves the same pipeline and expands corpus parity. |
 | [ ] | 6. Decision: run `tool-win32` and `tool-webview` through clang2 | Outputs match or every difference is reviewed and tested. |
 
+Checkpoint 5 has records/layouts, functions/callbacks, SAL direction/size/string annotations, and
+the interface ABI foundation. MIDL comments and real-header interface coverage remain.
+
 ## Stop gates
 
 Stop the experiment if it requires cross-TU identity guesses, output mutation during extraction,

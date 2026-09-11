@@ -54,6 +54,17 @@ pub enum TypeRef {
     Named { name: String, declaration: Location },
     Pointer { mutable: bool, target: Box<Self> },
     Array { target: Box<Self>, len: usize },
+    InlineRecord(Box<InlineRecord>),
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct InlineRecord {
+    pub fields: Vec<Field>,
+    pub size: i64,
+    pub align: i64,
+    pub packing: Option<i64>,
+    pub alignment: Option<i64>,
+    pub union: bool,
 }
 
 #[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
@@ -73,13 +84,72 @@ pub struct Variant {
 }
 
 #[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct Parameter {
+    pub name: String,
+    pub ty: TypeRef,
+    pub annotation: ParamAnnotation,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct Method {
+    pub name: String,
+    pub params: Vec<Parameter>,
+    pub result: TypeRef,
+}
+
+#[derive(Clone, Debug, Default, Eq, Ord, PartialEq, PartialOrd)]
+pub struct ParamAnnotation {
+    pub input: bool,
+    pub output: bool,
+    pub optional: bool,
+    pub reserved: bool,
+    pub com_out_ptr: bool,
+    pub null_terminated: bool,
+    pub size: Option<SalSize>,
+    pub unsupported: Option<String>,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct SalSize {
+    pub bytes: bool,
+    pub value: SalSizeValue,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub enum SalSizeValue {
+    Constant(i32),
+    Parameter(String),
+}
+
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub enum CallingConvention {
+    Platform,
+    C,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub enum FactData {
+    Callback {
+        convention: CallingConvention,
+        params: Vec<TypeRef>,
+        result: TypeRef,
+    },
     Enum {
         repr: Scalar,
         variants: Vec<Variant>,
     },
     Macro {
         function_like: bool,
+    },
+    Function {
+        convention: CallingConvention,
+        params: Vec<Parameter>,
+        result: TypeRef,
+    },
+    Interface {
+        base: Option<TypeRef>,
+        guid: Option<String>,
+        methods: Vec<Method>,
     },
     Record {
         fields: Vec<Field>,
@@ -190,26 +260,77 @@ impl Snapshot {
     }
 
     pub fn emit(&self, namespace: &str) -> Result<String, Error> {
+        self.emit_with_optional_library(namespace, None)
+    }
+
+    pub fn emit_with_library(&self, namespace: &str, library: &str) -> Result<String, Error> {
+        self.emit_with_optional_library(namespace, Some(library))
+    }
+
+    fn emit_with_optional_library(
+        &self,
+        namespace: &str,
+        library: Option<&str>,
+    ) -> Result<String, Error> {
         let plan = self.plan()?;
         let mut items = BTreeMap::new();
         for planned in plan.types {
             let fact = planned.fact;
             let item = match &fact.data {
+                FactData::Callback {
+                    convention,
+                    params,
+                    result,
+                } => write_callable(
+                    &planned.name,
+                    *convention,
+                    params,
+                    result,
+                    &plan.type_names,
+                    &plan.interface_names,
+                    &fact.origin.tu,
+                ),
+                FactData::Typedef {
+                    target: TypeRef::InlineRecord(record),
+                } => {
+                    let projection = TypeProjection::new(
+                        &plan.type_names,
+                        &plan.interface_names,
+                        &fact.origin.tu,
+                    );
+                    write_named_record(
+                        &rdl_ident(&planned.name),
+                        &record.fields,
+                        record.packing,
+                        record.alignment,
+                        record.union,
+                        &projection,
+                    )?
+                }
                 FactData::Typedef { target } => {
                     format!(
                         "    type {} = {};\n",
-                        planned.name,
-                        planned_type_name(target, &plan.type_names)
+                        rdl_ident(&planned.name),
+                        planned_emitted_type_name(
+                            target,
+                            &plan.type_names,
+                            &plan.interface_names,
+                            &fact.origin.tu,
+                        )
                     )
                 }
                 FactData::Enum { repr, variants } if fact.definition => {
                     let mut item = format!(
                         "    #[repr({})]\n    enum {} {{\n",
                         scalar_name(*repr),
-                        planned.name
+                        rdl_ident(&planned.name)
                     );
                     for variant in variants {
-                        item.push_str(&format!("        {} = {},\n", variant.name, variant.value));
+                        item.push_str(&format!(
+                            "        {} = {},\n",
+                            rdl_ident(&variant.name),
+                            variant.value
+                        ));
                     }
                     item.push_str("    }\n");
                     item
@@ -221,66 +342,33 @@ impl Snapshot {
                     union,
                     ..
                 } => {
-                    let keyword = if *union { "union" } else { "struct" };
-                    let mut item = String::new();
-                    if let Some(packing) = packing {
-                        item.push_str(&format!("    #[packed({packing})]\n"));
-                    }
-                    if let Some(alignment) = alignment {
-                        item.push_str(&format!("    #[align({alignment})]\n"));
-                    }
-                    item.push_str(&format!("    {keyword} {} {{\n", planned.name));
-                    let bitfield_groups = bitfield_groups(fields)?;
-                    let mut group_index = 0;
-                    let mut index = 0;
-                    while index < fields.len() {
-                        let field = &fields[index];
-                        if field.bit_width == Some(0) {
-                            index += 1;
-                            continue;
-                        }
-                        if field.bit_width.is_none() {
-                            item.push_str(&format!(
-                                "        {}: {},\n",
-                                field.name,
-                                planned_type_name(&field.ty, &plan.type_names)
-                            ));
-                            index += 1;
-                            continue;
-                        }
-                        let group = &bitfield_groups[group_index];
-                        group_index += 1;
-                        let backing = if bitfield_groups.len() == 1 {
-                            "_bitfield".to_string()
-                        } else {
-                            format!("_bitfield{group_index}")
-                        };
-                        item.push_str(&format!(
-                            "        {backing}: {} {{\n",
-                            planned_type_name(&field.ty, &plan.type_names)
-                        ));
-                        let mut cursor = group.offset;
-                        for member in &fields[group.start..group.end] {
-                            if member.offset > cursor {
-                                item.push_str(&format!(
-                                    "            _: {},\n",
-                                    member.offset - cursor
-                                ));
-                            }
-                            let width = member.bit_width.unwrap();
-                            if member.name.is_empty() {
-                                item.push_str(&format!("            _: {width},\n"));
-                            } else {
-                                item.push_str(&format!("            {}: {width},\n", member.name));
-                            }
-                            cursor = member.offset + i64::from(width);
-                        }
-                        item.push_str("        },\n");
-                        index = group.end;
-                    }
-                    item.push_str("    }\n");
-                    item
+                    let projection = TypeProjection::new(
+                        &plan.type_names,
+                        &plan.interface_names,
+                        &fact.origin.tu,
+                    );
+                    write_named_record(
+                        &rdl_ident(&planned.name),
+                        fields,
+                        *packing,
+                        *alignment,
+                        *union,
+                        &projection,
+                    )?
                 }
+                FactData::Interface {
+                    base,
+                    guid,
+                    methods,
+                } => write_interface(
+                    &rdl_ident(&planned.name),
+                    base.as_ref(),
+                    guid.as_deref(),
+                    methods,
+                    &plan.type_names,
+                    &plan.interface_names,
+                    &fact.origin.tu,
+                )?,
                 _ => {
                     return Err(Error(format!(
                         "planned type `{}` is not emittable",
@@ -292,10 +380,67 @@ impl Snapshot {
                 return Err(Error(format!("duplicate planned name `{}`", planned.name)));
             }
         }
+        for function in plan.functions {
+            let FactData::Function {
+                convention,
+                params,
+                result,
+            } = &function.data
+            else {
+                return Err(Error(format!(
+                    "planned function `{}` has no signature",
+                    function.name
+                )));
+            };
+            let params = params
+                .iter()
+                .map(|param| -> Result<_, Error> {
+                    Ok(format!(
+                        "{}{}: {}",
+                        param_attributes(&param.annotation, params)?,
+                        rdl_ident(&param.name),
+                        planned_param_type_name(
+                            param,
+                            &plan.type_names,
+                            &plan.interface_names,
+                            &function.origin.tu,
+                        )
+                    ))
+                })
+                .collect::<Result<Vec<_>, _>>()?
+                .join(", ");
+            let result = if *result == TypeRef::Void {
+                String::new()
+            } else {
+                format!(
+                    " -> {}",
+                    planned_emitted_type_name(
+                        result,
+                        &plan.type_names,
+                        &plan.interface_names,
+                        &function.origin.tu,
+                    )
+                )
+            };
+            let library = library.ok_or_else(|| {
+                Error(format!(
+                    "function `{}` requires an import library",
+                    function.name
+                ))
+            })?;
+            let abi = calling_convention(*convention);
+            let item = format!(
+                "    #[library({library:?})]\n    extern{abi} fn {}({params}){result};\n",
+                rdl_ident(&function.name),
+            );
+            if items.insert(function.name.clone(), item).is_some() {
+                return Err(Error(format!("duplicate planned name `{}`", function.name)));
+            }
+        }
         for constant in plan.constants {
             let item = format!(
                 "    const {}: {} = {};\n",
-                constant.name,
+                rdl_ident(&constant.name),
                 constant_type_name(&constant.ty, &plan.type_names),
                 value_name(&constant.value)
             );
@@ -313,7 +458,11 @@ impl Snapshot {
         }
         let mut result = String::from("#[win32]\n");
         for (depth, namespace) in namespaces.iter().enumerate() {
-            result.push_str(&format!("{}mod {namespace} {{\n", "    ".repeat(depth)));
+            result.push_str(&format!(
+                "{}mod {} {{\n",
+                "    ".repeat(depth),
+                rdl_ident(namespace)
+            ));
         }
         let indent = "    ".repeat(namespaces.len() - 1);
         for item in items.values() {
@@ -333,6 +482,7 @@ impl Snapshot {
         #[derive(Default)]
         struct Roots<'a> {
             types: Vec<&'a Fact>,
+            functions: Vec<&'a Fact>,
             values: Vec<&'a Constant>,
         }
 
@@ -343,6 +493,13 @@ impl Snapshot {
             .filter(|fact| fact.main_file && is_root_type_fact(fact))
         {
             roots.entry(&fact.name).or_default().types.push(fact);
+        }
+        for fact in self
+            .facts
+            .iter()
+            .filter(|fact| fact.main_file && matches!(fact.data, FactData::Function { .. }))
+        {
+            roots.entry(&fact.name).or_default().functions.push(fact);
         }
         for constant in &self.constants {
             roots
@@ -355,14 +512,22 @@ impl Snapshot {
         let facts_by_origin: HashMap<_, _> =
             self.facts.iter().map(|fact| (&fact.origin, fact)).collect();
         let mut type_roots = vec![];
+        let mut functions = vec![];
         let mut constants = vec![];
         let mut root_names = BTreeSet::new();
 
         for (name, roots) in roots {
+            if !roots.types.is_empty() && !roots.functions.is_empty() {
+                return Err(Error(format!(
+                    "type and function roots collide on `{name}`"
+                )));
+            }
             if !roots.types.is_empty() {
                 let root = choose_type_root(name, &roots.types)?;
                 root_names.insert(name.to_string());
                 type_roots.push(root);
+            } else if !roots.functions.is_empty() {
+                functions.push(choose_function_root(name, &roots.functions)?);
             } else {
                 let constant = choose_constant_root(name, &roots.values)?;
                 constants.push(constant);
@@ -380,6 +545,9 @@ impl Snapshot {
             for constant in &constants {
                 queue.push((constant.root.tu.as_str(), &constant.ty));
             }
+            for function in &functions {
+                queue_function_edges(function, &mut queue);
+            }
 
             while let Some((tu, ty)) = queue.pop() {
                 let (name, declaration) = match ty {
@@ -389,6 +557,12 @@ impl Snapshot {
                     }
                     TypeRef::Array { target, .. } => {
                         queue.push((tu, target));
+                        continue;
+                    }
+                    TypeRef::InlineRecord(record) => {
+                        for field in &record.fields {
+                            queue.push((tu, &field.ty));
+                        }
                         continue;
                     }
                     TypeRef::Named { name, declaration } => (name, declaration),
@@ -456,6 +630,14 @@ impl Snapshot {
         for constant in &constants {
             insert_required_type_names(&constant.ty, &mut required);
         }
+        for function in &functions {
+            if let FactData::Function { params, result, .. } = &function.data {
+                insert_required_type_names(result, &mut required);
+                for param in params {
+                    insert_required_type_names(&param.ty, &mut required);
+                }
+            }
+        }
         let mut queue: Vec<_> = required.iter().rev().cloned().collect();
         while let Some(name) = queue.pop() {
             let Some(fact) = facts_by_name.get(name.as_str()) else {
@@ -463,12 +645,29 @@ impl Snapshot {
             };
             let mut dependencies = BTreeSet::new();
             match &fact.data {
+                FactData::Callback { params, result, .. } => {
+                    insert_required_type_names(result, &mut dependencies);
+                    for param in params {
+                        insert_required_type_names(param, &mut dependencies);
+                    }
+                }
                 FactData::Typedef { target } => {
                     insert_required_type_names(target, &mut dependencies);
                 }
                 FactData::Record { fields, .. } => {
                     for field in fields {
                         insert_required_type_names(&field.ty, &mut dependencies);
+                    }
+                }
+                FactData::Interface { base, methods, .. } => {
+                    if let Some(base) = base {
+                        insert_required_type_names(base, &mut dependencies);
+                    }
+                    for method in methods {
+                        insert_required_type_names(&method.result, &mut dependencies);
+                        for param in &method.params {
+                            insert_required_type_names(&param.ty, &mut dependencies);
+                        }
                     }
                 }
                 _ => {}
@@ -493,7 +692,12 @@ impl Snapshot {
                         && target.spelling == *declaration
                         && target.spelling.file == fact.spelling.file
                         && target.definition
-                        && matches!(target.data, FactData::Enum { .. } | FactData::Record { .. })
+                        && matches!(
+                            target.data,
+                            FactData::Enum { .. }
+                                | FactData::Record { .. }
+                                | FactData::Interface { .. }
+                        )
                         && same_source_declaration(selected, target)
                 })
             {
@@ -526,6 +730,33 @@ impl Snapshot {
                 fact,
             })
             .collect();
+        let mut interface_names: BTreeSet<_> = types
+            .iter()
+            .filter_map(|planned| {
+                matches!(planned.fact.data, FactData::Interface { .. })
+                    .then_some((planned.fact.origin.tu.clone(), planned.fact.name.clone()))
+            })
+            .collect();
+        loop {
+            let mut changed = false;
+            for fact in &self.facts {
+                if let FactData::Typedef {
+                    target: TypeRef::Named { name, declaration },
+                } = &fact.data
+                    && interface_names.contains(&(fact.origin.tu.clone(), name.clone()))
+                    && self.facts.iter().any(|target| {
+                        target.origin.tu == fact.origin.tu
+                            && target.name == *name
+                            && target.spelling == *declaration
+                    })
+                {
+                    changed |= interface_names.insert((fact.origin.tu.clone(), fact.name.clone()));
+                }
+            }
+            if !changed {
+                break;
+            }
+        }
         let mut output_names = BTreeSet::new();
         for planned in &types {
             if !output_names.insert(planned.name.as_str()) {
@@ -537,11 +768,19 @@ impl Snapshot {
                 return Err(Error(format!("duplicate planned name `{}`", constant.name)));
             }
         }
+        for function in &functions {
+            if !output_names.insert(function.name.as_str()) {
+                return Err(Error(format!("duplicate planned name `{}`", function.name)));
+            }
+        }
         constants.sort_by(|left, right| left.name.cmp(&right.name));
+        functions.sort_by(|left, right| left.name.cmp(&right.name));
         Ok(Plan {
             types,
+            functions,
             constants,
             type_names,
+            interface_names,
         })
     }
 }
@@ -553,19 +792,53 @@ struct PlannedType<'a> {
 
 struct Plan<'a> {
     types: Vec<PlannedType<'a>>,
+    functions: Vec<&'a Fact>,
     constants: Vec<&'a Constant>,
     type_names: BTreeMap<String, String>,
+    interface_names: BTreeSet<(String, String)>,
+}
+
+struct TypeProjection<'a> {
+    type_names: &'a BTreeMap<String, String>,
+    interface_names: &'a BTreeSet<(String, String)>,
+    tu: &'a str,
+}
+
+impl<'a> TypeProjection<'a> {
+    fn new(
+        type_names: &'a BTreeMap<String, String>,
+        interface_names: &'a BTreeSet<(String, String)>,
+        tu: &'a str,
+    ) -> Self {
+        Self {
+            type_names,
+            interface_names,
+            tu,
+        }
+    }
+
+    fn name(&self, ty: &TypeRef) -> String {
+        planned_emitted_type_name(ty, self.type_names, self.interface_names, self.tu)
+    }
 }
 
 fn is_type_fact(fact: &Fact) -> bool {
     matches!(
         fact.data,
-        FactData::Enum { .. } | FactData::Record { .. } | FactData::Typedef { .. }
+        FactData::Callback { .. }
+            | FactData::Enum { .. }
+            | FactData::Interface { .. }
+            | FactData::Record { .. }
+            | FactData::Typedef { .. }
     )
 }
 
 fn is_root_type_fact(fact: &Fact) -> bool {
-    is_type_fact(fact) && (!matches!(fact.data, FactData::Record { .. }) || fact.definition)
+    is_type_fact(fact)
+        && (!matches!(
+            fact.data,
+            FactData::Record { .. } | FactData::Interface { .. }
+        ) || fact.definition)
 }
 
 fn choose_type_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Error> {
@@ -585,7 +858,10 @@ fn choose_type_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Erro
         .iter()
         .copied()
         .filter(|fact| {
-            matches!(fact.data, FactData::Enum { .. } | FactData::Record { .. }) && fact.definition
+            matches!(
+                fact.data,
+                FactData::Enum { .. } | FactData::Record { .. } | FactData::Interface { .. }
+            ) && fact.definition
         })
         .collect();
     if let [root] = definitions.as_slice() {
@@ -610,6 +886,7 @@ fn choose_type_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Erro
                         (&fact.data, &root.data),
                         (FactData::Enum { .. }, FactData::Enum { .. })
                             | (FactData::Record { .. }, FactData::Record { .. })
+                            | (FactData::Interface { .. }, FactData::Interface { .. })
                     ))
         });
         if same_tu_declarations {
@@ -633,6 +910,22 @@ fn choose_constant_root<'a>(name: &str, roots: &[&'a Constant]) -> Result<&'a Co
     }
 }
 
+fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Error> {
+    let mut distinct: Vec<&Fact> = vec![];
+    for &root in roots {
+        if !distinct
+            .iter()
+            .any(|existing| same_source_declaration(existing, root))
+        {
+            distinct.push(root);
+        }
+    }
+    let [root] = distinct.as_slice() else {
+        return Err(Error(format!("ambiguous function root `{name}`")));
+    };
+    Ok(root)
+}
+
 fn same_source_declaration(left: &Fact, right: &Fact) -> bool {
     left.kind == right.kind
         && left.name == right.name
@@ -643,8 +936,12 @@ fn same_source_declaration(left: &Fact, right: &Fact) -> bool {
 
 fn emittable_type<'a>(name: &str, fact: &'a Fact) -> Result<&'a Fact, Error> {
     match fact.data {
-        FactData::Typedef { .. } | FactData::Enum { .. } if fact.definition => Ok(fact),
-        FactData::Record { .. } => Ok(fact),
+        FactData::Callback { .. } | FactData::Typedef { .. } | FactData::Enum { .. }
+            if fact.definition =>
+        {
+            Ok(fact)
+        }
+        FactData::Record { .. } | FactData::Interface { .. } => Ok(fact),
         _ => Err(Error(format!("type root `{name}` is not emittable"))),
     }
 }
@@ -652,9 +949,33 @@ fn emittable_type<'a>(name: &str, fact: &'a Fact) -> Result<&'a Fact, Error> {
 fn queue_type_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, &'a TypeRef)>) {
     if let FactData::Typedef { target } = &fact.data {
         queue.push((fact.origin.tu.as_str(), target));
+    } else if let FactData::Callback { params, result, .. } = &fact.data {
+        queue.push((fact.origin.tu.as_str(), result));
+        for param in params {
+            queue.push((fact.origin.tu.as_str(), param));
+        }
     } else if let FactData::Record { fields, .. } = &fact.data {
         for field in fields {
             queue.push((fact.origin.tu.as_str(), &field.ty));
+        }
+    } else if let FactData::Interface { base, methods, .. } = &fact.data {
+        if let Some(base) = base {
+            queue.push((fact.origin.tu.as_str(), base));
+        }
+        for method in methods {
+            queue.push((fact.origin.tu.as_str(), &method.result));
+            for param in &method.params {
+                queue.push((fact.origin.tu.as_str(), &param.ty));
+            }
+        }
+    }
+}
+
+fn queue_function_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, &'a TypeRef)>) {
+    if let FactData::Function { params, result, .. } = &fact.data {
+        queue.push((fact.origin.tu.as_str(), result));
+        for param in params {
+            queue.push((fact.origin.tu.as_str(), &param.ty));
         }
     }
 }
@@ -666,6 +987,11 @@ fn insert_required_type_names(ty: &TypeRef, required: &mut BTreeSet<String>) {
         }
         TypeRef::Pointer { target, .. } => insert_required_type_names(target, required),
         TypeRef::Array { target, .. } => insert_required_type_names(target, required),
+        TypeRef::InlineRecord(record) => {
+            for field in &record.fields {
+                insert_required_type_names(&field.ty, required);
+            }
+        }
         _ => {}
     }
 }
@@ -898,7 +1224,9 @@ fn extract_children(cursor: CXCursor, parent: Option<Origin>, traversal: &mut Tr
 
         if let Some(fact_kind) = fact_kind(kind) {
             let name = cx_string(unsafe { clang_getCursorSpelling(child) });
-            if !name.is_empty() {
+            let anonymous_record = matches!(kind, CXCursor_StructDecl | CXCursor_UnionDecl)
+                && unsafe { clang_Cursor_isAnonymous(child) } != 0;
+            if !name.is_empty() && !anonymous_record {
                 let hash = unsafe { clang_hashCursor(child) };
                 let seen = traversal.seen.entry(hash).or_default();
                 if let Some((_, origin)) = seen
@@ -1180,65 +1508,113 @@ fn fact_data(cursor: CXCursor, kind: FactKind) -> FactData {
                 .collect();
             FactData::Enum { repr, variants }
         }
+        FactKind::Function => {
+            if unsafe { clang_getCursorLinkage(cursor) } != CXLinkage_External
+                || unsafe { clang_isCursorDefinition(cursor) } != 0
+            {
+                return FactData::Unsupported {
+                    reason: "function is not an external declaration".to_string(),
+                };
+            }
+            if unsafe { clang_Cursor_isVariadic(cursor) } != 0 {
+                return FactData::Unsupported {
+                    reason: "variadic function".to_string(),
+                };
+            }
+            let result_ty = unsafe { clang_getCursorResultType(cursor) };
+            let Some(result) = type_ref(result_ty) else {
+                return FactData::Unsupported {
+                    reason: format!(
+                        "function has unsupported result type `{}`",
+                        cx_string(unsafe { clang_getTypeSpelling(result_ty) })
+                    ),
+                };
+            };
+            let mut params = vec![];
+            for child in cursor_children(cursor)
+                .into_iter()
+                .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
+            {
+                let param_ty = unsafe { clang_getCursorType(child) };
+                let Some(ty) = type_ref(param_ty) else {
+                    return FactData::Unsupported {
+                        reason: format!(
+                            "parameter has unsupported type `{}`",
+                            cx_string(unsafe { clang_getTypeSpelling(param_ty) })
+                        ),
+                    };
+                };
+                let mut name = cx_string(unsafe { clang_getCursorSpelling(child) });
+                if name.is_empty() {
+                    name = format!("param{}", params.len());
+                }
+                params.push(Parameter {
+                    name,
+                    ty,
+                    annotation: parameter_annotation(child),
+                });
+            }
+            let function_ty = unsafe { clang_getCursorType(cursor) };
+            let Some(convention) = calling_convention_fact(function_ty) else {
+                return FactData::Unsupported {
+                    reason: "function has an unsupported calling convention".to_string(),
+                };
+            };
+            FactData::Function {
+                convention,
+                params,
+                result,
+            }
+        }
         FactKind::Macro => FactData::Macro {
             function_like: unsafe { clang_Cursor_isMacroFunctionLike(cursor) } != 0,
         },
         FactKind::Struct | FactKind::Union => {
+            if kind == FactKind::Struct && is_interface(cursor) {
+                return interface_fact(cursor);
+            }
             let definition = unsafe { clang_isCursorDefinition(cursor) } != 0;
-            let fields = if definition {
-                let mut fields = vec![];
-                for child in cursor_children(cursor)
-                    .into_iter()
-                    .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_FieldDecl)
-                {
-                    let name = cx_string(unsafe { clang_getCursorSpelling(child) });
-                    let field_ty = unsafe { clang_getCursorType(child) };
-                    let Some(ty) = type_ref(field_ty) else {
-                        return FactData::Unsupported {
-                            reason: format!(
-                                "field `{name}` has unsupported type `{}`",
-                                cx_string(unsafe { clang_getTypeSpelling(field_ty) })
-                            ),
-                        };
-                    };
-                    fields.push(Field {
-                        name,
-                        ty,
-                        offset: unsafe { clang_Cursor_getOffsetOfField(child) },
-                        align: unsafe { clang_Type_getAlignOf(field_ty) },
-                        size: unsafe { clang_Type_getSizeOf(field_ty) },
-                        bit_width: (unsafe { clang_Cursor_isBitField(child) } != 0).then(
-                            || unsafe { clang_getFieldDeclBitWidth(child).try_into().unwrap() },
-                        ),
-                    });
-                }
-                fields
-            } else {
-                vec![]
-            };
-            let ty = unsafe { clang_getCursorType(cursor) };
-            let size = unsafe { clang_Type_getSizeOf(ty) };
-            let align = unsafe { clang_Type_getAlignOf(ty) };
-            let union = kind == FactKind::Union;
-            let (packing, alignment) = if definition {
-                match record_layout(&fields, size, align, union) {
-                    Ok(layout) => layout,
+            let record = if definition {
+                match inline_record(cursor, kind == FactKind::Union) {
+                    Ok(record) => record,
                     Err(reason) => return FactData::Unsupported { reason },
                 }
             } else {
-                (None, None)
+                InlineRecord {
+                    fields: vec![],
+                    size: unsafe { clang_Type_getSizeOf(clang_getCursorType(cursor)) },
+                    align: unsafe { clang_Type_getAlignOf(clang_getCursorType(cursor)) },
+                    packing: None,
+                    alignment: None,
+                    union: kind == FactKind::Union,
+                }
             };
             FactData::Record {
-                fields,
-                size,
-                align,
-                packing,
-                alignment,
-                union,
+                fields: record.fields,
+                size: record.size,
+                align: record.align,
+                packing: record.packing,
+                alignment: record.alignment,
+                union: record.union,
             }
         }
         FactKind::Typedef => {
             let ty = unsafe { clang_getTypedefDeclUnderlyingType(cursor) };
+            if ty.kind == CXType_Pointer {
+                let function = unsafe { clang_getPointeeType(ty) };
+                if function.kind == CXType_FunctionProto {
+                    return function_signature(function).map_or_else(
+                        || FactData::Unsupported {
+                            reason: "callback has an unsupported signature".to_string(),
+                        },
+                        |(convention, params, result)| FactData::Callback {
+                            convention,
+                            params,
+                            result,
+                        },
+                    );
+                }
+            }
             type_ref(ty).map_or_else(
                 || FactData::Unsupported {
                     reason: format!(
@@ -1251,6 +1627,397 @@ fn fact_data(cursor: CXCursor, kind: FactKind) -> FactData {
         }
         _ => FactData::None,
     }
+}
+
+fn is_interface(cursor: CXCursor) -> bool {
+    let definition = unsafe { clang_getCursorDefinition(cursor) };
+    let cursor = if unsafe { clang_Cursor_isNull(definition) } == 0 {
+        definition
+    } else {
+        cursor
+    };
+    if unsafe { clang_isCursorDefinition(cursor) } == 0 {
+        return false;
+    }
+    let children = cursor_children(cursor);
+    if children
+        .iter()
+        .any(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_FieldDecl)
+    {
+        return false;
+    }
+    let methods: Vec<_> = children
+        .iter()
+        .filter(|child| unsafe { clang_getCursorKind(**child) } == CXCursor_CXXMethod)
+        .collect();
+    (!methods.is_empty()
+        && methods
+            .iter()
+            .all(|method| unsafe { clang_CXXMethod_isPureVirtual(**method) } != 0))
+        || children.iter().any(|child| {
+            if unsafe { clang_getCursorKind(*child) } != CXCursor_CXXBaseSpecifier {
+                return false;
+            }
+            let declaration = unsafe { clang_getTypeDeclaration(clang_getCursorType(*child)) };
+            (unsafe { clang_Cursor_isNull(declaration) }) == 0 && is_interface(declaration)
+        })
+}
+
+fn interface_fact(cursor: CXCursor) -> FactData {
+    let mut base = None;
+    let guid = cursor_uuid(cursor);
+    let mut methods = vec![];
+    for child in cursor_children(cursor) {
+        match unsafe { clang_getCursorKind(child) } {
+            CXCursor_CXXBaseSpecifier => {
+                if base.is_some() {
+                    return FactData::Unsupported {
+                        reason: "interface has multiple bases".to_string(),
+                    };
+                }
+                let declaration = unsafe { clang_getTypeDeclaration(clang_getCursorType(child)) };
+                if unsafe { clang_Cursor_isNull(declaration) } != 0 || !is_interface(declaration) {
+                    return FactData::Unsupported {
+                        reason: "interface base is not an interface".to_string(),
+                    };
+                }
+                let Some(ty) = type_ref(unsafe { clang_getCursorType(child) }) else {
+                    return FactData::Unsupported {
+                        reason: "interface has an unsupported base".to_string(),
+                    };
+                };
+                base = Some(ty);
+            }
+            CXCursor_CXXMethod if unsafe { clang_CXXMethod_isPureVirtual(child) } != 0 => {
+                if method_overrides_base(child) {
+                    continue;
+                }
+                let result_ty = unsafe { clang_getCursorResultType(child) };
+                let Some(result) = type_ref(result_ty) else {
+                    return FactData::Unsupported {
+                        reason: "interface method has an unsupported result".to_string(),
+                    };
+                };
+                let params = match callable_params(child) {
+                    Ok(params) => params,
+                    Err(reason) => return FactData::Unsupported { reason },
+                };
+                methods.push(Method {
+                    name: cx_string(unsafe { clang_getCursorSpelling(child) }),
+                    params,
+                    result,
+                });
+            }
+            CXCursor_CXXMethod => {
+                return FactData::Unsupported {
+                    reason: "interface has a non-pure virtual method".to_string(),
+                };
+            }
+            CXCursor_Constructor | CXCursor_Destructor => {
+                return FactData::Unsupported {
+                    reason: "interface has a constructor or destructor".to_string(),
+                };
+            }
+            _ => {}
+        }
+    }
+    FactData::Interface {
+        base,
+        guid,
+        methods,
+    }
+}
+
+fn cursor_uuid(cursor: CXCursor) -> Option<String> {
+    let tu = unsafe { clang_Cursor_getTranslationUnit(cursor) };
+    for child in cursor_children(cursor) {
+        if unsafe { clang_getCursorKind(child) } != CXCursor_UnexposedAttr {
+            continue;
+        }
+        let range = expansion_range(tu, unsafe { clang_getCursorExtent(child) });
+        let mut tokens = std::ptr::null_mut();
+        let mut count = 0;
+        unsafe { clang_tokenize(tu, range, &mut tokens, &mut count) };
+        for index in 0..count {
+            let token = unsafe { *tokens.add(index as usize) };
+            if unsafe { clang_getTokenKind(token) } == CXToken_Literal {
+                let spelling = cx_string(unsafe { clang_getTokenSpelling(tu, token) });
+                let value = spelling.trim_matches('"');
+                if is_uuid(value) {
+                    unsafe { clang_disposeTokens(tu, tokens, count) };
+                    return Some(value.to_ascii_lowercase());
+                }
+            }
+        }
+        unsafe { clang_disposeTokens(tu, tokens, count) };
+    }
+    None
+}
+
+fn expansion_range(tu: CXTranslationUnit, range: CXSourceRange) -> CXSourceRange {
+    unsafe {
+        let mut start_file = std::ptr::null_mut();
+        let mut start_line = 0;
+        let mut start_column = 0;
+        let mut start_offset = 0;
+        clang_getExpansionLocation(
+            clang_getRangeStart(range),
+            &mut start_file,
+            &mut start_line,
+            &mut start_column,
+            &mut start_offset,
+        );
+        let mut end_file = std::ptr::null_mut();
+        let mut end_line = 0;
+        let mut end_column = 0;
+        let mut end_offset = 0;
+        clang_getExpansionLocation(
+            clang_getRangeEnd(range),
+            &mut end_file,
+            &mut end_line,
+            &mut end_column,
+            &mut end_offset,
+        );
+        clang_getRange(
+            clang_getLocation(tu, start_file, start_line, start_column),
+            clang_getLocation(tu, end_file, end_line, end_column),
+        )
+    }
+}
+
+fn is_uuid(value: &str) -> bool {
+    value.len() == 36
+        && value
+            .chars()
+            .enumerate()
+            .all(|(index, character)| match index {
+                8 | 13 | 18 | 23 => character == '-',
+                _ => character.is_ascii_hexdigit(),
+            })
+}
+
+fn method_overrides_base(cursor: CXCursor) -> bool {
+    let mut cursors = std::ptr::null_mut();
+    let mut count = 0;
+    unsafe {
+        clang_getOverriddenCursors(cursor, &mut cursors, &mut count);
+        clang_disposeOverriddenCursors(cursors);
+    }
+    count != 0
+}
+
+fn callable_params(cursor: CXCursor) -> Result<Vec<Parameter>, String> {
+    let mut params = vec![];
+    for child in cursor_children(cursor)
+        .into_iter()
+        .filter(|child| unsafe { clang_getCursorKind(*child) } == CXCursor_ParmDecl)
+    {
+        let param_ty = unsafe { clang_getCursorType(child) };
+        let Some(ty) = type_ref(param_ty) else {
+            return Err(format!(
+                "parameter has unsupported type `{}`",
+                cx_string(unsafe { clang_getTypeSpelling(param_ty) })
+            ));
+        };
+        let mut name = cx_string(unsafe { clang_getCursorSpelling(child) });
+        if name.is_empty() {
+            name = format!("param{}", params.len());
+        }
+        params.push(Parameter {
+            name,
+            ty,
+            annotation: parameter_annotation(child),
+        });
+    }
+    Ok(params)
+}
+
+fn parameter_annotation(cursor: CXCursor) -> ParamAnnotation {
+    let mut result = ParamAnnotation::default();
+    for child in cursor_children(cursor) {
+        if unsafe { clang_getCursorKind(child) } != CXCursor_AnnotateAttr {
+            continue;
+        }
+        let annotation = cx_string(unsafe { clang_getCursorSpelling(child) });
+        if annotation.starts_with("_In_") || annotation.starts_with("_Inout_") {
+            result.input = true;
+        }
+        if annotation.starts_with("_Out_")
+            || annotation.starts_with("_Outptr_")
+            || annotation.starts_with("_COM_Outptr_")
+            || annotation.starts_with("_Inout_")
+        {
+            result.output = true;
+        }
+        if annotation.contains("_opt_")
+            || (annotation.starts_with("_Outptr_") && annotation.contains("_result_maybenull_"))
+        {
+            result.optional = true;
+        }
+        if annotation == "_Reserved_" {
+            result.reserved = true;
+        }
+        if annotation.starts_with("_COM_Outptr_") {
+            result.com_out_ptr = true;
+        }
+        let sal_name = annotation
+            .split_once('(')
+            .map_or(annotation.as_str(), |value| value.0);
+        if matches!(
+            sal_name,
+            "_In_z_" | "_In_opt_z_" | "_Out_z_" | "_Inout_z_" | "_Inout_opt_z_"
+        ) {
+            result.null_terminated = true;
+        }
+        if result.size.is_none()
+            && (annotation.contains("_reads_")
+                || annotation.contains("_writes_")
+                || annotation.contains("_updates_"))
+            && let Some(argument) = annotation
+                .split_once('(')
+                .and_then(|(_, rest)| rest.strip_suffix(')'))
+                .and_then(|arguments| arguments.split(',').next())
+        {
+            let argument = argument.trim();
+            let value = if let Some(value) = parse_sal_integer(argument) {
+                Some(SalSizeValue::Constant(value))
+            } else if is_c_identifier(argument) {
+                Some(SalSizeValue::Parameter(argument.to_string()))
+            } else {
+                None
+            };
+            if let Some(value) = value {
+                result.size = Some(SalSize {
+                    bytes: annotation.contains("_bytes"),
+                    value,
+                });
+            } else {
+                result.unsupported = Some(format!(
+                    "unsupported SAL size expression `{argument}` in `{annotation}`"
+                ));
+            }
+        }
+    }
+    result
+}
+
+fn parse_sal_integer(value: &str) -> Option<i32> {
+    let value = value.trim_end_matches(['u', 'U', 'l', 'L']);
+    if let Some(value) = value
+        .strip_prefix("0x")
+        .or_else(|| value.strip_prefix("0X"))
+    {
+        i32::from_str_radix(value, 16).ok()
+    } else {
+        value.parse().ok()
+    }
+}
+
+fn is_c_identifier(name: &str) -> bool {
+    let mut chars = name.chars();
+    matches!(chars.next(), Some(first) if first == '_' || first.is_ascii_alphabetic())
+        && chars.all(|character| character == '_' || character.is_ascii_alphanumeric())
+}
+
+fn function_signature(ty: CXType) -> Option<(CallingConvention, Vec<TypeRef>, TypeRef)> {
+    let convention = calling_convention_fact(ty)?;
+    let result = type_ref(unsafe { clang_getResultType(ty) })?;
+    let count = unsafe { clang_getNumArgTypes(ty) };
+    if count < 0 {
+        return None;
+    }
+    let params = (0..count)
+        .map(|index| type_ref(unsafe { clang_getArgType(ty, index.try_into().unwrap()) }))
+        .collect::<Option<Vec<_>>>()?;
+    Some((convention, params, result))
+}
+
+fn calling_convention_fact(ty: CXType) -> Option<CallingConvention> {
+    Some(match unsafe { clang_getFunctionTypeCallingConv(ty) } {
+        CXCallingConv_C => CallingConvention::C,
+        CXCallingConv_Default | CXCallingConv_X86StdCall | CXCallingConv_Win64 => {
+            CallingConvention::Platform
+        }
+        _ => return None,
+    })
+}
+
+fn inline_record(cursor: CXCursor, union: bool) -> Result<InlineRecord, String> {
+    let mut fields = vec![];
+    let mut anonymous = 0;
+    for child in cursor_children(cursor) {
+        let kind = unsafe { clang_getCursorKind(child) };
+        if kind == CXCursor_FieldDecl {
+            let name = cx_string(unsafe { clang_getCursorSpelling(child) });
+            let field_ty = unsafe { clang_getCursorType(child) };
+            let ty = type_ref(field_ty).ok_or_else(|| {
+                format!(
+                    "field `{name}` has unsupported type `{}`",
+                    cx_string(unsafe { clang_getTypeSpelling(field_ty) })
+                )
+            })?;
+            fields.push(Field {
+                name,
+                ty,
+                offset: unsafe { clang_Cursor_getOffsetOfField(child) },
+                align: unsafe { clang_Type_getAlignOf(field_ty) },
+                size: unsafe { clang_Type_getSizeOf(field_ty) },
+                bit_width: (unsafe { clang_Cursor_isBitField(child) } != 0)
+                    .then(|| unsafe { clang_getFieldDeclBitWidth(child).try_into().unwrap() }),
+            });
+        } else if matches!(kind, CXCursor_StructDecl | CXCursor_UnionDecl)
+            && unsafe { clang_Cursor_isAnonymousRecordDecl(child) } != 0
+        {
+            let nested = inline_record(child, kind == CXCursor_UnionDecl)?;
+            let (member, relative) = promoted_member(&nested)
+                .ok_or_else(|| "anonymous aggregate has no named member".to_string())?;
+            let member = CString::new(member).unwrap();
+            let promoted =
+                unsafe { clang_Type_getOffsetOf(clang_getCursorType(cursor), member.as_ptr()) };
+            if promoted < 0 {
+                return Err("anonymous aggregate offset is unavailable".to_string());
+            }
+            anonymous += 1;
+            fields.push(Field {
+                name: if anonymous == 1 {
+                    "Anonymous".to_string()
+                } else {
+                    format!("Anonymous{anonymous}")
+                },
+                offset: promoted - relative,
+                align: nested.align,
+                size: nested.size,
+                bit_width: None,
+                ty: TypeRef::InlineRecord(Box::new(nested)),
+            });
+        }
+    }
+
+    let ty = unsafe { clang_getCursorType(cursor) };
+    let size = unsafe { clang_Type_getSizeOf(ty) };
+    let align = unsafe { clang_Type_getAlignOf(ty) };
+    let (packing, alignment) = record_layout(&fields, size, align, union)?;
+    Ok(InlineRecord {
+        fields,
+        size,
+        align,
+        packing,
+        alignment,
+        union,
+    })
+}
+
+fn promoted_member(record: &InlineRecord) -> Option<(&str, i64)> {
+    for field in &record.fields {
+        if let TypeRef::InlineRecord(nested) = &field.ty {
+            if let Some((name, offset)) = promoted_member(nested) {
+                return Some((name, field.offset + offset));
+            }
+        } else if !field.name.is_empty() {
+            return Some((&field.name, field.offset));
+        }
+    }
+    None
 }
 
 struct BitfieldGroup {
@@ -1297,6 +2064,319 @@ fn bitfield_groups(fields: &[Field]) -> Result<Vec<BitfieldGroup>, Error> {
         });
     }
     Ok(groups)
+}
+
+fn write_callable(
+    name: &str,
+    convention: CallingConvention,
+    params: &[TypeRef],
+    result: &TypeRef,
+    type_names: &BTreeMap<String, String>,
+    interface_names: &BTreeSet<(String, String)>,
+    tu: &str,
+) -> String {
+    let params = params
+        .iter()
+        .enumerate()
+        .map(|(index, param)| {
+            format!(
+                "param{index}: {}",
+                planned_emitted_type_name(param, type_names, interface_names, tu)
+            )
+        })
+        .collect::<Vec<_>>()
+        .join(", ");
+    let result = if *result == TypeRef::Void {
+        String::new()
+    } else {
+        format!(
+            " -> {}",
+            planned_emitted_type_name(result, type_names, interface_names, tu)
+        )
+    };
+    format!(
+        "    extern{} fn {}({params}){result};\n",
+        calling_convention(convention),
+        rdl_ident(name)
+    )
+}
+
+fn param_attributes(annotation: &ParamAnnotation, params: &[Parameter]) -> Result<String, Error> {
+    if let Some(reason) = &annotation.unsupported {
+        return Err(Error(reason.clone()));
+    }
+    let mut result = String::new();
+    if let Some(size) = &annotation.size {
+        match &size.value {
+            SalSizeValue::Constant(value) if !size.bytes => {
+                result.push_str(&format!("#[len_const({value})] "));
+            }
+            SalSizeValue::Parameter(name) => {
+                let index = params
+                    .iter()
+                    .position(|param| param.name == *name)
+                    .ok_or_else(|| Error(format!("unresolved SAL size parameter `{name}`")))?;
+                let attr = if size.bytes {
+                    "size_param"
+                } else {
+                    "len_param"
+                };
+                result.push_str(&format!("#[{attr}({index})] "));
+            }
+            SalSizeValue::Constant(_) => {
+                return Err(Error(
+                    "constant byte-size SAL annotations are unsupported".to_string(),
+                ));
+            }
+        }
+    }
+    if annotation.reserved {
+        result.push_str("#[reserved] ");
+    }
+    if annotation.com_out_ptr {
+        result.push_str("#[iid_is] ");
+    }
+    if annotation.input {
+        result.push_str("#[in] ");
+    }
+    if annotation.output {
+        result.push_str("#[out] ");
+    }
+    if annotation.optional {
+        result.push_str("#[opt] ");
+    }
+    Ok(result)
+}
+
+fn write_interface(
+    name: &str,
+    base: Option<&TypeRef>,
+    guid: Option<&str>,
+    methods: &[Method],
+    type_names: &BTreeMap<String, String>,
+    interface_names: &BTreeSet<(String, String)>,
+    tu: &str,
+) -> Result<String, Error> {
+    let base = base.map_or_else(String::new, |base| {
+        format!(
+            ": {}",
+            planned_emitted_type_name(base, type_names, interface_names, tu)
+        )
+    });
+    let attribute = guid.map_or_else(
+        || "#[no_guid]".to_string(),
+        |guid| format!("#[guid({})]", rdl_uuid(guid)),
+    );
+    let mut result = format!("    {attribute}\n    interface {name}{base} {{\n");
+    let mut start = 0;
+    while start < methods.len() {
+        let mut end = start + 1;
+        while end < methods.len() && methods[end].name == methods[start].name {
+            end += 1;
+        }
+        for method in methods[start..end].iter().rev() {
+            let params = method
+                .params
+                .iter()
+                .map(|param| -> Result<_, Error> {
+                    Ok(format!(
+                        "{}{}: {}",
+                        param_attributes(&param.annotation, &method.params)?,
+                        rdl_ident(&param.name),
+                        planned_param_type_name(param, type_names, interface_names, tu)
+                    ))
+                })
+                .collect::<Result<Vec<_>, _>>()?
+                .join(", ");
+            let return_type = if method.result == TypeRef::Void {
+                String::new()
+            } else {
+                format!(
+                    " -> {}",
+                    planned_emitted_type_name(&method.result, type_names, interface_names, tu)
+                )
+            };
+            result.push_str(&format!(
+                "        fn {}(&self{}{}){return_type};\n",
+                rdl_ident(&method.name),
+                if params.is_empty() { "" } else { ", " },
+                params
+            ));
+        }
+        start = end;
+    }
+    result.push_str("    }\n");
+    Ok(result)
+}
+
+fn rdl_uuid(guid: &str) -> String {
+    let hex = guid.replace('-', "");
+    format!(
+        "0x{}_{}_{}_{}_{}",
+        &hex[..8],
+        &hex[8..12],
+        &hex[12..16],
+        &hex[16..20],
+        &hex[20..]
+    )
+}
+
+fn planned_param_type_name(
+    param: &Parameter,
+    type_names: &BTreeMap<String, String>,
+    interface_names: &BTreeSet<(String, String)>,
+    tu: &str,
+) -> String {
+    if param.annotation.null_terminated
+        && param.annotation.size.is_none()
+        && let TypeRef::Pointer { mutable, target } = &param.ty
+    {
+        let name = match (mutable, target.as_ref()) {
+            (false, TypeRef::Scalar(Scalar::I8 | Scalar::U8)) => Some("PCSTR"),
+            (true, TypeRef::Scalar(Scalar::I8 | Scalar::U8)) => Some("PSTR"),
+            (false, TypeRef::Scalar(Scalar::U16)) => Some("PCWSTR"),
+            (true, TypeRef::Scalar(Scalar::U16)) => Some("PWSTR"),
+            _ => None,
+        };
+        if let Some(name) = name {
+            return name.to_string();
+        }
+    }
+    planned_emitted_type_name(&param.ty, type_names, interface_names, tu)
+}
+
+fn planned_emitted_type_name(
+    ty: &TypeRef,
+    type_names: &BTreeMap<String, String>,
+    interface_names: &BTreeSet<(String, String)>,
+    tu: &str,
+) -> String {
+    if let TypeRef::Array { target, len } = ty {
+        return format!(
+            "[{}; {len}]",
+            planned_emitted_type_name(target, type_names, interface_names, tu)
+        );
+    }
+    let (mutable, depth, target) = pointer_run(ty);
+    if depth != 0
+        && let TypeRef::Named { name, .. } = target
+        && interface_names.contains(&(tu.to_string(), name.clone()))
+    {
+        return format!(
+            "{}{}",
+            format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth - 1),
+            planned_type_name(target, type_names)
+        );
+    }
+    planned_type_name(ty, type_names)
+}
+
+fn calling_convention(convention: CallingConvention) -> &'static str {
+    match convention {
+        CallingConvention::Platform => "",
+        CallingConvention::C => " \"C\"",
+    }
+}
+
+fn write_named_record(
+    name: &str,
+    fields: &[Field],
+    packing: Option<i64>,
+    alignment: Option<i64>,
+    union: bool,
+    projection: &TypeProjection<'_>,
+) -> Result<String, Error> {
+    let keyword = if union { "union" } else { "struct" };
+    let mut result = String::new();
+    if let Some(packing) = packing {
+        result.push_str(&format!("    #[packed({packing})]\n"));
+    }
+    if let Some(alignment) = alignment {
+        result.push_str(&format!("    #[align({alignment})]\n"));
+    }
+    result.push_str(&format!("    {keyword} {name} {{\n"));
+    result.push_str(&write_record_fields(fields, projection, 8)?);
+    result.push_str("    }\n");
+    Ok(result)
+}
+
+fn write_record_fields(
+    fields: &[Field],
+    projection: &TypeProjection<'_>,
+    indent: usize,
+) -> Result<String, Error> {
+    let mut result = String::new();
+    let spaces = " ".repeat(indent);
+    let bitfield_groups = bitfield_groups(fields)?;
+    let mut group_index = 0;
+    let mut index = 0;
+    while index < fields.len() {
+        let field = &fields[index];
+        if field.bit_width == Some(0) {
+            index += 1;
+            continue;
+        }
+        if let TypeRef::InlineRecord(record) = &field.ty {
+            let keyword = if record.union { "union" } else { "struct" };
+            result.push_str(&format!("{spaces}{}: ", rdl_ident(&field.name)));
+            if let Some(packing) = record.packing {
+                result.push_str(&format!("#[packed({packing})] "));
+            }
+            if let Some(alignment) = record.alignment {
+                result.push_str(&format!("#[align({alignment})] "));
+            }
+            result.push_str(&format!("{keyword} {{\n"));
+            result.push_str(&write_record_fields(
+                &record.fields,
+                projection,
+                indent + 4,
+            )?);
+            result.push_str(&format!("{spaces}}},\n"));
+            index += 1;
+            continue;
+        }
+        if field.bit_width.is_none() {
+            result.push_str(&format!(
+                "{spaces}{}: {},\n",
+                rdl_ident(&field.name),
+                projection.name(&field.ty)
+            ));
+            index += 1;
+            continue;
+        }
+        let group = &bitfield_groups[group_index];
+        group_index += 1;
+        let backing = if bitfield_groups.len() == 1 {
+            "_bitfield".to_string()
+        } else {
+            format!("_bitfield{group_index}")
+        };
+        result.push_str(&format!(
+            "{spaces}{backing}: {} {{\n",
+            planned_type_name(&field.ty, projection.type_names)
+        ));
+        let mut cursor = group.offset;
+        for member in &fields[group.start..group.end] {
+            if member.offset > cursor {
+                result.push_str(&format!(
+                    "{}_: {},\n",
+                    " ".repeat(indent + 4),
+                    member.offset - cursor
+                ));
+            }
+            let width = member.bit_width.unwrap();
+            let name = if member.name.is_empty() {
+                "_".to_string()
+            } else {
+                rdl_ident(&member.name)
+            };
+            result.push_str(&format!("{}{name}: {width},\n", " ".repeat(indent + 4)));
+            cursor = member.offset + i64::from(width);
+        }
+        result.push_str(&format!("{spaces}}},\n"));
+        index = group.end;
+    }
+    Ok(result)
 }
 
 fn record_layout(
@@ -1388,9 +2468,13 @@ fn type_ref(ty: CXType) -> Option<TypeRef> {
     }
     if ty.kind == CXType_Pointer {
         let pointee = unsafe { clang_getPointeeType(ty) };
+        let target = type_ref(pointee)?;
+        if matches!(target, TypeRef::InlineRecord(_)) {
+            return None;
+        }
         return Some(TypeRef::Pointer {
             mutable: unsafe { clang_isConstQualifiedType(pointee) } == 0,
-            target: Box::new(type_ref(pointee)?),
+            target: Box::new(target),
         });
     }
     if ty.kind == CXType_ConstantArray {
@@ -1399,13 +2483,25 @@ fn type_ref(ty: CXType) -> Option<TypeRef> {
         if len < 0 {
             return None;
         }
+        let target = type_ref(target)?;
+        if matches!(target, TypeRef::InlineRecord(_)) {
+            return None;
+        }
         return Some(TypeRef::Array {
-            target: Box::new(type_ref(target)?),
+            target: Box::new(target),
             len: len.try_into().unwrap(),
         });
     }
     let declaration = unsafe { clang_getTypeDeclaration(ty) };
     if unsafe { clang_Cursor_isNull(declaration) } == 0 {
+        let kind = unsafe { clang_getCursorKind(declaration) };
+        if matches!(kind, CXCursor_StructDecl | CXCursor_UnionDecl)
+            && unsafe { clang_Cursor_isAnonymous(declaration) } != 0
+        {
+            return inline_record(declaration, kind == CXCursor_UnionDecl)
+                .ok()
+                .map(|record| TypeRef::InlineRecord(Box::new(record)));
+        }
         let name = cx_string(unsafe { clang_getCursorSpelling(declaration) });
         if !name.is_empty()
             && let Some((location, _, _, _)) = cursor_locations(declaration)
@@ -1463,7 +2559,7 @@ fn type_name(ty: &TypeRef) -> String {
     match ty {
         TypeRef::Void => "void".to_string(),
         TypeRef::Scalar(scalar) => scalar_name(*scalar).to_string(),
-        TypeRef::Named { name, .. } => name.clone(),
+        TypeRef::Named { name, .. } => rdl_ident(name),
         TypeRef::Pointer { .. } => {
             let (mutable, depth, target) = pointer_run(ty);
             format!(
@@ -1473,12 +2569,13 @@ fn type_name(ty: &TypeRef) -> String {
             )
         }
         TypeRef::Array { target, len } => format!("[{}; {len}]", type_name(target)),
+        TypeRef::InlineRecord(_) => "<inline record>".to_string(),
     }
 }
 
 fn planned_type_name(ty: &TypeRef, type_names: &BTreeMap<String, String>) -> String {
     match ty {
-        TypeRef::Named { name, .. } => type_names.get(name).unwrap_or(name).clone(),
+        TypeRef::Named { name, .. } => rdl_ident(type_names.get(name).unwrap_or(name)),
         TypeRef::Pointer { .. } => {
             let (mutable, depth, target) = pointer_run(ty);
             format!(
@@ -1490,6 +2587,7 @@ fn planned_type_name(ty: &TypeRef, type_names: &BTreeMap<String, String>) -> Str
         TypeRef::Array { target, len } => {
             format!("[{}; {len}]", planned_type_name(target, type_names))
         }
+        TypeRef::InlineRecord(_) => "<inline record>".to_string(),
         _ => type_name(ty),
     }
 }
@@ -1520,6 +2618,24 @@ fn value_name(value: &Value) -> String {
     match value {
         Value::Signed(value) => value.to_string(),
         Value::Unsigned(value) => value.to_string(),
+    }
+}
+
+fn rdl_ident(name: &str) -> String {
+    const KEYWORDS: &[&str] = &[
+        "Self", "abstract", "as", "async", "await", "become", "box", "break", "const", "continue",
+        "crate", "do", "dyn", "else", "enum", "extern", "false", "final", "fn", "for", "gen", "if",
+        "impl", "in", "let", "loop", "macro", "match", "mod", "move", "mut", "override", "priv",
+        "pub", "ref", "return", "self", "static", "struct", "super", "trait", "true", "try",
+        "type", "typeof", "union", "unsafe", "unsized", "use", "virtual", "where", "while",
+        "yield",
+    ];
+    if ["crate", "self", "Self", "super"].contains(&name) {
+        format!("{name}_")
+    } else if KEYWORDS.contains(&name) {
+        format!("r#{name}")
+    } else {
+        name.to_string()
     }
 }
 

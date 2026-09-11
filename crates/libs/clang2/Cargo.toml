@@ -12,4 +12,5 @@ clang-sys = { version = "1.8.1", features = ["runtime", "clang_18_0"] }
 
 [dev-dependencies]
 windows-clang = { workspace = true }
+windows-metadata = { workspace = true }
 windows-rdl = { workspace = true }
