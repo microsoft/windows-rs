@@ -78,10 +78,13 @@ pub(crate) struct Parser<'a> {
     pub tag_rename: &'a HashMap<String, String>,
     /// Enum reprs taken from integer typedefs in the C flags/enum idiom.
     pub enum_merge: &'a HashMap<String, &'static str>,
+    /// Typedef declarations visible through this translation unit's include graph.
+    pub typedefs: &'a HashMap<String, Cursor>,
     pub tu: &'a TranslationUnit,
     pub pending_typedefs: Vec<Cursor>,
-    pub pending_records: Vec<Cursor>,
-    pub pending_macros: Vec<String>,
+    pub pending_definitions: Vec<Cursor>,
+    pending_macros: BTreeMap<String, PendingMacro>,
+    pub pending_constant_refs: HashSet<String>,
     processing_dependency: bool,
     /// Per-header mode: incomplete pointer-only records emitted as opaque structs.
     pub pending_opaque: Vec<(String, String)>,
@@ -111,6 +114,16 @@ struct NamespaceSpec<'a> {
     symbols: &'a HashSet<String>,
 }
 
+enum PendingMacro {
+    Direct(Box<Const>),
+    Evaluate,
+}
+
+enum InputSource<'a> {
+    File(&'a str),
+    Content(&'a str),
+}
+
 impl<'a> Parser<'a> {
     #[expect(clippy::too_many_arguments)]
     fn new(
@@ -120,6 +133,7 @@ impl<'a> Parser<'a> {
         ref_map: &'a HashMap<String, String>,
         tag_rename: &'a HashMap<String, String>,
         enum_merge: &'a HashMap<String, &'static str>,
+        typedefs: &'a HashMap<String, Cursor>,
         macro_defs: &'a HashMap<String, Vec<String>>,
         tu: &'a TranslationUnit,
         symbols: &'a HashSet<String>,
@@ -133,10 +147,12 @@ impl<'a> Parser<'a> {
             header_names: None,
             tag_rename,
             enum_merge,
+            typedefs,
             tu,
             pending_typedefs: vec![],
-            pending_records: vec![],
-            pending_macros: vec![],
+            pending_definitions: vec![],
+            pending_macros: BTreeMap::new(),
+            pending_constant_refs: HashSet::new(),
             processing_dependency: false,
             pending_opaque: vec![],
             flag_enums: HashSet::new(),
@@ -155,6 +171,31 @@ impl<'a> Parser<'a> {
             return;
         }
         collector.insert(Item::Fn(item));
+    }
+
+    fn track_constant_refs(&mut self, item: &Item) {
+        if self.header_root.is_none() {
+            item_refs(item, &mut self.pending_constant_refs);
+        }
+    }
+
+    fn finalize_direct_macros(&mut self, collector: &mut Collector, undefined: &HashSet<String>) {
+        let pending = std::mem::take(&mut self.pending_macros);
+        for (name, state) in pending {
+            match state {
+                PendingMacro::Direct(c) if !undefined.contains(&name) => {
+                    let item = Item::Const(*c);
+                    if collector.insert(item) {
+                        let item = collector.get(&name).unwrap();
+                        self.track_constant_refs(item);
+                    }
+                }
+                PendingMacro::Direct(_) => {}
+                PendingMacro::Evaluate => {
+                    self.pending_macros.insert(name, PendingMacro::Evaluate);
+                }
+            }
+        }
     }
 
     /// Processes one cursor, inserting items or queuing macros for the second pass.
@@ -302,6 +343,7 @@ impl<'a> Parser<'a> {
                             name,
                             ty: None,
                             value: const_value,
+                            evaluated_type: None,
                         }));
                     }
                 } else if !self.ref_map.contains_key(&e.name) {
@@ -343,12 +385,22 @@ impl<'a> Parser<'a> {
                 }
             }
             CXCursor_MacroDefinition => {
+                let name = child.name();
+                let namespaced = self.header_root.is_none();
+                if namespaced {
+                    self.pending_macros.remove(&name);
+                }
                 if let Some(c) = Const::parse(child, self)? {
-                    collector.insert(Item::Const(c));
+                    if namespaced {
+                        self.pending_macros
+                            .insert(name, PendingMacro::Direct(Box::new(c)));
+                    } else {
+                        collector.insert(Item::Const(c));
+                    }
                 } else if !child.is_macro_builtin()
                     && !child.is_macro_function_like()
-                    && !child.name().is_empty()
-                    && !child.name().starts_with('_')
+                    && !name.is_empty()
+                    && !name.starts_with('_')
                 {
                     // Non-type keywords and string literals are not integer constants.
                     let tokens = self.tu.tokenize(child.extent());
@@ -374,7 +426,7 @@ impl<'a> Parser<'a> {
                         && body_is_balanced
                     {
                         // Defer object-like macro constants to the batch evaluator.
-                        self.pending_macros.push(child.name());
+                        self.pending_macros.insert(name, PendingMacro::Evaluate);
                     }
                 }
             }
@@ -444,12 +496,14 @@ impl<'a> Parser<'a> {
                     && !self.ref_map.contains_key(&name)
                     && !collector.contains_key(&name)
                 {
-                    collector.insert(Item::PropertyKeyConst(PropertyKeyConst {
+                    let item = Item::PropertyKeyConst(PropertyKeyConst {
                         name,
                         ty: ty.to_string(),
                         uuid,
                         pid,
-                    }));
+                    });
+                    self.track_constant_refs(&item);
+                    collector.insert(item);
                 }
             }
             // `IID_XXX` variables can provide UUIDs missing from interface declarations.
@@ -471,7 +525,9 @@ impl<'a> Parser<'a> {
                     && !self.ref_map.contains_key(&c.name)
                     && !collector.contains_key(&c.name)
                 {
-                    collector.insert(Item::Const(c));
+                    let item = Item::Const(c);
+                    self.track_constant_refs(&item);
+                    collector.insert(item);
                 }
             }
             _ => {}
@@ -501,6 +557,7 @@ impl<'a> Parser<'a> {
                             name,
                             ty: None,
                             value: const_value,
+                            evaluated_type: None,
                         }));
                     }
                 }
@@ -1244,6 +1301,7 @@ impl Clang {
 
         let empty_ref: HashMap<String, String> = HashMap::new();
         let empty_symbols: HashSet<String> = HashSet::new();
+        let typedefs = build_typedef_map(tu);
         let mut all_opaque: Vec<(String, String)> = vec![];
         // Macro constants are per-bucket values but are deduplicated globally.
         let mut all_consts: Vec<(String, Vec<String>)> = vec![];
@@ -1257,6 +1315,7 @@ impl Clang {
                 &empty_ref,
                 &tag_rename,
                 &enum_merge,
+                &typedefs,
                 &macro_defs,
                 tu,
                 &empty_symbols,
@@ -1269,11 +1328,12 @@ impl Clang {
                 parser.process_cursor(child, collector, extern_c)?;
             }
 
+            parser.finalize_direct_macros(collector, &HashSet::new());
             collector.apply_iid_vars(&parser.iid_vars);
 
             let pending = std::mem::take(&mut parser.pending_macros);
             if !pending.is_empty() {
-                all_consts.push((stem.clone(), pending));
+                all_consts.push((stem.clone(), pending.into_keys().collect()));
             }
             for (_ns, name) in std::mem::take(&mut parser.pending_opaque) {
                 all_opaque.push((stem.clone(), name));
@@ -1385,24 +1445,46 @@ impl Clang {
         // Pass 1: learn unique type-name owners across specs. Shared typedef artifacts stay
         // local by being dropped from the owner table.
         let mut owners: HashMap<String, Option<String>> = HashMap::new();
-        for spec in specs {
-            let ref_map = build_ref_map(reference, spec.namespace);
-            let mut collector = Collector::new();
-            for (_, tu) in &parsed.h_tus {
-                self.process_tu(tu, &mut collector, &ref_map, spec)?;
-            }
-            for (_, tu) in &parsed.str_tus {
-                self.process_tu(tu, &mut collector, &ref_map, spec)?;
-            }
-            for name in collector.keys() {
-                owners
-                    .entry(name.clone())
-                    .and_modify(|owner| {
-                        if owner.as_deref() != Some(spec.namespace) {
-                            *owner = None;
-                        }
-                    })
-                    .or_insert_with(|| Some(spec.namespace.to_string()));
+        if specs.len() > 1 {
+            for spec in specs {
+                let ref_map = build_ref_map(reference, spec.namespace);
+                let mut collector = Collector::new();
+                for (input, tu) in &parsed.h_tus {
+                    self.process_tu(
+                        tu,
+                        InputSource::File(input),
+                        &parsed.index,
+                        &arg_refs,
+                        &mut collector,
+                        &ref_map,
+                        spec,
+                    )?;
+                }
+                for (content, tu) in &parsed.str_tus {
+                    self.process_tu(
+                        tu,
+                        InputSource::Content(content),
+                        &parsed.index,
+                        &arg_refs,
+                        &mut collector,
+                        &ref_map,
+                        spec,
+                    )?;
+                }
+                for name in collector
+                    .iter()
+                    .filter(|(_, item)| item.is_type())
+                    .map(|(name, _)| name)
+                {
+                    owners
+                        .entry(name.clone())
+                        .and_modify(|owner| {
+                            if owner.as_deref() != Some(spec.namespace) {
+                                *owner = None;
+                            }
+                        })
+                        .or_insert_with(|| Some(spec.namespace.to_string()));
+                }
             }
         }
         let in_house: HashMap<String, String> = owners
@@ -1418,17 +1500,27 @@ impl Clang {
             let mut collector = Collector::new();
 
             for (input, tu) in &parsed.h_tus {
-                let pending = self.process_tu(tu, &mut collector, &ref_map, spec)?;
-                for c in Const::evaluate_macros(input, &pending, &parsed.index, &arg_refs)? {
-                    collector.insert(Item::Const(c));
-                }
+                self.process_tu(
+                    tu,
+                    InputSource::File(input),
+                    &parsed.index,
+                    &arg_refs,
+                    &mut collector,
+                    &ref_map,
+                    spec,
+                )?;
             }
 
             for (content, tu) in &parsed.str_tus {
-                let pending = self.process_tu(tu, &mut collector, &ref_map, spec)?;
-                for c in Const::evaluate_macros_str(content, &pending, &parsed.index, &arg_refs)? {
-                    collector.insert(Item::Const(c));
-                }
+                self.process_tu(
+                    tu,
+                    InputSource::Content(content),
+                    &parsed.index,
+                    &arg_refs,
+                    &mut collector,
+                    &ref_map,
+                    spec,
+                )?;
             }
 
             outputs.push(emit_module(spec.namespace, &collector)?);
@@ -1437,14 +1529,18 @@ impl Clang {
         Ok(outputs)
     }
 
-    /// Processes one translation unit and returns macros needing batch evaluation.
+    /// Processes one translation unit, including deferred macro evaluation and dependencies.
+    #[expect(clippy::too_many_arguments)]
     fn process_tu(
         &self,
         tu: &TranslationUnit,
+        source: InputSource<'_>,
+        index: &Index,
+        args: &[&str],
         collector: &mut Collector,
         ref_map: &HashMap<String, String>,
         spec: &NamespaceSpec<'_>,
-    ) -> Result<Vec<String>, Error> {
+    ) -> Result<(), Error> {
         for diag in tu.diagnostics() {
             if diag.is_err() {
                 return Err(Error::new(
@@ -1462,6 +1558,13 @@ impl Clang {
         // Give nested records synthetic names keyed by tag or source location.
         assign_nested_names(tu, &mut tag_rename);
         let enum_merge = merge_enum_typedef_idiom(tu, &mut tag_rename);
+        let typedefs = build_typedef_map(tu);
+        let enum_definitions = build_enum_definition_map(tu, &tag_rename);
+        let local_types: HashSet<_> = typedefs
+            .keys()
+            .chain(enum_definitions.keys())
+            .cloned()
+            .collect();
         let macro_defs = collect_macro_defs(tu);
 
         let mut parser = Parser::new(
@@ -1471,6 +1574,7 @@ impl Clang {
             ref_map,
             &tag_rename,
             &enum_merge,
+            &typedefs,
             &macro_defs,
             tu,
             spec.symbols,
@@ -1500,13 +1604,62 @@ impl Clang {
             parser.process_cursor(child, collector, false)?;
         }
 
+        let direct_names: Vec<_> = parser
+            .pending_macros
+            .iter()
+            .filter(|(_, state)| matches!(state, PendingMacro::Direct(_)))
+            .map(|(name, _)| name.clone())
+            .collect();
+        let undefined = match source {
+            InputSource::File(input) => Const::undefined_macros(input, &direct_names, index, args)?,
+            InputSource::Content(content) => {
+                Const::undefined_macros_str(content, &direct_names, index, args)?
+            }
+        };
+        parser.finalize_direct_macros(collector, &undefined);
+
+        let names: Vec<_> = parser.pending_macros.keys().cloned().collect();
+        let evaluated = match source {
+            InputSource::File(input) => Const::evaluate_macros(input, &names, index, args)?,
+            InputSource::Content(content) => {
+                Const::evaluate_macros_str(content, &names, index, args)?
+            }
+        };
+        for mut constant in evaluated {
+            constant.apply_evaluated_type(spec.namespace, ref_map, &tag_rename, &local_types);
+            let name = constant.name.clone();
+            let item = Item::Const(constant);
+            if collector.insert(item) {
+                let item = collector.get(&name).unwrap();
+                parser.track_constant_refs(item);
+            }
+        }
+
+        // Constants have no type cursor, so queue local typedefs named by their emitted values.
+        let mut referenced: Vec<_> = std::mem::take(&mut parser.pending_constant_refs)
+            .into_iter()
+            .collect();
+        referenced.sort();
+        for name in referenced {
+            if !collector.get(&name).is_some_and(Item::is_type)
+                && !parser.ref_map.contains_key(&name)
+            {
+                if let Some(cursor) = parser.typedefs.get(&name) {
+                    parser.pending_typedefs.push(*cursor);
+                }
+                if let Some(cursor) = enum_definitions.get(&name) {
+                    parser.pending_definitions.push(*cursor);
+                }
+            }
+        }
+
         // Drain referenced type dependencies; parsing one definition can enqueue more.
         let mut seen_typedefs: HashSet<String> = HashSet::new();
-        let mut seen_records: HashSet<String> = HashSet::new();
+        let mut seen_definitions: HashSet<String> = HashSet::new();
         let mut typedef_index = 0;
-        let mut record_index = 0;
+        let mut definition_index = 0;
         while typedef_index < parser.pending_typedefs.len()
-            || record_index < parser.pending_records.len()
+            || definition_index < parser.pending_definitions.len()
         {
             while typedef_index < parser.pending_typedefs.len() {
                 let cursor = parser.pending_typedefs[typedef_index];
@@ -1514,7 +1667,7 @@ impl Clang {
                 let name = cursor.name();
                 // Skip anything already resolved.
                 if !seen_typedefs.insert(name.clone())
-                    || collector.contains_key(&name)
+                    || collector.get(&name).is_some_and(Item::is_type)
                     || parser.ref_map.contains_key(&name)
                 {
                     continue;
@@ -1526,10 +1679,10 @@ impl Clang {
                 }
             }
 
-            while record_index < parser.pending_records.len() {
-                let cursor = parser.pending_records[record_index];
-                record_index += 1;
-                if seen_records.insert(cursor.usr()) {
+            while definition_index < parser.pending_definitions.len() {
+                let cursor = parser.pending_definitions[definition_index];
+                definition_index += 1;
+                if seen_definitions.insert(cursor.usr()) {
                     parser.processing_dependency = true;
                     let result = parser.process_cursor(cursor, collector, false);
                     parser.processing_dependency = false;
@@ -1541,7 +1694,7 @@ impl Clang {
         // Apply `IID_IFoo` variables to interfaces that lack `uuid` attributes.
         collector.apply_iid_vars(&parser.iid_vars);
 
-        Ok(parser.pending_macros)
+        Ok(())
     }
 }
 
@@ -1934,6 +2087,7 @@ mod tests {
             name: "D3DFMT_X8R8G8B8".to_string(),
             ty: None,
             value: metadata::Value::U32(22),
+            evaluated_type: None,
         }));
 
         let collectors: BTreeMap<String, Collector> =

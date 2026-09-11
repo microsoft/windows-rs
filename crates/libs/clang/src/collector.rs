@@ -16,15 +16,24 @@ impl Collector {
         Default::default()
     }
 
-    pub fn insert(&mut self, item: Item) {
+    pub fn insert(&mut self, item: Item) -> bool {
         let name = item.to_string();
+        if self.0.get(&name).is_some_and(Item::is_type)
+            && matches!(
+                item,
+                Item::Const(_) | Item::GuidConst(_) | Item::PropertyKeyConst(_)
+            )
+        {
+            return false;
+        }
         if let (Some(Item::Typedef(existing)), Item::Typedef(candidate)) =
             (self.0.get(&name), &item)
             && (existing.is_direct_pointer_alias() || !candidate.is_direct_pointer_alias())
         {
-            return;
+            return false;
         }
         self.0.insert(name, item);
+        true
     }
 
     /// Keep only entries whose name satisfies `keep`.

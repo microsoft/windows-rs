@@ -24,6 +24,51 @@ pub(crate) fn build_tag_rename_map(tu: &TranslationUnit) -> HashMap<String, Stri
     map
 }
 
+/// Index typedef declarations visible in one translation unit.
+pub(crate) fn build_typedef_map(tu: &TranslationUnit) -> HashMap<String, Cursor> {
+    fn collect(cursor: Cursor, map: &mut HashMap<String, Cursor>) {
+        for child in cursor.children() {
+            if child.kind() == CXCursor_LinkageSpec {
+                collect(child, map);
+            } else if child.kind() == CXCursor_TypedefDecl {
+                map.entry(child.name()).or_insert(child);
+            }
+        }
+    }
+
+    let mut map = HashMap::new();
+    collect(tu.cursor(), &mut map);
+    map
+}
+
+/// Index named enum definitions visible in one translation unit by source and public names.
+pub(crate) fn build_enum_definition_map(
+    tu: &TranslationUnit,
+    tag_rename: &HashMap<String, String>,
+) -> HashMap<String, Cursor> {
+    fn collect(
+        cursor: Cursor,
+        tag_rename: &HashMap<String, String>,
+        map: &mut HashMap<String, Cursor>,
+    ) {
+        for child in cursor.children() {
+            if child.kind() == CXCursor_LinkageSpec {
+                collect(child, tag_rename, map);
+            } else if child.kind() == CXCursor_EnumDecl && child.is_definition() {
+                let name = child.name();
+                map.entry(name.clone()).or_insert(child);
+                if let Some(public) = tag_rename.get(&name) {
+                    map.entry(public.clone()).or_insert(child);
+                }
+            }
+        }
+    }
+
+    let mut map = HashMap::new();
+    collect(tu.cursor(), tag_rename, &mut map);
+    map
+}
+
 /// Merge `enum _FOO { ... }; typedef DWORD FOO;` into one public enum.
 ///
 /// The typedef supplies the backing type and signedness; the enum supplies the members.

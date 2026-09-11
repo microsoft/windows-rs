@@ -5,6 +5,7 @@ pub struct Const {
     pub name: String,
     pub ty: Option<metadata::Type>,
     pub value: metadata::Value,
+    pub(crate) evaluated_type: Option<String>,
 }
 
 impl Const {
@@ -33,6 +34,7 @@ impl Const {
                 name,
                 ty: Some(ty),
                 value,
+                evaluated_type: None,
             }));
         }
 
@@ -45,7 +47,40 @@ impl Const {
             name,
             ty: None,
             value,
+            evaluated_type: None,
         }))
+    }
+
+    /// Restore the named expression type that batch evaluation folded to a plain integer.
+    pub(crate) fn apply_evaluated_type(
+        &mut self,
+        namespace: &str,
+        ref_map: &HashMap<String, String>,
+        tag_rename: &HashMap<String, String>,
+        local_types: &HashSet<String>,
+    ) {
+        if self.ty.is_some() {
+            return;
+        }
+        let Some(type_name) = self.evaluated_type.take() else {
+            return;
+        };
+        let type_name = tag_rename.get(&type_name).unwrap_or(&type_name);
+        let known_type = local_types.contains(type_name)
+            || ref_map.contains_key(type_name)
+            || semantic_scalar(type_name).is_some()
+            || fundamental_scalar(type_name).is_some()
+            || void_pointer_alias(type_name).is_some()
+            || canonical_hresult(type_name).is_some();
+        if !known_type {
+            return;
+        }
+        let Some(bits) = const_value_bits(&self.value) else {
+            return;
+        };
+        if let Some(value) = named_cast_value(namespace, ref_map, None, type_name, bits, false) {
+            self.value = value;
+        }
     }
 
     /// Parse file-scope floating-point `const` variables that flat metadata would otherwise lose.
@@ -67,6 +102,7 @@ impl Const {
             name,
             ty: None,
             value,
+            evaluated_type: None,
         })
     }
 
@@ -273,6 +309,37 @@ impl Const {
         }
         Ok(results)
     }
+
+    pub(crate) fn undefined_macros(
+        input: &str,
+        names: &[String],
+        index: &Index,
+        args: &[&str],
+    ) -> Result<HashSet<String>, Error> {
+        let input_basename = Path::new(input)
+            .file_name()
+            .and_then(|n| n.to_str())
+            .unwrap_or(input);
+        let prefix = format!("#include \"{input_basename}\"\n");
+        let synthetic = format!("{input}.__rdl_defined__.cpp");
+        undefined_names(&prefix, &synthetic, names, index, args)
+    }
+
+    pub(crate) fn undefined_macros_str(
+        content: &str,
+        names: &[String],
+        index: &Index,
+        args: &[&str],
+    ) -> Result<HashSet<String>, Error> {
+        let prefix = format!("{content}\n");
+        undefined_names(
+            &prefix,
+            "__rdl_input_text_defined__.cpp",
+            names,
+            index,
+            args,
+        )
+    }
 }
 
 /// Disable clang's error cap so bad probe enums do not abort the TU before later valid macros.
@@ -280,6 +347,54 @@ fn with_unlimited_errors<'a>(args: &[&'a str]) -> Vec<&'a str> {
     let mut out = args.to_vec();
     out.push("-ferror-limit=0");
     out
+}
+
+/// Return names that the final preprocessor state explicitly reports as undefined.
+fn undefined_names(
+    prefix: &str,
+    synthetic: &str,
+    names: &[String],
+    index: &Index,
+    args: &[&str],
+) -> Result<HashSet<String>, Error> {
+    if names.is_empty() {
+        return Ok(HashSet::new());
+    }
+
+    let mut source = String::from(prefix);
+    for name in names {
+        if !is_c_identifier(name) {
+            continue;
+        }
+        source.push_str(&format!(
+            "#ifdef {name}\n\
+             enum {{ __rdl_defined_{name} = 1 }};\n\
+             #else\n\
+             enum {{ __rdl_undefined_{name} = 1 }};\n\
+             #endif\n"
+        ));
+    }
+
+    let args = with_unlimited_errors(args);
+    let tu = index.parse_unsaved(
+        synthetic,
+        &source,
+        &args,
+        CXTranslationUnit_KeepGoing | CXTranslationUnit_SkipFunctionBodies,
+    )?;
+    let mut undefined = HashSet::new();
+    for child in tu.cursor().children() {
+        if child.is_from_main_file() && child.kind() == CXCursor_EnumDecl {
+            for constant in child.children() {
+                if constant.kind() == CXCursor_EnumConstantDecl
+                    && let Some(name) = constant.name().strip_prefix("__rdl_undefined_")
+                {
+                    undefined.insert(name.to_string());
+                }
+            }
+        }
+    }
+    Ok(undefined)
 }
 
 /// Counts top-level comma-separated macro-expansion results for the shape gate.
@@ -306,7 +421,7 @@ fn eval_probe(name: &str) -> String {
 /// Missing gates mean a preceding macro swallowed later enum declarations, so the caller
 /// retries those names; failed gates are real rejects and are not retried.
 fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
-    let mut evals: Vec<(String, u64, i64, Option<metadata::Type>)> = vec![];
+    let mut evals: Vec<(String, u64, i64, Option<metadata::Type>, Option<String>)> = vec![];
     let mut eval_seen: HashSet<String> = HashSet::new();
     let mut ok_seen: HashSet<String> = HashSet::new();
     let mut nc_seen: HashSet<String> = HashSet::new();
@@ -325,7 +440,14 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
             if let Some((unsigned, signed)) = child.evaluate_integer() {
                 let ty = child.ty();
                 let semantic = pointer_sized_abi(&ty.ty().name());
-                evals.push((original_name.to_string(), unsigned, signed, semantic));
+                let evaluated_type = evaluated_type_name(child);
+                evals.push((
+                    original_name.to_string(),
+                    unsigned,
+                    signed,
+                    semantic,
+                    evaluated_type,
+                ));
             }
             continue;
         }
@@ -364,8 +486,8 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
 
     let kept = evals
         .into_iter()
-        .filter(|(name, _, _, _)| type_ok.contains(name) && shape_ok.contains(name))
-        .map(|(name, unsigned, signed, ty)| {
+        .filter(|(name, _, _, _, _)| type_ok.contains(name) && shape_ok.contains(name))
+        .map(|(name, unsigned, signed, ty, evaluated_type)| {
             let value = if let Some(ty) = &ty {
                 native_integer_value(unsigned, signed, ty)
             } else {
@@ -376,11 +498,26 @@ fn collect_eval_results(tu: &TranslationUnit) -> (Vec<Const>, HashSet<String>) {
                     signs.get(&name).copied(),
                 )
             };
-            Const { name, ty, value }
+            Const {
+                name,
+                ty,
+                value,
+                evaluated_type,
+            }
         })
         .collect();
 
     (kept, present)
+}
+
+fn evaluated_type_name(cursor: Cursor) -> Option<String> {
+    let ty = cursor.ty();
+    if ty.ty().name().is_empty() {
+        return None;
+    }
+    let spelling = ty.spelling();
+    let name = spelling.strip_prefix("const ").unwrap_or(&spelling);
+    is_c_identifier(name).then(|| name.to_string())
 }
 
 /// Type an evaluated integer from size/signedness probes, with a value-based fallback.
@@ -932,7 +1069,17 @@ fn parse_named_cast(
 ) -> Option<metadata::Value> {
     let (digits, _suffix) = split_int_suffix(lit);
     let raw: u64 = parse_int_digits(digits)?;
+    named_cast_value(namespace, ref_map, header_names, type_name, raw, negate)
+}
 
+fn named_cast_value(
+    namespace: &str,
+    ref_map: &HashMap<String, String>,
+    header_names: Option<&HashMap<String, String>>,
+    type_name: &str,
+    raw: u64,
+    negate: bool,
+) -> Option<metadata::Value> {
     if let Some(ty) = semantic_scalar(type_name) {
         return scalar_value(&ty, raw, negate);
     }
@@ -979,6 +1126,23 @@ fn parse_named_cast(
         metadata::TypeName::named(ns, type_name),
         Box::new(metadata::Value::I64(v)),
     ))
+}
+
+fn const_value_bits(value: &metadata::Value) -> Option<u64> {
+    Some(match value {
+        metadata::Value::Bool(v) => *v as u64,
+        metadata::Value::U8(v) => *v as u64,
+        metadata::Value::I8(v) => *v as i64 as u64,
+        metadata::Value::U16(v) => *v as u64,
+        metadata::Value::I16(v) => *v as i64 as u64,
+        metadata::Value::U32(v) => *v as u64,
+        metadata::Value::I32(v) => *v as i64 as u64,
+        metadata::Value::U64(v) => *v,
+        metadata::Value::I64(v) => *v as u64,
+        metadata::Value::USize(v) => *v,
+        metadata::Value::ISize(v) => *v as u64,
+        _ => return None,
+    })
 }
 
 /// Parse a named cast of a complemented integer literal such as `(SOCKET)(~0)`.
