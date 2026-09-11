@@ -76,6 +76,10 @@ no Reactor windows, and closing its last window does not end the message loop. `
 windows and exits from the UI thread and may be cloned into UI-thread callbacks. Its cloneable
 `AppProxy` posts work or requests exit from other threads.
 
+Components can call `WindowRef::request_activate` during an update to restore and foreground their
+owning window. This is useful when an external app resource receives a request to open a window
+that already exists.
+
 `window_frame` creates an integrated WinUI title bar and places the application content below it:
 
 ```rust,ignore

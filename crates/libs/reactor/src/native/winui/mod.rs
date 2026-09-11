@@ -1403,11 +1403,26 @@ impl WinUiRuntime {
                 self.windows.insert(*node, window);
             }
             Command::ActivateWindow { node } => {
-                self.windows
+                let window = self
+                    .windows
                     .get(node)
-                    .ok_or(RuntimeError::MissingNode(*node))?
-                    .Activate()
-                    .map_err(native_error)?;
+                    .ok_or(RuntimeError::MissingNode(*node))?;
+                let mut hwnd = std::ptr::null_mut();
+                unsafe {
+                    window
+                        .cast::<IWindowNative>()
+                        .map_err(native_error)?
+                        .WindowHandle(&mut hwnd)
+                        .ok()
+                        .map_err(native_error)?;
+                    if IsIconic(hwnd).as_bool() {
+                        _ = ShowWindow(hwnd, SW_RESTORE);
+                    }
+                }
+                window.Activate().map_err(native_error)?;
+                unsafe {
+                    _ = SetForegroundWindow(hwnd);
+                }
             }
             Command::CloseWindow { node } => {
                 self.windows

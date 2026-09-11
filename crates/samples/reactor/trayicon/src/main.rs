@@ -9,50 +9,141 @@ use windows_trayicon::{Menu, TrayIcon, TrayIconEvent};
 const OPEN: u32 = 1;
 const EXIT: u32 = 2;
 
-#[derive(Clone, PartialEq)]
-struct TrayWindowInput {
-    closed: Callback<()>,
-    exit: Callback<()>,
-    remove_tray: Callback<()>,
+struct AppState {
+    activate_window: RefCell<Option<Callback<()>>>,
+    app: AppContext,
+    tray: RefCell<Option<TrayIcon>>,
+    window_open: Cell<bool>,
+}
+
+impl AppState {
+    fn add_tray(self: &Rc<Self>) -> windows_trayicon::Result<()> {
+        if self.tray.borrow().is_some() {
+            return Ok(());
+        }
+
+        let state = Rc::downgrade(self);
+        let tray = TrayIcon::new(concat!(env!("CARGO_MANIFEST_DIR"), "\\..\\icon\\icon.ico"))
+            .tooltip("Reactor tray icon sample")
+            .menu(
+                Menu::new()
+                    .item(OPEN, "Open window")
+                    .separator()
+                    .item(EXIT, "Exit"),
+            )
+            .on_event(move |event| {
+                let Some(state) = state.upgrade() else {
+                    return;
+                };
+                match event {
+                    TrayIconEvent::Activate { .. } | TrayIconEvent::MenuItem { id: OPEN } => {
+                        state.open_window();
+                    }
+                    TrayIconEvent::MenuItem { id: EXIT } => state.exit(),
+                    _ => {}
+                }
+            })
+            .build()?;
+        *self.tray.borrow_mut() = Some(tray);
+        Ok(())
+    }
+
+    fn toggle_tray(self: &Rc<Self>) {
+        let removed = self.tray.borrow_mut().take().is_some();
+        if !removed && let Err(error) = self.add_tray() {
+            eprintln!("could not add tray icon: {error}");
+        }
+    }
+
+    fn open_window(self: &Rc<Self>) {
+        if self.window_open.replace(true) {
+            if let Some(activate) = self.activate_window.borrow().as_ref() {
+                _ = activate.call(());
+            }
+            return;
+        }
+        if let Err(error) = self
+            .app
+            .open_window(View::component::<TrayWindow>(TrayWindowInput(Rc::clone(
+                self,
+            ))))
+        {
+            self.window_open.set(false);
+            eprintln!("could not open Reactor window: {error}");
+        }
+    }
+
+    fn exit(&self) {
+        if let Err(error) = self.app.exit() {
+            eprintln!("could not exit Reactor application: {error}");
+        }
+    }
+}
+
+#[derive(Clone)]
+struct TrayWindowInput(Rc<AppState>);
+
+impl PartialEq for TrayWindowInput {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.0, &other.0)
+    }
+}
+
+#[derive(Clone, Copy)]
+enum Message {
+    Activate,
+    Exit,
+    ToggleTray,
 }
 
 struct TrayWindow {
-    closed: Callback<()>,
-    exit: Callback<()>,
-    remove_tray: Callback<()>,
+    state: Rc<AppState>,
 }
 
 impl Component for TrayWindow {
     type Input = TrayWindowInput;
-    type Message = ();
+    type Message = Message;
 
-    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        *input.0.activate_window.borrow_mut() =
+            Some(context.sender().callback(|()| Message::Activate));
         Self {
-            closed: input.closed.clone(),
-            exit: input.exit.clone(),
-            remove_tray: input.remove_tray.clone(),
+            state: Rc::clone(&input.0),
         }
     }
 
     fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.closed = input.closed.clone();
-        self.exit = input.exit.clone();
-        self.remove_tray = input.remove_tray.clone();
+        self.state = Rc::clone(&input.0);
     }
 
-    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
+    fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
+        match message {
+            Message::Activate => {
+                if !context.window().request_activate() {
+                    eprintln!("could not activate Reactor window");
+                }
+            }
+            Message::Exit => self.state.exit(),
+            Message::ToggleTray => self.state.toggle_tray(),
+        }
+    }
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        let tray_button = if self.state.tray.borrow().is_some() {
+            "Remove tray icon"
+        } else {
+            "Add tray icon"
+        };
         context.window_frame(
             "Reactor tray icon",
             StackPanel::new().spacing(8.0).children((
                 "This window is independent of the tray icon.",
                 "Close it and use the tray icon to open another.",
                 Button::new()
-                    .on_click(self.remove_tray.clone())
-                    .content("Remove tray icon"),
+                    .on_click(context.message(Message::ToggleTray))
+                    .content(tray_button),
                 Button::new()
-                    .on_click(self.exit.clone())
+                    .on_click(context.message(Message::Exit))
                     .content("Exit application"),
             )),
         )
@@ -61,79 +152,24 @@ impl Component for TrayWindow {
 
 impl Drop for TrayWindow {
     fn drop(&mut self) {
-        _ = self.closed.call(());
+        self.state.activate_window.borrow_mut().take();
+        self.state.window_open.set(false);
+        if self.state.tray.borrow().is_none() {
+            self.state.exit();
+        }
     }
 }
 
 fn main() {
     App::run_with(|app| {
-        let tray = Rc::new(RefCell::new(None));
-        let window_open = Rc::new(Cell::new(false));
-        let remove_tray = {
-            let tray = Rc::downgrade(&tray);
-            Callback::new(move |_| {
-                if let Some(tray) = tray.upgrade() {
-                    tray.borrow_mut().take();
-                }
-            })
-        };
-        let exit = {
-            let app = app.clone();
-            Callback::new(move |_| {
-                if let Err(error) = app.exit() {
-                    eprintln!("could not exit Reactor application: {error}");
-                }
-            })
-        };
-        let closed = {
-            let app = app.clone();
-            let tray = Rc::downgrade(&tray);
-            let window_open = Rc::clone(&window_open);
-            Callback::new(move |_| {
-                window_open.set(false);
-                if tray.upgrade().is_some_and(|tray| tray.borrow().is_none())
-                    && let Err(error) = app.exit()
-                {
-                    eprintln!("could not exit Reactor application: {error}");
-                }
-            })
-        };
-        let window_input = TrayWindowInput {
-            closed,
-            exit,
-            remove_tray,
-        };
-        let open_input = window_input.clone();
-        let open_app = app.clone();
-        let open_window = Rc::clone(&window_open);
-        let tray_icon = TrayIcon::new(concat!(env!("CARGO_MANIFEST_DIR"), "\\..\\icon\\icon.ico"))
-            .tooltip("Reactor tray icon sample")
-            .menu(
-                Menu::new()
-                    .item(OPEN, "Open window")
-                    .separator()
-                    .item(EXIT, "Exit"),
-            )
-            .on_event(move |event| match event {
-                TrayIconEvent::Activate { .. } | TrayIconEvent::MenuItem { id: OPEN } => {
-                    if open_window.replace(true) {
-                        return;
-                    }
-                    let input = open_input.clone();
-                    if let Err(error) = open_app.open_window(View::component::<TrayWindow>(input)) {
-                        open_window.set(false);
-                        eprintln!("could not open Reactor window: {error}");
-                    }
-                }
-                TrayIconEvent::MenuItem { id: EXIT } => {
-                    _ = window_input.exit.call(());
-                }
-                _ => {}
-            })
-            .build()?;
-
-        *tray.borrow_mut() = Some(tray_icon);
-        Ok(tray)
+        let state = Rc::new(AppState {
+            activate_window: RefCell::new(None),
+            app: app.clone(),
+            tray: RefCell::new(None),
+            window_open: Cell::new(false),
+        });
+        state.add_tray()?;
+        Ok(state)
     })
     .unwrap();
 }

@@ -144,6 +144,7 @@ Windows::Win32::GetKeyboardState
 Windows::Win32::GetProcessHeap
 Windows::Win32::HeapFree
 Windows::Win32::IDYES
+Windows::Win32::IsIconic
 Windows::Win32::MB_ICONERROR
 Windows::Win32::MB_YESNO
 Windows::Win32::MessageBoxW
@@ -156,9 +157,12 @@ Windows::Win32::PackageDependencyProcessorArchitectures::PackageDependencyProces
 Windows::Win32::PackageDependencyProcessorArchitectures::PackageDependencyProcessorArchitectures_None
 Windows::Win32::PostQuitMessage
 Windows::Win32::RPC_E_CHANGED_MODE
+Windows::Win32::SetForegroundWindow
 Windows::Win32::SetProcessDpiAwarenessContext
+Windows::Win32::ShowWindow
 Windows::Win32::ShellExecuteW
 Windows::Win32::STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED
+Windows::Win32::SW_RESTORE
 Windows::Win32::SW_SHOWNORMAL
 Windows::Win32::TryCreatePackageDependency
 extras::ISwapChainPanelNative::SetSwapChain

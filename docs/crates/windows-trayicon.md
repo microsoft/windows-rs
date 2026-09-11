@@ -121,8 +121,8 @@ consistently expose notification icons themselves in the desktop UIA tree, so re
 keyboard input remains part of the manual gate.
 
 The Reactor sample starts with no Reactor windows, opens them from tray events, and demonstrates
-that either the window or tray icon can be removed while the other remains active. It exits when
-the last window closes after the tray icon has been removed.
+that either the window or tray icon can be removed and created again while the other remains
+active. It exits when the last window closes after the tray icon has been removed.
 
 Run the interactive sample from a terminal. It logs each activation and updates the tooltip with
 an activation count while reloading the icon. Its native context menu contains an Exit command:

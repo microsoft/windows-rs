@@ -19,6 +19,7 @@ impl PartialEq for Input {
 
 #[derive(Clone)]
 enum Message {
+    Activate,
     Close,
     CloseWithInvalidView,
     Fix,
@@ -53,6 +54,9 @@ impl Component for ClosingComponent {
 
     fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
         match message {
+            Message::Activate => {
+                self.input.accepted.set(self.window.request_activate());
+            }
             Message::Close => {
                 self.closing = true;
                 self.input.accepted.set(self.window.request_close());
@@ -89,6 +93,42 @@ fn input() -> Input {
         sender: Rc::new(RefCell::new(None)),
         window: Rc::new(RefCell::new(None)),
     }
+}
+
+#[test]
+fn activate_request_runs_after_component_publication() {
+    let input = input();
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<ClosingComponent>(input.clone()))
+        .unwrap();
+    let initial = pump
+        .runtime()
+        .commands()
+        .iter()
+        .flatten()
+        .filter(|command| matches!(command, Command::ActivateWindow { .. }))
+        .count();
+
+    assert!(!input.window.borrow().as_ref().unwrap().request_activate());
+    assert!(
+        input
+            .sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(Message::Activate)
+    );
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert!(input.accepted.get());
+    assert_eq!(
+        pump.runtime()
+            .commands()
+            .iter()
+            .flatten()
+            .filter(|command| matches!(command, Command::ActivateWindow { .. }))
+            .count(),
+        initial + 1
+    );
 }
 
 #[test]

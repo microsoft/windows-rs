@@ -711,9 +711,11 @@ impl<R: NativeRuntime> Pump<R> {
     }
 
     fn plan_host_requests(window: NodeId, requests: &mut Vec<HostRequest>, plan: &mut UpdatePlan) {
+        let mut activate = false;
         let mut close = false;
         for request in requests.drain(..) {
             match request {
+                HostRequest::Activate { identity } if identity == plan.identity => activate = true,
                 HostRequest::Close { identity } if identity == plan.identity => close = true,
                 HostRequest::Open { identity, root } if identity == plan.identity => {
                     plan.post_publish_windows.push(root);
@@ -725,13 +727,19 @@ impl<R: NativeRuntime> Pump<R> {
                     assert!(plan.post_publish_window_operation.is_none());
                     plan.post_publish_window_operation = Some((window, operation));
                 }
-                HostRequest::Close { .. } | HostRequest::Open { .. } | HostRequest::Run { .. } => {}
+                HostRequest::Activate { .. }
+                | HostRequest::Close { .. }
+                | HostRequest::Open { .. }
+                | HostRequest::Run { .. } => {}
             }
         }
         if close {
             plan.post_publish_window_operation = None;
             plan.post_publish_commands
                 .push(Command::CloseWindow { node: window });
+        } else if activate {
+            plan.post_publish_commands
+                .push(Command::ActivateWindow { node: window });
         }
     }
 

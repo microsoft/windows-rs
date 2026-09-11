@@ -141,9 +141,10 @@ last-Reactor-window-exits behavior.
 - [x] Preserve `run_component` as a convenience API with last-window-exits behavior.
 - [x] Allow tray-first startup to create a Reactor window later.
 - [x] Allow a Reactor window to close while the tray icon and process remain alive.
-- [x] Allow the tray icon to disappear while Reactor windows or services remain alive.
+- [x] Allow the tray icon to disappear and be created again while Reactor windows remain alive.
 - [x] Verify the nested-window self-test and WebView lifecycle continue to use the shared pump.
 - [x] Add a tray-first integration sample that exercises both peer lifetime directions.
+- [x] Activate the existing Reactor window when the tray receives another open request.
 - [ ] Add minimize-to-tray policy only if Reactor gains a window close/minimize interception API.
 
 Gate: windows, tray icons, pickers, WebViews, and background services are peers under application
