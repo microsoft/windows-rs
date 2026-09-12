@@ -385,6 +385,7 @@ impl Registration {
 struct Shared {
     active: Cell<bool>,
     callback_hwnd: Cell<*mut core::ffi::c_void>,
+    dispatching: Cell<bool>,
     handler: RefCell<Option<EventHandler>>,
     menu: Option<OwnedMenu>,
     pending: RefCell<VecDeque<Pending>>,
@@ -396,6 +397,14 @@ struct Shared {
 enum Pending {
     Event(TrayIconEvent),
     RetryRecovery,
+}
+
+struct DispatchGuard<'a>(&'a Cell<bool>);
+
+impl Drop for DispatchGuard<'_> {
+    fn drop(&mut self) {
+        self.0.set(false);
+    }
 }
 
 #[derive(Default)]
@@ -434,8 +443,13 @@ impl Shared {
     }
 
     fn dispatch_pending(&self, hwnd: *mut core::ffi::c_void) {
-        // Nested loops can enqueue more work through the callback window while this dispatch
-        // window is guarded against reentry, so keep draining until the queue is empty.
+        if self.dispatching.replace(true) {
+            return;
+        }
+        let _guard = DispatchGuard(&self.dispatching);
+
+        // Nested loops can enqueue more work through the callback window, so keep draining until
+        // the queue is empty after the active handler returns.
         while self.active.get() {
             let Some(pending) = self.pending.borrow_mut().pop_front() else {
                 break;
@@ -622,6 +636,7 @@ impl TrayIconBuilder {
         let shared = Rc::new(Shared {
             active: Cell::new(true),
             callback_hwnd: Cell::new(core::ptr::null_mut()),
+            dispatching: Cell::new(false),
             handler: RefCell::new(self.handler),
             menu,
             pending: RefCell::new(VecDeque::new()),

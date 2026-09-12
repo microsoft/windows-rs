@@ -118,7 +118,7 @@ fn raw_message_loop_dispatches_posted_events() {
 
 #[test]
 #[ignore = "requires an interactive Windows shell"]
-fn nested_callback_is_delivered_after_the_active_handler() {
+fn nested_message_loop_defers_callback_until_the_active_handler_returns() {
     let path = concat!(env!("CARGO_MANIFEST_DIR"), "\\assets\\icon.ico");
     let delivered = std::rc::Rc::new(std::cell::Cell::new(0));
     let callback_delivered = std::rc::Rc::clone(&delivered);
@@ -138,6 +138,8 @@ fn nested_callback_is_delivered_after_the_active_handler() {
                             NIN_SELECT as isize,
                         );
                     }
+                    assert!(windows_window::pump());
+                    assert_eq!(callback_delivered.get(), 1);
                 }
             }
         })
