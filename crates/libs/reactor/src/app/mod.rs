@@ -1,6 +1,10 @@
+use std::any::Any;
 use std::cell::RefCell;
 use std::collections::{HashMap, HashSet};
+use std::marker::PhantomData;
 use std::rc::Rc;
+use std::sync::{Arc, Mutex};
+use windows_core::Interface;
 
 use super::*;
 use crate::core::*;
@@ -24,12 +28,14 @@ thread_local! {
 
 struct LiveHost {
     _application: Application,
+    _resource: Option<Box<dyn Any>>,
     closed_in_flight: HashSet<WindowToken>,
+    exit_when_empty: bool,
     fault: Option<windows_core::Error>,
     in_flight: HashSet<WindowToken>,
     pending_opens: usize,
     #[cfg(feature = "test")]
-    primary: WindowToken,
+    primary: Option<WindowToken>,
     windows: HashMap<WindowToken, Box<dyn LivePump>>,
 }
 
@@ -38,14 +44,21 @@ impl LiveHost {
         self.windows.is_empty() && self.in_flight.is_empty() && self.pending_opens == 0
     }
 
+    fn should_exit(&self) -> bool {
+        self.exit_when_empty && self.is_empty()
+    }
+
     #[cfg(feature = "test")]
     fn primary(&self) -> Option<&dyn LivePump> {
-        self.windows.get(&self.primary).map(Box::as_ref)
+        self.primary
+            .and_then(|primary| self.windows.get(&primary))
+            .map(Box::as_ref)
     }
 
     #[cfg(feature = "test")]
     fn primary_mut(&mut self) -> Option<&mut (dyn LivePump + '_)> {
-        match self.windows.get_mut(&self.primary) {
+        let primary = self.primary?;
+        match self.windows.get_mut(&primary) {
             Some(pump) => Some(pump.as_mut()),
             None => None,
         }
@@ -55,18 +68,29 @@ impl LiveHost {
     fn secondary(&self) -> Option<&dyn LivePump> {
         self.windows
             .iter()
-            .find(|(token, _)| **token != self.primary)
+            .find(|(token, _)| Some(**token) != self.primary)
             .map(|(_, pump)| pump.as_ref())
     }
 
     #[cfg(feature = "test")]
     fn secondary_mut(&mut self) -> Option<&mut (dyn LivePump + '_)> {
         for (token, pump) in &mut self.windows {
-            if *token != self.primary {
+            if Some(*token) != self.primary {
                 return Some(pump.as_mut());
             }
         }
         None
+    }
+
+    #[cfg(feature = "test")]
+    fn retire_test_window(&mut self, token: WindowToken) {
+        if self.primary == Some(token) {
+            self.primary = self
+                .windows
+                .keys()
+                .copied()
+                .find(|candidate| *candidate != token);
+        }
     }
 }
 
@@ -715,9 +739,101 @@ impl LivePump for ComponentLoop {
     }
 }
 
+/// Access to a Reactor application from its UI thread.
+#[derive(Clone)]
+pub struct AppContext {
+    dispatcher: DispatcherQueue,
+    _ui_thread: PhantomData<Rc<()>>,
+}
+
+impl AppContext {
+    fn new(dispatcher: DispatcherQueue) -> Self {
+        Self {
+            dispatcher,
+            _ui_thread: PhantomData,
+        }
+    }
+
+    /// Opens a Reactor window.
+    pub fn open_window(&self, root: View) -> windows_core::Result<()> {
+        open_live_windows(vec![root]).map_err(runtime_error)
+    }
+
+    /// Opens one independent Reactor window for each root view.
+    pub fn open_windows<I>(&self, roots: I) -> windows_core::Result<()>
+    where
+        I: IntoIterator<Item = View>,
+    {
+        open_live_windows(roots.into_iter().collect()).map_err(runtime_error)
+    }
+
+    /// Returns a cloneable handle that can post work from other threads.
+    pub fn proxy(&self) -> AppProxy {
+        AppProxy {
+            dispatcher: self.dispatcher.clone(),
+        }
+    }
+
+    /// Exits the application message loop.
+    pub fn exit(&self) -> windows_core::Result<()> {
+        let result = exit_application();
+        if let Err(error) = &result {
+            eprintln!("windows-reactor application exit fault: {error}");
+            HOST.with(|host| {
+                if let Some(host) = host.borrow_mut().as_mut() {
+                    host.fault = Some(error.clone());
+                }
+            });
+        }
+        result
+    }
+}
+
+/// A cloneable, thread-safe handle to a running Reactor application.
+#[derive(Clone)]
+pub struct AppProxy {
+    dispatcher: DispatcherQueue,
+}
+
+impl AppProxy {
+    /// Posts work to the application UI thread.
+    pub fn dispatch(
+        &self,
+        callback: impl FnOnce(&AppContext) + Send + 'static,
+    ) -> windows_core::Result<()> {
+        let callback = Arc::new(Mutex::new(Some(callback)));
+        let invoke = Arc::clone(&callback);
+        let dispatcher = self.dispatcher.clone();
+        let handler = DispatcherQueueHandler::new(move || {
+            let Some(callback) = invoke.lock().unwrap().take() else {
+                return;
+            };
+            callback(&AppContext::new(dispatcher.clone()));
+        });
+        if self
+            .dispatcher
+            .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &handler)?
+        {
+            Ok(())
+        } else {
+            Err(windows_core::Error::new(
+                E_FAIL,
+                "application dispatcher rejected work",
+            ))
+        }
+    }
+
+    /// Requests application exit from any thread.
+    pub fn exit(&self) -> windows_core::Result<()> {
+        self.dispatch(|context| {
+            _ = context.exit();
+        })
+    }
+}
+
+type AppStartup = Box<dyn FnOnce(&AppContext) -> windows_core::Result<Box<dyn Any>> + 'static>;
+
 /// Starts and owns a Reactor application's WinUI message loop.
-///
-/// Each run method blocks until all application-owned windows have closed.
 pub struct App;
 
 impl App {
@@ -725,7 +841,7 @@ impl App {
     ///
     /// This call blocks while the WinUI message loop is running.
     pub fn run(root: View) -> windows_core::Result<()> {
-        Self::run_with(move |application| {
+        Self::run_windows_with(move |application| {
             vec![Box::new(ComponentLoop {
                 pump: Pump::new(WinUiRuntime::with_application(application)),
                 root: Some(root),
@@ -752,7 +868,7 @@ impl App {
                 "at least one window is required",
             ));
         }
-        Self::run_with(move |application| {
+        Self::run_windows_with(move |application| {
             roots
                 .into_iter()
                 .map(|root| {
@@ -767,6 +883,24 @@ impl App {
         })
     }
 
+    /// Runs an application whose lifetime is independent of its Reactor windows.
+    ///
+    /// `startup` runs on the UI thread and may open windows or create other application resources.
+    /// Its return value remains alive until [`AppContext::exit`] or [`AppProxy::exit`] ends the
+    /// message loop. Unlike the other run methods, the application may start with no windows and
+    /// closing its last Reactor window does not exit it. The retained value is dropped on the UI
+    /// thread after the message loop has stopped and must not enqueue additional UI work.
+    pub fn run_with<T>(
+        startup: impl FnOnce(&AppContext) -> windows_core::Result<T> + 'static,
+    ) -> windows_core::Result<()>
+    where
+        T: 'static,
+    {
+        let startup: AppStartup =
+            Box::new(move |context| startup(context).map(|value| Box::new(value) as Box<dyn Any>));
+        Self::run_host(|_| Vec::new(), Some(startup), false)
+    }
+
     /// Runs one window rooted at component `C`.
     ///
     /// This is equivalent to passing [`View::component`] to [`run`](Self::run), and blocks while
@@ -775,8 +909,16 @@ impl App {
         Self::run(View::component::<C>(input))
     }
 
-    fn run_with(
+    fn run_windows_with(
         create_pumps: impl FnOnce(Application) -> Vec<Box<dyn LivePump>> + 'static,
+    ) -> windows_core::Result<()> {
+        Self::run_host(create_pumps, None, true)
+    }
+
+    fn run_host(
+        create_pumps: impl FnOnce(Application) -> Vec<Box<dyn LivePump>> + 'static,
+        startup: Option<AppStartup>,
+        exit_when_empty: bool,
     ) -> windows_core::Result<()> {
         if !is_packaged_process()? {
             bootstrap_runtime()?;
@@ -784,6 +926,7 @@ impl App {
 
         initialize_ui_thread()?;
         let create_pumps = Rc::new(RefCell::new(Some(create_pumps)));
+        let startup = Rc::new(RefCell::new(startup));
         let result = Rc::new(RefCell::new(Ok(())));
         let callback_result = Rc::clone(&result);
 
@@ -792,6 +935,7 @@ impl App {
             let launch_application = Rc::clone(&application);
             let launch_result = Rc::clone(&callback_result);
             let launch_create_pumps = Rc::clone(&create_pumps);
+            let launch_startup = Rc::clone(&startup);
             let on_launched = Box::new(move || {
                 let launched: windows_core::Result<()> = (|| {
                     let application = launch_application
@@ -799,32 +943,47 @@ impl App {
                         .take()
                         .ok_or_else(|| windows_core::Error::new(E_FAIL, "missing application"))?;
                     install_xaml_controls_resources(&application)?;
+                    application
+                        .cast::<IApplication3>()?
+                        .SetDispatcherShutdownMode(DispatcherShutdownMode::OnExplicitShutdown)?;
                     let create_pumps = launch_create_pumps.borrow_mut().take().unwrap();
                     let mut pumps = create_pumps(application.clone()).into_iter();
-                    let mut primary_pump = pumps.next().ok_or_else(|| {
-                        windows_core::Error::new(E_INVALIDARG, "at least one window is required")
-                    })?;
-                    let primary = primary_pump.window_token();
+                    let mut primary_pump = pumps.next();
+                    if primary_pump.is_none() && exit_when_empty {
+                        return Err(windows_core::Error::new(
+                            E_INVALIDARG,
+                            "at least one window is required",
+                        ));
+                    }
+                    let primary = primary_pump.as_ref().map(|pump| pump.window_token());
                     let pumps = pumps.collect::<Vec<_>>();
                     let mut in_flight = pumps
                         .iter()
                         .map(|pump| pump.window_token())
                         .collect::<HashSet<_>>();
-                    assert!(in_flight.insert(primary));
+                    if let Some(primary) = primary {
+                        assert!(in_flight.insert(primary));
+                    }
                     HOST.with(|host| {
                         *host.borrow_mut() = Some(LiveHost {
                             _application: application,
+                            _resource: None,
                             closed_in_flight: HashSet::new(),
+                            exit_when_empty,
                             fault: None,
                             in_flight,
-                            pending_opens: pumps.len() + 1,
+                            pending_opens: pumps.len() + usize::from(primary.is_some()),
                             #[cfg(feature = "test")]
                             primary,
                             windows: HashMap::with_capacity(pumps.len() + 1),
                         });
                     });
-                    primary_pump.mount().map_err(pump_error)?;
-                    publish_mounted_window(primary_pump);
+                    if let Some(primary_pump) = primary_pump.as_mut() {
+                        primary_pump.mount().map_err(pump_error)?;
+                    }
+                    if let Some(primary_pump) = primary_pump {
+                        publish_mounted_window(primary_pump);
+                    }
                     if !pumps.is_empty() {
                         let dispatcher = DispatcherQueue::GetForCurrentThread()?;
                         let pumps = Rc::new(RefCell::new(Some(pumps)));
@@ -856,13 +1015,23 @@ impl App {
                             ));
                         }
                     }
+                    if let Some(startup) = launch_startup.borrow_mut().take() {
+                        let dispatcher = DispatcherQueue::GetForCurrentThread()?;
+                        let resource = startup(&AppContext::new(dispatcher))?;
+                        HOST.with(|host| {
+                            host.borrow_mut()
+                                .as_mut()
+                                .expect("missing live host during application startup")
+                                ._resource = Some(resource);
+                        });
+                    }
                     Ok(())
                 })();
                 if let Err(error) = &launched {
                     *launch_result.borrow_mut() = Err(error.clone());
                     exit_ui_thread();
                 }
-                launched
+                Ok(())
             });
             match create_application(on_launched) {
                 Ok(created) => *application.borrow_mut() = Some(created),
@@ -877,6 +1046,7 @@ impl App {
         let host = HOST.with(|host| host.borrow_mut().take());
         let host_result = host
             .and_then(|mut host| {
+                drop(host._resource.take());
                 for pump in host.windows.values_mut() {
                     pump.shutdown();
                 }
@@ -915,14 +1085,20 @@ fn publish_mounted_window(pump: Box<dyn LivePump>) {
         assert!(host.in_flight.remove(&token));
         host.pending_opens = host.pending_opens.checked_sub(1).unwrap();
         if host.closed_in_flight.remove(&token) {
-            Some((pump.take().unwrap(), host.is_empty()))
+            #[cfg(feature = "test")]
+            host.retire_test_window(token);
+            Some((pump.take().unwrap(), host.should_exit()))
         } else {
+            #[cfg(feature = "test")]
+            if host.primary.is_none() {
+                host.primary = Some(token);
+            }
             assert!(host.windows.insert(token, pump.take().unwrap()).is_none());
             None
         }
     });
-    if let Some((pump, empty)) = finalize {
-        finalize_closed_window(pump, empty);
+    if let Some((pump, should_exit)) = finalize {
+        finalize_closed_window(pump, should_exit);
     }
 }
 
@@ -1000,24 +1176,28 @@ pub(crate) fn open_live_windows(roots: Vec<View>) -> Result<(), RuntimeError> {
 }
 
 fn rollback_pending_windows(tokens: &[WindowToken]) {
-    HOST.with(|host| {
+    let should_exit = HOST.with(|host| {
         let mut host = host.borrow_mut();
         let Some(host) = host.as_mut() else {
-            return;
+            return false;
         };
         for token in tokens {
             assert!(host.in_flight.remove(token));
             host.closed_in_flight.remove(token);
         }
         host.pending_opens = host.pending_opens.checked_sub(tokens.len()).unwrap();
+        host.should_exit()
     });
+    if should_exit {
+        exit_ui_thread();
+    }
 }
 
 fn reject_pending_window(mut pump: Box<dyn LivePump>, error: PumpError) {
     let token = pump.window_token();
     let rejected = error.is_declaration_rejection();
     pump.shutdown();
-    let empty = HOST.with(|host| {
+    let should_exit = HOST.with(|host| {
         let mut host = host.borrow_mut();
         let host = host
             .as_mut()
@@ -1025,10 +1205,12 @@ fn reject_pending_window(mut pump: Box<dyn LivePump>, error: PumpError) {
         assert!(host.in_flight.remove(&token));
         host.closed_in_flight.remove(&token);
         host.pending_opens = host.pending_opens.checked_sub(1).unwrap();
+        #[cfg(feature = "test")]
+        host.retire_test_window(token);
         if !rejected {
             host.fault = Some(pump_error(error.clone()));
         }
-        host.is_empty()
+        host.should_exit()
     });
     if rejected {
         eprintln!("windows-reactor rejected a runtime window: {error:?}");
@@ -1036,7 +1218,7 @@ fn reject_pending_window(mut pump: Box<dyn LivePump>, error: PumpError) {
         eprintln!("windows-reactor runtime window fault: {error:?}");
         exit_ui_thread();
     }
-    if empty {
+    if should_exit {
         exit_ui_thread();
     }
 }
@@ -1125,21 +1307,25 @@ pub(crate) fn dispatch_native_events(token: WindowToken) {
             host.in_flight.remove(&token);
             let closed = host.closed_in_flight.remove(&token);
             if let Some(error) = fault {
+                #[cfg(feature = "test")]
+                host.retire_test_window(token);
                 host.fault = Some(error);
             } else if closed {
-                finalize = Some((live, host.is_empty()));
+                #[cfg(feature = "test")]
+                host.retire_test_window(token);
+                finalize = Some((live, host.should_exit()));
             } else {
                 host.windows.insert(token, live);
             }
         }
-        if let Some((live, empty)) = finalize {
-            finalize_closed_window(live, empty);
+        if let Some((live, should_exit)) = finalize {
+            finalize_closed_window(live, should_exit);
         }
     });
 }
 
 pub(crate) fn dispatch_window_closed(token: WindowToken) {
-    let (live, empty) = HOST.with(|host| {
+    let (live, should_exit) = HOST.with(|host| {
         let mut host = host.borrow_mut();
         let Some(host) = host.as_mut() else {
             return (None, false);
@@ -1149,21 +1335,25 @@ pub(crate) fn dispatch_window_closed(token: WindowToken) {
             return (None, false);
         }
         let live = host.windows.remove(&token);
-        (live, host.is_empty())
+        #[cfg(feature = "test")]
+        if live.is_some() {
+            host.retire_test_window(token);
+        }
+        (live, host.should_exit())
     });
     if let Some(live) = live {
-        finalize_closed_window(live, empty);
+        finalize_closed_window(live, should_exit);
     }
 }
 
-fn finalize_closed_window(mut live: Box<dyn LivePump>, empty: bool) {
+fn finalize_closed_window(mut live: Box<dyn LivePump>, should_exit: bool) {
     live.close_scheduler();
     live.native_window_closed();
     let pending = Rc::new(RefCell::new(Some(live)));
     let pending_drop = Rc::clone(&pending);
     let drop_window = DispatcherQueueHandler::new(move || {
         drop(pending_drop.borrow_mut().take());
-        if empty {
+        if should_exit {
             exit_ui_thread();
         }
     });

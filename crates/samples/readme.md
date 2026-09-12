@@ -60,6 +60,7 @@ samples for a published release, use its tag - for example
 | [windows-composition](../../docs/crates/windows-composition.md) | `composition-animation` / `composition-canvas` / `composition-circles` / `composition-host` / `composition-minesweeper` / `composition-standalone` / `composition-toggle` | `cargo run -p <crate>` |
 | [windows-animation](../../docs/crates/windows-animation.md) | `animation-storyboard` | `cargo run -p animation-storyboard` |
 | [windows-pickers](../../docs/crates/windows-pickers.md) | `pickers-standalone` / `pickers-reactor` | `cargo run -p <crate>` |
+| [windows-trayicon](../../docs/crates/windows-trayicon.md) | `trayicon-basic` / `reactor-trayicon` | `cargo run -p <crate>` |
 | [windows-webview](../../docs/crates/windows-webview.md) | `webview-cookies` / `webview-custom-protocol` / `webview-devtools` / `webview-downloads` / `webview-events` / `webview-ipc` / `webview-local-files` / `webview-minimal` / `webview-profile` / `webview-reactor` / `webview-reactor-window` / `webview-script` | `cargo run -p <crate>` |
 
 ## Interop (cross-language)

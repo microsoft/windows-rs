@@ -272,6 +272,9 @@ pub enum Command {
     ActivateWindow {
         node: NodeId,
     },
+    RequestWindowActivation {
+        node: NodeId,
+    },
     CloseWindow {
         node: NodeId,
     },

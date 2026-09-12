@@ -7,6 +7,7 @@
 - 🚀 [Getting started](../../crates/libs/window/readme.md)
 - 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/window)
+- [Tray icon guide](windows-trayicon.md)
 
 ## When to use it
 
@@ -24,8 +25,8 @@ The crate targets Windows desktop applications. Create and drive a window on the
 its message queue. Interop code receiving `Window::hwnd()` must not retain the handle beyond the
 `Window` lifetime.
 
-The first registered window class sets process DPI awareness to per-monitor v2. Set any different
-process DPI policy before creating a `Window`.
+Window creation attempts to set process DPI awareness to per-monitor v2. Set any different process
+DPI policy before creating a `Window`.
 
 The README contains dependency setup and the minimal create-and-run example.
 
@@ -51,7 +52,8 @@ initial resize messages that arrive after the builder installs its state.
 `client_size` sets the size excluding non-client borders. `style` and `ex_style` replace the
 defaults with raw `WS_*` and `WS_EX_*` values. The defaults are `WS_OVERLAPPEDWINDOW` and no
 extended style. `no_redirection_bitmap` adds `WS_EX_NOREDIRECTIONBITMAP` for content supplied by
-composition.
+composition. `visible(false)` creates a hidden top-level window that can receive messages for
+integrations such as notification-area icons.
 
 `on_message` receives `(hwnd, message, wparam, lparam)` and returns `Option<isize>`. Return
 `Some(result)` only when the application fully handled the message. Return `None` to use the
@@ -68,10 +70,11 @@ single-window applications. Dropping a window does not post `WM_QUIT`, so cleanu
 creation cannot terminate an application-owned loop. Set the option to `false` when window lifetime
 and application lifetime differ, then call `quit` explicitly when the application should exit.
 
-`create` registers the shared window class, creates and shows the window, and returns an error if
-creation fails. After native destruction, `Window::hwnd` returns null and `Window::client_size`
-returns `(0, 0)`. `Window::close` sends `WM_CLOSE` through the configured close and quit behavior.
-Dropping a live `Window` calls `DestroyWindow` directly without posting `WM_QUIT`.
+`create` registers the shared window class, creates the window, shows it when configured as
+visible, and returns an error if creation fails. After native destruction, `Window::hwnd` returns
+null and `Window::client_size` returns `(0, 0)`. `Window::close` sends `WM_CLOSE` through the
+configured close and quit behavior. Dropping a live `Window` calls `DestroyWindow` directly
+without posting `WM_QUIT`.
 
 ## Choosing a message loop
 

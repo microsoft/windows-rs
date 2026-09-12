@@ -1,0 +1,12 @@
+--out crates/tests/libs/trayicon/tests/support/bindings.rs
+--flat --minimal --dead-code
+
+--filter
+    DispatchMessageW
+    MSG
+    NIN_SELECT
+    PM_REMOVE
+    PeekMessageW
+    SendMessageW
+    TranslateMessage
+    WM_USER

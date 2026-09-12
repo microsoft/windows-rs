@@ -55,6 +55,7 @@ impl Window {
             moved: None,
             close: None,
             quit_on_close: true,
+            visible: true,
         }
     }
 
@@ -116,6 +117,7 @@ pub struct WindowBuilder {
     moved: Option<MoveHandler>,
     close: Option<CloseHandler>,
     quit_on_close: bool,
+    visible: bool,
 }
 
 impl WindowBuilder {
@@ -204,13 +206,22 @@ impl WindowBuilder {
         self
     }
 
-    /// Creates and shows the window.
+    /// Controls whether the window is shown after creation.
     ///
-    /// The first call attempts to set process DPI awareness to per-monitor v2.
-    /// Set any different process DPI policy before calling this method.
+    /// The default is `true`. A hidden top-level window can receive messages for integrations
+    /// that do not need visible content.
+    pub fn visible(mut self, value: bool) -> Self {
+        self.visible = value;
+        self
+    }
+
+    /// Creates the window and shows it when configured as visible.
+    ///
+    /// This attempts to set process DPI awareness to per-monitor v2.
     pub fn create(self) -> Result<Window> {
         unsafe {
             register_class();
+            let style = self.style & !(WS_VISIBLE as u32);
 
             let mut title: Vec<u16> = self.title.encode_utf16().collect();
             title.push(0);
@@ -223,7 +234,7 @@ impl WindowBuilder {
                 };
                 if !AdjustWindowRectExForDpi(
                     &mut rect,
-                    self.style,
+                    style,
                     false.into(),
                     self.ex_style,
                     GetDpiForSystem(),
@@ -241,7 +252,7 @@ impl WindowBuilder {
                 self.ex_style,
                 class_name(),
                 PCWSTR(title.as_ptr()),
-                self.style,
+                style,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
                 width,
@@ -270,7 +281,9 @@ impl WindowBuilder {
             });
             SetWindowLongPtrW(hwnd, GWLP_USERDATA, Box::into_raw(state) as _);
 
-            _ = ShowWindow(hwnd, SW_SHOWNORMAL);
+            if self.visible {
+                _ = ShowWindow(hwnd, SW_SHOWNORMAL);
+            }
             Ok(Window { hwnd, live })
         }
     }
@@ -352,14 +365,20 @@ pub fn pump() -> bool {
 
 fn class_name() -> PCWSTR {
     static NAME: OnceLock<Vec<u16>> = OnceLock::new();
-    let name = NAME.get_or_init(|| "windows-window.Window\0".encode_utf16().collect());
+    let name = NAME.get_or_init(|| {
+        concat!("windows-window.Window.", env!("CARGO_PKG_VERSION"), "\0")
+            .encode_utf16()
+            .collect()
+    });
     PCWSTR(name.as_ptr())
 }
 
 unsafe fn register_class() {
+    unsafe {
+        _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
+    }
     static REGISTER: OnceLock<()> = OnceLock::new();
     REGISTER.get_or_init(|| unsafe {
-        _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
         let wc = WNDCLASSW {
             style: (CS_HREDRAW | CS_VREDRAW) as u32,
             lpfnWndProc: Some(wndproc),

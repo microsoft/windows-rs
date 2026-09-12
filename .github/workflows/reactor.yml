@@ -94,6 +94,15 @@ jobs:
           $PSNativeCommandUseErrorActionPreference = $true
           cargo run -p test-reactor-selftest --features self-contained `
             --quiet -- --headless
+          cargo run -p test-reactor-selftest --features self-contained `
+            --quiet -- --headless --explicit-lifetime `
+            --filter ContentDialog_QueuedReopenLifecycle
+          cargo run -p test-reactor-selftest --features self-contained `
+            --quiet -- --headless --explicit-lifetime `
+            --filter Window_NestedOperationRearming
+          cargo run -p test-reactor-selftest --features self-contained `
+            --quiet -- --headless --explicit-lifetime `
+            --filter WebView_InitializeBridgeAndScript
           cargo run -p test-reactor-surface --features self-contained `
             --quiet -- --headless
 
@@ -118,6 +127,41 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
+          $lifetime = cargo test -p test_reactor --test public_surface `
+            application_lifetime_is_independent_of_windows `
+            -- --ignored --exact --test-threads=1 2>&1
+          $lifetime | Write-Output
+          if ($LASTEXITCODE -ne 0 -or -not ($lifetime -match "1 passed")) {
+            throw "Reactor application lifetime test did not run successfully"
+          }
+          $replacement = cargo test -p test_reactor --test public_surface `
+            last_window_can_be_replaced_in_one_publication `
+            -- --ignored --exact --test-threads=1 2>&1
+          $replacement | Write-Output
+          if ($LASTEXITCODE -ne 0 -or -not ($replacement -match "1 passed")) {
+            throw "Reactor replacement-window test did not run successfully"
+          }
+          $multiple = cargo test -p test_reactor --test public_surface `
+            multiple_windows_exit_after_all_have_closed `
+            -- --ignored --exact --test-threads=1 2>&1
+          $multiple | Write-Output
+          if ($LASTEXITCODE -ne 0 -or -not ($multiple -match "1 passed")) {
+            throw "Reactor multiple-window lifetime test did not run successfully"
+          }
+          $startup = cargo test -p test_reactor --test public_surface `
+            application_startup_error_is_returned `
+            -- --ignored --exact --test-threads=1 2>&1
+          $startup | Write-Output
+          if ($LASTEXITCODE -ne 0 -or -not ($startup -match "1 passed")) {
+            throw "Reactor application startup error test did not run successfully"
+          }
+          $rejected = cargo test -p test_reactor --test public_surface `
+            excessive_startup_windows_are_rejected `
+            -- --ignored --exact --test-threads=1 2>&1
+          $rejected | Write-Output
+          if ($LASTEXITCODE -ne 0 -or -not ($rejected -match "1 passed")) {
+            throw "Reactor rejected-window test did not run successfully"
+          }
           cargo run -p test-reactor-selftest --quiet -- --headless
           cargo run -p test-reactor-surface --quiet -- --headless
 

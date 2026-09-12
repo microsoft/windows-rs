@@ -497,6 +497,7 @@ impl windows_reactor::App
 pub fn windows_reactor::App::run(windows_reactor::View) -> windows_result::Result<()>
 pub fn windows_reactor::App::run_component<C: windows_reactor::Component>(<C as windows_reactor::Component>::Input) -> windows_result::Result<()>
 pub fn windows_reactor::App::run_windows<I>(I) -> windows_result::Result<()> where I: core::iter::traits::collect::IntoIterator<Item = windows_reactor::View>
+pub fn windows_reactor::App::run_with<T>(impl core::ops::function::FnOnce(&windows_reactor::AppContext) -> windows_result::Result<T> + 'static) -> windows_result::Result<()> where T: 'static
 pub struct windows_reactor::AppBarButton
 impl windows_reactor::AppBarButton
 pub fn windows_reactor::AppBarButton::icon(self, impl core::convert::Into<windows_reactor::View>) -> Self
@@ -538,6 +539,16 @@ pub fn windows_reactor::AppBarSeparator::min_width(self, impl core::convert::Int
 pub fn windows_reactor::AppBarSeparator::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::AppBarSeparator::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::AppBarSeparator::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub struct windows_reactor::AppContext
+impl windows_reactor::AppContext
+pub fn windows_reactor::AppContext::exit(&self) -> windows_result::Result<()>
+pub fn windows_reactor::AppContext::open_window(&self, windows_reactor::View) -> windows_result::Result<()>
+pub fn windows_reactor::AppContext::open_windows<I>(&self, I) -> windows_result::Result<()> where I: core::iter::traits::collect::IntoIterator<Item = windows_reactor::View>
+pub fn windows_reactor::AppContext::proxy(&self) -> windows_reactor::AppProxy
+pub struct windows_reactor::AppProxy
+impl windows_reactor::AppProxy
+pub fn windows_reactor::AppProxy::dispatch(&self, impl core::ops::function::FnOnce(&windows_reactor::AppContext) + core::marker::Send + 'static) -> windows_result::Result<()>
+pub fn windows_reactor::AppProxy::exit(&self) -> windows_result::Result<()>
 pub struct windows_reactor::AutoSuggestBox
 impl windows_reactor::AutoSuggestBox
 pub fn windows_reactor::AutoSuggestBox::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
@@ -2968,6 +2979,7 @@ impl windows_reactor::WindowHandle<'_>
 pub fn windows_reactor::WindowHandle<'_>::as_raw(&self) -> *mut core::ffi::c_void
 pub struct windows_reactor::WindowRef
 impl windows_reactor::WindowRef
+pub fn windows_reactor::WindowRef::request_activate(&self) -> bool
 pub fn windows_reactor::WindowRef::request_close(&self) -> bool
 impl core::fmt::Debug for windows_reactor::WindowRef
 pub fn windows_reactor::WindowRef::fmt(&self, &mut core::fmt::Formatter<'_>) -> core::fmt::Result

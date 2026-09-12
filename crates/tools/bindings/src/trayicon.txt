@@ -1,0 +1,35 @@
+--out crates/libs/trayicon/src/bindings.rs
+--flat --minimal --dead-code
+
+--filter
+    ChangeWindowMessageFilterEx
+    DestroyIcon
+    E_FAIL
+    E_INVALIDARG
+    GetSystemMetrics
+    IMAGE_ICON
+    LoadImageW
+    LR_LOADFROMFILE
+    MSGFLT_ALLOW
+    NIF_ICON
+    NIF_MESSAGE
+    NIF_SHOWTIP
+    NIF_TIP
+    NIM_ADD
+    NIM_DELETE
+    NIM_MODIFY
+    NIM_SETVERSION
+    NIN_KEYSELECT
+    NIN_SELECT
+    NOTIFYICON_VERSION_4
+    NOTIFYICONDATAW
+    NOTIFYICONIDENTIFIER
+    PostMessageW
+    POINT
+    RegisterWindowMessageW
+    Shell_NotifyIconGetRect
+    Shell_NotifyIconW
+    SM_CXSMICON
+    SM_CYSMICON
+    WM_CONTEXTMENU
+    WM_USER

@@ -1,7 +1,9 @@
 //! Window lifecycle: creation, handle validity, client size, and destruction.
 
 use test_window::{
-    IsWindow, SendMessageW, WM_CLOSE, WS_EX_NOREDIRECTIONBITMAP, get_window_ex_style,
+    AreDpiAwarenessContextsEqual, DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2,
+    GetWindowDpiAwarenessContext, IsWindow, IsWindowVisible, SendMessageW, WM_CLOSE,
+    WS_EX_NOREDIRECTIONBITMAP, WS_VISIBLE, get_window_ex_style,
 };
 use windows_window::Window;
 
@@ -10,6 +12,38 @@ fn create_returns_a_live_window() {
     let window = Window::new("test").size(400, 300).create().unwrap();
     assert!(!window.hwnd().is_null());
     assert!(unsafe { IsWindow(window.hwnd()) } != 0);
+}
+
+#[test]
+fn hidden_window_is_live_and_not_visible() {
+    let window = Window::new("test").visible(false).create().unwrap();
+    assert!(unsafe { IsWindow(window.hwnd()) } != 0);
+    assert_eq!(unsafe { IsWindowVisible(window.hwnd()) }, 0);
+}
+
+#[test]
+fn hidden_window_overrides_a_visible_style() {
+    let window = Window::new("test")
+        .style(WS_VISIBLE)
+        .visible(false)
+        .create()
+        .unwrap();
+    assert!(unsafe { IsWindow(window.hwnd()) } != 0);
+    assert_eq!(unsafe { IsWindowVisible(window.hwnd()) }, 0);
+}
+
+#[test]
+fn window_is_per_monitor_v2_aware() {
+    let window = Window::new("test").create().unwrap();
+    assert_ne!(
+        unsafe {
+            AreDpiAwarenessContextsEqual(
+                GetWindowDpiAwarenessContext(window.hwnd()),
+                DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2,
+            )
+        },
+        0
+    );
 }
 
 #[test]
