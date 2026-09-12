@@ -78,15 +78,17 @@ fn automates_native_menu_selection() {
         std::thread::sleep(Duration::from_millis(10));
     }
 
-    driver_result
-        .unwrap_or_else(|| {
-            driver_receive
-                .recv_timeout(Duration::from_secs(5))
-                .expect("UI Automation driver timed out")
-        })
-        .unwrap();
+    let driver_result = driver_result.unwrap_or_else(|| {
+        driver_receive
+            .recv_timeout(Duration::from_secs(5))
+            .expect("UI Automation driver timed out")
+    });
     assert!(activated.load(Ordering::Acquire));
-    assert!(selected.load(Ordering::Acquire));
+    assert!(
+        selected.load(Ordering::Acquire),
+        "UI Automation driver failed: {:?}",
+        driver_result.err()
+    );
     completed.store(true, Ordering::Release);
 }
 

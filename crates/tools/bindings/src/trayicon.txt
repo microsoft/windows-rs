@@ -3,16 +3,12 @@
 
 --filter
     AppendMenuW
-    AreDpiAwarenessContextsEqual
     ChangeWindowMessageFilterEx
     CreatePopupMenu
     DestroyIcon
     DestroyMenu
-    DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2
     GetMonitorInfoW
     GetSystemMetrics
-    GetThreadDpiAwarenessContext
-    GetWindowDpiAwarenessContext
     IMAGE_ICON
     LoadImageW
     LR_LOADFROMFILE
@@ -39,7 +35,6 @@
     POINT
     RegisterWindowMessageW
     SetForegroundWindow
-    SetThreadDpiAwarenessContext
     Shell_NotifyIconGetRect
     Shell_NotifyIconW
     SM_CXSMICON

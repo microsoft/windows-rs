@@ -141,24 +141,6 @@ impl OwnedMenu {
     }
 }
 
-struct ThreadDpiContext(DPI_AWARENESS_CONTEXT);
-
-impl ThreadDpiContext {
-    fn per_monitor_v2() -> Self {
-        Self(unsafe { SetThreadDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2) })
-    }
-}
-
-impl Drop for ThreadDpiContext {
-    fn drop(&mut self) {
-        if !self.0.is_null() {
-            unsafe {
-                _ = SetThreadDpiAwarenessContext(self.0);
-            }
-        }
-    }
-}
-
 fn popup_anchor(hwnd: HWND, fallback: Point) -> (Point, u32) {
     let Ok(icon) = icon_rect(hwnd) else {
         return (fallback, (TPM_LEFTALIGN | TPM_TOPALIGN) as u32);
@@ -580,17 +562,13 @@ impl TrayIconBuilder {
                 tooltip: self.tooltip.as_deref().map(tooltip_text).transpose()?,
             }),
         });
-        let (dispatch_window, callback_window) = {
-            let _dpi = ThreadDpiContext::per_monitor_v2();
-            let dispatch_window = dispatch_window(Rc::downgrade(&shared)).create()?;
-            let callback_window = callback_window(
-                Rc::downgrade(&shared),
-                dispatch_window.hwnd(),
-                taskbar_created,
-            )
-            .create()?;
-            (dispatch_window, callback_window)
-        };
+        let dispatch_window = dispatch_window(Rc::downgrade(&shared)).create()?;
+        let callback_window = callback_window(
+            Rc::downgrade(&shared),
+            dispatch_window.hwnd(),
+            taskbar_created,
+        )
+        .create()?;
         shared.callback_hwnd.set(callback_window.hwnd());
         allow_message(callback_window.hwnd(), CALLBACK_MESSAGE)?;
         allow_message(callback_window.hwnd(), taskbar_created)?;
@@ -611,7 +589,6 @@ fn callback_window(
     Window::new("windows-trayicon")
         .style(0)
         .visible(false)
-        .process_dpi_awareness(false)
         .quit_on_close(false)
         .on_message(move |_, message, wparam, lparam| {
             let shared = shared.upgrade()?;
@@ -635,7 +612,6 @@ fn dispatch_window(shared: Weak<Shared>) -> WindowBuilder {
     Window::new("windows-trayicon-dispatch")
         .style(0)
         .visible(false)
-        .process_dpi_awareness(false)
         .quit_on_close(false)
         .on_message(move |hwnd, message, _, _| {
             if message == DISPATCH_MESSAGE {
@@ -668,7 +644,6 @@ fn allow_message(hwnd: *mut core::ffi::c_void, message: u32) -> Result<()> {
 }
 
 fn icon_rect(hwnd: *mut core::ffi::c_void) -> Result<RECT> {
-    let _dpi = ThreadDpiContext::per_monitor_v2();
     let identifier = NOTIFYICONIDENTIFIER {
         cbSize: size_of::<NOTIFYICONIDENTIFIER>() as u32,
         hWnd: hwnd,
@@ -923,31 +898,6 @@ mod tests {
         assert_eq!(
             calls,
             [NIM_DELETE as u32, NIM_ADD as u32, NIM_SETVERSION as u32]
-        );
-    }
-
-    #[test]
-    fn callback_window_is_per_monitor_aware_without_changing_the_thread() {
-        let before = unsafe { GetThreadDpiAwarenessContext() };
-        let window = {
-            let _dpi = ThreadDpiContext::per_monitor_v2();
-            callback_window(Weak::new(), core::ptr::null_mut(), 0)
-                .create()
-                .unwrap()
-        };
-
-        assert!(
-            unsafe {
-                AreDpiAwarenessContextsEqual(
-                    GetWindowDpiAwarenessContext(window.hwnd()),
-                    DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2,
-                )
-            }
-            .as_bool()
-        );
-        assert!(
-            unsafe { AreDpiAwarenessContextsEqual(GetThreadDpiAwarenessContext(), before) }
-                .as_bool()
         );
     }
 

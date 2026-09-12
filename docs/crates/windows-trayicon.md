@@ -123,11 +123,8 @@ running handlers inside a Shell call. Each `TaskbarCreated` message queues one r
 attempt after an Explorer restart.
 
 Both hidden windows are per-monitor-v2 aware, so Shell geometry, callback coordinates, and
-`TrackPopupMenu` use physical screen coordinates. Creating them does not change the host's process
-DPI policy. The host must establish its process DPI policy before building a `TrayIcon`; after the
-hidden windows exist, Windows may reject later attempts to change the process policy. In
-particular, configure the policy or create a default `windows-window` window before creating a tray
-icon.
+`TrackPopupMenu` use physical screen coordinates. Like other `windows-window` windows, creating a
+tray icon attempts to set the process DPI policy to per-monitor v2.
 
 After changing the binding filter, run:
 

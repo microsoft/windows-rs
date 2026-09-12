@@ -56,7 +56,6 @@ impl Window {
             close: None,
             quit_on_close: true,
             visible: true,
-            process_dpi_awareness: true,
         }
     }
 
@@ -119,7 +118,6 @@ pub struct WindowBuilder {
     close: Option<CloseHandler>,
     quit_on_close: bool,
     visible: bool,
-    process_dpi_awareness: bool,
 }
 
 impl WindowBuilder {
@@ -217,23 +215,12 @@ impl WindowBuilder {
         self
     }
 
-    /// Controls whether creation attempts to enable per-monitor V2 process DPI awareness.
-    ///
-    /// The default is `true`. Set this to `false` for infrastructure windows hosted by an
-    /// application that owns its process DPI policy.
-    pub fn process_dpi_awareness(mut self, value: bool) -> Self {
-        self.process_dpi_awareness = value;
-        self
-    }
-
     /// Creates the window and shows it when configured as visible.
     ///
-    /// By default, this attempts to set process DPI awareness to per-monitor v2. Set any
-    /// different process DPI policy first or disable this behavior with
-    /// [`Self::process_dpi_awareness`].
+    /// This attempts to set process DPI awareness to per-monitor v2.
     pub fn create(self) -> Result<Window> {
         unsafe {
-            register_class(self.process_dpi_awareness);
+            register_class();
             let style = self.style & !(WS_VISIBLE as u32);
 
             let mut title: Vec<u16> = self.title.encode_utf16().collect();
@@ -386,11 +373,9 @@ fn class_name() -> PCWSTR {
     PCWSTR(name.as_ptr())
 }
 
-unsafe fn register_class(process_dpi_awareness: bool) {
-    if process_dpi_awareness {
-        unsafe {
-            _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
-        }
+unsafe fn register_class() {
+    unsafe {
+        _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
     }
     static REGISTER: OnceLock<()> = OnceLock::new();
     REGISTER.get_or_init(|| unsafe {

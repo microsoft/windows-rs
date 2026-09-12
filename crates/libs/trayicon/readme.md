@@ -40,5 +40,5 @@ separate hidden windows for Shell reception and application callback dispatch, s
 to `TrayIcon::hwnd()` will not dispatch callbacks. Dropping `TrayIcon` removes the notification-area
 icon and destroys both hidden windows.
 
-Establish the process DPI policy before building a `TrayIcon`. Once its hidden windows exist,
-Windows may reject later attempts to change process DPI awareness.
+Like other `windows-window` windows, creating a `TrayIcon` attempts to enable per-monitor-v2
+process DPI awareness.

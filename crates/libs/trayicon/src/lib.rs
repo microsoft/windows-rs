@@ -1,6 +1,6 @@
 #![doc = include_str!("../readme.md")]
 
-#[expect(non_camel_case_types, non_snake_case, clippy::upper_case_acronyms)]
+#[expect(non_snake_case, clippy::upper_case_acronyms)]
 mod bindings;
 mod trayicon;
 
