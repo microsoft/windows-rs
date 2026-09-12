@@ -130,9 +130,8 @@ windows:
 App::run_with(|app| {
     let exit = app.proxy();
     let tray = TrayIcon::new("app.ico")
-        .menu(Menu::new().item(1, "Exit"))
         .on_event(move |event| {
-            if matches!(event, TrayIconEvent::MenuItem { id: 1 }) {
+            if matches!(event, TrayIconEvent::ContextMenu { .. }) {
                 _ = exit.exit();
             }
         })

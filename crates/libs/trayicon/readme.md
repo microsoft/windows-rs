@@ -14,15 +14,14 @@ windows-window = "0.100"
 ```
 
 ```rust,no_run
-use windows_trayicon::{Menu, TrayIcon, TrayIconEvent};
+use windows_trayicon::{TrayIcon, TrayIconEvent};
 
 fn main() -> windows_trayicon::Result<()> {
     let _icon = TrayIcon::new("icon.ico")
         .tooltip("Example")
-        .menu(Menu::new().item(1, "Exit"))
         .on_event(|event| match event {
             TrayIconEvent::Activate { .. } => println!("activated"),
-            TrayIconEvent::MenuItem { id: 1 } => windows_window::quit(),
+            TrayIconEvent::ContextMenu { .. } => windows_window::quit(),
             TrayIconEvent::Unavailable => {
                 eprintln!("the Windows Shell could not restore the tray icon");
             }

@@ -2,21 +2,11 @@
 --flat --minimal --dead-code
 
 --filter
-    COINIT_MULTITHREADED
-    CUIAutomation
-    CoCreateInstance
-    CoInitializeEx
     DispatchMessageW
-    IUIAutomation::{CreateTrueCondition, GetRootElement}
-    IUIAutomationElement::{CurrentControlType, CurrentName, FindAll, GetCurrentPatternAs}
-    IUIAutomationElementArray::{GetElement, Length}
-    IUIAutomationInvokePattern::Invoke
     MSG
     NIN_SELECT
     PM_REMOVE
     PeekMessageW
     SendMessageW
-    TreeScope_Descendants
     TranslateMessage
-    WM_CONTEXTMENU
     WM_USER

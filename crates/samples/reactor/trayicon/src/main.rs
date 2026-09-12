@@ -4,10 +4,7 @@ use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
 use windows_reactor::*;
-use windows_trayicon::{Menu, TrayIcon, TrayIconEvent};
-
-const OPEN: u32 = 1;
-const EXIT: u32 = 2;
+use windows_trayicon::{TrayIcon, TrayIconEvent};
 
 struct AppState {
     activate_window: RefCell<Option<Callback<()>>>,
@@ -24,22 +21,14 @@ impl AppState {
 
         let state = Rc::downgrade(self);
         let tray = TrayIcon::new(concat!(env!("CARGO_MANIFEST_DIR"), "\\..\\icon\\icon.ico"))
-            .tooltip("Reactor tray icon sample")
-            .menu(
-                Menu::new()
-                    .item(OPEN, "Open window")
-                    .separator()
-                    .item(EXIT, "Exit"),
-            )
+            .tooltip("Left-click to open; right-click to exit")
             .on_event(move |event| {
                 let Some(state) = state.upgrade() else {
                     return;
                 };
                 match event {
-                    TrayIconEvent::Activate { .. } | TrayIconEvent::MenuItem { id: OPEN } => {
-                        state.open_window();
-                    }
-                    TrayIconEvent::MenuItem { id: EXIT } => state.exit(),
+                    TrayIconEvent::Activate { .. } => state.open_window(),
+                    TrayIconEvent::ContextMenu { .. } => state.exit(),
                     _ => {}
                 }
             })

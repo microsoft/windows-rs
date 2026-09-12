@@ -16,26 +16,25 @@ Use `windows-trayicon` when a desktop application needs an icon in the taskbar n
 The crate manages Shell registration and a hidden callback window without depending on the
 `windows` or `windows-sys` umbrella crates.
 
-The crate supports icon files, standard tooltips, activation, a small native popup menu, icon
-geometry, and runtime icon or tooltip replacement. Custom popup controls, notification balloons,
-submenus, and owner-drawn menus remain application concerns.
+The crate supports icon files, standard tooltips, activation and context-menu events, icon
+geometry, and runtime icon or tooltip replacement. Popup UI, notification balloons, and promotion
+policy remain application concerns.
 
 ## Create an icon
 
 Create the icon on the thread that owns the application message loop:
 
 ```rust,no_run
-use windows_trayicon::{Menu, TrayIcon, TrayIconEvent};
+use windows_trayicon::{TrayIcon, TrayIconEvent};
 
 fn main() -> windows_trayicon::Result<()> {
     let _icon = TrayIcon::new("icon.ico")
         .tooltip("Example")
-        .menu(Menu::new().item(1, "Exit"))
         .on_event(|event| match event {
             TrayIconEvent::Activate { position } => {
                 println!("selected at {}, {}", position.x, position.y);
             }
-            TrayIconEvent::MenuItem { id: 1 } => windows_window::quit(),
+            TrayIconEvent::ContextMenu { .. } => windows_window::quit(),
             TrayIconEvent::Unavailable => {
                 eprintln!("the Windows Shell could not restore the icon");
             }
@@ -61,21 +60,9 @@ loaded icon.
 reported by the Shell. Applications can use the event position or call `rect` to anchor a popup
 without assuming which monitor or taskbar edge contains the icon.
 
-Without a configured `Menu`, `ContextMenu` reports the requested position so the application can
-show a custom popup. With a configured menu, the crate applies the foreground-window and
-light-dismiss rules, anchors the popup to the icon on its monitor, and reports a selected item as
-`MenuItem { id }`. The Shell-reported position is used if icon geometry is unavailable.
-
-Menus support labeled items and separators:
-
-```rust,ignore
-let menu = Menu::new()
-    .item(1, "Open")
-    .separator()
-    .item(2, "Exit");
-```
-
-Item identifiers must be nonzero and unique.
+`ContextMenu` reports the position supplied by the Shell so the application can show its preferred
+native or framework popup. `rect` provides the current icon geometry when the popup needs an
+explicit anchor.
 
 ## Update the icon
 
@@ -101,7 +88,7 @@ whether the icon appears in the main notification area or overflow.
 
 ## Samples
 
-The standalone sample reports activation and provides a native Exit menu:
+The standalone sample reports activation and exits on a context-menu request:
 
 ```text
 cargo run -p trayicon-basic
@@ -122,9 +109,9 @@ The crate uses `NIM_ADD`, `NIM_MODIFY`, and `NIM_DELETE` with
 running handlers inside a Shell call. Each `TaskbarCreated` message queues one registration
 attempt after an Explorer restart.
 
-Both hidden windows are per-monitor-v2 aware, so Shell geometry, callback coordinates, and
-`TrackPopupMenu` use physical screen coordinates. Like other `windows-window` windows, creating a
-tray icon attempts to set the process DPI policy to per-monitor v2.
+Both hidden windows are per-monitor-v2 aware, so Shell geometry and callback coordinates use
+physical screen coordinates. Like other `windows-window` windows, creating a tray icon attempts to
+set the process DPI policy to per-monitor v2.
 
 After changing the binding filter, run:
 

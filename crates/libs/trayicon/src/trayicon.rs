@@ -26,151 +26,11 @@ pub enum TrayIconEvent {
     Activate { position: Point },
     /// The user requested the icon's context menu.
     ContextMenu { position: Point },
-    /// A configured native menu item was selected.
-    MenuItem { id: u32 },
     /// The Windows Shell could not restore the icon after restarting.
     Unavailable,
 }
 
 type EventHandler = Box<dyn FnMut(TrayIconEvent)>;
-
-enum MenuEntry {
-    Item { id: u32, label: String },
-    Separator,
-}
-
-/// A minimal native popup menu for a notification-area icon.
-#[derive(Default)]
-pub struct Menu {
-    entries: Vec<MenuEntry>,
-}
-
-impl Menu {
-    /// Creates an empty menu.
-    pub fn new() -> Self {
-        Self::default()
-    }
-
-    /// Adds a selectable item.
-    ///
-    /// Item identifiers must be nonzero and unique within the menu.
-    pub fn item(mut self, id: u32, label: impl Into<String>) -> Self {
-        self.entries.push(MenuEntry::Item {
-            id,
-            label: label.into(),
-        });
-        self
-    }
-
-    /// Adds a separator.
-    pub fn separator(mut self) -> Self {
-        self.entries.push(MenuEntry::Separator);
-        self
-    }
-}
-
-struct OwnedMenu(HMENU);
-
-impl OwnedMenu {
-    fn new(menu: Menu) -> Result<Self> {
-        let handle = unsafe { CreatePopupMenu() };
-        if handle.is_null() {
-            return Err(Error::from_thread());
-        }
-        let result = Self(handle);
-        let mut ids = Vec::new();
-        for entry in menu.entries {
-            let added = match entry {
-                MenuEntry::Item { id, label } => {
-                    if id == 0 || ids.contains(&id) {
-                        return Err(Error::new(
-                            E_INVALIDARG,
-                            "menu item identifiers must be nonzero and unique",
-                        ));
-                    }
-                    ids.push(id);
-                    let label = wide_text(&label, "menu item label contains a null character")?;
-                    unsafe {
-                        AppendMenuW(
-                            handle,
-                            MF_STRING as u32,
-                            id as usize,
-                            PCWSTR(label.as_ptr()),
-                        )
-                    }
-                }
-                MenuEntry::Separator => unsafe {
-                    AppendMenuW(handle, MF_SEPARATOR as u32, 0, PCWSTR::null())
-                },
-            };
-            if !added.as_bool() {
-                return Err(Error::from_thread());
-            }
-        }
-        Ok(result)
-    }
-
-    fn show(&self, owner: HWND, callback: HWND, position: Point) -> Option<u32> {
-        let (position, alignment) = popup_anchor(callback, position);
-        unsafe {
-            _ = SetForegroundWindow(owner);
-            let command = TrackPopupMenu(
-                self.0,
-                (TPM_RETURNCMD | TPM_RIGHTBUTTON) as u32 | alignment,
-                position.x,
-                position.y,
-                0,
-                owner,
-                core::ptr::null(),
-            );
-            _ = PostMessageW(owner, WM_NULL as u32, 0, 0);
-            (command.0 != 0).then_some(command.0 as u32)
-        }
-    }
-}
-
-fn popup_anchor(hwnd: HWND, fallback: Point) -> (Point, u32) {
-    let Ok(icon) = icon_rect(hwnd) else {
-        return (fallback, (TPM_LEFTALIGN | TPM_TOPALIGN) as u32);
-    };
-    let center = POINT {
-        x: (icon.left + icon.right) / 2,
-        y: (icon.top + icon.bottom) / 2,
-    };
-    let monitor = unsafe { MonitorFromPoint(center, MONITOR_DEFAULTTONEAREST as u32) };
-    let mut info = MONITORINFO {
-        cbSize: size_of::<MONITORINFO>() as u32,
-        ..Default::default()
-    };
-    if monitor.is_null() || !unsafe { GetMonitorInfoW(monitor, &mut info) }.as_bool() {
-        return (fallback, (TPM_LEFTALIGN | TPM_TOPALIGN) as u32);
-    }
-    anchor_for_rect(icon, info.rcMonitor)
-}
-
-fn anchor_for_rect(icon: RECT, monitor: RECT) -> (Point, u32) {
-    let center_x = (icon.left + icon.right) / 2;
-    let center_y = (icon.top + icon.bottom) / 2;
-    let (x, horizontal) = if center_x < (monitor.left + monitor.right) / 2 {
-        (icon.right, TPM_LEFTALIGN)
-    } else {
-        (icon.left, TPM_RIGHTALIGN)
-    };
-    let (y, vertical) = if center_y < (monitor.top + monitor.bottom) / 2 {
-        (icon.bottom, TPM_TOPALIGN)
-    } else {
-        (icon.top, TPM_BOTTOMALIGN)
-    };
-    (Point { x, y }, (horizontal | vertical) as u32)
-}
-
-impl Drop for OwnedMenu {
-    fn drop(&mut self) {
-        unsafe {
-            _ = DestroyMenu(self.0);
-        }
-    }
-}
 
 struct OwnedIcon {
     handle: *mut core::ffi::c_void,
@@ -353,7 +213,6 @@ struct Shared {
     callback_hwnd: Cell<*mut core::ffi::c_void>,
     dispatching: Cell<bool>,
     handler: RefCell<Option<EventHandler>>,
-    menu: Option<OwnedMenu>,
     pending: RefCell<VecDeque<Pending>>,
     registration: RefCell<Registration>,
 }
@@ -386,7 +245,7 @@ impl Shared {
         }
     }
 
-    fn dispatch_pending(&self, hwnd: *mut core::ffi::c_void) {
+    fn dispatch_pending(&self) {
         if self.dispatching.replace(true) {
             return;
         }
@@ -399,17 +258,7 @@ impl Shared {
                 break;
             };
             match pending {
-                Pending::Event(event) => {
-                    if let TrayIconEvent::ContextMenu { position } = event
-                        && let Some(menu) = self.menu.as_ref()
-                    {
-                        if let Some(id) = menu.show(hwnd, self.callback_hwnd.get(), position) {
-                            self.dispatch(TrayIconEvent::MenuItem { id });
-                        }
-                    } else {
-                        self.dispatch(event);
-                    }
-                }
+                Pending::Event(event) => self.dispatch(event),
                 Pending::Recover => {
                     if self.recover().is_err() {
                         self.dispatch(TrayIconEvent::Unavailable);
@@ -445,7 +294,6 @@ impl TrayIcon {
         TrayIconBuilder {
             handler: None,
             icon: path.into(),
-            menu: None,
             tooltip: None,
         }
     }
@@ -508,7 +356,6 @@ impl Drop for TrayIcon {
 pub struct TrayIconBuilder {
     handler: Option<EventHandler>,
     icon: PathBuf,
-    menu: Option<Menu>,
     tooltip: Option<String>,
 }
 
@@ -516,12 +363,6 @@ impl TrayIconBuilder {
     /// Sets the standard tooltip shown for the icon.
     pub fn tooltip(mut self, tooltip: impl Into<String>) -> Self {
         self.tooltip = Some(tooltip.into());
-        self
-    }
-
-    /// Sets the native popup menu shown for context-menu requests.
-    pub fn menu(mut self, menu: Menu) -> Self {
-        self.menu = Some(menu);
         self
     }
 
@@ -537,13 +378,11 @@ impl TrayIconBuilder {
     /// Creates the hidden callback window and adds the icon to the notification area.
     pub fn build(self) -> Result<TrayIcon> {
         let taskbar_created = register_taskbar_created()?;
-        let menu = self.menu.map(OwnedMenu::new).transpose()?;
         let shared = Rc::new(Shared {
             active: Cell::new(true),
             callback_hwnd: Cell::new(core::ptr::null_mut()),
             dispatching: Cell::new(false),
             handler: RefCell::new(self.handler),
-            menu,
             pending: RefCell::new(VecDeque::new()),
             registration: RefCell::new(Registration {
                 icon: OwnedIcon::load(&self.icon)?,
@@ -601,10 +440,10 @@ fn dispatch_window(shared: Weak<Shared>) -> WindowBuilder {
         .style(0)
         .visible(false)
         .quit_on_close(false)
-        .on_message(move |hwnd, message, _, _| {
+        .on_message(move |_, message, _, _| {
             if message == DISPATCH_MESSAGE {
                 if let Some(shared) = shared.upgrade() {
-                    shared.dispatch_pending(hwnd);
+                    shared.dispatch_pending();
                 }
                 return Some(0);
             }
@@ -679,15 +518,6 @@ fn wide_path(value: &Path) -> Result<Vec<u16>> {
             E_INVALIDARG,
             "icon path contains a null character",
         ));
-    }
-    value.push(0);
-    Ok(value)
-}
-
-fn wide_text(value: &str, error: &'static str) -> Result<Vec<u16>> {
-    let mut value = value.encode_utf16().collect::<Vec<_>>();
-    if value.contains(&0) {
-        return Err(Error::new(E_INVALIDARG, error));
     }
     value.push(0);
     Ok(value)
@@ -887,122 +717,5 @@ mod tests {
             calls,
             [NIM_DELETE as u32, NIM_ADD as u32, NIM_SETVERSION as u32]
         );
-    }
-
-    #[test]
-    fn validates_menu_item_identifiers_and_labels() {
-        assert!(OwnedMenu::new(Menu::new().item(0, "Invalid")).is_err());
-        assert!(OwnedMenu::new(Menu::new().item(1, "First").item(1, "Duplicate")).is_err());
-        assert!(OwnedMenu::new(Menu::new().item(1, "before\0after")).is_err());
-    }
-
-    #[test]
-    fn anchors_popup_toward_the_monitor_interior() {
-        let monitor = RECT {
-            right: 1000,
-            bottom: 1000,
-            ..Default::default()
-        };
-        let cases = [
-            (
-                RECT {
-                    left: 400,
-                    top: 0,
-                    right: 420,
-                    bottom: 20,
-                },
-                (
-                    Point { x: 420, y: 20 },
-                    (TPM_LEFTALIGN | TPM_TOPALIGN) as u32,
-                ),
-            ),
-            (
-                RECT {
-                    left: 980,
-                    top: 400,
-                    right: 1000,
-                    bottom: 420,
-                },
-                (
-                    Point { x: 980, y: 420 },
-                    (TPM_RIGHTALIGN | TPM_TOPALIGN) as u32,
-                ),
-            ),
-            (
-                RECT {
-                    left: 400,
-                    top: 980,
-                    right: 420,
-                    bottom: 1000,
-                },
-                (
-                    Point { x: 420, y: 980 },
-                    (TPM_LEFTALIGN | TPM_BOTTOMALIGN) as u32,
-                ),
-            ),
-            (
-                RECT {
-                    left: 0,
-                    top: 400,
-                    right: 20,
-                    bottom: 420,
-                },
-                (
-                    Point { x: 20, y: 420 },
-                    (TPM_LEFTALIGN | TPM_TOPALIGN) as u32,
-                ),
-            ),
-            (
-                RECT {
-                    left: 0,
-                    top: 0,
-                    right: 20,
-                    bottom: 20,
-                },
-                (
-                    Point { x: 20, y: 20 },
-                    (TPM_LEFTALIGN | TPM_TOPALIGN) as u32,
-                ),
-            ),
-            (
-                RECT {
-                    left: 980,
-                    top: 0,
-                    right: 1000,
-                    bottom: 20,
-                },
-                (
-                    Point { x: 980, y: 20 },
-                    (TPM_RIGHTALIGN | TPM_TOPALIGN) as u32,
-                ),
-            ),
-            (
-                RECT {
-                    left: 0,
-                    top: 980,
-                    right: 20,
-                    bottom: 1000,
-                },
-                (
-                    Point { x: 20, y: 980 },
-                    (TPM_LEFTALIGN | TPM_BOTTOMALIGN) as u32,
-                ),
-            ),
-            (
-                RECT {
-                    left: 980,
-                    top: 980,
-                    right: 1000,
-                    bottom: 1000,
-                },
-                (
-                    Point { x: 980, y: 980 },
-                    (TPM_RIGHTALIGN | TPM_BOTTOMALIGN) as u32,
-                ),
-            ),
-        ];
-        for (icon, expected) in cases {
-            assert_eq!(anchor_for_rect(icon, monitor), expected);
-        }
     }
 }

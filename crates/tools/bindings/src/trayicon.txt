@@ -2,24 +2,15 @@
 --flat --minimal --dead-code
 
 --filter
-    AppendMenuW
     ChangeWindowMessageFilterEx
-    CreatePopupMenu
     DestroyIcon
-    DestroyMenu
     E_FAIL
     E_INVALIDARG
-    GetMonitorInfoW
     GetSystemMetrics
     IMAGE_ICON
     LoadImageW
     LR_LOADFROMFILE
-    MF_SEPARATOR
-    MF_STRING
     MSGFLT_ALLOW
-    MONITORINFO
-    MONITOR_DEFAULTTONEAREST
-    MonitorFromPoint
     NIF_ICON
     NIF_MESSAGE
     NIF_SHOWTIP
@@ -36,18 +27,9 @@
     PostMessageW
     POINT
     RegisterWindowMessageW
-    SetForegroundWindow
     Shell_NotifyIconGetRect
     Shell_NotifyIconW
     SM_CXSMICON
     SM_CYSMICON
-    TPM_BOTTOMALIGN
-    TPM_LEFTALIGN
-    TPM_RETURNCMD
-    TPM_RIGHTALIGN
-    TPM_RIGHTBUTTON
-    TPM_TOPALIGN
-    TrackPopupMenu
     WM_CONTEXTMENU
-    WM_NULL
     WM_USER

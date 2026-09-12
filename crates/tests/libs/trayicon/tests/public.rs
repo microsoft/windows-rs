@@ -1,18 +1,14 @@
-use windows_trayicon::{Menu, TrayIcon, TrayIconEvent};
+use windows_trayicon::{TrayIcon, TrayIconEvent};
 
 #[test]
 fn builder_accepts_the_public_configuration() {
     let _builder = TrayIcon::new("icon.ico")
         .tooltip("Example")
-        .menu(Menu::new().item(1, "Exit").separator().item(2, "Settings"))
         .on_event(|event| match event {
             TrayIconEvent::Activate { position } | TrayIconEvent::ContextMenu { position } => {
                 let _ = position;
             }
             TrayIconEvent::Unavailable => {}
-            TrayIconEvent::MenuItem { id } => {
-                let _ = id;
-            }
             _ => {}
         });
 }

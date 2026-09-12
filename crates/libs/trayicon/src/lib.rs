@@ -4,5 +4,5 @@
 mod bindings;
 mod trayicon;
 
-pub use trayicon::{Menu, Point, Rect, TrayIcon, TrayIconBuilder, TrayIconEvent};
+pub use trayicon::{Point, Rect, TrayIcon, TrayIconBuilder, TrayIconEvent};
 pub use windows_core::Result;
