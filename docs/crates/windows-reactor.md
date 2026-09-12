@@ -152,15 +152,9 @@ window exists.
 does not exit the process; call `AppContext::exit` on the UI thread or `AppProxy::exit` from
 another thread.
 
-The [`reactor-trayicon`](../../crates/samples/reactor/trayicon) sample starts with only a tray icon,
-opens Reactor windows on demand, keeps running when its last window closes, and can remove the tray
-icon while a Reactor window remains. The window can add the icon again without restarting the
-process. After removing the tray icon, closing that window exits the sample so it cannot leave an
-invisible process running.
-
-If the sample window is already open, another tray activation or **Open window** command sends a
-component message that calls `WindowRef::request_activate`. Reactor restores a minimized window
-and requests foreground activation after the component update publishes.
+The [`reactor-trayicon`](../../crates/samples/reactor/trayicon) sample demonstrates this lifetime
+model. Use `WindowRef::request_activate` when an external resource needs to restore and foreground
+an existing Reactor window.
 
 ## Window title bars
 
