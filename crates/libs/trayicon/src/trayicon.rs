@@ -183,47 +183,17 @@ fn popup_anchor(hwnd: HWND, fallback: Point) -> (Point, u32) {
 fn anchor_for_rect(icon: RECT, monitor: RECT) -> (Point, u32) {
     let center_x = (icon.left + icon.right) / 2;
     let center_y = (icon.top + icon.bottom) / 2;
-    let distances = [
-        (center_y - monitor.top, 0),
-        (monitor.right - center_x, 1),
-        (monitor.bottom - center_y, 2),
-        (center_x - monitor.left, 3),
-    ];
-    match distances
-        .into_iter()
-        .min_by_key(|(distance, _)| *distance)
-        .unwrap()
-        .1
-    {
-        0 => (
-            Point {
-                x: icon.right,
-                y: icon.bottom,
-            },
-            (TPM_RIGHTALIGN | TPM_TOPALIGN) as u32,
-        ),
-        1 => (
-            Point {
-                x: icon.left,
-                y: icon.bottom,
-            },
-            (TPM_RIGHTALIGN | TPM_BOTTOMALIGN) as u32,
-        ),
-        2 => (
-            Point {
-                x: icon.right,
-                y: icon.top,
-            },
-            (TPM_RIGHTALIGN | TPM_BOTTOMALIGN) as u32,
-        ),
-        _ => (
-            Point {
-                x: icon.right,
-                y: icon.bottom,
-            },
-            (TPM_LEFTALIGN | TPM_BOTTOMALIGN) as u32,
-        ),
-    }
+    let (x, horizontal) = if center_x < (monitor.left + monitor.right) / 2 {
+        (icon.right, TPM_LEFTALIGN)
+    } else {
+        (icon.left, TPM_RIGHTALIGN)
+    };
+    let (y, vertical) = if center_y < (monitor.top + monitor.bottom) / 2 {
+        (icon.bottom, TPM_TOPALIGN)
+    } else {
+        (icon.top, TPM_BOTTOMALIGN)
+    };
+    (Point { x, y }, (horizontal | vertical) as u32)
 }
 
 impl Drop for OwnedMenu {
@@ -672,6 +642,7 @@ fn callback_window(shared: Weak<Shared>, taskbar_created: u32) -> WindowBuilder 
 }
 
 fn icon_rect(hwnd: *mut core::ffi::c_void) -> Result<RECT> {
+    let _dpi = ThreadDpiContext::per_monitor_v2();
     let identifier = NOTIFYICONIDENTIFIER {
         cbSize: size_of::<NOTIFYICONIDENTIFIER>() as u32,
         hWnd: hwnd,
@@ -998,7 +969,7 @@ mod tests {
                 },
                 (
                     Point { x: 420, y: 20 },
-                    (TPM_RIGHTALIGN | TPM_TOPALIGN) as u32,
+                    (TPM_LEFTALIGN | TPM_TOPALIGN) as u32,
                 ),
             ),
             (
@@ -1010,7 +981,7 @@ mod tests {
                 },
                 (
                     Point { x: 980, y: 420 },
-                    (TPM_RIGHTALIGN | TPM_BOTTOMALIGN) as u32,
+                    (TPM_RIGHTALIGN | TPM_TOPALIGN) as u32,
                 ),
             ),
             (
@@ -1022,7 +993,7 @@ mod tests {
                 },
                 (
                     Point { x: 420, y: 980 },
-                    (TPM_RIGHTALIGN | TPM_BOTTOMALIGN) as u32,
+                    (TPM_LEFTALIGN | TPM_BOTTOMALIGN) as u32,
                 ),
             ),
             (
@@ -1034,7 +1005,55 @@ mod tests {
                 },
                 (
                     Point { x: 20, y: 420 },
+                    (TPM_LEFTALIGN | TPM_TOPALIGN) as u32,
+                ),
+            ),
+            (
+                RECT {
+                    left: 0,
+                    top: 0,
+                    right: 20,
+                    bottom: 20,
+                },
+                (
+                    Point { x: 20, y: 20 },
+                    (TPM_LEFTALIGN | TPM_TOPALIGN) as u32,
+                ),
+            ),
+            (
+                RECT {
+                    left: 980,
+                    top: 0,
+                    right: 1000,
+                    bottom: 20,
+                },
+                (
+                    Point { x: 980, y: 20 },
+                    (TPM_RIGHTALIGN | TPM_TOPALIGN) as u32,
+                ),
+            ),
+            (
+                RECT {
+                    left: 0,
+                    top: 980,
+                    right: 20,
+                    bottom: 1000,
+                },
+                (
+                    Point { x: 20, y: 980 },
                     (TPM_LEFTALIGN | TPM_BOTTOMALIGN) as u32,
+                ),
+            ),
+            (
+                RECT {
+                    left: 980,
+                    top: 980,
+                    right: 1000,
+                    bottom: 1000,
+                },
+                (
+                    Point { x: 980, y: 980 },
+                    (TPM_RIGHTALIGN | TPM_BOTTOMALIGN) as u32,
                 ),
             ),
         ];

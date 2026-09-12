@@ -84,6 +84,9 @@ jobs:
         run: cargo test --all --target ${{ matrix.target }} --exclude windows-composition --exclude canvas-standalone --exclude test_composition --exclude composition-standalone --exclude composition-minesweeper --exclude composition-canvas
       - name: Test system Composition stack
         run: cargo test -p windows-canvas -p windows-composition -p canvas-standalone -p test_composition -p composition-standalone -p composition-minesweeper -p composition-canvas --features windows-canvas/system --target ${{ matrix.target }}
+      - name: Test tray icon Shell integration
+        if: matrix.target == 'x86_64-pc-windows-msvc'
+        run: cargo test -p test_trayicon --target ${{ matrix.target }} -- --ignored --test-threads=1
       - name: Check diff
         shell: bash
         run: |
