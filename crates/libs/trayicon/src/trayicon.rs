@@ -5,30 +5,18 @@ use std::mem::size_of;
 use std::os::windows::ffi::OsStrExt;
 use std::path::{Path, PathBuf};
 use std::rc::{Rc, Weak};
-use windows_core::{Error, HRESULT, PCWSTR, Result};
+use windows_core::{Error, PCWSTR, Result};
 use windows_window::{Window, WindowBuilder};
 
 const CALLBACK_MESSAGE: u32 = WM_USER as u32 + 1;
 const DISPATCH_MESSAGE: u32 = WM_USER as u32 + 2;
 const ICON_ID: u32 = 1;
-const E_FAIL: HRESULT = HRESULT(0x8000_4005_u32 as i32);
-const E_INVALIDARG: HRESULT = HRESULT(0x8007_0057_u32 as i32);
 
 /// A point in screen coordinates.
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct Point {
-    pub x: i32,
-    pub y: i32,
-}
+pub type Point = POINT;
 
 /// A rectangle in screen coordinates.
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct Rect {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
-}
+pub type Rect = RECT;
 
 /// A user interaction or availability change for a notification-area icon.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

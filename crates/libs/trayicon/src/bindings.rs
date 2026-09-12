@@ -19,6 +19,8 @@ pub struct CHANGEFILTERSTRUCT {
     pub cbSize: u32,
     pub ExtStatus: u32,
 }
+pub const E_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80004005_u32 as _);
+pub const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
 pub type HANDLE = *mut core::ffi::c_void;
 pub type HICON = *mut core::ffi::c_void;
 pub type HINSTANCE = *mut core::ffi::c_void;

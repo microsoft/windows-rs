@@ -7,6 +7,8 @@
     CreatePopupMenu
     DestroyIcon
     DestroyMenu
+    E_FAIL
+    E_INVALIDARG
     GetMonitorInfoW
     GetSystemMetrics
     IMAGE_ICON
