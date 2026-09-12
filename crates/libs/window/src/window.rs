@@ -234,6 +234,7 @@ impl WindowBuilder {
     pub fn create(self) -> Result<Window> {
         unsafe {
             register_class(self.process_dpi_awareness);
+            let style = self.style & !(WS_VISIBLE as u32);
 
             let mut title: Vec<u16> = self.title.encode_utf16().collect();
             title.push(0);
@@ -246,7 +247,7 @@ impl WindowBuilder {
                 };
                 if !AdjustWindowRectExForDpi(
                     &mut rect,
-                    self.style,
+                    style,
                     false.into(),
                     self.ex_style,
                     GetDpiForSystem(),
@@ -264,7 +265,7 @@ impl WindowBuilder {
                 self.ex_style,
                 class_name(),
                 PCWSTR(title.as_ptr()),
-                self.style,
+                style,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
                 width,

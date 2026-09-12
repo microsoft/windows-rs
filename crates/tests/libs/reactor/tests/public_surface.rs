@@ -224,6 +224,110 @@ impl Drop for HoldingWindow {
     }
 }
 
+#[derive(Clone)]
+struct ReplacementWindowInput(Arc<AtomicBool>);
+
+impl PartialEq for ReplacementWindowInput {
+    fn eq(&self, other: &Self) -> bool {
+        Arc::ptr_eq(&self.0, &other.0)
+    }
+}
+
+struct ReplacementWindow {
+    _close: ComponentTask,
+}
+
+impl Component for ReplacementWindow {
+    type Input = ReplacementWindowInput;
+    type Message = ();
+
+    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        input.0.store(true, Ordering::Release);
+        Self {
+            _close: context.spawn_background(|_| {
+                std::thread::sleep(Duration::from_millis(100));
+            }),
+        }
+    }
+
+    fn update(&mut self, _message: (), context: &ComponentContext<Self>) {
+        assert!(context.window().request_close());
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_frame("Replacement window", "Mounted")
+    }
+}
+
+struct ReplacingWindow {
+    mounted: Arc<AtomicBool>,
+    _replace: ComponentTask,
+}
+
+impl Component for ReplacingWindow {
+    type Input = ReplacementWindowInput;
+    type Message = ();
+
+    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        Self {
+            mounted: Arc::clone(&input.0),
+            _replace: context.spawn_background(|_| {
+                std::thread::sleep(Duration::from_millis(100));
+            }),
+        }
+    }
+
+    fn update(&mut self, _message: (), context: &ComponentContext<Self>) {
+        assert!(context.open_window(View::component::<ReplacementWindow>(
+            ReplacementWindowInput(Arc::clone(&self.mounted)),
+        )));
+        assert!(context.window().request_close());
+    }
+
+    fn view(&self, _input: &ReplacementWindowInput, context: &mut ViewContext<Self>) -> View {
+        context.window_frame("Replacing window", "Opening replacement...")
+    }
+}
+
+#[derive(Clone)]
+struct TimedClosingWindowInput {
+    closed: Arc<AtomicBool>,
+    delay: Duration,
+}
+
+impl PartialEq for TimedClosingWindowInput {
+    fn eq(&self, other: &Self) -> bool {
+        Arc::ptr_eq(&self.closed, &other.closed) && self.delay == other.delay
+    }
+}
+
+struct TimedClosingWindow {
+    closed: Arc<AtomicBool>,
+    _close: ComponentTask,
+}
+
+impl Component for TimedClosingWindow {
+    type Input = TimedClosingWindowInput;
+    type Message = ();
+
+    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        let delay = input.delay;
+        Self {
+            closed: Arc::clone(&input.closed),
+            _close: context.spawn_background(move |_| std::thread::sleep(delay)),
+        }
+    }
+
+    fn update(&mut self, _message: (), context: &ComponentContext<Self>) {
+        self.closed.store(true, Ordering::Release);
+        assert!(context.window().request_close());
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_frame("Timed window", "Waiting to close...")
+    }
+}
+
 struct AppResource {
     dropped: Arc<AtomicBool>,
     worker: Option<std::thread::JoinHandle<()>>,
@@ -234,6 +338,34 @@ impl Drop for AppResource {
         self.worker.take().unwrap().join().unwrap();
         self.dropped.store(true, Ordering::Release);
     }
+}
+
+#[test]
+#[ignore = "runs the interactive WinUI application loop"]
+fn last_window_can_be_replaced_in_one_publication() {
+    let mounted = Arc::new(AtomicBool::new(false));
+    App::run_component::<ReplacingWindow>(ReplacementWindowInput(Arc::clone(&mounted))).unwrap();
+    assert!(mounted.load(Ordering::Acquire));
+}
+
+#[test]
+#[ignore = "runs the interactive WinUI application loop"]
+fn multiple_windows_exit_after_all_have_closed() {
+    let first_closed = Arc::new(AtomicBool::new(false));
+    let second_closed = Arc::new(AtomicBool::new(false));
+    App::run_windows([
+        View::component::<TimedClosingWindow>(TimedClosingWindowInput {
+            closed: Arc::clone(&first_closed),
+            delay: Duration::from_millis(100),
+        }),
+        View::component::<TimedClosingWindow>(TimedClosingWindowInput {
+            closed: Arc::clone(&second_closed),
+            delay: Duration::from_millis(300),
+        }),
+    ])
+    .unwrap();
+    assert!(first_closed.load(Ordering::Acquire));
+    assert!(second_closed.load(Ordering::Acquire));
 }
 
 #[test]

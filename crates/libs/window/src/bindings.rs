@@ -100,3 +100,4 @@ pub type WNDPROC = Option<
 pub type WPARAM = usize;
 pub const WS_EX_NOREDIRECTIONBITMAP: i32 = 2097152;
 pub const WS_OVERLAPPEDWINDOW: i32 = 13565952;
+pub const WS_VISIBLE: i32 = 268435456;

@@ -945,11 +945,7 @@ impl App {
                     install_xaml_controls_resources(&application)?;
                     application
                         .cast::<IApplication3>()?
-                        .SetDispatcherShutdownMode(if exit_when_empty {
-                            DispatcherShutdownMode::OnLastWindowClose
-                        } else {
-                            DispatcherShutdownMode::OnExplicitShutdown
-                        })?;
+                        .SetDispatcherShutdownMode(DispatcherShutdownMode::OnExplicitShutdown)?;
                     let create_pumps = launch_create_pumps.borrow_mut().take().unwrap();
                     let mut pumps = create_pumps(application.clone()).into_iter();
                     let mut primary_pump = pumps.next();
@@ -1180,17 +1176,21 @@ pub(crate) fn open_live_windows(roots: Vec<View>) -> Result<(), RuntimeError> {
 }
 
 fn rollback_pending_windows(tokens: &[WindowToken]) {
-    HOST.with(|host| {
+    let should_exit = HOST.with(|host| {
         let mut host = host.borrow_mut();
         let Some(host) = host.as_mut() else {
-            return;
+            return false;
         };
         for token in tokens {
             assert!(host.in_flight.remove(token));
             host.closed_in_flight.remove(token);
         }
         host.pending_opens = host.pending_opens.checked_sub(tokens.len()).unwrap();
+        host.should_exit()
     });
+    if should_exit {
+        exit_ui_thread();
+    }
 }
 
 fn reject_pending_window(mut pump: Box<dyn LivePump>, error: PumpError) {

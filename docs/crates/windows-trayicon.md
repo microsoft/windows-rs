@@ -48,9 +48,12 @@ fn main() -> windows_trayicon::Result<()> {
 }
 ```
 
-`TrayIcon` owns an unshown top-level `windows-window` window. Any message loop running on that
-thread can dispatch its callbacks; the application does not need to use `windows_window::run`.
-Dropping the value removes the Shell icon before destroying the callback window and loaded icon.
+`TrayIcon` owns two unshown top-level `windows-window` windows: one receives Shell messages and one
+dispatches application callbacks outside the Shell call stack. Any unfiltered message loop running
+on that thread can dispatch its callbacks; the application does not need to use
+`windows_window::run`. A loop filtered to `TrayIcon::hwnd()` will not dispatch application
+callbacks. Dropping the value removes the Shell icon before destroying the hidden windows and
+loaded icon.
 
 ## Respond to events
 
@@ -118,8 +121,8 @@ The crate uses `NIM_ADD`, `NIM_MODIFY`, and `NIM_DELETE` with
 running handlers inside a Shell call. `TaskbarCreated` triggers bounded recovery after an Explorer
 restart.
 
-The hidden callback window is per-monitor-v2 aware, so Shell geometry, callback coordinates, and
-`TrackPopupMenu` use physical screen coordinates. Creating it does not change the host's process
+Both hidden windows are per-monitor-v2 aware, so Shell geometry, callback coordinates, and
+`TrackPopupMenu` use physical screen coordinates. Creating them does not change the host's process
 DPI policy.
 
 After changing the binding filter, run:

@@ -46,15 +46,35 @@ fn automates_native_menu_selection() {
     let point = encoded_point((rect.left + rect.right) / 2, (rect.top + rect.bottom) / 2);
     let hwnd = icon.hwnd() as usize;
     let driver_activated = Arc::clone(&activated);
-    let driver = std::thread::spawn(move || automate(hwnd, point, &driver_activated));
+    let (driver_send, driver_receive) = std::sync::mpsc::channel();
+    std::thread::spawn(move || {
+        _ = driver_send.send(automate(hwnd, point, &driver_activated));
+    });
 
     let deadline = Instant::now() + Duration::from_secs(20);
+    let mut driver_result = None;
     while Instant::now() < deadline && !selected.load(Ordering::Acquire) {
         assert!(windows_window::pump());
+        match driver_receive.try_recv() {
+            Ok(result) => {
+                driver_result = Some(result);
+                break;
+            }
+            Err(std::sync::mpsc::TryRecvError::Disconnected) => {
+                panic!("UI Automation driver exited without a result");
+            }
+            Err(std::sync::mpsc::TryRecvError::Empty) => {}
+        }
         std::thread::sleep(Duration::from_millis(10));
     }
 
-    driver.join().unwrap().unwrap();
+    driver_result
+        .unwrap_or_else(|| {
+            driver_receive
+                .recv_timeout(Duration::from_secs(5))
+                .expect("UI Automation driver timed out")
+        })
+        .unwrap();
     assert!(activated.load(Ordering::Acquire));
     assert!(selected.load(Ordering::Acquire));
 }
@@ -94,6 +114,42 @@ fn raw_message_loop_dispatches_posted_events() {
 
     driver.join().unwrap();
     assert!(activated.get());
+}
+
+#[test]
+#[ignore = "requires an interactive Windows shell"]
+fn nested_callback_is_delivered_after_the_active_handler() {
+    let path = concat!(env!("CARGO_MANIFEST_DIR"), "\\assets\\icon.ico");
+    let delivered = std::rc::Rc::new(std::cell::Cell::new(0));
+    let callback_delivered = std::rc::Rc::clone(&delivered);
+    let callback_hwnd = std::rc::Rc::new(std::cell::Cell::new(0_usize));
+    let handler_hwnd = std::rc::Rc::clone(&callback_hwnd);
+    let icon = TrayIcon::new(path)
+        .on_event(move |event| {
+            if matches!(event, TrayIconEvent::Activate { .. }) {
+                let count = callback_delivered.get() + 1;
+                callback_delivered.set(count);
+                if count == 1 {
+                    unsafe {
+                        SendMessageW(
+                            handler_hwnd.get() as _,
+                            CALLBACK_MESSAGE,
+                            0,
+                            NIN_SELECT as isize,
+                        );
+                    }
+                }
+            }
+        })
+        .build()
+        .unwrap();
+    callback_hwnd.set(icon.hwnd() as usize);
+
+    unsafe {
+        SendMessageW(icon.hwnd(), CALLBACK_MESSAGE, 0, NIN_SELECT as isize);
+    }
+    assert!(windows_window::pump());
+    assert_eq!(delivered.get(), 2);
 }
 
 fn automate(hwnd: usize, point: usize, activated: &AtomicBool) -> Result<()> {

@@ -1,7 +1,7 @@
 //! Window lifecycle: creation, handle validity, client size, and destruction.
 
 use test_window::{
-    IsWindow, IsWindowVisible, SendMessageW, WM_CLOSE, WS_EX_NOREDIRECTIONBITMAP,
+    IsWindow, IsWindowVisible, SendMessageW, WM_CLOSE, WS_EX_NOREDIRECTIONBITMAP, WS_VISIBLE,
     get_window_ex_style,
 };
 use windows_window::Window;
@@ -16,6 +16,17 @@ fn create_returns_a_live_window() {
 #[test]
 fn hidden_window_is_live_and_not_visible() {
     let window = Window::new("test").visible(false).create().unwrap();
+    assert!(unsafe { IsWindow(window.hwnd()) } != 0);
+    assert_eq!(unsafe { IsWindowVisible(window.hwnd()) }, 0);
+}
+
+#[test]
+fn hidden_window_overrides_a_visible_style() {
+    let window = Window::new("test")
+        .style(WS_VISIBLE)
+        .visible(false)
+        .create()
+        .unwrap();
     assert!(unsafe { IsWindow(window.hwnd()) } != 0);
     assert_eq!(unsafe { IsWindowVisible(window.hwnd()) }, 0);
 }

@@ -10,6 +10,7 @@ pub const WM_CLOSE: u32 = 0x0010;
 pub const WM_USER: u32 = 0x0400;
 pub const GWL_EXSTYLE: i32 = -20;
 pub const WS_EX_NOREDIRECTIONBITMAP: isize = 0x0020_0000;
+pub const WS_VISIBLE: u32 = 0x1000_0000;
 
 windows_link::link!("user32.dll" "system" fn SendMessageW(hwnd: *mut core::ffi::c_void, msg: u32, wparam: usize, lparam: isize) -> isize);
 windows_link::link!("user32.dll" "system" fn IsWindow(hwnd: *mut core::ffi::c_void) -> i32);

@@ -134,6 +134,20 @@ jobs:
           if ($LASTEXITCODE -ne 0 -or -not ($lifetime -match "1 passed")) {
             throw "Reactor application lifetime test did not run successfully"
           }
+          $replacement = cargo test -p test_reactor --test public_surface `
+            last_window_can_be_replaced_in_one_publication `
+            -- --ignored --exact --test-threads=1 2>&1
+          $replacement | Write-Output
+          if ($LASTEXITCODE -ne 0 -or -not ($replacement -match "1 passed")) {
+            throw "Reactor replacement-window test did not run successfully"
+          }
+          $multiple = cargo test -p test_reactor --test public_surface `
+            multiple_windows_exit_after_all_have_closed `
+            -- --ignored --exact --test-threads=1 2>&1
+          $multiple | Write-Output
+          if ($LASTEXITCODE -ne 0 -or -not ($multiple -match "1 passed")) {
+            throw "Reactor multiple-window lifetime test did not run successfully"
+          }
           $startup = cargo test -p test_reactor --test public_surface `
             application_startup_error_is_returned `
             -- --ignored --exact --test-threads=1 2>&1

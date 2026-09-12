@@ -4,6 +4,7 @@
 --filter
     AppendMenuW
     AreDpiAwarenessContextsEqual
+    ChangeWindowMessageFilterEx
     CreatePopupMenu
     DestroyIcon
     DestroyMenu
@@ -18,6 +19,7 @@
     LR_LOADFROMFILE
     MF_SEPARATOR
     MF_STRING
+    MSGFLT_ALLOW
     MONITORINFO
     MONITOR_DEFAULTTONEAREST
     MonitorFromPoint

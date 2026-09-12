@@ -35,5 +35,7 @@ fn main() -> windows_trayicon::Result<()> {
 }
 ```
 
-Create and drop the icon on the thread that owns the message loop. Dropping `TrayIcon` removes the
-notification-area icon and destroys its hidden callback window.
+Create and drop the icon on the thread that owns an unfiltered message loop. `TrayIcon` uses
+separate hidden windows for Shell reception and application callback dispatch, so a loop filtered
+to `TrayIcon::hwnd()` will not dispatch callbacks. Dropping `TrayIcon` removes the notification-area
+icon and destroys both hidden windows.

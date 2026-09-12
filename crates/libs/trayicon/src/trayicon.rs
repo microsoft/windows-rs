@@ -124,20 +124,20 @@ impl OwnedMenu {
         Ok(result)
     }
 
-    fn show(&self, hwnd: HWND, position: Point) -> Option<u32> {
-        let (position, alignment) = popup_anchor(hwnd, position);
+    fn show(&self, owner: HWND, callback: HWND, position: Point) -> Option<u32> {
+        let (position, alignment) = popup_anchor(callback, position);
         unsafe {
-            _ = SetForegroundWindow(hwnd);
+            _ = SetForegroundWindow(owner);
             let command = TrackPopupMenu(
                 self.0,
                 (TPM_RETURNCMD | TPM_RIGHTBUTTON) as u32 | alignment,
                 position.x,
                 position.y,
                 0,
-                hwnd,
+                owner,
                 core::ptr::null(),
             );
-            _ = PostMessageW(hwnd, WM_NULL as u32, 0, 0);
+            _ = PostMessageW(owner, WM_NULL as u32, 0, 0);
             (command.0 != 0).then_some(command.0 as u32)
         }
     }
@@ -384,11 +384,18 @@ impl Registration {
 
 struct Shared {
     active: Cell<bool>,
-    events: RefCell<VecDeque<TrayIconEvent>>,
+    callback_hwnd: Cell<*mut core::ffi::c_void>,
     handler: RefCell<Option<EventHandler>>,
     menu: Option<OwnedMenu>,
+    pending: RefCell<VecDeque<Pending>>,
+    recovery_queued: Cell<bool>,
     recovery: RecoveryState,
     registration: RefCell<Registration>,
+}
+
+enum Pending {
+    Event(TrayIconEvent),
+    RetryRecovery,
 }
 
 #[derive(Default)]
@@ -415,77 +422,100 @@ impl Shared {
         }
     }
 
-    fn post(&self, hwnd: *mut core::ffi::c_void, event: TrayIconEvent) {
-        self.events.borrow_mut().push_back(event);
+    fn post(&self, hwnd: *mut core::ffi::c_void, pending: Pending) -> bool {
+        self.pending.borrow_mut().push_back(pending);
         if !unsafe { PostMessageW(hwnd, DISPATCH_MESSAGE, 0, 0) }.as_bool() {
-            self.events.borrow_mut().pop_back();
-            eprintln!("windows-trayicon could not queue a Shell event");
+            self.pending.borrow_mut().pop_back();
+            eprintln!("windows-trayicon could not queue Shell work");
+            false
+        } else {
+            true
         }
     }
 
     fn dispatch_pending(&self, hwnd: *mut core::ffi::c_void) {
+        // Nested loops can enqueue more work through the callback window while this dispatch
+        // window is guarded against reentry, so keep draining until the queue is empty.
         while self.active.get() {
-            let Some(event) = self.events.borrow_mut().pop_front() else {
+            let Some(pending) = self.pending.borrow_mut().pop_front() else {
                 break;
             };
-            let check_registration = !matches!(event, TrayIconEvent::Unavailable);
-            if let TrayIconEvent::ContextMenu { position } = event
-                && let Some(menu) = self.menu.as_ref()
-            {
-                if let Some(id) = menu.show(hwnd, position) {
-                    self.dispatch(TrayIconEvent::MenuItem { id });
+            match pending {
+                Pending::Event(event) => {
+                    let check_registration = !matches!(event, TrayIconEvent::Unavailable);
+                    if let TrayIconEvent::ContextMenu { position } = event
+                        && let Some(menu) = self.menu.as_ref()
+                    {
+                        if let Some(id) = menu.show(hwnd, self.callback_hwnd.get(), position) {
+                            self.dispatch(TrayIconEvent::MenuItem { id });
+                        }
+                    } else {
+                        self.dispatch(event);
+                    }
+                    if check_registration && self.active.get() && self.recover_if_missing().is_err()
+                    {
+                        self.dispatch(TrayIconEvent::Unavailable);
+                    }
                 }
-            } else {
-                self.dispatch(event);
-            }
-            if check_registration && self.active.get() && self.recover_if_missing(hwnd).is_err() {
-                self.dispatch(TrayIconEvent::Unavailable);
+                Pending::RetryRecovery => {
+                    self.recovery_queued.set(false);
+                    self.retry_recovery(hwnd);
+                }
             }
         }
     }
 
-    fn recover(&self, hwnd: *mut core::ffi::c_void) -> Result<()> {
+    fn recover(&self) -> Result<()> {
         let Ok(registration) = self.registration.try_borrow() else {
             return Err(shell_error(
                 "notification-area icon recovery was requested during an update",
             ));
         };
-        registration.recover(hwnd)
+        registration.recover(self.callback_hwnd.get())
     }
 
-    fn recover_if_missing(&self, hwnd: *mut core::ffi::c_void) -> Result<()> {
-        if icon_rect(hwnd).is_ok() {
+    fn recover_if_missing(&self) -> Result<()> {
+        if icon_rect(self.callback_hwnd.get()).is_ok() {
             Ok(())
         } else {
-            self.recover(hwnd)
+            self.recover()
         }
     }
 
-    fn start_recovery(&self, hwnd: *mut core::ffi::c_void) {
-        self.recovery.reset();
-        self.retry_recovery(hwnd);
+    fn queue_recovery(&self, dispatch_hwnd: *mut core::ffi::c_void) {
+        if self.recovery_queued.replace(true) {
+            return;
+        }
+        if !self.post(dispatch_hwnd, Pending::RetryRecovery) {
+            self.recovery_queued.set(false);
+        }
     }
 
-    fn retry_recovery(&self, hwnd: *mut core::ffi::c_void) {
+    fn retry_recovery(&self, dispatch_hwnd: *mut core::ffi::c_void) {
+        let callback_hwnd = self.callback_hwnd.get();
         unsafe {
-            _ = KillTimer(hwnd, RECOVERY_TIMER_ID);
+            _ = KillTimer(callback_hwnd, RECOVERY_TIMER_ID);
         }
-        if self.recover(hwnd).is_ok() {
+        if self.recover().is_ok() {
             self.recovery.reset();
             return;
         }
 
-        if self.recovery.failed() && unsafe { SetTimer(hwnd, RECOVERY_TIMER_ID, 1_000, None) } != 0
+        if self.recovery.failed()
+            && unsafe { SetTimer(callback_hwnd, RECOVERY_TIMER_ID, 1_000, None) } != 0
         {
             return;
         }
-        self.post(hwnd, TrayIconEvent::Unavailable);
+        _ = self.post(dispatch_hwnd, Pending::Event(TrayIconEvent::Unavailable));
     }
 }
 
 /// A notification-area icon and its hidden callback window.
 pub struct TrayIcon {
-    window: Window,
+    // Drop the Shell-facing window before the dispatch window so no callback can target a
+    // destroyed dispatch HWND.
+    callback_window: Window,
+    _dispatch_window: Window,
     shared: Rc<Shared>,
 }
 
@@ -504,15 +534,17 @@ impl TrayIcon {
     /// Returns the hidden callback window's borrowed raw `HWND`.
     ///
     /// The handle remains owned by this value and must not be closed or destroyed.
+    /// Thread message loops must not filter exclusively to this handle because event dispatch uses
+    /// another private window.
     pub fn hwnd(&self) -> *mut core::ffi::c_void {
-        self.window.hwnd()
+        self.callback_window.hwnd()
     }
 
     /// Returns the Shell's current icon anchor rectangle in screen coordinates.
     ///
     /// For an icon hidden in the overflow area, Windows may return the overflow button rectangle.
     pub fn rect(&self) -> Result<Rect> {
-        let value = icon_rect(self.window.hwnd())?;
+        let value = icon_rect(self.callback_window.hwnd())?;
         Ok(Rect {
             left: value.left,
             top: value.top,
@@ -529,7 +561,7 @@ impl TrayIcon {
             .registration
             .try_borrow_mut()
             .map_err(|_| shell_error("notification-area icon is handling another update"))?;
-        registration.replace_icon_with(icon, self.window.hwnd(), &mut shell_notify)
+        registration.replace_icon_with(icon, self.callback_window.hwnd(), &mut shell_notify)
     }
 
     /// Sets or clears the standard tooltip.
@@ -540,7 +572,7 @@ impl TrayIcon {
             .registration
             .try_borrow_mut()
             .map_err(|_| shell_error("notification-area icon is handling another update"))?;
-        registration.set_tooltip_with(tooltip, self.window.hwnd(), &mut shell_notify)
+        registration.set_tooltip_with(tooltip, self.callback_window.hwnd(), &mut shell_notify)
     }
 }
 
@@ -548,7 +580,7 @@ impl Drop for TrayIcon {
     fn drop(&mut self) {
         self.shared.active.set(false);
         if let Ok(registration) = self.shared.registration.try_borrow() {
-            registration.delete(self.window.hwnd());
+            registration.delete(self.callback_window.hwnd());
         }
     }
 }
@@ -589,56 +621,116 @@ impl TrayIconBuilder {
         let menu = self.menu.map(OwnedMenu::new).transpose()?;
         let shared = Rc::new(Shared {
             active: Cell::new(true),
-            events: RefCell::new(VecDeque::new()),
+            callback_hwnd: Cell::new(core::ptr::null_mut()),
             handler: RefCell::new(self.handler),
             menu,
+            pending: RefCell::new(VecDeque::new()),
+            recovery_queued: Cell::new(false),
             recovery: RecoveryState::default(),
             registration: RefCell::new(Registration {
                 icon: OwnedIcon::load(&self.icon)?,
                 tooltip: self.tooltip.as_deref().map(tooltip_text).transpose()?,
             }),
         });
-        let callback = Rc::downgrade(&shared);
-        let window = {
+        let (dispatch_window, callback_window) = {
             let _dpi = ThreadDpiContext::per_monitor_v2();
-            callback_window(callback, taskbar_created).create()?
+            let dispatch_window = dispatch_window(Rc::downgrade(&shared)).create()?;
+            let callback_window = callback_window(
+                Rc::downgrade(&shared),
+                dispatch_window.hwnd(),
+                taskbar_created,
+            )
+            .create()?;
+            (dispatch_window, callback_window)
         };
-        shared.registration.borrow().add(window.hwnd())?;
-        Ok(TrayIcon { window, shared })
+        shared.callback_hwnd.set(callback_window.hwnd());
+        allow_message(callback_window.hwnd(), CALLBACK_MESSAGE)?;
+        allow_message(callback_window.hwnd(), taskbar_created)?;
+        shared.registration.borrow().add(callback_window.hwnd())?;
+        Ok(TrayIcon {
+            callback_window,
+            _dispatch_window: dispatch_window,
+            shared,
+        })
     }
 }
 
-fn callback_window(shared: Weak<Shared>, taskbar_created: u32) -> WindowBuilder {
+fn callback_window(
+    shared: Weak<Shared>,
+    dispatch_hwnd: *mut core::ffi::c_void,
+    taskbar_created: u32,
+) -> WindowBuilder {
     Window::new("windows-trayicon")
         .style(0)
         .visible(false)
         .process_dpi_awareness(false)
         .quit_on_close(false)
-        .on_message(move |hwnd, message, wparam, lparam| {
+        .on_message(move |_hwnd, message, wparam, lparam| {
             let shared = shared.upgrade()?;
             if message == taskbar_created {
                 if !shared.active.get() {
                     return Some(0);
                 }
-                shared.start_recovery(hwnd);
+                shared.recovery.reset();
+                unsafe {
+                    _ = KillTimer(_hwnd, RECOVERY_TIMER_ID);
+                }
+                shared.queue_recovery(dispatch_hwnd);
                 return Some(0);
             }
             if message == WM_TIMER as u32 && wparam == RECOVERY_TIMER_ID {
-                shared.retry_recovery(hwnd);
+                unsafe {
+                    _ = KillTimer(_hwnd, RECOVERY_TIMER_ID);
+                }
+                if shared.active.get() {
+                    shared.queue_recovery(dispatch_hwnd);
+                }
                 return Some(0);
             }
             if message == CALLBACK_MESSAGE {
                 if let Some(event) = decode_event(wparam, lparam) {
-                    shared.post(hwnd, event);
+                    _ = shared.post(dispatch_hwnd, Pending::Event(event));
                 }
-                return Some(0);
-            }
-            if message == DISPATCH_MESSAGE {
-                shared.dispatch_pending(hwnd);
                 return Some(0);
             }
             None
         })
+}
+
+fn dispatch_window(shared: Weak<Shared>) -> WindowBuilder {
+    Window::new("windows-trayicon-dispatch")
+        .style(0)
+        .visible(false)
+        .process_dpi_awareness(false)
+        .quit_on_close(false)
+        .on_message(move |hwnd, message, _, _| {
+            if message == DISPATCH_MESSAGE {
+                if let Some(shared) = shared.upgrade() {
+                    shared.dispatch_pending(hwnd);
+                }
+                return Some(0);
+            }
+            None
+        })
+}
+
+fn allow_message(hwnd: *mut core::ffi::c_void, message: u32) -> Result<()> {
+    if unsafe {
+        ChangeWindowMessageFilterEx(hwnd, message, MSGFLT_ALLOW as u32, core::ptr::null_mut())
+    }
+    .as_bool()
+    {
+        Ok(())
+    } else {
+        let error = Error::from_thread();
+        if error.code().is_ok() {
+            Err(shell_error(
+                "failed to allow a notification-area window message",
+            ))
+        } else {
+            Err(error)
+        }
+    }
 }
 
 fn icon_rect(hwnd: *mut core::ffi::c_void) -> Result<RECT> {
@@ -927,7 +1019,9 @@ mod tests {
         let before = unsafe { GetThreadDpiAwarenessContext() };
         let window = {
             let _dpi = ThreadDpiContext::per_monitor_v2();
-            callback_window(Weak::new(), 0).create().unwrap()
+            callback_window(Weak::new(), core::ptr::null_mut(), 0)
+                .create()
+                .unwrap()
         };
 
         assert!(
