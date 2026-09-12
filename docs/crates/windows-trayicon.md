@@ -109,9 +109,10 @@ The crate uses `NIM_ADD`, `NIM_MODIFY`, and `NIM_DELETE` with
 running handlers inside a Shell call. Each `TaskbarCreated` message queues one registration
 attempt after an Explorer restart.
 
-Both hidden windows are per-monitor-v2 aware, so Shell geometry and callback coordinates use
-physical screen coordinates. Like other `windows-window` windows, creating a tray icon attempts to
-set the process DPI policy to per-monitor v2.
+Like other `windows-window` windows, creating the hidden windows attempts to set process DPI
+awareness to per-monitor v2. If the host has already selected another process policy or applies a
+thread DPI override, Shell geometry and callback coordinates follow that awareness context and may
+be virtualized.
 
 After changing the binding filter, run:
 
