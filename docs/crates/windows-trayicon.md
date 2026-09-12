@@ -92,8 +92,9 @@ Failed changes retain the previous owned resource and return a `windows_core::Er
 
 ## Shell restarts
 
-When Explorer restarts, the crate restores the icon. `Unavailable` reports that recovery failed;
-the application can drop the value and build another `TrayIcon` to try again.
+When Explorer restarts, the crate makes one restoration attempt for each `TaskbarCreated` message.
+`Unavailable` reports that an attempt failed; the application can drop the value and build another
+`TrayIcon` immediately or after its own retry delay.
 
 The crate does not manipulate notification-area promotion settings. The Shell and user control
 whether the icon appears in the main notification area or overflow.
@@ -118,8 +119,8 @@ tray icon and Reactor windows have independent lifetimes.
 
 The crate uses `NIM_ADD`, `NIM_MODIFY`, and `NIM_DELETE` with
 `NOTIFYICON_VERSION_4`. Shell callbacks are reposted before invoking application code to avoid
-running handlers inside a Shell call. `TaskbarCreated` triggers bounded recovery after an Explorer
-restart.
+running handlers inside a Shell call. Each `TaskbarCreated` message queues one registration
+attempt after an Explorer restart.
 
 Both hidden windows are per-monitor-v2 aware, so Shell geometry, callback coordinates, and
 `TrackPopupMenu` use physical screen coordinates. Creating them does not change the host's process

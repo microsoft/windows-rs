@@ -11,8 +11,6 @@ use windows_window::{Window, WindowBuilder};
 const CALLBACK_MESSAGE: u32 = WM_USER as u32 + 1;
 const DISPATCH_MESSAGE: u32 = WM_USER as u32 + 2;
 const ICON_ID: u32 = 1;
-const RECOVERY_TIMER_ID: usize = 1;
-const MAX_RECOVERY_ATTEMPTS: u8 = 3;
 const E_FAIL: HRESULT = HRESULT(0x8000_4005_u32 as i32);
 const E_INVALIDARG: HRESULT = HRESULT(0x8007_0057_u32 as i32);
 
@@ -297,7 +295,7 @@ impl Registration {
         if notify(NIM_MODIFY as u32, &data) {
             Ok(())
         } else {
-            self.add_with(hwnd, notify)
+            Err(shell_error("failed to update notification-area icon"))
         }
     }
 
@@ -343,7 +341,6 @@ impl Registration {
         let previous = std::mem::replace(&mut self.icon, icon);
         if let Err(error) = self.update_with(hwnd, notify) {
             self.icon = previous;
-            _ = self.update_with(hwnd, notify);
             return Err(error);
         }
         Ok(())
@@ -361,7 +358,6 @@ impl Registration {
         let previous = std::mem::replace(&mut self.tooltip, tooltip);
         if let Err(error) = self.update_with(hwnd, notify) {
             self.tooltip = previous;
-            _ = self.update_with(hwnd, notify);
             return Err(error);
         }
         Ok(())
@@ -389,14 +385,12 @@ struct Shared {
     handler: RefCell<Option<EventHandler>>,
     menu: Option<OwnedMenu>,
     pending: RefCell<VecDeque<Pending>>,
-    recovery_queued: Cell<bool>,
-    recovery: RecoveryState,
     registration: RefCell<Registration>,
 }
 
 enum Pending {
     Event(TrayIconEvent),
-    RetryRecovery,
+    Recover,
 }
 
 struct DispatchGuard<'a>(&'a Cell<bool>);
@@ -407,23 +401,6 @@ impl Drop for DispatchGuard<'_> {
     }
 }
 
-#[derive(Default)]
-struct RecoveryState {
-    attempts: Cell<u8>,
-}
-
-impl RecoveryState {
-    fn reset(&self) {
-        self.attempts.set(0);
-    }
-
-    fn failed(&self) -> bool {
-        let attempts = self.attempts.get() + 1;
-        self.attempts.set(attempts);
-        attempts < MAX_RECOVERY_ATTEMPTS
-    }
-}
-
 impl Shared {
     fn dispatch(&self, event: TrayIconEvent) {
         if let Some(handler) = self.handler.borrow_mut().as_mut() {
@@ -431,14 +408,11 @@ impl Shared {
         }
     }
 
-    fn post(&self, hwnd: *mut core::ffi::c_void, pending: Pending) -> bool {
+    fn post(&self, hwnd: *mut core::ffi::c_void, pending: Pending) {
         self.pending.borrow_mut().push_back(pending);
         if !unsafe { PostMessageW(hwnd, DISPATCH_MESSAGE, 0, 0) }.as_bool() {
             self.pending.borrow_mut().pop_back();
             eprintln!("windows-trayicon could not queue Shell work");
-            false
-        } else {
-            true
         }
     }
 
@@ -456,7 +430,6 @@ impl Shared {
             };
             match pending {
                 Pending::Event(event) => {
-                    let check_registration = !matches!(event, TrayIconEvent::Unavailable);
                     if let TrayIconEvent::ContextMenu { position } = event
                         && let Some(menu) = self.menu.as_ref()
                     {
@@ -466,14 +439,11 @@ impl Shared {
                     } else {
                         self.dispatch(event);
                     }
-                    if check_registration && self.active.get() && self.recover_if_missing().is_err()
-                    {
+                }
+                Pending::Recover => {
+                    if self.recover().is_err() {
                         self.dispatch(TrayIconEvent::Unavailable);
                     }
-                }
-                Pending::RetryRecovery => {
-                    self.recovery_queued.set(false);
-                    self.retry_recovery(hwnd);
                 }
             }
         }
@@ -486,41 +456,6 @@ impl Shared {
             ));
         };
         registration.recover(self.callback_hwnd.get())
-    }
-
-    fn recover_if_missing(&self) -> Result<()> {
-        if icon_rect(self.callback_hwnd.get()).is_ok() {
-            Ok(())
-        } else {
-            self.recover()
-        }
-    }
-
-    fn queue_recovery(&self, dispatch_hwnd: *mut core::ffi::c_void) {
-        if self.recovery_queued.replace(true) {
-            return;
-        }
-        if !self.post(dispatch_hwnd, Pending::RetryRecovery) {
-            self.recovery_queued.set(false);
-        }
-    }
-
-    fn retry_recovery(&self, dispatch_hwnd: *mut core::ffi::c_void) {
-        let callback_hwnd = self.callback_hwnd.get();
-        unsafe {
-            _ = KillTimer(callback_hwnd, RECOVERY_TIMER_ID);
-        }
-        if self.recover().is_ok() {
-            self.recovery.reset();
-            return;
-        }
-
-        if self.recovery.failed()
-            && unsafe { SetTimer(callback_hwnd, RECOVERY_TIMER_ID, 1_000, None) } != 0
-        {
-            return;
-        }
-        _ = self.post(dispatch_hwnd, Pending::Event(TrayIconEvent::Unavailable));
     }
 }
 
@@ -640,8 +575,6 @@ impl TrayIconBuilder {
             handler: RefCell::new(self.handler),
             menu,
             pending: RefCell::new(VecDeque::new()),
-            recovery_queued: Cell::new(false),
-            recovery: RecoveryState::default(),
             registration: RefCell::new(Registration {
                 icon: OwnedIcon::load(&self.icon)?,
                 tooltip: self.tooltip.as_deref().map(tooltip_text).transpose()?,
@@ -680,31 +613,17 @@ fn callback_window(
         .visible(false)
         .process_dpi_awareness(false)
         .quit_on_close(false)
-        .on_message(move |_hwnd, message, wparam, lparam| {
+        .on_message(move |_, message, wparam, lparam| {
             let shared = shared.upgrade()?;
             if message == taskbar_created {
-                if !shared.active.get() {
-                    return Some(0);
-                }
-                shared.recovery.reset();
-                unsafe {
-                    _ = KillTimer(_hwnd, RECOVERY_TIMER_ID);
-                }
-                shared.queue_recovery(dispatch_hwnd);
-                return Some(0);
-            }
-            if message == WM_TIMER as u32 && wparam == RECOVERY_TIMER_ID {
-                unsafe {
-                    _ = KillTimer(_hwnd, RECOVERY_TIMER_ID);
-                }
                 if shared.active.get() {
-                    shared.queue_recovery(dispatch_hwnd);
+                    shared.post(dispatch_hwnd, Pending::Recover);
                 }
                 return Some(0);
             }
             if message == CALLBACK_MESSAGE {
                 if let Some(event) = decode_event(wparam, lparam) {
-                    _ = shared.post(dispatch_hwnd, Pending::Event(event));
+                    shared.post(dispatch_hwnd, Pending::Event(event));
                 }
                 return Some(0);
             }
@@ -936,11 +855,10 @@ mod tests {
     #[test]
     fn failed_icon_replacement_restores_the_previous_icon() {
         let mut registration = registration(1);
-        let mut results = [false, false, true, true].into_iter();
         let mut payloads = Vec::new();
         let mut notify = |message, data: &NOTIFYICONDATAW| {
             payloads.push((message, data.hIcon as usize));
-            results.next().unwrap()
+            false
         };
 
         assert!(
@@ -949,15 +867,7 @@ mod tests {
                 .is_err()
         );
         assert_eq!(registration.icon.handle as usize, 1);
-        assert_eq!(
-            payloads,
-            [
-                (NIM_MODIFY as u32, 2),
-                (NIM_ADD as u32, 2),
-                (NIM_DELETE as u32, 2),
-                (NIM_MODIFY as u32, 1)
-            ]
-        );
+        assert_eq!(payloads, [(NIM_MODIFY as u32, 2)]);
     }
 
     #[test]
@@ -982,22 +892,20 @@ mod tests {
     }
 
     #[test]
-    fn failed_modify_can_restore_registration() {
+    fn failed_modify_does_not_attempt_registration() {
         let registration = registration(1);
-        let mut results = [false, true, true].into_iter();
         let mut calls = Vec::new();
         let mut notify = |message, _: &NOTIFYICONDATAW| {
             calls.push(message);
-            results.next().unwrap()
+            false
         };
 
-        registration
-            .update_with(core::ptr::null_mut(), &mut notify)
-            .unwrap();
-        assert_eq!(
-            calls,
-            [NIM_MODIFY as u32, NIM_ADD as u32, NIM_SETVERSION as u32]
+        assert!(
+            registration
+                .update_with(core::ptr::null_mut(), &mut notify)
+                .is_err()
         );
+        assert_eq!(calls, [NIM_MODIFY as u32]);
     }
 
     #[test]
@@ -1016,17 +924,6 @@ mod tests {
             calls,
             [NIM_DELETE as u32, NIM_ADD as u32, NIM_SETVERSION as u32]
         );
-    }
-
-    #[test]
-    fn recovery_attempts_are_bounded_and_resettable() {
-        let recovery = RecoveryState::default();
-        assert!(recovery.failed());
-        assert!(recovery.failed());
-        assert!(!recovery.failed());
-
-        recovery.reset();
-        assert!(recovery.failed());
     }
 
     #[test]
