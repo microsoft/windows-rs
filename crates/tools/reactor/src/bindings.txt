@@ -23,7 +23,7 @@ Microsoft::UI::Windowing::TitleBarHeightOption::{Standard, Tall}
 Microsoft::UI::Windowing::TitleBarTheme::{UseDefaultAppMode, Light, Dark}
 Microsoft::UI::Xaml::Application::{CreateInstance, Current, Exit, Start}
 Microsoft::UI::Xaml::ApplicationInitializationCallback
-Microsoft::UI::Xaml::DispatcherShutdownMode
+Microsoft::UI::Xaml::DispatcherShutdownMode::OnExplicitShutdown
 Microsoft::UI::Xaml::Automation::AutomationProperties::{SetAutomationId, SetHeadingLevel, SetName}
 Microsoft::UI::Xaml::Controls::Canvas::{LeftProperty, SetLeft, SetTop, TopProperty}
 Microsoft::UI::Xaml::Controls::ColumnDefinition::CreateInstance

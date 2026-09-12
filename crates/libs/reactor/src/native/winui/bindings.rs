@@ -3187,7 +3187,6 @@ unsafe impl Sync for DispatcherQueueTimer {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DispatcherShutdownMode(pub i32);
 impl DispatcherShutdownMode {
-    pub const OnLastWindowClose: Self = Self(0);
     pub const OnExplicitShutdown: Self = Self(1);
 }
 impl windows_core::imp::TypeKind for DispatcherShutdownMode {

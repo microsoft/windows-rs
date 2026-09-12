@@ -124,7 +124,10 @@ attempt after an Explorer restart.
 
 Both hidden windows are per-monitor-v2 aware, so Shell geometry, callback coordinates, and
 `TrackPopupMenu` use physical screen coordinates. Creating them does not change the host's process
-DPI policy.
+DPI policy. The host must establish its process DPI policy before building a `TrayIcon`; after the
+hidden windows exist, Windows may reject later attempts to change the process policy. In
+particular, configure the policy or create a default `windows-window` window before creating a tray
+icon.
 
 After changing the binding filter, run:
 

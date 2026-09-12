@@ -39,3 +39,6 @@ Create and drop the icon on the thread that owns an unfiltered message loop. `Tr
 separate hidden windows for Shell reception and application callback dispatch, so a loop filtered
 to `TrayIcon::hwnd()` will not dispatch callbacks. Dropping `TrayIcon` removes the notification-area
 icon and destroys both hidden windows.
+
+Establish the process DPI policy before building a `TrayIcon`. Once its hidden windows exist,
+Windows may reject later attempts to change process DPI awareness.

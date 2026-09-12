@@ -23,6 +23,16 @@ const CALLBACK_MESSAGE: u32 = WM_USER as u32 + 1;
 #[test]
 #[ignore = "requires an unlocked interactive Windows desktop"]
 fn automates_native_menu_selection() {
+    let completed = Arc::new(AtomicBool::new(false));
+    let watchdog_completed = Arc::clone(&completed);
+    std::thread::spawn(move || {
+        std::thread::sleep(Duration::from_secs(30));
+        if !watchdog_completed.load(Ordering::Acquire) {
+            eprintln!("windows-trayicon UI Automation test timed out");
+            std::process::exit(1);
+        }
+    });
+
     let path = concat!(env!("CARGO_MANIFEST_DIR"), "\\assets\\icon.ico");
     let activated = Arc::new(AtomicBool::new(false));
     let selected = Arc::new(AtomicBool::new(false));
@@ -77,6 +87,7 @@ fn automates_native_menu_selection() {
         .unwrap();
     assert!(activated.load(Ordering::Acquire));
     assert!(selected.load(Ordering::Acquire));
+    completed.store(true, Ordering::Release);
 }
 
 #[test]
