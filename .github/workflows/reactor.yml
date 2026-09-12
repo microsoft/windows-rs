@@ -95,7 +95,14 @@ jobs:
           cargo run -p test-reactor-selftest --features self-contained `
             --quiet -- --headless
           cargo run -p test-reactor-selftest --features self-contained `
-            --quiet -- --headless --explicit-lifetime
+            --quiet -- --headless --explicit-lifetime `
+            --filter ContentDialog_QueuedReopenLifecycle
+          cargo run -p test-reactor-selftest --features self-contained `
+            --quiet -- --headless --explicit-lifetime `
+            --filter Window_NestedOperationRearming
+          cargo run -p test-reactor-selftest --features self-contained `
+            --quiet -- --headless --explicit-lifetime `
+            --filter WebView_InitializeBridgeAndScript
           cargo run -p test-reactor-surface --features self-contained `
             --quiet -- --headless
 

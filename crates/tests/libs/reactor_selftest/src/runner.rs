@@ -252,6 +252,7 @@ impl Component for FixtureRunner {
             timeout: None,
         };
         runner.start_timeout(context);
+        runner.open_probe(context);
         runner
     }
 
