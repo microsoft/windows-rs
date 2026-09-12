@@ -125,23 +125,7 @@ impl OwnedMenu {
     }
 
     fn show(&self, hwnd: HWND, position: Point) -> Option<u32> {
-        let fallback = position;
-        let (position, alignment) = {
-            let _dpi = ThreadDpiContext::per_monitor_v2();
-            popup_anchor(hwnd, position)
-        };
-        // The callback window's creation context is restored automatically while its window
-        // procedure runs, so convert the physical Shell point before entering the menu's modal loop.
-        let mut position = POINT {
-            x: position.x,
-            y: position.y,
-        };
-        if !unsafe { PhysicalToLogicalPointForPerMonitorDPI(hwnd, &mut position) }.as_bool() {
-            position = POINT {
-                x: fallback.x,
-                y: fallback.y,
-            };
-        }
+        let (position, alignment) = popup_anchor(hwnd, position);
         unsafe {
             _ = SetForegroundWindow(hwnd);
             let command = TrackPopupMenu(
@@ -645,7 +629,10 @@ impl TrayIconBuilder {
             }),
         });
         let callback = Rc::downgrade(&shared);
-        let window = callback_window(callback, taskbar_created).create()?;
+        let window = {
+            let _dpi = ThreadDpiContext::per_monitor_v2();
+            callback_window(callback, taskbar_created).create()?
+        };
         shared.registration.borrow().add(window.hwnd())?;
         Ok(TrayIcon { window, shared })
     }
@@ -962,6 +949,29 @@ mod tests {
 
         recovery.reset();
         assert!(recovery.failed());
+    }
+
+    #[test]
+    fn callback_window_is_per_monitor_aware_without_changing_the_thread() {
+        let before = unsafe { GetThreadDpiAwarenessContext() };
+        let window = {
+            let _dpi = ThreadDpiContext::per_monitor_v2();
+            callback_window(Weak::new(), 0).create().unwrap()
+        };
+
+        assert!(
+            unsafe {
+                AreDpiAwarenessContextsEqual(
+                    GetWindowDpiAwarenessContext(window.hwnd()),
+                    DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2,
+                )
+            }
+            .as_bool()
+        );
+        assert!(
+            unsafe { AreDpiAwarenessContextsEqual(GetThreadDpiAwarenessContext(), before) }
+                .as_bool()
+        );
     }
 
     #[test]

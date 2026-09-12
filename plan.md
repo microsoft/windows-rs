@@ -163,6 +163,8 @@ lifetime rather than implicit owners of the process.
 - [x] Give the tray sample and tests tray-specific icon assets.
 - [x] Resolve and document the popup-coordinate contract for hosts with mixed DPI-awareness
       contexts.
+- [ ] Recheck tray-only popup placement and scale after creating the hidden callback window under
+      per-monitor-v2 DPI awareness.
 - [ ] Run the complete framework-dependent and self-contained live suites on CI.
 - [ ] Repeat the interactive tray, Explorer recovery, foreground, and explicit-exit checks after
       the final implementation changes.

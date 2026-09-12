@@ -3,12 +3,15 @@
 
 --filter
     AppendMenuW
+    AreDpiAwarenessContextsEqual
     CreatePopupMenu
     DestroyIcon
     DestroyMenu
     DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2
     GetMonitorInfoW
     GetSystemMetrics
+    GetThreadDpiAwarenessContext
+    GetWindowDpiAwarenessContext
     IMAGE_ICON
     KillTimer
     LoadImageW
@@ -31,7 +34,6 @@
     NOTIFYICON_VERSION_4
     NOTIFYICONDATAW
     NOTIFYICONIDENTIFIER
-    PhysicalToLogicalPointForPerMonitorDPI
     PostMessageW
     POINT
     RegisterWindowMessageW

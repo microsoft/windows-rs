@@ -140,20 +140,20 @@ registered-message, and geometry APIs used by the wrapper.
 `crates/tools/bindings/src/trayicon_test.txt`. These private test bindings provide UI Automation
 and raw message-loop APIs without adding them to the published crate.
 
-`TrayIconBuilder::build` loads the icon, registers `TaskbarCreated`, creates an unshown
-`windows-window` top-level window without changing the host's process DPI policy, calls `NIM_ADD`,
-and then calls `NIM_SETVERSION` with `NOTIFYICON_VERSION_4`. Failure to set the version deletes the
-partially added icon.
+`TrayIconBuilder::build` loads the icon, registers `TaskbarCreated`, and creates an unshown
+per-monitor-v2 `windows-window` top-level window without changing the host's process DPI policy. It
+then calls `NIM_ADD` followed by `NIM_SETVERSION` with `NOTIFYICON_VERSION_4`. Failure to set the
+version deletes the partially added icon.
 
 `NIM_MODIFY` failures receive one full add-and-version attempt in case Explorer restarted between
 operations. The callback window decodes only activation and context-menu events. Keep additional
 Shell messages private until a public use case requires them.
 
-Popup placement queries Shell geometry under a temporary per-monitor-v2 thread context, then
-restores the host context and converts the physical anchor through the hidden callback window
-before calling `TrackPopupMenu`. Windows restores that window's creation-time DPI context while
-dispatching its window procedure. This keeps the menu's modal loop in the host context instead of
-holding a temporary DPI override while it dispatches unrelated windows.
+The hidden callback window is created under a temporary per-monitor-v2 thread context. Windows
+restores that window's creation-time context while dispatching its window procedure, so Shell
+geometry, callback coordinates, and `TrackPopupMenu` all use physical screen coordinates. The
+temporary context is restored immediately after window creation and does not change the host's
+process DPI policy.
 
 After changing the binding filter, run:
 
