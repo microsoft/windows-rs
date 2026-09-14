@@ -61,6 +61,8 @@ jobs:
         run:  cargo check -p windows-interface --all-features
       - name: Check windows-metadata
         run:  cargo check -p windows-metadata --all-features
+      - name: Check windows-notifyicon
+        run:  cargo check -p windows-notifyicon --all-features
       - name: Check windows-numerics
         run:  cargo check -p windows-numerics --all-features
       - name: Check windows-pickers
@@ -85,8 +87,6 @@ jobs:
         run:  cargo check -p windows-threading --all-features
       - name: Check windows-time
         run:  cargo check -p windows-time --all-features
-      - name: Check windows-notifyicon
-        run:  cargo check -p windows-notifyicon --all-features
       - name: Check windows-version
         run:  cargo check -p windows-version --all-features
       - name: Check windows-webview

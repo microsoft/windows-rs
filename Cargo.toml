@@ -64,6 +64,7 @@ windows-implement = { version = "0.100.0", path = "crates/libs/implement", defau
 windows-interface = { version = "0.100.0", path = "crates/libs/interface", default-features = false }
 windows-link = { version = "0.100.0", path = "crates/libs/link", default-features = false }
 windows-metadata = { version = "0.100.0", path = "crates/libs/metadata", default-features = false }
+windows-notifyicon = { version = "0.100.0", path = "crates/libs/notifyicon", default-features = false }
 windows-numerics = { version = "0.100.0", path = "crates/libs/numerics", default-features = false }
 windows-pickers = { version = "0.100.0", path = "crates/libs/pickers", default-features = false }
 windows-rdl = { version = "0.100.0", path = "crates/libs/rdl", default-features = false }
@@ -77,7 +78,6 @@ windows-strings = { version = "0.100.0", path = "crates/libs/strings", default-f
 windows-sys = { version = "0.100.0", path = "crates/libs/sys", default-features = false }
 windows-threading = { version = "0.100.0", path = "crates/libs/threading", default-features = false }
 windows-time = { version = "0.100.0", path = "crates/libs/time", default-features = false }
-windows-notifyicon = { version = "0.100.0", path = "crates/libs/notifyicon", default-features = false }
 windows-version = { version = "0.100.0", path = "crates/libs/version", default-features = false }
 windows-webview = { version = "0.100.0", path = "crates/libs/webview", default-features = false }
 windows-window = { version = "0.100.0", path = "crates/libs/window", default-features = false }
