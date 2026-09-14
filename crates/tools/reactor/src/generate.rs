@@ -1918,11 +1918,6 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         }
 
         impl sealed::Sealed for #name {}
-        impl sealed::NativeControl for #name {
-            fn into_element(self) -> Element {
-                self.into()
-            }
-        }
         #reference_impls
         #(#capability_impls)*
         #structural_test_impl
@@ -2155,7 +2150,7 @@ fn generate_runtime_descriptors(schema: &ResolvedSchema) -> TokenStream {
             Virtual,
         }
 
-        pub fn control_role(kind: MountedKind) -> ControlRole {
+        pub const fn control_role(kind: MountedKind) -> ControlRole {
             match kind {
                 #(#roles),*
             }

@@ -314,9 +314,13 @@ impl From<Color> for Brush {
 pub(crate) mod sealed {
     pub trait Sealed {}
 
-    pub(crate) trait NativeControl: Sealed + Sized {
-        fn into_element(self) -> super::Element;
+    pub(crate) trait NativeControl: Sealed + Sized + Into<super::Element> {
+        fn into_element(self) -> super::Element {
+            self.into()
+        }
     }
+
+    impl<T: Sealed + Into<super::Element>> NativeControl for T {}
 
     pub(crate) trait LayoutControl: NativeControl {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<super::ElementState>>;

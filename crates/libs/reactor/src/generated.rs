@@ -480,11 +480,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TextBlock {}
-    impl sealed::NativeControl for TextBlock {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for TextBlock {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -554,11 +549,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Button {}
-    impl sealed::NativeControl for Button {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for Button {}
     impl crate::reference::ReferenceControl for Button {}
     impl sealed::LayoutControl for Button {
@@ -625,11 +615,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for HyperlinkButton {}
-    impl sealed::NativeControl for HyperlinkButton {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for HyperlinkButton {}
     impl crate::reference::ReferenceControl for HyperlinkButton {}
     impl sealed::LayoutControl for HyperlinkButton {
@@ -682,11 +667,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for RepeatButton {}
-    impl sealed::NativeControl for RepeatButton {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for RepeatButton {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -1015,11 +995,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Border {}
-    impl sealed::NativeControl for Border {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for Border {}
     impl crate::reference::ReferenceControl for Border {}
     impl sealed::LayoutControl for Border {
@@ -1074,11 +1049,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for BreadcrumbBar {}
-    impl sealed::NativeControl for BreadcrumbBar {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for BreadcrumbBar {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -1108,11 +1078,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for StackPanel {}
-    impl sealed::NativeControl for StackPanel {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for StackPanel {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -1172,11 +1137,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for VariableSizedWrapGrid {}
-    impl sealed::NativeControl for VariableSizedWrapGrid {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for VariableSizedWrapGrid {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -1289,11 +1249,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Grid {}
-    impl sealed::NativeControl for Grid {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for Grid {}
     impl crate::reference::ReferenceControl for Grid {}
     impl sealed::LayoutControl for Grid {
@@ -1433,11 +1388,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TextBox {}
-    impl sealed::NativeControl for TextBox {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for TextBox {}
     impl crate::reference::ReferenceControl for TextBox {}
     impl sealed::LayoutControl for TextBox {
@@ -1539,11 +1489,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for AutoSuggestBox {}
-    impl sealed::NativeControl for AutoSuggestBox {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for AutoSuggestBox {}
     impl crate::reference::ReferenceControl for AutoSuggestBox {}
     impl sealed::LayoutControl for AutoSuggestBox {
@@ -1621,11 +1566,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for PasswordBox {}
-    impl sealed::NativeControl for PasswordBox {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for PasswordBox {}
     impl crate::reference::ReferenceControl for PasswordBox {}
     impl sealed::LayoutControl for PasswordBox {
@@ -1688,11 +1628,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for NumberBox {}
-    impl sealed::NativeControl for NumberBox {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for NumberBox {}
     impl crate::reference::ReferenceControl for NumberBox {}
     impl sealed::LayoutControl for NumberBox {
@@ -1773,11 +1708,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Slider {}
-    impl sealed::NativeControl for Slider {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for Slider {}
     impl crate::reference::ReferenceControl for Slider {}
     impl sealed::LayoutControl for Slider {
@@ -1878,11 +1808,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TitleBar {}
-    impl sealed::NativeControl for TitleBar {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for TitleBar {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -2061,11 +1986,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for NavigationView {}
-    impl sealed::NativeControl for NavigationView {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for NavigationView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -2142,11 +2062,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for NavigationViewItem {}
-    impl sealed::NativeControl for NavigationViewItem {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for NavigationViewItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -2209,11 +2124,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for SplitView {}
-    impl sealed::NativeControl for SplitView {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for SplitView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -2272,11 +2182,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ProgressBar {}
-    impl sealed::NativeControl for ProgressBar {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for ProgressBar {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -2340,11 +2245,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ToggleSwitch {}
-    impl sealed::NativeControl for ToggleSwitch {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for ToggleSwitch {}
     impl crate::reference::ReferenceControl for ToggleSwitch {}
     impl sealed::LayoutControl for ToggleSwitch {
@@ -2387,11 +2287,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for CheckBox {}
-    impl sealed::NativeControl for CheckBox {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for CheckBox {}
     impl crate::reference::ReferenceControl for CheckBox {}
     impl sealed::LayoutControl for CheckBox {
@@ -2443,11 +2338,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ToggleButton {}
-    impl sealed::NativeControl for ToggleButton {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for ToggleButton {}
     impl crate::reference::ReferenceControl for ToggleButton {}
     impl sealed::LayoutControl for ToggleButton {
@@ -2511,11 +2401,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for RadioButton {}
-    impl sealed::NativeControl for RadioButton {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for RadioButton {}
     impl crate::reference::ReferenceControl for RadioButton {}
     impl sealed::LayoutControl for RadioButton {
@@ -2594,11 +2479,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for RadioButtons {}
-    impl sealed::NativeControl for RadioButtons {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for RadioButtons {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -2638,11 +2518,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ItemsRepeater {}
-    impl sealed::NativeControl for ItemsRepeater {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for ItemsRepeater {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -2665,11 +2540,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for InfoBadge {}
-    impl sealed::NativeControl for InfoBadge {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for InfoBadge {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -2733,11 +2603,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for InfoBar {}
-    impl sealed::NativeControl for InfoBar {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for InfoBar {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -2778,11 +2643,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for PersonPicture {}
-    impl sealed::NativeControl for PersonPicture {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for PersonPicture {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -2818,11 +2678,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ScrollViewer {}
-    impl sealed::NativeControl for ScrollViewer {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for ScrollViewer {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -2867,11 +2722,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ScrollView {}
-    impl sealed::NativeControl for ScrollView {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for ScrollView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -2953,11 +2803,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Image {}
-    impl sealed::NativeControl for Image {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for Image {}
     impl crate::reference::ReferenceControl for Image {}
     impl sealed::LayoutControl for Image {
@@ -3012,11 +2857,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ProgressRing {}
-    impl sealed::NativeControl for ProgressRing {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for ProgressRing {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3061,11 +2901,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ListBox {}
-    impl sealed::NativeControl for ListBox {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for ListBox {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3142,11 +2977,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Rectangle {}
-    impl sealed::NativeControl for Rectangle {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for Rectangle {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3199,11 +3029,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Ellipse {}
-    impl sealed::NativeControl for Ellipse {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for Ellipse {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3284,11 +3109,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Line {}
-    impl sealed::NativeControl for Line {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for Line {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3311,11 +3131,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for SymbolIcon {}
-    impl sealed::NativeControl for SymbolIcon {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for SymbolIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3360,11 +3175,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ImageIcon {}
-    impl sealed::NativeControl for ImageIcon {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for ImageIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3393,11 +3203,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for FontIcon {}
-    impl sealed::NativeControl for FontIcon {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for FontIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3441,11 +3246,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for BitmapIcon {}
-    impl sealed::NativeControl for BitmapIcon {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for BitmapIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3474,11 +3274,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for PathIcon {}
-    impl sealed::NativeControl for PathIcon {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for PathIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3514,11 +3309,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ListBoxItem {}
-    impl sealed::NativeControl for ListBoxItem {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for ListBoxItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3584,11 +3374,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for RatingControl {}
-    impl sealed::NativeControl for RatingControl {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for RatingControl {}
     impl crate::reference::ReferenceControl for RatingControl {}
     impl sealed::LayoutControl for RatingControl {
@@ -3636,11 +3421,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Expander {}
-    impl sealed::NativeControl for Expander {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for Expander {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3730,11 +3510,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ComboBox {}
-    impl sealed::NativeControl for ComboBox {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for ComboBox {}
     impl crate::reference::ReferenceControl for ComboBox {}
     impl sealed::LayoutControl for ComboBox {
@@ -3794,11 +3569,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Pivot {}
-    impl sealed::NativeControl for Pivot {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for Pivot {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3828,11 +3598,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for PivotItem {}
-    impl sealed::NativeControl for PivotItem {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for PivotItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3886,11 +3651,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for FlipView {}
-    impl sealed::NativeControl for FlipView {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for FlipView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3929,11 +3689,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for SelectorBar {}
-    impl sealed::NativeControl for SelectorBar {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for SelectorBar {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -3977,11 +3732,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for SelectorBarItem {}
-    impl sealed::NativeControl for SelectorBarItem {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for SelectorBarItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4066,11 +3816,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TabView {}
-    impl sealed::NativeControl for TabView {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for TabView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4118,11 +3863,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TabViewItem {}
-    impl sealed::NativeControl for TabViewItem {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for TabViewItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4234,11 +3974,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TeachingTip {}
-    impl sealed::NativeControl for TeachingTip {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for TeachingTip {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4267,11 +4002,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for DropDownButton {}
-    impl sealed::NativeControl for DropDownButton {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for DropDownButton {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4324,11 +4054,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for CommandBar {}
-    impl sealed::NativeControl for CommandBar {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for CommandBar {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4377,11 +4102,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for AppBarButton {}
-    impl sealed::NativeControl for AppBarButton {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for AppBarButton {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4398,11 +4118,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for AppBarSeparator {}
-    impl sealed::NativeControl for AppBarSeparator {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for AppBarSeparator {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4433,11 +4148,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for MenuBar {}
-    impl sealed::NativeControl for MenuBar {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for MenuBar {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4466,11 +4176,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for MenuBarItem {}
-    impl sealed::NativeControl for MenuBarItem {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for MenuBarItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4499,11 +4204,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for SplitButton {}
-    impl sealed::NativeControl for SplitButton {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for SplitButton {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4573,11 +4273,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ColorPicker {}
-    impl sealed::NativeControl for ColorPicker {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for ColorPicker {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4635,11 +4330,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for DatePicker {}
-    impl sealed::NativeControl for DatePicker {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for DatePicker {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4701,11 +4391,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TimePicker {}
-    impl sealed::NativeControl for TimePicker {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for TimePicker {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4769,11 +4454,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for CalendarDatePicker {}
-    impl sealed::NativeControl for CalendarDatePicker {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for CalendarDatePicker {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -4790,11 +4470,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ToolTip {}
-    impl sealed::NativeControl for ToolTip {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::ContentControl for ToolTip {}
     impl ContentControl for ToolTip {}
     #[cfg(test)]
@@ -4887,11 +4562,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ContentDialog {}
-    impl sealed::NativeControl for ContentDialog {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::ContentControl for ContentDialog {
         fn into_content_view(self, content: View) -> View {
             let open = self.is_open;
@@ -4939,11 +4609,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for CalendarView {}
-    impl sealed::NativeControl for CalendarView {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for CalendarView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -5024,11 +4689,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ListView {}
-    impl sealed::NativeControl for ListView {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for ListView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -5058,11 +4718,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ListViewItem {}
-    impl sealed::NativeControl for ListViewItem {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for ListViewItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -5099,11 +4754,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TreeView {}
-    impl sealed::NativeControl for TreeView {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for TreeView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -5178,11 +4828,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for GridView {}
-    impl sealed::NativeControl for GridView {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for GridView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -5212,11 +4857,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for GridViewItem {}
-    impl sealed::NativeControl for GridViewItem {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for GridViewItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -5243,11 +4883,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for RelativePanel {}
-    impl sealed::NativeControl for RelativePanel {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for RelativePanel {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -5277,11 +4912,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Canvas {}
-    impl sealed::NativeControl for Canvas {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for Canvas {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -5365,11 +4995,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for RichEditBox {}
-    impl sealed::NativeControl for RichEditBox {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for RichEditBox {}
     impl crate::reference::ReferenceControl for RichEditBox {}
     impl sealed::LayoutControl for RichEditBox {
@@ -5419,11 +5044,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for RichTextBlock {}
-    impl sealed::NativeControl for RichTextBlock {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for RichTextBlock {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -5455,11 +5075,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Viewbox {}
-    impl sealed::NativeControl for Viewbox {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl sealed::LayoutControl for Viewbox {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
@@ -5481,11 +5096,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for WebView2 {}
-    impl sealed::NativeControl for WebView2 {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for WebView2 {}
     impl crate::reference::ReferenceControl for WebView2 {}
     impl sealed::LayoutControl for WebView2 {
@@ -5509,11 +5119,6 @@ pub mod public {
         }
     }
     impl sealed::Sealed for SwapChainPanel {}
-    impl sealed::NativeControl for SwapChainPanel {
-        fn into_element(self) -> Element {
-            self.into()
-        }
-    }
     impl crate::reference::sealed::Sealed for SwapChainPanel {}
     impl crate::reference::ReferenceControl for SwapChainPanel {}
     impl sealed::LayoutControl for SwapChainPanel {
@@ -14916,7 +14521,7 @@ pub enum ControlRole {
     Slots,
     Virtual,
 }
-pub fn control_role(kind: MountedKind) -> ControlRole {
+pub const fn control_role(kind: MountedKind) -> ControlRole {
     match kind {
         MountedKind::TextBlock => ControlRole::Leaf,
         MountedKind::Button => ControlRole::Content,
