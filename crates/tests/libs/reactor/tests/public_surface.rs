@@ -458,6 +458,30 @@ fn application_lifetime_is_independent_of_windows() {
 
 #[test]
 #[ignore = "runs the interactive WinUI application loop"]
+fn application_menu_does_not_require_a_reactor_window() {
+    App::run_with(|app| {
+        app.show_menu_at(
+            ScreenPoint::new(200, 200),
+            Menu::new([MenuItem::item("close", "Close")], |_: String| {}),
+        )?;
+        assert!(
+            app.show_menu_at(
+                ScreenPoint::new(200, 200),
+                Menu::new([MenuItem::item("second", "Second")], |_: String| {}),
+            )
+            .is_err()
+        );
+        let proxy = app.proxy();
+        Ok(std::thread::spawn(move || {
+            std::thread::sleep(Duration::from_millis(500));
+            proxy.exit().unwrap();
+        }))
+    })
+    .unwrap();
+}
+
+#[test]
+#[ignore = "runs the interactive WinUI application loop"]
 fn application_startup_error_is_returned() {
     let expected = HRESULT(0x8000_4005_u32 as i32);
     let error =
@@ -482,4 +506,12 @@ fn excessive_startup_windows_are_rejected() {
 fn app_proxy_is_send_and_sync() {
     fn assert_send_sync<T: Send + Sync>() {}
     assert_send_sync::<AppProxy>();
+}
+
+#[test]
+fn application_menu_uses_screen_coordinates() {
+    let point = ScreenPoint::new(-10, 20);
+    assert_eq!(point, ScreenPoint { x: -10, y: 20 });
+    let _: fn(&AppContext, ScreenPoint, Menu) -> windows_core::Result<()> =
+        AppContext::show_menu_at;
 }

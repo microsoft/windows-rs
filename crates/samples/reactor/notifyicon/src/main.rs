@@ -21,20 +21,47 @@ impl AppState {
 
         let state = Rc::downgrade(self);
         let icon = NotifyIcon::new(concat!(env!("CARGO_MANIFEST_DIR"), "\\..\\icon\\icon.ico"))
-            .tooltip("Left-click to open; right-click to exit")
+            .tooltip("Left-click to open; right-click for menu")
             .on_event(move |event| {
                 let Some(state) = state.upgrade() else {
                     return;
                 };
                 match event {
                     NotifyIconEvent::Activate { .. } => state.open_window(),
-                    NotifyIconEvent::ContextMenu { .. } => state.exit(),
+                    NotifyIconEvent::ContextMenu { position } => state.show_menu(position),
                     _ => {}
                 }
             })
             .build()?;
         *self.icon.borrow_mut() = Some(icon);
         Ok(())
+    }
+
+    fn show_menu(self: &Rc<Self>, position: windows_notifyicon::Point) {
+        let state = Rc::downgrade(self);
+        let menu = Menu::new(
+            [
+                MenuItem::item("open", "Open"),
+                MenuItem::separator("separator"),
+                MenuItem::item("exit", "Exit"),
+            ],
+            move |label: String| {
+                let Some(state) = state.upgrade() else {
+                    return;
+                };
+                match label.as_str() {
+                    "Open" => state.open_window(),
+                    "Exit" => state.exit(),
+                    _ => {}
+                }
+            },
+        );
+        if let Err(error) = self
+            .app
+            .show_menu_at(ScreenPoint::new(position.x, position.y), menu)
+        {
+            eprintln!("could not show notification icon menu: {error}");
+        }
     }
 
     fn toggle_icon(self: &Rc<Self>) {

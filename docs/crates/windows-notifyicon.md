@@ -65,6 +65,10 @@ without assuming which monitor or taskbar edge contains the icon.
 native or framework popup. `rect` provides the current icon geometry when the popup needs an
 explicit anchor.
 
+Reactor applications can pass that position to `AppContext::show_menu_at` to show a WinUI-styled
+menu without keeping a Reactor window open. See the
+[`reactor-notifyicon`](../../crates/samples/reactor/notifyicon) sample.
+
 ## Update the icon
 
 `set_icon` loads a replacement `.ico` file and `set_tooltip` changes or clears the standard
@@ -96,7 +100,8 @@ cargo run -p notifyicon-basic
 ```
 
 The [`reactor-notifyicon`](../../crates/samples/reactor/notifyicon) sample shows a process in which
-the notification icon and Reactor windows have independent lifetimes.
+the notification icon and Reactor windows have independent lifetimes, with a WinUI context menu
+for the icon.
 
 ---
 

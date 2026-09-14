@@ -27,6 +27,10 @@ windows_core::link!("kernel32.dll" "system" fn SizeofResource(module: *mut std::
 )]
 mod bindings;
 pub use bindings::*;
+pub(crate) use bindings::{
+    Grid as NativeGrid, HorizontalAlignment as NativeHorizontalAlignment,
+    VerticalAlignment as NativeVerticalAlignment,
+};
 mod app_shim;
 pub use app_shim::*;
 mod bootstrap;
@@ -463,55 +467,35 @@ fn build_command_bar_element(
     }
 }
 
-fn build_menu_items(
+pub(crate) fn build_native_menu_items(
     items: &[MenuItem],
-    owner: NodeId,
-    revision: u32,
-    sink: &EventSink,
     output: &windows_collections::IVector<MenuFlyoutItemBase>,
     revokers: &mut Vec<windows_core::EventRevoker>,
-) -> Result<(), RuntimeError> {
+    invoke: &Rc<dyn Fn(String)>,
+) -> windows_core::Result<()> {
     for item in items {
         let native: MenuFlyoutItemBase = match item {
             MenuItem::Item { label, enabled, .. } => {
-                let item = MenuFlyoutItem::new().map_err(native_error)?;
-                item.SetText(label).map_err(native_error)?;
+                let item = MenuFlyoutItem::new()?;
+                item.SetText(label)?;
                 item.cast::<IControl>()
-                    .and_then(|control| control.SetIsEnabled(*enabled))
-                    .map_err(native_error)?;
+                    .and_then(|control| control.SetIsEnabled(*enabled))?;
                 let label = label.clone();
-                let sink = sink.clone();
-                revokers.push(
-                    item.Click(move |_, _| {
-                        sink.enqueue(
-                            owner,
-                            EventId::OwnedMenuItemInvoked,
-                            revision,
-                            EventPayload::String(label.clone()),
-                        );
-                    })
-                    .map_err(native_error)?,
-                );
-                item.cast().map_err(native_error)?
+                let invoke = Rc::clone(invoke);
+                revokers.push(item.Click(move |_, _| invoke(label.clone()))?);
+                item.cast()?
             }
-            MenuItem::Separator { .. } => MenuFlyoutSeparator::new()
-                .and_then(|separator| separator.cast())
-                .map_err(native_error)?,
+            MenuItem::Separator { .. } => {
+                MenuFlyoutSeparator::new().and_then(|separator| separator.cast())?
+            }
             MenuItem::Submenu { label, items, .. } => {
-                let submenu = MenuFlyoutSubItem::new().map_err(native_error)?;
-                submenu.SetText(label).map_err(native_error)?;
-                build_menu_items(
-                    items,
-                    owner,
-                    revision,
-                    sink,
-                    &submenu.Items().map_err(native_error)?,
-                    revokers,
-                )?;
-                submenu.cast().map_err(native_error)?
+                let submenu = MenuFlyoutSubItem::new()?;
+                submenu.SetText(label)?;
+                build_native_menu_items(items, &submenu.Items()?, revokers, invoke)?;
+                submenu.cast()?
             }
         };
-        output.Append(&native).map_err(native_error)?;
+        output.Append(&native)?;
     }
     Ok(())
 }
@@ -2424,18 +2408,27 @@ impl WinUiRuntime {
                     return Ok(());
                 };
                 let sink = self.event_sink()?;
+                let event_owner = *owner;
+                let event_revision = *revision;
+                let invoke: Rc<dyn Fn(String)> = Rc::new(move |label| {
+                    sink.enqueue(
+                        event_owner,
+                        EventId::OwnedMenuItemInvoked,
+                        event_revision,
+                        EventPayload::String(label),
+                    );
+                });
                 let mut revokers = Vec::new();
                 let flyout = match kind {
                     OwnedMenuKind::ButtonFlyout | OwnedMenuKind::DropDownButtonFlyout => {
                         let flyout = MenuFlyout::new().map_err(native_error)?;
-                        build_menu_items(
+                        build_native_menu_items(
                             items,
-                            *owner,
-                            *revision,
-                            &sink,
                             &flyout.Items().map_err(native_error)?,
                             &mut revokers,
-                        )?;
+                            &invoke,
+                        )
+                        .map_err(native_error)?;
                         self.ui_element(*target)?
                             .cast::<IButton>()
                             .and_then(|button| button.SetFlyout(&flyout))
@@ -2446,14 +2439,13 @@ impl WinUiRuntime {
                         let Some(Handle::MenuBarItem(item)) = self.handles.get(target) else {
                             return Err(RuntimeError::UnsupportedKind);
                         };
-                        build_menu_items(
+                        build_native_menu_items(
                             items,
-                            *owner,
-                            *revision,
-                            &sink,
                             &item.Items().map_err(native_error)?,
                             &mut revokers,
-                        )?;
+                            &invoke,
+                        )
+                        .map_err(native_error)?;
                         None
                     }
                 };

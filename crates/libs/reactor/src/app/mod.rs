@@ -13,6 +13,8 @@ use crate::native::*;
 const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
 const MAX_PENDING_WINDOW_OPENS: usize = 64;
 
+mod transient_menu;
+
 #[cfg(feature = "test")]
 pub(crate) mod test;
 
@@ -27,6 +29,7 @@ thread_local! {
 }
 
 struct LiveHost {
+    transient_menu: Option<transient_menu::TransientMenuHost>,
     _application: Application,
     _resource: Option<Box<dyn Any>>,
     closed_in_flight: HashSet<WindowToken>,
@@ -809,6 +812,22 @@ pub struct AppContext {
     _ui_thread: PhantomData<Rc<()>>,
 }
 
+/// A point in physical screen coordinates.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ScreenPoint {
+    /// The horizontal coordinate.
+    pub x: i32,
+    /// The vertical coordinate.
+    pub y: i32,
+}
+
+impl ScreenPoint {
+    /// Creates a screen point.
+    pub const fn new(x: i32, y: i32) -> Self {
+        Self { x, y }
+    }
+}
+
 impl AppContext {
     fn new(dispatcher: DispatcherQueue) -> Self {
         Self {
@@ -828,6 +847,25 @@ impl AppContext {
         I: IntoIterator<Item = View>,
     {
         open_live_windows(roots.into_iter().collect()).map_err(runtime_error)
+    }
+
+    /// Shows a WinUI menu at a point in physical screen coordinates.
+    ///
+    /// Only one application menu may be open at a time.
+    pub fn show_menu_at(&self, position: ScreenPoint, menu: Menu) -> windows_core::Result<()> {
+        let transient_menu = HOST.with(|host| {
+            let mut host = host.borrow_mut();
+            let host = host.as_mut().ok_or_else(|| {
+                windows_core::Error::new(E_FAIL, "the Reactor application is not running")
+            })?;
+            if host.transient_menu.is_none() {
+                host.transient_menu = Some(transient_menu::TransientMenuHost::new(
+                    self.dispatcher.clone(),
+                )?);
+            }
+            Ok::<_, windows_core::Error>(host.transient_menu.as_ref().unwrap().handle())
+        })?;
+        transient_menu.show(position, menu)
     }
 
     /// Returns a cloneable handle that can post work from other threads.
@@ -1029,6 +1067,7 @@ impl App {
                     }
                     HOST.with(|host| {
                         *host.borrow_mut() = Some(LiveHost {
+                            transient_menu: None,
                             _application: application,
                             _resource: None,
                             closed_in_flight: HashSet::new(),
@@ -1109,6 +1148,7 @@ impl App {
         let host = HOST.with(|host| host.borrow_mut().take());
         let host_result = host
             .and_then(|mut host| {
+                drop(host.transient_menu.take());
                 drop(host._resource.take());
                 for pump in host.windows.values_mut() {
                     pump.shutdown();
