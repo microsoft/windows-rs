@@ -612,7 +612,7 @@ impl LivePump for ComponentLoop {
             .is_ok()
             && self
                 .pump
-                .update_view(rich_edit_view("three\rthird line").into())
+                .update_view(rich_edit_view("three\rthird line\n").into())
                 .is_ok()
     }
 

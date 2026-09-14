@@ -505,8 +505,6 @@ pub(crate) enum FeedbackContract {
     Exact,
     #[serde(rename = "synchronous_normalized")]
     Normalized,
-    #[serde(rename = "deferred_suppressed")]
-    DeferredSuppressed,
 }
 
 #[derive(Deserialize)]
@@ -874,6 +872,7 @@ impl Schema {
                 }
                 match (feedback.as_ref(), property.feedback_contract) {
                     (Some(_), Some(_)) => {}
+                    (Some(_), None) if property.adapter == Some(PropertyAdapter::RichEditText) => {}
                     (Some(_), None) => {
                         return Err(format!(
                             "{}.{} needs a feedback contract",

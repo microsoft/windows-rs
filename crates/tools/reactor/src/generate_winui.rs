@@ -422,6 +422,9 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let feedback_values = schema.controls.iter().flat_map(|control| {
         control.properties.iter().filter_map(move |property| {
             let feedback = property.feedback.as_ref()?;
+            if property.adapter == Some(PropertyAdapter::RichEditText) {
+                return None;
+            }
             let property_id = ident(&format!("{}{}", control.name, property.name));
             let event_id = ident(&format!("{}{}", control.name, feedback));
             let value_variant = ident(&property.value);
@@ -450,20 +453,15 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         ))
                     }
                 }),
-                FeedbackContract::DeferredSuppressed => Some(quote! {
-                    (PropertyId::#property_id, Some(_)) => {
-                        Some((
-                            EventId::#event_id,
-                            FeedbackExpectation::DeferredSuppressed(1),
-                        ))
-                    }
-                }),
             }
         })
     });
     let feedback_defaults = schema.controls.iter().flat_map(|control| {
         control.properties.iter().filter_map(move |property| {
             let feedback = property.feedback.as_ref()?;
+            if property.adapter == Some(PropertyAdapter::RichEditText) {
+                return None;
+            }
             let property_id = ident(&format!("{}{}", control.name, property.name));
             let event_id = ident(&format!("{}{}", control.name, feedback));
             let value_variant = ident(&property.value);
@@ -492,14 +490,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         Some((
                             EventId::#event_id,
                             FeedbackExpectation::Normalized { observation: None },
-                        ))
-                    }
-                }),
-                FeedbackContract::DeferredSuppressed => Some(quote! {
-                    (PropertyId::#property_id, None) => {
-                        Some((
-                            EventId::#event_id,
-                            FeedbackExpectation::DeferredSuppressed(1),
                         ))
                     }
                 }),
@@ -1538,15 +1528,15 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                         let value = event_source.#property().and_then(|document| {
                             let mut value = windows_core::HSTRING::new();
                             document
-                                .GetText(bindings::TextGetOptions::None, &mut value)
+                                .GetText(bindings::TextGetOptions::UseLf, &mut value)
                                 .map(|_| value)
                         });
                         match value {
-                            Ok(value) => sink.enqueue(
+                            Ok(value) => sink.enqueue_rich_edit_text(
                                 node,
                                 EventId::#event_id,
                                 revision,
-                                EventPayload::Str(value.to_string_lossy()),
+                                value.to_string_lossy(),
                             ),
                             Err(error) => sink.error(
                                 node,
@@ -2071,7 +2061,7 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                 Handle::#control_name(control),
                 PropertyId::#property_id,
                 PropertyValue::Str(value),
-            ) => set_rich_edit_text(control, value)
+            ) => set_rich_edit_text(control, value).map(|_| ())
         };
     }
     if matches!(
@@ -2389,7 +2379,7 @@ fn generate_clear_property(control: &ResolvedControl, property: &ResolvedPropert
     if property.adapter == Some(PropertyAdapter::RichEditText) {
         return quote! {
             (Handle::#control_name(control), PropertyId::#property_id) => {
-                set_rich_edit_text(control, "")
+                set_rich_edit_text(control, "").map(|_| ())
             }
         };
     }

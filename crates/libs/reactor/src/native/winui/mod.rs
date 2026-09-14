@@ -166,6 +166,7 @@ pub struct WinUiRuntime {
     async_state: Rc<RefCell<AsyncIngressState>>,
     encoded_image_nodes: Rc<RefCell<HashSet<NodeId>>>,
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), FeedbackExpectation>>>,
+    rich_edit_feedback: Rc<RefCell<HashMap<NodeId, String>>>,
     controlled_collection_indices: HashMap<NodeId, i32>,
     content_dialogs: Rc<RefCell<ContentDialogScheduler>>,
     drop_policies: Rc<RefCell<HashMap<NodeId, DragDropPolicy>>>,
@@ -479,15 +480,15 @@ fn build_menu_items(
     Ok(())
 }
 
-fn set_rich_edit_text(control: &bindings::RichEditBox, value: &str) -> Result<(), RuntimeError> {
+fn set_rich_edit_text(control: &bindings::RichEditBox, value: &str) -> Result<bool, RuntimeError> {
     let read_only = control.IsReadOnly().map_err(native_error)?;
     let document = control.Document().map_err(native_error)?;
     let mut current = windows_core::HSTRING::new();
     document
-        .GetText(TextGetOptions::None, &mut current)
+        .GetText(TextGetOptions::UseLf, &mut current)
         .map_err(native_error)?;
     if current == value {
-        return Ok(());
+        return Ok(false);
     }
     if read_only {
         control.SetIsReadOnly(false).map_err(native_error)?;
@@ -500,7 +501,7 @@ fn set_rich_edit_text(control: &bindings::RichEditBox, value: &str) -> Result<()
     } else {
         Ok(())
     };
-    write.and(restore)
+    write.and(restore).map(|_| true)
 }
 
 fn build_tree_node(definition: &TreeNode) -> Result<TreeViewNode, RuntimeError> {
@@ -2047,33 +2048,9 @@ impl WinUiRuntime {
                     .filter(|(_, slot)| selection_for_item_property(*property, *slot).is_some());
                 let feedback_event = feedback.as_ref().map(|(event, _)| *event);
                 if let Some((event, expectation)) = feedback {
-                    let mut feedback = self.feedback.borrow_mut();
-                    let key = (*node, event);
-                    match expectation {
-                        FeedbackExpectation::DeferredSuppressed(additional) => {
-                            match feedback.entry(key) {
-                                std::collections::hash_map::Entry::Occupied(mut entry) => {
-                                    if let FeedbackExpectation::DeferredSuppressed(pending) =
-                                        entry.get_mut()
-                                    {
-                                        *pending += additional;
-                                    } else {
-                                        entry.insert(FeedbackExpectation::DeferredSuppressed(
-                                            additional,
-                                        ));
-                                    }
-                                }
-                                std::collections::hash_map::Entry::Vacant(entry) => {
-                                    entry.insert(FeedbackExpectation::DeferredSuppressed(
-                                        additional,
-                                    ));
-                                }
-                            }
-                        }
-                        expectation => {
-                            feedback.insert(key, expectation);
-                        }
-                    }
+                    self.feedback
+                        .borrow_mut()
+                        .insert((*node, event), expectation);
                 }
                 let (result, observation) = self.with_selection_suppressed(selection_owner, || {
                     let result = if matches!(
@@ -2101,45 +2078,23 @@ impl WinUiRuntime {
                                 }),
                             _ => Err(RuntimeError::UnsupportedKind),
                         }
+                    } else if *property == PropertyId::RichEditBoxDocument {
+                        self.set_rich_edit_text(*node, value)
                     } else {
                         target.set(*property, value)
                     };
-                    let observation = feedback_event.and_then(|event| {
-                        let mut feedback = self.feedback.borrow_mut();
-                        if matches!(
-                            feedback.get(&(*node, event)),
-                            Some(FeedbackExpectation::DeferredSuppressed(_))
-                        ) {
-                            None
-                        } else {
-                            feedback.remove(&(*node, event)).and_then(|expectation| {
-                                match expectation {
+                    let observation =
+                        feedback_event.and_then(|event| {
+                            self.feedback.borrow_mut().remove(&(*node, event)).and_then(
+                                |expectation| match expectation {
                                     FeedbackExpectation::Normalized { observation } => observation,
                                     FeedbackExpectation::Exact(_)
-                                    | FeedbackExpectation::Suppressed
-                                    | FeedbackExpectation::DeferredSuppressed(_) => None,
-                                }
-                            })
-                        }
-                    });
+                                    | FeedbackExpectation::Suppressed => None,
+                                },
+                            )
+                        });
                     (result, observation)
                 });
-                if result.is_err()
-                    && let Some(event) = feedback_event
-                {
-                    let key = (*node, event);
-                    let mut feedback = self.feedback.borrow_mut();
-                    let remove = match feedback.get_mut(&key) {
-                        Some(FeedbackExpectation::DeferredSuppressed(pending)) => {
-                            *pending -= 1;
-                            *pending == 0
-                        }
-                        _ => true,
-                    };
-                    if remove {
-                        feedback.remove(&key);
-                    }
-                }
                 result?;
                 if controlled_collection_for_property(*property).is_some()
                     && let PropertyValue::I32(value) = value
@@ -2183,30 +2138,48 @@ impl WinUiRuntime {
                         .borrow_mut()
                         .insert((*node, event), expectation);
                 }
-                let result = self.with_selection_suppressed(selection_owner, || {
-                    let result = if matches!(
-                        property,
-                        PropertyId::BorderCapturePointerOnPress
-                            | PropertyId::BorderFocusOnPointerRelease
-                    ) {
-                        self.clear_pointer_policy(*node, *property)
-                    } else if *property == PropertyId::BorderAllowDrop {
-                        self.ui_element(*node)?
-                            .SetAllowDrop(false)
-                            .map_err(native_error)?;
-                        self.drop_policies.borrow_mut().remove(node);
-                        Ok(())
-                    } else {
-                        target.clear(*property)
-                    };
-                    if let Some(event) = feedback_event {
-                        self.feedback.borrow_mut().remove(&(*node, event));
-                    }
-                    result
+                let (result, observation) = self.with_selection_suppressed(selection_owner, || {
+                    let result = (|| {
+                        if matches!(
+                            property,
+                            PropertyId::BorderCapturePointerOnPress
+                                | PropertyId::BorderFocusOnPointerRelease
+                        ) {
+                            self.clear_pointer_policy(*node, *property)
+                        } else if *property == PropertyId::BorderAllowDrop {
+                            self.ui_element(*node)?
+                                .SetAllowDrop(false)
+                                .map_err(native_error)?;
+                            self.drop_policies.borrow_mut().remove(node);
+                            Ok(())
+                        } else if *property == PropertyId::RichEditBoxDocument {
+                            self.set_rich_edit_text(*node, &PropertyValue::Str(String::new()))
+                        } else {
+                            target.clear(*property)
+                        }
+                    })();
+                    let observation =
+                        feedback_event.and_then(|event| {
+                            self.feedback.borrow_mut().remove(&(*node, event)).and_then(
+                                |expectation| match expectation {
+                                    FeedbackExpectation::Normalized { observation } => observation,
+                                    FeedbackExpectation::Exact(_)
+                                    | FeedbackExpectation::Suppressed => None,
+                                },
+                            )
+                        });
+                    (result, observation)
                 });
                 result?;
                 if controlled_collection_for_property(*property).is_some() {
                     self.controlled_collection_indices.remove(node);
+                }
+                if let Some(observation) = observation {
+                    self.events.borrow_mut().push(NativeWork {
+                        identity: self.identity.get().unwrap(),
+                        work: observation,
+                    });
+                    self.schedule_dispatch()?;
                 }
             }
             Command::SubscribeEvent {
@@ -3169,6 +3142,7 @@ impl WinUiRuntime {
             drop_policies: Rc::clone(&self.drop_policies),
             encoded_image_nodes: Rc::clone(&self.encoded_image_nodes),
             feedback: Rc::clone(&self.feedback),
+            rich_edit_feedback: Rc::clone(&self.rich_edit_feedback),
             content_dialogs: Rc::clone(&self.content_dialogs),
             pending_focus_states: Rc::clone(&self.pending_focus_states),
             pointer_policies: Rc::clone(&self.pointer_policies),
@@ -3187,6 +3161,21 @@ impl WinUiRuntime {
 
     pub fn close_scheduler(&self) {
         self.scheduler.borrow_mut().close();
+    }
+
+    fn set_rich_edit_text(&self, node: NodeId, value: &PropertyValue) -> Result<(), RuntimeError> {
+        let PropertyValue::Str(value) = value else {
+            return Err(RuntimeError::UnsupportedKind);
+        };
+        let Some(Handle::RichEditBox(control)) = self.handles.get(&node) else {
+            return Err(RuntimeError::MissingNode(node));
+        };
+        if set_rich_edit_text(control, value)? {
+            self.rich_edit_feedback
+                .borrow_mut()
+                .insert(node, value.clone());
+        }
+        Ok(())
     }
 
     fn with_controlled_collection_preserved(
@@ -3253,6 +3242,7 @@ pub struct EventSink {
     drop_policies: Rc<RefCell<HashMap<NodeId, DragDropPolicy>>>,
     encoded_image_nodes: Rc<RefCell<HashSet<NodeId>>>,
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), FeedbackExpectation>>>,
+    rich_edit_feedback: Rc<RefCell<HashMap<NodeId, String>>>,
     content_dialogs: Rc<RefCell<ContentDialogScheduler>>,
     pending_focus_states: Rc<RefCell<HashMap<NodeId, ElementFocusState>>>,
     pointer_policies: Rc<RefCell<HashMap<NodeId, PointerInteractionPolicy>>>,
@@ -3470,6 +3460,26 @@ impl EventSink {
             .find_map(|(node, item)| (item == selected).then_some(*node))
     }
 
+    pub fn enqueue_rich_edit_text(
+        &self,
+        node: NodeId,
+        event: EventId,
+        revision: u32,
+        value: String,
+    ) {
+        let mut feedback = self.rich_edit_feedback.borrow_mut();
+        let suppress = feedback
+            .get(&node)
+            .is_some_and(|expected| expected == &value);
+        if !suppress {
+            feedback.remove(&node);
+        }
+        drop(feedback);
+        if !suppress {
+            self.enqueue(node, event, revision, EventPayload::Str(value));
+        }
+    }
+
     pub fn enqueue(&self, node: NodeId, event: EventId, revision: u32, payload: EventPayload) {
         if self.encoded_image_nodes.borrow().contains(&node)
             && matches!(event, EventId::ImageImageOpened | EventId::ImageImageFailed)
@@ -3478,8 +3488,6 @@ impl EventSink {
         }
         {
             let mut feedback = self.feedback.borrow_mut();
-            let mut suppress_deferred = false;
-            let mut remove_deferred = false;
             if let Some(expected) = feedback.get_mut(&(node, event)) {
                 match expected {
                     // Keep the expectation active until the setter returns so every synchronous
@@ -3491,19 +3499,8 @@ impl EventSink {
                         return;
                     }
                     FeedbackExpectation::Suppressed => return,
-                    FeedbackExpectation::DeferredSuppressed(pending) => {
-                        *pending -= 1;
-                        suppress_deferred = true;
-                        remove_deferred = *pending == 0;
-                    }
                     FeedbackExpectation::Exact(_) => {}
                 }
-            }
-            if suppress_deferred {
-                if remove_deferred {
-                    feedback.remove(&(node, event));
-                }
-                return;
             }
         }
         self.queue.borrow_mut().push(NativeWork {
@@ -4012,6 +4009,7 @@ impl NativeRuntime for WinUiRuntime {
         self.events.borrow_mut().clear();
         self.host_events.borrow_mut().clear();
         self.feedback.borrow_mut().clear();
+        self.rich_edit_feedback.borrow_mut().clear();
         self.drop_policies.borrow_mut().clear();
         self.pending_focus_states.borrow_mut().clear();
         self.pointer_policies.borrow_mut().clear();
@@ -4396,6 +4394,10 @@ impl WinUiRuntime {
 
     fn remove_node_state(&mut self, node: NodeId) -> Result<(), RuntimeError> {
         self.release_encoded_image_source(node);
+        self.feedback
+            .borrow_mut()
+            .retain(|(feedback_node, _), _| *feedback_node != node);
+        self.rich_edit_feedback.borrow_mut().remove(&node);
         self.subscriptions
             .retain(|(subscription_node, _), _| *subscription_node != node);
         self.cancel_async_for_node(node);

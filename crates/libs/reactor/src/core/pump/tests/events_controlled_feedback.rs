@@ -653,16 +653,28 @@ fn rich_edit_box_document_text_and_feedback_are_owned() {
 
     assert_eq!(pump.dispatch_events(), Ok(1));
     assert_eq!(&*value.borrow(), "updated");
-    assert!(matches!(
+    assert!(
         expected_feedback(
             PropertyId::RichEditBoxDocument,
             Some(&PropertyValue::Str("programmatic".to_string()))
-        ),
-        Some((
-            EventId::RichEditBoxTextChanged,
-            FeedbackExpectation::DeferredSuppressed(1)
-        ))
-    ));
+        )
+        .is_none()
+    );
+}
+
+#[test]
+fn rich_edit_box_text_uses_lf_canonical_form() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount(RichEditBox::new().text("one\r\nfirst\rtwo\nsecond").into())
+        .unwrap();
+    let root = pump.root().unwrap();
+    assert_eq!(
+        pump.runtime()
+            .node(root)
+            .unwrap()
+            .property(PropertyId::RichEditBoxDocument),
+        Some(&PropertyValue::Str("one\nfirst\ntwo\nsecond".to_string()))
+    );
 }
 
 #[test]

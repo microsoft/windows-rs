@@ -28589,6 +28589,7 @@ unsafe impl Sync for TextElement {}
 pub struct TextGetOptions(pub u32);
 impl TextGetOptions {
     pub const None: Self = Self(0);
+    pub const UseLf: Self = Self(16777216);
 }
 impl windows_core::imp::TypeKind for TextGetOptions {
     type TypeKind = windows_core::imp::CopyType;
