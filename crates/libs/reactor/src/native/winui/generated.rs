@@ -350,7 +350,7 @@ impl Handle {
             MountedKind::SwapChainPanel => {
                 Self::SwapChainPanel(bindings::SwapChainPanel::new().map_err(native_error)?)
             }
-            MountedKind::ItemsRepeater => return Err(RuntimeError::UnsupportedKind),
+            _ => return Err(RuntimeError::UnsupportedKind),
         })
     }
     #[inline]
@@ -588,160 +588,45 @@ impl Handle {
         })
     }
 }
+#[inline]
+fn set_content_control<T: windows_core::Interface>(
+    control: &T,
+    child: Option<&UIElement>,
+) -> Result<(), RuntimeError> {
+    let control = control.cast::<IContentControl>().map_err(native_error)?;
+    match child {
+        Some(child) => control.SetContent(child).map_err(native_error),
+        None => control
+            .SetContent(None::<&windows_core::IInspectable>)
+            .map_err(native_error),
+    }
+}
 pub fn set_content(handle: &Handle, child: Option<&UIElement>) -> Result<(), RuntimeError> {
     match handle {
-        Handle::Button(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
-        Handle::HyperlinkButton(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
-        Handle::RepeatButton(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
+        Handle::Button(control) => set_content_control(control, child),
+        Handle::HyperlinkButton(control) => set_content_control(control, child),
+        Handle::RepeatButton(control) => set_content_control(control, child),
         Handle::Border(control) => match child {
             Some(child) => control.SetChild(child).map_err(native_error),
             None => control.SetChild(None::<&UIElement>).map_err(native_error),
         },
-        Handle::CheckBox(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
-        Handle::ToggleButton(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
-        Handle::RadioButton(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
-        Handle::ScrollViewer(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
+        Handle::CheckBox(control) => set_content_control(control, child),
+        Handle::ToggleButton(control) => set_content_control(control, child),
+        Handle::RadioButton(control) => set_content_control(control, child),
+        Handle::ScrollViewer(control) => set_content_control(control, child),
         Handle::ScrollView(control) => match child {
             Some(child) => control.SetContent(child).map_err(native_error),
             None => control.SetContent(None::<&UIElement>).map_err(native_error),
         },
-        Handle::ListBoxItem(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
-        Handle::PivotItem(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
-        Handle::TabViewItem(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
-        Handle::DropDownButton(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
-        Handle::SplitButton(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
-        Handle::ToolTip(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
-        Handle::ContentDialog(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
-        Handle::ListViewItem(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
-        Handle::GridViewItem(control) => {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
-            }
-        }
+        Handle::ListBoxItem(control) => set_content_control(control, child),
+        Handle::PivotItem(control) => set_content_control(control, child),
+        Handle::TabViewItem(control) => set_content_control(control, child),
+        Handle::DropDownButton(control) => set_content_control(control, child),
+        Handle::SplitButton(control) => set_content_control(control, child),
+        Handle::ToolTip(control) => set_content_control(control, child),
+        Handle::ContentDialog(control) => set_content_control(control, child),
+        Handle::ListViewItem(control) => set_content_control(control, child),
+        Handle::GridViewItem(control) => set_content_control(control, child),
         _ => Err(RuntimeError::UnsupportedKind),
     }
 }
@@ -850,9 +735,6 @@ pub fn set_property(
                 crate::VerticalAlignment::Stretch => bindings::VerticalAlignment::Stretch,
             })
             .map_err(native_error),
-        (Handle::Button(_), PropertyId::ButtonResources, PropertyValue::ResourceOverrides(_)) => {
-            Err(RuntimeError::UnsupportedKind)
-        }
         (Handle::Button(control), PropertyId::ButtonStyle, PropertyValue::ButtonStyle(value)) => {
             let resource = match value {
                 crate::ButtonStyle::Default => None,
@@ -863,11 +745,6 @@ pub fn set_property(
             let element = control.cast::<IFrameworkElement>().map_err(native_error)?;
             set_resource_style(&element, resource)
         }
-        (
-            Handle::Button(_),
-            PropertyId::ButtonKeyboardAccelerators,
-            PropertyValue::KeyAccelerators(_),
-        ) => Err(RuntimeError::UnsupportedKind),
         (
             Handle::HyperlinkButton(control),
             PropertyId::HyperlinkButtonNavigateUri,
@@ -1046,15 +923,6 @@ pub fn set_property(
                 .SetScaleTransition(&transition)
                 .map_err(native_error)
         }
-        (Handle::Border(_), PropertyId::BorderCapturePointerOnPress, PropertyValue::Bool(_)) => {
-            Err(RuntimeError::UnsupportedKind)
-        }
-        (Handle::Border(_), PropertyId::BorderFocusOnPointerRelease, PropertyValue::Bool(_)) => {
-            Err(RuntimeError::UnsupportedKind)
-        }
-        (Handle::Border(_), PropertyId::BorderAllowDrop, PropertyValue::DragDropPolicy(_)) => {
-            Err(RuntimeError::UnsupportedKind)
-        }
         (
             Handle::BreadcrumbBar(control),
             PropertyId::BreadcrumbBarItemsSource,
@@ -1106,11 +974,6 @@ pub fn set_property(
         (Handle::Grid(control), PropertyId::GridColumnSpacing, PropertyValue::F64(value)) => {
             control.SetColumnSpacing(*value).map_err(native_error)
         }
-        (
-            Handle::Grid(_),
-            PropertyId::GridKeyboardAccelerators,
-            PropertyValue::KeyAccelerators(_),
-        ) => Err(RuntimeError::UnsupportedKind),
         (
             Handle::Grid(control),
             PropertyId::GridBackground,
@@ -2937,12 +2800,8 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
         (Handle::Button(_), PropertyId::ButtonVerticalContentAlignment) => {
             clear_value(handle, bindings::Control::VerticalContentAlignmentProperty)
         }
-        (Handle::Button(_), PropertyId::ButtonResources) => Err(RuntimeError::UnsupportedKind),
         (Handle::Button(_), PropertyId::ButtonStyle) => {
             clear_value(handle, bindings::FrameworkElement::StyleProperty)
-        }
-        (Handle::Button(_), PropertyId::ButtonKeyboardAccelerators) => {
-            Err(RuntimeError::UnsupportedKind)
         }
         (Handle::HyperlinkButton(_), PropertyId::HyperlinkButtonNavigateUri) => {
             clear_value(handle, bindings::HyperlinkButton::NavigateUriProperty)
@@ -3000,13 +2859,6 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
             .map_err(native_error)?
             .SetScaleTransition(None::<&Vector3Transition>)
             .map_err(native_error),
-        (Handle::Border(_), PropertyId::BorderCapturePointerOnPress) => {
-            Err(RuntimeError::UnsupportedKind)
-        }
-        (Handle::Border(_), PropertyId::BorderFocusOnPointerRelease) => {
-            Err(RuntimeError::UnsupportedKind)
-        }
-        (Handle::Border(_), PropertyId::BorderAllowDrop) => Err(RuntimeError::UnsupportedKind),
         (Handle::BreadcrumbBar(_), PropertyId::BreadcrumbBarItemsSource) => {
             clear_value(handle, bindings::BreadcrumbBar::ItemsSourceProperty)
         }
@@ -3030,9 +2882,6 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
         }
         (Handle::Grid(_), PropertyId::GridColumnSpacing) => {
             clear_value(handle, bindings::Grid::ColumnSpacingProperty)
-        }
-        (Handle::Grid(_), PropertyId::GridKeyboardAccelerators) => {
-            Err(RuntimeError::UnsupportedKind)
         }
         (Handle::Grid(_), PropertyId::GridBackground) => {
             clear_value(handle, bindings::Panel::BackgroundProperty)
