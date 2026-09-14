@@ -353,169 +353,94 @@ impl Handle {
             MountedKind::ItemsRepeater => return Err(RuntimeError::UnsupportedKind),
         })
     }
-    pub fn ui_element(&self) -> windows_core::Result<UIElement> {
+    #[inline]
+    pub fn inspectable(&self) -> &windows_core::IInspectable {
         match self {
-            Self::TextBlock(value) => value.cast(),
-            Self::Button(value) => value.cast(),
-            Self::HyperlinkButton(value) => value.cast(),
-            Self::RepeatButton(value) => value.cast(),
-            Self::Border(value) => value.cast(),
-            Self::BreadcrumbBar(value) => value.cast(),
-            Self::StackPanel(value) => value.cast(),
-            Self::VariableSizedWrapGrid(value) => value.cast(),
-            Self::Grid(value) => value.cast(),
-            Self::TextBox(value) => value.cast(),
-            Self::AutoSuggestBox(value) => value.cast(),
-            Self::PasswordBox(value) => value.cast(),
-            Self::NumberBox(value) => value.cast(),
-            Self::Slider(value) => value.cast(),
-            Self::TitleBar(value) => value.cast(),
-            Self::NavigationView(value) => value.cast(),
-            Self::NavigationViewItem(value) => value.cast(),
-            Self::SplitView(value) => value.cast(),
-            Self::ProgressBar(value) => value.cast(),
-            Self::ToggleSwitch(value) => value.cast(),
-            Self::CheckBox(value) => value.cast(),
-            Self::ToggleButton(value) => value.cast(),
-            Self::RadioButton(value) => value.cast(),
-            Self::RadioButtons(value) => value.cast(),
-            Self::InfoBadge(value) => value.cast(),
-            Self::InfoBar(value) => value.cast(),
-            Self::PersonPicture(value) => value.cast(),
-            Self::ScrollViewer(value) => value.cast(),
-            Self::ScrollView(value) => value.cast(),
-            Self::Image(value) => value.cast(),
-            Self::ProgressRing(value) => value.cast(),
-            Self::ListBox(value) => value.cast(),
-            Self::Rectangle(value) => value.cast(),
-            Self::Ellipse(value) => value.cast(),
-            Self::Line(value) => value.cast(),
-            Self::SymbolIcon(value) => value.cast(),
-            Self::ImageIcon(value) => value.cast(),
-            Self::FontIcon(value) => value.cast(),
-            Self::BitmapIcon(value) => value.cast(),
-            Self::PathIcon(value) => value.cast(),
-            Self::ListBoxItem(value) => value.cast(),
-            Self::RatingControl(value) => value.cast(),
-            Self::Expander(value) => value.cast(),
-            Self::ComboBox(value) => value.cast(),
-            Self::Pivot(value) => value.cast(),
-            Self::PivotItem(value) => value.cast(),
-            Self::FlipView(value) => value.cast(),
-            Self::SelectorBar(value) => value.cast(),
-            Self::SelectorBarItem(value) => value.cast(),
-            Self::TabView(value) => value.cast(),
-            Self::TabViewItem(value) => value.cast(),
-            Self::TeachingTip(value) => value.cast(),
-            Self::DropDownButton(value) => value.cast(),
-            Self::CommandBar(value) => value.cast(),
-            Self::AppBarButton(value) => value.cast(),
-            Self::AppBarSeparator(value) => value.cast(),
-            Self::MenuBar(value) => value.cast(),
-            Self::MenuBarItem(value) => value.cast(),
-            Self::SplitButton(value) => value.cast(),
-            Self::ColorPicker(value) => value.cast(),
-            Self::DatePicker(value) => value.cast(),
-            Self::TimePicker(value) => value.cast(),
-            Self::CalendarDatePicker(value) => value.cast(),
-            Self::ToolTip(value) => value.cast(),
-            Self::ContentDialog(value) => value.cast(),
-            Self::CalendarView(value) => value.cast(),
-            Self::ListView(value) => value.cast(),
-            Self::ListViewItem(value) => value.cast(),
-            Self::TreeView(value) => value.cast(),
-            Self::GridView(value) => value.cast(),
-            Self::GridViewItem(value) => value.cast(),
-            Self::RelativePanel(value) => value.cast(),
-            Self::Canvas(value) => value.cast(),
-            Self::RichEditBox(value) => value.cast(),
-            Self::RichTextBlock(value) => value.cast(),
-            Self::Viewbox(value) => value.cast(),
-            Self::WebView2(value) => value.cast(),
-            Self::SwapChainPanel(value) => value.cast(),
+            Self::TextBlock(value) => value.into(),
+            Self::Button(value) => value.into(),
+            Self::HyperlinkButton(value) => value.into(),
+            Self::RepeatButton(value) => value.into(),
+            Self::Border(value) => value.into(),
+            Self::BreadcrumbBar(value) => value.into(),
+            Self::StackPanel(value) => value.into(),
+            Self::VariableSizedWrapGrid(value) => value.into(),
+            Self::Grid(value) => value.into(),
+            Self::TextBox(value) => value.into(),
+            Self::AutoSuggestBox(value) => value.into(),
+            Self::PasswordBox(value) => value.into(),
+            Self::NumberBox(value) => value.into(),
+            Self::Slider(value) => value.into(),
+            Self::TitleBar(value) => value.into(),
+            Self::NavigationView(value) => value.into(),
+            Self::NavigationViewItem(value) => value.into(),
+            Self::SplitView(value) => value.into(),
+            Self::ProgressBar(value) => value.into(),
+            Self::ToggleSwitch(value) => value.into(),
+            Self::CheckBox(value) => value.into(),
+            Self::ToggleButton(value) => value.into(),
+            Self::RadioButton(value) => value.into(),
+            Self::RadioButtons(value) => value.into(),
+            Self::InfoBadge(value) => value.into(),
+            Self::InfoBar(value) => value.into(),
+            Self::PersonPicture(value) => value.into(),
+            Self::ScrollViewer(value) => value.into(),
+            Self::ScrollView(value) => value.into(),
+            Self::Image(value) => value.into(),
+            Self::ProgressRing(value) => value.into(),
+            Self::ListBox(value) => value.into(),
+            Self::Rectangle(value) => value.into(),
+            Self::Ellipse(value) => value.into(),
+            Self::Line(value) => value.into(),
+            Self::SymbolIcon(value) => value.into(),
+            Self::ImageIcon(value) => value.into(),
+            Self::FontIcon(value) => value.into(),
+            Self::BitmapIcon(value) => value.into(),
+            Self::PathIcon(value) => value.into(),
+            Self::ListBoxItem(value) => value.into(),
+            Self::RatingControl(value) => value.into(),
+            Self::Expander(value) => value.into(),
+            Self::ComboBox(value) => value.into(),
+            Self::Pivot(value) => value.into(),
+            Self::PivotItem(value) => value.into(),
+            Self::FlipView(value) => value.into(),
+            Self::SelectorBar(value) => value.into(),
+            Self::SelectorBarItem(value) => value.into(),
+            Self::TabView(value) => value.into(),
+            Self::TabViewItem(value) => value.into(),
+            Self::TeachingTip(value) => value.into(),
+            Self::DropDownButton(value) => value.into(),
+            Self::CommandBar(value) => value.into(),
+            Self::AppBarButton(value) => value.into(),
+            Self::AppBarSeparator(value) => value.into(),
+            Self::MenuBar(value) => value.into(),
+            Self::MenuBarItem(value) => value.into(),
+            Self::SplitButton(value) => value.into(),
+            Self::ColorPicker(value) => value.into(),
+            Self::DatePicker(value) => value.into(),
+            Self::TimePicker(value) => value.into(),
+            Self::CalendarDatePicker(value) => value.into(),
+            Self::ToolTip(value) => value.into(),
+            Self::ContentDialog(value) => value.into(),
+            Self::CalendarView(value) => value.into(),
+            Self::ListView(value) => value.into(),
+            Self::ListViewItem(value) => value.into(),
+            Self::TreeView(value) => value.into(),
+            Self::GridView(value) => value.into(),
+            Self::GridViewItem(value) => value.into(),
+            Self::RelativePanel(value) => value.into(),
+            Self::Canvas(value) => value.into(),
+            Self::RichEditBox(value) => value.into(),
+            Self::RichTextBlock(value) => value.into(),
+            Self::Viewbox(value) => value.into(),
+            Self::WebView2(value) => value.into(),
+            Self::SwapChainPanel(value) => value.into(),
         }
     }
+    pub fn ui_element(&self) -> windows_core::Result<UIElement> {
+        self.inspectable().cast()
+    }
     pub fn dependency_object(&self) -> windows_core::Result<IDependencyObject> {
-        match self {
-            Self::TextBlock(value) => value.cast(),
-            Self::Button(value) => value.cast(),
-            Self::HyperlinkButton(value) => value.cast(),
-            Self::RepeatButton(value) => value.cast(),
-            Self::Border(value) => value.cast(),
-            Self::BreadcrumbBar(value) => value.cast(),
-            Self::StackPanel(value) => value.cast(),
-            Self::VariableSizedWrapGrid(value) => value.cast(),
-            Self::Grid(value) => value.cast(),
-            Self::TextBox(value) => value.cast(),
-            Self::AutoSuggestBox(value) => value.cast(),
-            Self::PasswordBox(value) => value.cast(),
-            Self::NumberBox(value) => value.cast(),
-            Self::Slider(value) => value.cast(),
-            Self::TitleBar(value) => value.cast(),
-            Self::NavigationView(value) => value.cast(),
-            Self::NavigationViewItem(value) => value.cast(),
-            Self::SplitView(value) => value.cast(),
-            Self::ProgressBar(value) => value.cast(),
-            Self::ToggleSwitch(value) => value.cast(),
-            Self::CheckBox(value) => value.cast(),
-            Self::ToggleButton(value) => value.cast(),
-            Self::RadioButton(value) => value.cast(),
-            Self::RadioButtons(value) => value.cast(),
-            Self::InfoBadge(value) => value.cast(),
-            Self::InfoBar(value) => value.cast(),
-            Self::PersonPicture(value) => value.cast(),
-            Self::ScrollViewer(value) => value.cast(),
-            Self::ScrollView(value) => value.cast(),
-            Self::Image(value) => value.cast(),
-            Self::ProgressRing(value) => value.cast(),
-            Self::ListBox(value) => value.cast(),
-            Self::Rectangle(value) => value.cast(),
-            Self::Ellipse(value) => value.cast(),
-            Self::Line(value) => value.cast(),
-            Self::SymbolIcon(value) => value.cast(),
-            Self::ImageIcon(value) => value.cast(),
-            Self::FontIcon(value) => value.cast(),
-            Self::BitmapIcon(value) => value.cast(),
-            Self::PathIcon(value) => value.cast(),
-            Self::ListBoxItem(value) => value.cast(),
-            Self::RatingControl(value) => value.cast(),
-            Self::Expander(value) => value.cast(),
-            Self::ComboBox(value) => value.cast(),
-            Self::Pivot(value) => value.cast(),
-            Self::PivotItem(value) => value.cast(),
-            Self::FlipView(value) => value.cast(),
-            Self::SelectorBar(value) => value.cast(),
-            Self::SelectorBarItem(value) => value.cast(),
-            Self::TabView(value) => value.cast(),
-            Self::TabViewItem(value) => value.cast(),
-            Self::TeachingTip(value) => value.cast(),
-            Self::DropDownButton(value) => value.cast(),
-            Self::CommandBar(value) => value.cast(),
-            Self::AppBarButton(value) => value.cast(),
-            Self::AppBarSeparator(value) => value.cast(),
-            Self::MenuBar(value) => value.cast(),
-            Self::MenuBarItem(value) => value.cast(),
-            Self::SplitButton(value) => value.cast(),
-            Self::ColorPicker(value) => value.cast(),
-            Self::DatePicker(value) => value.cast(),
-            Self::TimePicker(value) => value.cast(),
-            Self::CalendarDatePicker(value) => value.cast(),
-            Self::ToolTip(value) => value.cast(),
-            Self::ContentDialog(value) => value.cast(),
-            Self::CalendarView(value) => value.cast(),
-            Self::ListView(value) => value.cast(),
-            Self::ListViewItem(value) => value.cast(),
-            Self::TreeView(value) => value.cast(),
-            Self::GridView(value) => value.cast(),
-            Self::GridViewItem(value) => value.cast(),
-            Self::RelativePanel(value) => value.cast(),
-            Self::Canvas(value) => value.cast(),
-            Self::RichEditBox(value) => value.cast(),
-            Self::RichTextBlock(value) => value.cast(),
-            Self::Viewbox(value) => value.cast(),
-            Self::WebView2(value) => value.cast(),
-            Self::SwapChainPanel(value) => value.cast(),
-        }
+        self.inspectable().cast()
     }
     pub fn kind(&self) -> MountedKind {
         match self {
@@ -2977,93 +2902,85 @@ pub fn set_property(
     }
 }
 pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), RuntimeError> {
-    let dependency_object = handle.dependency_object().map_err(native_error)?;
     match (handle, property) {
-        (Handle::TextBlock(_), PropertyId::TextBlockText) => dependency_object
-            .ClearValue(&bindings::TextBlock::TextProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TextBlock(_), PropertyId::TextBlockTextWrapping) => dependency_object
-            .ClearValue(&bindings::TextBlock::TextWrappingProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TextBlock(_), PropertyId::TextBlockFontSize) => dependency_object
-            .ClearValue(&bindings::TextBlock::FontSizeProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TextBlock(_), PropertyId::TextBlockFontWeight) => dependency_object
-            .ClearValue(&bindings::TextBlock::FontWeightProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TextBlock(_), PropertyId::TextBlockIsTextSelectionEnabled) => dependency_object
-            .ClearValue(
-                &bindings::TextBlock::IsTextSelectionEnabledProperty().map_err(native_error)?,
-            )
-            .map_err(native_error),
-        (Handle::TextBlock(_), PropertyId::TextBlockMaxLines) => dependency_object
-            .ClearValue(&bindings::TextBlock::MaxLinesProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TextBlock(_), PropertyId::TextBlockTextTrimming) => dependency_object
-            .ClearValue(&bindings::TextBlock::TextTrimmingProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TextBlock(_), PropertyId::TextBlockForeground) => dependency_object
-            .ClearValue(&bindings::TextBlock::ForegroundProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Button(_), PropertyId::ButtonIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Button(_), PropertyId::ButtonHorizontalContentAlignment) => dependency_object
-            .ClearValue(
-                &bindings::Control::HorizontalContentAlignmentProperty().map_err(native_error)?,
-            )
-            .map_err(native_error),
-        (Handle::Button(_), PropertyId::ButtonVerticalContentAlignment) => dependency_object
-            .ClearValue(
-                &bindings::Control::VerticalContentAlignmentProperty().map_err(native_error)?,
-            )
-            .map_err(native_error),
+        (Handle::TextBlock(_), PropertyId::TextBlockText) => {
+            clear_value(handle, bindings::TextBlock::TextProperty)
+        }
+        (Handle::TextBlock(_), PropertyId::TextBlockTextWrapping) => {
+            clear_value(handle, bindings::TextBlock::TextWrappingProperty)
+        }
+        (Handle::TextBlock(_), PropertyId::TextBlockFontSize) => {
+            clear_value(handle, bindings::TextBlock::FontSizeProperty)
+        }
+        (Handle::TextBlock(_), PropertyId::TextBlockFontWeight) => {
+            clear_value(handle, bindings::TextBlock::FontWeightProperty)
+        }
+        (Handle::TextBlock(_), PropertyId::TextBlockIsTextSelectionEnabled) => {
+            clear_value(handle, bindings::TextBlock::IsTextSelectionEnabledProperty)
+        }
+        (Handle::TextBlock(_), PropertyId::TextBlockMaxLines) => {
+            clear_value(handle, bindings::TextBlock::MaxLinesProperty)
+        }
+        (Handle::TextBlock(_), PropertyId::TextBlockTextTrimming) => {
+            clear_value(handle, bindings::TextBlock::TextTrimmingProperty)
+        }
+        (Handle::TextBlock(_), PropertyId::TextBlockForeground) => {
+            clear_value(handle, bindings::TextBlock::ForegroundProperty)
+        }
+        (Handle::Button(_), PropertyId::ButtonIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::Button(_), PropertyId::ButtonHorizontalContentAlignment) => clear_value(
+            handle,
+            bindings::Control::HorizontalContentAlignmentProperty,
+        ),
+        (Handle::Button(_), PropertyId::ButtonVerticalContentAlignment) => {
+            clear_value(handle, bindings::Control::VerticalContentAlignmentProperty)
+        }
         (Handle::Button(_), PropertyId::ButtonResources) => Err(RuntimeError::UnsupportedKind),
-        (Handle::Button(_), PropertyId::ButtonStyle) => dependency_object
-            .ClearValue(&bindings::FrameworkElement::StyleProperty().map_err(native_error)?)
-            .map_err(native_error),
+        (Handle::Button(_), PropertyId::ButtonStyle) => {
+            clear_value(handle, bindings::FrameworkElement::StyleProperty)
+        }
         (Handle::Button(_), PropertyId::ButtonKeyboardAccelerators) => {
             Err(RuntimeError::UnsupportedKind)
         }
-        (Handle::HyperlinkButton(_), PropertyId::HyperlinkButtonNavigateUri) => dependency_object
-            .ClearValue(&bindings::HyperlinkButton::NavigateUriProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::HyperlinkButton(_), PropertyId::HyperlinkButtonIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RepeatButton(_), PropertyId::RepeatButtonDelay) => dependency_object
-            .ClearValue(&bindings::RepeatButton::DelayProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RepeatButton(_), PropertyId::RepeatButtonInterval) => dependency_object
-            .ClearValue(&bindings::RepeatButton::IntervalProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RepeatButton(_), PropertyId::RepeatButtonIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Border(_), PropertyId::BorderIsTabStop) => dependency_object
-            .ClearValue(&bindings::UIElement::IsTabStopProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Border(_), PropertyId::BorderAllowFocusOnInteraction) => dependency_object
-            .ClearValue(
-                &bindings::FrameworkElement::AllowFocusOnInteractionProperty()
-                    .map_err(native_error)?,
-            )
-            .map_err(native_error),
-        (Handle::Border(_), PropertyId::BorderPadding) => dependency_object
-            .ClearValue(&bindings::Border::PaddingProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Border(_), PropertyId::BorderBorderThickness) => dependency_object
-            .ClearValue(&bindings::Border::BorderThicknessProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Border(_), PropertyId::BorderCornerRadius) => dependency_object
-            .ClearValue(&bindings::Border::CornerRadiusProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Border(_), PropertyId::BorderBackground) => dependency_object
-            .ClearValue(&bindings::Border::BackgroundProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Border(_), PropertyId::BorderBorderBrush) => dependency_object
-            .ClearValue(&bindings::Border::BorderBrushProperty().map_err(native_error)?)
-            .map_err(native_error),
+        (Handle::HyperlinkButton(_), PropertyId::HyperlinkButtonNavigateUri) => {
+            clear_value(handle, bindings::HyperlinkButton::NavigateUriProperty)
+        }
+        (Handle::HyperlinkButton(_), PropertyId::HyperlinkButtonIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::RepeatButton(_), PropertyId::RepeatButtonDelay) => {
+            clear_value(handle, bindings::RepeatButton::DelayProperty)
+        }
+        (Handle::RepeatButton(_), PropertyId::RepeatButtonInterval) => {
+            clear_value(handle, bindings::RepeatButton::IntervalProperty)
+        }
+        (Handle::RepeatButton(_), PropertyId::RepeatButtonIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::Border(_), PropertyId::BorderIsTabStop) => {
+            clear_value(handle, bindings::UIElement::IsTabStopProperty)
+        }
+        (Handle::Border(_), PropertyId::BorderAllowFocusOnInteraction) => clear_value(
+            handle,
+            bindings::FrameworkElement::AllowFocusOnInteractionProperty,
+        ),
+        (Handle::Border(_), PropertyId::BorderPadding) => {
+            clear_value(handle, bindings::Border::PaddingProperty)
+        }
+        (Handle::Border(_), PropertyId::BorderBorderThickness) => {
+            clear_value(handle, bindings::Border::BorderThicknessProperty)
+        }
+        (Handle::Border(_), PropertyId::BorderCornerRadius) => {
+            clear_value(handle, bindings::Border::CornerRadiusProperty)
+        }
+        (Handle::Border(_), PropertyId::BorderBackground) => {
+            clear_value(handle, bindings::Border::BackgroundProperty)
+        }
+        (Handle::Border(_), PropertyId::BorderBorderBrush) => {
+            clear_value(handle, bindings::Border::BorderBrushProperty)
+        }
         (Handle::Border(control), PropertyId::BorderOpacityTransition) => control
             .cast::<IUIElement>()
             .map_err(native_error)?
@@ -3090,734 +3007,647 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
             Err(RuntimeError::UnsupportedKind)
         }
         (Handle::Border(_), PropertyId::BorderAllowDrop) => Err(RuntimeError::UnsupportedKind),
-        (Handle::BreadcrumbBar(_), PropertyId::BreadcrumbBarItemsSource) => dependency_object
-            .ClearValue(&bindings::BreadcrumbBar::ItemsSourceProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::StackPanel(_), PropertyId::StackPanelOrientation) => dependency_object
-            .ClearValue(&bindings::StackPanel::OrientationProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::StackPanel(_), PropertyId::StackPanelSpacing) => dependency_object
-            .ClearValue(&bindings::StackPanel::SpacingProperty().map_err(native_error)?)
-            .map_err(native_error),
+        (Handle::BreadcrumbBar(_), PropertyId::BreadcrumbBarItemsSource) => {
+            clear_value(handle, bindings::BreadcrumbBar::ItemsSourceProperty)
+        }
+        (Handle::StackPanel(_), PropertyId::StackPanelOrientation) => {
+            clear_value(handle, bindings::StackPanel::OrientationProperty)
+        }
+        (Handle::StackPanel(_), PropertyId::StackPanelSpacing) => {
+            clear_value(handle, bindings::StackPanel::SpacingProperty)
+        }
         (Handle::VariableSizedWrapGrid(_), PropertyId::VariableSizedWrapGridItemWidth) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::VariableSizedWrapGrid::ItemWidthProperty().map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(handle, bindings::VariableSizedWrapGrid::ItemWidthProperty)
         }
         (Handle::VariableSizedWrapGrid(_), PropertyId::VariableSizedWrapGridItemHeight) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::VariableSizedWrapGrid::ItemHeightProperty().map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(handle, bindings::VariableSizedWrapGrid::ItemHeightProperty)
         }
         (Handle::VariableSizedWrapGrid(_), PropertyId::VariableSizedWrapGridOrientation) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::VariableSizedWrapGrid::OrientationProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(handle, bindings::VariableSizedWrapGrid::OrientationProperty)
         }
-        (Handle::Grid(_), PropertyId::GridRowSpacing) => dependency_object
-            .ClearValue(&bindings::Grid::RowSpacingProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Grid(_), PropertyId::GridColumnSpacing) => dependency_object
-            .ClearValue(&bindings::Grid::ColumnSpacingProperty().map_err(native_error)?)
-            .map_err(native_error),
+        (Handle::Grid(_), PropertyId::GridRowSpacing) => {
+            clear_value(handle, bindings::Grid::RowSpacingProperty)
+        }
+        (Handle::Grid(_), PropertyId::GridColumnSpacing) => {
+            clear_value(handle, bindings::Grid::ColumnSpacingProperty)
+        }
         (Handle::Grid(_), PropertyId::GridKeyboardAccelerators) => {
             Err(RuntimeError::UnsupportedKind)
         }
-        (Handle::Grid(_), PropertyId::GridBackground) => dependency_object
-            .ClearValue(&bindings::Panel::BackgroundProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TextBox(_), PropertyId::TextBoxText) => dependency_object
-            .ClearValue(&bindings::TextBox::TextProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TextBox(_), PropertyId::TextBoxPlaceholderText) => dependency_object
-            .ClearValue(&bindings::TextBox::PlaceholderTextProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TextBox(_), PropertyId::TextBoxIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TextBox(_), PropertyId::TextBoxAcceptsReturn) => dependency_object
-            .ClearValue(&bindings::TextBox::AcceptsReturnProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TextBox(_), PropertyId::TextBoxTextWrapping) => dependency_object
-            .ClearValue(&bindings::TextBox::TextWrappingProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TextBox(_), PropertyId::TextBoxBackground) => dependency_object
-            .ClearValue(&bindings::Control::BackgroundProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TextBox(_), PropertyId::TextBoxBorderBrush) => dependency_object
-            .ClearValue(&bindings::Control::BorderBrushProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TextBox(_), PropertyId::TextBoxBorderThickness) => dependency_object
-            .ClearValue(&bindings::Control::BorderThicknessProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::AutoSuggestBox(_), PropertyId::AutoSuggestBoxText) => dependency_object
-            .ClearValue(&bindings::AutoSuggestBox::TextProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::AutoSuggestBox(_), PropertyId::AutoSuggestBoxItemsSource) => dependency_object
-            .ClearValue(&bindings::ItemsControl::ItemsSourceProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::AutoSuggestBox(_), PropertyId::AutoSuggestBoxPlaceholderText) => dependency_object
-            .ClearValue(&bindings::AutoSuggestBox::PlaceholderTextProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::AutoSuggestBox(_), PropertyId::AutoSuggestBoxIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::PasswordBox(_), PropertyId::PasswordBoxPassword) => dependency_object
-            .ClearValue(&bindings::PasswordBox::PasswordProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::PasswordBox(_), PropertyId::PasswordBoxPlaceholderText) => dependency_object
-            .ClearValue(&bindings::PasswordBox::PlaceholderTextProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::PasswordBox(_), PropertyId::PasswordBoxPasswordRevealMode) => dependency_object
-            .ClearValue(&bindings::PasswordBox::PasswordRevealModeProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::PasswordBox(_), PropertyId::PasswordBoxIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::NumberBox(_), PropertyId::NumberBoxMinimum) => dependency_object
-            .ClearValue(&bindings::NumberBox::MinimumProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::NumberBox(_), PropertyId::NumberBoxMaximum) => dependency_object
-            .ClearValue(&bindings::NumberBox::MaximumProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::NumberBox(_), PropertyId::NumberBoxValue) => dependency_object
-            .ClearValue(&bindings::NumberBox::ValueProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::NumberBox(_), PropertyId::NumberBoxIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Slider(_), PropertyId::SliderMinimum) => dependency_object
-            .ClearValue(&bindings::RangeBase::MinimumProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Slider(_), PropertyId::SliderMaximum) => dependency_object
-            .ClearValue(&bindings::RangeBase::MaximumProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Slider(_), PropertyId::SliderValue) => dependency_object
-            .ClearValue(&bindings::RangeBase::ValueProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Slider(_), PropertyId::SliderIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Slider(_), PropertyId::SliderStepFrequency) => dependency_object
-            .ClearValue(&bindings::Slider::StepFrequencyProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Slider(_), PropertyId::SliderOrientation) => dependency_object
-            .ClearValue(&bindings::Slider::OrientationProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TitleBar(_), PropertyId::TitleBarTitle) => dependency_object
-            .ClearValue(&bindings::TitleBar::TitleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TitleBar(_), PropertyId::TitleBarSubtitle) => dependency_object
-            .ClearValue(&bindings::TitleBar::SubtitleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TitleBar(_), PropertyId::TitleBarIsBackButtonVisible) => dependency_object
-            .ClearValue(&bindings::TitleBar::IsBackButtonVisibleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TitleBar(_), PropertyId::TitleBarIsBackButtonEnabled) => dependency_object
-            .ClearValue(&bindings::TitleBar::IsBackButtonEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TitleBar(_), PropertyId::TitleBarIsPaneToggleButtonVisible) => dependency_object
-            .ClearValue(
-                &bindings::TitleBar::IsPaneToggleButtonVisibleProperty().map_err(native_error)?,
-            )
-            .map_err(native_error),
-        (Handle::NavigationView(_), PropertyId::NavigationViewIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::NavigationView(_), PropertyId::NavigationViewPaneDisplayMode) => dependency_object
-            .ClearValue(&bindings::NavigationView::PaneDisplayModeProperty().map_err(native_error)?)
-            .map_err(native_error),
+        (Handle::Grid(_), PropertyId::GridBackground) => {
+            clear_value(handle, bindings::Panel::BackgroundProperty)
+        }
+        (Handle::TextBox(_), PropertyId::TextBoxText) => {
+            clear_value(handle, bindings::TextBox::TextProperty)
+        }
+        (Handle::TextBox(_), PropertyId::TextBoxPlaceholderText) => {
+            clear_value(handle, bindings::TextBox::PlaceholderTextProperty)
+        }
+        (Handle::TextBox(_), PropertyId::TextBoxIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::TextBox(_), PropertyId::TextBoxAcceptsReturn) => {
+            clear_value(handle, bindings::TextBox::AcceptsReturnProperty)
+        }
+        (Handle::TextBox(_), PropertyId::TextBoxTextWrapping) => {
+            clear_value(handle, bindings::TextBox::TextWrappingProperty)
+        }
+        (Handle::TextBox(_), PropertyId::TextBoxBackground) => {
+            clear_value(handle, bindings::Control::BackgroundProperty)
+        }
+        (Handle::TextBox(_), PropertyId::TextBoxBorderBrush) => {
+            clear_value(handle, bindings::Control::BorderBrushProperty)
+        }
+        (Handle::TextBox(_), PropertyId::TextBoxBorderThickness) => {
+            clear_value(handle, bindings::Control::BorderThicknessProperty)
+        }
+        (Handle::AutoSuggestBox(_), PropertyId::AutoSuggestBoxText) => {
+            clear_value(handle, bindings::AutoSuggestBox::TextProperty)
+        }
+        (Handle::AutoSuggestBox(_), PropertyId::AutoSuggestBoxItemsSource) => {
+            clear_value(handle, bindings::ItemsControl::ItemsSourceProperty)
+        }
+        (Handle::AutoSuggestBox(_), PropertyId::AutoSuggestBoxPlaceholderText) => {
+            clear_value(handle, bindings::AutoSuggestBox::PlaceholderTextProperty)
+        }
+        (Handle::AutoSuggestBox(_), PropertyId::AutoSuggestBoxIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::PasswordBox(_), PropertyId::PasswordBoxPassword) => {
+            clear_value(handle, bindings::PasswordBox::PasswordProperty)
+        }
+        (Handle::PasswordBox(_), PropertyId::PasswordBoxPlaceholderText) => {
+            clear_value(handle, bindings::PasswordBox::PlaceholderTextProperty)
+        }
+        (Handle::PasswordBox(_), PropertyId::PasswordBoxPasswordRevealMode) => {
+            clear_value(handle, bindings::PasswordBox::PasswordRevealModeProperty)
+        }
+        (Handle::PasswordBox(_), PropertyId::PasswordBoxIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::NumberBox(_), PropertyId::NumberBoxMinimum) => {
+            clear_value(handle, bindings::NumberBox::MinimumProperty)
+        }
+        (Handle::NumberBox(_), PropertyId::NumberBoxMaximum) => {
+            clear_value(handle, bindings::NumberBox::MaximumProperty)
+        }
+        (Handle::NumberBox(_), PropertyId::NumberBoxValue) => {
+            clear_value(handle, bindings::NumberBox::ValueProperty)
+        }
+        (Handle::NumberBox(_), PropertyId::NumberBoxIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::Slider(_), PropertyId::SliderMinimum) => {
+            clear_value(handle, bindings::RangeBase::MinimumProperty)
+        }
+        (Handle::Slider(_), PropertyId::SliderMaximum) => {
+            clear_value(handle, bindings::RangeBase::MaximumProperty)
+        }
+        (Handle::Slider(_), PropertyId::SliderValue) => {
+            clear_value(handle, bindings::RangeBase::ValueProperty)
+        }
+        (Handle::Slider(_), PropertyId::SliderIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::Slider(_), PropertyId::SliderStepFrequency) => {
+            clear_value(handle, bindings::Slider::StepFrequencyProperty)
+        }
+        (Handle::Slider(_), PropertyId::SliderOrientation) => {
+            clear_value(handle, bindings::Slider::OrientationProperty)
+        }
+        (Handle::TitleBar(_), PropertyId::TitleBarTitle) => {
+            clear_value(handle, bindings::TitleBar::TitleProperty)
+        }
+        (Handle::TitleBar(_), PropertyId::TitleBarSubtitle) => {
+            clear_value(handle, bindings::TitleBar::SubtitleProperty)
+        }
+        (Handle::TitleBar(_), PropertyId::TitleBarIsBackButtonVisible) => {
+            clear_value(handle, bindings::TitleBar::IsBackButtonVisibleProperty)
+        }
+        (Handle::TitleBar(_), PropertyId::TitleBarIsBackButtonEnabled) => {
+            clear_value(handle, bindings::TitleBar::IsBackButtonEnabledProperty)
+        }
+        (Handle::TitleBar(_), PropertyId::TitleBarIsPaneToggleButtonVisible) => clear_value(
+            handle,
+            bindings::TitleBar::IsPaneToggleButtonVisibleProperty,
+        ),
+        (Handle::NavigationView(_), PropertyId::NavigationViewIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::NavigationView(_), PropertyId::NavigationViewPaneDisplayMode) => {
+            clear_value(handle, bindings::NavigationView::PaneDisplayModeProperty)
+        }
         (Handle::NavigationView(_), PropertyId::NavigationViewIsPaneToggleButtonVisible) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::NavigationView::IsPaneToggleButtonVisibleProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(
+                handle,
+                bindings::NavigationView::IsPaneToggleButtonVisibleProperty,
+            )
         }
-        (Handle::NavigationView(_), PropertyId::NavigationViewIsBackButtonVisible) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::NavigationView::IsBackButtonVisibleProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
-        }
+        (Handle::NavigationView(_), PropertyId::NavigationViewIsBackButtonVisible) => clear_value(
+            handle,
+            bindings::NavigationView::IsBackButtonVisibleProperty,
+        ),
         (Handle::NavigationView(_), PropertyId::NavigationViewIsSettingsVisible) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::NavigationView::IsSettingsVisibleProperty().map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(handle, bindings::NavigationView::IsSettingsVisibleProperty)
         }
         (Handle::NavigationView(_), PropertyId::NavigationViewAlwaysShowHeader) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::NavigationView::AlwaysShowHeaderProperty().map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(handle, bindings::NavigationView::AlwaysShowHeaderProperty)
         }
-        (Handle::NavigationView(_), PropertyId::NavigationViewPaneTitle) => dependency_object
-            .ClearValue(&bindings::NavigationView::PaneTitleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::NavigationView(_), PropertyId::NavigationViewOpenPaneLength) => dependency_object
-            .ClearValue(&bindings::NavigationView::OpenPaneLengthProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::NavigationView(_), PropertyId::NavigationViewIsPaneOpen) => dependency_object
-            .ClearValue(&bindings::NavigationView::IsPaneOpenProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::NavigationViewItem(_), PropertyId::NavigationViewItemTag) => dependency_object
-            .ClearValue(&bindings::FrameworkElement::TagProperty().map_err(native_error)?)
-            .map_err(native_error),
+        (Handle::NavigationView(_), PropertyId::NavigationViewPaneTitle) => {
+            clear_value(handle, bindings::NavigationView::PaneTitleProperty)
+        }
+        (Handle::NavigationView(_), PropertyId::NavigationViewOpenPaneLength) => {
+            clear_value(handle, bindings::NavigationView::OpenPaneLengthProperty)
+        }
+        (Handle::NavigationView(_), PropertyId::NavigationViewIsPaneOpen) => {
+            clear_value(handle, bindings::NavigationView::IsPaneOpenProperty)
+        }
+        (Handle::NavigationViewItem(_), PropertyId::NavigationViewItemTag) => {
+            clear_value(handle, bindings::FrameworkElement::TagProperty)
+        }
         (Handle::NavigationViewItem(_), PropertyId::NavigationViewItemIsSelected) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::NavigationViewItemBase::IsSelectedProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(handle, bindings::NavigationViewItemBase::IsSelectedProperty)
         }
         (Handle::NavigationViewItem(_), PropertyId::NavigationViewItemSelectsOnInvoked) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::NavigationViewItem::SelectsOnInvokedProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(
+                handle,
+                bindings::NavigationViewItem::SelectsOnInvokedProperty,
+            )
         }
         (Handle::NavigationViewItem(_), PropertyId::NavigationViewItemIsExpanded) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::NavigationViewItem::IsExpandedProperty().map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(handle, bindings::NavigationViewItem::IsExpandedProperty)
         }
-        (Handle::SplitView(_), PropertyId::SplitViewOpenPaneLength) => dependency_object
-            .ClearValue(&bindings::SplitView::OpenPaneLengthProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::SplitView(_), PropertyId::SplitViewCompactPaneLength) => dependency_object
-            .ClearValue(&bindings::SplitView::CompactPaneLengthProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::SplitView(_), PropertyId::SplitViewDisplayMode) => dependency_object
-            .ClearValue(&bindings::SplitView::DisplayModeProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::SplitView(_), PropertyId::SplitViewIsPaneOpen) => dependency_object
-            .ClearValue(&bindings::SplitView::IsPaneOpenProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ProgressBar(_), PropertyId::ProgressBarMinimum) => dependency_object
-            .ClearValue(&bindings::RangeBase::MinimumProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ProgressBar(_), PropertyId::ProgressBarMaximum) => dependency_object
-            .ClearValue(&bindings::RangeBase::MaximumProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ProgressBar(_), PropertyId::ProgressBarValue) => dependency_object
-            .ClearValue(&bindings::RangeBase::ValueProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ProgressBar(_), PropertyId::ProgressBarIsIndeterminate) => dependency_object
-            .ClearValue(&bindings::ProgressBar::IsIndeterminateProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ProgressBar(_), PropertyId::ProgressBarShowError) => dependency_object
-            .ClearValue(&bindings::ProgressBar::ShowErrorProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ProgressBar(_), PropertyId::ProgressBarShowPaused) => dependency_object
-            .ClearValue(&bindings::ProgressBar::ShowPausedProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ProgressBar(_), PropertyId::ProgressBarIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ToggleSwitch(_), PropertyId::ToggleSwitchIsOn) => dependency_object
-            .ClearValue(&bindings::ToggleSwitch::IsOnProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ToggleSwitch(_), PropertyId::ToggleSwitchIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::CheckBox(_), PropertyId::CheckBoxIsChecked) => dependency_object
-            .ClearValue(&bindings::ToggleButton::IsCheckedProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::CheckBox(_), PropertyId::CheckBoxIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ToggleButton(_), PropertyId::ToggleButtonIsChecked) => dependency_object
-            .ClearValue(&bindings::ToggleButton::IsCheckedProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ToggleButton(_), PropertyId::ToggleButtonIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RadioButton(_), PropertyId::RadioButtonGroupName) => dependency_object
-            .ClearValue(&bindings::RadioButton::GroupNameProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RadioButton(_), PropertyId::RadioButtonIsChecked) => dependency_object
-            .ClearValue(&bindings::ToggleButton::IsCheckedProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RadioButton(_), PropertyId::RadioButtonIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RadioButtons(_), PropertyId::RadioButtonsItemsSource) => dependency_object
-            .ClearValue(&bindings::RadioButtons::ItemsSourceProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RadioButtons(_), PropertyId::RadioButtonsSelectedIndex) => dependency_object
-            .ClearValue(&bindings::RadioButtons::SelectedIndexProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RadioButtons(_), PropertyId::RadioButtonsMaxColumns) => dependency_object
-            .ClearValue(&bindings::RadioButtons::MaxColumnsProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::InfoBadge(_), PropertyId::InfoBadgeValue) => dependency_object
-            .ClearValue(&bindings::InfoBadge::ValueProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::InfoBar(_), PropertyId::InfoBarTitle) => dependency_object
-            .ClearValue(&bindings::InfoBar::TitleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::InfoBar(_), PropertyId::InfoBarMessage) => dependency_object
-            .ClearValue(&bindings::InfoBar::MessageProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::InfoBar(_), PropertyId::InfoBarSeverity) => dependency_object
-            .ClearValue(&bindings::InfoBar::SeverityProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::InfoBar(_), PropertyId::InfoBarIsOpen) => dependency_object
-            .ClearValue(&bindings::InfoBar::IsOpenProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::InfoBar(_), PropertyId::InfoBarIsClosable) => dependency_object
-            .ClearValue(&bindings::InfoBar::IsClosableProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::PersonPicture(_), PropertyId::PersonPictureDisplayName) => dependency_object
-            .ClearValue(&bindings::PersonPicture::DisplayNameProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::PersonPicture(_), PropertyId::PersonPictureInitials) => dependency_object
-            .ClearValue(&bindings::PersonPicture::InitialsProperty().map_err(native_error)?)
-            .map_err(native_error),
+        (Handle::SplitView(_), PropertyId::SplitViewOpenPaneLength) => {
+            clear_value(handle, bindings::SplitView::OpenPaneLengthProperty)
+        }
+        (Handle::SplitView(_), PropertyId::SplitViewCompactPaneLength) => {
+            clear_value(handle, bindings::SplitView::CompactPaneLengthProperty)
+        }
+        (Handle::SplitView(_), PropertyId::SplitViewDisplayMode) => {
+            clear_value(handle, bindings::SplitView::DisplayModeProperty)
+        }
+        (Handle::SplitView(_), PropertyId::SplitViewIsPaneOpen) => {
+            clear_value(handle, bindings::SplitView::IsPaneOpenProperty)
+        }
+        (Handle::ProgressBar(_), PropertyId::ProgressBarMinimum) => {
+            clear_value(handle, bindings::RangeBase::MinimumProperty)
+        }
+        (Handle::ProgressBar(_), PropertyId::ProgressBarMaximum) => {
+            clear_value(handle, bindings::RangeBase::MaximumProperty)
+        }
+        (Handle::ProgressBar(_), PropertyId::ProgressBarValue) => {
+            clear_value(handle, bindings::RangeBase::ValueProperty)
+        }
+        (Handle::ProgressBar(_), PropertyId::ProgressBarIsIndeterminate) => {
+            clear_value(handle, bindings::ProgressBar::IsIndeterminateProperty)
+        }
+        (Handle::ProgressBar(_), PropertyId::ProgressBarShowError) => {
+            clear_value(handle, bindings::ProgressBar::ShowErrorProperty)
+        }
+        (Handle::ProgressBar(_), PropertyId::ProgressBarShowPaused) => {
+            clear_value(handle, bindings::ProgressBar::ShowPausedProperty)
+        }
+        (Handle::ProgressBar(_), PropertyId::ProgressBarIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::ToggleSwitch(_), PropertyId::ToggleSwitchIsOn) => {
+            clear_value(handle, bindings::ToggleSwitch::IsOnProperty)
+        }
+        (Handle::ToggleSwitch(_), PropertyId::ToggleSwitchIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::CheckBox(_), PropertyId::CheckBoxIsChecked) => {
+            clear_value(handle, bindings::ToggleButton::IsCheckedProperty)
+        }
+        (Handle::CheckBox(_), PropertyId::CheckBoxIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::ToggleButton(_), PropertyId::ToggleButtonIsChecked) => {
+            clear_value(handle, bindings::ToggleButton::IsCheckedProperty)
+        }
+        (Handle::ToggleButton(_), PropertyId::ToggleButtonIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::RadioButton(_), PropertyId::RadioButtonGroupName) => {
+            clear_value(handle, bindings::RadioButton::GroupNameProperty)
+        }
+        (Handle::RadioButton(_), PropertyId::RadioButtonIsChecked) => {
+            clear_value(handle, bindings::ToggleButton::IsCheckedProperty)
+        }
+        (Handle::RadioButton(_), PropertyId::RadioButtonIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::RadioButtons(_), PropertyId::RadioButtonsItemsSource) => {
+            clear_value(handle, bindings::RadioButtons::ItemsSourceProperty)
+        }
+        (Handle::RadioButtons(_), PropertyId::RadioButtonsSelectedIndex) => {
+            clear_value(handle, bindings::RadioButtons::SelectedIndexProperty)
+        }
+        (Handle::RadioButtons(_), PropertyId::RadioButtonsMaxColumns) => {
+            clear_value(handle, bindings::RadioButtons::MaxColumnsProperty)
+        }
+        (Handle::InfoBadge(_), PropertyId::InfoBadgeValue) => {
+            clear_value(handle, bindings::InfoBadge::ValueProperty)
+        }
+        (Handle::InfoBar(_), PropertyId::InfoBarTitle) => {
+            clear_value(handle, bindings::InfoBar::TitleProperty)
+        }
+        (Handle::InfoBar(_), PropertyId::InfoBarMessage) => {
+            clear_value(handle, bindings::InfoBar::MessageProperty)
+        }
+        (Handle::InfoBar(_), PropertyId::InfoBarSeverity) => {
+            clear_value(handle, bindings::InfoBar::SeverityProperty)
+        }
+        (Handle::InfoBar(_), PropertyId::InfoBarIsOpen) => {
+            clear_value(handle, bindings::InfoBar::IsOpenProperty)
+        }
+        (Handle::InfoBar(_), PropertyId::InfoBarIsClosable) => {
+            clear_value(handle, bindings::InfoBar::IsClosableProperty)
+        }
+        (Handle::PersonPicture(_), PropertyId::PersonPictureDisplayName) => {
+            clear_value(handle, bindings::PersonPicture::DisplayNameProperty)
+        }
+        (Handle::PersonPicture(_), PropertyId::PersonPictureInitials) => {
+            clear_value(handle, bindings::PersonPicture::InitialsProperty)
+        }
         (Handle::ScrollViewer(_), PropertyId::ScrollViewerHorizontalScrollBarVisibility) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::ScrollViewer::HorizontalScrollBarVisibilityProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(
+                handle,
+                bindings::ScrollViewer::HorizontalScrollBarVisibilityProperty,
+            )
         }
         (Handle::ScrollViewer(_), PropertyId::ScrollViewerVerticalScrollBarVisibility) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::ScrollViewer::VerticalScrollBarVisibilityProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(
+                handle,
+                bindings::ScrollViewer::VerticalScrollBarVisibilityProperty,
+            )
         }
         (Handle::ScrollView(_), PropertyId::ScrollViewHorizontalScrollBarVisibility) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::ScrollView::HorizontalScrollBarVisibilityProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(
+                handle,
+                bindings::ScrollView::HorizontalScrollBarVisibilityProperty,
+            )
         }
-        (Handle::ScrollView(_), PropertyId::ScrollViewVerticalScrollBarVisibility) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::ScrollView::VerticalScrollBarVisibilityProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+        (Handle::ScrollView(_), PropertyId::ScrollViewVerticalScrollBarVisibility) => clear_value(
+            handle,
+            bindings::ScrollView::VerticalScrollBarVisibilityProperty,
+        ),
+        (Handle::Image(_), PropertyId::ImageSource) => {
+            clear_value(handle, bindings::Image::SourceProperty)
         }
-        (Handle::Image(_), PropertyId::ImageSource) => dependency_object
-            .ClearValue(&bindings::Image::SourceProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Image(_), PropertyId::ImageStretch) => dependency_object
-            .ClearValue(&bindings::Image::StretchProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ProgressRing(_), PropertyId::ProgressRingMinimum) => dependency_object
-            .ClearValue(&bindings::ProgressRing::MinimumProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ProgressRing(_), PropertyId::ProgressRingMaximum) => dependency_object
-            .ClearValue(&bindings::ProgressRing::MaximumProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ProgressRing(_), PropertyId::ProgressRingValue) => dependency_object
-            .ClearValue(&bindings::ProgressRing::ValueProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ProgressRing(_), PropertyId::ProgressRingIsIndeterminate) => dependency_object
-            .ClearValue(&bindings::ProgressRing::IsIndeterminateProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ProgressRing(_), PropertyId::ProgressRingIsActive) => dependency_object
-            .ClearValue(&bindings::ProgressRing::IsActiveProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ProgressRing(_), PropertyId::ProgressRingIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ListBox(_), PropertyId::ListBoxIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Rectangle(_), PropertyId::RectangleFill) => dependency_object
-            .ClearValue(&bindings::Shape::FillProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Rectangle(_), PropertyId::RectangleStroke) => dependency_object
-            .ClearValue(&bindings::Shape::StrokeProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Rectangle(_), PropertyId::RectangleStrokeThickness) => dependency_object
-            .ClearValue(&bindings::Shape::StrokeThicknessProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Rectangle(_), PropertyId::RectangleRadiusX) => dependency_object
-            .ClearValue(&bindings::Rectangle::RadiusXProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Rectangle(_), PropertyId::RectangleRadiusY) => dependency_object
-            .ClearValue(&bindings::Rectangle::RadiusYProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Ellipse(_), PropertyId::EllipseFill) => dependency_object
-            .ClearValue(&bindings::Shape::FillProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Ellipse(_), PropertyId::EllipseStroke) => dependency_object
-            .ClearValue(&bindings::Shape::StrokeProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Ellipse(_), PropertyId::EllipseStrokeThickness) => dependency_object
-            .ClearValue(&bindings::Shape::StrokeThicknessProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Line(_), PropertyId::LineStroke) => dependency_object
-            .ClearValue(&bindings::Shape::StrokeProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Line(_), PropertyId::LineStrokeThickness) => dependency_object
-            .ClearValue(&bindings::Shape::StrokeThicknessProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Line(_), PropertyId::LineX1) => dependency_object
-            .ClearValue(&bindings::Line::X1Property().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Line(_), PropertyId::LineY1) => dependency_object
-            .ClearValue(&bindings::Line::Y1Property().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Line(_), PropertyId::LineX2) => dependency_object
-            .ClearValue(&bindings::Line::X2Property().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Line(_), PropertyId::LineY2) => dependency_object
-            .ClearValue(&bindings::Line::Y2Property().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::SymbolIcon(_), PropertyId::SymbolIconSymbol) => dependency_object
-            .ClearValue(&bindings::SymbolIcon::SymbolProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ImageIcon(_), PropertyId::ImageIconSource) => dependency_object
-            .ClearValue(&bindings::ImageIcon::SourceProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::FontIcon(_), PropertyId::FontIconGlyph) => dependency_object
-            .ClearValue(&bindings::FontIcon::GlyphProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::BitmapIcon(_), PropertyId::BitmapIconUriSource) => dependency_object
-            .ClearValue(&bindings::BitmapIcon::UriSourceProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::BitmapIcon(_), PropertyId::BitmapIconShowAsMonochrome) => dependency_object
-            .ClearValue(&bindings::BitmapIcon::ShowAsMonochromeProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::PathIcon(_), PropertyId::PathIconData) => dependency_object
-            .ClearValue(&bindings::PathIcon::DataProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ListBoxItem(_), PropertyId::ListBoxItemTag) => dependency_object
-            .ClearValue(&bindings::FrameworkElement::TagProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ListBoxItem(_), PropertyId::ListBoxItemIsSelected) => dependency_object
-            .ClearValue(&bindings::SelectorItem::IsSelectedProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RatingControl(_), PropertyId::RatingControlMaxRating) => dependency_object
-            .ClearValue(&bindings::RatingControl::MaxRatingProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RatingControl(_), PropertyId::RatingControlValue) => dependency_object
-            .ClearValue(&bindings::RatingControl::ValueProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RatingControl(_), PropertyId::RatingControlCaption) => dependency_object
-            .ClearValue(&bindings::RatingControl::CaptionProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RatingControl(_), PropertyId::RatingControlIsReadOnly) => dependency_object
-            .ClearValue(&bindings::RatingControl::IsReadOnlyProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Expander(_), PropertyId::ExpanderIsExpanded) => dependency_object
-            .ClearValue(&bindings::Expander::IsExpandedProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ComboBox(_), PropertyId::ComboBoxItemsSource) => dependency_object
-            .ClearValue(&bindings::ItemsControl::ItemsSourceProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ComboBox(_), PropertyId::ComboBoxSelectedIndex) => dependency_object
-            .ClearValue(&bindings::Selector::SelectedIndexProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ComboBox(_), PropertyId::ComboBoxPlaceholderText) => dependency_object
-            .ClearValue(&bindings::ComboBox::PlaceholderTextProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ComboBox(_), PropertyId::ComboBoxIsEditable) => dependency_object
-            .ClearValue(&bindings::ComboBox::IsEditableProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ComboBox(_), PropertyId::ComboBoxIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Pivot(_), PropertyId::PivotSelectedIndex) => dependency_object
-            .ClearValue(&bindings::Pivot::SelectedIndexProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Pivot(_), PropertyId::PivotTitle) => dependency_object
-            .ClearValue(&bindings::Pivot::TitleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::PivotItem(_), PropertyId::PivotItemHeader) => dependency_object
-            .ClearValue(&bindings::PivotItem::HeaderProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::FlipView(_), PropertyId::FlipViewSelectedIndex) => dependency_object
-            .ClearValue(&bindings::Selector::SelectedIndexProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::SelectorBarItem(_), PropertyId::SelectorBarItemText) => dependency_object
-            .ClearValue(&bindings::SelectorBarItem::TextProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::SelectorBarItem(_), PropertyId::SelectorBarItemIsSelected) => dependency_object
-            .ClearValue(&bindings::ItemContainer::IsSelectedProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TabView(_), PropertyId::TabViewSelectedIndex) => dependency_object
-            .ClearValue(&bindings::TabView::SelectedIndexProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TabView(_), PropertyId::TabViewCanReorderTabs) => dependency_object
-            .ClearValue(&bindings::TabView::CanReorderTabsProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TabView(_), PropertyId::TabViewIsAddTabButtonVisible) => dependency_object
-            .ClearValue(&bindings::TabView::IsAddTabButtonVisibleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TabViewItem(_), PropertyId::TabViewItemHeader) => dependency_object
-            .ClearValue(&bindings::TabViewItem::HeaderProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TabViewItem(_), PropertyId::TabViewItemIsClosable) => dependency_object
-            .ClearValue(&bindings::TabViewItem::IsClosableProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TabViewItem(_), PropertyId::TabViewItemTag) => dependency_object
-            .ClearValue(&bindings::FrameworkElement::TagProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TeachingTip(_), PropertyId::TeachingTipTitle) => dependency_object
-            .ClearValue(&bindings::TeachingTip::TitleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TeachingTip(_), PropertyId::TeachingTipSubtitle) => dependency_object
-            .ClearValue(&bindings::TeachingTip::SubtitleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TeachingTip(_), PropertyId::TeachingTipIsOpen) => dependency_object
-            .ClearValue(&bindings::TeachingTip::IsOpenProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TeachingTip(_), PropertyId::TeachingTipIsLightDismissEnabled) => dependency_object
-            .ClearValue(
-                &bindings::TeachingTip::IsLightDismissEnabledProperty().map_err(native_error)?,
-            )
-            .map_err(native_error),
-        (Handle::TeachingTip(_), PropertyId::TeachingTipPreferredPlacement) => dependency_object
-            .ClearValue(&bindings::TeachingTip::PreferredPlacementProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TeachingTip(_), PropertyId::TeachingTipActionButtonContent) => dependency_object
-            .ClearValue(
-                &bindings::TeachingTip::ActionButtonContentProperty().map_err(native_error)?,
-            )
-            .map_err(native_error),
-        (Handle::TeachingTip(_), PropertyId::TeachingTipCloseButtonContent) => dependency_object
-            .ClearValue(&bindings::TeachingTip::CloseButtonContentProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::DropDownButton(_), PropertyId::DropDownButtonIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::AppBarButton(_), PropertyId::AppBarButtonLabel) => dependency_object
-            .ClearValue(&bindings::AppBarButton::LabelProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::AppBarButton(_), PropertyId::AppBarButtonIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::MenuBarItem(_), PropertyId::MenuBarItemTitle) => dependency_object
-            .ClearValue(&bindings::MenuBarItem::TitleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::SplitButton(_), PropertyId::SplitButtonIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ColorPicker(_), PropertyId::ColorPickerColor) => dependency_object
-            .ClearValue(&bindings::ColorPicker::ColorProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ColorPicker(_), PropertyId::ColorPickerIsAlphaEnabled) => dependency_object
-            .ClearValue(&bindings::ColorPicker::IsAlphaEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ColorPicker(_), PropertyId::ColorPickerIsHexInputVisible) => dependency_object
-            .ClearValue(&bindings::ColorPicker::IsHexInputVisibleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ColorPicker(_), PropertyId::ColorPickerIsColorSliderVisible) => dependency_object
-            .ClearValue(
-                &bindings::ColorPicker::IsColorSliderVisibleProperty().map_err(native_error)?,
-            )
-            .map_err(native_error),
+        (Handle::Image(_), PropertyId::ImageStretch) => {
+            clear_value(handle, bindings::Image::StretchProperty)
+        }
+        (Handle::ProgressRing(_), PropertyId::ProgressRingMinimum) => {
+            clear_value(handle, bindings::ProgressRing::MinimumProperty)
+        }
+        (Handle::ProgressRing(_), PropertyId::ProgressRingMaximum) => {
+            clear_value(handle, bindings::ProgressRing::MaximumProperty)
+        }
+        (Handle::ProgressRing(_), PropertyId::ProgressRingValue) => {
+            clear_value(handle, bindings::ProgressRing::ValueProperty)
+        }
+        (Handle::ProgressRing(_), PropertyId::ProgressRingIsIndeterminate) => {
+            clear_value(handle, bindings::ProgressRing::IsIndeterminateProperty)
+        }
+        (Handle::ProgressRing(_), PropertyId::ProgressRingIsActive) => {
+            clear_value(handle, bindings::ProgressRing::IsActiveProperty)
+        }
+        (Handle::ProgressRing(_), PropertyId::ProgressRingIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::ListBox(_), PropertyId::ListBoxIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::Rectangle(_), PropertyId::RectangleFill) => {
+            clear_value(handle, bindings::Shape::FillProperty)
+        }
+        (Handle::Rectangle(_), PropertyId::RectangleStroke) => {
+            clear_value(handle, bindings::Shape::StrokeProperty)
+        }
+        (Handle::Rectangle(_), PropertyId::RectangleStrokeThickness) => {
+            clear_value(handle, bindings::Shape::StrokeThicknessProperty)
+        }
+        (Handle::Rectangle(_), PropertyId::RectangleRadiusX) => {
+            clear_value(handle, bindings::Rectangle::RadiusXProperty)
+        }
+        (Handle::Rectangle(_), PropertyId::RectangleRadiusY) => {
+            clear_value(handle, bindings::Rectangle::RadiusYProperty)
+        }
+        (Handle::Ellipse(_), PropertyId::EllipseFill) => {
+            clear_value(handle, bindings::Shape::FillProperty)
+        }
+        (Handle::Ellipse(_), PropertyId::EllipseStroke) => {
+            clear_value(handle, bindings::Shape::StrokeProperty)
+        }
+        (Handle::Ellipse(_), PropertyId::EllipseStrokeThickness) => {
+            clear_value(handle, bindings::Shape::StrokeThicknessProperty)
+        }
+        (Handle::Line(_), PropertyId::LineStroke) => {
+            clear_value(handle, bindings::Shape::StrokeProperty)
+        }
+        (Handle::Line(_), PropertyId::LineStrokeThickness) => {
+            clear_value(handle, bindings::Shape::StrokeThicknessProperty)
+        }
+        (Handle::Line(_), PropertyId::LineX1) => clear_value(handle, bindings::Line::X1Property),
+        (Handle::Line(_), PropertyId::LineY1) => clear_value(handle, bindings::Line::Y1Property),
+        (Handle::Line(_), PropertyId::LineX2) => clear_value(handle, bindings::Line::X2Property),
+        (Handle::Line(_), PropertyId::LineY2) => clear_value(handle, bindings::Line::Y2Property),
+        (Handle::SymbolIcon(_), PropertyId::SymbolIconSymbol) => {
+            clear_value(handle, bindings::SymbolIcon::SymbolProperty)
+        }
+        (Handle::ImageIcon(_), PropertyId::ImageIconSource) => {
+            clear_value(handle, bindings::ImageIcon::SourceProperty)
+        }
+        (Handle::FontIcon(_), PropertyId::FontIconGlyph) => {
+            clear_value(handle, bindings::FontIcon::GlyphProperty)
+        }
+        (Handle::BitmapIcon(_), PropertyId::BitmapIconUriSource) => {
+            clear_value(handle, bindings::BitmapIcon::UriSourceProperty)
+        }
+        (Handle::BitmapIcon(_), PropertyId::BitmapIconShowAsMonochrome) => {
+            clear_value(handle, bindings::BitmapIcon::ShowAsMonochromeProperty)
+        }
+        (Handle::PathIcon(_), PropertyId::PathIconData) => {
+            clear_value(handle, bindings::PathIcon::DataProperty)
+        }
+        (Handle::ListBoxItem(_), PropertyId::ListBoxItemTag) => {
+            clear_value(handle, bindings::FrameworkElement::TagProperty)
+        }
+        (Handle::ListBoxItem(_), PropertyId::ListBoxItemIsSelected) => {
+            clear_value(handle, bindings::SelectorItem::IsSelectedProperty)
+        }
+        (Handle::RatingControl(_), PropertyId::RatingControlMaxRating) => {
+            clear_value(handle, bindings::RatingControl::MaxRatingProperty)
+        }
+        (Handle::RatingControl(_), PropertyId::RatingControlValue) => {
+            clear_value(handle, bindings::RatingControl::ValueProperty)
+        }
+        (Handle::RatingControl(_), PropertyId::RatingControlCaption) => {
+            clear_value(handle, bindings::RatingControl::CaptionProperty)
+        }
+        (Handle::RatingControl(_), PropertyId::RatingControlIsReadOnly) => {
+            clear_value(handle, bindings::RatingControl::IsReadOnlyProperty)
+        }
+        (Handle::Expander(_), PropertyId::ExpanderIsExpanded) => {
+            clear_value(handle, bindings::Expander::IsExpandedProperty)
+        }
+        (Handle::ComboBox(_), PropertyId::ComboBoxItemsSource) => {
+            clear_value(handle, bindings::ItemsControl::ItemsSourceProperty)
+        }
+        (Handle::ComboBox(_), PropertyId::ComboBoxSelectedIndex) => {
+            clear_value(handle, bindings::Selector::SelectedIndexProperty)
+        }
+        (Handle::ComboBox(_), PropertyId::ComboBoxPlaceholderText) => {
+            clear_value(handle, bindings::ComboBox::PlaceholderTextProperty)
+        }
+        (Handle::ComboBox(_), PropertyId::ComboBoxIsEditable) => {
+            clear_value(handle, bindings::ComboBox::IsEditableProperty)
+        }
+        (Handle::ComboBox(_), PropertyId::ComboBoxIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::Pivot(_), PropertyId::PivotSelectedIndex) => {
+            clear_value(handle, bindings::Pivot::SelectedIndexProperty)
+        }
+        (Handle::Pivot(_), PropertyId::PivotTitle) => {
+            clear_value(handle, bindings::Pivot::TitleProperty)
+        }
+        (Handle::PivotItem(_), PropertyId::PivotItemHeader) => {
+            clear_value(handle, bindings::PivotItem::HeaderProperty)
+        }
+        (Handle::FlipView(_), PropertyId::FlipViewSelectedIndex) => {
+            clear_value(handle, bindings::Selector::SelectedIndexProperty)
+        }
+        (Handle::SelectorBarItem(_), PropertyId::SelectorBarItemText) => {
+            clear_value(handle, bindings::SelectorBarItem::TextProperty)
+        }
+        (Handle::SelectorBarItem(_), PropertyId::SelectorBarItemIsSelected) => {
+            clear_value(handle, bindings::ItemContainer::IsSelectedProperty)
+        }
+        (Handle::TabView(_), PropertyId::TabViewSelectedIndex) => {
+            clear_value(handle, bindings::TabView::SelectedIndexProperty)
+        }
+        (Handle::TabView(_), PropertyId::TabViewCanReorderTabs) => {
+            clear_value(handle, bindings::TabView::CanReorderTabsProperty)
+        }
+        (Handle::TabView(_), PropertyId::TabViewIsAddTabButtonVisible) => {
+            clear_value(handle, bindings::TabView::IsAddTabButtonVisibleProperty)
+        }
+        (Handle::TabViewItem(_), PropertyId::TabViewItemHeader) => {
+            clear_value(handle, bindings::TabViewItem::HeaderProperty)
+        }
+        (Handle::TabViewItem(_), PropertyId::TabViewItemIsClosable) => {
+            clear_value(handle, bindings::TabViewItem::IsClosableProperty)
+        }
+        (Handle::TabViewItem(_), PropertyId::TabViewItemTag) => {
+            clear_value(handle, bindings::FrameworkElement::TagProperty)
+        }
+        (Handle::TeachingTip(_), PropertyId::TeachingTipTitle) => {
+            clear_value(handle, bindings::TeachingTip::TitleProperty)
+        }
+        (Handle::TeachingTip(_), PropertyId::TeachingTipSubtitle) => {
+            clear_value(handle, bindings::TeachingTip::SubtitleProperty)
+        }
+        (Handle::TeachingTip(_), PropertyId::TeachingTipIsOpen) => {
+            clear_value(handle, bindings::TeachingTip::IsOpenProperty)
+        }
+        (Handle::TeachingTip(_), PropertyId::TeachingTipIsLightDismissEnabled) => {
+            clear_value(handle, bindings::TeachingTip::IsLightDismissEnabledProperty)
+        }
+        (Handle::TeachingTip(_), PropertyId::TeachingTipPreferredPlacement) => {
+            clear_value(handle, bindings::TeachingTip::PreferredPlacementProperty)
+        }
+        (Handle::TeachingTip(_), PropertyId::TeachingTipActionButtonContent) => {
+            clear_value(handle, bindings::TeachingTip::ActionButtonContentProperty)
+        }
+        (Handle::TeachingTip(_), PropertyId::TeachingTipCloseButtonContent) => {
+            clear_value(handle, bindings::TeachingTip::CloseButtonContentProperty)
+        }
+        (Handle::DropDownButton(_), PropertyId::DropDownButtonIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::AppBarButton(_), PropertyId::AppBarButtonLabel) => {
+            clear_value(handle, bindings::AppBarButton::LabelProperty)
+        }
+        (Handle::AppBarButton(_), PropertyId::AppBarButtonIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::MenuBarItem(_), PropertyId::MenuBarItemTitle) => {
+            clear_value(handle, bindings::MenuBarItem::TitleProperty)
+        }
+        (Handle::SplitButton(_), PropertyId::SplitButtonIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::ColorPicker(_), PropertyId::ColorPickerColor) => {
+            clear_value(handle, bindings::ColorPicker::ColorProperty)
+        }
+        (Handle::ColorPicker(_), PropertyId::ColorPickerIsAlphaEnabled) => {
+            clear_value(handle, bindings::ColorPicker::IsAlphaEnabledProperty)
+        }
+        (Handle::ColorPicker(_), PropertyId::ColorPickerIsHexInputVisible) => {
+            clear_value(handle, bindings::ColorPicker::IsHexInputVisibleProperty)
+        }
+        (Handle::ColorPicker(_), PropertyId::ColorPickerIsColorSliderVisible) => {
+            clear_value(handle, bindings::ColorPicker::IsColorSliderVisibleProperty)
+        }
         (Handle::ColorPicker(_), PropertyId::ColorPickerIsColorChannelTextInputVisible) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::ColorPicker::IsColorChannelTextInputVisibleProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(
+                handle,
+                bindings::ColorPicker::IsColorChannelTextInputVisibleProperty,
+            )
         }
-        (Handle::ColorPicker(_), PropertyId::ColorPickerIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::DatePicker(_), PropertyId::DatePickerDayVisible) => dependency_object
-            .ClearValue(&bindings::DatePicker::DayVisibleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::DatePicker(_), PropertyId::DatePickerMonthVisible) => dependency_object
-            .ClearValue(&bindings::DatePicker::MonthVisibleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::DatePicker(_), PropertyId::DatePickerYearVisible) => dependency_object
-            .ClearValue(&bindings::DatePicker::YearVisibleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::DatePicker(_), PropertyId::DatePickerIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TimePicker(_), PropertyId::TimePickerClockIdentifier) => dependency_object
-            .ClearValue(&bindings::TimePicker::ClockIdentifierProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TimePicker(_), PropertyId::TimePickerMinuteIncrement) => dependency_object
-            .ClearValue(&bindings::TimePicker::MinuteIncrementProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TimePicker(_), PropertyId::TimePickerIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
+        (Handle::ColorPicker(_), PropertyId::ColorPickerIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::DatePicker(_), PropertyId::DatePickerDayVisible) => {
+            clear_value(handle, bindings::DatePicker::DayVisibleProperty)
+        }
+        (Handle::DatePicker(_), PropertyId::DatePickerMonthVisible) => {
+            clear_value(handle, bindings::DatePicker::MonthVisibleProperty)
+        }
+        (Handle::DatePicker(_), PropertyId::DatePickerYearVisible) => {
+            clear_value(handle, bindings::DatePicker::YearVisibleProperty)
+        }
+        (Handle::DatePicker(_), PropertyId::DatePickerIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::TimePicker(_), PropertyId::TimePickerClockIdentifier) => {
+            clear_value(handle, bindings::TimePicker::ClockIdentifierProperty)
+        }
+        (Handle::TimePicker(_), PropertyId::TimePickerMinuteIncrement) => {
+            clear_value(handle, bindings::TimePicker::MinuteIncrementProperty)
+        }
+        (Handle::TimePicker(_), PropertyId::TimePickerIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
         (Handle::CalendarDatePicker(_), PropertyId::CalendarDatePickerPlaceholderText) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::CalendarDatePicker::PlaceholderTextProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(
+                handle,
+                bindings::CalendarDatePicker::PlaceholderTextProperty,
+            )
         }
         (Handle::CalendarDatePicker(_), PropertyId::CalendarDatePickerIsTodayHighlighted) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::CalendarDatePicker::IsTodayHighlightedProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(
+                handle,
+                bindings::CalendarDatePicker::IsTodayHighlightedProperty,
+            )
         }
         (Handle::CalendarDatePicker(_), PropertyId::CalendarDatePickerIsCalendarOpen) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::CalendarDatePicker::IsCalendarOpenProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(handle, bindings::CalendarDatePicker::IsCalendarOpenProperty)
         }
         (Handle::CalendarDatePicker(_), PropertyId::CalendarDatePickerIsEnabled) => {
-            dependency_object
-                .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-                .map_err(native_error)
+            clear_value(handle, bindings::Control::IsEnabledProperty)
         }
-        (Handle::ContentDialog(_), PropertyId::ContentDialogTitle) => dependency_object
-            .ClearValue(&bindings::ContentDialog::TitleProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ContentDialog(_), PropertyId::ContentDialogPrimaryButtonText) => dependency_object
-            .ClearValue(
-                &bindings::ContentDialog::PrimaryButtonTextProperty().map_err(native_error)?,
-            )
-            .map_err(native_error),
+        (Handle::ContentDialog(_), PropertyId::ContentDialogTitle) => {
+            clear_value(handle, bindings::ContentDialog::TitleProperty)
+        }
+        (Handle::ContentDialog(_), PropertyId::ContentDialogPrimaryButtonText) => {
+            clear_value(handle, bindings::ContentDialog::PrimaryButtonTextProperty)
+        }
         (Handle::ContentDialog(_), PropertyId::ContentDialogSecondaryButtonText) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::ContentDialog::SecondaryButtonTextProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(handle, bindings::ContentDialog::SecondaryButtonTextProperty)
         }
-        (Handle::ContentDialog(_), PropertyId::ContentDialogCloseButtonText) => dependency_object
-            .ClearValue(&bindings::ContentDialog::CloseButtonTextProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ContentDialog(_), PropertyId::ContentDialogIsPrimaryButtonEnabled) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::ContentDialog::IsPrimaryButtonEnabledProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+        (Handle::ContentDialog(_), PropertyId::ContentDialogCloseButtonText) => {
+            clear_value(handle, bindings::ContentDialog::CloseButtonTextProperty)
         }
+        (Handle::ContentDialog(_), PropertyId::ContentDialogIsPrimaryButtonEnabled) => clear_value(
+            handle,
+            bindings::ContentDialog::IsPrimaryButtonEnabledProperty,
+        ),
         (Handle::ContentDialog(_), PropertyId::ContentDialogIsSecondaryButtonEnabled) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::ContentDialog::IsSecondaryButtonEnabledProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+            clear_value(
+                handle,
+                bindings::ContentDialog::IsSecondaryButtonEnabledProperty,
+            )
         }
-        (Handle::CalendarView(_), PropertyId::CalendarViewIsTodayHighlighted) => dependency_object
-            .ClearValue(
-                &bindings::CalendarView::IsTodayHighlightedProperty().map_err(native_error)?,
-            )
-            .map_err(native_error),
-        (Handle::CalendarView(_), PropertyId::CalendarViewIsGroupLabelVisible) => dependency_object
-            .ClearValue(
-                &bindings::CalendarView::IsGroupLabelVisibleProperty().map_err(native_error)?,
-            )
-            .map_err(native_error),
-        (Handle::CalendarView(_), PropertyId::CalendarViewIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ListView(_), PropertyId::ListViewSelectedIndex) => dependency_object
-            .ClearValue(&bindings::Selector::SelectedIndexProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ListView(_), PropertyId::ListViewSelectionMode) => dependency_object
-            .ClearValue(&bindings::ListViewBase::SelectionModeProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ListView(_), PropertyId::ListViewCanDragItems) => dependency_object
-            .ClearValue(&bindings::ListViewBase::CanDragItemsProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ListView(_), PropertyId::ListViewCanReorderItems) => dependency_object
-            .ClearValue(&bindings::ListViewBase::CanReorderItemsProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ListView(_), PropertyId::ListViewAllowDrop) => dependency_object
-            .ClearValue(&bindings::UIElement::AllowDropProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::ListViewItem(_), PropertyId::ListViewItemTag) => dependency_object
-            .ClearValue(&bindings::FrameworkElement::TagProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::TreeView(_), PropertyId::TreeViewSelectionMode) => dependency_object
-            .ClearValue(&bindings::TreeView::SelectionModeProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::GridView(_), PropertyId::GridViewSelectedIndex) => dependency_object
-            .ClearValue(&bindings::Selector::SelectedIndexProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::GridView(_), PropertyId::GridViewCanDragItems) => dependency_object
-            .ClearValue(&bindings::ListViewBase::CanDragItemsProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::GridView(_), PropertyId::GridViewCanReorderItems) => dependency_object
-            .ClearValue(&bindings::ListViewBase::CanReorderItemsProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::GridView(_), PropertyId::GridViewAllowDrop) => dependency_object
-            .ClearValue(&bindings::UIElement::AllowDropProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::GridViewItem(_), PropertyId::GridViewItemTag) => dependency_object
-            .ClearValue(&bindings::FrameworkElement::TagProperty().map_err(native_error)?)
-            .map_err(native_error),
+        (Handle::CalendarView(_), PropertyId::CalendarViewIsTodayHighlighted) => {
+            clear_value(handle, bindings::CalendarView::IsTodayHighlightedProperty)
+        }
+        (Handle::CalendarView(_), PropertyId::CalendarViewIsGroupLabelVisible) => {
+            clear_value(handle, bindings::CalendarView::IsGroupLabelVisibleProperty)
+        }
+        (Handle::CalendarView(_), PropertyId::CalendarViewIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
+        (Handle::ListView(_), PropertyId::ListViewSelectedIndex) => {
+            clear_value(handle, bindings::Selector::SelectedIndexProperty)
+        }
+        (Handle::ListView(_), PropertyId::ListViewSelectionMode) => {
+            clear_value(handle, bindings::ListViewBase::SelectionModeProperty)
+        }
+        (Handle::ListView(_), PropertyId::ListViewCanDragItems) => {
+            clear_value(handle, bindings::ListViewBase::CanDragItemsProperty)
+        }
+        (Handle::ListView(_), PropertyId::ListViewCanReorderItems) => {
+            clear_value(handle, bindings::ListViewBase::CanReorderItemsProperty)
+        }
+        (Handle::ListView(_), PropertyId::ListViewAllowDrop) => {
+            clear_value(handle, bindings::UIElement::AllowDropProperty)
+        }
+        (Handle::ListViewItem(_), PropertyId::ListViewItemTag) => {
+            clear_value(handle, bindings::FrameworkElement::TagProperty)
+        }
+        (Handle::TreeView(_), PropertyId::TreeViewSelectionMode) => {
+            clear_value(handle, bindings::TreeView::SelectionModeProperty)
+        }
+        (Handle::GridView(_), PropertyId::GridViewSelectedIndex) => {
+            clear_value(handle, bindings::Selector::SelectedIndexProperty)
+        }
+        (Handle::GridView(_), PropertyId::GridViewCanDragItems) => {
+            clear_value(handle, bindings::ListViewBase::CanDragItemsProperty)
+        }
+        (Handle::GridView(_), PropertyId::GridViewCanReorderItems) => {
+            clear_value(handle, bindings::ListViewBase::CanReorderItemsProperty)
+        }
+        (Handle::GridView(_), PropertyId::GridViewAllowDrop) => {
+            clear_value(handle, bindings::UIElement::AllowDropProperty)
+        }
+        (Handle::GridViewItem(_), PropertyId::GridViewItemTag) => {
+            clear_value(handle, bindings::FrameworkElement::TagProperty)
+        }
         (Handle::RichEditBox(control), PropertyId::RichEditBoxDocument) => {
             set_rich_edit_text(control, "").map(|_| ())
         }
-        (Handle::RichEditBox(_), PropertyId::RichEditBoxPlaceholderText) => dependency_object
-            .ClearValue(&bindings::RichEditBox::PlaceholderTextProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RichEditBox(_), PropertyId::RichEditBoxIsReadOnly) => dependency_object
-            .ClearValue(&bindings::RichEditBox::IsReadOnlyProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RichEditBox(_), PropertyId::RichEditBoxIsEnabled) => dependency_object
-            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
-            .map_err(native_error),
+        (Handle::RichEditBox(_), PropertyId::RichEditBoxPlaceholderText) => {
+            clear_value(handle, bindings::RichEditBox::PlaceholderTextProperty)
+        }
+        (Handle::RichEditBox(_), PropertyId::RichEditBoxIsReadOnly) => {
+            clear_value(handle, bindings::RichEditBox::IsReadOnlyProperty)
+        }
+        (Handle::RichEditBox(_), PropertyId::RichEditBoxIsEnabled) => {
+            clear_value(handle, bindings::Control::IsEnabledProperty)
+        }
         (Handle::RichTextBlock(control), PropertyId::RichTextBlockBlocks) => control
             .Blocks()
-            .and_then(|blocks| blocks.cast::<windows_collections::IVector<Block>>())
             .and_then(|blocks| blocks.Clear())
             .map_err(native_error),
-        (Handle::RichTextBlock(_), PropertyId::RichTextBlockFontSize) => dependency_object
-            .ClearValue(&bindings::RichTextBlock::FontSizeProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::RichTextBlock(_), PropertyId::RichTextBlockIsTextSelectionEnabled) => {
-            dependency_object
-                .ClearValue(
-                    &bindings::RichTextBlock::IsTextSelectionEnabledProperty()
-                        .map_err(native_error)?,
-                )
-                .map_err(native_error)
+        (Handle::RichTextBlock(_), PropertyId::RichTextBlockFontSize) => {
+            clear_value(handle, bindings::RichTextBlock::FontSizeProperty)
         }
-        (Handle::RichTextBlock(_), PropertyId::RichTextBlockTextWrapping) => dependency_object
-            .ClearValue(&bindings::RichTextBlock::TextWrappingProperty().map_err(native_error)?)
-            .map_err(native_error),
-        (Handle::Viewbox(_), PropertyId::ViewboxStretch) => dependency_object
-            .ClearValue(&bindings::Viewbox::StretchProperty().map_err(native_error)?)
-            .map_err(native_error),
+        (Handle::RichTextBlock(_), PropertyId::RichTextBlockIsTextSelectionEnabled) => clear_value(
+            handle,
+            bindings::RichTextBlock::IsTextSelectionEnabledProperty,
+        ),
+        (Handle::RichTextBlock(_), PropertyId::RichTextBlockTextWrapping) => {
+            clear_value(handle, bindings::RichTextBlock::TextWrappingProperty)
+        }
+        (Handle::Viewbox(_), PropertyId::ViewboxStretch) => {
+            clear_value(handle, bindings::Viewbox::StretchProperty)
+        }
         _ => Err(RuntimeError::UnsupportedKind),
     }
+}
+#[inline]
+fn clear_value(
+    handle: &Handle,
+    property: impl FnOnce() -> windows_core::Result<DependencyProperty>,
+) -> Result<(), RuntimeError> {
+    handle
+        .dependency_object()
+        .map_err(native_error)?
+        .ClearValue(&property().map_err(native_error)?)
+        .map_err(native_error)
 }
 pub fn set_slot(
     handle: &Handle,

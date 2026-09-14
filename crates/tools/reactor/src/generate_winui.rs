@@ -271,13 +271,9 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 MountedKind::#name => return Err(RuntimeError::UnsupportedKind)
             }
         });
-    let ui_elements = native_controls.iter().map(|control| {
+    let inspectables = native_controls.iter().map(|control| {
         let name = ident(&control.name);
-        quote! { Self::#name(value) => value.cast() }
-    });
-    let dependency_objects = native_controls.iter().map(|control| {
-        let name = ident(&control.name);
-        quote! { Self::#name(value) => value.cast() }
+        quote! { Self::#name(value) => value.into() }
     });
     let kinds = native_controls.iter().map(|control| {
         let name = ident(&control.name);
@@ -640,16 +636,19 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 })
             }
 
-            pub fn ui_element(&self) -> windows_core::Result<UIElement> {
+            #[inline]
+            pub fn inspectable(&self) -> &windows_core::IInspectable {
                 match self {
-                    #(#ui_elements),*
+                    #(#inspectables),*
                 }
             }
 
+            pub fn ui_element(&self) -> windows_core::Result<UIElement> {
+                self.inspectable().cast()
+            }
+
             pub fn dependency_object(&self) -> windows_core::Result<IDependencyObject> {
-                match self {
-                    #(#dependency_objects),*
-                }
+                self.inspectable().cast()
             }
 
             pub fn kind(&self) -> MountedKind {
@@ -697,11 +696,22 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             handle: &Handle,
             property: PropertyId,
         ) -> Result<(), RuntimeError> {
-            let dependency_object = handle.dependency_object().map_err(native_error)?;
             match (handle, property) {
                 #(#clear_properties,)*
                 _ => Err(RuntimeError::UnsupportedKind),
             }
+        }
+
+        #[inline]
+        fn clear_value(
+            handle: &Handle,
+            property: impl FnOnce() -> windows_core::Result<DependencyProperty>,
+        ) -> Result<(), RuntimeError> {
+            handle
+                .dependency_object()
+                .map_err(native_error)?
+                .ClearValue(&property().map_err(native_error)?)
+                .map_err(native_error)
         }
 
         pub fn set_slot(
@@ -2378,15 +2388,13 @@ fn generate_clear_property(control: &ResolvedControl, property: &ResolvedPropert
         return quote! {
             (Handle::#control_name(control), PropertyId::#property_id) => control
                 .Blocks()
-                .and_then(|blocks| blocks.cast::<windows_collections::IVector<Block>>())
                 .and_then(|blocks| blocks.Clear())
                 .map_err(native_error)
         };
     }
     quote! {
-        (Handle::#control_name(_), PropertyId::#property_id) => dependency_object
-            .ClearValue(&bindings::#owner::#property_method().map_err(native_error)?)
-            .map_err(native_error)
+        (Handle::#control_name(_), PropertyId::#property_id) =>
+            clear_value(handle, bindings::#owner::#property_method)
     }
 }
 
