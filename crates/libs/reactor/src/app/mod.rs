@@ -640,7 +640,7 @@ impl LivePump for ComponentLoop {
             .live_write_test_property(
                 rich_edit_box,
                 PropertyId::RichEditBoxDocument,
-                &PropertyValue::Str("native\nedit".to_string()),
+                &PropertyValue::Str("native\r\nedit".to_string()),
             )
             .is_ok()
     }

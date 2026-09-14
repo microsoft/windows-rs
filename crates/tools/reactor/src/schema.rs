@@ -2746,6 +2746,51 @@ controlled = "TextChanged"
     }
 
     #[test]
+    fn rejects_non_deferred_rich_edit_feedback() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.RichEditBox"
+capabilities = ["controlled_text"]
+
+[[control.property]]
+name = "Document"
+controlled = "TextChanged"
+feedback_contract = "synchronous_exact"
+adapter = "rich_edit_text"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+
+        assert!(error.contains("rich_edit_text requires deferred_exact feedback"));
+    }
+
+    #[test]
+    fn rejects_deferred_feedback_without_rich_edit_adapter() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBox"
+capabilities = ["controlled_text"]
+
+[[control.property]]
+name = "Text"
+controlled = "TextChanged"
+feedback_contract = "deferred_exact"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+
+        assert!(error.contains("deferred_exact requires the rich_edit_text adapter"));
+    }
+
+    #[test]
     fn rejects_unknown_feedback_contract() {
         let source = r#"
 [[control]]
