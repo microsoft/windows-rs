@@ -45,6 +45,42 @@ pub(crate) mod test;
 #[cfg(feature = "test")]
 pub(crate) use test::native_window_handle;
 
+impl Handle {
+    pub fn ui_element(&self) -> windows_core::Result<UIElement> {
+        self.inspectable().cast()
+    }
+
+    pub fn dependency_object(&self) -> windows_core::Result<IDependencyObject> {
+        self.inspectable().cast()
+    }
+}
+
+#[inline]
+fn set_content_control<T: Interface>(
+    control: &T,
+    child: Option<&UIElement>,
+) -> Result<(), RuntimeError> {
+    let control = control.cast::<IContentControl>().map_err(native_error)?;
+    match child {
+        Some(child) => control.SetContent(child).map_err(native_error),
+        None => control
+            .SetContent(None::<&windows_core::IInspectable>)
+            .map_err(native_error),
+    }
+}
+
+#[inline]
+fn clear_value(
+    handle: &Handle,
+    property: impl FnOnce() -> windows_core::Result<DependencyProperty>,
+) -> Result<(), RuntimeError> {
+    handle
+        .dependency_object()
+        .map_err(native_error)?
+        .ClearValue(&property().map_err(native_error)?)
+        .map_err(native_error)
+}
+
 enum PropertyTarget<'a> {
     Framework(UIElement),
     Attached(UIElement),
@@ -2490,15 +2526,11 @@ impl WinUiRuntime {
             }
             Command::SetContentDialogOpen { node, owner, open } => {
                 let owner = if *open {
-                    Some(
-                        self.ui_element(*owner)?
-                            .cast::<IUIElement>()
-                            .map_err(native_error)?,
-                    )
+                    Some(self.ui_element(*owner)?)
                 } else {
                     None
                 };
-                let xaml_root = match owner.as_ref().map(IUIElement::XamlRoot).transpose() {
+                let xaml_root = match owner.as_ref().map(|owner| owner.XamlRoot()).transpose() {
                     Ok(root) => root,
                     Err(error) if error.code().is_ok() => None,
                     Err(error) => return Err(native_error(error)),

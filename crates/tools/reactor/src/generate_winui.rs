@@ -261,23 +261,14 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             }
         }
     });
-    let virtual_create = schema
+    let unsupported_create = schema
         .controls
         .iter()
-        .filter(|control| matches!(control.role, Role::Virtual))
-        .map(|control| {
-            let name = ident(&control.name);
-            quote! {
-                MountedKind::#name => return Err(RuntimeError::UnsupportedKind)
-            }
-        });
-    let ui_elements = native_controls.iter().map(|control| {
+        .any(|control| matches!(control.role, Role::Virtual))
+        .then(|| quote! { _ => return Err(RuntimeError::UnsupportedKind) });
+    let inspectables = native_controls.iter().map(|control| {
         let name = ident(&control.name);
-        quote! { Self::#name(value) => value.cast() }
-    });
-    let dependency_objects = native_controls.iter().map(|control| {
-        let name = ident(&control.name);
-        quote! { Self::#name(value) => value.cast() }
+        quote! { Self::#name(value) => value.into() }
     });
     let kinds = native_controls.iter().map(|control| {
         let name = ident(&control.name);
@@ -317,12 +308,14 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         control
             .properties
             .iter()
+            .filter(|property| !is_handwritten_property_adapter(property))
             .map(move |property| generate_set_property(control, property))
     });
     let clear_properties = schema.controls.iter().flat_map(|control| {
         control
             .properties
             .iter()
+            .filter(|property| !is_handwritten_property_adapter(property))
             .map(move |property| generate_clear_property(control, property))
     });
     let events = schema.controls.iter().flat_map(|control| {
@@ -636,19 +629,14 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             pub fn create(kind: MountedKind) -> Result<Self, RuntimeError> {
                 Ok(match kind {
                     #(#create,)*
-                    #(#virtual_create),*
+                    #unsupported_create
                 })
             }
 
-            pub fn ui_element(&self) -> windows_core::Result<UIElement> {
+            #[inline]
+            pub fn inspectable(&self) -> &windows_core::IInspectable {
                 match self {
-                    #(#ui_elements),*
-                }
-            }
-
-            pub fn dependency_object(&self) -> windows_core::Result<IDependencyObject> {
-                match self {
-                    #(#dependency_objects),*
+                    #(#inspectables),*
                 }
             }
 
@@ -697,7 +685,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             handle: &Handle,
             property: PropertyId,
         ) -> Result<(), RuntimeError> {
-            let dependency_object = handle.dependency_object().map_err(native_error)?;
             match (handle, property) {
                 #(#clear_properties,)*
                 _ => Err(RuntimeError::UnsupportedKind),
@@ -808,6 +795,14 @@ fn generate_set_content(
     content: &crate::schema::ResolvedContent,
 ) -> TokenStream {
     let control_name = ident(&control.name);
+    if content.name == "Content"
+        && content.interface == "Microsoft.UI.Xaml.Controls.IContentControl"
+        && matches!(content.target, SlotTarget::Inspectable)
+    {
+        return quote! {
+            Handle::#control_name(control) => set_content_control(control, child)
+        };
+    }
     let interface = path_ident(&content.interface);
     let setter = ident(&format!("Set{}", content.name));
     let value = match content.target {
@@ -1835,6 +1830,19 @@ fn property_receiver(control: &ResolvedControl, property: &ResolvedProperty) -> 
     }
 }
 
+fn is_handwritten_property_adapter(property: &ResolvedProperty) -> bool {
+    matches!(
+        property.adapter,
+        Some(
+            PropertyAdapter::PointerCapture
+                | PropertyAdapter::PointerFocus
+                | PropertyAdapter::DropPolicy
+                | PropertyAdapter::ResourceOverrides
+                | PropertyAdapter::KeyAccelerators
+        )
+    )
+}
+
 fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty) -> TokenStream {
     let control_name = ident(&control.name);
     let property_id = ident(&format!("{}{}", control.name, property.name));
@@ -2022,43 +2030,6 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                 PropertyId::#property_id,
                 PropertyValue::Str(value),
             ) => set_rich_edit_text(control, value).map(|_| ())
-        };
-    }
-    if matches!(
-        property.adapter,
-        Some(PropertyAdapter::PointerCapture | PropertyAdapter::PointerFocus)
-    ) {
-        return quote! {
-            (Handle::#control_name(_), PropertyId::#property_id, PropertyValue::Bool(_)) => {
-                Err(RuntimeError::UnsupportedKind)
-            }
-        };
-    }
-    if property.adapter == Some(PropertyAdapter::DropPolicy) {
-        return quote! {
-            (
-                Handle::#control_name(_),
-                PropertyId::#property_id,
-                PropertyValue::DragDropPolicy(_),
-            ) => Err(RuntimeError::UnsupportedKind)
-        };
-    }
-    if property.adapter == Some(PropertyAdapter::ResourceOverrides) {
-        return quote! {
-            (
-                Handle::#control_name(_),
-                PropertyId::#property_id,
-                PropertyValue::ResourceOverrides(_),
-            ) => Err(RuntimeError::UnsupportedKind)
-        };
-    }
-    if property.adapter == Some(PropertyAdapter::KeyAccelerators) {
-        return quote! {
-            (
-                Handle::#control_name(_),
-                PropertyId::#property_id,
-                PropertyValue::KeyAccelerators(_),
-            ) => Err(RuntimeError::UnsupportedKind)
         };
     }
     if property.adapter == Some(PropertyAdapter::RichTextBlocks) {
@@ -2343,50 +2314,17 @@ fn generate_clear_property(control: &ResolvedControl, property: &ResolvedPropert
             }
         };
     }
-    if matches!(
-        property.adapter,
-        Some(PropertyAdapter::PointerCapture | PropertyAdapter::PointerFocus)
-    ) {
-        return quote! {
-            (Handle::#control_name(_), PropertyId::#property_id) => {
-                Err(RuntimeError::UnsupportedKind)
-            }
-        };
-    }
-    if property.adapter == Some(PropertyAdapter::DropPolicy) {
-        return quote! {
-            (Handle::#control_name(_), PropertyId::#property_id) => {
-                Err(RuntimeError::UnsupportedKind)
-            }
-        };
-    }
-    if property.adapter == Some(PropertyAdapter::ResourceOverrides) {
-        return quote! {
-            (Handle::#control_name(_), PropertyId::#property_id) => {
-                Err(RuntimeError::UnsupportedKind)
-            }
-        };
-    }
-    if property.adapter == Some(PropertyAdapter::KeyAccelerators) {
-        return quote! {
-            (Handle::#control_name(_), PropertyId::#property_id) => {
-                Err(RuntimeError::UnsupportedKind)
-            }
-        };
-    }
     if property.adapter == Some(PropertyAdapter::RichTextBlocks) {
         return quote! {
             (Handle::#control_name(control), PropertyId::#property_id) => control
                 .Blocks()
-                .and_then(|blocks| blocks.cast::<windows_collections::IVector<Block>>())
                 .and_then(|blocks| blocks.Clear())
                 .map_err(native_error)
         };
     }
     quote! {
-        (Handle::#control_name(_), PropertyId::#property_id) => dependency_object
-            .ClearValue(&bindings::#owner::#property_method().map_err(native_error)?)
-            .map_err(native_error)
+        (Handle::#control_name(_), PropertyId::#property_id) =>
+            clear_value(handle, bindings::#owner::#property_method)
     }
 }
 
