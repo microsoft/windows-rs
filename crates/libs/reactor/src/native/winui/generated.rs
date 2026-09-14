@@ -4325,9 +4325,9 @@ pub fn expected_feedback(
             EventId::GridViewSelectionChanged,
             FeedbackExpectation::Exact(EventPayload::SelectionIndex(*value)),
         )),
-        (PropertyId::RichEditBoxDocument, Some(PropertyValue::Str(value))) => Some((
+        (PropertyId::RichEditBoxDocument, Some(_)) => Some((
             EventId::RichEditBoxTextChanged,
-            FeedbackExpectation::Exact(EventPayload::Str(value.clone())),
+            FeedbackExpectation::DeferredSuppressed(1),
         )),
         (PropertyId::TextBoxText, None) => Some((
             EventId::TextBoxTextChanged,
@@ -4435,7 +4435,7 @@ pub fn expected_feedback(
         )),
         (PropertyId::RichEditBoxDocument, None) => Some((
             EventId::RichEditBoxTextChanged,
-            FeedbackExpectation::Exact(EventPayload::Str(Default::default())),
+            FeedbackExpectation::DeferredSuppressed(1),
         )),
         _ => None,
     }

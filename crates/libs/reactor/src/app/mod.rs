@@ -584,16 +584,51 @@ impl LivePump for ComponentLoop {
 
     #[cfg(feature = "test")]
     fn live_controlled_feedback_start(&mut self) -> bool {
-        true
+        let events = Rc::new(std::cell::Cell::new(0_u8));
+        let callback = Rc::clone(&events);
+        let result = self.pump.update_view(
+            RichEditBox::new()
+                .text("one\r\nfirst line")
+                .on_text_changed(move |_| callback.set(callback.get() + 1))
+                .into(),
+        );
+        self.test.controlled_feedback_events = Some(events);
+        result.is_ok()
     }
 
     #[cfg(feature = "test")]
     fn live_controlled_feedback_input(&mut self) -> bool {
-        true
+        let Some(events) = self.test.controlled_feedback_events.as_ref().cloned() else {
+            return false;
+        };
+        let rich_edit_view = |value| {
+            let events = Rc::clone(&events);
+            RichEditBox::new()
+                .text(value)
+                .on_text_changed(move |_| events.set(events.get() + 1))
+        };
+        self.pump
+            .update_view(rich_edit_view("two\nsecond line").into())
+            .is_ok()
+            && self
+                .pump
+                .update_view(rich_edit_view("three\rthird line").into())
+                .is_ok()
     }
 
     #[cfg(feature = "test")]
     fn live_controlled_feedback_finish(&mut self) -> bool {
+        let Some(rich_edit_events) = self.test.controlled_feedback_events.take() else {
+            return false;
+        };
+        if rich_edit_events.get() != 0 {
+            eprintln!(
+                "controlled RichEditBox setter echoed {} event(s) to the application",
+                rich_edit_events.get()
+            );
+            return false;
+        }
+
         let text_events = Rc::new(std::cell::Cell::new(0_u8));
         let callback = Rc::clone(&text_events);
         let text_view = |value| {

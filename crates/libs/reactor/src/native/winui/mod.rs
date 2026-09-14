@@ -2047,9 +2047,33 @@ impl WinUiRuntime {
                     .filter(|(_, slot)| selection_for_item_property(*property, *slot).is_some());
                 let feedback_event = feedback.as_ref().map(|(event, _)| *event);
                 if let Some((event, expectation)) = feedback {
-                    self.feedback
-                        .borrow_mut()
-                        .insert((*node, event), expectation);
+                    let mut feedback = self.feedback.borrow_mut();
+                    let key = (*node, event);
+                    match expectation {
+                        FeedbackExpectation::DeferredSuppressed(additional) => {
+                            match feedback.entry(key) {
+                                std::collections::hash_map::Entry::Occupied(mut entry) => {
+                                    if let FeedbackExpectation::DeferredSuppressed(pending) =
+                                        entry.get_mut()
+                                    {
+                                        *pending += additional;
+                                    } else {
+                                        entry.insert(FeedbackExpectation::DeferredSuppressed(
+                                            additional,
+                                        ));
+                                    }
+                                }
+                                std::collections::hash_map::Entry::Vacant(entry) => {
+                                    entry.insert(FeedbackExpectation::DeferredSuppressed(
+                                        additional,
+                                    ));
+                                }
+                            }
+                        }
+                        expectation => {
+                            feedback.insert(key, expectation);
+                        }
+                    }
                 }
                 let (result, observation) = self.with_selection_suppressed(selection_owner, || {
                     let result = if matches!(
@@ -2080,18 +2104,42 @@ impl WinUiRuntime {
                     } else {
                         target.set(*property, value)
                     };
-                    let observation =
-                        feedback_event.and_then(|event| {
-                            self.feedback.borrow_mut().remove(&(*node, event)).and_then(
-                                |expectation| match expectation {
+                    let observation = feedback_event.and_then(|event| {
+                        let mut feedback = self.feedback.borrow_mut();
+                        if matches!(
+                            feedback.get(&(*node, event)),
+                            Some(FeedbackExpectation::DeferredSuppressed(_))
+                        ) {
+                            None
+                        } else {
+                            feedback.remove(&(*node, event)).and_then(|expectation| {
+                                match expectation {
                                     FeedbackExpectation::Normalized { observation } => observation,
                                     FeedbackExpectation::Exact(_)
-                                    | FeedbackExpectation::Suppressed => None,
-                                },
-                            )
-                        });
+                                    | FeedbackExpectation::Suppressed
+                                    | FeedbackExpectation::DeferredSuppressed(_) => None,
+                                }
+                            })
+                        }
+                    });
                     (result, observation)
                 });
+                if result.is_err()
+                    && let Some(event) = feedback_event
+                {
+                    let key = (*node, event);
+                    let mut feedback = self.feedback.borrow_mut();
+                    let remove = match feedback.get_mut(&key) {
+                        Some(FeedbackExpectation::DeferredSuppressed(pending)) => {
+                            *pending -= 1;
+                            *pending == 0
+                        }
+                        _ => true,
+                    };
+                    if remove {
+                        feedback.remove(&key);
+                    }
+                }
                 result?;
                 if controlled_collection_for_property(*property).is_some()
                     && let PropertyValue::I32(value) = value
@@ -3430,6 +3478,8 @@ impl EventSink {
         }
         {
             let mut feedback = self.feedback.borrow_mut();
+            let mut suppress_deferred = false;
+            let mut remove_deferred = false;
             if let Some(expected) = feedback.get_mut(&(node, event)) {
                 match expected {
                     // Keep the expectation active until the setter returns so every synchronous
@@ -3441,8 +3491,19 @@ impl EventSink {
                         return;
                     }
                     FeedbackExpectation::Suppressed => return,
+                    FeedbackExpectation::DeferredSuppressed(pending) => {
+                        *pending -= 1;
+                        suppress_deferred = true;
+                        remove_deferred = *pending == 0;
+                    }
                     FeedbackExpectation::Exact(_) => {}
                 }
+            }
+            if suppress_deferred {
+                if remove_deferred {
+                    feedback.remove(&(node, event));
+                }
+                return;
             }
         }
         self.queue.borrow_mut().push(NativeWork {

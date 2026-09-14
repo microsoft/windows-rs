@@ -5,6 +5,7 @@ pub(crate) enum FeedbackExpectation {
     Exact(EventPayload),
     Normalized { observation: Option<QueuedEvent> },
     Suppressed,
+    DeferredSuppressed(usize),
 }
 
 mod winui;

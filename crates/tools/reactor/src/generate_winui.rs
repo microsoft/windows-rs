@@ -426,7 +426,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             let event_id = ident(&format!("{}{}", control.name, feedback));
             let value_variant = ident(&property.value);
             match property.feedback_contract.unwrap() {
-                FeedbackContract::SynchronousExact => {
+                FeedbackContract::Exact => {
                     let value = if property.copy {
                         quote! { *value }
                     } else {
@@ -442,11 +442,19 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         ))
                     })
                 }
-                FeedbackContract::SynchronousNormalized => Some(quote! {
+                FeedbackContract::Normalized => Some(quote! {
                     (PropertyId::#property_id, Some(_)) => {
                         Some((
                             EventId::#event_id,
                             FeedbackExpectation::Normalized { observation: None },
+                        ))
+                    }
+                }),
+                FeedbackContract::DeferredSuppressed => Some(quote! {
+                    (PropertyId::#property_id, Some(_)) => {
+                        Some((
+                            EventId::#event_id,
+                            FeedbackExpectation::DeferredSuppressed(1),
                         ))
                     }
                 }),
@@ -460,7 +468,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             let event_id = ident(&format!("{}{}", control.name, feedback));
             let value_variant = ident(&property.value);
             match property.feedback_contract.unwrap() {
-                FeedbackContract::SynchronousExact => {
+                FeedbackContract::Exact => {
                     if property.adapter == Some(PropertyAdapter::SelectionIndex) {
                         return Some(quote! {
                             (PropertyId::#property_id, None) => Some((
@@ -479,11 +487,19 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         ))
                     })
                 }
-                FeedbackContract::SynchronousNormalized => Some(quote! {
+                FeedbackContract::Normalized => Some(quote! {
                     (PropertyId::#property_id, None) => {
                         Some((
                             EventId::#event_id,
                             FeedbackExpectation::Normalized { observation: None },
+                        ))
+                    }
+                }),
+                FeedbackContract::DeferredSuppressed => Some(quote! {
+                    (PropertyId::#property_id, None) => {
+                        Some((
+                            EventId::#event_id,
+                            FeedbackExpectation::DeferredSuppressed(1),
                         ))
                     }
                 }),

@@ -653,6 +653,16 @@ fn rich_edit_box_document_text_and_feedback_are_owned() {
 
     assert_eq!(pump.dispatch_events(), Ok(1));
     assert_eq!(&*value.borrow(), "updated");
+    assert!(matches!(
+        expected_feedback(
+            PropertyId::RichEditBoxDocument,
+            Some(&PropertyValue::Str("programmatic".to_string()))
+        ),
+        Some((
+            EventId::RichEditBoxTextChanged,
+            FeedbackExpectation::DeferredSuppressed(1)
+        ))
+    ));
 }
 
 #[test]

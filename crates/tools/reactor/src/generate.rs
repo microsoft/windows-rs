@@ -2243,8 +2243,9 @@ fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
             || quote! { None },
             |value| {
                 let value = match value {
-                    FeedbackContract::SynchronousExact => "synchronous_exact",
-                    FeedbackContract::SynchronousNormalized => "synchronous_normalized",
+                    FeedbackContract::Exact => "synchronous_exact",
+                    FeedbackContract::Normalized => "synchronous_normalized",
+                    FeedbackContract::DeferredSuppressed => "deferred_suppressed",
                 };
                 quote! { Some(#value) }
             },

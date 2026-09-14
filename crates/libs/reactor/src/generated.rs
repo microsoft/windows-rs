@@ -18427,7 +18427,7 @@ const RICH_EDIT_BOX_PROPERTIES: &[PropertyDescriptor] = &[
         interface: "Microsoft.UI.Xaml.Controls.IRichEditBox",
         clearable: true,
         feedback: Some("TextChanged"),
-        feedback_contract: Some("synchronous_exact"),
+        feedback_contract: Some("deferred_suppressed"),
         observes_feedback: true,
     },
     PropertyDescriptor {

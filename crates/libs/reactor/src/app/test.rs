@@ -8,6 +8,7 @@ pub(super) struct LiveTestState {
     pub(super) event_delivery_waits: usize,
     pub(super) content_dialog_stage: usize,
     pub(super) content_dialog_waits: usize,
+    pub(super) controlled_feedback_events: Option<Rc<std::cell::Cell<u8>>>,
 }
 
 thread_local! {

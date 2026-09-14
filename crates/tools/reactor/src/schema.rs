@@ -500,10 +500,13 @@ pub(crate) enum ValueValidation {
 }
 
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
-#[serde(rename_all = "snake_case")]
 pub(crate) enum FeedbackContract {
-    SynchronousExact,
-    SynchronousNormalized,
+    #[serde(rename = "synchronous_exact")]
+    Exact,
+    #[serde(rename = "synchronous_normalized")]
+    Normalized,
+    #[serde(rename = "deferred_suppressed")]
+    DeferredSuppressed,
 }
 
 #[derive(Deserialize)]
@@ -862,7 +865,7 @@ impl Schema {
                     (None, None) => None,
                 };
                 if property.coerces.is_some()
-                    && property.feedback_contract != Some(FeedbackContract::SynchronousNormalized)
+                    && property.feedback_contract != Some(FeedbackContract::Normalized)
                 {
                     return Err(format!(
                         "{}.{} coercion needs synchronous_normalized feedback",
@@ -1014,7 +1017,7 @@ impl Schema {
                 };
                 if property.clear_feedback.is_some()
                     && (value != "Bool"
-                        || property.feedback_contract != Some(FeedbackContract::SynchronousExact))
+                        || property.feedback_contract != Some(FeedbackContract::Exact))
                 {
                     return Err(format!(
                         "{}.{} clear_feedback requires a Bool property with synchronous_exact feedback",
@@ -1022,7 +1025,7 @@ impl Schema {
                     ));
                 }
                 if value == "Bool"
-                    && property.feedback_contract == Some(FeedbackContract::SynchronousExact)
+                    && property.feedback_contract == Some(FeedbackContract::Exact)
                     && property.clear_feedback.is_none()
                 {
                     return Err(format!(
@@ -1727,7 +1730,7 @@ impl Schema {
             {
                 let feedback = property.feedback.as_deref().unwrap();
                 if coercing_events.contains(feedback)
-                    && property.feedback_contract != Some(FeedbackContract::SynchronousNormalized)
+                    && property.feedback_contract != Some(FeedbackContract::Normalized)
                 {
                     return Err(format!(
                         "{} feedback event {} is coercing and requires synchronous_normalized",
