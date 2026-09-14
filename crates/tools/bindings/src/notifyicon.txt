@@ -1,4 +1,4 @@
---out crates/libs/trayicon/src/bindings.rs
+--out crates/libs/notifyicon/src/bindings.rs
 --flat --minimal --dead-code
 
 --filter

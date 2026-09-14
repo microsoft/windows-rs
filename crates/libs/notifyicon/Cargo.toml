@@ -1,5 +1,5 @@
 [package]
-name = "windows-trayicon"
+name = "windows-notifyicon"
 version = "0.100.0"
 edition = "2024"
 rust-version = "1.95"

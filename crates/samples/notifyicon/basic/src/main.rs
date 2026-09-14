@@ -1,22 +1,22 @@
-use windows_trayicon::{TrayIcon, TrayIconEvent};
+use windows_notifyicon::{NotifyIcon, NotifyIconEvent};
 
-fn main() -> windows_trayicon::Result<()> {
+fn main() -> windows_notifyicon::Result<()> {
     let icon = concat!(env!("CARGO_MANIFEST_DIR"), "\\icon.ico");
-    let _tray = TrayIcon::new(icon)
+    let _icon = NotifyIcon::new(icon)
         .tooltip("Left-click to activate; right-click to exit")
         .on_event(|event| match event {
-            TrayIconEvent::Activate { position } => {
+            NotifyIconEvent::Activate { position } => {
                 println!("activated at ({}, {})", position.x, position.y);
             }
-            TrayIconEvent::ContextMenu { position } => {
+            NotifyIconEvent::ContextMenu { position } => {
                 println!(
                     "context menu requested at ({}, {}); exiting",
                     position.x, position.y
                 );
                 windows_window::quit();
             }
-            TrayIconEvent::Unavailable => {
-                eprintln!("the Windows Shell could not restore the tray icon");
+            NotifyIconEvent::Unavailable => {
+                eprintln!("the Windows Shell could not restore the notification icon");
             }
             _ => {}
         })

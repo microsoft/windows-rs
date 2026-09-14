@@ -3,44 +3,44 @@
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
+use windows_notifyicon::{NotifyIcon, NotifyIconEvent};
 use windows_reactor::*;
-use windows_trayicon::{TrayIcon, TrayIconEvent};
 
 struct AppState {
     activate_window: RefCell<Option<Callback<()>>>,
     app: AppContext,
-    tray: RefCell<Option<TrayIcon>>,
+    icon: RefCell<Option<NotifyIcon>>,
     window_open: Cell<bool>,
 }
 
 impl AppState {
-    fn add_tray(self: &Rc<Self>) -> windows_trayicon::Result<()> {
-        if self.tray.borrow().is_some() {
+    fn add_icon(self: &Rc<Self>) -> windows_notifyicon::Result<()> {
+        if self.icon.borrow().is_some() {
             return Ok(());
         }
 
         let state = Rc::downgrade(self);
-        let tray = TrayIcon::new(concat!(env!("CARGO_MANIFEST_DIR"), "\\..\\icon\\icon.ico"))
+        let icon = NotifyIcon::new(concat!(env!("CARGO_MANIFEST_DIR"), "\\..\\icon\\icon.ico"))
             .tooltip("Left-click to open; right-click to exit")
             .on_event(move |event| {
                 let Some(state) = state.upgrade() else {
                     return;
                 };
                 match event {
-                    TrayIconEvent::Activate { .. } => state.open_window(),
-                    TrayIconEvent::ContextMenu { .. } => state.exit(),
+                    NotifyIconEvent::Activate { .. } => state.open_window(),
+                    NotifyIconEvent::ContextMenu { .. } => state.exit(),
                     _ => {}
                 }
             })
             .build()?;
-        *self.tray.borrow_mut() = Some(tray);
+        *self.icon.borrow_mut() = Some(icon);
         Ok(())
     }
 
-    fn toggle_tray(self: &Rc<Self>) {
-        let removed = self.tray.borrow_mut().take().is_some();
-        if !removed && let Err(error) = self.add_tray() {
-            eprintln!("could not add tray icon: {error}");
+    fn toggle_icon(self: &Rc<Self>) {
+        let removed = self.icon.borrow_mut().take().is_some();
+        if !removed && let Err(error) = self.add_icon() {
+            eprintln!("could not add notification icon: {error}");
         }
     }
 
@@ -51,11 +51,11 @@ impl AppState {
             }
             return;
         }
-        if let Err(error) = self
-            .app
-            .open_window(View::component::<TrayWindow>(TrayWindowInput(Rc::clone(
-                self,
-            ))))
+        if let Err(error) =
+            self.app
+                .open_window(View::component::<NotifyWindow>(NotifyWindowInput(
+                    Rc::clone(self),
+                )))
         {
             self.window_open.set(false);
             eprintln!("could not open Reactor window: {error}");
@@ -70,9 +70,9 @@ impl AppState {
 }
 
 #[derive(Clone)]
-struct TrayWindowInput(Rc<AppState>);
+struct NotifyWindowInput(Rc<AppState>);
 
-impl PartialEq for TrayWindowInput {
+impl PartialEq for NotifyWindowInput {
     fn eq(&self, other: &Self) -> bool {
         Rc::ptr_eq(&self.0, &other.0)
     }
@@ -82,15 +82,15 @@ impl PartialEq for TrayWindowInput {
 enum Message {
     Activate,
     Exit,
-    ToggleTray,
+    ToggleIcon,
 }
 
-struct TrayWindow {
+struct NotifyWindow {
     state: Rc<AppState>,
 }
 
-impl Component for TrayWindow {
-    type Input = TrayWindowInput;
+impl Component for NotifyWindow {
+    type Input = NotifyWindowInput;
     type Message = Message;
 
     fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
@@ -113,24 +113,24 @@ impl Component for TrayWindow {
                 }
             }
             Message::Exit => self.state.exit(),
-            Message::ToggleTray => self.state.toggle_tray(),
+            Message::ToggleIcon => self.state.toggle_icon(),
         }
     }
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        let tray_button = if self.state.tray.borrow().is_some() {
-            "Remove tray icon"
+        let icon_button = if self.state.icon.borrow().is_some() {
+            "Remove notification icon"
         } else {
-            "Add tray icon"
+            "Add notification icon"
         };
         context.window_frame(
-            "Reactor tray icon",
+            "Reactor notification icon",
             StackPanel::new().spacing(8.0).children((
-                "This window is independent of the tray icon.",
-                "Close it and use the tray icon to open another.",
+                "This window is independent of the notification icon.",
+                "Close it and use the notification icon to open another.",
                 Button::new()
-                    .on_click(context.message(Message::ToggleTray))
-                    .content(tray_button),
+                    .on_click(context.message(Message::ToggleIcon))
+                    .content(icon_button),
                 Button::new()
                     .on_click(context.message(Message::Exit))
                     .content("Exit application"),
@@ -139,11 +139,11 @@ impl Component for TrayWindow {
     }
 }
 
-impl Drop for TrayWindow {
+impl Drop for NotifyWindow {
     fn drop(&mut self) {
         self.state.activate_window.borrow_mut().take();
         self.state.window_open.set(false);
-        if self.state.tray.borrow().is_none() {
+        if self.state.icon.borrow().is_none() {
             self.state.exit();
         }
     }
@@ -154,10 +154,10 @@ fn main() {
         let state = Rc::new(AppState {
             activate_window: RefCell::new(None),
             app: app.clone(),
-            tray: RefCell::new(None),
+            icon: RefCell::new(None),
             window_open: Cell::new(false),
         });
-        state.add_tray()?;
+        state.add_icon()?;
         Ok(state)
     })
     .unwrap();

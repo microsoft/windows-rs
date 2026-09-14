@@ -11,7 +11,7 @@ mod bindings;
 
 use bindings::*;
 use std::time::{Duration, Instant};
-use windows_trayicon::{TrayIcon, TrayIconEvent};
+use windows_notifyicon::{NotifyIcon, NotifyIconEvent};
 
 const CALLBACK_MESSAGE: u32 = WM_USER as u32 + 1;
 
@@ -21,9 +21,9 @@ fn raw_message_loop_dispatches_posted_events() {
     let path = concat!(env!("CARGO_MANIFEST_DIR"), "\\assets\\icon.ico");
     let activated = std::rc::Rc::new(std::cell::Cell::new(false));
     let callback_activated = std::rc::Rc::clone(&activated);
-    let icon = TrayIcon::new(path)
+    let icon = NotifyIcon::new(path)
         .on_event(move |event| {
-            if matches!(event, TrayIconEvent::Activate { .. }) {
+            if matches!(event, NotifyIconEvent::Activate { .. }) {
                 callback_activated.set(true);
             }
         })
@@ -60,9 +60,9 @@ fn nested_message_loop_defers_callback_until_the_active_handler_returns() {
     let callback_delivered = std::rc::Rc::clone(&delivered);
     let callback_hwnd = std::rc::Rc::new(std::cell::Cell::new(0_usize));
     let handler_hwnd = std::rc::Rc::clone(&callback_hwnd);
-    let icon = TrayIcon::new(path)
+    let icon = NotifyIcon::new(path)
         .on_event(move |event| {
-            if matches!(event, TrayIconEvent::Activate { .. }) {
+            if matches!(event, NotifyIconEvent::Activate { .. }) {
                 let count = callback_delivered.get() + 1;
                 callback_delivered.set(count);
                 if count == 1 {

@@ -2,7 +2,7 @@
 
 #[expect(non_snake_case, clippy::upper_case_acronyms)]
 mod bindings;
-mod trayicon;
+mod notifyicon;
 
-pub use trayicon::{Point, Rect, TrayIcon, TrayIconBuilder, TrayIconEvent};
+pub use notifyicon::{NotifyIcon, NotifyIconBuilder, NotifyIconEvent, Point, Rect};
 pub use windows_core::Result;

@@ -21,7 +21,7 @@ pub type Rect = RECT;
 /// A user interaction or availability change for a notification-area icon.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 #[non_exhaustive]
-pub enum TrayIconEvent {
+pub enum NotifyIconEvent {
     /// The icon was selected with the mouse or keyboard.
     Activate { position: Point },
     /// The user requested the icon's context menu.
@@ -30,7 +30,7 @@ pub enum TrayIconEvent {
     Unavailable,
 }
 
-type EventHandler = Box<dyn FnMut(TrayIconEvent)>;
+type EventHandler = Box<dyn FnMut(NotifyIconEvent)>;
 
 struct OwnedIcon {
     handle: *mut core::ffi::c_void,
@@ -218,7 +218,7 @@ struct Shared {
 }
 
 enum Pending {
-    Event(TrayIconEvent),
+    Event(NotifyIconEvent),
     Recover,
 }
 
@@ -231,7 +231,7 @@ impl Drop for DispatchGuard<'_> {
 }
 
 impl Shared {
-    fn dispatch(&self, event: TrayIconEvent) {
+    fn dispatch(&self, event: NotifyIconEvent) {
         if let Some(handler) = self.handler.borrow_mut().as_mut() {
             handler(event);
         }
@@ -241,7 +241,7 @@ impl Shared {
         self.pending.borrow_mut().push_back(pending);
         if !unsafe { PostMessageW(hwnd, DISPATCH_MESSAGE, 0, 0) }.as_bool() {
             self.pending.borrow_mut().pop_back();
-            eprintln!("windows-trayicon could not queue Shell work");
+            eprintln!("windows-notifyicon could not queue Shell work");
         }
     }
 
@@ -261,7 +261,7 @@ impl Shared {
                 Pending::Event(event) => self.dispatch(event),
                 Pending::Recover => {
                     if self.recover().is_err() {
-                        self.dispatch(TrayIconEvent::Unavailable);
+                        self.dispatch(NotifyIconEvent::Unavailable);
                     }
                 }
             }
@@ -279,7 +279,7 @@ impl Shared {
 }
 
 /// A notification-area icon and its hidden callback window.
-pub struct TrayIcon {
+pub struct NotifyIcon {
     // Drop the Shell-facing window before the dispatch window so no callback can target a
     // destroyed dispatch HWND.
     callback_window: Window,
@@ -287,11 +287,11 @@ pub struct TrayIcon {
     shared: Rc<Shared>,
 }
 
-impl TrayIcon {
+impl NotifyIcon {
     /// Begins configuring a notification-area icon loaded from an `.ico` file.
     #[allow(clippy::new_ret_no_self)]
-    pub fn new(path: impl Into<PathBuf>) -> TrayIconBuilder {
-        TrayIconBuilder {
+    pub fn new(path: impl Into<PathBuf>) -> NotifyIconBuilder {
+        NotifyIconBuilder {
             handler: None,
             icon: path.into(),
             tooltip: None,
@@ -343,7 +343,7 @@ impl TrayIcon {
     }
 }
 
-impl Drop for TrayIcon {
+impl Drop for NotifyIcon {
     fn drop(&mut self) {
         self.shared.active.set(false);
         if let Ok(registration) = self.shared.registration.try_borrow() {
@@ -352,14 +352,14 @@ impl Drop for TrayIcon {
     }
 }
 
-/// Configures a [`TrayIcon`].
-pub struct TrayIconBuilder {
+/// Configures a [`NotifyIcon`].
+pub struct NotifyIconBuilder {
     handler: Option<EventHandler>,
     icon: PathBuf,
     tooltip: Option<String>,
 }
 
-impl TrayIconBuilder {
+impl NotifyIconBuilder {
     /// Sets the standard tooltip shown for the icon.
     pub fn tooltip(mut self, tooltip: impl Into<String>) -> Self {
         self.tooltip = Some(tooltip.into());
@@ -369,14 +369,14 @@ impl TrayIconBuilder {
     /// Sets the icon's interaction handler.
     pub fn on_event<F>(mut self, handler: F) -> Self
     where
-        F: FnMut(TrayIconEvent) + 'static,
+        F: FnMut(NotifyIconEvent) + 'static,
     {
         self.handler = Some(Box::new(handler));
         self
     }
 
     /// Creates the hidden callback window and adds the icon to the notification area.
-    pub fn build(self) -> Result<TrayIcon> {
+    pub fn build(self) -> Result<NotifyIcon> {
         let taskbar_created = register_taskbar_created()?;
         let shared = Rc::new(Shared {
             active: Cell::new(true),
@@ -400,7 +400,7 @@ impl TrayIconBuilder {
         allow_message(callback_window.hwnd(), CALLBACK_MESSAGE)?;
         allow_message(callback_window.hwnd(), taskbar_created)?;
         shared.registration.borrow().add(callback_window.hwnd())?;
-        Ok(TrayIcon {
+        Ok(NotifyIcon {
             callback_window,
             _dispatch_window: dispatch_window,
             shared,
@@ -413,7 +413,7 @@ fn callback_window(
     dispatch_hwnd: *mut core::ffi::c_void,
     taskbar_created: u32,
 ) -> WindowBuilder {
-    Window::new("windows-trayicon")
+    Window::new("windows-notifyicon")
         .style(0)
         .visible(false)
         .quit_on_close(false)
@@ -436,7 +436,7 @@ fn callback_window(
 }
 
 fn dispatch_window(shared: Weak<Shared>) -> WindowBuilder {
-    Window::new("windows-trayicon-dispatch")
+    Window::new("windows-notifyicon-dispatch")
         .style(0)
         .visible(false)
         .quit_on_close(false)
@@ -484,15 +484,15 @@ fn icon_rect(hwnd: *mut core::ffi::c_void) -> Result<RECT> {
     Ok(value)
 }
 
-fn decode_event(wparam: usize, lparam: isize) -> Option<TrayIconEvent> {
+fn decode_event(wparam: usize, lparam: isize) -> Option<NotifyIconEvent> {
     let event = lparam as u16 as u32;
     let position = Point {
         x: wparam as u16 as i16 as i32,
         y: (wparam >> 16) as u16 as i16 as i32,
     };
     match event as i32 {
-        NIN_SELECT | NIN_KEYSELECT => Some(TrayIconEvent::Activate { position }),
-        WM_CONTEXTMENU => Some(TrayIconEvent::ContextMenu { position }),
+        NIN_SELECT | NIN_KEYSELECT => Some(NotifyIconEvent::Activate { position }),
+        WM_CONTEXTMENU => Some(NotifyIconEvent::ContextMenu { position }),
         _ => None,
     }
 }
@@ -566,13 +566,13 @@ mod tests {
         let position = ((-20_i16 as u16 as usize) << 16) | (-10_i16 as u16 as usize);
         assert_eq!(
             decode_event(position, NIN_SELECT as isize),
-            Some(TrayIconEvent::Activate {
+            Some(NotifyIconEvent::Activate {
                 position: Point { x: -10, y: -20 }
             })
         );
         assert_eq!(
             decode_event(position, WM_CONTEXTMENU as isize),
-            Some(TrayIconEvent::ContextMenu {
+            Some(NotifyIconEvent::ContextMenu {
                 position: Point { x: -10, y: -20 }
             })
         );
