@@ -12341,15 +12341,6 @@ pub enum SlotId {
 }
 pub fn slots(kind: MountedKind) -> &'static [SlotId] {
     match kind {
-        MountedKind::TextBlock => &[],
-        MountedKind::Button => &[],
-        MountedKind::HyperlinkButton => &[],
-        MountedKind::RepeatButton => &[],
-        MountedKind::Border => &[],
-        MountedKind::BreadcrumbBar => &[],
-        MountedKind::StackPanel => &[],
-        MountedKind::VariableSizedWrapGrid => &[],
-        MountedKind::Grid => &[],
         MountedKind::TextBox => &[SlotId::TextBoxHeader],
         MountedKind::AutoSuggestBox => &[SlotId::AutoSuggestBoxHeader],
         MountedKind::PasswordBox => &[SlotId::PasswordBoxHeader],
@@ -12370,74 +12361,34 @@ pub fn slots(kind: MountedKind) -> &'static [SlotId] {
             SlotId::NavigationViewItemMenuItems,
         ],
         MountedKind::SplitView => &[SlotId::SplitViewPane, SlotId::SplitViewContent],
-        MountedKind::ProgressBar => &[],
         MountedKind::ToggleSwitch => &[
             SlotId::ToggleSwitchHeader,
             SlotId::ToggleSwitchOnContent,
             SlotId::ToggleSwitchOffContent,
         ],
-        MountedKind::CheckBox => &[],
-        MountedKind::ToggleButton => &[],
-        MountedKind::RadioButton => &[],
         MountedKind::RadioButtons => &[SlotId::RadioButtonsHeader],
-        MountedKind::ItemsRepeater => &[],
-        MountedKind::InfoBadge => &[],
-        MountedKind::InfoBar => &[],
-        MountedKind::PersonPicture => &[],
-        MountedKind::ScrollViewer => &[],
-        MountedKind::ScrollView => &[],
-        MountedKind::Image => &[],
-        MountedKind::ProgressRing => &[],
         MountedKind::ListBox => &[SlotId::ListBoxItems],
-        MountedKind::Rectangle => &[],
-        MountedKind::Ellipse => &[],
-        MountedKind::Line => &[],
-        MountedKind::SymbolIcon => &[],
-        MountedKind::ImageIcon => &[],
-        MountedKind::FontIcon => &[],
-        MountedKind::BitmapIcon => &[],
-        MountedKind::PathIcon => &[],
-        MountedKind::ListBoxItem => &[],
-        MountedKind::RatingControl => &[],
         MountedKind::Expander => &[SlotId::ExpanderHeader, SlotId::ExpanderContent],
         MountedKind::ComboBox => &[SlotId::ComboBoxHeader],
         MountedKind::Pivot => &[SlotId::PivotItems],
-        MountedKind::PivotItem => &[],
         MountedKind::FlipView => &[SlotId::FlipViewItems],
         MountedKind::SelectorBar => &[SlotId::SelectorBarItems],
         MountedKind::SelectorBarItem => &[SlotId::SelectorBarItemIcon],
         MountedKind::TabView => &[SlotId::TabViewTabItems],
-        MountedKind::TabViewItem => &[],
-        MountedKind::TeachingTip => &[],
-        MountedKind::DropDownButton => &[],
         MountedKind::CommandBar => &[
             SlotId::CommandBarPrimaryCommands,
             SlotId::CommandBarSecondaryCommands,
         ],
         MountedKind::AppBarButton => &[SlotId::AppBarButtonIcon],
-        MountedKind::AppBarSeparator => &[],
         MountedKind::MenuBar => &[SlotId::MenuBarItems],
-        MountedKind::MenuBarItem => &[],
-        MountedKind::SplitButton => &[],
-        MountedKind::ColorPicker => &[],
         MountedKind::DatePicker => &[SlotId::DatePickerHeader],
         MountedKind::TimePicker => &[SlotId::TimePickerHeader],
         MountedKind::CalendarDatePicker => &[SlotId::CalendarDatePickerHeader],
-        MountedKind::ToolTip => &[],
-        MountedKind::ContentDialog => &[],
-        MountedKind::CalendarView => &[],
         MountedKind::ListView => &[SlotId::ListViewItems],
-        MountedKind::ListViewItem => &[],
-        MountedKind::TreeView => &[],
         MountedKind::GridView => &[SlotId::GridViewItems],
-        MountedKind::GridViewItem => &[],
-        MountedKind::RelativePanel => &[],
-        MountedKind::Canvas => &[],
         MountedKind::RichEditBox => &[SlotId::RichEditBoxHeader],
-        MountedKind::RichTextBlock => &[],
         MountedKind::Viewbox => &[SlotId::ViewboxChild],
-        MountedKind::WebView2 => &[],
-        MountedKind::SwapChainPanel => &[],
+        _ => &[],
     }
 }
 pub fn slot_is_collection(slot: SlotId) -> bool {
@@ -14523,85 +14474,85 @@ pub enum ControlRole {
 }
 pub const fn control_role(kind: MountedKind) -> ControlRole {
     match kind {
-        MountedKind::TextBlock => ControlRole::Leaf,
-        MountedKind::Button => ControlRole::Content,
-        MountedKind::HyperlinkButton => ControlRole::Content,
-        MountedKind::RepeatButton => ControlRole::Content,
-        MountedKind::Border => ControlRole::Content,
-        MountedKind::BreadcrumbBar => ControlRole::Leaf,
-        MountedKind::StackPanel => ControlRole::Children,
-        MountedKind::VariableSizedWrapGrid => ControlRole::Children,
-        MountedKind::Grid => ControlRole::Children,
-        MountedKind::TextBox => ControlRole::Slots,
-        MountedKind::AutoSuggestBox => ControlRole::Slots,
-        MountedKind::PasswordBox => ControlRole::Slots,
-        MountedKind::NumberBox => ControlRole::Slots,
-        MountedKind::Slider => ControlRole::Slots,
-        MountedKind::TitleBar => ControlRole::Slots,
-        MountedKind::NavigationView => ControlRole::Slots,
-        MountedKind::NavigationViewItem => ControlRole::Slots,
-        MountedKind::SplitView => ControlRole::Slots,
-        MountedKind::ProgressBar => ControlRole::Leaf,
-        MountedKind::ToggleSwitch => ControlRole::Slots,
-        MountedKind::CheckBox => ControlRole::Content,
-        MountedKind::ToggleButton => ControlRole::Content,
-        MountedKind::RadioButton => ControlRole::Content,
-        MountedKind::RadioButtons => ControlRole::Slots,
+        MountedKind::StackPanel
+        | MountedKind::VariableSizedWrapGrid
+        | MountedKind::Grid
+        | MountedKind::RelativePanel
+        | MountedKind::Canvas => ControlRole::Children,
+        MountedKind::Button
+        | MountedKind::HyperlinkButton
+        | MountedKind::RepeatButton
+        | MountedKind::Border
+        | MountedKind::CheckBox
+        | MountedKind::ToggleButton
+        | MountedKind::RadioButton
+        | MountedKind::ScrollViewer
+        | MountedKind::ScrollView
+        | MountedKind::ListBoxItem
+        | MountedKind::PivotItem
+        | MountedKind::TabViewItem
+        | MountedKind::DropDownButton
+        | MountedKind::SplitButton
+        | MountedKind::ToolTip
+        | MountedKind::ContentDialog
+        | MountedKind::ListViewItem
+        | MountedKind::GridViewItem => ControlRole::Content,
+        MountedKind::TextBlock
+        | MountedKind::BreadcrumbBar
+        | MountedKind::ProgressBar
+        | MountedKind::InfoBadge
+        | MountedKind::InfoBar
+        | MountedKind::PersonPicture
+        | MountedKind::Image
+        | MountedKind::ProgressRing
+        | MountedKind::Rectangle
+        | MountedKind::Ellipse
+        | MountedKind::Line
+        | MountedKind::SymbolIcon
+        | MountedKind::ImageIcon
+        | MountedKind::FontIcon
+        | MountedKind::BitmapIcon
+        | MountedKind::PathIcon
+        | MountedKind::RatingControl
+        | MountedKind::TeachingTip
+        | MountedKind::AppBarSeparator
+        | MountedKind::MenuBarItem
+        | MountedKind::ColorPicker
+        | MountedKind::CalendarView
+        | MountedKind::TreeView
+        | MountedKind::RichTextBlock
+        | MountedKind::WebView2
+        | MountedKind::SwapChainPanel => ControlRole::Leaf,
+        MountedKind::TextBox
+        | MountedKind::AutoSuggestBox
+        | MountedKind::PasswordBox
+        | MountedKind::NumberBox
+        | MountedKind::Slider
+        | MountedKind::TitleBar
+        | MountedKind::NavigationView
+        | MountedKind::NavigationViewItem
+        | MountedKind::SplitView
+        | MountedKind::ToggleSwitch
+        | MountedKind::RadioButtons
+        | MountedKind::ListBox
+        | MountedKind::Expander
+        | MountedKind::ComboBox
+        | MountedKind::Pivot
+        | MountedKind::FlipView
+        | MountedKind::SelectorBar
+        | MountedKind::SelectorBarItem
+        | MountedKind::TabView
+        | MountedKind::CommandBar
+        | MountedKind::AppBarButton
+        | MountedKind::MenuBar
+        | MountedKind::DatePicker
+        | MountedKind::TimePicker
+        | MountedKind::CalendarDatePicker
+        | MountedKind::ListView
+        | MountedKind::GridView
+        | MountedKind::RichEditBox
+        | MountedKind::Viewbox => ControlRole::Slots,
         MountedKind::ItemsRepeater => ControlRole::Virtual,
-        MountedKind::InfoBadge => ControlRole::Leaf,
-        MountedKind::InfoBar => ControlRole::Leaf,
-        MountedKind::PersonPicture => ControlRole::Leaf,
-        MountedKind::ScrollViewer => ControlRole::Content,
-        MountedKind::ScrollView => ControlRole::Content,
-        MountedKind::Image => ControlRole::Leaf,
-        MountedKind::ProgressRing => ControlRole::Leaf,
-        MountedKind::ListBox => ControlRole::Slots,
-        MountedKind::Rectangle => ControlRole::Leaf,
-        MountedKind::Ellipse => ControlRole::Leaf,
-        MountedKind::Line => ControlRole::Leaf,
-        MountedKind::SymbolIcon => ControlRole::Leaf,
-        MountedKind::ImageIcon => ControlRole::Leaf,
-        MountedKind::FontIcon => ControlRole::Leaf,
-        MountedKind::BitmapIcon => ControlRole::Leaf,
-        MountedKind::PathIcon => ControlRole::Leaf,
-        MountedKind::ListBoxItem => ControlRole::Content,
-        MountedKind::RatingControl => ControlRole::Leaf,
-        MountedKind::Expander => ControlRole::Slots,
-        MountedKind::ComboBox => ControlRole::Slots,
-        MountedKind::Pivot => ControlRole::Slots,
-        MountedKind::PivotItem => ControlRole::Content,
-        MountedKind::FlipView => ControlRole::Slots,
-        MountedKind::SelectorBar => ControlRole::Slots,
-        MountedKind::SelectorBarItem => ControlRole::Slots,
-        MountedKind::TabView => ControlRole::Slots,
-        MountedKind::TabViewItem => ControlRole::Content,
-        MountedKind::TeachingTip => ControlRole::Leaf,
-        MountedKind::DropDownButton => ControlRole::Content,
-        MountedKind::CommandBar => ControlRole::Slots,
-        MountedKind::AppBarButton => ControlRole::Slots,
-        MountedKind::AppBarSeparator => ControlRole::Leaf,
-        MountedKind::MenuBar => ControlRole::Slots,
-        MountedKind::MenuBarItem => ControlRole::Leaf,
-        MountedKind::SplitButton => ControlRole::Content,
-        MountedKind::ColorPicker => ControlRole::Leaf,
-        MountedKind::DatePicker => ControlRole::Slots,
-        MountedKind::TimePicker => ControlRole::Slots,
-        MountedKind::CalendarDatePicker => ControlRole::Slots,
-        MountedKind::ToolTip => ControlRole::Content,
-        MountedKind::ContentDialog => ControlRole::Content,
-        MountedKind::CalendarView => ControlRole::Leaf,
-        MountedKind::ListView => ControlRole::Slots,
-        MountedKind::ListViewItem => ControlRole::Content,
-        MountedKind::TreeView => ControlRole::Leaf,
-        MountedKind::GridView => ControlRole::Slots,
-        MountedKind::GridViewItem => ControlRole::Content,
-        MountedKind::RelativePanel => ControlRole::Children,
-        MountedKind::Canvas => ControlRole::Children,
-        MountedKind::RichEditBox => ControlRole::Slots,
-        MountedKind::RichTextBlock => ControlRole::Leaf,
-        MountedKind::Viewbox => ControlRole::Slots,
-        MountedKind::WebView2 => ControlRole::Leaf,
-        MountedKind::SwapChainPanel => ControlRole::Leaf,
     }
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

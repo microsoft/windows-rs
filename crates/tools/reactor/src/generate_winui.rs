@@ -640,14 +640,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 }
             }
 
-            pub fn ui_element(&self) -> windows_core::Result<UIElement> {
-                self.inspectable().cast()
-            }
-
-            pub fn dependency_object(&self) -> windows_core::Result<IDependencyObject> {
-                self.inspectable().cast()
-            }
-
             pub fn kind(&self) -> MountedKind {
                 match self {
                     #(#kinds),*
@@ -665,20 +657,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                     #(#child_collections,)*
                     _ => None,
                 })
-            }
-        }
-
-        #[inline]
-        fn set_content_control<T: windows_core::Interface>(
-            control: &T,
-            child: Option<&UIElement>,
-        ) -> Result<(), RuntimeError> {
-            let control = control.cast::<IContentControl>().map_err(native_error)?;
-            match child {
-                Some(child) => control.SetContent(child).map_err(native_error),
-                None => control
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error),
             }
         }
 
@@ -711,18 +689,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 #(#clear_properties,)*
                 _ => Err(RuntimeError::UnsupportedKind),
             }
-        }
-
-        #[inline]
-        fn clear_value(
-            handle: &Handle,
-            property: impl FnOnce() -> windows_core::Result<DependencyProperty>,
-        ) -> Result<(), RuntimeError> {
-            handle
-                .dependency_object()
-                .map_err(native_error)?
-                .ClearValue(&property().map_err(native_error)?)
-                .map_err(native_error)
         }
 
         pub fn set_slot(

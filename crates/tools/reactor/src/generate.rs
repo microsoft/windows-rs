@@ -128,14 +128,18 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             .iter()
             .map(|slot| ident(&format!("{}{}", control.name, slot.name)))
     });
-    let slot_lists = schema.controls.iter().map(|control| {
-        let kind = ident(&control.name);
-        let slots = control.slots.iter().map(|slot| {
-            let slot = ident(&format!("{}{}", control.name, slot.name));
-            quote! { SlotId::#slot }
+    let slot_lists = schema
+        .controls
+        .iter()
+        .filter(|control| !control.slots.is_empty())
+        .map(|control| {
+            let kind = ident(&control.name);
+            let slots = control.slots.iter().map(|slot| {
+                let slot = ident(&format!("{}{}", control.name, slot.name));
+                quote! { SlotId::#slot }
+            });
+            quote! { MountedKind::#kind => &[#(#slots),*] }
         });
-        quote! { MountedKind::#kind => &[#(#slots),*] }
-    });
     let collection_slot_lookups = schema.controls.iter().flat_map(|control| {
         control
             .slots
@@ -317,7 +321,8 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
 
         pub fn slots(kind: MountedKind) -> &'static [SlotId] {
             match kind {
-                #(#slot_lists),*
+                #(#slot_lists,)*
+                _ => &[],
             }
         }
 
@@ -2050,7 +2055,7 @@ fn value_equality(
 }
 
 fn generate_runtime_descriptors(schema: &ResolvedSchema) -> TokenStream {
-    let mut roles = Vec::new();
+    let mut roles = BTreeMap::<_, Vec<_>>::new();
     let mut selection_descriptors = Vec::new();
     let mut selection_events = Vec::new();
     let mut selection_slots = Vec::new();
@@ -2061,17 +2066,14 @@ fn generate_runtime_descriptors(schema: &ResolvedSchema) -> TokenStream {
 
     for control in &schema.controls {
         let kind = ident(&control.name);
-        let role = Ident::new(
-            match control.role {
-                Role::Leaf => "Leaf",
-                Role::Content => "Content",
-                Role::Children => "Children",
-                Role::Slots => "Slots",
-                Role::Virtual => "Virtual",
-            },
-            Span::call_site(),
-        );
-        roles.push(quote! { MountedKind::#kind => ControlRole::#role });
+        let role = match control.role {
+            Role::Leaf => "Leaf",
+            Role::Content => "Content",
+            Role::Children => "Children",
+            Role::Slots => "Slots",
+            Role::Virtual => "Virtual",
+        };
+        roles.entry(role).or_default().push(kind);
 
         if let Some(selection) = &control.selection {
             let descriptor = descriptor_ident(&control.name, "SELECTION");
@@ -2139,6 +2141,11 @@ fn generate_runtime_descriptors(schema: &ResolvedSchema) -> TokenStream {
                 .push(quote! { PropertyId::#property => Some(#descriptor) });
         }
     }
+
+    let roles = roles.into_iter().map(|(role, kinds)| {
+        let role = Ident::new(role, Span::call_site());
+        quote! { #(MountedKind::#kinds)|* => ControlRole::#role }
+    });
 
     quote! {
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
