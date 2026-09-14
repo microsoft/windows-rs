@@ -13,6 +13,7 @@ Microsoft::UI::Xaml::Window::get_Content
 Microsoft::UI::Xaml::XamlRoot::get_ContentIsland
 Microsoft::UI::Text::ITextDocument::{GetText, SetText}
 Microsoft::UI::Text::TextGetOptions::None
+Microsoft::UI::Text::TextGetOptions::UseLf
 Microsoft::UI::Text::TextSetOptions::None
 Microsoft::UI::Windowing::IAppWindow2::{get_ClientSize, ResizeClient}
 Microsoft::UI::Windowing::IAppWindow::{get_TitleBar, get_Presenter, get_Size, SetIcon}

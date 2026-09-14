@@ -1759,6 +1759,25 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                     self
                 }
             }
+        } else if property.adapter == Some(PropertyAdapter::RichEditText) {
+            let optional = ident(&format!("{}_optional", property.field));
+            quote! {
+                pub fn #field(mut self, value: impl Into<String>) -> Self {
+                    self.#field =
+                        Property::Set(canonical_rich_edit_text(&value.into()));
+                    self
+                }
+
+                pub fn #optional<T>(mut self, value: Option<T>) -> Self
+                where
+                    T: Into<String>,
+                {
+                    self.#field = Property::from(
+                        value.map(|value| canonical_rich_edit_text(&value.into()))
+                    );
+                    self
+                }
+            }
         } else if property.value == "Str" {
             let optional = ident(&format!("{}_optional", property.field));
             quote! {
@@ -2243,8 +2262,9 @@ fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
             || quote! { None },
             |value| {
                 let value = match value {
-                    FeedbackContract::SynchronousExact => "synchronous_exact",
-                    FeedbackContract::SynchronousNormalized => "synchronous_normalized",
+                    FeedbackContract::DeferredExact => "deferred_exact",
+                    FeedbackContract::Exact => "synchronous_exact",
+                    FeedbackContract::Normalized => "synchronous_normalized",
                 };
                 quote! { Some(#value) }
             },

@@ -150,6 +150,10 @@ trait LivePump {
     fn live_controlled_feedback_finish(&mut self) -> bool {
         false
     }
+    #[cfg(feature = "test")]
+    fn live_controlled_feedback_native_finish(&mut self) -> bool {
+        false
+    }
 }
 
 struct ComponentLoop {
@@ -584,16 +588,75 @@ impl LivePump for ComponentLoop {
 
     #[cfg(feature = "test")]
     fn live_controlled_feedback_start(&mut self) -> bool {
-        true
+        let events = Rc::new(RefCell::new(Vec::new()));
+        let callback = Rc::clone(&events);
+        let result = self.pump.update_view(
+            RichEditBox::new()
+                .text("one\r\nfirst line")
+                .on_text_changed(move |value| callback.borrow_mut().push(value))
+                .into(),
+        );
+        self.test.controlled_feedback_events = Some(events);
+        result.is_ok()
     }
 
     #[cfg(feature = "test")]
     fn live_controlled_feedback_input(&mut self) -> bool {
-        true
+        let Some(events) = self.test.controlled_feedback_events.as_ref().cloned() else {
+            return false;
+        };
+        let rich_edit_view = |value| {
+            let events = Rc::clone(&events);
+            RichEditBox::new()
+                .text(value)
+                .on_text_changed(move |value| events.borrow_mut().push(value))
+        };
+        self.pump
+            .update_view(rich_edit_view("two\nsecond line").into())
+            .is_ok()
+            && self
+                .pump
+                .update_view(rich_edit_view("three\rthird line\n").into())
+                .is_ok()
     }
 
     #[cfg(feature = "test")]
     fn live_controlled_feedback_finish(&mut self) -> bool {
+        let Some(rich_edit_events) = self.test.controlled_feedback_events.as_ref() else {
+            return false;
+        };
+        if !rich_edit_events.borrow().is_empty() {
+            eprintln!(
+                "controlled RichEditBox setter echoed {:?} to the application",
+                rich_edit_events.borrow()
+            );
+            return false;
+        }
+        let Some(rich_edit_box) = self.pump.root_native() else {
+            return false;
+        };
+        self.pump
+            .runtime()
+            .live_write_test_property(
+                rich_edit_box,
+                PropertyId::RichEditBoxDocument,
+                &PropertyValue::Str("native\r\nedit".to_string()),
+            )
+            .is_ok()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_controlled_feedback_native_finish(&mut self) -> bool {
+        let Some(rich_edit_events) = self.test.controlled_feedback_events.take() else {
+            return false;
+        };
+        if rich_edit_events.borrow().as_slice() != ["native\nedit"] {
+            eprintln!(
+                "RichEditBox native edit delivered {:?}",
+                rich_edit_events.borrow()
+            );
+            return false;
+        }
         let text_events = Rc::new(std::cell::Cell::new(0_u8));
         let callback = Rc::clone(&text_events);
         let text_view = |value| {

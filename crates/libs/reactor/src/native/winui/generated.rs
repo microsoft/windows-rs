@@ -2856,7 +2856,7 @@ pub fn set_property(
             Handle::RichEditBox(control),
             PropertyId::RichEditBoxDocument,
             PropertyValue::Str(value),
-        ) => set_rich_edit_text(control, value),
+        ) => set_rich_edit_text(control, value).map(|_| ()),
         (
             Handle::RichEditBox(control),
             PropertyId::RichEditBoxPlaceholderText,
@@ -3783,7 +3783,7 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
             .ClearValue(&bindings::FrameworkElement::TagProperty().map_err(native_error)?)
             .map_err(native_error),
         (Handle::RichEditBox(control), PropertyId::RichEditBoxDocument) => {
-            set_rich_edit_text(control, "")
+            set_rich_edit_text(control, "").map(|_| ())
         }
         (Handle::RichEditBox(_), PropertyId::RichEditBoxPlaceholderText) => dependency_object
             .ClearValue(&bindings::RichEditBox::PlaceholderTextProperty().map_err(native_error)?)
@@ -4325,10 +4325,6 @@ pub fn expected_feedback(
             EventId::GridViewSelectionChanged,
             FeedbackExpectation::Exact(EventPayload::SelectionIndex(*value)),
         )),
-        (PropertyId::RichEditBoxDocument, Some(PropertyValue::Str(value))) => Some((
-            EventId::RichEditBoxTextChanged,
-            FeedbackExpectation::Exact(EventPayload::Str(value.clone())),
-        )),
         (PropertyId::TextBoxText, None) => Some((
             EventId::TextBoxTextChanged,
             FeedbackExpectation::Exact(EventPayload::Str(Default::default())),
@@ -4432,10 +4428,6 @@ pub fn expected_feedback(
         (PropertyId::GridViewSelectedIndex, None) => Some((
             EventId::GridViewSelectionChanged,
             FeedbackExpectation::Normalized { observation: None },
-        )),
-        (PropertyId::RichEditBoxDocument, None) => Some((
-            EventId::RichEditBoxTextChanged,
-            FeedbackExpectation::Exact(EventPayload::Str(Default::default())),
         )),
         _ => None,
     }
@@ -6570,15 +6562,15 @@ pub fn subscribe_event(
                     let value = event_source.Document().and_then(|document| {
                         let mut value = windows_core::HSTRING::new();
                         document
-                            .GetText(bindings::TextGetOptions::None, &mut value)
+                            .GetText(bindings::TextGetOptions::UseLf, &mut value)
                             .map(|_| value)
                     });
                     match value {
-                        Ok(value) => sink.enqueue(
+                        Ok(value) => sink.enqueue_rich_edit_text(
                             node,
                             EventId::RichEditBoxTextChanged,
                             revision,
-                            EventPayload::Str(value.to_string_lossy()),
+                            value.to_string_lossy(),
                         ),
                         Err(error) => sink.error(
                             node,

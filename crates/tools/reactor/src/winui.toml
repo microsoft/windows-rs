@@ -1585,7 +1585,7 @@ capabilities = ["layout", "enabled", "controlled_text", "focus"]
 name = "Document"
 field = "text"
 controlled = "TextChanged"
-feedback_contract = "synchronous_exact"
+feedback_contract = "deferred_exact"
 adapter = "rich_edit_text"
 
 [[control.property]]

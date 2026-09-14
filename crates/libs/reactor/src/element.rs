@@ -620,6 +620,10 @@ pub trait FlyoutExt: Into<View> + Sized {
 
 impl<T> FlyoutExt for T where T: Into<View> {}
 
+pub(crate) fn canonical_rich_edit_text(value: &str) -> String {
+    value.replace("\r\n", "\n").replace('\r', "\n")
+}
+
 /// A keyed item in a context menu.
 #[derive(Clone, Debug, PartialEq)]
 pub enum MenuItem {

@@ -426,7 +426,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             let event_id = ident(&format!("{}{}", control.name, feedback));
             let value_variant = ident(&property.value);
             match property.feedback_contract.unwrap() {
-                FeedbackContract::SynchronousExact => {
+                FeedbackContract::Exact => {
                     let value = if property.copy {
                         quote! { *value }
                     } else {
@@ -442,7 +442,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         ))
                     })
                 }
-                FeedbackContract::SynchronousNormalized => Some(quote! {
+                FeedbackContract::Normalized => Some(quote! {
                     (PropertyId::#property_id, Some(_)) => {
                         Some((
                             EventId::#event_id,
@@ -450,6 +450,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         ))
                     }
                 }),
+                FeedbackContract::DeferredExact => None,
             }
         })
     });
@@ -460,7 +461,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             let event_id = ident(&format!("{}{}", control.name, feedback));
             let value_variant = ident(&property.value);
             match property.feedback_contract.unwrap() {
-                FeedbackContract::SynchronousExact => {
+                FeedbackContract::Exact => {
                     if property.adapter == Some(PropertyAdapter::SelectionIndex) {
                         return Some(quote! {
                             (PropertyId::#property_id, None) => Some((
@@ -479,7 +480,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         ))
                     })
                 }
-                FeedbackContract::SynchronousNormalized => Some(quote! {
+                FeedbackContract::Normalized => Some(quote! {
                     (PropertyId::#property_id, None) => {
                         Some((
                             EventId::#event_id,
@@ -487,6 +488,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         ))
                     }
                 }),
+                FeedbackContract::DeferredExact => None,
             }
         })
     });
@@ -1522,15 +1524,15 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                         let value = event_source.#property().and_then(|document| {
                             let mut value = windows_core::HSTRING::new();
                             document
-                                .GetText(bindings::TextGetOptions::None, &mut value)
+                                .GetText(bindings::TextGetOptions::UseLf, &mut value)
                                 .map(|_| value)
                         });
                         match value {
-                            Ok(value) => sink.enqueue(
+                            Ok(value) => sink.enqueue_rich_edit_text(
                                 node,
                                 EventId::#event_id,
                                 revision,
-                                EventPayload::Str(value.to_string_lossy()),
+                                value.to_string_lossy(),
                             ),
                             Err(error) => sink.error(
                                 node,
@@ -2055,7 +2057,7 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                 Handle::#control_name(control),
                 PropertyId::#property_id,
                 PropertyValue::Str(value),
-            ) => set_rich_edit_text(control, value)
+            ) => set_rich_edit_text(control, value).map(|_| ())
         };
     }
     if matches!(
@@ -2373,7 +2375,7 @@ fn generate_clear_property(control: &ResolvedControl, property: &ResolvedPropert
     if property.adapter == Some(PropertyAdapter::RichEditText) {
         return quote! {
             (Handle::#control_name(control), PropertyId::#property_id) => {
-                set_rich_edit_text(control, "")
+                set_rich_edit_text(control, "").map(|_| ())
             }
         };
     }

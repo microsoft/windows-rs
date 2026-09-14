@@ -5320,14 +5320,14 @@ pub mod public {
             self
         }
         pub fn text(mut self, value: impl Into<String>) -> Self {
-            self.text = Property::Set(value.into());
+            self.text = Property::Set(canonical_rich_edit_text(&value.into()));
             self
         }
         pub fn text_optional<T>(mut self, value: Option<T>) -> Self
         where
             T: Into<String>,
         {
-            self.text = Property::from(value.map(Into::into));
+            self.text = Property::from(value.map(|value| canonical_rich_edit_text(&value.into())));
             self
         }
         pub fn placeholder_text(mut self, value: impl Into<String>) -> Self {
@@ -18427,7 +18427,7 @@ const RICH_EDIT_BOX_PROPERTIES: &[PropertyDescriptor] = &[
         interface: "Microsoft.UI.Xaml.Controls.IRichEditBox",
         clearable: true,
         feedback: Some("TextChanged"),
-        feedback_contract: Some("synchronous_exact"),
+        feedback_contract: Some("deferred_exact"),
         observes_feedback: true,
     },
     PropertyDescriptor {

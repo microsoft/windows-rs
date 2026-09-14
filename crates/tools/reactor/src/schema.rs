@@ -500,10 +500,13 @@ pub(crate) enum ValueValidation {
 }
 
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
-#[serde(rename_all = "snake_case")]
 pub(crate) enum FeedbackContract {
-    SynchronousExact,
-    SynchronousNormalized,
+    #[serde(rename = "deferred_exact")]
+    DeferredExact,
+    #[serde(rename = "synchronous_exact")]
+    Exact,
+    #[serde(rename = "synchronous_normalized")]
+    Normalized,
 }
 
 #[derive(Deserialize)]
@@ -862,10 +865,26 @@ impl Schema {
                     (None, None) => None,
                 };
                 if property.coerces.is_some()
-                    && property.feedback_contract != Some(FeedbackContract::SynchronousNormalized)
+                    && property.feedback_contract != Some(FeedbackContract::Normalized)
                 {
                     return Err(format!(
                         "{}.{} coercion needs synchronous_normalized feedback",
+                        control.type_name, property.name
+                    ));
+                }
+                if property.adapter == Some(PropertyAdapter::RichEditText)
+                    && property.feedback_contract != Some(FeedbackContract::DeferredExact)
+                {
+                    return Err(format!(
+                        "{}.{} rich_edit_text requires deferred_exact feedback",
+                        control.type_name, property.name
+                    ));
+                }
+                if property.feedback_contract == Some(FeedbackContract::DeferredExact)
+                    && property.adapter != Some(PropertyAdapter::RichEditText)
+                {
+                    return Err(format!(
+                        "{}.{} deferred_exact requires the rich_edit_text adapter",
                         control.type_name, property.name
                     ));
                 }
@@ -1014,7 +1033,7 @@ impl Schema {
                 };
                 if property.clear_feedback.is_some()
                     && (value != "Bool"
-                        || property.feedback_contract != Some(FeedbackContract::SynchronousExact))
+                        || property.feedback_contract != Some(FeedbackContract::Exact))
                 {
                     return Err(format!(
                         "{}.{} clear_feedback requires a Bool property with synchronous_exact feedback",
@@ -1022,7 +1041,7 @@ impl Schema {
                     ));
                 }
                 if value == "Bool"
-                    && property.feedback_contract == Some(FeedbackContract::SynchronousExact)
+                    && property.feedback_contract == Some(FeedbackContract::Exact)
                     && property.clear_feedback.is_none()
                 {
                     return Err(format!(
@@ -1727,7 +1746,7 @@ impl Schema {
             {
                 let feedback = property.feedback.as_deref().unwrap();
                 if coercing_events.contains(feedback)
-                    && property.feedback_contract != Some(FeedbackContract::SynchronousNormalized)
+                    && property.feedback_contract != Some(FeedbackContract::Normalized)
                 {
                     return Err(format!(
                         "{} feedback event {} is coercing and requires synchronous_normalized",
@@ -2724,6 +2743,51 @@ controlled = "TextChanged"
             .unwrap();
 
         assert!(error.contains("needs a feedback contract"));
+    }
+
+    #[test]
+    fn rejects_non_deferred_rich_edit_feedback() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.RichEditBox"
+capabilities = ["controlled_text"]
+
+[[control.property]]
+name = "Document"
+controlled = "TextChanged"
+feedback_contract = "synchronous_exact"
+adapter = "rich_edit_text"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+
+        assert!(error.contains("rich_edit_text requires deferred_exact feedback"));
+    }
+
+    #[test]
+    fn rejects_deferred_feedback_without_rich_edit_adapter() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBox"
+capabilities = ["controlled_text"]
+
+[[control.property]]
+name = "Text"
+controlled = "TextChanged"
+feedback_contract = "deferred_exact"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+
+        assert!(error.contains("deferred_exact requires the rich_edit_text adapter"));
     }
 
     #[test]
