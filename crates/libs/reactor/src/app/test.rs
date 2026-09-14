@@ -8,7 +8,7 @@ pub(super) struct LiveTestState {
     pub(super) event_delivery_waits: usize,
     pub(super) content_dialog_stage: usize,
     pub(super) content_dialog_waits: usize,
-    pub(super) controlled_feedback_events: Option<Rc<std::cell::Cell<u8>>>,
+    pub(super) controlled_feedback_events: Option<Rc<RefCell<Vec<String>>>>,
 }
 
 thread_local! {
@@ -223,20 +223,43 @@ pub fn schedule_live_probe(
                 return;
             }
             let verify_completion = Rc::clone(&input_completion);
+            let native_dispatcher = input_dispatcher.clone();
             let verify = move || {
-                let passed = HOST.with(|host| {
+                let applied = HOST.with(|host| {
                     host.borrow_mut()
                         .as_mut()
                         .and_then(LiveHost::secondary_mut)
                         .is_some_and(LivePump::live_controlled_feedback_finish)
                 });
-                finish_live_probe(
-                    probe,
-                    passed
-                        .then_some(())
-                        .ok_or_else(|| format!("{probe:?} probe failed")),
-                    Rc::clone(&verify_completion),
-                );
+                if !applied {
+                    finish_live_probe(
+                        probe,
+                        Err(format!("{probe:?} native RichEdit input failed")),
+                        Rc::clone(&verify_completion),
+                    );
+                    return;
+                }
+                let native_completion = Rc::clone(&verify_completion);
+                let verify_native = move || {
+                    let passed = HOST.with(|host| {
+                        host.borrow_mut()
+                            .as_mut()
+                            .and_then(LiveHost::secondary_mut)
+                            .is_some_and(LivePump::live_controlled_feedback_native_finish)
+                    });
+                    finish_live_probe(
+                        probe,
+                        passed
+                            .then_some(())
+                            .ok_or_else(|| format!("{probe:?} probe failed")),
+                        Rc::clone(&native_completion),
+                    );
+                };
+                if let Err(error) = queue_live_delayed(native_dispatcher.clone(), verify_native) {
+                    verify_completion(Err(format!(
+                        "{probe:?} native RichEdit verification failed: {error}"
+                    )));
+                }
             };
             if let Err(error) = queue_live_delayed(input_dispatcher.clone(), verify) {
                 input_completion(Err(format!("{probe:?} verification failed: {error}")));

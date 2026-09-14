@@ -501,6 +501,8 @@ pub(crate) enum ValueValidation {
 
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
 pub(crate) enum FeedbackContract {
+    #[serde(rename = "deferred_exact")]
+    DeferredExact,
     #[serde(rename = "synchronous_exact")]
     Exact,
     #[serde(rename = "synchronous_normalized")]
@@ -870,9 +872,24 @@ impl Schema {
                         control.type_name, property.name
                     ));
                 }
+                if property.adapter == Some(PropertyAdapter::RichEditText)
+                    && property.feedback_contract != Some(FeedbackContract::DeferredExact)
+                {
+                    return Err(format!(
+                        "{}.{} rich_edit_text requires deferred_exact feedback",
+                        control.type_name, property.name
+                    ));
+                }
+                if property.feedback_contract == Some(FeedbackContract::DeferredExact)
+                    && property.adapter != Some(PropertyAdapter::RichEditText)
+                {
+                    return Err(format!(
+                        "{}.{} deferred_exact requires the rich_edit_text adapter",
+                        control.type_name, property.name
+                    ));
+                }
                 match (feedback.as_ref(), property.feedback_contract) {
                     (Some(_), Some(_)) => {}
-                    (Some(_), None) if property.adapter == Some(PropertyAdapter::RichEditText) => {}
                     (Some(_), None) => {
                         return Err(format!(
                             "{}.{} needs a feedback contract",

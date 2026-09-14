@@ -2262,6 +2262,7 @@ fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
             || quote! { None },
             |value| {
                 let value = match value {
+                    FeedbackContract::DeferredExact => "deferred_exact",
                     FeedbackContract::Exact => "synchronous_exact",
                     FeedbackContract::Normalized => "synchronous_normalized",
                 };

@@ -422,9 +422,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let feedback_values = schema.controls.iter().flat_map(|control| {
         control.properties.iter().filter_map(move |property| {
             let feedback = property.feedback.as_ref()?;
-            if property.adapter == Some(PropertyAdapter::RichEditText) {
-                return None;
-            }
             let property_id = ident(&format!("{}{}", control.name, property.name));
             let event_id = ident(&format!("{}{}", control.name, feedback));
             let value_variant = ident(&property.value);
@@ -453,15 +450,13 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         ))
                     }
                 }),
+                FeedbackContract::DeferredExact => None,
             }
         })
     });
     let feedback_defaults = schema.controls.iter().flat_map(|control| {
         control.properties.iter().filter_map(move |property| {
             let feedback = property.feedback.as_ref()?;
-            if property.adapter == Some(PropertyAdapter::RichEditText) {
-                return None;
-            }
             let property_id = ident(&format!("{}{}", control.name, property.name));
             let event_id = ident(&format!("{}{}", control.name, feedback));
             let value_variant = ident(&property.value);
@@ -493,6 +488,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         ))
                     }
                 }),
+                FeedbackContract::DeferredExact => None,
             }
         })
     });
