@@ -512,7 +512,7 @@ impl RecordingRuntime {
                 );
                 self.windows.insert(*node);
             }
-            Command::ActivateWindow { node } => {
+            Command::ActivateWindow { node } | Command::RequestWindowActivation { node } => {
                 self.nodes
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;

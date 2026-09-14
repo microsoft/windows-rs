@@ -5,10 +5,13 @@ windows_core::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : HWND) -> u32
 windows_core::link!("user32.dll" "system" fn GetKeyboardState(lpkeystate : *mut u8) -> windows_core::BOOL);
 windows_core::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
 windows_core::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : u32, lpmem : *mut core::ffi::c_void) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn IsIconic(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn MessageBoxW(hwnd : HWND, lptext : windows_core::PCWSTR, lpcaption : windows_core::PCWSTR, utype : u32) -> i32);
 windows_core::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
+windows_core::link!("user32.dll" "system" fn SetForegroundWindow(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : DPI_AWARENESS_CONTEXT) -> windows_core::BOOL);
 windows_core::link!("shell32.dll" "system" fn ShellExecuteW(hwnd : HWND, lpoperation : windows_core::PCWSTR, lpfile : windows_core::PCWSTR, lpparameters : windows_core::PCWSTR, lpdirectory : windows_core::PCWSTR, nshowcmd : i32) -> HINSTANCE);
+windows_core::link!("user32.dll" "system" fn ShowWindow(hwnd : HWND, ncmdshow : i32) -> windows_core::BOOL);
 windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn TryCreatePackageDependency(user : PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
 pub const APPMODEL_ERROR_NO_PACKAGE: i32 = 15700;
 pub type AddPackageDependencyOptions = u32;
@@ -3181,6 +3184,20 @@ impl windows_core::RuntimeName for DispatcherQueueTimer {
 unsafe impl Send for DispatcherQueueTimer {}
 unsafe impl Sync for DispatcherQueueTimer {}
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DispatcherShutdownMode(pub i32);
+impl DispatcherShutdownMode {
+    pub const OnExplicitShutdown: Self = Self(1);
+}
+impl windows_core::imp::TypeKind for DispatcherShutdownMode {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for DispatcherShutdownMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.DispatcherShutdownMode;i4)",
+    );
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DragEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
@@ -5078,6 +5095,11 @@ impl IApplication {
             .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    pub(crate) fn Exit(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Exit)(windows_core::Interface::as_raw(self)).ok()
+        }
+    }
 }
 #[repr(C)]
 pub struct IApplication_Vtbl {
@@ -5085,6 +5107,49 @@ pub struct IApplication_Vtbl {
     pub Resources: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    SetResources: usize,
+    DebugSettings: usize,
+    RequestedTheme: usize,
+    SetRequestedTheme: usize,
+    FocusVisualKind: usize,
+    SetFocusVisualKind: usize,
+    HighContrastAdjustment: usize,
+    SetHighContrastAdjustment: usize,
+    UnhandledException: usize,
+    RemoveUnhandledException: usize,
+    pub Exit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IApplication3,
+    IApplication3_Vtbl,
+    0xbe941595_61fe_5b36_a3d3_962a647d7c6f
+);
+impl windows_core::RuntimeType for IApplication3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IApplication3 {
+    pub(crate) fn SetDispatcherShutdownMode(
+        &self,
+        value: DispatcherShutdownMode,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetDispatcherShutdownMode)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IApplication3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    DispatcherShutdownMode: usize,
+    pub SetDispatcherShutdownMode: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        DispatcherShutdownMode,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -26129,6 +26194,7 @@ unsafe impl Send for Run {}
 unsafe impl Sync for Run {}
 pub const STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED: windows_core::HRESULT =
     windows_core::HRESULT(0x80670016_u32 as _);
+pub const SW_RESTORE: i32 = 9;
 pub const SW_SHOWNORMAL: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

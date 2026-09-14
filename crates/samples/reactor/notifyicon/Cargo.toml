@@ -1,0 +1,12 @@
+[package]
+name = "reactor-notifyicon"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-reactor = { workspace = true }
+windows-notifyicon = { workspace = true }
+
+[lints]
+workspace = true

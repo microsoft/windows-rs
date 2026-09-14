@@ -5,6 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
+windows-core = { workspace = true }
 windows-reactor = { workspace = true }
 
 [lints]

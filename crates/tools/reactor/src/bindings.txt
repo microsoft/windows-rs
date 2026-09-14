@@ -21,8 +21,9 @@ Microsoft::UI::Windowing::IAppWindowTitleBar3::put_PreferredTheme
 Microsoft::UI::Windowing::IOverlappedPresenter3::{put_PreferredMinimumWidth, put_PreferredMinimumHeight, put_PreferredMaximumWidth, put_PreferredMaximumHeight}
 Microsoft::UI::Windowing::TitleBarHeightOption::{Standard, Tall}
 Microsoft::UI::Windowing::TitleBarTheme::{UseDefaultAppMode, Light, Dark}
-Microsoft::UI::Xaml::Application::{CreateInstance, Current, Start}
+Microsoft::UI::Xaml::Application::{CreateInstance, Current, Exit, Start}
 Microsoft::UI::Xaml::ApplicationInitializationCallback
+Microsoft::UI::Xaml::DispatcherShutdownMode::OnExplicitShutdown
 Microsoft::UI::Xaml::Automation::AutomationProperties::{SetAutomationId, SetHeadingLevel, SetName}
 Microsoft::UI::Xaml::Controls::Canvas::{LeftProperty, SetLeft, SetTop, TopProperty}
 Microsoft::UI::Xaml::Controls::ColumnDefinition::CreateInstance
@@ -89,6 +90,7 @@ Microsoft::UI::Xaml::GridLength
 Microsoft::UI::Xaml::GridUnitType
 Microsoft::UI::Xaml::Hosting::ElementCompositionPreview::{GetElementVisual, SetElementChildVisual}
 Microsoft::UI::Xaml::IApplication::get_Resources
+Microsoft::UI::Xaml::IApplication3::put_DispatcherShutdownMode
 Microsoft::UI::Xaml::IApplicationOverrides::{}
 Microsoft::UI::Xaml::IDependencyObject::ClearValue
 Microsoft::UI::Xaml::IElementFactory::{}
@@ -142,6 +144,7 @@ Windows::Win32::GetKeyboardState
 Windows::Win32::GetProcessHeap
 Windows::Win32::HeapFree
 Windows::Win32::IDYES
+Windows::Win32::IsIconic
 Windows::Win32::MB_ICONERROR
 Windows::Win32::MB_YESNO
 Windows::Win32::MessageBoxW
@@ -154,9 +157,12 @@ Windows::Win32::PackageDependencyProcessorArchitectures::PackageDependencyProces
 Windows::Win32::PackageDependencyProcessorArchitectures::PackageDependencyProcessorArchitectures_None
 Windows::Win32::PostQuitMessage
 Windows::Win32::RPC_E_CHANGED_MODE
+Windows::Win32::SetForegroundWindow
 Windows::Win32::SetProcessDpiAwarenessContext
+Windows::Win32::ShowWindow
 Windows::Win32::ShellExecuteW
 Windows::Win32::STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED
+Windows::Win32::SW_RESTORE
 Windows::Win32::SW_SHOWNORMAL
 Windows::Win32::TryCreatePackageDependency
 extras::ISwapChainPanelNative::SetSwapChain
