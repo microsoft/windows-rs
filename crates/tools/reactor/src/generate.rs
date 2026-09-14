@@ -3,8 +3,8 @@ use quote::quote;
 use std::collections::BTreeMap;
 
 use crate::schema::{
-    Capability, EventPayloadConversion, FeedbackContract, Lifecycle, PropertyAdapter,
-    ResolvedControl, ResolvedPlacement, ResolvedSchema, Role, ValueValidation,
+    Capability, EventPayloadConversion, Lifecycle, PropertyAdapter, ResolvedControl,
+    ResolvedPlacement, ResolvedSchema, Role, ValueValidation,
 };
 
 pub(crate) fn generate(schema: &ResolvedSchema) -> String {
@@ -148,8 +148,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     });
     let property_values = generate_property_values(schema);
     let event_payloads = generate_event_payloads(schema);
-    let descriptors = schema.controls.iter().map(generate_descriptors);
-    let controls = schema.controls.iter().map(generate_control);
+    let runtime_descriptors = generate_runtime_descriptors(schema);
 
     let tokens = quote! {
         use crate::core::ThemeStyle;
@@ -401,195 +400,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         #property_values
         #event_payloads
 
-        #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-        pub enum ControlRole {
-            Leaf,
-            Content,
-            Children,
-            Slots,
-            Virtual,
-        }
-
-        #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-        pub enum Capability {
-            Layout,
-            TextStyle,
-            Enabled,
-            Content,
-            Children,
-            ControlledText,
-            Items,
-            Focus,
-            Reference,
-            GridDefinitions,
-            WindowTitleBar,
-        }
-
-        #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-        pub struct PropertyDescriptor {
-            pub id: PropertyId,
-            pub name: &'static str,
-            pub field: &'static str,
-            pub value: &'static str,
-            pub interface: &'static str,
-            pub clearable: bool,
-            pub feedback: Option<&'static str>,
-            pub feedback_contract: Option<&'static str>,
-            pub observes_feedback: bool,
-        }
-
-        #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-        pub struct EventDescriptor {
-            pub id: EventId,
-            pub name: &'static str,
-            pub field: &'static str,
-            pub payload: &'static str,
-            pub interface: &'static str,
-        }
-
-        #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-        pub struct SlotDescriptor {
-            pub id: SlotId,
-            pub name: &'static str,
-            pub interface: &'static str,
-            pub target: &'static str,
-            pub collection: bool,
-        }
-
-        #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-        pub struct SelectionDescriptor {
-            pub slots: &'static [SlotId],
-            pub item: MountedKind,
-            pub selected_property: PropertyId,
-            pub event: EventId,
-            pub payload_property: PropertyId,
-        }
-
-        #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-        pub struct ControlledCollectionDescriptor {
-            pub slot: SlotId,
-            pub property: PropertyId,
-            pub event: EventId,
-        }
-
-        #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-        pub struct ControlDescriptor {
-            pub kind: MountedKind,
-            pub name: &'static str,
-            pub type_name: &'static str,
-            pub role: ControlRole,
-            pub capabilities: &'static [Capability],
-            pub properties: &'static [PropertyDescriptor],
-            pub events: &'static [EventDescriptor],
-            pub slots: &'static [SlotDescriptor],
-            pub selection: Option<SelectionDescriptor>,
-            pub controlled_collection: Option<ControlledCollectionDescriptor>,
-        }
-
-        #(#descriptors)*
-
-        pub const CONTROLS: &[ControlDescriptor] = &[
-            #(#controls),*
-        ];
-
-        pub fn selection_for_event(event: EventId) -> Option<SelectionDescriptor> {
-            CONTROLS
-                .iter()
-                .find_map(|control| control.selection.filter(|selection| selection.event == event))
-        }
-
-        pub fn selection_for_slot(slot: SlotId) -> Option<SelectionDescriptor> {
-            CONTROLS
-                .iter()
-                .find_map(|control| {
-                    control
-                        .selection
-                        .filter(|selection| selection.slots.contains(&slot))
-                })
-        }
-
-        pub fn selection_for_item_property(
-            property: PropertyId,
-            slot: SlotId,
-        ) -> Option<SelectionDescriptor> {
-            CONTROLS.iter().find_map(|control| {
-                control.selection.filter(|selection| {
-                    selection.selected_property == property && selection.slots.contains(&slot)
-                })
-            })
-        }
-
-        pub fn controlled_collection_for_slot(
-            slot: SlotId,
-        ) -> Option<ControlledCollectionDescriptor> {
-            CONTROLS.iter().find_map(|control| {
-                control
-                    .controlled_collection
-                    .filter(|collection| collection.slot == slot)
-            })
-        }
-
-        pub fn controlled_collection_for_property(
-            property: PropertyId,
-        ) -> Option<ControlledCollectionDescriptor> {
-            CONTROLS.iter().find_map(|control| {
-                control
-                    .controlled_collection
-                    .filter(|collection| collection.property == property)
-            })
-        }
-
-        const _: () = {
-            let _: Option<PropertyValue> = None;
-            let mut control_index = 0;
-            while control_index < CONTROLS.len() {
-                let control = &CONTROLS[control_index];
-                let _ = (
-                    control.name,
-                    control.type_name,
-                    control.kind,
-                    control.role,
-                    control.capabilities,
-                    control.slots,
-                    control.controlled_collection,
-                );
-                let mut property_index = 0;
-                while property_index < control.properties.len() {
-                    let property = &control.properties[property_index];
-                    let _ = (
-                        property.name,
-                        property.id,
-                        property.field,
-                        property.value,
-                        property.interface,
-                        property.clearable,
-                        property.feedback,
-                        property.feedback_contract,
-                        property.observes_feedback,
-                    );
-                    property_index += 1;
-                }
-                let mut event_index = 0;
-                while event_index < control.events.len() {
-                    let event = &control.events[event_index];
-                    let _ = (
-                        event.id,
-                        event.name,
-                        event.field,
-                        event.payload,
-                        event.interface,
-                    );
-                    event_index += 1;
-                }
-                let mut slot_index = 0;
-                while slot_index < control.slots.len() {
-                    let slot = &control.slots[slot_index];
-                    let _ = (slot.id, slot.name, slot.interface, slot.target);
-                    slot_index += 1;
-                }
-                control_index += 1;
-            }
-        };
+        #runtime_descriptors
     };
 
     format!("// Generated by `tool-reactor`. Do not edit.\n\n{tokens}\n")
@@ -2243,145 +2054,37 @@ fn value_equality(
     }
 }
 
-fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
-    let properties_ident = descriptor_ident(&control.name, "PROPERTIES");
-    let events_ident = descriptor_ident(&control.name, "EVENTS");
-    let slots_ident = descriptor_ident(&control.name, "SLOTS");
-    let properties = control.properties.iter().map(|property| {
-        let id = ident(&format!("{}{}", control.name, property.name));
-        let name = &property.name;
-        let field = &property.field;
-        let value = &property.value;
-        let interface = &property.interface;
-        let feedback = property
-            .feedback
-            .as_deref()
-            .map_or_else(|| quote! { None }, |value| quote! { Some(#value) });
-        let observes_feedback = property.observes_feedback;
-        let feedback_contract = property.feedback_contract.map_or_else(
-            || quote! { None },
-            |value| {
-                let value = match value {
-                    FeedbackContract::DeferredExact => "deferred_exact",
-                    FeedbackContract::Exact => "synchronous_exact",
-                    FeedbackContract::Normalized => "synchronous_normalized",
-                };
-                quote! { Some(#value) }
-            },
-        );
-        quote! {
-            PropertyDescriptor {
-                id: PropertyId::#id,
-                name: #name,
-                field: #field,
-                value: #value,
-                interface: #interface,
-                clearable: true,
-                feedback: #feedback,
-                feedback_contract: #feedback_contract,
-                observes_feedback: #observes_feedback,
-            }
-        }
-    });
-    let events = control.events.iter().map(|event| {
-        let id = ident(&format!("{}{}", control.name, event.name));
-        let name = &event.name;
-        let field = &event.field;
-        let payload = &event.payload;
-        let interface = &event.interface;
-        quote! {
-            EventDescriptor {
-                id: EventId::#id,
-                name: #name,
-                field: #field,
-                payload: #payload,
-                interface: #interface,
-            }
-        }
-    });
-    let slots = control.slots.iter().map(|slot| {
-        let id = ident(&format!("{}{}", control.name, slot.name));
-        let name = &slot.name;
-        let interface = &slot.interface;
-        let (target, collection) = match &slot.shape {
-            crate::schema::SlotShape::Single(crate::schema::SlotTarget::Inspectable) => {
-                ("inspectable", false)
-            }
-            crate::schema::SlotShape::Single(crate::schema::SlotTarget::IconElement) => {
-                ("icon_element", false)
-            }
-            crate::schema::SlotShape::Single(crate::schema::SlotTarget::UiElement) => {
-                ("ui_element", false)
-            }
-            crate::schema::SlotShape::Collection(_) => ("inspectable", true),
-        };
-        quote! {
-            SlotDescriptor {
-                id: SlotId::#id,
-                name: #name,
-                interface: #interface,
-                target: #target,
-                collection: #collection,
-            }
-        }
-    });
+fn generate_runtime_descriptors(schema: &ResolvedSchema) -> TokenStream {
+    let mut roles = Vec::new();
+    let mut selection_descriptors = Vec::new();
+    let mut selection_events = Vec::new();
+    let mut selection_slots = Vec::new();
+    let mut selection_item_properties = Vec::new();
+    let mut controlled_collection_descriptors = Vec::new();
+    let mut controlled_collection_slots = Vec::new();
+    let mut controlled_collection_properties = Vec::new();
 
-    quote! {
-        const #properties_ident: &[PropertyDescriptor] = &[
-            #(#properties),*
-        ];
-        const #events_ident: &[EventDescriptor] = &[
-            #(#events),*
-        ];
-        const #slots_ident: &[SlotDescriptor] = &[
-            #(#slots),*
-        ];
-    }
-}
-
-fn generate_control(control: &ResolvedControl) -> TokenStream {
-    let name = &control.name;
-    let kind = ident(name);
-    let type_name = &control.type_name;
-    let role = Ident::new(
-        match control.role {
-            Role::Leaf => "Leaf",
-            Role::Content => "Content",
-            Role::Children => "Children",
-            Role::Slots => "Slots",
-            Role::Virtual => "Virtual",
-        },
-        Span::call_site(),
-    );
-    let capabilities = control.capabilities.iter().map(|capability| {
-        let capability = Ident::new(
-            match capability {
-                Capability::Layout => "Layout",
-                Capability::TextStyle => "TextStyle",
-                Capability::Enabled => "Enabled",
-                Capability::Content => "Content",
-                Capability::Children => "Children",
-                Capability::ControlledText => "ControlledText",
-                Capability::Items => "Items",
-                Capability::Focus => "Focus",
-                Capability::Reference => "Reference",
-                Capability::GridDefinitions => "GridDefinitions",
-                Capability::WindowTitleBar => "WindowTitleBar",
+    for control in &schema.controls {
+        let kind = ident(&control.name);
+        let role = Ident::new(
+            match control.role {
+                Role::Leaf => "Leaf",
+                Role::Content => "Content",
+                Role::Children => "Children",
+                Role::Slots => "Slots",
+                Role::Virtual => "Virtual",
             },
             Span::call_site(),
         );
-        quote! { Capability::#capability }
-    });
-    let properties = descriptor_ident(name, "PROPERTIES");
-    let events = descriptor_ident(name, "EVENTS");
-    let slots = descriptor_ident(name, "SLOTS");
-    let selection = control.selection.as_ref().map_or_else(
-        || quote! { None },
-        |selection| {
+        roles.push(quote! { MountedKind::#kind => ControlRole::#role });
+
+        if let Some(selection) = &control.selection {
+            let descriptor = descriptor_ident(&control.name, "SELECTION");
             let slots = selection
                 .slots
                 .iter()
-                .map(|slot| ident(&format!("{}{}", control.name, slot)));
+                .map(|slot| ident(&format!("{}{}", control.name, slot)))
+                .collect::<Vec<_>>();
             let item = ident(&selection.item);
             let selected_property = ident(&format!(
                 "{}{}",
@@ -2390,58 +2093,134 @@ fn generate_control(control: &ResolvedControl) -> TokenStream {
             let event = ident(&format!("{}{}", control.name, selection.event));
             let payload_property =
                 ident(&format!("{}{}", selection.item, selection.payload_property));
-            quote! {
-                Some(SelectionDescriptor {
+
+            selection_descriptors.push(quote! {
+                const #descriptor: SelectionDescriptor = SelectionDescriptor {
                     slots: &[#(SlotId::#slots),*],
                     item: MountedKind::#item,
                     selected_property: PropertyId::#selected_property,
                     event: EventId::#event,
                     payload_property: PropertyId::#payload_property,
-                })
+                };
+            });
+            selection_events.push(quote! { EventId::#event => Some(#descriptor) });
+            for slot in slots {
+                selection_slots.push(quote! { SlotId::#slot => Some(#descriptor) });
+                selection_item_properties.push(quote! {
+                    (PropertyId::#selected_property, SlotId::#slot) => Some(#descriptor)
+                });
             }
-        },
-    );
-    let collection_slots = control
-        .slots
-        .iter()
-        .filter(|slot| matches!(&slot.shape, crate::schema::SlotShape::Collection(_)))
-        .collect::<Vec<_>>();
-    let controlled_indices = control
-        .properties
-        .iter()
-        .filter(|property| property.value == "SelectionIndex" && property.feedback.is_some())
-        .collect::<Vec<_>>();
-    let controlled_collection = if collection_slots.len() == 1 && controlled_indices.len() == 1 {
-        let slot = ident(&format!("{}{}", control.name, collection_slots[0].name));
-        let property = ident(&format!("{}{}", control.name, controlled_indices[0].name));
-        let event = ident(&format!(
-            "{}{}",
-            control.name,
-            controlled_indices[0].feedback.as_ref().unwrap()
-        ));
-        quote! {
-            Some(ControlledCollectionDescriptor {
-                slot: SlotId::#slot,
-                property: PropertyId::#property,
-                event: EventId::#event,
-            })
         }
-    } else {
-        quote! { None }
-    };
+
+        let collection_slots = control
+            .slots
+            .iter()
+            .filter(|slot| matches!(&slot.shape, crate::schema::SlotShape::Collection(_)))
+            .collect::<Vec<_>>();
+        let controlled_indices = control
+            .properties
+            .iter()
+            .filter(|property| property.value == "SelectionIndex" && property.feedback.is_some())
+            .collect::<Vec<_>>();
+        if collection_slots.len() == 1 && controlled_indices.len() == 1 {
+            let descriptor = descriptor_ident(&control.name, "CONTROLLED_COLLECTION");
+            let slot = ident(&format!("{}{}", control.name, collection_slots[0].name));
+            let property = ident(&format!("{}{}", control.name, controlled_indices[0].name));
+            let event = ident(&format!(
+                "{}{}",
+                control.name,
+                controlled_indices[0].feedback.as_ref().unwrap()
+            ));
+            controlled_collection_descriptors.push(quote! {
+                const #descriptor: ControlledCollectionDescriptor =
+                    ControlledCollectionDescriptor {
+                        slot: SlotId::#slot,
+                        property: PropertyId::#property,
+                        event: EventId::#event,
+                    };
+            });
+            controlled_collection_slots.push(quote! { SlotId::#slot => Some(#descriptor) });
+            controlled_collection_properties
+                .push(quote! { PropertyId::#property => Some(#descriptor) });
+        }
+    }
 
     quote! {
-        ControlDescriptor {
-            kind: MountedKind::#kind,
-            name: #name,
-            type_name: #type_name,
-            role: ControlRole::#role,
-            capabilities: &[#(#capabilities),*],
-            properties: #properties,
-            events: #events,
-            slots: #slots,
-            selection: #selection,
-            controlled_collection: #controlled_collection,
+        #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+        pub enum ControlRole {
+            Leaf,
+            Content,
+            Children,
+            Slots,
+            Virtual,
+        }
+
+        pub fn control_role(kind: MountedKind) -> ControlRole {
+            match kind {
+                #(#roles),*
+            }
+        }
+
+        #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+        pub struct SelectionDescriptor {
+            pub slots: &'static [SlotId],
+            pub item: MountedKind,
+            pub selected_property: PropertyId,
+            pub event: EventId,
+            pub payload_property: PropertyId,
+        }
+
+        #(#selection_descriptors)*
+
+        pub fn selection_for_event(event: EventId) -> Option<SelectionDescriptor> {
+            match event {
+                #(#selection_events,)*
+                _ => None,
+            }
+        }
+
+        pub fn selection_for_slot(slot: SlotId) -> Option<SelectionDescriptor> {
+            match slot {
+                #(#selection_slots,)*
+                _ => None,
+            }
+        }
+
+        pub fn selection_for_item_property(
+            property: PropertyId,
+            slot: SlotId,
+        ) -> Option<SelectionDescriptor> {
+            match (property, slot) {
+                #(#selection_item_properties,)*
+                _ => None,
+            }
+        }
+
+        #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+        pub struct ControlledCollectionDescriptor {
+            pub slot: SlotId,
+            pub property: PropertyId,
+            pub event: EventId,
+        }
+
+        #(#controlled_collection_descriptors)*
+
+        pub fn controlled_collection_for_slot(
+            slot: SlotId,
+        ) -> Option<ControlledCollectionDescriptor> {
+            match slot {
+                #(#controlled_collection_slots,)*
+                _ => None,
+            }
+        }
+
+        pub fn controlled_collection_for_property(
+            property: PropertyId,
+        ) -> Option<ControlledCollectionDescriptor> {
+            match property {
+                #(#controlled_collection_properties,)*
+                _ => None,
+            }
         }
     }
 }

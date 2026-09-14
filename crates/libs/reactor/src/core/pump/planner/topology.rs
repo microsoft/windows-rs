@@ -28,10 +28,7 @@ pub(super) enum NativeAttachment {
 
 impl<R: NativeRuntime> Pump<R> {
     pub(super) fn control_has_role(kind: MountedKind, role: ControlRole) -> bool {
-        CONTROLS
-            .iter()
-            .find(|control| control.kind == kind)
-            .is_some_and(|control| control.role == role)
+        control_role(kind) == role
     }
 
     pub(in super::super) fn native_root(tree: &Tree, node: NodeId) -> Result<NodeId, PumpError> {
