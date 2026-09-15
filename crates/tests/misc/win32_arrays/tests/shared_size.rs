@@ -25,7 +25,7 @@ fn test() -> Result<()> {
         assert_eq!(results[0], 255);
         assert_eq!(results[1], 255);
 
-        CheckColorsInGamut(dc, input.as_ptr(), results.as_mut_ptr() as _, 2).ok()?;
+        CheckColorsInGamut(dc, input.as_ptr() as *mut _, results.as_mut_ptr() as _, 2).ok()?;
 
         assert_eq!(results[0], 0);
         assert_eq!(results[1], 0);

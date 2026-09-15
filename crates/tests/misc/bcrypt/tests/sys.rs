@@ -50,7 +50,7 @@ fn test() {
                 &mut encrypt_key,
                 std::ptr::null_mut(),
                 0,
-                shared_secret.as_ptr(),
+                shared_secret.as_ptr() as *mut _,
                 shared_secret.len() as u32,
                 0
             )
@@ -79,7 +79,7 @@ fn test() {
             STATUS_SUCCESS,
             BCryptEncrypt(
                 encrypt_key,
-                send_buffer.as_ptr(),
+                send_buffer.as_ptr() as *mut _,
                 send_buffer.len() as u32,
                 std::ptr::null(),
                 std::ptr::null_mut(),
@@ -96,7 +96,7 @@ fn test() {
             STATUS_SUCCESS,
             BCryptEncrypt(
                 encrypt_key,
-                send_buffer.as_ptr(),
+                send_buffer.as_ptr() as *mut _,
                 send_buffer.len() as u32,
                 std::ptr::null(),
                 std::ptr::null_mut(),
@@ -116,7 +116,7 @@ fn test() {
                 &mut decrypt_key,
                 std::ptr::null_mut(),
                 0,
-                shared_secret.as_ptr(),
+                shared_secret.as_ptr() as *mut _,
                 shared_secret.len() as u32,
                 0
             )
@@ -127,7 +127,7 @@ fn test() {
             STATUS_SUCCESS,
             BCryptDecrypt(
                 decrypt_key,
-                encrypted.as_ptr(),
+                encrypted.as_ptr() as *mut _,
                 encrypted.len() as u32,
                 std::ptr::null(),
                 std::ptr::null_mut(),
@@ -144,7 +144,7 @@ fn test() {
             STATUS_SUCCESS,
             BCryptDecrypt(
                 decrypt_key,
-                encrypted.as_ptr(),
+                encrypted.as_ptr() as *mut _,
                 encrypted.len() as u32,
                 std::ptr::null(),
                 std::ptr::null_mut(),

@@ -17,7 +17,7 @@ fn display_debug() {
         r#"Error { code: HRESULT(0x80070459), message: "No mapping for the Unicode character exists in the target multi-byte code page." }"#
     );
 
-    let e = Error::from(HRESULT(AUDCLNT_E_UNSUPPORTED_FORMAT));
+    let e = Error::from(AUDCLNT_E_UNSUPPORTED_FORMAT);
     let display = format!("{e}");
     let debug = format!("{e:?}");
     assert_eq!(display, "0x88890008");
@@ -38,7 +38,9 @@ fn hresult_last_error() {
 fn set_error_info() -> Result<()> {
     unsafe {
         let creator = CreateErrorInfo()?;
-        creator.SetDescription(w!("message")).ok()?;
+        creator
+            .SetDescription(w!("message").as_ptr().cast_mut())
+            .ok()?;
         SetErrorInfo(0, &creator.cast::<IErrorInfo>()?).ok()?;
 
         assert_eq!(Error::from(E_FAIL).message(), "message");

@@ -1,9 +1,0 @@
-#[win32]
-mod Test {
-    #[no_guid]
-    interface IHolder {
-        fn TrackResource(&self, param0: i32) -> HRESULT;
-        fn UntrackResource(&self, param0: i32, param1: i32) -> HRESULT;
-        fn FreeResource(&self, resource: i32) -> HRESULT;
-    }
-}

@@ -1,4 +1,0 @@
-#[win32]
-mod Test {
-    type LSTATUS = i32;
-}

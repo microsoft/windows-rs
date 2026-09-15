@@ -1,6 +1,6 @@
 #[inline]
 pub unsafe fn CoGetCallerTID() -> windows_core::Result<u32> {
-    windows_core::link!("ole32.dll" "system" fn CoGetCallerTID(lpdwtid : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoGetCallerTID(lpdwtid : LPDWORD) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CoGetCallerTID(&mut result__).map(|| result__)
@@ -13,7 +13,7 @@ pub unsafe fn GetLastError() -> u32 {
 }
 #[inline]
 pub unsafe fn HidD_GetHidGuid() -> windows_core::GUID {
-    windows_core::link!("hid.dll" "system" fn HidD_GetHidGuid(hidguid : *mut windows_core::GUID));
+    windows_core::link!("hid.dll" "system" fn HidD_GetHidGuid(hidguid : LPGUID));
     unsafe {
         let mut result__ = core::mem::zeroed();
         HidD_GetHidGuid(&mut result__);
@@ -105,3 +105,5 @@ pub struct IStringable_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+pub type LPDWORD = *mut u32;
+pub type LPGUID = *mut windows_core::GUID;
