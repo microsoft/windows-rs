@@ -18,7 +18,7 @@ impl Pool {
         };
 
         unsafe {
-            e.Pool = check_ptr(CreateThreadpool(core::ptr::null()));
+            e.Pool = check_ptr(CreateThreadpool(core::ptr::null_mut()));
             e.CleanupGroup = check_ptr(CreateThreadpoolCleanupGroup());
         }
 
