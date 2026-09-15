@@ -58,11 +58,12 @@ change the generated metadata.
   checkout alike.
 - **CI:** every workflow self-provisions the pinned libclang from NuGet - no CI job installs LLVM.
   The `gen.yml` scrapers call `ensure_libclang`; `clippy.yml` loads no libclang at all
-  (`cargo clippy` never parses); and `test.yml`, whose `test_clang` suite loads libclang at runtime,
+  (`cargo clippy` never parses); and `test.yml`, whose `windows-clang` tests load libclang at
+  runtime,
   exports `LIBCLANG_PATH` from the same pin via `echo "LIBCLANG_PATH=$(cargo run -q -p tool-clang --
   path)"
-  >> "$GITHUB_ENV"`. `tool-clang path` prints `windows_clang::libclang_dir()`, keeping the `unsafe`
-`set_var` off the multithreaded test runner. The Linux CI jobs build code that needs no libclang.
+  >> "$GITHUB_ENV"`. `tool-clang path` prints `helpers::libclang_dir()`, keeping the `unsafe`
+  `set_var` off the multithreaded test runner. The Linux CI jobs build code that needs no libclang.
 - **Validated by `tool-clang`:** fetches, loads, and version-asserts the pin (the same provisioning
   the scrapers run). Writes nothing.
 - **To update:** bump `LIBCLANG_VERSION` - a single const that drives both the NuGet DLL and the

@@ -186,7 +186,7 @@ The `formatter` module pretty-prints generated RDL.
 Dedicated test crates cover the crate:
 
 - `test_rdl` covers RDL to winmd round trips with `input/*.rdl` fixtures.
-- `test_clang` covers header to RDL output with `expected/*.rdl` goldens.
+- The `windows-clang` integration tests cover header-to-RDL output.
 - `tool-roundtrip` re-derives committed RDL files from committed winmd files. The `gen` workflow
   enforces a clean `git diff`.
 - `test_bindgen` covers the `.winmd` to Rust step that consumes this crate's output.
@@ -195,7 +195,7 @@ Run targeted tests with:
 
 ```sh
 cargo test -p test_rdl
-cargo test -p test_clang
+cargo test -p windows-clang
 ```
 
 ### Default metadata files
