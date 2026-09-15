@@ -63,7 +63,7 @@ impl Window {
     /// window is destroyed.
     pub fn hwnd(&self) -> *mut core::ffi::c_void {
         if self.live.get() {
-            self.hwnd
+            self.hwnd.cast()
         } else {
             core::ptr::null_mut()
         }
@@ -382,7 +382,7 @@ unsafe fn register_class() {
         let wc = WNDCLASSW {
             style: (CS_HREDRAW | CS_VREDRAW) as u32,
             lpfnWndProc: Some(wndproc),
-            hCursor: LoadCursorW(core::ptr::null_mut(), IDC_ARROW),
+            hCursor: LoadCursorW(core::ptr::null_mut(), PCWSTR(IDC_ARROW.0.cast())),
             lpszClassName: class_name(),
             ..Default::default()
         };
@@ -435,7 +435,7 @@ unsafe extern "system" fn wndproc(
             // process rather than crossing into the OS frames that called wndproc.
             // This is intentional.
             if let Some(handler) = message_handler.as_mut() {
-                handled = handler(hwnd, message, wparam, lparam);
+                handled = handler(hwnd.cast(), message, wparam, lparam);
             }
 
             state = GetWindowLongPtrW(hwnd, GWLP_USERDATA) as *mut State;

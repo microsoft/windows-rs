@@ -110,39 +110,39 @@ mod Windows {
         const DS_WRITABLE_REQUIRED: i32 = 4096;
         const DS_WS_FLAG: i32 = 8192;
         #[library("NETAPI32.dll")]
-        extern fn DsAddressToSiteNamesA(#[opt] ComputerName: PCSTR, EntryCount: u32, #[len_param(1)] SocketAddresses: *const SOCKET_ADDRESS, SiteNames: *mut *mut PSTR) -> u32;
+        extern fn DsAddressToSiteNamesA(#[opt] ComputerName: PCSTR, EntryCount: u32, #[len_param(1)] SocketAddresses: PSOCKET_ADDRESS, SiteNames: *mut *mut PSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsAddressToSiteNamesExA(#[opt] ComputerName: PCSTR, EntryCount: u32, #[len_param(1)] SocketAddresses: *const SOCKET_ADDRESS, SiteNames: *mut *mut PSTR, SubnetNames: *mut *mut PSTR) -> u32;
+        extern fn DsAddressToSiteNamesExA(#[opt] ComputerName: PCSTR, EntryCount: u32, #[len_param(1)] SocketAddresses: PSOCKET_ADDRESS, SiteNames: *mut *mut PSTR, SubnetNames: *mut *mut PSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsAddressToSiteNamesExW(#[opt] ComputerName: PCWSTR, EntryCount: u32, #[len_param(1)] SocketAddresses: *const SOCKET_ADDRESS, SiteNames: *mut *mut PWSTR, SubnetNames: *mut *mut PWSTR) -> u32;
+        extern fn DsAddressToSiteNamesExW(#[opt] ComputerName: PCWSTR, EntryCount: u32, #[len_param(1)] SocketAddresses: PSOCKET_ADDRESS, SiteNames: *mut *mut PWSTR, SubnetNames: *mut *mut PWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsAddressToSiteNamesW(#[opt] ComputerName: PCWSTR, EntryCount: u32, #[len_param(1)] SocketAddresses: *const SOCKET_ADDRESS, SiteNames: *mut *mut PWSTR) -> u32;
+        extern fn DsAddressToSiteNamesW(#[opt] ComputerName: PCWSTR, EntryCount: u32, #[len_param(1)] SocketAddresses: PSOCKET_ADDRESS, SiteNames: *mut *mut PWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsDeregisterDnsHostRecordsA(#[opt] ServerName: PCSTR, #[opt] DnsDomainName: PCSTR, #[opt] DomainGuid: *const GUID, #[opt] DsaGuid: *const GUID, DnsHostName: PCSTR) -> u32;
+        extern fn DsDeregisterDnsHostRecordsA(#[opt] ServerName: PCSTR, #[opt] DnsDomainName: PCSTR, #[in] #[opt] DomainGuid: *mut GUID, #[in] #[opt] DsaGuid: *mut GUID, DnsHostName: PCSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsDeregisterDnsHostRecordsW(#[opt] ServerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, #[opt] DomainGuid: *const GUID, #[opt] DsaGuid: *const GUID, DnsHostName: PCWSTR) -> u32;
+        extern fn DsDeregisterDnsHostRecordsW(#[opt] ServerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, #[in] #[opt] DomainGuid: *mut GUID, #[in] #[opt] DsaGuid: *mut GUID, DnsHostName: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsEnumerateDomainTrustsA(#[opt] ServerName: PCSTR, Flags: u32, Domains: *mut PDS_DOMAIN_TRUSTSA, DomainCount: *mut u32) -> u32;
+        extern fn DsEnumerateDomainTrustsA(#[opt] ServerName: PCSTR, Flags: u32, Domains: *mut PDS_DOMAIN_TRUSTSA, #[out] DomainCount: PULONG) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsEnumerateDomainTrustsW(#[opt] ServerName: PCWSTR, Flags: u32, Domains: *mut PDS_DOMAIN_TRUSTSW, DomainCount: *mut u32) -> u32;
+        extern fn DsEnumerateDomainTrustsW(#[opt] ServerName: PCWSTR, Flags: u32, Domains: *mut PDS_DOMAIN_TRUSTSW, #[out] DomainCount: PULONG) -> u32;
         #[library("NETAPI32.dll")]
         extern fn DsGetDcCloseW(GetDcContextHandle: HANDLE);
         #[library("NETAPI32.dll")]
-        extern fn DsGetDcNameA(#[opt] ComputerName: PCSTR, #[opt] DomainName: PCSTR, #[opt] DomainGuid: *const GUID, #[opt] SiteName: PCSTR, Flags: u32, DomainControllerInfo: *mut PDOMAIN_CONTROLLER_INFOA) -> u32;
+        extern fn DsGetDcNameA(#[opt] ComputerName: PCSTR, #[opt] DomainName: PCSTR, #[in] #[opt] DomainGuid: *mut GUID, #[opt] SiteName: PCSTR, Flags: u32, DomainControllerInfo: *mut PDOMAIN_CONTROLLER_INFOA) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsGetDcNameW(#[opt] ComputerName: PCWSTR, #[opt] DomainName: PCWSTR, #[opt] DomainGuid: *const GUID, #[opt] SiteName: PCWSTR, Flags: u32, DomainControllerInfo: *mut PDOMAIN_CONTROLLER_INFOW) -> u32;
+        extern fn DsGetDcNameW(#[opt] ComputerName: PCWSTR, #[opt] DomainName: PCWSTR, #[in] #[opt] DomainGuid: *mut GUID, #[opt] SiteName: PCWSTR, Flags: u32, DomainControllerInfo: *mut PDOMAIN_CONTROLLER_INFOW) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsGetDcNextA(GetDcContextHandle: HANDLE, #[opt] SockAddressCount: *mut u32, SockAddresses: *mut LPSOCKET_ADDRESS, DnsHostName: *mut PSTR) -> u32;
+        extern fn DsGetDcNextA(GetDcContextHandle: HANDLE, #[out] #[opt] SockAddressCount: PULONG, SockAddresses: *mut LPSOCKET_ADDRESS, DnsHostName: *mut PSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsGetDcNextW(GetDcContextHandle: HANDLE, #[opt] SockAddressCount: *mut u32, SockAddresses: *mut LPSOCKET_ADDRESS, DnsHostName: *mut PWSTR) -> u32;
+        extern fn DsGetDcNextW(GetDcContextHandle: HANDLE, #[out] #[opt] SockAddressCount: PULONG, SockAddresses: *mut LPSOCKET_ADDRESS, DnsHostName: *mut PWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsGetDcOpenA(DnsName: PCSTR, OptionFlags: u32, #[opt] SiteName: PCSTR, #[opt] DomainGuid: *const GUID, #[opt] DnsForestName: PCSTR, DcFlags: u32, RetGetDcContext: *mut HANDLE) -> u32;
+        extern fn DsGetDcOpenA(DnsName: PCSTR, OptionFlags: u32, #[opt] SiteName: PCSTR, #[in] #[opt] DomainGuid: *mut GUID, #[opt] DnsForestName: PCSTR, DcFlags: u32, #[out] RetGetDcContext: PHANDLE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsGetDcOpenW(DnsName: PCWSTR, OptionFlags: u32, #[opt] SiteName: PCWSTR, #[opt] DomainGuid: *const GUID, #[opt] DnsForestName: PCWSTR, DcFlags: u32, RetGetDcContext: *mut HANDLE) -> u32;
+        extern fn DsGetDcOpenW(DnsName: PCWSTR, OptionFlags: u32, #[opt] SiteName: PCWSTR, #[in] #[opt] DomainGuid: *mut GUID, #[opt] DnsForestName: PCWSTR, DcFlags: u32, #[out] RetGetDcContext: PHANDLE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsGetDcSiteCoverageA(#[opt] ServerName: PCSTR, EntryCount: *mut u32, SiteNames: *mut *mut PSTR) -> u32;
+        extern fn DsGetDcSiteCoverageA(#[opt] ServerName: PCSTR, #[out] EntryCount: PULONG, SiteNames: *mut *mut PSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsGetDcSiteCoverageW(#[opt] ServerName: PCWSTR, EntryCount: *mut u32, SiteNames: *mut *mut PWSTR) -> u32;
+        extern fn DsGetDcSiteCoverageW(#[opt] ServerName: PCWSTR, #[out] EntryCount: PULONG, SiteNames: *mut *mut PWSTR) -> u32;
         #[library("NETAPI32.dll")]
         extern fn DsGetForestTrustInformationW(#[opt] ServerName: PCWSTR, #[opt] TrustedDomainName: PCWSTR, Flags: u32, ForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION) -> u32;
         #[library("NETAPI32.dll")]
@@ -150,7 +150,7 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn DsGetSiteNameW(#[opt] ComputerName: PCWSTR, SiteName: *mut PWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn DsMergeForestTrustInformationW(DomainName: PCWSTR, NewForestTrustInfo: *const LSA_FOREST_TRUST_INFORMATION, #[opt] OldForestTrustInfo: *const LSA_FOREST_TRUST_INFORMATION, MergedForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION) -> u32;
+        extern fn DsMergeForestTrustInformationW(DomainName: PCWSTR, NewForestTrustInfo: PLSA_FOREST_TRUST_INFORMATION, #[opt] OldForestTrustInfo: PLSA_FOREST_TRUST_INFORMATION, MergedForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION) -> u32;
         #[library("NETAPI32.dll")]
         extern fn DsValidateSubnetNameA(SubnetName: PCSTR) -> u32;
         #[library("NETAPI32.dll")]

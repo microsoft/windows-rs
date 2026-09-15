@@ -74,7 +74,7 @@ jobs:
           key: ${{ matrix.target }}
       - name: Provision libclang (Windows)
         # Export LIBCLANG_PATH from the pinned NuGet build (the same one the scrapers use) for the
-        # test_clang suite. After rust-cache so the tool-clang build is cache-accelerated.
+        # windows-clang tests. After rust-cache so the tool-clang build is cache-accelerated.
         if: runner.os == 'Windows'
         run: echo "LIBCLANG_PATH=$(cargo run -q -p tool-clang -- path)" >> "$GITHUB_ENV"
         shell: bash

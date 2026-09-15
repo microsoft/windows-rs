@@ -289,13 +289,13 @@ mod Windows {
         const CRYPT_XML_X509DATA_TYPE_SKI: i32 = 2;
         const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: i32 = 3;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlAddObject(hSignatureOrObject: HCRYPTXML, dwFlags: u32, #[len_param(3)] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, cProperty: u32, pEncoded: *const CRYPT_XML_BLOB, ppObject: *mut *mut CRYPT_XML_OBJECT) -> HRESULT;
+        extern fn CryptXmlAddObject(hSignatureOrObject: HCRYPTXML, dwFlags: u32, #[len_param(3)] #[opt] rgProperty: *const CRYPT_XML_PROPERTY, cProperty: u32, pEncoded: *const CRYPT_XML_BLOB, ppObject: *const *const CRYPT_XML_OBJECT) -> HRESULT;
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlClose(hCryptXml: HCRYPTXML) -> HRESULT;
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlCreateReference(hCryptXml: HCRYPTXML, dwFlags: u32, #[opt] wszId: PCWSTR, #[opt] wszURI: PCWSTR, #[opt] wszType: PCWSTR, pDigestMethod: *const CRYPT_XML_ALGORITHM, cTransform: u32, #[len_param(6)] #[opt] rgTransform: *const CRYPT_XML_ALGORITHM, phReference: *mut HCRYPTXML) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlDigestReference(hReference: HCRYPTXML, dwFlags: u32, pDataProviderIn: *const CRYPT_XML_DATA_PROVIDER) -> HRESULT;
+        extern fn CryptXmlDigestReference(hReference: HCRYPTXML, dwFlags: u32, #[in] pDataProviderIn: *mut CRYPT_XML_DATA_PROVIDER) -> HRESULT;
         extern fn CryptXmlDllCloseDigest(hDigest: CRYPT_XML_DIGEST) -> HRESULT;
         extern fn CryptXmlDllCreateDigest(pDigestMethod: *const CRYPT_XML_ALGORITHM, pcbSize: *mut u32, phDigest: *mut CRYPT_XML_DIGEST) -> HRESULT;
         extern fn CryptXmlDllCreateKey(pEncoded: *const CRYPT_XML_BLOB, phKey: *mut BCRYPT_KEY_HANDLE) -> HRESULT;
@@ -316,15 +316,15 @@ mod Windows {
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlGetAlgorithmInfo(pXmlAlgorithm: *const CRYPT_XML_ALGORITHM, dwFlags: u32, ppAlgInfo: *mut *mut CRYPT_XML_ALGORITHM_INFO) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetDocContext(hCryptXml: HCRYPTXML, ppStruct: *mut *mut CRYPT_XML_DOC_CTXT) -> HRESULT;
+        extern fn CryptXmlGetDocContext(hCryptXml: HCRYPTXML, ppStruct: *const *const CRYPT_XML_DOC_CTXT) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetReference(hCryptXml: HCRYPTXML, ppStruct: *mut *mut CRYPT_XML_REFERENCE) -> HRESULT;
+        extern fn CryptXmlGetReference(hCryptXml: HCRYPTXML, ppStruct: *const *const CRYPT_XML_REFERENCE) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetSignature(hCryptXml: HCRYPTXML, ppStruct: *mut *mut CRYPT_XML_SIGNATURE) -> HRESULT;
+        extern fn CryptXmlGetSignature(hCryptXml: HCRYPTXML, ppStruct: *const *const CRYPT_XML_SIGNATURE) -> HRESULT;
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlGetStatus(hCryptXml: HCRYPTXML, pStatus: *mut CRYPT_XML_STATUS) -> HRESULT;
         #[library("CRYPTXML.dll")]
-        extern fn CryptXmlGetTransforms(ppConfig: *mut *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> HRESULT;
+        extern fn CryptXmlGetTransforms(ppConfig: *const *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> HRESULT;
         #[library("CRYPTXML.dll")]
         extern fn CryptXmlImportPublicKey(dwFlags: u32, pKeyValue: *const CRYPT_XML_KEY_VALUE, phKey: *mut BCRYPT_KEY_HANDLE) -> HRESULT;
         #[library("CRYPTXML.dll")]
@@ -356,7 +356,7 @@ mod Windows {
         type PCRYPT_XML_STATUS = *mut CRYPT_XML_STATUS;
         type PCRYPT_XML_TRANSFORM_CHAIN_CONFIG = *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG;
         type PCRYPT_XML_TRANSFORM_INFO = *mut CRYPT_XML_TRANSFORM_INFO;
-        extern fn PFN_CRYPT_XML_CREATE_TRANSFORM(pTransform: *const CRYPT_XML_ALGORITHM, pProviderIn: *const CRYPT_XML_DATA_PROVIDER, pProviderOut: *mut CRYPT_XML_DATA_PROVIDER) -> HRESULT;
+        extern fn PFN_CRYPT_XML_CREATE_TRANSFORM(pTransform: *const CRYPT_XML_ALGORITHM, #[in] pProviderIn: *mut CRYPT_XML_DATA_PROVIDER, pProviderOut: *mut CRYPT_XML_DATA_PROVIDER) -> HRESULT;
         extern fn PFN_CRYPT_XML_DATA_PROVIDER_CLOSE(#[in] #[out] pvCallbackState: *mut void) -> HRESULT;
         extern fn PFN_CRYPT_XML_DATA_PROVIDER_READ(#[in] #[out] pvCallbackState: *mut void, #[size_param(2)] pbData: *mut u8, cbData: u32, pcbRead: *mut u32) -> HRESULT;
         extern fn PFN_CRYPT_XML_ENUM_ALG_INFO(pInfo: *const CRYPT_XML_ALGORITHM_INFO, #[in] #[out] #[opt] pvArg: *mut void) -> BOOL;

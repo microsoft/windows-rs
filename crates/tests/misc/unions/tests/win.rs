@@ -22,9 +22,9 @@ fn test() {
     o.InternalHigh = 20;
     assert_eq!(o.InternalHigh, 20);
 
-    assert_eq!(o.hEvent, HANDLE(0 as _));
-    o.hEvent = HANDLE(1 as _);
-    assert_eq!(o.hEvent, HANDLE(1 as _));
+    assert_eq!(o.hEvent, core::ptr::null_mut());
+    o.hEvent = 1 as HANDLE;
+    assert_eq!(o.hEvent, 1 as HANDLE);
 
     unsafe {
         assert_eq!(o.Anonymous.Pointer, core::ptr::null_mut());

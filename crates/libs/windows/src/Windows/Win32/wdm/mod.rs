@@ -3,69 +3,70 @@ pub unsafe fn DbgQueryDebugFilterState(componentid: u32, level: u32) -> windows_
     windows_core::link!("ntdll.dll" "system" fn DbgQueryDebugFilterState(componentid : u32, level : u32) -> windows_core::NTSTATUS);
     unsafe { DbgQueryDebugFilterState(componentid, level) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn DbgSetDebugFilterState(componentid: u32, level: u32, state: bool) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn DbgSetDebugFilterState(componentid : u32, level : u32, state : bool) -> windows_core::NTSTATUS);
+pub unsafe fn DbgSetDebugFilterState(componentid: u32, level: u32, state: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn DbgSetDebugFilterState(componentid : u32, level : u32, state : super::BOOLEAN) -> windows_core::NTSTATUS);
     unsafe { DbgSetDebugFilterState(componentid, level, state) }
 }
-#[cfg(feature = "evntprov")]
+#[cfg(all(feature = "evntprov", feature = "winnt"))]
 #[inline]
-pub unsafe fn EtwEventEnabled(reghandle: super::REGHANDLE, eventdescriptor: *const super::EVENT_DESCRIPTOR) -> bool {
-    windows_core::link!("ntdll.dll" "C" fn EtwEventEnabled(reghandle : super::REGHANDLE, eventdescriptor : *const super::EVENT_DESCRIPTOR) -> bool);
+pub unsafe fn EtwEventEnabled(reghandle: super::REGHANDLE, eventdescriptor: super::PCEVENT_DESCRIPTOR) -> super::BOOLEAN {
+    windows_core::link!("ntdll.dll" "C" fn EtwEventEnabled(reghandle : super::REGHANDLE, eventdescriptor : super::PCEVENT_DESCRIPTOR) -> super::BOOLEAN);
     unsafe { EtwEventEnabled(reghandle, eventdescriptor) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtCommitComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtCommitComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn NtCommitComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCommitComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { NtCommitComplete(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtCommitEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtCommitEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn NtCommitEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCommitEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { NtCommitEnlistment(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtCommitTransaction(transactionhandle: super::HANDLE, wait: bool) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtCommitTransaction(transactionhandle : super::HANDLE, wait : bool) -> windows_core::NTSTATUS);
+pub unsafe fn NtCommitTransaction(transactionhandle: super::HANDLE, wait: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCommitTransaction(transactionhandle : super::HANDLE, wait : super::BOOLEAN) -> windows_core::NTSTATUS);
     unsafe { NtCommitTransaction(transactionhandle, wait) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ktmtypes", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "ktmtypes", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn NtCreateEnlistment(enlistmenthandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, resourcemanagerhandle: super::HANDLE, transactionhandle: super::HANDLE, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, createoptions: Option<u32>, notificationmask: super::NOTIFICATION_MASK, enlistmentkey: Option<*const core::ffi::c_void>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtCreateEnlistment(enlistmenthandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, resourcemanagerhandle : super::HANDLE, transactionhandle : super::HANDLE, objectattributes : *const super::OBJECT_ATTRIBUTES, createoptions : u32, notificationmask : super::NOTIFICATION_MASK, enlistmentkey : *const core::ffi::c_void) -> windows_core::NTSTATUS);
+pub unsafe fn NtCreateEnlistment(enlistmenthandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, resourcemanagerhandle: super::HANDLE, transactionhandle: super::HANDLE, objectattributes: Option<super::POBJECT_ATTRIBUTES>, createoptions: Option<u32>, notificationmask: super::NOTIFICATION_MASK, enlistmentkey: Option<*const core::ffi::c_void>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCreateEnlistment(enlistmenthandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, resourcemanagerhandle : super::HANDLE, transactionhandle : super::HANDLE, objectattributes : super::POBJECT_ATTRIBUTES, createoptions : u32, notificationmask : super::NOTIFICATION_MASK, enlistmentkey : *const core::ffi::c_void) -> windows_core::NTSTATUS);
     unsafe { NtCreateEnlistment(enlistmenthandle as _, desiredaccess, resourcemanagerhandle, transactionhandle, objectattributes.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, notificationmask, enlistmentkey.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "guiddef", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn NtCreateResourceManager(resourcemanagerhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, tmhandle: super::HANDLE, rmguid: *const windows_core::GUID, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, createoptions: Option<u32>, description: Option<*const super::UNICODE_STRING>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtCreateResourceManager(resourcemanagerhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, tmhandle : super::HANDLE, rmguid : *const windows_core::GUID, objectattributes : *const super::OBJECT_ATTRIBUTES, createoptions : u32, description : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
+pub unsafe fn NtCreateResourceManager(resourcemanagerhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, tmhandle: super::HANDLE, rmguid: super::LPGUID, objectattributes: Option<super::POBJECT_ATTRIBUTES>, createoptions: Option<u32>, description: Option<super::PUNICODE_STRING>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCreateResourceManager(resourcemanagerhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, tmhandle : super::HANDLE, rmguid : super::LPGUID, objectattributes : super::POBJECT_ATTRIBUTES, createoptions : u32, description : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { NtCreateResourceManager(resourcemanagerhandle as _, desiredaccess, tmhandle, rmguid, objectattributes.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, description.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "guiddef", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn NtCreateTransaction(transactionhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, uow: Option<*const windows_core::GUID>, tmhandle: Option<super::HANDLE>, createoptions: Option<u32>, isolationlevel: Option<u32>, isolationflags: Option<u32>, timeout: Option<*const i64>, description: Option<*const super::UNICODE_STRING>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtCreateTransaction(transactionhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, uow : *const windows_core::GUID, tmhandle : super::HANDLE, createoptions : u32, isolationlevel : u32, isolationflags : u32, timeout : *const i64, description : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
+pub unsafe fn NtCreateTransaction(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, uow: Option<super::LPGUID>, tmhandle: Option<super::HANDLE>, createoptions: Option<u32>, isolationlevel: Option<u32>, isolationflags: Option<u32>, timeout: Option<super::PLARGE_INTEGER>, description: Option<super::PUNICODE_STRING>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCreateTransaction(transactionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, uow : super::LPGUID, tmhandle : super::HANDLE, createoptions : u32, isolationlevel : u32, isolationflags : u32, timeout : super::PLARGE_INTEGER, description : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { NtCreateTransaction(transactionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, uow.unwrap_or(core::mem::zeroed()) as _, tmhandle.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, isolationlevel.unwrap_or(core::mem::zeroed()) as _, isolationflags.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, description.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn NtCreateTransactionManager(tmhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, logfilename: Option<*const super::UNICODE_STRING>, createoptions: Option<u32>, commitstrength: Option<u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtCreateTransactionManager(tmhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, logfilename : *const super::UNICODE_STRING, createoptions : u32, commitstrength : u32) -> windows_core::NTSTATUS);
+pub unsafe fn NtCreateTransactionManager(tmhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, logfilename: Option<super::PUNICODE_STRING>, createoptions: Option<u32>, commitstrength: Option<u32>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCreateTransactionManager(tmhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, logfilename : super::PUNICODE_STRING, createoptions : u32, commitstrength : u32) -> windows_core::NTSTATUS);
     unsafe { NtCreateTransactionManager(tmhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, logfilename.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, commitstrength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtEnumerateTransactionObject(rootobjecthandle: Option<super::HANDLE>, querytype: super::KTMOBJECT_TYPE, objectcursor: *mut super::KTMOBJECT_CURSOR, objectcursorlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtEnumerateTransactionObject(rootobjecthandle : super::HANDLE, querytype : super::KTMOBJECT_TYPE, objectcursor : *mut super::KTMOBJECT_CURSOR, objectcursorlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn NtEnumerateTransactionObject(rootobjecthandle: Option<super::HANDLE>, querytype: super::KTMOBJECT_TYPE, objectcursor: super::PKTMOBJECT_CURSOR, objectcursorlength: u32, returnlength: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtEnumerateTransactionObject(rootobjecthandle : super::HANDLE, querytype : super::KTMOBJECT_TYPE, objectcursor : super::PKTMOBJECT_CURSOR, objectcursorlength : u32, returnlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { NtEnumerateTransactionObject(rootobjecthandle.unwrap_or(core::mem::zeroed()) as _, querytype, objectcursor as _, objectcursorlength, returnlength as _) }
 }
-#[cfg(all(feature = "ktmtypes", feature = "winnt"))]
+#[cfg(all(feature = "ktmtypes", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtGetNotificationResourceManager(resourcemanagerhandle: super::HANDLE, transactionnotification: *mut super::TRANSACTION_NOTIFICATION, notificationlength: u32, timeout: Option<*const i64>, returnlength: Option<*mut u32>, asynchronous: u32, asynchronouscontext: Option<usize>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtGetNotificationResourceManager(resourcemanagerhandle : super::HANDLE, transactionnotification : *mut super::TRANSACTION_NOTIFICATION, notificationlength : u32, timeout : *const i64, returnlength : *mut u32, asynchronous : u32, asynchronouscontext : usize) -> windows_core::NTSTATUS);
+pub unsafe fn NtGetNotificationResourceManager(resourcemanagerhandle: super::HANDLE, transactionnotification: super::PTRANSACTION_NOTIFICATION, notificationlength: u32, timeout: Option<super::PLARGE_INTEGER>, returnlength: Option<super::PULONG>, asynchronous: u32, asynchronouscontext: Option<usize>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtGetNotificationResourceManager(resourcemanagerhandle : super::HANDLE, transactionnotification : super::PTRANSACTION_NOTIFICATION, notificationlength : u32, timeout : super::PLARGE_INTEGER, returnlength : super::PULONG, asynchronous : u32, asynchronouscontext : usize) -> windows_core::NTSTATUS);
     unsafe { NtGetNotificationResourceManager(resourcemanagerhandle, transactionnotification as _, notificationlength, timeout.unwrap_or(core::mem::zeroed()) as _, returnlength.unwrap_or(core::mem::zeroed()) as _, asynchronous, asynchronouscontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -74,34 +75,34 @@ pub unsafe fn NtManagePartition(targethandle: super::HANDLE, sourcehandle: Optio
     windows_core::link!("ntdll.dll" "system" fn NtManagePartition(targethandle : super::HANDLE, sourcehandle : super::HANDLE, partitioninformationclass : PARTITION_INFORMATION_CLASS, partitioninformation : *mut core::ffi::c_void, partitioninformationlength : u32) -> windows_core::NTSTATUS);
     unsafe { NtManagePartition(targethandle, sourcehandle.unwrap_or(core::mem::zeroed()) as _, partitioninformationclass, partitioninformation as _, partitioninformationlength) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "guiddef", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn NtOpenEnlistment(enlistmenthandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, resourcemanagerhandle: super::HANDLE, enlistmentguid: *const windows_core::GUID, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtOpenEnlistment(enlistmenthandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, resourcemanagerhandle : super::HANDLE, enlistmentguid : *const windows_core::GUID, objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+pub unsafe fn NtOpenEnlistment(enlistmenthandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, resourcemanagerhandle: super::HANDLE, enlistmentguid: super::LPGUID, objectattributes: Option<super::POBJECT_ATTRIBUTES>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenEnlistment(enlistmenthandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, resourcemanagerhandle : super::HANDLE, enlistmentguid : super::LPGUID, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
     unsafe { NtOpenEnlistment(enlistmenthandle as _, desiredaccess, resourcemanagerhandle, enlistmentguid, objectattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn NtOpenRegistryTransaction(transactionhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtOpenRegistryTransaction(transactionhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+pub unsafe fn NtOpenRegistryTransaction(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenRegistryTransaction(transactionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
     unsafe { NtOpenRegistryTransaction(transactionhandle as _, desiredaccess, objectattributes) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "guiddef", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn NtOpenResourceManager(resourcemanagerhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, tmhandle: super::HANDLE, resourcemanagerguid: Option<*const windows_core::GUID>, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtOpenResourceManager(resourcemanagerhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, tmhandle : super::HANDLE, resourcemanagerguid : *const windows_core::GUID, objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+pub unsafe fn NtOpenResourceManager(resourcemanagerhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, tmhandle: super::HANDLE, resourcemanagerguid: Option<super::LPGUID>, objectattributes: Option<super::POBJECT_ATTRIBUTES>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenResourceManager(resourcemanagerhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, tmhandle : super::HANDLE, resourcemanagerguid : super::LPGUID, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
     unsafe { NtOpenResourceManager(resourcemanagerhandle as _, desiredaccess, tmhandle, resourcemanagerguid.unwrap_or(core::mem::zeroed()) as _, objectattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "guiddef", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn NtOpenTransaction(transactionhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES, uow: *const windows_core::GUID, tmhandle: Option<super::HANDLE>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtOpenTransaction(transactionhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, uow : *const windows_core::GUID, tmhandle : super::HANDLE) -> windows_core::NTSTATUS);
+pub unsafe fn NtOpenTransaction(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, uow: super::LPGUID, tmhandle: Option<super::HANDLE>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenTransaction(transactionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, uow : super::LPGUID, tmhandle : super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { NtOpenTransaction(transactionhandle as _, desiredaccess, objectattributes, uow, tmhandle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "guiddef", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn NtOpenTransactionManager(tmhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, logfilename: Option<*const super::UNICODE_STRING>, tmidentity: Option<*const windows_core::GUID>, openoptions: Option<u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtOpenTransactionManager(tmhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, logfilename : *const super::UNICODE_STRING, tmidentity : *const windows_core::GUID, openoptions : u32) -> windows_core::NTSTATUS);
+pub unsafe fn NtOpenTransactionManager(tmhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, logfilename: Option<super::PUNICODE_STRING>, tmidentity: Option<super::LPGUID>, openoptions: Option<u32>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenTransactionManager(tmhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, logfilename : super::PUNICODE_STRING, tmidentity : super::LPGUID, openoptions : u32) -> windows_core::NTSTATUS);
     unsafe { NtOpenTransactionManager(tmhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, logfilename.unwrap_or(core::mem::zeroed()) as _, tmidentity.unwrap_or(core::mem::zeroed()) as _, openoptions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -112,26 +113,26 @@ pub unsafe fn NtPowerInformation(informationlevel: super::POWER_INFORMATION_LEVE
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtPrePrepareComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtPrePrepareComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn NtPrePrepareComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtPrePrepareComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { NtPrePrepareComplete(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtPrePrepareEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtPrePrepareEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn NtPrePrepareEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtPrePrepareEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { NtPrePrepareEnlistment(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtPrepareComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtPrepareComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn NtPrepareComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtPrepareComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { NtPrepareComplete(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtPrepareEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtPrepareEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn NtPrepareEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtPrepareEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { NtPrepareEnlistment(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -146,34 +147,34 @@ pub unsafe fn NtPropagationFailed(resourcemanagerhandle: super::HANDLE, requestc
     windows_core::link!("ntdll.dll" "system" fn NtPropagationFailed(resourcemanagerhandle : super::HANDLE, requestcookie : u32, propstatus : windows_core::NTSTATUS) -> windows_core::NTSTATUS);
     unsafe { NtPropagationFailed(resourcemanagerhandle, requestcookie, propstatus) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtQueryInformationEnlistment(enlistmenthandle: super::HANDLE, enlistmentinformationclass: super::ENLISTMENT_INFORMATION_CLASS, enlistmentinformation: *mut core::ffi::c_void, enlistmentinformationlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationEnlistment(enlistmenthandle : super::HANDLE, enlistmentinformationclass : super::ENLISTMENT_INFORMATION_CLASS, enlistmentinformation : *mut core::ffi::c_void, enlistmentinformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn NtQueryInformationEnlistment(enlistmenthandle: super::HANDLE, enlistmentinformationclass: super::ENLISTMENT_INFORMATION_CLASS, enlistmentinformation: *mut core::ffi::c_void, enlistmentinformationlength: u32, returnlength: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationEnlistment(enlistmenthandle : super::HANDLE, enlistmentinformationclass : super::ENLISTMENT_INFORMATION_CLASS, enlistmentinformation : *mut core::ffi::c_void, enlistmentinformationlength : u32, returnlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { NtQueryInformationEnlistment(enlistmenthandle, enlistmentinformationclass, enlistmentinformation as _, enlistmentinformationlength, returnlength as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtQueryInformationResourceManager(resourcemanagerhandle: super::HANDLE, resourcemanagerinformationclass: super::RESOURCEMANAGER_INFORMATION_CLASS, resourcemanagerinformation: *mut core::ffi::c_void, resourcemanagerinformationlength: u32, returnlength: Option<*mut u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationResourceManager(resourcemanagerhandle : super::HANDLE, resourcemanagerinformationclass : super::RESOURCEMANAGER_INFORMATION_CLASS, resourcemanagerinformation : *mut core::ffi::c_void, resourcemanagerinformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn NtQueryInformationResourceManager(resourcemanagerhandle: super::HANDLE, resourcemanagerinformationclass: super::RESOURCEMANAGER_INFORMATION_CLASS, resourcemanagerinformation: *mut core::ffi::c_void, resourcemanagerinformationlength: u32, returnlength: Option<super::PULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationResourceManager(resourcemanagerhandle : super::HANDLE, resourcemanagerinformationclass : super::RESOURCEMANAGER_INFORMATION_CLASS, resourcemanagerinformation : *mut core::ffi::c_void, resourcemanagerinformationlength : u32, returnlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { NtQueryInformationResourceManager(resourcemanagerhandle, resourcemanagerinformationclass, resourcemanagerinformation as _, resourcemanagerinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtQueryInformationTransaction(transactionhandle: super::HANDLE, transactioninformationclass: super::TRANSACTION_INFORMATION_CLASS, transactioninformation: *mut core::ffi::c_void, transactioninformationlength: u32, returnlength: Option<*mut u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationTransaction(transactionhandle : super::HANDLE, transactioninformationclass : super::TRANSACTION_INFORMATION_CLASS, transactioninformation : *mut core::ffi::c_void, transactioninformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn NtQueryInformationTransaction(transactionhandle: super::HANDLE, transactioninformationclass: super::TRANSACTION_INFORMATION_CLASS, transactioninformation: *mut core::ffi::c_void, transactioninformationlength: u32, returnlength: Option<super::PULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationTransaction(transactionhandle : super::HANDLE, transactioninformationclass : super::TRANSACTION_INFORMATION_CLASS, transactioninformation : *mut core::ffi::c_void, transactioninformationlength : u32, returnlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { NtQueryInformationTransaction(transactionhandle, transactioninformationclass, transactioninformation as _, transactioninformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtQueryInformationTransactionManager(transactionmanagerhandle: super::HANDLE, transactionmanagerinformationclass: super::TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation: *mut core::ffi::c_void, transactionmanagerinformationlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationTransactionManager(transactionmanagerhandle : super::HANDLE, transactionmanagerinformationclass : super::TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation : *mut core::ffi::c_void, transactionmanagerinformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn NtQueryInformationTransactionManager(transactionmanagerhandle: super::HANDLE, transactionmanagerinformationclass: super::TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation: *mut core::ffi::c_void, transactionmanagerinformationlength: u32, returnlength: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationTransactionManager(transactionmanagerhandle : super::HANDLE, transactionmanagerinformationclass : super::TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation : *mut core::ffi::c_void, transactionmanagerinformationlength : u32, returnlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { NtQueryInformationTransactionManager(transactionmanagerhandle, transactionmanagerinformationclass, transactionmanagerinformation as _, transactionmanagerinformationlength, returnlength as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtReadOnlyEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtReadOnlyEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn NtReadOnlyEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtReadOnlyEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { NtReadOnlyEnlistment(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -194,28 +195,28 @@ pub unsafe fn NtRecoverTransactionManager(transactionmanagerhandle: super::HANDL
     windows_core::link!("ntdll.dll" "system" fn NtRecoverTransactionManager(transactionmanagerhandle : super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { NtRecoverTransactionManager(transactionmanagerhandle) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "ktmtypes", feature = "winnt"))]
 #[inline]
-pub unsafe fn NtRegisterProtocolAddressInformation(resourcemanager: super::HANDLE, protocolid: *const windows_core::GUID, protocolinformationsize: u32, protocolinformation: *const core::ffi::c_void, createoptions: Option<u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtRegisterProtocolAddressInformation(resourcemanager : super::HANDLE, protocolid : *const windows_core::GUID, protocolinformationsize : u32, protocolinformation : *const core::ffi::c_void, createoptions : u32) -> windows_core::NTSTATUS);
+pub unsafe fn NtRegisterProtocolAddressInformation(resourcemanager: super::HANDLE, protocolid: super::PCRM_PROTOCOL_ID, protocolinformationsize: u32, protocolinformation: *const core::ffi::c_void, createoptions: Option<u32>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtRegisterProtocolAddressInformation(resourcemanager : super::HANDLE, protocolid : super::PCRM_PROTOCOL_ID, protocolinformationsize : u32, protocolinformation : *const core::ffi::c_void, createoptions : u32) -> windows_core::NTSTATUS);
     unsafe { NtRegisterProtocolAddressInformation(resourcemanager, protocolid, protocolinformationsize, protocolinformation, createoptions.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(all(feature = "guiddef", feature = "lsalookup", feature = "ntsecapi"))]
 #[inline]
-pub unsafe fn NtRenameTransactionManager(logfilename: *const super::UNICODE_STRING, existingtransactionmanagerguid: *const windows_core::GUID) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtRenameTransactionManager(logfilename : *const super::UNICODE_STRING, existingtransactionmanagerguid : *const windows_core::GUID) -> windows_core::NTSTATUS);
+pub unsafe fn NtRenameTransactionManager(logfilename: super::PUNICODE_STRING, existingtransactionmanagerguid: super::LPGUID) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtRenameTransactionManager(logfilename : super::PUNICODE_STRING, existingtransactionmanagerguid : super::LPGUID) -> windows_core::NTSTATUS);
     unsafe { NtRenameTransactionManager(logfilename, existingtransactionmanagerguid) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtRollbackComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtRollbackComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn NtRollbackComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtRollbackComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { NtRollbackComplete(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtRollbackEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtRollbackEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn NtRollbackEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtRollbackEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { NtRollbackEnlistment(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -226,14 +227,14 @@ pub unsafe fn NtRollbackRegistryTransaction(transactionhandle: super::HANDLE, fl
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtRollbackTransaction(transactionhandle: super::HANDLE, wait: bool) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtRollbackTransaction(transactionhandle : super::HANDLE, wait : bool) -> windows_core::NTSTATUS);
+pub unsafe fn NtRollbackTransaction(transactionhandle: super::HANDLE, wait: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtRollbackTransaction(transactionhandle : super::HANDLE, wait : super::BOOLEAN) -> windows_core::NTSTATUS);
     unsafe { NtRollbackTransaction(transactionhandle, wait) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtRollforwardTransactionManager(transactionmanagerhandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtRollforwardTransactionManager(transactionmanagerhandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn NtRollforwardTransactionManager(transactionmanagerhandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtRollforwardTransactionManager(transactionmanagerhandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { NtRollforwardTransactionManager(transactionmanagerhandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -262,35 +263,35 @@ pub unsafe fn NtSetInformationTransactionManager(tmhandle: Option<super::HANDLE>
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NtSinglePhaseReject(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtSinglePhaseReject(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn NtSinglePhaseReject(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtSinglePhaseReject(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { NtSinglePhaseReject(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
 #[inline]
-pub unsafe fn RtlAppendUnicodeStringToString(destination: *mut super::UNICODE_STRING, source: *const super::UNICODE_STRING) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlAppendUnicodeStringToString(destination : *mut super::UNICODE_STRING, source : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
+pub unsafe fn RtlAppendUnicodeStringToString(destination: super::PUNICODE_STRING, source: super::PCUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlAppendUnicodeStringToString(destination : super::PUNICODE_STRING, source : super::PCUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { RtlAppendUnicodeStringToString(destination as _, source) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[inline]
-pub unsafe fn RtlAppendUnicodeToString<P1>(destination: *mut super::UNICODE_STRING, source: P1) -> windows_core::NTSTATUS
+pub unsafe fn RtlAppendUnicodeToString<P1>(destination: super::PUNICODE_STRING, source: P1) -> windows_core::NTSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdll.dll" "system" fn RtlAppendUnicodeToString(destination : *mut super::UNICODE_STRING, source : windows_core::PCWSTR) -> windows_core::NTSTATUS);
+    windows_core::link!("ntdll.dll" "system" fn RtlAppendUnicodeToString(destination : super::PUNICODE_STRING, source : windows_core::PCWSTR) -> windows_core::NTSTATUS);
     unsafe { RtlAppendUnicodeToString(destination as _, source.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlAreBitsClear(bitmapheader: *const RTL_BITMAP, startingindex: u32, length: u32) -> bool {
-    windows_core::link!("ntdll.dll" "system" fn RtlAreBitsClear(bitmapheader : *const RTL_BITMAP, startingindex : u32, length : u32) -> bool);
+pub unsafe fn RtlAreBitsClear(bitmapheader: PRTL_BITMAP, startingindex: u32, length: u32) -> super::BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn RtlAreBitsClear(bitmapheader : PRTL_BITMAP, startingindex : u32, length : u32) -> super::BOOLEAN);
     unsafe { RtlAreBitsClear(bitmapheader, startingindex, length) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlAreBitsSet(bitmapheader: *const RTL_BITMAP, startingindex: u32, length: u32) -> bool {
-    windows_core::link!("ntdll.dll" "system" fn RtlAreBitsSet(bitmapheader : *const RTL_BITMAP, startingindex : u32, length : u32) -> bool);
+pub unsafe fn RtlAreBitsSet(bitmapheader: PRTL_BITMAP, startingindex: u32, length: u32) -> super::BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn RtlAreBitsSet(bitmapheader : PRTL_BITMAP, startingindex : u32, length : u32) -> super::BOOLEAN);
     unsafe { RtlAreBitsSet(bitmapheader, startingindex, length) }
 }
 #[inline]
@@ -311,49 +312,50 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlClearAllBits(bitmapheader: *const RTL_BITMAP) {
-    windows_core::link!("ntdll.dll" "system" fn RtlClearAllBits(bitmapheader : *const RTL_BITMAP));
+pub unsafe fn RtlClearAllBits(bitmapheader: PRTL_BITMAP) {
+    windows_core::link!("ntdll.dll" "system" fn RtlClearAllBits(bitmapheader : PRTL_BITMAP));
     unsafe { RtlClearAllBits(bitmapheader) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlClearBit(bitmapheader: *const RTL_BITMAP, bitnumber: u32) {
-    windows_core::link!("ntdll.dll" "system" fn RtlClearBit(bitmapheader : *const RTL_BITMAP, bitnumber : u32));
+pub unsafe fn RtlClearBit(bitmapheader: PRTL_BITMAP, bitnumber: u32) {
+    windows_core::link!("ntdll.dll" "system" fn RtlClearBit(bitmapheader : PRTL_BITMAP, bitnumber : u32));
     unsafe { RtlClearBit(bitmapheader, bitnumber) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlClearBits(bitmapheader: *const RTL_BITMAP, startingindex: u32, numbertoclear: u32) {
-    windows_core::link!("ntdll.dll" "system" fn RtlClearBits(bitmapheader : *const RTL_BITMAP, startingindex : u32, numbertoclear : u32));
+pub unsafe fn RtlClearBits(bitmapheader: PRTL_BITMAP, startingindex: u32, numbertoclear: u32) {
+    windows_core::link!("ntdll.dll" "system" fn RtlClearBits(bitmapheader : PRTL_BITMAP, startingindex : u32, numbertoclear : u32));
     unsafe { RtlClearBits(bitmapheader, startingindex, numbertoclear) }
 }
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlCmDecodeMemIoResource(descriptor: *const CM_PARTIAL_RESOURCE_DESCRIPTOR, start: Option<*mut u64>) -> u64 {
-    windows_core::link!("ntdll.dll" "system" fn RtlCmDecodeMemIoResource(descriptor : *const CM_PARTIAL_RESOURCE_DESCRIPTOR, start : *mut u64) -> u64);
+pub unsafe fn RtlCmDecodeMemIoResource(descriptor: PCM_PARTIAL_RESOURCE_DESCRIPTOR, start: Option<super::PULONGLONG>) -> u64 {
+    windows_core::link!("ntdll.dll" "system" fn RtlCmDecodeMemIoResource(descriptor : PCM_PARTIAL_RESOURCE_DESCRIPTOR, start : super::PULONGLONG) -> u64);
     unsafe { RtlCmDecodeMemIoResource(descriptor, start.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlCmEncodeMemIoResource(descriptor: *const CM_PARTIAL_RESOURCE_DESCRIPTOR, r#type: u8, length: u64, start: u64) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlCmEncodeMemIoResource(descriptor : *const CM_PARTIAL_RESOURCE_DESCRIPTOR, r#type : u8, length : u64, start : u64) -> windows_core::NTSTATUS);
+pub unsafe fn RtlCmEncodeMemIoResource(descriptor: PCM_PARTIAL_RESOURCE_DESCRIPTOR, r#type: u8, length: u64, start: u64) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlCmEncodeMemIoResource(descriptor : PCM_PARTIAL_RESOURCE_DESCRIPTOR, r#type : u8, length : u64, start : u64) -> windows_core::NTSTATUS);
     unsafe { RtlCmEncodeMemIoResource(descriptor, r#type, length, start) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn RtlCompareUnicodeString(string1: *const super::UNICODE_STRING, string2: *const super::UNICODE_STRING, caseinsensitive: bool) -> i32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlCompareUnicodeString(string1 : *const super::UNICODE_STRING, string2 : *const super::UNICODE_STRING, caseinsensitive : bool) -> i32);
+pub unsafe fn RtlCompareUnicodeString(string1: super::PCUNICODE_STRING, string2: super::PCUNICODE_STRING, caseinsensitive: super::BOOLEAN) -> i32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlCompareUnicodeString(string1 : super::PCUNICODE_STRING, string2 : super::PCUNICODE_STRING, caseinsensitive : super::BOOLEAN) -> i32);
     unsafe { RtlCompareUnicodeString(string1, string2, caseinsensitive) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RtlCompareUnicodeStrings(string1: &[u16], string2: &[u16], caseinsensitive: bool) -> i32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlCompareUnicodeStrings(string1 : *const u16, string1length : usize, string2 : *const u16, string2length : usize, caseinsensitive : bool) -> i32);
-    unsafe { RtlCompareUnicodeStrings(string1.as_ptr(), string1.len().try_into().unwrap(), string2.as_ptr(), string2.len().try_into().unwrap(), caseinsensitive) }
+pub unsafe fn RtlCompareUnicodeStrings(string1: &[u16], string2: &[u16], caseinsensitive: super::BOOLEAN) -> i32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlCompareUnicodeStrings(string1 : super::PCWCH, string1length : usize, string2 : super::PCWCH, string2length : usize, caseinsensitive : super::BOOLEAN) -> i32);
+    unsafe { RtlCompareUnicodeStrings(core::mem::transmute(string1.as_ptr()), string1.len().try_into().unwrap(), core::mem::transmute(string2.as_ptr()), string2.len().try_into().unwrap(), caseinsensitive) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlCopyBitMap(source: *const RTL_BITMAP, destination: *const RTL_BITMAP, targetbit: u32) {
-    windows_core::link!("ntdll.dll" "system" fn RtlCopyBitMap(source : *const RTL_BITMAP, destination : *const RTL_BITMAP, targetbit : u32));
+pub unsafe fn RtlCopyBitMap(source: PRTL_BITMAP, destination: PRTL_BITMAP, targetbit: u32) {
+    windows_core::link!("ntdll.dll" "system" fn RtlCopyBitMap(source : PRTL_BITMAP, destination : PRTL_BITMAP, targetbit : u32));
     unsafe { RtlCopyBitMap(source, destination, targetbit) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -362,10 +364,10 @@ pub unsafe fn RtlCopyMemoryNonTemporal(destination: *mut core::ffi::c_void, sour
     windows_core::link!("ntdll.dll" "system" fn RtlCopyMemoryNonTemporal(destination : *mut core::ffi::c_void, source : *const core::ffi::c_void, length : usize));
     unsafe { RtlCopyMemoryNonTemporal(destination as _, source, length) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
 #[inline]
-pub unsafe fn RtlCopyUnicodeString(destinationstring: *mut super::UNICODE_STRING, sourcestring: Option<*const super::UNICODE_STRING>) {
-    windows_core::link!("ntdll.dll" "system" fn RtlCopyUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : *const super::UNICODE_STRING));
+pub unsafe fn RtlCopyUnicodeString(destinationstring: super::PUNICODE_STRING, sourcestring: Option<super::PCUNICODE_STRING>) {
+    windows_core::link!("ntdll.dll" "system" fn RtlCopyUnicodeString(destinationstring : super::PUNICODE_STRING, sourcestring : super::PCUNICODE_STRING));
     unsafe { RtlCopyUnicodeString(destinationstring as _, sourcestring.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -396,16 +398,16 @@ pub unsafe fn RtlDowncaseUnicodeChar(sourcecharacter: u16) -> u16 {
     windows_core::link!("ntdll.dll" "system" fn RtlDowncaseUnicodeChar(sourcecharacter : u16) -> u16);
     unsafe { RtlDowncaseUnicodeChar(sourcecharacter) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn RtlEqualUnicodeString(string1: *const super::UNICODE_STRING, string2: *const super::UNICODE_STRING, caseinsensitive: bool) -> bool {
-    windows_core::link!("ntdll.dll" "system" fn RtlEqualUnicodeString(string1 : *const super::UNICODE_STRING, string2 : *const super::UNICODE_STRING, caseinsensitive : bool) -> bool);
+pub unsafe fn RtlEqualUnicodeString(string1: super::PCUNICODE_STRING, string2: super::PCUNICODE_STRING, caseinsensitive: super::BOOLEAN) -> super::BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn RtlEqualUnicodeString(string1 : super::PCUNICODE_STRING, string2 : super::PCUNICODE_STRING, caseinsensitive : super::BOOLEAN) -> super::BOOLEAN);
     unsafe { RtlEqualUnicodeString(string1, string2, caseinsensitive) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlExtractBitMap(source: *const RTL_BITMAP, destination: *const RTL_BITMAP, targetbit: u32, numberofbits: u32) {
-    windows_core::link!("ntdll.dll" "system" fn RtlExtractBitMap(source : *const RTL_BITMAP, destination : *const RTL_BITMAP, targetbit : u32, numberofbits : u32));
+pub unsafe fn RtlExtractBitMap(source: PRTL_BITMAP, destination: PRTL_BITMAP, targetbit: u32, numberofbits: u32) {
+    windows_core::link!("ntdll.dll" "system" fn RtlExtractBitMap(source : PRTL_BITMAP, destination : PRTL_BITMAP, targetbit : u32, numberofbits : u32));
     unsafe { RtlExtractBitMap(source, destination, targetbit, numberofbits) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -416,31 +418,32 @@ pub unsafe fn RtlFillMemoryNonTemporal(destination: *mut core::ffi::c_void, leng
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlFindClearBits(bitmapheader: *const RTL_BITMAP, numbertofind: u32, hintindex: u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlFindClearBits(bitmapheader : *const RTL_BITMAP, numbertofind : u32, hintindex : u32) -> u32);
+pub unsafe fn RtlFindClearBits(bitmapheader: PRTL_BITMAP, numbertofind: u32, hintindex: u32) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlFindClearBits(bitmapheader : PRTL_BITMAP, numbertofind : u32, hintindex : u32) -> u32);
     unsafe { RtlFindClearBits(bitmapheader, numbertofind, hintindex) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlFindClearBitsAndSet(bitmapheader: *const RTL_BITMAP, numbertofind: u32, hintindex: u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlFindClearBitsAndSet(bitmapheader : *const RTL_BITMAP, numbertofind : u32, hintindex : u32) -> u32);
+pub unsafe fn RtlFindClearBitsAndSet(bitmapheader: PRTL_BITMAP, numbertofind: u32, hintindex: u32) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlFindClearBitsAndSet(bitmapheader : PRTL_BITMAP, numbertofind : u32, hintindex : u32) -> u32);
     unsafe { RtlFindClearBitsAndSet(bitmapheader, numbertofind, hintindex) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlFindClearRuns(bitmapheader: *const RTL_BITMAP, runarray: *mut RTL_BITMAP_RUN, sizeofrunarray: u32, locatelongestruns: bool) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlFindClearRuns(bitmapheader : *const RTL_BITMAP, runarray : *mut RTL_BITMAP_RUN, sizeofrunarray : u32, locatelongestruns : bool) -> u32);
+pub unsafe fn RtlFindClearRuns(bitmapheader: PRTL_BITMAP, runarray: PRTL_BITMAP_RUN, sizeofrunarray: u32, locatelongestruns: super::BOOLEAN) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlFindClearRuns(bitmapheader : PRTL_BITMAP, runarray : PRTL_BITMAP_RUN, sizeofrunarray : u32, locatelongestruns : super::BOOLEAN) -> u32);
     unsafe { RtlFindClearRuns(bitmapheader, runarray as _, sizeofrunarray, locatelongestruns) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RtlFindClosestEncodableLength(sourcelength: u64, targetlength: *mut u64) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlFindClosestEncodableLength(sourcelength : u64, targetlength : *mut u64) -> windows_core::NTSTATUS);
+pub unsafe fn RtlFindClosestEncodableLength(sourcelength: u64, targetlength: super::PULONGLONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlFindClosestEncodableLength(sourcelength : u64, targetlength : super::PULONGLONG) -> windows_core::NTSTATUS);
     unsafe { RtlFindClosestEncodableLength(sourcelength, targetlength as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlFindLastBackwardRunClear(bitmapheader: *const RTL_BITMAP, fromindex: u32, startingrunindex: *mut u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlFindLastBackwardRunClear(bitmapheader : *const RTL_BITMAP, fromindex : u32, startingrunindex : *mut u32) -> u32);
+pub unsafe fn RtlFindLastBackwardRunClear(bitmapheader: PRTL_BITMAP, fromindex: u32, startingrunindex: super::PULONG) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlFindLastBackwardRunClear(bitmapheader : PRTL_BITMAP, fromindex : u32, startingrunindex : super::PULONG) -> u32);
     unsafe { RtlFindLastBackwardRunClear(bitmapheader, fromindex, startingrunindex as _) }
 }
 #[cfg(feature = "winnt")]
@@ -451,8 +454,8 @@ pub unsafe fn RtlFindLeastSignificantBit(set: u64) -> super::CCHAR {
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlFindLongestRunClear(bitmapheader: *const RTL_BITMAP, startingindex: *mut u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlFindLongestRunClear(bitmapheader : *const RTL_BITMAP, startingindex : *mut u32) -> u32);
+pub unsafe fn RtlFindLongestRunClear(bitmapheader: PRTL_BITMAP, startingindex: super::PULONG) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlFindLongestRunClear(bitmapheader : PRTL_BITMAP, startingindex : super::PULONG) -> u32);
     unsafe { RtlFindLongestRunClear(bitmapheader, startingindex as _) }
 }
 #[cfg(feature = "winnt")]
@@ -463,99 +466,81 @@ pub unsafe fn RtlFindMostSignificantBit(set: u64) -> super::CCHAR {
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlFindNextForwardRunClear(bitmapheader: *const RTL_BITMAP, fromindex: u32, startingrunindex: *mut u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlFindNextForwardRunClear(bitmapheader : *const RTL_BITMAP, fromindex : u32, startingrunindex : *mut u32) -> u32);
+pub unsafe fn RtlFindNextForwardRunClear(bitmapheader: PRTL_BITMAP, fromindex: u32, startingrunindex: super::PULONG) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlFindNextForwardRunClear(bitmapheader : PRTL_BITMAP, fromindex : u32, startingrunindex : super::PULONG) -> u32);
     unsafe { RtlFindNextForwardRunClear(bitmapheader, fromindex, startingrunindex as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlFindSetBits(bitmapheader: *const RTL_BITMAP, numbertofind: u32, hintindex: u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlFindSetBits(bitmapheader : *const RTL_BITMAP, numbertofind : u32, hintindex : u32) -> u32);
+pub unsafe fn RtlFindSetBits(bitmapheader: PRTL_BITMAP, numbertofind: u32, hintindex: u32) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlFindSetBits(bitmapheader : PRTL_BITMAP, numbertofind : u32, hintindex : u32) -> u32);
     unsafe { RtlFindSetBits(bitmapheader, numbertofind, hintindex) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlFindSetBitsAndClear(bitmapheader: *const RTL_BITMAP, numbertofind: u32, hintindex: u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlFindSetBitsAndClear(bitmapheader : *const RTL_BITMAP, numbertofind : u32, hintindex : u32) -> u32);
+pub unsafe fn RtlFindSetBitsAndClear(bitmapheader: PRTL_BITMAP, numbertofind: u32, hintindex: u32) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlFindSetBitsAndClear(bitmapheader : PRTL_BITMAP, numbertofind : u32, hintindex : u32) -> u32);
     unsafe { RtlFindSetBitsAndClear(bitmapheader, numbertofind, hintindex) }
 }
-#[cfg(all(feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlFreeUTF8String(utf8string: super::PUTF8_STRING) {
     windows_core::link!("ntdll.dll" "system" fn RtlFreeUTF8String(utf8string : super::PUTF8_STRING));
     unsafe { RtlFreeUTF8String(utf8string as _) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[inline]
-pub unsafe fn RtlGUIDFromString(guidstring: *const super::UNICODE_STRING, guid: *mut windows_core::GUID) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlGUIDFromString(guidstring : *const super::UNICODE_STRING, guid : *mut windows_core::GUID) -> windows_core::NTSTATUS);
+pub unsafe fn RtlGUIDFromString(guidstring: super::PCUNICODE_STRING, guid: *mut windows_core::GUID) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlGUIDFromString(guidstring : super::PCUNICODE_STRING, guid : *mut windows_core::GUID) -> windows_core::NTSTATUS);
     unsafe { RtlGUIDFromString(guidstring, guid as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RtlGetVersion(lpversioninformation: *mut super::OSVERSIONINFOW) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlGetVersion(lpversioninformation : *mut super::OSVERSIONINFOW) -> windows_core::NTSTATUS);
+pub unsafe fn RtlGetVersion(lpversioninformation: super::PRTL_OSVERSIONINFOW) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlGetVersion(lpversioninformation : super::PRTL_OSVERSIONINFOW) -> windows_core::NTSTATUS);
     unsafe { RtlGetVersion(lpversioninformation as _) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn RtlHashUnicodeString(string: *const super::UNICODE_STRING, caseinsensitive: bool, hashalgorithm: u32, hashvalue: *mut u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlHashUnicodeString(string : *const super::UNICODE_STRING, caseinsensitive : bool, hashalgorithm : u32, hashvalue : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn RtlHashUnicodeString(string: super::PCUNICODE_STRING, caseinsensitive: super::BOOLEAN, hashalgorithm: u32, hashvalue: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlHashUnicodeString(string : super::PCUNICODE_STRING, caseinsensitive : super::BOOLEAN, hashalgorithm : u32, hashvalue : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { RtlHashUnicodeString(string, caseinsensitive, hashalgorithm, hashvalue as _) }
 }
-#[cfg(all(feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn RtlInitUTF8String<P1>(destinationstring: super::PUTF8_STRING, sourcestring: P1)
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("ntdll.dll" "system" fn RtlInitUTF8String(destinationstring : super::PUTF8_STRING, sourcestring : windows_core::PCSTR));
-    unsafe { RtlInitUTF8String(destinationstring as _, sourcestring.param().abi()) }
-}
-#[cfg(all(feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-#[inline]
-pub unsafe fn RtlInitUTF8StringEx<P1>(destinationstring: super::PUTF8_STRING, sourcestring: P1) -> windows_core::NTSTATUS
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("ntdll.dll" "system" fn RtlInitUTF8StringEx(destinationstring : super::PUTF8_STRING, sourcestring : windows_core::PCSTR) -> windows_core::NTSTATUS);
-    unsafe { RtlInitUTF8StringEx(destinationstring as _, sourcestring.param().abi()) }
+pub unsafe fn RtlInitUTF8String(destinationstring: super::PUTF8_STRING, sourcestring: Option<super::PCSZ>) {
+    windows_core::link!("ntdll.dll" "system" fn RtlInitUTF8String(destinationstring : super::PUTF8_STRING, sourcestring : super::PCSZ));
+    unsafe { RtlInitUTF8String(destinationstring as _, sourcestring.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlInitializeBitMap(bitmapheader: *mut RTL_BITMAP, bitmapbuffer: Option<*const u32>, sizeofbitmap: Option<u32>) {
-    windows_core::link!("ntdll.dll" "system" fn RtlInitializeBitMap(bitmapheader : *mut RTL_BITMAP, bitmapbuffer : *const u32, sizeofbitmap : u32));
+pub unsafe fn RtlInitializeBitMap(bitmapheader: PRTL_BITMAP, bitmapbuffer: Option<super::PULONG>, sizeofbitmap: Option<u32>) {
+    windows_core::link!("ntdll.dll" "system" fn RtlInitializeBitMap(bitmapheader : PRTL_BITMAP, bitmapbuffer : super::PULONG, sizeofbitmap : u32));
     unsafe { RtlInitializeBitMap(bitmapheader as _, bitmapbuffer.unwrap_or(core::mem::zeroed()) as _, sizeofbitmap.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[inline]
-pub unsafe fn RtlInt64ToUnicodeString(value: u64, base: Option<u32>, string: *mut super::UNICODE_STRING) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlInt64ToUnicodeString(value : u64, base : u32, string : *mut super::UNICODE_STRING) -> windows_core::NTSTATUS);
+pub unsafe fn RtlInt64ToUnicodeString(value: u64, base: Option<u32>, string: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlInt64ToUnicodeString(value : u64, base : u32, string : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { RtlInt64ToUnicodeString(value, base.unwrap_or(core::mem::zeroed()) as _, string as _) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[inline]
-pub unsafe fn RtlIntegerToUnicodeString(value: u32, base: Option<u32>, string: *mut super::UNICODE_STRING) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlIntegerToUnicodeString(value : u32, base : u32, string : *mut super::UNICODE_STRING) -> windows_core::NTSTATUS);
+pub unsafe fn RtlIntegerToUnicodeString(value: u32, base: Option<u32>, string: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlIntegerToUnicodeString(value : u32, base : u32, string : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { RtlIntegerToUnicodeString(value, base.unwrap_or(core::mem::zeroed()) as _, string as _) }
 }
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlIoDecodeMemIoResource(descriptor: *const IO_RESOURCE_DESCRIPTOR, alignment: Option<*mut u64>, minimumaddress: Option<*mut u64>, maximumaddress: Option<*mut u64>) -> u64 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIoDecodeMemIoResource(descriptor : *const IO_RESOURCE_DESCRIPTOR, alignment : *mut u64, minimumaddress : *mut u64, maximumaddress : *mut u64) -> u64);
+pub unsafe fn RtlIoDecodeMemIoResource(descriptor: PIO_RESOURCE_DESCRIPTOR, alignment: Option<super::PULONGLONG>, minimumaddress: Option<super::PULONGLONG>, maximumaddress: Option<super::PULONGLONG>) -> u64 {
+    windows_core::link!("ntdll.dll" "system" fn RtlIoDecodeMemIoResource(descriptor : PIO_RESOURCE_DESCRIPTOR, alignment : super::PULONGLONG, minimumaddress : super::PULONGLONG, maximumaddress : super::PULONGLONG) -> u64);
     unsafe { RtlIoDecodeMemIoResource(descriptor, alignment.unwrap_or(core::mem::zeroed()) as _, minimumaddress.unwrap_or(core::mem::zeroed()) as _, maximumaddress.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlIoEncodeMemIoResource(descriptor: *const IO_RESOURCE_DESCRIPTOR, r#type: u8, length: u64, alignment: u64, minimumaddress: u64, maximumaddress: u64) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlIoEncodeMemIoResource(descriptor : *const IO_RESOURCE_DESCRIPTOR, r#type : u8, length : u64, alignment : u64, minimumaddress : u64, maximumaddress : u64) -> windows_core::NTSTATUS);
+pub unsafe fn RtlIoEncodeMemIoResource(descriptor: PIO_RESOURCE_DESCRIPTOR, r#type: u8, length: u64, alignment: u64, minimumaddress: u64, maximumaddress: u64) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlIoEncodeMemIoResource(descriptor : PIO_RESOURCE_DESCRIPTOR, r#type : u8, length : u64, alignment : u64, minimumaddress : u64, maximumaddress : u64) -> windows_core::NTSTATUS);
     unsafe { RtlIoEncodeMemIoResource(descriptor, r#type, length, alignment, minimumaddress, maximumaddress) }
-}
-#[cfg(feature = "winnt")]
-#[inline]
-pub unsafe fn RtlIsUntrustedObject(handle: Option<super::HANDLE>, object: Option<*const core::ffi::c_void>, untrustedobject: *mut bool) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlIsUntrustedObject(handle : super::HANDLE, object : *const core::ffi::c_void, untrustedobject : *mut bool) -> windows_core::NTSTATUS);
-    unsafe { RtlIsUntrustedObject(handle.unwrap_or(core::mem::zeroed()) as _, object.unwrap_or(core::mem::zeroed()) as _, untrustedobject as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -565,26 +550,26 @@ pub unsafe fn RtlLengthSecurityDescriptor(securitydescriptor: super::PSECURITY_D
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlNumberOfClearBits(bitmapheader: *const RTL_BITMAP) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlNumberOfClearBits(bitmapheader : *const RTL_BITMAP) -> u32);
+pub unsafe fn RtlNumberOfClearBits(bitmapheader: PRTL_BITMAP) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlNumberOfClearBits(bitmapheader : PRTL_BITMAP) -> u32);
     unsafe { RtlNumberOfClearBits(bitmapheader) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlNumberOfClearBitsInRange(bitmapheader: *const RTL_BITMAP, startingindex: u32, length: u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlNumberOfClearBitsInRange(bitmapheader : *const RTL_BITMAP, startingindex : u32, length : u32) -> u32);
+pub unsafe fn RtlNumberOfClearBitsInRange(bitmapheader: PRTL_BITMAP, startingindex: u32, length: u32) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlNumberOfClearBitsInRange(bitmapheader : PRTL_BITMAP, startingindex : u32, length : u32) -> u32);
     unsafe { RtlNumberOfClearBitsInRange(bitmapheader, startingindex, length) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlNumberOfSetBits(bitmapheader: *const RTL_BITMAP) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlNumberOfSetBits(bitmapheader : *const RTL_BITMAP) -> u32);
+pub unsafe fn RtlNumberOfSetBits(bitmapheader: PRTL_BITMAP) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlNumberOfSetBits(bitmapheader : PRTL_BITMAP) -> u32);
     unsafe { RtlNumberOfSetBits(bitmapheader) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlNumberOfSetBitsInRange(bitmapheader: *const RTL_BITMAP, startingindex: u32, length: u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlNumberOfSetBitsInRange(bitmapheader : *const RTL_BITMAP, startingindex : u32, length : u32) -> u32);
+pub unsafe fn RtlNumberOfSetBitsInRange(bitmapheader: PRTL_BITMAP, startingindex: u32, length: u32) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlNumberOfSetBitsInRange(bitmapheader : PRTL_BITMAP, startingindex : u32, length : u32) -> u32);
     unsafe { RtlNumberOfSetBitsInRange(bitmapheader, startingindex, length) }
 }
 #[inline]
@@ -593,98 +578,76 @@ pub unsafe fn RtlNumberOfSetBitsUlongPtr(target: usize) -> u32 {
     unsafe { RtlNumberOfSetBitsUlongPtr(target) }
 }
 #[inline]
-pub unsafe fn RtlQueryRegistryValues<P1>(relativeto: u32, path: P1, querytable: *mut RTL_QUERY_REGISTRY_TABLE, context: Option<*const core::ffi::c_void>, environment: Option<*const core::ffi::c_void>) -> windows_core::NTSTATUS
+pub unsafe fn RtlQueryRegistryValues<P1>(relativeto: u32, path: P1, querytable: PRTL_QUERY_REGISTRY_TABLE, context: Option<*const core::ffi::c_void>, environment: Option<*const core::ffi::c_void>) -> windows_core::NTSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdll.dll" "system" fn RtlQueryRegistryValues(relativeto : u32, path : windows_core::PCWSTR, querytable : *mut RTL_QUERY_REGISTRY_TABLE, context : *const core::ffi::c_void, environment : *const core::ffi::c_void) -> windows_core::NTSTATUS);
+    windows_core::link!("ntdll.dll" "system" fn RtlQueryRegistryValues(relativeto : u32, path : windows_core::PCWSTR, querytable : PRTL_QUERY_REGISTRY_TABLE, context : *const core::ffi::c_void, environment : *const core::ffi::c_void) -> windows_core::NTSTATUS);
     unsafe { RtlQueryRegistryValues(relativeto, path.param().abi(), querytable as _, context.unwrap_or(core::mem::zeroed()) as _, environment.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[inline]
-pub unsafe fn RtlQueryValidationRunlevel(componentname: Option<*const super::UNICODE_STRING>) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlQueryValidationRunlevel(componentname : *const super::UNICODE_STRING) -> u32);
+pub unsafe fn RtlQueryValidationRunlevel(componentname: Option<super::PCUNICODE_STRING>) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlQueryValidationRunlevel(componentname : super::PCUNICODE_STRING) -> u32);
     unsafe { RtlQueryValidationRunlevel(componentname.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlSetAllBits(bitmapheader: *const RTL_BITMAP) {
-    windows_core::link!("ntdll.dll" "system" fn RtlSetAllBits(bitmapheader : *const RTL_BITMAP));
+pub unsafe fn RtlSetAllBits(bitmapheader: PRTL_BITMAP) {
+    windows_core::link!("ntdll.dll" "system" fn RtlSetAllBits(bitmapheader : PRTL_BITMAP));
     unsafe { RtlSetAllBits(bitmapheader) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlSetBit(bitmapheader: *const RTL_BITMAP, bitnumber: u32) {
-    windows_core::link!("ntdll.dll" "system" fn RtlSetBit(bitmapheader : *const RTL_BITMAP, bitnumber : u32));
+pub unsafe fn RtlSetBit(bitmapheader: PRTL_BITMAP, bitnumber: u32) {
+    windows_core::link!("ntdll.dll" "system" fn RtlSetBit(bitmapheader : PRTL_BITMAP, bitnumber : u32));
     unsafe { RtlSetBit(bitmapheader, bitnumber) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlSetBits(bitmapheader: *const RTL_BITMAP, startingindex: u32, numbertoset: u32) {
-    windows_core::link!("ntdll.dll" "system" fn RtlSetBits(bitmapheader : *const RTL_BITMAP, startingindex : u32, numbertoset : u32));
+pub unsafe fn RtlSetBits(bitmapheader: PRTL_BITMAP, startingindex: u32, numbertoset: u32) {
+    windows_core::link!("ntdll.dll" "system" fn RtlSetBits(bitmapheader : PRTL_BITMAP, startingindex : u32, numbertoset : u32));
     unsafe { RtlSetBits(bitmapheader, startingindex, numbertoset) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RtlSetDaclSecurityDescriptor(securitydescriptor: super::PSECURITY_DESCRIPTOR, daclpresent: bool, dacl: Option<*const super::ACL>, dacldefaulted: bool) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlSetDaclSecurityDescriptor(securitydescriptor : super::PSECURITY_DESCRIPTOR, daclpresent : bool, dacl : *const super::ACL, dacldefaulted : bool) -> windows_core::NTSTATUS);
+pub unsafe fn RtlSetDaclSecurityDescriptor(securitydescriptor: super::PSECURITY_DESCRIPTOR, daclpresent: super::BOOLEAN, dacl: Option<super::PACL>, dacldefaulted: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlSetDaclSecurityDescriptor(securitydescriptor : super::PSECURITY_DESCRIPTOR, daclpresent : super::BOOLEAN, dacl : super::PACL, dacldefaulted : super::BOOLEAN) -> windows_core::NTSTATUS);
     unsafe { RtlSetDaclSecurityDescriptor(securitydescriptor as _, daclpresent, dacl.unwrap_or(core::mem::zeroed()) as _, dacldefaulted) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[inline]
-pub unsafe fn RtlStringFromGUID(guid: *const windows_core::GUID, guidstring: *mut super::UNICODE_STRING) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlStringFromGUID(guid : *const windows_core::GUID, guidstring : *mut super::UNICODE_STRING) -> windows_core::NTSTATUS);
+pub unsafe fn RtlStringFromGUID(guid: *const windows_core::GUID, guidstring: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlStringFromGUID(guid : *const windows_core::GUID, guidstring : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { RtlStringFromGUID(guid, guidstring as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlTestBit(bitmapheader: *const RTL_BITMAP, bitnumber: u32) -> bool {
-    windows_core::link!("ntdll.dll" "system" fn RtlTestBit(bitmapheader : *const RTL_BITMAP, bitnumber : u32) -> bool);
+pub unsafe fn RtlTestBit(bitmapheader: PRTL_BITMAP, bitnumber: u32) -> super::BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn RtlTestBit(bitmapheader : PRTL_BITMAP, bitnumber : u32) -> super::BOOLEAN);
     unsafe { RtlTestBit(bitmapheader, bitnumber) }
 }
-#[cfg(feature = "ntdef")]
+#[cfg(all(feature = "ntdef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlTimeFieldsToTime(timefields: *const TIME_FIELDS, time: *mut i64) -> bool {
-    windows_core::link!("ntdll.dll" "system" fn RtlTimeFieldsToTime(timefields : *const TIME_FIELDS, time : *mut i64) -> bool);
+pub unsafe fn RtlTimeFieldsToTime(timefields: PTIME_FIELDS, time: super::PLARGE_INTEGER) -> super::BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn RtlTimeFieldsToTime(timefields : PTIME_FIELDS, time : super::PLARGE_INTEGER) -> super::BOOLEAN);
     unsafe { RtlTimeFieldsToTime(timefields, time as _) }
 }
-#[cfg(feature = "ntdef")]
+#[cfg(all(feature = "ntdef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RtlTimeToTimeFields(time: *const i64) -> TIME_FIELDS {
-    windows_core::link!("ntdll.dll" "system" fn RtlTimeToTimeFields(time : *const i64, timefields : *mut TIME_FIELDS));
+pub unsafe fn RtlTimeToTimeFields(time: super::PLARGE_INTEGER) -> TIME_FIELDS {
+    windows_core::link!("ntdll.dll" "system" fn RtlTimeToTimeFields(time : super::PLARGE_INTEGER, timefields : PTIME_FIELDS));
     unsafe {
         let mut result__ = core::mem::zeroed();
         RtlTimeToTimeFields(time, &mut result__);
         result__
     }
 }
-#[cfg(all(feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[inline]
-pub unsafe fn RtlUTF8StringToUnicodeString(destinationstring: *mut super::UNICODE_STRING, sourcestring: super::PUTF8_STRING, allocatedestinationstring: bool) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlUTF8StringToUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : super::PUTF8_STRING, allocatedestinationstring : bool) -> windows_core::NTSTATUS);
-    unsafe { RtlUTF8StringToUnicodeString(destinationstring as _, sourcestring, allocatedestinationstring) }
-}
-#[inline]
-pub unsafe fn RtlUTF8ToUnicodeN(unicodestringdestination: windows_core::PWSTR, unicodestringmaxbytecount: u32, unicodestringactualbytecount: *mut u32, utf8stringsource: &[u8]) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlUTF8ToUnicodeN(unicodestringdestination : windows_core::PWSTR, unicodestringmaxbytecount : u32, unicodestringactualbytecount : *mut u32, utf8stringsource : *const i8, utf8stringbytecount : u32) -> windows_core::NTSTATUS);
-    unsafe { RtlUTF8ToUnicodeN(unicodestringdestination, unicodestringmaxbytecount, unicodestringactualbytecount as _, core::mem::transmute(utf8stringsource.as_ptr()), utf8stringsource.len().try_into().unwrap()) }
-}
-#[cfg(feature = "ntsecapi")]
-#[inline]
-pub unsafe fn RtlUnicodeStringToInteger(string: *const super::UNICODE_STRING, base: Option<u32>, value: *mut u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeStringToInteger(string : *const super::UNICODE_STRING, base : u32, value : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn RtlUnicodeStringToInteger(string: super::PCUNICODE_STRING, base: Option<u32>, value: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeStringToInteger(string : super::PCUNICODE_STRING, base : u32, value : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { RtlUnicodeStringToInteger(string, base.unwrap_or(core::mem::zeroed()) as _, value as _) }
-}
-#[cfg(all(feature = "ntdef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-#[inline]
-pub unsafe fn RtlUnicodeStringToUTF8String(destinationstring: super::PUTF8_STRING, sourcestring: *const super::UNICODE_STRING, allocatedestinationstring: bool) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeStringToUTF8String(destinationstring : super::PUTF8_STRING, sourcestring : *const super::UNICODE_STRING, allocatedestinationstring : bool) -> windows_core::NTSTATUS);
-    unsafe { RtlUnicodeStringToUTF8String(destinationstring, sourcestring, allocatedestinationstring) }
-}
-#[inline]
-pub unsafe fn RtlUnicodeToUTF8N(utf8stringdestination: *mut i8, utf8stringmaxbytecount: u32, utf8stringactualbytecount: *mut u32, unicodestringsource: *const u16, unicodestringbytecount: u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToUTF8N(utf8stringdestination : *mut i8, utf8stringmaxbytecount : u32, utf8stringactualbytecount : *mut u32, unicodestringsource : *const u16, unicodestringbytecount : u32) -> windows_core::NTSTATUS);
-    unsafe { RtlUnicodeToUTF8N(utf8stringdestination as _, utf8stringmaxbytecount, utf8stringactualbytecount as _, unicodestringsource, unicodestringbytecount) }
 }
 #[inline]
 pub unsafe fn RtlUpcaseUnicodeChar(sourcecharacter: u16) -> u16 {
@@ -693,20 +656,20 @@ pub unsafe fn RtlUpcaseUnicodeChar(sourcecharacter: u16) -> u16 {
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RtlValidRelativeSecurityDescriptor(securitydescriptorinput: super::PSECURITY_DESCRIPTOR, securitydescriptorlength: u32, requiredinformation: super::SECURITY_INFORMATION) -> bool {
-    windows_core::link!("ntdll.dll" "system" fn RtlValidRelativeSecurityDescriptor(securitydescriptorinput : super::PSECURITY_DESCRIPTOR, securitydescriptorlength : u32, requiredinformation : super::SECURITY_INFORMATION) -> bool);
+pub unsafe fn RtlValidRelativeSecurityDescriptor(securitydescriptorinput: super::PSECURITY_DESCRIPTOR, securitydescriptorlength: u32, requiredinformation: super::SECURITY_INFORMATION) -> super::BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn RtlValidRelativeSecurityDescriptor(securitydescriptorinput : super::PSECURITY_DESCRIPTOR, securitydescriptorlength : u32, requiredinformation : super::SECURITY_INFORMATION) -> super::BOOLEAN);
     unsafe { RtlValidRelativeSecurityDescriptor(securitydescriptorinput, securitydescriptorlength, requiredinformation) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RtlValidSecurityDescriptor(securitydescriptor: super::PSECURITY_DESCRIPTOR) -> bool {
-    windows_core::link!("ntdll.dll" "system" fn RtlValidSecurityDescriptor(securitydescriptor : super::PSECURITY_DESCRIPTOR) -> bool);
+pub unsafe fn RtlValidSecurityDescriptor(securitydescriptor: super::PSECURITY_DESCRIPTOR) -> super::BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn RtlValidSecurityDescriptor(securitydescriptor : super::PSECURITY_DESCRIPTOR) -> super::BOOLEAN);
     unsafe { RtlValidSecurityDescriptor(securitydescriptor) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RtlVerifyVersionInfo(versioninfo: *const super::OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlVerifyVersionInfo(versioninfo : *const super::OSVERSIONINFOEXW, typemask : u32, conditionmask : u64) -> windows_core::NTSTATUS);
+pub unsafe fn RtlVerifyVersionInfo(versioninfo: super::PRTL_OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlVerifyVersionInfo(versioninfo : super::PRTL_OSVERSIONINFOEXW, typemask : u32, conditionmask : u64) -> windows_core::NTSTATUS);
     unsafe { RtlVerifyVersionInfo(versioninfo, typemask, conditionmask) }
 }
 #[inline]
@@ -718,16 +681,16 @@ where
     windows_core::link!("ntdll.dll" "system" fn RtlWriteRegistryValue(relativeto : u32, path : windows_core::PCWSTR, valuename : windows_core::PCWSTR, valuetype : u32, valuedata : *const core::ffi::c_void, valuelength : u32) -> windows_core::NTSTATUS);
     unsafe { RtlWriteRegistryValue(relativeto, path.param().abi(), valuename.param().abi(), valuetype, valuedata.unwrap_or(core::mem::zeroed()) as _, valuelength) }
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
 pub unsafe fn RtlxAnsiStringToUnicodeSize(ansistring: super::PCANSI_STRING) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlxAnsiStringToUnicodeSize(ansistring : super::PCANSI_STRING) -> u32);
     unsafe { RtlxAnsiStringToUnicodeSize(ansistring) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[inline]
-pub unsafe fn RtlxUnicodeStringToAnsiSize(unicodestring: *const super::UNICODE_STRING) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlxUnicodeStringToAnsiSize(unicodestring : *const super::UNICODE_STRING) -> u32);
+pub unsafe fn RtlxUnicodeStringToAnsiSize(unicodestring: super::PCUNICODE_STRING) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlxUnicodeStringToAnsiSize(unicodestring : super::PCUNICODE_STRING) -> u32);
     unsafe { RtlxUnicodeStringToAnsiSize(unicodestring) }
 }
 #[cfg(feature = "winnt")]
@@ -738,14 +701,14 @@ pub unsafe fn ZwClose(handle: super::HANDLE) -> windows_core::NTSTATUS {
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ZwCommitComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCommitComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCommitComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCommitComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { ZwCommitComplete(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ZwCommitEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCommitEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCommitEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCommitEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { ZwCommitEnlistment(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -756,80 +719,80 @@ pub unsafe fn ZwCommitRegistryTransaction(transactionhandle: super::HANDLE, flag
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ZwCommitTransaction(transactionhandle: super::HANDLE, wait: bool) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCommitTransaction(transactionhandle : super::HANDLE, wait : bool) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCommitTransaction(transactionhandle: super::HANDLE, wait: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCommitTransaction(transactionhandle : super::HANDLE, wait : super::BOOLEAN) -> windows_core::NTSTATUS);
     unsafe { ZwCommitTransaction(transactionhandle, wait) }
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwCopyFileChunk(sourcehandle: super::HANDLE, desthandle: super::HANDLE, event: Option<super::HANDLE>, iostatusblock: *mut super::IO_STATUS_BLOCK, length: u32, sourceoffset: *const i64, destoffset: *const i64, sourcekey: Option<*const u32>, destkey: Option<*const u32>, flags: u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCopyFileChunk(sourcehandle : super::HANDLE, desthandle : super::HANDLE, event : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, length : u32, sourceoffset : *const i64, destoffset : *const i64, sourcekey : *const u32, destkey : *const u32, flags : u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCopyFileChunk(sourcehandle: super::HANDLE, desthandle: super::HANDLE, event: Option<super::HANDLE>, iostatusblock: super::PIO_STATUS_BLOCK, length: u32, sourceoffset: super::PLARGE_INTEGER, destoffset: super::PLARGE_INTEGER, sourcekey: Option<super::PULONG>, destkey: Option<super::PULONG>, flags: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCopyFileChunk(sourcehandle : super::HANDLE, desthandle : super::HANDLE, event : super::HANDLE, iostatusblock : super::PIO_STATUS_BLOCK, length : u32, sourceoffset : super::PLARGE_INTEGER, destoffset : super::PLARGE_INTEGER, sourcekey : super::PULONG, destkey : super::PULONG, flags : u32) -> windows_core::NTSTATUS);
     unsafe { ZwCopyFileChunk(sourcehandle, desthandle, event.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, length, sourceoffset, destoffset, sourcekey.unwrap_or(core::mem::zeroed()) as _, destkey.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwCreateDirectoryObject(directoryhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCreateDirectoryObject(directoryhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCreateDirectoryObject(directoryhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateDirectoryObject(directoryhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
     unsafe { ZwCreateDirectoryObject(directoryhandle as _, desiredaccess, objectattributes) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ktmtypes", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "ktmtypes", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwCreateEnlistment(enlistmenthandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, resourcemanagerhandle: super::HANDLE, transactionhandle: super::HANDLE, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, createoptions: Option<u32>, notificationmask: super::NOTIFICATION_MASK, enlistmentkey: Option<*const core::ffi::c_void>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCreateEnlistment(enlistmenthandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, resourcemanagerhandle : super::HANDLE, transactionhandle : super::HANDLE, objectattributes : *const super::OBJECT_ATTRIBUTES, createoptions : u32, notificationmask : super::NOTIFICATION_MASK, enlistmentkey : *const core::ffi::c_void) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCreateEnlistment(enlistmenthandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, resourcemanagerhandle: super::HANDLE, transactionhandle: super::HANDLE, objectattributes: Option<super::POBJECT_ATTRIBUTES>, createoptions: Option<u32>, notificationmask: super::NOTIFICATION_MASK, enlistmentkey: Option<*const core::ffi::c_void>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateEnlistment(enlistmenthandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, resourcemanagerhandle : super::HANDLE, transactionhandle : super::HANDLE, objectattributes : super::POBJECT_ATTRIBUTES, createoptions : u32, notificationmask : super::NOTIFICATION_MASK, enlistmentkey : *const core::ffi::c_void) -> windows_core::NTSTATUS);
     unsafe { ZwCreateEnlistment(enlistmenthandle as _, desiredaccess, resourcemanagerhandle, transactionhandle, objectattributes.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, notificationmask, enlistmentkey.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwCreateFile(filehandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES, iostatusblock: *mut super::IO_STATUS_BLOCK, allocationsize: Option<*const i64>, fileattributes: u32, shareaccess: u32, createdisposition: u32, createoptions: u32, eabuffer: Option<*const core::ffi::c_void>, ealength: u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCreateFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, iostatusblock : *mut super::IO_STATUS_BLOCK, allocationsize : *const i64, fileattributes : u32, shareaccess : u32, createdisposition : u32, createoptions : u32, eabuffer : *const core::ffi::c_void, ealength : u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCreateFile(filehandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, iostatusblock: super::PIO_STATUS_BLOCK, allocationsize: Option<super::PLARGE_INTEGER>, fileattributes: u32, shareaccess: u32, createdisposition: u32, createoptions: u32, eabuffer: Option<*const core::ffi::c_void>, ealength: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateFile(filehandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, iostatusblock : super::PIO_STATUS_BLOCK, allocationsize : super::PLARGE_INTEGER, fileattributes : u32, shareaccess : u32, createdisposition : u32, createoptions : u32, eabuffer : *const core::ffi::c_void, ealength : u32) -> windows_core::NTSTATUS);
     unsafe { ZwCreateFile(filehandle as _, desiredaccess, objectattributes, iostatusblock as _, allocationsize.unwrap_or(core::mem::zeroed()) as _, fileattributes, shareaccess, createdisposition, createoptions, eabuffer.unwrap_or(core::mem::zeroed()) as _, ealength) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwCreateIoCompletion(iocompletionhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, count: Option<u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCreateIoCompletion(iocompletionhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, count : u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCreateIoCompletion(iocompletionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, count: Option<u32>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateIoCompletion(iocompletionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, count : u32) -> windows_core::NTSTATUS);
     unsafe { ZwCreateIoCompletion(iocompletionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, count.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwCreateKey(keyhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES, titleindex: Option<u32>, class: Option<*const super::UNICODE_STRING>, createoptions: u32, disposition: Option<*mut u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCreateKey(keyhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, titleindex : u32, class : *const super::UNICODE_STRING, createoptions : u32, disposition : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCreateKey(keyhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, titleindex: Option<u32>, class: Option<super::PUNICODE_STRING>, createoptions: u32, disposition: Option<super::PULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateKey(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, titleindex : u32, class : super::PUNICODE_STRING, createoptions : u32, disposition : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwCreateKey(keyhandle as _, desiredaccess, objectattributes, titleindex.unwrap_or(core::mem::zeroed()) as _, class.unwrap_or(core::mem::zeroed()) as _, createoptions, disposition.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwCreateKeyTransacted(keyhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES, titleindex: Option<u32>, class: Option<*const super::UNICODE_STRING>, createoptions: u32, transactionhandle: super::HANDLE, disposition: Option<*mut u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "C" fn ZwCreateKeyTransacted(keyhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, titleindex : u32, class : *const super::UNICODE_STRING, createoptions : u32, transactionhandle : super::HANDLE, disposition : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCreateKeyTransacted(keyhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, titleindex: Option<u32>, class: Option<super::PUNICODE_STRING>, createoptions: u32, transactionhandle: super::HANDLE, disposition: Option<super::PULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "C" fn ZwCreateKeyTransacted(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, titleindex : u32, class : super::PUNICODE_STRING, createoptions : u32, transactionhandle : super::HANDLE, disposition : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwCreateKeyTransacted(keyhandle as _, desiredaccess, objectattributes, titleindex.unwrap_or(core::mem::zeroed()) as _, class.unwrap_or(core::mem::zeroed()) as _, createoptions, transactionhandle, disposition.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwCreateRegistryTransaction(transactionhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, createoptions: Option<u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCreateRegistryTransaction(transactionhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, createoptions : u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCreateRegistryTransaction(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, createoptions: Option<u32>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateRegistryTransaction(transactionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, createoptions : u32) -> windows_core::NTSTATUS);
     unsafe { ZwCreateRegistryTransaction(transactionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "guiddef", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwCreateResourceManager(resourcemanagerhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, tmhandle: super::HANDLE, resourcemanagerguid: Option<*const windows_core::GUID>, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, createoptions: Option<u32>, description: Option<*const super::UNICODE_STRING>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCreateResourceManager(resourcemanagerhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, tmhandle : super::HANDLE, resourcemanagerguid : *const windows_core::GUID, objectattributes : *const super::OBJECT_ATTRIBUTES, createoptions : u32, description : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCreateResourceManager(resourcemanagerhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, tmhandle: super::HANDLE, resourcemanagerguid: Option<super::LPGUID>, objectattributes: Option<super::POBJECT_ATTRIBUTES>, createoptions: Option<u32>, description: Option<super::PUNICODE_STRING>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateResourceManager(resourcemanagerhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, tmhandle : super::HANDLE, resourcemanagerguid : super::LPGUID, objectattributes : super::POBJECT_ATTRIBUTES, createoptions : u32, description : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { ZwCreateResourceManager(resourcemanagerhandle as _, desiredaccess, tmhandle, resourcemanagerguid.unwrap_or(core::mem::zeroed()) as _, objectattributes.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, description.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwCreateSection(sectionhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, maximumsize: Option<*const i64>, sectionpageprotection: u32, allocationattributes: u32, filehandle: Option<super::HANDLE>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCreateSection(sectionhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, maximumsize : *const i64, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::HANDLE) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCreateSection(sectionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, maximumsize: Option<super::PLARGE_INTEGER>, sectionpageprotection: u32, allocationattributes: u32, filehandle: Option<super::HANDLE>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateSection(sectionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, maximumsize : super::PLARGE_INTEGER, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { ZwCreateSection(sectionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, maximumsize.unwrap_or(core::mem::zeroed()) as _, sectionpageprotection, allocationattributes, filehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "guiddef", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwCreateTransaction(transactionhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, uow: Option<*const windows_core::GUID>, tmhandle: Option<super::HANDLE>, createoptions: Option<u32>, isolationlevel: Option<u32>, isolationflags: Option<u32>, timeout: Option<*const i64>, description: Option<*const super::UNICODE_STRING>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCreateTransaction(transactionhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, uow : *const windows_core::GUID, tmhandle : super::HANDLE, createoptions : u32, isolationlevel : u32, isolationflags : u32, timeout : *const i64, description : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCreateTransaction(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, uow: Option<super::LPGUID>, tmhandle: Option<super::HANDLE>, createoptions: Option<u32>, isolationlevel: Option<u32>, isolationflags: Option<u32>, timeout: Option<super::PLARGE_INTEGER>, description: Option<super::PUNICODE_STRING>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateTransaction(transactionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, uow : super::LPGUID, tmhandle : super::HANDLE, createoptions : u32, isolationlevel : u32, isolationflags : u32, timeout : super::PLARGE_INTEGER, description : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { ZwCreateTransaction(transactionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, uow.unwrap_or(core::mem::zeroed()) as _, tmhandle.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, isolationlevel.unwrap_or(core::mem::zeroed()) as _, isolationflags.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, description.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwCreateTransactionManager(tmhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, logfilename: Option<*const super::UNICODE_STRING>, createoptions: Option<u32>, commitstrength: Option<u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCreateTransactionManager(tmhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, logfilename : *const super::UNICODE_STRING, createoptions : u32, commitstrength : u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwCreateTransactionManager(tmhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, logfilename: Option<super::PUNICODE_STRING>, createoptions: Option<u32>, commitstrength: Option<u32>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateTransactionManager(tmhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, logfilename : super::PUNICODE_STRING, createoptions : u32, commitstrength : u32) -> windows_core::NTSTATUS);
     unsafe { ZwCreateTransactionManager(tmhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, logfilename.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, commitstrength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -838,28 +801,28 @@ pub unsafe fn ZwDeleteKey(keyhandle: super::HANDLE) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwDeleteKey(keyhandle : super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { ZwDeleteKey(keyhandle) }
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwDeleteValueKey(keyhandle: super::HANDLE, valuename: *const super::UNICODE_STRING) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwDeleteValueKey(keyhandle : super::HANDLE, valuename : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
+pub unsafe fn ZwDeleteValueKey(keyhandle: super::HANDLE, valuename: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwDeleteValueKey(keyhandle : super::HANDLE, valuename : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { ZwDeleteValueKey(keyhandle, valuename) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwEnumerateKey(keyhandle: super::HANDLE, index: u32, keyinformationclass: KEY_INFORMATION_CLASS, keyinformation: Option<*mut core::ffi::c_void>, length: u32, resultlength: *mut u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwEnumerateKey(keyhandle : super::HANDLE, index : u32, keyinformationclass : KEY_INFORMATION_CLASS, keyinformation : *mut core::ffi::c_void, length : u32, resultlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwEnumerateKey(keyhandle: super::HANDLE, index: u32, keyinformationclass: KEY_INFORMATION_CLASS, keyinformation: Option<*mut core::ffi::c_void>, length: u32, resultlength: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwEnumerateKey(keyhandle : super::HANDLE, index : u32, keyinformationclass : KEY_INFORMATION_CLASS, keyinformation : *mut core::ffi::c_void, length : u32, resultlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwEnumerateKey(keyhandle, index, keyinformationclass, keyinformation.unwrap_or(core::mem::zeroed()) as _, length, resultlength as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwEnumerateTransactionObject(rootobjecthandle: Option<super::HANDLE>, querytype: super::KTMOBJECT_TYPE, objectcursor: *mut super::KTMOBJECT_CURSOR, objectcursorlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwEnumerateTransactionObject(rootobjecthandle : super::HANDLE, querytype : super::KTMOBJECT_TYPE, objectcursor : *mut super::KTMOBJECT_CURSOR, objectcursorlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwEnumerateTransactionObject(rootobjecthandle: Option<super::HANDLE>, querytype: super::KTMOBJECT_TYPE, objectcursor: super::PKTMOBJECT_CURSOR, objectcursorlength: u32, returnlength: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwEnumerateTransactionObject(rootobjecthandle : super::HANDLE, querytype : super::KTMOBJECT_TYPE, objectcursor : super::PKTMOBJECT_CURSOR, objectcursorlength : u32, returnlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwEnumerateTransactionObject(rootobjecthandle.unwrap_or(core::mem::zeroed()) as _, querytype, objectcursor as _, objectcursorlength, returnlength as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwEnumerateValueKey(keyhandle: super::HANDLE, index: u32, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Option<*mut core::ffi::c_void>, length: u32, resultlength: *mut u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwEnumerateValueKey(keyhandle : super::HANDLE, index : u32, keyvalueinformationclass : KEY_VALUE_INFORMATION_CLASS, keyvalueinformation : *mut core::ffi::c_void, length : u32, resultlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwEnumerateValueKey(keyhandle: super::HANDLE, index: u32, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Option<*mut core::ffi::c_void>, length: u32, resultlength: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwEnumerateValueKey(keyhandle : super::HANDLE, index : u32, keyvalueinformationclass : KEY_VALUE_INFORMATION_CLASS, keyvalueinformation : *mut core::ffi::c_void, length : u32, resultlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwEnumerateValueKey(keyhandle, index, keyvalueinformationclass, keyvalueinformation.unwrap_or(core::mem::zeroed()) as _, length, resultlength as _) }
 }
 #[cfg(feature = "winnt")]
@@ -868,16 +831,16 @@ pub unsafe fn ZwFlushKey(keyhandle: super::HANDLE) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwFlushKey(keyhandle : super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { ZwFlushKey(keyhandle) }
 }
-#[cfg(all(feature = "ktmtypes", feature = "winnt"))]
+#[cfg(all(feature = "ktmtypes", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwGetNotificationResourceManager(resourcemanagerhandle: super::HANDLE, transactionnotification: *mut super::TRANSACTION_NOTIFICATION, notificationlength: u32, timeout: *const i64, returnlength: Option<*mut u32>, asynchronous: u32, asynchronouscontext: Option<usize>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwGetNotificationResourceManager(resourcemanagerhandle : super::HANDLE, transactionnotification : *mut super::TRANSACTION_NOTIFICATION, notificationlength : u32, timeout : *const i64, returnlength : *mut u32, asynchronous : u32, asynchronouscontext : usize) -> windows_core::NTSTATUS);
+pub unsafe fn ZwGetNotificationResourceManager(resourcemanagerhandle: super::HANDLE, transactionnotification: super::PTRANSACTION_NOTIFICATION, notificationlength: u32, timeout: super::PLARGE_INTEGER, returnlength: Option<super::PULONG>, asynchronous: u32, asynchronouscontext: Option<usize>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwGetNotificationResourceManager(resourcemanagerhandle : super::HANDLE, transactionnotification : super::PTRANSACTION_NOTIFICATION, notificationlength : u32, timeout : super::PLARGE_INTEGER, returnlength : super::PULONG, asynchronous : u32, asynchronouscontext : usize) -> windows_core::NTSTATUS);
     unsafe { ZwGetNotificationResourceManager(resourcemanagerhandle, transactionnotification as _, notificationlength, timeout, returnlength.unwrap_or(core::mem::zeroed()) as _, asynchronous, asynchronouscontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[inline]
-pub unsafe fn ZwLoadDriver(driverservicename: *const super::UNICODE_STRING) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwLoadDriver(driverservicename : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
+pub unsafe fn ZwLoadDriver(driverservicename: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwLoadDriver(driverservicename : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { ZwLoadDriver(driverservicename) }
 }
 #[cfg(feature = "winnt")]
@@ -886,184 +849,184 @@ pub unsafe fn ZwMakeTemporaryObject(handle: super::HANDLE) -> windows_core::NTST
     windows_core::link!("ntdll.dll" "system" fn ZwMakeTemporaryObject(handle : super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { ZwMakeTemporaryObject(handle) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwMapViewOfSection(sectionhandle: super::HANDLE, processhandle: super::HANDLE, baseaddress: *mut *mut core::ffi::c_void, zerobits: usize, commitsize: usize, sectionoffset: Option<*mut i64>, viewsize: *mut usize, inheritdisposition: SECTION_INHERIT, allocationtype: u32, win32protect: u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwMapViewOfSection(sectionhandle : super::HANDLE, processhandle : super::HANDLE, baseaddress : *mut *mut core::ffi::c_void, zerobits : usize, commitsize : usize, sectionoffset : *mut i64, viewsize : *mut usize, inheritdisposition : SECTION_INHERIT, allocationtype : u32, win32protect : u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwMapViewOfSection(sectionhandle: super::HANDLE, processhandle: super::HANDLE, baseaddress: *mut *mut core::ffi::c_void, zerobits: usize, commitsize: usize, sectionoffset: Option<super::PLARGE_INTEGER>, viewsize: super::PSIZE_T, inheritdisposition: SECTION_INHERIT, allocationtype: u32, win32protect: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwMapViewOfSection(sectionhandle : super::HANDLE, processhandle : super::HANDLE, baseaddress : *mut *mut core::ffi::c_void, zerobits : usize, commitsize : usize, sectionoffset : super::PLARGE_INTEGER, viewsize : super::PSIZE_T, inheritdisposition : SECTION_INHERIT, allocationtype : u32, win32protect : u32) -> windows_core::NTSTATUS);
     unsafe { ZwMapViewOfSection(sectionhandle, processhandle, baseaddress as _, zerobits, commitsize, sectionoffset.unwrap_or(core::mem::zeroed()) as _, viewsize as _, inheritdisposition, allocationtype, win32protect) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwMapViewOfSectionEx(sectionhandle: super::HANDLE, processhandle: super::HANDLE, baseaddress: *mut *mut core::ffi::c_void, sectionoffset: Option<*mut i64>, viewsize: *mut usize, allocationtype: u32, pageprotection: u32, extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwMapViewOfSectionEx(sectionhandle : super::HANDLE, processhandle : super::HANDLE, baseaddress : *mut *mut core::ffi::c_void, sectionoffset : *mut i64, viewsize : *mut usize, allocationtype : u32, pageprotection : u32, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_core::NTSTATUS);
-    unsafe { ZwMapViewOfSectionEx(sectionhandle, processhandle, baseaddress as _, sectionoffset.unwrap_or(core::mem::zeroed()) as _, viewsize as _, allocationtype, pageprotection, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+pub unsafe fn ZwMapViewOfSectionEx(sectionhandle: super::HANDLE, processhandle: super::HANDLE, baseaddress: *mut *mut core::ffi::c_void, sectionoffset: Option<super::PLARGE_INTEGER>, viewsize: super::PSIZE_T, allocationtype: u32, pageprotection: u32, extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwMapViewOfSectionEx(sectionhandle : super::HANDLE, processhandle : super::HANDLE, baseaddress : *mut *mut core::ffi::c_void, sectionoffset : super::PLARGE_INTEGER, viewsize : super::PSIZE_T, allocationtype : u32, pageprotection : u32, extendedparameters : super::PMEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_core::NTSTATUS);
+    unsafe { ZwMapViewOfSectionEx(sectionhandle, processhandle, baseaddress as _, sectionoffset.unwrap_or(core::mem::zeroed()) as _, viewsize as _, allocationtype, pageprotection, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "guiddef", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwOpenEnlistment(enlistmenthandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, rmhandle: super::HANDLE, enlistmentguid: *const windows_core::GUID, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwOpenEnlistment(enlistmenthandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, rmhandle : super::HANDLE, enlistmentguid : *const windows_core::GUID, objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+pub unsafe fn ZwOpenEnlistment(enlistmenthandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, rmhandle: super::HANDLE, enlistmentguid: super::LPGUID, objectattributes: Option<super::POBJECT_ATTRIBUTES>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenEnlistment(enlistmenthandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, rmhandle : super::HANDLE, enlistmentguid : super::LPGUID, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
     unsafe { ZwOpenEnlistment(enlistmenthandle as _, desiredaccess, rmhandle, enlistmentguid, objectattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwOpenEvent(eventhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwOpenEvent(eventhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+pub unsafe fn ZwOpenEvent(eventhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenEvent(eventhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
     unsafe { ZwOpenEvent(eventhandle as _, desiredaccess, objectattributes) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwOpenFile(filehandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES, iostatusblock: *mut super::IO_STATUS_BLOCK, shareaccess: u32, openoptions: u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwOpenFile(filehandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, iostatusblock : *mut super::IO_STATUS_BLOCK, shareaccess : u32, openoptions : u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwOpenFile(filehandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, iostatusblock: super::PIO_STATUS_BLOCK, shareaccess: u32, openoptions: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenFile(filehandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, iostatusblock : super::PIO_STATUS_BLOCK, shareaccess : u32, openoptions : u32) -> windows_core::NTSTATUS);
     unsafe { ZwOpenFile(filehandle as _, desiredaccess, objectattributes, iostatusblock as _, shareaccess, openoptions) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwOpenKey(keyhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwOpenKey(keyhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+pub unsafe fn ZwOpenKey(keyhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenKey(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
     unsafe { ZwOpenKey(keyhandle as _, desiredaccess, objectattributes) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwOpenKeyEx(keyhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES, openoptions: u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwOpenKeyEx(keyhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, openoptions : u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwOpenKeyEx(keyhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, openoptions: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenKeyEx(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, openoptions : u32) -> windows_core::NTSTATUS);
     unsafe { ZwOpenKeyEx(keyhandle as _, desiredaccess, objectattributes, openoptions) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwOpenKeyTransacted(keyhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES, transactionhandle: super::HANDLE) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwOpenKeyTransacted(keyhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, transactionhandle : super::HANDLE) -> windows_core::NTSTATUS);
+pub unsafe fn ZwOpenKeyTransacted(keyhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, transactionhandle: super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenKeyTransacted(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, transactionhandle : super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { ZwOpenKeyTransacted(keyhandle as _, desiredaccess, objectattributes, transactionhandle) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwOpenKeyTransactedEx(keyhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES, openoptions: u32, transactionhandle: super::HANDLE) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwOpenKeyTransactedEx(keyhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, openoptions : u32, transactionhandle : super::HANDLE) -> windows_core::NTSTATUS);
+pub unsafe fn ZwOpenKeyTransactedEx(keyhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, openoptions: u32, transactionhandle: super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenKeyTransactedEx(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, openoptions : u32, transactionhandle : super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { ZwOpenKeyTransactedEx(keyhandle as _, desiredaccess, objectattributes, openoptions, transactionhandle) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "guiddef", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwOpenResourceManager(resourcemanagerhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, tmhandle: super::HANDLE, resourcemanagerguid: *const windows_core::GUID, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwOpenResourceManager(resourcemanagerhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, tmhandle : super::HANDLE, resourcemanagerguid : *const windows_core::GUID, objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+pub unsafe fn ZwOpenResourceManager(resourcemanagerhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, tmhandle: super::HANDLE, resourcemanagerguid: super::LPGUID, objectattributes: Option<super::POBJECT_ATTRIBUTES>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenResourceManager(resourcemanagerhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, tmhandle : super::HANDLE, resourcemanagerguid : super::LPGUID, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
     unsafe { ZwOpenResourceManager(resourcemanagerhandle as _, desiredaccess, tmhandle, resourcemanagerguid, objectattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwOpenSection(sectionhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwOpenSection(sectionhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+pub unsafe fn ZwOpenSection(sectionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenSection(sectionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
     unsafe { ZwOpenSection(sectionhandle as _, desiredaccess, objectattributes) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwOpenSymbolicLinkObject(linkhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwOpenSymbolicLinkObject(linkhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+pub unsafe fn ZwOpenSymbolicLinkObject(linkhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenSymbolicLinkObject(linkhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
     unsafe { ZwOpenSymbolicLinkObject(linkhandle as _, desiredaccess, objectattributes) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "guiddef", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwOpenTransaction(transactionhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, uow: *const windows_core::GUID, tmhandle: Option<super::HANDLE>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwOpenTransaction(transactionhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, uow : *const windows_core::GUID, tmhandle : super::HANDLE) -> windows_core::NTSTATUS);
+pub unsafe fn ZwOpenTransaction(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, uow: super::LPGUID, tmhandle: Option<super::HANDLE>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenTransaction(transactionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, uow : super::LPGUID, tmhandle : super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { ZwOpenTransaction(transactionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, uow, tmhandle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "guiddef", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwOpenTransactionManager(tmhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, logfilename: Option<*const super::UNICODE_STRING>, tmidentity: Option<*const windows_core::GUID>, openoptions: Option<u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwOpenTransactionManager(tmhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, logfilename : *const super::UNICODE_STRING, tmidentity : *const windows_core::GUID, openoptions : u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwOpenTransactionManager(tmhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, logfilename: Option<super::PUNICODE_STRING>, tmidentity: Option<super::LPGUID>, openoptions: Option<u32>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenTransactionManager(tmhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, logfilename : super::PUNICODE_STRING, tmidentity : super::LPGUID, openoptions : u32) -> windows_core::NTSTATUS);
     unsafe { ZwOpenTransactionManager(tmhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, logfilename.unwrap_or(core::mem::zeroed()) as _, tmidentity.unwrap_or(core::mem::zeroed()) as _, openoptions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ZwPrePrepareComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwPrePrepareComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn ZwPrePrepareComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwPrePrepareComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { ZwPrePrepareComplete(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ZwPrePrepareEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwPrePrepareEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn ZwPrePrepareEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwPrePrepareEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { ZwPrePrepareEnlistment(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ZwPrepareComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwPrepareComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn ZwPrepareComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwPrepareComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { ZwPrepareComplete(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ZwPrepareEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwPrepareEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn ZwPrepareEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwPrepareEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { ZwPrepareEnlistment(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwQueryFullAttributesFile(objectattributes: *const super::OBJECT_ATTRIBUTES, fileinformation: *mut FILE_NETWORK_OPEN_INFORMATION) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwQueryFullAttributesFile(objectattributes : *const super::OBJECT_ATTRIBUTES, fileinformation : *mut FILE_NETWORK_OPEN_INFORMATION) -> windows_core::NTSTATUS);
+pub unsafe fn ZwQueryFullAttributesFile(objectattributes: super::POBJECT_ATTRIBUTES, fileinformation: PFILE_NETWORK_OPEN_INFORMATION) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryFullAttributesFile(objectattributes : super::POBJECT_ATTRIBUTES, fileinformation : PFILE_NETWORK_OPEN_INFORMATION) -> windows_core::NTSTATUS);
     unsafe { ZwQueryFullAttributesFile(objectattributes, fileinformation as _) }
 }
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwQueryInformationByName(objectattributes: *const super::OBJECT_ATTRIBUTES, iostatusblock: *mut super::IO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwQueryInformationByName(objectattributes : *const super::OBJECT_ATTRIBUTES, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS);
+pub unsafe fn ZwQueryInformationByName(objectattributes: super::POBJECT_ATTRIBUTES, iostatusblock: super::PIO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryInformationByName(objectattributes : super::POBJECT_ATTRIBUTES, iostatusblock : super::PIO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS);
     unsafe { ZwQueryInformationByName(objectattributes, iostatusblock as _, fileinformation as _, length, fileinformationclass) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwQueryInformationEnlistment(enlistmenthandle: super::HANDLE, enlistmentinformationclass: super::ENLISTMENT_INFORMATION_CLASS, enlistmentinformation: *mut core::ffi::c_void, enlistmentinformationlength: u32, returnlength: Option<*mut u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwQueryInformationEnlistment(enlistmenthandle : super::HANDLE, enlistmentinformationclass : super::ENLISTMENT_INFORMATION_CLASS, enlistmentinformation : *mut core::ffi::c_void, enlistmentinformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwQueryInformationEnlistment(enlistmenthandle: super::HANDLE, enlistmentinformationclass: super::ENLISTMENT_INFORMATION_CLASS, enlistmentinformation: *mut core::ffi::c_void, enlistmentinformationlength: u32, returnlength: Option<super::PULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryInformationEnlistment(enlistmenthandle : super::HANDLE, enlistmentinformationclass : super::ENLISTMENT_INFORMATION_CLASS, enlistmentinformation : *mut core::ffi::c_void, enlistmentinformationlength : u32, returnlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwQueryInformationEnlistment(enlistmenthandle, enlistmentinformationclass, enlistmentinformation as _, enlistmentinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwQueryInformationFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwQueryInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS);
+pub unsafe fn ZwQueryInformationFile(filehandle: super::HANDLE, iostatusblock: super::PIO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryInformationFile(filehandle : super::HANDLE, iostatusblock : super::PIO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS);
     unsafe { ZwQueryInformationFile(filehandle, iostatusblock as _, fileinformation as _, length, fileinformationclass) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwQueryInformationResourceManager(resourcemanagerhandle: super::HANDLE, resourcemanagerinformationclass: super::RESOURCEMANAGER_INFORMATION_CLASS, resourcemanagerinformation: *mut core::ffi::c_void, resourcemanagerinformationlength: u32, returnlength: Option<*mut u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwQueryInformationResourceManager(resourcemanagerhandle : super::HANDLE, resourcemanagerinformationclass : super::RESOURCEMANAGER_INFORMATION_CLASS, resourcemanagerinformation : *mut core::ffi::c_void, resourcemanagerinformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwQueryInformationResourceManager(resourcemanagerhandle: super::HANDLE, resourcemanagerinformationclass: super::RESOURCEMANAGER_INFORMATION_CLASS, resourcemanagerinformation: *mut core::ffi::c_void, resourcemanagerinformationlength: u32, returnlength: Option<super::PULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryInformationResourceManager(resourcemanagerhandle : super::HANDLE, resourcemanagerinformationclass : super::RESOURCEMANAGER_INFORMATION_CLASS, resourcemanagerinformation : *mut core::ffi::c_void, resourcemanagerinformationlength : u32, returnlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwQueryInformationResourceManager(resourcemanagerhandle, resourcemanagerinformationclass, resourcemanagerinformation as _, resourcemanagerinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwQueryInformationTransaction(transactionhandle: super::HANDLE, transactioninformationclass: super::TRANSACTION_INFORMATION_CLASS, transactioninformation: *mut core::ffi::c_void, transactioninformationlength: u32, returnlength: Option<*mut u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwQueryInformationTransaction(transactionhandle : super::HANDLE, transactioninformationclass : super::TRANSACTION_INFORMATION_CLASS, transactioninformation : *mut core::ffi::c_void, transactioninformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwQueryInformationTransaction(transactionhandle: super::HANDLE, transactioninformationclass: super::TRANSACTION_INFORMATION_CLASS, transactioninformation: *mut core::ffi::c_void, transactioninformationlength: u32, returnlength: Option<super::PULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryInformationTransaction(transactionhandle : super::HANDLE, transactioninformationclass : super::TRANSACTION_INFORMATION_CLASS, transactioninformation : *mut core::ffi::c_void, transactioninformationlength : u32, returnlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwQueryInformationTransaction(transactionhandle, transactioninformationclass, transactioninformation as _, transactioninformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwQueryInformationTransactionManager(transactionmanagerhandle: super::HANDLE, transactionmanagerinformationclass: super::TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation: *mut core::ffi::c_void, transactionmanagerinformationlength: u32, returnlength: Option<*mut u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwQueryInformationTransactionManager(transactionmanagerhandle : super::HANDLE, transactionmanagerinformationclass : super::TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation : *mut core::ffi::c_void, transactionmanagerinformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwQueryInformationTransactionManager(transactionmanagerhandle: super::HANDLE, transactionmanagerinformationclass: super::TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation: *mut core::ffi::c_void, transactionmanagerinformationlength: u32, returnlength: Option<super::PULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryInformationTransactionManager(transactionmanagerhandle : super::HANDLE, transactionmanagerinformationclass : super::TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation : *mut core::ffi::c_void, transactionmanagerinformationlength : u32, returnlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwQueryInformationTransactionManager(transactionmanagerhandle, transactionmanagerinformationclass, transactionmanagerinformation as _, transactionmanagerinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwQueryKey(keyhandle: super::HANDLE, keyinformationclass: KEY_INFORMATION_CLASS, keyinformation: Option<*mut core::ffi::c_void>, length: u32, resultlength: *mut u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwQueryKey(keyhandle : super::HANDLE, keyinformationclass : KEY_INFORMATION_CLASS, keyinformation : *mut core::ffi::c_void, length : u32, resultlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwQueryKey(keyhandle: super::HANDLE, keyinformationclass: KEY_INFORMATION_CLASS, keyinformation: Option<*mut core::ffi::c_void>, length: u32, resultlength: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryKey(keyhandle : super::HANDLE, keyinformationclass : KEY_INFORMATION_CLASS, keyinformation : *mut core::ffi::c_void, length : u32, resultlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwQueryKey(keyhandle, keyinformationclass, keyinformation.unwrap_or(core::mem::zeroed()) as _, length, resultlength as _) }
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwQuerySymbolicLinkObject(linkhandle: super::HANDLE, linktarget: *mut super::UNICODE_STRING, returnedlength: Option<*mut u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwQuerySymbolicLinkObject(linkhandle : super::HANDLE, linktarget : *mut super::UNICODE_STRING, returnedlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwQuerySymbolicLinkObject(linkhandle: super::HANDLE, linktarget: super::PUNICODE_STRING, returnedlength: Option<super::PULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQuerySymbolicLinkObject(linkhandle : super::HANDLE, linktarget : super::PUNICODE_STRING, returnedlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwQuerySymbolicLinkObject(linkhandle, linktarget as _, returnedlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwQueryValueKey(keyhandle: super::HANDLE, valuename: *const super::UNICODE_STRING, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Option<*mut core::ffi::c_void>, length: u32, resultlength: *mut u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwQueryValueKey(keyhandle : super::HANDLE, valuename : *const super::UNICODE_STRING, keyvalueinformationclass : KEY_VALUE_INFORMATION_CLASS, keyvalueinformation : *mut core::ffi::c_void, length : u32, resultlength : *mut u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwQueryValueKey(keyhandle: super::HANDLE, valuename: super::PUNICODE_STRING, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Option<*mut core::ffi::c_void>, length: u32, resultlength: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryValueKey(keyhandle : super::HANDLE, valuename : super::PUNICODE_STRING, keyvalueinformationclass : KEY_VALUE_INFORMATION_CLASS, keyvalueinformation : *mut core::ffi::c_void, length : u32, resultlength : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwQueryValueKey(keyhandle, valuename, keyvalueinformationclass, keyvalueinformation.unwrap_or(core::mem::zeroed()) as _, length, resultlength as _) }
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwReadFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, byteoffset: Option<*const i64>, key: Option<*const u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwReadFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, byteoffset : *const i64, key : *const u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwReadFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: super::PIO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, byteoffset: Option<super::PLARGE_INTEGER>, key: Option<super::PULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwReadFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : super::PIO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, byteoffset : super::PLARGE_INTEGER, key : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwReadFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, buffer as _, length, byteoffset.unwrap_or(core::mem::zeroed()) as _, key.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ZwReadOnlyEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwReadOnlyEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn ZwReadOnlyEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwReadOnlyEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { ZwReadOnlyEnlistment(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -1084,10 +1047,10 @@ pub unsafe fn ZwRecoverTransactionManager(transactionmanagerhandle: super::HANDL
     windows_core::link!("ntdll.dll" "system" fn ZwRecoverTransactionManager(transactionmanagerhandle : super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { ZwRecoverTransactionManager(transactionmanagerhandle) }
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwRenameKey(keyhandle: super::HANDLE, newname: *const super::UNICODE_STRING) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwRenameKey(keyhandle : super::HANDLE, newname : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
+pub unsafe fn ZwRenameKey(keyhandle: super::HANDLE, newname: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwRenameKey(keyhandle : super::HANDLE, newname : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { ZwRenameKey(keyhandle, newname) }
 }
 #[cfg(feature = "winnt")]
@@ -1098,26 +1061,26 @@ pub unsafe fn ZwRestoreKey(keyhandle: super::HANDLE, filehandle: Option<super::H
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ZwRollbackComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwRollbackComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn ZwRollbackComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwRollbackComplete(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { ZwRollbackComplete(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ZwRollbackEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwRollbackEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn ZwRollbackEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwRollbackEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { ZwRollbackEnlistment(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ZwRollbackTransaction(transactionhandle: super::HANDLE, wait: bool) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwRollbackTransaction(transactionhandle : super::HANDLE, wait : bool) -> windows_core::NTSTATUS);
+pub unsafe fn ZwRollbackTransaction(transactionhandle: super::HANDLE, wait: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwRollbackTransaction(transactionhandle : super::HANDLE, wait : super::BOOLEAN) -> windows_core::NTSTATUS);
     unsafe { ZwRollbackTransaction(transactionhandle, wait) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ZwRollforwardTransactionManager(transactionmanagerhandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwRollforwardTransactionManager(transactionmanagerhandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn ZwRollforwardTransactionManager(transactionmanagerhandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwRollforwardTransactionManager(transactionmanagerhandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { ZwRollforwardTransactionManager(transactionmanagerhandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -1140,8 +1103,8 @@ pub unsafe fn ZwSetInformationEnlistment(enlistmenthandle: super::HANDLE, enlist
 }
 #[cfg(all(feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwSetInformationFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, fileinformation: *const core::ffi::c_void, length: u32, fileinformationclass: FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwSetInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *const core::ffi::c_void, length : u32, fileinformationclass : FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS);
+pub unsafe fn ZwSetInformationFile(filehandle: super::HANDLE, iostatusblock: super::PIO_STATUS_BLOCK, fileinformation: *const core::ffi::c_void, length: u32, fileinformationclass: FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwSetInformationFile(filehandle : super::HANDLE, iostatusblock : super::PIO_STATUS_BLOCK, fileinformation : *const core::ffi::c_void, length : u32, fileinformationclass : FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS);
     unsafe { ZwSetInformationFile(filehandle, iostatusblock as _, fileinformation, length, fileinformationclass) }
 }
 #[cfg(feature = "winnt")]
@@ -1168,22 +1131,22 @@ pub unsafe fn ZwSetInformationTransactionManager(tmhandle: super::HANDLE, transa
     windows_core::link!("ntdll.dll" "system" fn ZwSetInformationTransactionManager(tmhandle : super::HANDLE, transactionmanagerinformationclass : super::TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation : *const core::ffi::c_void, transactionmanagerinformationlength : u32) -> windows_core::NTSTATUS);
     unsafe { ZwSetInformationTransactionManager(tmhandle, transactionmanagerinformationclass, transactionmanagerinformation, transactionmanagerinformationlength) }
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
-pub unsafe fn ZwSetValueKey(keyhandle: super::HANDLE, valuename: *const super::UNICODE_STRING, titleindex: Option<u32>, r#type: u32, data: Option<*const core::ffi::c_void>, datasize: u32) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwSetValueKey(keyhandle : super::HANDLE, valuename : *const super::UNICODE_STRING, titleindex : u32, r#type : u32, data : *const core::ffi::c_void, datasize : u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwSetValueKey(keyhandle: super::HANDLE, valuename: super::PUNICODE_STRING, titleindex: Option<u32>, r#type: u32, data: Option<*const core::ffi::c_void>, datasize: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwSetValueKey(keyhandle : super::HANDLE, valuename : super::PUNICODE_STRING, titleindex : u32, r#type : u32, data : *const core::ffi::c_void, datasize : u32) -> windows_core::NTSTATUS);
     unsafe { ZwSetValueKey(keyhandle, valuename, titleindex.unwrap_or(core::mem::zeroed()) as _, r#type, data.unwrap_or(core::mem::zeroed()) as _, datasize) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ZwSinglePhaseReject(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<*const i64>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwSinglePhaseReject(enlistmenthandle : super::HANDLE, tmvirtualclock : *const i64) -> windows_core::NTSTATUS);
+pub unsafe fn ZwSinglePhaseReject(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwSinglePhaseReject(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { ZwSinglePhaseReject(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[inline]
-pub unsafe fn ZwUnloadDriver(driverservicename: *const super::UNICODE_STRING) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwUnloadDriver(driverservicename : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
+pub unsafe fn ZwUnloadDriver(driverservicename: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwUnloadDriver(driverservicename : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { ZwUnloadDriver(driverservicename) }
 }
 #[cfg(feature = "winnt")]
@@ -1192,38 +1155,33 @@ pub unsafe fn ZwUnmapViewOfSection(processhandle: super::HANDLE, baseaddress: Op
     windows_core::link!("ntdll.dll" "system" fn ZwUnmapViewOfSection(processhandle : super::HANDLE, baseaddress : *const core::ffi::c_void) -> windows_core::NTSTATUS);
     unsafe { ZwUnmapViewOfSection(processhandle, baseaddress.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 #[inline]
-pub unsafe fn ZwWriteFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::IO_STATUS_BLOCK, buffer: *const core::ffi::c_void, length: u32, byteoffset: Option<*const i64>, key: Option<*const u32>) -> windows_core::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwWriteFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, buffer : *const core::ffi::c_void, length : u32, byteoffset : *const i64, key : *const u32) -> windows_core::NTSTATUS);
+pub unsafe fn ZwWriteFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: super::PIO_STATUS_BLOCK, buffer: *const core::ffi::c_void, length: u32, byteoffset: Option<super::PLARGE_INTEGER>, key: Option<super::PULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwWriteFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : super::PIO_STATUS_BLOCK, buffer : *const core::ffi::c_void, length : u32, byteoffset : super::PLARGE_INTEGER, key : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwWriteFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, buffer, length, byteoffset.unwrap_or(core::mem::zeroed()) as _, key.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "vadefs", feature = "winnt"))]
 #[inline]
-pub unsafe fn vDbgPrintEx<P2>(componentid: u32, level: u32, format: P2, arglist: *const i8) -> u32
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("ntdll.dll" "system" fn vDbgPrintEx(componentid : u32, level : u32, format : windows_core::PCSTR, arglist : *const i8) -> u32);
-    unsafe { vDbgPrintEx(componentid, level, format.param().abi(), arglist) }
+pub unsafe fn vDbgPrintEx(componentid: u32, level: u32, format: super::PCCH, arglist: super::va_list) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn vDbgPrintEx(componentid : u32, level : u32, format : super::PCCH, arglist : super::va_list) -> u32);
+    unsafe { vDbgPrintEx(componentid, level, format, arglist) }
 }
+#[cfg(all(feature = "vadefs", feature = "winnt"))]
 #[inline]
-pub unsafe fn vDbgPrintExWithPrefix<P0, P3>(prefix: P0, componentid: u32, level: u32, format: P3, arglist: *const i8) -> u32
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("ntdll.dll" "system" fn vDbgPrintExWithPrefix(prefix : windows_core::PCSTR, componentid : u32, level : u32, format : windows_core::PCSTR, arglist : *const i8) -> u32);
-    unsafe { vDbgPrintExWithPrefix(prefix.param().abi(), componentid, level, format.param().abi(), arglist) }
+pub unsafe fn vDbgPrintExWithPrefix(prefix: super::PCCH, componentid: u32, level: u32, format: super::PCCH, arglist: super::va_list) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn vDbgPrintExWithPrefix(prefix : super::PCCH, componentid : u32, level : u32, format : super::PCCH, arglist : super::va_list) -> u32);
+    unsafe { vDbgPrintExWithPrefix(prefix, componentid, level, format, arglist) }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct ACCESS_STATE {
     pub OperationID: super::LUID,
-    pub SecurityEvaluated: bool,
-    pub GenerateAudit: bool,
-    pub GenerateOnClose: bool,
-    pub PrivilegesAllocated: bool,
+    pub SecurityEvaluated: super::BOOLEAN,
+    pub GenerateAudit: super::BOOLEAN,
+    pub GenerateOnClose: super::BOOLEAN,
+    pub PrivilegesAllocated: super::BOOLEAN,
     pub Flags: u32,
     pub RemainingDesiredAccess: super::ACCESS_MASK,
     pub PreviouslyGrantedAccess: super::ACCESS_MASK,
@@ -1232,24 +1190,24 @@ pub struct ACCESS_STATE {
     pub SecurityDescriptor: super::PSECURITY_DESCRIPTOR,
     pub AuxData: *mut core::ffi::c_void,
     pub Privileges: ACCESS_STATE_0,
-    pub AuditPrivileges: bool,
+    pub AuditPrivileges: super::BOOLEAN,
     pub ObjectName: super::UNICODE_STRING,
     pub ObjectTypeName: super::UNICODE_STRING,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 impl Default for ACCESS_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union ACCESS_STATE_0 {
     pub InitialPrivilegeSet: INITIAL_PRIVILEGE_SET,
     pub PrivilegeSet: super::PRIVILEGE_SET,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 impl Default for ACCESS_STATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1257,7 +1215,7 @@ impl Default for ACCESS_STATE_0 {
 }
 pub const ACPIBus: INTERFACE_TYPE = 17;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct ACPI_INTERFACE_STANDARD {
     pub Size: u16,
@@ -1274,6 +1232,7 @@ pub struct ACPI_INTERFACE_STANDARD {
     pub UnregisterForDeviceNotifications: PUNREGISTER_FOR_DEVICE_NOTIFICATIONS,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct ACPI_INTERFACE_STANDARD2 {
     pub Size: u16,
@@ -1292,11 +1251,15 @@ pub struct ACPI_INTERFACE_STANDARD2 {
 pub const ADAPTER_INFO_API_BYPASS: i32 = 2;
 pub const ADAPTER_INFO_HYBRID_PASSTHROUGH: i32 = 4;
 pub const ADAPTER_INFO_SYNCHRONOUS_CALLBACK: i32 = 1;
-pub type ALLOCATE_FUNCTION = Option<unsafe extern "system" fn(pooltype: POOL_TYPE, numberofbytes: usize, tag: u32) -> *mut core::ffi::c_void>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AFFINITY_TOKEN(pub u8);
+pub type ALLOCATE_FUNCTION = Option<unsafe extern "C" fn(pooltype: POOL_TYPE, numberofbytes: usize, tag: u32) -> *mut core::ffi::c_void>;
 #[cfg(feature = "winnt")]
-pub type ALLOCATE_FUNCTION_EX = Option<unsafe extern "system" fn(pooltype: POOL_TYPE, numberofbytes: usize, tag: u32, lookaside: *mut LOOKASIDE_LIST_EX) -> *mut core::ffi::c_void>;
+pub type ALLOCATE_FUNCTION_EX = Option<unsafe extern "C" fn(pooltype: POOL_TYPE, numberofbytes: usize, tag: u32, lookaside: PLOOKASIDE_LIST_EX) -> *mut core::ffi::c_void>;
 pub const ALLOC_DATA_PRAGMA: i32 = 1;
 pub const ALLOC_PRAGMA: i32 = 1;
+pub const ALL_POWERSCHEMES_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x68a1e95e_13ea_41e1_8011_0c496ca490b0);
 pub type ALTERNATIVE_ARCHITECTURE_TYPE = i32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -1524,6 +1487,7 @@ pub struct BOOTDISK_INFORMATION {
     pub SystemDeviceSignature: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BOOTDISK_INFORMATION_EX {
     pub BootPartitionOffset: i64,
@@ -1532,8 +1496,8 @@ pub struct BOOTDISK_INFORMATION_EX {
     pub SystemDeviceSignature: u32,
     pub BootDeviceGuid: windows_core::GUID,
     pub SystemDeviceGuid: windows_core::GUID,
-    pub BootDeviceIsGpt: bool,
-    pub SystemDeviceIsGpt: bool,
+    pub BootDeviceIsGpt: super::BOOLEAN,
+    pub SystemDeviceIsGpt: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1547,11 +1511,10 @@ impl Default for BOOTDISK_INFORMATION_LITE {
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub type BOUND_CALLBACK = Option<unsafe extern "system" fn() -> BOUND_CALLBACK_STATUS>;
+pub type BOUND_CALLBACK = Option<unsafe extern "C" fn() -> BOUND_CALLBACK_STATUS>;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub type BOUND_CALLBACK_STATUS = i32;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct BUS_INTERFACE_STANDARD {
     pub Size: u16,
@@ -1566,7 +1529,6 @@ pub struct BUS_INTERFACE_STANDARD {
 }
 pub type BUS_QUERY_ID_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct BUS_RESOURCE_UPDATE_INTERFACE {
     pub Size: u16,
@@ -1645,16 +1607,17 @@ pub const BusQueryDeviceSerialNumber: BUS_QUERY_ID_TYPE = 4;
 pub const BusQueryHardwareIDs: BUS_QUERY_ID_TYPE = 1;
 pub const BusQueryInstanceID: BUS_QUERY_ID_TYPE = 3;
 pub const BusRelations: DEVICE_RELATION_TYPE = 0;
-pub type CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, argument1: *const core::ffi::c_void, argument2: *const core::ffi::c_void)>;
+pub type CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: *const core::ffi::c_void, argument1: *const core::ffi::c_void, argument2: *const core::ffi::c_void)>;
 pub const CALLBACK_FUNCTION: i32 = 196608;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CALLBACK_OBJECT(pub u8);
 pub const CBus: INTERFACE_TYPE = 9;
 pub const CLFS_LOG_SIZE_MAXIMUM: u64 = 18446744073709551615;
 pub const CLFS_LOG_SIZE_MINIMUM: u64 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CLFS_MGMT_CLIENT(pub *mut core::ffi::c_void);
+pub type CLFS_MGMT_CLIENT = *mut core::ffi::c_void;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "clfs", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "clfs", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct CLFS_MGMT_CLIENT_REGISTRATION {
     pub Version: u32,
@@ -1864,14 +1827,14 @@ impl Default for CM_FLOPPY_DEVICE_DATA {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CM_FULL_RESOURCE_DESCRIPTOR {
     pub InterfaceType: INTERFACE_TYPE,
     pub BusNumber: u32,
     pub PartialResourceList: CM_PARTIAL_RESOURCE_LIST,
 }
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for CM_FULL_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1937,7 +1900,7 @@ pub struct CM_MONITOR_DEVICE_DATA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR {
     pub Type: u8,
@@ -1946,7 +1909,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR {
     pub u: CM_PARTIAL_RESOURCE_DESCRIPTOR_0,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1954,7 +1917,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     pub Generic: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0,
@@ -1973,7 +1936,7 @@ pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     pub Connection: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1981,47 +1944,82 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
     pub Start: super::PHYSICAL_ADDRESS,
     pub Length: u32,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
     pub Start: super::PHYSICAL_ADDRESS,
     pub Length: u32,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
     pub Start: super::PHYSICAL_ADDRESS,
     pub Length40: u32,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
     pub Start: super::PHYSICAL_ADDRESS,
     pub Length48: u32,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
     pub Start: super::PHYSICAL_ADDRESS,
     pub Length64: u32,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     pub Class: u8,
@@ -2033,7 +2031,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
     pub Level: u32,
@@ -2042,13 +2040,13 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
     pub Anonymous: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2056,14 +2054,14 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
     pub Raw: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0,
     pub Translated: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2071,7 +2069,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
     pub Reserved: u16,
@@ -2081,7 +2079,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
     pub Level: u32,
@@ -2090,15 +2088,22 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
     pub Start: super::PHYSICAL_ADDRESS,
     pub Length: u32,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
     pub Channel: u32,
@@ -2107,7 +2112,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     pub Channel: u32,
@@ -2119,13 +2124,13 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     pub Data: [u32; 3],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2133,7 +2138,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
     pub Start: u32,
@@ -2142,7 +2147,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
     pub DataSize: u32,
@@ -2151,7 +2156,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR {
     pub Type: u8,
@@ -2160,7 +2165,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR {
     pub u: CM_PARTIAL_RESOURCE_DESCRIPTOR_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2168,7 +2173,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     pub Generic: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0,
@@ -2187,7 +2192,7 @@ pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     pub Connection: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2195,47 +2200,82 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
     pub Start: super::PHYSICAL_ADDRESS,
     pub Length: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
     pub Start: super::PHYSICAL_ADDRESS,
     pub Length: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
     pub Start: super::PHYSICAL_ADDRESS,
     pub Length40: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
     pub Start: super::PHYSICAL_ADDRESS,
     pub Length48: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
     pub Start: super::PHYSICAL_ADDRESS,
     pub Length64: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     pub Class: u8,
@@ -2247,7 +2287,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
     pub Level: u32,
@@ -2256,13 +2296,13 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
     pub Anonymous: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2270,14 +2310,14 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
     pub Raw: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0,
     pub Translated: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2285,7 +2325,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
     pub Reserved: u16,
@@ -2295,7 +2335,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
     pub Level: u32,
@@ -2304,15 +2344,22 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
     pub Start: super::PHYSICAL_ADDRESS,
     pub Length: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
     pub Channel: u32,
@@ -2321,7 +2368,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     pub Channel: u32,
@@ -2333,13 +2380,13 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     pub Data: [u32; 3],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2347,7 +2394,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
     pub Start: u32,
@@ -2356,7 +2403,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
     pub DataSize: u32,
@@ -2364,7 +2411,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
     pub Reserved2: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_LIST {
     pub Version: u16,
@@ -2372,7 +2419,7 @@ pub struct CM_PARTIAL_RESOURCE_LIST {
     pub Count: u32,
     pub PartialDescriptors: [CM_PARTIAL_RESOURCE_DESCRIPTOR; 1],
 }
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for CM_PARTIAL_RESOURCE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2440,13 +2487,13 @@ pub const CM_RESOURCE_INTERRUPT_POLICY_INCLUDED: i32 = 4;
 pub const CM_RESOURCE_INTERRUPT_SECONDARY_INTERRUPT: i32 = 16;
 pub const CM_RESOURCE_INTERRUPT_WAKE_HINT: i32 = 32;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CM_RESOURCE_LIST {
     pub Count: u32,
     pub List: [CM_FULL_RESOURCE_DESCRIPTOR; 1],
 }
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for CM_RESOURCE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2479,9 +2526,7 @@ pub const CM_RESOURCE_PORT_MEMORY: i32 = 0;
 pub const CM_RESOURCE_PORT_PASSIVE_DECODE: i32 = 64;
 pub const CM_RESOURCE_PORT_POSITIVE_DECODE: i32 = 32;
 pub const CM_RESOURCE_PORT_WINDOW_DECODE: i32 = 128;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CM_RESOURCE_TYPE(pub i32);
+pub type CM_RESOURCE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_ROM_BLOCK {
@@ -2530,34 +2575,34 @@ pub const CONNECT_LINE_BASED: i32 = 2;
 pub const CONNECT_MESSAGE_BASED: i32 = 3;
 pub const CONNECT_MESSAGE_BASED_PASSIVE: i32 = 5;
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct COUNTED_REASON_CONTEXT {
     pub Version: u32,
     pub Flags: u32,
     pub Anonymous: COUNTED_REASON_CONTEXT_0,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
 impl Default for COUNTED_REASON_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union COUNTED_REASON_CONTEXT_0 {
     pub Anonymous: COUNTED_REASON_CONTEXT_0_0,
     pub SimpleString: super::UNICODE_STRING,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
 impl Default for COUNTED_REASON_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COUNTED_REASON_CONTEXT_0_0 {
     pub ResourceFileName: super::UNICODE_STRING,
@@ -2637,11 +2682,12 @@ pub struct D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
     pub RequestPerstDelay: PD3COLD_REQUEST_PERST_DELAY,
 }
 pub type D3COLD_LAST_TRANSITION_STATUS = i32;
-pub type D3COLD_REQUEST_AUX_POWER = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, auxpowerinmilliwatts: u32, retryinseconds: *mut u32) -> windows_core::NTSTATUS>;
-pub type D3COLD_REQUEST_CORE_POWER_RAIL = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, corepowerrailneeded: bool)>;
-pub type D3COLD_REQUEST_PERST_DELAY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, delayinmicroseconds: u32) -> windows_core::NTSTATUS>;
-#[repr(C)]
+#[cfg(feature = "minwindef")]
+pub type D3COLD_REQUEST_AUX_POWER = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, auxpowerinmilliwatts: u32, retryinseconds: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
+pub type D3COLD_REQUEST_CORE_POWER_RAIL = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, corepowerrailneeded: super::BOOLEAN)>;
+pub type D3COLD_REQUEST_PERST_DELAY = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, delayinmicroseconds: u32) -> windows_core::NTSTATUS>;
+#[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct D3COLD_SUPPORT_INTERFACE {
     pub Size: u16,
@@ -2663,7 +2709,7 @@ pub const DBG_STATUS_DEBUG_CONTROL: i32 = 6;
 pub const DBG_STATUS_FATAL: i32 = 5;
 pub const DBG_STATUS_SYSRQ: i32 = 2;
 pub const DBG_STATUS_WORKER: i32 = 7;
-pub type DEVICE_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, bustype: *const windows_core::GUID, resettypeselected: DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: *const BUS_SPECIFIC_RESET_FLAGS, resetparameters: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type DEVICE_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "C" fn(interfacecontext: *const core::ffi::c_void, bustype: *const windows_core::GUID, resettypeselected: DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: PBUS_SPECIFIC_RESET_FLAGS, resetparameters: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DEVICE_BUS_SPECIFIC_RESET_INFO {
@@ -2942,20 +2988,20 @@ impl Default for DEVICE_CAPABILITIES {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type DEVICE_CHANGE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
+pub type DEVICE_CHANGE_COMPLETE_CALLBACK = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void)>;
 #[repr(C)]
-#[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct DEVICE_DESCRIPTION {
     pub Version: u32,
-    pub Master: bool,
-    pub ScatterGather: bool,
-    pub DemandMode: bool,
-    pub AutoInitialize: bool,
-    pub Dma32BitAddresses: bool,
-    pub IgnoreCount: bool,
-    pub Reserved1: bool,
-    pub Dma64BitAddresses: bool,
+    pub Master: super::BOOLEAN,
+    pub ScatterGather: super::BOOLEAN,
+    pub DemandMode: super::BOOLEAN,
+    pub AutoInitialize: super::BOOLEAN,
+    pub Dma32BitAddresses: super::BOOLEAN,
+    pub IgnoreCount: super::BOOLEAN,
+    pub Reserved1: super::BOOLEAN,
+    pub Dma64BitAddresses: super::BOOLEAN,
     pub BusNumber: u32,
     pub DmaChannel: u32,
     pub InterfaceType: INTERFACE_TYPE,
@@ -2968,13 +3014,18 @@ pub struct DEVICE_DESCRIPTION {
     pub DmaRequestLine: u32,
     pub DeviceAddress: super::PHYSICAL_ADDRESS,
 }
+#[cfg(all(feature = "usb", feature = "winnt"))]
+impl Default for DEVICE_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DEVICE_DESCRIPTION_VERSION: i32 = 0;
 pub const DEVICE_DESCRIPTION_VERSION1: i32 = 1;
 pub const DEVICE_DESCRIPTION_VERSION2: i32 = 2;
 pub const DEVICE_DESCRIPTION_VERSION3: i32 = 3;
 pub type DEVICE_DIRECTORY_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_FAULT_CONFIGURATION {
     pub FaultHandler: PIOMMU_DEVICE_FAULT_HANDLER,
@@ -3031,7 +3082,7 @@ impl DEVICE_FLAGS {
 }
 pub type DEVICE_INSTALL_STATE = i32;
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_INTERFACE_CHANGE_NOTIFICATION {
     pub Version: u16,
@@ -3043,7 +3094,7 @@ pub struct DEVICE_INTERFACE_CHANGE_NOTIFICATION {
 pub const DEVICE_INTERFACE_INCLUDE_NONACTIVE: i32 = 1;
 #[repr(C, align(8))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct DEVICE_OBJECT {
     pub Type: super::CSHORT,
@@ -3073,7 +3124,7 @@ pub struct DEVICE_OBJECT {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for DEVICE_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3081,14 +3132,14 @@ impl Default for DEVICE_OBJECT {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union DEVICE_OBJECT_0 {
     pub ListEntry: super::LIST_ENTRY,
     pub Wcb: WAIT_CONTEXT_BLOCK,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for DEVICE_OBJECT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3096,7 +3147,7 @@ impl Default for DEVICE_OBJECT_0 {
 }
 #[repr(C, align(16))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct DEVICE_OBJECT {
     pub Type: super::CSHORT,
@@ -3126,7 +3177,7 @@ pub struct DEVICE_OBJECT {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for DEVICE_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3134,29 +3185,30 @@ impl Default for DEVICE_OBJECT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union DEVICE_OBJECT_0 {
     pub ListEntry: super::LIST_ENTRY,
     pub Wcb: WAIT_CONTEXT_BLOCK,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for DEVICE_OBJECT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, resetinfocount: *mut u32, resetinfosupported: *mut DEVICE_BUS_SPECIFIC_RESET_INFO) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "C" fn(interfacecontext: *const core::ffi::c_void, resetinfocount: super::PULONG, resetinfosupported: PDEVICE_BUS_SPECIFIC_RESET_INFO) -> windows_core::NTSTATUS>;
 pub type DEVICE_REGISTRY_PROPERTY = i32;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_RELATIONS {
     pub Count: u32,
     pub Objects: [PDEVICE_OBJECT; 1],
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for DEVICE_RELATIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3164,8 +3216,8 @@ impl Default for DEVICE_RELATIONS {
 }
 pub type DEVICE_RELATION_TYPE = i32;
 pub type DEVICE_REMOVAL_POLICY = i32;
-pub type DEVICE_RESET_COMPLETION = Option<unsafe extern "system" fn(status: windows_core::NTSTATUS, context: *mut core::ffi::c_void)>;
-pub type DEVICE_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, resettype: DEVICE_RESET_TYPE, flags: u32, resetparameters: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type DEVICE_RESET_COMPLETION = Option<unsafe extern "C" fn(status: windows_core::NTSTATUS, context: *mut core::ffi::c_void)>;
+pub type DEVICE_RESET_HANDLER = Option<unsafe extern "C" fn(interfacecontext: *const core::ffi::c_void, resettype: DEVICE_RESET_TYPE, flags: u32, resetparameters: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct DEVICE_RESET_INTERFACE_STANDARD {
@@ -3225,10 +3277,10 @@ pub type DEVICE_RESET_TYPE = i32;
 pub type DEVICE_TEXT_TYPE = i32;
 pub type DEVICE_USAGE_NOTIFICATION_TYPE = i32;
 pub type DEVICE_WAKE_DEPTH = i32;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub const DEVICE_WITH_IRP_EXTENSION: PDEVICE_OBJECT = -1 as _;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVOBJ_EXTENSION {
     pub Type: super::CSHORT,
@@ -3678,7 +3730,7 @@ impl Default for DISPATCHER_HEADER_0_5_1 {
 pub struct DISPATCHER_HEADER_0_6 {
     pub MutantType: u8,
     pub MutantSize: u8,
-    pub DpcActive: bool,
+    pub DpcActive: super::BOOLEAN,
     pub MutantReserved: u8,
 }
 #[repr(C)]
@@ -4104,7 +4156,7 @@ impl Default for DISPATCHER_HEADER_0_5_1 {
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_5_1_0 {
-    pub _bitfield: bool,
+    pub _bitfield: super::BOOLEAN,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -4113,7 +4165,7 @@ pub struct DISPATCHER_HEADER_0_5_1_0 {
 pub struct DISPATCHER_HEADER_0_6 {
     pub MutantType: u8,
     pub MutantSize: u8,
-    pub DpcActive: bool,
+    pub DpcActive: super::BOOLEAN,
     pub MutantReserved: u8,
 }
 pub const DMAV3_TRANFER_WIDTH_128: i32 = 4;
@@ -4123,7 +4175,7 @@ pub const DMAV3_TRANFER_WIDTH_32: i32 = 2;
 pub const DMAV3_TRANFER_WIDTH_64: i32 = 3;
 pub const DMAV3_TRANFER_WIDTH_8: i32 = 0;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_ADAPTER {
     pub Version: u16,
@@ -4131,57 +4183,63 @@ pub struct DMA_ADAPTER {
     pub DmaOperations: PDMA_OPERATIONS,
 }
 #[repr(C)]
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union DMA_ADAPTER_INFO {
     pub Anonymous: DMA_ADAPTER_INFO_0,
     pub Anonymous2: DMA_ADAPTER_INFO_1,
 }
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 impl Default for DMA_ADAPTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_ADAPTER_INFO_0 {
     pub Version: u32,
     pub V1: DMA_ADAPTER_INFO_V1,
 }
 #[repr(C)]
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DMA_ADAPTER_INFO_1 {
     pub Reserved: u64,
     pub Anonymous: DMA_ADAPTER_INFO_1_0,
 }
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 impl Default for DMA_ADAPTER_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union DMA_ADAPTER_INFO_1_0 {
     pub Crashdump: DMA_ADAPTER_INFO_CRASHDUMP,
 }
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 impl Default for DMA_ADAPTER_INFO_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct DMA_ADAPTER_INFO_CRASHDUMP {
     pub DeviceDescription: DEVICE_DESCRIPTION,
     pub DeviceIdSize: usize,
     pub DeviceId: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "usb", feature = "winnt"))]
+impl Default for DMA_ADAPTER_INFO_CRASHDUMP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4195,20 +4253,20 @@ pub struct DMA_ADAPTER_INFO_V1 {
 pub const DMA_ADAPTER_INFO_VERSION1: i32 = 1;
 pub const DMA_ADAPTER_INFO_VERSION_CRASHDUMP: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION {
     pub ConfigType: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE,
     pub Anonymous: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0,
 }
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 impl Default for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0 {
     pub LogicalAddressLimits: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0,
@@ -4216,21 +4274,27 @@ pub union DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0 {
     pub HardwareAccessType: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE,
     pub Reserved: [u64; 4],
 }
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 impl Default for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0 {
     pub MinimumAddress: super::PHYSICAL_ADDRESS,
     pub MaximumAddress: super::PHYSICAL_ADDRESS,
 }
+#[cfg(all(feature = "usb", feature = "winnt"))]
+impl Default for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1 {
     pub Offset: u64,
@@ -4241,8 +4305,8 @@ pub type DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_COMMON_BUFFER_VECTOR(pub u8);
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DMA_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const DEVICE_OBJECT, completioncontext: *const core::ffi::c_void, status: DMA_COMPLETION_STATUS)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type DMA_COMPLETION_ROUTINE = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, deviceobject: PDEVICE_OBJECT, completioncontext: *const core::ffi::c_void, status: DMA_COMPLETION_STATUS)>;
 pub type DMA_COMPLETION_STATUS = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4319,7 +4383,6 @@ impl Default for DMA_FEATURE_QUERY_STATUS {
 }
 pub type DMA_FEATURE_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_IOMMU_INTERFACE {
     pub Version: u32,
@@ -4338,33 +4401,41 @@ pub struct DMA_IOMMU_INTERFACE {
     pub ConfigureDomain: PIOMMU_DOMAIN_CONFIGURE,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct DMA_IOMMU_INTERFACE_EX {
     pub Size: usize,
     pub Version: u32,
     pub Anonymous: DMA_IOMMU_INTERFACE_EX_0,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for DMA_IOMMU_INTERFACE_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union DMA_IOMMU_INTERFACE_EX_0 {
     pub V1: DMA_IOMMU_INTERFACE_V1,
     pub V2: DMA_IOMMU_INTERFACE_V2,
     pub V3: DMA_IOMMU_INTERFACE_V3,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for DMA_IOMMU_INTERFACE_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const DMA_IOMMU_INTERFACE_EX_V1_SIZE: u32 = 60;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DMA_IOMMU_INTERFACE_EX_V1_SIZE: u64 = 120;
+#[cfg(target_arch = "x86")]
+pub const DMA_IOMMU_INTERFACE_EX_V2_SIZE: u32 = 96;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DMA_IOMMU_INTERFACE_EX_V2_SIZE: u64 = 192;
+#[cfg(target_arch = "x86")]
+pub const DMA_IOMMU_INTERFACE_EX_V3_SIZE: u32 = 116;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DMA_IOMMU_INTERFACE_EX_V3_SIZE: u64 = 232;
 pub const DMA_IOMMU_INTERFACE_EX_VERSION: u32 = 3;
 pub const DMA_IOMMU_INTERFACE_EX_VERSION_1: u32 = 1;
 pub const DMA_IOMMU_INTERFACE_EX_VERSION_2: u32 = 2;
@@ -4372,7 +4443,6 @@ pub const DMA_IOMMU_INTERFACE_EX_VERSION_3: u32 = 3;
 pub const DMA_IOMMU_INTERFACE_EX_VERSION_MAX: u32 = 3;
 pub const DMA_IOMMU_INTERFACE_EX_VERSION_MIN: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_IOMMU_INTERFACE_V1 {
     pub CreateDomain: PIOMMU_DOMAIN_CREATE,
@@ -4390,7 +4460,6 @@ pub struct DMA_IOMMU_INTERFACE_V1 {
     pub ConfigureDomain: PIOMMU_DOMAIN_CONFIGURE,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_IOMMU_INTERFACE_V2 {
     pub CreateDomainEx: PIOMMU_DOMAIN_CREATE_EX,
@@ -4417,7 +4486,6 @@ pub struct DMA_IOMMU_INTERFACE_V2 {
     pub DeleteDevice: PIOMMU_DEVICE_DELETE,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_IOMMU_INTERFACE_V3 {
     pub CreateDomainEx: PIOMMU_DOMAIN_CREATE_EX,
@@ -4451,7 +4519,7 @@ pub struct DMA_IOMMU_INTERFACE_V3 {
 pub const DMA_IOMMU_INTERFACE_VERSION: u32 = 1;
 pub const DMA_IOMMU_INTERFACE_VERSION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct DMA_OPERATIONS {
     pub Size: u32,
@@ -4545,26 +4613,26 @@ pub type DMA_WIDTH = i32;
 pub const DMA_ZERO_BUFFERS: i32 = 2;
 pub const DOMAIN_COMMON_BUFFER_LARGE_PAGE: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DOMAIN_CONFIGURATION {
     pub Type: DOMAIN_CONFIGURATION_ARCH,
     pub Anonymous: DOMAIN_CONFIGURATION_0,
 }
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 impl Default for DOMAIN_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union DOMAIN_CONFIGURATION_0 {
     pub Arm64: DOMAIN_CONFIGURATION_ARM64,
     pub X64: DOMAIN_CONFIGURATION_X64,
 }
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 impl Default for DOMAIN_CONFIGURATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4572,8 +4640,8 @@ impl Default for DOMAIN_CONFIGURATION_0 {
 }
 pub type DOMAIN_CONFIGURATION_ARCH = i32;
 #[repr(C)]
-#[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct DOMAIN_CONFIGURATION_ARM64 {
     pub Ttbr0: super::PHYSICAL_ADDRESS,
     pub Ttbr1: super::PHYSICAL_ADDRESS,
@@ -4581,15 +4649,27 @@ pub struct DOMAIN_CONFIGURATION_ARM64 {
     pub Mair1: u32,
     pub InputSize0: u8,
     pub InputSize1: u8,
-    pub CoherentTableWalks: bool,
-    pub TranslationEnabled: bool,
+    pub CoherentTableWalks: super::BOOLEAN,
+    pub TranslationEnabled: super::BOOLEAN,
+}
+#[cfg(all(feature = "usb", feature = "winnt"))]
+impl Default for DOMAIN_CONFIGURATION_ARM64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
-#[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct DOMAIN_CONFIGURATION_X64 {
     pub FirstLevelPageTableRoot: super::PHYSICAL_ADDRESS,
-    pub TranslationEnabled: bool,
+    pub TranslationEnabled: super::BOOLEAN,
+}
+#[cfg(all(feature = "usb", feature = "winnt"))]
+impl Default for DOMAIN_CONFIGURATION_X64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DO_BUFFERED_IO: i32 = 4;
 pub const DO_BUS_ENUMERATED_DEVICE: i32 = 4096;
@@ -4620,21 +4700,21 @@ pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_SIGNATURE: u32 = 2931740382;
 pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_VER_1_SIZE: u32 = 16;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_VER_1_SIZE: u64 = 16;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_ADD_DEVICE = Option<unsafe extern "system" fn(driverobject: *const DRIVER_OBJECT, physicaldeviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_CANCEL = Option<unsafe extern "system" fn(deviceobject: *mut DEVICE_OBJECT, irp: *mut IRP)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_CONTROL = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP, mapregisterbase: *const core::ffi::c_void, context: *const core::ffi::c_void) -> IO_ALLOCATION_ACTION>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type DRIVER_ADD_DEVICE = Option<unsafe extern "C" fn(driverobject: *const DRIVER_OBJECT, physicaldeviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type DRIVER_CANCEL = Option<unsafe extern "C" fn(deviceobject: *mut DEVICE_OBJECT, irp: *mut IRP)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type DRIVER_CONTROL = Option<unsafe extern "C" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP, mapregisterbase: *const core::ffi::c_void, context: *const core::ffi::c_void) -> IO_ALLOCATION_ACTION>;
 pub type DRIVER_DIRECTORY_TYPE = i32;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_DISPATCH = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_DISPATCH_PAGED = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type DRIVER_DISPATCH = Option<unsafe extern "C" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type DRIVER_DISPATCH_PAGED = Option<unsafe extern "C" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type DRIVER_DISPATCH_RAISED = DRIVER_DISPATCH;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_EXTENSION {
     pub DriverObject: *mut DRIVER_OBJECT,
@@ -4642,13 +4722,13 @@ pub struct DRIVER_EXTENSION {
     pub Count: u32,
     pub ServiceKeyName: super::UNICODE_STRING,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_INITIALIZE = Option<unsafe extern "system" fn(driverobject: *const DRIVER_OBJECT, registrypath: *const super::UNICODE_STRING) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_LIST_CONTROL = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, irp: *const IRP, scattergather: *const SCATTER_GATHER_LIST, context: *const core::ffi::c_void)>;
-pub type DRIVER_NOTIFICATION_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(notificationstructure: *const core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type DRIVER_INITIALIZE = Option<unsafe extern "C" fn(driverobject: *const DRIVER_OBJECT, registrypath: super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type DRIVER_LIST_CONTROL = Option<unsafe extern "C" fn(deviceobject: *const DEVICE_OBJECT, irp: *const IRP, scattergather: PSCATTER_GATHER_LIST, context: *const core::ffi::c_void)>;
+pub type DRIVER_NOTIFICATION_CALLBACK_ROUTINE = Option<unsafe extern "C" fn(notificationstructure: *const core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_OBJECT {
     pub Type: super::CSHORT,
@@ -4667,16 +4747,14 @@ pub struct DRIVER_OBJECT {
     pub DriverUnload: PDRIVER_UNLOAD,
     pub MajorFunction: [PDRIVER_DISPATCH; 28],
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for DRIVER_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type DRIVER_PROXY_ENDPOINT_FUNCTION = Option<unsafe extern "system" fn()>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DRIVER_PROXY_ENDPOINT_FUNCTION_ID(pub u32);
+pub type DRIVER_PROXY_ENDPOINT_FUNCTION = Option<unsafe extern "C" fn()>;
+pub type DRIVER_PROXY_ENDPOINT_FUNCTION_ID = u32;
 pub const DRIVER_PROXY_ENDPOINT_FUNCTION_ID_INVALID: u32 = 4294967295;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4685,6 +4763,9 @@ pub struct DRIVER_PROXY_ENDPOINT_INFORMATION {
     pub EndpointFunction: PDRIVER_PROXY_ENDPOINT_FUNCTION,
     pub ParameterCount: u32,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DRIVER_PROXY_EXTENSION(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DRIVER_PROXY_EXTENSION_CREATION_FLAGS {
@@ -4739,21 +4820,22 @@ impl DRIVER_PROXY_FEATURE_FLAGS_0 {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
-pub type DRIVER_PROXY_HOTSWAP_CALLBACK = Option<unsafe extern "system" fn(phase: DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type DRIVER_PROXY_HOTSWAP_CALLBACK = Option<unsafe extern "C" fn(phase: DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE = i32;
-pub type DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE = Option<unsafe extern "system" fn(workercontext: *const core::ffi::c_void, waitstatus: windows_core::NTSTATUS) -> bool>;
+#[cfg(feature = "winnt")]
+pub type DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE = Option<unsafe extern "C" fn(workercontext: *const core::ffi::c_void, waitstatus: windows_core::NTSTATUS) -> super::BOOLEAN>;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE_START_CONTEXT {
     pub WorkerRoutine: PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE,
     pub Context: *mut core::ffi::c_void,
     pub WaitType: super::WAIT_TYPE,
     pub WaitReason: KWAIT_REASON,
     pub WaitMode: KPROCESSOR_MODE,
-    pub Altertable: bool,
-    pub HasTimeout: bool,
-    pub Timeout: i64,
+    pub Altertable: super::BOOLEAN,
+    pub HasTimeout: super::BOOLEAN,
+    pub Timeout: super::LARGE_INTEGER,
     pub EventCount: u32,
     pub Events: [PKEVENT; 1],
 }
@@ -4764,16 +4846,14 @@ impl Default for DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE_START_CONTEXT {
     }
 }
 pub type DRIVER_PROXY_REGISTER_CALLBACK = DRIVER_PROXY_HOTSWAP_CALLBACK;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DRIVER_PROXY_REGISTER_CALLBACK_PHASE(pub DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE);
+pub type DRIVER_PROXY_REGISTER_CALLBACK_PHASE = DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE;
 pub type DRIVER_PROXY_VERSION = i32;
 pub type DRIVER_REGKEY_TYPE = i32;
 pub type DRIVER_RUNTIME_INIT_FLAGS = i32;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_STARTIO = Option<unsafe extern "system" fn(deviceobject: *mut DEVICE_OBJECT, irp: *mut IRP)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type DRIVER_UNLOAD = Option<unsafe extern "system" fn(driverobject: *const DRIVER_OBJECT)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type DRIVER_STARTIO = Option<unsafe extern "C" fn(deviceobject: *mut DEVICE_OBJECT, irp: *mut IRP)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type DRIVER_UNLOAD = Option<unsafe extern "C" fn(driverobject: *const DRIVER_OBJECT)>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DRS_LEVEL: i32 = 14;
 pub const DRVO_BUILTIN_DRIVER: i32 = 4;
@@ -5035,7 +5115,8 @@ impl EISA_PORT_DESCRIPTOR {
     }
 }
 pub const EISA_SYSTEM_MEMORY: i32 = 0;
-pub type ENABLE_VIRTUALIZATION = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, numvfs: u16, enablevfmigration: bool, enablemigrationinterrupt: bool, enablevirtualization: bool) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type ENABLE_VIRTUALIZATION = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, numvfs: u16, enablevfmigration: super::BOOLEAN, enablemigrationinterrupt: super::BOOLEAN, enablevirtualization: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
@@ -5123,9 +5204,7 @@ impl Default for ERESOURCE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ERESOURCE_THREAD(pub usize);
+pub type ERESOURCE_THREAD = usize;
 pub const ERROR_LOG_LIMIT_SIZE: i32 = 240;
 #[cfg(target_arch = "x86")]
 pub const ERROR_LOG_MAXIMUM_SIZE: u32 = 152;
@@ -5135,8 +5214,8 @@ pub const ERROR_LOG_MAXIMUM_SIZE: u64 = 240;
 pub const ERROR_LOG_MESSAGE_LIMIT_SIZE: u32 = 344;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const ERROR_LOG_MESSAGE_LIMIT_SIZE: u64 = 344;
-#[cfg(feature = "evntprov")]
-pub type ETWENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const super::EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
+#[cfg(all(feature = "evntprov", feature = "evntrace", feature = "guiddef"))]
+pub type ETWENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: super::LPCGUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: super::PEVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_TRACE_SESSION_SETTINGS {
@@ -5202,8 +5281,8 @@ pub struct EXTENDED_CREATE_INFORMATION_32 {
     pub EaLength: u32,
     pub DualOplockKeys: *mut EXTENDED_CREATE_DUAL_OPLOCK_KEYS,
 }
-pub type EXT_CALLBACK = Option<unsafe extern "system" fn(timer: *const _EX_TIMER, context: *const core::ffi::c_void)>;
-pub type EXT_DELETE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type EXT_CALLBACK = Option<unsafe extern "C" fn(timer: PEX_TIMER, context: *const core::ffi::c_void)>;
+pub type EXT_DELETE_CALLBACK = Option<unsafe extern "C" fn(context: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXT_DELETE_PARAMETERS {
@@ -5219,7 +5298,7 @@ pub struct EXT_SET_PARAMETERS {
     pub Reserved: u32,
     pub NoWakeTolerance: i64,
 }
-pub type EX_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, argument1: *const core::ffi::c_void, argument2: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type EX_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: *const core::ffi::c_void, argument1: *const core::ffi::c_void, argument2: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub const EX_CARR_ALLOCATE_NONPAGED_POOL: i32 = 1;
 pub const EX_CARR_ALLOCATE_PAGED_POOL: i32 = 0;
 pub const EX_CARR_DISABLE_EXPANSION: i32 = 2;
@@ -5266,9 +5345,13 @@ impl Default for EX_RUNDOWN_REF_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct EX_SPIN_LOCK(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EX_RUNDOWN_REF_CACHE_AWARE(pub u8);
+pub type EX_SPIN_LOCK = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct EX_TIMER(pub u8);
 pub const EX_TIMER_HIGH_RESOLUTION: i32 = 4;
 pub const EX_TIMER_NOTIFICATION: u32 = 2147483648;
 pub const EX_TIMER_NO_WAKE: i32 = 8;
@@ -5284,20 +5367,19 @@ pub const EventCategoryTargetDeviceChange: IO_NOTIFICATION_EVENT_CATEGORY = 3;
 pub const EventLoggerHandleClass: TRACE_INFORMATION_CLASS = 5;
 pub const Executive: KWAIT_REASON = 0;
 pub const ExternalFault: FAULT_INFORMATION_ARM64_TYPE = 3;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_ACQUIRE_FILE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_ACQUIRE_FOR_CCFLUSH = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_ACQUIRE_FOR_MOD_WRITE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, endingoffset: *const i64, resourcetorelease: *mut *mut ERESOURCE, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_CHECK_IF_POSSIBLE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: *const i64, length: u32, wait: bool, lockkey: u32, checkforreadoperation: bool, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_DETACH_DEVICE = Option<unsafe extern "system" fn(sourcedevice: *const DEVICE_OBJECT, targetdevice: *const DEVICE_OBJECT)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_DEVICE_CONTROL = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, wait: bool, inputbuffer: *const core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut core::ffi::c_void, outputbufferlength: u32, iocontrolcode: u32, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_ACQUIRE_FILE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_ACQUIRE_FOR_CCFLUSH = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_ACQUIRE_FOR_MOD_WRITE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, endingoffset: super::PLARGE_INTEGER, resourcetorelease: *mut *mut ERESOURCE, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_CHECK_IF_POSSIBLE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: u32, wait: super::BOOLEAN, lockkey: u32, checkforreadoperation: super::BOOLEAN, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_DETACH_DEVICE = Option<unsafe extern "C" fn(sourcedevice: *const DEVICE_OBJECT, targetdevice: *const DEVICE_OBJECT)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_DEVICE_CONTROL = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, inputbuffer: *const core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut core::ffi::c_void, outputbufferlength: u32, iocontrolcode: u32, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAST_IO_DISPATCH {
     pub SizeOfFastIoDispatch: u32,
@@ -5329,48 +5411,48 @@ pub struct FAST_IO_DISPATCH {
     pub AcquireForCcFlush: PFAST_IO_ACQUIRE_FOR_CCFLUSH,
     pub ReleaseForCcFlush: PFAST_IO_RELEASE_FOR_CCFLUSH,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_LOCK = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: *const i64, length: *const i64, processid: *const _KPROCESS, key: u32, failimmediately: bool, exclusivelock: bool, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_MDL_READ = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: *const i64, length: u32, lockkey: u32, mdlchain: *mut super::PMDL, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_MDL_READ_COMPLETE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, mdlchain: *const MDL, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_MDL_READ_COMPLETE_COMPRESSED = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, mdlchain: *const MDL, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_MDL_WRITE_COMPLETE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: *const i64, mdlchain: *const MDL, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_MDL_WRITE_COMPLETE_COMPRESSED = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: *const i64, mdlchain: *const MDL, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_PREPARE_MDL_WRITE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: *const i64, length: u32, lockkey: u32, mdlchain: *mut super::PMDL, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_QUERY_BASIC_INFO = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, wait: bool, buffer: *mut FILE_BASIC_INFORMATION, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_QUERY_NETWORK_OPEN_INFO = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, wait: bool, buffer: *mut FILE_NETWORK_OPEN_INFORMATION, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_QUERY_OPEN = Option<unsafe extern "system" fn(irp: *mut IRP, networkinformation: *mut FILE_NETWORK_OPEN_INFORMATION, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_QUERY_STANDARD_INFO = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, wait: bool, buffer: *mut FILE_STANDARD_INFORMATION, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_READ = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: *const i64, length: u32, wait: bool, lockkey: u32, buffer: *mut core::ffi::c_void, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_READ_COMPRESSED = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: *const i64, length: u32, lockkey: u32, buffer: *mut core::ffi::c_void, mdlchain: *mut super::PMDL, iostatus: *mut super::IO_STATUS_BLOCK, compresseddatainfo: *mut super::COMPRESSED_DATA_INFO, compresseddatainfolength: u32, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_RELEASE_FILE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_RELEASE_FOR_CCFLUSH = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_RELEASE_FOR_MOD_WRITE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, resourcetorelease: *const ERESOURCE, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_UNLOCK_ALL = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, processid: *const _KPROCESS, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_UNLOCK_ALL_BY_KEY = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, processid: *const core::ffi::c_void, key: u32, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_UNLOCK_SINGLE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: *const i64, length: *const i64, processid: *const _KPROCESS, key: u32, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_WRITE = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: *const i64, length: u32, wait: bool, lockkey: u32, buffer: *const core::ffi::c_void, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type FAST_IO_WRITE_COMPRESSED = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, fileoffset: *const i64, length: u32, lockkey: u32, buffer: *const core::ffi::c_void, mdlchain: *mut super::PMDL, iostatus: *mut super::IO_STATUS_BLOCK, compresseddatainfo: *const super::COMPRESSED_DATA_INFO, compresseddatainfolength: u32, deviceobject: *const DEVICE_OBJECT) -> bool>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_LOCK = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::PLARGE_INTEGER, processid: PEPROCESS, key: u32, failimmediately: super::BOOLEAN, exclusivelock: super::BOOLEAN, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_MDL_READ = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: u32, lockkey: u32, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_MDL_READ_COMPLETE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_MDL_READ_COMPLETE_COMPRESSED = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_MDL_WRITE_COMPLETE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_MDL_WRITE_COMPLETE_COMPRESSED = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, mdlchain: super::PMDL, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_PREPARE_MDL_WRITE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: u32, lockkey: u32, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_QUERY_BASIC_INFO = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: PFILE_BASIC_INFORMATION, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_QUERY_NETWORK_OPEN_INFO = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: *mut FILE_NETWORK_OPEN_INFORMATION, iostatus: *mut super::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_QUERY_OPEN = Option<unsafe extern "C" fn(irp: *mut IRP, networkinformation: PFILE_NETWORK_OPEN_INFORMATION, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_QUERY_STANDARD_INFO = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, wait: super::BOOLEAN, buffer: PFILE_STANDARD_INFORMATION, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_READ = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: u32, wait: super::BOOLEAN, lockkey: u32, buffer: *mut core::ffi::c_void, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_READ_COMPRESSED = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: u32, lockkey: u32, buffer: *mut core::ffi::c_void, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, compresseddatainfo: *mut super::COMPRESSED_DATA_INFO, compresseddatainfolength: u32, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_RELEASE_FILE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_RELEASE_FOR_CCFLUSH = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_RELEASE_FOR_MOD_WRITE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, resourcetorelease: *const ERESOURCE, deviceobject: *const DEVICE_OBJECT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_UNLOCK_ALL = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, processid: PEPROCESS, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_UNLOCK_ALL_BY_KEY = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, processid: *const core::ffi::c_void, key: u32, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_UNLOCK_SINGLE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: super::PLARGE_INTEGER, processid: PEPROCESS, key: u32, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_WRITE = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: u32, wait: super::BOOLEAN, lockkey: u32, buffer: *const core::ffi::c_void, iostatus: super::PIO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type FAST_IO_WRITE_COMPRESSED = Option<unsafe extern "C" fn(fileobject: *const FILE_OBJECT, fileoffset: super::PLARGE_INTEGER, length: u32, lockkey: u32, buffer: *const core::ffi::c_void, mdlchain: *mut super::PMDL, iostatus: super::PIO_STATUS_BLOCK, compresseddatainfo: *const super::COMPRESSED_DATA_INFO, compresseddatainfolength: u32, deviceobject: *const DEVICE_OBJECT) -> super::BOOLEAN>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -5388,27 +5470,27 @@ impl Default for FAST_MUTEX {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct FAULT_INFORMATION {
     pub Type: FAULT_INFORMATION_ARCH,
-    pub IsStage1: bool,
+    pub IsStage1: super::BOOLEAN,
     pub Anonymous: FAULT_INFORMATION_0,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for FAULT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union FAULT_INFORMATION_0 {
     pub Arm64: FAULT_INFORMATION_ARM64,
     pub X64: FAULT_INFORMATION_X64,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for FAULT_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5416,7 +5498,7 @@ impl Default for FAULT_INFORMATION_0 {
 }
 pub type FAULT_INFORMATION_ARCH = i32;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAULT_INFORMATION_ARM64 {
     pub DomainHandle: *mut core::ffi::c_void,
@@ -5494,9 +5576,7 @@ impl FAULT_INFORMATION_X64_FLAGS {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct FAULT_INFORMATION_X64_TYPE(pub FAULT_INFORMATION_ARM64_TYPE);
+pub type FAULT_INFORMATION_X64_TYPE = FAULT_INFORMATION_ARM64_TYPE;
 pub const FILE_128_BYTE_ALIGNMENT: i32 = 127;
 pub const FILE_256_BYTE_ALIGNMENT: i32 = 255;
 pub const FILE_32_BYTE_ALIGNMENT: i32 = 31;
@@ -5507,13 +5587,20 @@ pub const FILE_ATTRIBUTE_VALID_KERNEL_SET_FLAGS: i32 = 5910951;
 pub const FILE_ATTRIBUTE_VALID_SET_FLAGS: i32 = 1716647;
 pub const FILE_AUTOGENERATED_DEVICE_NAME: i32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct FILE_BASIC_INFORMATION {
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
+    pub CreationTime: super::LARGE_INTEGER,
+    pub LastAccessTime: super::LARGE_INTEGER,
+    pub LastWriteTime: super::LARGE_INTEGER,
+    pub ChangeTime: super::LARGE_INTEGER,
     pub FileAttributes: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for FILE_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FILE_BYTE_ALIGNMENT: i32 = 0;
 pub const FILE_CHARACTERISTIC_CSV: i32 = 65536;
@@ -5580,15 +5667,17 @@ pub struct FILE_IO_PRIORITY_HINT_INFORMATION {
     pub PriorityHint: IO_PRIORITY_HINT,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_IO_PRIORITY_HINT_INFORMATION_EX {
     pub PriorityHint: IO_PRIORITY_HINT,
-    pub BoostOutstanding: bool,
+    pub BoostOutstanding: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_IS_REMOTE_DEVICE_INFORMATION {
-    pub IsRemote: bool,
+    pub IsRemote: super::BOOLEAN,
 }
 pub const FILE_LONG_ALIGNMENT: i32 = 3;
 #[repr(C)]
@@ -5625,15 +5714,22 @@ impl Default for FILE_MEMORY_PARTITION_INFORMATION_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct FILE_NETWORK_OPEN_INFORMATION {
-    pub CreationTime: i64,
-    pub LastAccessTime: i64,
-    pub LastWriteTime: i64,
-    pub ChangeTime: i64,
-    pub AllocationSize: i64,
-    pub EndOfFile: i64,
+    pub CreationTime: super::LARGE_INTEGER,
+    pub LastAccessTime: super::LARGE_INTEGER,
+    pub LastWriteTime: super::LARGE_INTEGER,
+    pub ChangeTime: super::LARGE_INTEGER,
+    pub AllocationSize: super::LARGE_INTEGER,
+    pub EndOfFile: super::LARGE_INTEGER,
     pub FileAttributes: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for FILE_NETWORK_OPEN_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5641,7 +5737,7 @@ pub struct FILE_NUMA_NODE_INFORMATION {
     pub NodeNumber: u16,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct FILE_OBJECT {
     pub Type: super::CSHORT,
@@ -5654,17 +5750,17 @@ pub struct FILE_OBJECT {
     pub PrivateCacheMap: *mut core::ffi::c_void,
     pub FinalStatus: windows_core::NTSTATUS,
     pub RelatedFileObject: *mut Self,
-    pub LockOperation: bool,
-    pub DeletePending: bool,
-    pub ReadAccess: bool,
-    pub WriteAccess: bool,
-    pub DeleteAccess: bool,
-    pub SharedRead: bool,
-    pub SharedWrite: bool,
-    pub SharedDelete: bool,
+    pub LockOperation: super::BOOLEAN,
+    pub DeletePending: super::BOOLEAN,
+    pub ReadAccess: super::BOOLEAN,
+    pub WriteAccess: super::BOOLEAN,
+    pub DeleteAccess: super::BOOLEAN,
+    pub SharedRead: super::BOOLEAN,
+    pub SharedWrite: super::BOOLEAN,
+    pub SharedDelete: super::BOOLEAN,
     pub Flags: u32,
     pub FileName: super::UNICODE_STRING,
-    pub CurrentByteOffset: i64,
+    pub CurrentByteOffset: super::LARGE_INTEGER,
     pub Waiters: u32,
     pub Busy: u32,
     pub LastLock: *mut core::ffi::c_void,
@@ -5675,7 +5771,7 @@ pub struct FILE_OBJECT {
     pub IrpList: super::LIST_ENTRY,
     pub FileObjectExtension: *mut _IOP_FILE_OBJECT_EXTENSION,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for FILE_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5684,9 +5780,16 @@ impl Default for FILE_OBJECT {
 pub const FILE_OCTA_ALIGNMENT: i32 = 15;
 pub const FILE_PORTABLE_DEVICE: i32 = 262144;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct FILE_POSITION_INFORMATION {
-    pub CurrentByteOffset: i64,
+    pub CurrentByteOffset: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for FILE_POSITION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -5711,12 +5814,13 @@ pub const FILE_REMOTE_DEVICE_VSMB: i32 = 524288;
 pub const FILE_REMOVABLE_MEDIA: i32 = 1;
 pub const FILE_SESSION_AWARE: i32 = 262144;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_SFIO_RESERVE_INFORMATION {
     pub RequestsPerPeriod: u32,
     pub Period: u32,
-    pub RetryFailures: bool,
-    pub Discardable: bool,
+    pub RetryFailures: super::BOOLEAN,
+    pub Discardable: super::BOOLEAN,
     pub RequestSize: u32,
     pub NumOutstandingRequests: u32,
 }
@@ -5730,24 +5834,38 @@ pub struct FILE_SFIO_VOLUME_INFORMATION {
 pub const FILE_SHARE_VALID_FLAGS: i32 = 7;
 pub const FILE_SKIP_SET_USER_EVENT_ON_FAST_IO: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct FILE_STANDARD_INFORMATION {
-    pub AllocationSize: i64,
-    pub EndOfFile: i64,
+    pub AllocationSize: super::LARGE_INTEGER,
+    pub EndOfFile: super::LARGE_INTEGER,
     pub NumberOfLinks: u32,
-    pub DeletePending: bool,
-    pub Directory: bool,
+    pub DeletePending: super::BOOLEAN,
+    pub Directory: super::BOOLEAN,
+}
+#[cfg(feature = "winnt")]
+impl Default for FILE_STANDARD_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct FILE_STANDARD_INFORMATION_EX {
-    pub AllocationSize: i64,
-    pub EndOfFile: i64,
+    pub AllocationSize: super::LARGE_INTEGER,
+    pub EndOfFile: super::LARGE_INTEGER,
     pub NumberOfLinks: u32,
-    pub DeletePending: bool,
-    pub Directory: bool,
-    pub AlternateStream: bool,
-    pub MetadataAttribute: bool,
+    pub DeletePending: super::BOOLEAN,
+    pub Directory: super::BOOLEAN,
+    pub AlternateStream: super::BOOLEAN,
+    pub MetadataAttribute: super::BOOLEAN,
+}
+#[cfg(feature = "winnt")]
+impl Default for FILE_STANDARD_INFORMATION_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FILE_USE_FILE_POINTER_POSITION: u32 = 4294967294;
 pub const FILE_VALID_EXTENDED_OPTION_FLAGS: i32 = 268435456;
@@ -5795,9 +5913,11 @@ pub const FO_SYNCHRONOUS_IO: i32 = 2;
 pub const FO_TEMPORARY_FILE: i32 = 32768;
 pub const FO_VOLUME_OPEN: i32 = 4194304;
 pub const FO_WRITE_THROUGH: i32 = 16;
-pub type FPGA_BUS_SCAN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type FPGA_CONTROL_CONFIG_SPACE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enable: bool) -> windows_core::NTSTATUS>;
-pub type FPGA_CONTROL_ERROR_REPORTING = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, uncorrectablemask: u32, correctablemask: u32, disableerrorreporting: bool) -> windows_core::NTSTATUS>;
+pub type FPGA_BUS_SCAN = Option<unsafe extern "C" fn(context: *const core::ffi::c_void)>;
+#[cfg(feature = "winnt")]
+pub type FPGA_CONTROL_CONFIG_SPACE = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, enable: super::BOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type FPGA_CONTROL_ERROR_REPORTING = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, uncorrectablemask: u32, correctablemask: u32, disableerrorreporting: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct FPGA_CONTROL_INTERFACE {
@@ -5811,10 +5931,11 @@ pub struct FPGA_CONTROL_INTERFACE {
     pub ControlConfigSpace: PFPGA_CONTROL_CONFIG_SPACE,
     pub ControlErrorReporting: PFPGA_CONTROL_ERROR_REPORTING,
 }
-pub type FPGA_CONTROL_LINK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enable: bool) -> windows_core::NTSTATUS>;
-pub type FREE_FUNCTION = Option<unsafe extern "system" fn(buffer: *const core::ffi::c_void)>;
 #[cfg(feature = "winnt")]
-pub type FREE_FUNCTION_EX = Option<unsafe extern "system" fn(buffer: *const core::ffi::c_void, lookaside: *mut LOOKASIDE_LIST_EX)>;
+pub type FPGA_CONTROL_LINK = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, enable: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type FREE_FUNCTION = Option<unsafe extern "C" fn(buffer: *const core::ffi::c_void)>;
+#[cfg(feature = "winnt")]
+pub type FREE_FUNCTION_EX = Option<unsafe extern "C" fn(buffer: *const core::ffi::c_void, lookaside: PLOOKASIDE_LIST_EX)>;
 pub type FS_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5823,7 +5944,7 @@ pub struct FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
     pub DeviceResetCompletion: PDEVICE_RESET_COMPLETION,
     pub CompletionContext: *mut core::ffi::c_void,
 }
-pub type FWMI_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(wnode: *mut core::ffi::c_void, context: *mut core::ffi::c_void)>;
+pub type FWMI_NOTIFICATION_CALLBACK = Option<unsafe extern "C" fn(wnode: *mut core::ffi::c_void, context: *mut core::ffi::c_void)>;
 pub const FailControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 4;
 pub const FaultInformationArm64: FAULT_INFORMATION_ARCH = 1;
 pub const FaultInformationInvalid: FAULT_INFORMATION_ARCH = 0;
@@ -6393,22 +6514,275 @@ impl Default for GENERAL_LOOKASIDE_POOL_5 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type GET_D3COLD_CAPABILITY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, d3coldsupported: *mut bool) -> windows_core::NTSTATUS>;
-pub type GET_D3COLD_LAST_TRANSITION_STATUS = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, lasttransitionstatus: *mut D3COLD_LAST_TRANSITION_STATUS)>;
-pub type GET_DEVICE_RESET_STATUS = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, isresetting: *mut bool, resettypeselected: *mut DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: *mut DEVICE_RESET_STATUS_FLAGS) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type GET_DMA_ADAPTER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, devicedescriptor: *const DEVICE_DESCRIPTION, numberofmapregisters: *mut u32) -> *mut DMA_ADAPTER>;
-pub type GET_DOE_PREVIOUS_RESPONSE = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, requestid: i64, outputarraycount: u32, outputwritten: *mut u32, outputarray: *mut u32, doestatus: *mut windows_core::NTSTATUS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type GET_IDLE_WAKE_INFO = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, systempowerstate: super::SYSTEM_POWER_STATE, deepestwakeabledstate: *mut DEVICE_WAKE_DEPTH) -> windows_core::NTSTATUS>;
-pub type GET_SDEV_IDENTIFIER = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void) -> u64>;
-pub type GET_SET_DEVICE_DATA = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, datatype: u32, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-pub type GET_UPDATED_BUS_RESOURCE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, updatedresourcelist: *mut PCM_RESOURCE_LIST, updatedtranslatedresourcelist: *mut PCM_RESOURCE_LIST) -> windows_core::NTSTATUS>;
-pub type GET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, virtualfunction: u16, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
-pub type GET_VIRTUAL_DEVICE_LOCATION = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, virtualfunction: u16, segmentnumber: *mut u16, busnumber: *mut u8, functionnumber: *mut u8) -> windows_core::NTSTATUS>;
-pub type GET_VIRTUAL_DEVICE_RESOURCES = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, capturedbusnumbers: *mut u8)>;
-pub type GET_VIRTUAL_FUNCTION_PROBED_BARS = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, baseregistervalues: *mut u32) -> windows_core::NTSTATUS>;
+pub type GET_D3COLD_CAPABILITY = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, d3coldsupported: super::PBOOLEAN) -> windows_core::NTSTATUS>;
+pub type GET_D3COLD_LAST_TRANSITION_STATUS = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, lasttransitionstatus: PD3COLD_LAST_TRANSITION_STATUS)>;
+#[cfg(feature = "winnt")]
+pub type GET_DEVICE_RESET_STATUS = Option<unsafe extern "C" fn(interfacecontext: *const core::ffi::c_void, isresetting: super::PBOOLEAN, resettypeselected: PDEVICE_BUS_SPECIFIC_RESET_TYPE, flags: PDEVICE_RESET_STATUS_FLAGS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type GET_DMA_ADAPTER = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, devicedescriptor: *const DEVICE_DESCRIPTION, numberofmapregisters: super::PULONG) -> *mut DMA_ADAPTER>;
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
+pub type GET_DOE_PREVIOUS_RESPONSE = Option<unsafe extern "C" fn(interfacecontext: *const core::ffi::c_void, requestid: i64, outputarraycount: u32, outputwritten: super::PULONG, outputarray: super::PULONG, doestatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type GET_IDLE_WAKE_INFO = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, systempowerstate: super::SYSTEM_POWER_STATE, deepestwakeabledstate: PDEVICE_WAKE_DEPTH) -> windows_core::NTSTATUS>;
+pub type GET_SDEV_IDENTIFIER = Option<unsafe extern "C" fn(interfacecontext: *const core::ffi::c_void) -> u64>;
+pub type GET_SET_DEVICE_DATA = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, datatype: u32, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+pub type GET_UPDATED_BUS_RESOURCE = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, updatedresourcelist: *mut PCM_RESOURCE_LIST, updatedtranslatedresourcelist: *mut PCM_RESOURCE_LIST) -> windows_core::NTSTATUS>;
+pub type GET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, virtualfunction: u16, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
+#[cfg(feature = "basetsd")]
+pub type GET_VIRTUAL_DEVICE_LOCATION = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, virtualfunction: u16, segmentnumber: super::PUINT16, busnumber: super::PUINT8, functionnumber: super::PUINT8) -> windows_core::NTSTATUS>;
+#[cfg(feature = "basetsd")]
+pub type GET_VIRTUAL_DEVICE_RESOURCES = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, capturedbusnumbers: super::PUINT8)>;
+#[cfg(feature = "minwindef")]
+pub type GET_VIRTUAL_FUNCTION_PROBED_BARS = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, baseregistervalues: super::PULONG) -> windows_core::NTSTATUS>;
+pub const GUID_ACDC_POWER_SOURCE: windows_core::GUID = windows_core::GUID::from_u128(0x5d3e9a59_e9d5_4b00_a6bd_ff34ff516548);
+pub const GUID_ACTIVE_POWERSCHEME: windows_core::GUID = windows_core::GUID::from_u128(0x31f9f286_5084_42fe_b720_2b0264993763);
+pub const GUID_ADAPTIVE_INPUT_CONTROLLER_STATE: windows_core::GUID = windows_core::GUID::from_u128(0x0e98fae9_f45a_4de1_a757_6031f197f6ea);
+pub const GUID_ADAPTIVE_POWER_BEHAVIOR_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x8619b916_e004_4dd8_9b66_dae86f806698);
+pub const GUID_ADVANCED_COLOR_QUALITY_BIAS: windows_core::GUID = windows_core::GUID::from_u128(0x684c3e69_a4f7_4014_8754_d45179a56167);
+pub const GUID_ALLOW_AWAYMODE: windows_core::GUID = windows_core::GUID::from_u128(0x25dfa149_5dd1_4736_b5ab_e8a37b5b8187);
+pub const GUID_ALLOW_DISPLAY_REQUIRED: windows_core::GUID = windows_core::GUID::from_u128(0xa9ceb8da_cd46_44fb_a98b_02af69de4623);
+pub const GUID_ALLOW_RTC_WAKE: windows_core::GUID = windows_core::GUID::from_u128(0xbd3b718a_0680_4d9d_8ab2_e1d2b4ac806d);
+pub const GUID_ALLOW_STANDBY_STATES: windows_core::GUID = windows_core::GUID::from_u128(0xabfc2519_3608_4c2a_94ea_171b0ed546ab);
+pub const GUID_ALLOW_SYSTEM_REQUIRED: windows_core::GUID = windows_core::GUID::from_u128(0xa4b195f5_8225_47d8_8012_9d41369786e2);
+pub const GUID_APPLAUNCH_BUTTON: windows_core::GUID = windows_core::GUID::from_u128(0x1a689231_7399_4e9a_8f99_b71f999db3fa);
+pub const GUID_BACKGROUND_TASK_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0xcf23f240_2a54_48d8_b114_de1518ff052e);
+pub const GUID_BATTERY_COUNT: windows_core::GUID = windows_core::GUID::from_u128(0x7d263f15_fca4_49e5_854b_a9f2bfbd5c24);
+pub const GUID_BATTERY_DISCHARGE_ACTION_0: windows_core::GUID = windows_core::GUID::from_u128(0x637ea02f_bbcb_4015_8e2c_a1c7b9c0b546);
+pub const GUID_BATTERY_DISCHARGE_ACTION_1: windows_core::GUID = windows_core::GUID::from_u128(0xd8742dcb_3e6a_4b3c_b3fe_374623cdcf06);
+pub const GUID_BATTERY_DISCHARGE_ACTION_2: windows_core::GUID = windows_core::GUID::from_u128(0x421cba38_1a8e_4881_ac89_e33a8b04ece4);
+pub const GUID_BATTERY_DISCHARGE_ACTION_3: windows_core::GUID = windows_core::GUID::from_u128(0x80472613_9780_455e_b308_72d3003cf2f8);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_0: windows_core::GUID = windows_core::GUID::from_u128(0x5dbb7c9f_38e9_40d2_9749_4f8a0e9f640f);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_1: windows_core::GUID = windows_core::GUID::from_u128(0xbcded951_187b_4d05_bccc_f7e51960c258);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_2: windows_core::GUID = windows_core::GUID::from_u128(0x7fd2f0c4_feb7_4da3_8117_e3fbedc46582);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_3: windows_core::GUID = windows_core::GUID::from_u128(0x73613ccf_dbfa_4279_8356_4935f6bf62f3);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_0: windows_core::GUID = windows_core::GUID::from_u128(0x9a66d8d7_4ff7_4ef9_b5a2_5a326ca2a469);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_1: windows_core::GUID = windows_core::GUID::from_u128(0x8183ba9a_e910_48da_8769_14ae6dc1170a);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_2: windows_core::GUID = windows_core::GUID::from_u128(0x07a07ca2_adaf_40d7_b077_533aaded1bfa);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_3: windows_core::GUID = windows_core::GUID::from_u128(0x58afd5a6_c2dd_47d2_9fbf_ef70cc5c5965);
+pub const GUID_BATTERY_PERCENTAGE_REMAINING: windows_core::GUID = windows_core::GUID::from_u128(0xa7ad8041_b45a_4cae_87a3_eecbb468a9e1);
+pub const GUID_BATTERY_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0xe73a048d_bf27_4f12_9731_8b2076e8891f);
+pub const GUID_CONNECTIVITY_IN_STANDBY: windows_core::GUID = windows_core::GUID::from_u128(0xf15576e8_98b7_4186_b944_eafa664402d9);
+pub const GUID_CONSOLE_DISPLAY_STATE: windows_core::GUID = windows_core::GUID::from_u128(0x6fe69556_704a_47a0_8f24_c28d936fda47);
+pub const GUID_CRITICAL_POWER_TRANSITION: windows_core::GUID = windows_core::GUID::from_u128(0xb7a27025_e569_46c2_a504_2b96cad225a1);
+pub const GUID_DEEP_SLEEP_ENABLED: windows_core::GUID = windows_core::GUID::from_u128(0xd502f7ee_1dc7_4efd_a55d_f04b6f5c0545);
+pub const GUID_DEEP_SLEEP_PLATFORM_STATE: windows_core::GUID = windows_core::GUID::from_u128(0xd23f2fb8_9536_4038_9c94_1ce02e5c2152);
+pub const GUID_DEVICE_IDLE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x4faab71a_92e5_4726_b531_224559672d19);
+pub const GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS: windows_core::GUID = windows_core::GUID::from_u128(0xaded5e82_b909_4619_9949_f5d71dac0bcb);
+pub const GUID_DEVICE_POWER_POLICY_VIDEO_DIM_BRIGHTNESS: windows_core::GUID = windows_core::GUID::from_u128(0xf1fbfde2_a960_4165_9f88_50667911ce96);
+pub const GUID_DISCONNECTED_STANDBY_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x68afb2d9_ee95_47a8_8f50_4115088073b1);
+pub const GUID_DISK_ADAPTIVE_POWERDOWN: windows_core::GUID = windows_core::GUID::from_u128(0x396a32e1_499a_40b2_9124_a96afe707667);
+pub const GUID_DISK_BURST_IGNORE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x80e3c60e_bb94_4ad8_bbe0_0d3195efc663);
+pub const GUID_DISK_COALESCING_POWERDOWN_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0xc36f0eb4_2988_4a70_8eee_0884fc2c2433);
+pub const GUID_DISK_IDLE_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x58e39ba8_b8e6_4ef6_90d0_89ae32b258d6);
+pub const GUID_DISK_MAX_POWER: windows_core::GUID = windows_core::GUID::from_u128(0x51dea550_bb38_4bc4_991b_eacf37be5ec8);
+pub const GUID_DISK_NVME_NOPPME: windows_core::GUID = windows_core::GUID::from_u128(0xfc7372b6_ab2d_43ee_8797_15e9841f2cca);
+pub const GUID_DISK_POWERDOWN_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x6738e2c4_e8a5_4a42_b16a_e040e769756e);
+pub const GUID_DISK_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x0012ee47_9041_4b5d_9b77_535fba8b1442);
+pub const GUID_ENABLE_SWITCH_FORCED_SHUTDOWN: windows_core::GUID = windows_core::GUID::from_u128(0x833a6b62_dfa4_46d1_82f8_e09e34d029d6);
+pub const GUID_ENERGY_SAVER_BATTERY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xe69653ca_cf7f_4f05_aa73_cb833fa90ad4);
+pub const GUID_ENERGY_SAVER_BRIGHTNESS: windows_core::GUID = windows_core::GUID::from_u128(0x13d09884_f74e_474a_a852_b6bde8ad03a8);
+pub const GUID_ENERGY_SAVER_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x5c5bb349_ad29_4ee2_9d0b_2b25270f7a81);
+pub const GUID_ENERGY_SAVER_STATUS: windows_core::GUID = windows_core::GUID::from_u128(0x550e8400_e29b_41d4_a716_446655440000);
+pub const GUID_ENERGY_SAVER_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0xde830923_a562_41af_a086_e3a2c6bad2da);
+pub const GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x3166bc41_7e98_4e03_b34e_ec0f5f2b218e);
+pub const GUID_GLOBAL_USER_PRESENCE: windows_core::GUID = windows_core::GUID::from_u128(0x786e8a1d_b427_4344_9207_09e70bdcbea9);
+pub const GUID_GPU_PREFERENCE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xdd848b2a_8a5d_4451_9ae2_39cd41658f6c);
+pub const GUID_GRAPHICS_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x5fb4938d_1ee8_4b0f_9a3c_5036b0ab995c);
+pub const GUID_HIBERNATE_FASTS4_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x94ac6d29_73ce_41a6_809f_6363ba21b47e);
+pub const GUID_HIBERNATE_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x9d7815a6_7ee4_497e_8888_515a05f02364);
+pub const GUID_HUPR_ADAPTIVE_AWAY_DIM_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0xa79c8e0e_f271_482d_8f8a_5db9a18312de);
+pub const GUID_HUPR_ADAPTIVE_AWAY_DISPLAY_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x0a7d6ab6_ac83_4ad1_8282_eca5b58308f3);
+pub const GUID_HUPR_ADAPTIVE_INATTENTIVE_DIM_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0xcf8c6097_12b8_4279_bbdd_44601ee5209d);
+pub const GUID_HUPR_ADAPTIVE_INATTENTIVE_DISPLAY_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0xee16691e_6ab3_4619_bb48_1c77c9357e5a);
+pub const GUID_IDLE_BACKGROUND_TASK: windows_core::GUID = windows_core::GUID::from_u128(0x515c31d8_f734_163d_a0fd_11a08c91e8f1);
+pub const GUID_IDLE_RESILIENCY_PERIOD: windows_core::GUID = windows_core::GUID::from_u128(0xc42b79aa_aa3a_484b_a98f_2cf32aa90a28);
+pub const GUID_IDLE_RESILIENCY_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x2e601130_5351_4d9d_8e04_252966bad054);
+pub const GUID_INTSTEER_LOAD_PER_PROC_TRIGGER: windows_core::GUID = windows_core::GUID::from_u128(0x73cde64d_d720_4bb2_a860_c755afe77ef2);
+pub const GUID_INTSTEER_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x2bfc24f9_5ea2_4801_8213_3dbae01aa39d);
+pub const GUID_INTSTEER_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x48672f38_7a9a_4bb2_8bf8_3d85be19de4e);
+pub const GUID_INTSTEER_TIME_UNPARK_TRIGGER: windows_core::GUID = windows_core::GUID::from_u128(0xd6ba4903_386f_4c2c_8adb_5c21b3328d25);
+pub const GUID_LEGACY_RTC_MITIGATION: windows_core::GUID = windows_core::GUID::from_u128(0x1a34bdc3_7e6b_442e_a9d0_64b6ef378e84);
+pub const GUID_LIDCLOSE_ACTION: windows_core::GUID = windows_core::GUID::from_u128(0x5ca83367_6e45_459f_a27b_476b1d01c936);
+pub const GUID_LIDOPEN_POWERSTATE: windows_core::GUID = windows_core::GUID::from_u128(0x99ff10e7_23b1_4c07_a9d1_5c3206d741b4);
+pub const GUID_LIDSWITCH_STATE_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0xba3e0f4d_b817_4094_a2d1_d56379e6a0f3);
+pub const GUID_LIDSWITCH_STATE_RELIABILITY: windows_core::GUID = windows_core::GUID::from_u128(0xae4c4ff1_d361_43f4_80aa_bbb6eb03de94);
+pub const GUID_LOCK_CONSOLE_ON_WAKE: windows_core::GUID = windows_core::GUID::from_u128(0x0e796bdb_100d_47d6_a2d5_f7d2daa51f51);
+pub const GUID_MAX_POWER_SAVINGS: windows_core::GUID = windows_core::GUID::from_u128(0xa1841308_3541_4fab_bc81_f71556f20b4a);
+pub const GUID_MIN_POWER_SAVINGS: windows_core::GUID = windows_core::GUID::from_u128(0x8c5e7fda_e8bf_4a96_9a85_a6e23a8c635c);
+pub const GUID_MIXED_REALITY_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x1e626b4e_cf04_4f8d_9cc7_c97c5b0f2391);
+pub const GUID_MONITOR_POWER_ON: windows_core::GUID = windows_core::GUID::from_u128(0x02731015_4510_4526_99e6_e5a17ebd1aea);
+pub const GUID_NON_ADAPTIVE_INPUT_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x5adbbfbc_074e_4da1_ba38_db8b36b2c8f3);
+pub const GUID_PCIEXPRESS_ASPM_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xee12f906_d277_404b_b6da_e5fa1a576df5);
+pub const GUID_PCIEXPRESS_SETTINGS_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x501a4d13_42af_4429_9fd1_a8218c268e20);
+pub const GUID_POWERBUTTON_ACTION: windows_core::GUID = windows_core::GUID::from_u128(0x7648efa3_dd9c_4e3e_b566_50f929386280);
+pub const GUID_POWERSCHEME_PERSONALITY: windows_core::GUID = windows_core::GUID::from_u128(0x245d8541_3943_4422_b025_13a784f679b7);
+pub const GUID_POWER_MODE_BEST_EFFICIENCY: windows_core::GUID = windows_core::GUID::from_u128(0x961cc777_2547_4f9d_8174_7d86181b8a7a);
+pub const GUID_POWER_MODE_BEST_PERFORMANCE: windows_core::GUID = windows_core::GUID::from_u128(0xded574b5_45a0_4f42_8737_46345c09c238);
+pub const GUID_POWER_MODE_NONE: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const GUID_POWER_MODE_PERFORMANCE: windows_core::GUID = windows_core::GUID::from_u128(0x3af9b8d9_7c97_431d_ad78_34a8bfea439f);
+pub const GUID_POWER_SAVING_STATUS: windows_core::GUID = windows_core::GUID::from_u128(0xe00958c0_c213_4ace_ac77_fecced2eeea5);
+pub const GUID_PROCESSOR_ALLOW_THROTTLING: windows_core::GUID = windows_core::GUID::from_u128(0x3b04d4fd_1cc7_4f23_ab1c_d1337819c4bb);
+pub const GUID_PROCESSOR_CLASS0_FLOOR_PERF: windows_core::GUID = windows_core::GUID::from_u128(0xfddc842b_8364_4edc_94cf_c17f60de1c80);
+pub const GUID_PROCESSOR_CLASS1_INITIAL_PERF: windows_core::GUID = windows_core::GUID::from_u128(0x1facfc65_a930_4bc5_9f38_504ec097bbc0);
+pub const GUID_PROCESSOR_COMPLEX_PARKING_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xb669a5e9_7b1d_4132_baaa_49190abcfeb6);
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_DECREASE_FACTOR: windows_core::GUID = windows_core::GUID::from_u128(0x8f7b45e3_c393_480a_878c_f67ac3d07082);
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x5b33697b_e89d_4d38_aa46_9e7dfb7cd2f9);
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_WEIGHTING: windows_core::GUID = windows_core::GUID::from_u128(0xe70867f1_fa2f_4f4e_aea1_4d8a0ba23b20);
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x71021b41_c749_4d21_be74_a00f335d582b);
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x68dd2f27_a4ce_4e11_8487_3794e4135dfa);
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0xdfd10d17_d5eb_45dd_877a_9a34ddd15c82);
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xc7be0679_2817_4d69_9d02_519a537ed0c6);
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xdf142941_20f3_4edf_9a4a_9c83d3d717d1);
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x2ddd5a84_5a71_437e_912a_db0b8c788732);
+pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES: windows_core::GUID = windows_core::GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334028);
+pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES_1: windows_core::GUID = windows_core::GUID::from_u128(0xea062031_0e34_4ff1_9b6d_eb1059334029);
+pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES: windows_core::GUID = windows_core::GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318583);
+pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES_1: windows_core::GUID = windows_core::GUID::from_u128(0x0cc5b647_c1df_4637_891a_dec35c318584);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_DECREASE_FACTOR: windows_core::GUID = windows_core::GUID::from_u128(0x1299023c_bc28_4f0a_81ec_d3295a8d815d);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x9ac18e92_aa3c_4e27_b307_01ae37307129);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x943c8cb6_6f93_4227_ad87_e9a3feec08d1);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_WEIGHTING: windows_core::GUID = windows_core::GUID::from_u128(0x8809c2d8_b155_42d4_bcda_0d345651b1db);
+pub const GUID_PROCESSOR_DISTRIBUTE_UTILITY: windows_core::GUID = windows_core::GUID::from_u128(0xe0007330_f589_42ed_a401_5ddb10e785d3);
+pub const GUID_PROCESSOR_DUTY_CYCLING: windows_core::GUID = windows_core::GUID::from_u128(0x4e4450b3_6179_4e91_b8f1_5bb9938f81a1);
+pub const GUID_PROCESSOR_FREQUENCY_LIMIT: windows_core::GUID = windows_core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e100);
+pub const GUID_PROCESSOR_FREQUENCY_LIMIT_1: windows_core::GUID = windows_core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e101);
+pub const GUID_PROCESSOR_FREQUENCY_LIMIT_2: windows_core::GUID = windows_core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e102);
+pub const GUID_PROCESSOR_FREQUENCY_MINIMUM: windows_core::GUID = windows_core::GUID::from_u128(0x2ac92cea_5efa_4a1b_bed5_1a2bd9aa0b94);
+pub const GUID_PROCESSOR_FREQUENCY_MINIMUM_1: windows_core::GUID = windows_core::GUID::from_u128(0x2ac92cea_5efa_4a1b_bed5_1a2bd9aa0b95);
+pub const GUID_PROCESSOR_FREQUENCY_MINIMUM_2: windows_core::GUID = windows_core::GUID::from_u128(0x2ac92cea_5efa_4a1b_bed5_1a2bd9aa0b96);
+pub const GUID_PROCESSOR_HETEROGENEOUS_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x7f2f5cfa_f10c_4823_b5e1_e93ae85f46b5);
+pub const GUID_PROCESSOR_HETERO_CONTAINMENT_DECREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x6ff13aeb_7897_4356_9999_dd9930af065f);
+pub const GUID_PROCESSOR_HETERO_CONTAINMENT_EFFICIENCY_IMP_UTIL_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x6ece9e1f_b6dd_42bf_b1b7_5a512b10c092);
+pub const GUID_PROCESSOR_HETERO_CONTAINMENT_EFFICIENCY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x69439b22_221b_4830_bd34_f7bcece24583);
+pub const GUID_PROCESSOR_HETERO_CONTAINMENT_HYBRID_IMP_UTIL_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x12fd031f_53d2_4bf4_ac6d_c699fc9538c7);
+pub const GUID_PROCESSOR_HETERO_CONTAINMENT_HYBRID_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x6788488b_1b90_4d11_8fa7_973e470dff47);
+pub const GUID_PROCESSOR_HETERO_CONTAINMENT_INCREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x64fcee6b_5b1f_45a4_a76a_19b2c36ee290);
+pub const GUID_PROCESSOR_HETERO_CONTAINMENT_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x60fbe21b_efd9_49f2_b066_8674d8e9f423);
+pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6b);
+pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD_1: windows_core::GUID = windows_core::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6c);
+pub const GUID_PROCESSOR_HETERO_DECREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x7f2492b6_60b1_45e5_ae55_773f8cd5caec);
+pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xb000397d_9b0b_483d_98c9_692a6060cfbf);
+pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD_1: windows_core::GUID = windows_core::GUID::from_u128(0xb000397d_9b0b_483d_98c9_692a6060cfc0);
+pub const GUID_PROCESSOR_HETERO_INCREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x4009efa7_e72d_4cba_9edf_91084ea8cbc3);
+pub const GUID_PROCESSOR_IDLESTATE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x68f262a7_f621_4069_b9a5_4874169be23c);
+pub const GUID_PROCESSOR_IDLE_ALLOW_SCALING: windows_core::GUID = windows_core::GUID::from_u128(0x6c2993b0_8f48_481f_bcc6_00dd2742aa06);
+pub const GUID_PROCESSOR_IDLE_DEMOTE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x4b92d758_5a24_4851_a470_815d78aee119);
+pub const GUID_PROCESSOR_IDLE_DISABLE: windows_core::GUID = windows_core::GUID::from_u128(0x5d76a2ca_e8c0_402f_a133_2158492d58ad);
+pub const GUID_PROCESSOR_IDLE_PROMOTE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x7b224883_b3cc_4d79_819f_8374152cbe7c);
+pub const GUID_PROCESSOR_IDLE_STATE_MAXIMUM: windows_core::GUID = windows_core::GUID::from_u128(0x9943e905_9a30_4ec1_9b99_44dd3b76f7a2);
+pub const GUID_PROCESSOR_IDLE_TIME_CHECK: windows_core::GUID = windows_core::GUID::from_u128(0xc4581c31_89ab_4597_8e2b_9c9cab440e6b);
+pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK: windows_core::GUID = windows_core::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd88);
+pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK_1: windows_core::GUID = windows_core::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd89);
+pub const GUID_PROCESSOR_LONG_THREAD_ARCH_CLASS_LOWER_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x43f278bc_0f8a_46d0_8b31_9a23e615d713);
+pub const GUID_PROCESSOR_LONG_THREAD_ARCH_CLASS_UPPER_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xbf903d33_9d24_49d3_a468_e65e0325046a);
+pub const GUID_PROCESSOR_MODULE_PARKING_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xb0deaf6b_59c0_4523_8a45_ca7f40244114);
+pub const GUID_PROCESSOR_PACKAGE_C6_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xfc1b015c_eb75_496a_ab47_028b0459c8f8);
+pub const GUID_PROCESSOR_PARKING_CONCURRENCY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x2430ab6f_a520_44a2_9601_f7f23b5134b1);
+pub const GUID_PROCESSOR_PARKING_CORE_OVERRIDE: windows_core::GUID = windows_core::GUID::from_u128(0xa55612aa_f624_42c6_a443_7397d064c04f);
+pub const GUID_PROCESSOR_PARKING_DISTRIBUTION_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x4bdaf4e9_d103_46d7_a5f0_6280121616ef);
+pub const GUID_PROCESSOR_PARKING_HEADROOM_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xf735a673_2066_4f80_a0c5_ddee0cf1bf5d);
+pub const GUID_PROCESSOR_PARKING_PERF_STATE: windows_core::GUID = windows_core::GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2b);
+pub const GUID_PROCESSOR_PARKING_PERF_STATE_1: windows_core::GUID = windows_core::GUID::from_u128(0x447235c7_6a8d_4cc0_8e24_9eaf70b96e2c);
+pub const GUID_PROCESSOR_PERFSTATE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xbbdc3814_18e9_4463_8a55_d197327c45c0);
+pub const GUID_PROCESSOR_PERF_AUTONOMOUS_ACTIVITY_WINDOW: windows_core::GUID = windows_core::GUID::from_u128(0xcfeda3d0_7697_4566_a922_a9086cd49dfa);
+pub const GUID_PROCESSOR_PERF_AUTONOMOUS_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x8baa4a8a_14c6_4451_8e8b_14bdbd197537);
+pub const GUID_PROCESSOR_PERF_BOOST_MODE: windows_core::GUID = windows_core::GUID::from_u128(0xbe337238_0d82_4146_a960_4f3749d470c7);
+pub const GUID_PROCESSOR_PERF_BOOST_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x45bcc044_d885_43e2_8605_ee0ec6e96b59);
+pub const GUID_PROCESSOR_PERF_CORE_PARKING_HISTORY: windows_core::GUID = windows_core::GUID::from_u128(0x77d7f282_8f1a_42cd_8537_45450a839be8);
+pub const GUID_PROCESSOR_PERF_DECREASE_HISTORY: windows_core::GUID = windows_core::GUID::from_u128(0x0300f6f8_abd6_45a9_b74f_4908691a40b5);
+pub const GUID_PROCESSOR_PERF_DECREASE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac6);
+pub const GUID_PROCESSOR_PERF_DECREASE_POLICY_1: windows_core::GUID = windows_core::GUID::from_u128(0x40fbefc7_2e9d_4d25_a185_0cfd8574bac7);
+pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a6);
+pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD_1: windows_core::GUID = windows_core::GUID::from_u128(0x12a0ab44_fe28_4fa9_b3bd_4b64f44960a7);
+pub const GUID_PROCESSOR_PERF_DECREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c8);
+pub const GUID_PROCESSOR_PERF_DECREASE_TIME_1: windows_core::GUID = windows_core::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c9);
+pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE: windows_core::GUID = windows_core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6863);
+pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_1: windows_core::GUID = windows_core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6864);
+pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_2: windows_core::GUID = windows_core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6865);
+pub const GUID_PROCESSOR_PERF_HISTORY: windows_core::GUID = windows_core::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f5f);
+pub const GUID_PROCESSOR_PERF_HISTORY_1: windows_core::GUID = windows_core::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f60);
+pub const GUID_PROCESSOR_PERF_INCREASE_HISTORY: windows_core::GUID = windows_core::GUID::from_u128(0x99b3ef01_752f_46a1_80fb_7730011f2354);
+pub const GUID_PROCESSOR_PERF_INCREASE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc418);
+pub const GUID_PROCESSOR_PERF_INCREASE_POLICY_1: windows_core::GUID = windows_core::GUID::from_u128(0x465e1f50_b610_473a_ab58_00d1077dc419);
+pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35d);
+pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD_1: windows_core::GUID = windows_core::GUID::from_u128(0x06cadf0e_64ed_448a_8927_ce7bf90eb35e);
+pub const GUID_PROCESSOR_PERF_INCREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5aa);
+pub const GUID_PROCESSOR_PERF_INCREASE_TIME_1: windows_core::GUID = windows_core::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5ab);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT: windows_core::GUID = windows_core::GUID::from_u128(0x0822df31_9c83_441c_a079_0de4cf009c7b);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_EPP: windows_core::GUID = windows_core::GUID::from_u128(0x4b70f900_cdd9_4e66_aa26_ae8417f98173);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_EPP_1: windows_core::GUID = windows_core::GUID::from_u128(0x4b70f900_cdd9_4e66_aa26_ae8417f98174);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_EPP_2: windows_core::GUID = windows_core::GUID::from_u128(0x4b70f900_cdd9_4e66_aa26_ae8417f98175);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_FREQ: windows_core::GUID = windows_core::GUID::from_u128(0x81202931_acbb_405c_a7ee_3e2ba4866f6f);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_FREQ_1: windows_core::GUID = windows_core::GUID::from_u128(0x81202931_acbb_405c_a7ee_3e2ba4866f70);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_FREQ_2: windows_core::GUID = windows_core::GUID::from_u128(0x81202931_acbb_405c_a7ee_3e2ba4866f71);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF: windows_core::GUID = windows_core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300971);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_1: windows_core::GUID = windows_core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300972);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_2: windows_core::GUID = windows_core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300973);
+pub const GUID_PROCESSOR_PERF_TIME_CHECK: windows_core::GUID = windows_core::GUID::from_u128(0x4d2b0152_7d5c_498b_88e2_34345392a2c5);
+pub const GUID_PROCESSOR_RESOURCE_PRIORITY: windows_core::GUID = windows_core::GUID::from_u128(0x603fe9ce_8d01_4b48_a968_1d706c28fd5c);
+pub const GUID_PROCESSOR_RESOURCE_PRIORITY_1: windows_core::GUID = windows_core::GUID::from_u128(0x603fe9ce_8d01_4b48_a968_1d706c28fd5d);
+pub const GUID_PROCESSOR_RESOURCE_PRIORITY_2: windows_core::GUID = windows_core::GUID::from_u128(0x603fe9ce_8d01_4b48_a968_1d706c28fd5e);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc480);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD_1: windows_core::GUID = windows_core::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc481);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec130);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME_1: windows_core::GUID = windows_core::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec131);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd830);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD_1: windows_core::GUID = windows_core::GUID::from_u128(0x3d44e256_7222_4415_a9ed_9c45fa3dd831);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a200);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME_1: windows_core::GUID = windows_core::GUID::from_u128(0x3d915188_7830_49ae_a79a_0fb0a1e5a201);
+pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING: windows_core::GUID = windows_core::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7320);
+pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING_1: windows_core::GUID = windows_core::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7321);
+pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR: windows_core::GUID = windows_core::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd40);
+pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR_1: windows_core::GUID = windows_core::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd41);
+pub const GUID_PROCESSOR_RESTRICTION_COUNT: windows_core::GUID = windows_core::GUID::from_u128(0x1a98ad09_af22_42ca_8e61_f0a5802c270a);
+pub const GUID_PROCESSOR_SETTINGS_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x54533251_82be_4824_96c1_47b60b740d00);
+pub const GUID_PROCESSOR_SHORT_THREAD_ARCH_CLASS_LOWER_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x53824d46_87bd_4739_aa1b_aa793fac36d6);
+pub const GUID_PROCESSOR_SHORT_THREAD_ARCH_CLASS_UPPER_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x828423eb_8662_4344_90f7_52bf15870f5a);
+pub const GUID_PROCESSOR_SHORT_THREAD_RUNTIME_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xd92998c2_6a48_49ca_85d4_8cceec294570);
+pub const GUID_PROCESSOR_SHORT_THREAD_SCHEDULING_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xbae08b81_2d5e_4688_ad6a_13243356654b);
+pub const GUID_PROCESSOR_SMT_UNPARKING_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0xb28a6829_c5f7_444e_8f61_10e24e85c532);
+pub const GUID_PROCESSOR_SOFT_PARKING_LATENCY: windows_core::GUID = windows_core::GUID::from_u128(0x97cfac41_2217_47eb_992d_618b1977c907);
+pub const GUID_PROCESSOR_THREAD_SCHEDULING_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x93b8b6dc_0698_4d1c_9ee4_0644e900c85d);
+pub const GUID_PROCESSOR_THROTTLE_MAXIMUM: windows_core::GUID = windows_core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ec);
+pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_1: windows_core::GUID = windows_core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ed);
+pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_2: windows_core::GUID = windows_core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ee);
+pub const GUID_PROCESSOR_THROTTLE_MINIMUM: windows_core::GUID = windows_core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964c);
+pub const GUID_PROCESSOR_THROTTLE_MINIMUM_1: windows_core::GUID = windows_core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964d);
+pub const GUID_PROCESSOR_THROTTLE_MINIMUM_2: windows_core::GUID = windows_core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964e);
+pub const GUID_PROCESSOR_THROTTLE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x57027304_4af6_4104_9260_e3d95248fc36);
+pub const GUID_PROCESSOR_WPS_MIN_EFFICIENCY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x5ba7419a_295c_4b02_841b_66799388d6da);
+pub const GUID_SESSION_DISPLAY_STATUS: windows_core::GUID = windows_core::GUID::from_u128(0x2b84c20e_ad23_4ddf_93db_05ffbd7efca5);
+pub const GUID_SESSION_USER_PRESENCE: windows_core::GUID = windows_core::GUID::from_u128(0x3c0f4548_c03f_4c4d_b9f2_237ede686376);
+pub const GUID_SLEEPBUTTON_ACTION: windows_core::GUID = windows_core::GUID::from_u128(0x96996bc0_ad50_47ec_923b_6f41874dd9eb);
+pub const GUID_SLEEP_IDLE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x81cd32e0_7833_44f3_8737_7081f38d1f70);
+pub const GUID_SLEEP_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x238c9fa8_0aad_41ed_83f4_97be242c8f20);
+pub const GUID_SPR_ACTIVE_SESSION_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x0e24ce38_c393_4742_bdb1_744f4b9ee08e);
+pub const GUID_STANDBY_BUDGET_GRACE_PERIOD: windows_core::GUID = windows_core::GUID::from_u128(0x60c07fe1_0556_45cf_9903_d56e32210242);
+pub const GUID_STANDBY_BUDGET_PERCENT: windows_core::GUID = windows_core::GUID::from_u128(0x9fe527be_1b70_48da_930d_7bcf17b44990);
+pub const GUID_STANDBY_BUDGET_REFRESH_COUNT: windows_core::GUID = windows_core::GUID::from_u128(0xaca8648e_c4b1_4baa_8cce_9390ad647f8c);
+pub const GUID_STANDBY_BUDGET_REFRESH_INTERVAL: windows_core::GUID = windows_core::GUID::from_u128(0x61f45dfe_1919_4180_bb46_8cc70e0b38f1);
+pub const GUID_STANDBY_RESERVE_GRACE_PERIOD: windows_core::GUID = windows_core::GUID::from_u128(0xc763ee92_71e8_4127_84eb_f6ed043a3e3d);
+pub const GUID_STANDBY_RESERVE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x468fe7e5_1158_46ec_88bc_5b96c9e44fd0);
+pub const GUID_STANDBY_RESET_PERCENT: windows_core::GUID = windows_core::GUID::from_u128(0x49cb11a5_56e2_4afb_9d38_3df47872e21b);
+pub const GUID_STANDBY_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x29f6c1db_86da_48c5_9fdb_f2b67b1f44da);
+pub const GUID_SYSTEM_AWAYMODE: windows_core::GUID = windows_core::GUID::from_u128(0x98a7f580_01f7_48aa_9c0f_44352c29e5c0);
+pub const GUID_SYSTEM_BUTTON_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x4f971e89_eebd_4455_a8de_9e59040e7347);
+pub const GUID_SYSTEM_COOLING_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x94d3a615_a899_4ac5_ae2b_e4d8f634367f);
+pub const GUID_TYPICAL_POWER_SAVINGS: windows_core::GUID = windows_core::GUID::from_u128(0x381b4222_f694_41f0_9685_ff5bb260df2e);
+pub const GUID_UNATTEND_SLEEP_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x7bc4a2f9_d8fc_4469_b07b_33eb785aaca0);
+pub const GUID_USERINTERFACEBUTTON_ACTION: windows_core::GUID = windows_core::GUID::from_u128(0xa7066653_8d6c_40a8_910e_a1f54b84c7e5);
+pub const GUID_USER_PRESENCE_PREDICTION: windows_core::GUID = windows_core::GUID::from_u128(0x82011705_fb95_4d46_8d35_4042b1d20def);
+pub const GUID_VIDEO_ADAPTIVE_DISPLAY_BRIGHTNESS: windows_core::GUID = windows_core::GUID::from_u128(0xfbd9aa66_9553_4097_ba44_ed6e9d65eab8);
+pub const GUID_VIDEO_ADAPTIVE_PERCENT_INCREASE: windows_core::GUID = windows_core::GUID::from_u128(0xeed904df_b142_4183_b10b_5a1197a37864);
+pub const GUID_VIDEO_ADAPTIVE_POWERDOWN: windows_core::GUID = windows_core::GUID::from_u128(0x90959d22_d6a1_49b9_af93_bce885ad335b);
+pub const GUID_VIDEO_ANNOYANCE_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x82dbcf2d_cd67_40c5_bfdc_9f1a5ccd4663);
+pub const GUID_VIDEO_CONSOLE_LOCK_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x8ec4b3a5_6868_48c2_be75_4f3044be88a7);
+pub const GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS: windows_core::GUID = windows_core::GUID::from_u128(0x8ffee2c6_2d01_46be_adb9_398addc5b4ff);
+pub const GUID_VIDEO_DIM_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x17aaa29b_8b43_4b94_aafe_35f64daaf1ee);
+pub const GUID_VIDEO_POWERDOWN_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x3c0bc021_c8a8_4e07_a973_6b14cbcb2b7e);
+pub const GUID_VIDEO_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x7516b95f_f776_4464_8c53_06167f40cc99);
 pub const GlobalLoggerHandleClass: TRACE_INFORMATION_CLASS = 4;
 pub const GroupAffinityAllGroupZero: IRQ_GROUP_POLICY = 0;
 pub const GroupAffinityDontCare: IRQ_GROUP_POLICY = 1;
@@ -6533,8 +6907,8 @@ pub const IOMMU_ACCESS_EXECUTE: i32 = 12;
 pub const IOMMU_ACCESS_NONE: i32 = 0;
 pub const IOMMU_ACCESS_READ: i32 = 1;
 pub const IOMMU_ACCESS_WRITE: i32 = 2;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IOMMU_DEVICE_CREATE = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, deviceconfig: *const IOMMU_DEVICE_CREATION_CONFIGURATION, dmadeviceout: *mut PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type IOMMU_DEVICE_CREATE = Option<unsafe extern "C" fn(deviceobject: PDEVICE_OBJECT, deviceconfig: PIOMMU_DEVICE_CREATION_CONFIGURATION, dmadeviceout: *mut PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -6570,27 +6944,35 @@ pub struct IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {
     pub MappingsCount: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DEVICE_CREATION_CONFIGURATION_PASID {
     pub ConfigType: IOMMU_PASID_CONFIGURATION_TYPE,
-    pub SuppressPasidFaults: bool,
+    pub SuppressPasidFaults: super::BOOLEAN,
 }
 pub type IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = i32;
-pub type IOMMU_DEVICE_DELETE = Option<unsafe extern "system" fn(dmadevice: *const IOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IOMMU_DEVICE_FAULT_HANDLER = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, faultinformation: *const FAULT_INFORMATION)>;
-pub type IOMMU_DEVICE_QUERY_DOMAIN_TYPES = Option<unsafe extern "system" fn(dmadevice: *const IOMMU_DMA_DEVICE, availabledomains: *mut u32)>;
-pub type IOMMU_DEVICE_QUERY_INFORMATION = Option<unsafe extern "system" fn(dmadevice: *const IOMMU_DMA_DEVICE, size: u32, byteswritten: *mut u32, buffer: *mut IOMMU_DMA_DEVICE_INFORMATION) -> windows_core::NTSTATUS>;
+pub type IOMMU_DEVICE_DELETE = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type IOMMU_DEVICE_FAULT_HANDLER = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, faultinformation: PFAULT_INFORMATION)>;
+#[cfg(feature = "minwindef")]
+pub type IOMMU_DEVICE_QUERY_DOMAIN_TYPES = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE, availabledomains: super::PULONG)>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type IOMMU_DEVICE_QUERY_INFORMATION = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE, size: u32, byteswritten: super::PULONG, buffer: PIOMMU_DMA_DEVICE_INFORMATION) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_DEVICE(pub u8);
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_DEVICE_INFORMATION {
-    pub DefaultPasidEnabled: bool,
-    pub PasidTaggedDmaEnabled: bool,
-    pub PasidFaultsSuppressed: bool,
+    pub DefaultPasidEnabled: super::BOOLEAN,
+    pub PasidTaggedDmaEnabled: super::BOOLEAN,
+    pub PasidFaultsSuppressed: super::BOOLEAN,
 }
+#[cfg(target_arch = "x86")]
+pub const IOMMU_DMA_DEVICE_INFORMATION_SIZE: u32 = 3;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const IOMMU_DMA_DEVICE_INFORMATION_SIZE: u64 = 3;
 #[cfg(target_arch = "x86")]
 pub const IOMMU_DMA_DEVICE_INFORMATION_SIZE_MIN: u32 = 3;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -6623,9 +7005,7 @@ impl IOMMU_DMA_DOMAIN_CREATION_FLAGS_0 {
     }
 }
 pub type IOMMU_DMA_DOMAIN_TYPE = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct IOMMU_DMA_LOGICAL_ADDRESS(pub u64);
+pub type IOMMU_DMA_LOGICAL_ADDRESS = u64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_LOGICAL_ADDRESS_TOKEN {
@@ -6670,29 +7050,33 @@ pub type IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = i32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_PASID_DEVICE(pub u8);
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_RESERVED_REGION {
     pub RegionNext: *mut Self,
     pub Base: IOMMU_DMA_LOGICAL_ADDRESS,
     pub NumberOfPages: usize,
-    pub ShouldMap: bool,
+    pub ShouldMap: super::BOOLEAN,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IOMMU_DOMAIN_ATTACH_DEVICE = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, physicaldeviceobject: *const DEVICE_OBJECT, inputmappingidbase: u32, mappingcount: u32) -> windows_core::NTSTATUS>;
-pub type IOMMU_DOMAIN_ATTACH_DEVICE_EX = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, dmadevice: *const IOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
-pub type IOMMU_DOMAIN_ATTACH_PASID_DEVICE = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, pasiddevice: *const IOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
-#[cfg(feature = "usb")]
-pub type IOMMU_DOMAIN_CONFIGURE = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, configuration: *const DOMAIN_CONFIGURATION) -> windows_core::NTSTATUS>;
-pub type IOMMU_DOMAIN_CREATE = Option<unsafe extern "system" fn(osmanagedpagetable: bool, domainout: *mut PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
-pub type IOMMU_DOMAIN_CREATE_EX = Option<unsafe extern "system" fn(domaintype: IOMMU_DMA_DOMAIN_TYPE, flags: IOMMU_DMA_DOMAIN_CREATION_FLAGS, logicalallocatorconfig: *const IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG, reservedregions: *const IOMMU_DMA_RESERVED_REGION, domainout: *mut PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
-pub type IOMMU_DOMAIN_DELETE = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IOMMU_DOMAIN_DETACH_DEVICE = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, physicaldeviceobject: *const DEVICE_OBJECT, inputmappingid: u32) -> windows_core::NTSTATUS>;
-pub type IOMMU_DOMAIN_DETACH_DEVICE_EX = Option<unsafe extern "system" fn(dmadevice: *const IOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
-pub type IOMMU_DOMAIN_DETACH_PASID_DEVICE = Option<unsafe extern "system" fn(pasiddevice: *const IOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
-pub type IOMMU_FLUSH_DOMAIN = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
-pub type IOMMU_FLUSH_DOMAIN_VA_LIST = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, lastlevel: bool, number: u32, valist: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "system" fn(logicaladdresstoken: *const IOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type IOMMU_DOMAIN_ATTACH_DEVICE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, physicaldeviceobject: PDEVICE_OBJECT, inputmappingidbase: u32, mappingcount: u32) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_ATTACH_DEVICE_EX = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_ATTACH_PASID_DEVICE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "usb", feature = "winnt"))]
+pub type IOMMU_DOMAIN_CONFIGURE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, configuration: PDOMAIN_CONFIGURATION) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type IOMMU_DOMAIN_CREATE = Option<unsafe extern "C" fn(osmanagedpagetable: super::BOOLEAN, domainout: *mut PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type IOMMU_DOMAIN_CREATE_EX = Option<unsafe extern "C" fn(domaintype: IOMMU_DMA_DOMAIN_TYPE, flags: IOMMU_DMA_DOMAIN_CREATION_FLAGS, logicalallocatorconfig: PIOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG, reservedregions: PIOMMU_DMA_RESERVED_REGION, domainout: *mut PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_DELETE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type IOMMU_DOMAIN_DETACH_DEVICE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, physicaldeviceobject: PDEVICE_OBJECT, inputmappingid: u32) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_DETACH_DEVICE_EX = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+pub type IOMMU_DOMAIN_DETACH_PASID_DEVICE = Option<unsafe extern "C" fn(pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
+pub type IOMMU_FLUSH_DOMAIN = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type IOMMU_FLUSH_DOMAIN_VA_LIST = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, lastlevel: super::BOOLEAN, number: u32, valist: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "C" fn(logicaladdresstoken: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IOMMU_INTERFACE_STATE_CHANGE {
@@ -6704,7 +7088,7 @@ impl Default for IOMMU_INTERFACE_STATE_CHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type IOMMU_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechange: *const IOMMU_INTERFACE_STATE_CHANGE, context: *const core::ffi::c_void)>;
+pub type IOMMU_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "C" fn(statechange: PIOMMU_INTERFACE_STATE_CHANGE, context: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IOMMU_INTERFACE_STATE_CHANGE_FIELDS {
@@ -6735,82 +7119,89 @@ impl IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
-#[cfg(feature = "ntdef")]
-pub type IOMMU_MAP_IDENTITY_RANGE = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, permissions: u32, mdl: *const MDL) -> windows_core::NTSTATUS>;
 #[cfg(feature = "usb")]
-pub type IOMMU_MAP_IDENTITY_RANGE_EX = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, permissions: u32, physicaladdresstomap: *const IOMMU_MAP_PHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
-#[cfg(feature = "ntdef")]
-pub type IOMMU_MAP_LOGICAL_RANGE = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, permissions: u32, mdl: *const MDL, logicaladdress: u64) -> windows_core::NTSTATUS>;
+pub type IOMMU_MAP_IDENTITY_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, permissions: u32, mdl: super::PMDL) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "usb", feature = "winnt"))]
+pub type IOMMU_MAP_IDENTITY_RANGE_EX = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, permissions: u32, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "usb")]
-pub type IOMMU_MAP_LOGICAL_RANGE_EX = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, permissions: u32, physicaladdresstomap: *const IOMMU_MAP_PHYSICAL_ADDRESS, explicitlogicaladdress: *const u64, minlogicaladdress: *const u64, maxlogicaladdress: *const u64, logicaladdressout: *mut u64) -> windows_core::NTSTATUS>;
+pub type IOMMU_MAP_LOGICAL_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, permissions: u32, mdl: super::PMDL, logicaladdress: u64) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "usb", feature = "winnt"))]
+pub type IOMMU_MAP_LOGICAL_RANGE_EX = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, permissions: u32, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS, explicitlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, minlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, maxlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, logicaladdressout: PIOMMU_DMA_LOGICAL_ADDRESS) -> windows_core::NTSTATUS>;
 #[repr(C)]
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS {
     pub MapType: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE,
     pub Anonymous: IOMMU_MAP_PHYSICAL_ADDRESS_0,
 }
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 impl Default for IOMMU_MAP_PHYSICAL_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union IOMMU_MAP_PHYSICAL_ADDRESS_0 {
     pub Mdl: IOMMU_MAP_PHYSICAL_ADDRESS_0_0,
     pub ContiguousRange: IOMMU_MAP_PHYSICAL_ADDRESS_0_1,
     pub PfnArray: IOMMU_MAP_PHYSICAL_ADDRESS_0_2,
 }
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
     pub Mdl: super::PMDL,
 }
 #[repr(C)]
-#[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
     pub Base: super::PHYSICAL_ADDRESS,
     pub Size: usize,
 }
+#[cfg(all(feature = "usb", feature = "winnt"))]
+impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
     pub PageFrame: PPFN_NUMBER,
     pub NumberOfPages: usize,
 }
 pub type IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = i32;
-#[cfg(feature = "usb")]
-pub type IOMMU_MAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "system" fn(logicaladdresstoken: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN, offset: usize, permissions: u32, physicaladdresstomap: *const IOMMU_MAP_PHYSICAL_ADDRESS, mappedsegment: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "usb", feature = "winnt"))]
+pub type IOMMU_MAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "C" fn(logicaladdresstoken: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN, offset: usize, permissions: u32, physicaladdresstomap: PIOMMU_MAP_PHYSICAL_ADDRESS, mappedsegment: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> windows_core::NTSTATUS>;
 pub type IOMMU_PASID_CONFIGURATION_TYPE = i32;
-pub type IOMMU_PASID_DEVICE_CREATE = Option<unsafe extern "system" fn(dmadevice: *const IOMMU_DMA_DEVICE, pasiddeviceout: *mut PIOMMU_DMA_PASID_DEVICE, asidout: *mut u32) -> windows_core::NTSTATUS>;
-pub type IOMMU_PASID_DEVICE_DELETE = Option<unsafe extern "system" fn(pasiddevice: *const IOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IOMMU_QUERY_INPUT_MAPPINGS = Option<unsafe extern "system" fn(physicaldeviceobject: *const DEVICE_OBJECT, buffer: *mut INPUT_MAPPING_ELEMENT, bufferlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS>;
-pub type IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, context: *const core::ffi::c_void, dmadevice: *const IOMMU_DMA_DEVICE, statefields: *const IOMMU_INTERFACE_STATE_CHANGE_FIELDS) -> windows_core::NTSTATUS>;
-pub type IOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, size: usize, explicitlogicaladdress: *const u64, minlogicaladdress: *const u64, maxlogicaladdress: *const u64, logicaladdresstoken: *mut PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IOMMU_SET_DEVICE_FAULT_REPORTING = Option<unsafe extern "system" fn(physicaldeviceobject: *const DEVICE_OBJECT, inputmappingidbase: u32, enable: bool, faultconfig: *const DEVICE_FAULT_CONFIGURATION) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IOMMU_SET_DEVICE_FAULT_REPORTING_EX = Option<unsafe extern "system" fn(dmadevice: *const IOMMU_DMA_DEVICE, inputmappingidbase: u32, enable: bool, faultconfig: *const DEVICE_FAULT_CONFIGURATION) -> windows_core::NTSTATUS>;
-#[cfg(feature = "ntdef")]
-pub type IOMMU_UNMAP_IDENTITY_RANGE = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, mdl: *const MDL) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type IOMMU_PASID_DEVICE_CREATE = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE, pasiddeviceout: *mut PIOMMU_DMA_PASID_DEVICE, asidout: super::PULONG) -> windows_core::NTSTATUS>;
+pub type IOMMU_PASID_DEVICE_DELETE = Option<unsafe extern "C" fn(pasiddevice: PIOMMU_DMA_PASID_DEVICE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type IOMMU_QUERY_INPUT_MAPPINGS = Option<unsafe extern "C" fn(physicaldeviceobject: PDEVICE_OBJECT, buffer: PINPUT_MAPPING_ELEMENT, bufferlength: u32, returnlength: super::PULONG) -> windows_core::NTSTATUS>;
+pub type IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "C" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, context: *const core::ffi::c_void, dmadevice: PIOMMU_DMA_DEVICE, statefields: PIOMMU_INTERFACE_STATE_CHANGE_FIELDS) -> windows_core::NTSTATUS>;
+pub type IOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, size: usize, explicitlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, minlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, maxlogicaladdress: PIOMMU_DMA_LOGICAL_ADDRESS, logicaladdresstoken: *mut PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type IOMMU_SET_DEVICE_FAULT_REPORTING = Option<unsafe extern "C" fn(physicaldeviceobject: PDEVICE_OBJECT, inputmappingidbase: u32, enable: super::BOOLEAN, faultconfig: PDEVICE_FAULT_CONFIGURATION) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type IOMMU_SET_DEVICE_FAULT_REPORTING_EX = Option<unsafe extern "C" fn(dmadevice: PIOMMU_DMA_DEVICE, inputmappingidbase: u32, enable: super::BOOLEAN, faultconfig: PDEVICE_FAULT_CONFIGURATION) -> windows_core::NTSTATUS>;
 #[cfg(feature = "usb")]
-pub type IOMMU_UNMAP_IDENTITY_RANGE_EX = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, mappedphysicaladdress: *const IOMMU_MAP_PHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
-pub type IOMMU_UNMAP_LOGICAL_RANGE = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, logicaladdress: u64, numberofpages: u64) -> windows_core::NTSTATUS>;
-pub type IOMMU_UNMAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "system" fn(mappedsegment: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> windows_core::NTSTATUS>;
-pub type IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, dmadevice: *const IOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
+pub type IOMMU_UNMAP_IDENTITY_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, mdl: super::PMDL) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "usb", feature = "winnt"))]
+pub type IOMMU_UNMAP_IDENTITY_RANGE_EX = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, mappedphysicaladdress: PIOMMU_MAP_PHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
+pub type IOMMU_UNMAP_LOGICAL_RANGE = Option<unsafe extern "C" fn(domain: PIOMMU_DMA_DOMAIN, logicaladdress: u64, numberofpages: u64) -> windows_core::NTSTATUS>;
+pub type IOMMU_UNMAP_RESERVED_LOGICAL_RANGE = Option<unsafe extern "C" fn(mappedsegment: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> windows_core::NTSTATUS>;
+pub type IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = Option<unsafe extern "C" fn(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, dmadevice: PIOMMU_DMA_DEVICE) -> windows_core::NTSTATUS>;
 pub type IO_ACCESS_MODE = i32;
 pub type IO_ACCESS_TYPE = i32;
 pub type IO_ALLOCATION_ACTION = i32;
@@ -6898,11 +7289,11 @@ pub struct IO_COMPLETION_CONTEXT {
     pub Key: *mut core::ffi::c_void,
     pub UsageCount: isize,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, irp: *const IRP, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type IO_COMPLETION_ROUTINE = Option<unsafe extern "C" fn(deviceobject: PDEVICE_OBJECT, irp: super::PIRP, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type IO_COMPLETION_ROUTINE_RESULT = i32;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
     pub PhysicalDeviceObject: PDEVICE_OBJECT,
@@ -6911,8 +7302,8 @@ pub struct IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
     pub ServiceContext: *mut core::ffi::c_void,
     pub SpinLock: super::PKSPIN_LOCK,
     pub SynchronizeIrql: super::KIRQL,
-    pub FloatingSave: bool,
-    pub ShareVector: bool,
+    pub FloatingSave: super::BOOLEAN,
+    pub ShareVector: super::BOOLEAN,
     pub Vector: u32,
     pub Irql: super::KIRQL,
     pub InterruptMode: KINTERRUPT_MODE,
@@ -6920,7 +7311,7 @@ pub struct IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
     pub Group: u16,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
     pub PhysicalDeviceObject: PDEVICE_OBJECT,
@@ -6929,10 +7320,10 @@ pub struct IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
     pub ServiceContext: *mut core::ffi::c_void,
     pub SpinLock: super::PKSPIN_LOCK,
     pub SynchronizeIrql: super::KIRQL,
-    pub FloatingSave: bool,
+    pub FloatingSave: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {
     pub PhysicalDeviceObject: PDEVICE_OBJECT,
@@ -6941,51 +7332,51 @@ pub struct IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {
     pub ServiceContext: *mut core::ffi::c_void,
     pub SpinLock: super::PKSPIN_LOCK,
     pub SynchronizeIrql: super::KIRQL,
-    pub FloatingSave: bool,
+    pub FloatingSave: super::BOOLEAN,
     pub FallBackServiceRoutine: PKSERVICE_ROUTINE,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS_0 {
     pub Generic: *mut *mut core::ffi::c_void,
     pub InterruptMessageTable: *mut PIO_INTERRUPT_MESSAGE_INFO,
     pub InterruptObject: *mut PKINTERRUPT,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IO_CONNECT_INTERRUPT_PARAMETERS {
     pub Version: u32,
     pub Anonymous: IO_CONNECT_INTERRUPT_PARAMETERS_0,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_CONNECT_INTERRUPT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IO_CONNECT_INTERRUPT_PARAMETERS_0 {
     pub FullySpecified: IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS,
     pub LineBased: IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS,
     pub MessageBased: IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_CONNECT_INTERRUPT_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6994,7 +7385,6 @@ impl Default for IO_CONNECT_INTERRUPT_PARAMETERS_0 {
 pub type IO_CONTAINER_INFORMATION_CLASS = i32;
 pub type IO_CONTAINER_NOTIFICATION_CLASS = i32;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_CSQ {
     pub Type: u32,
@@ -7006,74 +7396,86 @@ pub struct IO_CSQ {
     pub CsqCompleteCanceledIrp: PIO_CSQ_COMPLETE_CANCELED_IRP,
     pub ReservePointer: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_CSQ_ACQUIRE_LOCK = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irql: *mut super::KIRQL)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_CSQ_COMPLETE_CANCELED_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const IRP)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_CSQ_INSERT_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const IRP)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_CSQ_INSERT_IRP_EX = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const IRP, insertcontext: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(feature = "ntdef")]
+pub type IO_CSQ_ACQUIRE_LOCK = Option<unsafe extern "C" fn(csq: PIO_CSQ, irql: super::PKIRQL)>;
+#[cfg(feature = "usb")]
+pub type IO_CSQ_COMPLETE_CANCELED_IRP = Option<unsafe extern "C" fn(csq: PIO_CSQ, irp: super::PIRP)>;
+#[cfg(feature = "usb")]
+pub type IO_CSQ_INSERT_IRP = Option<unsafe extern "C" fn(csq: *const IO_CSQ, irp: super::PIRP)>;
+#[cfg(feature = "usb")]
+pub type IO_CSQ_INSERT_IRP_EX = Option<unsafe extern "C" fn(csq: *const IO_CSQ, irp: super::PIRP, insertcontext: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(feature = "usb")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_CSQ_IRP_CONTEXT {
     pub Type: u32,
     pub Irp: super::PIRP,
     pub Csq: PIO_CSQ,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_CSQ_PEEK_NEXT_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const IRP, peekcontext: *const core::ffi::c_void) -> super::PIRP>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_CSQ_RELEASE_LOCK = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irql: super::KIRQL)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_CSQ_REMOVE_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const IRP)>;
+#[cfg(feature = "usb")]
+pub type IO_CSQ_PEEK_NEXT_IRP = Option<unsafe extern "C" fn(csq: PIO_CSQ, irp: super::PIRP, peekcontext: *const core::ffi::c_void) -> super::PIRP>;
+#[cfg(feature = "ntdef")]
+pub type IO_CSQ_RELEASE_LOCK = Option<unsafe extern "C" fn(csq: PIO_CSQ, irql: super::KIRQL)>;
+#[cfg(feature = "usb")]
+pub type IO_CSQ_REMOVE_IRP = Option<unsafe extern "C" fn(csq: PIO_CSQ, irp: super::PIRP)>;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IO_DISCONNECT_INTERRUPT_PARAMETERS {
     pub Version: u32,
     pub ConnectionContext: IO_DISCONNECT_INTERRUPT_PARAMETERS_0,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 impl Default for IO_DISCONNECT_INTERRUPT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union IO_DISCONNECT_INTERRUPT_PARAMETERS_0 {
     pub Generic: *mut core::ffi::c_void,
     pub InterruptObject: PKINTERRUPT,
     pub InterruptMessageTable: PIO_INTERRUPT_MESSAGE_INFO,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 impl Default for IO_DISCONNECT_INTERRUPT_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const IO_DISK_INCREMENT: i32 = 1;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_DPC_ROUTINE = Option<unsafe extern "system" fn(dpc: *const KDPC, deviceobject: *const DEVICE_OBJECT, irp: *mut IRP, context: *const core::ffi::c_void)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type IO_DPC_ROUTINE = Option<unsafe extern "C" fn(dpc: PKDPC, deviceobject: *const DEVICE_OBJECT, irp: *mut IRP, context: *const core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct IO_ERROR_LOG_MESSAGE {
     pub Type: u16,
     pub Size: u16,
     pub DriverNameLength: u16,
-    pub TimeStamp: i64,
+    pub TimeStamp: super::LARGE_INTEGER,
     pub DriverNameOffset: u32,
     pub EntryData: IO_ERROR_LOG_PACKET,
 }
+#[cfg(feature = "winnt")]
+impl Default for IO_ERROR_LOG_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+pub const IO_ERROR_LOG_MESSAGE_HEADER_LENGTH: u32 = 104;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const IO_ERROR_LOG_MESSAGE_HEADER_LENGTH: u64 = 104;
 #[cfg(target_arch = "x86")]
 pub const IO_ERROR_LOG_MESSAGE_LENGTH: u32 = 256;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const IO_ERROR_LOG_MESSAGE_LENGTH: u64 = 344;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct IO_ERROR_LOG_PACKET {
     pub MajorFunctionCode: u8,
     pub RetryCount: u8,
@@ -7086,9 +7488,10 @@ pub struct IO_ERROR_LOG_PACKET {
     pub FinalStatus: windows_core::NTSTATUS,
     pub SequenceNumber: u32,
     pub IoControlCode: u32,
-    pub DeviceOffset: i64,
+    pub DeviceOffset: super::LARGE_INTEGER,
     pub DumpData: [u32; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for IO_ERROR_LOG_PACKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7096,22 +7499,22 @@ impl Default for IO_ERROR_LOG_PACKET {
 }
 pub const IO_FORCE_ACCESS_CHECK: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct IO_INTERRUPT_MESSAGE_INFO {
     pub UnifiedIrql: super::KIRQL,
     pub MessageCount: u32,
     pub MessageInfo: [IO_INTERRUPT_MESSAGE_INFO_ENTRY; 1],
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 impl Default for IO_INTERRUPT_MESSAGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct IO_INTERRUPT_MESSAGE_INFO_ENTRY {
     pub MessageAddress: super::PHYSICAL_ADDRESS,
     pub TargetProcessorSet: super::KAFFINITY,
@@ -7122,12 +7525,18 @@ pub struct IO_INTERRUPT_MESSAGE_INFO_ENTRY {
     pub Mode: KINTERRUPT_MODE,
     pub Polarity: KINTERRUPT_POLARITY,
 }
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
+impl Default for IO_INTERRUPT_MESSAGE_INFO_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IO_KEYBOARD_INCREMENT: i32 = 6;
 pub const IO_MAILSLOT_INCREMENT: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_MINI_COMPLETION_PACKET_USER(pub u8);
-pub type IO_MINI_PACKET_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(minipacket: *const IO_MINI_COMPLETION_PACKET_USER, context: *const core::ffi::c_void)>;
+pub type IO_MINI_PACKET_CALLBACK_ROUTINE = Option<unsafe extern "C" fn(minipacket: *const IO_MINI_COMPLETION_PACKET_USER, context: *const core::ffi::c_void)>;
 pub const IO_MOUSE_INCREMENT: i32 = 6;
 pub const IO_NAMED_PIPE_INCREMENT: i32 = 2;
 pub const IO_NETWORK_INCREMENT: i32 = 2;
@@ -7136,8 +7545,8 @@ pub const IO_NO_INCREMENT: i32 = 0;
 pub const IO_NO_PARAMETER_CHECKING: i32 = 256;
 pub type IO_PAGING_PRIORITY = i32;
 pub const IO_PARALLEL_INCREMENT: i32 = 1;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = Option<unsafe extern "system" fn(driverobject: *const DRIVER_OBJECT, physicaldeviceobject: *const DEVICE_OBJECT, physicaldeviceid: *const super::UNICODE_STRING, datatag: *const u16, dataversion: *const u32, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type IO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = Option<unsafe extern "C" fn(driverobject: PDRIVER_OBJECT, physicaldeviceobject: PDEVICE_OBJECT, physicaldeviceid: super::PUNICODE_STRING, datatag: super::PUSHORT, dataversion: super::PULONG, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type IO_PRIORITY_HINT = i32;
 pub const IO_REMOUNT: i32 = 1;
 #[repr(C)]
@@ -7156,8 +7565,8 @@ impl Default for IO_REMOVE_LOCK {
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct IO_REMOVE_LOCK_COMMON_BLOCK {
-    pub Removed: bool,
-    pub Reserved: [bool; 3],
+    pub Removed: super::BOOLEAN,
+    pub Reserved: [super::BOOLEAN; 3],
     pub IoCount: i32,
     pub RemoveEvent: KEVENT,
 }
@@ -7188,30 +7597,33 @@ impl Default for IO_REMOVE_LOCK_DBG_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IO_REMOVE_LOCK_TRACKING_BLOCK(pub u8);
 pub const IO_REPARSE: i32 = 0;
 pub const IO_REPARSE_GLOBAL: i32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS {
     pub Version: u32,
     pub ConnectionContext: IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 impl Default for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0 {
     pub Generic: *mut core::ffi::c_void,
     pub InterruptObject: PKINTERRUPT,
     pub InterruptMessageTable: PIO_INTERRUPT_MESSAGE_INFO,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 impl Default for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7220,7 +7632,7 @@ impl Default for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0 {
 pub const IO_RESOURCE_ALTERNATIVE: i32 = 8;
 pub const IO_RESOURCE_DEFAULT: i32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR {
     pub Option: u8,
@@ -7231,14 +7643,14 @@ pub struct IO_RESOURCE_DESCRIPTOR {
     pub Spare2: u16,
     pub u: IO_RESOURCE_DESCRIPTOR_0,
 }
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for IO_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union IO_RESOURCE_DESCRIPTOR_0 {
     pub Port: IO_RESOURCE_DESCRIPTOR_0_0,
@@ -7255,50 +7667,74 @@ pub union IO_RESOURCE_DESCRIPTOR_0 {
     pub Memory64: IO_RESOURCE_DESCRIPTOR_0_11,
     pub Connection: IO_RESOURCE_DESCRIPTOR_0_12,
 }
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for IO_RESOURCE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_0 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: super::PHYSICAL_ADDRESS,
     pub MaximumAddress: super::PHYSICAL_ADDRESS,
 }
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for IO_RESOURCE_DESCRIPTOR_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_1 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: super::PHYSICAL_ADDRESS,
     pub MaximumAddress: super::PHYSICAL_ADDRESS,
 }
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for IO_RESOURCE_DESCRIPTOR_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_10 {
     pub Length48: u32,
     pub Alignment48: u32,
     pub MinimumAddress: super::PHYSICAL_ADDRESS,
     pub MaximumAddress: super::PHYSICAL_ADDRESS,
 }
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for IO_RESOURCE_DESCRIPTOR_0_10 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_11 {
     pub Length64: u32,
     pub Alignment64: u32,
     pub MinimumAddress: super::PHYSICAL_ADDRESS,
     pub MaximumAddress: super::PHYSICAL_ADDRESS,
 }
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for IO_RESOURCE_DESCRIPTOR_0_11 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
     pub Class: u8,
@@ -7309,7 +7745,7 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
     pub IdHighPart: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
     pub MinimumVector: u32,
@@ -7319,14 +7755,14 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
     pub TargetedProcessors: super::KAFFINITY,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_3 {
     pub MinimumChannel: u32,
     pub MaximumChannel: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_4 {
     pub RequestLine: u32,
@@ -7335,28 +7771,34 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_4 {
     pub TransferWidth: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_5 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: super::PHYSICAL_ADDRESS,
     pub MaximumAddress: super::PHYSICAL_ADDRESS,
 }
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for IO_RESOURCE_DESCRIPTOR_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_6 {
     pub Data: [u32; 3],
 }
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for IO_RESOURCE_DESCRIPTOR_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_7 {
     pub Length: u32,
@@ -7365,7 +7807,7 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_7 {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_8 {
     pub Priority: u32,
@@ -7373,16 +7815,22 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_8 {
     pub Reserved2: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_9 {
     pub Length40: u32,
     pub Alignment40: u32,
     pub MinimumAddress: super::PHYSICAL_ADDRESS,
     pub MaximumAddress: super::PHYSICAL_ADDRESS,
 }
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+impl Default for IO_RESOURCE_DESCRIPTOR_0_9 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IO_RESOURCE_LIST {
     pub Version: u16,
@@ -7390,7 +7838,7 @@ pub struct IO_RESOURCE_LIST {
     pub Count: u32,
     pub Descriptors: [IO_RESOURCE_DESCRIPTOR; 1],
 }
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for IO_RESOURCE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7398,7 +7846,7 @@ impl Default for IO_RESOURCE_LIST {
 }
 pub const IO_RESOURCE_PREFERRED: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IO_RESOURCE_REQUIREMENTS_LIST {
     pub ListSize: u32,
@@ -7409,14 +7857,14 @@ pub struct IO_RESOURCE_REQUIREMENTS_LIST {
     pub AlternativeLists: u32,
     pub List: [IO_RESOURCE_LIST; 1],
 }
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 impl Default for IO_RESOURCE_REQUIREMENTS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_SECURITY_CONTEXT {
     pub SecurityQos: super::PSECURITY_QUALITY_OF_SERVICE,
@@ -7426,25 +7874,27 @@ pub struct IO_SECURITY_CONTEXT {
 }
 pub const IO_SERIAL_INCREMENT: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_SESSION_CONNECT_INFO {
     pub SessionId: u32,
-    pub LocalSession: bool,
+    pub LocalSession: super::BOOLEAN,
 }
 pub type IO_SESSION_EVENT = i32;
 pub const IO_SESSION_MAX_PAYLOAD_SIZE: i32 = 256;
-pub type IO_SESSION_NOTIFICATION_FUNCTION = Option<unsafe extern "system" fn(sessionobject: *const core::ffi::c_void, ioobject: *const core::ffi::c_void, event: u32, context: *const core::ffi::c_void, notificationpayload: *const core::ffi::c_void, payloadlength: u32) -> windows_core::NTSTATUS>;
+pub type IO_SESSION_NOTIFICATION_FUNCTION = Option<unsafe extern "C" fn(sessionobject: *const core::ffi::c_void, ioobject: *const core::ffi::c_void, event: u32, context: *const core::ffi::c_void, notificationpayload: *const core::ffi::c_void, payloadlength: u32) -> windows_core::NTSTATUS>;
 pub type IO_SESSION_STATE = i32;
 pub const IO_SESSION_STATE_ALL_EVENTS: u32 = 4294967295;
 pub const IO_SESSION_STATE_CONNECT_EVENT: i32 = 4;
 pub const IO_SESSION_STATE_CREATION_EVENT: i32 = 1;
 pub const IO_SESSION_STATE_DISCONNECT_EVENT: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_SESSION_STATE_INFORMATION {
     pub SessionId: u32,
     pub SessionState: IO_SESSION_STATE,
-    pub LocalSession: bool,
+    pub LocalSession: super::BOOLEAN,
 }
 pub const IO_SESSION_STATE_LOGOFF_EVENT: i32 = 32;
 pub const IO_SESSION_STATE_LOGON_EVENT: i32 = 16;
@@ -7467,7 +7917,7 @@ pub const IO_SHARE_ACCESS_NO_WRITE_PERMISSION: u32 = 2147483648;
 pub const IO_SOUND_INCREMENT: i32 = 8;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION {
     pub MajorFunction: u8,
@@ -7481,7 +7931,7 @@ pub struct IO_STACK_LOCATION {
     pub Context: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7489,7 +7939,7 @@ impl Default for IO_STACK_LOCATION {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IO_STACK_LOCATION_0 {
     pub Create: IO_STACK_LOCATION_0_0,
@@ -7533,7 +7983,7 @@ pub union IO_STACK_LOCATION_0 {
     pub Others: IO_STACK_LOCATION_0_38,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7541,7 +7991,7 @@ impl Default for IO_STACK_LOCATION_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_0 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
@@ -7552,7 +8002,7 @@ pub struct IO_STACK_LOCATION_0_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_1 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
@@ -7563,7 +8013,7 @@ pub struct IO_STACK_LOCATION_0_1 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_10 {
     pub Length: u32,
@@ -7573,14 +8023,14 @@ pub struct IO_STACK_LOCATION_0_10 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_11 {
     pub Length: u32,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_12 {
     pub Length: u32,
@@ -7588,7 +8038,7 @@ pub struct IO_STACK_LOCATION_0_12 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_13 {
     pub Length: u32,
@@ -7596,7 +8046,7 @@ pub struct IO_STACK_LOCATION_0_13 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_14 {
     pub OutputBufferLength: u32,
@@ -7606,16 +8056,23 @@ pub struct IO_STACK_LOCATION_0_14 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_15 {
     pub Length: super::PLARGE_INTEGER,
     pub Key: u32,
-    pub ByteOffset: i64,
+    pub ByteOffset: super::LARGE_INTEGER,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_15 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_16 {
     pub OutputBufferLength: u32,
@@ -7625,7 +8082,7 @@ pub struct IO_STACK_LOCATION_0_16 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_17 {
     pub SecurityInformation: super::SECURITY_INFORMATION,
@@ -7633,7 +8090,7 @@ pub struct IO_STACK_LOCATION_0_17 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_18 {
     pub SecurityInformation: super::SECURITY_INFORMATION,
@@ -7641,7 +8098,7 @@ pub struct IO_STACK_LOCATION_0_18 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_19 {
     pub Vpb: PVPB,
@@ -7650,7 +8107,7 @@ pub struct IO_STACK_LOCATION_0_19 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_2 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
@@ -7661,7 +8118,7 @@ pub struct IO_STACK_LOCATION_0_2 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_20 {
     pub Vpb: PVPB,
@@ -7669,14 +8126,14 @@ pub struct IO_STACK_LOCATION_0_20 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_21 {
     pub Srb: *mut _SCSI_REQUEST_BLOCK,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_22 {
     pub Length: u32,
@@ -7686,21 +8143,21 @@ pub struct IO_STACK_LOCATION_0_22 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_23 {
     pub Length: u32,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_24 {
     pub Type: DEVICE_RELATION_TYPE,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_25 {
     pub InterfaceType: *const windows_core::GUID,
@@ -7711,21 +8168,21 @@ pub struct IO_STACK_LOCATION_0_25 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_26 {
     pub Capabilities: PDEVICE_CAPABILITIES,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_27 {
     pub IoResourceRequirementList: PIO_RESOURCE_REQUIREMENTS_LIST,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_28 {
     pub WhichSpace: u32,
@@ -7735,30 +8192,37 @@ pub struct IO_STACK_LOCATION_0_28 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_29 {
-    pub Lock: bool,
+    pub Lock: super::BOOLEAN,
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_3 {
     pub Length: u32,
     pub Key: u32,
-    pub ByteOffset: i64,
+    pub ByteOffset: super::LARGE_INTEGER,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_30 {
     pub IdType: BUS_QUERY_ID_TYPE,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_31 {
     pub DeviceTextType: DEVICE_TEXT_TYPE,
@@ -7766,15 +8230,15 @@ pub struct IO_STACK_LOCATION_0_31 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_32 {
-    pub InPath: bool,
-    pub Reserved: [bool; 3],
+    pub InPath: super::BOOLEAN,
+    pub Reserved: [super::BOOLEAN; 3],
     pub Type: DEVICE_USAGE_NOTIFICATION_TYPE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7782,21 +8246,21 @@ impl Default for IO_STACK_LOCATION_0_32 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_33 {
     pub PowerState: super::SYSTEM_POWER_STATE,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_34 {
     pub PowerSequence: PPOWER_SEQUENCE,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_35 {
     pub Anonymous: IO_STACK_LOCATION_0_35_0,
@@ -7805,7 +8269,7 @@ pub struct IO_STACK_LOCATION_0_35 {
     pub ShutdownType: super::POWER_ACTION,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_35 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7813,14 +8277,14 @@ impl Default for IO_STACK_LOCATION_0_35 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IO_STACK_LOCATION_0_35_0 {
     pub SystemContext: u32,
     pub SystemPowerStateContext: SYSTEM_POWER_STATE_CONTEXT,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_35_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7828,7 +8292,7 @@ impl Default for IO_STACK_LOCATION_0_35_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_36 {
     pub AllocatedResources: PCM_RESOURCE_LIST,
@@ -7836,7 +8300,7 @@ pub struct IO_STACK_LOCATION_0_36 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_37 {
     pub ProviderId: usize,
@@ -7846,7 +8310,7 @@ pub struct IO_STACK_LOCATION_0_37 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_38 {
     pub Argument1: *mut core::ffi::c_void,
@@ -7856,16 +8320,23 @@ pub struct IO_STACK_LOCATION_0_38 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_4 {
     pub Length: u32,
     pub Key: u32,
-    pub ByteOffset: i64,
+    pub ByteOffset: super::LARGE_INTEGER,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_5 {
     pub Length: u32,
@@ -7875,7 +8346,7 @@ pub struct IO_STACK_LOCATION_0_5 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_6 {
     pub Length: u32,
@@ -7883,7 +8354,7 @@ pub struct IO_STACK_LOCATION_0_6 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_7 {
     pub Length: u32,
@@ -7892,7 +8363,7 @@ pub struct IO_STACK_LOCATION_0_7 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_8 {
     pub Length: u32,
@@ -7900,7 +8371,7 @@ pub struct IO_STACK_LOCATION_0_8 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_9 {
     pub Length: u32,
@@ -7909,7 +8380,7 @@ pub struct IO_STACK_LOCATION_0_9 {
     pub Anonymous: IO_STACK_LOCATION_0_9_0,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7917,7 +8388,7 @@ impl Default for IO_STACK_LOCATION_0_9 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IO_STACK_LOCATION_0_9_0 {
     pub Anonymous: IO_STACK_LOCATION_0_9_0_0,
@@ -7925,7 +8396,7 @@ pub union IO_STACK_LOCATION_0_9_0 {
     pub DeleteHandle: super::HANDLE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_9_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7933,15 +8404,15 @@ impl Default for IO_STACK_LOCATION_0_9_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_9_0_0 {
-    pub ReplaceIfExists: bool,
-    pub AdvanceOnly: bool,
+    pub ReplaceIfExists: super::BOOLEAN,
+    pub AdvanceOnly: super::BOOLEAN,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION {
     pub MajorFunction: u8,
@@ -7955,7 +8426,7 @@ pub struct IO_STACK_LOCATION {
     pub Context: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7963,7 +8434,7 @@ impl Default for IO_STACK_LOCATION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IO_STACK_LOCATION_0 {
     pub Create: IO_STACK_LOCATION_0_0,
@@ -8007,7 +8478,7 @@ pub union IO_STACK_LOCATION_0 {
     pub Others: IO_STACK_LOCATION_0_38,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8015,7 +8486,7 @@ impl Default for IO_STACK_LOCATION_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_0 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
@@ -8026,7 +8497,7 @@ pub struct IO_STACK_LOCATION_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_1 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
@@ -8037,7 +8508,7 @@ pub struct IO_STACK_LOCATION_0_1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_10 {
     pub Length: u32,
@@ -8047,14 +8518,14 @@ pub struct IO_STACK_LOCATION_0_10 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_11 {
     pub Length: u32,
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_12 {
     pub Length: u32,
@@ -8062,7 +8533,7 @@ pub struct IO_STACK_LOCATION_0_12 {
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_13 {
     pub Length: u32,
@@ -8070,7 +8541,7 @@ pub struct IO_STACK_LOCATION_0_13 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_14 {
     pub OutputBufferLength: u32,
@@ -8080,16 +8551,23 @@ pub struct IO_STACK_LOCATION_0_14 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_15 {
     pub Length: super::PLARGE_INTEGER,
     pub Key: u32,
-    pub ByteOffset: i64,
+    pub ByteOffset: super::LARGE_INTEGER,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_15 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_16 {
     pub OutputBufferLength: u32,
@@ -8099,7 +8577,7 @@ pub struct IO_STACK_LOCATION_0_16 {
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_17 {
     pub SecurityInformation: super::SECURITY_INFORMATION,
@@ -8107,7 +8585,7 @@ pub struct IO_STACK_LOCATION_0_17 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_18 {
     pub SecurityInformation: super::SECURITY_INFORMATION,
@@ -8115,7 +8593,7 @@ pub struct IO_STACK_LOCATION_0_18 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_19 {
     pub Vpb: PVPB,
@@ -8124,7 +8602,7 @@ pub struct IO_STACK_LOCATION_0_19 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_2 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
@@ -8135,7 +8613,7 @@ pub struct IO_STACK_LOCATION_0_2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_20 {
     pub Vpb: PVPB,
@@ -8143,14 +8621,14 @@ pub struct IO_STACK_LOCATION_0_20 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_21 {
     pub Srb: *mut _SCSI_REQUEST_BLOCK,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_22 {
     pub Length: u32,
@@ -8160,21 +8638,21 @@ pub struct IO_STACK_LOCATION_0_22 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_23 {
     pub Length: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_24 {
     pub Type: DEVICE_RELATION_TYPE,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_25 {
     pub InterfaceType: *const windows_core::GUID,
@@ -8185,21 +8663,21 @@ pub struct IO_STACK_LOCATION_0_25 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_26 {
     pub Capabilities: PDEVICE_CAPABILITIES,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_27 {
     pub IoResourceRequirementList: PIO_RESOURCE_REQUIREMENTS_LIST,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_28 {
     pub WhichSpace: u32,
@@ -8209,31 +8687,38 @@ pub struct IO_STACK_LOCATION_0_28 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_29 {
-    pub Lock: bool,
+    pub Lock: super::BOOLEAN,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_3 {
     pub Length: u32,
     pub Key: u32,
     pub Flags: u32,
-    pub ByteOffset: i64,
+    pub ByteOffset: super::LARGE_INTEGER,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_30 {
     pub IdType: BUS_QUERY_ID_TYPE,
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_31 {
     pub DeviceTextType: DEVICE_TEXT_TYPE,
@@ -8241,15 +8726,15 @@ pub struct IO_STACK_LOCATION_0_31 {
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_32 {
-    pub InPath: bool,
-    pub Reserved: [bool; 3],
+    pub InPath: super::BOOLEAN,
+    pub Reserved: [super::BOOLEAN; 3],
     pub Type: DEVICE_USAGE_NOTIFICATION_TYPE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8257,21 +8742,21 @@ impl Default for IO_STACK_LOCATION_0_32 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_33 {
     pub PowerState: super::SYSTEM_POWER_STATE,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_34 {
     pub PowerSequence: PPOWER_SEQUENCE,
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_35 {
     pub Anonymous: IO_STACK_LOCATION_0_35_0,
@@ -8280,7 +8765,7 @@ pub struct IO_STACK_LOCATION_0_35 {
     pub ShutdownType: super::POWER_ACTION,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_35 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8288,14 +8773,14 @@ impl Default for IO_STACK_LOCATION_0_35 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IO_STACK_LOCATION_0_35_0 {
     pub SystemContext: u32,
     pub SystemPowerStateContext: SYSTEM_POWER_STATE_CONTEXT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_35_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8303,7 +8788,7 @@ impl Default for IO_STACK_LOCATION_0_35_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_36 {
     pub AllocatedResources: PCM_RESOURCE_LIST,
@@ -8311,7 +8796,7 @@ pub struct IO_STACK_LOCATION_0_36 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_37 {
     pub ProviderId: usize,
@@ -8321,7 +8806,7 @@ pub struct IO_STACK_LOCATION_0_37 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_38 {
     pub Argument1: *mut core::ffi::c_void,
@@ -8331,17 +8816,24 @@ pub struct IO_STACK_LOCATION_0_38 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_4 {
     pub Length: u32,
     pub Key: u32,
     pub Flags: u32,
-    pub ByteOffset: i64,
+    pub ByteOffset: super::LARGE_INTEGER,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_5 {
     pub Length: u32,
@@ -8351,7 +8843,7 @@ pub struct IO_STACK_LOCATION_0_5 {
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_6 {
     pub Length: u32,
@@ -8359,7 +8851,7 @@ pub struct IO_STACK_LOCATION_0_6 {
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_7 {
     pub Length: u32,
@@ -8368,7 +8860,7 @@ pub struct IO_STACK_LOCATION_0_7 {
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_8 {
     pub Length: u32,
@@ -8376,7 +8868,7 @@ pub struct IO_STACK_LOCATION_0_8 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_9 {
     pub Length: u32,
@@ -8385,7 +8877,7 @@ pub struct IO_STACK_LOCATION_0_9 {
     pub Anonymous: IO_STACK_LOCATION_0_9_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8393,7 +8885,7 @@ impl Default for IO_STACK_LOCATION_0_9 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IO_STACK_LOCATION_0_9_0 {
     pub Anonymous: IO_STACK_LOCATION_0_9_0_0,
@@ -8401,7 +8893,7 @@ pub union IO_STACK_LOCATION_0_9_0 {
     pub DeleteHandle: super::HANDLE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_9_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8409,11 +8901,11 @@ impl Default for IO_STACK_LOCATION_0_9_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_9_0_0 {
-    pub ReplaceIfExists: bool,
-    pub AdvanceOnly: bool,
+    pub ReplaceIfExists: super::BOOLEAN,
+    pub AdvanceOnly: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8450,8 +8942,11 @@ impl Default for IO_STATUS_BLOCK64_0 {
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winternl")]
 pub type IO_STATUS_BLOCK64 = super::IO_STATUS_BLOCK;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_TIMER_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, context: *const core::ffi::c_void)>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IO_TIMER(pub u8);
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type IO_TIMER_ROUTINE = Option<unsafe extern "C" fn(deviceobject: *const DEVICE_OBJECT, context: *const core::ffi::c_void)>;
 pub const IO_TYPE_ADAPTER: i32 = 1;
 pub const IO_TYPE_CONTROLLER: i32 = 2;
 pub const IO_TYPE_CSQ: i32 = 2;
@@ -8470,16 +8965,19 @@ pub const IO_TYPE_OPEN_PACKET: i32 = 8;
 pub const IO_TYPE_TIMER: i32 = 9;
 pub const IO_TYPE_VPB: i32 = 10;
 pub const IO_VIDEO_INCREMENT: i32 = 1;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type IO_WORKITEM_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, context: *const core::ffi::c_void)>;
-pub type IO_WORKITEM_ROUTINE_EX = Option<unsafe extern "system" fn(ioobject: *const core::ffi::c_void, context: *const core::ffi::c_void, ioworkitem: *const _IO_WORKITEM)>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IO_WORKITEM(pub u8);
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type IO_WORKITEM_ROUTINE = Option<unsafe extern "C" fn(deviceobject: PDEVICE_OBJECT, context: *const core::ffi::c_void)>;
+pub type IO_WORKITEM_ROUTINE_EX = Option<unsafe extern "C" fn(ioobject: *const core::ffi::c_void, context: *const core::ffi::c_void, ioworkitem: PIO_WORKITEM)>;
 #[cfg(target_arch = "x86")]
 pub const IPI_LEVEL: i32 = 29;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const IPI_LEVEL: i32 = 14;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IRP {
     pub Type: super::CSHORT,
@@ -8490,10 +8988,10 @@ pub struct IRP {
     pub ThreadListEntry: super::LIST_ENTRY,
     pub IoStatus: super::IO_STATUS_BLOCK,
     pub RequestorMode: KPROCESSOR_MODE,
-    pub PendingReturned: bool,
+    pub PendingReturned: super::BOOLEAN,
     pub StackCount: i8,
     pub CurrentLocation: i8,
-    pub Cancel: bool,
+    pub Cancel: super::BOOLEAN,
     pub CancelIrql: super::KIRQL,
     pub ApcEnvironment: super::CCHAR,
     pub AllocationFlags: u8,
@@ -8505,7 +9003,7 @@ pub struct IRP {
     pub Tail: IRP_3,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8513,7 +9011,7 @@ impl Default for IRP {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_0 {
     pub MasterIrp: *mut IRP,
@@ -8521,7 +9019,7 @@ pub union IRP_0 {
     pub SystemBuffer: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8529,14 +9027,14 @@ impl Default for IRP_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_1 {
     pub UserIosb: super::PIO_STATUS_BLOCK,
     pub IoRingContext: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8544,14 +9042,14 @@ impl Default for IRP_1 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_2 {
     pub AsynchronousParameters: IRP_2_0,
-    pub AllocationSize: i64,
+    pub AllocationSize: super::LARGE_INTEGER,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8559,14 +9057,14 @@ impl Default for IRP_2 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IRP_2_0 {
     pub Anonymous: IRP_2_0_0,
     pub Anonymous2: IRP_2_0_1,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8574,14 +9072,14 @@ impl Default for IRP_2_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_2_0_0 {
     pub UserApcRoutine: super::PIO_APC_ROUTINE,
     pub IssuingProcess: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8589,14 +9087,14 @@ impl Default for IRP_2_0_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_2_0_1 {
     pub UserApcContext: *mut core::ffi::c_void,
     pub IoRing: *mut _IORING_OBJECT,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_2_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8604,7 +9102,7 @@ impl Default for IRP_2_0_1 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_3 {
     pub Overlay: IRP_3_0,
@@ -8612,7 +9110,7 @@ pub union IRP_3 {
     pub CompletionKey: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8620,7 +9118,7 @@ impl Default for IRP_3 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IRP_3_0 {
     pub Anonymous: IRP_3_0_0,
@@ -8630,7 +9128,7 @@ pub struct IRP_3_0 {
     pub OriginalFileObject: PFILE_OBJECT,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8638,14 +9136,14 @@ impl Default for IRP_3_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_3_0_0 {
     pub DeviceQueueEntry: KDEVICE_QUEUE_ENTRY,
     pub Anonymous: IRP_3_0_0_0,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8653,13 +9151,13 @@ impl Default for IRP_3_0_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IRP_3_0_0_0 {
     pub DriverContext: [*mut core::ffi::c_void; 4],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8667,14 +9165,14 @@ impl Default for IRP_3_0_0_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IRP_3_0_1 {
     pub ListEntry: super::LIST_ENTRY,
     pub Anonymous: IRP_3_0_1_0,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8682,14 +9180,14 @@ impl Default for IRP_3_0_1 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_3_0_1_0 {
     pub CurrentStackLocation: *mut IO_STACK_LOCATION,
     pub PacketType: u32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8697,7 +9195,7 @@ impl Default for IRP_3_0_1_0 {
 }
 #[repr(C, align(16))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IRP {
     pub Type: super::CSHORT,
@@ -8708,10 +9206,10 @@ pub struct IRP {
     pub ThreadListEntry: super::LIST_ENTRY,
     pub IoStatus: super::IO_STATUS_BLOCK,
     pub RequestorMode: KPROCESSOR_MODE,
-    pub PendingReturned: bool,
+    pub PendingReturned: super::BOOLEAN,
     pub StackCount: i8,
     pub CurrentLocation: i8,
-    pub Cancel: bool,
+    pub Cancel: super::BOOLEAN,
     pub CancelIrql: super::KIRQL,
     pub ApcEnvironment: super::CCHAR,
     pub AllocationFlags: u8,
@@ -8723,7 +9221,7 @@ pub struct IRP {
     pub Tail: IRP_3,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8731,7 +9229,7 @@ impl Default for IRP {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_0 {
     pub MasterIrp: *mut IRP,
@@ -8739,7 +9237,7 @@ pub union IRP_0 {
     pub SystemBuffer: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8747,14 +9245,14 @@ impl Default for IRP_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_1 {
     pub UserIosb: super::PIO_STATUS_BLOCK,
     pub IoRingContext: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8762,14 +9260,14 @@ impl Default for IRP_1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_2 {
     pub AsynchronousParameters: IRP_2_0,
-    pub AllocationSize: i64,
+    pub AllocationSize: super::LARGE_INTEGER,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8777,14 +9275,14 @@ impl Default for IRP_2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IRP_2_0 {
     pub Anonymous: IRP_2_0_0,
     pub Anonymous2: IRP_2_0_1,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8792,14 +9290,14 @@ impl Default for IRP_2_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_2_0_0 {
     pub UserApcRoutine: super::PIO_APC_ROUTINE,
     pub IssuingProcess: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8807,14 +9305,14 @@ impl Default for IRP_2_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_2_0_1 {
     pub UserApcContext: *mut core::ffi::c_void,
     pub IoRing: *mut _IORING_OBJECT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_2_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8822,7 +9320,7 @@ impl Default for IRP_2_0_1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_3 {
     pub Overlay: IRP_3_0,
@@ -8830,7 +9328,7 @@ pub union IRP_3 {
     pub CompletionKey: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8838,7 +9336,7 @@ impl Default for IRP_3 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IRP_3_0 {
     pub Anonymous: IRP_3_0_0,
@@ -8848,7 +9346,7 @@ pub struct IRP_3_0 {
     pub OriginalFileObject: PFILE_OBJECT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8856,14 +9354,14 @@ impl Default for IRP_3_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_3_0_0 {
     pub DeviceQueueEntry: KDEVICE_QUEUE_ENTRY,
     pub Anonymous: IRP_3_0_0_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8871,13 +9369,13 @@ impl Default for IRP_3_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IRP_3_0_0_0 {
     pub DriverContext: [*mut core::ffi::c_void; 4],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8885,14 +9383,14 @@ impl Default for IRP_3_0_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IRP_3_0_1 {
     pub ListEntry: super::LIST_ENTRY,
     pub Anonymous: IRP_3_0_1_0,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8900,14 +9398,14 @@ impl Default for IRP_3_0_1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_3_0_1_0 {
     pub CurrentStackLocation: *mut IO_STACK_LOCATION,
     pub PacketType: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9112,6 +9610,9 @@ pub struct KADDRESS_RANGE_DESCRIPTOR {
     pub AddressRangeCount: usize,
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KAFFINITY_EX(pub u8);
+#[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KAPC {
@@ -9120,7 +9621,7 @@ pub struct KAPC {
     pub Size: u8,
     pub SpareByte1: u8,
     pub SpareLong0: u32,
-    pub Thread: *mut _KTHREAD,
+    pub Thread: *mut KTHREAD,
     pub ApcListEntry: super::LIST_ENTRY,
     pub Reserved: [*mut core::ffi::c_void; 3],
     pub NormalContext: *mut core::ffi::c_void,
@@ -9128,7 +9629,7 @@ pub struct KAPC {
     pub SystemArgument2: *mut core::ffi::c_void,
     pub ApcStateIndex: super::CCHAR,
     pub ApcMode: KPROCESSOR_MODE,
-    pub Inserted: bool,
+    pub Inserted: super::BOOLEAN,
 }
 #[cfg(feature = "winnt")]
 impl Default for KAPC {
@@ -9136,6 +9637,10 @@ impl Default for KAPC {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const KAPC_ACTUAL_LENGTH: u32 = 47;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const KAPC_ACTUAL_LENGTH: u64 = 83;
 #[cfg(target_arch = "x86")]
 pub const KAPC_OFFSET_TO_APCSTATEINDEX: i32 = 44;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -9173,7 +9678,7 @@ pub struct KBUGCHECK_CALLBACK_RECORD {
     pub Checksum: usize,
     pub State: u8,
 }
-pub type KBUGCHECK_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(buffer: *const core::ffi::c_void, length: u32)>;
+pub type KBUGCHECK_CALLBACK_ROUTINE = Option<unsafe extern "C" fn(buffer: *const core::ffi::c_void, length: u32)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KBUGCHECK_DUMP_IO {
@@ -9195,7 +9700,7 @@ pub struct KBUGCHECK_REASON_CALLBACK_RECORD {
     pub State: u8,
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type KBUGCHECK_REASON_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(reason: KBUGCHECK_CALLBACK_REASON, record: *const KBUGCHECK_REASON_CALLBACK_RECORD, reasonspecificdata: *mut core::ffi::c_void, reasonspecificdatalength: u32)>;
+pub type KBUGCHECK_REASON_CALLBACK_ROUTINE = Option<unsafe extern "C" fn(reason: KBUGCHECK_CALLBACK_REASON, record: PKBUGCHECK_REASON_CALLBACK_RECORD, reasonspecificdata: *mut core::ffi::c_void, reasonspecificdatalength: u32)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KBUGCHECK_REMOVE_PAGES {
@@ -9257,7 +9762,7 @@ pub const KB_SECONDARY_DATA_FLAG_NO_DEVICE_ACCESS: i32 = 2;
 pub const KB_TRIAGE_DUMP_DATA_FLAG_BUGCHECK_ACTIVE: u32 = 1;
 pub type KCRM_PROTOCOL_ID = windows_core::GUID;
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-pub type KDEFERRED_ROUTINE = Option<unsafe extern "system" fn(dpc: *const KDPC, deferredcontext: *const core::ffi::c_void, systemargument1: *const core::ffi::c_void, systemargument2: *const core::ffi::c_void)>;
+pub type KDEFERRED_ROUTINE = Option<unsafe extern "C" fn(dpc: *const KDPC, deferredcontext: *const core::ffi::c_void, systemargument1: *const core::ffi::c_void, systemargument2: *const core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
@@ -9281,7 +9786,7 @@ impl Default for KDEVICE_QUEUE {
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KDEVICE_QUEUE_0 {
-    pub Busy: bool,
+    pub Busy: super::BOOLEAN,
     pub Anonymous: KDEVICE_QUEUE_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -9323,7 +9828,7 @@ pub struct KDEVICE_QUEUE {
     pub Size: super::CSHORT,
     pub DeviceListHead: super::LIST_ENTRY,
     pub Lock: super::KSPIN_LOCK,
-    pub Busy: bool,
+    pub Busy: super::BOOLEAN,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -9331,7 +9836,7 @@ pub struct KDEVICE_QUEUE {
 pub struct KDEVICE_QUEUE_ENTRY {
     pub DeviceListEntry: super::LIST_ENTRY,
     pub SortKey: u32,
-    pub Inserted: bool,
+    pub Inserted: super::BOOLEAN,
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
@@ -9409,13 +9914,15 @@ impl Default for KEVENT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct KEY_BASIC_INFORMATION {
-    pub LastWriteTime: i64,
+    pub LastWriteTime: super::LARGE_INTEGER,
     pub TitleIndex: u32,
     pub NameLength: u32,
     pub Name: [u16; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for KEY_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9427,9 +9934,10 @@ pub struct KEY_CONTROL_FLAGS_INFORMATION {
     pub ControlFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct KEY_FULL_INFORMATION {
-    pub LastWriteTime: i64,
+    pub LastWriteTime: super::LARGE_INTEGER,
     pub TitleIndex: u32,
     pub ClassOffset: u32,
     pub ClassLength: u32,
@@ -9441,6 +9949,7 @@ pub struct KEY_FULL_INFORMATION {
     pub MaxValueDataLen: u32,
     pub Class: [u16; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for KEY_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9448,15 +9957,17 @@ impl Default for KEY_FULL_INFORMATION {
 }
 pub type KEY_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct KEY_NODE_INFORMATION {
-    pub LastWriteTime: i64,
+    pub LastWriteTime: super::LARGE_INTEGER,
     pub TitleIndex: u32,
     pub ClassOffset: u32,
     pub ClassLength: u32,
     pub NameLength: u32,
     pub Name: [u16; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for KEY_NODE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9592,9 +10103,16 @@ pub struct KEY_WOW64_FLAGS_INFORMATION {
     pub UserFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct KEY_WRITE_TIME_INFORMATION {
-    pub LastWriteTime: i64,
+    pub LastWriteTime: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for KEY_WRITE_TIME_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const KE_MAX_TRIAGE_DUMP_DATA_MEMORY_SIZE: i32 = 33554432;
 pub const KE_PROCESSOR_CHANGE_ADD_EXISTING: i32 = 1;
@@ -9608,6 +10126,9 @@ pub struct KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
     pub ProcNumber: super::PROCESSOR_NUMBER,
 }
 pub type KE_PROCESSOR_CHANGE_NOTIFY_STATE = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KE_SRCU(pub u8);
 pub const KE_SRCU_FLAG_READ_AT_DISPATCH: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -9652,9 +10173,12 @@ impl Default for KGATE {
 }
 #[cfg(feature = "winnt")]
 pub type KGUARDED_MUTEX = FAST_MUTEX;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KINTERRUPT(pub u8);
 pub type KINTERRUPT_MODE = i32;
 pub type KINTERRUPT_POLARITY = i32;
-pub type KIPI_BROADCAST_WORKER = Option<unsafe extern "system" fn(argument: usize) -> usize>;
+pub type KIPI_BROADCAST_WORKER = Option<unsafe extern "C" fn(argument: usize) -> usize>;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9662,14 +10186,15 @@ pub struct KLOCK_QUEUE_HANDLE {
     pub LockQueue: KSPIN_LOCK_QUEUE,
     pub OldIrql: super::KIRQL,
 }
-pub type KMESSAGE_SERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const _KINTERRUPT, servicecontext: *const core::ffi::c_void, messageid: u32) -> bool>;
+#[cfg(feature = "winnt")]
+pub type KMESSAGE_SERVICE_ROUTINE = Option<unsafe extern "C" fn(interrupt: *const KINTERRUPT, servicecontext: *const core::ffi::c_void, messageid: u32) -> super::BOOLEAN>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct KMUTANT {
     pub Header: DISPATCHER_HEADER,
     pub MutantListEntry: super::LIST_ENTRY,
-    pub OwnerThread: *mut _KTHREAD,
+    pub OwnerThread: *mut KTHREAD,
     pub Anonymous: KMUTANT_0,
     pub ApcDisable: u8,
 }
@@ -9715,6 +10240,9 @@ impl KMUTANT_0_0 {
 }
 #[cfg(feature = "winnt")]
 pub type KMUTEX = KMUTANT;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KPROCESS(pub u8);
 #[cfg(feature = "winnt")]
 pub type KPROCESSOR_MODE = super::CCHAR;
 pub type KPROFILE_SOURCE = i32;
@@ -9734,7 +10262,12 @@ impl Default for KSEMAPHORE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type KSERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const _KINTERRUPT, servicecontext: *const core::ffi::c_void) -> bool>;
+#[cfg(target_arch = "x86")]
+pub const KSEMAPHORE_ACTUAL_LENGTH: u32 = 20;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const KSEMAPHORE_ACTUAL_LENGTH: u64 = 28;
+#[cfg(feature = "winnt")]
+pub type KSERVICE_ROUTINE = Option<unsafe extern "C" fn(interrupt: *const KINTERRUPT, servicecontext: *const core::ffi::c_void) -> super::BOOLEAN>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9743,13 +10276,12 @@ pub struct KSPIN_LOCK_QUEUE {
     pub Lock: super::PKSPIN_LOCK,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct KSPIN_LOCK_QUEUE_NUMBER(pub u64);
+pub type KSPIN_LOCK_QUEUE_NUMBER = u64;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub type KSPIN_LOCK_QUEUE_NUMBER = i32;
-pub type KSTART_ROUTINE = Option<unsafe extern "system" fn(startcontext: *const core::ffi::c_void)>;
-pub type KSYNCHRONIZE_ROUTINE = Option<unsafe extern "system" fn(synchronizecontext: *const core::ffi::c_void) -> bool>;
+pub type KSTART_ROUTINE = Option<unsafe extern "C" fn(startcontext: *const core::ffi::c_void)>;
+#[cfg(feature = "winnt")]
+pub type KSYNCHRONIZE_ROUTINE = Option<unsafe extern "C" fn(synchronizecontext: *const core::ffi::c_void) -> super::BOOLEAN>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSYSTEM_TIME {
@@ -9759,12 +10291,15 @@ pub struct KSYSTEM_TIME {
 }
 pub type KT2_SET_PARAMETERS = EXT_SET_PARAMETERS;
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct KTHREAD(pub u8);
+#[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KTIMER {
     pub Header: DISPATCHER_HEADER,
-    pub DueTime: u64,
+    pub DueTime: super::ULARGE_INTEGER,
     pub TimerListEntry: super::LIST_ENTRY,
     pub Dpc: *mut KDPC,
     pub Period: u32,
@@ -9782,7 +10317,7 @@ impl Default for KTIMER {
 #[derive(Clone, Copy)]
 pub struct KTIMER {
     pub Header: DISPATCHER_HEADER,
-    pub DueTime: u64,
+    pub DueTime: super::ULARGE_INTEGER,
     pub TimerListEntry: super::LIST_ENTRY,
     pub Dpc: *mut KDPC,
     pub Processor: u16,
@@ -9797,6 +10332,10 @@ impl Default for KTIMER {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const KTIMER_ACTUAL_LENGTH: u32 = 40;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const KTIMER_ACTUAL_LENGTH: u64 = 64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KTM(pub u8);
@@ -9847,7 +10386,7 @@ impl Default for KWAIT_BLOCK {
 #[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KWAIT_BLOCK_0 {
-    pub Thread: *mut _KTHREAD,
+    pub Thread: *mut KTHREAD,
     pub NotificationQueue: *mut super::KQUEUE,
     pub Dpc: *mut KDPC,
 }
@@ -9884,7 +10423,7 @@ impl Default for KWAIT_BLOCK {
 #[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KWAIT_BLOCK_0 {
-    pub Thread: *mut _KTHREAD,
+    pub Thread: *mut KTHREAD,
     pub NotificationQueue: *mut super::KQUEUE,
     pub Dpc: *mut KDPC,
 }
@@ -9920,6 +10459,7 @@ pub const KeProcessorAddCompleteNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = 1;
 pub const KeProcessorAddFailureNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = 2;
 pub const KeProcessorAddStartNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = 0;
 pub const KeepObject: IO_ALLOCATION_ACTION = 1;
+pub const KernelMode: MODE = 0;
 pub const KeyBasicInformation: KEY_INFORMATION_CLASS = 0;
 pub const KeyCachedInformation: KEY_INFORMATION_CLASS = 4;
 pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = 2;
@@ -9992,7 +10532,7 @@ pub const LOCK_QUEUE_VALID_FLAGS: i32 = 3;
 pub const LOCK_QUEUE_VALID_FLAGS: i32 = 7;
 pub const LOCK_QUEUE_WAIT: i32 = 1;
 pub const LOCK_QUEUE_WAIT_BIT: i32 = 0;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type LOG_FILE_OBJECT = FILE_OBJECT;
 pub const LOG_POLICY_OVERWRITE: i32 = 1;
 pub const LOG_POLICY_PERSIST: i32 = 2;
@@ -10000,6 +10540,10 @@ pub const LOG_POLICY_PERSIST: i32 = 2;
 pub const LONGLONG_MASK: u32 = 7;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LONGLONG_MASK: u64 = 7;
+#[cfg(target_arch = "x86")]
+pub const LONGLONG_SIZE: u32 = 8;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const LONGLONG_SIZE: u64 = 8;
 pub const LONG_2ND_MOST_SIGNIFICANT_BIT: i32 = 2;
 pub const LONG_3RD_MOST_SIGNIFICANT_BIT: i32 = 1;
 pub const LONG_LEAST_SIGNIFICANT_BIT: i32 = 0;
@@ -10008,6 +10552,10 @@ pub const LONG_MASK: u32 = 3;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LONG_MASK: u64 = 3;
 pub const LONG_MOST_SIGNIFICANT_BIT: i32 = 3;
+#[cfg(target_arch = "x86")]
+pub const LONG_SIZE: u32 = 4;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const LONG_SIZE: u64 = 4;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -10115,15 +10663,26 @@ pub const LowPoolPriority: EX_POOL_PRIORITY = 0;
 pub const LowPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = 8;
 pub const LowPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct MAILSLOT_CREATE_PARAMETERS {
     pub MailslotQuota: u32,
     pub MaximumMessageSize: u32,
-    pub ReadTimeout: i64,
-    pub TimeoutSpecified: bool,
+    pub ReadTimeout: super::LARGE_INTEGER,
+    pub TimeoutSpecified: super::BOOLEAN,
+}
+#[cfg(feature = "winnt")]
+impl Default for MAILSLOT_CREATE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MAXIMUM_FILENAME_LENGTH: i32 = 256;
 pub const MAXIMUM_PRIORITY: i32 = 32;
+#[cfg(target_arch = "x86")]
+pub const MAXIMUM_VOLUME_LABEL_LENGTH: u32 = 64;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const MAXIMUM_VOLUME_LABEL_LENGTH: u64 = 64;
 #[cfg(target_arch = "aarch64")]
 pub const MAX_EVENT_COUNTERS: i32 = 31;
 #[repr(C)]
@@ -10184,26 +10743,30 @@ pub const MM_DUMP_MAP_INVALIDATE: i32 = 2;
 pub const MM_FREE_MDL_PAGES_ZERO: i32 = 1;
 pub const MM_MAPPING_ADDRESS_DIVISIBLE: i32 = 1;
 pub const MM_MAXIMUM_DISK_IO_SIZE: i32 = 65536;
-pub type MM_MDL_PAGE_CONTENTS_STATE = i32;
-pub type MM_MDL_ROUTINE = Option<unsafe extern "system" fn(drivercontext: *const core::ffi::c_void, mappedva: *const core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MM_NODE_NUMBER_ONE_BASED(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MM_NODE_NUMBER_ZERO_BASED(pub u32);
+pub type MM_MDL_PAGE_CONTENTS_STATE = _MM_MDL_PAGE_CONTENTS_STATE;
+pub type MM_MDL_ROUTINE = Option<unsafe extern "C" fn(drivercontext: *const core::ffi::c_void, mappedva: *const core::ffi::c_void)>;
+pub type MM_NODE_NUMBER_ONE_BASED = u32;
+pub type MM_NODE_NUMBER_ZERO_BASED = u32;
 pub type MM_PAGE_PRIORITY = i32;
 pub const MM_PERMANENT_ADDRESS_IS_IO_SPACE: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct MM_PHYSICAL_ADDRESS_LIST {
     pub PhysicalAddress: super::PHYSICAL_ADDRESS,
     pub NumberOfBytes: usize,
 }
+#[cfg(all(feature = "usb", feature = "winnt"))]
+impl Default for MM_PHYSICAL_ADDRESS_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MM_PROTECT_DRIVER_SECTION_ALLOW_UNLOAD: i32 = 1;
 pub const MM_PROTECT_DRIVER_SECTION_VALID_FLAGS: i32 = 1;
 pub type MM_SYSTEMSIZE = i32;
+pub type MODE = i32;
+pub const MODE: i32 = 16;
 pub const MPIBus: INTERFACE_TYPE = 10;
 pub const MPSABus: INTERFACE_TYPE = 11;
 pub const MapPhysicalAddressTypeContiguousRange: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = 1;
@@ -10221,6 +10784,7 @@ pub const MaxTraceInformationClass: TRACE_INFORMATION_CLASS = 16;
 pub const MaximumDmaSpeed: DMA_SPEED = 5;
 pub const MaximumDmaWidth: DMA_WIDTH = 5;
 pub const MaximumInterfaceType: INTERFACE_TYPE = 18;
+pub const MaximumMode: MODE = 2;
 pub const MaximumWaitReason: KWAIT_REASON = 43;
 pub const MaximumWorkQueue: WORK_QUEUE_TYPE = 7;
 pub const MdlMappingNoExecute: i32 = 1073741824;
@@ -10234,9 +10798,9 @@ pub const MmFrameBufferCached: MEMORY_CACHING_TYPE_ORIG = 2;
 pub const MmHardwareCoherentCached: MEMORY_CACHING_TYPE = 3;
 pub const MmLargeSystem: MM_SYSTEMSIZE = 2;
 pub const MmMaximumCacheType: MEMORY_CACHING_TYPE = 6;
-pub const MmMdlPageContentsDynamic: MM_MDL_PAGE_CONTENTS_STATE = 0;
-pub const MmMdlPageContentsInvariant: MM_MDL_PAGE_CONTENTS_STATE = 1;
-pub const MmMdlPageContentsQuery: MM_MDL_PAGE_CONTENTS_STATE = 2;
+pub const MmMdlPageContentsDynamic: _MM_MDL_PAGE_CONTENTS_STATE = 0;
+pub const MmMdlPageContentsInvariant: _MM_MDL_PAGE_CONTENTS_STATE = 1;
+pub const MmMdlPageContentsQuery: _MM_MDL_PAGE_CONTENTS_STATE = 2;
 pub const MmMediumSystem: MM_SYSTEMSIZE = 1;
 pub const MmNonCached: MEMORY_CACHING_TYPE = 0;
 pub const MmNonCachedUnordered: MEMORY_CACHING_TYPE = 4;
@@ -10246,7 +10810,8 @@ pub const MmUSWCCached: MEMORY_CACHING_TYPE = 5;
 pub const MmWriteCombined: MEMORY_CACHING_TYPE = 2;
 pub const ModifyAccess: IO_ACCESS_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct NAMED_PIPE_CREATE_PARAMETERS {
     pub NamedPipeType: u32,
     pub ReadMode: u32,
@@ -10254,14 +10819,20 @@ pub struct NAMED_PIPE_CREATE_PARAMETERS {
     pub MaximumInstances: u32,
     pub InboundQuota: u32,
     pub OutboundQuota: u32,
-    pub DefaultTimeout: i64,
-    pub TimeoutSpecified: bool,
+    pub DefaultTimeout: super::LARGE_INTEGER,
+    pub TimeoutSpecified: super::BOOLEAN,
+}
+#[cfg(feature = "winnt")]
+impl Default for NAMED_PIPE_CREATE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NEC98x86: ALTERNATIVE_ARCHITECTURE_TYPE = 1;
-pub type NMI_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, handled: bool) -> bool>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NODE_REQUIREMENT(pub u32);
+#[cfg(feature = "winnt")]
+pub type NMI_CALLBACK = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, handled: super::BOOLEAN) -> super::BOOLEAN>;
+pub type NODE_REQUIREMENT = u32;
+pub const NO_SUBGROUP_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xfea3413e_7e05_4911_9a71_700331f1c294);
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
@@ -10387,7 +10958,8 @@ impl NPEM_CAPABILITY_STANDARD_0 {
         self._bitfield = (self._bitfield & !(1048575 << 12)) | ((value & 1048575) << 12);
     }
 }
-pub type NPEM_CONTROL_ENABLE_DISABLE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enablenpem: bool) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type NPEM_CONTROL_ENABLE_DISABLE = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, enablenpem: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct NPEM_CONTROL_INTERFACE {
@@ -10404,18 +10976,23 @@ pub struct NPEM_CONTROL_INTERFACE {
 pub const NPEM_CONTROL_INTERFACE_CURRENT_VERSION: i32 = 2;
 pub const NPEM_CONTROL_INTERFACE_VERSION1: i32 = 1;
 pub const NPEM_CONTROL_INTERFACE_VERSION2: i32 = 2;
-pub type NPEM_CONTROL_QUERY_CONTROL = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> u32>;
-pub type NPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, standardcapabilities: *mut NPEM_CAPABILITY_STANDARD) -> windows_core::NTSTATUS>;
-pub type NPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, standardcontrol: NPEM_CONTROL_STANDARD_CONTROL_BIT, set: bool) -> windows_core::NTSTATUS>;
+pub type NPEM_CONTROL_QUERY_CONTROL = Option<unsafe extern "C" fn(context: *const core::ffi::c_void) -> u32>;
+pub type NPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, standardcapabilities: PNPEM_CAPABILITY_STANDARD) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type NPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, standardcontrol: NPEM_CONTROL_STANDARD_CONTROL_BIT, set: super::BOOLEAN) -> windows_core::NTSTATUS>;
 pub type NPEM_CONTROL_STANDARD_CONTROL_BIT = i32;
 #[cfg(feature = "winnt")]
-pub type NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "system" fn(vcb: *const core::ffi::c_void, securitydescriptor: super::PSECURITY_DESCRIPTOR)>;
+pub type NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "C" fn(vcb: *const core::ffi::c_void, securitydescriptor: super::PSECURITY_DESCRIPTOR)>;
 pub const NonPagedPool: POOL_TYPE = 0;
+#[cfg(target_arch = "aarch64")]
+pub const NonPagedPool: POOL_TYPE = 512;
 pub const NonPagedPoolBase: POOL_TYPE = 0;
 pub const NonPagedPoolBaseCacheAligned: POOL_TYPE = 4;
 pub const NonPagedPoolBaseCacheAlignedMustS: POOL_TYPE = 6;
 pub const NonPagedPoolBaseMustSucceed: POOL_TYPE = 2;
 pub const NonPagedPoolCacheAligned: POOL_TYPE = 4;
+#[cfg(target_arch = "aarch64")]
+pub const NonPagedPoolCacheAligned: POOL_TYPE = 516;
 pub const NonPagedPoolCacheAlignedMustS: POOL_TYPE = 6;
 pub const NonPagedPoolCacheAlignedMustSSession: POOL_TYPE = 38;
 pub const NonPagedPoolCacheAlignedSession: POOL_TYPE = 36;
@@ -10440,16 +11017,19 @@ pub struct OBJECT_HANDLE_INFORMATION {
     pub GrantedAccess: super::ACCESS_MASK,
 }
 #[repr(C)]
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECT_NAME_INFORMATION {
     pub Name: super::UNICODE_STRING,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OBJECT_TYPE(pub u8);
 pub const OBJECT_TYPE_ALL_ACCESS: i32 = 983041;
 pub const OBJECT_TYPE_CREATE: i32 = 1;
-pub const OBJ_NAME_PATH_SEPARATOR: u32 = 92;
+pub const OBJ_NAME_PATH_SEPARATOR: u16 = 92;
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OB_CALLBACK_REGISTRATION {
     pub Version: u16,
@@ -10460,9 +11040,7 @@ pub struct OB_CALLBACK_REGISTRATION {
 }
 pub const OB_FLT_REGISTRATION_VERSION: i32 = 256;
 pub const OB_FLT_REGISTRATION_VERSION_0100: i32 = 256;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OB_OPERATION(pub u32);
+pub type OB_OPERATION = u32;
 pub const OB_OPERATION_HANDLE_CREATE: i32 = 1;
 pub const OB_OPERATION_HANDLE_DUPLICATE: i32 = 2;
 #[repr(C)]
@@ -10698,18 +11276,19 @@ impl OWNER_ENTRY_COUNTS_0 {
     }
 }
 pub const OkControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 2;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PACCESS_STATE = *mut ACCESS_STATE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PACPI_INTERFACE_STANDARD = *mut ACPI_INTERFACE_STANDARD;
+#[cfg(feature = "winnt")]
 pub type PACPI_INTERFACE_STANDARD2 = *mut ACPI_INTERFACE_STANDARD2;
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "ntddscsi")]
 pub type PADAPTER_OBJECT = *mut super::_ADAPTER_OBJECT;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PADAPTER_OBJECT = *mut DMA_ADAPTER;
-pub type PAFFINITY_TOKEN = *mut _AFFINITY_TOKEN;
+pub type PAFFINITY_TOKEN = *mut AFFINITY_TOKEN;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
@@ -10742,23 +11321,22 @@ impl Default for PAGED_LOOKASIDE_LIST {
 pub const PAGE_ENCLAVE_NO_CHANGE: i32 = 536870912;
 pub const PAGE_SHIFT: i32 = 12;
 pub const PAGE_SIZE: i32 = 4096;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PALLOCATE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const DEVICE_OBJECT, numberofmapregisters: u32, executionroutine: PDRIVER_CONTROL, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PALLOCATE_ADAPTER_CHANNEL_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, numberofmapregisters: u32, flags: u32, executionroutine: PDRIVER_CONTROL, executioncontext: *const core::ffi::c_void, mapregisterbase: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PALLOCATE_COMMON_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, length: u32, logicaladdress: *mut i64, cacheenabled: bool) -> *mut core::ffi::c_void>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PALLOCATE_COMMON_BUFFER_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, maximumaddress: *const i64, length: u32, logicaladdress: *mut i64, cacheenabled: bool, preferrednode: NODE_REQUIREMENT) -> *mut core::ffi::c_void>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PALLOCATE_COMMON_BUFFER_VECTOR = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, lowaddress: super::PHYSICAL_ADDRESS, highaddress: super::PHYSICAL_ADDRESS, cachetype: MEMORY_CACHING_TYPE, idealnode: NODE_REQUIREMENT, flags: u32, numberofelements: u32, sizeofelements: u64, vectorout: *mut PDMA_COMMON_BUFFER_VECTOR) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PALLOCATE_COMMON_BUFFER_WITH_BOUNDS = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, minimumaddress: *const i64, maximumaddress: *const i64, length: u32, flags: u32, cachetype: *const MEMORY_CACHING_TYPE, preferrednode: NODE_REQUIREMENT, logicaladdress: *mut i64) -> *mut core::ffi::c_void>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PALLOCATE_DOMAIN_COMMON_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, domainhandle: super::HANDLE, maximumaddress: *const i64, length: u32, flags: u32, cachetype: *const MEMORY_CACHING_TYPE, preferrednode: NODE_REQUIREMENT, logicaladdress: *mut i64, virtualaddress: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PALLOCATE_FUNCTION = *mut ALLOCATE_FUNCTION;
-#[cfg(feature = "winnt")]
-pub type PALLOCATE_FUNCTION_EX = *mut ALLOCATE_FUNCTION_EX;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PALLOCATE_ADAPTER_CHANNEL = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, deviceobject: PDEVICE_OBJECT, numberofmapregisters: u32, executionroutine: PDRIVER_CONTROL, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PALLOCATE_ADAPTER_CHANNEL_EX = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, deviceobject: PDEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, numberofmapregisters: u32, flags: u32, executionroutine: PDRIVER_CONTROL, executioncontext: *const core::ffi::c_void, mapregisterbase: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PALLOCATE_COMMON_BUFFER = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, length: u32, logicaladdress: super::PPHYSICAL_ADDRESS, cacheenabled: super::BOOLEAN) -> *mut core::ffi::c_void>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PALLOCATE_COMMON_BUFFER_EX = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, maximumaddress: super::PPHYSICAL_ADDRESS, length: u32, logicaladdress: super::PPHYSICAL_ADDRESS, cacheenabled: super::BOOLEAN, preferrednode: NODE_REQUIREMENT) -> *mut core::ffi::c_void>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PALLOCATE_COMMON_BUFFER_VECTOR = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, lowaddress: super::PHYSICAL_ADDRESS, highaddress: super::PHYSICAL_ADDRESS, cachetype: MEMORY_CACHING_TYPE, idealnode: NODE_REQUIREMENT, flags: u32, numberofelements: u32, sizeofelements: u64, vectorout: *mut PDMA_COMMON_BUFFER_VECTOR) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PALLOCATE_COMMON_BUFFER_WITH_BOUNDS = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, minimumaddress: super::PPHYSICAL_ADDRESS, maximumaddress: super::PPHYSICAL_ADDRESS, length: u32, flags: u32, cachetype: *const MEMORY_CACHING_TYPE, preferrednode: NODE_REQUIREMENT, logicaladdress: super::PPHYSICAL_ADDRESS) -> *mut core::ffi::c_void>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PALLOCATE_DOMAIN_COMMON_BUFFER = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, domainhandle: super::HANDLE, maximumaddress: super::PPHYSICAL_ADDRESS, length: u32, flags: u32, cachetype: *const MEMORY_CACHING_TYPE, preferrednode: NODE_REQUIREMENT, logicaladdress: super::PPHYSICAL_ADDRESS, virtualaddress: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PALLOCATE_FUNCTION = *mut u8;
+pub type PALLOCATE_FUNCTION_EX = *mut u8;
 #[cfg(target_arch = "x86")]
 pub type PAMD_L1_CACHE_INFO = *mut AMD_L1_CACHE_INFO;
 #[cfg(target_arch = "x86")]
@@ -10768,35 +11346,34 @@ pub type PAMD_L3_CACHE_INFO = *mut AMD_L3_CACHE_INFO;
 #[cfg(target_arch = "aarch64")]
 pub type PARM64_IDCODE = *mut ARM64_IDCODE;
 pub type PARTITION_INFORMATION_CLASS = i32;
-#[cfg(all(feature = "ntddk", feature = "ntsecapi"))]
+#[cfg(all(feature = "ntddk", feature = "winternl"))]
 pub type PBDCB_IMAGE_INFORMATION = *mut super::BDCB_IMAGE_INFORMATION;
 pub type PBOOTDISK_INFORMATION = *mut BOOTDISK_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PBOOTDISK_INFORMATION_EX = *mut BOOTDISK_INFORMATION_EX;
 pub type PBOOTDISK_INFORMATION_LITE = *mut BOOTDISK_INFORMATION_LITE;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub type PBOUND_CALLBACK = *mut BOUND_CALLBACK;
+pub type PBOUND_CALLBACK = *mut u8;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub type PBOUND_CALLBACK_STATUS = *mut BOUND_CALLBACK_STATUS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PBUILD_MDL_FROM_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, scattergather: *const SCATTER_GATHER_LIST, originalmdl: *const MDL, targetmdl: *mut super::PMDL) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PBUILD_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const DEVICE_OBJECT, mdl: *const MDL, currentva: *const core::ffi::c_void, length: u32, executionroutine: PDRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: bool, scattergatherbuffer: *const core::ffi::c_void, scattergatherlength: u32) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PBUILD_SCATTER_GATHER_LIST_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, mdl: *const MDL, offset: u64, length: u32, flags: u32, executionroutine: PDRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: bool, scattergatherbuffer: *const core::ffi::c_void, scattergatherlength: u32, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void, scattergatherlist: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PBUILD_MDL_FROM_SCATTER_GATHER_LIST = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, scattergather: PSCATTER_GATHER_LIST, originalmdl: super::PMDL, targetmdl: *mut super::PMDL) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PBUILD_SCATTER_GATHER_LIST = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, deviceobject: PDEVICE_OBJECT, mdl: super::PMDL, currentva: *const core::ffi::c_void, length: u32, executionroutine: PDRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::BOOLEAN, scattergatherbuffer: *const core::ffi::c_void, scattergatherlength: u32) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PBUILD_SCATTER_GATHER_LIST_EX = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, deviceobject: PDEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, mdl: super::PMDL, offset: u64, length: u32, flags: u32, executionroutine: PDRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::BOOLEAN, scattergatherbuffer: *const core::ffi::c_void, scattergatherlength: u32, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void, scattergatherlist: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type PBUS_INTERFACE_STANDARD = *mut BUS_INTERFACE_STANDARD;
 pub type PBUS_QUERY_ID_TYPE = *mut BUS_QUERY_ID_TYPE;
-#[cfg(all(feature = "basetsd", feature = "usb"))]
 pub type PBUS_RESOURCE_UPDATE_INTERFACE = *mut BUS_RESOURCE_UPDATE_INTERFACE;
 pub type PBUS_SPECIFIC_RESET_FLAGS = *mut BUS_SPECIFIC_RESET_FLAGS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PCALCULATE_SCATTER_GATHER_LIST_SIZE = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const MDL, currentva: *const core::ffi::c_void, length: u32, scattergatherlistsize: *mut u32, pnumberofmapregisters: *mut u32) -> windows_core::NTSTATUS>;
-pub type PCALLBACK_FUNCTION = *mut CALLBACK_FUNCTION;
-pub type PCALLBACK_OBJECT = *mut _CALLBACK_OBJECT;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PCANCEL_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PCANCEL_MAPPED_TRANSFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, dmatransfercontext: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PCALCULATE_SCATTER_GATHER_LIST_SIZE = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, mdl: super::PMDL, currentva: *const core::ffi::c_void, length: u32, scattergatherlistsize: super::PULONG, pnumberofmapregisters: super::PULONG) -> windows_core::NTSTATUS>;
+pub type PCALLBACK_FUNCTION = *mut u8;
+pub type PCALLBACK_OBJECT = *mut CALLBACK_OBJECT;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PCANCEL_ADAPTER_CHANNEL = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, deviceobject: PDEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PCANCEL_MAPPED_TRANSFER = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, dmatransfercontext: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type PCDRIVER_RUNTIME_INIT_FLAGS = *const DRIVER_RUNTIME_INIT_FLAGS;
 pub const PCIBus: INTERFACE_TYPE = 5;
 pub const PCI_ACS_ALLOWED: i32 = 0;
@@ -10820,6 +11397,10 @@ pub struct PCI_ATS_INTERFACE {
     pub SetAddressTranslationServices: PPCI_SET_ATS,
     pub InvalidateQueueDepth: u8,
 }
+#[cfg(target_arch = "x86")]
+pub const PCI_ATS_INTERFACE_SIZE: u32 = 24;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const PCI_ATS_INTERFACE_SIZE: u64 = 48;
 pub const PCI_ATS_INTERFACE_VERSION: i32 = 1;
 pub const PCI_BRIDGE_TYPE: i32 = 1;
 #[repr(C)]
@@ -10905,93 +11486,14 @@ impl Default for PCI_COMMON_HEADER {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_COMMON_HEADER_0 {
-    pub type0: PCI_COMMON_HEADER_0_0,
-    pub type1: PCI_COMMON_HEADER_0_1,
-    pub type2: PCI_COMMON_HEADER_0_2,
+    pub type0: _PCI_HEADER_TYPE_0,
+    pub type1: _PCI_HEADER_TYPE_1,
+    pub type2: _PCI_HEADER_TYPE_2,
 }
 impl Default for PCI_COMMON_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PCI_COMMON_HEADER_0_0 {
-    pub BaseAddresses: [u32; 6],
-    pub CIS: u32,
-    pub SubVendorID: u16,
-    pub SubSystemID: u16,
-    pub ROMBaseAddress: u32,
-    pub CapabilitiesPtr: u8,
-    pub Reserved1: [u8; 3],
-    pub Reserved2: u32,
-    pub InterruptLine: u8,
-    pub InterruptPin: u8,
-    pub MinimumGrant: u8,
-    pub MaximumLatency: u8,
-}
-impl Default for PCI_COMMON_HEADER_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PCI_COMMON_HEADER_0_1 {
-    pub BaseAddresses: [u32; 2],
-    pub PrimaryBus: u8,
-    pub SecondaryBus: u8,
-    pub SubordinateBus: u8,
-    pub SecondaryLatency: u8,
-    pub IOBase: u8,
-    pub IOLimit: u8,
-    pub SecondaryStatus: u16,
-    pub MemoryBase: u16,
-    pub MemoryLimit: u16,
-    pub PrefetchBase: u16,
-    pub PrefetchLimit: u16,
-    pub PrefetchBaseUpper32: u32,
-    pub PrefetchLimitUpper32: u32,
-    pub IOBaseUpper16: u16,
-    pub IOLimitUpper16: u16,
-    pub CapabilitiesPtr: u8,
-    pub Reserved1: [u8; 3],
-    pub ROMBaseAddress: u32,
-    pub InterruptLine: u8,
-    pub InterruptPin: u8,
-    pub BridgeControl: u16,
-}
-impl Default for PCI_COMMON_HEADER_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PCI_COMMON_HEADER_0_2 {
-    pub SocketRegistersBaseAddress: u32,
-    pub CapabilitiesPtr: u8,
-    pub Reserved: u8,
-    pub SecondaryStatus: u16,
-    pub PrimaryBus: u8,
-    pub SecondaryBus: u8,
-    pub SubordinateBus: u8,
-    pub SecondaryLatency: u8,
-    pub Range: [PCI_COMMON_HEADER_0_2_0; 4],
-    pub InterruptLine: u8,
-    pub InterruptPin: u8,
-    pub BridgeControl: u16,
-}
-impl Default for PCI_COMMON_HEADER_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PCI_COMMON_HEADER_0_2_0 {
-    pub Base: u32,
-    pub Limit: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11034,7 +11536,6 @@ pub struct PCI_DOE_INTERFACE {
     pub SendDoeRequest: PSEND_DOE_REQUEST,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct PCI_DOE_INTERFACE2 {
     pub Size: u16,
@@ -11804,7 +12305,7 @@ impl PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
         self._bitfield = (self._bitfield & !(4095 << 4)) | ((value & 4095) << 4);
     }
 }
-pub type PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ERROR_SOURCE_ID {
@@ -11860,7 +12361,7 @@ impl PCI_EXPRESS_ERROR_SOURCE_ID_0 {
         self._bitfield2 = (self._bitfield2 & !(255 << 8)) | ((value & 255) << 8);
     }
 }
-pub type PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub const PCI_EXPRESS_FRS_QUEUEING_CAP_ID: i32 = 33;
 pub const PCI_EXPRESS_IDE_CAP_ID: i32 = 48;
 pub const PCI_EXPRESS_L1_PM_SS_CAP_ID: i32 = 30;
@@ -13379,17 +13880,27 @@ impl Default for PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
 }
 pub const PCI_EXPRESS_VIRTUAL_CHANNEL_CAP_ID: i32 = 2;
 pub const PCI_EXTENDED_CONFIG_LENGTH: i32 = 4096;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PCI_HEADER_TYPE_2_0 {
+    pub Base: u32,
+    pub Limit: u32,
+}
 pub const PCI_INVALID_VENDORID: i32 = 65535;
-pub type PCI_IS_DEVICE_PRESENT = Option<unsafe extern "system" fn(vendorid: u16, deviceid: u16, revisionid: u8, subvendorid: u16, subsystemid: u16, flags: u32) -> bool>;
-pub type PCI_IS_DEVICE_PRESENT_EX = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, parameters: *const PCI_DEVICE_PRESENCE_PARAMETERS) -> bool>;
+#[cfg(feature = "winnt")]
+pub type PCI_IS_DEVICE_PRESENT = Option<unsafe extern "C" fn(vendorid: u16, deviceid: u16, revisionid: u8, subvendorid: u16, subsystemid: u16, flags: u32) -> super::BOOLEAN>;
+#[cfg(feature = "winnt")]
+pub type PCI_IS_DEVICE_PRESENT_EX = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, parameters: PPCI_DEVICE_PRESENCE_PARAMETERS) -> super::BOOLEAN>;
 pub const PCI_MAX_BRIDGE_NUMBER: i32 = 255;
 pub const PCI_MAX_DEVICES: i32 = 32;
 pub const PCI_MAX_FUNCTION: i32 = 8;
 pub const PCI_MAX_SEGMENT_NUMBER: i32 = 65535;
-pub type PCI_MSIX_GET_ENTRY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tableentry: u32, messagenumber: *mut u32, masked: *mut bool) -> windows_core::NTSTATUS>;
-pub type PCI_MSIX_GET_TABLE_SIZE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tablesize: *mut u32) -> windows_core::NTSTATUS>;
-pub type PCI_MSIX_MASKUNMASK_ENTRY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tableentry: u32) -> windows_core::NTSTATUS>;
-pub type PCI_MSIX_SET_ENTRY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, tableentry: u32, messagenumber: u32) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type PCI_MSIX_GET_ENTRY = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, tableentry: u32, messagenumber: super::PULONG, masked: super::PBOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type PCI_MSIX_GET_TABLE_SIZE = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, tablesize: super::PULONG) -> windows_core::NTSTATUS>;
+pub type PCI_MSIX_MASKUNMASK_ENTRY = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, tableentry: u32) -> windows_core::NTSTATUS>;
+pub type PCI_MSIX_SET_ENTRY = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, tableentry: u32, messagenumber: u32) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct PCI_MSIX_TABLE_CONFIG_INTERFACE {
@@ -13414,7 +13925,7 @@ pub const PCI_MULTIFUNCTION: i32 = 128;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_PMC {
     pub _bitfield: u8,
-    pub Support: PCI_PMC_0,
+    pub Support: _PM_SUPPORT,
 }
 impl PCI_PMC {
     pub fn Version(&self) -> u8 {
@@ -13525,61 +14036,6 @@ impl PCI_PMCSR_BSE {
         (self._bitfield >> 7) & 1 != 0
     }
     pub fn set_BusPowerClockControlEnabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PCI_PMC_0 {
-    pub _bitfield: u8,
-}
-impl PCI_PMC_0 {
-    pub fn Rsvd2(&self) -> bool {
-        self._bitfield & 1 != 0
-    }
-    pub fn set_Rsvd2(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
-    }
-    pub fn D1(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
-    }
-    pub fn set_D1(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
-    }
-    pub fn D2(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
-    }
-    pub fn set_D2(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
-    }
-    pub fn PMED0(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
-    }
-    pub fn set_PMED0(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
-    }
-    pub fn PMED1(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
-    }
-    pub fn set_PMED1(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
-    }
-    pub fn PMED2(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
-    }
-    pub fn set_PMED2(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
-    }
-    pub fn PMED3Hot(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
-    }
-    pub fn set_PMED3Hot(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
-    }
-    pub fn PMED3Cold(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
-    }
-    pub fn set_PMED3Cold(&mut self, value: bool) {
         self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
     }
 }
@@ -13712,10 +14168,11 @@ impl PCI_SEGMENT_BUS_NUMBER_0_0 {
         self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
     }
 }
-pub type PCI_SET_ACS = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, enablesourcevalidation: PCI_ACS_BIT, enabletranslationblocking: PCI_ACS_BIT, enablep2prequestredirect: PCI_ACS_BIT, enablecompletionredirect: PCI_ACS_BIT, enableupstreamforwarding: PCI_ACS_BIT, enableegresscontrol: PCI_ACS_BIT, enabledirecttranslatedp2p: PCI_ACS_BIT) -> windows_core::NTSTATUS>;
-pub type PCI_SET_ACS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, scenariostomodify: u32, scenariostate: u32) -> windows_core::NTSTATUS>;
-pub type PCI_SET_ACS3 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, scenariostomodify: u32, scenariostate: u32, partitionid: u64) -> windows_core::NTSTATUS>;
-pub type PCI_SET_ATS = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enableats: bool) -> windows_core::NTSTATUS>;
+pub type PCI_SET_ACS = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, enablesourcevalidation: PCI_ACS_BIT, enabletranslationblocking: PCI_ACS_BIT, enablep2prequestredirect: PCI_ACS_BIT, enablecompletionredirect: PCI_ACS_BIT, enableupstreamforwarding: PCI_ACS_BIT, enableegresscontrol: PCI_ACS_BIT, enabledirecttranslatedp2p: PCI_ACS_BIT) -> windows_core::NTSTATUS>;
+pub type PCI_SET_ACS2 = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, scenariostomodify: u32, scenariostate: u32) -> windows_core::NTSTATUS>;
+pub type PCI_SET_ACS3 = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, scenariostomodify: u32, scenariostate: u32, partitionid: u64) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PCI_SET_ATS = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, enableats: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PCI_SLOT_NUMBER {
@@ -14053,24 +14510,22 @@ impl PCI_X_CAPABILITY_1_0 {
         self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
     }
 }
-#[cfg(all(feature = "basetsd", feature = "clfs", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PCLFS_CLIENT_ADVANCE_TAIL_CALLBACK = Option<unsafe extern "system" fn(logfile: *const FILE_OBJECT, targetlsn: *const super::CLFS_LSN, clientdata: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(logfile: *const FILE_OBJECT, operationstatus: windows_core::NTSTATUS, logispinned: bool, clientdata: *const core::ffi::c_void)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PCLFS_CLIENT_LOG_UNPINNED_CALLBACK = Option<unsafe extern "system" fn(logfile: *const FILE_OBJECT, clientdata: *const core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCLFS_MGMT_CLIENT(pub *mut *mut core::ffi::c_void);
-#[cfg(all(feature = "basetsd", feature = "clfs", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "clfs", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PCLFS_CLIENT_ADVANCE_TAIL_CALLBACK = Option<unsafe extern "C" fn(logfile: PLOG_FILE_OBJECT, targetlsn: super::PCLFS_LSN, clientdata: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACK = Option<unsafe extern "C" fn(logfile: PLOG_FILE_OBJECT, operationstatus: windows_core::NTSTATUS, logispinned: super::BOOLEAN, clientdata: *const core::ffi::c_void)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PCLFS_CLIENT_LOG_UNPINNED_CALLBACK = Option<unsafe extern "C" fn(logfile: PLOG_FILE_OBJECT, clientdata: *const core::ffi::c_void)>;
+pub type PCLFS_MGMT_CLIENT = *mut *mut core::ffi::c_void;
+#[cfg(all(feature = "basetsd", feature = "clfs", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PCLFS_MGMT_CLIENT_REGISTRATION = *mut CLFS_MGMT_CLIENT_REGISTRATION;
 #[cfg(feature = "clfs")]
 pub type PCLFS_MGMT_NOTIFICATION = *mut CLFS_MGMT_NOTIFICATION;
 pub type PCLFS_MGMT_NOTIFICATION_TYPE = *mut CLFS_MGMT_NOTIFICATION_TYPE;
 pub type PCLFS_MGMT_POLICY = *mut CLFS_MGMT_POLICY;
 pub type PCLFS_MGMT_POLICY_TYPE = *mut CLFS_MGMT_POLICY_TYPE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(logfile: *const FILE_OBJECT, operationstatus: windows_core::NTSTATUS, clientdata: *const core::ffi::c_void)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK = Option<unsafe extern "C" fn(logfile: PLOG_FILE_OBJECT, operationstatus: windows_core::NTSTATUS, clientdata: *const core::ffi::c_void)>;
 #[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PCLIENT_ID = *mut super::CLIENT_ID;
 pub const PCMCIABus: INTERFACE_TYPE = 8;
@@ -14080,43 +14535,46 @@ pub type PCM_DISK_GEOMETRY_DEVICE_DATA = *mut CM_DISK_GEOMETRY_DEVICE_DATA;
 pub type PCM_EISA_FUNCTION_INFORMATION = *mut CM_EISA_FUNCTION_INFORMATION;
 pub type PCM_EISA_SLOT_INFORMATION = *mut CM_EISA_SLOT_INFORMATION;
 pub type PCM_FLOPPY_DEVICE_DATA = *mut CM_FLOPPY_DEVICE_DATA;
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 pub type PCM_FULL_RESOURCE_DESCRIPTOR = *mut CM_FULL_RESOURCE_DESCRIPTOR;
 pub type PCM_INT13_DRIVE_PARAMETER = *mut CM_INT13_DRIVE_PARAMETER;
 pub type PCM_KEYBOARD_DEVICE_DATA = *mut CM_KEYBOARD_DEVICE_DATA;
 pub type PCM_MCA_POS_DATA = *mut CM_MCA_POS_DATA;
 pub type PCM_MONITOR_DEVICE_DATA = *mut CM_MONITOR_DEVICE_DATA;
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 pub type PCM_PARTIAL_RESOURCE_DESCRIPTOR = *mut CM_PARTIAL_RESOURCE_DESCRIPTOR;
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 pub type PCM_PARTIAL_RESOURCE_LIST = *mut CM_PARTIAL_RESOURCE_LIST;
 pub type PCM_PNP_BIOS_DEVICE_NODE = *mut CM_PNP_BIOS_DEVICE_NODE;
 pub type PCM_PNP_BIOS_INSTALLATION_CHECK = *mut CM_PNP_BIOS_INSTALLATION_CHECK;
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 pub type PCM_RESOURCE_LIST = *mut CM_RESOURCE_LIST;
 pub type PCM_ROM_BLOCK = *mut CM_ROM_BLOCK;
 pub type PCM_SCSI_DEVICE_DATA = *mut CM_SCSI_DEVICE_DATA;
 pub type PCM_SERIAL_DEVICE_DATA = *mut CM_SERIAL_DEVICE_DATA;
 pub type PCM_SONIC_DEVICE_DATA = *mut CM_SONIC_DEVICE_DATA;
 pub type PCM_VIDEO_DEVICE_DATA = *mut CM_VIDEO_DEVICE_DATA;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PCONFIGURE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, functionnumber: u32, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PCONFIGURE_ADAPTER_CHANNEL = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, functionnumber: u32, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
 pub type PCOUNTED_REASON_CONTEXT = *mut COUNTED_REASON_CONTEXT;
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 pub type PCPOOL_CREATE_EXTENDED_PARAMETER = *const POOL_CREATE_EXTENDED_PARAMETER;
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 pub type PCPOOL_CREATE_EXTENDED_PARAMS = *const POOL_CREATE_EXTENDED_PARAMS;
 #[cfg(feature = "winnt")]
 pub type PCPOOL_EXTENDED_PARAMETER = *const POOL_EXTENDED_PARAMETER;
 pub type PCRASHDUMP_FUNCTIONS_INTERFACE = *mut CRASHDUMP_FUNCTIONS_INTERFACE;
-pub type PCRASHDUMP_POWER_ON = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PCREATE_COMMON_BUFFER_FROM_MDL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const MDL, extendedconfigs: *const DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION, extendedconfigscount: u32, logicaladdress: *mut i64) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-pub type PCW_CALLBACK = Option<unsafe extern "system" fn(r#type: PCW_CALLBACK_TYPE, info: *const PCW_CALLBACK_INFORMATION, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PCRASHDUMP_POWER_ON = Option<unsafe extern "C" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PCREATE_COMMON_BUFFER_FROM_MDL = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, mdl: super::PMDL, extendedconfigs: PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION, extendedconfigscount: u32, logicaladdress: super::PPHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PCW_BUFFER(pub u8);
+#[cfg(all(feature = "winnt", feature = "winternl"))]
+pub type PCW_CALLBACK = Option<unsafe extern "system" fn(r#type: PCW_CALLBACK_TYPE, info: PPCW_CALLBACK_INFORMATION, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[repr(C)]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union PCW_CALLBACK_INFORMATION {
     pub AddCounter: PCW_COUNTER_INFORMATION,
@@ -14124,7 +14582,7 @@ pub union PCW_CALLBACK_INFORMATION {
     pub EnumerateInstances: PCW_MASK_INFORMATION,
     pub CollectData: PCW_MASK_INFORMATION,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 impl Default for PCW_CALLBACK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14140,7 +14598,7 @@ pub struct PCW_COUNTER_DESCRIPTOR {
     pub Size: u16,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCW_COUNTER_INFORMATION {
     pub CounterMask: u64,
@@ -14154,19 +14612,25 @@ pub struct PCW_DATA {
     pub Size: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PCW_INSTANCE(pub u8);
+#[repr(C)]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCW_MASK_INFORMATION {
     pub CounterMask: u64,
     pub InstanceMask: super::PCUNICODE_STRING,
     pub InstanceId: u32,
-    pub CollectMultiple: bool,
+    pub CollectMultiple: super::BOOLEAN,
     pub Buffer: PPCW_BUFFER,
     pub CancelEvent: PKEVENT,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PCW_REGISTRATION(pub u8);
 pub type PCW_REGISTRATION_FLAGS = i32;
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct PCW_REGISTRATION_INFORMATION {
     pub Version: u32,
@@ -14181,130 +14645,113 @@ pub const PCW_VERSION_1: i32 = 256;
 pub const PCW_VERSION_2: i32 = 512;
 pub type PD3COLD_AUX_POWER_AND_TIMING_INTERFACE = *mut D3COLD_AUX_POWER_AND_TIMING_INTERFACE;
 pub type PD3COLD_LAST_TRANSITION_STATUS = *mut D3COLD_LAST_TRANSITION_STATUS;
-pub type PD3COLD_REQUEST_AUX_POWER = *mut D3COLD_REQUEST_AUX_POWER;
-pub type PD3COLD_REQUEST_CORE_POWER_RAIL = *mut D3COLD_REQUEST_CORE_POWER_RAIL;
-pub type PD3COLD_REQUEST_PERST_DELAY = *mut D3COLD_REQUEST_PERST_DELAY;
-#[cfg(feature = "winnt")]
+pub type PD3COLD_REQUEST_AUX_POWER = *mut u8;
+pub type PD3COLD_REQUEST_CORE_POWER_RAIL = *mut u8;
+pub type PD3COLD_REQUEST_PERST_DELAY = *mut u8;
 pub type PD3COLD_SUPPORT_INTERFACE = *mut D3COLD_SUPPORT_INTERFACE;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-pub type PDEBUG_PRINT_CALLBACK = Option<unsafe extern "system" fn(output: *const super::STRING, componentid: u32, level: u32)>;
-pub type PDEVICE_BUS_SPECIFIC_RESET_HANDLER = *mut DEVICE_BUS_SPECIFIC_RESET_HANDLER;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type PDEBUG_PRINT_CALLBACK = Option<unsafe extern "C" fn(output: super::PSTRING, componentid: u32, level: u32)>;
+pub type PDEVICE_BUS_SPECIFIC_RESET_HANDLER = *mut u8;
 pub type PDEVICE_BUS_SPECIFIC_RESET_INFO = *mut DEVICE_BUS_SPECIFIC_RESET_INFO;
 pub type PDEVICE_BUS_SPECIFIC_RESET_TYPE = *mut DEVICE_BUS_SPECIFIC_RESET_TYPE;
 #[cfg(feature = "winnt")]
 pub type PDEVICE_CAPABILITIES = *mut DEVICE_CAPABILITIES;
-pub type PDEVICE_CHANGE_COMPLETE_CALLBACK = *mut DEVICE_CHANGE_COMPLETE_CALLBACK;
-#[cfg(feature = "usb")]
+pub type PDEVICE_CHANGE_COMPLETE_CALLBACK = *mut u8;
+#[cfg(all(feature = "usb", feature = "winnt"))]
 pub type PDEVICE_DESCRIPTION = *mut DEVICE_DESCRIPTION;
 pub type PDEVICE_DIRECTORY_TYPE = *mut DEVICE_DIRECTORY_TYPE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDEVICE_FAULT_CONFIGURATION = *mut DEVICE_FAULT_CONFIGURATION;
 pub type PDEVICE_FLAGS = *mut DEVICE_FLAGS;
 pub type PDEVICE_INSTALL_STATE = *mut DEVICE_INSTALL_STATE;
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 pub type PDEVICE_INTERFACE_CHANGE_NOTIFICATION = *mut DEVICE_INTERFACE_CHANGE_NOTIFICATION;
-pub type PDEVICE_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: u32)>;
-pub type PDEVICE_NOTIFY_CALLBACK2 = Option<unsafe extern "system" fn(notificationcontext: *mut core::ffi::c_void, notifycode: u32)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PDEVICE_NOTIFY_CALLBACK = Option<unsafe extern "C" fn(param0: *mut core::ffi::c_void, param1: u32)>;
+pub type PDEVICE_NOTIFY_CALLBACK2 = Option<unsafe extern "C" fn(notificationcontext: *mut core::ffi::c_void, notifycode: u32)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDEVICE_OBJECT = *mut DEVICE_OBJECT;
-pub type PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = *mut DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = *mut u8;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDEVICE_RELATIONS = *mut DEVICE_RELATIONS;
 pub type PDEVICE_RELATION_TYPE = *mut DEVICE_RELATION_TYPE;
 pub type PDEVICE_REMOVAL_POLICY = *mut DEVICE_REMOVAL_POLICY;
-pub type PDEVICE_RESET_COMPLETION = *mut DEVICE_RESET_COMPLETION;
-pub type PDEVICE_RESET_HANDLER = *mut DEVICE_RESET_HANDLER;
+pub type PDEVICE_RESET_COMPLETION = *mut u8;
+pub type PDEVICE_RESET_HANDLER = *mut u8;
 pub type PDEVICE_RESET_INTERFACE_STANDARD = *mut DEVICE_RESET_INTERFACE_STANDARD;
 pub type PDEVICE_RESET_STATUS_FLAGS = *mut DEVICE_RESET_STATUS_FLAGS;
 pub type PDEVICE_TEXT_TYPE = *mut DEVICE_TEXT_TYPE;
 pub type PDEVICE_WAKE_DEPTH = *mut DEVICE_WAKE_DEPTH;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDEVOBJ_EXTENSION = *mut DEVOBJ_EXTENSION;
 pub type PDIRECTORY_NOTIFY_INFORMATION_CLASS = *mut DIRECTORY_NOTIFY_INFORMATION_CLASS;
 #[cfg(feature = "winnt")]
 pub type PDISPATCHER_HEADER = *mut DISPATCHER_HEADER;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDMA_ADAPTER = *mut DMA_ADAPTER;
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 pub type PDMA_ADAPTER_INFO = *mut DMA_ADAPTER_INFO;
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 pub type PDMA_ADAPTER_INFO_CRASHDUMP = *mut DMA_ADAPTER_INFO_CRASHDUMP;
 pub type PDMA_ADAPTER_INFO_V1 = *mut DMA_ADAPTER_INFO_V1;
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 pub type PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION = *mut DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION;
 pub type PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = *mut DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE;
 pub type PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = *mut DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE;
 pub type PDMA_COMMON_BUFFER_VECTOR = *mut DMA_COMMON_BUFFER_VECTOR;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDMA_COMPLETION_ROUTINE = *mut DMA_COMPLETION_ROUTINE;
+pub type PDMA_COMPLETION_ROUTINE = *mut u8;
 pub type PDMA_FEATURE_QUERY_STATUS = *mut DMA_FEATURE_QUERY_STATUS;
 pub type PDMA_FEATURE_TYPE = *mut DMA_FEATURE_TYPE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDMA_IOMMU_INTERFACE = *mut DMA_IOMMU_INTERFACE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDMA_IOMMU_INTERFACE_EX = *mut DMA_IOMMU_INTERFACE_EX;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDMA_IOMMU_INTERFACE_V1 = *mut DMA_IOMMU_INTERFACE_V1;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDMA_IOMMU_INTERFACE_V2 = *mut DMA_IOMMU_INTERFACE_V2;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDMA_IOMMU_INTERFACE_V3 = *mut DMA_IOMMU_INTERFACE_V3;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDMA_OPERATIONS = *mut DMA_OPERATIONS;
 pub type PDMA_SPEED = *mut DMA_SPEED;
 pub type PDMA_TRANSFER_INFO = *mut DMA_TRANSFER_INFO;
 pub type PDMA_TRANSFER_INFO_V1 = *mut DMA_TRANSFER_INFO_V1;
 pub type PDMA_TRANSFER_INFO_V2 = *mut DMA_TRANSFER_INFO_V2;
 pub type PDMA_WIDTH = *mut DMA_WIDTH;
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 pub type PDOMAIN_CONFIGURATION = *mut DOMAIN_CONFIGURATION;
 pub type PDOMAIN_CONFIGURATION_ARCH = *mut DOMAIN_CONFIGURATION_ARCH;
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 pub type PDOMAIN_CONFIGURATION_ARM64 = *mut DOMAIN_CONFIGURATION_ARM64;
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 pub type PDOMAIN_CONFIGURATION_X64 = *mut DOMAIN_CONFIGURATION_X64;
 pub type PDPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK = *mut DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_ADD_DEVICE = *mut DRIVER_ADD_DEVICE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_CANCEL = *mut DRIVER_CANCEL;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_CONTROL = *mut DRIVER_CONTROL;
+pub type PDRIVER_ADD_DEVICE = *mut u8;
+pub type PDRIVER_CANCEL = *mut u8;
+pub type PDRIVER_CONTROL = *mut u8;
 pub type PDRIVER_DIRECTORY_TYPE = *mut DRIVER_DIRECTORY_TYPE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_DISPATCH = *mut DRIVER_DISPATCH;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_DISPATCH_PAGED = *mut DRIVER_DISPATCH_PAGED;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PDRIVER_DISPATCH = *mut u8;
+pub type PDRIVER_DISPATCH_PAGED = *mut u8;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDRIVER_EXTENSION = *mut DRIVER_EXTENSION;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_INITIALIZE = *mut DRIVER_INITIALIZE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_LIST_CONTROL = *mut DRIVER_LIST_CONTROL;
-pub type PDRIVER_NOTIFICATION_CALLBACK_ROUTINE = *mut DRIVER_NOTIFICATION_CALLBACK_ROUTINE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PDRIVER_INITIALIZE = *mut u8;
+pub type PDRIVER_LIST_CONTROL = *mut u8;
+pub type PDRIVER_NOTIFICATION_CALLBACK_ROUTINE = *mut u8;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PDRIVER_OBJECT = *mut DRIVER_OBJECT;
-pub type PDRIVER_PROXY_ENDPOINT_FUNCTION = *mut DRIVER_PROXY_ENDPOINT_FUNCTION;
+pub type PDRIVER_PROXY_ENDPOINT_FUNCTION = *mut u8;
 pub type PDRIVER_PROXY_ENDPOINT_FUNCTION_ID = *mut u32;
 pub type PDRIVER_PROXY_ENDPOINT_INFORMATION = *mut DRIVER_PROXY_ENDPOINT_INFORMATION;
-pub type PDRIVER_PROXY_EXTENSION = *mut _DRIVER_PROXY_EXTENSION;
+pub type PDRIVER_PROXY_EXTENSION = *mut DRIVER_PROXY_EXTENSION;
 pub type PDRIVER_PROXY_EXTENSION_CREATION_FLAGS = *mut DRIVER_PROXY_EXTENSION_CREATION_FLAGS;
 pub type PDRIVER_PROXY_FEATURE_FLAGS = *mut DRIVER_PROXY_FEATURE_FLAGS;
-pub type PDRIVER_PROXY_HOTSWAP_CALLBACK = *mut DRIVER_PROXY_HOTSWAP_CALLBACK;
+pub type PDRIVER_PROXY_HOTSWAP_CALLBACK = *mut u8;
 pub type PDRIVER_PROXY_HOTSWAP_CALLBACK_PHASE = *mut DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE;
-pub type PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE = *mut DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE;
+pub type PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE = *mut u8;
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
 pub type PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE_START_CONTEXT = *mut DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE_START_CONTEXT;
-pub type PDRIVER_PROXY_REGISTER_CALLBACK = *mut DRIVER_PROXY_HOTSWAP_CALLBACK;
+pub type PDRIVER_PROXY_REGISTER_CALLBACK = *mut u8;
 pub type PDRIVER_PROXY_REGISTER_CALLBACK_PHASE = *mut DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE;
 pub type PDRIVER_PROXY_VERSION = *mut DRIVER_PROXY_VERSION;
-pub type PDRIVER_PROXY_WRAPPED_ENDPOINT_FUNCTION = *mut DRIVER_PROXY_ENDPOINT_FUNCTION;
+pub type PDRIVER_PROXY_WRAPPED_ENDPOINT_FUNCTION = *mut u8;
 pub type PDRIVER_REGKEY_TYPE = *mut DRIVER_REGKEY_TYPE;
 pub type PDRIVER_RUNTIME_INIT_FLAGS = *mut DRIVER_RUNTIME_INIT_FLAGS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_STARTIO = *mut DRIVER_STARTIO;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PDRIVER_UNLOAD = *mut DRIVER_UNLOAD;
+pub type PDRIVER_STARTIO = *mut u8;
+pub type PDRIVER_UNLOAD = *mut u8;
 pub type PEISA_DMA_CONFIGURATION = *mut EISA_DMA_CONFIGURATION;
 pub type PEISA_IRQ_CONFIGURATION = *mut EISA_IRQ_CONFIGURATION;
 pub type PEISA_IRQ_DESCRIPTOR = *mut EISA_IRQ_DESCRIPTOR;
@@ -14312,100 +14759,71 @@ pub type PEISA_MEMORY_CONFIGURATION = *mut EISA_MEMORY_CONFIGURATION;
 pub type PEISA_MEMORY_TYPE = *mut EISA_MEMORY_TYPE;
 pub type PEISA_PORT_CONFIGURATION = *mut EISA_PORT_CONFIGURATION;
 pub type PEISA_PORT_DESCRIPTOR = *mut EISA_PORT_DESCRIPTOR;
-pub type PENABLE_VIRTUALIZATION = *mut ENABLE_VIRTUALIZATION;
-pub type PEPROCESS = *mut _KPROCESS;
+pub type PENABLE_VIRTUALIZATION = *mut u8;
+pub type PEPROCESS = *mut KPROCESS;
 #[cfg(feature = "winnt")]
 pub type PERESOURCE = *mut ERESOURCE;
 pub type PERESOURCE_THREAD = *mut ERESOURCE_THREAD;
-pub type PETHREAD = *mut _KTHREAD;
-#[cfg(feature = "evntprov")]
-pub type PETWENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const super::EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
+pub type PETHREAD = *mut KTHREAD;
+#[cfg(all(feature = "evntprov", feature = "evntrace", feature = "guiddef"))]
+pub type PETWENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: super::LPCGUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: super::PEVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
 pub type PETW_TRACE_SESSION_SETTINGS = *mut ETW_TRACE_SESSION_SETTINGS;
 pub type PEXTENDED_CREATE_DUAL_OPLOCK_KEYS = *mut EXTENDED_CREATE_DUAL_OPLOCK_KEYS;
 pub type PEXTENDED_CREATE_INFORMATION = *mut EXTENDED_CREATE_INFORMATION;
 pub type PEXTENDED_CREATE_INFORMATION_32 = *mut EXTENDED_CREATE_INFORMATION_32;
-pub type PEXT_CALLBACK = *mut EXT_CALLBACK;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PEXT_CANCEL_PARAMETERS(pub *mut core::ffi::c_void);
-pub type PEXT_DELETE_CALLBACK = *mut EXT_DELETE_CALLBACK;
+pub type PEXT_CALLBACK = *mut u8;
+pub type PEXT_CANCEL_PARAMETERS = *mut core::ffi::c_void;
+pub type PEXT_DELETE_CALLBACK = *mut u8;
 pub type PEXT_DELETE_PARAMETERS = *mut EXT_DELETE_PARAMETERS;
 pub type PEXT_SET_PARAMETERS = *mut EXT_SET_PARAMETERS;
-pub type PEX_CALLBACK_FUNCTION = *mut EX_CALLBACK_FUNCTION;
+pub type PEX_CALLBACK_FUNCTION = *mut u8;
 pub type PEX_RCU_FREE_POOL_CONTEXT = *mut EX_RCU_FREE_POOL_CONTEXT;
 pub type PEX_RUNDOWN_REF = *mut EX_RUNDOWN_REF;
-pub type PEX_RUNDOWN_REF_CACHE_AWARE = *mut _EX_RUNDOWN_REF_CACHE_AWARE;
+pub type PEX_RUNDOWN_REF_CACHE_AWARE = *mut EX_RUNDOWN_REF_CACHE_AWARE;
 pub type PEX_SPIN_LOCK = *mut i32;
-pub type PEX_TIMER = *mut _EX_TIMER;
+pub type PEX_TIMER = *mut EX_TIMER;
 pub const PFAControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 6;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_ACQUIRE_FILE = *mut FAST_IO_ACQUIRE_FILE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_ACQUIRE_FOR_CCFLUSH = *mut FAST_IO_ACQUIRE_FOR_CCFLUSH;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_ACQUIRE_FOR_MOD_WRITE = *mut FAST_IO_ACQUIRE_FOR_MOD_WRITE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_CHECK_IF_POSSIBLE = *mut FAST_IO_CHECK_IF_POSSIBLE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_DETACH_DEVICE = *mut FAST_IO_DETACH_DEVICE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_DEVICE_CONTROL = *mut FAST_IO_DEVICE_CONTROL;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_ACQUIRE_FILE = *mut u8;
+pub type PFAST_IO_ACQUIRE_FOR_CCFLUSH = *mut u8;
+pub type PFAST_IO_ACQUIRE_FOR_MOD_WRITE = *mut u8;
+pub type PFAST_IO_CHECK_IF_POSSIBLE = *mut u8;
+pub type PFAST_IO_DETACH_DEVICE = *mut u8;
+pub type PFAST_IO_DEVICE_CONTROL = *mut u8;
 pub type PFAST_IO_DISPATCH = *mut FAST_IO_DISPATCH;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_LOCK = *mut FAST_IO_LOCK;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_MDL_READ = *mut FAST_IO_MDL_READ;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_MDL_READ_COMPLETE = *mut FAST_IO_MDL_READ_COMPLETE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_MDL_READ_COMPLETE_COMPRESSED = *mut FAST_IO_MDL_READ_COMPLETE_COMPRESSED;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_MDL_WRITE_COMPLETE = *mut FAST_IO_MDL_WRITE_COMPLETE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_MDL_WRITE_COMPLETE_COMPRESSED = *mut FAST_IO_MDL_WRITE_COMPLETE_COMPRESSED;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_PREPARE_MDL_WRITE = *mut FAST_IO_PREPARE_MDL_WRITE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_QUERY_BASIC_INFO = *mut FAST_IO_QUERY_BASIC_INFO;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_QUERY_NETWORK_OPEN_INFO = *mut FAST_IO_QUERY_NETWORK_OPEN_INFO;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_QUERY_OPEN = *mut FAST_IO_QUERY_OPEN;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_QUERY_STANDARD_INFO = *mut FAST_IO_QUERY_STANDARD_INFO;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_READ = *mut FAST_IO_READ;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_READ_COMPRESSED = *mut FAST_IO_READ_COMPRESSED;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_RELEASE_FILE = *mut FAST_IO_RELEASE_FILE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_RELEASE_FOR_CCFLUSH = *mut FAST_IO_RELEASE_FOR_CCFLUSH;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_RELEASE_FOR_MOD_WRITE = *mut FAST_IO_RELEASE_FOR_MOD_WRITE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_UNLOCK_ALL = *mut FAST_IO_UNLOCK_ALL;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_UNLOCK_ALL_BY_KEY = *mut FAST_IO_UNLOCK_ALL_BY_KEY;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_UNLOCK_SINGLE = *mut FAST_IO_UNLOCK_SINGLE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_WRITE = *mut FAST_IO_WRITE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFAST_IO_WRITE_COMPRESSED = *mut FAST_IO_WRITE_COMPRESSED;
+pub type PFAST_IO_LOCK = *mut u8;
+pub type PFAST_IO_MDL_READ = *mut u8;
+pub type PFAST_IO_MDL_READ_COMPLETE = *mut u8;
+pub type PFAST_IO_MDL_READ_COMPLETE_COMPRESSED = *mut u8;
+pub type PFAST_IO_MDL_WRITE_COMPLETE = *mut u8;
+pub type PFAST_IO_MDL_WRITE_COMPLETE_COMPRESSED = *mut u8;
+pub type PFAST_IO_PREPARE_MDL_WRITE = *mut u8;
+pub type PFAST_IO_QUERY_BASIC_INFO = *mut u8;
+pub type PFAST_IO_QUERY_NETWORK_OPEN_INFO = *mut u8;
+pub type PFAST_IO_QUERY_OPEN = *mut u8;
+pub type PFAST_IO_QUERY_STANDARD_INFO = *mut u8;
+pub type PFAST_IO_READ = *mut u8;
+pub type PFAST_IO_READ_COMPRESSED = *mut u8;
+pub type PFAST_IO_RELEASE_FILE = *mut u8;
+pub type PFAST_IO_RELEASE_FOR_CCFLUSH = *mut u8;
+pub type PFAST_IO_RELEASE_FOR_MOD_WRITE = *mut u8;
+pub type PFAST_IO_UNLOCK_ALL = *mut u8;
+pub type PFAST_IO_UNLOCK_ALL_BY_KEY = *mut u8;
+pub type PFAST_IO_UNLOCK_SINGLE = *mut u8;
+pub type PFAST_IO_WRITE = *mut u8;
+pub type PFAST_IO_WRITE_COMPRESSED = *mut u8;
 #[cfg(feature = "winnt")]
 pub type PFAST_MUTEX = *mut FAST_MUTEX;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PFAULT_INFORMATION = *mut FAULT_INFORMATION;
 pub type PFAULT_INFORMATION_ARCH = *mut FAULT_INFORMATION_ARCH;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PFAULT_INFORMATION_ARM64 = *mut FAULT_INFORMATION_ARM64;
 pub type PFAULT_INFORMATION_ARM64_FLAGS = *mut FAULT_INFORMATION_ARM64_FLAGS;
 pub type PFAULT_INFORMATION_ARM64_TYPE = *mut FAULT_INFORMATION_ARM64_TYPE;
 pub type PFAULT_INFORMATION_X64 = *mut FAULT_INFORMATION_X64;
 pub type PFAULT_INFORMATION_X64_FLAGS = *mut FAULT_INFORMATION_X64_FLAGS;
 pub type PFAULT_INFORMATION_X64_TYPE = *mut FAULT_INFORMATION_ARM64_TYPE;
+#[cfg(feature = "winnt")]
 pub type PFILE_BASIC_INFORMATION = *mut FILE_BASIC_INFORMATION;
 pub type PFILE_FS_DEVICE_INFORMATION = *mut FILE_FS_DEVICE_INFORMATION;
 pub type PFILE_FULL_EA_INFORMATION = *mut FILE_FULL_EA_INFORMATION;
@@ -14418,125 +14836,127 @@ pub type PFILE_IOSTATUSBLOCK_RANGE_INFORMATION = *mut FILE_IOSTATUSBLOCK_RANGE_I
 pub type PFILE_IO_COMPLETION_INFORMATION = *mut FILE_IO_COMPLETION_INFORMATION;
 pub type PFILE_IO_COMPLETION_NOTIFICATION_INFORMATION = *mut FILE_IO_COMPLETION_NOTIFICATION_INFORMATION;
 pub type PFILE_IO_PRIORITY_HINT_INFORMATION = *mut FILE_IO_PRIORITY_HINT_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PFILE_IO_PRIORITY_HINT_INFORMATION_EX = *mut FILE_IO_PRIORITY_HINT_INFORMATION_EX;
+#[cfg(feature = "winnt")]
 pub type PFILE_IS_REMOTE_DEVICE_INFORMATION = *mut FILE_IS_REMOTE_DEVICE_INFORMATION;
 pub type PFILE_MEMORY_PARTITION_INFORMATION = *mut FILE_MEMORY_PARTITION_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PFILE_NETWORK_OPEN_INFORMATION = *mut FILE_NETWORK_OPEN_INFORMATION;
 pub type PFILE_NUMA_NODE_INFORMATION = *mut FILE_NUMA_NODE_INFORMATION;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PFILE_OBJECT = *mut FILE_OBJECT;
+#[cfg(feature = "winnt")]
 pub type PFILE_POSITION_INFORMATION = *mut FILE_POSITION_INFORMATION;
 pub type PFILE_PROCESS_IDS_USING_FILE_INFORMATION = *mut FILE_PROCESS_IDS_USING_FILE_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PFILE_SFIO_RESERVE_INFORMATION = *mut FILE_SFIO_RESERVE_INFORMATION;
 pub type PFILE_SFIO_VOLUME_INFORMATION = *mut FILE_SFIO_VOLUME_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PFILE_STANDARD_INFORMATION = *mut FILE_STANDARD_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PFILE_STANDARD_INFORMATION_EX = *mut FILE_STANDARD_INFORMATION_EX;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFLUSH_ADAPTER_BUFFERS = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const MDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: u32, writetodevice: bool) -> bool>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFLUSH_ADAPTER_BUFFERS_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const MDL, mapregisterbase: *const core::ffi::c_void, offset: u64, length: u32, writetodevice: bool) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFLUSH_DMA_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const MDL, readoperation: bool) -> windows_core::NTSTATUS>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PFN_COUNT(pub u32);
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFLUSH_ADAPTER_BUFFERS = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, mdl: super::PMDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: u32, writetodevice: super::BOOLEAN) -> super::BOOLEAN>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFLUSH_ADAPTER_BUFFERS_EX = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, mdl: super::PMDL, mapregisterbase: *const core::ffi::c_void, offset: u64, length: u32, writetodevice: super::BOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFLUSH_DMA_BUFFER = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, mdl: super::PMDL, readoperation: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type PFN_COUNT = u32;
 #[cfg(feature = "winnt")]
-pub type PFN_NT_COMMIT_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::HANDLE, wait: bool) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-pub type PFN_NT_CREATE_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES, uow: *const windows_core::GUID, tmhandle: super::HANDLE, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: *const i64, description: *const super::UNICODE_STRING) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "d3dkmthk", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-pub type PFN_NT_OPEN_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES, uow: *const windows_core::GUID, tmhandle: super::HANDLE) -> windows_core::NTSTATUS>;
+pub type PFN_NT_COMMIT_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::HANDLE, wait: super::BOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dkmthk", feature = "guiddef", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+pub type PFN_NT_CREATE_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, uow: super::LPGUID, tmhandle: super::HANDLE, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: super::PLARGE_INTEGER, description: super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dkmthk", feature = "guiddef", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+pub type PFN_NT_OPEN_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, uow: super::LPGUID, tmhandle: super::HANDLE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type PFN_NT_QUERY_INFORMATION_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::HANDLE, transactioninformationclass: super::TRANSACTION_INFORMATION_CLASS, transactioninformation: *mut core::ffi::c_void, transactioninformationlength: u32, returnlength: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PFN_NT_QUERY_INFORMATION_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::HANDLE, transactioninformationclass: super::TRANSACTION_INFORMATION_CLASS, transactioninformation: *mut core::ffi::c_void, transactioninformationlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS>;
-#[cfg(feature = "winnt")]
-pub type PFN_NT_ROLLBACK_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::HANDLE, wait: bool) -> windows_core::NTSTATUS>;
+pub type PFN_NT_ROLLBACK_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::HANDLE, wait: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PFN_NT_SET_INFORMATION_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::HANDLE, transactioninformationclass: super::TRANSACTION_INFORMATION_CLASS, transactioninformation: *const core::ffi::c_void, transactioninformationlength: u32) -> windows_core::NTSTATUS>;
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PFN_NUMBER(pub u32);
+pub type PFN_NUMBER = u32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PFN_NUMBER(pub u64);
-pub type PFN_RTL_IS_NTDDI_VERSION_AVAILABLE = Option<unsafe extern "system" fn(version: u32) -> bool>;
-pub type PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLED = Option<unsafe extern "system" fn(version: u32) -> bool>;
-pub type PFPGA_BUS_SCAN = *mut FPGA_BUS_SCAN;
-pub type PFPGA_CONTROL_CONFIG_SPACE = *mut FPGA_CONTROL_CONFIG_SPACE;
-pub type PFPGA_CONTROL_ERROR_REPORTING = *mut FPGA_CONTROL_ERROR_REPORTING;
-pub type PFPGA_CONTROL_INTERFACE = *mut FPGA_CONTROL_INTERFACE;
-pub type PFPGA_CONTROL_LINK = *mut FPGA_CONTROL_LINK;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFREE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFREE_ADAPTER_OBJECT = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, allocationaction: IO_ALLOCATION_ACTION)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFREE_COMMON_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, length: u32, logicaladdress: super::PHYSICAL_ADDRESS, virtualaddress: *const core::ffi::c_void, cacheenabled: bool)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFREE_COMMON_BUFFER_FROM_VECTOR = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const DMA_COMMON_BUFFER_VECTOR, index: u32)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFREE_COMMON_BUFFER_VECTOR = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const DMA_COMMON_BUFFER_VECTOR)>;
-pub type PFREE_FUNCTION = *mut FREE_FUNCTION;
+pub type PFN_NUMBER = u64;
 #[cfg(feature = "winnt")]
-pub type PFREE_FUNCTION_EX = *mut FREE_FUNCTION_EX;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PFREE_MAP_REGISTERS = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mapregisterbase: *mut core::ffi::c_void, numberofmapregisters: u32)>;
+pub type PFN_RTL_IS_NTDDI_VERSION_AVAILABLE = Option<unsafe extern "C" fn(version: u32) -> super::BOOLEAN>;
+#[cfg(feature = "winnt")]
+pub type PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLED = Option<unsafe extern "C" fn(version: u32) -> super::BOOLEAN>;
+pub type PFPGA_BUS_SCAN = *mut u8;
+pub type PFPGA_CONTROL_CONFIG_SPACE = *mut u8;
+pub type PFPGA_CONTROL_ERROR_REPORTING = *mut u8;
+pub type PFPGA_CONTROL_INTERFACE = *mut FPGA_CONTROL_INTERFACE;
+pub type PFPGA_CONTROL_LINK = *mut u8;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFREE_ADAPTER_CHANNEL = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFREE_ADAPTER_OBJECT = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, allocationaction: IO_ALLOCATION_ACTION)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFREE_COMMON_BUFFER = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, length: u32, logicaladdress: super::PHYSICAL_ADDRESS, virtualaddress: *const core::ffi::c_void, cacheenabled: super::BOOLEAN)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFREE_COMMON_BUFFER_FROM_VECTOR = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, vector: PDMA_COMMON_BUFFER_VECTOR, index: u32)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFREE_COMMON_BUFFER_VECTOR = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, vector: PDMA_COMMON_BUFFER_VECTOR)>;
+pub type PFREE_FUNCTION = *mut u8;
+pub type PFREE_FUNCTION_EX = *mut u8;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFREE_MAP_REGISTERS = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, mapregisterbase: *mut core::ffi::c_void, numberofmapregisters: u32)>;
 pub type PFS_INFORMATION_CLASS = *mut FS_INFORMATION_CLASS;
 pub type PFUNCTION_LEVEL_DEVICE_RESET_PARAMETERS = *mut FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS;
 #[cfg(feature = "winnt")]
 pub type PGENERAL_LOOKASIDE = *mut GENERAL_LOOKASIDE;
 #[cfg(feature = "winnt")]
 pub type PGENERAL_LOOKASIDE_POOL = *mut GENERAL_LOOKASIDE_POOL;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGET_COMMON_BUFFER_FROM_VECTOR_BY_INDEX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const DMA_COMMON_BUFFER_VECTOR, index: u32, virtualaddressout: *mut *mut core::ffi::c_void, logicaladdressout: *mut i64)>;
-pub type PGET_D3COLD_CAPABILITY = *mut GET_D3COLD_CAPABILITY;
-pub type PGET_D3COLD_LAST_TRANSITION_STATUS = *mut GET_D3COLD_LAST_TRANSITION_STATUS;
-pub type PGET_DEVICE_RESET_STATUS = *mut GET_DEVICE_RESET_STATUS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGET_DMA_ADAPTER = *mut GET_DMA_ADAPTER;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGET_DMA_ADAPTER_INFO = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, adapterinfo: *mut DMA_ADAPTER_INFO) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGET_DMA_ALIGNMENT = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> u32>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGET_DMA_DOMAIN = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> super::HANDLE>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGET_DMA_TRANSFER_INFO = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const MDL, offset: u64, length: u32, writeonly: bool, transferinfo: *mut DMA_TRANSFER_INFO) -> windows_core::NTSTATUS>;
-pub type PGET_DOE_PREVIOUS_RESPONSE = *mut GET_DOE_PREVIOUS_RESPONSE;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PGET_COMMON_BUFFER_FROM_VECTOR_BY_INDEX = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, vector: PDMA_COMMON_BUFFER_VECTOR, index: u32, virtualaddressout: *mut *mut core::ffi::c_void, logicaladdressout: super::PPHYSICAL_ADDRESS)>;
+pub type PGET_D3COLD_CAPABILITY = *mut u8;
+pub type PGET_D3COLD_LAST_TRANSITION_STATUS = *mut u8;
+pub type PGET_DEVICE_RESET_STATUS = *mut u8;
+pub type PGET_DMA_ADAPTER = *mut u8;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PGET_DMA_ADAPTER_INFO = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, adapterinfo: PDMA_ADAPTER_INFO) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PGET_DMA_ALIGNMENT = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER) -> u32>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PGET_DMA_DOMAIN = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER) -> super::HANDLE>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PGET_DMA_TRANSFER_INFO = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, mdl: super::PMDL, offset: u64, length: u32, writeonly: super::BOOLEAN, transferinfo: PDMA_TRANSFER_INFO) -> windows_core::NTSTATUS>;
+pub type PGET_DOE_PREVIOUS_RESPONSE = *mut u8;
+pub type PGET_IDLE_WAKE_INFO = *mut u8;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PGET_SCATTER_GATHER_LIST = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, deviceobject: PDEVICE_OBJECT, mdl: super::PMDL, currentva: *const core::ffi::c_void, length: u32, executionroutine: PDRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::BOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PGET_SCATTER_GATHER_LIST_EX = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, deviceobject: PDEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, mdl: super::PMDL, offset: u64, length: u32, flags: u32, executionroutine: PDRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::BOOLEAN, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void, scattergatherlist: *mut PSCATTER_GATHER_LIST) -> windows_core::NTSTATUS>;
+pub type PGET_SDEV_IDENTIFIER = *mut u8;
+pub type PGET_SET_DEVICE_DATA = *mut u8;
+pub type PGET_UPDATED_BUS_RESOURCE = *mut u8;
+pub type PGET_VIRTUAL_DEVICE_DATA = *mut u8;
+pub type PGET_VIRTUAL_DEVICE_LOCATION = *mut u8;
+pub type PGET_VIRTUAL_DEVICE_RESOURCES = *mut u8;
+pub type PGET_VIRTUAL_FUNCTION_PROBED_BARS = *mut u8;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PGPE_CLEAR_STATUS = Option<unsafe extern "C" fn(param0: PDEVICE_OBJECT, param1: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PGPE_CLEAR_STATUS2 = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PGPE_CONNECT_VECTOR = Option<unsafe extern "C" fn(param0: PDEVICE_OBJECT, param1: u32, param2: KINTERRUPT_MODE, param3: super::BOOLEAN, param4: PGPE_SERVICE_ROUTINE, param5: *mut core::ffi::c_void, param6: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PGET_IDLE_WAKE_INFO = *mut GET_IDLE_WAKE_INFO;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGET_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const DEVICE_OBJECT, mdl: *const MDL, currentva: *const core::ffi::c_void, length: u32, executionroutine: PDRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: bool) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGET_SCATTER_GATHER_LIST_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, mdl: *const MDL, offset: u64, length: u32, flags: u32, executionroutine: PDRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: bool, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void, scattergatherlist: *mut PSCATTER_GATHER_LIST) -> windows_core::NTSTATUS>;
-pub type PGET_SDEV_IDENTIFIER = *mut GET_SDEV_IDENTIFIER;
-pub type PGET_SET_DEVICE_DATA = *mut GET_SET_DEVICE_DATA;
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-pub type PGET_UPDATED_BUS_RESOURCE = *mut GET_UPDATED_BUS_RESOURCE;
-pub type PGET_VIRTUAL_DEVICE_DATA = *mut GET_VIRTUAL_DEVICE_DATA;
-pub type PGET_VIRTUAL_DEVICE_LOCATION = *mut GET_VIRTUAL_DEVICE_LOCATION;
-pub type PGET_VIRTUAL_DEVICE_RESOURCES = *mut GET_VIRTUAL_DEVICE_RESOURCES;
-pub type PGET_VIRTUAL_FUNCTION_PROBED_BARS = *mut GET_VIRTUAL_FUNCTION_PROBED_BARS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGPE_CLEAR_STATUS = Option<unsafe extern "system" fn(param0: *mut DEVICE_OBJECT, param1: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PGPE_CLEAR_STATUS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGPE_CONNECT_VECTOR = Option<unsafe extern "system" fn(param0: *mut DEVICE_OBJECT, param1: u32, param2: KINTERRUPT_MODE, param3: bool, param4: PGPE_SERVICE_ROUTINE, param5: *mut core::ffi::c_void, param6: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PGPE_CONNECT_VECTOR2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, gpenumber: u32, mode: KINTERRUPT_MODE, shareable: bool, serviceroutine: PGPE_SERVICE_ROUTINE, servicecontext: *mut core::ffi::c_void, objectcontext: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGPE_DISABLE_EVENT = Option<unsafe extern "system" fn(param0: *mut DEVICE_OBJECT, param1: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PGPE_DISABLE_EVENT2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PGPE_DISCONNECT_VECTOR = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PGPE_DISCONNECT_VECTOR2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PGPE_ENABLE_EVENT = Option<unsafe extern "system" fn(param0: *mut DEVICE_OBJECT, param1: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PGPE_ENABLE_EVENT2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PGPE_SERVICE_ROUTINE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void) -> bool>;
-pub type PGPE_SERVICE_ROUTINE2 = Option<unsafe extern "system" fn(objectcontext: *mut core::ffi::c_void, servicecontext: *mut core::ffi::c_void) -> bool>;
+pub type PGPE_CONNECT_VECTOR2 = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, gpenumber: u32, mode: KINTERRUPT_MODE, shareable: super::BOOLEAN, serviceroutine: PGPE_SERVICE_ROUTINE, servicecontext: *mut core::ffi::c_void, objectcontext: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PGPE_DISABLE_EVENT = Option<unsafe extern "C" fn(param0: PDEVICE_OBJECT, param1: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PGPE_DISABLE_EVENT2 = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PGPE_DISCONNECT_VECTOR = Option<unsafe extern "C" fn(param0: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PGPE_DISCONNECT_VECTOR2 = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PGPE_ENABLE_EVENT = Option<unsafe extern "C" fn(param0: PDEVICE_OBJECT, param1: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PGPE_ENABLE_EVENT2 = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PGPE_SERVICE_ROUTINE = Option<unsafe extern "C" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void) -> super::BOOLEAN>;
+#[cfg(feature = "winnt")]
+pub type PGPE_SERVICE_ROUTINE2 = Option<unsafe extern "C" fn(objectcontext: *mut core::ffi::c_void, servicecontext: *mut core::ffi::c_void) -> super::BOOLEAN>;
 pub type PHWPROFILE_CHANGE_NOTIFICATION = *mut HWPROFILE_CHANGE_NOTIFICATION;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PINITIALIZE_DMA_TRANSFER_CONTEXT = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, dmatransfercontext: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PINITIALIZE_DMA_TRANSFER_CONTEXT = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, dmatransfercontext: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PINITIAL_PRIVILEGE_SET = *mut INITIAL_PRIVILEGE_SET;
 pub type PINPUT_MAPPING_ELEMENT = *mut INPUT_MAPPING_ELEMENT;
@@ -14545,22 +14965,22 @@ pub type PINTEL_CACHE_INFO_EAX = *mut INTEL_CACHE_INFO_EAX;
 #[cfg(target_arch = "x86")]
 pub type PINTEL_CACHE_INFO_EBX = *mut INTEL_CACHE_INFO_EBX;
 pub type PINTERFACE = *mut INTERFACE;
-pub type PINTERFACE_DEREFERENCE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
-pub type PINTERFACE_REFERENCE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
+pub type PINTERFACE_DEREFERENCE = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void)>;
+pub type PINTERFACE_REFERENCE = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void)>;
 pub type PINTERFACE_TYPE = *mut INTERFACE_TYPE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIOMMU_DEVICE_CREATE = *mut IOMMU_DEVICE_CREATE;
+pub type PIOMMU_DEVICE_CREATE = *mut u8;
 #[cfg(feature = "winnt")]
 pub type PIOMMU_DEVICE_CREATION_CONFIGURATION = *mut IOMMU_DEVICE_CREATION_CONFIGURATION;
 pub type PIOMMU_DEVICE_CREATION_CONFIGURATION_ACPI = *mut IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI;
+#[cfg(feature = "winnt")]
 pub type PIOMMU_DEVICE_CREATION_CONFIGURATION_PASID = *mut IOMMU_DEVICE_CREATION_CONFIGURATION_PASID;
 pub type PIOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = *mut IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE;
-pub type PIOMMU_DEVICE_DELETE = *mut IOMMU_DEVICE_DELETE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIOMMU_DEVICE_FAULT_HANDLER = *mut IOMMU_DEVICE_FAULT_HANDLER;
-pub type PIOMMU_DEVICE_QUERY_DOMAIN_TYPES = *mut IOMMU_DEVICE_QUERY_DOMAIN_TYPES;
-pub type PIOMMU_DEVICE_QUERY_INFORMATION = *mut IOMMU_DEVICE_QUERY_INFORMATION;
+pub type PIOMMU_DEVICE_DELETE = *mut u8;
+pub type PIOMMU_DEVICE_FAULT_HANDLER = *mut u8;
+pub type PIOMMU_DEVICE_QUERY_DOMAIN_TYPES = *mut u8;
+pub type PIOMMU_DEVICE_QUERY_INFORMATION = *mut u8;
 pub type PIOMMU_DMA_DEVICE = *mut IOMMU_DMA_DEVICE;
+#[cfg(feature = "winnt")]
 pub type PIOMMU_DMA_DEVICE_INFORMATION = *mut IOMMU_DMA_DEVICE_INFORMATION;
 pub type PIOMMU_DMA_DOMAIN = *mut IOMMU_DMA_DOMAIN;
 pub type PIOMMU_DMA_DOMAIN_CREATION_FLAGS = *mut IOMMU_DMA_DOMAIN_CREATION_FLAGS;
@@ -14571,163 +14991,140 @@ pub type PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT = *mut IOMMU_DMA_LOGICA
 pub type PIOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG = *mut IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG;
 pub type PIOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = *mut IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE;
 pub type PIOMMU_DMA_PASID_DEVICE = *mut IOMMU_DMA_PASID_DEVICE;
+#[cfg(feature = "winnt")]
 pub type PIOMMU_DMA_RESERVED_REGION = *mut IOMMU_DMA_RESERVED_REGION;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIOMMU_DOMAIN_ATTACH_DEVICE = *mut IOMMU_DOMAIN_ATTACH_DEVICE;
-pub type PIOMMU_DOMAIN_ATTACH_DEVICE_EX = *mut IOMMU_DOMAIN_ATTACH_DEVICE_EX;
-pub type PIOMMU_DOMAIN_ATTACH_PASID_DEVICE = *mut IOMMU_DOMAIN_ATTACH_PASID_DEVICE;
-#[cfg(feature = "usb")]
-pub type PIOMMU_DOMAIN_CONFIGURE = *mut IOMMU_DOMAIN_CONFIGURE;
-pub type PIOMMU_DOMAIN_CREATE = *mut IOMMU_DOMAIN_CREATE;
-pub type PIOMMU_DOMAIN_CREATE_EX = *mut IOMMU_DOMAIN_CREATE_EX;
-pub type PIOMMU_DOMAIN_DELETE = *mut IOMMU_DOMAIN_DELETE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIOMMU_DOMAIN_DETACH_DEVICE = *mut IOMMU_DOMAIN_DETACH_DEVICE;
-pub type PIOMMU_DOMAIN_DETACH_DEVICE_EX = *mut IOMMU_DOMAIN_DETACH_DEVICE_EX;
-pub type PIOMMU_DOMAIN_DETACH_PASID_DEVICE = *mut IOMMU_DOMAIN_DETACH_PASID_DEVICE;
-pub type PIOMMU_FLUSH_DOMAIN = *mut IOMMU_FLUSH_DOMAIN;
-pub type PIOMMU_FLUSH_DOMAIN_VA_LIST = *mut IOMMU_FLUSH_DOMAIN_VA_LIST;
-pub type PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = *mut IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE;
+pub type PIOMMU_DOMAIN_ATTACH_DEVICE = *mut u8;
+pub type PIOMMU_DOMAIN_ATTACH_DEVICE_EX = *mut u8;
+pub type PIOMMU_DOMAIN_ATTACH_PASID_DEVICE = *mut u8;
+pub type PIOMMU_DOMAIN_CONFIGURE = *mut u8;
+pub type PIOMMU_DOMAIN_CREATE = *mut u8;
+pub type PIOMMU_DOMAIN_CREATE_EX = *mut u8;
+pub type PIOMMU_DOMAIN_DELETE = *mut u8;
+pub type PIOMMU_DOMAIN_DETACH_DEVICE = *mut u8;
+pub type PIOMMU_DOMAIN_DETACH_DEVICE_EX = *mut u8;
+pub type PIOMMU_DOMAIN_DETACH_PASID_DEVICE = *mut u8;
+pub type PIOMMU_FLUSH_DOMAIN = *mut u8;
+pub type PIOMMU_FLUSH_DOMAIN_VA_LIST = *mut u8;
+pub type PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = *mut u8;
 pub type PIOMMU_INTERFACE_STATE_CHANGE = *mut IOMMU_INTERFACE_STATE_CHANGE;
-pub type PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK = *mut IOMMU_INTERFACE_STATE_CHANGE_CALLBACK;
+pub type PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK = *mut u8;
 pub type PIOMMU_INTERFACE_STATE_CHANGE_FIELDS = *mut IOMMU_INTERFACE_STATE_CHANGE_FIELDS;
-#[cfg(feature = "ntdef")]
-pub type PIOMMU_MAP_IDENTITY_RANGE = *mut IOMMU_MAP_IDENTITY_RANGE;
-#[cfg(feature = "usb")]
-pub type PIOMMU_MAP_IDENTITY_RANGE_EX = *mut IOMMU_MAP_IDENTITY_RANGE_EX;
-#[cfg(feature = "ntdef")]
-pub type PIOMMU_MAP_LOGICAL_RANGE = *mut IOMMU_MAP_LOGICAL_RANGE;
-#[cfg(feature = "usb")]
-pub type PIOMMU_MAP_LOGICAL_RANGE_EX = *mut IOMMU_MAP_LOGICAL_RANGE_EX;
-#[cfg(feature = "usb")]
+pub type PIOMMU_MAP_IDENTITY_RANGE = *mut u8;
+pub type PIOMMU_MAP_IDENTITY_RANGE_EX = *mut u8;
+pub type PIOMMU_MAP_LOGICAL_RANGE = *mut u8;
+pub type PIOMMU_MAP_LOGICAL_RANGE_EX = *mut u8;
+#[cfg(all(feature = "usb", feature = "winnt"))]
 pub type PIOMMU_MAP_PHYSICAL_ADDRESS = *mut IOMMU_MAP_PHYSICAL_ADDRESS;
 pub type PIOMMU_MAP_PHYSICAL_ADDRESS_TYPE = *mut IOMMU_MAP_PHYSICAL_ADDRESS_TYPE;
-#[cfg(feature = "usb")]
-pub type PIOMMU_MAP_RESERVED_LOGICAL_RANGE = *mut IOMMU_MAP_RESERVED_LOGICAL_RANGE;
+pub type PIOMMU_MAP_RESERVED_LOGICAL_RANGE = *mut u8;
 pub type PIOMMU_PASID_CONFIGURATION_TYPE = *mut IOMMU_PASID_CONFIGURATION_TYPE;
-pub type PIOMMU_PASID_DEVICE_CREATE = *mut IOMMU_PASID_DEVICE_CREATE;
-pub type PIOMMU_PASID_DEVICE_DELETE = *mut IOMMU_PASID_DEVICE_DELETE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIOMMU_QUERY_INPUT_MAPPINGS = *mut IOMMU_QUERY_INPUT_MAPPINGS;
-pub type PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = *mut IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK;
-pub type PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = *mut IOMMU_RESERVE_LOGICAL_ADDRESS_RANGE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIOMMU_SET_DEVICE_FAULT_REPORTING = *mut IOMMU_SET_DEVICE_FAULT_REPORTING;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIOMMU_SET_DEVICE_FAULT_REPORTING_EX = *mut IOMMU_SET_DEVICE_FAULT_REPORTING_EX;
-#[cfg(feature = "ntdef")]
-pub type PIOMMU_UNMAP_IDENTITY_RANGE = *mut IOMMU_UNMAP_IDENTITY_RANGE;
-#[cfg(feature = "usb")]
-pub type PIOMMU_UNMAP_IDENTITY_RANGE_EX = *mut IOMMU_UNMAP_IDENTITY_RANGE_EX;
-pub type PIOMMU_UNMAP_LOGICAL_RANGE = *mut IOMMU_UNMAP_LOGICAL_RANGE;
-pub type PIOMMU_UNMAP_RESERVED_LOGICAL_RANGE = *mut IOMMU_UNMAP_RESERVED_LOGICAL_RANGE;
-pub type PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = *mut IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK;
+pub type PIOMMU_PASID_DEVICE_CREATE = *mut u8;
+pub type PIOMMU_PASID_DEVICE_DELETE = *mut u8;
+pub type PIOMMU_QUERY_INPUT_MAPPINGS = *mut u8;
+pub type PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = *mut u8;
+pub type PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = *mut u8;
+pub type PIOMMU_SET_DEVICE_FAULT_REPORTING = *mut u8;
+pub type PIOMMU_SET_DEVICE_FAULT_REPORTING_EX = *mut u8;
+pub type PIOMMU_UNMAP_IDENTITY_RANGE = *mut u8;
+pub type PIOMMU_UNMAP_IDENTITY_RANGE_EX = *mut u8;
+pub type PIOMMU_UNMAP_LOGICAL_RANGE = *mut u8;
+pub type PIOMMU_UNMAP_RESERVED_LOGICAL_RANGE = *mut u8;
+pub type PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = *mut u8;
 pub type PIO_ALLOCATION_ACTION = *mut IO_ALLOCATION_ACTION;
 pub type PIO_ATTRIBUTION_INFORMATION = *mut IO_ATTRIBUTION_INFORMATION;
 pub type PIO_COMPLETION_CONTEXT = *mut IO_COMPLETION_CONTEXT;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_COMPLETION_ROUTINE = *mut IO_COMPLETION_ROUTINE;
+pub type PIO_COMPLETION_ROUTINE = *mut u8;
 pub type PIO_COMPLETION_ROUTINE_RESULT = *mut IO_COMPLETION_ROUTINE_RESULT;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PIO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS = *mut IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PIO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS = *mut IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PIO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS = *mut IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PIO_CONNECT_INTERRUPT_PARAMETERS = *mut IO_CONNECT_INTERRUPT_PARAMETERS;
-pub type PIO_CONTAINER_NOTIFICATION_FUNCTION = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PIO_CONTAINER_NOTIFICATION_FUNCTION = Option<unsafe extern "C" fn() -> windows_core::NTSTATUS>;
 pub type PIO_CSQ = *mut IO_CSQ;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_CSQ_ACQUIRE_LOCK = *mut IO_CSQ_ACQUIRE_LOCK;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_CSQ_COMPLETE_CANCELED_IRP = *mut IO_CSQ_COMPLETE_CANCELED_IRP;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_CSQ_INSERT_IRP = *mut IO_CSQ_INSERT_IRP;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_CSQ_INSERT_IRP_EX = *mut IO_CSQ_INSERT_IRP_EX;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PIO_CSQ_ACQUIRE_LOCK = *mut u8;
+pub type PIO_CSQ_COMPLETE_CANCELED_IRP = *mut u8;
+pub type PIO_CSQ_INSERT_IRP = *mut u8;
+pub type PIO_CSQ_INSERT_IRP_EX = *mut u8;
+#[cfg(feature = "usb")]
 pub type PIO_CSQ_IRP_CONTEXT = *mut IO_CSQ_IRP_CONTEXT;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_CSQ_PEEK_NEXT_IRP = *mut IO_CSQ_PEEK_NEXT_IRP;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_CSQ_RELEASE_LOCK = *mut IO_CSQ_RELEASE_LOCK;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_CSQ_REMOVE_IRP = *mut IO_CSQ_REMOVE_IRP;
-pub type PIO_DEVICE_EJECT_CALLBACK = Option<unsafe extern "system" fn(status: windows_core::NTSTATUS, context: *mut core::ffi::c_void)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+pub type PIO_CSQ_PEEK_NEXT_IRP = *mut u8;
+pub type PIO_CSQ_RELEASE_LOCK = *mut u8;
+pub type PIO_CSQ_REMOVE_IRP = *mut u8;
+pub type PIO_DEVICE_EJECT_CALLBACK = Option<unsafe extern "C" fn(status: windows_core::NTSTATUS, context: *mut core::ffi::c_void)>;
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 pub type PIO_DISCONNECT_INTERRUPT_PARAMETERS = *mut IO_DISCONNECT_INTERRUPT_PARAMETERS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_DPC_ROUTINE = *mut IO_DPC_ROUTINE;
+pub type PIO_DPC_ROUTINE = *mut u8;
+#[cfg(feature = "winnt")]
 pub type PIO_ERROR_LOG_MESSAGE = *mut IO_ERROR_LOG_MESSAGE;
+#[cfg(feature = "winnt")]
 pub type PIO_ERROR_LOG_PACKET = *mut IO_ERROR_LOG_PACKET;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 pub type PIO_INTERRUPT_MESSAGE_INFO = *mut IO_INTERRUPT_MESSAGE_INFO;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 pub type PIO_INTERRUPT_MESSAGE_INFO_ENTRY = *mut IO_INTERRUPT_MESSAGE_INFO_ENTRY;
 pub type PIO_MINI_COMPLETION_PACKET_USER = *mut IO_MINI_COMPLETION_PACKET_USER;
-pub type PIO_MINI_PACKET_CALLBACK_ROUTINE = *mut IO_MINI_PACKET_CALLBACK_ROUTINE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = *mut IO_PERSISTED_MEMORY_ENUMERATION_CALLBACK;
+pub type PIO_MINI_PACKET_CALLBACK_ROUTINE = *mut u8;
+pub type PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = *mut u8;
 #[cfg(feature = "winnt")]
 pub type PIO_REMOVE_LOCK = *mut IO_REMOVE_LOCK;
-pub type PIO_REMOVE_LOCK_TRACKING_BLOCK = *mut _IO_REMOVE_LOCK_TRACKING_BLOCK;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+pub type PIO_REMOVE_LOCK_TRACKING_BLOCK = *mut IO_REMOVE_LOCK_TRACKING_BLOCK;
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 pub type PIO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS = *mut IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS;
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 pub type PIO_RESOURCE_DESCRIPTOR = *mut IO_RESOURCE_DESCRIPTOR;
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 pub type PIO_RESOURCE_LIST = *mut IO_RESOURCE_LIST;
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 pub type PIO_RESOURCE_REQUIREMENTS_LIST = *mut IO_RESOURCE_REQUIREMENTS_LIST;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PIO_SECURITY_CONTEXT = *mut IO_SECURITY_CONTEXT;
+#[cfg(feature = "winnt")]
 pub type PIO_SESSION_CONNECT_INFO = *mut IO_SESSION_CONNECT_INFO;
 pub type PIO_SESSION_EVENT = *mut IO_SESSION_EVENT;
-pub type PIO_SESSION_NOTIFICATION_FUNCTION = *mut IO_SESSION_NOTIFICATION_FUNCTION;
+pub type PIO_SESSION_NOTIFICATION_FUNCTION = *mut u8;
 pub type PIO_SESSION_STATE = *mut IO_SESSION_STATE;
+#[cfg(feature = "winnt")]
 pub type PIO_SESSION_STATE_INFORMATION = *mut IO_SESSION_STATE_INFORMATION;
 pub type PIO_SESSION_STATE_NOTIFICATION = *mut IO_SESSION_STATE_NOTIFICATION;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PIO_STACK_LOCATION = *mut IO_STACK_LOCATION;
 pub type PIO_STATUS_BLOCK32 = *mut IO_STATUS_BLOCK32;
 #[cfg(feature = "winternl")]
 pub type PIO_STATUS_BLOCK64 = *mut IO_STATUS_BLOCK64;
-pub type PIO_TIMER = *mut _IO_TIMER;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_TIMER_ROUTINE = *mut IO_TIMER_ROUTINE;
-pub type PIO_WORKITEM = *mut _IO_WORKITEM;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PIO_WORKITEM_ROUTINE = *mut IO_WORKITEM_ROUTINE;
-pub type PIO_WORKITEM_ROUTINE_EX = *mut IO_WORKITEM_ROUTINE_EX;
+pub type PIO_TIMER = *mut IO_TIMER;
+pub type PIO_TIMER_ROUTINE = *mut u8;
+pub type PIO_WORKITEM = *mut IO_WORKITEM;
+pub type PIO_WORKITEM_ROUTINE = *mut u8;
+pub type PIO_WORKITEM_ROUTINE_EX = *mut u8;
 pub type PIRQ_DEVICE_POLICY = *mut IRQ_DEVICE_POLICY;
 pub type PIRQ_GROUP_POLICY = *mut IRQ_GROUP_POLICY;
 pub type PIRQ_PRIORITY = *mut IRQ_PRIORITY;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PJOIN_DMA_DOMAIN = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, domainhandle: super::HANDLE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PJOIN_DMA_DOMAIN = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, domainhandle: super::HANDLE) -> windows_core::NTSTATUS>;
 pub type PKADDRESS_RANGE = *mut KADDRESS_RANGE;
 pub type PKADDRESS_RANGE_DESCRIPTOR = *mut KADDRESS_RANGE_DESCRIPTOR;
-pub type PKAFFINITY_EX = *mut _KAFFINITY_EX;
+pub type PKAFFINITY_EX = *mut KAFFINITY_EX;
 #[cfg(feature = "winnt")]
 pub type PKAPC = *mut KAPC;
 pub type PKBUGCHECK_ADD_PAGES = *mut KBUGCHECK_ADD_PAGES;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PKBUGCHECK_CALLBACK_RECORD = *mut KBUGCHECK_CALLBACK_RECORD;
-pub type PKBUGCHECK_CALLBACK_ROUTINE = *mut KBUGCHECK_CALLBACK_ROUTINE;
+pub type PKBUGCHECK_CALLBACK_ROUTINE = *mut u8;
 pub type PKBUGCHECK_DUMP_IO = *mut KBUGCHECK_DUMP_IO;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PKBUGCHECK_REASON_CALLBACK_RECORD = *mut KBUGCHECK_REASON_CALLBACK_RECORD;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PKBUGCHECK_REASON_CALLBACK_ROUTINE = *mut KBUGCHECK_REASON_CALLBACK_ROUTINE;
+pub type PKBUGCHECK_REASON_CALLBACK_ROUTINE = *mut u8;
 pub type PKBUGCHECK_REMOVE_PAGES = *mut KBUGCHECK_REMOVE_PAGES;
 pub type PKBUGCHECK_SECONDARY_DUMP_DATA = *mut KBUGCHECK_SECONDARY_DUMP_DATA;
 pub type PKBUGCHECK_SECONDARY_DUMP_DATA_EX = *mut KBUGCHECK_SECONDARY_DUMP_DATA_EX;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PKBUGCHECK_TRIAGE_DUMP_DATA = *mut KBUGCHECK_TRIAGE_DUMP_DATA;
 pub type PKCRM_PROTOCOL_ID = *mut windows_core::GUID;
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-pub type PKDEFERRED_ROUTINE = *mut KDEFERRED_ROUTINE;
+pub type PKDEFERRED_ROUTINE = *mut u8;
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
 pub type PKDEVICE_QUEUE = *mut KDEVICE_QUEUE;
 #[cfg(feature = "winnt")]
@@ -14739,9 +15136,12 @@ pub type PKENLISTMENT = *mut KENLISTMENT;
 pub type PKERNEL_SOFT_RESTART_NOTIFICATION = *mut KERNEL_SOFT_RESTART_NOTIFICATION;
 #[cfg(feature = "winnt")]
 pub type PKEVENT = *mut KEVENT;
+#[cfg(feature = "winnt")]
 pub type PKEY_BASIC_INFORMATION = *mut KEY_BASIC_INFORMATION;
 pub type PKEY_CONTROL_FLAGS_INFORMATION = *mut KEY_CONTROL_FLAGS_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PKEY_FULL_INFORMATION = *mut KEY_FULL_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PKEY_NODE_INFORMATION = *mut KEY_NODE_INFORMATION;
 pub type PKEY_SET_VIRTUALIZATION_INFORMATION = *mut KEY_SET_VIRTUALIZATION_INFORMATION;
 pub type PKEY_TRUST_INFORMATION = *mut KEY_TRUST_INFORMATION;
@@ -14751,40 +15151,41 @@ pub type PKEY_VALUE_LAYER_INFORMATION = *mut KEY_VALUE_LAYER_INFORMATION;
 pub type PKEY_VALUE_PARTIAL_INFORMATION = *mut KEY_VALUE_PARTIAL_INFORMATION;
 pub type PKEY_VALUE_PARTIAL_INFORMATION_ALIGN64 = *mut KEY_VALUE_PARTIAL_INFORMATION_ALIGN64;
 pub type PKEY_WOW64_FLAGS_INFORMATION = *mut KEY_WOW64_FLAGS_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PKEY_WRITE_TIME_INFORMATION = *mut KEY_WRITE_TIME_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PKE_PROCESSOR_CHANGE_NOTIFY_CONTEXT = *mut KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT;
-pub type PKE_SRCU = *mut _KE_SRCU;
+pub type PKE_SRCU = *mut KE_SRCU;
 pub type PKE_SRCU_LOCK = *mut KE_SRCU_LOCK;
 pub type PKFLOATING_SAVE = *mut KFLOATING_SAVE;
 #[cfg(feature = "winnt")]
 pub type PKGATE = *mut KGATE;
 #[cfg(feature = "winnt")]
 pub type PKGUARDED_MUTEX = *mut FAST_MUTEX;
-pub type PKINTERRUPT = *mut _KINTERRUPT;
+pub type PKINTERRUPT = *mut KINTERRUPT;
 pub type PKINTERRUPT_POLARITY = *mut KINTERRUPT_POLARITY;
-pub type PKIPI_BROADCAST_WORKER = *mut KIPI_BROADCAST_WORKER;
+pub type PKIPI_BROADCAST_WORKER = *mut u8;
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
 pub type PKLOCK_QUEUE_HANDLE = *mut KLOCK_QUEUE_HANDLE;
-pub type PKMESSAGE_SERVICE_ROUTINE = *mut KMESSAGE_SERVICE_ROUTINE;
+pub type PKMESSAGE_SERVICE_ROUTINE = *mut u8;
 #[cfg(feature = "winnt")]
 pub type PKMUTANT = *mut KMUTANT;
 #[cfg(feature = "winnt")]
 pub type PKMUTEX = *mut KMUTANT;
-pub type PKPROCESS = *mut _KPROCESS;
+pub type PKPROCESS = *mut KPROCESS;
 pub type PKRESOURCEMANAGER = *mut KRESOURCEMANAGER;
 #[cfg(feature = "winnt")]
 pub type PKSEMAPHORE = *mut KSEMAPHORE;
-pub type PKSERVICE_ROUTINE = *mut KSERVICE_ROUTINE;
+pub type PKSERVICE_ROUTINE = *mut u8;
 #[cfg(feature = "winnt")]
 pub type PKSPIN_LOCK_QUEUE = *mut KSPIN_LOCK_QUEUE;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub type PKSPIN_LOCK_QUEUE_NUMBER = *mut KSPIN_LOCK_QUEUE_NUMBER;
-pub type PKSTART_ROUTINE = *mut KSTART_ROUTINE;
-pub type PKSYNCHRONIZE_ROUTINE = *mut KSYNCHRONIZE_ROUTINE;
+pub type PKSTART_ROUTINE = *mut u8;
+pub type PKSYNCHRONIZE_ROUTINE = *mut u8;
 pub type PKSYSTEM_TIME = *mut KSYSTEM_TIME;
 pub type PKT2_SET_PARAMETERS = *mut EXT_SET_PARAMETERS;
-pub type PKTHREAD = *mut _KTHREAD;
+pub type PKTHREAD = *mut KTHREAD;
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
 pub type PKTIMER = *mut KTIMER;
 pub type PKTM = *mut KTM;
@@ -14794,12 +15195,12 @@ pub type PKTRIAGE_DUMP_DATA_ARRAY = *mut KTRIAGE_DUMP_DATA_ARRAY;
 #[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
 pub type PKWAIT_BLOCK = *mut KWAIT_BLOCK;
 pub type PKWAIT_CHAIN = *mut KWAIT_CHAIN;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PLEAVE_DMA_DOMAIN = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PLEAVE_DMA_DOMAIN = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER) -> windows_core::NTSTATUS>;
 pub type PLEGACY_BUS_INFORMATION = *mut LEGACY_BUS_INFORMATION;
 pub type PLINK_SHARE_ACCESS = *mut LINK_SHARE_ACCESS;
 pub type PLOADER_PARTITION_INFORMATION_EX = *mut LOADER_PARTITION_INFORMATION_EX;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PLOG_FILE_OBJECT = *mut FILE_OBJECT;
 #[cfg(feature = "winnt")]
 pub type PLOOKASIDE_LIST_EX = *mut LOOKASIDE_LIST_EX;
@@ -14814,37 +15215,37 @@ pub const PLUGPLAY_PROPERTY_PERSISTENT: i32 = 1;
 pub const PLUGPLAY_REGKEY_CURRENT_HWPROFILE: i32 = 4;
 pub const PLUGPLAY_REGKEY_DEVICE: i32 = 1;
 pub const PLUGPLAY_REGKEY_DRIVER: i32 = 2;
+#[cfg(feature = "winnt")]
 pub type PMAILSLOT_CREATE_PARAMETERS = *mut MAILSLOT_CREATE_PARAMETERS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PMAP_TRANSFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const MDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: *mut u32, writetodevice: bool) -> super::PHYSICAL_ADDRESS>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PMAP_TRANSFER_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const MDL, mapregisterbase: *const core::ffi::c_void, offset: u64, deviceoffset: u32, length: *mut u32, writetodevice: bool, scattergatherbuffer: *mut SCATTER_GATHER_LIST, scattergatherbufferlength: u32, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PMAP_TRANSFER = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, mdl: super::PMDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: super::PULONG, writetodevice: super::BOOLEAN) -> super::PHYSICAL_ADDRESS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PMAP_TRANSFER_EX = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, mdl: super::PMDL, mapregisterbase: *const core::ffi::c_void, offset: u64, deviceoffset: u32, length: super::PULONG, writetodevice: super::BOOLEAN, scattergatherbuffer: PSCATTER_GATHER_LIST, scattergatherbufferlength: u32, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(feature = "ntdef")]
 pub type PMDLX = *mut MDL;
 #[cfg(feature = "winnt")]
 pub type PMEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION = *mut MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION;
-#[cfg(feature = "ntsecapi")]
-pub type PMM_DLL_INITIALIZE = Option<unsafe extern "system" fn(registrypath: *const super::UNICODE_STRING) -> windows_core::NTSTATUS>;
-pub type PMM_DLL_UNLOAD = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
-#[cfg(feature = "ntsecapi")]
-pub type PMM_GET_SYSTEM_ROUTINE_ADDRESS_EX = Option<unsafe extern "system" fn(modulename: *const super::UNICODE_STRING, functionname: windows_core::PCSTR) -> *mut core::ffi::c_void>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMM_MDL_PAGE_CONTENTS_STATE(pub MM_MDL_PAGE_CONTENTS_STATE);
-pub type PMM_MDL_ROUTINE = *mut MM_MDL_ROUTINE;
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+pub type PMM_DLL_INITIALIZE = Option<unsafe extern "C" fn(registrypath: super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
+pub type PMM_DLL_UNLOAD = Option<unsafe extern "C" fn() -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+pub type PMM_GET_SYSTEM_ROUTINE_ADDRESS_EX = Option<unsafe extern "C" fn(modulename: super::PUNICODE_STRING, functionname: windows_core::PCSTR) -> *mut core::ffi::c_void>;
+pub type PMM_MDL_PAGE_CONTENTS_STATE = _MM_MDL_PAGE_CONTENTS_STATE;
+pub type PMM_MDL_ROUTINE = *mut u8;
+#[cfg(all(feature = "usb", feature = "winnt"))]
 pub type PMM_PHYSICAL_ADDRESS_LIST = *mut MM_PHYSICAL_ADDRESS_LIST;
+#[cfg(feature = "winnt")]
 pub type PNAMED_PIPE_CREATE_PARAMETERS = *mut NAMED_PIPE_CREATE_PARAMETERS;
-pub type PNMI_CALLBACK = *mut NMI_CALLBACK;
+pub type PNMI_CALLBACK = *mut u8;
 #[cfg(feature = "winnt")]
 pub type PNPAGED_LOOKASIDE_LIST = *mut NPAGED_LOOKASIDE_LIST;
 pub const PNPBus: INTERFACE_TYPE = 15;
 pub type PNPEM_CAPABILITY_STANDARD = *mut NPEM_CAPABILITY_STANDARD;
-pub type PNPEM_CONTROL_ENABLE_DISABLE = *mut NPEM_CONTROL_ENABLE_DISABLE;
+pub type PNPEM_CONTROL_ENABLE_DISABLE = *mut u8;
 pub type PNPEM_CONTROL_INTERFACE = *mut NPEM_CONTROL_INTERFACE;
-pub type PNPEM_CONTROL_QUERY_CONTROL = *mut NPEM_CONTROL_QUERY_CONTROL;
-pub type PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = *mut NPEM_CONTROL_QUERY_STANDARD_CAPABILITIES;
-pub type PNPEM_CONTROL_SET_STANDARD_CONTROL = *mut NPEM_CONTROL_SET_STANDARD_CONTROL;
+pub type PNPEM_CONTROL_QUERY_CONTROL = *mut u8;
+pub type PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = *mut u8;
+pub type PNPEM_CONTROL_SET_STANDARD_CONTROL = *mut u8;
 pub type PNPEM_CONTROL_STANDARD_CONTROL_BIT = *mut NPEM_CONTROL_STANDARD_CONTROL_BIT;
 pub const PNPISABus: INTERFACE_TYPE = 14;
 pub const PNPNOTIFY_DEVICE_INTERFACE_INCLUDE_EXISTING_INTERFACES: i32 = 1;
@@ -14864,10 +15265,9 @@ pub const PNP_DEVICE_NOT_DISABLEABLE: i32 = 32;
 pub const PNP_DEVICE_REMOVED: i32 = 8;
 pub const PNP_DEVICE_RESOURCE_REQUIREMENTS_CHANGED: i32 = 16;
 pub const PNP_DEVICE_RESOURCE_UPDATED: i32 = 128;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PNP_DEVICE_STATE(pub u32);
+pub type PNP_DEVICE_STATE = u32;
 #[repr(C)]
+#[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct PNP_EXTENDED_ADDRESS_INTERFACE {
     pub Size: u16,
@@ -14879,7 +15279,7 @@ pub struct PNP_EXTENDED_ADDRESS_INTERFACE {
 }
 pub const PNP_EXTENDED_ADDRESS_INTERFACE_VERSION: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct PNP_REPLACE_DRIVER_INTERFACE {
     pub Size: u32,
@@ -14905,31 +15305,37 @@ pub const PNP_REPLACE_HARDWARE_MEMORY_MIRRORING: i32 = 4;
 pub const PNP_REPLACE_HARDWARE_PAGE_COPY: i32 = 8;
 pub const PNP_REPLACE_HARDWARE_QUIESCE: i32 = 16;
 #[repr(C)]
-#[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct PNP_REPLACE_MEMORY_LIST {
     pub AllocatedCount: u32,
     pub Count: u32,
     pub TotalLength: u64,
     pub Ranges: [PNP_REPLACE_MEMORY_LIST_0; 1],
 }
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 impl Default for PNP_REPLACE_MEMORY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct PNP_REPLACE_MEMORY_LIST_0 {
     pub Address: super::PHYSICAL_ADDRESS,
     pub Length: u64,
 }
+#[cfg(all(feature = "usb", feature = "winnt"))]
+impl Default for PNP_REPLACE_MEMORY_LIST_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PNP_REPLACE_MEMORY_SUPPORTED: i32 = 1;
 pub const PNP_REPLACE_NO_MAP: i64 = 9223372036854775807;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct PNP_REPLACE_PARAMETERS {
     pub Size: u32,
@@ -14975,14 +15381,13 @@ impl Default for PNP_REPLACE_PROCESSOR_LIST_V1 {
     }
 }
 pub const PNP_REPLACE_PROCESSOR_SUPPORTED: i32 = 2;
-#[cfg(feature = "winnt")]
-pub type PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = *mut NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR;
+pub type PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = *mut u8;
 #[cfg(feature = "winnt")]
 pub type POBJECT_HANDLE_INFORMATION = *mut OBJECT_HANDLE_INFORMATION;
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 pub type POBJECT_NAME_INFORMATION = *mut OBJECT_NAME_INFORMATION;
-pub type POBJECT_TYPE = *mut _OBJECT_TYPE;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+pub type POBJECT_TYPE = *mut OBJECT_TYPE;
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type POB_CALLBACK_REGISTRATION = *mut OB_CALLBACK_REGISTRATION;
 #[cfg(feature = "winnt")]
 pub type POB_OPERATION_REGISTRATION = *mut OB_OPERATION_REGISTRATION;
@@ -14991,7 +15396,7 @@ pub type POB_POST_CREATE_HANDLE_INFORMATION = *mut OB_POST_CREATE_HANDLE_INFORMA
 #[cfg(feature = "winnt")]
 pub type POB_POST_DUPLICATE_HANDLE_INFORMATION = *mut OB_POST_DUPLICATE_HANDLE_INFORMATION;
 #[cfg(feature = "winnt")]
-pub type POB_POST_OPERATION_CALLBACK = Option<unsafe extern "system" fn(registrationcontext: *const core::ffi::c_void, operationinformation: *const OB_POST_OPERATION_INFORMATION)>;
+pub type POB_POST_OPERATION_CALLBACK = Option<unsafe extern "C" fn(registrationcontext: *const core::ffi::c_void, operationinformation: POB_POST_OPERATION_INFORMATION)>;
 #[cfg(feature = "winnt")]
 pub type POB_POST_OPERATION_INFORMATION = *mut OB_POST_OPERATION_INFORMATION;
 #[cfg(feature = "winnt")]
@@ -15002,35 +15407,38 @@ pub type POB_PRE_CREATE_HANDLE_INFORMATION = *mut OB_PRE_CREATE_HANDLE_INFORMATI
 #[cfg(feature = "winnt")]
 pub type POB_PRE_DUPLICATE_HANDLE_INFORMATION = *mut OB_PRE_DUPLICATE_HANDLE_INFORMATION;
 #[cfg(feature = "winnt")]
-pub type POB_PRE_OPERATION_CALLBACK = Option<unsafe extern "system" fn(registrationcontext: *const core::ffi::c_void, operationinformation: *mut OB_PRE_OPERATION_INFORMATION) -> OB_PREOP_CALLBACK_STATUS>;
+pub type POB_PRE_OPERATION_CALLBACK = Option<unsafe extern "C" fn(registrationcontext: *const core::ffi::c_void, operationinformation: POB_PRE_OPERATION_INFORMATION) -> OB_PREOP_CALLBACK_STATUS>;
 #[cfg(feature = "winnt")]
 pub type POB_PRE_OPERATION_INFORMATION = *mut OB_PRE_OPERATION_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type POB_PRE_OPERATION_PARAMETERS = *mut OB_PRE_OPERATION_PARAMETERS;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct POHANDLE(pub *mut core::ffi::c_void);
+pub type POHANDLE = *mut POHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POHANDLE__ {
+    pub unused: i32,
+}
 pub const POOL_COLD_ALLOCATION: i32 = 256;
 #[repr(C)]
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct POOL_CREATE_EXTENDED_PARAMETER {
     pub Type: POOL_CREATE_EXTENDED_PARAMETER_TYPE,
     pub Anonymous: POOL_CREATE_EXTENDED_PARAMETER_0,
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 impl Default for POOL_CREATE_EXTENDED_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub union POOL_CREATE_EXTENDED_PARAMETER_0 {
     pub PoolName: super::UNICODE_STRING,
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 impl Default for POOL_CREATE_EXTENDED_PARAMETER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -15038,7 +15446,7 @@ impl Default for POOL_CREATE_EXTENDED_PARAMETER_0 {
 }
 pub type POOL_CREATE_EXTENDED_PARAMETER_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POOL_CREATE_EXTENDED_PARAMS {
     pub Version: u32,
@@ -15122,9 +15530,7 @@ pub struct POOL_EXTENDED_PARAMS_SECURE_POOL {
     pub Cookie: usize,
     pub SecurePoolFlags: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct POOL_FLAGS(pub u64);
+pub type POOL_FLAGS = u64;
 pub const POOL_FLAG_CACHE_ALIGNED: u64 = 8;
 pub const POOL_FLAG_LAST_KNOWN_REQUIRED: u64 = 2048;
 pub const POOL_FLAG_NON_PAGED: u64 = 64;
@@ -15145,9 +15551,7 @@ pub const POOL_FLAG_TAGGED_VA: u64 = 512;
 pub const POOL_FLAG_UNINITIALIZED: u64 = 2;
 pub const POOL_FLAG_UNUSED_REQUIRED_BITS: u64 = 4294963200;
 pub const POOL_FLAG_USE_QUOTA: u64 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct POOL_NODE_REQUIREMENT(pub u32);
+pub type POOL_NODE_REQUIREMENT = u32;
 pub const POOL_NX_ALLOCATION: i32 = 512;
 #[cfg(target_arch = "aarch64")]
 pub const POOL_NX_OPTIN_AUTO: i32 = 1;
@@ -15171,7 +15575,8 @@ pub struct POWER_SEQUENCE {
     pub SequenceD2: u32,
     pub SequenceD3: u32,
 }
-pub type POWER_SETTING_CALLBACK = Option<unsafe extern "system" fn(settingguid: *const windows_core::GUID, value: *const core::ffi::c_void, valuelength: u32, context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(feature = "guiddef")]
+pub type POWER_SETTING_CALLBACK = Option<unsafe extern "C" fn(settingguid: super::LPCGUID, value: *const core::ffi::c_void, valuelength: u32, context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -15194,20 +15599,24 @@ pub const PO_CB_PROCESSOR_POWER_POLICY: i32 = 5;
 pub const PO_CB_SYSTEM_POWER_POLICY: i32 = 0;
 pub const PO_CB_SYSTEM_STATE_LOCK: i32 = 3;
 pub type PO_EFFECTIVE_POWER_MODE = i32;
-pub type PO_EFFECTIVE_POWER_MODE_CALLBACK = Option<unsafe extern "system" fn(mode: PO_EFFECTIVE_POWER_MODE, context: *const core::ffi::c_void)>;
+pub type PO_EFFECTIVE_POWER_MODE_CALLBACK = Option<unsafe extern "C" fn(mode: PO_EFFECTIVE_POWER_MODE, context: *const core::ffi::c_void)>;
 pub const PO_EFFECTIVE_POWER_MODE_V1: i32 = 1;
 pub const PO_EFFECTIVE_POWER_MODE_V2: i32 = 2;
 pub const PO_EFFECTIVE_POWER_MODE_VMAX: i32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PO_EPM_HANDLE(pub *mut core::ffi::c_void);
+pub type PO_EPM_HANDLE = *mut PO_EPM_HANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PO_EPM_HANDLE__ {
+    pub unused: i32,
+}
 pub type PO_FX_COMPONENT = PO_FX_COMPONENT_V1;
-pub type PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32)>;
-pub type PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32, active: bool)>;
+pub type PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, component: u32)>;
+#[cfg(feature = "winnt")]
+pub type PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, component: u32, active: super::BOOLEAN)>;
 pub const PO_FX_COMPONENT_FLAG_F0_ON_CHILD_D0: i32 = 4;
 pub const PO_FX_COMPONENT_FLAG_F0_ON_DX: i32 = 1;
 pub const PO_FX_COMPONENT_FLAG_NO_DEBOUNCE: i32 = 2;
-pub type PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32)>;
+pub type PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, component: u32)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PO_FX_COMPONENT_IDLE_STATE {
@@ -15215,22 +15624,22 @@ pub struct PO_FX_COMPONENT_IDLE_STATE {
     pub ResidencyRequirement: u64,
     pub NominalPower: u32,
 }
-pub type PO_FX_COMPONENT_IDLE_STATE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32, state: u32)>;
+pub type PO_FX_COMPONENT_IDLE_STATE_CALLBACK = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, component: u32, state: u32)>;
 #[repr(C)]
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_PERF_INFO {
     pub PerfStateSetsCount: u32,
     pub PerfStateSets: [PO_FX_COMPONENT_PERF_SET; 1],
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 impl Default for PO_FX_COMPONENT_PERF_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_PERF_SET {
     pub Name: super::UNICODE_STRING,
@@ -15239,40 +15648,41 @@ pub struct PO_FX_COMPONENT_PERF_SET {
     pub Type: PO_FX_PERF_STATE_TYPE,
     pub Anonymous: PO_FX_COMPONENT_PERF_SET_0,
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 impl Default for PO_FX_COMPONENT_PERF_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy)]
 pub union PO_FX_COMPONENT_PERF_SET_0 {
     pub Discrete: PO_FX_COMPONENT_PERF_SET_0_0,
     pub Range: PO_FX_COMPONENT_PERF_SET_0_1,
 }
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 impl Default for PO_FX_COMPONENT_PERF_SET_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PO_FX_COMPONENT_PERF_SET_0_0 {
     pub Count: u32,
     pub States: PPO_FX_PERF_STATE,
 }
 #[repr(C)]
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PO_FX_COMPONENT_PERF_SET_0_1 {
     pub Minimum: u64,
     pub Maximum: u64,
 }
-pub type PO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32, succeeded: bool, requestcontext: *const core::ffi::c_void)>;
+#[cfg(feature = "winnt")]
+pub type PO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, component: u32, succeeded: super::BOOLEAN, requestcontext: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PO_FX_COMPONENT_V1 {
@@ -15302,8 +15712,8 @@ pub const PO_FX_DEVICE_FLAG_ENABLE_FAST_RESUME: u64 = 16;
 pub const PO_FX_DEVICE_FLAG_NO_FAULT_CALLBACKS: u64 = 32;
 pub const PO_FX_DEVICE_FLAG_RESERVED_1: u64 = 1;
 pub const PO_FX_DEVICE_FLAG_RESERVED_2: u64 = 64;
-pub type PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type PO_FX_DEVICE_POWER_REQUIRED_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = Option<unsafe extern "C" fn(context: *const core::ffi::c_void)>;
+pub type PO_FX_DEVICE_POWER_REQUIRED_CALLBACK = Option<unsafe extern "C" fn(context: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PO_FX_DEVICE_V1 {
@@ -15373,10 +15783,10 @@ impl Default for PO_FX_DEVICE_V3 {
 pub const PO_FX_DIRECTED_FX_DEFAULT_IDLE_TIMEOUT: u32 = 0;
 pub const PO_FX_DIRECTED_FX_IMMEDIATE_IDLE_TIMEOUT: u32 = 4294967295;
 pub const PO_FX_DIRECTED_FX_MAX_IDLE_TIMEOUT: u32 = 600;
-pub type PO_FX_DIRECTED_POWER_DOWN_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, flags: u32)>;
-pub type PO_FX_DIRECTED_POWER_UP_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, flags: u32)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PO_FX_DRIPS_WATCHDOG_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, physicaldeviceobject: *const DEVICE_OBJECT, uniqueid: u32)>;
+pub type PO_FX_DIRECTED_POWER_DOWN_CALLBACK = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, flags: u32)>;
+pub type PO_FX_DIRECTED_POWER_UP_CALLBACK = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, flags: u32)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PO_FX_DRIPS_WATCHDOG_CALLBACK = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, physicaldeviceobject: PDEVICE_OBJECT, uniqueid: u32)>;
 pub const PO_FX_FLAG_ASYNC_ONLY: i32 = 2;
 pub const PO_FX_FLAG_BLOCKING: i32 = 1;
 pub const PO_FX_FLAG_PERF_PEP_OPTIONAL: i32 = 1;
@@ -15412,7 +15822,8 @@ impl Default for PO_FX_PERF_STATE_CHANGE_0 {
 }
 pub type PO_FX_PERF_STATE_TYPE = i32;
 pub type PO_FX_PERF_STATE_UNIT = i32;
-pub type PO_FX_POWER_CONTROL_CALLBACK = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, powercontrolcode: *const windows_core::GUID, inbuffer: *const core::ffi::c_void, inbuffersize: usize, outbuffer: *mut core::ffi::c_void, outbuffersize: usize, bytesreturned: *mut usize) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "guiddef"))]
+pub type PO_FX_POWER_CONTROL_CALLBACK = Option<unsafe extern "C" fn(devicecontext: *const core::ffi::c_void, powercontrolcode: super::LPCGUID, inbuffer: *const core::ffi::c_void, inbuffersize: usize, outbuffer: *mut core::ffi::c_void, outbuffersize: usize, bytesreturned: super::PSIZE_T) -> windows_core::NTSTATUS>;
 pub const PO_FX_UNKNOWN_POWER: u32 = 4294967295;
 pub const PO_FX_UNKNOWN_TIME: u64 = 18446744073709551615;
 pub const PO_FX_VERSION: i32 = 1;
@@ -15439,7 +15850,6 @@ pub type PPCI_CORRECTABLE_ERROR_STATUS = *mut PCI_EXPRESS_CORRECTABLE_ERROR_STAT
 pub type PPCI_DEVICE_PRESENCE_PARAMETERS = *mut PCI_DEVICE_PRESENCE_PARAMETERS;
 pub type PPCI_DEVICE_PRESENT_INTERFACE = *mut PCI_DEVICE_PRESENT_INTERFACE;
 pub type PPCI_DOE_INTERFACE = *mut PCI_DOE_INTERFACE;
-#[cfg(feature = "winnt")]
 pub type PPCI_DOE_INTERFACE2 = *mut PCI_DOE_INTERFACE2;
 pub type PPCI_EXPRESS_ACS_CAPABILITY = *mut PCI_EXPRESS_ACS_CAPABILITY;
 pub type PPCI_EXPRESS_ACS_CAPABILITY_REGISTER = *mut PCI_EXPRESS_ACS_CAPABILITY_REGISTER;
@@ -15457,9 +15867,9 @@ pub type PPCI_EXPRESS_DEVICE_3_EXTENDED_CAPABILITY = *mut PCI_EXPRESS_DEVICE_3_E
 pub type PPCI_EXPRESS_DEVICE_CAPABILITIES_3_REGISTER = *mut PCI_EXPRESS_DEVICE_CAPABILITIES_3_REGISTER;
 pub type PPCI_EXPRESS_DEVICE_CONTROL_3_REGISTER = *mut PCI_EXPRESS_DEVICE_CONTROL_3_REGISTER;
 pub type PPCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = *mut PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER;
-pub type PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = *mut PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE;
+pub type PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = *mut u8;
 pub type PPCI_EXPRESS_ERROR_SOURCE_ID = *mut PCI_EXPRESS_ERROR_SOURCE_ID;
-pub type PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = *mut PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE;
+pub type PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = *mut u8;
 pub type PPCI_EXPRESS_LINK_QUIESCENT_INTERFACE = *mut PCI_EXPRESS_LINK_QUIESCENT_INTERFACE;
 pub type PPCI_EXPRESS_PASID_CAPABILITY = *mut PCI_EXPRESS_PASID_CAPABILITY;
 pub type PPCI_EXPRESS_PASID_CAPABILITY_REGISTER = *mut PCI_EXPRESS_PASID_CAPABILITY_REGISTER;
@@ -15474,8 +15884,8 @@ pub type PPCI_EXPRESS_ROOTPORT_AER_CAPABILITY = *mut PCI_EXPRESS_ROOTPORT_AER_CA
 pub type PPCI_EXPRESS_ROOT_ERROR_COMMAND = *mut PCI_EXPRESS_ROOT_ERROR_COMMAND;
 pub type PPCI_EXPRESS_ROOT_ERROR_STATUS = *mut PCI_EXPRESS_ROOT_ERROR_STATUS;
 pub type PPCI_EXPRESS_ROOT_PORT_INTERFACE = *mut PCI_EXPRESS_ROOT_PORT_INTERFACE;
-pub type PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
-pub type PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
+pub type PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
+pub type PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
 pub type PPCI_EXPRESS_SEC_AER_CAPABILITIES = *mut PCI_EXPRESS_SEC_AER_CAPABILITIES;
 pub type PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK = *mut PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK;
 pub type PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY = *mut PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY;
@@ -15491,12 +15901,12 @@ pub type PPCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY = *mut PCI_EXPRESS_UNCORRECTA
 pub type PPCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS = *mut PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS;
 pub type PPCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY = *mut PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY;
 pub type PPCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY = *mut PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY;
-pub type PPCI_IS_DEVICE_PRESENT = *mut PCI_IS_DEVICE_PRESENT;
-pub type PPCI_IS_DEVICE_PRESENT_EX = *mut PCI_IS_DEVICE_PRESENT_EX;
-pub type PPCI_MSIX_GET_ENTRY = *mut PCI_MSIX_GET_ENTRY;
-pub type PPCI_MSIX_GET_TABLE_SIZE = *mut PCI_MSIX_GET_TABLE_SIZE;
-pub type PPCI_MSIX_MASKUNMASK_ENTRY = *mut PCI_MSIX_MASKUNMASK_ENTRY;
-pub type PPCI_MSIX_SET_ENTRY = *mut PCI_MSIX_SET_ENTRY;
+pub type PPCI_IS_DEVICE_PRESENT = *mut u8;
+pub type PPCI_IS_DEVICE_PRESENT_EX = *mut u8;
+pub type PPCI_MSIX_GET_ENTRY = *mut u8;
+pub type PPCI_MSIX_GET_TABLE_SIZE = *mut u8;
+pub type PPCI_MSIX_MASKUNMASK_ENTRY = *mut u8;
+pub type PPCI_MSIX_SET_ENTRY = *mut u8;
 pub type PPCI_MSIX_TABLE_CONFIG_INTERFACE = *mut PCI_MSIX_TABLE_CONFIG_INTERFACE;
 pub type PPCI_PMC = *mut PCI_PMC;
 pub type PPCI_PMCSR = *mut PCI_PMCSR;
@@ -15505,124 +15915,124 @@ pub type PPCI_PM_CAPABILITY = *mut PCI_PM_CAPABILITY;
 pub type PPCI_SECURITY_INTERFACE = *mut PCI_SECURITY_INTERFACE;
 pub type PPCI_SECURITY_INTERFACE2 = *mut PCI_SECURITY_INTERFACE2;
 pub type PPCI_SEGMENT_BUS_NUMBER = *mut PCI_SEGMENT_BUS_NUMBER;
-pub type PPCI_SET_ACS = *mut PCI_SET_ACS;
-pub type PPCI_SET_ACS2 = *mut PCI_SET_ACS2;
-pub type PPCI_SET_ACS3 = *mut PCI_SET_ACS3;
-pub type PPCI_SET_ATS = *mut PCI_SET_ATS;
+pub type PPCI_SET_ACS = *mut u8;
+pub type PPCI_SET_ACS2 = *mut u8;
+pub type PPCI_SET_ACS3 = *mut u8;
+pub type PPCI_SET_ATS = *mut u8;
 pub type PPCI_SLOT_NUMBER = *mut PCI_SLOT_NUMBER;
 pub type PPCI_VIRTUALIZATION_INTERFACE = *mut PCI_VIRTUALIZATION_INTERFACE;
 pub type PPCI_X_CAPABILITY = *mut PCI_X_CAPABILITY;
-pub type PPCW_BUFFER = *mut _PCW_BUFFER;
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-pub type PPCW_CALLBACK = Option<unsafe extern "system" fn(r#type: PCW_CALLBACK_TYPE, info: *const PCW_CALLBACK_INFORMATION, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+pub type PPCW_BUFFER = *mut PCW_BUFFER;
+#[cfg(all(feature = "winnt", feature = "winternl"))]
+pub type PPCW_CALLBACK = Option<unsafe extern "system" fn(r#type: PCW_CALLBACK_TYPE, info: PPCW_CALLBACK_INFORMATION, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PPCW_CALLBACK_INFORMATION = *mut PCW_CALLBACK_INFORMATION;
 pub type PPCW_CALLBACK_TYPE = *mut PCW_CALLBACK_TYPE;
 pub type PPCW_COUNTER_DESCRIPTOR = *mut PCW_COUNTER_DESCRIPTOR;
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(feature = "winternl")]
 pub type PPCW_COUNTER_INFORMATION = *mut PCW_COUNTER_INFORMATION;
 pub type PPCW_DATA = *mut PCW_DATA;
-pub type PPCW_INSTANCE = *mut _PCW_INSTANCE;
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+pub type PPCW_INSTANCE = *mut PCW_INSTANCE;
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PPCW_MASK_INFORMATION = *mut PCW_MASK_INFORMATION;
-pub type PPCW_REGISTRATION = *mut _PCW_REGISTRATION;
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+pub type PPCW_REGISTRATION = *mut PCW_REGISTRATION;
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PPCW_REGISTRATION_INFORMATION = *mut PCW_REGISTRATION_INFORMATION;
 #[cfg(target_arch = "x86")]
 pub type PPFN_NUMBER = *mut u32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PPFN_NUMBER = *mut u64;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PPLOG_FILE_OBJECT = *mut *mut FILE_OBJECT;
 pub type PPLUGPLAY_NOTIFICATION_HEADER = *mut PLUGPLAY_NOTIFICATION_HEADER;
 pub type PPNP_BUS_INFORMATION = *mut PNP_BUS_INFORMATION;
 pub type PPNP_DEVICE_STATE = *mut u32;
+#[cfg(feature = "basetsd")]
 pub type PPNP_EXTENDED_ADDRESS_INTERFACE = *mut PNP_EXTENDED_ADDRESS_INTERFACE;
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
 pub type PPNP_REPLACE_DRIVER_INTERFACE = *mut PNP_REPLACE_DRIVER_INTERFACE;
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 pub type PPNP_REPLACE_MEMORY_LIST = *mut PNP_REPLACE_MEMORY_LIST;
-#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
 pub type PPNP_REPLACE_PARAMETERS = *mut PNP_REPLACE_PARAMETERS;
 #[cfg(feature = "basetsd")]
 pub type PPNP_REPLACE_PROCESSOR_LIST = *mut PNP_REPLACE_PROCESSOR_LIST;
 #[cfg(feature = "basetsd")]
 pub type PPNP_REPLACE_PROCESSOR_LIST_V1 = *mut PNP_REPLACE_PROCESSOR_LIST_V1;
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 pub type PPOOL_CREATE_EXTENDED_PARAMETER = *mut POOL_CREATE_EXTENDED_PARAMETER;
 pub type PPOOL_CREATE_EXTENDED_PARAMETER_TYPE = *mut POOL_CREATE_EXTENDED_PARAMETER_TYPE;
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 pub type PPOOL_CREATE_EXTENDED_PARAMS = *mut POOL_CREATE_EXTENDED_PARAMS;
 #[cfg(feature = "winnt")]
 pub type PPOOL_EXTENDED_PARAMETER = *mut POOL_EXTENDED_PARAMETER;
 pub type PPOOL_EXTENDED_PARAMETER_TYPE = *mut POOL_EXTENDED_PARAMETER_TYPE;
 pub type PPOWER_SEQUENCE = *mut POWER_SEQUENCE;
-pub type PPOWER_SETTING_CALLBACK = *mut POWER_SETTING_CALLBACK;
+pub type PPOWER_SETTING_CALLBACK = *mut u8;
 #[cfg(feature = "winnt")]
 pub type PPOWER_STATE = *mut POWER_STATE;
 pub type PPOWER_STATE_TYPE = *mut POWER_STATE_TYPE;
 pub type PPO_EFFECTIVE_POWER_MODE = *mut PO_EFFECTIVE_POWER_MODE;
-pub type PPO_EFFECTIVE_POWER_MODE_CALLBACK = *mut PO_EFFECTIVE_POWER_MODE_CALLBACK;
+pub type PPO_EFFECTIVE_POWER_MODE_CALLBACK = *mut u8;
 pub type PPO_FX_COMPONENT = *mut PO_FX_COMPONENT_V1;
-pub type PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = *mut PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK;
-pub type PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = *mut PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK;
-pub type PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = *mut PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK;
+pub type PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = *mut u8;
+pub type PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = *mut u8;
+pub type PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = *mut u8;
 pub type PPO_FX_COMPONENT_IDLE_STATE = *mut PO_FX_COMPONENT_IDLE_STATE;
-pub type PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = *mut PO_FX_COMPONENT_IDLE_STATE_CALLBACK;
-#[cfg(feature = "ntsecapi")]
+pub type PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = *mut u8;
+#[cfg(feature = "winternl")]
 pub type PPO_FX_COMPONENT_PERF_INFO = *mut PO_FX_COMPONENT_PERF_INFO;
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 pub type PPO_FX_COMPONENT_PERF_SET = *mut PO_FX_COMPONENT_PERF_SET;
-pub type PPO_FX_COMPONENT_PERF_STATE_CALLBACK = *mut PO_FX_COMPONENT_PERF_STATE_CALLBACK;
+pub type PPO_FX_COMPONENT_PERF_STATE_CALLBACK = *mut u8;
 pub type PPO_FX_COMPONENT_V1 = *mut PO_FX_COMPONENT_V1;
 #[cfg(feature = "minwindef")]
 pub type PPO_FX_COMPONENT_V2 = *mut PO_FX_COMPONENT_V2;
 pub type PPO_FX_DEVICE = *mut PO_FX_DEVICE_V1;
-pub type PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = *mut PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK;
-pub type PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK = *mut PO_FX_DEVICE_POWER_REQUIRED_CALLBACK;
+pub type PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = *mut u8;
+pub type PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK = *mut u8;
 pub type PPO_FX_DEVICE_V1 = *mut PO_FX_DEVICE_V1;
 #[cfg(feature = "minwindef")]
 pub type PPO_FX_DEVICE_V2 = *mut PO_FX_DEVICE_V2;
 #[cfg(feature = "minwindef")]
 pub type PPO_FX_DEVICE_V3 = *mut PO_FX_DEVICE_V3;
-pub type PPO_FX_DIRECTED_POWER_DOWN_CALLBACK = *mut PO_FX_DIRECTED_POWER_DOWN_CALLBACK;
-pub type PPO_FX_DIRECTED_POWER_UP_CALLBACK = *mut PO_FX_DIRECTED_POWER_UP_CALLBACK;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PPO_FX_DRIPS_WATCHDOG_CALLBACK = *mut PO_FX_DRIPS_WATCHDOG_CALLBACK;
+pub type PPO_FX_DIRECTED_POWER_DOWN_CALLBACK = *mut u8;
+pub type PPO_FX_DIRECTED_POWER_UP_CALLBACK = *mut u8;
+pub type PPO_FX_DRIPS_WATCHDOG_CALLBACK = *mut u8;
 pub type PPO_FX_PERF_STATE = *mut PO_FX_PERF_STATE;
 pub type PPO_FX_PERF_STATE_CHANGE = *mut PO_FX_PERF_STATE_CHANGE;
 pub type PPO_FX_PERF_STATE_TYPE = *mut PO_FX_PERF_STATE_TYPE;
 pub type PPO_FX_PERF_STATE_UNIT = *mut PO_FX_PERF_STATE_UNIT;
-pub type PPO_FX_POWER_CONTROL_CALLBACK = *mut PO_FX_POWER_CONTROL_CALLBACK;
+pub type PPO_FX_POWER_CONTROL_CALLBACK = *mut u8;
 pub type PPO_THERMAL_REQUEST_TYPE = *mut PO_THERMAL_REQUEST_TYPE;
-#[cfg(feature = "winnt")]
-pub type PPROCESSOR_CALLBACK_FUNCTION = *mut PROCESSOR_CALLBACK_FUNCTION;
-pub type PPROCESSOR_HALT_ROUTINE = *mut PROCESSOR_HALT_ROUTINE;
+pub type PPROCESSOR_CALLBACK_FUNCTION = *mut u8;
+pub type PPROCESSOR_HALT_ROUTINE = *mut u8;
 pub type PPTM_CONTROL_INTERFACE = *mut PTM_CONTROL_INTERFACE;
-pub type PPTM_DEVICE_DISABLE = *mut PTM_DEVICE_DISABLE;
-pub type PPTM_DEVICE_ENABLE = *mut PTM_DEVICE_ENABLE;
-pub type PPTM_DEVICE_QUERY_GRANULARITY = *mut PTM_DEVICE_QUERY_GRANULARITY;
-pub type PPTM_DEVICE_QUERY_TIME_SOURCE = *mut PTM_DEVICE_QUERY_TIME_SOURCE;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PPUT_DMA_ADAPTER = Option<unsafe extern "system" fn(dmaadapter: *mut DMA_ADAPTER)>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PPUT_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, scattergather: *const SCATTER_GATHER_LIST, writetodevice: bool)>;
-pub type PQUERYEXTENDEDADDRESS = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, extendedaddress: *mut u64)>;
-pub type PQUERY_SUPPORTED_DOE_PROTOCOLS = *mut QUERY_SUPPORTED_DOE_PROTOCOLS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PREAD_DMA_COUNTER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> u32>;
-pub type PREENUMERATE_SELF = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type PPTM_DEVICE_DISABLE = *mut u8;
+pub type PPTM_DEVICE_ENABLE = *mut u8;
+pub type PPTM_DEVICE_QUERY_GRANULARITY = *mut u8;
+pub type PPTM_DEVICE_QUERY_TIME_SOURCE = *mut u8;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PPUT_DMA_ADAPTER = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PPUT_SCATTER_GATHER_LIST = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER, scattergather: PSCATTER_GATHER_LIST, writetodevice: super::BOOLEAN)>;
+#[cfg(feature = "basetsd")]
+pub type PQUERYEXTENDEDADDRESS = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, extendedaddress: super::PULONG64)>;
+pub type PQUERY_SUPPORTED_DOE_PROTOCOLS = *mut u8;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PREAD_DMA_COUNTER = Option<unsafe extern "C" fn(dmaadapter: PDMA_ADAPTER) -> u32>;
+pub type PREENUMERATE_SELF = Option<unsafe extern "C" fn(context: *const core::ffi::c_void)>;
 pub type PREENUMERATE_SELF_INTERFACE_STANDARD = *mut REENUMERATE_SELF_INTERFACE_STANDARD;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "system" fn(param0: *mut DEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK, param2: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, notificationhandler: PDEVICE_NOTIFY_CALLBACK2, notificationcontext: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "C" fn(param0: PDEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK, param2: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, notificationhandler: PDEVICE_NOTIFY_CALLBACK2, notificationcontext: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type PREG_CALLBACK_CONTEXT_CLEANUP_INFORMATION = *mut REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 pub type PREG_CREATE_KEY_INFORMATION = *mut REG_CREATE_KEY_INFORMATION;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 pub type PREG_CREATE_KEY_INFORMATION_V1 = *mut REG_CREATE_KEY_INFORMATION_V1;
 pub type PREG_DELETE_KEY_INFORMATION = *mut REG_DELETE_KEY_INFORMATION;
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 pub type PREG_DELETE_VALUE_KEY_INFORMATION = *mut REG_DELETE_VALUE_KEY_INFORMATION;
 #[cfg(feature = "minwindef")]
 pub type PREG_ENUMERATE_KEY_INFORMATION = *mut REG_ENUMERATE_KEY_INFORMATION;
@@ -15630,36 +16040,36 @@ pub type PREG_ENUMERATE_KEY_INFORMATION = *mut REG_ENUMERATE_KEY_INFORMATION;
 pub type PREG_ENUMERATE_VALUE_KEY_INFORMATION = *mut REG_ENUMERATE_VALUE_KEY_INFORMATION;
 pub type PREG_FLUSH_KEY_INFORMATION = *mut REG_DELETE_KEY_INFORMATION;
 pub type PREG_KEY_HANDLE_CLOSE_INFORMATION = *mut REG_KEY_HANDLE_CLOSE_INFORMATION;
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 pub type PREG_LOAD_KEY_INFORMATION = *mut REG_LOAD_KEY_INFORMATION;
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 pub type PREG_LOAD_KEY_INFORMATION_V2 = *mut REG_LOAD_KEY_INFORMATION_V2;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 pub type PREG_OPEN_KEY_INFORMATION = *mut REG_CREATE_KEY_INFORMATION;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 pub type PREG_OPEN_KEY_INFORMATION_V1 = *mut REG_CREATE_KEY_INFORMATION_V1;
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 pub type PREG_POST_CREATE_KEY_INFORMATION = *mut REG_POST_CREATE_KEY_INFORMATION;
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 pub type PREG_POST_OPEN_KEY_INFORMATION = *mut REG_POST_CREATE_KEY_INFORMATION;
 pub type PREG_POST_OPERATION_INFORMATION = *mut REG_POST_OPERATION_INFORMATION;
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 pub type PREG_PRE_CREATE_KEY_INFORMATION = *mut REG_PRE_CREATE_KEY_INFORMATION;
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 pub type PREG_PRE_OPEN_KEY_INFORMATION = *mut REG_PRE_CREATE_KEY_INFORMATION;
 #[cfg(feature = "minwindef")]
 pub type PREG_QUERY_KEY_INFORMATION = *mut REG_QUERY_KEY_INFORMATION;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 pub type PREG_QUERY_KEY_NAME = *mut REG_QUERY_KEY_NAME;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PREG_QUERY_KEY_SECURITY_INFORMATION = *mut REG_QUERY_KEY_SECURITY_INFORMATION;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winternl"))]
 pub type PREG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION = *mut REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
 pub type PREG_QUERY_VALUE_KEY_INFORMATION = *mut REG_QUERY_VALUE_KEY_INFORMATION;
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 pub type PREG_RENAME_KEY_INFORMATION = *mut REG_RENAME_KEY_INFORMATION;
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 pub type PREG_REPLACE_KEY_INFORMATION = *mut REG_REPLACE_KEY_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PREG_RESTORE_KEY_INFORMATION = *mut REG_RESTORE_KEY_INFORMATION;
@@ -15670,29 +16080,30 @@ pub type PREG_SAVE_MERGED_KEY_INFORMATION = *mut REG_SAVE_MERGED_KEY_INFORMATION
 pub type PREG_SET_INFORMATION_KEY_INFORMATION = *mut REG_SET_INFORMATION_KEY_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PREG_SET_KEY_SECURITY_INFORMATION = *mut REG_SET_KEY_SECURITY_INFORMATION;
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 pub type PREG_SET_VALUE_KEY_INFORMATION = *mut REG_SET_VALUE_KEY_INFORMATION;
 pub type PREG_UNLOAD_KEY_INFORMATION = *mut REG_UNLOAD_KEY_INFORMATION;
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-pub type PREPLACE_BEGIN = Option<unsafe extern "system" fn(parameters: *const PNP_REPLACE_PARAMETERS, context: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-pub type PREPLACE_DRIVER_INIT = Option<unsafe extern "system" fn(interface: *mut PNP_REPLACE_DRIVER_INTERFACE, unused: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enable: bool) -> windows_core::NTSTATUS>;
-pub type PREPLACE_END = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(feature = "usb")]
-pub type PREPLACE_GET_MEMORY_DESTINATION = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sourceaddress: super::PHYSICAL_ADDRESS, destinationaddress: *mut i64) -> windows_core::NTSTATUS>;
-pub type PREPLACE_INITIATE_HARDWARE_MIRROR = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(feature = "usb")]
-pub type PREPLACE_MAP_MEMORY = Option<unsafe extern "system" fn(targetphysicaladdress: super::PHYSICAL_ADDRESS, sparephysicaladdress: super::PHYSICAL_ADDRESS, numberofbytes: *mut i64, targetaddress: *mut *mut core::ffi::c_void, spareaddress: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(feature = "usb")]
-pub type PREPLACE_MIRROR_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, physicaladdress: super::PHYSICAL_ADDRESS, bytecount: i64) -> windows_core::NTSTATUS>;
-pub type PREPLACE_MIRROR_PLATFORM_MEMORY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PREPLACE_SET_PROCESSOR_ID = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, apicid: u32, target: bool) -> windows_core::NTSTATUS>;
-pub type PREPLACE_SWAP = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PREPLACE_UNLOAD = Option<unsafe extern "system" fn()>;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PREQUEST_POWER_COMPLETE = *mut REQUEST_POWER_COMPLETE;
-pub type PRESET_DOE_INSTANCES = *mut RESET_DOE_INSTANCES;
+#[cfg(all(feature = "basetsd", feature = "usb", feature = "winnt"))]
+pub type PREPLACE_BEGIN = Option<unsafe extern "C" fn(parameters: PPNP_REPLACE_PARAMETERS, context: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb", feature = "winnt"))]
+pub type PREPLACE_DRIVER_INIT = Option<unsafe extern "C" fn(interface: PPNP_REPLACE_DRIVER_INTERFACE, unused: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, enable: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type PREPLACE_END = Option<unsafe extern "C" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "ntdef", feature = "usb", feature = "winnt"))]
+pub type PREPLACE_GET_MEMORY_DESTINATION = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, sourceaddress: super::PHYSICAL_ADDRESS, destinationaddress: super::PPHYSICAL_ADDRESS) -> windows_core::NTSTATUS>;
+pub type PREPLACE_INITIATE_HARDWARE_MIRROR = Option<unsafe extern "C" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "usb", feature = "winnt"))]
+pub type PREPLACE_MAP_MEMORY = Option<unsafe extern "C" fn(targetphysicaladdress: super::PHYSICAL_ADDRESS, sparephysicaladdress: super::PHYSICAL_ADDRESS, numberofbytes: super::PLARGE_INTEGER, targetaddress: *mut *mut core::ffi::c_void, spareaddress: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "usb", feature = "winnt"))]
+pub type PREPLACE_MIRROR_PHYSICAL_MEMORY = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, physicaladdress: super::PHYSICAL_ADDRESS, bytecount: super::LARGE_INTEGER) -> windows_core::NTSTATUS>;
+pub type PREPLACE_MIRROR_PLATFORM_MEMORY = Option<unsafe extern "C" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PREPLACE_SET_PROCESSOR_ID = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, apicid: u32, target: super::BOOLEAN) -> windows_core::NTSTATUS>;
+pub type PREPLACE_SWAP = Option<unsafe extern "C" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PREPLACE_UNLOAD = Option<unsafe extern "C" fn()>;
+pub type PREQUEST_POWER_COMPLETE = *mut u8;
+pub type PRESET_DOE_INSTANCES = *mut u8;
 #[cfg(feature = "winnt")]
 pub type PRESOURCE_HASH_ENTRY = *mut RESOURCE_HASH_ENTRY;
 #[cfg(feature = "winnt")]
@@ -15712,21 +16123,21 @@ pub type PRKEVENT = *mut KEVENT;
 pub type PRKMUTANT = *mut KMUTANT;
 #[cfg(feature = "winnt")]
 pub type PRKMUTEX = *mut KMUTANT;
-pub type PRKPROCESS = *mut _KPROCESS;
+pub type PRKPROCESS = *mut KPROCESS;
 pub type PRKRESOURCEMANAGER = *mut KRESOURCEMANAGER;
 #[cfg(feature = "winnt")]
 pub type PRKSEMAPHORE = *mut KSEMAPHORE;
-pub type PRKTHREAD = *mut _KTHREAD;
+pub type PRKTHREAD = *mut KTHREAD;
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
 pub type PRKTIMER = *mut KTIMER;
 pub type PRKTM = *mut KTM;
 pub type PRKTRANSACTION = *mut KTRANSACTION;
 #[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
 pub type PRKWAIT_BLOCK = *mut KWAIT_BLOCK;
-#[cfg(feature = "winnt")]
-pub type PROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, changecontext: *const KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, operationstatus: *mut windows_core::NTSTATUS)>;
+#[cfg(all(feature = "bcrypt", feature = "winnt"))]
+pub type PROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: *const core::ffi::c_void, changecontext: PKE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, operationstatus: super::PNTSTATUS)>;
 pub const PROCESSOR_FEATURE_MAX: i32 = 64;
-pub type PROCESSOR_HALT_ROUTINE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PROCESSOR_HALT_ROUTINE = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(target_arch = "x86")]
 pub const PROFILE_LEVEL: i32 = 27;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -15736,29 +16147,25 @@ pub type PRTL_BITMAP = *mut RTL_BITMAP;
 pub type PRTL_BITMAP_RUN = *mut RTL_BITMAP_RUN;
 pub type PRTL_QUERY_REGISTRY_ROUTINE = Option<unsafe extern "system" fn(valuename: windows_core::PCWSTR, valuetype: u32, valuedata: *const core::ffi::c_void, valuelength: u32, context: *const core::ffi::c_void, entrycontext: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type PRTL_QUERY_REGISTRY_TABLE = *mut RTL_QUERY_REGISTRY_TABLE;
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 pub type PSCATTER_GATHER_ELEMENT = *mut SCATTER_GATHER_ELEMENT;
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 pub type PSCATTER_GATHER_LIST = *mut SCATTER_GATHER_LIST;
 pub type PSDEV_IDENTIFIER_INTERFACE = *mut SDEV_IDENTIFIER_INTERFACE;
 pub type PSECTION_OBJECT_POINTERS = *mut SECTION_OBJECT_POINTERS;
 pub type PSECURE_DRIVER_INTERFACE = *mut SECURE_DRIVER_INTERFACE;
-pub type PSECURE_DRIVER_PROCESS_DEREFERENCE = *mut SECURE_DRIVER_PROCESS_DEREFERENCE;
-pub type PSECURE_DRIVER_PROCESS_REFERENCE = *mut SECURE_DRIVER_PROCESS_REFERENCE;
+pub type PSECURE_DRIVER_PROCESS_DEREFERENCE = *mut u8;
+pub type PSECURE_DRIVER_PROCESS_REFERENCE = *mut u8;
 pub type PSECURITY_OPERATION_CODE = *mut SECURITY_OPERATION_CODE;
 #[cfg(feature = "winnt")]
 pub type PSECURITY_SUBJECT_CONTEXT = *mut SECURITY_SUBJECT_CONTEXT;
-pub type PSEND_DOE_REQUEST = *mut SEND_DOE_REQUEST;
-#[cfg(feature = "winnt")]
-pub type PSEND_DOE_REQUEST_ASYNC = *mut SEND_DOE_REQUEST_ASYNC;
-pub type PSET_D3COLD_SUPPORT = *mut SET_D3COLD_SUPPORT;
-pub type PSET_VIRTUAL_DEVICE_DATA = *mut SET_VIRTUAL_DEVICE_DATA;
+pub type PSEND_DOE_REQUEST = *mut u8;
+pub type PSEND_DOE_REQUEST_ASYNC = *mut u8;
+pub type PSET_D3COLD_SUPPORT = *mut u8;
+pub type PSET_VIRTUAL_DEVICE_DATA = *mut u8;
 pub type PSE_IMAGE_TYPE = *mut SE_IMAGE_TYPE;
-#[cfg(all(feature = "ntddk", feature = "ntsecapi"))]
-pub type PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = *mut SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSE_IMAGE_VERIFICATION_CALLBACK_TOKEN(pub *mut *mut core::ffi::c_void);
+pub type PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = *mut u8;
+pub type PSE_IMAGE_VERIFICATION_CALLBACK_TOKEN = *mut *mut core::ffi::c_void;
 pub type PSE_IMAGE_VERIFICATION_CALLBACK_TYPE = *mut SE_IMAGE_VERIFICATION_CALLBACK_TYPE;
 pub type PSHARE_ACCESS = *mut SHARE_ACCESS;
 #[cfg(target_arch = "x86")]
@@ -15766,13 +16173,11 @@ pub type PSPFN_NUMBER = *mut i32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PSPFN_NUMBER = *mut i64;
 pub type PSYSTEM_POWER_STATE_CONTEXT = *mut SYSTEM_POWER_STATE_CONTEXT;
-pub type PS_AVAILABLE_CPUS_CHANGE_CALLBACK = Option<unsafe extern "system" fn(parameter: *const core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PS_AVAILABLE_CPUS_CHANGE_REGISTRATION(pub *mut core::ffi::c_void);
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PS_AVAILABLE_CPUS_CHANGE_CALLBACK = Option<unsafe extern "C" fn(parameter: *const core::ffi::c_void)>;
+pub type PS_AVAILABLE_CPUS_CHANGE_REGISTRATION = *mut core::ffi::c_void;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PTARGET_DEVICE_CUSTOM_NOTIFICATION = *mut TARGET_DEVICE_CUSTOM_NOTIFICATION;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PTARGET_DEVICE_REMOVAL_NOTIFICATION = *mut TARGET_DEVICE_REMOVAL_NOTIFICATION;
 #[cfg(feature = "ntdef")]
 pub type PTIME_FIELDS = *mut TIME_FIELDS;
@@ -15789,17 +16194,19 @@ pub struct PTM_CONTROL_INTERFACE {
     pub Enable: PPTM_DEVICE_ENABLE,
     pub Disable: PPTM_DEVICE_DISABLE,
 }
-pub type PTM_DEVICE_DISABLE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PTM_DEVICE_ENABLE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PTM_DEVICE_QUERY_GRANULARITY = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, granularity: *mut u8) -> windows_core::NTSTATUS>;
-pub type PTM_DEVICE_QUERY_TIME_SOURCE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, timesource: *mut u32) -> windows_core::NTSTATUS>;
+pub type PTM_DEVICE_DISABLE = Option<unsafe extern "C" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PTM_DEVICE_ENABLE = Option<unsafe extern "C" fn(context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type PTM_DEVICE_QUERY_GRANULARITY = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, granularity: super::PUCHAR) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type PTM_DEVICE_QUERY_TIME_SOURCE = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, timesource: super::PULONG) -> windows_core::NTSTATUS>;
 pub type PTM_PROPAGATE_ROUTINE = Option<unsafe extern "system" fn(propagationcookie: *const core::ffi::c_void, callbackdata: *const core::ffi::c_void, propagationstatus: windows_core::NTSTATUS, transactionguid: windows_core::GUID) -> windows_core::NTSTATUS>;
-pub type PTM_RM_NOTIFICATION = Option<unsafe extern "system" fn(enlistmentobject: *const KENLISTMENT, rmcontext: *const core::ffi::c_void, transactioncontext: *const core::ffi::c_void, transactionnotification: u32, tmvirtualclock: *mut i64, argumentlength: u32, argument: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(feature = "usb")]
-pub type PTRANSLATE_BUS_ADDRESS = *mut TRANSLATE_BUS_ADDRESS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "system" fn(param0: *mut DEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK)>;
-pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
+#[cfg(feature = "winnt")]
+pub type PTM_RM_NOTIFICATION = Option<unsafe extern "system" fn(enlistmentobject: PKENLISTMENT, rmcontext: *const core::ffi::c_void, transactioncontext: *const core::ffi::c_void, transactionnotification: u32, tmvirtualclock: super::PLARGE_INTEGER, argumentlength: u32, argument: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PTRANSLATE_BUS_ADDRESS = *mut u8;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "C" fn(param0: PDEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK)>;
+pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void)>;
 pub type PVIRTUAL_CHANNEL_CAPABILITIES1 = *mut VIRTUAL_CHANNEL_CAPABILITIES1;
 pub type PVIRTUAL_CHANNEL_CAPABILITIES2 = *mut VIRTUAL_CHANNEL_CAPABILITIES2;
 pub type PVIRTUAL_CHANNEL_CONTROL = *mut VIRTUAL_CHANNEL_CONTROL;
@@ -15808,11 +16215,11 @@ pub type PVIRTUAL_RESOURCE = *mut VIRTUAL_RESOURCE;
 pub type PVIRTUAL_RESOURCE_CAPABILITY = *mut VIRTUAL_RESOURCE_CAPABILITY;
 pub type PVIRTUAL_RESOURCE_CONTROL = *mut VIRTUAL_RESOURCE_CONTROL;
 pub type PVIRTUAL_RESOURCE_STATUS = *mut VIRTUAL_RESOURCE_STATUS;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PVPB = *mut VPB;
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 pub type PWAIT_CONTEXT_BLOCK = *mut WAIT_CONTEXT_BLOCK;
-pub type PWORKER_THREAD_ROUTINE = *mut WORKER_THREAD_ROUTINE;
+pub type PWORKER_THREAD_ROUTINE = *mut u8;
 #[cfg(feature = "winnt")]
 pub type PWORK_QUEUE_ITEM = *mut WORK_QUEUE_ITEM;
 #[cfg(feature = "winnt")]
@@ -15891,7 +16298,8 @@ pub const ProfileTime: KPROFILE_SOURCE = 0;
 pub const ProfileTotalCycles: KPROFILE_SOURCE = 19;
 pub const ProfileTotalIssues: KPROFILE_SOURCE = 2;
 pub const ProfileTotalNonissues: KPROFILE_SOURCE = 7;
-pub type QUERY_SUPPORTED_DOE_PROTOCOLS = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, dataobjectvendorid: u16, arraycount: u32, dataobjecttypes: *mut u8, dataobjectcount: *mut u32) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type QUERY_SUPPORTED_DOE_PROTOCOLS = Option<unsafe extern "C" fn(interfacecontext: *const core::ffi::c_void, dataobjectvendorid: u16, arraycount: u32, dataobjecttypes: super::PUCHAR, dataobjectcount: super::PULONG) -> windows_core::NTSTATUS>;
 pub const QuerySecurityDescriptor: SECURITY_OPERATION_CODE = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
@@ -15937,7 +16345,7 @@ pub struct REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_CREATE_KEY_INFORMATION {
     pub CompleteName: super::PUNICODE_STRING,
@@ -15957,7 +16365,7 @@ pub struct REG_CREATE_KEY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_CREATE_KEY_INFORMATION_V1 {
     pub CompleteName: super::PUNICODE_STRING,
@@ -15989,7 +16397,7 @@ pub struct REG_DELETE_KEY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_DELETE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
@@ -16036,7 +16444,7 @@ pub struct REG_KEY_HANDLE_CLOSE_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_LOAD_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
@@ -16052,7 +16460,7 @@ pub struct REG_LOAD_KEY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_LOAD_KEY_INFORMATION_V2 {
     pub Object: *mut core::ffi::c_void,
@@ -16069,19 +16477,19 @@ pub struct REG_LOAD_KEY_INFORMATION_V2 {
     pub FileAccessToken: *mut core::ffi::c_void,
 }
 pub type REG_NOTIFY_CLASS = i32;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 pub type REG_OPEN_KEY_INFORMATION = REG_CREATE_KEY_INFORMATION;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
 pub type REG_OPEN_KEY_INFORMATION_V1 = REG_CREATE_KEY_INFORMATION_V1;
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_POST_CREATE_KEY_INFORMATION {
     pub CompleteName: super::PUNICODE_STRING,
     pub Object: *mut core::ffi::c_void,
     pub Status: windows_core::NTSTATUS,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 pub type REG_POST_OPEN_KEY_INFORMATION = REG_POST_CREATE_KEY_INFORMATION;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16095,12 +16503,12 @@ pub struct REG_POST_OPERATION_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_PRE_CREATE_KEY_INFORMATION {
     pub CompleteName: super::PUNICODE_STRING,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 pub type REG_PRE_OPEN_KEY_INFORMATION = REG_PRE_CREATE_KEY_INFORMATION;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -16116,7 +16524,7 @@ pub struct REG_QUERY_KEY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_QUERY_KEY_NAME {
     pub Object: *mut core::ffi::c_void,
@@ -16140,7 +16548,7 @@ pub struct REG_QUERY_KEY_SECURITY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
@@ -16154,7 +16562,7 @@ pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_QUERY_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
@@ -16168,7 +16576,7 @@ pub struct REG_QUERY_VALUE_KEY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_RENAME_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
@@ -16178,7 +16586,7 @@ pub struct REG_RENAME_KEY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_REPLACE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
@@ -16245,7 +16653,7 @@ pub struct REG_SET_KEY_SECURITY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winternl"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_SET_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
@@ -16267,9 +16675,9 @@ pub struct REG_UNLOAD_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub type REQUEST_POWER_COMPLETE = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, minorfunction: u8, powerstate: POWER_STATE, context: *const core::ffi::c_void, iostatus: *const super::IO_STATUS_BLOCK)>;
-pub type RESET_DOE_INSTANCES = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void)>;
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type REQUEST_POWER_COMPLETE = Option<unsafe extern "C" fn(deviceobject: PDEVICE_OBJECT, minorfunction: u8, powerstate: POWER_STATE, context: *const core::ffi::c_void, iostatus: super::PIO_STATUS_BLOCK)>;
+pub type RESET_DOE_INSTANCES = Option<unsafe extern "C" fn(interfacecontext: *const core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16426,22 +16834,28 @@ pub const ResourceNeverExclusive: i32 = 16;
 pub const ResourceOwnedExclusive: i32 = 128;
 pub const ResourceReleaseByOtherThread: i32 = 32;
 #[repr(C)]
-#[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SCATTER_GATHER_ELEMENT {
     pub Address: super::PHYSICAL_ADDRESS,
     pub Length: u32,
     pub Reserved: usize,
 }
+#[cfg(all(feature = "usb", feature = "winnt"))]
+impl Default for SCATTER_GATHER_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "usb", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SCATTER_GATHER_LIST {
     pub NumberOfElements: u32,
     pub Reserved: usize,
     pub Elements: [SCATTER_GATHER_ELEMENT; 0],
 }
-#[cfg(feature = "usb")]
+#[cfg(all(feature = "usb", feature = "winnt"))]
 impl Default for SCATTER_GATHER_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -16471,8 +16885,8 @@ pub struct SECURE_DRIVER_INTERFACE {
     pub Reserved: u32,
 }
 pub const SECURE_DRIVER_INTERFACE_VERSION: i32 = 1;
-pub type SECURE_DRIVER_PROCESS_DEREFERENCE = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, process: *const _KPROCESS)>;
-pub type SECURE_DRIVER_PROCESS_REFERENCE = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void) -> PEPROCESS>;
+pub type SECURE_DRIVER_PROCESS_DEREFERENCE = Option<unsafe extern "C" fn(interfacecontext: *const core::ffi::c_void, process: PEPROCESS)>;
+pub type SECURE_DRIVER_PROCESS_REFERENCE = Option<unsafe extern "C" fn(interfacecontext: *const core::ffi::c_void) -> PEPROCESS>;
 pub const SECURE_POOL_FLAGS_FREEABLE: i32 = 1;
 pub const SECURE_POOL_FLAGS_MODIFIABLE: i32 = 2;
 pub const SECURE_POOL_FLAGS_NONE: i32 = 0;
@@ -16490,11 +16904,13 @@ pub struct SECURITY_SUBJECT_CONTEXT {
 pub const SEGMENT_ALL_ACCESS: i32 = 983071;
 pub const SEMAPHORE_INCREMENT: i32 = 1;
 pub const SEMAPHORE_QUERY_STATE: i32 = 1;
-pub type SEND_DOE_REQUEST = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, dataobjectvendorid: u16, dataobjecttype: u8, inputarraycount: u32, inputarray: *const u32, outputarraycount: u32, outputwritten: *mut u32, outputarray: *mut u32) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type SEND_DOE_REQUEST = Option<unsafe extern "C" fn(interfacecontext: *const core::ffi::c_void, dataobjectvendorid: u16, dataobjecttype: u8, inputarraycount: u32, inputarray: super::PULONG, outputarraycount: u32, outputwritten: super::PULONG, outputarray: super::PULONG) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type SEND_DOE_REQUEST_ASYNC = Option<unsafe extern "C" fn(interfacecontext: *const core::ffi::c_void, dataobjectvendorid: u16, dataobjecttype: u8, inputarraycount: u32, inputarray: super::PULONG, completionevent: PKEVENT, requestid: super::PLONGLONG) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type SEND_DOE_REQUEST_ASYNC = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, dataobjectvendorid: u16, dataobjecttype: u8, inputarraycount: u32, inputarray: *const u32, completionevent: *const KEVENT, requestid: *mut i64) -> windows_core::NTSTATUS>;
-pub type SET_D3COLD_SUPPORT = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, d3coldsupport: bool)>;
-pub type SET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, virtualfunction: u16, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
+pub type SET_D3COLD_SUPPORT = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, d3coldsupport: super::BOOLEAN)>;
+pub type SET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, virtualfunction: u16, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
 pub const SE_ASSIGNPRIMARYTOKEN_PRIVILEGE: i32 = 3;
 pub const SE_AUDIT_PRIVILEGE: i32 = 21;
 pub const SE_BACKUP_PRIVILEGE: i32 = 17;
@@ -16508,11 +16924,9 @@ pub const SE_DEBUG_PRIVILEGE: i32 = 20;
 pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_PRIVILEGE: i32 = 36;
 pub const SE_ENABLE_DELEGATION_PRIVILEGE: i32 = 27;
 pub type SE_IMAGE_TYPE = i32;
-#[cfg(all(feature = "ntddk", feature = "ntsecapi"))]
-pub type SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, imagetype: SE_IMAGE_TYPE, imageinformation: *mut super::BDCB_IMAGE_INFORMATION)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SE_IMAGE_VERIFICATION_CALLBACK_TOKEN(pub *mut core::ffi::c_void);
+#[cfg(all(feature = "ntddk", feature = "winternl"))]
+pub type SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: *const core::ffi::c_void, imagetype: SE_IMAGE_TYPE, imageinformation: PBDCB_IMAGE_INFORMATION)>;
+pub type SE_IMAGE_VERIFICATION_CALLBACK_TOKEN = *mut core::ffi::c_void;
 pub type SE_IMAGE_VERIFICATION_CALLBACK_TYPE = i32;
 pub const SE_IMPERSONATE_PRIVILEGE: i32 = 29;
 pub const SE_INCREASE_QUOTA_PRIVILEGE: i32 = 5;
@@ -16556,6 +16970,10 @@ pub const SHORT_MASK: u32 = 1;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const SHORT_MASK: u64 = 1;
 pub const SHORT_MOST_SIGNIFICANT_BIT: i32 = 1;
+#[cfg(target_arch = "x86")]
+pub const SHORT_SIZE: u32 = 2;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SHORT_SIZE: u64 = 2;
 pub const SINGLE_GROUP_LEGACY_API: i32 = 1;
 pub const SL_ALLOW_RAW_MOUNT: i32 = 1;
 pub const SL_BYPASS_ACCESS_CHECK: i32 = 1;
@@ -16594,14 +17012,10 @@ pub const SL_WATCH_TREE: i32 = 1;
 pub const SL_WRITE_ACCESS_GRANTED: i32 = 4;
 pub const SL_WRITE_THROUGH: i32 = 4;
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPFN_NUMBER(pub i32);
+pub type SPFN_NUMBER = i32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPFN_NUMBER(pub i64);
-pub const STATUS_CONTINUE_COMPLETION: i32 = 0;
+pub type SPFN_NUMBER = i64;
+pub const STATUS_CONTINUE_COMPLETION: windows_core::NTSTATUS = windows_core::NTSTATUS(0x0_u32 as _);
 pub const SYMBOLIC_LINK_ALL_ACCESS: i32 = 983041;
 pub const SYMBOLIC_LINK_ALL_ACCESS_EX: i32 = 1048575;
 pub const SYMBOLIC_LINK_QUERY: i32 = 1;
@@ -16708,7 +17122,7 @@ pub const SystemMemoryPartitionInformation: PARTITION_INFORMATION_CLASS = 0;
 pub const SystemMemoryPartitionOpenDedicatedMemory: PARTITION_INFORMATION_CLASS = 10;
 pub const SystemPowerState: POWER_STATE_TYPE = 0;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TARGET_DEVICE_CUSTOM_NOTIFICATION {
     pub Version: u16,
@@ -16718,14 +17132,14 @@ pub struct TARGET_DEVICE_CUSTOM_NOTIFICATION {
     pub NameBufferOffset: i32,
     pub CustomDataBuffer: [u8; 1],
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for TARGET_DEVICE_CUSTOM_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TARGET_DEVICE_REMOVAL_NOTIFICATION {
     pub Version: u16,
@@ -16752,8 +17166,8 @@ pub struct TIME_FIELDS {
     pub Weekday: super::CSHORT,
 }
 pub type TRACE_INFORMATION_CLASS = i32;
-#[cfg(feature = "usb")]
-pub type TRANSLATE_BUS_ADDRESS = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, busaddress: super::PHYSICAL_ADDRESS, length: u32, addressspace: *mut u32, translatedaddress: *mut i64) -> bool>;
+#[cfg(all(feature = "minwindef", feature = "ntdef", feature = "usb", feature = "winnt"))]
+pub type TRANSLATE_BUS_ADDRESS = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, busaddress: super::PHYSICAL_ADDRESS, length: u32, addressspace: super::PULONG, translatedaddress: super::PPHYSICAL_ADDRESS) -> super::BOOLEAN>;
 pub const TREE_CONNECT_NO_CLIENT_BUFFERING: i32 = 8;
 pub const TREE_CONNECT_WRITE_THROUGH: i32 = 2;
 pub const TargetDeviceRelation: DEVICE_RELATION_TYPE = 4;
@@ -16776,6 +17190,7 @@ pub const TypeF: DMA_SPEED = 4;
 #[cfg(target_arch = "x86")]
 pub const UADDRESS_BASE: i32 = 0;
 pub const UnsupportedUpstreamTransaction: FAULT_INFORMATION_ARM64_TYPE = 0;
+pub const UserMode: MODE = 1;
 pub const UserRequest: KWAIT_REASON = 6;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -17116,7 +17531,7 @@ impl VIRTUAL_RESOURCE_STATUS_0 {
 }
 pub const VMEBus: INTERFACE_TYPE = 6;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VPB {
     pub Type: super::CSHORT,
@@ -17129,7 +17544,7 @@ pub struct VPB {
     pub ReferenceCount: u32,
     pub VolumeLabel: [u16; 32],
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for VPB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -17147,7 +17562,7 @@ pub const ViewShare: SECTION_INHERIT = 1;
 pub const ViewUnmap: SECTION_INHERIT = 2;
 pub const Vmcs: INTERFACE_TYPE = 16;
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WAIT_CONTEXT_BLOCK {
     pub Anonymous: WAIT_CONTEXT_BLOCK_0,
@@ -17158,34 +17573,34 @@ pub struct WAIT_CONTEXT_BLOCK {
     pub CurrentIrp: *mut core::ffi::c_void,
     pub BufferChainingDpc: PKDPC,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 impl Default for WAIT_CONTEXT_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union WAIT_CONTEXT_BLOCK_0 {
     pub WaitQueueEntry: KDEVICE_QUEUE_ENTRY,
     pub Anonymous: WAIT_CONTEXT_BLOCK_0_0,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 impl Default for WAIT_CONTEXT_BLOCK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAIT_CONTEXT_BLOCK_0_0 {
     pub DmaWaitEntry: super::LIST_ENTRY,
     pub NumberOfChannels: u32,
     pub _bitfield: u32,
 }
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 impl WAIT_CONTEXT_BLOCK_0_0 {
     pub fn SyncCallback(&self) -> bool {
         self._bitfield & 1 != 0
@@ -17227,8 +17642,8 @@ pub const WMIREG_ACTION_REGISTER: i32 = 1;
 pub const WMIREG_ACTION_REREGISTER: i32 = 3;
 pub const WMIREG_ACTION_UPDATE_GUIDS: i32 = 4;
 pub const WMIUPDATE: i32 = 1;
-pub type WMI_NOTIFICATION_CALLBACK = *mut FWMI_NOTIFICATION_CALLBACK;
-pub type WORKER_THREAD_ROUTINE = Option<unsafe extern "system" fn(parameter: *const core::ffi::c_void)>;
+pub type WMI_NOTIFICATION_CALLBACK = *mut u8;
+pub type WORKER_THREAD_ROUTINE = Option<unsafe extern "C" fn(parameter: *const core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -17319,7 +17734,7 @@ pub struct XSTATE_SAVE_0_0 {
     pub Reserved2: u32,
     pub Prev: *mut XSTATE_SAVE,
     pub Reserved3: super::PXSAVE_AREA,
-    pub Thread: *mut _KTHREAD,
+    pub Thread: *mut KTHREAD,
     pub Reserved4: *mut core::ffi::c_void,
     pub Level: u8,
 }
@@ -17329,7 +17744,7 @@ pub struct XSTATE_SAVE_0_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSTATE_SAVE {
     pub Prev: *mut Self,
-    pub Thread: *mut _KTHREAD,
+    pub Thread: *mut KTHREAD,
     pub Level: u8,
     pub XStateContext: super::XSTATE_CONTEXT,
 }
@@ -17339,92 +17754,161 @@ pub struct XSTATE_SAVE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSTATE_SAVE {
     pub Prev: *mut Self,
-    pub Thread: *mut _KTHREAD,
+    pub Thread: *mut KTHREAD,
     pub Level: u8,
     pub XStateContext: super::XSTATE_CONTEXT,
     pub Reserved: usize,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _AFFINITY_TOKEN(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _CALLBACK_OBJECT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DEVICE_OBJECT_POWER_EXTENSION(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _DISK_PARTITION(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _DRIVER_PROXY_EXTENSION(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DRIVE_LAYOUT_INFORMATION(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _DRIVE_LAYOUT_INFORMATION_EX(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _EPROCESS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _EX_RUNDOWN_REF_CACHE_AWARE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _EX_TIMER(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _IOP_FILE_OBJECT_EXTENSION(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _IORING_OBJECT(pub u8);
+pub type _MM_MDL_PAGE_CONTENTS_STATE = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct _PCI_HEADER_TYPE_0 {
+    pub BaseAddresses: [u32; 6],
+    pub CIS: u32,
+    pub SubVendorID: u16,
+    pub SubSystemID: u16,
+    pub ROMBaseAddress: u32,
+    pub CapabilitiesPtr: u8,
+    pub Reserved1: [u8; 3],
+    pub Reserved2: u32,
+    pub InterruptLine: u8,
+    pub InterruptPin: u8,
+    pub MinimumGrant: u8,
+    pub MaximumLatency: u8,
+}
+impl Default for _PCI_HEADER_TYPE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct _PCI_HEADER_TYPE_1 {
+    pub BaseAddresses: [u32; 2],
+    pub PrimaryBus: u8,
+    pub SecondaryBus: u8,
+    pub SubordinateBus: u8,
+    pub SecondaryLatency: u8,
+    pub IOBase: u8,
+    pub IOLimit: u8,
+    pub SecondaryStatus: u16,
+    pub MemoryBase: u16,
+    pub MemoryLimit: u16,
+    pub PrefetchBase: u16,
+    pub PrefetchLimit: u16,
+    pub PrefetchBaseUpper32: u32,
+    pub PrefetchLimitUpper32: u32,
+    pub IOBaseUpper16: u16,
+    pub IOLimitUpper16: u16,
+    pub CapabilitiesPtr: u8,
+    pub Reserved1: [u8; 3],
+    pub ROMBaseAddress: u32,
+    pub InterruptLine: u8,
+    pub InterruptPin: u8,
+    pub BridgeControl: u16,
+}
+impl Default for _PCI_HEADER_TYPE_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct _PCI_HEADER_TYPE_2 {
+    pub SocketRegistersBaseAddress: u32,
+    pub CapabilitiesPtr: u8,
+    pub Reserved: u8,
+    pub SecondaryStatus: u16,
+    pub PrimaryBus: u8,
+    pub SecondaryBus: u8,
+    pub SubordinateBus: u8,
+    pub SecondaryLatency: u8,
+    pub Range: [PCI_HEADER_TYPE_2_0; 4],
+    pub InterruptLine: u8,
+    pub InterruptPin: u8,
+    pub BridgeControl: u16,
+}
+impl Default for _PCI_HEADER_TYPE_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _IO_REMOVE_LOCK_TRACKING_BLOCK(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _IO_TIMER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _IO_WORKITEM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _KAFFINITY_EX(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _KE_SRCU(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _KINTERRUPT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _KPROCESS(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _KTHREAD(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _OBJECT_TYPE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _PCW_BUFFER(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _PCW_INSTANCE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _PCW_REGISTRATION(pub u8);
+pub struct _PM_SUPPORT {
+    pub _bitfield: u8,
+}
+impl _PM_SUPPORT {
+    pub fn Rsvd2(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Rsvd2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn D1(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_D1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn D2(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_D2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn PMED0(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_PMED0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn PMED1(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_PMED1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn PMED2(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_PMED2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn PMED3Hot(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_PMED3Hot(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn PMED3Cold(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_PMED3Cold(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _SCSI_REQUEST_BLOCK(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _SET_PARTITION_INFORMATION_EX(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct __prefast_analysis_mode_flag0(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct __prefast_analysis_mode_flag1(pub i32);
+pub const _STRSAFE_USE_SECURE_CRT: i32 = 0;
+pub const __guid_type: i32 = 0;
+pub const __multiString_type: i32 = 0;
+pub type __prefast_analysis_mode_flag0 = i32;
+pub type __prefast_analysis_mode_flag1 = i32;
+pub const __string_type: i32 = 0;

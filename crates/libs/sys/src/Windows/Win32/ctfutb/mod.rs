@@ -1,4 +1,21 @@
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HICON_UserFree(param0 : *mut u32, param1 : *mut super::HICON));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HICON_UserFree64(param0 : *mut u32, param1 : *mut super::HICON));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HICON_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HICON) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HICON_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HICON) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HICON_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HICON) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HICON_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HICON) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HICON_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HICON) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HICON_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HICON) -> *mut u8);
 pub const TF_DTLBI_USEPROFILEICON: i32 = 1;
+pub const TF_FLOATINGLANGBAR_WNDTITLE: windows_sys::core::PCSTR = windows_sys::core::s!("TF_FloatingLangBar_WndTitle");
 pub const TF_FLOATINGLANGBAR_WNDTITLEA: windows_sys::core::PCSTR = windows_sys::core::s!("TF_FloatingLangBar_WndTitle");
 pub const TF_FLOATINGLANGBAR_WNDTITLEW: windows_sys::core::PCWSTR = windows_sys::core::w!("TF_FloatingLangBar_WndTitle");
 pub const TF_INVALIDMENUITEM: u32 = 4294967295;

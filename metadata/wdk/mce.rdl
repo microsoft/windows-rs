@@ -23,7 +23,7 @@ mod Windows {
         struct MCA_EXCEPTION {
             VersionNumber: u32,
             ExceptionType: MCA_EXCEPTION_TYPE,
-            TimeStamp: i64,
+            TimeStamp: LARGE_INTEGER,
             ProcessorNumber: u32,
             Reserved1: u32,
             u: union {
@@ -50,6 +50,10 @@ mod Windows {
         }
         #[arch(X86 | X64)]
         const MCA_EXCEPTION_V1_SIZE: i32 = 56;
+        #[arch(X64)]
+        const MCA_EXCEPTION_V2_SIZE: u64 = 256;
+        #[arch(X86)]
+        const MCA_EXCEPTION_V2_SIZE: u32 = 256;
         #[arch(X86 | X64)]
         const MCA_EXTREG_V2MAX: i32 = 24;
         #[arch(X86 | X64)]

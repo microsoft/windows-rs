@@ -166,9 +166,7 @@ pub const IP_RECONFIG_SECFLTR: i32 = 11031;
 pub const IP_REQ_TIMED_OUT: i32 = 11010;
 pub const IP_SOURCE_QUENCH: i32 = 11016;
 pub const IP_SPEC_MTU_CHANGE: i32 = 11020;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct IP_STATUS(pub u32);
+pub type IP_STATUS = u32;
 pub const IP_STATUS_BASE: i32 = 11000;
 pub const IP_SUCCESS: i32 = 0;
 pub const IP_TIME_EXCEEDED: i32 = 11041;

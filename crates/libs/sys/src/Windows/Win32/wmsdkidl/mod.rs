@@ -63,8 +63,8 @@ pub struct DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     pub rgVop: *mut DRM_VIDEO_OUTPUT_PROTECTION,
 }
 pub type LPCWSTR_WMSDK_TYPE_SAFE = windows_sys::core::PCWSTR;
-pub const WEBSTREAM_SAMPLE_TYPE_FILE: i32 = 1;
-pub const WEBSTREAM_SAMPLE_TYPE_RENDER: i32 = 2;
+pub const WEBSTREAM_SAMPLE_TYPE_FILE: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0001 = 1;
+pub const WEBSTREAM_SAMPLE_TYPE_RENDER: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0001 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WMDRM_IMPORT_INIT_STRUCT {
@@ -261,10 +261,10 @@ pub struct WMT_TIMECODE_EXTENSION_DATA {
     pub dwUserbits: u32,
     pub dwAmFlags: u32,
 }
-pub const WMT_TIMECODE_FRAMERATE_24: i32 = 3;
-pub const WMT_TIMECODE_FRAMERATE_25: i32 = 2;
-pub const WMT_TIMECODE_FRAMERATE_30: i32 = 0;
-pub const WMT_TIMECODE_FRAMERATE_30DROP: i32 = 1;
+pub const WMT_TIMECODE_FRAMERATE_24: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0007 = 3;
+pub const WMT_TIMECODE_FRAMERATE_25: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0007 = 2;
+pub const WMT_TIMECODE_FRAMERATE_30: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0007 = 0;
+pub const WMT_TIMECODE_FRAMERATE_30DROP: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0007 = 1;
 pub const WMT_TIMER: WMT_STATUS = 15;
 pub const WMT_TRANSCRYPTOR_CLOSED: WMT_STATUS = 48;
 pub const WMT_TRANSCRYPTOR_INIT: WMT_STATUS = 45;
@@ -314,6 +314,7 @@ pub struct WMT_VIDEOIMAGE_SAMPLE {
     pub lPrevBlendCoef2: i32,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct WMT_VIDEOIMAGE_SAMPLE2 {
     pub dwMagic: u32,
@@ -323,25 +324,25 @@ pub struct WMT_VIDEOIMAGE_SAMPLE2 {
     pub dwViewportHeight: u32,
     pub dwCurrImageWidth: u32,
     pub dwCurrImageHeight: u32,
-    pub fCurrRegionX0: f32,
-    pub fCurrRegionY0: f32,
-    pub fCurrRegionWidth: f32,
-    pub fCurrRegionHeight: f32,
-    pub fCurrBlendCoef: f32,
+    pub fCurrRegionX0: super::FLOAT,
+    pub fCurrRegionY0: super::FLOAT,
+    pub fCurrRegionWidth: super::FLOAT,
+    pub fCurrRegionHeight: super::FLOAT,
+    pub fCurrBlendCoef: super::FLOAT,
     pub dwPrevImageWidth: u32,
     pub dwPrevImageHeight: u32,
-    pub fPrevRegionX0: f32,
-    pub fPrevRegionY0: f32,
-    pub fPrevRegionWidth: f32,
-    pub fPrevRegionHeight: f32,
-    pub fPrevBlendCoef: f32,
+    pub fPrevRegionX0: super::FLOAT,
+    pub fPrevRegionY0: super::FLOAT,
+    pub fPrevRegionWidth: super::FLOAT,
+    pub fPrevRegionHeight: super::FLOAT,
+    pub fPrevBlendCoef: super::FLOAT,
     pub dwEffectType: u32,
     pub dwNumEffectParas: u32,
-    pub fEffectPara0: f32,
-    pub fEffectPara1: f32,
-    pub fEffectPara2: f32,
-    pub fEffectPara3: f32,
-    pub fEffectPara4: f32,
+    pub fEffectPara0: super::FLOAT,
+    pub fEffectPara1: super::FLOAT,
+    pub fEffectPara2: super::FLOAT,
+    pub fEffectPara3: super::FLOAT,
+    pub fEffectPara4: super::FLOAT,
     pub bKeepPrevImage: windows_sys::core::BOOL,
 }
 pub const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: i32 = 8;
@@ -460,23 +461,23 @@ pub const WM_CT_BOTTOM_FIELD_FIRST: i32 = 32;
 pub const WM_CT_INTERLACED: i32 = 128;
 pub const WM_CT_REPEAT_FIRST_FIELD: i32 = 16;
 pub const WM_CT_TOP_FIELD_FIRST: i32 = 64;
-pub const WM_DM_DEINTERLACE_HALFSIZE: i32 = 2;
-pub const WM_DM_DEINTERLACE_HALFSIZEDOUBLERATE: i32 = 3;
-pub const WM_DM_DEINTERLACE_INVERSETELECINE: i32 = 4;
-pub const WM_DM_DEINTERLACE_NORMAL: i32 = 1;
-pub const WM_DM_DEINTERLACE_VERTICALHALFSIZEDOUBLERATE: i32 = 5;
-pub const WM_DM_IT_DISABLE_COHERENT_MODE: i32 = 0;
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_BOTTOM: i32 = 6;
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_TOP: i32 = 1;
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_BOTTOM: i32 = 7;
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_TOP: i32 = 2;
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_BOTTOM: i32 = 8;
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_TOP: i32 = 3;
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_BOTTOM: i32 = 9;
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_TOP: i32 = 4;
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_BOTTOM: i32 = 10;
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP: i32 = 5;
-pub const WM_DM_NOTINTERLACED: i32 = 0;
+pub const WM_DM_DEINTERLACE_HALFSIZE: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0004 = 2;
+pub const WM_DM_DEINTERLACE_HALFSIZEDOUBLERATE: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0004 = 3;
+pub const WM_DM_DEINTERLACE_INVERSETELECINE: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0004 = 4;
+pub const WM_DM_DEINTERLACE_NORMAL: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0004 = 1;
+pub const WM_DM_DEINTERLACE_VERTICALHALFSIZEDOUBLERATE: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0004 = 5;
+pub const WM_DM_IT_DISABLE_COHERENT_MODE: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0005 = 0;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_BOTTOM: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0005 = 6;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_TOP: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0005 = 1;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_BOTTOM: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0005 = 7;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_TOP: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0005 = 2;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_BOTTOM: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0005 = 8;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_TOP: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0005 = 3;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_BOTTOM: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0005 = 9;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_TOP: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0005 = 4;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_BOTTOM: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0005 = 10;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0005 = 5;
+pub const WM_DM_NOTINTERLACED: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0004 = 0;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WM_LEAKY_BUCKET_PAIR {
@@ -507,9 +508,9 @@ pub struct WM_PICTURE {
     pub dwDataLen: u32,
     pub pbData: *mut u8,
 }
-pub const WM_PLAYBACK_DRC_HIGH: i32 = 0;
-pub const WM_PLAYBACK_DRC_LOW: i32 = 2;
-pub const WM_PLAYBACK_DRC_MEDIUM: i32 = 1;
+pub const WM_PLAYBACK_DRC_HIGH: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0006 = 0;
+pub const WM_PLAYBACK_DRC_LOW: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0006 = 2;
+pub const WM_PLAYBACK_DRC_MEDIUM: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0006 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WM_PORT_NUMBER_RANGE {
@@ -541,11 +542,11 @@ pub struct WM_READER_STATISTICS {
     pub wQuality: u16,
 }
 pub const WM_RESTORE_INDIVIDUALIZE: u32 = 2;
-pub const WM_SFEX_DATALOSS: i32 = 4;
-pub const WM_SFEX_NOTASYNCPOINT: i32 = 2;
-pub const WM_SF_CLEANPOINT: i32 = 1;
-pub const WM_SF_DATALOSS: i32 = 4;
-pub const WM_SF_DISCONTINUITY: i32 = 2;
+pub const WM_SFEX_DATALOSS: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0003 = 4;
+pub const WM_SFEX_NOTASYNCPOINT: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0003 = 2;
+pub const WM_SF_CLEANPOINT: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0002 = 1;
+pub const WM_SF_DATALOSS: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0002 = 4;
+pub const WM_SF_DISCONTINUITY: __MIDL___MIDL_itf_wmsdkidl_0000_0000_0002 = 2;
 pub const WM_START_CURRENTPOSITION: u64 = 18446744073709551615;
 #[repr(C, packed(2))]
 #[derive(Clone, Copy, Default)]
@@ -611,3 +612,10 @@ pub struct WM_WRITER_STATISTICS_EX {
     pub dwTotalSampleDropsInCodec: u32,
     pub dwTotalSampleDropsInMultiplexer: u32,
 }
+pub type __MIDL___MIDL_itf_wmsdkidl_0000_0000_0001 = i32;
+pub type __MIDL___MIDL_itf_wmsdkidl_0000_0000_0002 = i32;
+pub type __MIDL___MIDL_itf_wmsdkidl_0000_0000_0003 = i32;
+pub type __MIDL___MIDL_itf_wmsdkidl_0000_0000_0004 = i32;
+pub type __MIDL___MIDL_itf_wmsdkidl_0000_0000_0005 = i32;
+pub type __MIDL___MIDL_itf_wmsdkidl_0000_0000_0006 = i32;
+pub type __MIDL___MIDL_itf_wmsdkidl_0000_0000_0007 = i32;

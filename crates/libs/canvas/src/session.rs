@@ -37,7 +37,7 @@ impl<'a> DrawingSession<'a> {
             offset.m11 == 1.0 && offset.m12 == 0.0 && offset.m21 == 0.0 && offset.m22 == 1.0,
             "offset must be a pure translation: get_transform decomposes it by negating m31/m32"
         );
-        unsafe { context.SetTransform(&offset) };
+        unsafe { context.SetTransform(&to_d2d_matrix(offset)) };
         Self {
             context,
             mode: Mode::Borrowed { offset },
@@ -63,8 +63,13 @@ impl<'a> DrawingSession<'a> {
     /// Draws a line with the given DIP stroke width.
     pub fn draw_line(&self, p0: Vector2, p1: Vector2, brush: &impl Paint, width: f32) {
         unsafe {
-            self.context
-                .DrawLine(p0, p1, brush.as_raw_brush(), width, None);
+            self.context.DrawLine(
+                to_d2d_point(p0),
+                to_d2d_point(p1),
+                brush.as_raw_brush(),
+                width,
+                None,
+            );
         }
     }
 
@@ -78,8 +83,13 @@ impl<'a> DrawingSession<'a> {
         style: &StrokeStyle,
     ) {
         unsafe {
-            self.context
-                .DrawLine(p0, p1, brush.as_raw_brush(), width, &style.0);
+            self.context.DrawLine(
+                to_d2d_point(p0),
+                to_d2d_point(p1),
+                brush.as_raw_brush(),
+                width,
+                &style.0,
+            );
         }
     }
 
@@ -198,8 +208,8 @@ impl<'a> DrawingSession<'a> {
                 D2D1_EXTEND_MODE_CLAMP,
             )?;
             let props = D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
-                startPoint: start,
-                endPoint: end,
+                startPoint: to_d2d_point(start),
+                endPoint: to_d2d_point(end),
             };
             self.context
                 .CreateLinearGradientBrush(&props, None, &collection)
@@ -223,8 +233,8 @@ impl<'a> DrawingSession<'a> {
                 D2D1_EXTEND_MODE_CLAMP,
             )?;
             let props = D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
-                center,
-                gradientOriginOffset: Vector2::new(0.0, 0.0),
+                center: to_d2d_point(center),
+                gradientOriginOffset: to_d2d_point(Vector2::new(0.0, 0.0)),
                 radiusX: radius_x,
                 radiusY: radius_y,
             };
@@ -256,7 +266,7 @@ impl<'a> DrawingSession<'a> {
     pub fn draw_text_layout(&self, origin: Vector2, layout: &TextLayout, brush: &impl Paint) {
         unsafe {
             self.context.DrawTextLayout(
-                origin,
+                to_d2d_point(origin),
                 layout.raw(),
                 brush.as_raw_brush(),
                 D2D1_DRAW_TEXT_OPTIONS_NONE,
@@ -341,13 +351,14 @@ impl<'a> DrawingSession<'a> {
             Mode::Borrowed { offset } => *transform * *offset,
             Mode::Owned { .. } => *transform,
         };
-        unsafe { self.context.SetTransform(&m) };
+        unsafe { self.context.SetTransform(&to_d2d_matrix(m)) };
     }
 
     /// Returns the caller-visible drawing transform.
     pub fn transform(&self) -> Matrix3x2 {
-        let mut transform = Matrix3x2::default();
+        let mut transform = D2D_MATRIX_3X2_F::default();
         unsafe { self.context.GetTransform(&mut transform) };
+        let transform = unsafe { from_d2d_matrix(transform) };
         match &self.mode {
             Mode::Borrowed { offset } => {
                 transform * Matrix3x2::translation(-offset.m31, -offset.m32)

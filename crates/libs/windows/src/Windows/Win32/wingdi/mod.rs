@@ -12,8 +12,8 @@ pub unsafe fn AbortPath(hdc: super::HDC) -> windows_core::BOOL {
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn AddFontMemResourceEx(pfileview: *const core::ffi::c_void, cjsize: u32, pvresrved: Option<*const core::ffi::c_void>, pnumfonts: *const u32) -> super::HANDLE {
-    windows_core::link!("gdi32.dll" "system" fn AddFontMemResourceEx(pfileview : *const core::ffi::c_void, cjsize : u32, pvresrved : *const core::ffi::c_void, pnumfonts : *const u32) -> super::HANDLE);
+pub unsafe fn AddFontMemResourceEx(pfileview: *const core::ffi::c_void, cjsize: u32, pvresrved: Option<*mut core::ffi::c_void>, pnumfonts: *const u32) -> super::HANDLE {
+    windows_core::link!("gdi32.dll" "system" fn AddFontMemResourceEx(pfileview : *const core::ffi::c_void, cjsize : u32, pvresrved : *mut core::ffi::c_void, pnumfonts : *const u32) -> super::HANDLE);
     unsafe { AddFontMemResourceEx(pfileview, cjsize, pvresrved.unwrap_or(core::mem::zeroed()) as _, pnumfonts) }
 }
 #[inline]
@@ -25,19 +25,19 @@ where
     unsafe { AddFontResourceA(param0.param().abi()) }
 }
 #[inline]
-pub unsafe fn AddFontResourceExA<P0>(name: P0, fl: u32, res: Option<*const core::ffi::c_void>) -> i32
+pub unsafe fn AddFontResourceExA<P0>(name: P0, fl: u32, res: Option<*mut core::ffi::c_void>) -> i32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("gdi32.dll" "system" fn AddFontResourceExA(name : windows_core::PCSTR, fl : u32, res : *const core::ffi::c_void) -> i32);
+    windows_core::link!("gdi32.dll" "system" fn AddFontResourceExA(name : windows_core::PCSTR, fl : u32, res : *mut core::ffi::c_void) -> i32);
     unsafe { AddFontResourceExA(name.param().abi(), fl, res.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn AddFontResourceExW<P0>(name: P0, fl: u32, res: Option<*const core::ffi::c_void>) -> i32
+pub unsafe fn AddFontResourceExW<P0>(name: P0, fl: u32, res: Option<*mut core::ffi::c_void>) -> i32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("gdi32.dll" "system" fn AddFontResourceExW(name : windows_core::PCWSTR, fl : u32, res : *const core::ffi::c_void) -> i32);
+    windows_core::link!("gdi32.dll" "system" fn AddFontResourceExW(name : windows_core::PCWSTR, fl : u32, res : *mut core::ffi::c_void) -> i32);
     unsafe { AddFontResourceExW(name.param().abi(), fl, res.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -54,10 +54,10 @@ pub unsafe fn AlphaBlend(hdcdest: super::HDC, xorigindest: i32, yorigindest: i32
     windows_core::link!("msimg32.dll" "system" fn AlphaBlend(hdcdest : super::HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : super::HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, ftn : BLENDFUNCTION) -> windows_core::BOOL);
     unsafe { AlphaBlend(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, ftn) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn AngleArc(hdc: super::HDC, x: i32, y: i32, r: u32, startangle: f32, sweepangle: f32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn AngleArc(hdc : super::HDC, x : i32, y : i32, r : u32, startangle : f32, sweepangle : f32) -> windows_core::BOOL);
+pub unsafe fn AngleArc(hdc: super::HDC, x: i32, y: i32, r: u32, startangle: super::FLOAT, sweepangle: super::FLOAT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn AngleArc(hdc : super::HDC, x : i32, y : i32, r : u32, startangle : super::FLOAT, sweepangle : super::FLOAT) -> windows_core::BOOL);
     unsafe { AngleArc(hdc, x, y, r, startangle, sweepangle) }
 }
 #[cfg(feature = "windef")]
@@ -98,8 +98,8 @@ pub unsafe fn CancelDC(hdc: super::HDC) -> windows_core::BOOL {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn CheckColorsInGamut(hdc: super::HDC, lprgbtriple: *const RGBTRIPLE, dlpbuffer: *mut core::ffi::c_void, ncount: u32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn CheckColorsInGamut(hdc : super::HDC, lprgbtriple : *const RGBTRIPLE, dlpbuffer : *mut core::ffi::c_void, ncount : u32) -> windows_core::BOOL);
+pub unsafe fn CheckColorsInGamut(hdc: super::HDC, lprgbtriple: LPRGBTRIPLE, dlpbuffer: *mut core::ffi::c_void, ncount: u32) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn CheckColorsInGamut(hdc : super::HDC, lprgbtriple : LPRGBTRIPLE, dlpbuffer : *mut core::ffi::c_void, ncount : u32) -> windows_core::BOOL);
     unsafe { CheckColorsInGamut(hdc, lprgbtriple, dlpbuffer as _, ncount) }
 }
 #[cfg(feature = "windef")]
@@ -150,9 +150,10 @@ pub unsafe fn CombineRgn(hrgndst: Option<super::HRGN>, hrgnsrc1: Option<super::H
     windows_core::link!("gdi32.dll" "system" fn CombineRgn(hrgndst : super::HRGN, hrgnsrc1 : super::HRGN, hrgnsrc2 : super::HRGN, imode : i32) -> i32);
     unsafe { CombineRgn(hrgndst.unwrap_or(core::mem::zeroed()) as _, hrgnsrc1.unwrap_or(core::mem::zeroed()) as _, hrgnsrc2.unwrap_or(core::mem::zeroed()) as _, imode) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CombineTransform(lpxfout: *mut XFORM, lpxf1: *const XFORM, lpxf2: *const XFORM) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn CombineTransform(lpxfout : *mut XFORM, lpxf1 : *const XFORM, lpxf2 : *const XFORM) -> windows_core::BOOL);
+pub unsafe fn CombineTransform(lpxfout: LPXFORM, lpxf1: *const XFORM, lpxf2: *const XFORM) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn CombineTransform(lpxfout : LPXFORM, lpxf1 : *const XFORM, lpxf2 : *const XFORM) -> windows_core::BOOL);
     unsafe { CombineTransform(lpxfout as _, lpxf1, lpxf2) }
 }
 #[cfg(feature = "windef")]
@@ -211,14 +212,14 @@ pub unsafe fn CreateBrushIndirect(plbrush: *const LOGBRUSH) -> super::HBRUSH {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> super::HCOLORSPACE {
-    windows_core::link!("gdi32.dll" "system" fn CreateColorSpaceA(lplcs : *const LOGCOLORSPACEA) -> super::HCOLORSPACE);
+pub unsafe fn CreateColorSpaceA(lplcs: LPLOGCOLORSPACEA) -> super::HCOLORSPACE {
+    windows_core::link!("gdi32.dll" "system" fn CreateColorSpaceA(lplcs : LPLOGCOLORSPACEA) -> super::HCOLORSPACE);
     unsafe { CreateColorSpaceA(lplcs) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> super::HCOLORSPACE {
-    windows_core::link!("gdi32.dll" "system" fn CreateColorSpaceW(lplcs : *const LOGCOLORSPACEW) -> super::HCOLORSPACE);
+pub unsafe fn CreateColorSpaceW(lplcs: LPLOGCOLORSPACEW) -> super::HCOLORSPACE {
+    windows_core::link!("gdi32.dll" "system" fn CreateColorSpaceW(lplcs : LPLOGCOLORSPACEW) -> super::HCOLORSPACE);
     unsafe { CreateColorSpaceW(lplcs) }
 }
 #[cfg(feature = "windef")]
@@ -494,8 +495,8 @@ pub unsafe fn CreateSolidBrush(color: super::COLORREF) -> super::HBRUSH {
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DPtoLP(hdc: super::HDC, lppt: &mut [super::POINT]) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn DPtoLP(hdc : super::HDC, lppt : *mut super::POINT, c : i32) -> windows_core::BOOL);
-    unsafe { DPtoLP(hdc, lppt.as_mut_ptr(), lppt.len().try_into().unwrap()) }
+    windows_core::link!("gdi32.dll" "system" fn DPtoLP(hdc : super::HDC, lppt : super::LPPOINT, c : i32) -> windows_core::BOOL);
+    unsafe { DPtoLP(hdc, core::mem::transmute(lppt.as_mut_ptr()), lppt.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -529,8 +530,8 @@ pub unsafe fn DeleteObject(ho: super::HGDIOBJ) -> windows_core::BOOL {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn DescribePixelFormat(hdc: super::HDC, ipixelformat: i32, nbytes: u32, ppfd: Option<*mut PIXELFORMATDESCRIPTOR>) -> i32 {
-    windows_core::link!("gdi32.dll" "system" fn DescribePixelFormat(hdc : super::HDC, ipixelformat : i32, nbytes : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> i32);
+pub unsafe fn DescribePixelFormat(hdc: super::HDC, ipixelformat: i32, nbytes: u32, ppfd: Option<LPPIXELFORMATDESCRIPTOR>) -> i32 {
+    windows_core::link!("gdi32.dll" "system" fn DescribePixelFormat(hdc : super::HDC, ipixelformat : i32, nbytes : u32, ppfd : LPPIXELFORMATDESCRIPTOR) -> i32);
     unsafe { DescribePixelFormat(hdc, ipixelformat, nbytes, ppfd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -603,14 +604,14 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn EnumFontFamiliesExA(hdc: super::HDC, lplogfont: *const LOGFONTA, lpproc: FONTENUMPROCA, lparam: super::LPARAM, dwflags: u32) -> i32 {
-    windows_core::link!("gdi32.dll" "system" fn EnumFontFamiliesExA(hdc : super::HDC, lplogfont : *const LOGFONTA, lpproc : FONTENUMPROCA, lparam : super::LPARAM, dwflags : u32) -> i32);
+pub unsafe fn EnumFontFamiliesExA(hdc: super::HDC, lplogfont: LPLOGFONTA, lpproc: FONTENUMPROCA, lparam: super::LPARAM, dwflags: u32) -> i32 {
+    windows_core::link!("gdi32.dll" "system" fn EnumFontFamiliesExA(hdc : super::HDC, lplogfont : LPLOGFONTA, lpproc : FONTENUMPROCA, lparam : super::LPARAM, dwflags : u32) -> i32);
     unsafe { EnumFontFamiliesExA(hdc, lplogfont, lpproc, lparam, dwflags) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn EnumFontFamiliesExW(hdc: super::HDC, lplogfont: *const LOGFONTW, lpproc: FONTENUMPROCW, lparam: super::LPARAM, dwflags: u32) -> i32 {
-    windows_core::link!("gdi32.dll" "system" fn EnumFontFamiliesExW(hdc : super::HDC, lplogfont : *const LOGFONTW, lpproc : FONTENUMPROCW, lparam : super::LPARAM, dwflags : u32) -> i32);
+pub unsafe fn EnumFontFamiliesExW(hdc: super::HDC, lplogfont: LPLOGFONTW, lpproc: FONTENUMPROCW, lparam: super::LPARAM, dwflags: u32) -> i32 {
+    windows_core::link!("gdi32.dll" "system" fn EnumFontFamiliesExW(hdc : super::HDC, lplogfont : LPLOGFONTW, lpproc : FONTENUMPROCW, lparam : super::LPARAM, dwflags : u32) -> i32);
     unsafe { EnumFontFamiliesExW(hdc, lplogfont, lpproc, lparam, dwflags) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -750,8 +751,8 @@ pub unsafe fn FillRgn(hdc: super::HDC, hrgn: super::HRGN, hbr: super::HBRUSH) ->
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn FixBrushOrgEx(hdc: super::HDC, x: i32, y: i32, ptl: Option<*const super::POINT>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn FixBrushOrgEx(hdc : super::HDC, x : i32, y : i32, ptl : *const super::POINT) -> windows_core::BOOL);
+pub unsafe fn FixBrushOrgEx(hdc: super::HDC, x: i32, y: i32, ptl: Option<super::LPPOINT>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn FixBrushOrgEx(hdc : super::HDC, x : i32, y : i32, ptl : super::LPPOINT) -> windows_core::BOOL);
     unsafe { FixBrushOrgEx(hdc, x, y, ptl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -797,8 +798,8 @@ pub unsafe fn GdiGetBatchLimit() -> u32 {
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn GdiGradientFill(hdc: super::HDC, pvertex: &[TRIVERTEX], pmesh: *const core::ffi::c_void, ncount: u32, ulmode: u32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GdiGradientFill(hdc : super::HDC, pvertex : *const TRIVERTEX, nvertex : u32, pmesh : *const core::ffi::c_void, ncount : u32, ulmode : u32) -> windows_core::BOOL);
-    unsafe { GdiGradientFill(hdc, pvertex.as_ptr(), pvertex.len().try_into().unwrap(), pmesh, ncount, ulmode) }
+    windows_core::link!("gdi32.dll" "system" fn GdiGradientFill(hdc : super::HDC, pvertex : PTRIVERTEX, nvertex : u32, pmesh : *const core::ffi::c_void, ncount : u32, ulmode : u32) -> windows_core::BOOL);
+    unsafe { GdiGradientFill(hdc, core::mem::transmute(pvertex.as_ptr()), pvertex.len().try_into().unwrap(), pmesh, ncount, ulmode) }
 }
 #[inline]
 pub unsafe fn GdiSetBatchLimit(dw: u32) -> u32 {
@@ -819,8 +820,8 @@ pub unsafe fn GetArcDirection(hdc: super::HDC) -> i32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetAspectRatioFilterEx(hdc: super::HDC, lpsize: *mut super::SIZE) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetAspectRatioFilterEx(hdc : super::HDC, lpsize : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn GetAspectRatioFilterEx(hdc: super::HDC, lpsize: super::LPSIZE) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetAspectRatioFilterEx(hdc : super::HDC, lpsize : super::LPSIZE) -> windows_core::BOOL);
     unsafe { GetAspectRatioFilterEx(hdc, lpsize as _) }
 }
 #[cfg(feature = "windef")]
@@ -831,8 +832,8 @@ pub unsafe fn GetBitmapBits(hbit: super::HBITMAP, cb: i32, lpvbits: *mut core::f
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetBitmapDimensionEx(hbit: super::HBITMAP, lpsize: *mut super::SIZE) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetBitmapDimensionEx(hbit : super::HBITMAP, lpsize : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn GetBitmapDimensionEx(hbit: super::HBITMAP, lpsize: super::LPSIZE) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetBitmapDimensionEx(hbit : super::HBITMAP, lpsize : super::LPSIZE) -> windows_core::BOOL);
     unsafe { GetBitmapDimensionEx(hbit, lpsize as _) }
 }
 #[cfg(feature = "windef")]
@@ -849,104 +850,104 @@ pub unsafe fn GetBkMode(hdc: super::HDC) -> i32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetBoundsRect(hdc: super::HDC, lprect: *mut super::RECT, flags: u32) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetBoundsRect(hdc : super::HDC, lprect : *mut super::RECT, flags : u32) -> u32);
+pub unsafe fn GetBoundsRect(hdc: super::HDC, lprect: super::LPRECT, flags: u32) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetBoundsRect(hdc : super::HDC, lprect : super::LPRECT, flags : u32) -> u32);
     unsafe { GetBoundsRect(hdc, lprect as _, flags) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetBrushOrgEx(hdc: super::HDC, lppt: *mut super::POINT) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetBrushOrgEx(hdc : super::HDC, lppt : *mut super::POINT) -> windows_core::BOOL);
+pub unsafe fn GetBrushOrgEx(hdc: super::HDC, lppt: super::LPPOINT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetBrushOrgEx(hdc : super::HDC, lppt : super::LPPOINT) -> windows_core::BOOL);
     unsafe { GetBrushOrgEx(hdc, lppt as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetCharABCWidthsA(hdc: super::HDC, wfirst: u32, wlast: u32, lpabc: *mut ABC) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetCharABCWidthsA(hdc : super::HDC, wfirst : u32, wlast : u32, lpabc : *mut ABC) -> windows_core::BOOL);
+pub unsafe fn GetCharABCWidthsA(hdc: super::HDC, wfirst: u32, wlast: u32, lpabc: LPABC) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetCharABCWidthsA(hdc : super::HDC, wfirst : u32, wlast : u32, lpabc : LPABC) -> windows_core::BOOL);
     unsafe { GetCharABCWidthsA(hdc, wfirst, wlast, lpabc as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetCharABCWidthsFloatA(hdc: super::HDC, ifirst: u32, ilast: u32, lpabc: *mut ABCFLOAT) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetCharABCWidthsFloatA(hdc : super::HDC, ifirst : u32, ilast : u32, lpabc : *mut ABCFLOAT) -> windows_core::BOOL);
+pub unsafe fn GetCharABCWidthsFloatA(hdc: super::HDC, ifirst: u32, ilast: u32, lpabc: LPABCFLOAT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetCharABCWidthsFloatA(hdc : super::HDC, ifirst : u32, ilast : u32, lpabc : LPABCFLOAT) -> windows_core::BOOL);
     unsafe { GetCharABCWidthsFloatA(hdc, ifirst, ilast, lpabc as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetCharABCWidthsFloatW(hdc: super::HDC, ifirst: u32, ilast: u32, lpabc: *mut ABCFLOAT) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetCharABCWidthsFloatW(hdc : super::HDC, ifirst : u32, ilast : u32, lpabc : *mut ABCFLOAT) -> windows_core::BOOL);
+pub unsafe fn GetCharABCWidthsFloatW(hdc: super::HDC, ifirst: u32, ilast: u32, lpabc: LPABCFLOAT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetCharABCWidthsFloatW(hdc : super::HDC, ifirst : u32, ilast : u32, lpabc : LPABCFLOAT) -> windows_core::BOOL);
     unsafe { GetCharABCWidthsFloatW(hdc, ifirst, ilast, lpabc as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetCharABCWidthsI(hdc: super::HDC, gifirst: u32, cgi: u32, pgi: Option<*const u16>, pabc: *mut ABC) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetCharABCWidthsI(hdc : super::HDC, gifirst : u32, cgi : u32, pgi : *const u16, pabc : *mut ABC) -> windows_core::BOOL);
+pub unsafe fn GetCharABCWidthsI(hdc: super::HDC, gifirst: u32, cgi: u32, pgi: Option<super::LPWORD>, pabc: LPABC) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetCharABCWidthsI(hdc : super::HDC, gifirst : u32, cgi : u32, pgi : super::LPWORD, pabc : LPABC) -> windows_core::BOOL);
     unsafe { GetCharABCWidthsI(hdc, gifirst, cgi, pgi.unwrap_or(core::mem::zeroed()) as _, pabc as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetCharABCWidthsW(hdc: super::HDC, wfirst: u32, wlast: u32, lpabc: *mut ABC) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetCharABCWidthsW(hdc : super::HDC, wfirst : u32, wlast : u32, lpabc : *mut ABC) -> windows_core::BOOL);
+pub unsafe fn GetCharABCWidthsW(hdc: super::HDC, wfirst: u32, wlast: u32, lpabc: LPABC) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetCharABCWidthsW(hdc : super::HDC, wfirst : u32, wlast : u32, lpabc : LPABC) -> windows_core::BOOL);
     unsafe { GetCharABCWidthsW(hdc, wfirst, wlast, lpabc as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetCharWidth32A(hdc: super::HDC, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetCharWidth32A(hdc : super::HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> windows_core::BOOL);
+pub unsafe fn GetCharWidth32A(hdc: super::HDC, ifirst: u32, ilast: u32, lpbuffer: super::LPINT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetCharWidth32A(hdc : super::HDC, ifirst : u32, ilast : u32, lpbuffer : super::LPINT) -> windows_core::BOOL);
     unsafe { GetCharWidth32A(hdc, ifirst, ilast, lpbuffer as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetCharWidth32W(hdc: super::HDC, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetCharWidth32W(hdc : super::HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> windows_core::BOOL);
+pub unsafe fn GetCharWidth32W(hdc: super::HDC, ifirst: u32, ilast: u32, lpbuffer: super::LPINT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetCharWidth32W(hdc : super::HDC, ifirst : u32, ilast : u32, lpbuffer : super::LPINT) -> windows_core::BOOL);
     unsafe { GetCharWidth32W(hdc, ifirst, ilast, lpbuffer as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetCharWidthA(hdc: super::HDC, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetCharWidthA(hdc : super::HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> windows_core::BOOL);
+pub unsafe fn GetCharWidthA(hdc: super::HDC, ifirst: u32, ilast: u32, lpbuffer: super::LPINT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetCharWidthA(hdc : super::HDC, ifirst : u32, ilast : u32, lpbuffer : super::LPINT) -> windows_core::BOOL);
     unsafe { GetCharWidthA(hdc, ifirst, ilast, lpbuffer as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetCharWidthFloatA(hdc: super::HDC, ifirst: u32, ilast: u32, lpbuffer: *mut f32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetCharWidthFloatA(hdc : super::HDC, ifirst : u32, ilast : u32, lpbuffer : *mut f32) -> windows_core::BOOL);
+pub unsafe fn GetCharWidthFloatA(hdc: super::HDC, ifirst: u32, ilast: u32, lpbuffer: super::PFLOAT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetCharWidthFloatA(hdc : super::HDC, ifirst : u32, ilast : u32, lpbuffer : super::PFLOAT) -> windows_core::BOOL);
     unsafe { GetCharWidthFloatA(hdc, ifirst, ilast, lpbuffer as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetCharWidthFloatW(hdc: super::HDC, ifirst: u32, ilast: u32, lpbuffer: *mut f32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetCharWidthFloatW(hdc : super::HDC, ifirst : u32, ilast : u32, lpbuffer : *mut f32) -> windows_core::BOOL);
+pub unsafe fn GetCharWidthFloatW(hdc: super::HDC, ifirst: u32, ilast: u32, lpbuffer: super::PFLOAT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetCharWidthFloatW(hdc : super::HDC, ifirst : u32, ilast : u32, lpbuffer : super::PFLOAT) -> windows_core::BOOL);
     unsafe { GetCharWidthFloatW(hdc, ifirst, ilast, lpbuffer as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetCharWidthI(hdc: super::HDC, gifirst: u32, cgi: u32, pgi: Option<*const u16>, piwidths: *mut i32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetCharWidthI(hdc : super::HDC, gifirst : u32, cgi : u32, pgi : *const u16, piwidths : *mut i32) -> windows_core::BOOL);
+pub unsafe fn GetCharWidthI(hdc: super::HDC, gifirst: u32, cgi: u32, pgi: Option<super::LPWORD>, piwidths: super::LPINT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetCharWidthI(hdc : super::HDC, gifirst : u32, cgi : u32, pgi : super::LPWORD, piwidths : super::LPINT) -> windows_core::BOOL);
     unsafe { GetCharWidthI(hdc, gifirst, cgi, pgi.unwrap_or(core::mem::zeroed()) as _, piwidths as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetCharWidthW(hdc: super::HDC, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetCharWidthW(hdc : super::HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> windows_core::BOOL);
+pub unsafe fn GetCharWidthW(hdc: super::HDC, ifirst: u32, ilast: u32, lpbuffer: super::LPINT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetCharWidthW(hdc : super::HDC, ifirst : u32, ilast : u32, lpbuffer : super::LPINT) -> windows_core::BOOL);
     unsafe { GetCharWidthW(hdc, ifirst, ilast, lpbuffer as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetCharacterPlacementA(hdc: super::HDC, lpstring: &[u8], nmexextent: i32, lpresults: *mut GCP_RESULTSA, dwflags: u32) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetCharacterPlacementA(hdc : super::HDC, lpstring : windows_core::PCSTR, ncount : i32, nmexextent : i32, lpresults : *mut GCP_RESULTSA, dwflags : u32) -> u32);
+pub unsafe fn GetCharacterPlacementA(hdc: super::HDC, lpstring: &[u8], nmexextent: i32, lpresults: LPGCP_RESULTSA, dwflags: u32) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetCharacterPlacementA(hdc : super::HDC, lpstring : windows_core::PCSTR, ncount : i32, nmexextent : i32, lpresults : LPGCP_RESULTSA, dwflags : u32) -> u32);
     unsafe { GetCharacterPlacementA(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), nmexextent, lpresults as _, dwflags) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetCharacterPlacementW(hdc: super::HDC, lpstring: &[u16], nmexextent: i32, lpresults: *mut GCP_RESULTSW, dwflags: u32) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetCharacterPlacementW(hdc : super::HDC, lpstring : windows_core::PCWSTR, ncount : i32, nmexextent : i32, lpresults : *mut GCP_RESULTSW, dwflags : u32) -> u32);
+pub unsafe fn GetCharacterPlacementW(hdc: super::HDC, lpstring: &[u16], nmexextent: i32, lpresults: LPGCP_RESULTSW, dwflags: u32) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetCharacterPlacementW(hdc : super::HDC, lpstring : windows_core::PCWSTR, ncount : i32, nmexextent : i32, lpresults : LPGCP_RESULTSW, dwflags : u32) -> u32);
     unsafe { GetCharacterPlacementW(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), nmexextent, lpresults as _, dwflags) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetClipBox(hdc: super::HDC, lprect: *mut super::RECT) -> i32 {
-    windows_core::link!("gdi32.dll" "system" fn GetClipBox(hdc : super::HDC, lprect : *mut super::RECT) -> i32);
+pub unsafe fn GetClipBox(hdc: super::HDC, lprect: super::LPRECT) -> i32 {
+    windows_core::link!("gdi32.dll" "system" fn GetClipBox(hdc : super::HDC, lprect : super::LPRECT) -> i32);
     unsafe { GetClipBox(hdc, lprect as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -957,8 +958,8 @@ pub unsafe fn GetClipRgn(hdc: super::HDC, hrgn: super::HRGN) -> i32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetColorAdjustment(hdc: super::HDC, lpca: *mut COLORADJUSTMENT) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetColorAdjustment(hdc : super::HDC, lpca : *mut COLORADJUSTMENT) -> windows_core::BOOL);
+pub unsafe fn GetColorAdjustment(hdc: super::HDC, lpca: LPCOLORADJUSTMENT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetColorAdjustment(hdc : super::HDC, lpca : LPCOLORADJUSTMENT) -> windows_core::BOOL);
     unsafe { GetColorAdjustment(hdc, lpca as _) }
 }
 #[cfg(feature = "windef")]
@@ -975,8 +976,8 @@ pub unsafe fn GetCurrentObject(hdc: super::HDC, r#type: u32) -> super::HGDIOBJ {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetCurrentPositionEx(hdc: super::HDC, lppt: *mut super::POINT) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetCurrentPositionEx(hdc : super::HDC, lppt : *mut super::POINT) -> windows_core::BOOL);
+pub unsafe fn GetCurrentPositionEx(hdc: super::HDC, lppt: super::LPPOINT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetCurrentPositionEx(hdc : super::HDC, lppt : super::LPPOINT) -> windows_core::BOOL);
     unsafe { GetCurrentPositionEx(hdc, lppt as _) }
 }
 #[cfg(feature = "windef")]
@@ -987,8 +988,8 @@ pub unsafe fn GetDCBrushColor(hdc: super::HDC) -> super::COLORREF {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetDCOrgEx(hdc: super::HDC, lppt: *mut super::POINT) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetDCOrgEx(hdc : super::HDC, lppt : *mut super::POINT) -> windows_core::BOOL);
+pub unsafe fn GetDCOrgEx(hdc: super::HDC, lppt: super::LPPOINT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetDCOrgEx(hdc : super::HDC, lppt : super::LPPOINT) -> windows_core::BOOL);
     unsafe { GetDCOrgEx(hdc, lppt as _) }
 }
 #[cfg(feature = "windef")]
@@ -1005,9 +1006,9 @@ pub unsafe fn GetDIBColorTable(hdc: super::HDC, istart: u32, centries: u32, prgb
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetDIBits(hdc: super::HDC, hbm: super::HBITMAP, start: u32, clines: u32, lpvbits: Option<*mut core::ffi::c_void>, lpbmi: *mut BITMAPINFO, usage: u32) -> i32 {
-    windows_core::link!("gdi32.dll" "system" fn GetDIBits(hdc : super::HDC, hbm : super::HBITMAP, start : u32, clines : u32, lpvbits : *mut core::ffi::c_void, lpbmi : *mut BITMAPINFO, usage : u32) -> i32);
-    unsafe { GetDIBits(hdc, hbm, start, clines, lpvbits.unwrap_or(core::mem::zeroed()) as _, lpbmi as _, usage) }
+pub unsafe fn GetDIBits(hdc: super::HDC, hbm: super::HBITMAP, start: u32, clines: u32, lpvbits: Option<*mut core::ffi::c_void>, lpbmi: LPBITMAPINFO, usage: u32) -> i32 {
+    windows_core::link!("gdi32.dll" "system" fn GetDIBits(hdc : super::HDC, hbm : super::HBITMAP, start : u32, clines : u32, lpvbits : *mut core::ffi::c_void, lpbmi : LPBITMAPINFO, usage : u32) -> i32);
+    unsafe { GetDIBits(hdc, hbm, start, clines, lpvbits.unwrap_or(core::mem::zeroed()) as _, lpbmi, usage) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1030,10 +1031,10 @@ where
     windows_core::link!("gdi32.dll" "system" fn GetEnhMetaFileA(lpname : windows_core::PCSTR) -> super::HENHMETAFILE);
     unsafe { GetEnhMetaFileA(lpname.param().abi()) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetEnhMetaFileBits(hemf: super::HENHMETAFILE, nsize: u32, lpdata: Option<*mut u8>) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetEnhMetaFileBits(hemf : super::HENHMETAFILE, nsize : u32, lpdata : *mut u8) -> u32);
+pub unsafe fn GetEnhMetaFileBits(hemf: super::HENHMETAFILE, nsize: u32, lpdata: Option<super::LPBYTE>) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetEnhMetaFileBits(hemf : super::HENHMETAFILE, nsize : u32, lpdata : super::LPBYTE) -> u32);
     unsafe { GetEnhMetaFileBits(hemf, nsize, lpdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -1050,14 +1051,14 @@ pub unsafe fn GetEnhMetaFileDescriptionW(hemf: super::HENHMETAFILE, cchbuffer: u
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetEnhMetaFileHeader(hemf: super::HENHMETAFILE, nsize: u32, lpenhmetaheader: Option<*mut ENHMETAHEADER>) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetEnhMetaFileHeader(hemf : super::HENHMETAFILE, nsize : u32, lpenhmetaheader : *mut ENHMETAHEADER) -> u32);
+pub unsafe fn GetEnhMetaFileHeader(hemf: super::HENHMETAFILE, nsize: u32, lpenhmetaheader: Option<LPENHMETAHEADER>) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetEnhMetaFileHeader(hemf : super::HENHMETAFILE, nsize : u32, lpenhmetaheader : LPENHMETAHEADER) -> u32);
     unsafe { GetEnhMetaFileHeader(hemf, nsize, lpenhmetaheader.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetEnhMetaFilePaletteEntries(hemf: super::HENHMETAFILE, nnumentries: u32, lppaletteentries: Option<*mut PALETTEENTRY>) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetEnhMetaFilePaletteEntries(hemf : super::HENHMETAFILE, nnumentries : u32, lppaletteentries : *mut PALETTEENTRY) -> u32);
+pub unsafe fn GetEnhMetaFilePaletteEntries(hemf: super::HENHMETAFILE, nnumentries: u32, lppaletteentries: Option<LPPALETTEENTRY>) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetEnhMetaFilePaletteEntries(hemf : super::HENHMETAFILE, nnumentries : u32, lppaletteentries : LPPALETTEENTRY) -> u32);
     unsafe { GetEnhMetaFilePaletteEntries(hemf, nnumentries, lppaletteentries.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -1089,38 +1090,38 @@ pub unsafe fn GetFontLanguageInfo(hdc: super::HDC) -> u32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetFontUnicodeRanges(hdc: super::HDC, lpgs: Option<*mut GLYPHSET>) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetFontUnicodeRanges(hdc : super::HDC, lpgs : *mut GLYPHSET) -> u32);
+pub unsafe fn GetFontUnicodeRanges(hdc: super::HDC, lpgs: Option<LPGLYPHSET>) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetFontUnicodeRanges(hdc : super::HDC, lpgs : LPGLYPHSET) -> u32);
     unsafe { GetFontUnicodeRanges(hdc, lpgs.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetGlyphIndicesA<P1>(hdc: super::HDC, lpstr: P1, c: i32, pgi: *mut u16, fl: u32) -> u32
+pub unsafe fn GetGlyphIndicesA<P1>(hdc: super::HDC, lpstr: P1, c: i32, pgi: super::LPWORD, fl: u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("gdi32.dll" "system" fn GetGlyphIndicesA(hdc : super::HDC, lpstr : windows_core::PCSTR, c : i32, pgi : *mut u16, fl : u32) -> u32);
+    windows_core::link!("gdi32.dll" "system" fn GetGlyphIndicesA(hdc : super::HDC, lpstr : windows_core::PCSTR, c : i32, pgi : super::LPWORD, fl : u32) -> u32);
     unsafe { GetGlyphIndicesA(hdc, lpstr.param().abi(), c, pgi as _, fl) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetGlyphIndicesW<P1>(hdc: super::HDC, lpstr: P1, c: i32, pgi: *mut u16, fl: u32) -> u32
+pub unsafe fn GetGlyphIndicesW<P1>(hdc: super::HDC, lpstr: P1, c: i32, pgi: super::LPWORD, fl: u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("gdi32.dll" "system" fn GetGlyphIndicesW(hdc : super::HDC, lpstr : windows_core::PCWSTR, c : i32, pgi : *mut u16, fl : u32) -> u32);
+    windows_core::link!("gdi32.dll" "system" fn GetGlyphIndicesW(hdc : super::HDC, lpstr : windows_core::PCWSTR, c : i32, pgi : super::LPWORD, fl : u32) -> u32);
     unsafe { GetGlyphIndicesW(hdc, lpstr.param().abi(), c, pgi as _, fl) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetGlyphOutlineA(hdc: super::HDC, uchar: u32, fuformat: u32, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: Option<*mut core::ffi::c_void>, lpmat2: *const MAT2) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetGlyphOutlineA(hdc : super::HDC, uchar : u32, fuformat : u32, lpgm : *mut GLYPHMETRICS, cjbuffer : u32, pvbuffer : *mut core::ffi::c_void, lpmat2 : *const MAT2) -> u32);
+pub unsafe fn GetGlyphOutlineA(hdc: super::HDC, uchar: u32, fuformat: u32, lpgm: LPGLYPHMETRICS, cjbuffer: u32, pvbuffer: Option<*mut core::ffi::c_void>, lpmat2: *const MAT2) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetGlyphOutlineA(hdc : super::HDC, uchar : u32, fuformat : u32, lpgm : LPGLYPHMETRICS, cjbuffer : u32, pvbuffer : *mut core::ffi::c_void, lpmat2 : *const MAT2) -> u32);
     unsafe { GetGlyphOutlineA(hdc, uchar, fuformat, lpgm as _, cjbuffer, pvbuffer.unwrap_or(core::mem::zeroed()) as _, lpmat2) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetGlyphOutlineW(hdc: super::HDC, uchar: u32, fuformat: u32, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: Option<*mut core::ffi::c_void>, lpmat2: *const MAT2) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetGlyphOutlineW(hdc : super::HDC, uchar : u32, fuformat : u32, lpgm : *mut GLYPHMETRICS, cjbuffer : u32, pvbuffer : *mut core::ffi::c_void, lpmat2 : *const MAT2) -> u32);
+pub unsafe fn GetGlyphOutlineW(hdc: super::HDC, uchar: u32, fuformat: u32, lpgm: LPGLYPHMETRICS, cjbuffer: u32, pvbuffer: Option<*mut core::ffi::c_void>, lpmat2: *const MAT2) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetGlyphOutlineW(hdc : super::HDC, uchar : u32, fuformat : u32, lpgm : LPGLYPHMETRICS, cjbuffer : u32, pvbuffer : *mut core::ffi::c_void, lpmat2 : *const MAT2) -> u32);
     unsafe { GetGlyphOutlineW(hdc, uchar, fuformat, lpgm as _, cjbuffer, pvbuffer.unwrap_or(core::mem::zeroed()) as _, lpmat2) }
 }
 #[cfg(feature = "windef")]
@@ -1129,28 +1130,28 @@ pub unsafe fn GetGraphicsMode(hdc: super::HDC) -> i32 {
     windows_core::link!("gdi32.dll" "system" fn GetGraphicsMode(hdc : super::HDC) -> i32);
     unsafe { GetGraphicsMode(hdc) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetICMProfileA(hdc: super::HDC, pbufsize: *mut u32, pszfilename: Option<windows_core::PSTR>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetICMProfileA(hdc : super::HDC, pbufsize : *mut u32, pszfilename : windows_core::PSTR) -> windows_core::BOOL);
+pub unsafe fn GetICMProfileA(hdc: super::HDC, pbufsize: super::LPDWORD, pszfilename: Option<windows_core::PSTR>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetICMProfileA(hdc : super::HDC, pbufsize : super::LPDWORD, pszfilename : windows_core::PSTR) -> windows_core::BOOL);
     unsafe { GetICMProfileA(hdc, pbufsize as _, pszfilename.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetICMProfileW(hdc: super::HDC, pbufsize: *mut u32, pszfilename: Option<windows_core::PWSTR>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetICMProfileW(hdc : super::HDC, pbufsize : *mut u32, pszfilename : windows_core::PWSTR) -> windows_core::BOOL);
+pub unsafe fn GetICMProfileW(hdc: super::HDC, pbufsize: super::LPDWORD, pszfilename: Option<windows_core::PWSTR>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetICMProfileW(hdc : super::HDC, pbufsize : super::LPDWORD, pszfilename : windows_core::PWSTR) -> windows_core::BOOL);
     unsafe { GetICMProfileW(hdc, pbufsize as _, pszfilename.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetKerningPairsA(hdc: super::HDC, npairs: u32, lpkernpair: Option<*mut KERNINGPAIR>) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetKerningPairsA(hdc : super::HDC, npairs : u32, lpkernpair : *mut KERNINGPAIR) -> u32);
+pub unsafe fn GetKerningPairsA(hdc: super::HDC, npairs: u32, lpkernpair: Option<LPKERNINGPAIR>) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetKerningPairsA(hdc : super::HDC, npairs : u32, lpkernpair : LPKERNINGPAIR) -> u32);
     unsafe { GetKerningPairsA(hdc, npairs, lpkernpair.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetKerningPairsW(hdc: super::HDC, npairs: u32, lpkernpair: Option<*mut KERNINGPAIR>) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetKerningPairsW(hdc : super::HDC, npairs : u32, lpkernpair : *mut KERNINGPAIR) -> u32);
+pub unsafe fn GetKerningPairsW(hdc: super::HDC, npairs: u32, lpkernpair: Option<LPKERNINGPAIR>) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetKerningPairsW(hdc : super::HDC, npairs : u32, lpkernpair : LPKERNINGPAIR) -> u32);
     unsafe { GetKerningPairsW(hdc, npairs, lpkernpair.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -1161,14 +1162,14 @@ pub unsafe fn GetLayout(hdc: super::HDC) -> u32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetLogColorSpaceA(hcolorspace: super::HCOLORSPACE, lpbuffer: *mut LOGCOLORSPACEA, nsize: u32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetLogColorSpaceA(hcolorspace : super::HCOLORSPACE, lpbuffer : *mut LOGCOLORSPACEA, nsize : u32) -> windows_core::BOOL);
+pub unsafe fn GetLogColorSpaceA(hcolorspace: super::HCOLORSPACE, lpbuffer: LPLOGCOLORSPACEA, nsize: u32) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetLogColorSpaceA(hcolorspace : super::HCOLORSPACE, lpbuffer : LPLOGCOLORSPACEA, nsize : u32) -> windows_core::BOOL);
     unsafe { GetLogColorSpaceA(hcolorspace, lpbuffer as _, nsize) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetLogColorSpaceW(hcolorspace: super::HCOLORSPACE, lpbuffer: *mut LOGCOLORSPACEW, nsize: u32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetLogColorSpaceW(hcolorspace : super::HCOLORSPACE, lpbuffer : *mut LOGCOLORSPACEW, nsize : u32) -> windows_core::BOOL);
+pub unsafe fn GetLogColorSpaceW(hcolorspace: super::HCOLORSPACE, lpbuffer: LPLOGCOLORSPACEW, nsize: u32) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetLogColorSpaceW(hcolorspace : super::HCOLORSPACE, lpbuffer : LPLOGCOLORSPACEW, nsize : u32) -> windows_core::BOOL);
     unsafe { GetLogColorSpaceW(hcolorspace, lpbuffer as _, nsize) }
 }
 #[cfg(feature = "windef")]
@@ -1207,10 +1208,10 @@ pub unsafe fn GetMetaRgn(hdc: super::HDC, hrgn: super::HRGN) -> i32 {
     windows_core::link!("gdi32.dll" "system" fn GetMetaRgn(hdc : super::HDC, hrgn : super::HRGN) -> i32);
     unsafe { GetMetaRgn(hdc, hrgn) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetMiterLimit(hdc: super::HDC, plimit: *mut f32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetMiterLimit(hdc : super::HDC, plimit : *mut f32) -> windows_core::BOOL);
+pub unsafe fn GetMiterLimit(hdc: super::HDC, plimit: super::PFLOAT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetMiterLimit(hdc : super::HDC, plimit : super::PFLOAT) -> windows_core::BOOL);
     unsafe { GetMiterLimit(hdc, plimit as _) }
 }
 #[cfg(feature = "windef")]
@@ -1245,26 +1246,26 @@ pub unsafe fn GetObjectW(h: super::HANDLE, c: i32, pv: Option<*mut core::ffi::c_
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetOutlineTextMetricsA(hdc: super::HDC, cjcopy: u32, potm: Option<*mut OUTLINETEXTMETRICA>) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetOutlineTextMetricsA(hdc : super::HDC, cjcopy : u32, potm : *mut OUTLINETEXTMETRICA) -> u32);
+pub unsafe fn GetOutlineTextMetricsA(hdc: super::HDC, cjcopy: u32, potm: Option<LPOUTLINETEXTMETRICA>) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetOutlineTextMetricsA(hdc : super::HDC, cjcopy : u32, potm : LPOUTLINETEXTMETRICA) -> u32);
     unsafe { GetOutlineTextMetricsA(hdc, cjcopy, potm.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetOutlineTextMetricsW(hdc: super::HDC, cjcopy: u32, potm: Option<*mut OUTLINETEXTMETRICW>) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetOutlineTextMetricsW(hdc : super::HDC, cjcopy : u32, potm : *mut OUTLINETEXTMETRICW) -> u32);
+pub unsafe fn GetOutlineTextMetricsW(hdc: super::HDC, cjcopy: u32, potm: Option<LPOUTLINETEXTMETRICW>) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetOutlineTextMetricsW(hdc : super::HDC, cjcopy : u32, potm : LPOUTLINETEXTMETRICW) -> u32);
     unsafe { GetOutlineTextMetricsW(hdc, cjcopy, potm.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetPaletteEntries(hpal: super::HPALETTE, istart: u32, centries: u32, ppalentries: Option<*mut PALETTEENTRY>) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetPaletteEntries(hpal : super::HPALETTE, istart : u32, centries : u32, ppalentries : *mut PALETTEENTRY) -> u32);
+pub unsafe fn GetPaletteEntries(hpal: super::HPALETTE, istart: u32, centries: u32, ppalentries: Option<LPPALETTEENTRY>) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetPaletteEntries(hpal : super::HPALETTE, istart : u32, centries : u32, ppalentries : LPPALETTEENTRY) -> u32);
     unsafe { GetPaletteEntries(hpal, istart, centries, ppalentries.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetPath(hdc: super::HDC, apt: Option<*mut super::POINT>, aj: Option<*mut u8>, cpt: i32) -> i32 {
-    windows_core::link!("gdi32.dll" "system" fn GetPath(hdc : super::HDC, apt : *mut super::POINT, aj : *mut u8, cpt : i32) -> i32);
+pub unsafe fn GetPath(hdc: super::HDC, apt: Option<super::LPPOINT>, aj: Option<super::LPBYTE>, cpt: i32) -> i32 {
+    windows_core::link!("gdi32.dll" "system" fn GetPath(hdc : super::HDC, apt : super::LPPOINT, aj : super::LPBYTE, cpt : i32) -> i32);
     unsafe { GetPath(hdc, apt.unwrap_or(core::mem::zeroed()) as _, aj.unwrap_or(core::mem::zeroed()) as _, cpt) }
 }
 #[cfg(feature = "windef")]
@@ -1298,20 +1299,20 @@ pub unsafe fn GetRandomRgn(hdc: super::HDC, hrgn: super::HRGN, i: i32) -> i32 {
     unsafe { GetRandomRgn(hdc, hrgn, i) }
 }
 #[inline]
-pub unsafe fn GetRasterizerCaps(lpraststat: *mut RASTERIZER_STATUS, cjbytes: u32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetRasterizerCaps(lpraststat : *mut RASTERIZER_STATUS, cjbytes : u32) -> windows_core::BOOL);
+pub unsafe fn GetRasterizerCaps(lpraststat: LPRASTERIZER_STATUS, cjbytes: u32) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetRasterizerCaps(lpraststat : LPRASTERIZER_STATUS, cjbytes : u32) -> windows_core::BOOL);
     unsafe { GetRasterizerCaps(lpraststat as _, cjbytes) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetRegionData(hrgn: super::HRGN, ncount: u32, lprgndata: Option<*mut RGNDATA>) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetRegionData(hrgn : super::HRGN, ncount : u32, lprgndata : *mut RGNDATA) -> u32);
+pub unsafe fn GetRegionData(hrgn: super::HRGN, ncount: u32, lprgndata: Option<LPRGNDATA>) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetRegionData(hrgn : super::HRGN, ncount : u32, lprgndata : LPRGNDATA) -> u32);
     unsafe { GetRegionData(hrgn, ncount, lprgndata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetRgnBox(hrgn: super::HRGN, lprc: *mut super::RECT) -> i32 {
-    windows_core::link!("gdi32.dll" "system" fn GetRgnBox(hrgn : super::HRGN, lprc : *mut super::RECT) -> i32);
+pub unsafe fn GetRgnBox(hrgn: super::HRGN, lprc: super::LPRECT) -> i32 {
+    windows_core::link!("gdi32.dll" "system" fn GetRgnBox(hrgn : super::HRGN, lprc : super::LPRECT) -> i32);
     unsafe { GetRgnBox(hrgn, lprc as _) }
 }
 #[cfg(feature = "windef")]
@@ -1328,8 +1329,8 @@ pub unsafe fn GetStretchBltMode(hdc: super::HDC) -> i32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetSystemPaletteEntries(hdc: super::HDC, istart: u32, centries: u32, ppalentries: Option<*mut PALETTEENTRY>) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetSystemPaletteEntries(hdc : super::HDC, istart : u32, centries : u32, ppalentries : *mut PALETTEENTRY) -> u32);
+pub unsafe fn GetSystemPaletteEntries(hdc: super::HDC, istart: u32, centries: u32, ppalentries: Option<LPPALETTEENTRY>) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetSystemPaletteEntries(hdc : super::HDC, istart : u32, centries : u32, ppalentries : LPPALETTEENTRY) -> u32);
     unsafe { GetSystemPaletteEntries(hdc, istart, centries, ppalentries.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -1358,8 +1359,8 @@ pub unsafe fn GetTextCharset(hdc: super::HDC) -> i32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextCharsetInfo(hdc: super::HDC, lpsig: Option<*mut FONTSIGNATURE>, dwflags: u32) -> i32 {
-    windows_core::link!("gdi32.dll" "system" fn GetTextCharsetInfo(hdc : super::HDC, lpsig : *mut FONTSIGNATURE, dwflags : u32) -> i32);
+pub unsafe fn GetTextCharsetInfo(hdc: super::HDC, lpsig: Option<LPFONTSIGNATURE>, dwflags: u32) -> i32 {
+    windows_core::link!("gdi32.dll" "system" fn GetTextCharsetInfo(hdc : super::HDC, lpsig : LPFONTSIGNATURE, dwflags : u32) -> i32);
     unsafe { GetTextCharsetInfo(hdc, lpsig.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(feature = "windef")]
@@ -1368,52 +1369,52 @@ pub unsafe fn GetTextColor(hdc: super::HDC) -> super::COLORREF {
     windows_core::link!("gdi32.dll" "system" fn GetTextColor(hdc : super::HDC) -> super::COLORREF);
     unsafe { GetTextColor(hdc) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetTextExtentExPointA(hdc: super::HDC, lpszstring: &[u8], nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointA(hdc : super::HDC, lpszstring : windows_core::PCSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn GetTextExtentExPointA(hdc: super::HDC, lpszstring: &[u8], nmaxextent: i32, lpnfit: Option<super::LPINT>, lpndx: Option<super::LPINT>, lpsize: super::LPSIZE) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointA(hdc : super::HDC, lpszstring : windows_core::PCSTR, cchstring : i32, nmaxextent : i32, lpnfit : super::LPINT, lpndx : super::LPINT, lpsize : super::LPSIZE) -> windows_core::BOOL);
     unsafe { GetTextExtentExPointA(hdc, core::mem::transmute(lpszstring.as_ptr()), lpszstring.len().try_into().unwrap(), nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetTextExtentExPointI(hdc: super::HDC, lpwszstring: &[u16], nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointI(hdc : super::HDC, lpwszstring : *const u16, cwchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::SIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentExPointI(hdc, lpwszstring.as_ptr(), lpwszstring.len().try_into().unwrap(), nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
+pub unsafe fn GetTextExtentExPointI(hdc: super::HDC, lpwszstring: &[u16], nmaxextent: i32, lpnfit: Option<super::LPINT>, lpndx: Option<super::LPINT>, lpsize: super::LPSIZE) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointI(hdc : super::HDC, lpwszstring : super::LPWORD, cwchstring : i32, nmaxextent : i32, lpnfit : super::LPINT, lpndx : super::LPINT, lpsize : super::LPSIZE) -> windows_core::BOOL);
+    unsafe { GetTextExtentExPointI(hdc, core::mem::transmute(lpwszstring.as_ptr()), lpwszstring.len().try_into().unwrap(), nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetTextExtentExPointW(hdc: super::HDC, lpszstring: &[u16], nmaxextent: i32, lpnfit: Option<*mut i32>, lpndx: Option<*mut i32>, lpsize: *mut super::SIZE) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointW(hdc : super::HDC, lpszstring : windows_core::PCWSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn GetTextExtentExPointW(hdc: super::HDC, lpszstring: &[u16], nmaxextent: i32, lpnfit: Option<super::LPINT>, lpndx: Option<super::LPINT>, lpsize: super::LPSIZE) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetTextExtentExPointW(hdc : super::HDC, lpszstring : windows_core::PCWSTR, cchstring : i32, nmaxextent : i32, lpnfit : super::LPINT, lpndx : super::LPINT, lpsize : super::LPSIZE) -> windows_core::BOOL);
     unsafe { GetTextExtentExPointW(hdc, core::mem::transmute(lpszstring.as_ptr()), lpszstring.len().try_into().unwrap(), nmaxextent, lpnfit.unwrap_or(core::mem::zeroed()) as _, lpndx.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentPoint32A(hdc: super::HDC, lpstring: &[u8], psizl: *mut super::SIZE) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetTextExtentPoint32A(hdc : super::HDC, lpstring : windows_core::PCSTR, c : i32, psizl : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn GetTextExtentPoint32A(hdc: super::HDC, lpstring: &[u8], psizl: super::LPSIZE) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetTextExtentPoint32A(hdc : super::HDC, lpstring : windows_core::PCSTR, c : i32, psizl : super::LPSIZE) -> windows_core::BOOL);
     unsafe { GetTextExtentPoint32A(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), psizl as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentPoint32W(hdc: super::HDC, lpstring: &[u16], psizl: *mut super::SIZE) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetTextExtentPoint32W(hdc : super::HDC, lpstring : windows_core::PCWSTR, c : i32, psizl : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn GetTextExtentPoint32W(hdc: super::HDC, lpstring: &[u16], psizl: super::LPSIZE) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetTextExtentPoint32W(hdc : super::HDC, lpstring : windows_core::PCWSTR, c : i32, psizl : super::LPSIZE) -> windows_core::BOOL);
     unsafe { GetTextExtentPoint32W(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), psizl as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentPointA(hdc: super::HDC, lpstring: &[u8], lpsz: *mut super::SIZE) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetTextExtentPointA(hdc : super::HDC, lpstring : windows_core::PCSTR, c : i32, lpsz : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn GetTextExtentPointA(hdc: super::HDC, lpstring: &[u8], lpsz: super::LPSIZE) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetTextExtentPointA(hdc : super::HDC, lpstring : windows_core::PCSTR, c : i32, lpsz : super::LPSIZE) -> windows_core::BOOL);
     unsafe { GetTextExtentPointA(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpsz as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetTextExtentPointI(hdc: super::HDC, pgiin: &[u16], psize: *mut super::SIZE) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetTextExtentPointI(hdc : super::HDC, pgiin : *const u16, cgi : i32, psize : *mut super::SIZE) -> windows_core::BOOL);
-    unsafe { GetTextExtentPointI(hdc, pgiin.as_ptr(), pgiin.len().try_into().unwrap(), psize as _) }
+pub unsafe fn GetTextExtentPointI(hdc: super::HDC, pgiin: &[u16], psize: super::LPSIZE) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetTextExtentPointI(hdc : super::HDC, pgiin : super::LPWORD, cgi : i32, psize : super::LPSIZE) -> windows_core::BOOL);
+    unsafe { GetTextExtentPointI(hdc, core::mem::transmute(pgiin.as_ptr()), pgiin.len().try_into().unwrap(), psize as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextExtentPointW(hdc: super::HDC, lpstring: &[u16], lpsz: *mut super::SIZE) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetTextExtentPointW(hdc : super::HDC, lpstring : windows_core::PCWSTR, c : i32, lpsz : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn GetTextExtentPointW(hdc: super::HDC, lpstring: &[u16], lpsz: super::LPSIZE) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetTextExtentPointW(hdc : super::HDC, lpstring : windows_core::PCWSTR, c : i32, lpsz : super::LPSIZE) -> windows_core::BOOL);
     unsafe { GetTextExtentPointW(hdc, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), lpsz as _) }
 }
 #[cfg(feature = "windef")]
@@ -1430,57 +1431,57 @@ pub unsafe fn GetTextFaceW(hdc: super::HDC, c: i32, lpname: Option<windows_core:
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextMetricsA(hdc: super::HDC, lptm: *mut TEXTMETRICA) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetTextMetricsA(hdc : super::HDC, lptm : *mut TEXTMETRICA) -> windows_core::BOOL);
+pub unsafe fn GetTextMetricsA(hdc: super::HDC, lptm: LPTEXTMETRICA) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetTextMetricsA(hdc : super::HDC, lptm : LPTEXTMETRICA) -> windows_core::BOOL);
     unsafe { GetTextMetricsA(hdc, lptm as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetTextMetricsW(hdc: super::HDC, lptm: *mut TEXTMETRICW) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetTextMetricsW(hdc : super::HDC, lptm : *mut TEXTMETRICW) -> windows_core::BOOL);
+pub unsafe fn GetTextMetricsW(hdc: super::HDC, lptm: LPTEXTMETRICW) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetTextMetricsW(hdc : super::HDC, lptm : LPTEXTMETRICW) -> windows_core::BOOL);
     unsafe { GetTextMetricsW(hdc, lptm as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetViewportExtEx(hdc: super::HDC, lpsize: *mut super::SIZE) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetViewportExtEx(hdc : super::HDC, lpsize : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn GetViewportExtEx(hdc: super::HDC, lpsize: super::LPSIZE) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetViewportExtEx(hdc : super::HDC, lpsize : super::LPSIZE) -> windows_core::BOOL);
     unsafe { GetViewportExtEx(hdc, lpsize as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetViewportOrgEx(hdc: super::HDC, lppoint: *mut super::POINT) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetViewportOrgEx(hdc : super::HDC, lppoint : *mut super::POINT) -> windows_core::BOOL);
+pub unsafe fn GetViewportOrgEx(hdc: super::HDC, lppoint: super::LPPOINT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetViewportOrgEx(hdc : super::HDC, lppoint : super::LPPOINT) -> windows_core::BOOL);
     unsafe { GetViewportOrgEx(hdc, lppoint as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetWinMetaFileBits(hemf: super::HENHMETAFILE, cbdata16: u32, pdata16: Option<*mut u8>, imapmode: i32, hdcref: super::HDC) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn GetWinMetaFileBits(hemf : super::HENHMETAFILE, cbdata16 : u32, pdata16 : *mut u8, imapmode : i32, hdcref : super::HDC) -> u32);
+pub unsafe fn GetWinMetaFileBits(hemf: super::HENHMETAFILE, cbdata16: u32, pdata16: Option<super::LPBYTE>, imapmode: i32, hdcref: super::HDC) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn GetWinMetaFileBits(hemf : super::HENHMETAFILE, cbdata16 : u32, pdata16 : super::LPBYTE, imapmode : i32, hdcref : super::HDC) -> u32);
     unsafe { GetWinMetaFileBits(hemf, cbdata16, pdata16.unwrap_or(core::mem::zeroed()) as _, imapmode, hdcref) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetWindowExtEx(hdc: super::HDC, lpsize: *mut super::SIZE) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetWindowExtEx(hdc : super::HDC, lpsize : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn GetWindowExtEx(hdc: super::HDC, lpsize: super::LPSIZE) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetWindowExtEx(hdc : super::HDC, lpsize : super::LPSIZE) -> windows_core::BOOL);
     unsafe { GetWindowExtEx(hdc, lpsize as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn GetWindowOrgEx(hdc: super::HDC, lppoint: *mut super::POINT) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetWindowOrgEx(hdc : super::HDC, lppoint : *mut super::POINT) -> windows_core::BOOL);
+pub unsafe fn GetWindowOrgEx(hdc: super::HDC, lppoint: super::LPPOINT) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetWindowOrgEx(hdc : super::HDC, lppoint : super::LPPOINT) -> windows_core::BOOL);
     unsafe { GetWindowOrgEx(hdc, lppoint as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn GetWorldTransform(hdc: super::HDC, lpxf: *mut XFORM) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn GetWorldTransform(hdc : super::HDC, lpxf : *mut XFORM) -> windows_core::BOOL);
+pub unsafe fn GetWorldTransform(hdc: super::HDC, lpxf: LPXFORM) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn GetWorldTransform(hdc : super::HDC, lpxf : LPXFORM) -> windows_core::BOOL);
     unsafe { GetWorldTransform(hdc, lpxf as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn GradientFill(hdc: super::HDC, pvertex: &[TRIVERTEX], pmesh: *const core::ffi::c_void, nmesh: u32, ulmode: u32) -> windows_core::BOOL {
-    windows_core::link!("msimg32.dll" "system" fn GradientFill(hdc : super::HDC, pvertex : *const TRIVERTEX, nvertex : u32, pmesh : *const core::ffi::c_void, nmesh : u32, ulmode : u32) -> windows_core::BOOL);
-    unsafe { GradientFill(hdc, pvertex.as_ptr(), pvertex.len().try_into().unwrap(), pmesh, nmesh, ulmode) }
+    windows_core::link!("msimg32.dll" "system" fn GradientFill(hdc : super::HDC, pvertex : PTRIVERTEX, nvertex : u32, pmesh : *const core::ffi::c_void, nmesh : u32, ulmode : u32) -> windows_core::BOOL);
+    unsafe { GradientFill(hdc, core::mem::transmute(pvertex.as_ptr()), pvertex.len().try_into().unwrap(), pmesh, nmesh, ulmode) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1497,8 +1498,8 @@ pub unsafe fn InvertRgn(hdc: super::HDC, hrgn: super::HRGN) -> windows_core::BOO
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn LPtoDP(hdc: super::HDC, lppt: &mut [super::POINT]) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn LPtoDP(hdc : super::HDC, lppt : *mut super::POINT, c : i32) -> windows_core::BOOL);
-    unsafe { LPtoDP(hdc, lppt.as_mut_ptr(), lppt.len().try_into().unwrap()) }
+    windows_core::link!("gdi32.dll" "system" fn LPtoDP(hdc : super::HDC, lppt : super::LPPOINT, c : i32) -> windows_core::BOOL);
+    unsafe { LPtoDP(hdc, core::mem::transmute(lppt.as_mut_ptr()), lppt.len().try_into().unwrap()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -1518,7 +1519,7 @@ pub unsafe fn MaskBlt(hdcdest: super::HDC, xdest: i32, ydest: i32, width: i32, h
     windows_core::link!("gdi32.dll" "system" fn MaskBlt(hdcdest : super::HDC, xdest : i32, ydest : i32, width : i32, height : i32, hdcsrc : super::HDC, xsrc : i32, ysrc : i32, hbmmask : super::HBITMAP, xmask : i32, ymask : i32, rop : u32) -> windows_core::BOOL);
     unsafe { MaskBlt(hdcdest, xdest, ydest, width, height, hdcsrc, xsrc, ysrc, hbmmask, xmask, ymask, rop) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn ModifyWorldTransform(hdc: super::HDC, lpxf: Option<*const XFORM>, mode: u32) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn ModifyWorldTransform(hdc : super::HDC, lpxf : *const XFORM, mode : u32) -> windows_core::BOOL);
@@ -1526,8 +1527,8 @@ pub unsafe fn ModifyWorldTransform(hdc: super::HDC, lpxf: Option<*const XFORM>, 
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn MoveToEx(hdc: super::HDC, x: i32, y: i32, lppt: Option<*mut super::POINT>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn MoveToEx(hdc : super::HDC, x : i32, y : i32, lppt : *mut super::POINT) -> windows_core::BOOL);
+pub unsafe fn MoveToEx(hdc: super::HDC, x: i32, y: i32, lppt: Option<super::LPPOINT>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn MoveToEx(hdc : super::HDC, x : i32, y : i32, lppt : super::LPPOINT) -> windows_core::BOOL);
     unsafe { MoveToEx(hdc, x, y, lppt.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -1544,14 +1545,14 @@ pub unsafe fn OffsetRgn(hrgn: super::HRGN, x: i32, y: i32) -> i32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn OffsetViewportOrgEx(hdc: super::HDC, x: i32, y: i32, lppt: Option<*mut super::POINT>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn OffsetViewportOrgEx(hdc : super::HDC, x : i32, y : i32, lppt : *mut super::POINT) -> windows_core::BOOL);
+pub unsafe fn OffsetViewportOrgEx(hdc: super::HDC, x: i32, y: i32, lppt: Option<super::LPPOINT>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn OffsetViewportOrgEx(hdc : super::HDC, x : i32, y : i32, lppt : super::LPPOINT) -> windows_core::BOOL);
     unsafe { OffsetViewportOrgEx(hdc, x, y, lppt.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn OffsetWindowOrgEx(hdc: super::HDC, x: i32, y: i32, lppt: Option<*mut super::POINT>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn OffsetWindowOrgEx(hdc : super::HDC, x : i32, y : i32, lppt : *mut super::POINT) -> windows_core::BOOL);
+pub unsafe fn OffsetWindowOrgEx(hdc: super::HDC, x: i32, y: i32, lppt: Option<super::LPPOINT>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn OffsetWindowOrgEx(hdc : super::HDC, x : i32, y : i32, lppt : super::LPPOINT) -> windows_core::BOOL);
     unsafe { OffsetWindowOrgEx(hdc, x, y, lppt.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -1587,8 +1588,8 @@ pub unsafe fn PlayEnhMetaFile(hdc: super::HDC, hmf: super::HENHMETAFILE, lprect:
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn PlayEnhMetaFileRecord(hdc: super::HDC, pht: &[HANDLETABLE], pmr: *const ENHMETARECORD) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn PlayEnhMetaFileRecord(hdc : super::HDC, pht : *const HANDLETABLE, pmr : *const ENHMETARECORD, cht : u32) -> windows_core::BOOL);
-    unsafe { PlayEnhMetaFileRecord(hdc, pht.as_ptr(), pmr, pht.len().try_into().unwrap()) }
+    windows_core::link!("gdi32.dll" "system" fn PlayEnhMetaFileRecord(hdc : super::HDC, pht : LPHANDLETABLE, pmr : *const ENHMETARECORD, cht : u32) -> windows_core::BOOL);
+    unsafe { PlayEnhMetaFileRecord(hdc, core::mem::transmute(pht.as_ptr()), pmr, pht.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
@@ -1598,9 +1599,9 @@ pub unsafe fn PlayMetaFile(hdc: super::HDC, hmf: super::HMETAFILE) -> windows_co
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn PlayMetaFileRecord(hdc: super::HDC, lphandletable: &[HANDLETABLE], lpmr: *const METARECORD) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn PlayMetaFileRecord(hdc : super::HDC, lphandletable : *const HANDLETABLE, lpmr : *const METARECORD, noobjs : u32) -> windows_core::BOOL);
-    unsafe { PlayMetaFileRecord(hdc, lphandletable.as_ptr(), lpmr, lphandletable.len().try_into().unwrap()) }
+pub unsafe fn PlayMetaFileRecord(hdc: super::HDC, lphandletable: &[HANDLETABLE], lpmr: LPMETARECORD) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn PlayMetaFileRecord(hdc : super::HDC, lphandletable : LPHANDLETABLE, lpmr : LPMETARECORD, noobjs : u32) -> windows_core::BOOL);
+    unsafe { PlayMetaFileRecord(hdc, core::mem::transmute(lphandletable.as_ptr()), lpmr, lphandletable.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1719,19 +1720,19 @@ where
     unsafe { RemoveFontResourceA(lpfilename.param().abi()) }
 }
 #[inline]
-pub unsafe fn RemoveFontResourceExA<P0>(name: P0, fl: u32, pdv: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn RemoveFontResourceExA<P0>(name: P0, fl: u32, pdv: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("gdi32.dll" "system" fn RemoveFontResourceExA(name : windows_core::PCSTR, fl : u32, pdv : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("gdi32.dll" "system" fn RemoveFontResourceExA(name : windows_core::PCSTR, fl : u32, pdv : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { RemoveFontResourceExA(name.param().abi(), fl, pdv.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RemoveFontResourceExW<P0>(name: P0, fl: u32, pdv: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn RemoveFontResourceExW<P0>(name: P0, fl: u32, pdv: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("gdi32.dll" "system" fn RemoveFontResourceExW(name : windows_core::PCWSTR, fl : u32, pdv : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("gdi32.dll" "system" fn RemoveFontResourceExW(name : windows_core::PCWSTR, fl : u32, pdv : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { RemoveFontResourceExW(name.param().abi(), fl, pdv.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1780,14 +1781,14 @@ pub unsafe fn SaveDC(hdc: super::HDC) -> i32 {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ScaleViewportExtEx(hdc: super::HDC, xn: i32, dx: i32, yn: i32, yd: i32, lpsz: Option<*mut super::SIZE>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn ScaleViewportExtEx(hdc : super::HDC, xn : i32, dx : i32, yn : i32, yd : i32, lpsz : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn ScaleViewportExtEx(hdc: super::HDC, xn: i32, dx: i32, yn: i32, yd: i32, lpsz: Option<super::LPSIZE>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn ScaleViewportExtEx(hdc : super::HDC, xn : i32, dx : i32, yn : i32, yd : i32, lpsz : super::LPSIZE) -> windows_core::BOOL);
     unsafe { ScaleViewportExtEx(hdc, xn, dx, yn, yd, lpsz.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ScaleWindowExtEx(hdc: super::HDC, xn: i32, xd: i32, yn: i32, yd: i32, lpsz: Option<*mut super::SIZE>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn ScaleWindowExtEx(hdc : super::HDC, xn : i32, xd : i32, yn : i32, yd : i32, lpsz : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn ScaleWindowExtEx(hdc: super::HDC, xn: i32, xd: i32, yn: i32, yd: i32, lpsz: Option<super::LPSIZE>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn ScaleWindowExtEx(hdc : super::HDC, xn : i32, xd : i32, yn : i32, yd : i32, lpsz : super::LPSIZE) -> windows_core::BOOL);
     unsafe { ScaleWindowExtEx(hdc, xn, xd, yn, yd, lpsz.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -1834,8 +1835,8 @@ pub unsafe fn SetBitmapBits(hbm: super::HBITMAP, cb: u32, pvbits: *const core::f
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn SetBitmapDimensionEx(hbm: super::HBITMAP, w: i32, h: i32, lpsz: Option<*mut super::SIZE>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn SetBitmapDimensionEx(hbm : super::HBITMAP, w : i32, h : i32, lpsz : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn SetBitmapDimensionEx(hbm: super::HBITMAP, w: i32, h: i32, lpsz: Option<super::LPSIZE>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn SetBitmapDimensionEx(hbm : super::HBITMAP, w : i32, h : i32, lpsz : super::LPSIZE) -> windows_core::BOOL);
     unsafe { SetBitmapDimensionEx(hbm, w, h, lpsz.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -1858,8 +1859,8 @@ pub unsafe fn SetBoundsRect(hdc: super::HDC, lprect: Option<*const super::RECT>,
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn SetBrushOrgEx(hdc: super::HDC, x: i32, y: i32, lppt: Option<*mut super::POINT>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn SetBrushOrgEx(hdc : super::HDC, x : i32, y : i32, lppt : *mut super::POINT) -> windows_core::BOOL);
+pub unsafe fn SetBrushOrgEx(hdc: super::HDC, x: i32, y: i32, lppt: Option<super::LPPOINT>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn SetBrushOrgEx(hdc : super::HDC, x : i32, y : i32, lppt : super::LPPOINT) -> windows_core::BOOL);
     unsafe { SetBrushOrgEx(hdc, x, y, lppt.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -1976,10 +1977,10 @@ pub unsafe fn SetMetaRgn(hdc: super::HDC) -> i32 {
     windows_core::link!("gdi32.dll" "system" fn SetMetaRgn(hdc : super::HDC) -> i32);
     unsafe { SetMetaRgn(hdc) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn SetMiterLimit(hdc: super::HDC, limit: f32, old: Option<*mut f32>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn SetMiterLimit(hdc : super::HDC, limit : f32, old : *mut f32) -> windows_core::BOOL);
+pub unsafe fn SetMiterLimit(hdc: super::HDC, limit: super::FLOAT, old: Option<super::PFLOAT>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn SetMiterLimit(hdc : super::HDC, limit : super::FLOAT, old : super::PFLOAT) -> windows_core::BOOL);
     unsafe { SetMiterLimit(hdc, limit, old.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -2062,14 +2063,14 @@ pub unsafe fn SetTextJustification(hdc: super::HDC, extra: i32, count: i32) -> w
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn SetViewportExtEx(hdc: super::HDC, x: i32, y: i32, lpsz: Option<*mut super::SIZE>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn SetViewportExtEx(hdc : super::HDC, x : i32, y : i32, lpsz : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn SetViewportExtEx(hdc: super::HDC, x: i32, y: i32, lpsz: Option<super::LPSIZE>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn SetViewportExtEx(hdc : super::HDC, x : i32, y : i32, lpsz : super::LPSIZE) -> windows_core::BOOL);
     unsafe { SetViewportExtEx(hdc, x, y, lpsz.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn SetViewportOrgEx(hdc: super::HDC, x: i32, y: i32, lppt: Option<*mut super::POINT>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn SetViewportOrgEx(hdc : super::HDC, x : i32, y : i32, lppt : *mut super::POINT) -> windows_core::BOOL);
+pub unsafe fn SetViewportOrgEx(hdc: super::HDC, x: i32, y: i32, lppt: Option<super::LPPOINT>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn SetViewportOrgEx(hdc : super::HDC, x : i32, y : i32, lppt : super::LPPOINT) -> windows_core::BOOL);
     unsafe { SetViewportOrgEx(hdc, x, y, lppt.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -2080,17 +2081,17 @@ pub unsafe fn SetWinMetaFileBits(lpmeta16data: &[u8], hdcref: Option<super::HDC>
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn SetWindowExtEx(hdc: super::HDC, x: i32, y: i32, lpsz: Option<*mut super::SIZE>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn SetWindowExtEx(hdc : super::HDC, x : i32, y : i32, lpsz : *mut super::SIZE) -> windows_core::BOOL);
+pub unsafe fn SetWindowExtEx(hdc: super::HDC, x: i32, y: i32, lpsz: Option<super::LPSIZE>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn SetWindowExtEx(hdc : super::HDC, x : i32, y : i32, lpsz : super::LPSIZE) -> windows_core::BOOL);
     unsafe { SetWindowExtEx(hdc, x, y, lpsz.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn SetWindowOrgEx(hdc: super::HDC, x: i32, y: i32, lppt: Option<*mut super::POINT>) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn SetWindowOrgEx(hdc : super::HDC, x : i32, y : i32, lppt : *mut super::POINT) -> windows_core::BOOL);
+pub unsafe fn SetWindowOrgEx(hdc: super::HDC, x: i32, y: i32, lppt: Option<super::LPPOINT>) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn SetWindowOrgEx(hdc : super::HDC, x : i32, y : i32, lppt : super::LPPOINT) -> windows_core::BOOL);
     unsafe { SetWindowOrgEx(hdc, x, y, lppt.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn SetWorldTransform(hdc: super::HDC, lpxf: *const XFORM) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn SetWorldTransform(hdc : super::HDC, lpxf : *const XFORM) -> windows_core::BOOL);
@@ -2157,8 +2158,8 @@ pub unsafe fn TextOutW(hdc: super::HDC, x: i32, y: i32, lpstring: &[u16]) -> win
     unsafe { TextOutW(hdc, x, y, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: *mut CHARSETINFO, dwflags: u32) -> windows_core::BOOL {
-    windows_core::link!("gdi32.dll" "system" fn TranslateCharsetInfo(lpsrc : *mut u32, lpcs : *mut CHARSETINFO, dwflags : u32) -> windows_core::BOOL);
+pub unsafe fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: LPCHARSETINFO, dwflags: u32) -> windows_core::BOOL {
+    windows_core::link!("gdi32.dll" "system" fn TranslateCharsetInfo(lpsrc : *mut u32, lpcs : LPCHARSETINFO, dwflags : u32) -> windows_core::BOOL);
     unsafe { TranslateCharsetInfo(lpsrc as _, lpcs as _, dwflags) }
 }
 #[cfg(feature = "windef")]
@@ -2229,9 +2230,9 @@ pub unsafe fn wglDeleteContext(param0: super::HGLRC) -> windows_core::BOOL {
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn wglDescribeLayerPlane(param0: super::HDC, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> windows_core::BOOL {
-    windows_core::link!("opengl32.dll" "system" fn wglDescribeLayerPlane(param0 : super::HDC, param1 : i32, param2 : i32, param3 : u32, param4 : *mut LAYERPLANEDESCRIPTOR) -> windows_core::BOOL);
-    unsafe { wglDescribeLayerPlane(param0, param1, param2, param3, param4 as _) }
+pub unsafe fn wglDescribeLayerPlane(param0: super::HDC, param1: i32, param2: i32, param3: u32, param4: LPLAYERPLANEDESCRIPTOR) -> windows_core::BOOL {
+    windows_core::link!("opengl32.dll" "system" fn wglDescribeLayerPlane(param0 : super::HDC, param1 : i32, param2 : i32, param3 : u32, param4 : LPLAYERPLANEDESCRIPTOR) -> windows_core::BOOL);
+    unsafe { wglDescribeLayerPlane(param0, param1, param2, param3, param4) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -2308,17 +2309,17 @@ pub unsafe fn wglUseFontBitmapsW(param0: super::HDC, param1: u32, param2: u32, p
     windows_core::link!("opengl32.dll" "system" fn wglUseFontBitmapsW(param0 : super::HDC, param1 : u32, param2 : u32, param3 : u32) -> windows_core::BOOL);
     unsafe { wglUseFontBitmapsW(param0, param1, param2, param3) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn wglUseFontOutlinesA(param0: super::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> windows_core::BOOL {
-    windows_core::link!("opengl32.dll" "system" fn wglUseFontOutlinesA(param0 : super::HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> windows_core::BOOL);
-    unsafe { wglUseFontOutlinesA(param0, param1, param2, param3, param4, param5, param6, param7 as _) }
+pub unsafe fn wglUseFontOutlinesA(param0: super::HDC, param1: u32, param2: u32, param3: u32, param4: super::FLOAT, param5: super::FLOAT, param6: i32, param7: LPGLYPHMETRICSFLOAT) -> windows_core::BOOL {
+    windows_core::link!("opengl32.dll" "system" fn wglUseFontOutlinesA(param0 : super::HDC, param1 : u32, param2 : u32, param3 : u32, param4 : super::FLOAT, param5 : super::FLOAT, param6 : i32, param7 : LPGLYPHMETRICSFLOAT) -> windows_core::BOOL);
+    unsafe { wglUseFontOutlinesA(param0, param1, param2, param3, param4, param5, param6, param7) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn wglUseFontOutlinesW(param0: super::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> windows_core::BOOL {
-    windows_core::link!("opengl32.dll" "system" fn wglUseFontOutlinesW(param0 : super::HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> windows_core::BOOL);
-    unsafe { wglUseFontOutlinesW(param0, param1, param2, param3, param4, param5, param6, param7 as _) }
+pub unsafe fn wglUseFontOutlinesW(param0: super::HDC, param1: u32, param2: u32, param3: u32, param4: super::FLOAT, param5: super::FLOAT, param6: i32, param7: LPGLYPHMETRICSFLOAT) -> windows_core::BOOL {
+    windows_core::link!("opengl32.dll" "system" fn wglUseFontOutlinesW(param0 : super::HDC, param1 : u32, param2 : u32, param3 : u32, param4 : super::FLOAT, param5 : super::FLOAT, param6 : i32, param7 : LPGLYPHMETRICSFLOAT) -> windows_core::BOOL);
+    unsafe { wglUseFontOutlinesW(param0, param1, param2, param3, param4, param5, param6, param7) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2328,11 +2329,12 @@ pub struct ABC {
     pub abcC: i32,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ABCFLOAT {
-    pub abcfA: f32,
-    pub abcfB: f32,
-    pub abcfC: f32,
+    pub abcfA: super::FLOAT,
+    pub abcfB: super::FLOAT,
+    pub abcfC: super::FLOAT,
 }
 pub const ABORTDOC: i32 = 2;
 #[cfg(feature = "windef")]
@@ -2404,9 +2406,7 @@ impl Default for AXISINFOW {
 }
 pub const BALTIC_CHARSET: i32 = 186;
 pub const BANDINFO: i32 = 24;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct BCHAR(pub u8);
+pub type BCHAR = u8;
 pub const BEGIN_PATH: i32 = 4096;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2618,9 +2618,7 @@ pub const CM_GAMMA_RAMP: i32 = 2;
 pub const CM_IN_GAMUT: i32 = 0;
 pub const CM_NONE: i32 = 0;
 pub const CM_OUT_OF_GAMUT: i32 = 255;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct COLOR16(pub u16);
+pub type COLOR16 = u16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLORADJUSTMENT {
@@ -4209,13 +4207,9 @@ pub struct EMR {
     pub iType: u32,
     pub nSize: u32,
 }
+pub type EMRABORTPATH = tagABORTPATH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMRABORTPATH {
-    pub emr: EMR,
-}
-#[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EMRALPHABLEND {
     pub emr: EMR,
@@ -4238,29 +4232,22 @@ pub struct EMRALPHABLEND {
     pub cySrc: i32,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EMRANGLEARC {
     pub emr: EMR,
     pub ptlCenter: super::POINTL,
     pub nRadius: u32,
-    pub eStartAngle: f32,
-    pub eSweepAngle: f32,
-}
-#[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMRARC {
-    pub emr: EMR,
-    pub rclBox: super::RECTL,
-    pub ptlStart: super::POINTL,
-    pub ptlEnd: super::POINTL,
+    pub eStartAngle: super::FLOAT,
+    pub eSweepAngle: super::FLOAT,
 }
 #[cfg(feature = "windef")]
-pub type EMRARCTO = EMRARC;
-pub type EMRBEGINPATH = EMRABORTPATH;
-#[repr(C)]
+pub type EMRARC = tagEMRARC;
 #[cfg(feature = "windef")]
+pub type EMRARCTO = tagEMRARC;
+pub type EMRBEGINPATH = tagABORTPATH;
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EMRBITBLT {
     pub emr: EMR,
@@ -4281,8 +4268,8 @@ pub struct EMRBITBLT {
     pub cbBitsSrc: u32,
 }
 #[cfg(feature = "windef")]
-pub type EMRCHORD = EMRARC;
-pub type EMRCLOSEFIGURE = EMRABORTPATH;
+pub type EMRCHORD = tagEMRARC;
+pub type EMRCLOSEFIGURE = tagABORTPATH;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRCOLORCORRECTPALETTE {
@@ -4374,17 +4361,12 @@ pub struct EMRCREATEPEN {
     pub ihPen: u32,
     pub lopn: LOGPEN,
 }
-pub type EMRDELETECOLORSPACE = EMRSETCOLORSPACE;
-pub type EMRDELETEOBJECT = EMRSELECTOBJECT;
-pub type EMRDRAWESCAPE = EMREXTESCAPE;
-#[repr(C)]
+pub type EMRDELETECOLORSPACE = tagEMRSETCOLORSPACE;
+pub type EMRDELETEOBJECT = tagEMRSELECTOBJECT;
+pub type EMRDRAWESCAPE = tagEMREXTESCAPE;
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMRELLIPSE {
-    pub emr: EMR,
-    pub rclBox: super::RECTL,
-}
-pub type EMRENDPATH = EMRABORTPATH;
+pub type EMRELLIPSE = tagEMRELLIPSE;
+pub type EMRENDPATH = tagABORTPATH;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMREOF {
@@ -4393,13 +4375,8 @@ pub struct EMREOF {
     pub offPalEntries: u32,
     pub nSizeLast: u32,
 }
-#[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMREXCLUDECLIPRECT {
-    pub emr: EMR,
-    pub rclClip: super::RECTL,
-}
+pub type EMREXCLUDECLIPRECT = tagEMREXCLUDECLIPRECT;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMREXTCREATEFONTINDIRECTW {
@@ -4419,19 +4396,7 @@ pub struct EMREXTCREATEPEN {
     pub cbBits: u32,
     pub elp: EXTLOGPEN32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EMREXTESCAPE {
-    pub emr: EMR,
-    pub iEscape: i32,
-    pub cbEscData: i32,
-    pub EscData: [u8; 1],
-}
-impl Default for EMREXTESCAPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type EMREXTESCAPE = tagEMREXTESCAPE;
 #[repr(C)]
 #[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4454,26 +4419,12 @@ impl Default for EMREXTSELECTCLIPRGN {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type EMREXTTEXTOUTA = tagEMREXTTEXTOUTA;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type EMREXTTEXTOUTW = tagEMREXTTEXTOUTA;
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct EMREXTTEXTOUTA {
-    pub emr: EMR,
-    pub rclBounds: super::RECTL,
-    pub iGraphicsMode: u32,
-    pub exScale: f32,
-    pub eyScale: f32,
-    pub emrtext: EMRTEXT,
-}
-#[cfg(feature = "windef")]
-pub type EMREXTTEXTOUTW = EMREXTTEXTOUTA;
-#[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMRFILLPATH {
-    pub emr: EMR,
-    pub rclBounds: super::RECTL,
-}
+pub type EMRFILLPATH = tagEMRFILLPATH;
 #[repr(C)]
 #[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -4490,7 +4441,7 @@ impl Default for EMRFILLRGN {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type EMRFLATTENPATH = EMRABORTPATH;
+pub type EMRFLATTENPATH = tagABORTPATH;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRFORMAT {
@@ -4573,31 +4524,13 @@ impl Default for EMRGRADIENTFILL {
     }
 }
 #[cfg(feature = "windef")]
-pub type EMRINTERSECTCLIPRECT = EMREXCLUDECLIPRECT;
+pub type EMRINTERSECTCLIPRECT = tagEMREXCLUDECLIPRECT;
+#[cfg(feature = "windef")]
+pub type EMRINVERTRGN = tagEMRINVERTRGN;
+#[cfg(feature = "windef")]
+pub type EMRLINETO = tagEMRLINETO;
 #[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EMRINVERTRGN {
-    pub emr: EMR,
-    pub rclBounds: super::RECTL,
-    pub cbRgnData: u32,
-    pub RgnData: [u8; 1],
-}
-#[cfg(feature = "windef")]
-impl Default for EMRINVERTRGN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMRLINETO {
-    pub emr: EMR,
-    pub ptl: super::POINTL,
-}
-#[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EMRMASKBLT {
     pub emr: EMR,
@@ -4625,6 +4558,7 @@ pub struct EMRMASKBLT {
     pub cbBitsMask: u32,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EMRMODIFYWORLDTRANSFORM {
     pub emr: EMR,
@@ -4632,7 +4566,7 @@ pub struct EMRMODIFYWORLDTRANSFORM {
     pub iMode: u32,
 }
 #[cfg(feature = "windef")]
-pub type EMRMOVETOEX = EMRLINETO;
+pub type EMRMOVETOEX = tagEMRLINETO;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRNAMEDESCAPE {
@@ -4655,9 +4589,9 @@ pub struct EMROFFSETCLIPRGN {
     pub ptlOffset: super::POINTL,
 }
 #[cfg(feature = "windef")]
-pub type EMRPAINTRGN = EMRINVERTRGN;
+pub type EMRPAINTRGN = tagEMRINVERTRGN;
 #[cfg(feature = "windef")]
-pub type EMRPIE = EMRARC;
+pub type EMRPIE = tagEMRARC;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRPIXELFORMAT {
@@ -4665,7 +4599,7 @@ pub struct EMRPIXELFORMAT {
     pub pfd: PIXELFORMATDESCRIPTOR,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EMRPLGBLT {
     pub emr: EMR,
@@ -4690,20 +4624,20 @@ pub struct EMRPLGBLT {
     pub offBitsMask: u32,
     pub cbBitsMask: u32,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for EMRPLGBLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(feature = "windef")]
-pub type EMRPOLYBEZIER = EMRPOLYLINE;
+pub type EMRPOLYBEZIER = tagEMRPOLYLINE;
 #[cfg(feature = "windef")]
-pub type EMRPOLYBEZIER16 = EMRPOLYLINE16;
+pub type EMRPOLYBEZIER16 = tagEMRPOLYLINE16;
 #[cfg(feature = "windef")]
-pub type EMRPOLYBEZIERTO = EMRPOLYLINE;
+pub type EMRPOLYBEZIERTO = tagEMRPOLYLINE;
 #[cfg(feature = "windef")]
-pub type EMRPOLYBEZIERTO16 = EMRPOLYLINE16;
+pub type EMRPOLYBEZIERTO16 = tagEMRPOLYLINE16;
 #[repr(C)]
 #[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -4737,104 +4671,32 @@ impl Default for EMRPOLYDRAW16 {
     }
 }
 #[cfg(feature = "windef")]
-pub type EMRPOLYGON = EMRPOLYLINE;
+pub type EMRPOLYGON = tagEMRPOLYLINE;
 #[cfg(feature = "windef")]
-pub type EMRPOLYGON16 = EMRPOLYLINE16;
-#[repr(C)]
+pub type EMRPOLYGON16 = tagEMRPOLYLINE16;
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EMRPOLYLINE {
-    pub emr: EMR,
-    pub rclBounds: super::RECTL,
-    pub cptl: u32,
-    pub aptl: [super::POINTL; 1],
-}
+pub type EMRPOLYLINE = tagEMRPOLYLINE;
 #[cfg(feature = "windef")]
-impl Default for EMRPOLYLINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+pub type EMRPOLYLINE16 = tagEMRPOLYLINE16;
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EMRPOLYLINE16 {
-    pub emr: EMR,
-    pub rclBounds: super::RECTL,
-    pub cpts: u32,
-    pub apts: [super::POINTS; 1],
-}
+pub type EMRPOLYLINETO = tagEMRPOLYLINE;
 #[cfg(feature = "windef")]
-impl Default for EMRPOLYLINE16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type EMRPOLYLINETO16 = tagEMRPOLYLINE16;
 #[cfg(feature = "windef")]
-pub type EMRPOLYLINETO = EMRPOLYLINE;
+pub type EMRPOLYPOLYGON = tagEMRPOLYPOLYLINE;
 #[cfg(feature = "windef")]
-pub type EMRPOLYLINETO16 = EMRPOLYLINE16;
+pub type EMRPOLYPOLYGON16 = tagEMRPOLYPOLYLINE16;
 #[cfg(feature = "windef")]
-pub type EMRPOLYPOLYGON = EMRPOLYPOLYLINE;
+pub type EMRPOLYPOLYLINE = tagEMRPOLYPOLYLINE;
 #[cfg(feature = "windef")]
-pub type EMRPOLYPOLYGON16 = EMRPOLYPOLYLINE16;
-#[repr(C)]
+pub type EMRPOLYPOLYLINE16 = tagEMRPOLYPOLYLINE16;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type EMRPOLYTEXTOUTA = tagEMRPOLYTEXTOUTA;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type EMRPOLYTEXTOUTW = tagEMRPOLYTEXTOUTA;
+pub type EMRREALIZEPALETTE = tagABORTPATH;
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EMRPOLYPOLYLINE {
-    pub emr: EMR,
-    pub rclBounds: super::RECTL,
-    pub nPolys: u32,
-    pub cptl: u32,
-    pub aPolyCounts: [u32; 1],
-    pub aptl: [super::POINTL; 1],
-}
-#[cfg(feature = "windef")]
-impl Default for EMRPOLYPOLYLINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EMRPOLYPOLYLINE16 {
-    pub emr: EMR,
-    pub rclBounds: super::RECTL,
-    pub nPolys: u32,
-    pub cpts: u32,
-    pub aPolyCounts: [u32; 1],
-    pub apts: [super::POINTS; 1],
-}
-#[cfg(feature = "windef")]
-impl Default for EMRPOLYPOLYLINE16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct EMRPOLYTEXTOUTA {
-    pub emr: EMR,
-    pub rclBounds: super::RECTL,
-    pub iGraphicsMode: u32,
-    pub exScale: f32,
-    pub eyScale: f32,
-    pub cStrings: i32,
-    pub aemrtext: [EMRTEXT; 1],
-}
-#[cfg(feature = "windef")]
-impl Default for EMRPOLYTEXTOUTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-pub type EMRPOLYTEXTOUTW = EMRPOLYTEXTOUTA;
-pub type EMRREALIZEPALETTE = EMRABORTPATH;
-#[cfg(feature = "windef")]
-pub type EMRRECTANGLE = EMRELLIPSE;
+pub type EMRRECTANGLE = tagEMRELLIPSE;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRRESIZEPALETTE {
@@ -4856,30 +4718,12 @@ pub struct EMRROUNDRECT {
     pub rclBox: super::RECTL,
     pub szlCorner: super::SIZEL,
 }
-pub type EMRSAVEDC = EMRABORTPATH;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMRSCALEVIEWPORTEXTEX {
-    pub emr: EMR,
-    pub xNum: i32,
-    pub xDenom: i32,
-    pub yNum: i32,
-    pub yDenom: i32,
-}
-pub type EMRSCALEWINDOWEXTEX = EMRSCALEVIEWPORTEXTEX;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMRSELECTCLIPPATH {
-    pub emr: EMR,
-    pub iMode: u32,
-}
-pub type EMRSELECTCOLORSPACE = EMRSETCOLORSPACE;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMRSELECTOBJECT {
-    pub emr: EMR,
-    pub ihObject: u32,
-}
+pub type EMRSAVEDC = tagABORTPATH;
+pub type EMRSCALEVIEWPORTEXTEX = tagEMRSCALEVIEWPORTEXTEX;
+pub type EMRSCALEWINDOWEXTEX = tagEMRSCALEVIEWPORTEXTEX;
+pub type EMRSELECTCLIPPATH = tagEMRSELECTCLIPPATH;
+pub type EMRSELECTCOLORSPACE = tagEMRSETCOLORSPACE;
+pub type EMRSELECTOBJECT = tagEMRSELECTOBJECT;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSELECTPALETTE {
@@ -4892,28 +4736,18 @@ pub struct EMRSETARCDIRECTION {
     pub emr: EMR,
     pub iArcDirection: u32,
 }
-#[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMRSETBKCOLOR {
-    pub emr: EMR,
-    pub crColor: super::COLORREF,
-}
-pub type EMRSETBKMODE = EMRSELECTCLIPPATH;
+pub type EMRSETBKCOLOR = tagEMRSETTEXTCOLOR;
+pub type EMRSETBKMODE = tagEMRSELECTCLIPPATH;
 #[cfg(feature = "windef")]
-pub type EMRSETBRUSHORGEX = EMRSETVIEWPORTORGEX;
+pub type EMRSETBRUSHORGEX = tagEMRSETVIEWPORTORGEX;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSETCOLORADJUSTMENT {
     pub emr: EMR,
     pub ColorAdjustment: COLORADJUSTMENT,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMRSETCOLORSPACE {
-    pub emr: EMR,
-    pub ihCS: u32,
-}
+pub type EMRSETCOLORSPACE = tagEMRSETCOLORSPACE;
 #[repr(C)]
 #[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4934,37 +4768,25 @@ pub struct EMRSETDIBITSTODEVICE {
     pub iStartScan: u32,
     pub cScans: u32,
 }
-pub type EMRSETICMMODE = EMRSELECTCLIPPATH;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EMRSETICMPROFILE {
-    pub emr: EMR,
-    pub dwFlags: u32,
-    pub cbName: u32,
-    pub cbData: u32,
-    pub Data: [u8; 1],
-}
-impl Default for EMRSETICMPROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub type EMRSETICMPROFILEA = EMRSETICMPROFILE;
-pub type EMRSETICMPROFILEW = EMRSETICMPROFILE;
-pub type EMRSETLAYOUT = EMRSELECTCLIPPATH;
-pub type EMRSETMAPMODE = EMRSELECTCLIPPATH;
+pub type EMRSETICMMODE = tagEMRSELECTCLIPPATH;
+pub type EMRSETICMPROFILE = tagEMRSETICMPROFILE;
+pub type EMRSETICMPROFILEA = tagEMRSETICMPROFILE;
+pub type EMRSETICMPROFILEW = tagEMRSETICMPROFILE;
+pub type EMRSETLAYOUT = tagEMRSELECTCLIPPATH;
+pub type EMRSETMAPMODE = tagEMRSELECTCLIPPATH;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSETMAPPERFLAGS {
     pub emr: EMR,
     pub dwFlags: u32,
 }
-pub type EMRSETMETARGN = EMRABORTPATH;
+pub type EMRSETMETARGN = tagABORTPATH;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EMRSETMITERLIMIT {
     pub emr: EMR,
-    pub eMiterLimit: f32,
+    pub eMiterLimit: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -4988,38 +4810,29 @@ pub struct EMRSETPIXELV {
     pub ptlPixel: super::POINTL,
     pub crColor: super::COLORREF,
 }
-pub type EMRSETPOLYFILLMODE = EMRSELECTCLIPPATH;
-pub type EMRSETROP2 = EMRSELECTCLIPPATH;
-pub type EMRSETSTRETCHBLTMODE = EMRSELECTCLIPPATH;
-pub type EMRSETTEXTALIGN = EMRSELECTCLIPPATH;
+pub type EMRSETPOLYFILLMODE = tagEMRSELECTCLIPPATH;
+pub type EMRSETROP2 = tagEMRSELECTCLIPPATH;
+pub type EMRSETSTRETCHBLTMODE = tagEMRSELECTCLIPPATH;
+pub type EMRSETTEXTALIGN = tagEMRSELECTCLIPPATH;
 #[cfg(feature = "windef")]
-pub type EMRSETTEXTCOLOR = EMRSETBKCOLOR;
+pub type EMRSETTEXTCOLOR = tagEMRSETTEXTCOLOR;
+#[cfg(feature = "windef")]
+pub type EMRSETVIEWPORTEXTEX = tagEMRSETVIEWPORTEXTEX;
+#[cfg(feature = "windef")]
+pub type EMRSETVIEWPORTORGEX = tagEMRSETVIEWPORTORGEX;
+#[cfg(feature = "windef")]
+pub type EMRSETWINDOWEXTEX = tagEMRSETVIEWPORTEXTEX;
+#[cfg(feature = "windef")]
+pub type EMRSETWINDOWORGEX = tagEMRSETVIEWPORTORGEX;
 #[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMRSETVIEWPORTEXTEX {
-    pub emr: EMR,
-    pub szlExtent: super::SIZEL,
-}
-#[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EMRSETVIEWPORTORGEX {
-    pub emr: EMR,
-    pub ptlOrigin: super::POINTL,
-}
-#[cfg(feature = "windef")]
-pub type EMRSETWINDOWEXTEX = EMRSETVIEWPORTEXTEX;
-#[cfg(feature = "windef")]
-pub type EMRSETWINDOWORGEX = EMRSETVIEWPORTORGEX;
-#[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EMRSETWORLDTRANSFORM {
     pub emr: EMR,
     pub xform: XFORM,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EMRSTRETCHBLT {
     pub emr: EMR,
@@ -5063,9 +4876,9 @@ pub struct EMRSTRETCHDIBITS {
     pub cyDest: i32,
 }
 #[cfg(feature = "windef")]
-pub type EMRSTROKEANDFILLPATH = EMRFILLPATH;
+pub type EMRSTROKEANDFILLPATH = tagEMRFILLPATH;
 #[cfg(feature = "windef")]
-pub type EMRSTROKEPATH = EMRFILLPATH;
+pub type EMRSTROKEPATH = tagEMRFILLPATH;
 #[repr(C)]
 #[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5078,7 +4891,7 @@ pub struct EMRTEXT {
     pub offDx: u32,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EMRTRANSPARENTBLT {
     pub emr: EMR,
@@ -5100,7 +4913,7 @@ pub struct EMRTRANSPARENTBLT {
     pub cxSrc: i32,
     pub cySrc: i32,
 }
-pub type EMRWIDENPATH = EMRABORTPATH;
+pub type EMRWIDENPATH = tagABORTPATH;
 pub const EMR_ABORTPATH: i32 = 68;
 pub const EMR_ALPHABLEND: i32 = 114;
 pub const EMR_ANGLEARC: i32 = 41;
@@ -5517,12 +5330,8 @@ pub const FW_SEMIBOLD: i32 = 600;
 pub const FW_THIN: i32 = 100;
 pub const FW_ULTRABOLD: i32 = 800;
 pub const FW_ULTRALIGHT: i32 = 200;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct FXPT16DOT16(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct FXPT2DOT30(pub i32);
+pub type FXPT16DOT16 = i32;
+pub type FXPT2DOT30 = i32;
 pub const GB2312_CHARSET: i32 = 134;
 pub const GCPCLASS_ARABIC: i32 = 2;
 pub const GCPCLASS_HEBREW: i32 = 2;
@@ -5638,13 +5447,14 @@ pub struct GLYPHMETRICS {
     pub gmCellIncY: i16,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GLYPHMETRICSFLOAT {
-    pub gmfBlackBoxX: f32,
-    pub gmfBlackBoxY: f32,
+    pub gmfBlackBoxX: super::FLOAT,
+    pub gmfBlackBoxY: super::FLOAT,
     pub gmfptGlyphOrigin: POINTFLOAT,
-    pub gmfCellIncX: f32,
-    pub gmfCellIncY: f32,
+    pub gmfCellIncX: super::FLOAT,
+    pub gmfCellIncY: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -5701,6 +5511,9 @@ impl Default for HANDLETABLE {
 pub const HANGEUL_CHARSET: i32 = 129;
 pub const HANGUL_CHARSET: i32 = 129;
 pub const HEBREW_CHARSET: i32 = 177;
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+pub const HGDI_ERROR: super::HANDLE = -1 as _;
 pub const HOLLOW_BRUSH: i32 = 5;
 pub const HORZRES: i32 = 8;
 pub const HORZSIZE: i32 = 4;
@@ -5782,12 +5595,8 @@ pub const LAYOUT_BTT: i32 = 2;
 pub const LAYOUT_ORIENTATIONMASK: i32 = 7;
 pub const LAYOUT_RTL: i32 = 1;
 pub const LAYOUT_VBH: i32 = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LCSCSTYPE(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LCSGAMUTMATCH(pub i32);
+pub type LCSCSTYPE = i32;
+pub type LCSGAMUTMATCH = i32;
 pub const LCS_CALIBRATED_RGB: i32 = 0;
 pub const LCS_GM_ABS_COLORIMETRIC: i32 = 8;
 pub const LCS_GM_BUSINESS: i32 = 1;
@@ -5946,6 +5755,7 @@ pub struct LOGPEN {
 pub const LOGPIXELSX: i32 = 88;
 pub const LOGPIXELSY: i32 = 90;
 pub type LPABC = *mut ABC;
+#[cfg(feature = "minwindef")]
 pub type LPABCFLOAT = *mut ABCFLOAT;
 pub type LPAXESLIST = LPAXESLISTA;
 pub type LPAXESLISTA = *mut AXESLISTA;
@@ -6026,6 +5836,7 @@ pub type LPGCP_RESULTSA = *mut GCP_RESULTSA;
 pub type LPGCP_RESULTSW = *mut GCP_RESULTSW;
 #[cfg(feature = "windef")]
 pub type LPGLYPHMETRICS = *mut GLYPHMETRICS;
+#[cfg(feature = "minwindef")]
 pub type LPGLYPHMETRICSFLOAT = *mut GLYPHMETRICSFLOAT;
 pub type LPGLYPHSET = *mut GLYPHSET;
 pub type LPGRADIENT_RECT = *mut GRADIENT_RECT;
@@ -6090,6 +5901,7 @@ pub type LPTTPOLYGONHEADER = *mut TTPOLYGONHEADER;
 pub type LPWCRANGE = *mut WCRANGE;
 #[cfg(feature = "windef")]
 pub type LPWGLSWAP = *mut WGLSWAP;
+#[cfg(feature = "minwindef")]
 pub type LPXFORM = *mut XFORM;
 pub const LTGRAY_BRUSH: i32 = 1;
 pub const MAC_CHARSET: i32 = 77;
@@ -6308,6 +6120,7 @@ pub const NONANTIALIASED_QUALITY: i32 = 3;
 pub const NOTSRCCOPY: u32 = 3342344;
 pub const NOTSRCERASE: u32 = 1114278;
 pub type NPABC = *mut ABC;
+#[cfg(feature = "minwindef")]
 pub type NPABCFLOAT = *mut ABCFLOAT;
 pub type NPBITMAP = *mut BITMAP;
 pub type NPCHARSETINFO = *mut CHARSETINFO;
@@ -6486,6 +6299,7 @@ pub const OUT_STROKE_PRECIS: i32 = 3;
 pub const OUT_TT_ONLY_PRECIS: i32 = 7;
 pub const OUT_TT_PRECIS: i32 = 4;
 pub type PABC = *mut ABC;
+#[cfg(feature = "minwindef")]
 pub type PABCFLOAT = *mut ABCFLOAT;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6679,21 +6493,21 @@ pub struct PELARRAY {
     pub paRGBs: u8,
 }
 pub type PEMR = *mut EMR;
-pub type PEMRABORTPATH = *mut EMRABORTPATH;
-#[cfg(feature = "windef")]
+pub type PEMRABORTPATH = *mut tagABORTPATH;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PEMRALPHABLEND = *mut EMRALPHABLEND;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PEMRANGLEARC = *mut EMRANGLEARC;
 #[cfg(feature = "windef")]
-pub type PEMRARC = *mut EMRARC;
+pub type PEMRARC = *mut tagEMRARC;
 #[cfg(feature = "windef")]
-pub type PEMRARCTO = *mut EMRARC;
-pub type PEMRBEGINPATH = *mut EMRABORTPATH;
-#[cfg(feature = "windef")]
+pub type PEMRARCTO = *mut tagEMRARC;
+pub type PEMRBEGINPATH = *mut tagABORTPATH;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PEMRBITBLT = *mut EMRBITBLT;
 #[cfg(feature = "windef")]
-pub type PEMRCHORD = *mut EMRARC;
-pub type PEMRCLOSEFIGURE = *mut EMRABORTPATH;
+pub type PEMRCHORD = *mut tagEMRARC;
+pub type PEMRCLOSEFIGURE = *mut tagABORTPATH;
 pub type PEMRCOLORCORRECTPALETTE = *mut EMRCOLORCORRECTPALETTE;
 pub type PEMRCOLORMATCHTOTARGET = *mut EMRCOLORMATCHTOTARGET;
 #[cfg(feature = "windef")]
@@ -6705,31 +6519,31 @@ pub type PEMRCREATEMONOBRUSH = *mut EMRCREATEMONOBRUSH;
 pub type PEMRCREATEPALETTE = *mut EMRCREATEPALETTE;
 #[cfg(feature = "windef")]
 pub type PEMRCREATEPEN = *mut EMRCREATEPEN;
-pub type PEMRDELETECOLORSPACE = *mut EMRSETCOLORSPACE;
-pub type PEMRDELETEOBJECT = *mut EMRSELECTOBJECT;
-pub type PEMRDRAWESCAPE = *mut EMREXTESCAPE;
+pub type PEMRDELETECOLORSPACE = *mut tagEMRSETCOLORSPACE;
+pub type PEMRDELETEOBJECT = *mut tagEMRSELECTOBJECT;
+pub type PEMRDRAWESCAPE = *mut tagEMREXTESCAPE;
 #[cfg(feature = "windef")]
-pub type PEMRELLIPSE = *mut EMRELLIPSE;
-pub type PEMRENDPATH = *mut EMRABORTPATH;
+pub type PEMRELLIPSE = *mut tagEMRELLIPSE;
+pub type PEMRENDPATH = *mut tagABORTPATH;
 pub type PEMREOF = *mut EMREOF;
 #[cfg(feature = "windef")]
-pub type PEMREXCLUDECLIPRECT = *mut EMREXCLUDECLIPRECT;
+pub type PEMREXCLUDECLIPRECT = *mut tagEMREXCLUDECLIPRECT;
 pub type PEMREXTCREATEFONTINDIRECTW = *mut EMREXTCREATEFONTINDIRECTW;
 #[cfg(feature = "windef")]
 pub type PEMREXTCREATEPEN = *mut EMREXTCREATEPEN;
-pub type PEMREXTESCAPE = *mut EMREXTESCAPE;
+pub type PEMREXTESCAPE = *mut tagEMREXTESCAPE;
 #[cfg(feature = "windef")]
 pub type PEMREXTFLOODFILL = *mut EMREXTFLOODFILL;
 pub type PEMREXTSELECTCLIPRGN = *mut EMREXTSELECTCLIPRGN;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type PEMREXTTEXTOUTA = *mut tagEMREXTTEXTOUTA;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type PEMREXTTEXTOUTW = *mut tagEMREXTTEXTOUTA;
 #[cfg(feature = "windef")]
-pub type PEMREXTTEXTOUTA = *mut EMREXTTEXTOUTA;
-#[cfg(feature = "windef")]
-pub type PEMREXTTEXTOUTW = *mut EMREXTTEXTOUTA;
-#[cfg(feature = "windef")]
-pub type PEMRFILLPATH = *mut EMRFILLPATH;
+pub type PEMRFILLPATH = *mut tagEMRFILLPATH;
 #[cfg(feature = "windef")]
 pub type PEMRFILLRGN = *mut EMRFILLRGN;
-pub type PEMRFLATTENPATH = *mut EMRABORTPATH;
+pub type PEMRFLATTENPATH = *mut tagABORTPATH;
 pub type PEMRFORMAT = *mut EMRFORMAT;
 #[cfg(feature = "windef")]
 pub type PEMRFRAMERGN = *mut EMRFRAMERGN;
@@ -6740,126 +6554,129 @@ pub type PEMRGLSRECORD = *mut EMRGLSRECORD;
 #[cfg(feature = "windef")]
 pub type PEMRGRADIENTFILL = *mut EMRGRADIENTFILL;
 #[cfg(feature = "windef")]
-pub type PEMRINTERSECTCLIPRECT = *mut EMREXCLUDECLIPRECT;
+pub type PEMRINTERSECTCLIPRECT = *mut tagEMREXCLUDECLIPRECT;
 #[cfg(feature = "windef")]
-pub type PEMRINVERTRGN = *mut EMRINVERTRGN;
+pub type PEMRINVERTRGN = *mut tagEMRINVERTRGN;
 #[cfg(feature = "windef")]
-pub type PEMRLINETO = *mut EMRLINETO;
-#[cfg(feature = "windef")]
+pub type PEMRLINETO = *mut tagEMRLINETO;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PEMRMASKBLT = *mut EMRMASKBLT;
+#[cfg(feature = "minwindef")]
 pub type PEMRMODIFYWORLDTRANSFORM = *mut EMRMODIFYWORLDTRANSFORM;
 #[cfg(feature = "windef")]
-pub type PEMRMOVETOEX = *mut EMRLINETO;
+pub type PEMRMOVETOEX = *mut tagEMRLINETO;
 pub type PEMRNAMEDESCAPE = *mut EMRNAMEDESCAPE;
 #[cfg(feature = "windef")]
 pub type PEMROFFSETCLIPRGN = *mut EMROFFSETCLIPRGN;
 #[cfg(feature = "windef")]
-pub type PEMRPAINTRGN = *mut EMRINVERTRGN;
+pub type PEMRPAINTRGN = *mut tagEMRINVERTRGN;
 #[cfg(feature = "windef")]
-pub type PEMRPIE = *mut EMRARC;
+pub type PEMRPIE = *mut tagEMRARC;
 pub type PEMRPIXELFORMAT = *mut EMRPIXELFORMAT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PEMRPLGBLT = *mut EMRPLGBLT;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYBEZIER = *mut EMRPOLYLINE;
+pub type PEMRPOLYBEZIER = *mut tagEMRPOLYLINE;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYBEZIER16 = *mut EMRPOLYLINE16;
+pub type PEMRPOLYBEZIER16 = *mut tagEMRPOLYLINE16;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYBEZIERTO = *mut EMRPOLYLINE;
+pub type PEMRPOLYBEZIERTO = *mut tagEMRPOLYLINE;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYBEZIERTO16 = *mut EMRPOLYLINE16;
+pub type PEMRPOLYBEZIERTO16 = *mut tagEMRPOLYLINE16;
 #[cfg(feature = "windef")]
 pub type PEMRPOLYDRAW = *mut EMRPOLYDRAW;
 #[cfg(feature = "windef")]
 pub type PEMRPOLYDRAW16 = *mut EMRPOLYDRAW16;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYGON = *mut EMRPOLYLINE;
+pub type PEMRPOLYGON = *mut tagEMRPOLYLINE;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYGON16 = *mut EMRPOLYLINE16;
+pub type PEMRPOLYGON16 = *mut tagEMRPOLYLINE16;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYLINE = *mut EMRPOLYLINE;
+pub type PEMRPOLYLINE = *mut tagEMRPOLYLINE;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYLINE16 = *mut EMRPOLYLINE16;
+pub type PEMRPOLYLINE16 = *mut tagEMRPOLYLINE16;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYLINETO = *mut EMRPOLYLINE;
+pub type PEMRPOLYLINETO = *mut tagEMRPOLYLINE;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYLINETO16 = *mut EMRPOLYLINE16;
+pub type PEMRPOLYLINETO16 = *mut tagEMRPOLYLINE16;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYPOLYGON = *mut EMRPOLYPOLYLINE;
+pub type PEMRPOLYPOLYGON = *mut tagEMRPOLYPOLYLINE;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYPOLYGON16 = *mut EMRPOLYPOLYLINE16;
+pub type PEMRPOLYPOLYGON16 = *mut tagEMRPOLYPOLYLINE16;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYPOLYLINE = *mut EMRPOLYPOLYLINE;
+pub type PEMRPOLYPOLYLINE = *mut tagEMRPOLYPOLYLINE;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYPOLYLINE16 = *mut EMRPOLYPOLYLINE16;
+pub type PEMRPOLYPOLYLINE16 = *mut tagEMRPOLYPOLYLINE16;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type PEMRPOLYTEXTOUTA = *mut tagEMRPOLYTEXTOUTA;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type PEMRPOLYTEXTOUTW = *mut tagEMRPOLYTEXTOUTA;
+pub type PEMRREALIZEPALETTE = *mut tagABORTPATH;
 #[cfg(feature = "windef")]
-pub type PEMRPOLYTEXTOUTA = *mut EMRPOLYTEXTOUTA;
-#[cfg(feature = "windef")]
-pub type PEMRPOLYTEXTOUTW = *mut EMRPOLYTEXTOUTA;
-pub type PEMRREALIZEPALETTE = *mut EMRABORTPATH;
-#[cfg(feature = "windef")]
-pub type PEMRRECTANGLE = *mut EMRELLIPSE;
+pub type PEMRRECTANGLE = *mut tagEMRELLIPSE;
 pub type PEMRRESIZEPALETTE = *mut EMRRESIZEPALETTE;
 pub type PEMRRESTOREDC = *mut EMRRESTOREDC;
 #[cfg(feature = "windef")]
 pub type PEMRROUNDRECT = *mut EMRROUNDRECT;
-pub type PEMRSAVEDC = *mut EMRABORTPATH;
-pub type PEMRSCALEVIEWPORTEXTEX = *mut EMRSCALEVIEWPORTEXTEX;
-pub type PEMRSCALEWINDOWEXTEX = *mut EMRSCALEVIEWPORTEXTEX;
-pub type PEMRSELECTCLIPPATH = *mut EMRSELECTCLIPPATH;
-pub type PEMRSELECTCOLORSPACE = *mut EMRSETCOLORSPACE;
-pub type PEMRSELECTOBJECT = *mut EMRSELECTOBJECT;
+pub type PEMRSAVEDC = *mut tagABORTPATH;
+pub type PEMRSCALEVIEWPORTEXTEX = *mut tagEMRSCALEVIEWPORTEXTEX;
+pub type PEMRSCALEWINDOWEXTEX = *mut tagEMRSCALEVIEWPORTEXTEX;
+pub type PEMRSELECTCLIPPATH = *mut tagEMRSELECTCLIPPATH;
+pub type PEMRSELECTCOLORSPACE = *mut tagEMRSETCOLORSPACE;
+pub type PEMRSELECTOBJECT = *mut tagEMRSELECTOBJECT;
 pub type PEMRSELECTPALETTE = *mut EMRSELECTPALETTE;
 pub type PEMRSETARCDIRECTION = *mut EMRSETARCDIRECTION;
 #[cfg(feature = "windef")]
-pub type PEMRSETBKCOLOR = *mut EMRSETBKCOLOR;
-pub type PEMRSETBKMODE = *mut EMRSELECTCLIPPATH;
+pub type PEMRSETBKCOLOR = *mut tagEMRSETTEXTCOLOR;
+pub type PEMRSETBKMODE = *mut tagEMRSELECTCLIPPATH;
 #[cfg(feature = "windef")]
-pub type PEMRSETBRUSHORGEX = *mut EMRSETVIEWPORTORGEX;
+pub type PEMRSETBRUSHORGEX = *mut tagEMRSETVIEWPORTORGEX;
 pub type PEMRSETCOLORADJUSTMENT = *mut EMRSETCOLORADJUSTMENT;
-pub type PEMRSETCOLORSPACE = *mut EMRSETCOLORSPACE;
+pub type PEMRSETCOLORSPACE = *mut tagEMRSETCOLORSPACE;
 #[cfg(feature = "windef")]
 pub type PEMRSETDIBITSTODEVICE = *mut EMRSETDIBITSTODEVICE;
-pub type PEMRSETICMMODE = *mut EMRSELECTCLIPPATH;
-pub type PEMRSETICMPROFILE = *mut EMRSETICMPROFILE;
-pub type PEMRSETICMPROFILEA = *mut EMRSETICMPROFILE;
-pub type PEMRSETICMPROFILEW = *mut EMRSETICMPROFILE;
-pub type PEMRSETLAYOUT = *mut EMRSELECTCLIPPATH;
-pub type PEMRSETMAPMODE = *mut EMRSELECTCLIPPATH;
+pub type PEMRSETICMMODE = *mut tagEMRSELECTCLIPPATH;
+pub type PEMRSETICMPROFILE = *mut tagEMRSETICMPROFILE;
+pub type PEMRSETICMPROFILEA = *mut tagEMRSETICMPROFILE;
+pub type PEMRSETICMPROFILEW = *mut tagEMRSETICMPROFILE;
+pub type PEMRSETLAYOUT = *mut tagEMRSELECTCLIPPATH;
+pub type PEMRSETMAPMODE = *mut tagEMRSELECTCLIPPATH;
 pub type PEMRSETMAPPERFLAGS = *mut EMRSETMAPPERFLAGS;
-pub type PEMRSETMETARGN = *mut EMRABORTPATH;
+pub type PEMRSETMETARGN = *mut tagABORTPATH;
+#[cfg(feature = "minwindef")]
 pub type PEMRSETMITERLIMIT = *mut EMRSETMITERLIMIT;
 pub type PEMRSETPALETTEENTRIES = *mut EMRSETPALETTEENTRIES;
 #[cfg(feature = "windef")]
 pub type PEMRSETPIXELV = *mut EMRSETPIXELV;
-pub type PEMRSETPOLYFILLMODE = *mut EMRSELECTCLIPPATH;
-pub type PEMRSETROP2 = *mut EMRSELECTCLIPPATH;
-pub type PEMRSETSTRETCHBLTMODE = *mut EMRSELECTCLIPPATH;
-pub type PEMRSETTEXTALIGN = *mut EMRSELECTCLIPPATH;
+pub type PEMRSETPOLYFILLMODE = *mut tagEMRSELECTCLIPPATH;
+pub type PEMRSETROP2 = *mut tagEMRSELECTCLIPPATH;
+pub type PEMRSETSTRETCHBLTMODE = *mut tagEMRSELECTCLIPPATH;
+pub type PEMRSETTEXTALIGN = *mut tagEMRSELECTCLIPPATH;
 #[cfg(feature = "windef")]
-pub type PEMRSETTEXTCOLOR = *mut EMRSETBKCOLOR;
+pub type PEMRSETTEXTCOLOR = *mut tagEMRSETTEXTCOLOR;
 #[cfg(feature = "windef")]
-pub type PEMRSETVIEWPORTEXTEX = *mut EMRSETVIEWPORTEXTEX;
+pub type PEMRSETVIEWPORTEXTEX = *mut tagEMRSETVIEWPORTEXTEX;
 #[cfg(feature = "windef")]
-pub type PEMRSETVIEWPORTORGEX = *mut EMRSETVIEWPORTORGEX;
+pub type PEMRSETVIEWPORTORGEX = *mut tagEMRSETVIEWPORTORGEX;
 #[cfg(feature = "windef")]
-pub type PEMRSETWINDOWEXTEX = *mut EMRSETVIEWPORTEXTEX;
+pub type PEMRSETWINDOWEXTEX = *mut tagEMRSETVIEWPORTEXTEX;
 #[cfg(feature = "windef")]
-pub type PEMRSETWINDOWORGEX = *mut EMRSETVIEWPORTORGEX;
+pub type PEMRSETWINDOWORGEX = *mut tagEMRSETVIEWPORTORGEX;
+#[cfg(feature = "minwindef")]
 pub type PEMRSETWORLDTRANSFORM = *mut EMRSETWORLDTRANSFORM;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PEMRSTRETCHBLT = *mut EMRSTRETCHBLT;
 #[cfg(feature = "windef")]
 pub type PEMRSTRETCHDIBITS = *mut EMRSTRETCHDIBITS;
 #[cfg(feature = "windef")]
-pub type PEMRSTROKEANDFILLPATH = *mut EMRFILLPATH;
+pub type PEMRSTROKEANDFILLPATH = *mut tagEMRFILLPATH;
 #[cfg(feature = "windef")]
-pub type PEMRSTROKEPATH = *mut EMRFILLPATH;
+pub type PEMRSTROKEPATH = *mut tagEMRFILLPATH;
 #[cfg(feature = "windef")]
 pub type PEMRTEXT = *mut EMRTEXT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PEMRTRANSPARENTBLT = *mut EMRTRANSPARENTBLT;
-pub type PEMRWIDENPATH = *mut EMRABORTPATH;
+pub type PEMRWIDENPATH = *mut tagABORTPATH;
 #[cfg(feature = "windef")]
 pub type PENHMETAHEADER = *mut ENHMETAHEADER;
 pub type PENHMETARECORD = *mut ENHMETARECORD;
@@ -6901,6 +6718,7 @@ pub const PFD_TYPE_COLORINDEX: i32 = 1;
 pub const PFD_TYPE_RGBA: i32 = 0;
 pub const PFD_UNDERLAY_PLANE: i32 = -1;
 pub type PFONTSIGNATURE = *mut FONTSIGNATURE;
+#[cfg(feature = "minwindef")]
 pub type PGLYPHMETRICSFLOAT = *mut GLYPHMETRICSFLOAT;
 pub type PGLYPHSET = *mut GLYPHSET;
 pub type PGRADIENT_RECT = *mut GRADIENT_RECT;
@@ -6961,10 +6779,11 @@ pub type PNEWTEXTMETRIC = PNEWTEXTMETRICA;
 pub type PNEWTEXTMETRICA = *mut NEWTEXTMETRICA;
 pub type PNEWTEXTMETRICW = *mut NEWTEXTMETRICW;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINTFLOAT {
-    pub x: f32,
-    pub y: f32,
+    pub x: super::FLOAT,
+    pub y: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7016,6 +6835,7 @@ pub type PPALETTEENTRY = *mut PALETTEENTRY;
 pub type PPATTERN = *mut PATTERN;
 pub type PPELARRAY = *mut PELARRAY;
 pub type PPIXELFORMATDESCRIPTOR = *mut PIXELFORMATDESCRIPTOR;
+#[cfg(feature = "minwindef")]
 pub type PPOINTFLOAT = *mut POINTFLOAT;
 #[cfg(feature = "windef")]
 pub type PPOLYTEXT = PPOLYTEXTA;
@@ -7131,6 +6951,7 @@ pub const PT_MOVETO: i32 = 6;
 pub type PWCRANGE = *mut WCRANGE;
 #[cfg(feature = "windef")]
 pub type PWGLSWAP = *mut WGLSWAP;
+#[cfg(feature = "minwindef")]
 pub type PXFORM = *mut XFORM;
 pub const QDC_ALL_PATHS: i32 = 1;
 pub const QDC_DATABASE_CURRENT: i32 = 4;
@@ -7513,12 +7334,238 @@ pub const WHITE_BRUSH: i32 = 0;
 pub const WHITE_PEN: i32 = 6;
 pub const WINDING: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XFORM {
-    pub eM11: f32,
-    pub eM12: f32,
-    pub eM21: f32,
-    pub eM22: f32,
-    pub eDx: f32,
-    pub eDy: f32,
+    pub eM11: super::FLOAT,
+    pub eM12: super::FLOAT,
+    pub eM21: super::FLOAT,
+    pub eM22: super::FLOAT,
+    pub eDx: super::FLOAT,
+    pub eDy: super::FLOAT,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct tagABORTPATH {
+    pub emr: EMR,
+}
+#[repr(C)]
+#[cfg(feature = "windef")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct tagEMRARC {
+    pub emr: EMR,
+    pub rclBox: super::RECTL,
+    pub ptlStart: super::POINTL,
+    pub ptlEnd: super::POINTL,
+}
+#[repr(C)]
+#[cfg(feature = "windef")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct tagEMRELLIPSE {
+    pub emr: EMR,
+    pub rclBox: super::RECTL,
+}
+#[repr(C)]
+#[cfg(feature = "windef")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct tagEMREXCLUDECLIPRECT {
+    pub emr: EMR,
+    pub rclClip: super::RECTL,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct tagEMREXTESCAPE {
+    pub emr: EMR,
+    pub iEscape: i32,
+    pub cbEscData: i32,
+    pub EscData: [u8; 1],
+}
+impl Default for tagEMREXTESCAPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct tagEMREXTTEXTOUTA {
+    pub emr: EMR,
+    pub rclBounds: super::RECTL,
+    pub iGraphicsMode: u32,
+    pub exScale: super::FLOAT,
+    pub eyScale: super::FLOAT,
+    pub emrtext: EMRTEXT,
+}
+#[repr(C)]
+#[cfg(feature = "windef")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct tagEMRFILLPATH {
+    pub emr: EMR,
+    pub rclBounds: super::RECTL,
+}
+#[repr(C)]
+#[cfg(feature = "windef")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct tagEMRINVERTRGN {
+    pub emr: EMR,
+    pub rclBounds: super::RECTL,
+    pub cbRgnData: u32,
+    pub RgnData: [u8; 1],
+}
+#[cfg(feature = "windef")]
+impl Default for tagEMRINVERTRGN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "windef")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct tagEMRLINETO {
+    pub emr: EMR,
+    pub ptl: super::POINTL,
+}
+#[repr(C)]
+#[cfg(feature = "windef")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct tagEMRPOLYLINE {
+    pub emr: EMR,
+    pub rclBounds: super::RECTL,
+    pub cptl: u32,
+    pub aptl: [super::POINTL; 1],
+}
+#[cfg(feature = "windef")]
+impl Default for tagEMRPOLYLINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "windef")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct tagEMRPOLYLINE16 {
+    pub emr: EMR,
+    pub rclBounds: super::RECTL,
+    pub cpts: u32,
+    pub apts: [super::POINTS; 1],
+}
+#[cfg(feature = "windef")]
+impl Default for tagEMRPOLYLINE16 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "windef")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct tagEMRPOLYPOLYLINE {
+    pub emr: EMR,
+    pub rclBounds: super::RECTL,
+    pub nPolys: u32,
+    pub cptl: u32,
+    pub aPolyCounts: [u32; 1],
+    pub aptl: [super::POINTL; 1],
+}
+#[cfg(feature = "windef")]
+impl Default for tagEMRPOLYPOLYLINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "windef")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct tagEMRPOLYPOLYLINE16 {
+    pub emr: EMR,
+    pub rclBounds: super::RECTL,
+    pub nPolys: u32,
+    pub cpts: u32,
+    pub aPolyCounts: [u32; 1],
+    pub apts: [super::POINTS; 1],
+}
+#[cfg(feature = "windef")]
+impl Default for tagEMRPOLYPOLYLINE16 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct tagEMRPOLYTEXTOUTA {
+    pub emr: EMR,
+    pub rclBounds: super::RECTL,
+    pub iGraphicsMode: u32,
+    pub exScale: super::FLOAT,
+    pub eyScale: super::FLOAT,
+    pub cStrings: i32,
+    pub aemrtext: [EMRTEXT; 1],
+}
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+impl Default for tagEMRPOLYTEXTOUTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct tagEMRSCALEVIEWPORTEXTEX {
+    pub emr: EMR,
+    pub xNum: i32,
+    pub xDenom: i32,
+    pub yNum: i32,
+    pub yDenom: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct tagEMRSELECTCLIPPATH {
+    pub emr: EMR,
+    pub iMode: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct tagEMRSELECTOBJECT {
+    pub emr: EMR,
+    pub ihObject: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct tagEMRSETCOLORSPACE {
+    pub emr: EMR,
+    pub ihCS: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct tagEMRSETICMPROFILE {
+    pub emr: EMR,
+    pub dwFlags: u32,
+    pub cbName: u32,
+    pub cbData: u32,
+    pub Data: [u8; 1],
+}
+impl Default for tagEMRSETICMPROFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "windef")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct tagEMRSETTEXTCOLOR {
+    pub emr: EMR,
+    pub crColor: super::COLORREF,
+}
+#[repr(C)]
+#[cfg(feature = "windef")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct tagEMRSETVIEWPORTEXTEX {
+    pub emr: EMR,
+    pub szlExtent: super::SIZEL,
+}
+#[repr(C)]
+#[cfg(feature = "windef")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct tagEMRSETVIEWPORTORGEX {
+    pub emr: EMR,
+    pub ptlOrigin: super::POINTL,
 }

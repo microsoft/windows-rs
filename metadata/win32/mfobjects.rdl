@@ -110,9 +110,9 @@ mod Windows {
         }
         #[guid(0xe7174cfa_1c9e_48b1_8866_626226bfc258)]
         interface IMFDXGIBuffer: IUnknown {
-            fn GetResource(&self, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn GetResource(&self, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
             fn GetSubresourceIndex(&self, puSubresource: *mut u32) -> HRESULT;
-            fn GetUnknown(&self, guid: *const GUID, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn GetUnknown(&self, guid: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
             fn SetUnknown(&self, guid: *const GUID, #[opt] pUnkData: IUnknown) -> HRESULT;
         }
         #[guid(0xb25d03fb_d148_45ef_bfed_f778b7566c07)]
@@ -125,8 +125,8 @@ mod Windows {
         #[guid(0xeb533d5d_2db6_40f8_97a9_494692014f07)]
         interface IMFDXGIDeviceManager: IUnknown {
             fn CloseDeviceHandle(&self, hDevice: HANDLE) -> HRESULT;
-            fn GetVideoService(&self, hDevice: HANDLE, riid: *const GUID, #[iid_is] ppService: *mut *mut void) -> HRESULT;
-            fn LockDevice(&self, hDevice: HANDLE, riid: *const GUID, #[iid_is] ppUnkDevice: *mut *mut void, fBlock: BOOL) -> HRESULT;
+            fn GetVideoService(&self, hDevice: HANDLE, riid: *const GUID, ppService: *mut *mut void) -> HRESULT;
+            fn LockDevice(&self, hDevice: HANDLE, riid: *const GUID, ppUnkDevice: *mut *mut void, fBlock: BOOL) -> HRESULT;
             fn OpenDeviceHandle(&self, phDevice: *mut HANDLE) -> HRESULT;
             fn ResetDevice(&self, pUnkDevice: IUnknown, resetToken: u32) -> HRESULT;
             fn TestDevice(&self, hDevice: HANDLE) -> HRESULT;
@@ -170,7 +170,7 @@ mod Windows {
             fn IsCompressedFormat(&self, pfCompressed: *mut BOOL) -> HRESULT;
             fn IsEqual(&self, pIMediaType: IMFMediaType, pdwFlags: *mut u32) -> HRESULT;
             fn GetRepresentation(&self, guidRepresentation: GUID, ppvRepresentation: *mut *mut void) -> HRESULT;
-            fn FreeRepresentation(&self, guidRepresentation: GUID, pvRepresentation: *const void) -> HRESULT;
+            fn FreeRepresentation(&self, guidRepresentation: GUID, #[in] pvRepresentation: *mut void) -> HRESULT;
         }
         #[guid(0xce8bd576_e440_43b3_be34_1e53f565f7e8)]
         interface IMFMuxStreamAttributesManager: IUnknown {
@@ -241,126 +241,6 @@ mod Windows {
             fn GetVideoFormat(&self) -> *const MFVIDEOFORMAT;
             fn GetVideoRepresentation(&self, guidRepresentation: GUID, ppvRepresentation: *mut *mut void, lStride: i32) -> HRESULT;
         }
-        const MEAudioSessionDeviceRemoved: i32 = 315;
-        const MEAudioSessionDisconnected: i32 = 320;
-        const MEAudioSessionExclusiveModeOverride: i32 = 321;
-        const MEAudioSessionFormatChanged: i32 = 319;
-        const MEAudioSessionGroupingParamChanged: i32 = 317;
-        const MEAudioSessionIconChanged: i32 = 318;
-        const MEAudioSessionNameChanged: i32 = 313;
-        const MEAudioSessionServerShutdown: i32 = 316;
-        const MEAudioSessionVolumeChanged: i32 = 314;
-        const MEBufferingStarted: i32 = 122;
-        const MEBufferingStopped: i32 = 123;
-        const MEByteStreamCharacteristicsChanged: i32 = 700;
-        const MECaptureAudioSessionDeviceRemoved: i32 = 323;
-        const MECaptureAudioSessionDisconnected: i32 = 325;
-        const MECaptureAudioSessionExclusiveModeOverride: i32 = 326;
-        const MECaptureAudioSessionFormatChanged: i32 = 324;
-        const MECaptureAudioSessionServerShutdown: i32 = 327;
-        const MECaptureAudioSessionVolumeChanged: i32 = 322;
-        const MEConnectEnd: i32 = 125;
-        const MEConnectStart: i32 = 124;
-        const MEContentProtectionMessage: i32 = 402;
-        const MEContentProtectionMetadata: i32 = 900;
-        const MEDeviceThermalStateChanged: i32 = 950;
-        const MEEnablerCompleted: i32 = 119;
-        const MEEnablerProgress: i32 = 118;
-        const MEEncodingParameters: i32 = 803;
-        const MEEndOfPresentation: i32 = 211;
-        const MEEndOfPresentationSegment: i32 = 218;
-        const MEEndOfStream: i32 = 212;
-        const MEError: i32 = 1;
-        const MEExtendedType: i32 = 2;
-        const MEGenericV1Anchor: i32 = 3;
-        const MEIndividualizationCompleted: i32 = 117;
-        const MEIndividualizationStart: i32 = 116;
-        const MELicenseAcquisitionCompleted: i32 = 115;
-        const MELicenseAcquisitionStart: i32 = 114;
-        const MEMediaSample: i32 = 213;
-        const MENewPresentation: i32 = 113;
-        const MENewStream: i32 = 205;
-        const MENonFatalError: i32 = 3;
-        const MEPolicyChanged: i32 = 401;
-        const MEPolicyError: i32 = 120;
-        const MEPolicyReport: i32 = 121;
-        const MEPolicySet: i32 = 403;
-        const MEQualityNotify: i32 = 311;
-        const MEReconnectEnd: i32 = 127;
-        const MEReconnectStart: i32 = 126;
-        const MERendererEvent: i32 = 128;
-        const MEReservedMax: i32 = 10000;
-        const MESequencerSourceTopologyUpdated: i32 = 222;
-        const MESessionCapabilitiesChanged: i32 = 110;
-        const MESessionClosed: i32 = 106;
-        const MESessionEnded: i32 = 107;
-        const MESessionNotifyPresentationTime: i32 = 112;
-        const MESessionPaused: i32 = 104;
-        const MESessionRateChanged: i32 = 108;
-        const MESessionScrubSampleComplete: i32 = 109;
-        const MESessionStarted: i32 = 103;
-        const MESessionStopped: i32 = 105;
-        const MESessionStreamSinkFormatChanged: i32 = 129;
-        const MESessionTopologiesCleared: i32 = 102;
-        const MESessionTopologySet: i32 = 101;
-        const MESessionTopologyStatus: i32 = 111;
-        const MESessionUnknown: i32 = 100;
-        const MESessionV1Anchor: i32 = 129;
-        const MESinkInvalidated: i32 = 312;
-        const MESinkUnknown: i32 = 300;
-        const MESinkV1Anchor: i32 = 321;
-        const MESinkV2Anchor: i32 = 327;
-        const MESourceCharacteristicsChanged: i32 = 219;
-        const MESourceMetadataChanged: i32 = 221;
-        const MESourcePaused: i32 = 209;
-        const MESourceRateChangeRequested: i32 = 220;
-        const MESourceRateChanged: i32 = 217;
-        const MESourceSeeked: i32 = 203;
-        const MESourceStarted: i32 = 201;
-        const MESourceStopped: i32 = 207;
-        const MESourceUnknown: i32 = 200;
-        const MESourceV1Anchor: i32 = 222;
-        const MEStreamFormatChanged: i32 = 216;
-        const MEStreamPaused: i32 = 210;
-        const MEStreamSeeked: i32 = 204;
-        const MEStreamSinkDeviceChanged: i32 = 310;
-        const MEStreamSinkFormatChanged: i32 = 309;
-        const MEStreamSinkFormatInvalidated: i32 = 802;
-        const MEStreamSinkMarker: i32 = 306;
-        const MEStreamSinkPaused: i32 = 303;
-        const MEStreamSinkPrerolled: i32 = 307;
-        const MEStreamSinkRateChanged: i32 = 304;
-        const MEStreamSinkRequestSample: i32 = 305;
-        const MEStreamSinkScrubSampleComplete: i32 = 308;
-        const MEStreamSinkStarted: i32 = 301;
-        const MEStreamSinkStopped: i32 = 302;
-        const MEStreamStarted: i32 = 202;
-        const MEStreamStopped: i32 = 208;
-        const MEStreamThinMode: i32 = 215;
-        const MEStreamTick: i32 = 214;
-        const METransformDrainComplete: i32 = 603;
-        const METransformHaveOutput: i32 = 602;
-        const METransformInputStreamStateChanged: i32 = 605;
-        const METransformMarker: i32 = 604;
-        const METransformNeedInput: i32 = 601;
-        const METransformUnknown: i32 = 600;
-        const METrustUnknown: i32 = 400;
-        const METrustV1Anchor: i32 = 403;
-        const MEUnknown: i32 = 0;
-        const MEUpdatedStream: i32 = 206;
-        const MEVideoCaptureDevicePreempted: i32 = 801;
-        const MEVideoCaptureDeviceRemoved: i32 = 800;
-        const MEWMDRMIndividualizationCompleted: i32 = 508;
-        const MEWMDRMIndividualizationProgress: i32 = 513;
-        const MEWMDRMLicenseAcquisitionCompleted: i32 = 506;
-        const MEWMDRMLicenseBackupCompleted: i32 = 500;
-        const MEWMDRMLicenseBackupProgress: i32 = 501;
-        const MEWMDRMLicenseRestoreCompleted: i32 = 502;
-        const MEWMDRMLicenseRestoreProgress: i32 = 503;
-        const MEWMDRMLicenseStoreCleaned: i32 = 515;
-        const MEWMDRMProximityCompleted: i32 = 514;
-        const MEWMDRMRevocationDownloadCompleted: i32 = 516;
-        const MEWMDRMV1Anchor: i32 = 516;
         #[repr(i32)]
         enum MF2DBuffer_LockFlags {
             MF2DBuffer_LockFlags_LockTypeMask = 3,
@@ -538,8 +418,8 @@ mod Windows {
             MFVideoInterlace_Last = 8,
             MFVideoInterlace_ForceDWORD = 2147483647,
         }
-        const MFVideoInterlace_FieldSingleLowerFirst: i32 = 6;
-        const MFVideoInterlace_FieldSingleUpperFirst: i32 = 5;
+        const MFVideoInterlace_FieldSingleLowerFirst: MFVideoInterlaceMode = 6;
+        const MFVideoInterlace_FieldSingleUpperFirst: MFVideoInterlaceMode = 5;
         #[repr(i32)]
         enum MFVideoLighting {
             MFVideoLighting_Unknown = 0,
@@ -691,5 +571,128 @@ mod Windows {
             MF_STREAM_STATE_RUNNING = 2,
         }
         type MediaEventType = u32;
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_mfobjects_0000_0013_0001 {
+            MEUnknown = 0,
+            MEError = 1,
+            MEExtendedType = 2,
+            MENonFatalError = 3,
+            MEGenericV1Anchor = 3,
+            MESessionUnknown = 100,
+            MESessionTopologySet = 101,
+            MESessionTopologiesCleared = 102,
+            MESessionStarted = 103,
+            MESessionPaused = 104,
+            MESessionStopped = 105,
+            MESessionClosed = 106,
+            MESessionEnded = 107,
+            MESessionRateChanged = 108,
+            MESessionScrubSampleComplete = 109,
+            MESessionCapabilitiesChanged = 110,
+            MESessionTopologyStatus = 111,
+            MESessionNotifyPresentationTime = 112,
+            MENewPresentation = 113,
+            MELicenseAcquisitionStart = 114,
+            MELicenseAcquisitionCompleted = 115,
+            MEIndividualizationStart = 116,
+            MEIndividualizationCompleted = 117,
+            MEEnablerProgress = 118,
+            MEEnablerCompleted = 119,
+            MEPolicyError = 120,
+            MEPolicyReport = 121,
+            MEBufferingStarted = 122,
+            MEBufferingStopped = 123,
+            MEConnectStart = 124,
+            MEConnectEnd = 125,
+            MEReconnectStart = 126,
+            MEReconnectEnd = 127,
+            MERendererEvent = 128,
+            MESessionStreamSinkFormatChanged = 129,
+            MESessionV1Anchor = 129,
+            MESourceUnknown = 200,
+            MESourceStarted = 201,
+            MEStreamStarted = 202,
+            MESourceSeeked = 203,
+            MEStreamSeeked = 204,
+            MENewStream = 205,
+            MEUpdatedStream = 206,
+            MESourceStopped = 207,
+            MEStreamStopped = 208,
+            MESourcePaused = 209,
+            MEStreamPaused = 210,
+            MEEndOfPresentation = 211,
+            MEEndOfStream = 212,
+            MEMediaSample = 213,
+            MEStreamTick = 214,
+            MEStreamThinMode = 215,
+            MEStreamFormatChanged = 216,
+            MESourceRateChanged = 217,
+            MEEndOfPresentationSegment = 218,
+            MESourceCharacteristicsChanged = 219,
+            MESourceRateChangeRequested = 220,
+            MESourceMetadataChanged = 221,
+            MESequencerSourceTopologyUpdated = 222,
+            MESourceV1Anchor = 222,
+            MESinkUnknown = 300,
+            MEStreamSinkStarted = 301,
+            MEStreamSinkStopped = 302,
+            MEStreamSinkPaused = 303,
+            MEStreamSinkRateChanged = 304,
+            MEStreamSinkRequestSample = 305,
+            MEStreamSinkMarker = 306,
+            MEStreamSinkPrerolled = 307,
+            MEStreamSinkScrubSampleComplete = 308,
+            MEStreamSinkFormatChanged = 309,
+            MEStreamSinkDeviceChanged = 310,
+            MEQualityNotify = 311,
+            MESinkInvalidated = 312,
+            MEAudioSessionNameChanged = 313,
+            MEAudioSessionVolumeChanged = 314,
+            MEAudioSessionDeviceRemoved = 315,
+            MEAudioSessionServerShutdown = 316,
+            MEAudioSessionGroupingParamChanged = 317,
+            MEAudioSessionIconChanged = 318,
+            MEAudioSessionFormatChanged = 319,
+            MEAudioSessionDisconnected = 320,
+            MEAudioSessionExclusiveModeOverride = 321,
+            MESinkV1Anchor = 321,
+            MECaptureAudioSessionVolumeChanged = 322,
+            MECaptureAudioSessionDeviceRemoved = 323,
+            MECaptureAudioSessionFormatChanged = 324,
+            MECaptureAudioSessionDisconnected = 325,
+            MECaptureAudioSessionExclusiveModeOverride = 326,
+            MECaptureAudioSessionServerShutdown = 327,
+            MESinkV2Anchor = 327,
+            METrustUnknown = 400,
+            MEPolicyChanged = 401,
+            MEContentProtectionMessage = 402,
+            MEPolicySet = 403,
+            METrustV1Anchor = 403,
+            MEWMDRMLicenseBackupCompleted = 500,
+            MEWMDRMLicenseBackupProgress = 501,
+            MEWMDRMLicenseRestoreCompleted = 502,
+            MEWMDRMLicenseRestoreProgress = 503,
+            MEWMDRMLicenseAcquisitionCompleted = 506,
+            MEWMDRMIndividualizationCompleted = 508,
+            MEWMDRMIndividualizationProgress = 513,
+            MEWMDRMProximityCompleted = 514,
+            MEWMDRMLicenseStoreCleaned = 515,
+            MEWMDRMRevocationDownloadCompleted = 516,
+            MEWMDRMV1Anchor = 516,
+            METransformUnknown = 600,
+            METransformNeedInput = 601,
+            METransformHaveOutput = 602,
+            METransformDrainComplete = 603,
+            METransformMarker = 604,
+            METransformInputStreamStateChanged = 605,
+            MEByteStreamCharacteristicsChanged = 700,
+            MEVideoCaptureDeviceRemoved = 800,
+            MEVideoCaptureDevicePreempted = 801,
+            MEStreamSinkFormatInvalidated = 802,
+            MEEncodingParameters = 803,
+            MEContentProtectionMetadata = 900,
+            MEDeviceThermalStateChanged = 950,
+            MEReservedMax = 10000,
+        }
     }
 }

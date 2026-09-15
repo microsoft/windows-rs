@@ -134,8 +134,6 @@ impl Default for WHV_ARM64_GLOBAL_INTERRUPT_STATE_0 {
     }
 }
 #[cfg(target_arch = "aarch64")]
-pub type WHV_ARM64_HYPERCALL_CONTEXT = WHV_HYPERCALL_CONTEXT;
-#[cfg(target_arch = "aarch64")]
 pub type WHV_ARM64_IC_EMULATION_MODE = i32;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
@@ -312,10 +310,6 @@ pub struct WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT_0 {
     pub ExceptionType: u32,
     pub Context: u64,
 }
-#[cfg(target_arch = "aarch64")]
-pub type WHV_ARM64_PROCESSOR_FEATURES = WHV_PROCESSOR_FEATURES;
-#[cfg(target_arch = "aarch64")]
-pub type WHV_ARM64_PROCESSOR_FEATURES1 = WHV_PROCESSOR_FEATURES1;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -458,8 +452,6 @@ pub struct WHV_CPUID_OUTPUT {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_CREATE_VPCI_DEVICE_FLAGS = u32;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER = WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1292,7 +1284,7 @@ pub union WHV_REGISTER_VALUE {
     pub Reg16: u16,
     pub Reg8: u8,
     pub InternalActivity: WHV_INTERNAL_ACTIVITY_REGISTER,
-    pub DeliverabilityNotifications: WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER,
+    pub DeliverabilityNotifications: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER,
     pub Fp: WHV_X64_FP_REGISTER,
     pub FpControlStatus: WHV_X64_FP_CONTROL_STATUS_REGISTER,
     pub XmmControlStatus: WHV_X64_XMM_CONTROL_STATUS_REGISTER,
@@ -1331,7 +1323,7 @@ pub union WHV_REGISTER_VALUE {
     pub Reg16: u16,
     pub Reg8: u8,
     pub InternalActivity: WHV_INTERNAL_ACTIVITY_REGISTER,
-    pub DeliverabilityNotifications: WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER,
+    pub DeliverabilityNotifications: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER,
 }
 #[cfg(target_arch = "aarch64")]
 impl Default for WHV_REGISTER_VALUE {
@@ -2137,8 +2129,6 @@ pub struct WHV_X64_FP_REGISTER_0 {
     pub Mantissa: u64,
     pub _bitfield: u64,
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_X64_HYPERCALL_CONTEXT = WHV_HYPERCALL_CONTEXT;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]
@@ -2608,10 +2598,6 @@ impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3 {
 pub struct WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3_0 {
     pub MsrData: u64,
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_X64_PROCESSOR_FEATURES = WHV_PROCESSOR_FEATURES;
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_X64_PROCESSOR_FEATURES1 = WHV_PROCESSOR_FEATURES1;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -2795,8 +2781,6 @@ impl Default for WHV_X64_VP_EXECUTION_STATE {
 pub struct WHV_X64_VP_EXECUTION_STATE_0 {
     pub _bitfield: u16,
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type WHV_X64_VP_EXIT_CONTEXT = WHV_VP_EXIT_CONTEXT;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -3988,7 +3972,7 @@ pub const WHvRegisterPasidFeaturesInfo: WHV_REGISTER_NAME = 517;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHvRegisterPendingEvent: WHV_REGISTER_NAME = -2147483646;
 #[cfg(target_arch = "aarch64")]
-pub const WHvRegisterPendingEvent: i32 = 65540;
+pub const WHvRegisterPendingEvent: WHV_REGISTER_NAME = 65540;
 #[cfg(target_arch = "aarch64")]
 pub const WHvRegisterPendingEvent0: WHV_REGISTER_NAME = 65540;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -4022,13 +4006,13 @@ pub const WHvRegisterScontrol: WHV_REGISTER_NAME = 655376;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHvRegisterSiefp: WHV_REGISTER_NAME = 16402;
 #[cfg(target_arch = "aarch64")]
-pub const WHvRegisterSiefp: i32 = 655378;
+pub const WHvRegisterSiefp: WHV_REGISTER_NAME = 655378;
 #[cfg(target_arch = "aarch64")]
 pub const WHvRegisterSifp: WHV_REGISTER_NAME = 655378;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHvRegisterSimp: WHV_REGISTER_NAME = 16403;
 #[cfg(target_arch = "aarch64")]
-pub const WHvRegisterSimp: i32 = 655379;
+pub const WHvRegisterSimp: WHV_REGISTER_NAME = 655379;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHvRegisterSint0: WHV_REGISTER_NAME = 16384;
 #[cfg(target_arch = "aarch64")]
@@ -4820,4 +4804,4 @@ pub const WHvX64RegisterXmmControlStatus: WHV_REGISTER_NAME = 4121;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHvX64RegisterXss: WHV_REGISTER_NAME = 8331;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const WhvRunVpCancelReasonUser: i32 = 0;
+pub const WhvRunVpCancelReasonUser: WHV_RUN_VP_CANCEL_REASON = 0;

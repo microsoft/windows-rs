@@ -1,51 +1,51 @@
 #[inline]
-pub unsafe fn JetAddColumnA(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: *const JET_CHAR, pcolumndef: *const JET_COLUMNDEF, pvdefault: Option<JET_PCVOID>, cbdefault: JET_UINT32, pcolumnid: Option<*mut JET_COLUMNID>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetAddColumnA(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_CHAR, pcolumndef : *const JET_COLUMNDEF, pvdefault : JET_PCVOID, cbdefault : JET_UINT32, pcolumnid : *mut JET_COLUMNID) -> JET_ERR);
+pub unsafe fn JetAddColumnA(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: JET_PCSTR, pcolumndef: *const JET_COLUMNDEF, pvdefault: Option<JET_PCVOID>, cbdefault: JET_UINT32, pcolumnid: Option<*mut JET_COLUMNID>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetAddColumnA(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCSTR, pcolumndef : *const JET_COLUMNDEF, pvdefault : JET_PCVOID, cbdefault : JET_UINT32, pcolumnid : *mut JET_COLUMNID) -> JET_ERR);
     unsafe { JetAddColumnA(sesid, tableid, szcolumnname, pcolumndef, pvdefault.unwrap_or(core::mem::zeroed()) as _, cbdefault, pcolumnid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetAddColumnW(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: *const JET_WCHAR, pcolumndef: *const JET_COLUMNDEF, pvdefault: Option<JET_PCVOID>, cbdefault: JET_UINT32, pcolumnid: Option<*mut JET_COLUMNID>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetAddColumnW(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_WCHAR, pcolumndef : *const JET_COLUMNDEF, pvdefault : JET_PCVOID, cbdefault : JET_UINT32, pcolumnid : *mut JET_COLUMNID) -> JET_ERR);
+pub unsafe fn JetAddColumnW(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: JET_PCWSTR, pcolumndef: *const JET_COLUMNDEF, pvdefault: Option<JET_PCVOID>, cbdefault: JET_UINT32, pcolumnid: Option<*mut JET_COLUMNID>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetAddColumnW(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCWSTR, pcolumndef : *const JET_COLUMNDEF, pvdefault : JET_PCVOID, cbdefault : JET_UINT32, pcolumnid : *mut JET_COLUMNID) -> JET_ERR);
     unsafe { JetAddColumnW(sesid, tableid, szcolumnname, pcolumndef, pvdefault.unwrap_or(core::mem::zeroed()) as _, cbdefault, pcolumnid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetAttachDatabase2A(sesid: JET_SESID, szfilename: *const JET_CHAR, cpgdatabasesizemax: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetAttachDatabase2A(sesid : JET_SESID, szfilename : *const JET_CHAR, cpgdatabasesizemax : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetAttachDatabase2A(sesid: JET_SESID, szfilename: JET_PCSTR, cpgdatabasesizemax: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetAttachDatabase2A(sesid : JET_SESID, szfilename : JET_PCSTR, cpgdatabasesizemax : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetAttachDatabase2A(sesid, szfilename, cpgdatabasesizemax, grbit) }
 }
 #[inline]
-pub unsafe fn JetAttachDatabase2W(sesid: JET_SESID, szfilename: *const JET_WCHAR, cpgdatabasesizemax: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetAttachDatabase2W(sesid : JET_SESID, szfilename : *const JET_WCHAR, cpgdatabasesizemax : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetAttachDatabase2W(sesid: JET_SESID, szfilename: JET_PCWSTR, cpgdatabasesizemax: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetAttachDatabase2W(sesid : JET_SESID, szfilename : JET_PCWSTR, cpgdatabasesizemax : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetAttachDatabase2W(sesid, szfilename, cpgdatabasesizemax, grbit) }
 }
 #[inline]
-pub unsafe fn JetAttachDatabaseA(sesid: JET_SESID, szfilename: *const JET_CHAR, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetAttachDatabaseA(sesid : JET_SESID, szfilename : *const JET_CHAR, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetAttachDatabaseA(sesid: JET_SESID, szfilename: JET_PCSTR, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetAttachDatabaseA(sesid : JET_SESID, szfilename : JET_PCSTR, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetAttachDatabaseA(sesid, szfilename, grbit) }
 }
 #[inline]
-pub unsafe fn JetAttachDatabaseW(sesid: JET_SESID, szfilename: *const JET_WCHAR, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetAttachDatabaseW(sesid : JET_SESID, szfilename : *const JET_WCHAR, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetAttachDatabaseW(sesid: JET_SESID, szfilename: JET_PCWSTR, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetAttachDatabaseW(sesid : JET_SESID, szfilename : JET_PCWSTR, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetAttachDatabaseW(sesid, szfilename, grbit) }
 }
 #[inline]
-pub unsafe fn JetBackupA(szbackuppath: *const JET_CHAR, grbit: JET_GRBIT, pfnstatus: JET_PFNSTATUS) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetBackupA(szbackuppath : *const JET_CHAR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
+pub unsafe fn JetBackupA(szbackuppath: JET_PCSTR, grbit: JET_GRBIT, pfnstatus: JET_PFNSTATUS) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetBackupA(szbackuppath : JET_PCSTR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
     unsafe { JetBackupA(szbackuppath, grbit, pfnstatus) }
 }
 #[inline]
-pub unsafe fn JetBackupInstanceA(instance: JET_INSTANCE, szbackuppath: *const JET_CHAR, grbit: JET_GRBIT, pfnstatus: JET_PFNSTATUS) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetBackupInstanceA(instance : JET_INSTANCE, szbackuppath : *const JET_CHAR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
+pub unsafe fn JetBackupInstanceA(instance: JET_INSTANCE, szbackuppath: JET_PCSTR, grbit: JET_GRBIT, pfnstatus: JET_PFNSTATUS) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetBackupInstanceA(instance : JET_INSTANCE, szbackuppath : JET_PCSTR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
     unsafe { JetBackupInstanceA(instance, szbackuppath, grbit, pfnstatus) }
 }
 #[inline]
-pub unsafe fn JetBackupInstanceW(instance: JET_INSTANCE, szbackuppath: *const JET_WCHAR, grbit: JET_GRBIT, pfnstatus: JET_PFNSTATUS) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetBackupInstanceW(instance : JET_INSTANCE, szbackuppath : *const JET_WCHAR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
+pub unsafe fn JetBackupInstanceW(instance: JET_INSTANCE, szbackuppath: JET_PCWSTR, grbit: JET_GRBIT, pfnstatus: JET_PFNSTATUS) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetBackupInstanceW(instance : JET_INSTANCE, szbackuppath : JET_PCWSTR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
     unsafe { JetBackupInstanceW(instance, szbackuppath, grbit, pfnstatus) }
 }
 #[inline]
-pub unsafe fn JetBackupW(szbackuppath: *const JET_WCHAR, grbit: JET_GRBIT, pfnstatus: JET_PFNSTATUS) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetBackupW(szbackuppath : *const JET_WCHAR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
+pub unsafe fn JetBackupW(szbackuppath: JET_PCWSTR, grbit: JET_GRBIT, pfnstatus: JET_PFNSTATUS) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetBackupW(szbackuppath : JET_PCWSTR, grbit : JET_GRBIT, pfnstatus : JET_PFNSTATUS) -> JET_ERR);
     unsafe { JetBackupW(szbackuppath, grbit, pfnstatus) }
 }
 #[inline]
@@ -59,13 +59,13 @@ pub unsafe fn JetBeginExternalBackupInstance(instance: JET_INSTANCE, grbit: JET_
     unsafe { JetBeginExternalBackupInstance(instance, grbit) }
 }
 #[inline]
-pub unsafe fn JetBeginSessionA(instance: JET_INSTANCE, psesid: *mut JET_SESID, szusername: Option<*const JET_CHAR>, szpassword: Option<*const JET_CHAR>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetBeginSessionA(instance : JET_INSTANCE, psesid : *mut JET_SESID, szusername : *const JET_CHAR, szpassword : *const JET_CHAR) -> JET_ERR);
+pub unsafe fn JetBeginSessionA(instance: JET_INSTANCE, psesid: *mut JET_SESID, szusername: Option<JET_PCSTR>, szpassword: Option<JET_PCSTR>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetBeginSessionA(instance : JET_INSTANCE, psesid : *mut JET_SESID, szusername : JET_PCSTR, szpassword : JET_PCSTR) -> JET_ERR);
     unsafe { JetBeginSessionA(instance, psesid as _, szusername.unwrap_or(core::mem::zeroed()) as _, szpassword.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetBeginSessionW(instance: JET_INSTANCE, psesid: *mut JET_SESID, szusername: Option<*const JET_WCHAR>, szpassword: Option<*const JET_WCHAR>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetBeginSessionW(instance : JET_INSTANCE, psesid : *mut JET_SESID, szusername : *const JET_WCHAR, szpassword : *const JET_WCHAR) -> JET_ERR);
+pub unsafe fn JetBeginSessionW(instance: JET_INSTANCE, psesid: *mut JET_SESID, szusername: Option<JET_PCWSTR>, szpassword: Option<JET_PCWSTR>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetBeginSessionW(instance : JET_INSTANCE, psesid : *mut JET_SESID, szusername : JET_PCWSTR, szpassword : JET_PCWSTR) -> JET_ERR);
     unsafe { JetBeginSessionW(instance, psesid as _, szusername.unwrap_or(core::mem::zeroed()) as _, szpassword.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -114,13 +114,13 @@ pub unsafe fn JetCommitTransaction2(sesid: JET_SESID, grbit: JET_GRBIT, cmsecdur
     unsafe { JetCommitTransaction2(sesid, grbit, cmsecdurablecommit, pcommitid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetCompactA(sesid: JET_SESID, szdatabasesrc: *const JET_CHAR, szdatabasedest: *const JET_CHAR, pfnstatus: JET_PFNSTATUS, pconvert: Option<*const JET_CONVERT_A>, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetCompactA(sesid : JET_SESID, szdatabasesrc : *const JET_CHAR, szdatabasedest : *const JET_CHAR, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_A, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetCompactA(sesid: JET_SESID, szdatabasesrc: JET_PCSTR, szdatabasedest: JET_PCSTR, pfnstatus: JET_PFNSTATUS, pconvert: Option<*const JET_CONVERT_A>, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetCompactA(sesid : JET_SESID, szdatabasesrc : JET_PCSTR, szdatabasedest : JET_PCSTR, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_A, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetCompactA(sesid, szdatabasesrc, szdatabasedest, pfnstatus, pconvert.unwrap_or(core::mem::zeroed()) as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetCompactW(sesid: JET_SESID, szdatabasesrc: *const JET_WCHAR, szdatabasedest: *const JET_WCHAR, pfnstatus: JET_PFNSTATUS, pconvert: Option<*const JET_CONVERT_W>, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetCompactW(sesid : JET_SESID, szdatabasesrc : *const JET_WCHAR, szdatabasedest : *const JET_WCHAR, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_W, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetCompactW(sesid: JET_SESID, szdatabasesrc: JET_PCWSTR, szdatabasedest: JET_PCWSTR, pfnstatus: JET_PFNSTATUS, pconvert: Option<*const JET_CONVERT_W>, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetCompactW(sesid : JET_SESID, szdatabasesrc : JET_PCWSTR, szdatabasedest : JET_PCWSTR, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_W, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetCompactW(sesid, szdatabasesrc, szdatabasedest, pfnstatus, pconvert.unwrap_or(core::mem::zeroed()) as _, grbit) }
 }
 #[inline]
@@ -134,88 +134,88 @@ pub unsafe fn JetConfigureProcessForCrashDump(grbit: JET_GRBIT) -> JET_ERR {
     unsafe { JetConfigureProcessForCrashDump(grbit) }
 }
 #[inline]
-pub unsafe fn JetCreateDatabase2A(sesid: JET_SESID, szfilename: *const JET_CHAR, cpgdatabasesizemax: JET_UINT32, pdbid: *mut JET_DBID, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetCreateDatabase2A(sesid : JET_SESID, szfilename : *const JET_CHAR, cpgdatabasesizemax : JET_UINT32, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetCreateDatabase2A(sesid: JET_SESID, szfilename: JET_PCSTR, cpgdatabasesizemax: JET_UINT32, pdbid: *mut JET_DBID, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetCreateDatabase2A(sesid : JET_SESID, szfilename : JET_PCSTR, cpgdatabasesizemax : JET_UINT32, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetCreateDatabase2A(sesid, szfilename, cpgdatabasesizemax, pdbid as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetCreateDatabase2W(sesid: JET_SESID, szfilename: *const JET_WCHAR, cpgdatabasesizemax: JET_UINT32, pdbid: *mut JET_DBID, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetCreateDatabase2W(sesid : JET_SESID, szfilename : *const JET_WCHAR, cpgdatabasesizemax : JET_UINT32, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetCreateDatabase2W(sesid: JET_SESID, szfilename: JET_PCWSTR, cpgdatabasesizemax: JET_UINT32, pdbid: *mut JET_DBID, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetCreateDatabase2W(sesid : JET_SESID, szfilename : JET_PCWSTR, cpgdatabasesizemax : JET_UINT32, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetCreateDatabase2W(sesid, szfilename, cpgdatabasesizemax, pdbid as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetCreateDatabaseA(sesid: JET_SESID, szfilename: *const JET_CHAR, szconnect: Option<*const JET_CHAR>, pdbid: *mut JET_DBID, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetCreateDatabaseA(sesid : JET_SESID, szfilename : *const JET_CHAR, szconnect : *const JET_CHAR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetCreateDatabaseA(sesid: JET_SESID, szfilename: JET_PCSTR, szconnect: Option<JET_PCSTR>, pdbid: *mut JET_DBID, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetCreateDatabaseA(sesid : JET_SESID, szfilename : JET_PCSTR, szconnect : JET_PCSTR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetCreateDatabaseA(sesid, szfilename, szconnect.unwrap_or(core::mem::zeroed()) as _, pdbid as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetCreateDatabaseW(sesid: JET_SESID, szfilename: *const JET_WCHAR, szconnect: Option<*const JET_WCHAR>, pdbid: *mut JET_DBID, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetCreateDatabaseW(sesid : JET_SESID, szfilename : *const JET_WCHAR, szconnect : *const JET_WCHAR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetCreateDatabaseW(sesid: JET_SESID, szfilename: JET_PCWSTR, szconnect: Option<JET_PCWSTR>, pdbid: *mut JET_DBID, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetCreateDatabaseW(sesid : JET_SESID, szfilename : JET_PCWSTR, szconnect : JET_PCWSTR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetCreateDatabaseW(sesid, szfilename, szconnect.unwrap_or(core::mem::zeroed()) as _, pdbid as _, grbit) }
 }
 #[inline]
 pub unsafe fn JetCreateIndex2A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE_A]) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetCreateIndex2A(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE_A, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex2A(sesid, tableid, pindexcreate.as_ptr(), JET_UINT32(pindexcreate.len().try_into().unwrap())) }
+    unsafe { JetCreateIndex2A(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn JetCreateIndex2W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE_W]) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetCreateIndex2W(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE_W, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex2W(sesid, tableid, pindexcreate.as_ptr(), JET_UINT32(pindexcreate.len().try_into().unwrap())) }
+    unsafe { JetCreateIndex2W(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn JetCreateIndex3A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE2_A]) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetCreateIndex3A(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE2_A, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex3A(sesid, tableid, pindexcreate.as_ptr(), JET_UINT32(pindexcreate.len().try_into().unwrap())) }
+    unsafe { JetCreateIndex3A(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn JetCreateIndex3W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE2_W]) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetCreateIndex3W(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE2_W, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex3W(sesid, tableid, pindexcreate.as_ptr(), JET_UINT32(pindexcreate.len().try_into().unwrap())) }
+    unsafe { JetCreateIndex3W(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn JetCreateIndex4A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE3_A]) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetCreateIndex4A(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE3_A, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex4A(sesid, tableid, pindexcreate.as_ptr(), JET_UINT32(pindexcreate.len().try_into().unwrap())) }
+    unsafe { JetCreateIndex4A(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn JetCreateIndex4W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: &[JET_INDEXCREATE3_W]) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetCreateIndex4W(sesid : JET_SESID, tableid : JET_TABLEID, pindexcreate : *const JET_INDEXCREATE3_W, cindexcreate : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndex4W(sesid, tableid, pindexcreate.as_ptr(), JET_UINT32(pindexcreate.len().try_into().unwrap())) }
+    unsafe { JetCreateIndex4W(sesid, tableid, pindexcreate.as_ptr(), pindexcreate.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn JetCreateIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: *const JET_CHAR, grbit: JET_GRBIT, szkey: *const JET_CHAR, cbkey: JET_UINT32, ldensity: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetCreateIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_CHAR, grbit : JET_GRBIT, szkey : *const JET_CHAR, cbkey : JET_UINT32, ldensity : JET_UINT32) -> JET_ERR);
-    unsafe { JetCreateIndexA(sesid, tableid, szindexname, grbit, szkey, cbkey, ldensity) }
+pub unsafe fn JetCreateIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: JET_PCSTR, grbit: JET_GRBIT, szkey: &[u8], ldensity: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetCreateIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR, grbit : JET_GRBIT, szkey : JET_PCSTR, cbkey : JET_UINT32, ldensity : JET_UINT32) -> JET_ERR);
+    unsafe { JetCreateIndexA(sesid, tableid, szindexname, grbit, core::mem::transmute(szkey.as_ptr()), szkey.len().try_into().unwrap(), ldensity) }
 }
 #[inline]
-pub unsafe fn JetCreateIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: *const JET_WCHAR, grbit: JET_GRBIT, szkey: *const JET_WCHAR, cbkey: JET_UINT32, ldensity: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetCreateIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_WCHAR, grbit : JET_GRBIT, szkey : *const JET_WCHAR, cbkey : JET_UINT32, ldensity : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetCreateIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: JET_PCWSTR, grbit: JET_GRBIT, szkey: JET_PCWSTR, cbkey: JET_UINT32, ldensity: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetCreateIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCWSTR, grbit : JET_GRBIT, szkey : JET_PCWSTR, cbkey : JET_UINT32, ldensity : JET_UINT32) -> JET_ERR);
     unsafe { JetCreateIndexW(sesid, tableid, szindexname, grbit, szkey, cbkey, ldensity) }
 }
 #[inline]
-pub unsafe fn JetCreateInstance2A(pinstance: *mut JET_INSTANCE, szinstancename: Option<*const JET_CHAR>, szdisplayname: Option<*const JET_CHAR>, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetCreateInstance2A(pinstance : *mut JET_INSTANCE, szinstancename : *const JET_CHAR, szdisplayname : *const JET_CHAR, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetCreateInstance2A(pinstance: *mut JET_INSTANCE, szinstancename: Option<JET_PCSTR>, szdisplayname: Option<JET_PCSTR>, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetCreateInstance2A(pinstance : *mut JET_INSTANCE, szinstancename : JET_PCSTR, szdisplayname : JET_PCSTR, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetCreateInstance2A(pinstance as _, szinstancename.unwrap_or(core::mem::zeroed()) as _, szdisplayname.unwrap_or(core::mem::zeroed()) as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetCreateInstance2W(pinstance: *mut JET_INSTANCE, szinstancename: Option<*const JET_WCHAR>, szdisplayname: Option<*const JET_WCHAR>, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetCreateInstance2W(pinstance : *mut JET_INSTANCE, szinstancename : *const JET_WCHAR, szdisplayname : *const JET_WCHAR, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetCreateInstance2W(pinstance: *mut JET_INSTANCE, szinstancename: Option<JET_PCWSTR>, szdisplayname: Option<JET_PCWSTR>, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetCreateInstance2W(pinstance : *mut JET_INSTANCE, szinstancename : JET_PCWSTR, szdisplayname : JET_PCWSTR, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetCreateInstance2W(pinstance as _, szinstancename.unwrap_or(core::mem::zeroed()) as _, szdisplayname.unwrap_or(core::mem::zeroed()) as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetCreateInstanceA(pinstance: *mut JET_INSTANCE, szinstancename: Option<*const JET_CHAR>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetCreateInstanceA(pinstance : *mut JET_INSTANCE, szinstancename : *const JET_CHAR) -> JET_ERR);
+pub unsafe fn JetCreateInstanceA(pinstance: *mut JET_INSTANCE, szinstancename: Option<JET_PCSTR>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetCreateInstanceA(pinstance : *mut JET_INSTANCE, szinstancename : JET_PCSTR) -> JET_ERR);
     unsafe { JetCreateInstanceA(pinstance as _, szinstancename.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetCreateInstanceW(pinstance: *mut JET_INSTANCE, szinstancename: Option<*const JET_WCHAR>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetCreateInstanceW(pinstance : *mut JET_INSTANCE, szinstancename : *const JET_WCHAR) -> JET_ERR);
+pub unsafe fn JetCreateInstanceW(pinstance: *mut JET_INSTANCE, szinstancename: Option<JET_PCWSTR>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetCreateInstanceW(pinstance : *mut JET_INSTANCE, szinstancename : JET_PCWSTR) -> JET_ERR);
     unsafe { JetCreateInstanceW(pinstance as _, szinstancename.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetCreateTableA(sesid: JET_SESID, dbid: JET_DBID, sztablename: *const JET_CHAR, lpages: JET_UINT32, ldensity: JET_UINT32, ptableid: *mut JET_TABLEID) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetCreateTableA(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR, lpages : JET_UINT32, ldensity : JET_UINT32, ptableid : *mut JET_TABLEID) -> JET_ERR);
+pub unsafe fn JetCreateTableA(sesid: JET_SESID, dbid: JET_DBID, sztablename: JET_PCSTR, lpages: JET_UINT32, ldensity: JET_UINT32, ptableid: *mut JET_TABLEID) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetCreateTableA(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR, lpages : JET_UINT32, ldensity : JET_UINT32, ptableid : *mut JET_TABLEID) -> JET_ERR);
     unsafe { JetCreateTableA(sesid, dbid, sztablename, lpages, ldensity, ptableid as _) }
 }
 #[inline]
@@ -259,38 +259,38 @@ pub unsafe fn JetCreateTableColumnIndexW(sesid: JET_SESID, dbid: JET_DBID, ptabl
     unsafe { JetCreateTableColumnIndexW(sesid, dbid, ptablecreate as _) }
 }
 #[inline]
-pub unsafe fn JetCreateTableW(sesid: JET_SESID, dbid: JET_DBID, sztablename: *const JET_WCHAR, lpages: JET_UINT32, ldensity: JET_UINT32, ptableid: *mut JET_TABLEID) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetCreateTableW(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR, lpages : JET_UINT32, ldensity : JET_UINT32, ptableid : *mut JET_TABLEID) -> JET_ERR);
+pub unsafe fn JetCreateTableW(sesid: JET_SESID, dbid: JET_DBID, sztablename: JET_PCWSTR, lpages: JET_UINT32, ldensity: JET_UINT32, ptableid: *mut JET_TABLEID) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetCreateTableW(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR, lpages : JET_UINT32, ldensity : JET_UINT32, ptableid : *mut JET_TABLEID) -> JET_ERR);
     unsafe { JetCreateTableW(sesid, dbid, sztablename, lpages, ldensity, ptableid as _) }
 }
 #[inline]
-pub unsafe fn JetDefragment2A(sesid: JET_SESID, dbid: JET_DBID, sztablename: Option<*const JET_CHAR>, pcpasses: Option<*mut JET_UINT32>, pcseconds: Option<*mut JET_UINT32>, callback: JET_CALLBACK, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDefragment2A(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetDefragment2A(sesid: JET_SESID, dbid: JET_DBID, sztablename: Option<JET_PCSTR>, pcpasses: Option<*mut JET_UINT32>, pcseconds: Option<*mut JET_UINT32>, callback: JET_CALLBACK, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDefragment2A(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetDefragment2A(sesid, dbid, sztablename.unwrap_or(core::mem::zeroed()) as _, pcpasses.unwrap_or(core::mem::zeroed()) as _, pcseconds.unwrap_or(core::mem::zeroed()) as _, callback, grbit) }
 }
 #[inline]
-pub unsafe fn JetDefragment2W(sesid: JET_SESID, dbid: JET_DBID, sztablename: Option<*const JET_WCHAR>, pcpasses: Option<*mut JET_UINT32>, pcseconds: Option<*mut JET_UINT32>, callback: JET_CALLBACK, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDefragment2W(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetDefragment2W(sesid: JET_SESID, dbid: JET_DBID, sztablename: Option<JET_PCWSTR>, pcpasses: Option<*mut JET_UINT32>, pcseconds: Option<*mut JET_UINT32>, callback: JET_CALLBACK, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDefragment2W(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetDefragment2W(sesid, dbid, sztablename.unwrap_or(core::mem::zeroed()) as _, pcpasses.unwrap_or(core::mem::zeroed()) as _, pcseconds.unwrap_or(core::mem::zeroed()) as _, callback, grbit) }
 }
 #[inline]
-pub unsafe fn JetDefragment3A(sesid: JET_SESID, szdatabasename: *const JET_CHAR, sztablename: Option<*const JET_CHAR>, pcpasses: Option<*mut JET_UINT32>, pcseconds: Option<*mut JET_UINT32>, callback: JET_CALLBACK, pvcontext: JET_PVOID, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDefragment3A(sesid : JET_SESID, szdatabasename : *const JET_CHAR, sztablename : *const JET_CHAR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, pvcontext : JET_PVOID, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetDefragment3A(sesid: JET_SESID, szdatabasename: JET_PCSTR, sztablename: Option<JET_PCSTR>, pcpasses: Option<*mut JET_UINT32>, pcseconds: Option<*mut JET_UINT32>, callback: JET_CALLBACK, pvcontext: JET_PVOID, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDefragment3A(sesid : JET_SESID, szdatabasename : JET_PCSTR, sztablename : JET_PCSTR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, pvcontext : JET_PVOID, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetDefragment3A(sesid, szdatabasename, sztablename.unwrap_or(core::mem::zeroed()) as _, pcpasses.unwrap_or(core::mem::zeroed()) as _, pcseconds.unwrap_or(core::mem::zeroed()) as _, callback, pvcontext, grbit) }
 }
 #[inline]
-pub unsafe fn JetDefragment3W(sesid: JET_SESID, szdatabasename: *const JET_WCHAR, sztablename: Option<*const JET_WCHAR>, pcpasses: Option<*mut JET_UINT32>, pcseconds: Option<*mut JET_UINT32>, callback: JET_CALLBACK, pvcontext: JET_PVOID, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDefragment3W(sesid : JET_SESID, szdatabasename : *const JET_WCHAR, sztablename : *const JET_WCHAR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, pvcontext : JET_PVOID, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetDefragment3W(sesid: JET_SESID, szdatabasename: JET_PCWSTR, sztablename: Option<JET_PCWSTR>, pcpasses: Option<*mut JET_UINT32>, pcseconds: Option<*mut JET_UINT32>, callback: JET_CALLBACK, pvcontext: JET_PVOID, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDefragment3W(sesid : JET_SESID, szdatabasename : JET_PCWSTR, sztablename : JET_PCWSTR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, callback : JET_CALLBACK, pvcontext : JET_PVOID, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetDefragment3W(sesid, szdatabasename, sztablename.unwrap_or(core::mem::zeroed()) as _, pcpasses.unwrap_or(core::mem::zeroed()) as _, pcseconds.unwrap_or(core::mem::zeroed()) as _, callback, pvcontext, grbit) }
 }
 #[inline]
-pub unsafe fn JetDefragmentA(sesid: JET_SESID, dbid: JET_DBID, sztablename: Option<*const JET_CHAR>, pcpasses: Option<*mut JET_UINT32>, pcseconds: Option<*mut JET_UINT32>, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDefragmentA(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetDefragmentA(sesid: JET_SESID, dbid: JET_DBID, sztablename: Option<JET_PCSTR>, pcpasses: Option<*mut JET_UINT32>, pcseconds: Option<*mut JET_UINT32>, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDefragmentA(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetDefragmentA(sesid, dbid, sztablename.unwrap_or(core::mem::zeroed()) as _, pcpasses.unwrap_or(core::mem::zeroed()) as _, pcseconds.unwrap_or(core::mem::zeroed()) as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetDefragmentW(sesid: JET_SESID, dbid: JET_DBID, sztablename: Option<*const JET_WCHAR>, pcpasses: Option<*mut JET_UINT32>, pcseconds: Option<*mut JET_UINT32>, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDefragmentW(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetDefragmentW(sesid: JET_SESID, dbid: JET_DBID, sztablename: Option<JET_PCWSTR>, pcpasses: Option<*mut JET_UINT32>, pcseconds: Option<*mut JET_UINT32>, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDefragmentW(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR, pcpasses : *mut JET_UINT32, pcseconds : *mut JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetDefragmentW(sesid, dbid, sztablename.unwrap_or(core::mem::zeroed()) as _, pcpasses.unwrap_or(core::mem::zeroed()) as _, pcseconds.unwrap_or(core::mem::zeroed()) as _, grbit) }
 }
 #[inline]
@@ -299,63 +299,63 @@ pub unsafe fn JetDelete(sesid: JET_SESID, tableid: JET_TABLEID) -> JET_ERR {
     unsafe { JetDelete(sesid, tableid) }
 }
 #[inline]
-pub unsafe fn JetDeleteColumn2A(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: *const JET_CHAR, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDeleteColumn2A(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_CHAR, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetDeleteColumn2A(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: JET_PCSTR, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDeleteColumn2A(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCSTR, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetDeleteColumn2A(sesid, tableid, szcolumnname, grbit) }
 }
 #[inline]
-pub unsafe fn JetDeleteColumn2W(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: *const JET_WCHAR, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDeleteColumn2W(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_WCHAR, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetDeleteColumn2W(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: JET_PCWSTR, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDeleteColumn2W(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCWSTR, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetDeleteColumn2W(sesid, tableid, szcolumnname, grbit) }
 }
 #[inline]
-pub unsafe fn JetDeleteColumnA(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: *const JET_CHAR) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDeleteColumnA(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_CHAR) -> JET_ERR);
+pub unsafe fn JetDeleteColumnA(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: JET_PCSTR) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDeleteColumnA(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCSTR) -> JET_ERR);
     unsafe { JetDeleteColumnA(sesid, tableid, szcolumnname) }
 }
 #[inline]
-pub unsafe fn JetDeleteColumnW(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: *const JET_WCHAR) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDeleteColumnW(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_WCHAR) -> JET_ERR);
+pub unsafe fn JetDeleteColumnW(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: JET_PCWSTR) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDeleteColumnW(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCWSTR) -> JET_ERR);
     unsafe { JetDeleteColumnW(sesid, tableid, szcolumnname) }
 }
 #[inline]
-pub unsafe fn JetDeleteIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: *const JET_CHAR) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDeleteIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_CHAR) -> JET_ERR);
+pub unsafe fn JetDeleteIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: JET_PCSTR) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDeleteIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR) -> JET_ERR);
     unsafe { JetDeleteIndexA(sesid, tableid, szindexname) }
 }
 #[inline]
-pub unsafe fn JetDeleteIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: *const JET_WCHAR) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDeleteIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_WCHAR) -> JET_ERR);
+pub unsafe fn JetDeleteIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: JET_PCWSTR) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDeleteIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCWSTR) -> JET_ERR);
     unsafe { JetDeleteIndexW(sesid, tableid, szindexname) }
 }
 #[inline]
-pub unsafe fn JetDeleteTableA(sesid: JET_SESID, dbid: JET_DBID, sztablename: *const JET_CHAR) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDeleteTableA(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR) -> JET_ERR);
+pub unsafe fn JetDeleteTableA(sesid: JET_SESID, dbid: JET_DBID, sztablename: JET_PCSTR) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDeleteTableA(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR) -> JET_ERR);
     unsafe { JetDeleteTableA(sesid, dbid, sztablename) }
 }
 #[inline]
-pub unsafe fn JetDeleteTableW(sesid: JET_SESID, dbid: JET_DBID, sztablename: *const JET_WCHAR) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDeleteTableW(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR) -> JET_ERR);
+pub unsafe fn JetDeleteTableW(sesid: JET_SESID, dbid: JET_DBID, sztablename: JET_PCWSTR) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDeleteTableW(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR) -> JET_ERR);
     unsafe { JetDeleteTableW(sesid, dbid, sztablename) }
 }
 #[inline]
-pub unsafe fn JetDetachDatabase2A(sesid: JET_SESID, szfilename: Option<*const JET_CHAR>, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDetachDatabase2A(sesid : JET_SESID, szfilename : *const JET_CHAR, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetDetachDatabase2A(sesid: JET_SESID, szfilename: Option<JET_PCSTR>, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDetachDatabase2A(sesid : JET_SESID, szfilename : JET_PCSTR, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetDetachDatabase2A(sesid, szfilename.unwrap_or(core::mem::zeroed()) as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetDetachDatabase2W(sesid: JET_SESID, szfilename: Option<*const JET_WCHAR>, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDetachDatabase2W(sesid : JET_SESID, szfilename : *const JET_WCHAR, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetDetachDatabase2W(sesid: JET_SESID, szfilename: Option<JET_PCWSTR>, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDetachDatabase2W(sesid : JET_SESID, szfilename : JET_PCWSTR, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetDetachDatabase2W(sesid, szfilename.unwrap_or(core::mem::zeroed()) as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetDetachDatabaseA(sesid: JET_SESID, szfilename: Option<*const JET_CHAR>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDetachDatabaseA(sesid : JET_SESID, szfilename : *const JET_CHAR) -> JET_ERR);
+pub unsafe fn JetDetachDatabaseA(sesid: JET_SESID, szfilename: Option<JET_PCSTR>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDetachDatabaseA(sesid : JET_SESID, szfilename : JET_PCSTR) -> JET_ERR);
     unsafe { JetDetachDatabaseA(sesid, szfilename.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetDetachDatabaseW(sesid: JET_SESID, szfilename: Option<*const JET_WCHAR>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetDetachDatabaseW(sesid : JET_SESID, szfilename : *const JET_WCHAR) -> JET_ERR);
+pub unsafe fn JetDetachDatabaseW(sesid: JET_SESID, szfilename: Option<JET_PCWSTR>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetDetachDatabaseW(sesid : JET_SESID, szfilename : JET_PCWSTR) -> JET_ERR);
     unsafe { JetDetachDatabaseW(sesid, szfilename.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -369,14 +369,14 @@ pub unsafe fn JetDupSession(sesid: JET_SESID, psesid: *mut JET_SESID) -> JET_ERR
     unsafe { JetDupSession(sesid, psesid as _) }
 }
 #[inline]
-pub unsafe fn JetEnableMultiInstanceA(psetsysparam: Option<*const JET_SETSYSPARAM_A>, csetsysparam: JET_UINT32, pcsetsucceed: Option<*mut JET_UINT32>) -> JET_ERR {
+pub unsafe fn JetEnableMultiInstanceA(psetsysparam: Option<&[JET_SETSYSPARAM_A]>, pcsetsucceed: Option<*mut JET_UINT32>) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetEnableMultiInstanceA(psetsysparam : *const JET_SETSYSPARAM_A, csetsysparam : JET_UINT32, pcsetsucceed : *mut JET_UINT32) -> JET_ERR);
-    unsafe { JetEnableMultiInstanceA(psetsysparam.unwrap_or(core::mem::zeroed()) as _, csetsysparam, pcsetsucceed.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetEnableMultiInstanceA(psetsysparam.map_or(core::ptr::null(), |slice| slice.as_ptr()), psetsysparam.map_or(0, |slice| slice.len().try_into().unwrap()), pcsetsucceed.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetEnableMultiInstanceW(psetsysparam: Option<*const JET_SETSYSPARAM_W>, csetsysparam: JET_UINT32, pcsetsucceed: Option<*mut JET_UINT32>) -> JET_ERR {
+pub unsafe fn JetEnableMultiInstanceW(psetsysparam: Option<&[JET_SETSYSPARAM_W]>, pcsetsucceed: Option<*mut JET_UINT32>) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetEnableMultiInstanceW(psetsysparam : *const JET_SETSYSPARAM_W, csetsysparam : JET_UINT32, pcsetsucceed : *mut JET_UINT32) -> JET_ERR);
-    unsafe { JetEnableMultiInstanceW(psetsysparam.unwrap_or(core::mem::zeroed()) as _, csetsysparam, pcsetsucceed.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { JetEnableMultiInstanceW(psetsysparam.map_or(core::ptr::null(), |slice| slice.as_ptr()), psetsysparam.map_or(0, |slice| slice.len().try_into().unwrap()), pcsetsucceed.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn JetEndExternalBackup() -> JET_ERR {
@@ -399,9 +399,9 @@ pub unsafe fn JetEndSession(sesid: JET_SESID, grbit: JET_GRBIT) -> JET_ERR {
     unsafe { JetEndSession(sesid, grbit) }
 }
 #[inline]
-pub unsafe fn JetEnumerateColumns(sesid: JET_SESID, tableid: JET_TABLEID, cenumcolumnid: JET_UINT32, rgenumcolumnid: Option<*const JET_ENUMCOLUMNID>, pcenumcolumn: *mut JET_UINT32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: Option<JET_PVOID>, cbdatamost: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
+pub unsafe fn JetEnumerateColumns(sesid: JET_SESID, tableid: JET_TABLEID, rgenumcolumnid: Option<&[JET_ENUMCOLUMNID]>, pcenumcolumn: *mut JET_UINT32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: Option<JET_PVOID>, cbdatamost: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetEnumerateColumns(sesid : JET_SESID, tableid : JET_TABLEID, cenumcolumnid : JET_UINT32, rgenumcolumnid : *const JET_ENUMCOLUMNID, pcenumcolumn : *mut JET_UINT32, prgenumcolumn : *mut *mut JET_ENUMCOLUMN, pfnrealloc : JET_PFNREALLOC, pvrealloccontext : JET_PVOID, cbdatamost : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
-    unsafe { JetEnumerateColumns(sesid, tableid, cenumcolumnid, rgenumcolumnid.unwrap_or(core::mem::zeroed()) as _, pcenumcolumn as _, prgenumcolumn as _, pfnrealloc, pvrealloccontext.unwrap_or(core::mem::zeroed()) as _, cbdatamost, grbit) }
+    unsafe { JetEnumerateColumns(sesid, tableid, rgenumcolumnid.map_or(0, |slice| slice.len().try_into().unwrap()), rgenumcolumnid.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcenumcolumn as _, prgenumcolumn as _, pfnrealloc, pvrealloccontext.unwrap_or(core::mem::zeroed()) as _, cbdatamost, grbit) }
 }
 #[inline]
 pub unsafe fn JetEscrowUpdate(sesid: JET_SESID, tableid: JET_TABLEID, columnid: JET_COLUMNID, pv: JET_PVOID, cbmax: JET_UINT32, pvold: Option<JET_PVOID>, cboldmax: JET_UINT32, pcboldactual: Option<*mut JET_UINT32>, grbit: JET_GRBIT) -> JET_ERR {
@@ -409,23 +409,23 @@ pub unsafe fn JetEscrowUpdate(sesid: JET_SESID, tableid: JET_TABLEID, columnid: 
     unsafe { JetEscrowUpdate(sesid, tableid, columnid, pv, cbmax, pvold.unwrap_or(core::mem::zeroed()) as _, cboldmax, pcboldactual.unwrap_or(core::mem::zeroed()) as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetExternalRestore2A(szcheckpointfilepath: *const JET_CHAR, szlogpath: *const JET_CHAR, rgrstmap: Option<*const JET_RSTMAP_A>, crstfilemap: JET_INT32, szbackuplogpath: *const JET_CHAR, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: Option<*const JET_CHAR>, sztargetinstancelogpath: Option<*const JET_CHAR>, sztargetinstancecheckpointpath: Option<*const JET_CHAR>, pfn: JET_PFNSTATUS) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetExternalRestore2A(szcheckpointfilepath : *const JET_CHAR, szlogpath : *const JET_CHAR, rgrstmap : *const JET_RSTMAP_A, crstfilemap : JET_INT32, szbackuplogpath : *const JET_CHAR, ploginfo : *mut JET_LOGINFO_A, sztargetinstancename : *const JET_CHAR, sztargetinstancelogpath : *const JET_CHAR, sztargetinstancecheckpointpath : *const JET_CHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
+pub unsafe fn JetExternalRestore2A(szcheckpointfilepath: JET_PSTR, szlogpath: JET_PSTR, rgrstmap: Option<*const JET_RSTMAP_A>, crstfilemap: JET_INT32, szbackuplogpath: JET_PSTR, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: Option<JET_PSTR>, sztargetinstancelogpath: Option<JET_PSTR>, sztargetinstancecheckpointpath: Option<JET_PSTR>, pfn: JET_PFNSTATUS) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetExternalRestore2A(szcheckpointfilepath : JET_PSTR, szlogpath : JET_PSTR, rgrstmap : *const JET_RSTMAP_A, crstfilemap : JET_INT32, szbackuplogpath : JET_PSTR, ploginfo : *mut JET_LOGINFO_A, sztargetinstancename : JET_PSTR, sztargetinstancelogpath : JET_PSTR, sztargetinstancecheckpointpath : JET_PSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
     unsafe { JetExternalRestore2A(szcheckpointfilepath, szlogpath, rgrstmap.unwrap_or(core::mem::zeroed()) as _, crstfilemap, szbackuplogpath, ploginfo as _, sztargetinstancename.unwrap_or(core::mem::zeroed()) as _, sztargetinstancelogpath.unwrap_or(core::mem::zeroed()) as _, sztargetinstancecheckpointpath.unwrap_or(core::mem::zeroed()) as _, pfn) }
 }
 #[inline]
-pub unsafe fn JetExternalRestore2W(szcheckpointfilepath: *const JET_WCHAR, szlogpath: *const JET_WCHAR, rgrstmap: Option<*const JET_RSTMAP_W>, crstfilemap: JET_INT32, szbackuplogpath: *const JET_WCHAR, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: Option<*const JET_WCHAR>, sztargetinstancelogpath: Option<*const JET_WCHAR>, sztargetinstancecheckpointpath: Option<*const JET_WCHAR>, pfn: JET_PFNSTATUS) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetExternalRestore2W(szcheckpointfilepath : *const JET_WCHAR, szlogpath : *const JET_WCHAR, rgrstmap : *const JET_RSTMAP_W, crstfilemap : JET_INT32, szbackuplogpath : *const JET_WCHAR, ploginfo : *mut JET_LOGINFO_W, sztargetinstancename : *const JET_WCHAR, sztargetinstancelogpath : *const JET_WCHAR, sztargetinstancecheckpointpath : *const JET_WCHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
+pub unsafe fn JetExternalRestore2W(szcheckpointfilepath: JET_PWSTR, szlogpath: JET_PWSTR, rgrstmap: Option<*const JET_RSTMAP_W>, crstfilemap: JET_INT32, szbackuplogpath: JET_PWSTR, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: Option<JET_PWSTR>, sztargetinstancelogpath: Option<JET_PWSTR>, sztargetinstancecheckpointpath: Option<JET_PWSTR>, pfn: JET_PFNSTATUS) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetExternalRestore2W(szcheckpointfilepath : JET_PWSTR, szlogpath : JET_PWSTR, rgrstmap : *const JET_RSTMAP_W, crstfilemap : JET_INT32, szbackuplogpath : JET_PWSTR, ploginfo : *mut JET_LOGINFO_W, sztargetinstancename : JET_PWSTR, sztargetinstancelogpath : JET_PWSTR, sztargetinstancecheckpointpath : JET_PWSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
     unsafe { JetExternalRestore2W(szcheckpointfilepath, szlogpath, rgrstmap.unwrap_or(core::mem::zeroed()) as _, crstfilemap, szbackuplogpath, ploginfo as _, sztargetinstancename.unwrap_or(core::mem::zeroed()) as _, sztargetinstancelogpath.unwrap_or(core::mem::zeroed()) as _, sztargetinstancecheckpointpath.unwrap_or(core::mem::zeroed()) as _, pfn) }
 }
 #[inline]
-pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: *const JET_CHAR, szlogpath: *const JET_CHAR, rgrstmap: Option<*const JET_RSTMAP_A>, crstfilemap: JET_INT32, szbackuplogpath: *const JET_CHAR, genlow: JET_INT32, genhigh: JET_INT32, pfn: JET_PFNSTATUS) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetExternalRestoreA(szcheckpointfilepath : *const JET_CHAR, szlogpath : *const JET_CHAR, rgrstmap : *const JET_RSTMAP_A, crstfilemap : JET_INT32, szbackuplogpath : *const JET_CHAR, genlow : JET_INT32, genhigh : JET_INT32, pfn : JET_PFNSTATUS) -> JET_ERR);
+pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: JET_PSTR, szlogpath: JET_PSTR, rgrstmap: Option<*const JET_RSTMAP_A>, crstfilemap: JET_INT32, szbackuplogpath: JET_PSTR, genlow: JET_INT32, genhigh: JET_INT32, pfn: JET_PFNSTATUS) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetExternalRestoreA(szcheckpointfilepath : JET_PSTR, szlogpath : JET_PSTR, rgrstmap : *const JET_RSTMAP_A, crstfilemap : JET_INT32, szbackuplogpath : JET_PSTR, genlow : JET_INT32, genhigh : JET_INT32, pfn : JET_PFNSTATUS) -> JET_ERR);
     unsafe { JetExternalRestoreA(szcheckpointfilepath, szlogpath, rgrstmap.unwrap_or(core::mem::zeroed()) as _, crstfilemap, szbackuplogpath, genlow, genhigh, pfn) }
 }
 #[inline]
-pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: *const JET_WCHAR, szlogpath: *const JET_WCHAR, rgrstmap: Option<*const JET_RSTMAP_W>, crstfilemap: JET_INT32, szbackuplogpath: *const JET_WCHAR, genlow: JET_INT32, genhigh: JET_INT32, pfn: JET_PFNSTATUS) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetExternalRestoreW(szcheckpointfilepath : *const JET_WCHAR, szlogpath : *const JET_WCHAR, rgrstmap : *const JET_RSTMAP_W, crstfilemap : JET_INT32, szbackuplogpath : *const JET_WCHAR, genlow : JET_INT32, genhigh : JET_INT32, pfn : JET_PFNSTATUS) -> JET_ERR);
+pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: JET_PWSTR, szlogpath: JET_PWSTR, rgrstmap: Option<*const JET_RSTMAP_W>, crstfilemap: JET_INT32, szbackuplogpath: JET_PWSTR, genlow: JET_INT32, genhigh: JET_INT32, pfn: JET_PFNSTATUS) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetExternalRestoreW(szcheckpointfilepath : JET_PWSTR, szlogpath : JET_PWSTR, rgrstmap : *const JET_RSTMAP_W, crstfilemap : JET_INT32, szbackuplogpath : JET_PWSTR, genlow : JET_INT32, genhigh : JET_INT32, pfn : JET_PFNSTATUS) -> JET_ERR);
     unsafe { JetExternalRestoreW(szcheckpointfilepath, szlogpath, rgrstmap.unwrap_or(core::mem::zeroed()) as _, crstfilemap, szbackuplogpath, genlow, genhigh, pfn) }
 }
 #[inline]
@@ -434,23 +434,23 @@ pub unsafe fn JetFreeBuffer(pbbuf: *mut JET_CHAR) -> JET_ERR {
     unsafe { JetFreeBuffer(pbbuf as _) }
 }
 #[inline]
-pub unsafe fn JetGetAttachInfoA(szzdatabases: Option<*mut JET_CHAR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetAttachInfoA(szzdatabases : *mut JET_CHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetAttachInfoA(szzdatabases: Option<JET_PSTR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetAttachInfoA(szzdatabases : JET_PSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetGetAttachInfoA(szzdatabases.unwrap_or(core::mem::zeroed()) as _, cbmax, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetGetAttachInfoInstanceA(instance: JET_INSTANCE, szzdatabases: Option<*mut JET_CHAR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetAttachInfoInstanceA(instance : JET_INSTANCE, szzdatabases : *mut JET_CHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetAttachInfoInstanceA(instance: JET_INSTANCE, szzdatabases: Option<JET_PSTR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetAttachInfoInstanceA(instance : JET_INSTANCE, szzdatabases : JET_PSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetGetAttachInfoInstanceA(instance, szzdatabases.unwrap_or(core::mem::zeroed()) as _, cbmax, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetGetAttachInfoInstanceW(instance: JET_INSTANCE, szzdatabases: Option<*mut JET_WCHAR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetAttachInfoInstanceW(instance : JET_INSTANCE, szzdatabases : *mut JET_WCHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetAttachInfoInstanceW(instance: JET_INSTANCE, szzdatabases: Option<JET_PWSTR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetAttachInfoInstanceW(instance : JET_INSTANCE, szzdatabases : JET_PWSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetGetAttachInfoInstanceW(instance, szzdatabases.unwrap_or(core::mem::zeroed()) as _, cbmax, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetGetAttachInfoW(wszzdatabases: Option<*mut JET_WCHAR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetAttachInfoW(wszzdatabases : *mut JET_WCHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetAttachInfoW(wszzdatabases: Option<JET_PWSTR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetAttachInfoW(wszzdatabases : JET_PWSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetGetAttachInfoW(wszzdatabases.unwrap_or(core::mem::zeroed()) as _, cbmax, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -459,23 +459,23 @@ pub unsafe fn JetGetBookmark(sesid: JET_SESID, tableid: JET_TABLEID, pvbookmark:
     unsafe { JetGetBookmark(sesid, tableid, pvbookmark.unwrap_or(core::mem::zeroed()) as _, cbmax, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetGetColumnInfoA(sesid: JET_SESID, dbid: JET_DBID, sztablename: *const JET_CHAR, pcolumnnameorid: Option<*const JET_CHAR>, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetColumnInfoA(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR, pcolumnnameorid : *const JET_CHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetColumnInfoA(sesid: JET_SESID, dbid: JET_DBID, sztablename: JET_PCSTR, pcolumnnameorid: Option<JET_PCSTR>, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetColumnInfoA(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR, pcolumnnameorid : JET_PCSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
     unsafe { JetGetColumnInfoA(sesid, dbid, sztablename, pcolumnnameorid.unwrap_or(core::mem::zeroed()) as _, pvresult as _, cbmax, infolevel) }
 }
 #[inline]
-pub unsafe fn JetGetColumnInfoW(sesid: JET_SESID, dbid: JET_DBID, sztablename: *const JET_WCHAR, pwcolumnnameorid: Option<*const JET_WCHAR>, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetColumnInfoW(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR, pwcolumnnameorid : *const JET_WCHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetColumnInfoW(sesid: JET_SESID, dbid: JET_DBID, sztablename: JET_PCWSTR, pwcolumnnameorid: Option<JET_PCWSTR>, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetColumnInfoW(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR, pwcolumnnameorid : JET_PCWSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
     unsafe { JetGetColumnInfoW(sesid, dbid, sztablename, pwcolumnnameorid.unwrap_or(core::mem::zeroed()) as _, pvresult as _, cbmax, infolevel) }
 }
 #[inline]
-pub unsafe fn JetGetCurrentIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: *mut JET_CHAR, cbindexname: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetCurrentIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *mut JET_CHAR, cbindexname : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetCurrentIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: JET_PSTR, cbindexname: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetCurrentIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PSTR, cbindexname : JET_UINT32) -> JET_ERR);
     unsafe { JetGetCurrentIndexA(sesid, tableid, szindexname as _, cbindexname) }
 }
 #[inline]
-pub unsafe fn JetGetCurrentIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: *mut JET_WCHAR, cbindexname: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetCurrentIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *mut JET_WCHAR, cbindexname : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetCurrentIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: JET_PWSTR, cbindexname: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetCurrentIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PWSTR, cbindexname : JET_UINT32) -> JET_ERR);
     unsafe { JetGetCurrentIndexW(sesid, tableid, szindexname as _, cbindexname) }
 }
 #[inline]
@@ -484,13 +484,13 @@ pub unsafe fn JetGetCursorInfo(sesid: JET_SESID, tableid: JET_TABLEID, pvresult:
     unsafe { JetGetCursorInfo(sesid, tableid, pvresult as _, cbmax, infolevel) }
 }
 #[inline]
-pub unsafe fn JetGetDatabaseFileInfoA(szdatabasename: *const JET_CHAR, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetDatabaseFileInfoA(szdatabasename : *const JET_CHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetDatabaseFileInfoA(szdatabasename: JET_PCSTR, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetDatabaseFileInfoA(szdatabasename : JET_PCSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
     unsafe { JetGetDatabaseFileInfoA(szdatabasename, pvresult as _, cbmax, infolevel) }
 }
 #[inline]
-pub unsafe fn JetGetDatabaseFileInfoW(szdatabasename: *const JET_WCHAR, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetDatabaseFileInfoW(szdatabasename : *const JET_WCHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetDatabaseFileInfoW(szdatabasename: JET_PCWSTR, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetDatabaseFileInfoW(szdatabasename : JET_PCWSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
     unsafe { JetGetDatabaseFileInfoW(szdatabasename, pvresult as _, cbmax, infolevel) }
 }
 #[inline]
@@ -509,13 +509,13 @@ pub unsafe fn JetGetErrorInfoW(pvcontext: Option<JET_PVOID>, pvresult: JET_PVOID
     unsafe { JetGetErrorInfoW(pvcontext.unwrap_or(core::mem::zeroed()) as _, pvresult as _, cbmax, infolevel, grbit) }
 }
 #[inline]
-pub unsafe fn JetGetIndexInfoA(sesid: JET_SESID, dbid: JET_DBID, sztablename: *const JET_CHAR, szindexname: Option<*const JET_CHAR>, pvresult: JET_PVOID, cbresult: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetIndexInfoA(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR, szindexname : *const JET_CHAR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetIndexInfoA(sesid: JET_SESID, dbid: JET_DBID, sztablename: JET_PCSTR, szindexname: Option<JET_PCSTR>, pvresult: JET_PVOID, cbresult: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetIndexInfoA(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR, szindexname : JET_PCSTR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
     unsafe { JetGetIndexInfoA(sesid, dbid, sztablename, szindexname.unwrap_or(core::mem::zeroed()) as _, pvresult as _, cbresult, infolevel) }
 }
 #[inline]
-pub unsafe fn JetGetIndexInfoW(sesid: JET_SESID, dbid: JET_DBID, sztablename: *const JET_WCHAR, szindexname: Option<*const JET_WCHAR>, pvresult: JET_PVOID, cbresult: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetIndexInfoW(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR, szindexname : *const JET_WCHAR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetIndexInfoW(sesid: JET_SESID, dbid: JET_DBID, sztablename: JET_PCWSTR, szindexname: Option<JET_PCWSTR>, pvresult: JET_PVOID, cbresult: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetIndexInfoW(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR, szindexname : JET_PCWSTR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
     unsafe { JetGetIndexInfoW(sesid, dbid, sztablename, szindexname.unwrap_or(core::mem::zeroed()) as _, pvresult as _, cbresult, infolevel) }
 }
 #[inline]
@@ -544,43 +544,43 @@ pub unsafe fn JetGetLock(sesid: JET_SESID, tableid: JET_TABLEID, grbit: JET_GRBI
     unsafe { JetGetLock(sesid, tableid, grbit) }
 }
 #[inline]
-pub unsafe fn JetGetLogInfoA(szzlogs: Option<*mut JET_CHAR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetLogInfoA(szzlogs : *mut JET_CHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetLogInfoA(szzlogs: Option<JET_PSTR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetLogInfoA(szzlogs : JET_PSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetGetLogInfoA(szzlogs.unwrap_or(core::mem::zeroed()) as _, cbmax, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetGetLogInfoInstance2A(instance: JET_INSTANCE, szzlogs: Option<*mut JET_CHAR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>, ploginfo: Option<*mut JET_LOGINFO_A>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetLogInfoInstance2A(instance : JET_INSTANCE, szzlogs : *mut JET_CHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32, ploginfo : *mut JET_LOGINFO_A) -> JET_ERR);
+pub unsafe fn JetGetLogInfoInstance2A(instance: JET_INSTANCE, szzlogs: Option<JET_PSTR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>, ploginfo: Option<*mut JET_LOGINFO_A>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetLogInfoInstance2A(instance : JET_INSTANCE, szzlogs : JET_PSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32, ploginfo : *mut JET_LOGINFO_A) -> JET_ERR);
     unsafe { JetGetLogInfoInstance2A(instance, szzlogs.unwrap_or(core::mem::zeroed()) as _, cbmax, pcbactual.unwrap_or(core::mem::zeroed()) as _, ploginfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetGetLogInfoInstance2W(instance: JET_INSTANCE, wszzlogs: Option<*mut JET_WCHAR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>, ploginfo: Option<*mut JET_LOGINFO_W>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetLogInfoInstance2W(instance : JET_INSTANCE, wszzlogs : *mut JET_WCHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32, ploginfo : *mut JET_LOGINFO_W) -> JET_ERR);
+pub unsafe fn JetGetLogInfoInstance2W(instance: JET_INSTANCE, wszzlogs: Option<JET_PWSTR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>, ploginfo: Option<*mut JET_LOGINFO_W>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetLogInfoInstance2W(instance : JET_INSTANCE, wszzlogs : JET_PWSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32, ploginfo : *mut JET_LOGINFO_W) -> JET_ERR);
     unsafe { JetGetLogInfoInstance2W(instance, wszzlogs.unwrap_or(core::mem::zeroed()) as _, cbmax, pcbactual.unwrap_or(core::mem::zeroed()) as _, ploginfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetGetLogInfoInstanceA(instance: JET_INSTANCE, szzlogs: Option<*mut JET_CHAR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetLogInfoInstanceA(instance : JET_INSTANCE, szzlogs : *mut JET_CHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetLogInfoInstanceA(instance: JET_INSTANCE, szzlogs: Option<JET_PSTR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetLogInfoInstanceA(instance : JET_INSTANCE, szzlogs : JET_PSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetGetLogInfoInstanceA(instance, szzlogs.unwrap_or(core::mem::zeroed()) as _, cbmax, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetGetLogInfoInstanceW(instance: JET_INSTANCE, wszzlogs: Option<*mut JET_WCHAR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetLogInfoInstanceW(instance : JET_INSTANCE, wszzlogs : *mut JET_WCHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetLogInfoInstanceW(instance: JET_INSTANCE, wszzlogs: Option<JET_PWSTR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetLogInfoInstanceW(instance : JET_INSTANCE, wszzlogs : JET_PWSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetGetLogInfoInstanceW(instance, wszzlogs.unwrap_or(core::mem::zeroed()) as _, cbmax, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetGetLogInfoW(szzlogs: Option<*mut JET_WCHAR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetLogInfoW(szzlogs : *mut JET_WCHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetLogInfoW(szzlogs: Option<JET_PWSTR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetLogInfoW(szzlogs : JET_PWSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetGetLogInfoW(szzlogs.unwrap_or(core::mem::zeroed()) as _, cbmax, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetGetObjectInfoA(sesid: JET_SESID, dbid: JET_DBID, objtyp: JET_OBJTYP, szcontainername: Option<*const JET_CHAR>, szobjectname: Option<*const JET_CHAR>, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetObjectInfoA(sesid : JET_SESID, dbid : JET_DBID, objtyp : JET_OBJTYP, szcontainername : *const JET_CHAR, szobjectname : *const JET_CHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetObjectInfoA(sesid: JET_SESID, dbid: JET_DBID, objtyp: JET_OBJTYP, szcontainername: Option<JET_PCSTR>, szobjectname: Option<JET_PCSTR>, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetObjectInfoA(sesid : JET_SESID, dbid : JET_DBID, objtyp : JET_OBJTYP, szcontainername : JET_PCSTR, szobjectname : JET_PCSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
     unsafe { JetGetObjectInfoA(sesid, dbid, objtyp, szcontainername.unwrap_or(core::mem::zeroed()) as _, szobjectname.unwrap_or(core::mem::zeroed()) as _, pvresult as _, cbmax, infolevel) }
 }
 #[inline]
-pub unsafe fn JetGetObjectInfoW(sesid: JET_SESID, dbid: JET_DBID, objtyp: JET_OBJTYP, szcontainername: Option<*const JET_WCHAR>, szobjectname: Option<*const JET_WCHAR>, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetObjectInfoW(sesid : JET_SESID, dbid : JET_DBID, objtyp : JET_OBJTYP, szcontainername : *const JET_WCHAR, szobjectname : *const JET_WCHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetObjectInfoW(sesid: JET_SESID, dbid: JET_DBID, objtyp: JET_OBJTYP, szcontainername: Option<JET_PCWSTR>, szobjectname: Option<JET_PCWSTR>, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetObjectInfoW(sesid : JET_SESID, dbid : JET_DBID, objtyp : JET_OBJTYP, szcontainername : JET_PCWSTR, szobjectname : JET_PCWSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
     unsafe { JetGetObjectInfoW(sesid, dbid, objtyp, szcontainername.unwrap_or(core::mem::zeroed()) as _, szobjectname.unwrap_or(core::mem::zeroed()) as _, pvresult as _, cbmax, infolevel) }
 }
 #[inline]
@@ -609,33 +609,33 @@ pub unsafe fn JetGetSessionParameter(sesid: Option<JET_SESID>, sesparamid: JET_U
     unsafe { JetGetSessionParameter(sesid.unwrap_or(core::mem::zeroed()) as _, sesparamid, pvparam, cbparammax, pcbparamactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetGetSystemParameterA(instance: JET_INSTANCE, sesid: Option<JET_SESID>, paramid: JET_UINT32, plparam: Option<*mut JET_API_PTR>, szparam: Option<*mut JET_CHAR>, cbmax: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetSystemParameterA(instance : JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, plparam : *mut JET_API_PTR, szparam : *mut JET_CHAR, cbmax : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetSystemParameterA(instance: JET_INSTANCE, sesid: Option<JET_SESID>, paramid: JET_UINT32, plparam: Option<*mut JET_API_PTR>, szparam: Option<JET_PSTR>, cbmax: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetSystemParameterA(instance : JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, plparam : *mut JET_API_PTR, szparam : JET_PSTR, cbmax : JET_UINT32) -> JET_ERR);
     unsafe { JetGetSystemParameterA(instance, sesid.unwrap_or(core::mem::zeroed()) as _, paramid, plparam.unwrap_or(core::mem::zeroed()) as _, szparam.unwrap_or(core::mem::zeroed()) as _, cbmax) }
 }
 #[inline]
-pub unsafe fn JetGetSystemParameterW(instance: JET_INSTANCE, sesid: Option<JET_SESID>, paramid: JET_UINT32, plparam: Option<*mut JET_API_PTR>, szparam: Option<*mut JET_WCHAR>, cbmax: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetSystemParameterW(instance : JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, plparam : *mut JET_API_PTR, szparam : *mut JET_WCHAR, cbmax : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetSystemParameterW(instance: JET_INSTANCE, sesid: Option<JET_SESID>, paramid: JET_UINT32, plparam: Option<*mut JET_API_PTR>, szparam: Option<JET_PWSTR>, cbmax: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetSystemParameterW(instance : JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, plparam : *mut JET_API_PTR, szparam : JET_PWSTR, cbmax : JET_UINT32) -> JET_ERR);
     unsafe { JetGetSystemParameterW(instance, sesid.unwrap_or(core::mem::zeroed()) as _, paramid, plparam.unwrap_or(core::mem::zeroed()) as _, szparam.unwrap_or(core::mem::zeroed()) as _, cbmax) }
 }
 #[inline]
-pub unsafe fn JetGetTableColumnInfoA(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Option<*const JET_CHAR>, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetTableColumnInfoA(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_CHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetTableColumnInfoA(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Option<JET_PCSTR>, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetTableColumnInfoA(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
     unsafe { JetGetTableColumnInfoA(sesid, tableid, szcolumnname.unwrap_or(core::mem::zeroed()) as _, pvresult as _, cbmax, infolevel) }
 }
 #[inline]
-pub unsafe fn JetGetTableColumnInfoW(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Option<*const JET_WCHAR>, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetTableColumnInfoW(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : *const JET_WCHAR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetTableColumnInfoW(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Option<JET_PCWSTR>, pvresult: JET_PVOID, cbmax: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetTableColumnInfoW(sesid : JET_SESID, tableid : JET_TABLEID, szcolumnname : JET_PCWSTR, pvresult : JET_PVOID, cbmax : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
     unsafe { JetGetTableColumnInfoW(sesid, tableid, szcolumnname.unwrap_or(core::mem::zeroed()) as _, pvresult as _, cbmax, infolevel) }
 }
 #[inline]
-pub unsafe fn JetGetTableIndexInfoA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<*const JET_CHAR>, pvresult: JET_PVOID, cbresult: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetTableIndexInfoA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_CHAR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetTableIndexInfoA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<JET_PCSTR>, pvresult: JET_PVOID, cbresult: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetTableIndexInfoA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
     unsafe { JetGetTableIndexInfoA(sesid, tableid, szindexname.unwrap_or(core::mem::zeroed()) as _, pvresult as _, cbresult, infolevel) }
 }
 #[inline]
-pub unsafe fn JetGetTableIndexInfoW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<*const JET_WCHAR>, pvresult: JET_PVOID, cbresult: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetTableIndexInfoW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_WCHAR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetTableIndexInfoW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<JET_PCWSTR>, pvresult: JET_PVOID, cbresult: JET_UINT32, infolevel: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetTableIndexInfoW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCWSTR, pvresult : JET_PVOID, cbresult : JET_UINT32, infolevel : JET_UINT32) -> JET_ERR);
     unsafe { JetGetTableIndexInfoW(sesid, tableid, szindexname.unwrap_or(core::mem::zeroed()) as _, pvresult as _, cbresult, infolevel) }
 }
 #[inline]
@@ -654,13 +654,13 @@ pub unsafe fn JetGetThreadStats(pvresult: JET_PVOID, cbmax: JET_UINT32) -> JET_E
     unsafe { JetGetThreadStats(pvresult as _, cbmax) }
 }
 #[inline]
-pub unsafe fn JetGetTruncateLogInfoInstanceA(instance: JET_INSTANCE, szzlogs: Option<*mut JET_CHAR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetTruncateLogInfoInstanceA(instance : JET_INSTANCE, szzlogs : *mut JET_CHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetTruncateLogInfoInstanceA(instance: JET_INSTANCE, szzlogs: Option<JET_PSTR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetTruncateLogInfoInstanceA(instance : JET_INSTANCE, szzlogs : JET_PSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetGetTruncateLogInfoInstanceA(instance, szzlogs.unwrap_or(core::mem::zeroed()) as _, cbmax, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetGetTruncateLogInfoInstanceW(instance: JET_INSTANCE, wszzlogs: Option<*mut JET_WCHAR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetGetTruncateLogInfoInstanceW(instance : JET_INSTANCE, wszzlogs : *mut JET_WCHAR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetGetTruncateLogInfoInstanceW(instance: JET_INSTANCE, wszzlogs: Option<JET_PWSTR>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetGetTruncateLogInfoInstanceW(instance : JET_INSTANCE, wszzlogs : JET_PWSTR, cbmax : JET_UINT32, pcbactual : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetGetTruncateLogInfoInstanceW(instance, wszzlogs.unwrap_or(core::mem::zeroed()) as _, cbmax, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -721,7 +721,7 @@ pub unsafe fn JetInit3W(pinstance: Option<*mut JET_INSTANCE>, prstinfo: Option<*
 #[inline]
 pub unsafe fn JetIntersectIndexes(sesid: JET_SESID, rgindexrange: &[JET_INDEXRANGE], precordlist: *mut JET_RECORDLIST, grbit: JET_GRBIT) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetIntersectIndexes(sesid : JET_SESID, rgindexrange : *const JET_INDEXRANGE, cindexrange : JET_UINT32, precordlist : *mut JET_RECORDLIST, grbit : JET_GRBIT) -> JET_ERR);
-    unsafe { JetIntersectIndexes(sesid, rgindexrange.as_ptr(), JET_UINT32(rgindexrange.len().try_into().unwrap()), precordlist as _, grbit) }
+    unsafe { JetIntersectIndexes(sesid, rgindexrange.as_ptr(), rgindexrange.len().try_into().unwrap(), precordlist as _, grbit) }
 }
 #[inline]
 pub unsafe fn JetMakeKey(sesid: JET_SESID, tableid: JET_TABLEID, pvdata: Option<JET_PCVOID>, cbdata: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
@@ -789,43 +789,43 @@ pub unsafe fn JetOSSnapshotTruncateLogInstance(snapid: JET_OSSNAPID, instance: J
     unsafe { JetOSSnapshotTruncateLogInstance(snapid, instance, grbit) }
 }
 #[inline]
-pub unsafe fn JetOpenDatabaseA(sesid: JET_SESID, szfilename: *const JET_CHAR, szconnect: Option<*const JET_CHAR>, pdbid: *mut JET_DBID, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetOpenDatabaseA(sesid : JET_SESID, szfilename : *const JET_CHAR, szconnect : *const JET_CHAR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetOpenDatabaseA(sesid: JET_SESID, szfilename: JET_PCSTR, szconnect: Option<JET_PCSTR>, pdbid: *mut JET_DBID, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetOpenDatabaseA(sesid : JET_SESID, szfilename : JET_PCSTR, szconnect : JET_PCSTR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetOpenDatabaseA(sesid, szfilename, szconnect.unwrap_or(core::mem::zeroed()) as _, pdbid as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetOpenDatabaseW(sesid: JET_SESID, szfilename: *const JET_WCHAR, szconnect: Option<*const JET_WCHAR>, pdbid: *mut JET_DBID, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetOpenDatabaseW(sesid : JET_SESID, szfilename : *const JET_WCHAR, szconnect : *const JET_WCHAR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetOpenDatabaseW(sesid: JET_SESID, szfilename: JET_PCWSTR, szconnect: Option<JET_PCWSTR>, pdbid: *mut JET_DBID, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetOpenDatabaseW(sesid : JET_SESID, szfilename : JET_PCWSTR, szconnect : JET_PCWSTR, pdbid : *mut JET_DBID, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetOpenDatabaseW(sesid, szfilename, szconnect.unwrap_or(core::mem::zeroed()) as _, pdbid as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetOpenFileA(szfilename: *const JET_CHAR, phffile: *mut JET_HANDLE, pulfilesizelow: *mut JET_UINT32, pulfilesizehigh: *mut JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetOpenFileA(szfilename : *const JET_CHAR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetOpenFileA(szfilename: JET_PCSTR, phffile: *mut JET_HANDLE, pulfilesizelow: *mut JET_UINT32, pulfilesizehigh: *mut JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetOpenFileA(szfilename : JET_PCSTR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetOpenFileA(szfilename, phffile as _, pulfilesizelow as _, pulfilesizehigh as _) }
 }
 #[inline]
-pub unsafe fn JetOpenFileInstanceA(instance: JET_INSTANCE, szfilename: *const JET_CHAR, phffile: *mut JET_HANDLE, pulfilesizelow: *mut JET_UINT32, pulfilesizehigh: *mut JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetOpenFileInstanceA(instance : JET_INSTANCE, szfilename : *const JET_CHAR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetOpenFileInstanceA(instance: JET_INSTANCE, szfilename: JET_PCSTR, phffile: *mut JET_HANDLE, pulfilesizelow: *mut JET_UINT32, pulfilesizehigh: *mut JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetOpenFileInstanceA(instance : JET_INSTANCE, szfilename : JET_PCSTR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetOpenFileInstanceA(instance, szfilename, phffile as _, pulfilesizelow as _, pulfilesizehigh as _) }
 }
 #[inline]
-pub unsafe fn JetOpenFileInstanceW(instance: JET_INSTANCE, szfilename: *const JET_WCHAR, phffile: *mut JET_HANDLE, pulfilesizelow: *mut JET_UINT32, pulfilesizehigh: *mut JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetOpenFileInstanceW(instance : JET_INSTANCE, szfilename : *const JET_WCHAR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetOpenFileInstanceW(instance: JET_INSTANCE, szfilename: JET_PCWSTR, phffile: *mut JET_HANDLE, pulfilesizelow: *mut JET_UINT32, pulfilesizehigh: *mut JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetOpenFileInstanceW(instance : JET_INSTANCE, szfilename : JET_PCWSTR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetOpenFileInstanceW(instance, szfilename, phffile as _, pulfilesizelow as _, pulfilesizehigh as _) }
 }
 #[inline]
-pub unsafe fn JetOpenFileW(szfilename: *const JET_WCHAR, phffile: *mut JET_HANDLE, pulfilesizelow: *mut JET_UINT32, pulfilesizehigh: *mut JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetOpenFileW(szfilename : *const JET_WCHAR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetOpenFileW(szfilename: JET_PCWSTR, phffile: *mut JET_HANDLE, pulfilesizelow: *mut JET_UINT32, pulfilesizehigh: *mut JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetOpenFileW(szfilename : JET_PCWSTR, phffile : *mut JET_HANDLE, pulfilesizelow : *mut JET_UINT32, pulfilesizehigh : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetOpenFileW(szfilename, phffile as _, pulfilesizelow as _, pulfilesizehigh as _) }
 }
 #[inline]
-pub unsafe fn JetOpenTableA(sesid: JET_SESID, dbid: JET_DBID, sztablename: *const JET_CHAR, pvparameters: Option<JET_PCVOID>, cbparameters: JET_UINT32, grbit: JET_GRBIT, ptableid: *mut JET_TABLEID) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetOpenTableA(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR, pvparameters : JET_PCVOID, cbparameters : JET_UINT32, grbit : JET_GRBIT, ptableid : *mut JET_TABLEID) -> JET_ERR);
+pub unsafe fn JetOpenTableA(sesid: JET_SESID, dbid: JET_DBID, sztablename: JET_PCSTR, pvparameters: Option<JET_PCVOID>, cbparameters: JET_UINT32, grbit: JET_GRBIT, ptableid: *mut JET_TABLEID) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetOpenTableA(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR, pvparameters : JET_PCVOID, cbparameters : JET_UINT32, grbit : JET_GRBIT, ptableid : *mut JET_TABLEID) -> JET_ERR);
     unsafe { JetOpenTableA(sesid, dbid, sztablename, pvparameters.unwrap_or(core::mem::zeroed()) as _, cbparameters, grbit, ptableid as _) }
 }
 #[inline]
-pub unsafe fn JetOpenTableW(sesid: JET_SESID, dbid: JET_DBID, sztablename: *const JET_WCHAR, pvparameters: Option<JET_PCVOID>, cbparameters: JET_UINT32, grbit: JET_GRBIT, ptableid: *mut JET_TABLEID) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetOpenTableW(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR, pvparameters : JET_PCVOID, cbparameters : JET_UINT32, grbit : JET_GRBIT, ptableid : *mut JET_TABLEID) -> JET_ERR);
+pub unsafe fn JetOpenTableW(sesid: JET_SESID, dbid: JET_DBID, sztablename: JET_PCWSTR, pvparameters: Option<JET_PCVOID>, cbparameters: JET_UINT32, grbit: JET_GRBIT, ptableid: *mut JET_TABLEID) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetOpenTableW(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR, pvparameters : JET_PCVOID, cbparameters : JET_UINT32, grbit : JET_GRBIT, ptableid : *mut JET_TABLEID) -> JET_ERR);
     unsafe { JetOpenTableW(sesid, dbid, sztablename, pvparameters.unwrap_or(core::mem::zeroed()) as _, cbparameters, grbit, ptableid as _) }
 }
 #[inline]
@@ -861,7 +861,7 @@ pub unsafe fn JetPrepareUpdate(sesid: JET_SESID, tableid: JET_TABLEID, prep: JET
 #[inline]
 pub unsafe fn JetPrereadIndexRanges(sesid: JET_SESID, tableid: JET_TABLEID, rgindexranges: &[JET_INDEX_RANGE], pcrangespreread: Option<*mut JET_UINT32>, rgcolumnidpreread: &[JET_COLUMNID], grbit: JET_GRBIT) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetPrereadIndexRanges(sesid : JET_SESID, tableid : JET_TABLEID, rgindexranges : *const JET_INDEX_RANGE, cindexranges : JET_UINT32, pcrangespreread : *mut JET_UINT32, rgcolumnidpreread : *const JET_COLUMNID, ccolumnidpreread : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
-    unsafe { JetPrereadIndexRanges(sesid, tableid, rgindexranges.as_ptr(), JET_UINT32(rgindexranges.len().try_into().unwrap()), pcrangespreread.unwrap_or(core::mem::zeroed()) as _, rgcolumnidpreread.as_ptr(), JET_UINT32(rgcolumnidpreread.len().try_into().unwrap()), grbit) }
+    unsafe { JetPrereadIndexRanges(sesid, tableid, rgindexranges.as_ptr(), rgindexranges.len().try_into().unwrap(), pcrangespreread.unwrap_or(core::mem::zeroed()) as _, rgcolumnidpreread.as_ptr(), rgcolumnidpreread.len().try_into().unwrap(), grbit) }
 }
 #[inline]
 pub unsafe fn JetPrereadKeys(sesid: JET_SESID, tableid: JET_TABLEID, rgpvkeys: *const JET_PCVOID, rgcbkeys: *const JET_UINT32, ckeys: JET_INT32, pckeyspreread: Option<*mut JET_INT32>, grbit: JET_GRBIT) -> JET_ERR {
@@ -884,23 +884,23 @@ pub unsafe fn JetRegisterCallback(sesid: JET_SESID, tableid: JET_TABLEID, cbtyp:
     unsafe { JetRegisterCallback(sesid, tableid, cbtyp, pcallback, pvcontext.unwrap_or(core::mem::zeroed()) as _, phcallbackid) }
 }
 #[inline]
-pub unsafe fn JetRenameColumnA(sesid: JET_SESID, tableid: JET_TABLEID, szname: *const JET_CHAR, sznamenew: *const JET_CHAR, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetRenameColumnA(sesid : JET_SESID, tableid : JET_TABLEID, szname : *const JET_CHAR, sznamenew : *const JET_CHAR, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetRenameColumnA(sesid: JET_SESID, tableid: JET_TABLEID, szname: JET_PCSTR, sznamenew: JET_PCSTR, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetRenameColumnA(sesid : JET_SESID, tableid : JET_TABLEID, szname : JET_PCSTR, sznamenew : JET_PCSTR, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetRenameColumnA(sesid, tableid, szname, sznamenew, grbit) }
 }
 #[inline]
-pub unsafe fn JetRenameColumnW(sesid: JET_SESID, tableid: JET_TABLEID, szname: *const JET_WCHAR, sznamenew: *const JET_WCHAR, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetRenameColumnW(sesid : JET_SESID, tableid : JET_TABLEID, szname : *const JET_WCHAR, sznamenew : *const JET_WCHAR, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetRenameColumnW(sesid: JET_SESID, tableid: JET_TABLEID, szname: JET_PCWSTR, sznamenew: JET_PCWSTR, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetRenameColumnW(sesid : JET_SESID, tableid : JET_TABLEID, szname : JET_PCWSTR, sznamenew : JET_PCWSTR, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetRenameColumnW(sesid, tableid, szname, sznamenew, grbit) }
 }
 #[inline]
-pub unsafe fn JetRenameTableA(sesid: JET_SESID, dbid: JET_DBID, szname: *const JET_CHAR, sznamenew: *const JET_CHAR) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetRenameTableA(sesid : JET_SESID, dbid : JET_DBID, szname : *const JET_CHAR, sznamenew : *const JET_CHAR) -> JET_ERR);
+pub unsafe fn JetRenameTableA(sesid: JET_SESID, dbid: JET_DBID, szname: JET_PCSTR, sznamenew: JET_PCSTR) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetRenameTableA(sesid : JET_SESID, dbid : JET_DBID, szname : JET_PCSTR, sznamenew : JET_PCSTR) -> JET_ERR);
     unsafe { JetRenameTableA(sesid, dbid, szname, sznamenew) }
 }
 #[inline]
-pub unsafe fn JetRenameTableW(sesid: JET_SESID, dbid: JET_DBID, szname: *const JET_WCHAR, sznamenew: *const JET_WCHAR) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetRenameTableW(sesid : JET_SESID, dbid : JET_DBID, szname : *const JET_WCHAR, sznamenew : *const JET_WCHAR) -> JET_ERR);
+pub unsafe fn JetRenameTableW(sesid: JET_SESID, dbid: JET_DBID, szname: JET_PCWSTR, sznamenew: JET_PCWSTR) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetRenameTableW(sesid : JET_SESID, dbid : JET_DBID, szname : JET_PCWSTR, sznamenew : JET_PCWSTR) -> JET_ERR);
     unsafe { JetRenameTableW(sesid, dbid, szname, sznamenew) }
 }
 #[inline]
@@ -919,33 +919,33 @@ pub unsafe fn JetResizeDatabase(sesid: JET_SESID, dbid: JET_DBID, cpgtarget: JET
     unsafe { JetResizeDatabase(sesid, dbid, cpgtarget, pcpgactual as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetRestore2A(sz: *const JET_CHAR, szdest: Option<*const JET_CHAR>, pfn: JET_PFNSTATUS) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetRestore2A(sz : *const JET_CHAR, szdest : *const JET_CHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
+pub unsafe fn JetRestore2A(sz: JET_PCSTR, szdest: Option<JET_PCSTR>, pfn: JET_PFNSTATUS) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetRestore2A(sz : JET_PCSTR, szdest : JET_PCSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
     unsafe { JetRestore2A(sz, szdest.unwrap_or(core::mem::zeroed()) as _, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestore2W(sz: *const JET_WCHAR, szdest: Option<*const JET_WCHAR>, pfn: JET_PFNSTATUS) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetRestore2W(sz : *const JET_WCHAR, szdest : *const JET_WCHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
+pub unsafe fn JetRestore2W(sz: JET_PCWSTR, szdest: Option<JET_PCWSTR>, pfn: JET_PFNSTATUS) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetRestore2W(sz : JET_PCWSTR, szdest : JET_PCWSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
     unsafe { JetRestore2W(sz, szdest.unwrap_or(core::mem::zeroed()) as _, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestoreA(szsource: *const JET_CHAR, pfn: JET_PFNSTATUS) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetRestoreA(szsource : *const JET_CHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
+pub unsafe fn JetRestoreA(szsource: JET_PCSTR, pfn: JET_PFNSTATUS) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetRestoreA(szsource : JET_PCSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
     unsafe { JetRestoreA(szsource, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestoreInstanceA(instance: JET_INSTANCE, sz: *const JET_CHAR, szdest: Option<*const JET_CHAR>, pfn: JET_PFNSTATUS) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetRestoreInstanceA(instance : JET_INSTANCE, sz : *const JET_CHAR, szdest : *const JET_CHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
+pub unsafe fn JetRestoreInstanceA(instance: JET_INSTANCE, sz: JET_PCSTR, szdest: Option<JET_PCSTR>, pfn: JET_PFNSTATUS) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetRestoreInstanceA(instance : JET_INSTANCE, sz : JET_PCSTR, szdest : JET_PCSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
     unsafe { JetRestoreInstanceA(instance, sz, szdest.unwrap_or(core::mem::zeroed()) as _, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestoreInstanceW(instance: JET_INSTANCE, sz: *const JET_WCHAR, szdest: Option<*const JET_WCHAR>, pfn: JET_PFNSTATUS) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetRestoreInstanceW(instance : JET_INSTANCE, sz : *const JET_WCHAR, szdest : *const JET_WCHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
+pub unsafe fn JetRestoreInstanceW(instance: JET_INSTANCE, sz: JET_PCWSTR, szdest: Option<JET_PCWSTR>, pfn: JET_PFNSTATUS) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetRestoreInstanceW(instance : JET_INSTANCE, sz : JET_PCWSTR, szdest : JET_PCWSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
     unsafe { JetRestoreInstanceW(instance, sz, szdest.unwrap_or(core::mem::zeroed()) as _, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestoreW(szsource: *const JET_WCHAR, pfn: JET_PFNSTATUS) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetRestoreW(szsource : *const JET_WCHAR, pfn : JET_PFNSTATUS) -> JET_ERR);
+pub unsafe fn JetRestoreW(szsource: JET_PCWSTR, pfn: JET_PFNSTATUS) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetRestoreW(szsource : JET_PCWSTR, pfn : JET_PFNSTATUS) -> JET_ERR);
     unsafe { JetRestoreW(szsource, pfn) }
 }
 #[inline]
@@ -954,9 +954,9 @@ pub unsafe fn JetRetrieveColumn(sesid: JET_SESID, tableid: JET_TABLEID, columnid
     unsafe { JetRetrieveColumn(sesid, tableid, columnid, pvdata.unwrap_or(core::mem::zeroed()) as _, cbdata, pcbactual.unwrap_or(core::mem::zeroed()) as _, grbit, pretinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetRetrieveColumns(sesid: JET_SESID, tableid: JET_TABLEID, pretrievecolumn: Option<*mut JET_RETRIEVECOLUMN>, cretrievecolumn: JET_UINT32) -> JET_ERR {
+pub unsafe fn JetRetrieveColumns(sesid: JET_SESID, tableid: JET_TABLEID, pretrievecolumn: Option<&mut [JET_RETRIEVECOLUMN]>) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetRetrieveColumns(sesid : JET_SESID, tableid : JET_TABLEID, pretrievecolumn : *mut JET_RETRIEVECOLUMN, cretrievecolumn : JET_UINT32) -> JET_ERR);
-    unsafe { JetRetrieveColumns(sesid, tableid, pretrievecolumn.unwrap_or(core::mem::zeroed()) as _, cretrievecolumn) }
+    unsafe { JetRetrieveColumns(sesid, tableid, pretrievecolumn.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pretrievecolumn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn JetRetrieveKey(sesid: JET_SESID, tableid: JET_TABLEID, pvkey: Option<JET_PVOID>, cbmax: JET_UINT32, pcbactual: Option<*mut JET_UINT32>, grbit: JET_GRBIT) -> JET_ERR {
@@ -979,73 +979,73 @@ pub unsafe fn JetSetColumn(sesid: JET_SESID, tableid: JET_TABLEID, columnid: JET
     unsafe { JetSetColumn(sesid, tableid, columnid, pvdata.unwrap_or(core::mem::zeroed()) as _, cbdata, grbit, psetinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetSetColumnDefaultValueA(sesid: JET_SESID, dbid: JET_DBID, sztablename: *const JET_CHAR, szcolumnname: *const JET_CHAR, pvdata: JET_PCVOID, cbdata: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetSetColumnDefaultValueA(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_CHAR, szcolumnname : *const JET_CHAR, pvdata : JET_PCVOID, cbdata : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetSetColumnDefaultValueA(sesid: JET_SESID, dbid: JET_DBID, sztablename: JET_PCSTR, szcolumnname: JET_PCSTR, pvdata: JET_PCVOID, cbdata: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetSetColumnDefaultValueA(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCSTR, szcolumnname : JET_PCSTR, pvdata : JET_PCVOID, cbdata : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetSetColumnDefaultValueA(sesid, dbid, sztablename, szcolumnname, pvdata, cbdata, grbit) }
 }
 #[inline]
-pub unsafe fn JetSetColumnDefaultValueW(sesid: JET_SESID, dbid: JET_DBID, sztablename: *const JET_WCHAR, szcolumnname: *const JET_WCHAR, pvdata: JET_PCVOID, cbdata: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetSetColumnDefaultValueW(sesid : JET_SESID, dbid : JET_DBID, sztablename : *const JET_WCHAR, szcolumnname : *const JET_WCHAR, pvdata : JET_PCVOID, cbdata : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetSetColumnDefaultValueW(sesid: JET_SESID, dbid: JET_DBID, sztablename: JET_PCWSTR, szcolumnname: JET_PCWSTR, pvdata: JET_PCVOID, cbdata: JET_UINT32, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetSetColumnDefaultValueW(sesid : JET_SESID, dbid : JET_DBID, sztablename : JET_PCWSTR, szcolumnname : JET_PCWSTR, pvdata : JET_PCVOID, cbdata : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetSetColumnDefaultValueW(sesid, dbid, sztablename, szcolumnname, pvdata, cbdata, grbit) }
 }
 #[inline]
-pub unsafe fn JetSetColumns(sesid: JET_SESID, tableid: JET_TABLEID, psetcolumn: Option<*const JET_SETCOLUMN>, csetcolumn: JET_UINT32) -> JET_ERR {
+pub unsafe fn JetSetColumns(sesid: JET_SESID, tableid: JET_TABLEID, psetcolumn: Option<&[JET_SETCOLUMN]>) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetSetColumns(sesid : JET_SESID, tableid : JET_TABLEID, psetcolumn : *const JET_SETCOLUMN, csetcolumn : JET_UINT32) -> JET_ERR);
-    unsafe { JetSetColumns(sesid, tableid, psetcolumn.unwrap_or(core::mem::zeroed()) as _, csetcolumn) }
+    unsafe { JetSetColumns(sesid, tableid, psetcolumn.map_or(core::ptr::null(), |slice| slice.as_ptr()), psetcolumn.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
-pub unsafe fn JetSetCurrentIndex2A(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<*const JET_CHAR>, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex2A(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_CHAR, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetSetCurrentIndex2A(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<JET_PCSTR>, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex2A(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetSetCurrentIndex2A(sesid, tableid, szindexname.unwrap_or(core::mem::zeroed()) as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetSetCurrentIndex2W(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<*const JET_WCHAR>, grbit: JET_GRBIT) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex2W(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_WCHAR, grbit : JET_GRBIT) -> JET_ERR);
+pub unsafe fn JetSetCurrentIndex2W(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<JET_PCWSTR>, grbit: JET_GRBIT) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex2W(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCWSTR, grbit : JET_GRBIT) -> JET_ERR);
     unsafe { JetSetCurrentIndex2W(sesid, tableid, szindexname.unwrap_or(core::mem::zeroed()) as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetSetCurrentIndex3A(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<*const JET_CHAR>, grbit: JET_GRBIT, itagsequence: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex3A(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_CHAR, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetSetCurrentIndex3A(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<JET_PCSTR>, grbit: JET_GRBIT, itagsequence: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex3A(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
     unsafe { JetSetCurrentIndex3A(sesid, tableid, szindexname.unwrap_or(core::mem::zeroed()) as _, grbit, itagsequence) }
 }
 #[inline]
-pub unsafe fn JetSetCurrentIndex3W(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<*const JET_WCHAR>, grbit: JET_GRBIT, itagsequence: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex3W(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_WCHAR, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetSetCurrentIndex3W(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<JET_PCWSTR>, grbit: JET_GRBIT, itagsequence: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex3W(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCWSTR, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
     unsafe { JetSetCurrentIndex3W(sesid, tableid, szindexname.unwrap_or(core::mem::zeroed()) as _, grbit, itagsequence) }
 }
 #[inline]
-pub unsafe fn JetSetCurrentIndex4A(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<*const JET_CHAR>, pindexid: Option<*const JET_INDEXID>, grbit: JET_GRBIT, itagsequence: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex4A(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_CHAR, pindexid : *const JET_INDEXID, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetSetCurrentIndex4A(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<JET_PCSTR>, pindexid: Option<*const JET_INDEXID>, grbit: JET_GRBIT, itagsequence: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex4A(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR, pindexid : *const JET_INDEXID, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
     unsafe { JetSetCurrentIndex4A(sesid, tableid, szindexname.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, grbit, itagsequence) }
 }
 #[inline]
-pub unsafe fn JetSetCurrentIndex4W(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<*const JET_WCHAR>, pindexid: Option<*const JET_INDEXID>, grbit: JET_GRBIT, itagsequence: JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex4W(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_WCHAR, pindexid : *const JET_INDEXID, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
+pub unsafe fn JetSetCurrentIndex4W(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<JET_PCWSTR>, pindexid: Option<*const JET_INDEXID>, grbit: JET_GRBIT, itagsequence: JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex4W(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCWSTR, pindexid : *const JET_INDEXID, grbit : JET_GRBIT, itagsequence : JET_UINT32) -> JET_ERR);
     unsafe { JetSetCurrentIndex4W(sesid, tableid, szindexname.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, grbit, itagsequence) }
 }
 #[inline]
-pub unsafe fn JetSetCurrentIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<*const JET_CHAR>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_CHAR) -> JET_ERR);
+pub unsafe fn JetSetCurrentIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<JET_PCSTR>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndexA(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCSTR) -> JET_ERR);
     unsafe { JetSetCurrentIndexA(sesid, tableid, szindexname.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetSetCurrentIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<*const JET_WCHAR>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : *const JET_WCHAR) -> JET_ERR);
+pub unsafe fn JetSetCurrentIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Option<JET_PCWSTR>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndexW(sesid : JET_SESID, tableid : JET_TABLEID, szindexname : JET_PCWSTR) -> JET_ERR);
     unsafe { JetSetCurrentIndexW(sesid, tableid, szindexname.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn JetSetCursorFilter(sesid: JET_SESID, tableid: JET_TABLEID, rgcolumnfilters: &[JET_INDEX_COLUMN], grbit: JET_GRBIT) -> JET_ERR {
     windows_core::link!("esent.dll" "system" fn JetSetCursorFilter(sesid : JET_SESID, tableid : JET_TABLEID, rgcolumnfilters : *const JET_INDEX_COLUMN, ccolumnfilters : JET_UINT32, grbit : JET_GRBIT) -> JET_ERR);
-    unsafe { JetSetCursorFilter(sesid, tableid, rgcolumnfilters.as_ptr(), JET_UINT32(rgcolumnfilters.len().try_into().unwrap()), grbit) }
+    unsafe { JetSetCursorFilter(sesid, tableid, rgcolumnfilters.as_ptr(), rgcolumnfilters.len().try_into().unwrap(), grbit) }
 }
 #[inline]
-pub unsafe fn JetSetDatabaseSizeA(sesid: JET_SESID, szdatabasename: *const JET_CHAR, cpg: JET_UINT32, pcpgreal: *mut JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetSetDatabaseSizeA(sesid : JET_SESID, szdatabasename : *const JET_CHAR, cpg : JET_UINT32, pcpgreal : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetSetDatabaseSizeA(sesid: JET_SESID, szdatabasename: JET_PCSTR, cpg: JET_UINT32, pcpgreal: *mut JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetSetDatabaseSizeA(sesid : JET_SESID, szdatabasename : JET_PCSTR, cpg : JET_UINT32, pcpgreal : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetSetDatabaseSizeA(sesid, szdatabasename, cpg, pcpgreal as _) }
 }
 #[inline]
-pub unsafe fn JetSetDatabaseSizeW(sesid: JET_SESID, szdatabasename: *const JET_WCHAR, cpg: JET_UINT32, pcpgreal: *mut JET_UINT32) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetSetDatabaseSizeW(sesid : JET_SESID, szdatabasename : *const JET_WCHAR, cpg : JET_UINT32, pcpgreal : *mut JET_UINT32) -> JET_ERR);
+pub unsafe fn JetSetDatabaseSizeW(sesid: JET_SESID, szdatabasename: JET_PCWSTR, cpg: JET_UINT32, pcpgreal: *mut JET_UINT32) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetSetDatabaseSizeW(sesid : JET_SESID, szdatabasename : JET_PCWSTR, cpg : JET_UINT32, pcpgreal : *mut JET_UINT32) -> JET_ERR);
     unsafe { JetSetDatabaseSizeW(sesid, szdatabasename, cpg, pcpgreal as _) }
 }
 #[inline]
@@ -1069,13 +1069,13 @@ pub unsafe fn JetSetSessionParameter(sesid: Option<JET_SESID>, sesparamid: JET_U
     unsafe { JetSetSessionParameter(sesid.unwrap_or(core::mem::zeroed()) as _, sesparamid, pvparam.unwrap_or(core::mem::zeroed()) as _, cbparam) }
 }
 #[inline]
-pub unsafe fn JetSetSystemParameterA(pinstance: Option<*mut JET_INSTANCE>, sesid: Option<JET_SESID>, paramid: JET_UINT32, lparam: Option<JET_API_PTR>, szparam: Option<*const JET_CHAR>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetSetSystemParameterA(pinstance : *mut JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, lparam : JET_API_PTR, szparam : *const JET_CHAR) -> JET_ERR);
+pub unsafe fn JetSetSystemParameterA(pinstance: Option<*mut JET_INSTANCE>, sesid: Option<JET_SESID>, paramid: JET_UINT32, lparam: Option<JET_API_PTR>, szparam: Option<JET_PCSTR>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetSetSystemParameterA(pinstance : *mut JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, lparam : JET_API_PTR, szparam : JET_PCSTR) -> JET_ERR);
     unsafe { JetSetSystemParameterA(pinstance.unwrap_or(core::mem::zeroed()) as _, sesid.unwrap_or(core::mem::zeroed()) as _, paramid, lparam.unwrap_or(core::mem::zeroed()) as _, szparam.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JetSetSystemParameterW(pinstance: Option<*mut JET_INSTANCE>, sesid: Option<JET_SESID>, paramid: JET_UINT32, lparam: Option<JET_API_PTR>, szparam: Option<*const JET_WCHAR>) -> JET_ERR {
-    windows_core::link!("esent.dll" "system" fn JetSetSystemParameterW(pinstance : *mut JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, lparam : JET_API_PTR, szparam : *const JET_WCHAR) -> JET_ERR);
+pub unsafe fn JetSetSystemParameterW(pinstance: Option<*mut JET_INSTANCE>, sesid: Option<JET_SESID>, paramid: JET_UINT32, lparam: Option<JET_API_PTR>, szparam: Option<JET_PCWSTR>) -> JET_ERR {
+    windows_core::link!("esent.dll" "system" fn JetSetSystemParameterW(pinstance : *mut JET_INSTANCE, sesid : JET_SESID, paramid : JET_UINT32, lparam : JET_API_PTR, szparam : JET_PCWSTR) -> JET_ERR);
     unsafe { JetSetSystemParameterW(pinstance.unwrap_or(core::mem::zeroed()) as _, sesid.unwrap_or(core::mem::zeroed()) as _, paramid, lparam.unwrap_or(core::mem::zeroed()) as _, szparam.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1221,14 +1221,10 @@ impl Default for JET_BKLOGTIME_1 {
 pub struct JET_BKLOGTIME_1_0 {
     pub _bitfield: JET_BYTE,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_BYTE(pub u8);
+pub type JET_BYTE = u8;
 pub type JET_CALLBACK = Option<unsafe extern "system" fn(sesid: JET_SESID, dbid: JET_DBID, tableid: JET_TABLEID, cbtyp: JET_CBTYP, pvarg1: JET_PVOID, pvarg2: JET_PVOID, pvcontext: JET_PVOID, ulunused: JET_API_PTR) -> JET_ERR>;
 pub type JET_CBTYP = JET_UINT32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_CHAR(pub i8);
+pub type JET_CHAR = i8;
 pub type JET_COLTYP = JET_UINT32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1441,6 +1437,7 @@ pub const JET_ColInfoList: u32 = 1;
 pub const JET_ColInfoListCompact: u32 = 5;
 pub const JET_ColInfoListSortColumnid: u32 = 7;
 pub const JET_ColInfoSysTabCursor: u32 = 3;
+pub type JET_DATESERIAL = f64;
 pub type JET_DBID = JET_UINT32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2077,18 +2074,10 @@ pub struct JET_INSTANCE_INFO_W {
     pub szDatabaseDisplayName: *mut JET_PWSTR,
     pub szDatabaseSLVFileName_Obsolete: *mut JET_PWSTR,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_INT16(pub i16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_INT32(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_INT64(pub i64);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_INT8(pub i8);
+pub type JET_INT16 = i16;
+pub type JET_INT32 = i32;
+pub type JET_INT64 = i64;
+pub type JET_INT8 = i8;
 pub const JET_IOPriorityLow: i32 = 1;
 pub const JET_IOPriorityNormal: i32 = 0;
 pub const JET_IdxInfo: u32 = 0;
@@ -2198,9 +2187,9 @@ pub struct JET_LOGTIME_1_0 {
 }
 pub type JET_LS = JET_API_PTR;
 #[cfg(target_arch = "x86")]
-pub const JET_LSNil: u32 = 4294967295;
+pub const JET_LSNil: JET_LS = 4294967295u64 as _;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const JET_LSNil: u64 = 18446744073709551615;
+pub const JET_LSNil: JET_LS = 18446744073709551615u64 as _;
 pub const JET_MAX_COMPUTERNAME_LENGTH: i32 = 15;
 pub const JET_MoveFirst: u32 = 2147483648;
 pub const JET_MoveLast: i32 = 2147483647;
@@ -2212,8 +2201,8 @@ pub const JET_MovePrevious: i32 = -1;
 pub struct JET_OBJECTINFO {
     pub cbStruct: JET_UINT32,
     pub objtyp: JET_OBJTYP,
-    pub dtCreate: f64,
-    pub dtUpdate: f64,
+    pub dtCreate: JET_DATESERIAL,
+    pub dtUpdate: JET_DATESERIAL,
     pub grbit: JET_GRBIT,
     pub flags: JET_UINT32,
     pub cRecord: JET_UINT32,
@@ -2225,8 +2214,8 @@ pub struct JET_OBJECTINFO {
 pub struct JET_OBJECTINFO {
     pub cbStruct: JET_UINT32,
     pub objtyp: JET_OBJTYP,
-    pub dtCreate: f64,
-    pub dtUpdate: f64,
+    pub dtCreate: JET_DATESERIAL,
+    pub dtUpdate: JET_DATESERIAL,
     pub grbit: JET_GRBIT,
     pub flags: JET_UINT32,
     pub cRecord: JET_UINT32,
@@ -2300,17 +2289,13 @@ pub const JET_OnlineDefragDatabases: i32 = 2;
 pub const JET_OnlineDefragDisable: i32 = 0;
 pub const JET_OnlineDefragSpaceTrees: i32 = 4;
 pub type JET_PCSTR = *const JET_CHAR;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_PCVOID(pub *const core::ffi::c_void);
+pub type JET_PCVOID = *const core::ffi::c_void;
 pub type JET_PCWSTR = *const JET_WCHAR;
 pub type JET_PFNDURABLECOMMITCALLBACK = Option<unsafe extern "system" fn(instance: JET_INSTANCE, pcommitidseen: *const JET_COMMIT_ID, grbit: JET_GRBIT) -> JET_ERR>;
 pub type JET_PFNREALLOC = Option<unsafe extern "system" fn(pvcontext: JET_PVOID, pv: JET_PVOID, cb: JET_UINT32) -> JET_PVOID>;
 pub type JET_PFNSTATUS = Option<unsafe extern "system" fn(sesid: JET_SESID, snp: JET_SNP, snt: JET_SNT, pv: JET_PVOID) -> JET_ERR>;
 pub type JET_PSTR = *mut JET_CHAR;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_PVOID(pub *mut core::ffi::c_void);
+pub type JET_PVOID = *mut core::ffi::c_void;
 pub type JET_PWSTR = *mut JET_WCHAR;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2757,18 +2742,10 @@ pub const JET_TblInfoSpaceAvailable: u32 = 11;
 pub const JET_TblInfoSpaceOwned: u32 = 10;
 pub const JET_TblInfoSpaceUsage: u32 = 7;
 pub const JET_TblInfoTemplateTableName: u32 = 12;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_UINT16(pub u16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_UINT32(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_UINT64(pub u64);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_UINT8(pub u8);
+pub type JET_UINT16 = u16;
+pub type JET_UINT32 = u32;
+pub type JET_UINT64 = u64;
+pub type JET_UINT8 = u8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_UNICODEINDEX {
@@ -2799,9 +2776,7 @@ pub struct JET_USERDEFINEDDEFAULT_W {
 }
 pub const JET_VERSION: i32 = 2560;
 pub type JET_VOID = core::ffi::c_void;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_WCHAR(pub u16);
+pub type JET_WCHAR = u16;
 pub const JET_bitAbortSnapshot: i32 = 1;
 pub const JET_bitAllDatabasesSnapshot: i32 = 1;
 pub const JET_bitBackupAtomic: i32 = 4;
@@ -2917,7 +2892,7 @@ pub const JET_bitLogStreamMustExist: i32 = 64;
 pub const JET_bitMoveFirst: i32 = 0;
 pub const JET_bitMoveKeyNE: i32 = 1;
 pub const JET_bitNewKey: i32 = 1;
-pub const JET_bitNil: JET_GRBIT = JET_UINT32(0 as _);
+pub const JET_bitNil: JET_GRBIT = 0 as _;
 pub const JET_bitNoMove: i32 = 2;
 pub const JET_bitNormalizedKey: i32 = 8;
 pub const JET_bitObjectSystem: u32 = 2147483648;
@@ -3109,7 +3084,7 @@ pub const JET_configRemoveQuotas: i32 = 2;
 pub const JET_configRunSilent: i32 = 256;
 pub const JET_configSSDProfileIO: i32 = 128;
 pub const JET_configUnthrottledMemory: i32 = 512;
-pub const JET_dbidNil: JET_DBID = JET_UINT32(4294967295u32 as _);
+pub const JET_dbidNil: JET_DBID = 4294967295u32 as _;
 pub const JET_dbstateBeingConverted: i32 = 4;
 pub const JET_dbstateCleanShutdown: i32 = 3;
 pub const JET_dbstateDirtyShutdown: i32 = 2;
@@ -3540,9 +3515,9 @@ pub const JET_filetypeLog: i32 = 3;
 pub const JET_filetypeTempDatabase: i32 = 5;
 pub const JET_filetypeUnknown: i32 = 0;
 #[cfg(target_arch = "x86")]
-pub const JET_instanceNil: u32 = 4294967295;
+pub const JET_instanceNil: JET_INSTANCE = 4294967295u64 as _;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const JET_instanceNil: u64 = 18446744073709551615;
+pub const JET_instanceNil: JET_INSTANCE = 18446744073709551615u64 as _;
 pub const JET_objtypNil: i32 = 0;
 pub const JET_objtypTable: i32 = 1;
 pub const JET_paramAccessDeniedRetryPeriod: i32 = 53;
@@ -3690,9 +3665,9 @@ pub const JET_relopLessThanOrEqual: JET_RELOP = 3;
 pub const JET_relopNotEquals: JET_RELOP = 2;
 pub const JET_relopPrefixEquals: JET_RELOP = 1;
 #[cfg(target_arch = "x86")]
-pub const JET_sesidNil: u32 = 4294967295;
+pub const JET_sesidNil: JET_SESID = 4294967295u64 as _;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const JET_sesidNil: u64 = 18446744073709551615;
+pub const JET_sesidNil: JET_SESID = 18446744073709551615u64 as _;
 pub const JET_sesparamCommitDefault: i32 = 4097;
 pub const JET_sesparamCorrelationID: i32 = 4101;
 pub const JET_sesparamMaxValueInvalid: i32 = 4111;
@@ -3714,9 +3689,9 @@ pub const JET_sqmDisable: i32 = 0;
 pub const JET_sqmEnable: i32 = 1;
 pub const JET_sqmFromCEIP: i32 = 2;
 #[cfg(target_arch = "x86")]
-pub const JET_tableidNil: u32 = 4294967295;
+pub const JET_tableidNil: JET_TABLEID = 4294967295u64 as _;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const JET_tableidNil: u64 = 18446744073709551615;
+pub const JET_tableidNil: JET_TABLEID = 18446744073709551615u64 as _;
 pub const JET_wrnBufferTruncated: i32 = 1006;
 pub const JET_wrnCallbackNotRegistered: i32 = 2100;
 pub const JET_wrnColumnDefault: i32 = 1537;

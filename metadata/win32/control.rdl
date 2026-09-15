@@ -35,7 +35,7 @@ mod Windows {
         #[guid(0x56a868b5_0ad4_11ce_b03a_0020af0ba770)]
         interface IBasicVideo: IDispatch {
             #[special]
-            fn get_AvgTimePerFrame(&self, #[retval] pAvgTimePerFrame: *mut f64) -> HRESULT;
+            fn get_AvgTimePerFrame(&self, #[retval] pAvgTimePerFrame: *mut REFTIME) -> HRESULT;
             #[special]
             fn get_BitRate(&self, #[retval] pBitRate: *mut i32) -> HRESULT;
             #[special]
@@ -96,7 +96,7 @@ mod Windows {
         interface IDeferredCommand: IUnknown {
             fn Cancel(&self) -> HRESULT;
             fn Confidence(&self, pConfidence: *mut i32) -> HRESULT;
-            fn Postpone(&self, newtime: f64) -> HRESULT;
+            fn Postpone(&self, newtime: REFTIME) -> HRESULT;
             fn GetHResult(&self, phrResult: *mut HRESULT) -> HRESULT;
         }
         #[guid(0x56a868ba_0ad4_11ce_b03a_0020af0ba770)]
@@ -149,19 +149,19 @@ mod Windows {
         #[guid(0x56a868b2_0ad4_11ce_b03a_0020af0ba770)]
         interface IMediaPosition: IDispatch {
             #[special]
-            fn get_Duration(&self, #[retval] plength: *mut f64) -> HRESULT;
+            fn get_Duration(&self, #[retval] plength: *mut REFTIME) -> HRESULT;
             #[special]
-            fn put_CurrentPosition(&self, llTime: f64) -> HRESULT;
+            fn put_CurrentPosition(&self, llTime: REFTIME) -> HRESULT;
             #[special]
-            fn get_CurrentPosition(&self, #[retval] pllTime: *mut f64) -> HRESULT;
+            fn get_CurrentPosition(&self, #[retval] pllTime: *mut REFTIME) -> HRESULT;
             #[special]
-            fn get_StopTime(&self, #[retval] pllTime: *mut f64) -> HRESULT;
+            fn get_StopTime(&self, #[retval] pllTime: *mut REFTIME) -> HRESULT;
             #[special]
-            fn put_StopTime(&self, llTime: f64) -> HRESULT;
+            fn put_StopTime(&self, llTime: REFTIME) -> HRESULT;
             #[special]
-            fn get_PrerollTime(&self, #[retval] pllTime: *mut f64) -> HRESULT;
+            fn get_PrerollTime(&self, #[retval] pllTime: *mut REFTIME) -> HRESULT;
             #[special]
-            fn put_PrerollTime(&self, llTime: f64) -> HRESULT;
+            fn put_PrerollTime(&self, llTime: REFTIME) -> HRESULT;
             #[special]
             fn put_Rate(&self, dRate: f64) -> HRESULT;
             #[special]
@@ -202,8 +202,8 @@ mod Windows {
         }
         #[guid(0x56a868b7_0ad4_11ce_b03a_0020af0ba770)]
         interface IQueueCommand: IUnknown {
-            fn InvokeAtStreamTime(&self, pCmd: *mut IDeferredCommand, time: f64, iid: *const GUID, dispidMethod: i32, wFlags: i16, cArgs: i32, pDispParams: *const VARIANT, #[in] #[out] pvarResult: *mut VARIANT, puArgErr: *mut i16) -> HRESULT;
-            fn InvokeAtPresentationTime(&self, pCmd: *mut IDeferredCommand, time: f64, iid: *const GUID, dispidMethod: i32, wFlags: i16, cArgs: i32, pDispParams: *const VARIANT, #[in] #[out] pvarResult: *mut VARIANT, puArgErr: *mut i16) -> HRESULT;
+            fn InvokeAtStreamTime(&self, pCmd: *mut IDeferredCommand, time: REFTIME, #[in] iid: *mut GUID, dispidMethod: i32, wFlags: i16, cArgs: i32, #[in] pDispParams: *mut VARIANT, #[in] #[out] pvarResult: *mut VARIANT, puArgErr: *mut i16) -> HRESULT;
+            fn InvokeAtPresentationTime(&self, pCmd: *mut IDeferredCommand, time: REFTIME, #[in] iid: *mut GUID, dispidMethod: i32, wFlags: i16, cArgs: i32, #[in] pDispParams: *mut VARIANT, #[in] #[out] pvarResult: *mut VARIANT, puArgErr: *mut i16) -> HRESULT;
         }
         #[guid(0x56a868bb_0ad4_11ce_b03a_0020af0ba770)]
         interface IRegFilterInfo: IDispatch {

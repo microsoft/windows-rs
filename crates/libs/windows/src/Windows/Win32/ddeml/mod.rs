@@ -5,18 +5,20 @@ pub unsafe fn DdeAbandonTransaction(idinst: u32, hconv: HCONV, idtransaction: u3
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn DdeAccessData(hdata: HDDEDATA, pcbdatasize: Option<*mut u32>) -> super::LPBYTE {
-    windows_core::link!("user32.dll" "system" fn DdeAccessData(hdata : HDDEDATA, pcbdatasize : *mut u32) -> super::LPBYTE);
+pub unsafe fn DdeAccessData(hdata: HDDEDATA, pcbdatasize: Option<super::LPDWORD>) -> super::LPBYTE {
+    windows_core::link!("user32.dll" "system" fn DdeAccessData(hdata : HDDEDATA, pcbdatasize : super::LPDWORD) -> super::LPBYTE);
     unsafe { DdeAccessData(hdata, pcbdatasize.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DdeAddData(hdata: HDDEDATA, psrc: &[u8], cboff: u32) -> HDDEDATA {
-    windows_core::link!("user32.dll" "system" fn DdeAddData(hdata : HDDEDATA, psrc : *const u8, cb : u32, cboff : u32) -> HDDEDATA);
-    unsafe { DdeAddData(hdata, psrc.as_ptr(), psrc.len().try_into().unwrap(), cboff) }
+    windows_core::link!("user32.dll" "system" fn DdeAddData(hdata : HDDEDATA, psrc : super::LPBYTE, cb : u32, cboff : u32) -> HDDEDATA);
+    unsafe { DdeAddData(hdata, core::mem::transmute(psrc.as_ptr()), psrc.len().try_into().unwrap(), cboff) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn DdeClientTransaction(pdata: Option<*const u8>, cbdata: u32, hconv: HCONV, hszitem: Option<HSZ>, wfmt: u32, wtype: u32, dwtimeout: u32, pdwresult: Option<*mut u32>) -> HDDEDATA {
-    windows_core::link!("user32.dll" "system" fn DdeClientTransaction(pdata : *const u8, cbdata : u32, hconv : HCONV, hszitem : HSZ, wfmt : u32, wtype : u32, dwtimeout : u32, pdwresult : *mut u32) -> HDDEDATA);
+pub unsafe fn DdeClientTransaction(pdata: Option<super::LPBYTE>, cbdata: u32, hconv: HCONV, hszitem: Option<HSZ>, wfmt: u32, wtype: u32, dwtimeout: u32, pdwresult: Option<super::LPDWORD>) -> HDDEDATA {
+    windows_core::link!("user32.dll" "system" fn DdeClientTransaction(pdata : super::LPBYTE, cbdata : u32, hconv : HCONV, hszitem : HSZ, wfmt : u32, wtype : u32, dwtimeout : u32, pdwresult : super::LPDWORD) -> HDDEDATA);
     unsafe { DdeClientTransaction(pdata.unwrap_or(core::mem::zeroed()) as _, cbdata, hconv, hszitem.unwrap_or(core::mem::zeroed()) as _, wfmt, wtype, dwtimeout, pdwresult.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -26,20 +28,21 @@ pub unsafe fn DdeCmpStringHandles(hsz1: HSZ, hsz2: HSZ) -> i32 {
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn DdeConnect(idinst: u32, hszservice: HSZ, hsztopic: HSZ, pcc: Option<*const CONVCONTEXT>) -> HCONV {
-    windows_core::link!("user32.dll" "system" fn DdeConnect(idinst : u32, hszservice : HSZ, hsztopic : HSZ, pcc : *const CONVCONTEXT) -> HCONV);
+pub unsafe fn DdeConnect(idinst: u32, hszservice: HSZ, hsztopic: HSZ, pcc: Option<PCONVCONTEXT>) -> HCONV {
+    windows_core::link!("user32.dll" "system" fn DdeConnect(idinst : u32, hszservice : HSZ, hsztopic : HSZ, pcc : PCONVCONTEXT) -> HCONV);
     unsafe { DdeConnect(idinst, hszservice, hsztopic, pcc.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn DdeConnectList(idinst: u32, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: Option<*const CONVCONTEXT>) -> HCONVLIST {
-    windows_core::link!("user32.dll" "system" fn DdeConnectList(idinst : u32, hszservice : HSZ, hsztopic : HSZ, hconvlist : HCONVLIST, pcc : *const CONVCONTEXT) -> HCONVLIST);
+pub unsafe fn DdeConnectList(idinst: u32, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: Option<PCONVCONTEXT>) -> HCONVLIST {
+    windows_core::link!("user32.dll" "system" fn DdeConnectList(idinst : u32, hszservice : HSZ, hsztopic : HSZ, hconvlist : HCONVLIST, pcc : PCONVCONTEXT) -> HCONVLIST);
     unsafe { DdeConnectList(idinst, hszservice, hsztopic, hconvlist, pcc.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn DdeCreateDataHandle(idinst: u32, psrc: Option<&[u8]>, cboff: u32, hszitem: Option<HSZ>, wfmt: u32, afcmd: u32) -> HDDEDATA {
-    windows_core::link!("user32.dll" "system" fn DdeCreateDataHandle(idinst : u32, psrc : *const u8, cb : u32, cboff : u32, hszitem : HSZ, wfmt : u32, afcmd : u32) -> HDDEDATA);
-    unsafe { DdeCreateDataHandle(idinst, psrc.map_or(core::ptr::null(), |slice| slice.as_ptr()), psrc.map_or(0, |slice| slice.len().try_into().unwrap()), cboff, hszitem.unwrap_or(core::mem::zeroed()) as _, wfmt, afcmd) }
+    windows_core::link!("user32.dll" "system" fn DdeCreateDataHandle(idinst : u32, psrc : super::LPBYTE, cb : u32, cboff : u32, hszitem : HSZ, wfmt : u32, afcmd : u32) -> HDDEDATA);
+    unsafe { DdeCreateDataHandle(idinst, core::mem::transmute(psrc.map_or(core::ptr::null(), |slice| slice.as_ptr())), psrc.map_or(0, |slice| slice.len().try_into().unwrap()), cboff, hszitem.unwrap_or(core::mem::zeroed()) as _, wfmt, afcmd) }
 }
 #[inline]
 pub unsafe fn DdeCreateStringHandleA<P1>(idinst: u32, psz: P1, icodepage: i32) -> HSZ
@@ -82,9 +85,10 @@ pub unsafe fn DdeFreeStringHandle(idinst: u32, hsz: HSZ) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn DdeFreeStringHandle(idinst : u32, hsz : HSZ) -> windows_core::BOOL);
     unsafe { DdeFreeStringHandle(idinst, hsz) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn DdeGetData(hdata: HDDEDATA, pdst: Option<*mut u8>, cbmax: u32, cboff: u32) -> u32 {
-    windows_core::link!("user32.dll" "system" fn DdeGetData(hdata : HDDEDATA, pdst : *mut u8, cbmax : u32, cboff : u32) -> u32);
+pub unsafe fn DdeGetData(hdata: HDDEDATA, pdst: Option<super::LPBYTE>, cbmax: u32, cboff: u32) -> u32 {
+    windows_core::link!("user32.dll" "system" fn DdeGetData(hdata : HDDEDATA, pdst : super::LPBYTE, cbmax : u32, cboff : u32) -> u32);
     unsafe { DdeGetData(hdata, pdst.unwrap_or(core::mem::zeroed()) as _, cbmax, cboff) }
 }
 #[inline]
@@ -97,14 +101,16 @@ pub unsafe fn DdeImpersonateClient(hconv: HCONV) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn DdeImpersonateClient(hconv : HCONV) -> windows_core::BOOL);
     unsafe { DdeImpersonateClient(hconv) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: u32, ulres: Option<u32>) -> u32 {
-    windows_core::link!("user32.dll" "system" fn DdeInitializeA(pidinst : *mut u32, pfncallback : PFNCALLBACK, afcmd : u32, ulres : u32) -> u32);
+pub unsafe fn DdeInitializeA(pidinst: super::LPDWORD, pfncallback: PFNCALLBACK, afcmd: u32, ulres: Option<u32>) -> u32 {
+    windows_core::link!("user32.dll" "system" fn DdeInitializeA(pidinst : super::LPDWORD, pfncallback : PFNCALLBACK, afcmd : u32, ulres : u32) -> u32);
     unsafe { DdeInitializeA(pidinst as _, pfncallback, afcmd, ulres.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: u32, ulres: Option<u32>) -> u32 {
-    windows_core::link!("user32.dll" "system" fn DdeInitializeW(pidinst : *mut u32, pfncallback : PFNCALLBACK, afcmd : u32, ulres : u32) -> u32);
+pub unsafe fn DdeInitializeW(pidinst: super::LPDWORD, pfncallback: PFNCALLBACK, afcmd: u32, ulres: Option<u32>) -> u32 {
+    windows_core::link!("user32.dll" "system" fn DdeInitializeW(pidinst : super::LPDWORD, pfncallback : PFNCALLBACK, afcmd : u32, ulres : u32) -> u32);
     unsafe { DdeInitializeW(pidinst as _, pfncallback, afcmd, ulres.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -124,8 +130,8 @@ pub unsafe fn DdePostAdvise(idinst: u32, hsztopic: HSZ, hszitem: HSZ) -> windows
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn DdeQueryConvInfo(hconv: HCONV, idtransaction: u32, pconvinfo: *mut CONVINFO) -> u32 {
-    windows_core::link!("user32.dll" "system" fn DdeQueryConvInfo(hconv : HCONV, idtransaction : u32, pconvinfo : *mut CONVINFO) -> u32);
+pub unsafe fn DdeQueryConvInfo(hconv: HCONV, idtransaction: u32, pconvinfo: PCONVINFO) -> u32 {
+    windows_core::link!("user32.dll" "system" fn DdeQueryConvInfo(hconv : HCONV, idtransaction : u32, pconvinfo : PCONVINFO) -> u32);
     unsafe { DdeQueryConvInfo(hconv, idtransaction, pconvinfo as _) }
 }
 #[inline]
@@ -182,7 +188,7 @@ pub const CBF_SKIP_CONNECT_CONFIRMS: i32 = 262144;
 pub const CBF_SKIP_DISCONNECTS: i32 = 2097152;
 pub const CBF_SKIP_REGISTRATIONS: i32 = 524288;
 pub const CBF_SKIP_UNREGISTRATIONS: i32 = 1048576;
-pub const CBR_BLOCK: HDDEDATA = HDDEDATA(-1 as _);
+pub const CBR_BLOCK: HDDEDATA = -1 as _;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -274,24 +280,36 @@ pub const EC_ENABLEALL: i32 = 0;
 pub const EC_ENABLEONE: i32 = 128;
 pub const EC_QUERYWAITING: i32 = 2;
 pub type FNCALLBACK = Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HCONV(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HCONVLIST(pub *mut core::ffi::c_void);
+pub type HCONV = *mut HCONV__;
+pub type HCONVLIST = *mut HCONVLIST__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HCONVLIST__ {
+    pub unused: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HCONV__ {
+    pub unused: i32,
+}
 pub const HDATA_APPOWNED: i32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HDDEDATA(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HSZ(pub *mut core::ffi::c_void);
+pub type HDDEDATA = *mut HDDEDATA__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HDDEDATA__ {
+    pub unused: i32,
+}
+pub type HSZ = *mut HSZ__;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSZPAIR {
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HSZ__ {
+    pub unused: i32,
 }
 pub const MAX_MONITORS: i32 = 4;
 pub const MF_CALLBACKS: i32 = 134217728;

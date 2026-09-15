@@ -1,1838 +1,3698 @@
 #![allow(non_upper_case_globals)]
 #![doc = include_str!("../readme.md")]
 
-use std::collections::{BTreeMap, HashMap, HashSet};
-use std::path::{Path, PathBuf};
-use windows_metadata as metadata;
+use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
+use std::fmt::{Display, Formatter};
 
-use proc_macro2::{Literal, Span, TokenStream};
-use quote::quote;
+mod extract;
+pub use extract::extract;
 
-use windows_rdl::emit::{uuid_to_u128_literal, write_ident, write_typed_value};
-use windows_rdl::{Error, expand_input_files, formatter, implib, write_to_file};
-
-mod cx;
-use cx::*;
-mod canon;
-use canon::*;
-mod r#enum;
-use r#enum::*;
-mod item;
-use item::*;
-mod r#struct;
-use r#struct::*;
-mod collector;
-use collector::*;
-use field::*;
-mod annotation;
-mod field;
-use annotation::*;
-mod typedef;
-use typedef::*;
-mod callback;
-use callback::*;
-mod r#fn;
-use r#fn::*;
-mod r#const;
-use r#const::*;
-mod interface;
-use interface::*;
-mod provision;
-pub use provision::*;
-mod scrape;
-pub use scrape::*;
-mod guid;
-use guid::*;
-mod scope;
-use scope::*;
-mod naming;
-use naming::*;
-mod macros;
-use macros::*;
-
-fn write_type(namespace: &str, ty: &metadata::Type) -> TokenStream {
-    windows_rdl::emit::write_type(namespace, &normalize_rdl_type(ty))
+#[derive(Clone, Debug)]
+pub struct Input {
+    pub name: String,
+    pub source: String,
+    pub roots: BTreeSet<String>,
+    pub root_dirs: BTreeSet<String>,
+    pub excluded_roots: BTreeSet<String>,
 }
 
-/// Creates a libclang-backed RDL generator.
-pub fn clang() -> Clang {
-    Clang::new()
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct TypeReference {
+    pub namespace: String,
+    pub name: String,
+    pub kind: TypeReferenceKind,
+    pub enum_members: BTreeSet<String>,
 }
 
-/// Returns the loaded libclang version string.
-pub fn clang_version() -> Result<String, Error> {
-    Clang::version()
-}
-
-/// Parse context shared across the AST walk; pending vectors are drained after the walk.
-pub(crate) struct Parser<'a> {
-    pub namespace: &'a str,
-    /// `Some(root)` enables per-header mode: references route through defining headers.
-    pub header_root: Option<&'a str>,
-    pub library: &'a str,
-    /// Per-symbol DLL overrides recovered from the SDK import libraries.
-    pub libraries: &'a HashMap<String, String>,
-    pub ref_map: &'a HashMap<String, String>,
-    /// Per-header mode: resolves token-only const casts whose type has no cursor.
-    pub header_names: Option<&'a HashMap<String, String>>,
-    pub tag_rename: &'a HashMap<String, String>,
-    /// Enum reprs taken from integer typedefs in the C flags/enum idiom.
-    pub enum_merge: &'a HashMap<String, &'static str>,
-    pub tu: &'a TranslationUnit,
-    pub pending_typedefs: Vec<Cursor>,
-    pub pending_records: Vec<Cursor>,
-    pub pending_macros: Vec<String>,
-    processing_dependency: bool,
-    /// Per-header mode: incomplete pointer-only records emitted as opaque structs.
-    pub pending_opaque: Vec<(String, String)>,
-    /// Enum names for which `DEFINE_ENUM_FLAG_OPERATORS(X)` was seen.
-    pub flag_enums: HashSet<String>,
-    /// IID variables: interface name -> UUID, from `IID_XXX` GUID declarations.
-    pub iid_vars: HashMap<String, String>,
-    /// Object-like macro replacement tokens for resolving calling conventions.
-    pub macro_defs: &'a HashMap<String, Vec<String>>,
-    /// Expanded export name -> source spelling for object-like function aliases.
-    /// Charset-selection aliases are excluded because they choose an `A`/`W` variant.
-    pub alias_map: HashMap<String, String>,
-    /// Non-empty means only listed functions are roots; dependencies still flow in later.
-    pub symbols: &'a HashSet<String>,
-    /// Drops functions with no resolved import library; off for fixtures without `.lib` inputs.
-    pub drop_lib_less: bool,
-    /// Resolution-winmd names that keep true WinRT ABI types out of the flat root.
-    pub winrt_types: Option<&'a HashSet<String>>,
-}
-
-/// Per-namespace inputs for one emission pass over cached translation units.
-struct NamespaceSpec<'a> {
-    namespace: &'a str,
-    library: &'a str,
-    libraries: &'a HashMap<String, String>,
-    filter: &'a [String],
-    symbols: &'a HashSet<String>,
-}
-
-impl<'a> Parser<'a> {
-    #[expect(clippy::too_many_arguments)]
-    fn new(
-        namespace: &'a str,
-        library: &'a str,
-        libraries: &'a HashMap<String, String>,
-        ref_map: &'a HashMap<String, String>,
-        tag_rename: &'a HashMap<String, String>,
-        enum_merge: &'a HashMap<String, &'static str>,
-        macro_defs: &'a HashMap<String, Vec<String>>,
-        tu: &'a TranslationUnit,
-        symbols: &'a HashSet<String>,
+impl TypeReference {
+    pub fn new(
+        namespace: impl Into<String>,
+        name: impl Into<String>,
+        kind: TypeReferenceKind,
     ) -> Self {
         Self {
+            namespace: namespace.into(),
+            name: name.into(),
+            kind,
+            enum_members: BTreeSet::new(),
+        }
+    }
+
+    pub fn with_enum_members(
+        mut self,
+        members: impl IntoIterator<Item = impl Into<String>>,
+    ) -> Self {
+        self.enum_members
+            .extend(members.into_iter().map(Into::into));
+        self
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum TypeReferenceKind {
+    Enum,
+    Interface,
+    Type,
+}
+
+pub struct EmitOptions<'a> {
+    pub namespace: &'a str,
+    pub library: Option<&'a str>,
+    pub libraries: Option<&'a BTreeMap<String, String>>,
+    pub references: &'a BTreeMap<String, TypeReference>,
+    pub excluded: Option<&'a BTreeSet<String>>,
+    pub excluded_types: Option<&'a BTreeSet<String>>,
+    pub excluded_functions: Option<&'a BTreeSet<String>>,
+    pub excluded_constants: Option<&'a BTreeSet<String>>,
+    pub functions: Option<&'a BTreeSet<String>>,
+}
+
+impl<'a> EmitOptions<'a> {
+    pub fn new(namespace: &'a str, references: &'a BTreeMap<String, TypeReference>) -> Self {
+        Self {
             namespace,
-            header_root: None,
-            library,
-            libraries,
-            ref_map,
-            header_names: None,
-            tag_rename,
-            enum_merge,
-            tu,
-            pending_typedefs: vec![],
-            pending_records: vec![],
-            pending_macros: vec![],
-            processing_dependency: false,
-            pending_opaque: vec![],
-            flag_enums: HashSet::new(),
-            iid_vars: HashMap::new(),
-            alias_map: build_alias_map(macro_defs),
-            macro_defs,
-            symbols,
-            drop_lib_less: false,
-            winrt_types: None,
+            library: None,
+            libraries: None,
+            references,
+            excluded: None,
+            excluded_types: None,
+            excluded_functions: None,
+            excluded_constants: None,
+            functions: None,
         }
-    }
-
-    /// Applies the lib-less drop policy before inserting a function.
-    fn insert_fn(&self, item: Fn, collector: &mut Collector) {
-        if self.drop_lib_less && item.library.is_empty() {
-            return;
-        }
-        collector.insert(Item::Fn(item));
-    }
-
-    /// Processes one cursor, inserting items or queuing macros for the second pass.
-    fn process_cursor(
-        &mut self,
-        child: Cursor,
-        collector: &mut Collector,
-        extern_c: bool,
-    ) -> Result<(), Error> {
-        // Allowlist mode emits only named functions as roots. Queued dependencies bypass it.
-        if !self.processing_dependency && !self.symbols.is_empty() {
-            match child.kind() {
-                CXCursor_FunctionDecl
-                    if !child.is_definition()
-                        && self.symbols.contains(&child.name())
-                        && !is_midl_proxy_stub(&child, self.libraries) =>
-                {
-                    let item = Fn::parse(child, self, extern_c)?;
-                    self.insert_fn(item, collector);
-                }
-                CXCursor_LinkageSpec => {
-                    for inner in child.children() {
-                        let inner_extern_c = inner.language() == CXLanguage_C;
-                        self.process_cursor(inner, collector, inner_extern_c)?;
-                    }
-                }
-                _ => {}
-            }
-            return Ok(());
-        }
-        match child.kind() {
-            CXCursor_StructDecl if child.is_definition() => {
-                let tag_name = child.name();
-                let name = if is_anonymous_name(&tag_name) {
-                    self.tag_rename
-                        .get(&child.location_id())
-                        .cloned()
-                        .unwrap_or(tag_name)
-                } else {
-                    self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
-                };
-                // Scalar records collapse to primitives; skip before lifting nested records.
-                if semantic_scalar_definition(&name, child.kind()).is_some() {
-                    return Ok(());
-                }
-                // Numerics aliases collapse to shared value types; skip before lifting overlays.
-                if numerics_alias(&name).is_some() {
-                    return Ok(());
-                }
-                // Lift nested records first so field type references resolve.
-                self.process_nested_types(child, collector, extern_c)?;
-                // Inline anonymous records are emitted by their enclosing record.
-                if child.is_anonymous_record() || is_named_instance_record(&child) {
-                    return Ok(());
-                }
-                // No synthetic name means nothing can reference this anonymous type.
-                if is_anonymous_name(&name) {
-                    // nothing to emit
-                } else if child.has_pure_virtual_methods()
-                    || child.extract_uuid(self.tu).is_some()
-                    || (child.has_interface_base() && !child.has_data_fields())
-                {
-                    if !self.ref_map.contains_key(&name) {
-                        collector.insert(Item::Interface(Interface::parse(child, self)?));
-                    }
-                } else if !self.ref_map.contains_key(&name) {
-                    collector.insert(Item::Struct(Struct::parse(child, self, false)?));
-                }
-            }
-            // Pointer-only incomplete records need opaque structs; handle tags stay `*mut void`.
-            CXCursor_StructDecl | CXCursor_UnionDecl
-                if !child.is_definition() && !child.has_definition() =>
-            {
-                let tag_name = child.name();
-                if !is_anonymous_name(&tag_name) && !tag_name.ends_with("__") {
-                    let name = self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
-                    if semantic_scalar_definition(&name, child.kind()).is_some() {
-                        return Ok(());
-                    }
-                    // Do not clobber a real definition aliased by another tag.
-                    if !self.ref_map.contains_key(&name) && !collector.contains_key(&name) {
-                        collector.insert(Item::Struct(Struct::opaque(&name)));
-                    }
-                }
-            }
-            CXCursor_UnionDecl if child.is_definition() => {
-                let tag_name = child.name();
-                let name = if is_anonymous_name(&tag_name) {
-                    self.tag_rename
-                        .get(&child.location_id())
-                        .cloned()
-                        .unwrap_or(tag_name)
-                } else {
-                    self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
-                };
-                // Scalar overlay unions collapse to scalars; skip before lifting overlays.
-                if semantic_scalar_definition(&name, child.kind()).is_some() {
-                    return Ok(());
-                }
-                // Lift nested records first so field type references resolve.
-                self.process_nested_types(child, collector, extern_c)?;
-                if child.is_anonymous_record() || is_named_instance_record(&child) {
-                    return Ok(());
-                }
-                if !is_anonymous_name(&name) && !self.ref_map.contains_key(&name) {
-                    collector.insert(Item::Struct(Struct::parse(child, self, true)?));
-                }
-            }
-            CXCursor_ClassDecl
-                if child.is_definition()
-                    && (child.has_pure_virtual_methods()
-                        || child.extract_uuid(self.tu).is_some()
-                        || (child.has_interface_base() && !child.has_data_fields())) =>
-            {
-                let tag_name = child.name();
-                let name = self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
-                if !self.ref_map.contains_key(&name) {
-                    collector.insert(Item::Interface(Interface::parse(child, self)?));
-                }
-            }
-            // Forward-declared `uuid` classes are COM server CLSIDs, not interface types.
-            CXCursor_ClassDecl if !child.is_definition() && !child.has_definition() => {
-                if let Some(uuid) = child.extract_uuid(self.tu) {
-                    let tag_name = child.name();
-                    let name = self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
-                    if !name.is_empty() && !self.ref_map.contains_key(&name) {
-                        collector.insert(Item::GuidConst(GuidConst { name, uuid }));
-                    }
-                }
-            }
-            CXCursor_EnumDecl if child.is_definition() => {
-                let mut e = Enum::parse(child)?;
-                let tag = e.name.clone();
-                // Emit the public typedef alias, matching how references resolve the enum.
-                if !is_anonymous_name(&e.name)
-                    && let Some(alias) = self.tag_rename.get(&e.name)
-                {
-                    e.name.clone_from(alias);
-                }
-                if is_anonymous_name(&e.name) || is_midl_anonymous_enum_name(&e.name) {
-                    // Nameless and MIDL-synthesized enums emit as loose constants.
-                    for (name, value) in e.variants {
-                        let const_value = enum_variant_value(e.repr, value);
-                        collector.insert(Item::Const(Const {
-                            name,
-                            ty: None,
-                            value: const_value,
-                        }));
-                    }
-                } else if !self.ref_map.contains_key(&e.name) {
-                    // The flag macro may have used the internal tag before the rename.
-                    if self.flag_enums.contains(&e.name) || self.flag_enums.contains(&tag) {
-                        e.flags = true;
-                    }
-                    // The flags/enum idiom gets its storage type from the integer typedef.
-                    if let Some(&repr) = self.enum_merge.get(&e.name) {
-                        e.repr = repr;
-                    }
-                    collector.insert(Item::Enum(e));
-                }
-            }
-            CXCursor_TypedefDecl if child.is_definition() => {
-                let name = child.name();
-                if !self.ref_map.contains_key(&name) {
-                    if let Some(cb) = Callback::parse(child, self)? {
-                        collector.insert(Item::Callback(cb));
-                    } else if let Some(td) = Typedef::parse(child, self)? {
-                        collector.insert(Item::Typedef(td));
-                    }
-                }
-            }
-            // Skip MIDL marshaling thunks: RPC internals, not public API.
-            CXCursor_FunctionDecl
-                if !child.is_definition()
-                    && !is_midl_proxy_stub(&child, self.libraries)
-                    && !is_midl_user_marshal_stub(&child) =>
-            {
-                let item = Fn::parse(child, self, extern_c)?;
-                self.insert_fn(item, collector);
-            }
-            // Linkage blocks may nest; recurse with the per-child language.
-            CXCursor_LinkageSpec => {
-                for inner in child.children() {
-                    let inner_extern_c = inner.language() == CXLanguage_C;
-                    self.process_cursor(inner, collector, inner_extern_c)?;
-                }
-            }
-            CXCursor_MacroDefinition => {
-                if let Some(c) = Const::parse(child, self)? {
-                    collector.insert(Item::Const(c));
-                } else if !child.is_macro_builtin()
-                    && !child.is_macro_function_like()
-                    && !child.name().is_empty()
-                    && !child.name().starts_with('_')
-                {
-                    // Non-type keywords and string literals are not integer constants.
-                    let tokens = self.tu.tokenize(child.extent());
-                    let body_has_non_type_keyword = tokens
-                        .iter()
-                        .skip(1) // first token is the macro name
-                        .any(|(kind, spelling)| {
-                            *kind == CXToken_Keyword && !is_type_keyword(spelling)
-                        });
-                    let body_has_string_literal = tokens.iter().skip(1).any(|(kind, spelling)| {
-                        *kind == CXToken_Literal
-                            && (spelling.starts_with('"') || spelling.starts_with("L\""))
-                    });
-                    // Metadata has no 128-bit integer value, and clang would truncate it.
-                    let body_has_int128_literal = tokens.iter().skip(1).any(|(kind, spelling)| {
-                        *kind == CXToken_Literal && spelling.to_ascii_lowercase().ends_with("i128")
-                    });
-                    // Unbalanced replacement lists can swallow later synthetic enum entries.
-                    let body_is_balanced = tokens_balanced(tokens.iter().skip(1));
-                    if !body_has_non_type_keyword
-                        && !body_has_string_literal
-                        && !body_has_int128_literal
-                        && body_is_balanced
-                    {
-                        // Defer object-like macro constants to the batch evaluator.
-                        self.pending_macros.push(child.name());
-                    }
-                }
-            }
-            // `DEFINE_ENUM_FLAG_OPERATORS` marks an enum as `#[flags]`.
-            CXCursor_MacroExpansion if child.name() == "DEFINE_ENUM_FLAG_OPERATORS" => {
-                // Tokenize the invocation to extract the enum name argument.
-                let tokens = self.tu.tokenize(child.extent());
-                if let [
-                    _,
-                    (CXToken_Punctuation, lp),
-                    (CXToken_Identifier, enum_name),
-                    ..,
-                ] = tokens.as_slice()
-                    && lp == "("
-                {
-                    let enum_name = enum_name.clone();
-                    // The macro may key on the internal tag; resolve to the emitted name.
-                    let enum_name = self
-                        .tag_rename
-                        .get(&enum_name)
-                        .cloned()
-                        .unwrap_or(enum_name);
-                    // Mark now if the enum was already inserted.
-                    collector.mark_flags(&enum_name);
-                    // Also record for enum definitions seen later.
-                    self.flag_enums.insert(enum_name);
-                }
-            }
-            // GUID macro values live in the arguments unless `INITGUID` is defined.
-            CXCursor_MacroExpansion
-                if matches!(
-                    child.name().as_str(),
-                    "DEFINE_GUID" | "DEFINE_OLEGUID" | "DEFINE_KNOWN_FOLDER"
-                ) =>
-            {
-                let ole = child.name() == "DEFINE_OLEGUID";
-                let tokens = self.tu.tokenize(child.extent());
-                if let Some((name, uuid)) = parse_define_guid_tokens(&tokens, ole)
-                    && !name.is_empty()
-                {
-                    // `IID_<Interface>` fills UUIDs missing from the C++ declaration.
-                    if let Some(iface_name) = name.strip_prefix("IID_") {
-                        self.iid_vars
-                            .entry(iface_name.to_string())
-                            .or_insert_with(|| uuid.clone());
-                    }
-                    if !self.ref_map.contains_key(&name) {
-                        collector.insert(Item::GuidConst(GuidConst { name, uuid }));
-                    }
-                }
-            }
-            // Property key macro arguments carry the GUID plus PID value.
-            CXCursor_MacroExpansion
-                if matches!(
-                    child.name().as_str(),
-                    "DEFINE_PROPERTYKEY" | "DEFINE_DEVPROPKEY"
-                ) =>
-            {
-                let ty = if child.name() == "DEFINE_DEVPROPKEY" {
-                    "DEVPROPKEY"
-                } else {
-                    "PROPERTYKEY"
-                };
-                let tokens = self.tu.tokenize(child.extent());
-                if let Some((name, uuid, pid)) = parse_define_property_key_tokens(&tokens)
-                    && !name.is_empty()
-                    && !self.ref_map.contains_key(&name)
-                    && !collector.contains_key(&name)
-                {
-                    collector.insert(Item::PropertyKeyConst(PropertyKeyConst {
-                        name,
-                        ty: ty.to_string(),
-                        uuid,
-                        pid,
-                    }));
-                }
-            }
-            // `IID_XXX` variables can provide UUIDs missing from interface declarations.
-            CXCursor_VarDecl => {
-                let name = child.name();
-                if let Some(iface_name) = name.strip_prefix("IID_")
-                    && is_guid_type(&child.ty())
-                {
-                    if let Some(uuid) = parse_guid_initializer_ast(&child) {
-                        self.iid_vars.insert(iface_name.to_string(), uuid);
-                    } else {
-                        // Fallback when clang exposes no init-list children.
-                        let tokens = self.tu.tokenize(self.tu.to_expansion_range(child.extent()));
-                        if let Some(uuid) = parse_guid_initializer_tokens(&tokens) {
-                            self.iid_vars.insert(iface_name.to_string(), uuid);
-                        }
-                    }
-                } else if let Some(c) = Const::parse_var_decl(&child)
-                    && !self.ref_map.contains_key(&c.name)
-                    && !collector.contains_key(&c.name)
-                {
-                    collector.insert(Item::Const(c));
-                }
-            }
-            _ => {}
-        }
-        Ok(())
-    }
-
-    /// Lifts nested records before their parent so field type references resolve.
-    fn process_nested_types(
-        &mut self,
-        parent: Cursor,
-        collector: &mut Collector,
-        extern_c: bool,
-    ) -> Result<(), Error> {
-        for nested in parent.children() {
-            if (nested.kind() == CXCursor_StructDecl || nested.kind() == CXCursor_UnionDecl)
-                && nested.is_definition()
-            {
-                self.process_cursor(nested, collector, extern_c)?;
-            } else if nested.kind() == CXCursor_EnumDecl && nested.is_definition() {
-                // Nested anonymous enum members leak into the enclosing C scope.
-                let e = Enum::parse(nested)?;
-                if is_anonymous_name(&e.name) || is_midl_anonymous_enum_name(&e.name) {
-                    for (name, value) in e.variants {
-                        let const_value = enum_variant_value(e.repr, value);
-                        collector.insert(Item::Const(Const {
-                            name,
-                            ty: None,
-                            value: const_value,
-                        }));
-                    }
-                }
-            }
-        }
-        Ok(())
     }
 }
 
-#[derive(Default, Clone)]
-/// Builder that generates RDL from C/C++ headers using libclang.
-pub struct Clang {
-    input: Vec<PathBuf>,
-    input_text: Vec<String>,
-    reference: Vec<PathBuf>,
-    output: PathBuf,
-    namespace: String,
-    args: Vec<String>,
-    library: String,
-    /// Per-symbol DLL overrides recovered from SDK import libraries.
-    libraries: HashMap<String, String>,
-    filter: Vec<String>,
-    target: Option<String>,
-    /// Header directory segments treated as roots for the reachability sweep.
-    scope: Vec<String>,
-    /// Header stems treated as roots even outside the scoped SDK directories.
-    scope_headers: HashSet<String>,
-    /// Root header stems dropped before the reachability sweep.
-    exclude_headers: HashSet<String>,
-    /// Targeted function-symbol allowlist. Empty leaves emission unrestricted.
-    symbols: HashSet<String>,
-    /// Drops functions with no resolved import library; off for fixtures without `.lib` inputs.
-    drop_lib_less: bool,
-    /// Winmds used only to classify `ABI::Windows::*` projection declarations.
-    resolution_input: Vec<PathBuf>,
-    reference_default: bool,
-    resolution_default: bool,
-    reference_bytes: Vec<std::sync::Arc<[u8]>>,
-    resolution_bytes: Vec<std::sync::Arc<[u8]>>,
+impl Input {
+    pub fn new(name: impl Into<String>, source: impl Into<String>) -> Self {
+        let name = normalize_name(&name.into());
+        Self {
+            roots: BTreeSet::from([name.clone()]),
+            root_dirs: BTreeSet::new(),
+            excluded_roots: BTreeSet::new(),
+            name,
+            source: source.into(),
+        }
+    }
+
+    pub fn with_roots(mut self, roots: impl IntoIterator<Item = impl Into<String>>) -> Self {
+        self.roots
+            .extend(roots.into_iter().map(|root| normalize_name(&root.into())));
+        self
+    }
+
+    pub fn with_root_dirs(mut self, roots: impl IntoIterator<Item = impl Into<String>>) -> Self {
+        self.root_dirs.extend(roots.into_iter().map(|root| {
+            let mut root = normalize_name(&root.into());
+            if !root.ends_with('/') {
+                root.push('/');
+            }
+            root
+        }));
+        self
+    }
+
+    pub fn with_excluded_roots(
+        mut self,
+        roots: impl IntoIterator<Item = impl Into<String>>,
+    ) -> Self {
+        self.excluded_roots
+            .extend(roots.into_iter().map(|root| normalize_name(&root.into())));
+        self
+    }
 }
 
-/// Read-only inputs shared by every per-header pass.
-#[derive(Clone, Copy)]
-struct HeaderPass<'a> {
-    /// Flat namespace root every partition emits into (`Windows.Win32`).
-    root: &'a str,
-    /// Resolution-winmd type-name membership for `ABI::Windows::*` declarations.
-    winrt_types: &'a HashSet<String>,
+#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct Origin {
+    pub tu: String,
+    pub local: u32,
 }
 
-impl Clang {
-    /// Creates a builder with default options.
-    pub fn new() -> Self {
-        Self::default()
+#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct Location {
+    pub file: String,
+    pub offset: u32,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub enum Scalar {
+    Bool,
+    F32,
+    F64,
+    I8,
+    U8,
+    I16,
+    U16,
+    I32,
+    U32,
+    I64,
+    U64,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub enum TypeRef {
+    Void,
+    String,
+    Object,
+    Scalar(Scalar),
+    Named {
+        name: String,
+        declaration: Location,
+    },
+    Pointer {
+        mutable: bool,
+        target: Box<Self>,
+    },
+    Reference {
+        mutable: bool,
+        target: Box<Self>,
+    },
+    FunctionPointer {
+        convention: CallingConvention,
+        params: Vec<Self>,
+        result: Box<Self>,
+    },
+    OpaquePointer {
+        mutable: bool,
+        tag: String,
+    },
+    Array {
+        target: Box<Self>,
+        len: usize,
+    },
+    Generic {
+        name: String,
+        declaration: Location,
+        args: Vec<Self>,
+    },
+    InlineRecord(Box<InlineRecord>),
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct InlineRecord {
+    pub name: Option<String>,
+    pub base: Option<TypeRef>,
+    pub fields: Vec<Field>,
+    pub size: i64,
+    pub align: i64,
+    pub packing: Option<i64>,
+    pub alignment: Option<i64>,
+    pub union: bool,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct Field {
+    pub name: String,
+    pub ty: TypeRef,
+    pub offset: i64,
+    pub align: i64,
+    pub size: i64,
+    pub bit_width: Option<u32>,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct Variant {
+    pub name: String,
+    pub value: i64,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct Parameter {
+    pub name: String,
+    pub ty: TypeRef,
+    pub annotation: ParamAnnotation,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct Method {
+    pub name: String,
+    pub params: Vec<Parameter>,
+    pub result: TypeRef,
+    pub special: bool,
+}
+
+#[derive(Clone, Debug, Default, Eq, Ord, PartialEq, PartialOrd)]
+pub struct ParamAnnotation {
+    pub input: bool,
+    pub output: bool,
+    pub optional: bool,
+    pub reserved: bool,
+    pub com_out_ptr: bool,
+    pub retval: bool,
+    pub null_terminated: bool,
+    pub size: Option<SalSize>,
+    pub unsupported: Option<String>,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct SalSize {
+    pub bytes: bool,
+    pub value: SalSizeValue,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub enum SalSizeValue {
+    Constant(i32),
+    Parameter(String),
+    IndirectParameter(String),
+    Expression(String),
+}
+
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub enum CallingConvention {
+    Platform,
+    C,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub enum FactData {
+    Callback {
+        convention: CallingConvention,
+        params: Vec<Parameter>,
+        result: TypeRef,
+    },
+    Class {
+        guid: String,
+    },
+    Enum {
+        repr: Scalar,
+        variants: Vec<Variant>,
+        fixed: bool,
+        scoped: bool,
+    },
+    EnumFlag {
+        target: String,
+    },
+    Guid {
+        value: String,
+    },
+    PropertyKey {
+        ty: &'static str,
+        guid: String,
+        pid: u32,
+    },
+    Macro {
+        function_like: bool,
+        tokens: Vec<String>,
+    },
+    Function {
+        link_name: String,
+        convention: CallingConvention,
+        params: Vec<Parameter>,
+        result: TypeRef,
+        variadic: bool,
+        noreturn: bool,
+    },
+    Interface {
+        base: Option<TypeRef>,
+        guid: Option<String>,
+        methods: Vec<Method>,
+    },
+    Record {
+        base: Option<TypeRef>,
+        fields: Vec<Field>,
+        size: i64,
+        align: i64,
+        packing: Option<i64>,
+        alignment: Option<i64>,
+        union: bool,
+    },
+    Typedef {
+        target: TypeRef,
+    },
+    Unsupported {
+        reason: String,
+    },
+    None,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub enum FactKind {
+    Class,
+    Enum,
+    EnumFlag,
+    Function,
+    Guid,
+    Macro,
+    Namespace,
+    Struct,
+    Typedef,
+    Union,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct Fact {
+    pub origin: Origin,
+    pub parent: Option<Origin>,
+    pub kind: FactKind,
+    pub name: String,
+    pub spelling: Location,
+    pub expansion: Location,
+    pub definition: bool,
+    pub main_file: bool,
+    pub root: bool,
+    pub system: bool,
+    pub data: FactData,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub enum Value {
+    F32(u32),
+    F64(u64),
+    Signed(i64),
+    Unsigned(u64),
+    Utf8(String),
+    Utf16(String),
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub struct Constant {
+    pub root: Origin,
+    pub definition: Origin,
+    pub spelling: Location,
+    pub name: String,
+    pub ty: TypeRef,
+    pub value: Value,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct Snapshot {
+    facts: Vec<Fact>,
+    constants: Vec<Constant>,
+}
+
+impl Snapshot {
+    pub fn facts(&self) -> &[Fact] {
+        &self.facts
     }
 
-    /// Adds an input header (`.h`, `.hpp`, `.hxx`, or `.hh`) file or directory.
-    pub fn input(&mut self, input: impl AsRef<Path>) -> &mut Self {
-        self.input.push(input.as_ref().to_path_buf());
-        self
+    pub fn constants(&self) -> &[Constant] {
+        &self.constants
     }
 
-    /// Adds input headers.
-    pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<Path>,
-    {
-        for input in inputs {
-            self.input(input);
-        }
-        self
-    }
-
-    /// Adds inline source text to compile instead of a file on disk.
-    pub fn input_text(&mut self, input: &str) -> &mut Self {
-        self.input_text.push(input.to_string());
-        self
-    }
-
-    /// Adds inline source texts to compile instead of files on disk.
-    pub fn input_texts<I, S>(&mut self, inputs: I) -> &mut Self
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-    {
-        for input in inputs {
-            self.input_text(input.as_ref());
-        }
-        self
-    }
-
-    /// Adds a reference winmd file or directory.
-    pub fn reference(&mut self, input: impl AsRef<Path>) -> &mut Self {
-        self.reference.push(input.as_ref().to_path_buf());
-        self
-    }
-
-    /// Adds multiple reference winmd files or directories.
-    pub fn references<I, S>(&mut self, inputs: I) -> &mut Self
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<Path>,
-    {
-        for input in inputs {
-            self.reference(input);
-        }
-        self
-    }
-
-    /// Adds a reference winmd from memory.
-    pub fn reference_bytes(&mut self, input: &[u8]) -> &mut Self {
-        self.reference_bytes.push(input.into());
-        self
-    }
-
-    /// Adds reference winmds from memory.
-    pub fn reference_byte_sets<I, B>(&mut self, inputs: I) -> &mut Self
-    where
-        I: IntoIterator<Item = B>,
-        B: AsRef<[u8]>,
-    {
-        for input in inputs {
-            self.reference_bytes(input.as_ref());
-        }
-        self
-    }
-
-    /// Adds the default Windows metadata as references.
-    pub fn reference_default(&mut self) -> &mut Self {
-        self.reference_default = true;
-        self
-    }
-
-    /// Sets the output `.rdl` file path.
-    pub fn output(&mut self, output: impl AsRef<Path>) -> &mut Self {
-        self.output = output.as_ref().to_path_buf();
-        self
-    }
-
-    /// Sets the namespace for the generated types.
-    pub fn namespace(&mut self, namespace: &str) -> &mut Self {
-        self.namespace = namespace.to_string();
-        self
-    }
-
-    /// Sets the library name recorded for imported functions.
-    pub fn library(&mut self, library: &str) -> &mut Self {
-        self.library = library.to_string();
-        self
-    }
-
-    /// Drops functions with no resolved import library; leave off without `.lib` inputs.
-    pub fn drop_lib_less(&mut self) -> &mut Self {
-        self.drop_lib_less = true;
-        self
-    }
-
-    /// Adds a winmd used only to classify `ABI::Windows::*` projection declarations.
-    pub fn resolution_input(&mut self, input: impl AsRef<Path>) -> &mut Self {
-        self.resolution_input.push(input.as_ref().to_path_buf());
-        self
-    }
-
-    /// Adds winmds used only to classify `ABI::Windows::*` projection declarations.
-    pub fn resolution_inputs<I, S>(&mut self, inputs: I) -> &mut Self
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<Path>,
-    {
-        for input in inputs {
-            self.resolution_input(input);
-        }
-        self
-    }
-
-    /// Adds a resolution-only winmd from memory.
-    pub fn resolution_bytes(&mut self, input: &[u8]) -> &mut Self {
-        self.resolution_bytes.push(input.into());
-        self
-    }
-
-    /// Adds resolution-only winmds from memory.
-    pub fn resolution_byte_sets<I, B>(&mut self, inputs: I) -> &mut Self
-    where
-        I: IntoIterator<Item = B>,
-        B: AsRef<[u8]>,
-    {
-        for input in inputs {
-            self.resolution_bytes(input.as_ref());
-        }
-        self
-    }
-
-    /// Adds the default Windows Runtime metadata as a resolution-only input.
-    pub fn resolution_default(&mut self) -> &mut Self {
-        self.resolution_default = true;
-        self
-    }
-
-    /// Adds symbol -> DLL overrides for functions.
-    ///
-    /// Prefer per-DLL `.lib` files over umbrella/apiset libraries for real DLL names.
-    ///
-    /// [`library`]: Self::library
-    /// [`import_library`]: Self::import_library
-    pub fn libraries<I, K, V>(&mut self, libraries: I) -> &mut Self
-    where
-        I: IntoIterator<Item = (K, V)>,
-        K: Into<String>,
-        V: Into<String>,
-    {
-        self.libraries
-            .extend(libraries.into_iter().map(|(k, v)| (k.into(), v.into())));
-        self
-    }
-
-    /// Returns the DLL currently mapped to a function symbol.
-    pub fn resolved_library(&self, symbol: &str) -> Option<&str> {
-        self.libraries.get(symbol).map(String::as_str)
-    }
-
-    /// Reads a COFF import library and adds its symbol -> DLL mappings.
-    pub fn import_library(&mut self, path: impl AsRef<Path>) -> Result<&mut Self, Error> {
-        extend_libraries(&mut self.libraries, path.as_ref())?;
-        Ok(self)
-    }
-
-    /// Adds a normalized header path suffix to the inclusion filter.
-    pub fn filter(&mut self, filter: &str) -> &mut Self {
-        self.filter.push(filter.to_string());
-        self
-    }
-
-    /// Adds multiple header path suffixes to the inclusion filter.
-    pub fn filters<I, S>(&mut self, filters: I) -> &mut Self
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-    {
-        for filter in filters {
-            self.filter.push(filter.as_ref().to_string());
-        }
-        self
-    }
-
-    /// Adds a compiler argument to pass to libclang.
-    pub fn arg<S: AsRef<str>>(&mut self, arg: S) -> &mut Self {
-        self.args.push(arg.as_ref().to_string());
-        self
-    }
-
-    /// Adds multiple compiler arguments to pass to libclang.
-    pub fn args<I>(&mut self, args: I) -> &mut Self
-    where
-        I: IntoIterator,
-        I::Item: AsRef<str>,
-    {
-        for arg in args {
-            self.args.push(arg.as_ref().to_string());
-        }
-        self
-    }
-
-    /// Sets the target triple used for all clang invocations.
-    pub fn target(&mut self, target: &str) -> &mut Self {
-        self.target = Some(target.to_string());
-        self
-    }
-
-    /// Adds a header directory segment that acts as a root for the reachability sweep.
-    pub fn scope(&mut self, scope: &str) -> &mut Self {
-        self.scope.push(scope.to_string());
-        self
-    }
-
-    /// Adds multiple header directory segments as roots for the reachability sweep.
-    pub fn scopes<I, S>(&mut self, scopes: I) -> &mut Self
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-    {
-        for scope in scopes {
-            self.scope(scope.as_ref());
-        }
-        self
-    }
-
-    /// Marks a header as a sweep root regardless of SDK directory.
-    pub fn scope_header(&mut self, header: &str) -> &mut Self {
-        let stem = header_stem_to_namespace(header);
-        if !stem.is_empty() {
-            self.scope_headers.insert(stem);
-        }
-        self
-    }
-
-    /// Marks multiple headers as sweep roots regardless of SDK directory.
-    pub fn scope_headers<I, S>(&mut self, headers: I) -> &mut Self
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-    {
-        for header in headers {
-            self.scope_header(header.as_ref());
-        }
-        self
-    }
-
-    /// Drops a named header partition before the reachability sweep.
-    pub fn exclude_header(&mut self, header: &str) -> &mut Self {
-        let stem = header_stem_to_namespace(header);
-        if !stem.is_empty() {
-            self.exclude_headers.insert(stem);
-        }
-        self
-    }
-
-    /// Drops multiple named header partitions before the reachability sweep.
-    pub fn exclude_headers<I, S>(&mut self, headers: I) -> &mut Self
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-    {
-        for header in headers {
-            self.exclude_header(header.as_ref());
-        }
-        self
-    }
-
-    /// Restricts root emission to a named function symbol.
-    pub fn symbol(&mut self, symbol: &str) -> &mut Self {
-        self.symbols.insert(symbol.to_string());
-        self
-    }
-
-    /// Restricts root emission to the named function symbols.
-    pub fn symbols<I, S>(&mut self, symbols: I) -> &mut Self
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-    {
-        for symbol in symbols {
-            self.symbol(symbol.as_ref());
-        }
-        self
-    }
-
-    /// Returns the version string reported by the loaded libclang.
-    pub fn version() -> Result<String, Error> {
-        let lib = Library::new()?;
-        Ok(lib.version())
-    }
-
-    /// Generates the RDL and writes it to the configured output.
-    pub fn write(&self) -> Result<(), Error> {
-        self.validate_output()?;
-        let reference = self.load_reference()?;
-        let spec = NamespaceSpec {
-            namespace: &self.namespace,
-            library: &self.library,
-            libraries: &self.libraries,
-            filter: &self.filter,
-            symbols: &self.symbols,
-        };
-        let rdl = self.parse_and_emit(&reference, std::slice::from_ref(&spec))?;
-        write_to_file(&self.output, formatter::format(&rdl[0]))?;
-        Ok(())
-    }
-
-    /// Writes one flat-root RDL file per defining header.
-    pub fn write_by_header(&self) -> Result<(), Error> {
-        self.validate_output()?;
-        let outputs = self.parse_and_emit_by_header(&self.namespace)?;
-        for (stem, rdl) in outputs {
-            // File names are lowercased defining-header stems.
-            let leaf = stem.to_lowercase();
-            write_to_file(
-                self.output.join(format!("{leaf}.rdl")),
-                formatter::format(&rdl),
-            )?;
-        }
-        Ok(())
-    }
-
-    fn validate_output(&self) -> Result<(), Error> {
-        if self.output.as_os_str().is_empty() {
-            Err(Error::new("output is required", "", 0, 0))
-        } else {
-            Ok(())
-        }
-    }
-
-    /// Parses inputs once and returns the libclang state that keeps the TUs valid.
-    fn parse_inputs(&self) -> Result<ParsedInputs, Error> {
-        let h_paths = expand_header_inputs(&self.input)?;
-        let library = Library::new()?;
-        let index = Index::new()?;
-
-        // Put `--target=` before user args.
-        let args: Vec<String> = self
-            .target
-            .as_ref()
-            .map(|t| format!("--target={t}"))
-            .into_iter()
-            .chain(self.args.iter().cloned())
-            .collect();
-        let arg_refs: Vec<&str> = args.iter().map(String::as_str).collect();
-
-        let mut h_tus = vec![];
-        for input in &h_paths {
-            let source = input.to_str().ok_or_else(|| {
-                Error::new(
-                    "input path is not valid UTF-8",
-                    &input.to_string_lossy(),
-                    0,
-                    0,
-                )
-            })?;
-            h_tus.push((source.replace('\\', "/"), index.parse(source, &arg_refs)?));
-        }
-        let mut str_tus = vec![];
-        for content in &self.input_text {
-            str_tus.push((
-                content.clone(),
-                index.parse_unsaved(
-                    ".h",
-                    content,
-                    &arg_refs,
-                    CXTranslationUnit_DetailedPreprocessingRecord,
-                )?,
-            ));
-        }
-
-        Ok(ParsedInputs {
-            args,
-            h_tus,
-            str_tus,
-            index,
-            _library: library,
+    pub fn unsupported(&self) -> impl Iterator<Item = (&Fact, &str)> {
+        self.facts.iter().filter_map(|fact| {
+            if let FactData::Unsupported { reason } = &fact.data {
+                Some((fact, reason.as_str()))
+            } else {
+                None
+            }
         })
     }
 
-    /// Emits one flat-root RDL string per defining-header stem.
-    fn parse_and_emit_by_header(&self, root: &str) -> Result<BTreeMap<String, String>, Error> {
-        // Additive scrapes skip entities already defined by input winmds. Split type and
-        // value names because functions/constants live on `Apis`, not in `iter()`.
-        let reference = self.load_reference()?;
-        let mut exclude_types: HashSet<String> = HashSet::new();
-        let mut exclude_values: HashSet<String> = HashSet::new();
-        // Reference enums the scrape may carry in full: a reference (`um`) header can truncate
-        // an enum (for example `winternl.h` cuts `FILE_INFORMATION_CLASS` to one member) while
-        // the scraped (`km`) headers define it completely. Record each reference enum's member
-        // set so an enum the scrape extends can be un-excluded below and emitted in full; the
-        // winmd merge then unions the truncated reference copy with this complete one.
-        let mut reference_enums: HashMap<String, HashSet<String>> = HashMap::new();
-        for (_, name, item) in reference.iter_items() {
-            match item {
-                metadata::reader::Item::Type(def) => {
-                    if def.category() == metadata::reader::TypeCategory::Enum {
-                        reference_enums.insert(
-                            name.to_string(),
-                            def.fields()
-                                .filter(|field| field.constant().is_some())
-                                .map(|field| field.name().to_string())
-                                .collect(),
-                        );
-                    }
-                    exclude_types.insert(name.to_string())
-                }
-                metadata::reader::Item::Fn(_) | metadata::reader::Item::Const(_) => {
-                    exclude_values.insert(name.to_string())
-                }
-            };
+    pub fn dump(&self) -> String {
+        let mut result = String::new();
+        for fact in &self.facts {
+            let parent = fact
+                .parent
+                .as_ref()
+                .map_or(String::new(), |parent| format!(" <- {}", origin(parent)));
+            result.push_str(&format!(
+                "{} {:?} {} [{}:{} -> {}:{}]{}{}{}{}\n",
+                origin(&fact.origin),
+                fact.kind,
+                fact.name,
+                fact.spelling.file,
+                fact.spelling.offset,
+                fact.expansion.file,
+                fact.expansion.offset,
+                if fact.definition { " definition" } else { "" },
+                if fact.main_file { " main" } else { "" },
+                if fact.system { " system" } else { "" },
+                parent,
+            ));
         }
-
-        let parsed = self.parse_inputs()?;
-        let arg_refs: Vec<&str> = parsed.args.iter().map(String::as_str).collect();
-
-        // Backtick-stripped resolution names classify `ABI::Windows::*` declarations.
-        let winrt_types = self.load_winrt_types()?;
-
-        let mut collectors: BTreeMap<String, Collector> = BTreeMap::new();
-        // Per-partition root flag for the reachability sweep.
-        let mut scope_in: BTreeMap<String, bool> = BTreeMap::new();
-
-        let pass = HeaderPass {
-            root,
-            winrt_types: &winrt_types,
-        };
-
-        for (input, tu) in &parsed.h_tus {
-            self.process_tu_by_header(
-                tu,
-                &pass,
-                &mut collectors,
-                &mut scope_in,
-                MacroEval {
-                    source: MacroSource::File(input),
-                    args: &arg_refs,
-                },
-            )?;
+        for constant in &self.constants {
+            let route = format!(
+                "{} -> {}",
+                origin(&constant.root),
+                origin(&constant.definition)
+            );
+            result.push_str(&format!(
+                "{} Constant {} {:?} = {:?}\n",
+                route, constant.name, constant.ty, constant.value
+            ));
         }
-        for (content, tu) in &parsed.str_tus {
-            self.process_tu_by_header(
-                tu,
-                &pass,
-                &mut collectors,
-                &mut scope_in,
-                MacroEval {
-                    source: MacroSource::Str(content),
-                    args: &arg_refs,
-                },
-            )?;
-        }
-
-        // Drop excluded root partitions before the sweep.
-        if !self.exclude_headers.is_empty() {
-            collectors.retain(|stem, _| !self.exclude_headers.contains(stem));
-            scope_in.retain(|stem, _| !self.exclude_headers.contains(stem));
-        }
-
-        // Keep out-of-scope declarations only when referenced from an in-scope root.
-        if !self.scope.is_empty() {
-            sweep_unreferenced(&mut collectors, &scope_in);
-        }
-
-        // Un-exclude a reference enum the scrape carries with members the reference lacks: emit
-        // the complete enum so the winmd merge can union it with the truncated reference copy
-        // into a single enum. An enum the scrape does not extend stays excluded (the reference
-        // copy already covers it).
-        if !reference_enums.is_empty() {
-            let mut keep: HashSet<String> = HashSet::new();
-            for collector in collectors.values() {
-                for item in collector.values() {
-                    let Item::Enum(e) = item else {
-                        continue;
-                    };
-                    let Some(members) = reference_enums.get(&e.name) else {
-                        continue;
-                    };
-                    if e.variants
-                        .iter()
-                        .any(|(member, _)| !members.contains(member))
-                    {
-                        keep.insert(e.name.clone());
-                    }
-                }
-            }
-            for name in &keep {
-                exclude_types.remove(name);
-            }
-        }
-
-        // Exclude same-category names already in the reference winmd; cross-category clashes
-        // may still be real dependencies and are handled below.
-        if !exclude_types.is_empty() || !exclude_values.is_empty() {
-            for collector in collectors.values_mut() {
-                collector.retain_items(|name, item| {
-                    if item.is_type() {
-                        !exclude_types.contains(name)
-                    } else {
-                        !exclude_values.contains(name)
-                    }
-                });
-            }
-        }
-
-        // Drop unreferenced WDK types that collide with Win32 values in the flat root. A
-        // referenced cross-kind clash stays so its typedefs do not dangle.
-        if !exclude_values.is_empty() {
-            let mut referenced: HashSet<String> = HashSet::new();
-            for collector in collectors.values() {
-                for item in collector.values() {
-                    item_refs(item, &mut referenced);
-                }
-            }
-            for collector in collectors.values_mut() {
-                collector.retain_items(|name, item| {
-                    !(item.is_type() && exclude_values.contains(name) && !referenced.contains(name))
-                });
-            }
-        }
-
-        // Drop `IID_<Interface>` constants when the interface in this scrape already carries
-        // the GUID; bindgen synthesizes the same constant from the interface GUID.
-        let interfaces: HashSet<String> = collectors
-            .values()
-            .flat_map(|collector| collector.iter())
-            .filter(|(_, item)| matches!(item, Item::Interface(_)))
-            .map(|(name, _)| name.clone())
-            .collect();
-        if !interfaces.is_empty() {
-            for collector in collectors.values_mut() {
-                collector.retain_items(|name, item| {
-                    !(matches!(item, Item::GuidConst(_))
-                        && name
-                            .strip_prefix("IID_")
-                            .is_some_and(|iface| interfaces.contains(iface)))
-                });
-            }
-        }
-
-        // Drop unreferenced loose constants that duplicate enum members by name and value.
-        let enum_members = enum_member_values(&collectors);
-        if !enum_members.is_empty() {
-            let mut referenced = HashSet::new();
-            for collector in collectors.values() {
-                for item in collector.values() {
-                    item_refs(item, &mut referenced);
-                }
-            }
-            for collector in collectors.values_mut() {
-                collector.retain_items(|name, item| {
-                    let Item::Const(c) = item else {
-                        return true;
-                    };
-                    if referenced.contains(name) {
-                        return true;
-                    }
-                    let (Some(values), Some(value)) =
-                        (enum_members.get(name), const_integer_bits(&c.value))
-                    else {
-                        return true;
-                    };
-                    !values.iter().any(|&member| enum_member_eq(member, value))
-                });
-            }
-        }
-
-        // Choose duplicate typedef owners only after every partition and item filter has run.
-        dedup_typedefs(&mut collectors);
-
-        let mut outputs = BTreeMap::new();
-        for (stem, collector) in &collectors {
-            // Empty partitions are not written.
-            if collector.is_empty() {
-                continue;
-            }
-            // Every file emits the same flat root; the stem only names the file.
-            outputs.insert(stem.clone(), emit_module(root, collector)?);
-        }
-        Ok(outputs)
+        result
     }
 
-    /// Routes top-level declarations to collectors keyed by defining-header stem.
-    fn process_tu_by_header(
+    pub fn emit(&self, namespace: &str) -> Result<String, Error> {
+        let references = BTreeMap::new();
+        self.emit_with_options(&EmitOptions::new(namespace, &references))
+    }
+
+    pub fn emit_with_library(&self, namespace: &str, library: &str) -> Result<String, Error> {
+        let references = BTreeMap::new();
+        let mut options = EmitOptions::new(namespace, &references);
+        options.library = Some(library);
+        self.emit_with_options(&options)
+    }
+
+    pub fn emit_with_options(&self, options: &EmitOptions<'_>) -> Result<String, Error> {
+        let items = self.emit_items(options)?;
+        write_rdl(
+            options.namespace,
+            items.values().map(|(_, item)| item.as_str()),
+        )
+    }
+
+    pub fn emit_by_header_with_options(
         &self,
-        tu: &TranslationUnit,
-        pass: &HeaderPass<'_>,
-        collectors: &mut BTreeMap<String, Collector>,
-        scope_in: &mut BTreeMap<String, bool>,
-        eval: MacroEval<'_>,
-    ) -> Result<(), Error> {
-        let HeaderPass { root, winrt_types } = *pass;
-        // Abort on diagnostics in emitted headers; tolerate transitive-only include errors
-        // so interop headers can survive broken C++/WinRT projection includes.
-        for diag in tu.diagnostics() {
-            if !diag.is_err() {
-                continue;
-            }
-            let emitted = self.scope.is_empty()
-                || diag.file_name.is_empty()
-                || self
-                    .scope_headers
-                    .contains(&header_stem_to_namespace(&diag.file_name))
-                || header_in_scope(&diag.file_name, &self.scope);
-            if emitted {
-                return Err(Error::new(
-                    &diag.message,
-                    &diag.file_name,
-                    diag.line.try_into().unwrap(),
-                    (diag.column.saturating_sub(1)).try_into().unwrap(),
-                ));
-            }
+        options: &EmitOptions<'_>,
+    ) -> Result<BTreeMap<String, String>, Error> {
+        let items = self.emit_items(options)?;
+        let mut partitions: BTreeMap<String, Vec<String>> = BTreeMap::new();
+        for (_, (header, item)) in items {
+            partitions.entry(header).or_default().push(item);
         }
+        partitions
+            .into_iter()
+            .map(|(header, items)| {
+                Ok((
+                    header,
+                    write_rdl(options.namespace, items.iter().map(String::as_str))?,
+                ))
+            })
+            .collect()
+    }
 
-        let mut tag_rename = build_tag_rename_map(tu);
-        assign_nested_names(tu, &mut tag_rename);
-        let enum_merge = merge_enum_typedef_idiom(tu, &mut tag_rename);
-        // Share TU-wide macro definitions across per-header parsers.
-        let macro_defs = collect_macro_defs(tu);
-
-        // Flatten linkage blocks and deduplicate by clang identity across repeated SDK
-        // declarations; the defining header only selects the output file.
-        let mut decls = Vec::new();
-        // A resolution winmd lets the ABI namespace walker separate WinRT types from COM interop.
-        let abi = (!winrt_types.is_empty()).then_some(winrt_types);
-        flatten_decls(tu.cursor(), false, false, None, abi, &mut decls);
-
-        // Prefer definitions over forward declarations so records route to defining headers.
-        let mut chosen: BTreeMap<String, (Cursor, bool)> = BTreeMap::new();
-        for (child, extern_c) in decls {
-            if is_handle_tag_struct(&child) {
-                continue;
-            }
-            if header_stem_of(&child).is_none() {
-                continue;
-            }
-            let usr = child.usr();
-            let key = if usr.is_empty() {
-                child.canonical().location_id()
-            } else {
-                usr
-            };
-            match chosen.entry(key) {
-                std::collections::btree_map::Entry::Vacant(e) => {
-                    e.insert((child, extern_c));
+    fn emit_items(
+        &self,
+        options: &EmitOptions<'_>,
+    ) -> Result<BTreeMap<String, (String, String)>, Error> {
+        let timing = std::env::var_os("WINDOWS_CLANG_TIMING").is_some();
+        let plan_time = std::time::Instant::now();
+        let plan = self.plan(
+            options.references,
+            options.excluded_types.or(options.excluded),
+            options.excluded_functions.or(options.excluded),
+            options.excluded_constants.or(options.excluded),
+            options.functions,
+        )?;
+        if timing {
+            eprintln!("clang planning: {:.2}s", plan_time.elapsed().as_secs_f32());
+        }
+        let emission_time = std::time::Instant::now();
+        let mut items = BTreeMap::new();
+        for planned in plan.types {
+            let fact = planned.fact;
+            let item = match &fact.data {
+                FactData::Callback {
+                    convention,
+                    params,
+                    result,
+                } => {
+                    let projection = TypeProjection::new(
+                        &plan.type_names,
+                        &plan.interface_names,
+                        &fact.origin.tu,
+                    );
+                    write_callback(&planned.name, *convention, params, result, &projection)?
                 }
-                std::collections::btree_map::Entry::Occupied(mut e) => {
-                    let existing = &e.get().0;
-                    // Among forward declarations, keep the `uuid` one so CLSIDs survive.
-                    let replace = if child.is_definition() {
-                        !existing.is_definition()
-                    } else if !existing.is_definition() {
-                        child.extract_uuid(tu).is_some() && existing.extract_uuid(tu).is_none()
-                    } else {
-                        false
-                    };
-                    if replace {
-                        e.insert((child, extern_c));
+                FactData::Class { guid } => {
+                    format!(
+                        "    const {}: GUID = {};\n",
+                        rdl_ident(&planned.name),
+                        rdl_uuid(guid)
+                    )
+                }
+                FactData::Guid { value } => {
+                    format!(
+                        "    const {}: GUID = {};\n",
+                        rdl_ident(&planned.name),
+                        rdl_uuid(value)
+                    )
+                }
+                FactData::PropertyKey { ty, guid, pid } => {
+                    format!(
+                        "    #[guid({})]\n    const {}: {} = {pid};\n",
+                        rdl_uuid(guid),
+                        rdl_ident(&planned.name),
+                        rdl_ident(ty)
+                    )
+                }
+                FactData::Typedef {
+                    target: TypeRef::InlineRecord(record),
+                } => {
+                    let projection = TypeProjection::new(
+                        &plan.type_names,
+                        &plan.interface_names,
+                        &fact.origin.tu,
+                    );
+                    write_named_record(
+                        &rdl_ident(&planned.name),
+                        &record.fields,
+                        record.packing,
+                        record.alignment,
+                        record.union,
+                        &projection,
+                    )?
+                }
+                FactData::Typedef { target } => {
+                    format!(
+                        "    type {} = {};\n",
+                        rdl_ident(&planned.name),
+                        planned_emitted_type_name(
+                            target,
+                            &plan.type_names,
+                            &plan.interface_names,
+                            &fact.origin.tu,
+                        )
+                    )
+                }
+                FactData::Enum {
+                    repr,
+                    variants,
+                    scoped,
+                    ..
+                } => {
+                    let flags = plan
+                        .flag_enums
+                        .contains(&(fact.origin.tu.clone(), planned.name.clone()));
+                    let repr = if flags { unsigned_scalar(*repr) } else { *repr };
+                    let mut item = format!(
+                        "    #[repr({})]\n{}{}    enum {} {{\n",
+                        scalar_name(repr),
+                        if flags { "    #[flags]\n" } else { "" },
+                        if *scoped { "    #[scoped]\n" } else { "" },
+                        rdl_ident(&planned.name)
+                    );
+                    for variant in variants {
+                        item.push_str(&format!(
+                            "        {} = {},\n",
+                            rdl_ident(&variant.name),
+                            enum_value(variant.value, repr)
+                        ));
                     }
+                    item.push_str("    }\n");
+                    item
                 }
+                FactData::Record {
+                    fields,
+                    packing,
+                    alignment,
+                    union,
+                    ..
+                } => {
+                    let projection = TypeProjection::new(
+                        &plan.type_names,
+                        &plan.interface_names,
+                        &fact.origin.tu,
+                    );
+                    write_named_record(
+                        &rdl_ident(&planned.name),
+                        fields,
+                        *packing,
+                        *alignment,
+                        *union,
+                        &projection,
+                    )?
+                }
+                FactData::Interface {
+                    base,
+                    guid,
+                    methods,
+                } => {
+                    let projection = TypeProjection::new(
+                        &plan.type_names,
+                        &plan.interface_names,
+                        &fact.origin.tu,
+                    );
+                    write_interface(
+                        &rdl_ident(&planned.name),
+                        base.as_ref(),
+                        guid.as_deref().or_else(|| {
+                            plan.interface_guids.get(&planned.name).map(String::as_str)
+                        }),
+                        methods,
+                        &projection,
+                    )?
+                }
+                _ => {
+                    return Err(Error(format!(
+                        "planned type `{}` is not emittable",
+                        fact.name
+                    )));
+                }
+            };
+            if items
+                .insert(planned.name.clone(), (fact.spelling.file.clone(), item))
+                .is_some()
+            {
+                return Err(Error(format!("duplicate planned name `{}`", planned.name)));
             }
         }
-
-        let mut buckets: BTreeMap<String, Vec<(Cursor, bool)>> = BTreeMap::new();
-        for (_, (child, extern_c)) in chosen {
-            let stem = header_stem_of(&child).expect("filtered above");
-            // Keep a partition in-scope if any contributing cursor is in-scope.
-            if !self.scope.is_empty() {
-                let in_scope = self.scope_headers.contains(&stem)
-                    || header_path_of(&child).is_none_or(|p| header_in_scope(&p, &self.scope));
-                scope_in
-                    .entry(stem.clone())
-                    .and_modify(|v| *v |= in_scope)
-                    .or_insert(in_scope);
+        for function in plan.functions {
+            let FactData::Function {
+                link_name,
+                convention,
+                params,
+                result,
+                variadic,
+                noreturn,
+            } = &function.data
+            else {
+                return Err(Error(format!(
+                    "planned function `{}` has no signature",
+                    function.name
+                )));
+            };
+            let projection =
+                TypeProjection::new(&plan.type_names, &plan.interface_names, &function.origin.tu);
+            let mut params = write_params(params, &projection)?;
+            if *variadic {
+                params.push("...".to_string());
             }
-            buckets.entry(stem).or_default().push((child, extern_c));
-        }
-
-        let empty_ref: HashMap<String, String> = HashMap::new();
-        let empty_symbols: HashSet<String> = HashSet::new();
-        let mut all_opaque: Vec<(String, String)> = vec![];
-        // Macro constants are per-bucket values but are deduplicated globally.
-        let mut all_consts: Vec<(String, Vec<String>)> = vec![];
-
-        for (stem, cursors) in buckets {
-            let collector = collectors.entry(stem.clone()).or_default();
-            let mut parser = Parser::new(
-                root,
-                &self.library,
-                &self.libraries,
-                &empty_ref,
-                &tag_rename,
-                &enum_merge,
-                &macro_defs,
-                tu,
-                &empty_symbols,
+            let params = params.join(", ");
+            let result = if *result == TypeRef::Void {
+                String::new()
+            } else {
+                format!(
+                    " -> {}",
+                    planned_emitted_type_name(
+                        result,
+                        &plan.type_names,
+                        &plan.interface_names,
+                        &function.origin.tu,
+                    )
+                )
+            };
+            let library = options
+                .libraries
+                .and_then(|libraries| libraries.get(link_name).map(String::as_str))
+                .or(options.library)
+                .ok_or_else(|| {
+                    Error(format!(
+                        "function `{}` requires an import library",
+                        function.name
+                    ))
+                })?;
+            let abi = calling_convention(*convention);
+            let library = if function.name == *link_name {
+                format!("#[library({library:?})]")
+            } else {
+                format!("#[library({library:?}, import = {link_name:?})]")
+            };
+            let item = format!(
+                "{}    {library}\n    extern{abi} fn {}({params}){result};\n",
+                if *noreturn { "    #[noreturn]\n" } else { "" },
+                rdl_ident(&function.name),
             );
-            parser.header_root = Some(root);
-            parser.drop_lib_less = self.drop_lib_less;
-            parser.winrt_types = abi;
-
-            for (child, extern_c) in cursors {
-                parser.process_cursor(child, collector, extern_c)?;
+            if items
+                .insert(
+                    function.name.clone(),
+                    (function.spelling.file.clone(), item),
+                )
+                .is_some()
+            {
+                return Err(Error(format!("duplicate planned name `{}`", function.name)));
             }
-
-            collector.apply_iid_vars(&parser.iid_vars);
-
-            let pending = std::mem::take(&mut parser.pending_macros);
-            if !pending.is_empty() {
-                all_consts.push((stem.clone(), pending));
+        }
+        for constant in plan.constants {
+            let encoding = match &constant.value {
+                Value::Utf8(_) => "    #[encoding(\"ansi\")]\n",
+                Value::Utf16(_) => "    #[encoding(\"utf-16\")]\n",
+                _ => "",
+            };
+            let ty = match &constant.value {
+                Value::Utf8(_) | Value::Utf16(_) => "String".to_string(),
+                _ => constant_type_name(&constant.ty, &plan.type_names),
+            };
+            let item = format!(
+                "{encoding}    const {}: {ty} = {};\n",
+                rdl_ident(&constant.name),
+                value_name(&constant.value)
+            );
+            if items
+                .insert(
+                    constant.name.clone(),
+                    (constant.spelling.file.clone(), item),
+                )
+                .is_some()
+            {
+                return Err(Error(format!("duplicate planned name `{}`", constant.name)));
             }
-            for (_ns, name) in std::mem::take(&mut parser.pending_opaque) {
-                all_opaque.push((stem.clone(), name));
+        }
+        if timing {
+            eprintln!(
+                "clang emission: {:.2}s",
+                emission_time.elapsed().as_secs_f32()
+            );
+        }
+        Ok(items)
+    }
+
+    fn plan(
+        &self,
+        references: &BTreeMap<String, TypeReference>,
+        excluded_types: Option<&BTreeSet<String>>,
+        excluded_functions: Option<&BTreeSet<String>>,
+        excluded_constants: Option<&BTreeSet<String>>,
+        selected_functions: Option<&BTreeSet<String>>,
+    ) -> Result<Plan<'_>, Error> {
+        let timing = std::env::var_os("WINDOWS_CLANG_TIMING").is_some();
+        let mut phase_time = std::time::Instant::now();
+        #[derive(Default)]
+        struct Roots<'a> {
+            types: Vec<&'a Fact>,
+            functions: Vec<&'a Fact>,
+            values: Vec<&'a Constant>,
+        }
+
+        let facts_by_origin: HashMap<_, _> =
+            self.facts.iter().map(|fact| (&fact.origin, fact)).collect();
+        let is_flat_root = |fact| is_flat_declaration(fact, &facts_by_origin, references, true);
+        let is_flat_dependency =
+            |fact| is_flat_declaration(fact, &facts_by_origin, references, false);
+        let interfaces: BTreeSet<_> = self
+            .facts
+            .iter()
+            .filter(|fact| {
+                is_flat_dependency(fact) && matches!(fact.data, FactData::Interface { .. })
+            })
+            .map(|fact| fact.name.as_str())
+            .collect();
+        let mut declared_interface_guids = BTreeMap::new();
+        for fact in self.facts.iter().filter(|fact| {
+            fact.root && matches!(fact.data, FactData::Interface { .. }) && is_flat_root(fact)
+        }) {
+            let FactData::Interface {
+                guid: Some(guid), ..
+            } = &fact.data
+            else {
+                continue;
+            };
+            if let Some(previous) =
+                declared_interface_guids.insert(fact.name.as_str(), guid.as_str())
+                && previous != guid
+            {
+                return Err(Error(format!(
+                    "interface `{}` has conflicting UUID attributes",
+                    fact.name
+                )));
+            }
+        }
+        let mut interface_guids = BTreeMap::new();
+        for fact in self.facts.iter().filter(|fact| {
+            fact.root && matches!(fact.data, FactData::Guid { .. }) && is_flat_root(fact)
+        }) {
+            let Some(interface) = fact.name.strip_prefix("IID_") else {
+                continue;
+            };
+            if !interfaces.contains(interface) || declared_interface_guids.contains_key(interface) {
+                continue;
+            }
+            let FactData::Guid { value } = &fact.data else {
+                unreachable!()
+            };
+            if let Some(previous) = interface_guids.insert(interface.to_string(), value.clone())
+                && previous != *value
+            {
+                return Err(Error(format!(
+                    "interface `{interface}` has conflicting IID declarations"
+                )));
             }
         }
 
-        // Flat enums contribute member names too, since those emit as top-level constants.
-        let mut global_names: HashSet<String> = collectors
-            .values()
-            .flat_map(|c| c.values())
-            .flat_map(|item| {
-                let mut names = vec![item.to_string()];
-                if let Item::Enum(e) = item {
-                    names.extend(e.variants.iter().map(|(name, _)| name.clone()));
+        let mut roots: BTreeMap<&str, Roots<'_>> = BTreeMap::new();
+        for fact in self
+            .facts
+            .iter()
+            .filter(|fact| fact.root && is_root_type_fact(fact) && is_flat_root(fact))
+            .filter(|fact| {
+                let Some(interface) = fact.name.strip_prefix("IID_") else {
+                    return true;
+                };
+                let FactData::Guid { value } = &fact.data else {
+                    return true;
+                };
+                if references
+                    .get(interface)
+                    .is_some_and(|reference| reference.kind == TypeReferenceKind::Interface)
+                {
+                    return false;
                 }
-                names
+                if !interfaces.contains(interface) {
+                    return true;
+                }
+                declared_interface_guids
+                    .get(interface)
+                    .is_some_and(|declared| *declared != value)
+            })
+        {
+            roots.entry(&fact.name).or_default().types.push(fact);
+        }
+        for fact in self
+            .facts
+            .iter()
+            .filter(|fact| {
+                fact.root && matches!(fact.data, FactData::Function { .. }) && is_flat_root(fact)
+            })
+            .filter(|fact| excluded_functions.is_none_or(|excluded| !excluded.contains(&fact.name)))
+            .filter(|fact| {
+                selected_functions.is_none_or(|functions| {
+                    matches!(
+                        &fact.data,
+                        FactData::Function { link_name, .. } if functions.contains(link_name)
+                    )
+                })
+            })
+        {
+            roots.entry(&fact.name).or_default().functions.push(fact);
+        }
+        for constant in &self.constants {
+            if excluded_constants.is_some_and(|excluded| excluded.contains(&constant.name)) {
+                continue;
+            }
+            roots
+                .entry(&constant.name)
+                .or_default()
+                .values
+                .push(constant);
+        }
+
+        let mut facts_index: HashMap<&str, Vec<&Fact>> = HashMap::new();
+        for fact in self.facts.iter().filter(|fact| is_flat_dependency(fact)) {
+            facts_index.entry(&fact.name).or_default().push(fact);
+        }
+        let facts_by_declaration: BTreeMap<_, _> = self
+            .facts
+            .iter()
+            .map(|fact| ((fact.origin.tu.clone(), fact.spelling.clone()), fact))
+            .collect();
+        let extended_reference_enums: BTreeSet<_> = excluded_types
+            .into_iter()
+            .flatten()
+            .filter_map(|name| {
+                let reference = references.get(name)?;
+                if reference.kind != TypeReferenceKind::Enum {
+                    return None;
+                }
+                if reference.enum_members.is_empty()
+                    || self
+                        .facts
+                        .iter()
+                        .filter(|fact| fact.name == *name)
+                        .filter_map(|fact| {
+                            underlying_enum_fact(fact, &facts_by_declaration, &mut BTreeSet::new())
+                        })
+                        .filter_map(|fact| match &fact.data {
+                            FactData::Enum { variants, .. } => Some(variants.as_slice()),
+                            _ => None,
+                        })
+                        .flatten()
+                        .any(|variant| !reference.enum_members.contains(&variant.name))
+                {
+                    Some(name.clone())
+                } else {
+                    None
+                }
             })
             .collect();
-
-        // Evaluate buckets in parallel but merge in stable order so first owner wins.
-        let evaluated = evaluate_macros_parallel(&all_consts, eval.source, eval.args)?;
-        for ((stem, _pending), consts) in all_consts.into_iter().zip(evaluated) {
-            let collector = collectors.entry(stem).or_default();
-            for c in consts {
-                if global_names.insert(c.name.clone()) {
-                    collector.insert(Item::Const(c));
-                }
-            }
-        }
-
-        // Emit opaque placeholders only when no real definition won globally.
-        for (stem, name) in all_opaque {
-            if global_names.insert(name.clone()) {
-                let collector = collectors.entry(stem).or_default();
-                collector.insert(Item::Struct(Struct::opaque(&name)));
-            }
-        }
-
-        Ok(())
-    }
-
-    /// Loads `.winmd` reference inputs for cross-namespace resolution.
-    fn load_reference(&self) -> Result<metadata::reader::Index, Error> {
-        let winmd_paths = expand_input_files(&self.reference, "winmd")?;
-
-        let mut winmd_files = vec![];
-        for file_name in &winmd_paths {
-            let source = file_name.to_string_lossy();
-            winmd_files.push(
-                metadata::reader::File::read(file_name)
-                    .ok_or_else(|| Error::new("invalid reference", &source, 0, 0))?,
-            );
-        }
-        if self.reference_default {
-            winmd_files.extend(
-                [windows_default::WINRT, windows_default::WIN32]
-                    .into_iter()
-                    .map(|bytes| metadata::reader::File::new(bytes.to_vec()).unwrap()),
-            );
-        }
-        for bytes in &self.reference_bytes {
-            winmd_files.push(
-                metadata::reader::File::new(bytes.to_vec())
-                    .ok_or_else(|| Error::new("invalid reference", "<memory>", 0, 0))?,
-            );
-        }
-
-        Ok(metadata::reader::Index::new(winmd_files))
-    }
-
-    /// Loads resolution-winmd type names, stripping generic arity for C++ ABI matching.
-    fn load_winrt_types(&self) -> Result<HashSet<String>, Error> {
-        let mut winmd_files = vec![];
-        for file_name in &self.resolution_input {
-            let source = file_name.to_string_lossy();
-            winmd_files.push(
-                metadata::reader::File::read(file_name)
-                    .ok_or_else(|| Error::new("invalid resolution input", &source, 0, 0))?,
-            );
-        }
-        if self.resolution_default {
-            winmd_files.push(metadata::reader::File::new(windows_default::WINRT.to_vec()).unwrap());
-        }
-        for bytes in &self.resolution_bytes {
-            winmd_files.push(
-                metadata::reader::File::new(bytes.to_vec())
-                    .ok_or_else(|| Error::new("invalid resolution input", "<memory>", 0, 0))?,
-            );
-        }
-        let index = metadata::reader::Index::new(winmd_files);
-        let mut set = HashSet::new();
-        for (namespace, name, _) in index.iter() {
-            let bare = name.split('`').next().unwrap_or(name);
-            set.insert(format!("{namespace}.{bare}"));
-        }
-        Ok(set)
-    }
-
-    /// Emits one RDL string per namespace spec, reusing cached translation units.
-    fn parse_and_emit(
-        &self,
-        reference: &metadata::reader::Index,
-        specs: &[NamespaceSpec<'_>],
-    ) -> Result<Vec<String>, Error> {
-        // Reuse translation units across all specs.
-        let parsed = self.parse_inputs()?;
-        let arg_refs: Vec<&str> = parsed.args.iter().map(String::as_str).collect();
-
-        // Pass 1: learn unique type-name owners across specs. Shared typedef artifacts stay
-        // local by being dropped from the owner table.
-        let mut owners: HashMap<String, Option<String>> = HashMap::new();
-        for spec in specs {
-            let ref_map = build_ref_map(reference, spec.namespace);
-            let mut collector = Collector::new();
-            for (_, tu) in &parsed.h_tus {
-                self.process_tu(tu, &mut collector, &ref_map, spec)?;
-            }
-            for (_, tu) in &parsed.str_tus {
-                self.process_tu(tu, &mut collector, &ref_map, spec)?;
-            }
-            for name in collector.keys() {
-                owners
-                    .entry(name.clone())
-                    .and_modify(|owner| {
-                        if owner.as_deref() != Some(spec.namespace) {
-                            *owner = None;
-                        }
-                    })
-                    .or_insert_with(|| Some(spec.namespace.to_string()));
-            }
-        }
-        let in_house: HashMap<String, String> = owners
+        let excluded_declarations: BTreeSet<_> = excluded_types
             .into_iter()
-            .filter_map(|(name, owner)| owner.map(|ns| (name, ns)))
-            .collect();
-
-        // Pass 2: emit with in-house owners preferred over the upstream reference.
-        let mut outputs = Vec::with_capacity(specs.len());
-
-        for spec in specs {
-            let ref_map = build_resolution_map(reference, &in_house, spec.namespace);
-            let mut collector = Collector::new();
-
-            for (input, tu) in &parsed.h_tus {
-                let pending = self.process_tu(tu, &mut collector, &ref_map, spec)?;
-                for c in Const::evaluate_macros(input, &pending, &parsed.index, &arg_refs)? {
-                    collector.insert(Item::Const(c));
-                }
-            }
-
-            for (content, tu) in &parsed.str_tus {
-                let pending = self.process_tu(tu, &mut collector, &ref_map, spec)?;
-                for c in Const::evaluate_macros_str(content, &pending, &parsed.index, &arg_refs)? {
-                    collector.insert(Item::Const(c));
-                }
-            }
-
-            outputs.push(emit_module(spec.namespace, &collector)?);
-        }
-
-        Ok(outputs)
-    }
-
-    /// Processes one translation unit and returns macros needing batch evaluation.
-    fn process_tu(
-        &self,
-        tu: &TranslationUnit,
-        collector: &mut Collector,
-        ref_map: &HashMap<String, String>,
-        spec: &NamespaceSpec<'_>,
-    ) -> Result<Vec<String>, Error> {
-        for diag in tu.diagnostics() {
-            if diag.is_err() {
-                return Err(Error::new(
-                    &diag.message,
-                    &diag.file_name,
-                    diag.line.try_into().unwrap(),
-                    (diag.column.saturating_sub(1)).try_into().unwrap(),
-                ));
-            }
-        }
-
-        // Map internal tags to their public typedef aliases.
-        let mut tag_rename = build_tag_rename_map(tu);
-
-        // Give nested records synthetic names keyed by tag or source location.
-        assign_nested_names(tu, &mut tag_rename);
-        let enum_merge = merge_enum_typedef_idiom(tu, &mut tag_rename);
-        let macro_defs = collect_macro_defs(tu);
-
-        let mut parser = Parser::new(
-            spec.namespace,
-            spec.library,
-            spec.libraries,
-            ref_map,
-            &tag_rename,
-            &enum_merge,
-            &macro_defs,
-            tu,
-            spec.symbols,
-        );
-
-        for child in tu.cursor().children() {
-            // Process main-file cursors plus headers matched by this spec.
-            if !child.is_from_main_file() {
-                let passes_filter = !spec.filter.is_empty() && {
-                    let file = child.file_name();
-                    spec.filter.iter().any(|f| matches_filter(&file, f))
-                };
-                if !passes_filter {
-                    // Linkage macros often spell in helper headers; filter by expansion too.
-                    let passes_expansion = child.kind() == CXCursor_LinkageSpec && {
-                        child.is_expansion_from_main_file(tu) || {
-                            let file = child.expansion_file_name();
-                            spec.filter.iter().any(|f| matches_filter(&file, f))
-                        }
-                    };
-                    if !passes_expansion {
-                        continue;
+            .flat_map(|excluded| {
+                let extended_reference_enums = &extended_reference_enums;
+                self.facts.iter().filter_map(move |fact| {
+                    if !excluded.contains(&fact.name)
+                        || extended_reference_enums.contains(&fact.name)
+                    {
+                        return None;
                     }
-                }
+                    if let FactData::Typedef {
+                        target: TypeRef::Named { declaration, .. },
+                    } = &fact.data
+                    {
+                        Some((fact.origin.tu.clone(), declaration.clone()))
+                    } else {
+                        None
+                    }
+                })
+            })
+            .collect();
+        let excluded_local_names: BTreeSet<_> = excluded_types
+            .into_iter()
+            .flat_map(|excluded| {
+                let extended_reference_enums = &extended_reference_enums;
+                self.facts.iter().filter_map(move |fact| {
+                    if !excluded.contains(&fact.name)
+                        || extended_reference_enums.contains(&fact.name)
+                    {
+                        return None;
+                    }
+                    if let FactData::Typedef {
+                        target: TypeRef::Named { name, .. },
+                    } = &fact.data
+                    {
+                        Some((fact.origin.tu.clone(), name.clone()))
+                    } else {
+                        None
+                    }
+                })
+            })
+            .collect();
+        let mut type_roots = vec![];
+        let mut functions = vec![];
+        let mut constants = vec![];
+        let mut root_names = BTreeSet::new();
+        let mut shape_cache = ShapeCache::default();
+
+        for (name, roots) in roots {
+            if !roots.types.is_empty() && !roots.functions.is_empty() {
+                return Err(Error(format!(
+                    "type and function roots collide on `{name}`"
+                )));
             }
-
-            parser.process_cursor(child, collector, false)?;
-        }
-
-        // Drain referenced type dependencies; parsing one definition can enqueue more.
-        let mut seen_typedefs: HashSet<String> = HashSet::new();
-        let mut seen_records: HashSet<String> = HashSet::new();
-        let mut typedef_index = 0;
-        let mut record_index = 0;
-        while typedef_index < parser.pending_typedefs.len()
-            || record_index < parser.pending_records.len()
-        {
-            while typedef_index < parser.pending_typedefs.len() {
-                let cursor = parser.pending_typedefs[typedef_index];
-                typedef_index += 1;
-                let name = cursor.name();
-                // Skip anything already resolved.
-                if !seen_typedefs.insert(name.clone())
-                    || collector.contains_key(&name)
-                    || parser.ref_map.contains_key(&name)
+            if !roots.types.is_empty() {
+                if roots.types.iter().any(|fact| {
+                    excluded_declarations.contains(&(fact.origin.tu.clone(), fact.spelling.clone()))
+                        || excluded_local_names
+                            .contains(&(fact.origin.tu.clone(), fact.name.clone()))
+                }) {
+                    continue;
+                }
+                if excluded_types.is_some_and(|excluded| excluded.contains(name))
+                    && !extended_reference_enums.contains(name)
                 {
                     continue;
                 }
-                if let Some(cb) = Callback::parse(cursor, &mut parser)? {
-                    collector.insert(Item::Callback(cb));
-                } else if let Some(td) = Typedef::parse(cursor, &mut parser)? {
-                    collector.insert(Item::Typedef(td));
-                }
-            }
-
-            while record_index < parser.pending_records.len() {
-                let cursor = parser.pending_records[record_index];
-                record_index += 1;
-                if seen_records.insert(cursor.usr()) {
-                    parser.processing_dependency = true;
-                    let result = parser.process_cursor(cursor, collector, false);
-                    parser.processing_dependency = false;
-                    result?;
-                }
-            }
-        }
-
-        // Apply `IID_IFoo` variables to interfaces that lack `uuid` attributes.
-        collector.apply_iid_vars(&parser.iid_vars);
-
-        Ok(parser.pending_macros)
-    }
-}
-
-/// Owns libclang state; field order ensures TUs drop before the library unloads.
-struct ParsedInputs {
-    args: Vec<String>,
-    h_tus: Vec<(String, TranslationUnit)>,
-    str_tus: Vec<(String, TranslationUnit)>,
-    index: Index,
-    _library: Library,
-}
-
-const HEADER_EXTENSIONS: [&str; 4] = ["h", "hpp", "hxx", "hh"];
-
-fn expand_header_inputs<P: AsRef<Path>>(inputs: &[P]) -> Result<Vec<PathBuf>, Error> {
-    let mut paths = vec![];
-
-    for input in inputs {
-        let path = input.as_ref();
-        let display = path.to_string_lossy();
-
-        if path.is_dir() {
-            let previous_len = paths.len();
-
-            for entry_path in path
-                .read_dir()
-                .map_err(|_| Error::new("failed to read directory", &display, 0, 0))?
-                .flatten()
-                .map(|entry| entry.path())
-            {
-                if entry_path.is_file()
-                    && entry_path.extension().is_some_and(|extension| {
-                        HEADER_EXTENSIONS
-                            .iter()
-                            .any(|expected| extension.eq_ignore_ascii_case(expected))
-                    })
+                if references.contains_key(name)
+                    && !roots
+                        .types
+                        .iter()
+                        .any(|fact| defines_local_type(name, fact))
                 {
-                    paths.push(entry_path);
+                    continue;
+                }
+                let root =
+                    choose_type_root_cached(name, &roots.types, &facts_index, &mut shape_cache)?;
+                root_names.insert(name.to_string());
+                type_roots.push(root);
+            } else if !roots.functions.is_empty() {
+                functions.push(choose_function_root(name, &roots.functions)?);
+            } else {
+                let constant = choose_constant_root(name, &roots.values)?;
+                constants.push(constant);
+            }
+        }
+        if let Some(selected) = selected_functions {
+            let found: BTreeSet<_> = functions
+                .iter()
+                .filter_map(|function| match &function.data {
+                    FactData::Function { link_name, .. } => Some(link_name.as_str()),
+                    _ => None,
+                })
+                .collect();
+            if let Some(missing) = selected.iter().find(|name| !found.contains(name.as_str())) {
+                return Err(Error(format!(
+                    "selected function `{missing}` was not found"
+                )));
+            }
+        }
+        if timing {
+            eprintln!(
+                "clang plan roots: {:.2}s",
+                phase_time.elapsed().as_secs_f32()
+            );
+            phase_time = std::time::Instant::now();
+        }
+
+        let facts_by_name = loop {
+            let mut facts = BTreeSet::new();
+            let mut queue = vec![];
+            for root in &type_roots {
+                if facts.insert(root.origin.clone()) {
+                    queue_type_edges(root, &mut queue);
+                }
+            }
+            for constant in &constants {
+                queue.push((constant.root.tu.as_str(), TypeEdge::Type(&constant.ty)));
+            }
+            for function in &functions {
+                queue_function_edges(function, &mut queue);
+            }
+
+            while let Some((tu, edge)) = queue.pop() {
+                let ty = match edge {
+                    TypeEdge::Type(ty) => ty,
+                    TypeEdge::Projected(name) => {
+                        if references.contains_key(name) && !root_names.contains(name) {
+                            continue;
+                        }
+                        let matches: Vec<_> = facts_index
+                            .get(name)
+                            .into_iter()
+                            .flatten()
+                            .copied()
+                            .filter(|fact| fact.origin.tu == tu && is_type_fact(fact))
+                            .collect();
+                        let fact = choose_type_root_cached(
+                            name,
+                            &matches,
+                            &facts_index,
+                            &mut shape_cache,
+                        )?;
+                        if facts.insert(fact.origin.clone()) {
+                            queue_type_edges(fact, &mut queue);
+                        }
+                        continue;
+                    }
+                };
+                let (name, declaration) = match ty {
+                    TypeRef::Pointer { target, .. } | TypeRef::Reference { target, .. } => {
+                        queue.push((tu, TypeEdge::Type(target)));
+                        continue;
+                    }
+                    TypeRef::FunctionPointer { .. } | TypeRef::OpaquePointer { .. } => continue,
+                    TypeRef::Array { target, .. } => {
+                        queue.push((tu, TypeEdge::Type(target)));
+                        continue;
+                    }
+                    TypeRef::InlineRecord(record) => {
+                        for field in &record.fields {
+                            queue.push((tu, TypeEdge::Type(&field.ty)));
+                        }
+                        continue;
+                    }
+                    TypeRef::Named { name, declaration } => (name, declaration),
+                    _ => continue,
+                };
+                if excluded_local_names.contains(&(tu.to_string(), name.clone())) {
+                    continue;
+                }
+                if references.contains_key(name) && !root_names.contains(name) {
+                    continue;
+                }
+                let matches: Vec<_> = facts_index
+                    .get(name.as_str())
+                    .into_iter()
+                    .flatten()
+                    .copied()
+                    .filter(|fact| fact.origin.tu == tu && fact.spelling == *declaration)
+                    .collect();
+                let [fact] = matches.as_slice() else {
+                    return Err(Error(format!(
+                        "unresolved local type `{name}` in translation unit `{tu}`"
+                    )));
+                };
+                if let FactData::Unsupported { reason } = &fact.data {
+                    return Err(Error(format!(
+                        "unsupported type `{name}` in translation unit `{tu}`: {reason}"
+                    )));
+                }
+                if !is_type_fact(fact) {
+                    return Err(Error(format!(
+                        "unresolved local type `{name}` in translation unit `{tu}`"
+                    )));
+                };
+                if canonical_named_type(name).is_some()
+                    && matches!(fact.data, FactData::Typedef { .. })
+                {
+                    continue;
+                }
+                if facts.insert(fact.origin.clone()) {
+                    queue_type_edges(fact, &mut queue);
                 }
             }
 
-            if paths.len() == previous_len {
-                return Err(Error::new(
-                    "failed to find .h, .hpp, .hxx, or .hh files in directory",
-                    &display,
-                    0,
-                    0,
-                ));
+            let mut grouped: BTreeMap<&str, Vec<&Fact>> = BTreeMap::new();
+            for fact in facts.into_iter().map(|origin| facts_by_origin[&origin]) {
+                grouped.entry(&fact.name).or_default().push(fact);
             }
-        } else if path.extension().is_some_and(|extension| {
-            HEADER_EXTENSIONS
+
+            let collisions: Vec<_> = constants
                 .iter()
-                .any(|expected| extension.eq_ignore_ascii_case(expected))
+                .filter_map(|constant| {
+                    grouped
+                        .get(constant.name.as_str())
+                        .map(|choices| (constant.name.as_str(), choices))
+                })
+                .collect();
+            if !collisions.is_empty() {
+                for (name, choices) in collisions {
+                    let root =
+                        choose_type_root_cached(name, choices, &facts_index, &mut shape_cache)?;
+                    if root_names.insert(name.to_string()) {
+                        type_roots.push(root);
+                    }
+                }
+                constants.retain(|constant| !root_names.contains(constant.name.as_str()));
+                continue;
+            }
+
+            let mut facts_by_name = BTreeMap::new();
+            for (name, choices) in grouped {
+                let selected =
+                    choose_type_root_cached(name, &choices, &facts_index, &mut shape_cache)?;
+                facts_by_name.insert(name, selected);
+            }
+            break facts_by_name;
+        };
+        let mut validated_layouts: HashSet<_> = facts_by_name
+            .values()
+            .filter(|fact| {
+                !matches!(fact.data, FactData::Typedef { .. })
+                    && !matches!(fact.data, FactData::Record { .. } if !fact.definition)
+            })
+            .map(|fact| fact.origin.clone())
+            .collect();
+        let mut safe_layouts: HashMap<String, HashSet<Location>> = HashMap::new();
+        for fact in facts_index.values().flatten().copied().filter(|fact| {
+            !matches!(fact.data, FactData::Typedef { .. })
+                && !matches!(fact.data, FactData::Record { .. } if !fact.definition)
         }) {
-            paths.push(path.to_path_buf());
-        } else {
-            return Err(Error::new(
-                "expected .h, .hpp, .hxx, or .hh file",
-                &display,
-                0,
-                0,
-            ));
+            safe_layouts
+                .entry(fact.origin.tu.clone())
+                .or_default()
+                .insert(fact.spelling.clone());
         }
-    }
+        loop {
+            let additions: Vec<_> = facts_index
+                .values()
+                .flatten()
+                .copied()
+                .filter(|fact| {
+                    !safe_layouts
+                        .get(&fact.origin.tu)
+                        .is_some_and(|safe| safe.contains(&fact.spelling))
+                })
+                .filter_map(|fact| match &fact.data {
+                    FactData::Typedef { target }
+                        if known_complete_layout(
+                            target,
+                            &fact.origin.tu,
+                            &safe_layouts,
+                            references,
+                        ) =>
+                    {
+                        Some((fact.origin.tu.clone(), fact.spelling.clone()))
+                    }
+                    _ => None,
+                })
+                .collect();
+            if additions.is_empty() {
+                break;
+            }
+            for (tu, declaration) in additions {
+                safe_layouts.entry(tu).or_default().insert(declaration);
+            }
+        }
+        let layout = LayoutContext {
+            facts_index: &facts_index,
+            planned_types: &facts_by_name,
+        };
+        let validation_time = std::time::Instant::now();
+        for fact in facts_by_name.values() {
+            validate_fact_layouts(fact, &layout, &mut safe_layouts, &mut validated_layouts)?;
+        }
+        if timing {
+            eprintln!(
+                "clang validate types: {:.2}s",
+                validation_time.elapsed().as_secs_f32()
+            );
+        }
+        let validation_time = std::time::Instant::now();
+        for function in &functions {
+            validate_fact_layouts(function, &layout, &mut safe_layouts, &mut validated_layouts)?;
+        }
+        if timing {
+            eprintln!(
+                "clang validate functions: {:.2}s",
+                validation_time.elapsed().as_secs_f32()
+            );
+        }
+        let validation_time = std::time::Instant::now();
+        for constant in &constants {
+            validate_complete_layout(
+                &constant.ty,
+                &constant.root.tu,
+                &layout,
+                &mut safe_layouts,
+                &mut BTreeSet::new(),
+                &mut validated_layouts,
+            )?;
+        }
+        if timing {
+            eprintln!(
+                "clang validate constants: {:.2}s",
+                validation_time.elapsed().as_secs_f32()
+            );
+        }
+        if timing {
+            eprintln!(
+                "clang plan closure: {:.2}s",
+                phase_time.elapsed().as_secs_f32()
+            );
+            phase_time = std::time::Instant::now();
+        }
 
-    Ok(paths)
-}
+        let local_roots = root_names.clone();
+        let required: BTreeSet<String> = facts_by_name
+            .keys()
+            .map(|name| (*name).to_string())
+            .collect();
+        if timing {
+            eprintln!(
+                "clang plan required: {:.2}s",
+                phase_time.elapsed().as_secs_f32()
+            );
+            phase_time = std::time::Instant::now();
+        }
 
-/// Keep one stable definition when separate headers repeat an equivalent typedef.
-///
-/// The SDK may declare the same public alias through different but compatible spellings, such as
-/// `PUNICODE_STRING` through `UNICODE_STRING` and its `LSA_UNICODE_STRING` base. Winmd cannot
-/// represent both rows under one flat name, so a direct `PFOO -> FOO*` alias wins, then the first
-/// surviving defining-header partition.
-fn dedup_typedefs(collectors: &mut BTreeMap<String, Collector>) {
-    let mut owners: HashMap<String, (String, bool)> = HashMap::new();
-    for (stem, collector) in collectors.iter() {
-        for (name, item) in collector.iter() {
-            let Item::Typedef(ty) = item else {
+        let mut enum_alias_candidates: BTreeMap<&str, Vec<&str>> = BTreeMap::new();
+        for fact in &self.facts {
+            if let FactData::Typedef {
+                target: TypeRef::Named { name, declaration },
+            } = &fact.data
+                && name != &fact.name
+                && !references.contains_key(name)
+                && let Some(selected) = facts_by_name.get(name.as_str())
+                && facts_index
+                    .get(name.as_str())
+                    .into_iter()
+                    .flatten()
+                    .any(|target| {
+                        target.origin.tu == fact.origin.tu
+                            && target.spelling == *declaration
+                            && target.spelling.file == fact.spelling.file
+                            && target.definition
+                            && (matches!(
+                                target.data,
+                                FactData::Enum { .. } | FactData::Record { .. }
+                            ) || (matches!(target.data, FactData::Interface { .. })
+                                && selected.name.starts_with('_')))
+                            && same_source_declaration(selected, target)
+                    })
+            {
+                enum_alias_candidates
+                    .entry(selected.name.as_str())
+                    .or_default()
+                    .push(fact.name.as_str());
+            }
+        }
+        let mut type_names: BTreeMap<_, _> = enum_alias_candidates
+            .into_iter()
+            .filter_map(|(target, aliases)| {
+                let aliases: BTreeSet<_> = aliases.into_iter().collect();
+                if aliases.len() != 1 {
+                    return None;
+                }
+                Some((target.to_string(), (*aliases.first().unwrap()).to_string()))
+            })
+            .collect();
+        for name in &extended_reference_enums {
+            let enum_names: BTreeSet<_> = self
+                .facts
+                .iter()
+                .filter(|fact| fact.name == *name)
+                .filter_map(|fact| {
+                    underlying_enum_fact(fact, &facts_by_declaration, &mut BTreeSet::new())
+                })
+                .map(|fact| fact.name.as_str())
+                .collect();
+            if let [enum_name] = enum_names.into_iter().collect::<Vec<_>>().as_slice() {
+                type_names.insert((*enum_name).to_string(), name.clone());
+            }
+        }
+        for fact in &self.facts {
+            if let FactData::Typedef {
+                target: TypeRef::Pointer { target, .. },
+            } = &fact.data
+                && let TypeRef::Named { name, .. } = target.as_ref()
+                && let Some(public_name) = name.strip_prefix('_')
+                && fact.name == format!("P{public_name}")
+                && !references.contains_key(name)
+                && facts_index
+                    .get(name.as_str())
+                    .into_iter()
+                    .flatten()
+                    .any(|target| target.origin.tu == fact.origin.tu)
+            {
+                let public_aliases_private = facts_index
+                    .get(public_name)
+                    .into_iter()
+                    .flatten()
+                    .any(|candidate| {
+                        matches!(
+                            &candidate.data,
+                            FactData::Typedef {
+                                target: TypeRef::Named {
+                                    name: target_name,
+                                    ..
+                                },
+                            } if target_name == name
+                        )
+                    });
+                if !public_aliases_private
+                    && facts_index
+                        .get(public_name)
+                        .into_iter()
+                        .flatten()
+                        .any(|candidate| {
+                            matches!(
+                                candidate.data,
+                                FactData::Class { .. }
+                                    | FactData::Callback { .. }
+                                    | FactData::Enum { .. }
+                                    | FactData::Interface { .. }
+                                    | FactData::Record { .. }
+                            ) || defines_local_type(public_name, candidate)
+                        })
+                {
+                    continue;
+                }
+                type_names
+                    .entry(name.clone())
+                    .or_insert_with(|| public_name.to_string());
+            }
+        }
+        let mut external_alias_candidates: BTreeMap<&str, BTreeSet<String>> = BTreeMap::new();
+        if let Some(excluded) = excluded_types {
+            for fact in &self.facts {
+                if !excluded.contains(&fact.name) {
+                    continue;
+                }
+                let Some(reference) = references.get(&fact.name) else {
+                    continue;
+                };
+                if extended_reference_enums.contains(&fact.name) {
+                    continue;
+                }
+                if let FactData::Typedef {
+                    target: TypeRef::Named { name, .. },
+                } = &fact.data
+                {
+                    if references.contains_key(name) || named_type_shape(name).is_some() {
+                        continue;
+                    }
+                    external_alias_candidates
+                        .entry(name)
+                        .or_default()
+                        .insert(format!(
+                            "{}::{}",
+                            reference.namespace.replace('.', "::"),
+                            reference.name
+                        ));
+                }
+            }
+        }
+        for (name, aliases) in external_alias_candidates {
+            if let [alias] = aliases.into_iter().collect::<Vec<_>>().as_slice() {
+                type_names
+                    .entry(name.to_string())
+                    .or_insert_with(|| alias.clone());
+            }
+        }
+        if timing {
+            eprintln!(
+                "clang plan aliases: {:.2}s",
+                phase_time.elapsed().as_secs_f32()
+            );
+            phase_time = std::time::Instant::now();
+        }
+        for (name, reference) in references {
+            let excluded = excluded_types.is_some_and(|excluded| excluded.contains(name))
+                && !extended_reference_enums.contains(name);
+            if excluded {
+                type_names.insert(
+                    name.clone(),
+                    format!(
+                        "{}::{}",
+                        reference.namespace.replace('.', "::"),
+                        reference.name
+                    ),
+                );
+            } else if !local_roots.contains(name) {
+                type_names.entry(name.clone()).or_insert_with(|| {
+                    format!(
+                        "{}::{}",
+                        reference.namespace.replace('.', "::"),
+                        reference.name
+                    )
+                });
+            }
+        }
+        for (name, fact) in &facts_by_name {
+            if required.contains(*name)
+                && canonical_named_type(name).is_some()
+                && !matches!(fact.data, FactData::Typedef { .. })
+            {
+                type_names
+                    .entry((*name).to_string())
+                    .or_insert_with(|| (*name).to_string());
+            }
+        }
+        let alias_names: BTreeSet<_> = type_names
+            .iter()
+            .filter_map(|(source, target)| (source != target).then_some(target.as_str()))
+            .collect();
+        let types: Vec<_> = facts_by_name
+            .into_iter()
+            .filter(|(name, _)| required.contains(*name))
+            .filter(|(name, _)| !alias_names.contains(*name))
+            .map(|(_, fact)| PlannedType {
+                name: type_names
+                    .get(fact.name.as_str())
+                    .cloned()
+                    .unwrap_or_else(|| fact.name.clone()),
+                fact,
+            })
+            .collect();
+        let mut interface_names = BTreeSet::new();
+        for planned in &types {
+            if matches!(planned.fact.data, FactData::Interface { .. }) {
+                for fact in facts_index
+                    .get(planned.fact.name.as_str())
+                    .into_iter()
+                    .flatten()
+                {
+                    if matches!(fact.data, FactData::Interface { .. })
+                        && same_source_declaration(planned.fact, fact)
+                    {
+                        interface_names.insert((fact.origin.tu.clone(), fact.name.clone()));
+                    }
+                }
+            }
+        }
+        let translation_units: BTreeSet<_> = self
+            .facts
+            .iter()
+            .map(|fact| fact.origin.tu.as_str())
+            .collect();
+        for (name, reference) in references {
+            if reference.kind == TypeReferenceKind::Interface
+                && (excluded_types.is_some_and(|excluded| excluded.contains(name))
+                    || !local_roots.contains(name))
+            {
+                interface_names.extend(
+                    translation_units
+                        .iter()
+                        .map(|tu| ((*tu).to_string(), name.clone())),
+                );
+            }
+        }
+        let mut interface_aliases: BTreeMap<(String, String), Vec<String>> = BTreeMap::new();
+        for fact in &self.facts {
+            let FactData::Typedef {
+                target: TypeRef::Named { name: target, .. } | TypeRef::Generic { name: target, .. },
+            } = &fact.data
+            else {
                 continue;
             };
-            let direct = ty.is_direct_pointer_alias();
-            match owners.entry(name.clone()) {
-                std::collections::hash_map::Entry::Vacant(entry) => {
-                    entry.insert((stem.clone(), direct));
+            if interface_names.contains(&(fact.origin.tu.clone(), target.clone())) {
+                interface_aliases
+                    .entry((fact.origin.tu.clone(), target.clone()))
+                    .or_default()
+                    .push(fact.name.clone());
+            }
+        }
+        let mut interface_queue: Vec<_> = interface_names.iter().cloned().collect();
+        while let Some(key) = interface_queue.pop() {
+            for alias in interface_aliases.get(&key).into_iter().flatten() {
+                let alias = (key.0.clone(), alias.clone());
+                if interface_names.insert(alias.clone()) {
+                    interface_queue.push(alias);
                 }
-                std::collections::hash_map::Entry::Occupied(mut entry)
-                    if direct && !entry.get().1 =>
-                {
-                    entry.insert((stem.clone(), true));
+            }
+        }
+        if timing {
+            eprintln!(
+                "clang plan interfaces: {:.2}s",
+                phase_time.elapsed().as_secs_f32()
+            );
+            phase_time = std::time::Instant::now();
+        }
+        let flag_enums = self
+            .facts
+            .iter()
+            .filter_map(|fact| {
+                if let FactData::EnumFlag { target } = &fact.data {
+                    Some((fact.origin.tu.clone(), target.clone()))
+                } else {
+                    None
                 }
-                _ => {}
+            })
+            .collect();
+        let mut output_names = BTreeSet::new();
+        for planned in &types {
+            if !output_names.insert(planned.name.as_str()) {
+                return Err(Error(format!("duplicate planned name `{}`", planned.name)));
+            }
+        }
+        for constant in &constants {
+            if !output_names.insert(constant.name.as_str()) {
+                return Err(Error(format!("duplicate planned name `{}`", constant.name)));
+            }
+        }
+        for function in &functions {
+            if !output_names.insert(function.name.as_str()) {
+                return Err(Error(format!("duplicate planned name `{}`", function.name)));
+            }
+        }
+        constants.sort_by(|left, right| left.name.cmp(&right.name));
+        functions.sort_by(|left, right| left.name.cmp(&right.name));
+        if timing {
+            eprintln!(
+                "clang plan finalize: {:.2}s",
+                phase_time.elapsed().as_secs_f32()
+            );
+        }
+        Ok(Plan {
+            types,
+            functions,
+            constants,
+            type_names,
+            interface_names,
+            interface_guids,
+            flag_enums,
+        })
+    }
+}
+
+fn write_rdl<'a>(
+    namespace: &str,
+    items: impl IntoIterator<Item = &'a str>,
+) -> Result<String, Error> {
+    let namespaces: Vec<_> = namespace
+        .split('.')
+        .filter(|name| !name.is_empty())
+        .collect();
+    if namespaces.is_empty() {
+        return Err(Error("namespace is empty".to_string()));
+    }
+    let mut result = String::from("#[win32]\n");
+    for (depth, namespace) in namespaces.iter().enumerate() {
+        result.push_str(&format!(
+            "{}mod {} {{\n",
+            "    ".repeat(depth),
+            rdl_ident(namespace)
+        ));
+    }
+    let indent = "    ".repeat(namespaces.len() - 1);
+    for item in items {
+        for line in item.lines() {
+            result.push_str(&indent);
+            result.push_str(line);
+            result.push('\n');
+        }
+    }
+    for depth in (0..namespaces.len()).rev() {
+        result.push_str(&format!("{}}}\n", "    ".repeat(depth)));
+    }
+    Ok(result)
+}
+
+struct PlannedType<'a> {
+    fact: &'a Fact,
+    name: String,
+}
+
+struct Plan<'a> {
+    types: Vec<PlannedType<'a>>,
+    functions: Vec<&'a Fact>,
+    constants: Vec<&'a Constant>,
+    type_names: BTreeMap<String, String>,
+    interface_names: BTreeSet<(String, String)>,
+    interface_guids: BTreeMap<String, String>,
+    flag_enums: BTreeSet<(String, String)>,
+}
+
+struct TypeProjection<'a> {
+    type_names: &'a BTreeMap<String, String>,
+    interface_names: &'a BTreeSet<(String, String)>,
+    tu: &'a str,
+}
+
+impl<'a> TypeProjection<'a> {
+    fn new(
+        type_names: &'a BTreeMap<String, String>,
+        interface_names: &'a BTreeSet<(String, String)>,
+        tu: &'a str,
+    ) -> Self {
+        Self {
+            type_names,
+            interface_names,
+            tu,
+        }
+    }
+
+    fn name(&self, ty: &TypeRef) -> String {
+        planned_emitted_type_name(ty, self.type_names, self.interface_names, self.tu)
+    }
+}
+
+fn is_type_fact(fact: &Fact) -> bool {
+    matches!(
+        fact.data,
+        FactData::Callback { .. }
+            | FactData::Class { .. }
+            | FactData::Enum { .. }
+            | FactData::Guid { .. }
+            | FactData::PropertyKey { .. }
+            | FactData::Interface { .. }
+            | FactData::Record { .. }
+            | FactData::Typedef { .. }
+    )
+}
+
+fn is_flat_declaration(
+    fact: &Fact,
+    facts_by_origin: &HashMap<&Origin, &Fact>,
+    references: &BTreeMap<String, TypeReference>,
+    root: bool,
+) -> bool {
+    if references.is_empty() {
+        return true;
+    }
+    let mut namespaces = vec![];
+    let mut nested = false;
+    let mut parent = fact.parent.as_ref();
+    while let Some(origin) = parent {
+        let Some(fact) = facts_by_origin.get(origin) else {
+            break;
+        };
+        if fact.kind == FactKind::Namespace {
+            namespaces.push(fact.name.as_str());
+        } else {
+            nested = true;
+        }
+        parent = fact.parent.as_ref();
+    }
+    if root && nested {
+        return false;
+    }
+    namespaces.reverse();
+
+    match namespaces.first().copied() {
+        None | Some("Windows") => true,
+        Some("ABI") => {
+            let namespace = namespaces[1..].join(".");
+            !references
+                .get(&fact.name)
+                .is_some_and(|reference| reference.namespace == namespace)
+        }
+        Some(_) => false,
+    }
+}
+
+fn defines_local_type(name: &str, fact: &Fact) -> bool {
+    match &fact.data {
+        FactData::Class { .. }
+        | FactData::Callback { .. }
+        | FactData::Guid { .. }
+        | FactData::PropertyKey { .. } => true,
+        FactData::Enum { .. } | FactData::Interface { .. } | FactData::Record { .. } => {
+            fact.definition
+        }
+        FactData::Typedef {
+            target: TypeRef::Named { name: target, .. },
+        } => target != name,
+        FactData::Typedef { .. } => true,
+        _ => false,
+    }
+}
+
+fn is_root_type_fact(fact: &Fact) -> bool {
+    is_type_fact(fact)
+        && !(canonical_named_type(&fact.name).is_some()
+            && matches!(fact.data, FactData::Typedef { .. }))
+        && (!matches!(
+            fact.data,
+            FactData::Record { .. } | FactData::Interface { .. }
+        ) || fact.definition)
+}
+
+fn declaration_kind(
+    ty: &TypeRef,
+    tu: &str,
+    facts_index: &HashMap<&str, Vec<&Fact>>,
+    seen: &mut BTreeSet<Location>,
+) -> Option<FactKind> {
+    let TypeRef::Named { name, declaration } = ty else {
+        return None;
+    };
+    if !seen.insert(declaration.clone()) {
+        return None;
+    }
+    let fact = facts_index
+        .get(name.as_str())?
+        .iter()
+        .find(|fact| fact.origin.tu == tu && fact.spelling == *declaration)?;
+    if let FactData::Typedef { target } = &fact.data {
+        declaration_kind(target, tu, facts_index, seen)
+    } else {
+        Some(fact.kind)
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+struct TypeShape(u64, u64);
+
+#[derive(Default)]
+struct ShapeCache {
+    declarations: HashMap<String, HashMap<Location, TypeShape>>,
+    recursive: HashMap<String, HashMap<Location, HashMap<TypeShape, TypeShape>>>,
+}
+
+impl ShapeCache {
+    fn declaration(&self, tu: &str, declaration: &Location) -> Option<TypeShape> {
+        self.declarations.get(tu)?.get(declaration).copied()
+    }
+
+    fn insert_declaration(&mut self, tu: &str, declaration: &Location, shape: TypeShape) {
+        self.declarations
+            .entry(tu.to_string())
+            .or_default()
+            .insert(declaration.clone(), shape);
+    }
+
+    fn is_recursive(&self, tu: &str, declaration: &Location) -> bool {
+        self.recursive
+            .get(tu)
+            .is_some_and(|declarations| declarations.contains_key(declaration))
+    }
+
+    fn recursive(&self, tu: &str, declaration: &Location, context: TypeShape) -> Option<TypeShape> {
+        self.recursive
+            .get(tu)?
+            .get(declaration)?
+            .get(&context)
+            .copied()
+    }
+
+    fn insert_recursive(
+        &mut self,
+        tu: &str,
+        declaration: &Location,
+        context: TypeShape,
+        shape: TypeShape,
+    ) {
+        self.recursive
+            .entry(tu.to_string())
+            .or_default()
+            .entry(declaration.clone())
+            .or_default()
+            .insert(context, shape);
+    }
+}
+
+fn type_shape(value: &str) -> TypeShape {
+    use std::hash::{Hash, Hasher};
+
+    // Recursive declarations share compact fingerprints instead of expanded shape strings.
+    let mut first = std::collections::hash_map::DefaultHasher::new();
+    value.hash(&mut first);
+
+    let mut second = 0x9e3779b97f4a7c15u64;
+    for byte in value.bytes() {
+        second ^= u64::from(byte);
+        second = second.wrapping_mul(0x100000001b3);
+        second ^= second >> 32;
+    }
+    TypeShape(first.finish(), second)
+}
+
+fn recursion_shape(seen: &BTreeSet<Location>) -> TypeShape {
+    use std::hash::{Hash, Hasher};
+
+    let mut first = std::collections::hash_map::DefaultHasher::new();
+    seen.hash(&mut first);
+
+    let mut second = std::collections::hash_map::DefaultHasher::new();
+    1u8.hash(&mut second);
+    seen.hash(&mut second);
+
+    TypeShape(first.finish(), second.finish())
+}
+
+fn choose_type_root<'a>(
+    name: &str,
+    roots: &[&'a Fact],
+    facts_index: &HashMap<&str, Vec<&'a Fact>>,
+) -> Result<&'a Fact, Error> {
+    choose_type_root_cached(name, roots, facts_index, &mut ShapeCache::default())
+}
+
+fn choose_type_root_cached<'a>(
+    name: &str,
+    roots: &[&'a Fact],
+    facts_index: &HashMap<&str, Vec<&'a Fact>>,
+    shape_cache: &mut ShapeCache,
+) -> Result<&'a Fact, Error> {
+    fn preferred<'a>(facts: &[&'a Fact]) -> &'a Fact {
+        facts
+            .iter()
+            .copied()
+            .min_by_key(|fact| (!fact.root, &fact.origin))
+            .unwrap()
+    }
+
+    let distinct = distinct_source_declarations(roots);
+    if let [root] = distinct.as_slice() {
+        return emittable_type(name, root);
+    }
+    if let Some(FactData::Guid { value }) = distinct.first().map(|fact| &fact.data)
+        && distinct
+            .iter()
+            .all(|fact| matches!(&fact.data, FactData::Guid { value: other } if other == value))
+    {
+        return emittable_type(name, preferred(&distinct));
+    }
+    if let Some(FactData::Class { guid }) = distinct.first().map(|fact| &fact.data)
+        && distinct
+            .iter()
+            .all(|fact| matches!(&fact.data, FactData::Class { guid: other } if other == guid))
+    {
+        return emittable_type(name, preferred(&distinct));
+    }
+    if let Some(first) = distinct.first()
+        && distinct.iter().all(|fact| {
+            fact.origin.tu == first.origin.tu
+                && fact.kind == first.kind
+                && fact.definition == first.definition
+                && fact.data == first.data
+        })
+    {
+        return emittable_type(name, preferred(&distinct));
+    }
+    if let Some(class) = distinct
+        .iter()
+        .copied()
+        .find(|fact| matches!(fact.data, FactData::Class { .. }))
+        && distinct.iter().all(|fact| {
+            fact.origin == class.origin
+                || (fact.origin.tu == class.origin.tu
+                    && fact.parent == class.parent
+                    && matches!(
+                        &fact.data,
+                        FactData::Typedef {
+                            target: TypeRef::Named { name: target, .. }
+                        } if target == name
+                    ))
+        })
+    {
+        return emittable_type(name, class);
+    }
+    if let Some(target_name) = distinct.first().and_then(|first| match &first.data {
+        FactData::Typedef {
+            target: TypeRef::Named { name, .. },
+        } => Some(name),
+        _ => None,
+    }) && distinct.iter().all(|fact| {
+        matches!(
+            &fact.data,
+            FactData::Typedef {
+                target: TypeRef::Named { name, .. }
+            } if name == target_name
+        )
+    }) {
+        let complete: Vec<_> = distinct
+            .iter()
+            .copied()
+            .filter(|fact| {
+                let FactData::Typedef {
+                    target: TypeRef::Named { name, declaration },
+                } = &fact.data
+                else {
+                    return false;
+                };
+                facts_index
+                    .get(name.as_str())
+                    .into_iter()
+                    .flatten()
+                    .any(|target| {
+                        target.origin.tu == fact.origin.tu
+                            && target.spelling == *declaration
+                            && target.definition
+                            && matches!(
+                                target.data,
+                                FactData::Enum { .. }
+                                    | FactData::Record { .. }
+                                    | FactData::Interface { .. }
+                            )
+                    })
+            })
+            .collect();
+        if let [complete] = complete.as_slice() {
+            let FactData::Typedef {
+                target: complete_target,
+            } = &complete.data
+            else {
+                unreachable!()
+            };
+            let complete_kind = declaration_kind(
+                complete_target,
+                &complete.origin.tu,
+                facts_index,
+                &mut BTreeSet::new(),
+            );
+            if complete_kind.is_some()
+                && distinct.iter().all(|fact| {
+                    let FactData::Typedef { target } = &fact.data else {
+                        return false;
+                    };
+                    declaration_kind(target, &fact.origin.tu, facts_index, &mut BTreeSet::new())
+                        == complete_kind
+                })
+            {
+                return emittable_type(name, complete);
             }
         }
     }
-    for (stem, collector) in collectors.iter_mut() {
-        collector.retain_items(|name, item| {
-            !matches!(item, Item::Typedef(_))
-                || owners.get(name).is_some_and(|(owner, _)| owner == stem)
+    if let Some(first) = distinct.first()
+        && let FactData::Typedef {
+            target: first_target,
+        } = &first.data
+        && distinct.iter().all(|fact| {
+            ((fact.origin.tu == first.origin.tu && fact.parent == first.parent)
+                || (fact.parent.is_none() && first.parent.is_none()))
+                && matches!(
+                    &fact.data,
+                    FactData::Typedef { target }
+                        if equivalent_type(
+                            first_target,
+                            &first.origin.tu,
+                            target,
+                            &fact.origin.tu,
+                            facts_index,
+                            shape_cache,
+                        )
+                )
+        })
+    {
+        return emittable_type(name, preferred(&distinct));
+    }
+
+    fn resolved_type_shape(
+        ty: &TypeRef,
+        tu: &str,
+        facts_index: &HashMap<&str, Vec<&Fact>>,
+        shape_cache: &mut ShapeCache,
+    ) -> TypeShape {
+        fn write(
+            ty: &TypeRef,
+            tu: &str,
+            facts_index: &HashMap<&str, Vec<&Fact>>,
+            seen: &mut BTreeSet<Location>,
+            cache: &mut ShapeCache,
+            cycle: &mut bool,
+        ) -> TypeShape {
+            match ty {
+                TypeRef::Named { name, declaration } => {
+                    if let Some(shape) = cache.declaration(tu, declaration) {
+                        return shape;
+                    }
+                    if cache.is_recursive(tu, declaration) {
+                        let context = recursion_shape(seen);
+                        if let Some(shape) = cache.recursive(tu, declaration, context) {
+                            *cycle = true;
+                            return shape;
+                        }
+                    }
+                    if !seen.insert(declaration.clone()) {
+                        *cycle = true;
+                        return type_shape(&format!(
+                            "named:{}",
+                            named_type_shape(name).unwrap_or(name)
+                        ));
+                    }
+                    let mut nested_cycle = false;
+                    if let Some(target) = facts_index
+                        .get(name.as_str())
+                        .into_iter()
+                        .flatten()
+                        .find(|fact| fact.origin.tu == tu && fact.spelling == *declaration)
+                    {
+                        let result = match &target.data {
+                            FactData::Typedef { target } => Some(write(
+                                target,
+                                tu,
+                                facts_index,
+                                seen,
+                                cache,
+                                &mut nested_cycle,
+                            )),
+                            FactData::Record {
+                                base,
+                                fields,
+                                size,
+                                align,
+                                packing,
+                                alignment,
+                                union,
+                            } => {
+                                let base = base.as_ref().map(|base| {
+                                    write(base, tu, facts_index, seen, cache, &mut nested_cycle)
+                                });
+                                let fields = fields
+                                    .iter()
+                                    .map(|field| {
+                                        format!(
+                                            "{}:{}:{}:{}:{:?}:{:?}",
+                                            field.name,
+                                            field.offset,
+                                            field.align,
+                                            field.size,
+                                            field.bit_width,
+                                            write(
+                                                &field.ty,
+                                                tu,
+                                                facts_index,
+                                                seen,
+                                                cache,
+                                                &mut nested_cycle,
+                                            )
+                                        )
+                                    })
+                                    .collect::<Vec<_>>()
+                                    .join(",");
+                                Some(type_shape(&format!(
+                                    "record:{base:?}:{size}:{align}:{packing:?}:{alignment:?}:{union}:{fields}"
+                                )))
+                            }
+                            FactData::Enum {
+                                repr,
+                                variants,
+                                fixed,
+                                scoped,
+                            } => Some(type_shape(&format!(
+                                "enum:{repr:?}:{variants:?}:{fixed}:{scoped}"
+                            ))),
+                            FactData::Callback {
+                                convention,
+                                params,
+                                result,
+                            } => {
+                                let params = params
+                                    .iter()
+                                    .map(|param| {
+                                        format!(
+                                            "{}:{:?}:{:?}",
+                                            param.name,
+                                            write(
+                                                &param.ty,
+                                                tu,
+                                                facts_index,
+                                                seen,
+                                                cache,
+                                                &mut nested_cycle,
+                                            ),
+                                            param.annotation
+                                        )
+                                    })
+                                    .collect::<Vec<_>>()
+                                    .join(",");
+                                Some(type_shape(&format!(
+                                    "callback:{convention:?}:({params}):{:?}",
+                                    write(result, tu, facts_index, seen, cache, &mut nested_cycle,)
+                                )))
+                            }
+                            FactData::Interface {
+                                base,
+                                guid,
+                                methods,
+                            } => {
+                                let base = base.as_ref().map(|base| {
+                                    write(base, tu, facts_index, seen, cache, &mut nested_cycle)
+                                });
+                                let methods = methods
+                                    .iter()
+                                    .map(|method| {
+                                        let params = method
+                                            .params
+                                            .iter()
+                                            .map(|param| {
+                                                format!(
+                                                    "{}:{:?}:{:?}",
+                                                    param.name,
+                                                    write(
+                                                        &param.ty,
+                                                        tu,
+                                                        facts_index,
+                                                        seen,
+                                                        cache,
+                                                        &mut nested_cycle,
+                                                    ),
+                                                    param.annotation
+                                                )
+                                            })
+                                            .collect::<Vec<_>>()
+                                            .join(",");
+                                        format!(
+                                            "{}:({params}):{:?}:{}",
+                                            method.name,
+                                            write(
+                                                &method.result,
+                                                tu,
+                                                facts_index,
+                                                seen,
+                                                cache,
+                                                &mut nested_cycle,
+                                            ),
+                                            method.special
+                                        )
+                                    })
+                                    .collect::<Vec<_>>()
+                                    .join(",");
+                                Some(type_shape(&format!(
+                                    "interface:{base:?}:{guid:?}:{methods}"
+                                )))
+                            }
+                            _ => None,
+                        };
+                        seen.remove(declaration);
+                        *cycle |= nested_cycle;
+                        if let Some(result) = result {
+                            if !nested_cycle {
+                                cache.insert_declaration(tu, declaration, result);
+                            } else {
+                                cache.insert_recursive(
+                                    tu,
+                                    declaration,
+                                    recursion_shape(seen),
+                                    result,
+                                );
+                            }
+                            return result;
+                        }
+                    }
+                    seen.remove(declaration);
+                    type_shape(&format!("named:{}", named_type_shape(name).unwrap_or(name)))
+                }
+                TypeRef::Pointer { mutable, target } => type_shape(&format!(
+                    "pointer:{mutable}:{:?}",
+                    write(target, tu, facts_index, seen, cache, cycle)
+                )),
+                TypeRef::Reference { mutable, target } => type_shape(&format!(
+                    "reference:{mutable}:{:?}",
+                    write(target, tu, facts_index, seen, cache, cycle)
+                )),
+                TypeRef::FunctionPointer {
+                    convention,
+                    params,
+                    result,
+                } => type_shape(&format!(
+                    "function:{convention:?}:({:?}):{:?}",
+                    params
+                        .iter()
+                        .map(|param| { write(param, tu, facts_index, seen, cache, cycle) })
+                        .collect::<Vec<_>>(),
+                    write(result, tu, facts_index, seen, cache, cycle)
+                )),
+                TypeRef::OpaquePointer { mutable, tag } => {
+                    type_shape(&format!("opaque:{mutable}:{tag}"))
+                }
+                TypeRef::Array { target, len } => type_shape(&format!(
+                    "array:{len}:{:?}",
+                    write(target, tu, facts_index, seen, cache, cycle)
+                )),
+                TypeRef::Generic { name, args, .. } => type_shape(&format!(
+                    "generic:{name}:{:?}",
+                    args.iter()
+                        .map(|arg| { write(arg, tu, facts_index, seen, cache, cycle) })
+                        .collect::<Vec<_>>()
+                )),
+                TypeRef::InlineRecord(record) => type_shape(&format!("record:{record:?}")),
+                other => type_shape(&format!("{other:?}")),
+            }
+        }
+
+        write(
+            ty,
+            tu,
+            facts_index,
+            &mut BTreeSet::new(),
+            shape_cache,
+            &mut false,
+        )
+    }
+
+    fn equivalent_type(
+        left: &TypeRef,
+        left_tu: &str,
+        right: &TypeRef,
+        right_tu: &str,
+        facts_index: &HashMap<&str, Vec<&Fact>>,
+        shape_cache: &mut ShapeCache,
+    ) -> bool {
+        fn incomplete(
+            ty: &TypeRef,
+            tu: &str,
+            facts_index: &HashMap<&str, Vec<&Fact>>,
+            seen: &mut BTreeSet<Location>,
+        ) -> bool {
+            let TypeRef::Named { name, declaration } = ty else {
+                return false;
+            };
+            if !seen.insert(declaration.clone()) {
+                return true;
+            }
+            let Some(fact) = facts_index
+                .get(name.as_str())
+                .into_iter()
+                .flatten()
+                .find(|fact| fact.origin.tu == tu && fact.spelling == *declaration)
+            else {
+                return true;
+            };
+            match &fact.data {
+                FactData::Typedef { target } => incomplete(target, tu, facts_index, seen),
+                FactData::Record { .. } | FactData::Interface { .. } => !fact.definition,
+                FactData::Enum { fixed, .. } => !fact.definition && !fixed,
+                _ => false,
+            }
+        }
+
+        fn matching_incomplete_declaration_kind(
+            left: &TypeRef,
+            left_tu: &str,
+            right: &TypeRef,
+            right_tu: &str,
+            facts_index: &HashMap<&str, Vec<&Fact>>,
+        ) -> bool {
+            if !incomplete(left, left_tu, facts_index, &mut BTreeSet::new())
+                && !incomplete(right, right_tu, facts_index, &mut BTreeSet::new())
+            {
+                return false;
+            }
+            let left_kind = declaration_kind(left, left_tu, facts_index, &mut BTreeSet::new());
+            left_kind.is_some()
+                && left_kind == declaration_kind(right, right_tu, facts_index, &mut BTreeSet::new())
+        }
+
+        match (left, right) {
+            (
+                TypeRef::Named {
+                    name: left_name, ..
+                },
+                TypeRef::Named {
+                    name: right_name, ..
+                },
+            ) if left_name == right_name
+                && matching_incomplete_declaration_kind(
+                    left,
+                    left_tu,
+                    right,
+                    right_tu,
+                    facts_index,
+                ) =>
+            {
+                true
+            }
+            (
+                TypeRef::Pointer {
+                    mutable: left_mutable,
+                    target: left_target,
+                },
+                TypeRef::Pointer {
+                    mutable: right_mutable,
+                    target: right_target,
+                },
+            )
+            | (
+                TypeRef::Reference {
+                    mutable: left_mutable,
+                    target: left_target,
+                },
+                TypeRef::Reference {
+                    mutable: right_mutable,
+                    target: right_target,
+                },
+            ) => {
+                left_mutable == right_mutable
+                    && equivalent_type(
+                        left_target,
+                        left_tu,
+                        right_target,
+                        right_tu,
+                        facts_index,
+                        shape_cache,
+                    )
+            }
+            (
+                TypeRef::Array {
+                    target: left_target,
+                    len: left_len,
+                },
+                TypeRef::Array {
+                    target: right_target,
+                    len: right_len,
+                },
+            ) => {
+                left_len == right_len
+                    && equivalent_type(
+                        left_target,
+                        left_tu,
+                        right_target,
+                        right_tu,
+                        facts_index,
+                        shape_cache,
+                    )
+            }
+            _ => {
+                resolved_type_shape(left, left_tu, facts_index, shape_cache)
+                    == resolved_type_shape(right, right_tu, facts_index, shape_cache)
+            }
+        }
+    }
+
+    fn equivalent_record(
+        left: &Fact,
+        right: &Fact,
+        facts_index: &HashMap<&str, Vec<&Fact>>,
+        shape_cache: &mut ShapeCache,
+    ) -> bool {
+        let (
+            FactData::Record {
+                base: left_base,
+                fields: left_fields,
+                size: left_size,
+                align: left_align,
+                packing: left_packing,
+                alignment: left_alignment,
+                union: left_union,
+            },
+            FactData::Record {
+                base: right_base,
+                fields: right_fields,
+                size: right_size,
+                align: right_align,
+                packing: right_packing,
+                alignment: right_alignment,
+                union: right_union,
+            },
+        ) = (&left.data, &right.data)
+        else {
+            return false;
+        };
+        left_size == right_size
+            && left_align == right_align
+            && left_packing == right_packing
+            && left_alignment == right_alignment
+            && left_union == right_union
+            && match (left_base, right_base) {
+                (None, None) => true,
+                (Some(left_base), Some(right_base)) => equivalent_type(
+                    left_base,
+                    &left.origin.tu,
+                    right_base,
+                    &right.origin.tu,
+                    facts_index,
+                    shape_cache,
+                ),
+                _ => false,
+            }
+            && left_fields.len() == right_fields.len()
+            && left_fields
+                .iter()
+                .zip(right_fields)
+                .all(|(left_field, right_field)| {
+                    left_field.name == right_field.name
+                        && left_field.offset == right_field.offset
+                        && left_field.align == right_field.align
+                        && left_field.size == right_field.size
+                        && left_field.bit_width == right_field.bit_width
+                        && equivalent_type(
+                            &left_field.ty,
+                            &left.origin.tu,
+                            &right_field.ty,
+                            &right.origin.tu,
+                            facts_index,
+                            shape_cache,
+                        )
+                })
+    }
+
+    let declarations: Vec<_> = distinct
+        .iter()
+        .copied()
+        .filter(|fact| {
+            matches!(
+                fact.data,
+                FactData::Enum { .. } | FactData::Record { .. } | FactData::Interface { .. }
+            )
+        })
+        .collect();
+    if let Some(first) = declarations.first()
+        && !first.definition
+        && declarations.iter().all(|fact| {
+            !fact.definition
+                && fact.kind == first.kind
+                && fact.data == first.data
+                && (fact.origin.tu == first.origin.tu || fact.spelling == first.spelling)
+        })
+        && distinct.iter().all(|fact| {
+            declarations.contains(fact)
+                || matches!(
+                    &fact.data,
+                    FactData::Typedef {
+                        target: TypeRef::Named { declaration, .. }
+                    } if declarations.iter().any(|target| {
+                        target.origin.tu == fact.origin.tu && target.spelling == *declaration
+                    })
+                )
+        })
+    {
+        return emittable_type(name, preferred(&declarations));
+    }
+
+    let definitions: Vec<_> = distinct
+        .iter()
+        .copied()
+        .filter(|fact| {
+            matches!(
+                fact.data,
+                FactData::Enum { .. } | FactData::Record { .. } | FactData::Interface { .. }
+            ) && fact.definition
+        })
+        .collect();
+    if definitions.len() > 1 {
+        let root = preferred(&definitions);
+        let equivalent_definitions = definitions.iter().all(|fact| {
+            fact.kind == root.kind
+                && ((fact.origin.tu == root.origin.tu && fact.data == root.data)
+                    || equivalent_record(root, fact, facts_index, shape_cache))
+        });
+        let definitions_and_aliases = distinct.iter().all(|fact| {
+            definitions.contains(fact)
+                || matches!(
+                    &fact.data,
+                    FactData::Typedef {
+                        target: TypeRef::Named { declaration, .. }
+                    } if definitions.iter().any(|definition| definition.spelling == *declaration)
+                )
+        });
+        if equivalent_definitions && definitions_and_aliases {
+            return Ok(root);
+        }
+    }
+    if let [root] = definitions.as_slice() {
+        let aliases_target_root = distinct.iter().all(|fact| {
+            fact.origin == root.origin
+                || matches!(
+                    &fact.data,
+                    FactData::Typedef {
+                        target: TypeRef::Named { declaration, .. }
+                    } if declaration == &root.spelling
+                )
+        });
+        if aliases_target_root {
+            return Ok(root);
+        }
+        let same_tu_declarations = distinct.iter().all(|fact| {
+            let linked_nested_declaration = root.parent.is_some()
+                && fact.parent.is_none()
+                && facts_index.values().flatten().any(|alias| {
+                    alias.root
+                        && alias.origin.tu == fact.origin.tu
+                        && matches!(
+                            &alias.data,
+                            FactData::Typedef {
+                                target: TypeRef::Named { declaration, .. }
+                            } if declaration == &fact.spelling
+                        )
+                });
+            fact.origin == root.origin
+                || (!fact.definition
+                    && matches!(
+                        (&fact.data, &root.data),
+                        (FactData::Enum { .. }, FactData::Enum { .. })
+                            | (FactData::Record { .. }, FactData::Record { .. })
+                            | (FactData::Interface { .. }, FactData::Interface { .. })
+                    )
+                    && ((fact.parent.is_none() && root.parent.is_none())
+                        || (fact.origin.tu == root.origin.tu
+                            && (fact.parent == root.parent || linked_nested_declaration))))
+                || matches!(
+                    &fact.data,
+                    FactData::Typedef {
+                        target: TypeRef::Named { declaration, .. }
+                    } if facts_index
+                        .get(name)
+                        .into_iter()
+                        .flatten()
+                        .any(|target| {
+                            target.origin.tu == fact.origin.tu
+                                && target.spelling == *declaration
+                                && target.kind == root.kind
+                                && (target.origin == root.origin || !target.definition)
+                                && target.parent.is_none()
+                                && root.parent.is_none()
+                        })
+                )
+        });
+        if same_tu_declarations {
+            return Ok(root);
+        }
+    }
+    Err(Error(format!("ambiguous type root `{name}`")))
+}
+
+fn choose_constant_root<'a>(name: &str, roots: &[&'a Constant]) -> Result<&'a Constant, Error> {
+    let Some(first) = roots.first() else {
+        return Err(Error(format!("missing constant root `{name}`")));
+    };
+    if roots.iter().all(|constant| {
+        constant_types_match(&constant.ty, &first.ty) && constant.value == first.value
+    }) {
+        Ok(roots
+            .iter()
+            .min_by_key(|constant| &constant.spelling)
+            .copied()
+            .unwrap())
+    } else {
+        Err(Error(format!("ambiguous constant root `{name}`")))
+    }
+}
+
+fn constant_types_match(left: &TypeRef, right: &TypeRef) -> bool {
+    left == right
+        || matches!(
+            (left, right),
+            (
+                TypeRef::Named {
+                    name: left_name, ..
+                },
+                TypeRef::Named {
+                    name: right_name, ..
+                },
+            ) if named_type_shape(left_name) == named_type_shape(right_name)
+                && named_type_shape(left_name).is_some()
+        )
+}
+
+fn choose_function_root<'a>(name: &str, roots: &[&'a Fact]) -> Result<&'a Fact, Error> {
+    let distinct = distinct_source_declarations(roots);
+    if let [root] = distinct.as_slice() {
+        return Ok(root);
+    }
+    if let Some(first) = distinct.first()
+        && let FactData::Function {
+            link_name: first_link_name,
+            ..
+        } = &first.data
+        && distinct.iter().all(|fact| {
+            fact.origin.tu == first.origin.tu
+                && fact.parent == first.parent
+                && matches!(
+                    &fact.data,
+                    FactData::Function { link_name, .. } if link_name == first_link_name
+                )
+        })
+    {
+        return Ok(distinct
+            .iter()
+            .min_by_key(|fact| &fact.spelling)
+            .copied()
+            .unwrap());
+    }
+    let choices = distinct
+        .iter()
+        .map(|fact| {
+            format!(
+                "{}:{} {:?}",
+                fact.spelling.file, fact.spelling.offset, fact.data
+            )
+        })
+        .collect::<Vec<_>>()
+        .join("; ");
+    Err(Error(format!(
+        "ambiguous function root `{name}`: {choices}"
+    )))
+}
+
+fn distinct_source_declarations<'a>(roots: &[&'a Fact]) -> Vec<&'a Fact> {
+    let mut distinct: Vec<&Fact> = vec![];
+    for &root in roots {
+        if !distinct
+            .iter()
+            .any(|existing| same_source_declaration(existing, root))
+        {
+            distinct.push(root);
+        }
+    }
+    distinct
+}
+
+fn same_source_declaration(left: &Fact, right: &Fact) -> bool {
+    left.kind == right.kind
+        && left.name == right.name
+        && left.spelling == right.spelling
+        && left.definition == right.definition
+        && left.data == right.data
+}
+
+fn emittable_type<'a>(name: &str, fact: &'a Fact) -> Result<&'a Fact, Error> {
+    match fact.data {
+        FactData::Callback { .. } | FactData::Typedef { .. } if fact.definition => Ok(fact),
+        FactData::Enum { fixed, .. } if fact.definition || fixed => Ok(fact),
+        FactData::Class { .. }
+        | FactData::Guid { .. }
+        | FactData::PropertyKey { .. }
+        | FactData::Record { .. }
+        | FactData::Interface { .. } => Ok(fact),
+        _ => Err(Error(format!("type root `{name}` is not emittable"))),
+    }
+}
+
+fn underlying_enum_fact<'a>(
+    fact: &'a Fact,
+    facts_by_declaration: &BTreeMap<(String, Location), &'a Fact>,
+    seen: &mut BTreeSet<(String, Location)>,
+) -> Option<&'a Fact> {
+    match &fact.data {
+        FactData::Enum { .. } => Some(fact),
+        FactData::Typedef {
+            target: TypeRef::Named { declaration, .. },
+        } => {
+            let key = (fact.origin.tu.clone(), declaration.clone());
+            if !seen.insert(key.clone()) {
+                return None;
+            }
+            underlying_enum_fact(*facts_by_declaration.get(&key)?, facts_by_declaration, seen)
+        }
+        _ => None,
+    }
+}
+
+struct LayoutContext<'a, 'facts> {
+    facts_index: &'a HashMap<&'facts str, Vec<&'facts Fact>>,
+    planned_types: &'a BTreeMap<&'facts str, &'facts Fact>,
+}
+
+fn validate_fact_layouts(
+    fact: &Fact,
+    layout: &LayoutContext<'_, '_>,
+    safe_layouts: &mut HashMap<String, HashSet<Location>>,
+    validated: &mut HashSet<Origin>,
+) -> Result<(), Error> {
+    let mut validate = |ty| {
+        validate_complete_layout(
+            ty,
+            &fact.origin.tu,
+            layout,
+            safe_layouts,
+            &mut BTreeSet::new(),
+            validated,
+        )
+    };
+    match &fact.data {
+        FactData::Callback { params, result, .. } | FactData::Function { params, result, .. } => {
+            validate(result)?;
+            for param in params {
+                validate(&param.ty)?;
+            }
+        }
+        FactData::Record { base, fields, .. } => {
+            if let Some(base) = base {
+                validate(base)?;
+            }
+            for field in fields {
+                validate(&field.ty)?;
+            }
+        }
+        FactData::Interface { base, methods, .. } => {
+            if let Some(base) = base {
+                validate(base)?;
+            }
+            for method in methods {
+                validate(&method.result)?;
+                for param in &method.params {
+                    validate(&param.ty)?;
+                }
+            }
+        }
+        _ => {}
+    }
+    Ok(())
+}
+
+fn known_complete_layout(
+    ty: &TypeRef,
+    tu: &str,
+    safe_layouts: &HashMap<String, HashSet<Location>>,
+    references: &BTreeMap<String, TypeReference>,
+) -> bool {
+    match ty {
+        TypeRef::Pointer { .. }
+        | TypeRef::Reference { .. }
+        | TypeRef::FunctionPointer { .. }
+        | TypeRef::OpaquePointer { .. }
+        | TypeRef::Void
+        | TypeRef::String
+        | TypeRef::Object
+        | TypeRef::Scalar(_)
+        | TypeRef::Generic { .. } => true,
+        TypeRef::Array { target, .. } => {
+            known_complete_layout(target, tu, safe_layouts, references)
+        }
+        TypeRef::InlineRecord(record) => {
+            record
+                .base
+                .as_ref()
+                .is_none_or(|base| known_complete_layout(base, tu, safe_layouts, references))
+                && record
+                    .fields
+                    .iter()
+                    .all(|field| known_complete_layout(&field.ty, tu, safe_layouts, references))
+        }
+        TypeRef::Named { name, declaration } => {
+            references.contains_key(name)
+                || safe_layouts
+                    .get(tu)
+                    .is_some_and(|safe| safe.contains(declaration))
+        }
+    }
+}
+
+fn validate_complete_layout(
+    ty: &TypeRef,
+    tu: &str,
+    layout: &LayoutContext<'_, '_>,
+    safe_layouts: &mut HashMap<String, HashSet<Location>>,
+    seen: &mut BTreeSet<(String, Location)>,
+    validated: &mut HashSet<Origin>,
+) -> Result<(), Error> {
+    match ty {
+        TypeRef::Pointer { .. }
+        | TypeRef::Reference { .. }
+        | TypeRef::FunctionPointer { .. }
+        | TypeRef::OpaquePointer { .. }
+        | TypeRef::Void
+        | TypeRef::String
+        | TypeRef::Object
+        | TypeRef::Scalar(_)
+        | TypeRef::Generic { .. } => Ok(()),
+        TypeRef::Array { target, .. } => {
+            validate_complete_layout(target, tu, layout, safe_layouts, seen, validated)
+        }
+        TypeRef::InlineRecord(record) => {
+            if let Some(base) = &record.base {
+                validate_complete_layout(base, tu, layout, safe_layouts, seen, validated)?;
+            }
+            for field in &record.fields {
+                validate_complete_layout(&field.ty, tu, layout, safe_layouts, seen, validated)?;
+            }
+            Ok(())
+        }
+        TypeRef::Named { name, declaration } => {
+            if safe_layouts
+                .get(tu)
+                .is_some_and(|safe| safe.contains(declaration))
+            {
+                return Ok(());
+            }
+            let matches: Vec<_> = layout
+                .facts_index
+                .get(name.as_str())
+                .into_iter()
+                .flatten()
+                .copied()
+                .filter(|fact| fact.origin.tu == tu && fact.spelling == *declaration)
+                .collect();
+            let fact = if matches
+                .iter()
+                .any(|fact| matches!(fact.data, FactData::Typedef { .. }))
+            {
+                choose_type_root(name, &matches, layout.facts_index)?
+            } else if let Some(fact) = layout.planned_types.get(name.as_str()).copied() {
+                fact
+            } else if !matches.is_empty() {
+                choose_type_root(name, &matches, layout.facts_index)?
+            } else {
+                return Ok(());
+            };
+            if validated.contains(&fact.origin) {
+                return Ok(());
+            }
+            if !seen.insert((fact.origin.tu.clone(), fact.spelling.clone())) {
+                return Ok(());
+            }
+            let result = match &fact.data {
+                FactData::Record { .. } if !fact.definition => Err(Error(format!(
+                    "incomplete record `{name}` is used by value in translation unit `{tu}`"
+                ))),
+                FactData::Typedef { target } => validate_complete_layout(
+                    target,
+                    &fact.origin.tu,
+                    layout,
+                    safe_layouts,
+                    seen,
+                    validated,
+                ),
+                _ => Ok(()),
+            };
+            if result.is_ok() {
+                validated.insert(fact.origin.clone());
+                safe_layouts
+                    .entry(tu.to_string())
+                    .or_default()
+                    .insert(declaration.clone());
+            }
+            result
+        }
+    }
+}
+
+enum TypeEdge<'a> {
+    Type(&'a TypeRef),
+    Projected(&'static str),
+}
+
+fn queue_type_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, TypeEdge<'a>)>) {
+    if let FactData::Typedef { target } = &fact.data {
+        queue.push((fact.origin.tu.as_str(), TypeEdge::Type(target)));
+    } else if let FactData::Callback { params, result, .. } = &fact.data {
+        queue.push((fact.origin.tu.as_str(), TypeEdge::Type(result)));
+        for param in params {
+            queue.push((fact.origin.tu.as_str(), TypeEdge::Type(&param.ty)));
+        }
+    } else if let FactData::PropertyKey { ty, .. } = &fact.data {
+        queue.push((fact.origin.tu.as_str(), TypeEdge::Projected(ty)));
+    } else if let FactData::Record { base, fields, .. } = &fact.data {
+        if let Some(base) = base {
+            queue.push((fact.origin.tu.as_str(), TypeEdge::Type(base)));
+        }
+        for field in fields {
+            queue.push((fact.origin.tu.as_str(), TypeEdge::Type(&field.ty)));
+        }
+    } else if let FactData::Interface { base, methods, .. } = &fact.data {
+        if let Some(base) = base {
+            queue.push((fact.origin.tu.as_str(), TypeEdge::Type(base)));
+        }
+        for method in methods {
+            queue.push((fact.origin.tu.as_str(), TypeEdge::Type(&method.result)));
+            for param in &method.params {
+                queue.push((fact.origin.tu.as_str(), TypeEdge::Type(&param.ty)));
+                if let Some(name) = parameter_string_name(param) {
+                    queue.push((fact.origin.tu.as_str(), TypeEdge::Projected(name)));
+                }
+            }
+        }
+    }
+}
+
+fn queue_function_edges<'a>(fact: &'a Fact, queue: &mut Vec<(&'a str, TypeEdge<'a>)>) {
+    if let FactData::Function { params, result, .. } = &fact.data {
+        queue.push((fact.origin.tu.as_str(), TypeEdge::Type(result)));
+        for param in params {
+            queue.push((fact.origin.tu.as_str(), TypeEdge::Type(&param.ty)));
+            if let Some(name) = parameter_string_name(param) {
+                queue.push((fact.origin.tu.as_str(), TypeEdge::Projected(name)));
+            }
+        }
+    }
+}
+
+#[derive(Debug)]
+pub struct Error(String);
+
+impl Display for Error {
+    fn fmt(&self, formatter: &mut Formatter<'_>) -> std::fmt::Result {
+        self.0.fmt(formatter)
+    }
+}
+
+impl std::error::Error for Error {}
+
+struct BitfieldGroup {
+    start: usize,
+    end: usize,
+    offset: i64,
+}
+
+fn bitfield_groups(fields: &[Field]) -> Result<Vec<BitfieldGroup>, Error> {
+    let mut groups = vec![];
+    let mut index = 0;
+    while index < fields.len() {
+        let field = &fields[index];
+        let Some(width) = field.bit_width else {
+            index += 1;
+            continue;
+        };
+        if width == 0 {
+            index += 1;
+            continue;
+        }
+        let start = index;
+        let offset = field.offset;
+        let limit = offset + field.size * 8;
+        index += 1;
+        while index < fields.len() {
+            let next = &fields[index];
+            let Some(width) = next.bit_width else {
+                break;
+            };
+            if width == 0 || next.size != field.size || next.offset + i64::from(width) > limit {
+                break;
+            }
+            index += 1;
+        }
+        groups.push(BitfieldGroup {
+            start,
+            end: index,
+            offset,
         });
     }
+    Ok(groups)
 }
 
-/// Flattens linkage blocks and, when configured, descends into `ABI::Windows::*`.
-///
-/// Resolution-winmd membership separates true WinRT ABI projections from Win32 COM interop
-/// declarations that live in the same C++ namespace.
-fn flatten_decls(
-    parent: Cursor,
-    in_linkage: bool,
-    in_interop_ns: bool,
-    abi_ns: Option<&str>,
-    winrt_types: Option<&HashSet<String>>,
-    out: &mut Vec<(Cursor, bool)>,
-) {
-    for child in parent.children() {
-        if child.kind() == CXCursor_LinkageSpec {
-            flatten_decls(child, true, in_interop_ns, abi_ns, winrt_types, out);
-        } else if child.kind() == CXCursor_Namespace {
-            if let Some(path) = abi_ns {
-                // Accumulate the ABI namespace path below `ABI`.
-                let name = child.name();
-                let child_path = if path.is_empty() {
-                    name
+fn write_callback(
+    name: &str,
+    convention: CallingConvention,
+    params: &[Parameter],
+    result: &TypeRef,
+    projection: &TypeProjection,
+) -> Result<String, Error> {
+    let params = write_params(params, projection)?.join(", ");
+    let result = if *result == TypeRef::Void {
+        String::new()
+    } else {
+        format!(" -> {}", projection.name(result))
+    };
+    Ok(format!(
+        "    extern{} fn {}({params}){result};\n",
+        calling_convention(convention),
+        rdl_ident(name)
+    ))
+}
+
+fn write_params(
+    params: &[Parameter],
+    projection: &TypeProjection<'_>,
+) -> Result<Vec<String>, Error> {
+    params
+        .iter()
+        .map(|param| {
+            Ok(format!(
+                "{}{}: {}",
+                param_attributes(
+                    param,
+                    params,
+                    emitted_pointer_is_mutable(param, projection.interface_names, projection.tu),
+                )?,
+                rdl_ident(&param.name),
+                planned_param_type_name(
+                    param,
+                    projection.type_names,
+                    projection.interface_names,
+                    projection.tu,
+                )
+            ))
+        })
+        .collect()
+}
+
+fn param_attributes(
+    param: &Parameter,
+    params: &[Parameter],
+    emitted_mutable: bool,
+) -> Result<String, Error> {
+    let annotation = &param.annotation;
+    if let Some(reason) = &annotation.unsupported {
+        return Err(Error(reason.clone()));
+    }
+    let mut result = String::new();
+    if let Some(size) = &annotation.size {
+        match &size.value {
+            SalSizeValue::Constant(value) if !size.bytes => {
+                result.push_str(&format!("#[len_const({value})] "));
+            }
+            SalSizeValue::Parameter(name) | SalSizeValue::IndirectParameter(name) => {
+                let index = params
+                    .iter()
+                    .position(|param| param.name == *name)
+                    .ok_or_else(|| Error(format!("unresolved SAL size parameter `{name}`")))?;
+                let attr = if size.bytes {
+                    "size_param"
                 } else {
-                    format!("{path}.{name}")
+                    "len_param"
                 };
-                flatten_decls(
-                    child,
-                    in_linkage,
-                    in_interop_ns,
-                    Some(&child_path),
-                    winrt_types,
-                    out,
-                );
-            } else if winrt_types.is_some() && child.name() == "ABI" {
-                // Strip `ABI` itself from the namespace path.
-                flatten_decls(child, in_linkage, in_interop_ns, Some(""), winrt_types, out);
-            } else if in_interop_ns || child.name() == "Windows" {
-                // Hand-authored `Windows::*` C++ interop declarations route to the flat root.
-                flatten_decls(child, in_linkage, true, None, winrt_types, out);
+                result.push_str(&format!("#[{attr}({index})] "));
             }
-        } else if let (Some(path), Some(set)) = (abi_ns, winrt_types) {
-            // Capture ABI declarations absent from the resolution winmd; skip open templates.
-            if matches!(
-                child.kind(),
-                CXCursor_ClassTemplate
-                    | CXCursor_ClassTemplatePartialSpecialization
-                    | CXCursor_FunctionTemplate
-            ) {
-                continue;
+            SalSizeValue::Constant(_) => {
+                return Err(Error(
+                    "constant byte-size SAL annotations are unsupported".to_string(),
+                ));
             }
-            let name = child.name();
-            let full = if path.is_empty() {
-                name
-            } else {
-                format!("{path}.{name}")
-            };
-            if set.contains(&full) {
-                continue;
-            }
-            let extern_c = in_linkage && child.language() == CXLanguage_C;
-            out.push((child, extern_c));
-        } else {
-            let extern_c = in_linkage && child.language() == CXLanguage_C;
-            out.push((child, extern_c));
+            SalSizeValue::Expression(_) => {}
         }
     }
+    if annotation.reserved {
+        result.push_str("#[reserved] ");
+    }
+    if annotation.com_out_ptr {
+        result.push_str("#[iid_is] ");
+    }
+    if annotation.input && (annotation.output || emitted_mutable) {
+        result.push_str("#[in] ");
+    }
+    if annotation.output && (annotation.input || !emitted_mutable) {
+        result.push_str("#[out] ");
+    }
+    if annotation.optional {
+        result.push_str("#[opt] ");
+    }
+    if annotation.retval {
+        result.push_str("#[retval] ");
+    }
+    Ok(result)
 }
 
-/// True for dummy handle tags (`X__` or MIDL placeholders) that emit as `*mut void`.
-/// Real MIDL value structs using the same suffix have payload shape and are kept.
-fn is_handle_tag_struct(child: &Cursor) -> bool {
-    if !matches!(child.kind(), CXCursor_StructDecl | CXCursor_UnionDecl) || !child.is_definition() {
-        return false;
+fn write_interface(
+    name: &str,
+    base: Option<&TypeRef>,
+    guid: Option<&str>,
+    methods: &[Method],
+    projection: &TypeProjection,
+) -> Result<String, Error> {
+    let base = base.map_or_else(String::new, |base| format!(": {}", projection.name(base)));
+    let attribute = guid.map_or_else(
+        || "#[no_guid]".to_string(),
+        |guid| format!("#[guid({})]", rdl_uuid(guid)),
+    );
+    let mut result = format!("    {attribute}\n    interface {name}{base} {{\n");
+    let mut start = 0;
+    while start < methods.len() {
+        let mut end = start + 1;
+        while end < methods.len() && methods[end].name == methods[start].name {
+            end += 1;
+        }
+        for method in methods[start..end].iter().rev() {
+            let params = write_params(&method.params, projection)?.join(", ");
+            let return_type = if method.result == TypeRef::Void {
+                String::new()
+            } else {
+                format!(" -> {}", projection.name(&method.result))
+            };
+            result.push_str(&format!(
+                "        {}fn {}(&self{}{}){return_type};\n",
+                if method.special { "#[special] " } else { "" },
+                rdl_ident(&method.name),
+                if params.is_empty() { "" } else { ", " },
+                params
+            ));
+        }
+        start = end;
     }
-    let name = child.name();
-    if !name.ends_with("__") && !is_midl_placeholder_tag(&name) {
-        return false;
-    }
-    is_handle_shape(child)
+    result.push_str("    }\n");
+    Ok(result)
 }
 
-/// MIDL per-method proxy/stub thunks are RPC plumbing unless a real import library exports them.
-fn is_midl_proxy_stub(cursor: &Cursor, libraries: &HashMap<String, String>) -> bool {
-    let name = cursor.name();
-    if !name.ends_with("_Proxy") && !name.ends_with("_Stub") {
-        return false;
-    }
-    if libraries.contains_key(&name) {
-        return false;
-    }
-    cursor
-        .children()
-        .iter()
-        .find(|c| c.kind() == CXCursor_ParmDecl)
-        .is_some_and(|p| p.name() == "This")
+fn rdl_uuid(guid: &str) -> String {
+    let hex = guid.replace('-', "");
+    format!(
+        "0x{}_{}_{}_{}_{}",
+        &hex[..8],
+        &hex[8..12],
+        &hex[12..16],
+        &hex[16..20],
+        &hex[20..]
+    )
 }
 
-/// MIDL `_User*` wire-marshaling helpers are generated RPC internals, not public API.
-fn is_midl_user_marshal_stub(cursor: &Cursor) -> bool {
-    let name = cursor.name();
-    let base = name.strip_suffix("64").unwrap_or(&name);
-    if !base.ends_with("_UserSize")
-        && !base.ends_with("_UserMarshal")
-        && !base.ends_with("_UserUnmarshal")
-        && !base.ends_with("_UserFree")
-    {
-        return false;
+fn planned_param_type_name(
+    param: &Parameter,
+    type_names: &BTreeMap<String, String>,
+    interface_names: &BTreeSet<(String, String)>,
+    tu: &str,
+) -> String {
+    if param.annotation.com_out_ptr {
+        return "*mut *mut void".to_string();
     }
-    cursor
-        .children()
-        .iter()
-        .find(|c| c.kind() == CXCursor_ParmDecl)
-        .is_some_and(|p| {
-            let ty = p.ty().canonical_type();
-            ty.kind() == CXType_Pointer && ty.pointee_type().canonical_type().kind() == CXType_ULong
-        })
+    if let Some(name) = parameter_string_name(param) {
+        return type_names
+            .get(name)
+            .cloned()
+            .unwrap_or_else(|| name.to_string());
+    }
+    planned_emitted_type_name(&param.ty, type_names, interface_names, tu)
 }
 
-/// Collects enum member values across partitions for duplicate loose-constant pruning.
-fn enum_member_values(collectors: &BTreeMap<String, Collector>) -> HashMap<String, Vec<i64>> {
-    let mut members: HashMap<String, Vec<i64>> = HashMap::new();
-    for collector in collectors.values() {
-        for item in collector.values() {
-            if let Item::Enum(e) = item {
-                for (name, value) in &e.variants {
-                    members.entry(name.clone()).or_default().push(*value);
+fn emitted_pointer_is_mutable(
+    param: &Parameter,
+    interface_names: &BTreeSet<(String, String)>,
+    tu: &str,
+) -> bool {
+    if param.annotation.com_out_ptr {
+        return true;
+    }
+    if parameter_string_name(param).is_some() {
+        return false;
+    }
+    match &param.ty {
+        TypeRef::Pointer { .. } => {
+            let (mutable, depth, target) = pointer_run(&param.ty);
+            if depth == 1
+                && matches!(
+                    target,
+                    TypeRef::Named { name, .. } | TypeRef::Generic { name, .. }
+                        if interface_names.contains(&(tu.to_string(), name.clone()))
+                )
+            {
+                false
+            } else {
+                mutable
+            }
+        }
+        TypeRef::Reference { mutable, target } => {
+            !matches!(
+                target.as_ref(),
+                TypeRef::Named { name, .. } | TypeRef::Generic { name, .. }
+                    if interface_names.contains(&(tu.to_string(), name.clone()))
+            ) && *mutable
+        }
+        TypeRef::FunctionPointer { .. } => true,
+        TypeRef::OpaquePointer { mutable, .. } => *mutable,
+        TypeRef::Named { name, .. } if matches!(name.as_str(), "PVOID" | "LPVOID") => true,
+        _ => false,
+    }
+}
+
+fn parameter_string_name(param: &Parameter) -> Option<&'static str> {
+    match &param.ty {
+        TypeRef::Pointer { mutable, target } if param.annotation.null_terminated => {
+            match (mutable, target.as_ref()) {
+                (false, TypeRef::Scalar(Scalar::I8 | Scalar::U8)) => Some("PCSTR"),
+                (true, TypeRef::Scalar(Scalar::I8 | Scalar::U8)) => Some("PSTR"),
+                (false, TypeRef::Scalar(Scalar::U16)) => Some("PCWSTR"),
+                (true, TypeRef::Scalar(Scalar::U16)) => Some("PWSTR"),
+                _ => None,
+            }
+        }
+        TypeRef::Named { name, .. } => {
+            if param.annotation.input && !param.annotation.output {
+                match name.as_str() {
+                    "LPSTR" => return Some("PCSTR"),
+                    "LPWSTR" => return Some("PCWSTR"),
+                    _ => {}
                 }
             }
+            canonical_string_name(name)
         }
+        _ => None,
     }
-    members
 }
 
-/// Converts integer metadata values to `i128` for enum-member duplicate checks.
-fn const_integer_bits(value: &metadata::Value) -> Option<i128> {
-    Some(match value {
-        metadata::Value::Bool(v) => *v as i128,
-        metadata::Value::U8(v) => *v as i128,
-        metadata::Value::I8(v) => *v as i128,
-        metadata::Value::U16(v) => *v as i128,
-        metadata::Value::I16(v) => *v as i128,
-        metadata::Value::U32(v) => *v as i128,
-        metadata::Value::I32(v) => *v as i128,
-        metadata::Value::U64(v) => *v as i128,
-        metadata::Value::I64(v) => *v as i128,
-        metadata::Value::USize(v) => *v as i128,
-        metadata::Value::ISize(v) => *v as i128,
-        metadata::Value::EnumValue(_, inner) => return const_integer_bits(inner),
+fn planned_emitted_type_name(
+    ty: &TypeRef,
+    type_names: &BTreeMap<String, String>,
+    interface_names: &BTreeSet<(String, String)>,
+    tu: &str,
+) -> String {
+    if matches!(ty, TypeRef::FunctionPointer { .. }) {
+        return "*mut u8".to_string();
+    }
+    if let TypeRef::OpaquePointer { mutable, .. } = ty {
+        return format!("*{} void", if *mutable { "mut" } else { "const" });
+    }
+    if let TypeRef::Named { name, .. } = ty
+        && let Some(name) = type_names.get(name)
+    {
+        return rdl_ident(name);
+    }
+    if let TypeRef::Named { name, .. } = ty
+        && let Some(name) = canonical_named_type(name)
+    {
+        return type_names
+            .get(name)
+            .cloned()
+            .unwrap_or_else(|| name.to_string());
+    }
+    if let TypeRef::Reference { mutable, target } = ty {
+        if let TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } = target.as_ref()
+            && interface_names.contains(&(tu.to_string(), name.clone()))
+        {
+            return planned_type_name(target, type_names);
+        }
+        return format!(
+            "*{} {}",
+            if *mutable { "mut" } else { "const" },
+            planned_emitted_type_name(target, type_names, interface_names, tu)
+        );
+    }
+    if let TypeRef::Array { target, len } = ty {
+        return format!(
+            "[{}; {len}]",
+            planned_emitted_type_name(target, type_names, interface_names, tu)
+        );
+    }
+    let (mutable, depth, target) = pointer_run(ty);
+    if depth != 0
+        && let TypeRef::Named { name, .. } | TypeRef::Generic { name, .. } = target
+        && interface_names.contains(&(tu.to_string(), name.clone()))
+    {
+        return format!(
+            "{}{}",
+            format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth - 1),
+            planned_emitted_type_name(target, type_names, interface_names, tu)
+        );
+    }
+    if depth != 0 {
+        return format!(
+            "{}{}",
+            format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth),
+            planned_emitted_type_name(target, type_names, interface_names, tu)
+        );
+    }
+    planned_type_name(ty, type_names)
+}
+
+fn canonical_named_type(name: &str) -> Option<&'static str> {
+    if let Some(name) = canonical_string_name(name) {
+        return Some(name);
+    }
+    Some(match name {
+        "boolean" | "BYTE" | "UCHAR" | "UINT8" | "uint8_t" => "u8",
+        "WORD" | "USHORT" | "WCHAR" | "UINT16" | "uint16_t" => "u16",
+        "DWORD" | "UINT" | "ULONG" | "DWORD32" | "UINT32" | "ULONG32" | "uint32_t" => "u32",
+        "QWORD" | "ULONGLONG" | "DWORD64" | "UINT64" | "ULONG64" | "uint64_t" => "u64",
+        "CHAR" | "INT8" | "int8_t" => "i8",
+        "SHORT" | "INT16" | "int16_t" => "i16",
+        "INT" | "LONG" | "INT32" | "LONG32" | "int32_t" => "i32",
+        "LONGLONG" | "INT64" | "LONG64" | "int64_t" => "i64",
+        "UINT_PTR" | "ULONG_PTR" | "DWORD_PTR" | "SIZE_T" | "size_t" | "rsize_t" | "uintptr_t" => {
+            "usize"
+        }
+        "INT_PTR" | "LONG_PTR" | "SSIZE_T" | "intptr_t" | "ptrdiff_t" => "isize",
+        "LPUNKNOWN" => "IUnknown",
+        "PVOID" | "LPVOID" => "*mut void",
+        "IID" | "CLSID" | "FMTID" | "UUID" => "GUID",
+        "HRESULT" => "HRESULT",
         _ => return None,
     })
 }
 
-/// Matches high-bit flags that clang sign-extends on the enum side.
-fn enum_member_eq(member: i64, constant: i128) -> bool {
-    member as i128 == constant || member as u32 as i128 == constant
+fn canonical_string_name(name: &str) -> Option<&'static str> {
+    match name {
+        "PCSTR" | "LPCSTR" => Some("PCSTR"),
+        "PSTR" | "LPSTR" => Some("PSTR"),
+        "PCWSTR" | "LPCWSTR" => Some("PCWSTR"),
+        "PWSTR" | "LPWSTR" => Some("PWSTR"),
+        _ => None,
+    }
 }
 
-/// Emits a collector under the nested `mod` path for `namespace`.
-fn emit_module(namespace: &str, collector: &Collector) -> Result<String, Error> {
-    let parts: Vec<&str> = namespace.split('.').collect();
-    let mut output = format!("#[win32] mod {} {{", parts[0]);
-
-    for part in &parts[1..] {
-        output.push_str(&format!("mod {part} {{"));
+fn named_type_shape(name: &str) -> Option<&'static str> {
+    match name {
+        "NTSTATUS" => Some("i32"),
+        _ => canonical_named_type(name),
     }
-
-    for item in collector.values() {
-        output.push_str(&item.write(namespace)?.to_string());
-    }
-
-    for _ in 0..parts.len() {
-        output.push('}');
-    }
-
-    Ok(output)
 }
 
-/// Converts an enum value to the metadata value matching its repr.
-fn enum_variant_value(repr: &str, value: i64) -> metadata::Value {
+fn calling_convention(convention: CallingConvention) -> &'static str {
+    match convention {
+        CallingConvention::Platform => "",
+        CallingConvention::C => " \"C\"",
+    }
+}
+
+fn write_named_record(
+    name: &str,
+    fields: &[Field],
+    packing: Option<i64>,
+    alignment: Option<i64>,
+    union: bool,
+    projection: &TypeProjection<'_>,
+) -> Result<String, Error> {
+    let keyword = if union { "union" } else { "struct" };
+    let mut result = String::new();
+    if let Some(packing) = packing {
+        result.push_str(&format!("    #[packed({packing})]\n"));
+    }
+    if let Some(alignment) = alignment {
+        result.push_str(&format!("    #[align({alignment})]\n"));
+    }
+    result.push_str(&format!("    {keyword} {name} {{\n"));
+    result.push_str(&write_record_fields(fields, projection, 8)?);
+    result.push_str("    }\n");
+    result.push_str(&write_nested_records(fields, projection)?);
+    Ok(result)
+}
+
+fn write_nested_records(
+    fields: &[Field],
+    projection: &TypeProjection<'_>,
+) -> Result<String, Error> {
+    let mut result = String::new();
+    for field in fields {
+        result.push_str(&write_nested_type(&field.ty, projection)?);
+    }
+    Ok(result)
+}
+
+fn write_nested_type(ty: &TypeRef, projection: &TypeProjection<'_>) -> Result<String, Error> {
+    match ty {
+        TypeRef::Array { target, .. }
+        | TypeRef::Pointer { target, .. }
+        | TypeRef::Reference { target, .. } => write_nested_type(target, projection),
+        TypeRef::InlineRecord(record) => {
+            if let Some(name) = &record.name {
+                write_named_record(
+                    &rdl_ident(name),
+                    &record.fields,
+                    record.packing,
+                    record.alignment,
+                    record.union,
+                    projection,
+                )
+            } else {
+                write_nested_records(&record.fields, projection)
+            }
+        }
+        _ => Ok(String::new()),
+    }
+}
+
+fn write_record_fields(
+    fields: &[Field],
+    projection: &TypeProjection<'_>,
+    indent: usize,
+) -> Result<String, Error> {
+    let mut result = String::new();
+    let spaces = " ".repeat(indent);
+    let bitfield_groups = bitfield_groups(fields)?;
+    let mut group_index = 0;
+    let mut index = 0;
+    while index < fields.len() {
+        let field = &fields[index];
+        if field.bit_width == Some(0) {
+            index += 1;
+            continue;
+        }
+        if let TypeRef::InlineRecord(record) = &field.ty {
+            let keyword = if record.union { "union" } else { "struct" };
+            result.push_str(&format!("{spaces}{}: ", rdl_ident(&field.name)));
+            if let Some(packing) = record.packing {
+                result.push_str(&format!("#[packed({packing})] "));
+            }
+            if let Some(alignment) = record.alignment {
+                result.push_str(&format!("#[align({alignment})] "));
+            }
+            result.push_str(&format!("{keyword} {{\n"));
+            result.push_str(&write_record_fields(
+                &record.fields,
+                projection,
+                indent + 4,
+            )?);
+            result.push_str(&format!("{spaces}}},\n"));
+            index += 1;
+            continue;
+        }
+        if field.bit_width.is_none() {
+            result.push_str(&format!(
+                "{spaces}{}: {},\n",
+                rdl_ident(&field.name),
+                projection.name(&field.ty)
+            ));
+            index += 1;
+            continue;
+        }
+        let group = &bitfield_groups[group_index];
+        group_index += 1;
+        let backing = if bitfield_groups.len() == 1 {
+            "_bitfield".to_string()
+        } else {
+            format!("_bitfield{group_index}")
+        };
+        result.push_str(&format!(
+            "{spaces}{backing}: {} {{\n",
+            projection.name(&field.ty)
+        ));
+        let mut cursor = group.offset;
+        for member in &fields[group.start..group.end] {
+            if member.offset > cursor {
+                result.push_str(&format!(
+                    "{}_: {},\n",
+                    " ".repeat(indent + 4),
+                    member.offset - cursor
+                ));
+            }
+            let width = member.bit_width.unwrap();
+            let name = if member.name.is_empty() {
+                "_".to_string()
+            } else {
+                rdl_ident(&member.name)
+            };
+            result.push_str(&format!("{}{name}: {width},\n", " ".repeat(indent + 4)));
+            cursor = member.offset + i64::from(width);
+        }
+        result.push_str(&format!("{spaces}}},\n"));
+        index = group.end;
+    }
+    Ok(result)
+}
+
+fn record_layout(
+    fields: &[Field],
+    size: i64,
+    align: i64,
+    union: bool,
+) -> Result<(Option<i64>, Option<i64>), String> {
+    if size < 0 || align <= 0 {
+        return Err(format!(
+            "invalid record layout: size {size}, alignment {align}"
+        ));
+    }
+    if let Some(field) = fields
+        .iter()
+        .find(|field| field.offset < 0 || field.align <= 0 || field.size < 0)
+    {
+        return Err(format!(
+            "invalid layout for field `{}`: offset {}, size {}, alignment {}",
+            field.name, field.offset, field.size, field.align
+        ));
+    }
+
+    let groups = bitfield_groups(fields).map_err(|error| error.0)?;
+    let mut best = None;
+    for packing in [None, Some(1), Some(2), Some(4), Some(8), Some(16)] {
+        let mut cursor = 0;
+        let mut natural_align = 1;
+        let mut matches = true;
+        let mut group_index = 0;
+        let mut index = 0;
+        while index < fields.len() {
+            let field = &fields[index];
+            let field_align = packing.map_or(field.align, |packing| packing.min(field.align));
+            natural_align = natural_align.max(field_align);
+            let mut offset = if union {
+                0
+            } else {
+                align_up(cursor, field_align)
+            };
+            if offset * 8 != field.offset {
+                let explicit_align = [2, 4, 8, 16]
+                    .into_iter()
+                    .filter(|candidate| *candidate > field_align && *candidate <= align)
+                    .find(|candidate| align_up(cursor, *candidate) * 8 == field.offset);
+                let Some(explicit_align) = explicit_align else {
+                    matches = false;
+                    break;
+                };
+                offset = align_up(cursor, explicit_align);
+            }
+            let expected = offset * 8;
+            if field.bit_width == Some(0) {
+                index += 1;
+                continue;
+            }
+            if field.bit_width.is_some() {
+                let group = &groups[group_index];
+                group_index += 1;
+                if fields[group.start..group.end].iter().any(|member| {
+                    member.offset < expected
+                        || member.offset + i64::from(member.bit_width.unwrap())
+                            > expected + field.size * 8
+                }) {
+                    matches = false;
+                    break;
+                }
+                index = group.end;
+            } else {
+                index += 1;
+            }
+            if union {
+                cursor = cursor.max(field.size);
+            } else {
+                cursor = offset + field.size;
+            }
+        }
+        if !matches || align < natural_align {
+            continue;
+        }
+        let alignment = (align > natural_align).then_some(align);
+        let content_size = if fields.is_empty() {
+            size
+        } else if cursor == 0 {
+            1
+        } else {
+            cursor
+        };
+        if (cursor == 0 && size == 1) || align_up(content_size, align) == size {
+            let score = (alignment.is_none(), natural_align);
+            if best.is_none_or(|(_, _, best_score)| score > best_score) {
+                best = Some((packing, alignment, score));
+            }
+        }
+    }
+    best.map(|(packing, alignment, _)| (packing, alignment))
+        .ok_or_else(|| "record fields cannot reproduce Clang's layout".to_string())
+}
+
+fn align_up(value: i64, align: i64) -> i64 {
+    (value + align - 1) / align * align
+}
+
+fn scalar_name(scalar: Scalar) -> &'static str {
+    match scalar {
+        Scalar::Bool => "bool",
+        Scalar::F32 => "f32",
+        Scalar::F64 => "f64",
+        Scalar::I8 => "i8",
+        Scalar::U8 => "u8",
+        Scalar::I16 => "i16",
+        Scalar::U16 => "u16",
+        Scalar::I32 => "i32",
+        Scalar::U32 => "u32",
+        Scalar::I64 => "i64",
+        Scalar::U64 => "u64",
+    }
+}
+
+fn unsigned_scalar(scalar: Scalar) -> Scalar {
+    match scalar {
+        Scalar::I8 => Scalar::U8,
+        Scalar::I16 => Scalar::U16,
+        Scalar::I32 => Scalar::U32,
+        Scalar::I64 => Scalar::U64,
+        _ => scalar,
+    }
+}
+
+fn enum_value(value: i64, repr: Scalar) -> String {
     match repr {
-        "u8" => metadata::Value::U8(value as u8),
-        "i8" => metadata::Value::I8(value as i8),
-        "u16" => metadata::Value::U16(value as u16),
-        "i16" => metadata::Value::I16(value as i16),
-        "u32" => metadata::Value::U32(value as u32),
-        "u64" => metadata::Value::U64(value as u64),
-        "i64" => metadata::Value::I64(value),
-        _ => metadata::Value::I32(value as i32),
+        Scalar::U8 => (value as u8).to_string(),
+        Scalar::U16 => (value as u16).to_string(),
+        Scalar::U32 => (value as u32).to_string(),
+        Scalar::U64 => (value as u64).to_string(),
+        _ => value.to_string(),
     }
+}
+
+fn planned_type_name(ty: &TypeRef, type_names: &BTreeMap<String, String>) -> String {
+    match ty {
+        TypeRef::Void => "void".to_string(),
+        TypeRef::String => "String".to_string(),
+        TypeRef::Object => "Object".to_string(),
+        TypeRef::Scalar(scalar) => scalar_name(*scalar).to_string(),
+        TypeRef::Named { name, .. } => rdl_ident(type_names.get(name).unwrap_or(name)),
+        TypeRef::Generic { name, args, .. } => format!(
+            "{}<{}>",
+            rdl_ident(type_names.get(name).unwrap_or(name)),
+            args.iter()
+                .map(|arg| planned_type_name(arg, type_names))
+                .collect::<Vec<_>>()
+                .join(", ")
+        ),
+        TypeRef::Pointer { .. } => {
+            let (mutable, depth, target) = pointer_run(ty);
+            format!(
+                "{}{}",
+                format!("*{} ", if mutable { "mut" } else { "const" }).repeat(depth),
+                planned_type_name(target, type_names)
+            )
+        }
+        TypeRef::Reference { mutable, target } => format!(
+            "*{} {}",
+            if *mutable { "mut" } else { "const" },
+            planned_type_name(target, type_names)
+        ),
+        TypeRef::FunctionPointer { .. } => "*mut u8".to_string(),
+        TypeRef::OpaquePointer { mutable, .. } => {
+            format!("*{} void", if *mutable { "mut" } else { "const" })
+        }
+        TypeRef::Array { target, len } => {
+            format!("[{}; {len}]", planned_type_name(target, type_names))
+        }
+        TypeRef::InlineRecord(record) => record
+            .name
+            .clone()
+            .unwrap_or_else(|| "<inline record>".to_string()),
+    }
+}
+
+fn pointer_run(mut ty: &TypeRef) -> (bool, usize, &TypeRef) {
+    let mut mutable = true;
+    let mut depth = 0;
+    while let TypeRef::Pointer {
+        mutable: level_mutable,
+        target,
+    } = ty
+    {
+        mutable &= *level_mutable;
+        depth += 1;
+        ty = target;
+    }
+    (mutable, depth, ty)
+}
+
+fn constant_type_name(ty: &TypeRef, type_names: &BTreeMap<String, String>) -> String {
+    match ty {
+        TypeRef::Scalar(Scalar::Bool) => "u32".to_string(),
+        TypeRef::Named { name, .. } if type_names.contains_key(name) => {
+            planned_type_name(ty, type_names)
+        }
+        TypeRef::Named { name, .. } => canonical_named_type(name)
+            .map_or_else(|| planned_type_name(ty, type_names), str::to_string),
+        _ => planned_type_name(ty, type_names),
+    }
+}
+
+fn value_name(value: &Value) -> String {
+    match value {
+        Value::F32(value) => float_name(f32::from_bits(*value) as f64),
+        Value::F64(value) => float_name(f64::from_bits(*value)),
+        Value::Signed(value) => value.to_string(),
+        Value::Unsigned(value) => value.to_string(),
+        Value::Utf8(value) | Value::Utf16(value) => format!("{value:?}"),
+    }
+}
+
+fn float_name(value: f64) -> String {
+    let value = value.to_string();
+    if value.contains(['.', 'e', 'E']) {
+        value
+    } else {
+        format!("{value}.0")
+    }
+}
+
+fn rdl_ident(name: &str) -> String {
+    const KEYWORDS: &[&str] = &[
+        "abstract", "as", "async", "await", "become", "box", "break", "const", "continue", "do",
+        "dyn", "else", "enum", "extern", "false", "final", "fn", "for", "gen", "if", "impl", "in",
+        "let", "loop", "macro", "match", "mod", "move", "mut", "override", "priv", "pub", "ref",
+        "return", "static", "struct", "trait", "true", "try", "type", "typeof", "union", "unsafe",
+        "unsized", "use", "virtual", "where", "while", "yield",
+    ];
+    if name == "_" {
+        "__".to_string()
+    } else if ["crate", "self", "Self", "super"].contains(&name) {
+        format!("{name}_")
+    } else if KEYWORDS.contains(&name) {
+        format!("r#{name}")
+    } else {
+        name.to_string()
+    }
+}
+
+fn normalize_name(name: &str) -> String {
+    name.replace('\\', "/")
+}
+
+fn origin(origin: &Origin) -> String {
+    format!("{}#{}", origin.tu, origin.local)
 }
 
 #[cfg(test)]
@@ -1840,108 +3700,49 @@ mod tests {
     use super::*;
 
     #[test]
-    fn field_refs_descend_into_anonymous_nested_records() {
-        // Anonymous nested members carry their refs in `nested`, not `ty`.
-        let nested = Struct {
-            name: "Anonymous".to_string(),
-            fields: vec![Field {
-                name: "value".to_string(),
-                ty: metadata::Type::ValueName(metadata::TypeName::named("", "InnerType")),
-                nested: None,
-                bitfields: vec![],
-            }],
-            is_union: true,
-            packing: None,
-            alignment: None,
+    fn recursive_shape_cache_is_context_specific() {
+        let declaration = Location {
+            file: "recursive.hpp".to_string(),
+            offset: 7,
         };
-        let field = Field {
-            name: "Anonymous".to_string(),
-            ty: metadata::Type::Void,
-            nested: Some(Box::new(nested)),
-            bitfields: vec![],
-        };
+        let first_context = TypeShape(1, 2);
+        let second_context = TypeShape(3, 4);
+        let first_shape = TypeShape(5, 6);
+        let second_shape = TypeShape(7, 8);
+        let mut cache = ShapeCache::default();
 
-        let mut refs = HashSet::new();
-        collect_field_refs(std::slice::from_ref(&field), &mut refs);
-        assert!(refs.contains("InnerType"));
-    }
+        cache.insert_recursive("tu", &declaration, first_context, first_shape);
+        cache.insert_recursive("tu", &declaration, second_context, second_shape);
 
-    #[test]
-    fn value_refs_name_typed_constants() {
-        let mut refs = HashSet::new();
-        collect_value_refs(
-            &metadata::Value::TypeName(metadata::TypeName::named("", "NamedType")),
-            &mut refs,
-        );
-        assert!(refs.contains("NamedType"));
-
-        let mut enum_refs = HashSet::new();
-        collect_value_refs(
-            &metadata::Value::EnumValue(
-                metadata::TypeName::named("", "NamedEnum"),
-                Box::new(metadata::Value::I32(3)),
-            ),
-            &mut enum_refs,
-        );
-        assert!(enum_refs.contains("NamedEnum"));
-    }
-
-    #[test]
-    fn const_integer_bits_reads_integers_only() {
-        assert_eq!(const_integer_bits(&metadata::Value::U32(22)), Some(22));
-        assert_eq!(const_integer_bits(&metadata::Value::I32(-1)), Some(-1));
+        assert!(cache.is_recursive("tu", &declaration));
         assert_eq!(
-            const_integer_bits(&metadata::Value::U32(0x8000_0000)),
-            Some(0x8000_0000)
+            cache.recursive("tu", &declaration, first_context),
+            Some(first_shape)
         );
         assert_eq!(
-            const_integer_bits(&metadata::Value::EnumValue(
-                metadata::TypeName::named("", "E"),
-                Box::new(metadata::Value::U16(7)),
-            )),
-            Some(7)
+            cache.recursive("tu", &declaration, second_context),
+            Some(second_shape)
         );
-        assert_eq!(const_integer_bits(&metadata::Value::F32(1.0)), None);
         assert_eq!(
-            const_integer_bits(&metadata::Value::Utf8("x".to_string())),
+            cache.recursive("other-tu", &declaration, first_context),
             None
         );
     }
 
     #[test]
-    fn enum_member_eq_matches_value_and_high_bit_flag() {
-        // Plain equal values match.
-        assert!(enum_member_eq(22, 22));
-        assert!(!enum_member_eq(22, 23));
-        // High-bit signed enum flags can match unsigned macro constants.
-        assert!(enum_member_eq(-2147483648, 0x8000_0000));
-        // Wide constants do not match by low 32 bits alone.
-        assert!(!enum_member_eq(0, 0x1_0000_0000));
-    }
-
-    #[test]
-    fn enum_member_values_collects_variants_across_partitions() {
-        let mut a = Collector::new();
-        a.insert(Item::Enum(Enum {
-            name: "D3DFORMAT".to_string(),
-            repr: "i32",
-            variants: vec![("D3DFMT_X8R8G8B8".to_string(), 22)],
-            flags: false,
-            scoped: false,
-        }));
-        let mut b = Collector::new();
-        b.insert(Item::Const(Const {
-            name: "D3DFMT_X8R8G8B8".to_string(),
-            ty: None,
-            value: metadata::Value::U32(22),
-        }));
-
-        let collectors: BTreeMap<String, Collector> =
-            [("d3d9types".to_string(), a), ("mfapi".to_string(), b)].into();
-        let members = enum_member_values(&collectors);
-        assert_eq!(
-            members.get("D3DFMT_X8R8G8B8").map(Vec::as_slice),
-            Some([22].as_slice())
-        );
+    fn canonical_string_aliases_share_one_mapping() {
+        for (alias, canonical) in [
+            ("PCSTR", "PCSTR"),
+            ("LPCSTR", "PCSTR"),
+            ("PSTR", "PSTR"),
+            ("LPSTR", "PSTR"),
+            ("PCWSTR", "PCWSTR"),
+            ("LPCWSTR", "PCWSTR"),
+            ("PWSTR", "PWSTR"),
+            ("LPWSTR", "PWSTR"),
+        ] {
+            assert_eq!(canonical_string_name(alias), Some(canonical));
+            assert_eq!(canonical_named_type(alias), Some(canonical));
+        }
     }
 }

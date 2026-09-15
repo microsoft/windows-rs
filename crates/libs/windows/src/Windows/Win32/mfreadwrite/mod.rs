@@ -179,12 +179,8 @@ impl IMFSinkWriter {
     pub unsafe fn Finalize(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Finalize)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetServiceForStream<T>(&self, dwstreamindex: u32, guidservice: *const windows_core::GUID) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetServiceForStream)(windows_core::Interface::as_raw(self), dwstreamindex, guidservice, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetServiceForStream)(windows_core::Interface::as_raw(self), dwstreamindex, guidservice, riid, ppvobject as _) }
     }
     pub unsafe fn GetStatistics(&self, dwstreamindex: u32, pstats: *mut MF_SINK_WRITER_STATISTICS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), dwstreamindex, pstats as _) }
@@ -558,13 +554,13 @@ impl IMFSourceReader {
         }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn SetCurrentMediaType<P2>(&self, dwstreamindex: u32, pdwreserved: Option<*const u32>, pmediatype: P2) -> windows_core::HRESULT
+    pub unsafe fn SetCurrentMediaType<P2>(&self, dwstreamindex: u32, pdwreserved: Option<*mut u32>, pmediatype: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<super::IMFMediaType>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentMediaType)(windows_core::Interface::as_raw(self), dwstreamindex, pdwreserved.unwrap_or(core::mem::zeroed()) as _, pmediatype.param().abi()) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetCurrentPosition(&self, guidtimeformat: *const windows_core::GUID, varposition: *const super::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentPosition)(windows_core::Interface::as_raw(self), guidtimeformat, varposition) }
     }
@@ -575,14 +571,10 @@ impl IMFSourceReader {
     pub unsafe fn Flush(&self, dwstreamindex: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Flush)(windows_core::Interface::as_raw(self), dwstreamindex) }
     }
-    pub unsafe fn GetServiceForStream<T>(&self, dwstreamindex: u32, guidservice: *const windows_core::GUID) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetServiceForStream)(windows_core::Interface::as_raw(self), dwstreamindex, guidservice, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetServiceForStream)(windows_core::Interface::as_raw(self), dwstreamindex, guidservice, riid, ppvobject as _) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const windows_core::GUID) -> windows_core::Result<super::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -605,12 +597,12 @@ pub struct IMFSourceReader_Vtbl {
     #[cfg(not(feature = "mfobjects"))]
     GetCurrentMediaType: usize,
     #[cfg(feature = "mfobjects")]
-    pub SetCurrentMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetCurrentMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "mfobjects"))]
     SetCurrentMediaType: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetCurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetCurrentPosition: usize,
     #[cfg(feature = "mfobjects")]
     pub ReadSample: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32, *mut u32, *mut i64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -618,25 +610,25 @@ pub struct IMFSourceReader_Vtbl {
     ReadSample: usize,
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetServiceForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPresentationAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetPresentationAttribute: usize,
 }
-#[cfg(all(feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFSourceReader_Impl: windows_core::IUnknownImpl {
     fn GetStreamSelection(&self, dwstreamindex: u32) -> windows_core::Result<windows_core::BOOL>;
     fn SetStreamSelection(&self, dwstreamindex: u32, fselected: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetNativeMediaType(&self, dwstreamindex: u32, dwmediatypeindex: u32) -> windows_core::Result<super::IMFMediaType>;
     fn GetCurrentMediaType(&self, dwstreamindex: u32) -> windows_core::Result<super::IMFMediaType>;
-    fn SetCurrentMediaType(&self, dwstreamindex: u32, pdwreserved: *const u32, pmediatype: windows_core::Ref<super::IMFMediaType>) -> windows_core::Result<()>;
+    fn SetCurrentMediaType(&self, dwstreamindex: u32, pdwreserved: *mut u32, pmediatype: windows_core::Ref<super::IMFMediaType>) -> windows_core::Result<()>;
     fn SetCurrentPosition(&self, guidtimeformat: *const windows_core::GUID, varposition: *const super::PROPVARIANT) -> windows_core::Result<()>;
     fn ReadSample(&self, dwstreamindex: u32, dwcontrolflags: u32, pdwactualstreamindex: *mut u32, pdwstreamflags: *mut u32, plltimestamp: *mut i64, ppsample: windows_core::OutRef<super::IMFSample>) -> windows_core::Result<()>;
     fn Flush(&self, dwstreamindex: u32) -> windows_core::Result<()>;
     fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const windows_core::GUID) -> windows_core::Result<super::PROPVARIANT>;
 }
-#[cfg(all(feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFSourceReader_Vtbl {
     pub const fn new<Identity: IMFSourceReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStreamSelection<Identity: IMFSourceReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: u32, pfselected: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -681,7 +673,7 @@ impl IMFSourceReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCurrentMediaType<Identity: IMFSourceReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: u32, pdwreserved: *const u32, pmediatype: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCurrentMediaType<Identity: IMFSourceReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: u32, pdwreserved: *mut u32, pmediatype: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMFSourceReader_Impl::SetCurrentMediaType(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&pdwreserved), core::mem::transmute_copy(&pmediatype)).into()
@@ -741,7 +733,7 @@ impl IMFSourceReader_Vtbl {
         iid == &<IMFSourceReader as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "mfobjects", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFSourceReader {}
 windows_core::imp::define_interface!(IMFSourceReaderCallback, IMFSourceReaderCallback_Vtbl, 0xdeec8d99_fa1d_4d82_84c2_2c8969944867);
 windows_core::imp::interface_hierarchy!(IMFSourceReaderCallback, windows_core::IUnknown);
@@ -921,14 +913,14 @@ pub struct IMFSourceReaderEx_Vtbl {
     #[cfg(not(feature = "mftransform"))]
     GetTransformForStream: usize,
 }
-#[cfg(all(feature = "mfobjects", feature = "mftransform", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "mfobjects", feature = "mftransform", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFSourceReaderEx_Impl: IMFSourceReader_Impl {
     fn SetNativeMediaType(&self, dwstreamindex: u32, pmediatype: windows_core::Ref<super::IMFMediaType>) -> windows_core::Result<u32>;
     fn AddTransformForStream(&self, dwstreamindex: u32, ptransformoractivate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn RemoveAllTransformsForStream(&self, dwstreamindex: u32) -> windows_core::Result<()>;
     fn GetTransformForStream(&self, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: *mut windows_core::GUID, pptransform: windows_core::OutRef<super::IMFTransform>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "mfobjects", feature = "mftransform", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "mfobjects", feature = "mftransform", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFSourceReaderEx_Vtbl {
     pub const fn new<Identity: IMFSourceReaderEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetNativeMediaType<Identity: IMFSourceReaderEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamindex: u32, pmediatype: *mut core::ffi::c_void, pdwstreamflags: *mut u32) -> windows_core::HRESULT {
@@ -973,11 +965,11 @@ impl IMFSourceReaderEx_Vtbl {
         iid == &<IMFSourceReaderEx as windows_core::Interface>::IID || iid == &<IMFSourceReader as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "mfobjects", feature = "mftransform", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "mfobjects", feature = "mftransform", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFSourceReaderEx {}
-pub const MF_SINK_WRITER_ALL_STREAMS: i32 = -2;
-pub const MF_SINK_WRITER_INVALID_STREAM_INDEX: i32 = -1;
-pub const MF_SINK_WRITER_MEDIASINK: i32 = -1;
+pub const MF_SINK_WRITER_ALL_STREAMS: __MIDL___MIDL_itf_mfreadwrite_0000_0005_0001 = -2;
+pub const MF_SINK_WRITER_INVALID_STREAM_INDEX: __MIDL___MIDL_itf_mfreadwrite_0000_0005_0001 = -1;
+pub const MF_SINK_WRITER_MEDIASINK: __MIDL___MIDL_itf_mfreadwrite_0000_0005_0001 = -1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_SINK_WRITER_STATISTICS {
@@ -1005,13 +997,16 @@ pub const MF_SOURCE_READERF_ERROR: MF_SOURCE_READER_FLAG = 1;
 pub const MF_SOURCE_READERF_NATIVEMEDIATYPECHANGED: MF_SOURCE_READER_FLAG = 16;
 pub const MF_SOURCE_READERF_NEWSTREAM: MF_SOURCE_READER_FLAG = 4;
 pub const MF_SOURCE_READERF_STREAMTICK: MF_SOURCE_READER_FLAG = 256;
-pub const MF_SOURCE_READER_ALL_STREAMS: i32 = -2;
-pub const MF_SOURCE_READER_ANY_STREAM: i32 = -2;
+pub const MF_SOURCE_READER_ALL_STREAMS: __MIDL___MIDL_itf_mfreadwrite_0000_0001_0001 = -2;
+pub const MF_SOURCE_READER_ANY_STREAM: __MIDL___MIDL_itf_mfreadwrite_0000_0001_0001 = -2;
 pub const MF_SOURCE_READER_CONTROLF_DRAIN: MF_SOURCE_READER_CONTROL_FLAG = 1;
 pub type MF_SOURCE_READER_CONTROL_FLAG = u32;
-pub const MF_SOURCE_READER_CURRENT_TYPE_INDEX: i32 = -1;
-pub const MF_SOURCE_READER_FIRST_AUDIO_STREAM: i32 = -3;
-pub const MF_SOURCE_READER_FIRST_VIDEO_STREAM: i32 = -4;
+pub const MF_SOURCE_READER_CURRENT_TYPE_INDEX: __MIDL___MIDL_itf_mfreadwrite_0000_0001_0002 = -1;
+pub const MF_SOURCE_READER_FIRST_AUDIO_STREAM: __MIDL___MIDL_itf_mfreadwrite_0000_0001_0001 = -3;
+pub const MF_SOURCE_READER_FIRST_VIDEO_STREAM: __MIDL___MIDL_itf_mfreadwrite_0000_0001_0001 = -4;
 pub type MF_SOURCE_READER_FLAG = u32;
-pub const MF_SOURCE_READER_INVALID_STREAM_INDEX: i32 = -1;
-pub const MF_SOURCE_READER_MEDIASOURCE: i32 = -1;
+pub const MF_SOURCE_READER_INVALID_STREAM_INDEX: __MIDL___MIDL_itf_mfreadwrite_0000_0001_0001 = -1;
+pub const MF_SOURCE_READER_MEDIASOURCE: __MIDL___MIDL_itf_mfreadwrite_0000_0001_0001 = -1;
+pub type __MIDL___MIDL_itf_mfreadwrite_0000_0001_0001 = i32;
+pub type __MIDL___MIDL_itf_mfreadwrite_0000_0001_0002 = i32;
+pub type __MIDL___MIDL_itf_mfreadwrite_0000_0005_0001 = i32;

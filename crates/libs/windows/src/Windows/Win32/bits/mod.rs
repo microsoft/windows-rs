@@ -976,7 +976,8 @@ impl core::ops::Deref for IBackgroundCopyFile4 {
 }
 windows_core::imp::interface_hierarchy!(IBackgroundCopyFile4, windows_core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3);
 impl IBackgroundCopyFile4 {
-    pub unsafe fn GetPeerDownloadStats(&self, pfromorigin: *mut u64, pfrompeers: *mut u64) -> windows_core::HRESULT {
+    #[cfg(feature = "basetsd")]
+    pub unsafe fn GetPeerDownloadStats(&self, pfromorigin: super::PUINT64, pfrompeers: super::PUINT64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPeerDownloadStats)(windows_core::Interface::as_raw(self), pfromorigin as _, pfrompeers as _) }
     }
 }
@@ -984,14 +985,19 @@ impl IBackgroundCopyFile4 {
 #[doc(hidden)]
 pub struct IBackgroundCopyFile4_Vtbl {
     pub base__: IBackgroundCopyFile3_Vtbl,
-    pub GetPeerDownloadStats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "basetsd")]
+    pub GetPeerDownloadStats: unsafe extern "system" fn(*mut core::ffi::c_void, super::PUINT64, super::PUINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "basetsd"))]
+    GetPeerDownloadStats: usize,
 }
+#[cfg(feature = "basetsd")]
 pub trait IBackgroundCopyFile4_Impl: IBackgroundCopyFile3_Impl {
-    fn GetPeerDownloadStats(&self, pfromorigin: *mut u64, pfrompeers: *mut u64) -> windows_core::Result<()>;
+    fn GetPeerDownloadStats(&self, pfromorigin: super::PUINT64, pfrompeers: super::PUINT64) -> windows_core::Result<()>;
 }
+#[cfg(feature = "basetsd")]
 impl IBackgroundCopyFile4_Vtbl {
     pub const fn new<Identity: IBackgroundCopyFile4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetPeerDownloadStats<Identity: IBackgroundCopyFile4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfromorigin: *mut u64, pfrompeers: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPeerDownloadStats<Identity: IBackgroundCopyFile4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfromorigin: super::PUINT64, pfrompeers: super::PUINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBackgroundCopyFile4_Impl::GetPeerDownloadStats(this, core::mem::transmute_copy(&pfromorigin), core::mem::transmute_copy(&pfrompeers)).into()
@@ -1003,6 +1009,7 @@ impl IBackgroundCopyFile4_Vtbl {
         iid == &<IBackgroundCopyFile4 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "basetsd")]
 impl windows_core::RuntimeName for IBackgroundCopyFile4 {}
 windows_core::imp::define_interface!(IBackgroundCopyFile5, IBackgroundCopyFile5_Vtbl, 0x85c1657f_dafc_40e8_8834_df18ea25717e);
 impl core::ops::Deref for IBackgroundCopyFile5 {
@@ -1030,10 +1037,12 @@ pub struct IBackgroundCopyFile5_Vtbl {
     pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, BITS_FILE_PROPERTY_ID, BITS_FILE_PROPERTY_VALUE) -> windows_core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, BITS_FILE_PROPERTY_ID, *mut BITS_FILE_PROPERTY_VALUE) -> windows_core::HRESULT,
 }
+#[cfg(feature = "basetsd")]
 pub trait IBackgroundCopyFile5_Impl: IBackgroundCopyFile4_Impl {
     fn SetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: &BITS_FILE_PROPERTY_VALUE) -> windows_core::Result<()>;
     fn GetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID) -> windows_core::Result<BITS_FILE_PROPERTY_VALUE>;
 }
+#[cfg(feature = "basetsd")]
 impl IBackgroundCopyFile5_Vtbl {
     pub const fn new<Identity: IBackgroundCopyFile5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetProperty<Identity: IBackgroundCopyFile5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: BITS_FILE_PROPERTY_VALUE) -> windows_core::HRESULT {
@@ -1064,6 +1073,7 @@ impl IBackgroundCopyFile5_Vtbl {
         iid == &<IBackgroundCopyFile5 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile4 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "basetsd")]
 impl windows_core::RuntimeName for IBackgroundCopyFile5 {}
 windows_core::imp::define_interface!(IBackgroundCopyFile6, IBackgroundCopyFile6_Vtbl, 0xcf6784f7_d677_49fd_9368_cb47aee9d1ad);
 impl core::ops::Deref for IBackgroundCopyFile6 {
@@ -1092,11 +1102,13 @@ pub struct IBackgroundCopyFile6_Vtbl {
     pub RequestFileRanges: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const BG_FILE_RANGE) -> windows_core::HRESULT,
     pub GetFilledFileRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut BG_FILE_RANGE) -> windows_core::HRESULT,
 }
+#[cfg(feature = "basetsd")]
 pub trait IBackgroundCopyFile6_Impl: IBackgroundCopyFile5_Impl {
     fn UpdateDownloadPosition(&self, offset: u64) -> windows_core::Result<()>;
     fn RequestFileRanges(&self, rangecount: u32, ranges: *const BG_FILE_RANGE) -> windows_core::Result<()>;
     fn GetFilledFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> windows_core::Result<()>;
 }
+#[cfg(feature = "basetsd")]
 impl IBackgroundCopyFile6_Vtbl {
     pub const fn new<Identity: IBackgroundCopyFile6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn UpdateDownloadPosition<Identity: IBackgroundCopyFile6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64) -> windows_core::HRESULT {
@@ -1128,6 +1140,7 @@ impl IBackgroundCopyFile6_Vtbl {
         iid == &<IBackgroundCopyFile6 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile4 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile5 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "basetsd")]
 impl windows_core::RuntimeName for IBackgroundCopyFile6 {}
 windows_core::imp::define_interface!(IBackgroundCopyJob, IBackgroundCopyJob_Vtbl, 0x37668d37_507e_4160_9316_26306d150b12);
 windows_core::imp::interface_hierarchy!(IBackgroundCopyJob, windows_core::IUnknown);

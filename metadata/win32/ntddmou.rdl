@@ -17,6 +17,7 @@ mod Windows {
             SampleRate: u16,
             InputDataQueueLength: u32,
         }
+        const MOUSE_ATTRIBUTES_CHANGED: i32 = 4;
         const MOUSE_BUTTON_1_DOWN: i32 = 1;
         const MOUSE_BUTTON_1_UP: i32 = 2;
         const MOUSE_BUTTON_2_DOWN: i32 = 4;
@@ -51,6 +52,9 @@ mod Windows {
         const MOUSE_LEFT_BUTTON_UP: i32 = 2;
         const MOUSE_MIDDLE_BUTTON_DOWN: i32 = 16;
         const MOUSE_MIDDLE_BUTTON_UP: i32 = 32;
+        const MOUSE_MOVE_ABSOLUTE: i32 = 1;
+        const MOUSE_MOVE_NOCOALESCE: i32 = 8;
+        const MOUSE_MOVE_RELATIVE: i32 = 0;
         const MOUSE_RIGHT_BUTTON_DOWN: i32 = 4;
         const MOUSE_RIGHT_BUTTON_UP: i32 = 8;
         const MOUSE_SERIAL_HARDWARE: i32 = 4;
@@ -58,6 +62,7 @@ mod Windows {
         struct MOUSE_UNIT_ID_PARAMETER {
             UnitId: u16,
         }
+        const MOUSE_VIRTUAL_DESKTOP: i32 = 2;
         const MOUSE_WHEEL: i32 = 1024;
         type PMOUSE_ATTRIBUTES = *mut MOUSE_ATTRIBUTES;
         type PMOUSE_INPUT_DATA = *mut MOUSE_INPUT_DATA;

@@ -1,5 +1,39 @@
 use super::*;
 
+pub(crate) const fn to_d2d_point(value: Vector2) -> D2D_POINT_2F {
+    D2D_POINT_2F {
+        x: value.x,
+        y: value.y,
+    }
+}
+
+pub(crate) const fn to_d2d_matrix(value: Matrix3x2) -> D2D_MATRIX_3X2_F {
+    D2D_MATRIX_3X2_F {
+        Anonymous: D2D_MATRIX_3X2_F_0 {
+            Anonymous2: D2D_MATRIX_3X2_F_0_1 {
+                _11: value.m11,
+                _12: value.m12,
+                _21: value.m21,
+                _22: value.m22,
+                _31: value.m31,
+                _32: value.m32,
+            },
+        },
+    }
+}
+
+pub(crate) unsafe fn from_d2d_matrix(value: D2D_MATRIX_3X2_F) -> Matrix3x2 {
+    let value = unsafe { value.Anonymous.Anonymous2 };
+    Matrix3x2 {
+        m11: value._11,
+        m12: value._12,
+        m21: value._21,
+        m22: value._22,
+        m31: value._31,
+        m32: value._32,
+    }
+}
+
 /// How a 32-bit BGRA bitmap's alpha channel is interpreted.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
 pub enum AlphaMode {
@@ -108,7 +142,7 @@ impl Ellipse {
 
     pub(crate) fn to_abi(self) -> D2D1_ELLIPSE {
         D2D1_ELLIPSE {
-            point: self.center,
+            point: to_d2d_point(self.center),
             radiusX: self.radius_x,
             radiusY: self.radius_y,
         }

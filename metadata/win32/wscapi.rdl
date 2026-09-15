@@ -25,14 +25,17 @@ mod Windows {
         #[library("WSCAPI.dll")]
         extern fn WscGetAntiMalwareUri(ppszUri: *mut PWSTR) -> HRESULT;
         #[library("WSCAPI.dll")]
-        extern fn WscGetSecurityProviderHealth(Providers: u32, pHealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> HRESULT;
+        extern fn WscGetSecurityProviderHealth(Providers: u32, pHealth: PWSC_SECURITY_PROVIDER_HEALTH) -> HRESULT;
         #[library("WSCAPI.dll")]
         extern fn WscQueryAntiMalwareUri() -> HRESULT;
         #[library("WSCAPI.dll")]
-        extern fn WscRegisterForChanges(Reserved: *mut void, phCallbackRegistration: *mut HANDLE, lpCallbackAddress: LPTHREAD_START_ROUTINE, pContext: *mut void) -> HRESULT;
+        extern fn WscRegisterForChanges(Reserved: *mut void, phCallbackRegistration: PHANDLE, lpCallbackAddress: LPTHREAD_START_ROUTINE, pContext: *mut void) -> HRESULT;
         #[library("WSCAPI.dll")]
         extern fn WscRegisterForUserNotifications() -> HRESULT;
         #[library("WSCAPI.dll")]
         extern fn WscUnRegisterChanges(hRegistrationHandle: HANDLE) -> HRESULT;
+        #[arch(X64 | Arm64)]
+        #[library("WSCAPI.dll", import = "?wscShowAMSCN@@YAJKPEAK@Z")]
+        extern "C" fn wscShowAMSCN(InputFlags: u32, #[out] #[opt] pdwResultFlags: PDWORD) -> HRESULT;
     }
 }

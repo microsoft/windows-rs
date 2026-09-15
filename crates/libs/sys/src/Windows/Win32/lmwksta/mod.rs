@@ -1,16 +1,18 @@
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetWkstaGetInfo(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetWkstaSetInfo(servername : windows_sys::core::PCWSTR, level : u32, buffer : *const u8, parm_err : *mut u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("netapi32.dll" "system" fn NetWkstaTransportAdd(servername : super::LPTSTR, level : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetWkstaSetInfo(servername : windows_sys::core::PCWSTR, level : u32, buffer : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("netapi32.dll" "system" fn NetWkstaTransportAdd(servername : super::LPTSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetWkstaTransportDel(servername : windows_sys::core::PCWSTR, transportname : windows_sys::core::PCWSTR, ucond : u32) -> u32);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("netapi32.dll" "system" fn NetWkstaTransportEnum(servername : super::LPTSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetWkstaTransportEnum(servername : super::LPTSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetWkstaUserEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetWkstaUserEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::LPDWORD) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetWkstaUserGetInfo(reserved : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetWkstaUserSetInfo(reserved : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetWkstaUserSetInfo(reserved : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
 pub type LPWKSTA_INFO_100 = *mut WKSTA_INFO_100;
 pub type LPWKSTA_INFO_101 = *mut WKSTA_INFO_101;
 pub type LPWKSTA_INFO_1010 = *mut WKSTA_INFO_1010;

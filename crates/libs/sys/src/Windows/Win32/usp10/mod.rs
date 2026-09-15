@@ -21,7 +21,7 @@ windows_link::link!("usp10.dll" "system" fn ScriptGetFontScriptTags(hdc : super:
 #[cfg(all(feature = "windef", feature = "wingdi"))]
 windows_link::link!("usp10.dll" "system" fn ScriptGetGlyphABCWidth(hdc : super::HDC, psc : *mut SCRIPT_CACHE, wglyph : u16, pabc : *mut super::ABC) -> windows_sys::core::HRESULT);
 windows_link::link!("usp10.dll" "system" fn ScriptGetLogicalWidths(psa : *const SCRIPT_ANALYSIS, cchars : i32, cglyphs : i32, piglyphwidth : *const i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, pidx : *const i32) -> windows_sys::core::HRESULT);
-windows_link::link!("usp10.dll" "system" fn ScriptGetProperties(ppsp : *mut *mut *mut SCRIPT_PROPERTIES, pinumscripts : *mut i32) -> windows_sys::core::HRESULT);
+windows_link::link!("usp10.dll" "system" fn ScriptGetProperties(ppsp : *const *const *const SCRIPT_PROPERTIES, pinumscripts : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("usp10.dll" "system" fn ScriptIsComplex(pwcinchars : *const u16, cinchars : i32, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("usp10.dll" "system" fn ScriptItemize(pwcinchars : *const u16, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pcitems : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("usp10.dll" "system" fn ScriptItemizeOpenType(pwcinchars : *const u16, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pscripttags : *mut OPENTYPE_TAG, pcitems : *mut i32) -> windows_sys::core::HRESULT);
@@ -202,4 +202,4 @@ pub struct TEXTRANGE_PROPERTIES {
     pub cotfRecords: i32,
 }
 pub const UNISCRIBE_OPENTYPE: i32 = 256;
-pub const USP_E_SCRIPT_NOT_IN_FONT: i32 = -2147220992;
+pub const USP_E_SCRIPT_NOT_IN_FONT: windows_sys::core::HRESULT = 0x80040200_u32 as _;

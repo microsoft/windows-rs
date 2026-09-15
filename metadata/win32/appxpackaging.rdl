@@ -333,7 +333,7 @@ mod Windows {
         }
         #[guid(0x3e475447_3a25_40b5_8ad2_f953ae50c92d)]
         interface IAppxEncryptedPackageWriter2: IUnknown {
-            fn AddPayloadFilesEncrypted(&self, fileCount: u32, payloadFiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memoryLimit: u64) -> HRESULT;
+            fn AddPayloadFilesEncrypted(&self, fileCount: u32, #[in] payloadFiles: *mut APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memoryLimit: u64) -> HRESULT;
         }
         #[guid(0x80e8e04d_8c88_44ae_a011_7cadf6fb2e72)]
         interface IAppxEncryptionFactory: IUnknown {
@@ -368,7 +368,7 @@ mod Windows {
         }
         #[guid(0xbeb94909_e451_438b_b5a7_d79e767b75d8)]
         interface IAppxFactory: IUnknown {
-            fn CreatePackageWriter(&self, outputStream: IStream, settings: *const APPX_PACKAGE_SETTINGS, #[retval] packageWriter: *mut IAppxPackageWriter) -> HRESULT;
+            fn CreatePackageWriter(&self, outputStream: IStream, #[in] settings: *mut APPX_PACKAGE_SETTINGS, #[retval] packageWriter: *mut IAppxPackageWriter) -> HRESULT;
             fn CreatePackageReader(&self, inputStream: IStream, #[retval] packageReader: *mut IAppxPackageReader) -> HRESULT;
             fn CreateManifestReader(&self, inputStream: IStream, #[retval] manifestReader: *mut IAppxManifestReader) -> HRESULT;
             fn CreateBlockMapReader(&self, inputStream: IStream, #[retval] blockMapReader: *mut IAppxBlockMapReader) -> HRESULT;
@@ -634,7 +634,7 @@ mod Windows {
         }
         #[guid(0xa83aacd3_41c0_4501_b8a3_74164f50b2fd)]
         interface IAppxPackageWriter3: IUnknown {
-            fn AddPayloadFiles(&self, fileCount: u32, payloadFiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memoryLimit: u64) -> HRESULT;
+            fn AddPayloadFiles(&self, fileCount: u32, #[in] payloadFiles: *mut APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memoryLimit: u64) -> HRESULT;
         }
         #[guid(0x17239d47_6adb_45d2_80f6_f9cbc3bf059d)]
         interface IAppxPackagingDiagnosticEventSink: IUnknown {

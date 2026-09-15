@@ -76,7 +76,7 @@ mod Windows {
         #[library("wsdapi.dll")]
         extern fn WSDCreateDeviceProxy(pszDeviceId: PCWSTR, pszLocalId: PCWSTR, pContext: IWSDXMLContext, ppDeviceProxy: *mut IWSDDeviceProxy) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateDeviceProxy2(pszDeviceId: PCWSTR, pszLocalId: PCWSTR, pContext: IWSDXMLContext, #[len_param(4)] #[opt] pConfigParams: *const WSD_CONFIG_PARAM, dwConfigParamCount: u32, ppDeviceProxy: *mut IWSDDeviceProxy) -> HRESULT;
+        extern fn WSDCreateDeviceProxy2(pszDeviceId: PCWSTR, pszLocalId: PCWSTR, pContext: IWSDXMLContext, #[len_param(4)] #[in] #[opt] pConfigParams: *mut WSD_CONFIG_PARAM, dwConfigParamCount: u32, ppDeviceProxy: *mut IWSDDeviceProxy) -> HRESULT;
         #[library("wsdapi.dll")]
         extern fn WSDCreateDeviceProxyAdvanced(pszDeviceId: PCWSTR, pDeviceAddress: IWSDAddress, pszLocalId: PCWSTR, pContext: IWSDXMLContext, ppDeviceProxy: *mut IWSDDeviceProxy) -> HRESULT;
     }

@@ -1,17 +1,19 @@
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-windows_link::link!("schannel.dll" "system" fn SslCrackCertificate(pbcertificate : *mut u8, cbcertificate : u32, dwflags : u32, ppcertificate : *mut PX509Certificate) -> windows_sys::core::BOOL);
+windows_link::link!("schannel.dll" "system" "?SslCrackCertificate@@YAHPEAEKKPEAPEAU_X509Certificate@@@Z" fn SslCrackCertificate(pbcertificate : super::PUCHAR, cbcertificate : u32, dwflags : u32, ppcertificate : *mut PX509Certificate) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "wincrypt"))]
 windows_link::link!("schannel.dll" "system" fn SslDeserializeCertificateStore(serializedcertificatestore : super::CERT_BLOB, ppcertcontext : *mut super::PCCERT_CONTEXT) -> super::SECURITY_STATUS);
-windows_link::link!("schannel.dll" "system" fn SslEmptyCacheA(psztargetname : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("schannel.dll" "system" fn SslEmptyCacheW(psztargetname : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("schannel.dll" "system" "?SslEmptyCacheA@@YAHPEADK@Z" fn SslEmptyCacheA(psztargetname : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("schannel.dll" "system" "?SslEmptyCacheW@@YAHPEA_WK@Z" fn SslEmptyCacheW(psztargetname : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-windows_link::link!("schannel.dll" "system" fn SslFreeCertificate(pcertificate : *mut X509Certificate));
-windows_link::link!("schannel.dll" "system" fn SslGenerateRandomBits(prandomdata : *mut u8, crandomdata : i32));
+windows_link::link!("schannel.dll" "system" "?SslFreeCertificate@@YAXPEAU_X509Certificate@@@Z" fn SslFreeCertificate(pcertificate : PX509Certificate));
+#[cfg(feature = "minwindef")]
+windows_link::link!("schannel.dll" "system" "?SslGenerateRandomBits@@YAXPEAEJ@Z" fn SslGenerateRandomBits(prandomdata : super::PUCHAR, crandomdata : i32));
 #[cfg(feature = "ncrypt")]
 windows_link::link!("schannel.dll" "system" fn SslGetExtensions(clienthello : *const u8, clienthellobytesize : u32, genericextensions : *mut SCH_EXTENSION_DATA, genericextensionscount : u8, bytestoread : *mut u32, flags : SchGetExtensionsOptions) -> super::SECURITY_STATUS);
-windows_link::link!("schannel.dll" "system" fn SslGetMaximumKeySize(reserved : u32) -> u32);
+windows_link::link!("schannel.dll" "system" "?SslGetMaximumKeySize@@YAKK@Z" fn SslGetMaximumKeySize(reserved : u32) -> u32);
 #[cfg(all(feature = "minwindef", feature = "ncrypt"))]
-windows_link::link!("schannel.dll" "system" fn SslGetServerIdentity(clienthello : *const u8, clienthellosize : u32, serveridentity : *mut super::PBYTE, serveridentitysize : *mut u32, flags : u32) -> super::SECURITY_STATUS);
+windows_link::link!("schannel.dll" "system" fn SslGetServerIdentity(clienthello : super::PBYTE, clienthellosize : u32, serveridentity : *mut super::PBYTE, serveridentitysize : super::PDWORD, flags : u32) -> super::SECURITY_STATUS);
+pub const DEFAULT_TLS_SSP_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Default TLS SSP");
 pub const DEFAULT_TLS_SSP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Default TLS SSP");
 pub const DEFAULT_TLS_SSP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Default TLS SSP");
 pub const ENABLE_TLS_CLIENT_EARLY_START: i32 = 1;
@@ -19,6 +21,7 @@ pub const KERN_CONTEXT_CERT_INFO_V1: i32 = 0;
 pub const LCRED_CRED_EXISTS: i32 = 1;
 pub const LCRED_STATUS_NOCRED: i32 = 0;
 pub const LCRED_STATUS_UNKNOWN_ISSUER: i32 = 2;
+pub const PCT1SP_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft PCT 1.0");
 pub const PCT1SP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft PCT 1.0");
 pub const PCT1SP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft PCT 1.0");
 #[cfg(feature = "wincrypt")]
@@ -173,6 +176,7 @@ pub struct SCHANNEL_CRED {
     pub dwCredFormat: u32,
 }
 pub const SCHANNEL_CRED_VERSION: i32 = 4;
+pub const SCHANNEL_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Schannel");
 pub const SCHANNEL_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Schannel");
 pub const SCHANNEL_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Schannel");
 pub const SCHANNEL_RENEGOTIATE: i32 = 0;
@@ -347,12 +351,14 @@ pub const SP_PROT_UNI_CLIENT: u32 = 2147483648;
 pub const SP_PROT_UNI_SERVER: i32 = 1073741824;
 pub const SP_PROT_X_CLIENTS: u32 = 2148149930;
 pub const SP_PROT_X_SERVERS: i32 = 1074074965;
+pub const SSL2SP_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft SSL 2.0");
 pub const SSL2SP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft SSL 2.0");
 pub const SSL2SP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft SSL 2.0");
+pub const SSL3SP_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft SSL 3.0");
 pub const SSL3SP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft SSL 3.0");
 pub const SSL3SP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft SSL 3.0");
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-pub type SSL_CRACK_CERTIFICATE_FN = Option<unsafe extern "system" fn(pbcertificate: *mut u8, cbcertificate: u32, verifysignature: windows_sys::core::BOOL, ppcertificate: *mut PX509Certificate) -> windows_sys::core::BOOL>;
+pub type SSL_CRACK_CERTIFICATE_FN = Option<unsafe extern "system" fn(pbcertificate: super::PUCHAR, cbcertificate: u32, verifysignature: windows_sys::core::BOOL, ppcertificate: *mut PX509Certificate) -> windows_sys::core::BOOL>;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
@@ -366,7 +372,7 @@ pub struct SSL_CREDENTIAL_CERTIFICATE {
 pub type SSL_EMPTY_CACHE_FN_A = Option<unsafe extern "system" fn(psztargetname: windows_sys::core::PCSTR, dwflags: u32) -> windows_sys::core::BOOL>;
 pub type SSL_EMPTY_CACHE_FN_W = Option<unsafe extern "system" fn(psztargetname: windows_sys::core::PCWSTR, dwflags: u32) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-pub type SSL_FREE_CERTIFICATE_FN = Option<unsafe extern "system" fn(pcertificate: *mut X509Certificate)>;
+pub type SSL_FREE_CERTIFICATE_FN = Option<unsafe extern "system" fn(pcertificate: PX509Certificate)>;
 pub const SSL_SESSION_DISABLE_RECONNECTS: i32 = 2;
 pub const SSL_SESSION_ENABLE_RECONNECTS: i32 = 1;
 pub const SSL_SESSION_RECONNECT: i32 = 1;
@@ -609,7 +615,8 @@ pub type SslDeserializeCertificateStoreFn = Option<unsafe extern "system" fn(ser
 #[cfg(feature = "ncrypt")]
 pub type SslGetExtensionsFn = Option<unsafe extern "system" fn(clienthello: *const u8, clienthellobytesize: u32, genericextensions: *mut SCH_EXTENSION_DATA, genericextensionscount: u8, bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> super::SECURITY_STATUS>;
 #[cfg(all(feature = "minwindef", feature = "ncrypt"))]
-pub type SslGetServerIdentityFn = Option<unsafe extern "system" fn(clienthello: *const u8, clienthellosize: u32, serveridentity: *mut super::PBYTE, serveridentitysize: *mut u32, flags: u32) -> super::SECURITY_STATUS>;
+pub type SslGetServerIdentityFn = Option<unsafe extern "system" fn(clienthello: super::PBYTE, clienthellosize: u32, serveridentity: *mut super::PBYTE, serveridentitysize: super::PDWORD, flags: u32) -> super::SECURITY_STATUS>;
+pub const TLS1SP_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft TLS 1.0");
 pub const TLS1SP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft TLS 1.0");
 pub const TLS1SP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft TLS 1.0");
 pub const TLS1_ALERT_ACCESS_DENIED: i32 = 49;
@@ -657,6 +664,7 @@ pub const TlsSignatureAlgorithm_Anonymous: eTlsSignatureAlgorithm = 0;
 pub const TlsSignatureAlgorithm_Dsa: eTlsSignatureAlgorithm = 2;
 pub const TlsSignatureAlgorithm_Ecdsa: eTlsSignatureAlgorithm = 3;
 pub const TlsSignatureAlgorithm_Rsa: eTlsSignatureAlgorithm = 1;
+pub const UNISP_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft Unified Security Protocol Provider");
 pub const UNISP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft Unified Security Protocol Provider");
 pub const UNISP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft Unified Security Protocol Provider");
 pub const UNISP_RPC_ID: i32 = 14;

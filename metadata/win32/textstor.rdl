@@ -153,17 +153,17 @@ mod Windows {
         const TS_CH_FOLLOWING_DEL: i32 = 2;
         const TS_CH_PRECEDING_DEL: i32 = 1;
         const TS_DEFAULT_SELECTION: u32 = 4294967295;
-        const TS_E_FORMAT: i32 = -2147220982;
-        const TS_E_INVALIDPOINT: i32 = -2147220985;
-        const TS_E_INVALIDPOS: i32 = -2147220992;
-        const TS_E_NOINTERFACE: i32 = -2147220988;
-        const TS_E_NOLAYOUT: i32 = -2147220986;
-        const TS_E_NOLOCK: i32 = -2147220991;
-        const TS_E_NOOBJECT: i32 = -2147220990;
-        const TS_E_NOSELECTION: i32 = -2147220987;
-        const TS_E_NOSERVICE: i32 = -2147220989;
-        const TS_E_READONLY: i32 = -2147220983;
-        const TS_E_SYNCHRONOUS: i32 = -2147220984;
+        const TS_E_FORMAT: HRESULT = -2147220982;
+        const TS_E_INVALIDPOINT: HRESULT = -2147220985;
+        const TS_E_INVALIDPOS: HRESULT = -2147220992;
+        const TS_E_NOINTERFACE: HRESULT = -2147220988;
+        const TS_E_NOLAYOUT: HRESULT = -2147220986;
+        const TS_E_NOLOCK: HRESULT = -2147220991;
+        const TS_E_NOOBJECT: HRESULT = -2147220990;
+        const TS_E_NOSELECTION: HRESULT = -2147220987;
+        const TS_E_NOSERVICE: HRESULT = -2147220989;
+        const TS_E_READONLY: HRESULT = -2147220983;
+        const TS_E_SYNCHRONOUS: HRESULT = -2147220984;
         const TS_GEA_HIDDEN: i32 = 1;
         const TS_GTA_HIDDEN: i32 = 1;
         const TS_IAS_NOQUERY: i32 = 1;
@@ -219,7 +219,7 @@ mod Windows {
             dwStaticFlags: u32,
         }
         const TS_ST_CORRECTION: i32 = 1;
-        const TS_S_ASYNC: i32 = 262912;
+        const TS_S_ASYNC: HRESULT = 262912;
         const TS_TC_CORRECTION: i32 = 1;
         struct TS_TEXTCHANGE {
             acpStart: i32,

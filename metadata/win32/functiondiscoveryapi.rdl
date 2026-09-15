@@ -51,8 +51,8 @@ mod Windows {
         struct IFunctionInstanceQuery2 {}
         #[guid(0xd14d9c30_12d2_42d8_bce4_c60c2bb226fa)]
         interface IPropertyStoreCollection: IUnknown {
-            fn GetCount(&self, #[retval] pdwCount: *mut u32) -> HRESULT;
-            fn Get(&self, pszInstanceIdentity: *const u16, pdwIndex: *mut u32, #[retval] ppIPropertyStore: *mut IPropertyStore) -> HRESULT;
+            fn GetCount(&self, #[retval] #[out] pdwCount: LPDWORD) -> HRESULT;
+            fn Get(&self, pszInstanceIdentity: *const u16, #[out] pdwIndex: LPDWORD, #[retval] ppIPropertyStore: *mut IPropertyStore) -> HRESULT;
             fn Item(&self, dwIndex: u32, #[retval] ppIPropertyStore: *mut IPropertyStore) -> HRESULT;
             fn Add(&self, pIPropertyStore: IPropertyStore) -> HRESULT;
             fn Remove(&self, dwIndex: u32, #[retval] pIPropertyStore: *mut IPropertyStore) -> HRESULT;

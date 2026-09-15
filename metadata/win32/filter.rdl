@@ -67,7 +67,7 @@ mod Windows {
         #[guid(0x3d7df9a7_8da6_4fbf_a45b_7592f06d93a9)]
         interface IPixelFilter: IFilter {
             fn GetImageInfo(&self, imageInfo: *mut IMAGE_INFO) -> HRESULT;
-            fn GetPixelsForImage(&self, scalingFactor: f32, sourceRect: *const RECT, pixelBufferSize: u32, pixelBuffer: *mut u8) -> HRESULT;
+            fn GetPixelsForImage(&self, scalingFactor: FLOAT, sourceRect: *const RECT, pixelBufferSize: u32, pixelBuffer: *mut u8) -> HRESULT;
         }
         struct STAT_CHUNK {
             idChunk: u32,

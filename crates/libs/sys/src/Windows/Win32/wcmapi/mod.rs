@@ -1,9 +1,9 @@
 windows_link::link!("wcmapi.dll" "system" fn WcmFreeMemory(pmemory : *mut core::ffi::c_void));
-windows_link::link!("wcmapi.dll" "system" fn WcmGetProfileList(preserved : *const core::ffi::c_void, ppprofilelist : *mut *mut WCM_PROFILE_INFO_LIST) -> u32);
+windows_link::link!("wcmapi.dll" "system" fn WcmGetProfileList(preserved : *mut core::ffi::c_void, ppprofilelist : *mut *mut WCM_PROFILE_INFO_LIST) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("wcmapi.dll" "system" fn WcmQueryProperty(pinterface : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, property : WCM_PROPERTY, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut super::PBYTE) -> u32);
-windows_link::link!("wcmapi.dll" "system" fn WcmSetProfileList(pprofilelist : *const WCM_PROFILE_INFO_LIST, dwposition : u32, fignoreunknownprofiles : windows_sys::core::BOOL, preserved : *const core::ffi::c_void) -> u32);
-windows_link::link!("wcmapi.dll" "system" fn WcmSetProperty(pinterface : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, property : WCM_PROPERTY, preserved : *const core::ffi::c_void, dwdatasize : u32, pbdata : *const u8) -> u32);
+windows_link::link!("wcmapi.dll" "system" fn WcmQueryProperty(pinterface : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, property : WCM_PROPERTY, preserved : *mut core::ffi::c_void, pdwdatasize : super::PDWORD, ppdata : *mut super::PBYTE) -> u32);
+windows_link::link!("wcmapi.dll" "system" fn WcmSetProfileList(pprofilelist : *const WCM_PROFILE_INFO_LIST, dwposition : u32, fignoreunknownprofiles : windows_sys::core::BOOL, preserved : *mut core::ffi::c_void) -> u32);
+windows_link::link!("wcmapi.dll" "system" fn WcmSetProperty(pinterface : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, property : WCM_PROPERTY, preserved : *mut core::ffi::c_void, dwdatasize : u32, pbdata : *const u8) -> u32);
 pub type PWCM_CONNECTION_COST = *mut WCM_CONNECTION_COST;
 pub type PWCM_CONNECTION_COST_DATA = *mut WCM_CONNECTION_COST_DATA;
 pub type PWCM_CONNECTION_COST_SOURCE = *mut WCM_CONNECTION_COST_SOURCE;

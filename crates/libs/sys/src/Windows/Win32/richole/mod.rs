@@ -1,3 +1,5 @@
+pub type LPRICHEDITOLE = *mut core::ffi::c_void;
+pub type LPRICHEDITOLECALLBACK = *mut core::ffi::c_void;
 pub const RECO_COPY: i32 = 2;
 pub const RECO_CUT: i32 = 3;
 pub const RECO_DRAG: i32 = 4;
@@ -10,9 +12,9 @@ pub struct REOBJECT {
     pub cbStruct: u32,
     pub cp: i32,
     pub clsid: windows_sys::core::GUID,
-    pub poleobj: *mut core::ffi::c_void,
-    pub pstg: *mut core::ffi::c_void,
-    pub polesite: *mut core::ffi::c_void,
+    pub poleobj: super::LPOLEOBJECT,
+    pub pstg: super::LPSTORAGE,
+    pub polesite: super::LPOLECLIENTSITE,
     pub sizel: super::SIZEL,
     pub dvaspect: u32,
     pub dwFlags: u32,

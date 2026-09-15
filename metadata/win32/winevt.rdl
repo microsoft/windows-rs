@@ -322,37 +322,37 @@ mod Windows {
         #[library("wevtapi.dll")]
         extern fn EvtCreateBookmark(#[opt] BookmarkXml: PCWSTR) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtCreateRenderContext(ValuePathsCount: u32, #[len_param(0)] #[opt] ValuePaths: *const PCWSTR, Flags: u32) -> EVT_HANDLE;
+        extern fn EvtCreateRenderContext(ValuePathsCount: u32, #[len_param(0)] #[in] #[opt] ValuePaths: *mut PCWSTR, Flags: u32) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
         extern fn EvtExportLog(#[opt] Session: EVT_HANDLE, #[opt] Path: PCWSTR, #[opt] Query: PCWSTR, TargetFilePath: PCWSTR, Flags: u32) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtFormatMessage(#[opt] PublisherMetadata: EVT_HANDLE, #[opt] Event: EVT_HANDLE, MessageId: u32, ValueCount: u32, #[len_param(3)] #[opt] Values: *const EVT_VARIANT, Flags: u32, BufferSize: u32, #[len_param(6)] #[out] #[opt] Buffer: PWSTR, BufferUsed: *mut u32) -> BOOL;
+        extern fn EvtFormatMessage(#[opt] PublisherMetadata: EVT_HANDLE, #[opt] Event: EVT_HANDLE, MessageId: u32, ValueCount: u32, #[len_param(3)] #[opt] Values: PEVT_VARIANT, Flags: u32, BufferSize: u32, #[len_param(6)] #[out] #[opt] Buffer: PWSTR, #[out] BufferUsed: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtGetChannelConfigProperty(ChannelConfig: EVT_HANDLE, PropertyId: EVT_CHANNEL_CONFIG_PROPERTY_ID, Flags: u32, PropertyValueBufferSize: u32, #[size_param(3)] #[opt] PropertyValueBuffer: *mut EVT_VARIANT, PropertyValueBufferUsed: *mut u32) -> BOOL;
+        extern fn EvtGetChannelConfigProperty(ChannelConfig: EVT_HANDLE, PropertyId: EVT_CHANNEL_CONFIG_PROPERTY_ID, Flags: u32, PropertyValueBufferSize: u32, #[size_param(3)] #[out] #[opt] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtGetEventInfo(Event: EVT_HANDLE, PropertyId: EVT_EVENT_PROPERTY_ID, PropertyValueBufferSize: u32, #[size_param(2)] #[opt] PropertyValueBuffer: *mut EVT_VARIANT, PropertyValueBufferUsed: *mut u32) -> BOOL;
+        extern fn EvtGetEventInfo(Event: EVT_HANDLE, PropertyId: EVT_EVENT_PROPERTY_ID, PropertyValueBufferSize: u32, #[size_param(2)] #[out] #[opt] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtGetEventMetadataProperty(EventMetadata: EVT_HANDLE, PropertyId: EVT_EVENT_METADATA_PROPERTY_ID, Flags: u32, EventMetadataPropertyBufferSize: u32, #[size_param(3)] #[opt] EventMetadataPropertyBuffer: *mut EVT_VARIANT, EventMetadataPropertyBufferUsed: *mut u32) -> BOOL;
+        extern fn EvtGetEventMetadataProperty(EventMetadata: EVT_HANDLE, PropertyId: EVT_EVENT_METADATA_PROPERTY_ID, Flags: u32, EventMetadataPropertyBufferSize: u32, #[size_param(3)] #[out] #[opt] EventMetadataPropertyBuffer: PEVT_VARIANT, #[out] EventMetadataPropertyBufferUsed: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtGetExtendedStatus(BufferSize: u32, #[len_param(0)] #[out] #[opt] Buffer: PWSTR, BufferUsed: *mut u32) -> u32;
+        extern fn EvtGetExtendedStatus(BufferSize: u32, #[len_param(0)] #[out] #[opt] Buffer: PWSTR, #[out] BufferUsed: PDWORD) -> u32;
         #[library("wevtapi.dll")]
-        extern fn EvtGetLogInfo(Log: EVT_HANDLE, PropertyId: EVT_LOG_PROPERTY_ID, PropertyValueBufferSize: u32, #[size_param(2)] #[opt] PropertyValueBuffer: *mut EVT_VARIANT, PropertyValueBufferUsed: *mut u32) -> BOOL;
+        extern fn EvtGetLogInfo(Log: EVT_HANDLE, PropertyId: EVT_LOG_PROPERTY_ID, PropertyValueBufferSize: u32, #[size_param(2)] #[out] #[opt] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtGetObjectArrayProperty(ObjectArray: EVT_OBJECT_ARRAY_PROPERTY_HANDLE, PropertyId: u32, ArrayIndex: u32, Flags: u32, PropertyValueBufferSize: u32, #[size_param(4)] #[opt] PropertyValueBuffer: *mut EVT_VARIANT, PropertyValueBufferUsed: *mut u32) -> BOOL;
+        extern fn EvtGetObjectArrayProperty(ObjectArray: EVT_OBJECT_ARRAY_PROPERTY_HANDLE, PropertyId: u32, ArrayIndex: u32, Flags: u32, PropertyValueBufferSize: u32, #[size_param(4)] #[out] #[opt] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtGetObjectArraySize(ObjectArray: EVT_OBJECT_ARRAY_PROPERTY_HANDLE, ObjectArraySize: *mut u32) -> BOOL;
+        extern fn EvtGetObjectArraySize(ObjectArray: EVT_OBJECT_ARRAY_PROPERTY_HANDLE, #[out] ObjectArraySize: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtGetPublisherMetadataProperty(PublisherMetadata: EVT_HANDLE, PropertyId: EVT_PUBLISHER_METADATA_PROPERTY_ID, Flags: u32, PublisherMetadataPropertyBufferSize: u32, #[size_param(3)] #[opt] PublisherMetadataPropertyBuffer: *mut EVT_VARIANT, PublisherMetadataPropertyBufferUsed: *mut u32) -> BOOL;
+        extern fn EvtGetPublisherMetadataProperty(PublisherMetadata: EVT_HANDLE, PropertyId: EVT_PUBLISHER_METADATA_PROPERTY_ID, Flags: u32, PublisherMetadataPropertyBufferSize: u32, #[size_param(3)] #[out] #[opt] PublisherMetadataPropertyBuffer: PEVT_VARIANT, #[out] PublisherMetadataPropertyBufferUsed: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtGetQueryInfo(QueryOrSubscription: EVT_HANDLE, PropertyId: EVT_QUERY_PROPERTY_ID, PropertyValueBufferSize: u32, #[size_param(2)] #[opt] PropertyValueBuffer: *mut EVT_VARIANT, PropertyValueBufferUsed: *mut u32) -> BOOL;
+        extern fn EvtGetQueryInfo(QueryOrSubscription: EVT_HANDLE, PropertyId: EVT_QUERY_PROPERTY_ID, PropertyValueBufferSize: u32, #[size_param(2)] #[out] #[opt] PropertyValueBuffer: PEVT_VARIANT, #[out] PropertyValueBufferUsed: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtNext(ResultSet: EVT_HANDLE, EventsSize: u32, #[len_param(1)] Events: *mut HANDLE, Timeout: u32, Flags: u32, Returned: *mut u32) -> BOOL;
+        extern fn EvtNext(ResultSet: EVT_HANDLE, EventsSize: u32, #[len_param(1)] #[out] Events: PEVT_HANDLE, Timeout: u32, Flags: u32, Returned: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtNextChannelPath(ChannelEnum: EVT_HANDLE, ChannelPathBufferSize: u32, #[len_param(1)] #[out] #[opt] ChannelPathBuffer: PWSTR, ChannelPathBufferUsed: *mut u32) -> BOOL;
+        extern fn EvtNextChannelPath(ChannelEnum: EVT_HANDLE, ChannelPathBufferSize: u32, #[len_param(1)] #[out] #[opt] ChannelPathBuffer: PWSTR, #[out] ChannelPathBufferUsed: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
         extern fn EvtNextEventMetadata(EventMetadataEnum: EVT_HANDLE, Flags: u32) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtNextPublisherId(PublisherEnum: EVT_HANDLE, PublisherIdBufferSize: u32, #[len_param(1)] #[out] #[opt] PublisherIdBuffer: PWSTR, PublisherIdBufferUsed: *mut u32) -> BOOL;
+        extern fn EvtNextPublisherId(PublisherEnum: EVT_HANDLE, PublisherIdBufferSize: u32, #[len_param(1)] #[out] #[opt] PublisherIdBuffer: PWSTR, #[out] PublisherIdBufferUsed: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
         extern fn EvtOpenChannelConfig(#[opt] Session: EVT_HANDLE, ChannelPath: PCWSTR, Flags: u32) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
@@ -370,13 +370,13 @@ mod Windows {
         #[library("wevtapi.dll")]
         extern fn EvtQuery(#[opt] Session: EVT_HANDLE, #[opt] Path: PCWSTR, #[opt] Query: PCWSTR, Flags: u32) -> EVT_HANDLE;
         #[library("wevtapi.dll")]
-        extern fn EvtRender(#[opt] Context: EVT_HANDLE, Fragment: EVT_HANDLE, Flags: u32, BufferSize: u32, #[size_param(3)] #[opt] Buffer: *mut void, BufferUsed: *mut u32, PropertyCount: *mut u32) -> BOOL;
+        extern fn EvtRender(#[opt] Context: EVT_HANDLE, Fragment: EVT_HANDLE, Flags: u32, BufferSize: u32, #[size_param(3)] #[opt] Buffer: *mut void, #[out] BufferUsed: PDWORD, #[out] PropertyCount: PDWORD) -> BOOL;
         #[library("wevtapi.dll")]
         extern fn EvtSaveChannelConfig(ChannelConfig: EVT_HANDLE, Flags: u32) -> BOOL;
         #[library("wevtapi.dll")]
         extern fn EvtSeek(ResultSet: EVT_HANDLE, Position: i64, #[opt] Bookmark: EVT_HANDLE, #[reserved] Timeout: u32, Flags: u32) -> BOOL;
         #[library("wevtapi.dll")]
-        extern fn EvtSetChannelConfigProperty(ChannelConfig: EVT_HANDLE, PropertyId: EVT_CHANNEL_CONFIG_PROPERTY_ID, Flags: u32, PropertyValue: *const EVT_VARIANT) -> BOOL;
+        extern fn EvtSetChannelConfigProperty(ChannelConfig: EVT_HANDLE, PropertyId: EVT_CHANNEL_CONFIG_PROPERTY_ID, Flags: u32, PropertyValue: PEVT_VARIANT) -> BOOL;
         #[library("wevtapi.dll")]
         extern fn EvtSubscribe(#[opt] Session: EVT_HANDLE, #[opt] SignalEvent: HANDLE, #[opt] ChannelPath: PCWSTR, #[opt] Query: PCWSTR, #[opt] Bookmark: EVT_HANDLE, Context: *mut void, Callback: EVT_SUBSCRIBE_CALLBACK, Flags: u32) -> EVT_HANDLE;
         #[library("wevtapi.dll")]

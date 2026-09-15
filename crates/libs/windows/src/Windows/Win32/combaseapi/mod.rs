@@ -1,34 +1,28 @@
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CLSIDFromProgID<P0>(lpszprogid: P0) -> windows_core::Result<windows_core::GUID>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("ole32.dll" "system" fn CLSIDFromProgID(lpszprogid : windows_core::PCWSTR, lpclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
+pub unsafe fn CLSIDFromProgID(lpszprogid: super::LPCOLESTR) -> windows_core::Result<windows_core::GUID> {
+    windows_core::link!("ole32.dll" "system" fn CLSIDFromProgID(lpszprogid : super::LPCOLESTR, lpclsid : super::LPCLSID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CLSIDFromProgID(lpszprogid.param().abi(), &mut result__).map(|| result__)
+        CLSIDFromProgID(lpszprogid, &mut result__).map(|| result__)
     }
 }
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CLSIDFromProgIDEx<P0>(lpszprogid: P0) -> windows_core::Result<windows_core::GUID>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("ole32.dll" "system" fn CLSIDFromProgIDEx(lpszprogid : windows_core::PCWSTR, lpclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
+pub unsafe fn CLSIDFromProgIDEx(lpszprogid: super::LPCOLESTR) -> windows_core::Result<windows_core::GUID> {
+    windows_core::link!("ole32.dll" "system" fn CLSIDFromProgIDEx(lpszprogid : super::LPCOLESTR, lpclsid : super::LPCLSID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CLSIDFromProgIDEx(lpszprogid.param().abi(), &mut result__).map(|| result__)
+        CLSIDFromProgIDEx(lpszprogid, &mut result__).map(|| result__)
     }
 }
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CLSIDFromString<P0>(lpsz: P0) -> windows_core::Result<windows_core::GUID>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("ole32.dll" "system" fn CLSIDFromString(lpsz : windows_core::PCWSTR, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
+pub unsafe fn CLSIDFromString(lpsz: super::LPCOLESTR) -> windows_core::Result<windows_core::GUID> {
+    windows_core::link!("ole32.dll" "system" fn CLSIDFromString(lpsz : super::LPCOLESTR, pclsid : super::LPCLSID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CLSIDFromString(lpsz.param().abi(), &mut result__).map(|| result__)
+        CLSIDFromString(lpsz, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -106,7 +100,7 @@ where
 }
 #[inline]
 pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> windows_core::Result<ServerInformation> {
-    windows_core::link!("ole32.dll" "system" fn CoDecodeProxy(dwclientpid : u32, ui64proxyaddress : u64, pserverinformation : *mut ServerInformation) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoDecodeProxy(dwclientpid : u32, ui64proxyaddress : u64, pserverinformation : PServerInformation) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CoDecodeProxy(dwclientpid, ui64proxyaddress, &mut result__).map(|| result__)
@@ -166,39 +160,28 @@ pub unsafe fn CoGetApartmentType(papttype: *mut super::APTTYPE, paptqualifier: *
     unsafe { CoGetApartmentType(papttype as _, paptqualifier as _) }
 }
 #[inline]
-pub unsafe fn CoGetCallContext<T>() -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn CoGetCallContext(riid: *const windows_core::GUID, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CoGetCallContext(riid : *const windows_core::GUID, ppinterface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CoGetCallContext(&T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CoGetCallContext(riid, ppinterface as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn CoGetCallerTID() -> windows_core::Result<u32> {
-    windows_core::link!("ole32.dll" "system" fn CoGetCallerTID(lpdwtid : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoGetCallerTID(lpdwtid : super::LPDWORD) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CoGetCallerTID(&mut result__).map(|| result__)
     }
 }
 #[inline]
-pub unsafe fn CoGetCancelObject<T>(dwthreadid: u32) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn CoGetCancelObject(dwthreadid: u32, iid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CoGetCancelObject(dwthreadid : u32, iid : *const windows_core::GUID, ppunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CoGetCancelObject(dwthreadid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CoGetCancelObject(dwthreadid, iid, ppunk as _) }
 }
 #[inline]
-pub unsafe fn CoGetClassObject<T>(rclsid: *const windows_core::GUID, dwclscontext: u32, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn CoGetClassObject(rclsid: *const windows_core::GUID, dwclscontext: u32, pvreserved: Option<*const core::ffi::c_void>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CoGetClassObject(rclsid : *const windows_core::GUID, dwclscontext : u32, pvreserved : *const core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CoGetClassObject(rclsid, dwclscontext, pvreserved.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CoGetClassObject(rclsid, dwclscontext, pvreserved.unwrap_or(core::mem::zeroed()) as _, riid, ppv as _) }
 }
 #[inline]
 pub unsafe fn CoGetContextToken() -> windows_core::Result<usize> {
@@ -223,19 +206,15 @@ pub unsafe fn CoGetCurrentProcess() -> u32 {
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn CoGetDefaultContext<T>(apttype: super::APTTYPE) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn CoGetDefaultContext(apttype: super::APTTYPE, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CoGetDefaultContext(apttype : super::APTTYPE, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CoGetDefaultContext(apttype, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CoGetDefaultContext(apttype, riid, ppv as _) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
 pub unsafe fn CoGetInterfaceAndReleaseStream<P0, T>(pstm: P0) -> windows_core::Result<T>
 where
-    P0: windows_core::Param<super::IStream>,
+    P0: windows_core::Param<super::LPSTREAM>,
     T: windows_core::Interface,
 {
     windows_core::link!("ole32.dll" "system" fn CoGetInterfaceAndReleaseStream(pstm : *mut core::ffi::c_void, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -244,7 +223,7 @@ where
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn CoGetMalloc(dwmemcontext: u32) -> windows_core::Result<super::IMalloc> {
+pub unsafe fn CoGetMalloc(dwmemcontext: u32) -> windows_core::Result<super::LPMALLOC> {
     windows_core::link!("ole32.dll" "system" fn CoGetMalloc(dwmemcontext : u32, ppmalloc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -260,13 +239,9 @@ where
     unsafe { CoGetMarshalSizeMax(pulsize as _, riid, punk.param().abi(), dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags) }
 }
 #[inline]
-pub unsafe fn CoGetObjectContext<T>() -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn CoGetObjectContext(riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CoGetObjectContext(riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CoGetObjectContext(&T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CoGetObjectContext(riid, ppv as _) }
 }
 #[inline]
 pub unsafe fn CoGetPSClsid(riid: *const windows_core::GUID) -> windows_core::Result<windows_core::GUID> {
@@ -278,7 +253,7 @@ pub unsafe fn CoGetPSClsid(riid: *const windows_core::GUID) -> windows_core::Res
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn CoGetStandardMarshal<P1>(riid: *const windows_core::GUID, punk: P1, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<super::IMarshal>
+pub unsafe fn CoGetStandardMarshal<P1>(riid: *const windows_core::GUID, punk: P1, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<super::LPMARSHAL>
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
@@ -299,9 +274,10 @@ where
         CoGetStdMarshalEx(punkouter.param().abi(), smexflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
+#[cfg(feature = "guiddef")]
 #[inline]
 pub unsafe fn CoGetTreatAsClass(clsidold: *const windows_core::GUID) -> windows_core::Result<windows_core::GUID> {
-    windows_core::link!("ole32.dll" "system" fn CoGetTreatAsClass(clsidold : *const windows_core::GUID, pclsidnew : *mut windows_core::GUID) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoGetTreatAsClass(clsidold : *const windows_core::GUID, pclsidnew : super::LPCLSID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CoGetTreatAsClass(clsidold, &mut result__).map(|| result__)
@@ -331,13 +307,11 @@ pub unsafe fn CoInitializeSecurity(psecdesc: Option<super::PSECURITY_DESCRIPTOR>
     windows_core::link!("ole32.dll" "system" fn CoInitializeSecurity(psecdesc : super::PSECURITY_DESCRIPTOR, cauthsvc : i32, asauthsvc : *const super::SOLE_AUTHENTICATION_SERVICE, preserved1 : *const core::ffi::c_void, dwauthnlevel : u32, dwimplevel : u32, pauthlist : *const core::ffi::c_void, dwcapabilities : u32, preserved3 : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CoInitializeSecurity(psecdesc.unwrap_or(core::mem::zeroed()) as _, cauthsvc, asauthsvc.unwrap_or(core::mem::zeroed()) as _, preserved1.unwrap_or(core::mem::zeroed()) as _, dwauthnlevel, dwimplevel, pauthlist.unwrap_or(core::mem::zeroed()) as _, dwcapabilities, preserved3.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "wtypesbase")]
 #[inline]
-pub unsafe fn CoInvalidateRemoteMachineBindings<P0>(pszmachinename: P0) -> windows_core::HRESULT
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("ole32.dll" "system" fn CoInvalidateRemoteMachineBindings(pszmachinename : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { CoInvalidateRemoteMachineBindings(pszmachinename.param().abi()) }
+pub unsafe fn CoInvalidateRemoteMachineBindings(pszmachinename: super::LPOLESTR) -> windows_core::HRESULT {
+    windows_core::link!("ole32.dll" "system" fn CoInvalidateRemoteMachineBindings(pszmachinename : super::LPOLESTR) -> windows_core::HRESULT);
+    unsafe { CoInvalidateRemoteMachineBindings(pszmachinename) }
 }
 #[inline]
 pub unsafe fn CoIsHandlerConnected<P0>(punk: P0) -> windows_core::BOOL
@@ -359,14 +333,14 @@ where
 #[inline]
 pub unsafe fn CoMarshalHresult<P0>(pstm: P0, hresult: windows_core::HRESULT) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<super::IStream>,
+    P0: windows_core::Param<super::LPSTREAM>,
 {
     windows_core::link!("ole32.dll" "system" fn CoMarshalHresult(pstm : *mut core::ffi::c_void, hresult : windows_core::HRESULT) -> windows_core::HRESULT);
     unsafe { CoMarshalHresult(pstm.param().abi(), hresult) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn CoMarshalInterThreadInterfaceInStream<P1>(riid: *const windows_core::GUID, punk: P1) -> windows_core::Result<super::IStream>
+pub unsafe fn CoMarshalInterThreadInterfaceInStream<P1>(riid: *const windows_core::GUID, punk: P1) -> windows_core::Result<super::LPSTREAM>
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
@@ -380,7 +354,7 @@ where
 #[inline]
 pub unsafe fn CoMarshalInterface<P0, P2>(pstm: P0, riid: *const windows_core::GUID, punk: P2, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<super::IStream>,
+    P0: windows_core::Param<super::LPSTREAM>,
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoMarshalInterface(pstm : *mut core::ffi::c_void, riid : *const windows_core::GUID, punk : *mut core::ffi::c_void, dwdestcontext : u32, pvdestcontext : *const core::ffi::c_void, mshlflags : u32) -> windows_core::HRESULT);
@@ -392,19 +366,19 @@ pub unsafe fn CoQueryAuthenticationServices(pcauthsvc: *mut u32, asauthsvc: *mut
     windows_core::link!("ole32.dll" "system" fn CoQueryAuthenticationServices(pcauthsvc : *mut u32, asauthsvc : *mut *mut super::SOLE_AUTHENTICATION_SERVICE) -> windows_core::HRESULT);
     unsafe { CoQueryAuthenticationServices(pcauthsvc as _, asauthsvc as _) }
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CoQueryClientBlanket(pauthnsvc: Option<*mut u32>, pauthzsvc: Option<*mut u32>, pserverprincname: *mut windows_core::PWSTR, pauthnlevel: Option<*mut u32>, pimplevel: Option<*mut u32>, pprivs: *mut super::RPC_AUTHZ_HANDLE, pcapabilities: Option<*mut u32>) -> windows_core::HRESULT {
-    windows_core::link!("ole32.dll" "system" fn CoQueryClientBlanket(pauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pprivs : *mut super::RPC_AUTHZ_HANDLE, pcapabilities : *mut u32) -> windows_core::HRESULT);
+pub unsafe fn CoQueryClientBlanket(pauthnsvc: Option<*mut u32>, pauthzsvc: Option<*mut u32>, pserverprincname: *mut super::LPOLESTR, pauthnlevel: Option<*mut u32>, pimplevel: Option<*mut u32>, pprivs: *mut super::RPC_AUTHZ_HANDLE, pcapabilities: Option<*mut u32>) -> windows_core::HRESULT {
+    windows_core::link!("ole32.dll" "system" fn CoQueryClientBlanket(pauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut super::LPOLESTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pprivs : *mut super::RPC_AUTHZ_HANDLE, pcapabilities : *mut u32) -> windows_core::HRESULT);
     unsafe { CoQueryClientBlanket(pauthnsvc.unwrap_or(core::mem::zeroed()) as _, pauthzsvc.unwrap_or(core::mem::zeroed()) as _, pserverprincname as _, pauthnlevel.unwrap_or(core::mem::zeroed()) as _, pimplevel.unwrap_or(core::mem::zeroed()) as _, pprivs as _, pcapabilities.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn CoQueryProxyBlanket<P0>(pproxy: P0, pwauthnsvc: Option<*mut u32>, pauthzsvc: Option<*mut u32>, pserverprincname: *mut windows_core::PWSTR, pauthnlevel: Option<*mut u32>, pimplevel: Option<*mut u32>, pauthinfo: Option<*mut super::RPC_AUTH_IDENTITY_HANDLE>, pcapabilites: Option<*mut u32>) -> windows_core::HRESULT
+pub unsafe fn CoQueryProxyBlanket<P0>(pproxy: P0, pwauthnsvc: Option<*mut u32>, pauthzsvc: Option<*mut u32>, pserverprincname: *mut super::LPOLESTR, pauthnlevel: Option<*mut u32>, pimplevel: Option<*mut u32>, pauthinfo: Option<*mut super::RPC_AUTH_IDENTITY_HANDLE>, pcapabilites: Option<*mut u32>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("ole32.dll" "system" fn CoQueryProxyBlanket(pproxy : *mut core::ffi::c_void, pwauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pauthinfo : *mut super::RPC_AUTH_IDENTITY_HANDLE, pcapabilites : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoQueryProxyBlanket(pproxy : *mut core::ffi::c_void, pwauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut super::LPOLESTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pauthinfo : *mut super::RPC_AUTH_IDENTITY_HANDLE, pcapabilites : *mut u32) -> windows_core::HRESULT);
     unsafe { CoQueryProxyBlanket(pproxy.param().abi(), pwauthnsvc.unwrap_or(core::mem::zeroed()) as _, pauthzsvc.unwrap_or(core::mem::zeroed()) as _, pserverprincname as _, pauthnlevel.unwrap_or(core::mem::zeroed()) as _, pimplevel.unwrap_or(core::mem::zeroed()) as _, pauthinfo.unwrap_or(core::mem::zeroed()) as _, pcapabilites.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "objidlbase")]
@@ -416,12 +390,13 @@ where
     windows_core::link!("ole32.dll" "system" fn CoRegisterActivationFilter(pactivationfilter : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CoRegisterActivationFilter(pactivationfilter.param().abi()) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn CoRegisterClassObject<P1>(rclsid: *const windows_core::GUID, punk: P1, dwclscontext: u32, flags: u32) -> windows_core::Result<u32>
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("ole32.dll" "system" fn CoRegisterClassObject(rclsid : *const windows_core::GUID, punk : *mut core::ffi::c_void, dwclscontext : u32, flags : u32, lpdwregister : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoRegisterClassObject(rclsid : *const windows_core::GUID, punk : *mut core::ffi::c_void, dwclscontext : u32, flags : u32, lpdwregister : super::LPDWORD) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CoRegisterClassObject(rclsid, punk.param().abi(), dwclscontext, flags, &mut result__).map(|| result__)
@@ -447,7 +422,7 @@ pub unsafe fn CoRegisterPSClsid(riid: *const windows_core::GUID, rclsid: *const 
 #[inline]
 pub unsafe fn CoRegisterSurrogate<P0>(psurrogate: P0) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<super::ISurrogate>,
+    P0: windows_core::Param<super::LPSURROGATE>,
 {
     windows_core::link!("ole32.dll" "system" fn CoRegisterSurrogate(psurrogate : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CoRegisterSurrogate(psurrogate.param().abi()) }
@@ -456,7 +431,7 @@ where
 #[inline]
 pub unsafe fn CoReleaseMarshalData<P0>(pstm: P0) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<super::IStream>,
+    P0: windows_core::Param<super::LPSTREAM>,
 {
     windows_core::link!("ole32.dll" "system" fn CoReleaseMarshalData(pstm : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CoReleaseMarshalData(pstm.param().abi()) }
@@ -548,7 +523,7 @@ pub unsafe fn CoUninitialize() {
 #[inline]
 pub unsafe fn CoUnmarshalHresult<P0>(pstm: P0) -> windows_core::Result<windows_core::HRESULT>
 where
-    P0: windows_core::Param<super::IStream>,
+    P0: windows_core::Param<super::LPSTREAM>,
 {
     windows_core::link!("ole32.dll" "system" fn CoUnmarshalHresult(pstm : *mut core::ffi::c_void, phresult : *mut windows_core::HRESULT) -> windows_core::HRESULT);
     unsafe {
@@ -560,26 +535,26 @@ where
 #[inline]
 pub unsafe fn CoUnmarshalInterface<P0, T>(pstm: P0) -> windows_core::Result<T>
 where
-    P0: windows_core::Param<super::IStream>,
+    P0: windows_core::Param<super::LPSTREAM>,
     T: windows_core::Interface,
 {
     windows_core::link!("ole32.dll" "system" fn CoUnmarshalInterface(pstm : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
     unsafe { CoUnmarshalInterface(pstm.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn CoWaitForMultipleHandles(dwflags: u32, dwtimeout: u32, phandles: &[super::HANDLE]) -> windows_core::Result<u32> {
-    windows_core::link!("ole32.dll" "system" fn CoWaitForMultipleHandles(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::HANDLE, lpdwindex : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoWaitForMultipleHandles(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : super::LPHANDLE, lpdwindex : super::LPDWORD) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoWaitForMultipleHandles(dwflags, dwtimeout, phandles.len().try_into().unwrap(), phandles.as_ptr(), &mut result__).map(|| result__)
+        CoWaitForMultipleHandles(dwflags, dwtimeout, phandles.len().try_into().unwrap(), core::mem::transmute(phandles.as_ptr()), &mut result__).map(|| result__)
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn CoWaitForMultipleObjects(dwflags: u32, dwtimeout: u32, phandles: &[super::HANDLE]) -> windows_core::Result<u32> {
-    windows_core::link!("ole32.dll" "system" fn CoWaitForMultipleObjects(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::HANDLE, lpdwindex : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoWaitForMultipleObjects(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::HANDLE, lpdwindex : super::LPDWORD) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CoWaitForMultipleObjects(dwflags, dwtimeout, phandles.len().try_into().unwrap(), phandles.as_ptr(), &mut result__).map(|| result__)
@@ -587,14 +562,14 @@ pub unsafe fn CoWaitForMultipleObjects(dwflags: u32, dwtimeout: u32, phandles: &
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateStreamOnHGlobal(hglobal: super::HGLOBAL, fdeleteonrelease: bool) -> windows_core::Result<super::IStream> {
+pub unsafe fn CreateStreamOnHGlobal(hglobal: super::HGLOBAL, fdeleteonrelease: bool) -> windows_core::Result<super::LPSTREAM> {
     windows_core::link!("ole32.dll" "system" fn CreateStreamOnHGlobal(hglobal : super::HGLOBAL, fdeleteonrelease : windows_core::BOOL, ppstm : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateStreamOnHGlobal(hglobal, fdeleteonrelease.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn FreePropVariantArray(rgvars: &mut [super::PROPVARIANT]) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn FreePropVariantArray(cvariants : u32, rgvars : *mut super::PROPVARIANT) -> windows_core::HRESULT);
@@ -602,42 +577,38 @@ pub unsafe fn FreePropVariantArray(rgvars: &mut [super::PROPVARIANT]) -> windows
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetHGlobalFromStream<P0>(pstm: P0) -> windows_core::Result<super::HGLOBAL>
+pub unsafe fn GetHGlobalFromStream<P0>(pstm: P0, phglobal: *mut super::HGLOBAL) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<super::IStream>,
+    P0: windows_core::Param<super::LPSTREAM>,
 {
     windows_core::link!("ole32.dll" "system" fn GetHGlobalFromStream(pstm : *mut core::ffi::c_void, phglobal : *mut super::HGLOBAL) -> windows_core::HRESULT);
+    unsafe { GetHGlobalFromStream(pstm.param().abi(), phglobal as _) }
+}
+#[cfg(all(feature = "guiddef", feature = "wtypesbase"))]
+#[inline]
+pub unsafe fn IIDFromString(lpsz: super::LPCOLESTR) -> windows_core::Result<windows_core::GUID> {
+    windows_core::link!("ole32.dll" "system" fn IIDFromString(lpsz : super::LPCOLESTR, lpiid : super::LPIID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetHGlobalFromStream(pstm.param().abi(), &mut result__).map(|| result__)
+        IIDFromString(lpsz, &mut result__).map(|| result__)
     }
 }
+#[cfg(feature = "wtypesbase")]
 #[inline]
-pub unsafe fn IIDFromString<P0>(lpsz: P0) -> windows_core::Result<windows_core::GUID>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("ole32.dll" "system" fn IIDFromString(lpsz : windows_core::PCWSTR, lpiid : *mut windows_core::GUID) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        IIDFromString(lpsz.param().abi(), &mut result__).map(|| result__)
-    }
-}
-#[inline]
-pub unsafe fn ProgIDFromCLSID(clsid: *const windows_core::GUID) -> windows_core::Result<windows_core::PWSTR> {
-    windows_core::link!("ole32.dll" "system" fn ProgIDFromCLSID(clsid : *const windows_core::GUID, lplpszprogid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+pub unsafe fn ProgIDFromCLSID(clsid: *const windows_core::GUID) -> windows_core::Result<super::LPOLESTR> {
+    windows_core::link!("ole32.dll" "system" fn ProgIDFromCLSID(clsid : *const windows_core::GUID, lplpszprogid : *mut super::LPOLESTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         ProgIDFromCLSID(clsid, &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantClear(pvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn PropVariantClear(pvar : *mut super::PROPVARIANT) -> windows_core::HRESULT);
     unsafe { PropVariantClear(pvar) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantCopy(pvardest: *mut super::PROPVARIANT, pvarsrc: *const super::PROPVARIANT) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn PropVariantCopy(pvardest : *mut super::PROPVARIANT, pvarsrc : *const super::PROPVARIANT) -> windows_core::HRESULT);
@@ -655,22 +626,25 @@ where
         RoGetAgileReference(options, riid, punk.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
+#[cfg(feature = "wtypesbase")]
 #[inline]
-pub unsafe fn StringFromCLSID(rclsid: *const windows_core::GUID) -> windows_core::Result<windows_core::PWSTR> {
-    windows_core::link!("ole32.dll" "system" fn StringFromCLSID(rclsid : *const windows_core::GUID, lplpsz : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+pub unsafe fn StringFromCLSID(rclsid: *const windows_core::GUID) -> windows_core::Result<super::LPOLESTR> {
+    windows_core::link!("ole32.dll" "system" fn StringFromCLSID(rclsid : *const windows_core::GUID, lplpsz : *mut super::LPOLESTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         StringFromCLSID(rclsid, &mut result__).map(|| result__)
     }
 }
+#[cfg(feature = "wtypesbase")]
 #[inline]
-pub unsafe fn StringFromGUID2(rguid: *const windows_core::GUID, lpsz: windows_core::PWSTR, cchmax: i32) -> i32 {
-    windows_core::link!("ole32.dll" "system" fn StringFromGUID2(rguid : *const windows_core::GUID, lpsz : windows_core::PWSTR, cchmax : i32) -> i32);
-    unsafe { StringFromGUID2(rguid, lpsz, cchmax) }
+pub unsafe fn StringFromGUID2(rguid: *const windows_core::GUID, lpsz: super::LPOLESTR, cchmax: i32) -> i32 {
+    windows_core::link!("ole32.dll" "system" fn StringFromGUID2(rguid : *const windows_core::GUID, lpsz : super::LPOLESTR, cchmax : i32) -> i32);
+    unsafe { StringFromGUID2(rguid, lpsz as _, cchmax) }
 }
+#[cfg(feature = "wtypesbase")]
 #[inline]
-pub unsafe fn StringFromIID(rclsid: *const windows_core::GUID) -> windows_core::Result<windows_core::PWSTR> {
-    windows_core::link!("ole32.dll" "system" fn StringFromIID(rclsid : *const windows_core::GUID, lplpsz : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+pub unsafe fn StringFromIID(rclsid: *const windows_core::GUID) -> windows_core::Result<super::LPOLESTR> {
+    windows_core::link!("ole32.dll" "system" fn StringFromIID(rclsid : *const windows_core::GUID, lplpsz : *mut super::LPOLESTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         StringFromIID(rclsid, &mut result__).map(|| result__)
@@ -679,9 +653,12 @@ pub unsafe fn StringFromIID(rclsid: *const windows_core::GUID) -> windows_core::
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = 0;
 pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = 1;
 pub type AgileReferenceOptions = i32;
-pub const CLSCTX_ALL: i32 = 23;
-pub const CLSCTX_INPROC: i32 = 3;
-pub const CLSCTX_SERVER: i32 = 21;
+#[cfg(feature = "wtypesbase")]
+pub const CLSCTX_ALL: super::CLSCTX = 23;
+#[cfg(feature = "wtypesbase")]
+pub const CLSCTX_INPROC: super::CLSCTX = 3;
+#[cfg(feature = "wtypesbase")]
+pub const CLSCTX_SERVER: super::CLSCTX = 21;
 pub type COINITBASE = i32;
 pub const COINITBASE_MULTITHREADED: COINITBASE = 0;
 pub const COM_RIGHTS_ACTIVATE_LOCAL: i32 = 8;
@@ -698,12 +675,18 @@ pub const COWAIT_DISPATCH_WINDOW_MESSAGES: COWAIT_FLAGS = 16;
 pub type COWAIT_FLAGS = u32;
 pub const COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = 4;
 pub const COWAIT_WAITALL: COWAIT_FLAGS = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CO_DEVICE_CATALOG_COOKIE(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CO_MTA_USAGE_COOKIE(pub *mut core::ffi::c_void);
+pub type CO_DEVICE_CATALOG_COOKIE = *mut CO_DEVICE_CATALOG_COOKIE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CO_DEVICE_CATALOG_COOKIE__ {
+    pub unused: i32,
+}
+pub type CO_MTA_USAGE_COOKIE = *mut CO_MTA_USAGE_COOKIE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CO_MTA_USAGE_COOKIE__ {
+    pub unused: i32,
+}
 pub const CWMO_DEFAULT: CWMO_FLAGS = 0;
 pub const CWMO_DISPATCH_CALLS: CWMO_FLAGS = 1;
 pub const CWMO_DISPATCH_WINDOW_MESSAGES: CWMO_FLAGS = 2;
@@ -729,3 +712,7 @@ pub struct ServerInformation {
     pub dwServerTid: u32,
     pub ui64ServerAddress: u64,
 }
+#[cfg(target_arch = "x86")]
+pub const _CRT_INTERNAL_COMBASE_SYMBOL_PREFIX: windows_core::PCSTR = windows_core::s!("_");
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const _CRT_INTERNAL_COMBASE_SYMBOL_PREFIX: windows_core::PCSTR = windows_core::s!("");

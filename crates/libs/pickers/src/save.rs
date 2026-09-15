@@ -160,14 +160,14 @@ fn options(
     overwrite_prompt: Option<bool>,
     has_filters: bool,
 ) -> (FILEOPENDIALOGOPTIONS, FILEOPENDIALOGOPTIONS) {
-    let mut set = FOS_FORCEFILESYSTEM;
-    let mut clear = 0;
+    let mut set = FOS_FORCEFILESYSTEM as FILEOPENDIALOGOPTIONS;
+    let mut clear: FILEOPENDIALOGOPTIONS = 0;
     if has_filters {
-        set |= FOS_STRICTFILETYPES;
+        set |= FOS_STRICTFILETYPES as FILEOPENDIALOGOPTIONS;
     }
     match overwrite_prompt {
-        Some(true) => set |= FOS_OVERWRITEPROMPT,
-        Some(false) => clear |= FOS_OVERWRITEPROMPT,
+        Some(true) => set |= FOS_OVERWRITEPROMPT as FILEOPENDIALOGOPTIONS,
+        Some(false) => clear |= FOS_OVERWRITEPROMPT as FILEOPENDIALOGOPTIONS,
         None => {}
     }
     (set, clear)
@@ -185,14 +185,23 @@ mod tests {
 
     #[test]
     fn overwrite_prompt_changes_only_the_requested_flag() {
-        assert_eq!(options(None, false), (FOS_FORCEFILESYSTEM, 0));
+        assert_eq!(
+            options(None, false),
+            (FOS_FORCEFILESYSTEM as FILEOPENDIALOGOPTIONS, 0)
+        );
         assert_eq!(
             options(Some(true), false),
-            (FOS_FORCEFILESYSTEM | FOS_OVERWRITEPROMPT, 0)
+            (
+                (FOS_FORCEFILESYSTEM | FOS_OVERWRITEPROMPT) as FILEOPENDIALOGOPTIONS,
+                0,
+            )
         );
         assert_eq!(
             options(Some(false), false),
-            (FOS_FORCEFILESYSTEM, FOS_OVERWRITEPROMPT)
+            (
+                FOS_FORCEFILESYSTEM as FILEOPENDIALOGOPTIONS,
+                FOS_OVERWRITEPROMPT as FILEOPENDIALOGOPTIONS,
+            )
         );
     }
 
@@ -200,7 +209,10 @@ mod tests {
     fn configured_filters_enforce_save_file_types() {
         assert_eq!(
             options(None, true),
-            (FOS_FORCEFILESYSTEM | FOS_STRICTFILETYPES, 0)
+            (
+                (FOS_FORCEFILESYSTEM | FOS_STRICTFILETYPES) as FILEOPENDIALOGOPTIONS,
+                0,
+            )
         );
     }
 }

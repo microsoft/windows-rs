@@ -177,11 +177,13 @@ pub struct DXGI_DECODE_SWAP_CHAIN_DESC {
     pub Flags: u32,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct DXGI_DISPLAY_COLOR_SPACE {
-    pub PrimaryCoordinates: [[f32; 2]; 8],
-    pub WhitePoints: [[f32; 2]; 16],
+    pub PrimaryCoordinates: [[super::FLOAT; 2]; 8],
+    pub WhitePoints: [[super::FLOAT; 2]; 16],
 }
+#[cfg(feature = "minwindef")]
 impl Default for DXGI_DISPLAY_COLOR_SPACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -324,24 +326,38 @@ pub const DXGI_FRAME_PRESENTATION_MODE_COMPOSITION_FAILURE: DXGI_FRAME_PRESENTAT
 pub const DXGI_FRAME_PRESENTATION_MODE_NONE: DXGI_FRAME_PRESENTATION_MODE = 2;
 pub const DXGI_FRAME_PRESENTATION_MODE_OVERLAY: DXGI_FRAME_PRESENTATION_MODE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DXGI_FRAME_STATISTICS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
     pub SyncRefreshCount: u32,
-    pub SyncQPCTime: i64,
-    pub SyncGPUTime: i64,
+    pub SyncQPCTime: super::LARGE_INTEGER,
+    pub SyncGPUTime: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for DXGI_FRAME_STATISTICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct DXGI_FRAME_STATISTICS_MEDIA {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
     pub SyncRefreshCount: u32,
-    pub SyncQPCTime: i64,
-    pub SyncGPUTime: i64,
+    pub SyncQPCTime: super::LARGE_INTEGER,
+    pub SyncGPUTime: super::LARGE_INTEGER,
     pub CompositionMode: DXGI_FRAME_PRESENTATION_MODE,
     pub ApprovedPresentDuration: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for DXGI_FRAME_STATISTICS_MEDIA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -503,14 +519,15 @@ pub const DXGI_MAP_DISCARD: u32 = 4;
 pub const DXGI_MAP_READ: u32 = 1;
 pub const DXGI_MAP_WRITE: u32 = 2;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGI_MATRIX_3X2_F {
-    pub _11: f32,
-    pub _12: f32,
-    pub _21: f32,
-    pub _22: f32,
-    pub _31: f32,
-    pub _32: f32,
+    pub _11: super::FLOAT,
+    pub _12: super::FLOAT,
+    pub _21: super::FLOAT,
+    pub _22: super::FLOAT,
+    pub _31: super::FLOAT,
+    pub _32: super::FLOAT,
 }
 pub const DXGI_MAX_SWAP_CHAIN_BUFFERS: i32 = 16;
 pub type DXGI_MEMORY_SEGMENT_GROUP = i32;
@@ -576,17 +593,23 @@ pub struct DXGI_OUTDUPL_DESC {
 }
 pub type DXGI_OUTDUPL_FLAG = i32;
 #[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "windef", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct DXGI_OUTDUPL_FRAME_INFO {
-    pub LastPresentTime: i64,
-    pub LastMouseUpdateTime: i64,
+    pub LastPresentTime: super::LARGE_INTEGER,
+    pub LastMouseUpdateTime: super::LARGE_INTEGER,
     pub AccumulatedFrames: u32,
     pub RectsCoalesced: windows_sys::core::BOOL,
     pub ProtectedContentMaskedOut: windows_sys::core::BOOL,
     pub PointerPosition: DXGI_OUTDUPL_POINTER_POSITION,
     pub TotalMetadataBufferSize: u32,
     pub PointerShapeBufferSize: u32,
+}
+#[cfg(all(feature = "windef", feature = "winnt"))]
+impl Default for DXGI_OUTDUPL_FRAME_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
@@ -633,7 +656,7 @@ impl Default for DXGI_OUTPUT_DESC {
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct DXGI_OUTPUT_DESC1 {
     pub DeviceName: [u16; 32],
@@ -643,15 +666,15 @@ pub struct DXGI_OUTPUT_DESC1 {
     pub Monitor: super::HMONITOR,
     pub BitsPerColor: u32,
     pub ColorSpace: DXGI_COLOR_SPACE_TYPE,
-    pub RedPrimary: [f32; 2],
-    pub GreenPrimary: [f32; 2],
-    pub BluePrimary: [f32; 2],
-    pub WhitePoint: [f32; 2],
-    pub MinLuminance: f32,
-    pub MaxLuminance: f32,
-    pub MaxFullFrameLuminance: f32,
+    pub RedPrimary: [super::FLOAT; 2],
+    pub GreenPrimary: [super::FLOAT; 2],
+    pub BluePrimary: [super::FLOAT; 2],
+    pub WhitePoint: [super::FLOAT; 2],
+    pub MinLuminance: super::FLOAT,
+    pub MaxLuminance: super::FLOAT,
+    pub MaxFullFrameLuminance: super::FLOAT,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 impl Default for DXGI_OUTPUT_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -809,3 +832,4 @@ pub const DXGI_USAGE_RENDER_TARGET_OUTPUT: u32 = 32;
 pub const DXGI_USAGE_SHADER_INPUT: u32 = 16;
 pub const DXGI_USAGE_SHARED: u32 = 128;
 pub const DXGI_USAGE_UNORDERED_ACCESS: u32 = 1024;
+pub const _FACDXGI: i32 = 2170;

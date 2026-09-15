@@ -8,13 +8,13 @@ mod Windows {
         #[library("dcomp.dll")]
         extern fn DCompositionBoostCompositorClock(enable: BOOL) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionCreateDevice(#[opt] dxgiDevice: IDXGIDevice, iid: *const GUID, #[iid_is] dcompositionDevice: *mut *mut void) -> HRESULT;
+        extern fn DCompositionCreateDevice(#[opt] dxgiDevice: IDXGIDevice, iid: *const GUID, dcompositionDevice: *mut *mut void) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionCreateDevice2(#[opt] renderingDevice: IUnknown, iid: *const GUID, #[iid_is] dcompositionDevice: *mut *mut void) -> HRESULT;
+        extern fn DCompositionCreateDevice2(#[opt] renderingDevice: IUnknown, iid: *const GUID, dcompositionDevice: *mut *mut void) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionCreateDevice3(#[opt] renderingDevice: IUnknown, iid: *const GUID, #[iid_is] dcompositionDevice: *mut *mut void) -> HRESULT;
+        extern fn DCompositionCreateDevice3(#[opt] renderingDevice: IUnknown, iid: *const GUID, dcompositionDevice: *mut *mut void) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionCreateSurfaceHandle(desiredAccess: u32, #[opt] securityAttributes: *const SECURITY_ATTRIBUTES, surfaceHandle: *mut HANDLE) -> HRESULT;
+        extern fn DCompositionCreateSurfaceHandle(desiredAccess: u32, #[in] #[opt] securityAttributes: *mut SECURITY_ATTRIBUTES, surfaceHandle: *mut HANDLE) -> HRESULT;
         #[library("dcomp.dll")]
         extern fn DCompositionGetFrameId(frameIdType: COMPOSITION_FRAME_ID_TYPE, frameId: *mut COMPOSITION_FRAME_ID) -> HRESULT;
         #[library("dcomp.dll")]
@@ -32,7 +32,7 @@ mod Windows {
         interface IDCompositionAffineTransform2DEffect: IDCompositionFilterEffect {
             fn SetInterpolationMode(&self, interpolationMode: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> HRESULT;
             fn SetBorderMode(&self, borderMode: D2D1_BORDER_MODE) -> HRESULT;
-            fn SetTransformMatrix(&self, transformMatrix: *const super::Foundation::Numerics::Matrix3x2) -> HRESULT;
+            fn SetTransformMatrix(&self, transformMatrix: *const D2D1_MATRIX_3X2_F) -> HRESULT;
             fn SetTransformMatrixElement(&self, row: i32, column: i32, animation: IDCompositionAnimation) -> HRESULT;
             fn SetTransformMatrixElement(&self, row: i32, column: i32, value: f32) -> HRESULT;
             fn SetSharpness(&self, animation: IDCompositionAnimation) -> HRESULT;
@@ -40,7 +40,7 @@ mod Windows {
         }
         #[guid(0x3b67dfa8_e3dd_4e61_b640_46c2f3d739dc)]
         interface IDCompositionArithmeticCompositeEffect: IDCompositionFilterEffect {
-            fn SetCoefficients(&self, coefficients: *const super::Foundation::Numerics::Vector4) -> HRESULT;
+            fn SetCoefficients(&self, coefficients: *const D2D1_VECTOR_4F) -> HRESULT;
             fn SetClampOutput(&self, clampoutput: BOOL) -> HRESULT;
             fn SetCoefficient1(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetCoefficient1(&self, Coeffcient1: f32) -> HRESULT;
@@ -57,8 +57,8 @@ mod Windows {
         }
         #[guid(0x6027496e_cb3a_49ab_934f_d798da4f7da6)]
         interface IDCompositionBrightnessEffect: IDCompositionFilterEffect {
-            fn SetWhitePoint(&self, whitePoint: *const super::Foundation::Numerics::Vector2) -> HRESULT;
-            fn SetBlackPoint(&self, blackPoint: *const super::Foundation::Numerics::Vector2) -> HRESULT;
+            fn SetWhitePoint(&self, whitePoint: *const D2D1_VECTOR_2F) -> HRESULT;
+            fn SetBlackPoint(&self, blackPoint: *const D2D1_VECTOR_2F) -> HRESULT;
             fn SetWhitePointX(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetWhitePointX(&self, whitePointX: f32) -> HRESULT;
             fn SetWhitePointY(&self, animation: IDCompositionAnimation) -> HRESULT;
@@ -72,7 +72,7 @@ mod Windows {
         interface IDCompositionClip: IUnknown {}
         #[guid(0xc1170a22_3ce2_4966_90d4_55408bfc84c4)]
         interface IDCompositionColorMatrixEffect: IDCompositionFilterEffect {
-            fn SetMatrix(&self, matrix: *const D2D_MATRIX_5X4_F) -> HRESULT;
+            fn SetMatrix(&self, matrix: *const D2D1_MATRIX_5X4_F) -> HRESULT;
             fn SetMatrixElement(&self, row: i32, column: i32, animation: IDCompositionAnimation) -> HRESULT;
             fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> HRESULT;
             fn SetAlphaMode(&self, mode: D2D1_COLORMATRIX_ALPHA_MODE) -> HRESULT;
@@ -87,7 +87,7 @@ mod Windows {
             fn AddTrailPoints(&self, #[len_param(1)] inkPoints: *const DCompositionInkTrailPoint, inkPointsCount: u32, generationId: *mut u32) -> HRESULT;
             fn AddTrailPointsWithPrediction(&self, #[len_param(1)] inkPoints: *const DCompositionInkTrailPoint, inkPointsCount: u32, #[len_param(3)] predictedInkPoints: *const DCompositionInkTrailPoint, predictedInkPointsCount: u32, generationId: *mut u32) -> HRESULT;
             fn RemoveTrailPoints(&self, generationId: u32) -> HRESULT;
-            fn StartNewTrail(&self, color: *const D2D_COLOR_F) -> HRESULT;
+            fn StartNewTrail(&self, color: *const D2D1_COLOR_F) -> HRESULT;
         }
         #[guid(0x5f4633fe_1e08_4cb8_8c75_ce24333f5602)]
         interface IDCompositionDesktopDevice: IDCompositionDevice2 {
@@ -111,12 +111,12 @@ mod Windows {
             fn CreateRotateTransform(&self, rotateTransform: *mut IDCompositionRotateTransform) -> HRESULT;
             fn CreateSkewTransform(&self, skewTransform: *mut IDCompositionSkewTransform) -> HRESULT;
             fn CreateMatrixTransform(&self, matrixTransform: *mut IDCompositionMatrixTransform) -> HRESULT;
-            fn CreateTransformGroup(&self, #[len_param(1)] transforms: *const IDCompositionTransform, elements: u32, transformGroup: *mut IDCompositionTransform) -> HRESULT;
+            fn CreateTransformGroup(&self, #[len_param(1)] #[in] transforms: *mut IDCompositionTransform, elements: u32, transformGroup: *mut IDCompositionTransform) -> HRESULT;
             fn CreateTranslateTransform3D(&self, translateTransform3D: *mut IDCompositionTranslateTransform3D) -> HRESULT;
             fn CreateScaleTransform3D(&self, scaleTransform3D: *mut IDCompositionScaleTransform3D) -> HRESULT;
             fn CreateRotateTransform3D(&self, rotateTransform3D: *mut IDCompositionRotateTransform3D) -> HRESULT;
             fn CreateMatrixTransform3D(&self, matrixTransform3D: *mut IDCompositionMatrixTransform3D) -> HRESULT;
-            fn CreateTransform3DGroup(&self, #[len_param(1)] transforms3D: *const IDCompositionTransform3D, elements: u32, transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
+            fn CreateTransform3DGroup(&self, #[len_param(1)] #[in] transforms3D: *mut IDCompositionTransform3D, elements: u32, transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
             fn CreateEffectGroup(&self, effectGroup: *mut IDCompositionEffectGroup) -> HRESULT;
             fn CreateRectangleClip(&self, clip: *mut IDCompositionRectangleClip) -> HRESULT;
             fn CreateAnimation(&self, animation: *mut IDCompositionAnimation) -> HRESULT;
@@ -136,12 +136,12 @@ mod Windows {
             fn CreateRotateTransform(&self, rotateTransform: *mut IDCompositionRotateTransform) -> HRESULT;
             fn CreateSkewTransform(&self, skewTransform: *mut IDCompositionSkewTransform) -> HRESULT;
             fn CreateMatrixTransform(&self, matrixTransform: *mut IDCompositionMatrixTransform) -> HRESULT;
-            fn CreateTransformGroup(&self, #[len_param(1)] transforms: *const IDCompositionTransform, elements: u32, transformGroup: *mut IDCompositionTransform) -> HRESULT;
+            fn CreateTransformGroup(&self, #[len_param(1)] #[in] transforms: *mut IDCompositionTransform, elements: u32, transformGroup: *mut IDCompositionTransform) -> HRESULT;
             fn CreateTranslateTransform3D(&self, translateTransform3D: *mut IDCompositionTranslateTransform3D) -> HRESULT;
             fn CreateScaleTransform3D(&self, scaleTransform3D: *mut IDCompositionScaleTransform3D) -> HRESULT;
             fn CreateRotateTransform3D(&self, rotateTransform3D: *mut IDCompositionRotateTransform3D) -> HRESULT;
             fn CreateMatrixTransform3D(&self, matrixTransform3D: *mut IDCompositionMatrixTransform3D) -> HRESULT;
-            fn CreateTransform3DGroup(&self, #[len_param(1)] transforms3D: *const IDCompositionTransform3D, elements: u32, transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
+            fn CreateTransform3DGroup(&self, #[len_param(1)] #[in] transforms3D: *mut IDCompositionTransform3D, elements: u32, transform3DGroup: *mut IDCompositionTransform3D) -> HRESULT;
             fn CreateEffectGroup(&self, effectGroup: *mut IDCompositionEffectGroup) -> HRESULT;
             fn CreateRectangleClip(&self, clip: *mut IDCompositionRectangleClip) -> HRESULT;
             fn CreateAnimation(&self, animation: *mut IDCompositionAnimation) -> HRESULT;
@@ -235,13 +235,13 @@ mod Windows {
         }
         #[guid(0x16cdff07_c503_419c_83f2_0965c7af1fa6)]
         interface IDCompositionMatrixTransform: IDCompositionTransform {
-            fn SetMatrix(&self, matrix: *const super::Foundation::Numerics::Matrix3x2) -> HRESULT;
+            fn SetMatrix(&self, matrix: *const D2D_MATRIX_3X2_F) -> HRESULT;
             fn SetMatrixElement(&self, row: i32, column: i32, animation: IDCompositionAnimation) -> HRESULT;
             fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> HRESULT;
         }
         #[guid(0x4b3363f0_643b_41b7_b6e0_ccf22d34467c)]
         interface IDCompositionMatrixTransform3D: IDCompositionTransform3D {
-            fn SetMatrix(&self, matrix: *const super::Foundation::Numerics::Matrix4x4) -> HRESULT;
+            fn SetMatrix(&self, matrix: *const D3DMATRIX) -> HRESULT;
             fn SetMatrixElement(&self, row: i32, column: i32, animation: IDCompositionAnimation) -> HRESULT;
             fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> HRESULT;
         }
@@ -333,7 +333,7 @@ mod Windows {
         interface IDCompositionShadowEffect: IDCompositionFilterEffect {
             fn SetStandardDeviation(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetStandardDeviation(&self, amount: f32) -> HRESULT;
-            fn SetColor(&self, color: *const super::Foundation::Numerics::Vector4) -> HRESULT;
+            fn SetColor(&self, color: *const D2D1_VECTOR_4F) -> HRESULT;
             fn SetRed(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetRed(&self, amount: f32) -> HRESULT;
             fn SetGreen(&self, animation: IDCompositionAnimation) -> HRESULT;
@@ -356,7 +356,7 @@ mod Windows {
         }
         #[guid(0xbb8a4953_2c99_4f5a_96f5_4819027fa3ac)]
         interface IDCompositionSurface: IUnknown {
-            fn BeginDraw(&self, #[opt] updateRect: *const RECT, iid: *const GUID, #[iid_is] updateObject: *mut *mut void, updateOffset: *mut POINT) -> HRESULT;
+            fn BeginDraw(&self, #[opt] updateRect: *const RECT, iid: *const GUID, updateObject: *mut *mut void, updateOffset: *mut POINT) -> HRESULT;
             fn EndDraw(&self) -> HRESULT;
             fn SuspendDraw(&self) -> HRESULT;
             fn ResumeDraw(&self) -> HRESULT;
@@ -396,7 +396,7 @@ mod Windows {
             fn SetSourceRect(&self, sourceRect: *const D2D_RECT_U) -> HRESULT;
             fn SetColorSpace(&self, colorSpace: DXGI_COLOR_SPACE_TYPE) -> HRESULT;
             fn SetAlphaMode(&self, alphaMode: DXGI_ALPHA_MODE) -> HRESULT;
-            fn GetAvailableFence(&self, fenceValue: *mut u64, iid: *const GUID, #[iid_is] availableFence: *mut *mut void) -> HRESULT;
+            fn GetAvailableFence(&self, fenceValue: *mut u64, iid: *const GUID, availableFence: *mut *mut void) -> HRESULT;
         }
         #[guid(0xfd55faa7_37e0_4c20_95d2_9be45bc33f55)]
         interface IDCompositionTransform: IDCompositionTransform3D {}
@@ -420,9 +420,9 @@ mod Windows {
         }
         #[guid(0xa6a55bda_c09c_49f3_9193_a41922c89715)]
         interface IDCompositionTurbulenceEffect: IDCompositionFilterEffect {
-            fn SetOffset(&self, offset: *const super::Foundation::Numerics::Vector2) -> HRESULT;
-            fn SetBaseFrequency(&self, frequency: *const super::Foundation::Numerics::Vector2) -> HRESULT;
-            fn SetSize(&self, size: *const super::Foundation::Numerics::Vector2) -> HRESULT;
+            fn SetOffset(&self, offset: *const D2D1_VECTOR_2F) -> HRESULT;
+            fn SetBaseFrequency(&self, frequency: *const D2D1_VECTOR_2F) -> HRESULT;
+            fn SetSize(&self, size: *const D2D1_VECTOR_2F) -> HRESULT;
             fn SetNumOctaves(&self, numOctaves: u32) -> HRESULT;
             fn SetSeed(&self, seed: u32) -> HRESULT;
             fn SetNoise(&self, noise: D2D1_TURBULENCE_NOISE) -> HRESULT;
@@ -440,7 +440,7 @@ mod Windows {
             fn SetOffsetY(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetOffsetY(&self, offsetY: f32) -> HRESULT;
             fn SetTransform(&self, #[opt] transform: IDCompositionTransform) -> HRESULT;
-            fn SetTransform(&self, matrix: *const super::Foundation::Numerics::Matrix3x2) -> HRESULT;
+            fn SetTransform(&self, matrix: *const D2D_MATRIX_3X2_F) -> HRESULT;
             fn SetTransformParent(&self, #[opt] visual: IDCompositionVisual) -> HRESULT;
             fn SetEffect(&self, #[opt] effect: IDCompositionEffect) -> HRESULT;
             fn SetBitmapInterpolationMode(&self, interpolationMode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> HRESULT;
@@ -466,12 +466,12 @@ mod Windows {
             fn SetOpacity(&self, animation: IDCompositionAnimation) -> HRESULT;
             fn SetOpacity(&self, opacity: f32) -> HRESULT;
             fn SetTransform(&self, #[opt] transform: IDCompositionTransform3D) -> HRESULT;
-            fn SetTransform(&self, matrix: *const super::Foundation::Numerics::Matrix4x4) -> HRESULT;
+            fn SetTransform(&self, matrix: *const D2D_MATRIX_4X4_F) -> HRESULT;
             fn SetVisible(&self, visible: BOOL) -> HRESULT;
         }
         #[guid(0xfed2b808_5eb4_43a0_aea3_35f65280f91b)]
         interface IDCompositionVisualDebug: IDCompositionVisual2 {
-            fn EnableHeatMap(&self, color: *const D2D_COLOR_F) -> HRESULT;
+            fn EnableHeatMap(&self, color: *const D2D1_COLOR_F) -> HRESULT;
             fn DisableHeatMap(&self) -> HRESULT;
             fn EnableRedrawRegions(&self) -> HRESULT;
             fn DisableRedrawRegions(&self) -> HRESULT;

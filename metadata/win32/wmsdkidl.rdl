@@ -39,7 +39,7 @@ mod Windows {
         interface IWMAddressAccess: IUnknown {
             fn GetAccessEntryCount(&self, aeType: WM_AETYPE, pcEntries: *mut u32) -> HRESULT;
             fn GetAccessEntry(&self, aeType: WM_AETYPE, dwEntryNum: u32, pAddrAccessEntry: *mut WM_ADDRESS_ACCESSENTRY) -> HRESULT;
-            fn AddAccessEntry(&self, aeType: WM_AETYPE, pAddrAccessEntry: *const WM_ADDRESS_ACCESSENTRY) -> HRESULT;
+            fn AddAccessEntry(&self, aeType: WM_AETYPE, #[in] pAddrAccessEntry: *mut WM_ADDRESS_ACCESSENTRY) -> HRESULT;
             fn RemoveAccessEntry(&self, aeType: WM_AETYPE, dwEntryNum: u32) -> HRESULT;
         }
         #[guid(0x65a83fc2_3e98_4d4d_81b5_2a742886b33d)]
@@ -92,7 +92,7 @@ mod Windows {
         }
         #[guid(0x342e0eb7_e651_450c_975b_2ace2c90c48e)]
         interface IWMCredentialCallback: IUnknown {
-            fn AcquireCredentials(&self, pwszRealm: *const u16, pwszSite: *const u16, pwszUser: *mut u16, cchUser: u32, pwszPassword: *mut u16, cchPassword: u32, hrStatus: HRESULT, pdwFlags: *mut u32) -> HRESULT;
+            fn AcquireCredentials(&self, #[in] pwszRealm: *mut u16, #[in] pwszSite: *mut u16, pwszUser: *mut u16, cchUser: u32, pwszPassword: *mut u16, cchPassword: u32, hrStatus: HRESULT, pdwFlags: *mut u32) -> HRESULT;
         }
         #[guid(0xff130ebc_a6c3_42a6_b401_c3382c3e08b3)]
         interface IWMDRMEditor: IUnknown {
@@ -100,8 +100,8 @@ mod Windows {
         }
         #[guid(0xa73a0072_25a0_4c99_b4a5_ede8101a6c39)]
         interface IWMDRMMessageParser: IUnknown {
-            fn ParseRegistrationReqMsg(&self, pbRegistrationReqMsg: *const u8, cbRegistrationReqMsg: u32, ppDeviceCert: *mut INSSBuffer, pDeviceSerialNumber: *mut DRM_VAL16) -> HRESULT;
-            fn ParseLicenseRequestMsg(&self, pbLicenseRequestMsg: *const u8, cbLicenseRequestMsg: u32, ppDeviceCert: *mut INSSBuffer, pDeviceSerialNumber: *mut DRM_VAL16, pbstrAction: *mut BSTR) -> HRESULT;
+            fn ParseRegistrationReqMsg(&self, #[in] pbRegistrationReqMsg: *mut u8, cbRegistrationReqMsg: u32, ppDeviceCert: *mut INSSBuffer, pDeviceSerialNumber: *mut DRM_VAL16) -> HRESULT;
+            fn ParseLicenseRequestMsg(&self, #[in] pbLicenseRequestMsg: *mut u8, cbLicenseRequestMsg: u32, ppDeviceCert: *mut INSSBuffer, pDeviceSerialNumber: *mut DRM_VAL16, pbstrAction: *mut BSTR) -> HRESULT;
         }
         #[guid(0xd2827540_3ee7_432c_b14c_dc17f085d3b3)]
         interface IWMDRMReader: IUnknown {
@@ -131,9 +131,9 @@ mod Windows {
         }
         #[guid(0x69059850_6e6f_4bb2_806f_71863ddfc471)]
         interface IWMDRMTranscryptor: IUnknown {
-            fn Initialize(&self, bstrFileName: BSTR, pbLicenseRequestMsg: *const u8, cbLicenseRequestMsg: u32, ppLicenseResponseMsg: *mut INSSBuffer, pCallback: IWMStatusCallback, pvContext: *const void) -> HRESULT;
+            fn Initialize(&self, bstrFileName: BSTR, #[in] pbLicenseRequestMsg: *mut u8, cbLicenseRequestMsg: u32, ppLicenseResponseMsg: *mut INSSBuffer, pCallback: IWMStatusCallback, #[in] pvContext: *mut void) -> HRESULT;
             fn Seek(&self, hnsTime: u64) -> HRESULT;
-            fn Read(&self, pbData: *const u8, pcbData: *const u32) -> HRESULT;
+            fn Read(&self, #[in] pbData: *mut u8, #[in] pcbData: *mut u32) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0xe0da439f_d331_496a_bece_18e5bac5dd23)]
@@ -152,20 +152,20 @@ mod Windows {
         }
         #[guid(0x38ee7a94_40e2_4e10_aa3f_33fd3210ed5b)]
         interface IWMDRMWriter2: IWMDRMWriter {
-            fn SetWMDRMNetEncryption(&self, fSamplesEncrypted: BOOL, pbKeyID: *const u8, cbKeyID: u32) -> HRESULT;
+            fn SetWMDRMNetEncryption(&self, fSamplesEncrypted: BOOL, #[in] pbKeyID: *mut u8, cbKeyID: u32) -> HRESULT;
         }
         #[guid(0xa7184082_a4aa_4dde_ac9c_e75dbd1117ce)]
         interface IWMDRMWriter3: IWMDRMWriter2 {
-            fn SetProtectStreamSamples(&self, pImportInitStruct: *const WMDRM_IMPORT_INIT_STRUCT) -> HRESULT;
+            fn SetProtectStreamSamples(&self, #[in] pImportInitStruct: *mut WMDRM_IMPORT_INIT_STRUCT) -> HRESULT;
         }
         #[guid(0xf6211f03_8d21_4e94_93e6_8510805f2d99)]
         interface IWMDeviceRegistration: IUnknown {
-            fn RegisterDevice(&self, dwRegisterType: u32, pbCertificate: *const u8, cbCertificate: u32, SerialNumber: DRM_VAL16, ppDevice: *mut IWMRegisteredDevice) -> HRESULT;
-            fn UnregisterDevice(&self, dwRegisterType: u32, pbCertificate: *const u8, cbCertificate: u32, SerialNumber: DRM_VAL16) -> HRESULT;
+            fn RegisterDevice(&self, dwRegisterType: u32, #[in] pbCertificate: *mut u8, cbCertificate: u32, SerialNumber: DRM_VAL16, ppDevice: *mut IWMRegisteredDevice) -> HRESULT;
+            fn UnregisterDevice(&self, dwRegisterType: u32, #[in] pbCertificate: *mut u8, cbCertificate: u32, SerialNumber: DRM_VAL16) -> HRESULT;
             fn GetRegistrationStats(&self, dwRegisterType: u32, pcRegisteredDevices: *mut u32) -> HRESULT;
             fn GetFirstRegisteredDevice(&self, dwRegisterType: u32, ppDevice: *mut IWMRegisteredDevice) -> HRESULT;
             fn GetNextRegisteredDevice(&self, ppDevice: *mut IWMRegisteredDevice) -> HRESULT;
-            fn GetRegisteredDeviceByID(&self, dwRegisterType: u32, pbCertificate: *const u8, cbCertificate: u32, SerialNumber: DRM_VAL16, ppDevice: *mut IWMRegisteredDevice) -> HRESULT;
+            fn GetRegisteredDeviceByID(&self, dwRegisterType: u32, #[in] pbCertificate: *mut u8, cbCertificate: u32, SerialNumber: DRM_VAL16, ppDevice: *mut IWMRegisteredDevice) -> HRESULT;
         }
         #[guid(0x96406bda_2b2b_11d3_b36b_00c04f6108ff)]
         interface IWMHeaderInfo: IUnknown {
@@ -190,12 +190,12 @@ mod Windows {
         #[guid(0x15cc68e3_27cc_4ecd_b222_3f5d02d80bd5)]
         interface IWMHeaderInfo3: IWMHeaderInfo2 {
             fn GetAttributeCountEx(&self, wStreamNum: u16, pcAttributes: *mut u16) -> HRESULT;
-            fn GetAttributeIndices(&self, wStreamNum: u16, pwszName: PCWSTR, pwLangIndex: *const u16, pwIndices: *mut u16, #[in] #[out] pwCount: *mut u16) -> HRESULT;
+            fn GetAttributeIndices(&self, wStreamNum: u16, pwszName: PCWSTR, #[in] pwLangIndex: *mut u16, pwIndices: *mut u16, #[in] #[out] pwCount: *mut u16) -> HRESULT;
             fn GetAttributeByIndexEx(&self, wStreamNum: u16, wIndex: u16, #[out] pwszName: PWSTR, #[in] #[out] pwNameLen: *mut u16, pType: *mut WMT_ATTR_DATATYPE, pwLangIndex: *mut u16, pValue: *mut u8, #[in] #[out] pdwDataLength: *mut u32) -> HRESULT;
             fn ModifyAttribute(&self, wStreamNum: u16, wIndex: u16, Type: WMT_ATTR_DATATYPE, wLangIndex: u16, pValue: *const u8, dwLength: u32) -> HRESULT;
             fn AddAttribute(&self, wStreamNum: u16, pszName: PCWSTR, pwIndex: *mut u16, Type: WMT_ATTR_DATATYPE, wLangIndex: u16, pValue: *const u8, dwLength: u32) -> HRESULT;
             fn DeleteAttribute(&self, wStreamNum: u16, wIndex: u16) -> HRESULT;
-            fn AddCodecInfo(&self, pwszName: PCWSTR, pwszDescription: PCWSTR, codecType: WMT_CODEC_INFO_TYPE, cbCodecInfo: u16, pbCodecInfo: *const u8) -> HRESULT;
+            fn AddCodecInfo(&self, pwszName: PCWSTR, pwszDescription: PCWSTR, codecType: WMT_CODEC_INFO_TYPE, cbCodecInfo: u16, #[in] pbCodecInfo: *mut u8) -> HRESULT;
         }
         #[guid(0x6816dad3_2b4b_4c8e_8149_874c3483a753)]
         interface IWMIStreamProps: IUnknown {
@@ -208,12 +208,12 @@ mod Windows {
         }
         #[guid(0x6d7cdc71_9888_11d3_8edc_00c04f6109cf)]
         interface IWMIndexer: IUnknown {
-            fn StartIndexing(&self, pwszURL: *const u16, pCallback: IWMStatusCallback, pvContext: *const void) -> HRESULT;
+            fn StartIndexing(&self, pwszURL: *const u16, pCallback: IWMStatusCallback, #[in] pvContext: *mut void) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
         }
         #[guid(0xb70f1e42_6255_4df0_a6b9_02b212d9e2bb)]
         interface IWMIndexer2: IWMIndexer {
-            fn Configure(&self, wStreamNum: u16, nIndexerType: WMT_INDEXER_TYPE, pvInterval: *const void, pvIndexType: *const void) -> HRESULT;
+            fn Configure(&self, wStreamNum: u16, nIndexerType: WMT_INDEXER_TYPE, #[in] pvInterval: *mut void, #[in] pvIndexType: *mut void) -> HRESULT;
         }
         #[guid(0x96406bd5_2b2b_11d3_b36b_00c04f6108ff)]
         interface IWMInputMediaProps: IWMMediaProps {
@@ -238,14 +238,14 @@ mod Windows {
         }
         #[guid(0x6967f2c9_4e26_4b57_8894_799880f7ac7b)]
         interface IWMLicenseRevocationAgent: IUnknown {
-            fn GetLRBChallenge(&self, pMachineID: *const u8, dwMachineIDLength: u32, pChallenge: *const u8, dwChallengeLength: u32, pChallengeOutput: *mut u8, pdwChallengeOutputLength: *mut u32) -> HRESULT;
-            fn ProcessLRB(&self, pSignedLRB: *const u8, dwSignedLRBLength: u32, pSignedACK: *mut u8, pdwSignedACKLength: *mut u32) -> HRESULT;
+            fn GetLRBChallenge(&self, #[in] pMachineID: *mut u8, dwMachineIDLength: u32, #[in] pChallenge: *mut u8, dwChallengeLength: u32, pChallengeOutput: *mut u8, pdwChallengeOutputLength: *mut u32) -> HRESULT;
+            fn ProcessLRB(&self, #[in] pSignedLRB: *mut u8, dwSignedLRBLength: u32, pSignedACK: *mut u8, pdwSignedACKLength: *mut u32) -> HRESULT;
         }
         #[guid(0x96406bce_2b2b_11d3_b36b_00c04f6108ff)]
         interface IWMMediaProps: IUnknown {
             fn GetType(&self, pguidType: *mut GUID) -> HRESULT;
             fn GetMediaType(&self, pType: *mut WM_MEDIA_TYPE, #[in] #[out] pcbType: *mut u32) -> HRESULT;
-            fn SetMediaType(&self, pType: *const WM_MEDIA_TYPE) -> HRESULT;
+            fn SetMediaType(&self, #[in] pType: *mut WM_MEDIA_TYPE) -> HRESULT;
         }
         #[guid(0x96406bd9_2b2b_11d3_b36b_00c04f6108ff)]
         interface IWMMetadataEditor: IUnknown {
@@ -339,7 +339,7 @@ mod Windows {
             fn CreateEmptyProfile(&self, dwVersion: WMT_VERSION, ppProfile: *mut IWMProfile) -> HRESULT;
             fn LoadProfileByID(&self, guidProfile: *const GUID, ppProfile: *mut IWMProfile) -> HRESULT;
             fn LoadProfileByData(&self, pwszProfile: *const u16, ppProfile: *mut IWMProfile) -> HRESULT;
-            fn SaveProfile(&self, pIWMProfile: IWMProfile, pwszProfile: *const u16, #[in] #[out] pdwLength: *mut u32) -> HRESULT;
+            fn SaveProfile(&self, pIWMProfile: IWMProfile, #[in] pwszProfile: *mut u16, #[in] #[out] pdwLength: *mut u32) -> HRESULT;
             fn GetSystemProfileCount(&self, pcProfiles: *mut u32) -> HRESULT;
             fn LoadSystemProfile(&self, dwProfileIndex: u32, ppProfile: *mut IWMProfile) -> HRESULT;
         }
@@ -355,35 +355,35 @@ mod Windows {
         }
         #[guid(0x72995a79_5090_42a4_9c8c_d9d0b6d34be5)]
         interface IWMPropertyVault: IUnknown {
-            fn GetPropertyCount(&self, pdwCount: *const u32) -> HRESULT;
+            fn GetPropertyCount(&self, #[in] pdwCount: *mut u32) -> HRESULT;
             fn GetPropertyByName(&self, pszName: PCWSTR, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
-            fn SetProperty(&self, pszName: PCWSTR, pType: WMT_ATTR_DATATYPE, pValue: *const u8, dwSize: u32) -> HRESULT;
+            fn SetProperty(&self, pszName: PCWSTR, pType: WMT_ATTR_DATATYPE, #[in] pValue: *mut u8, dwSize: u32) -> HRESULT;
             fn GetPropertyByIndex(&self, dwIndex: u32, #[out] pszName: PWSTR, #[in] #[out] pdwNameLen: *mut u32, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
             fn CopyPropertiesFrom(&self, pIWMPropertyVault: IWMPropertyVault) -> HRESULT;
             fn Clear(&self) -> HRESULT;
         }
         #[guid(0x6a9fd8ee_b651_4bf0_b849_7d4ece79a2b1)]
         interface IWMProximityDetection: IUnknown {
-            fn StartDetection(&self, pbRegistrationMsg: *const u8, cbRegistrationMsg: u32, pbLocalAddress: *const u8, cbLocalAddress: u32, dwExtraPortsAllowed: u32, ppRegistrationResponseMsg: *mut INSSBuffer, pCallback: IWMStatusCallback, pvContext: *const void) -> HRESULT;
+            fn StartDetection(&self, #[in] pbRegistrationMsg: *mut u8, cbRegistrationMsg: u32, #[in] pbLocalAddress: *mut u8, cbLocalAddress: u32, dwExtraPortsAllowed: u32, ppRegistrationResponseMsg: *mut INSSBuffer, pCallback: IWMStatusCallback, #[in] pvContext: *mut void) -> HRESULT;
         }
         #[guid(0x96406bd6_2b2b_11d3_b36b_00c04f6108ff)]
         interface IWMReader: IUnknown {
-            fn Open(&self, pwszURL: *const u16, pCallback: IWMReaderCallback, pvContext: *const void) -> HRESULT;
+            fn Open(&self, pwszURL: *const u16, pCallback: IWMReaderCallback, #[in] pvContext: *mut void) -> HRESULT;
             fn Close(&self) -> HRESULT;
             fn GetOutputCount(&self, pcOutputs: *mut u32) -> HRESULT;
             fn GetOutputProps(&self, dwOutputNum: u32, ppOutput: *mut IWMOutputMediaProps) -> HRESULT;
             fn SetOutputProps(&self, dwOutputNum: u32, pOutput: IWMOutputMediaProps) -> HRESULT;
             fn GetOutputFormatCount(&self, dwOutputNumber: u32, pcFormats: *mut u32) -> HRESULT;
             fn GetOutputFormat(&self, dwOutputNumber: u32, dwFormatNumber: u32, ppProps: *mut IWMOutputMediaProps) -> HRESULT;
-            fn Start(&self, cnsStart: u64, cnsDuration: u64, fRate: f32, pvContext: *const void) -> HRESULT;
+            fn Start(&self, cnsStart: u64, cnsDuration: u64, fRate: f32, #[in] pvContext: *mut void) -> HRESULT;
             fn Stop(&self) -> HRESULT;
             fn Pause(&self) -> HRESULT;
             fn Resume(&self) -> HRESULT;
         }
         #[guid(0xbddc4d08_944d_4d52_a612_46c3fda07dd4)]
         interface IWMReaderAccelerator: IUnknown {
-            fn GetCodecInterface(&self, dwOutputNum: u32, riid: *const GUID, #[iid_is] ppvCodecInterface: *mut *mut void) -> HRESULT;
-            fn Notify(&self, dwOutputNum: u32, pSubtype: *const WM_MEDIA_TYPE) -> HRESULT;
+            fn GetCodecInterface(&self, dwOutputNum: u32, riid: *const GUID, ppvCodecInterface: *mut *mut void) -> HRESULT;
+            fn Notify(&self, dwOutputNum: u32, #[in] pSubtype: *mut WM_MEDIA_TYPE) -> HRESULT;
         }
         #[guid(0x96406bea_2b2b_11d3_b36b_00c04f6108ff)]
         interface IWMReaderAdvanced: IUnknown {
@@ -392,7 +392,7 @@ mod Windows {
             fn DeliverTime(&self, cnsTime: u64) -> HRESULT;
             fn SetManualStreamSelection(&self, fSelection: BOOL) -> HRESULT;
             fn GetManualStreamSelection(&self, pfSelection: *mut BOOL) -> HRESULT;
-            fn SetStreamsSelected(&self, cStreamCount: u16, pwStreamNumbers: *const u16, pSelections: *const WMT_STREAM_SELECTION) -> HRESULT;
+            fn SetStreamsSelected(&self, cStreamCount: u16, #[in] pwStreamNumbers: *mut u16, #[in] pSelections: *mut WMT_STREAM_SELECTION) -> HRESULT;
             fn GetStreamSelected(&self, wStreamNum: u16, pSelection: *mut WMT_STREAM_SELECTION) -> HRESULT;
             fn SetReceiveSelectionCallbacks(&self, fGetCallbacks: BOOL) -> HRESULT;
             fn GetReceiveSelectionCallbacks(&self, pfGetCallbacks: *mut BOOL) -> HRESULT;
@@ -403,7 +403,7 @@ mod Windows {
             fn SetAllocateForStream(&self, wStreamNum: u16, fAllocate: BOOL) -> HRESULT;
             fn GetAllocateForStream(&self, dwSreamNum: u16, pfAllocate: *mut BOOL) -> HRESULT;
             fn GetStatistics(&self, #[in] #[out] pStatistics: *mut WM_READER_STATISTICS) -> HRESULT;
-            fn SetClientInfo(&self, pClientInfo: *const WM_READER_CLIENTINFO) -> HRESULT;
+            fn SetClientInfo(&self, #[in] pClientInfo: *mut WM_READER_CLIENTINFO) -> HRESULT;
             fn GetMaxOutputSampleSize(&self, dwOutput: u32, pcbMax: *mut u32) -> HRESULT;
             fn GetMaxStreamSampleSize(&self, wStream: u16, pcbMax: *mut u32) -> HRESULT;
             fn NotifyLateDelivery(&self, cnsLateness: u64) -> HRESULT;
@@ -417,19 +417,19 @@ mod Windows {
             fn GetSaveAsProgress(&self, pdwPercent: *mut u32) -> HRESULT;
             fn SaveFileAs(&self, pwszFilename: *const u16) -> HRESULT;
             fn GetProtocolName(&self, pwszProtocol: *mut u16, #[in] #[out] pcchProtocol: *mut u32) -> HRESULT;
-            fn StartAtMarker(&self, wMarkerIndex: u16, cnsDuration: u64, fRate: f32, pvContext: *const void) -> HRESULT;
+            fn StartAtMarker(&self, wMarkerIndex: u16, cnsDuration: u64, fRate: f32, #[in] pvContext: *mut void) -> HRESULT;
             fn GetOutputSetting(&self, dwOutputNum: u32, pszName: PCWSTR, pType: *mut WMT_ATTR_DATATYPE, pValue: *mut u8, #[in] #[out] pcbLength: *mut u16) -> HRESULT;
             fn SetOutputSetting(&self, dwOutputNum: u32, pszName: PCWSTR, Type: WMT_ATTR_DATATYPE, pValue: *const u8, cbLength: u16) -> HRESULT;
             fn Preroll(&self, cnsStart: u64, cnsDuration: u64, fRate: f32) -> HRESULT;
             fn SetLogClientID(&self, fLogClientID: BOOL) -> HRESULT;
             fn GetLogClientID(&self, pfLogClientID: *mut BOOL) -> HRESULT;
             fn StopBuffering(&self) -> HRESULT;
-            fn OpenStream(&self, pStream: IStream, pCallback: IWMReaderCallback, pvContext: *const void) -> HRESULT;
+            fn OpenStream(&self, pStream: IStream, pCallback: IWMReaderCallback, #[in] pvContext: *mut void) -> HRESULT;
         }
         #[guid(0x5dc0674b_f04b_4a4e_9f2a_b1afde2c8100)]
         interface IWMReaderAdvanced3: IWMReaderAdvanced2 {
             fn StopNetStreaming(&self) -> HRESULT;
-            fn StartAtPosition(&self, wStreamNum: u16, pvOffsetStart: *const void, pvDuration: *const void, dwOffsetFormat: WMT_OFFSET_FORMAT, fRate: f32, pvContext: *const void) -> HRESULT;
+            fn StartAtPosition(&self, wStreamNum: u16, #[in] pvOffsetStart: *mut void, #[in] pvDuration: *mut void, dwOffsetFormat: WMT_OFFSET_FORMAT, fRate: f32, #[in] pvContext: *mut void) -> HRESULT;
         }
         #[guid(0x945a76a2_12ae_4d48_bd3c_cd1d90399b85)]
         interface IWMReaderAdvanced4: IWMReaderAdvanced3 {
@@ -449,32 +449,32 @@ mod Windows {
         }
         #[guid(0x18a2e7f8_428f_4acd_8a00_e64639bc93de)]
         interface IWMReaderAdvanced6: IWMReaderAdvanced5 {
-            fn SetProtectStreamSamples(&self, pbCertificate: *const u8, cbCertificate: u32, dwCertificateType: u32, dwFlags: u32, pbInitializationVector: *mut u8, #[in] #[out] pcbInitializationVector: *mut u32) -> HRESULT;
+            fn SetProtectStreamSamples(&self, #[in] pbCertificate: *mut u8, cbCertificate: u32, dwCertificateType: u32, dwFlags: u32, pbInitializationVector: *mut u8, #[in] #[out] pcbInitializationVector: *mut u32) -> HRESULT;
         }
         #[guid(0x9f762fa7_a22e_428d_93c9_ac82f3aafe5a)]
         interface IWMReaderAllocatorEx: IUnknown {
-            fn AllocateForStreamEx(&self, wStreamNum: u16, cbBuffer: u32, ppBuffer: *mut INSSBuffer, dwFlags: u32, cnsSampleTime: u64, cnsSampleDuration: u64, pvContext: *const void) -> HRESULT;
-            fn AllocateForOutputEx(&self, dwOutputNum: u32, cbBuffer: u32, ppBuffer: *mut INSSBuffer, dwFlags: u32, cnsSampleTime: u64, cnsSampleDuration: u64, pvContext: *const void) -> HRESULT;
+            fn AllocateForStreamEx(&self, wStreamNum: u16, cbBuffer: u32, ppBuffer: *mut INSSBuffer, dwFlags: u32, cnsSampleTime: u64, cnsSampleDuration: u64, #[in] pvContext: *mut void) -> HRESULT;
+            fn AllocateForOutputEx(&self, dwOutputNum: u32, cbBuffer: u32, ppBuffer: *mut INSSBuffer, dwFlags: u32, cnsSampleTime: u64, cnsSampleDuration: u64, #[in] pvContext: *mut void) -> HRESULT;
         }
         #[guid(0x96406bd8_2b2b_11d3_b36b_00c04f6108ff)]
         interface IWMReaderCallback: IWMStatusCallback {
-            fn OnSample(&self, dwOutputNum: u32, cnsSampleTime: u64, cnsSampleDuration: u64, dwFlags: u32, pSample: INSSBuffer, pvContext: *const void) -> HRESULT;
+            fn OnSample(&self, dwOutputNum: u32, cnsSampleTime: u64, cnsSampleDuration: u64, dwFlags: u32, pSample: INSSBuffer, #[in] pvContext: *mut void) -> HRESULT;
         }
         #[guid(0x96406beb_2b2b_11d3_b36b_00c04f6108ff)]
         interface IWMReaderCallbackAdvanced: IUnknown {
-            fn OnStreamSample(&self, wStreamNum: u16, cnsSampleTime: u64, cnsSampleDuration: u64, dwFlags: u32, pSample: INSSBuffer, pvContext: *const void) -> HRESULT;
-            fn OnTime(&self, cnsCurrentTime: u64, pvContext: *const void) -> HRESULT;
-            fn OnStreamSelection(&self, wStreamCount: u16, pStreamNumbers: *const u16, pSelections: *const WMT_STREAM_SELECTION, pvContext: *const void) -> HRESULT;
-            fn OnOutputPropsChanged(&self, dwOutputNum: u32, pMediaType: *const WM_MEDIA_TYPE, pvContext: *const void) -> HRESULT;
-            fn AllocateForStream(&self, wStreamNum: u16, cbBuffer: u32, ppBuffer: *mut INSSBuffer, pvContext: *const void) -> HRESULT;
-            fn AllocateForOutput(&self, dwOutputNum: u32, cbBuffer: u32, ppBuffer: *mut INSSBuffer, pvContext: *const void) -> HRESULT;
+            fn OnStreamSample(&self, wStreamNum: u16, cnsSampleTime: u64, cnsSampleDuration: u64, dwFlags: u32, pSample: INSSBuffer, #[in] pvContext: *mut void) -> HRESULT;
+            fn OnTime(&self, cnsCurrentTime: u64, #[in] pvContext: *mut void) -> HRESULT;
+            fn OnStreamSelection(&self, wStreamCount: u16, #[in] pStreamNumbers: *mut u16, #[in] pSelections: *mut WMT_STREAM_SELECTION, #[in] pvContext: *mut void) -> HRESULT;
+            fn OnOutputPropsChanged(&self, dwOutputNum: u32, #[in] pMediaType: *mut WM_MEDIA_TYPE, #[in] pvContext: *mut void) -> HRESULT;
+            fn AllocateForStream(&self, wStreamNum: u16, cbBuffer: u32, ppBuffer: *mut INSSBuffer, #[in] pvContext: *mut void) -> HRESULT;
+            fn AllocateForOutput(&self, dwOutputNum: u32, cbBuffer: u32, ppBuffer: *mut INSSBuffer, #[in] pvContext: *mut void) -> HRESULT;
         }
         #[guid(0x96406bec_2b2b_11d3_b36b_00c04f6108ff)]
         interface IWMReaderNetworkConfig: IUnknown {
             fn GetBufferingTime(&self, pcnsBufferingTime: *mut u64) -> HRESULT;
             fn SetBufferingTime(&self, cnsBufferingTime: u64) -> HRESULT;
             fn GetUDPPortRanges(&self, pRangeArray: *mut WM_PORT_NUMBER_RANGE, #[in] #[out] pcRanges: *mut u32) -> HRESULT;
-            fn SetUDPPortRanges(&self, pRangeArray: *const WM_PORT_NUMBER_RANGE, cRanges: u32) -> HRESULT;
+            fn SetUDPPortRanges(&self, #[in] pRangeArray: *mut WM_PORT_NUMBER_RANGE, cRanges: u32) -> HRESULT;
             fn GetProxySettings(&self, pwszProtocol: PCWSTR, pProxySetting: *mut WMT_PROXY_SETTINGS) -> HRESULT;
             fn SetProxySettings(&self, pwszProtocol: PCWSTR, ProxySetting: WMT_PROXY_SETTINGS) -> HRESULT;
             fn GetProxyHostName(&self, pwszProtocol: PCWSTR, pwszHostName: *mut u16, #[in] #[out] pcchHostName: *mut u32) -> HRESULT;
@@ -523,15 +523,15 @@ mod Windows {
         }
         #[guid(0xf28c0300_9baa_4477_a846_1744d9cbf533)]
         interface IWMReaderPlaylistBurn: IUnknown {
-            fn InitPlaylistBurn(&self, cFiles: u32, ppwszFilenames: *const PWSTR, pCallback: IWMStatusCallback, pvContext: *const void) -> HRESULT;
+            fn InitPlaylistBurn(&self, cFiles: u32, #[in] ppwszFilenames: *mut PWSTR, pCallback: IWMStatusCallback, #[in] pvContext: *mut void) -> HRESULT;
             fn GetInitResults(&self, cFiles: u32, phrStati: *mut HRESULT) -> HRESULT;
             fn Cancel(&self) -> HRESULT;
             fn EndPlaylistBurn(&self, hrBurnResult: HRESULT) -> HRESULT;
         }
         #[guid(0x96406bed_2b2b_11d3_b36b_00c04f6108ff)]
         interface IWMReaderStreamClock: IUnknown {
-            fn GetTime(&self, pcnsNow: *const u64) -> HRESULT;
-            fn SetTimer(&self, cnsWhen: u64, pvParam: *const void, pdwTimerId: *mut u32) -> HRESULT;
+            fn GetTime(&self, #[in] pcnsNow: *mut u64) -> HRESULT;
+            fn SetTimer(&self, cnsWhen: u64, #[in] pvParam: *mut void, pdwTimerId: *mut u32) -> HRESULT;
             fn KillTimer(&self, dwTimerId: u32) -> HRESULT;
         }
         #[guid(0xf369e2f0_e081_4fe6_8450_b810b2f410d1)]
@@ -545,8 +545,8 @@ mod Windows {
         }
         #[guid(0xcf4b1f99_4de2_4e49_a363_252740d99bc1)]
         interface IWMRegisterCallback: IUnknown {
-            fn Advise(&self, pCallback: IWMStatusCallback, pvContext: *const void) -> HRESULT;
-            fn Unadvise(&self, pCallback: IWMStatusCallback, pvContext: *const void) -> HRESULT;
+            fn Advise(&self, pCallback: IWMStatusCallback, #[in] pvContext: *mut void) -> HRESULT;
+            fn Unadvise(&self, pCallback: IWMStatusCallback, #[in] pvContext: *mut void) -> HRESULT;
         }
         #[guid(0xa4503bec_5508_4148_97ac_bfa75760a70d)]
         interface IWMRegisteredDevice: IUnknown {
@@ -567,7 +567,7 @@ mod Windows {
         }
         #[guid(0x6d7cdc70_9888_11d3_8edc_00c04f6109cf)]
         interface IWMStatusCallback: IUnknown {
-            fn OnStatus(&self, Status: WMT_STATUS, hr: HRESULT, dwType: WMT_ATTR_DATATYPE, pValue: *const u8, pvContext: *const void) -> HRESULT;
+            fn OnStatus(&self, Status: WMT_STATUS, hr: HRESULT, dwType: WMT_ATTR_DATATYPE, #[in] pValue: *mut u8, #[in] pvContext: *mut void) -> HRESULT;
         }
         #[guid(0x96406bdc_2b2b_11d3_b36b_00c04f6108ff)]
         interface IWMStreamConfig: IUnknown {
@@ -587,7 +587,7 @@ mod Windows {
         interface IWMStreamConfig2: IWMStreamConfig {
             fn GetTransportType(&self, pnTransportType: *mut WMT_TRANSPORT_TYPE) -> HRESULT;
             fn SetTransportType(&self, nTransportType: WMT_TRANSPORT_TYPE) -> HRESULT;
-            fn AddDataUnitExtension(&self, guidExtensionSystemID: GUID, cbExtensionDataSize: u16, pbExtensionSystemInfo: *const u8, cbExtensionSystemInfo: u32) -> HRESULT;
+            fn AddDataUnitExtension(&self, guidExtensionSystemID: GUID, cbExtensionDataSize: u16, #[in] pbExtensionSystemInfo: *mut u8, cbExtensionSystemInfo: u32) -> HRESULT;
             fn GetDataUnitExtensionCount(&self, pcDataUnitExtensions: *mut u16) -> HRESULT;
             fn GetDataUnitExtension(&self, wDataUnitExtensionNumber: u16, pguidExtensionSystemID: *mut GUID, pcbExtensionDataSize: *mut u16, pbExtensionSystemInfo: *mut u8, #[in] #[out] pcbExtensionSystemInfo: *mut u32) -> HRESULT;
             fn RemoveAllDataUnitExtensions(&self) -> HRESULT;
@@ -606,7 +606,7 @@ mod Windows {
         #[guid(0x8c1c6090_f9a8_4748_8ec3_dd1108ba1e77)]
         interface IWMStreamPrioritization: IUnknown {
             fn GetPriorityRecords(&self, pRecordArray: *mut WM_STREAM_PRIORITY_RECORD, #[in] #[out] pcRecords: *mut u16) -> HRESULT;
-            fn SetPriorityRecords(&self, pRecordArray: *const WM_STREAM_PRIORITY_RECORD, cRecords: u16) -> HRESULT;
+            fn SetPriorityRecords(&self, #[in] pRecordArray: *mut WM_STREAM_PRIORITY_RECORD, cRecords: u16) -> HRESULT;
         }
         #[guid(0x9397f121_7705_4dc9_b049_98b698188414)]
         interface IWMSyncReader: IUnknown {
@@ -615,7 +615,7 @@ mod Windows {
             fn SetRange(&self, cnsStartTime: u64, cnsDuration: i64) -> HRESULT;
             fn SetRangeByFrame(&self, wStreamNum: u16, qwFrameNumber: u64, cFramesToRead: i64) -> HRESULT;
             fn GetNextSample(&self, wStreamNum: u16, ppSample: *mut INSSBuffer, pcnsSampleTime: *mut u64, pcnsDuration: *mut u64, pdwFlags: *mut u32, pdwOutputNum: *mut u32, pwStreamNum: *mut u16) -> HRESULT;
-            fn SetStreamsSelected(&self, cStreamCount: u16, pwStreamNumbers: *const u16, pSelections: *const WMT_STREAM_SELECTION) -> HRESULT;
+            fn SetStreamsSelected(&self, cStreamCount: u16, #[in] pwStreamNumbers: *mut u16, #[in] pSelections: *mut WMT_STREAM_SELECTION) -> HRESULT;
             fn GetStreamSelected(&self, wStreamNum: u16, pSelection: *mut WMT_STREAM_SELECTION) -> HRESULT;
             fn SetReadStreamSamples(&self, wStreamNum: u16, fCompressed: BOOL) -> HRESULT;
             fn GetReadStreamSamples(&self, wStreamNum: u16, pfCompressed: *mut BOOL) -> HRESULT;
@@ -634,7 +634,7 @@ mod Windows {
         }
         #[guid(0xfaed3d21_1b6b_4af7_8cb6_3e189bbc187b)]
         interface IWMSyncReader2: IWMSyncReader {
-            fn SetRangeByTimecode(&self, wStreamNum: u16, pStart: *const WMT_TIMECODE_EXTENSION_DATA, pEnd: *const WMT_TIMECODE_EXTENSION_DATA) -> HRESULT;
+            fn SetRangeByTimecode(&self, wStreamNum: u16, #[in] pStart: *mut WMT_TIMECODE_EXTENSION_DATA, #[in] pEnd: *mut WMT_TIMECODE_EXTENSION_DATA) -> HRESULT;
             fn SetRangeByFrameEx(&self, wStreamNum: u16, qwFrameNumber: u64, cFramesToRead: i64, pcnsStartTime: *mut u64) -> HRESULT;
             fn SetAllocateForOutput(&self, dwOutputNum: u32, pAllocator: IWMReaderAllocatorEx) -> HRESULT;
             fn GetAllocateForOutput(&self, dwOutputNum: u32, ppAllocator: *mut IWMReaderAllocatorEx) -> HRESULT;
@@ -713,7 +713,7 @@ mod Windows {
             fn GetAutoIndexing(&self, pfAutoIndexing: *mut BOOL) -> HRESULT;
             fn SetControlStream(&self, wStreamNumber: u16, fShouldControlStartAndStop: BOOL) -> HRESULT;
             fn GetMode(&self, pdwFileSinkMode: *mut u32) -> HRESULT;
-            fn OnDataUnitEx(&self, pFileSinkDataUnit: *const WMT_FILESINK_DATA_UNIT) -> HRESULT;
+            fn OnDataUnitEx(&self, #[in] pFileSinkDataUnit: *mut WMT_FILESINK_DATA_UNIT) -> HRESULT;
             fn SetUnbufferedIO(&self, fUnbufferedIO: BOOL, fRestrictMemUsage: BOOL) -> HRESULT;
             fn GetUnbufferedIO(&self, pfUnbufferedIO: *mut BOOL) -> HRESULT;
             fn CompleteOperations(&self) -> HRESULT;
@@ -743,8 +743,8 @@ mod Windows {
         }
         #[guid(0xd9d6549d_a193_4f24_b308_03123d9b7f8d)]
         interface IWMWriterPostViewCallback: IWMStatusCallback {
-            fn OnPostViewSample(&self, wStreamNumber: u16, cnsSampleTime: u64, cnsSampleDuration: u64, dwFlags: u32, pSample: INSSBuffer, pvContext: *const void) -> HRESULT;
-            fn AllocateForPostView(&self, wStreamNum: u16, cbBuffer: u32, ppBuffer: *mut INSSBuffer, pvContext: *const void) -> HRESULT;
+            fn OnPostViewSample(&self, wStreamNumber: u16, cnsSampleTime: u64, cnsSampleDuration: u64, dwFlags: u32, pSample: INSSBuffer, #[in] pvContext: *mut void) -> HRESULT;
+            fn AllocateForPostView(&self, wStreamNum: u16, cbBuffer: u32, ppBuffer: *mut INSSBuffer, #[in] pvContext: *mut void) -> HRESULT;
         }
         #[guid(0xfc54a285_38c4_45b5_aa23_85b9f7cb424b)]
         interface IWMWriterPreprocess: IUnknown {
@@ -769,8 +769,6 @@ mod Windows {
             fn OnEndWriting(&self) -> HRESULT;
         }
         type LPCWSTR_WMSDK_TYPE_SAFE = PCWSTR;
-        const WEBSTREAM_SAMPLE_TYPE_FILE: i32 = 1;
-        const WEBSTREAM_SAMPLE_TYPE_RENDER: i32 = 2;
         #[library("WMVCore.DLL")]
         extern fn WMCreateBackupRestorer(pCallback: IUnknown, ppBackup: *mut IWMLicenseBackup) -> HRESULT;
         #[library("WMVCore.DLL")]
@@ -1015,10 +1013,6 @@ mod Windows {
             dwUserbits: u32,
             dwAmFlags: u32,
         }
-        const WMT_TIMECODE_FRAMERATE_24: i32 = 3;
-        const WMT_TIMECODE_FRAMERATE_25: i32 = 2;
-        const WMT_TIMECODE_FRAMERATE_30: i32 = 0;
-        const WMT_TIMECODE_FRAMERATE_30DROP: i32 = 1;
         #[repr(i32)]
         enum WMT_TRANSPORT_TYPE {
             WMT_Transport_Type_Unreliable = 0,
@@ -1065,25 +1059,25 @@ mod Windows {
             dwViewportHeight: u32,
             dwCurrImageWidth: u32,
             dwCurrImageHeight: u32,
-            fCurrRegionX0: f32,
-            fCurrRegionY0: f32,
-            fCurrRegionWidth: f32,
-            fCurrRegionHeight: f32,
-            fCurrBlendCoef: f32,
+            fCurrRegionX0: FLOAT,
+            fCurrRegionY0: FLOAT,
+            fCurrRegionWidth: FLOAT,
+            fCurrRegionHeight: FLOAT,
+            fCurrBlendCoef: FLOAT,
             dwPrevImageWidth: u32,
             dwPrevImageHeight: u32,
-            fPrevRegionX0: f32,
-            fPrevRegionY0: f32,
-            fPrevRegionWidth: f32,
-            fPrevRegionHeight: f32,
-            fPrevBlendCoef: f32,
+            fPrevRegionX0: FLOAT,
+            fPrevRegionY0: FLOAT,
+            fPrevRegionWidth: FLOAT,
+            fPrevRegionHeight: FLOAT,
+            fPrevBlendCoef: FLOAT,
             dwEffectType: u32,
             dwNumEffectParas: u32,
-            fEffectPara0: f32,
-            fEffectPara1: f32,
-            fEffectPara2: f32,
-            fEffectPara3: f32,
-            fEffectPara4: f32,
+            fEffectPara0: FLOAT,
+            fEffectPara1: FLOAT,
+            fEffectPara2: FLOAT,
+            fEffectPara3: FLOAT,
+            fEffectPara4: FLOAT,
             bKeepPrevImage: BOOL,
         }
         const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: i32 = 8;
@@ -1183,23 +1177,6 @@ mod Windows {
         const WM_CT_INTERLACED: i32 = 128;
         const WM_CT_REPEAT_FIRST_FIELD: i32 = 16;
         const WM_CT_TOP_FIELD_FIRST: i32 = 64;
-        const WM_DM_DEINTERLACE_HALFSIZE: i32 = 2;
-        const WM_DM_DEINTERLACE_HALFSIZEDOUBLERATE: i32 = 3;
-        const WM_DM_DEINTERLACE_INVERSETELECINE: i32 = 4;
-        const WM_DM_DEINTERLACE_NORMAL: i32 = 1;
-        const WM_DM_DEINTERLACE_VERTICALHALFSIZEDOUBLERATE: i32 = 5;
-        const WM_DM_IT_DISABLE_COHERENT_MODE: i32 = 0;
-        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_BOTTOM: i32 = 6;
-        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_TOP: i32 = 1;
-        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_BOTTOM: i32 = 7;
-        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_TOP: i32 = 2;
-        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_BOTTOM: i32 = 8;
-        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_TOP: i32 = 3;
-        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_BOTTOM: i32 = 9;
-        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_TOP: i32 = 4;
-        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_BOTTOM: i32 = 10;
-        const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP: i32 = 5;
-        const WM_DM_NOTINTERLACED: i32 = 0;
         #[packed(1)]
         struct WM_LEAKY_BUCKET_PAIR {
             dwBitrate: u32,
@@ -1226,9 +1203,6 @@ mod Windows {
             dwDataLen: u32,
             pbData: *mut u8,
         }
-        const WM_PLAYBACK_DRC_HIGH: i32 = 0;
-        const WM_PLAYBACK_DRC_LOW: i32 = 2;
-        const WM_PLAYBACK_DRC_MEDIUM: i32 = 1;
         struct WM_PORT_NUMBER_RANGE {
             wPortBegin: u16,
             wPortEnd: u16,
@@ -1253,11 +1227,6 @@ mod Windows {
             wQuality: u16,
         }
         const WM_RESTORE_INDIVIDUALIZE: u32 = 2;
-        const WM_SFEX_DATALOSS: i32 = 4;
-        const WM_SFEX_NOTASYNCPOINT: i32 = 2;
-        const WM_SF_CLEANPOINT: i32 = 1;
-        const WM_SF_DATALOSS: i32 = 4;
-        const WM_SF_DISCONTINUITY: i32 = 2;
         const WM_START_CURRENTPOSITION: u64 = 18446744073709551615;
         #[packed(2)]
         struct WM_STREAM_PRIORITY_RECORD {
@@ -1313,6 +1282,58 @@ mod Windows {
             dwTotalSampleDropsInQueue: u32,
             dwTotalSampleDropsInCodec: u32,
             dwTotalSampleDropsInMultiplexer: u32,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_wmsdkidl_0000_0000_0001 {
+            WEBSTREAM_SAMPLE_TYPE_FILE = 1,
+            WEBSTREAM_SAMPLE_TYPE_RENDER = 2,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_wmsdkidl_0000_0000_0002 {
+            WM_SF_CLEANPOINT = 1,
+            WM_SF_DISCONTINUITY = 2,
+            WM_SF_DATALOSS = 4,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_wmsdkidl_0000_0000_0003 {
+            WM_SFEX_NOTASYNCPOINT = 2,
+            WM_SFEX_DATALOSS = 4,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_wmsdkidl_0000_0000_0004 {
+            WM_DM_NOTINTERLACED = 0,
+            WM_DM_DEINTERLACE_NORMAL = 1,
+            WM_DM_DEINTERLACE_HALFSIZE = 2,
+            WM_DM_DEINTERLACE_HALFSIZEDOUBLERATE = 3,
+            WM_DM_DEINTERLACE_INVERSETELECINE = 4,
+            WM_DM_DEINTERLACE_VERTICALHALFSIZEDOUBLERATE = 5,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_wmsdkidl_0000_0000_0005 {
+            WM_DM_IT_DISABLE_COHERENT_MODE = 0,
+            WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_TOP = 1,
+            WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_TOP = 2,
+            WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_TOP = 3,
+            WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_TOP = 4,
+            WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP = 5,
+            WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_BOTTOM = 6,
+            WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_BOTTOM = 7,
+            WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_BOTTOM = 8,
+            WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_BOTTOM = 9,
+            WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_BOTTOM = 10,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_wmsdkidl_0000_0000_0006 {
+            WM_PLAYBACK_DRC_HIGH = 0,
+            WM_PLAYBACK_DRC_MEDIUM = 1,
+            WM_PLAYBACK_DRC_LOW = 2,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_wmsdkidl_0000_0000_0007 {
+            WMT_TIMECODE_FRAMERATE_30 = 0,
+            WMT_TIMECODE_FRAMERATE_30DROP = 1,
+            WMT_TIMECODE_FRAMERATE_25 = 2,
+            WMT_TIMECODE_FRAMERATE_24 = 3,
         }
     }
 }

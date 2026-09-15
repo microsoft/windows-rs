@@ -16,7 +16,7 @@ mod Windows {
         #[guid(0x0b476df0_8dac_480d_b05c_99781a5884aa)]
         interface IWSDHttpAuthParameters: IUnknown {
             fn GetClientAccessToken(&self, phToken: *mut HANDLE) -> HRESULT;
-            fn GetAuthType(&self, pAuthType: *mut u32) -> HRESULT;
+            fn GetAuthType(&self, #[out] pAuthType: PWSD_SECURITY_HTTP_AUTH_SCHEMES) -> HRESULT;
         }
         #[guid(0x540bd122_5c83_4dec_b396_ea62a2697fdf)]
         interface IWSDHttpMessageParameters: IWSDMessageParameters {
@@ -41,7 +41,7 @@ mod Windows {
         #[guid(0xde105e87_a0da_418e_98ad_27b9eed87bdc)]
         interface IWSDSSLClientCertificate: IUnknown {
             fn GetClientCertificate(&self, #[in] #[out] ppCertContext: *mut PCCERT_CONTEXT) -> HRESULT;
-            fn GetMappedAccessToken(&self, phToken: *mut HANDLE) -> HRESULT;
+            fn GetMappedAccessToken(&self, #[in] #[out] phToken: *mut HANDLE) -> HRESULT;
         }
         #[guid(0x03ce20aa_71c4_45e2_b32e_3766c61c790f)]
         interface IWSDSignatureProperty: IUnknown {

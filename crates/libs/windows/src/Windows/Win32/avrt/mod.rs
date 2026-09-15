@@ -1,7 +1,7 @@
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn AvQuerySystemResponsiveness(avrthandle: super::HANDLE, systemresponsivenessvalue: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("avrt.dll" "system" fn AvQuerySystemResponsiveness(avrthandle : super::HANDLE, systemresponsivenessvalue : *mut u32) -> windows_core::BOOL);
+pub unsafe fn AvQuerySystemResponsiveness(avrthandle: super::HANDLE, systemresponsivenessvalue: super::PULONG) -> windows_core::BOOL {
+    windows_core::link!("avrt.dll" "system" fn AvQuerySystemResponsiveness(avrthandle : super::HANDLE, systemresponsivenessvalue : super::PULONG) -> windows_core::BOOL);
     unsafe { AvQuerySystemResponsiveness(avrthandle, systemresponsivenessvalue as _) }
 }
 #[cfg(feature = "winnt")]
@@ -12,26 +12,26 @@ pub unsafe fn AvRevertMmThreadCharacteristics(avrthandle: super::HANDLE) -> wind
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn AvRtCreateThreadOrderingGroup(context: *mut super::HANDLE, period: *const i64, threadorderingguid: *mut windows_core::GUID, timeout: Option<*const i64>) -> windows_core::BOOL {
-    windows_core::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroup(context : *mut super::HANDLE, period : *const i64, threadorderingguid : *mut windows_core::GUID, timeout : *const i64) -> windows_core::BOOL);
+pub unsafe fn AvRtCreateThreadOrderingGroup(context: super::PHANDLE, period: super::PLARGE_INTEGER, threadorderingguid: *mut windows_core::GUID, timeout: Option<super::PLARGE_INTEGER>) -> windows_core::BOOL {
+    windows_core::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroup(context : super::PHANDLE, period : super::PLARGE_INTEGER, threadorderingguid : *mut windows_core::GUID, timeout : super::PLARGE_INTEGER) -> windows_core::BOOL);
     unsafe { AvRtCreateThreadOrderingGroup(context as _, period, threadorderingguid as _, timeout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn AvRtCreateThreadOrderingGroupExA<P4>(context: *mut super::HANDLE, period: *const i64, threadorderingguid: *mut windows_core::GUID, timeout: Option<*const i64>, taskname: P4) -> windows_core::BOOL
+pub unsafe fn AvRtCreateThreadOrderingGroupExA<P4>(context: super::PHANDLE, period: super::PLARGE_INTEGER, threadorderingguid: *mut windows_core::GUID, timeout: Option<super::PLARGE_INTEGER>, taskname: P4) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroupExA(context : *mut super::HANDLE, period : *const i64, threadorderingguid : *mut windows_core::GUID, timeout : *const i64, taskname : windows_core::PCSTR) -> windows_core::BOOL);
+    windows_core::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroupExA(context : super::PHANDLE, period : super::PLARGE_INTEGER, threadorderingguid : *mut windows_core::GUID, timeout : super::PLARGE_INTEGER, taskname : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { AvRtCreateThreadOrderingGroupExA(context as _, period, threadorderingguid as _, timeout.unwrap_or(core::mem::zeroed()) as _, taskname.param().abi()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn AvRtCreateThreadOrderingGroupExW<P4>(context: *mut super::HANDLE, period: *const i64, threadorderingguid: *mut windows_core::GUID, timeout: Option<*const i64>, taskname: P4) -> windows_core::BOOL
+pub unsafe fn AvRtCreateThreadOrderingGroupExW<P4>(context: super::PHANDLE, period: super::PLARGE_INTEGER, threadorderingguid: *mut windows_core::GUID, timeout: Option<super::PLARGE_INTEGER>, taskname: P4) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroupExW(context : *mut super::HANDLE, period : *const i64, threadorderingguid : *mut windows_core::GUID, timeout : *const i64, taskname : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroupExW(context : super::PHANDLE, period : super::PLARGE_INTEGER, threadorderingguid : *mut windows_core::GUID, timeout : super::PLARGE_INTEGER, taskname : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { AvRtCreateThreadOrderingGroupExW(context as _, period, threadorderingguid as _, timeout.unwrap_or(core::mem::zeroed()) as _, taskname.param().abi()) }
 }
 #[cfg(feature = "winnt")]
@@ -42,8 +42,8 @@ pub unsafe fn AvRtDeleteThreadOrderingGroup(context: super::HANDLE) -> windows_c
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn AvRtJoinThreadOrderingGroup(context: *mut super::HANDLE, threadorderingguid: *const windows_core::GUID, before: bool) -> windows_core::BOOL {
-    windows_core::link!("avrt.dll" "system" fn AvRtJoinThreadOrderingGroup(context : *mut super::HANDLE, threadorderingguid : *const windows_core::GUID, before : windows_core::BOOL) -> windows_core::BOOL);
+pub unsafe fn AvRtJoinThreadOrderingGroup(context: super::PHANDLE, threadorderingguid: *const windows_core::GUID, before: bool) -> windows_core::BOOL {
+    windows_core::link!("avrt.dll" "system" fn AvRtJoinThreadOrderingGroup(context : super::PHANDLE, threadorderingguid : *const windows_core::GUID, before : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { AvRtJoinThreadOrderingGroup(context as _, threadorderingguid, before.into()) }
 }
 #[cfg(feature = "winnt")]
@@ -58,42 +58,42 @@ pub unsafe fn AvRtWaitOnThreadOrderingGroup(context: super::HANDLE) -> windows_c
     windows_core::link!("avrt.dll" "system" fn AvRtWaitOnThreadOrderingGroup(context : super::HANDLE) -> windows_core::BOOL);
     unsafe { AvRtWaitOnThreadOrderingGroup(context) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn AvSetMmMaxThreadCharacteristicsA<P0, P1>(firsttask: P0, secondtask: P1, taskindex: *mut u32) -> super::HANDLE
+pub unsafe fn AvSetMmMaxThreadCharacteristicsA<P0, P1>(firsttask: P0, secondtask: P1, taskindex: super::LPDWORD) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("avrt.dll" "system" fn AvSetMmMaxThreadCharacteristicsA(firsttask : windows_core::PCSTR, secondtask : windows_core::PCSTR, taskindex : *mut u32) -> super::HANDLE);
+    windows_core::link!("avrt.dll" "system" fn AvSetMmMaxThreadCharacteristicsA(firsttask : windows_core::PCSTR, secondtask : windows_core::PCSTR, taskindex : super::LPDWORD) -> super::HANDLE);
     unsafe { AvSetMmMaxThreadCharacteristicsA(firsttask.param().abi(), secondtask.param().abi(), taskindex as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn AvSetMmMaxThreadCharacteristicsW<P0, P1>(firsttask: P0, secondtask: P1, taskindex: *mut u32) -> super::HANDLE
+pub unsafe fn AvSetMmMaxThreadCharacteristicsW<P0, P1>(firsttask: P0, secondtask: P1, taskindex: super::LPDWORD) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("avrt.dll" "system" fn AvSetMmMaxThreadCharacteristicsW(firsttask : windows_core::PCWSTR, secondtask : windows_core::PCWSTR, taskindex : *mut u32) -> super::HANDLE);
+    windows_core::link!("avrt.dll" "system" fn AvSetMmMaxThreadCharacteristicsW(firsttask : windows_core::PCWSTR, secondtask : windows_core::PCWSTR, taskindex : super::LPDWORD) -> super::HANDLE);
     unsafe { AvSetMmMaxThreadCharacteristicsW(firsttask.param().abi(), secondtask.param().abi(), taskindex as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn AvSetMmThreadCharacteristicsA<P0>(taskname: P0, taskindex: *mut u32) -> super::HANDLE
+pub unsafe fn AvSetMmThreadCharacteristicsA<P0>(taskname: P0, taskindex: super::LPDWORD) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("avrt.dll" "system" fn AvSetMmThreadCharacteristicsA(taskname : windows_core::PCSTR, taskindex : *mut u32) -> super::HANDLE);
+    windows_core::link!("avrt.dll" "system" fn AvSetMmThreadCharacteristicsA(taskname : windows_core::PCSTR, taskindex : super::LPDWORD) -> super::HANDLE);
     unsafe { AvSetMmThreadCharacteristicsA(taskname.param().abi(), taskindex as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn AvSetMmThreadCharacteristicsW<P0>(taskname: P0, taskindex: *mut u32) -> super::HANDLE
+pub unsafe fn AvSetMmThreadCharacteristicsW<P0>(taskname: P0, taskindex: super::LPDWORD) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("avrt.dll" "system" fn AvSetMmThreadCharacteristicsW(taskname : windows_core::PCWSTR, taskindex : *mut u32) -> super::HANDLE);
+    windows_core::link!("avrt.dll" "system" fn AvSetMmThreadCharacteristicsW(taskname : windows_core::PCWSTR, taskindex : super::LPDWORD) -> super::HANDLE);
     unsafe { AvSetMmThreadCharacteristicsW(taskname.param().abi(), taskindex as _) }
 }
 #[cfg(feature = "winnt")]

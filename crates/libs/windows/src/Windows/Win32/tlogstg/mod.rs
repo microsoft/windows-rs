@@ -87,7 +87,7 @@ impl ITravelLogClient {
         }
     }
     #[cfg(all(feature = "objidlbase", feature = "shtypes"))]
-    pub unsafe fn GetWindowData<P0>(&self, pstream: P0, pwindata: *mut WINDOWDATA) -> windows_core::HRESULT
+    pub unsafe fn GetWindowData<P0>(&self, pstream: P0, pwindata: LPWINDOWDATA) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
     {
@@ -106,7 +106,7 @@ pub struct ITravelLogClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindWindowByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "objidlbase", feature = "shtypes"))]
-    pub GetWindowData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut WINDOWDATA) -> windows_core::HRESULT,
+    pub GetWindowData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LPWINDOWDATA) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "objidlbase", feature = "shtypes")))]
     GetWindowData: usize,
     pub LoadHistoryPosition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -114,7 +114,7 @@ pub struct ITravelLogClient_Vtbl {
 #[cfg(all(feature = "objidlbase", feature = "shtypes"))]
 pub trait ITravelLogClient_Impl: windows_core::IUnknownImpl {
     fn FindWindowByIndex(&self, dwid: u32) -> windows_core::Result<windows_core::IUnknown>;
-    fn GetWindowData(&self, pstream: windows_core::Ref<super::IStream>, pwindata: *mut WINDOWDATA) -> windows_core::Result<()>;
+    fn GetWindowData(&self, pstream: windows_core::Ref<super::IStream>, pwindata: LPWINDOWDATA) -> windows_core::Result<()>;
     fn LoadHistoryPosition(&self, pszurllocation: &windows_core::PCWSTR, dwposition: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "objidlbase", feature = "shtypes"))]
@@ -132,7 +132,7 @@ impl ITravelLogClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetWindowData<Identity: ITravelLogClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, pwindata: *mut WINDOWDATA) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetWindowData<Identity: ITravelLogClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, pwindata: LPWINDOWDATA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITravelLogClient_Impl::GetWindowData(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&pwindata)).into()
@@ -393,9 +393,7 @@ pub const TLEF_INCLUDE_UNINVOKEABLE: tagTLENUMF = 64;
 pub const TLEF_RELATIVE_BACK: tagTLENUMF = 16;
 pub const TLEF_RELATIVE_FORE: tagTLENUMF = 32;
 pub const TLEF_RELATIVE_INCLUDE_CURRENT: tagTLENUMF = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TLENUMF(pub u32);
+pub type TLENUMF = u32;
 #[repr(C)]
 #[cfg(feature = "shtypes")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

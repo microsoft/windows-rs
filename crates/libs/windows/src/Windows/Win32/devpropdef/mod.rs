@@ -14,9 +14,7 @@ pub struct DEVPROPERTY {
     pub Buffer: *mut core::ffi::c_void,
 }
 pub type DEVPROPGUID = windows_core::GUID;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DEVPROPID(pub u32);
+pub type DEVPROPID = u32;
 pub const DEVPROPID_FIRST_USABLE: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -25,18 +23,14 @@ pub struct DEVPROPKEY {
     pub pid: DEVPROPID,
 }
 pub type DEVPROPSTORE = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DEVPROPTYPE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DEVPROP_BOOLEAN(pub i8);
-pub const DEVPROP_FALSE: DEVPROP_BOOLEAN = DEVPROP_BOOLEAN(0);
+pub type DEVPROPTYPE = u32;
+pub type DEVPROP_BOOLEAN = i8;
+pub const DEVPROP_FALSE: DEVPROP_BOOLEAN = 0;
 pub const DEVPROP_MASK_TYPE: i32 = 4095;
 pub const DEVPROP_MASK_TYPEMOD: i32 = 61440;
 pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = 0;
 pub const DEVPROP_STORE_USER: DEVPROPSTORE = 1;
-pub const DEVPROP_TRUE: DEVPROP_BOOLEAN = DEVPROP_BOOLEAN(-1);
+pub const DEVPROP_TRUE: DEVPROP_BOOLEAN = -1;
 pub const DEVPROP_TYPEMOD_ARRAY: i32 = 4096;
 pub const DEVPROP_TYPEMOD_LIST: i32 = 8192;
 pub const DEVPROP_TYPE_BINARY: i32 = 4099;

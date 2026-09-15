@@ -2,7 +2,8 @@ windows_link::link!("vssapi.dll" "system" fn CreateVssBackupComponentsInternal(p
 windows_link::link!("vssapi.dll" "system" fn CreateVssExamineWriterMetadataInternal(bstrxml : windows_sys::core::BSTR, ppmetadata : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "vss")]
 windows_link::link!("vssapi.dll" "system" fn GetProviderMgmtInterfaceInternal(providerid : super::VSS_ID, interfaceid : windows_sys::core::GUID, ppitf : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("vssapi.dll" "system" fn IsVolumeSnapshottedInternal(pwszvolumename : windows_sys::core::PCWSTR, pbsnapshotspresent : *mut windows_sys::core::BOOL, plsnapshotcapability : *mut i32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "vss")]
+windows_link::link!("vssapi.dll" "system" fn IsVolumeSnapshottedInternal(pwszvolumename : super::VSS_PWSZ, pbsnapshotspresent : *mut windows_sys::core::BOOL, plsnapshotcapability : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("vssapi.dll" "system" fn ShouldBlockRevertInternal(wszvolumename : windows_sys::core::PCWSTR, pbblock : *mut bool) -> windows_sys::core::HRESULT);
 #[cfg(feature = "vss")]
 windows_link::link!("vssapi.dll" "system" fn VssFreeSnapshotPropertiesInternal(pprop : *const super::VSS_SNAPSHOT_PROP));

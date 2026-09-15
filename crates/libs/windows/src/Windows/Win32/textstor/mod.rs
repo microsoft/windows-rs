@@ -321,7 +321,7 @@ impl ITextStoreACP {
     pub unsafe fn FindNextAttrTransition(&self, acpstart: i32, acphalt: i32, cfilterattrs: u32, pafilterattrs: *const TS_ATTRID, dwflags: u32, pacpnext: *mut i32, pffound: *mut windows_core::BOOL, plfoundoffset: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FindNextAttrTransition)(windows_core::Interface::as_raw(self), acpstart, acphalt, cfilterattrs, pafilterattrs, dwflags, pacpnext as _, pffound as _, plfoundoffset as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, paattrvals, pcfetched as _) }
     }
@@ -398,9 +398,9 @@ pub struct ITextStoreACP_Vtbl {
     pub RequestAttrsAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *const TS_ATTRID, u32) -> windows_core::HRESULT,
     pub RequestAttrsTransitioningAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *const TS_ATTRID, u32) -> windows_core::HRESULT,
     pub FindNextAttrTransition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32, *const TS_ATTRID, u32, *mut i32, *mut windows_core::BOOL, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub RetrieveRequestedAttrs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut TS_ATTRVAL, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     RetrieveRequestedAttrs: usize,
     pub GetEndACP: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetActiveView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TsViewCookie) -> windows_core::HRESULT,
@@ -421,7 +421,7 @@ pub struct ITextStoreACP_Vtbl {
     #[cfg(not(feature = "windef"))]
     GetWnd: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITextStoreACP_Impl: windows_core::IUnknownImpl {
     fn AdviseSink(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
     fn UnadviseSink(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -450,7 +450,7 @@ pub trait ITextStoreACP_Impl: windows_core::IUnknownImpl {
     fn GetScreenExt(&self, vcview: TsViewCookie) -> windows_core::Result<super::RECT>;
     fn GetWnd(&self, vcview: TsViewCookie) -> windows_core::Result<super::HWND>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl ITextStoreACP_Vtbl {
     pub const fn new<Identity: ITextStoreACP_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseSink<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void, dwmask: u32) -> windows_core::HRESULT {
@@ -709,7 +709,7 @@ impl ITextStoreACP_Vtbl {
         iid == &<ITextStoreACP as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITextStoreACP {}
 windows_core::imp::define_interface!(ITextStoreACP2, ITextStoreACP2_Vtbl, 0xf86ad89f_5fe4_4b8d_bb9f_ef3797a84f1f);
 windows_core::imp::interface_hierarchy!(ITextStoreACP2, windows_core::IUnknown);
@@ -809,7 +809,7 @@ impl ITextStoreACP2 {
     pub unsafe fn FindNextAttrTransition(&self, acpstart: i32, acphalt: i32, cfilterattrs: u32, pafilterattrs: *const TS_ATTRID, dwflags: u32, pacpnext: *mut i32, pffound: *mut windows_core::BOOL, plfoundoffset: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FindNextAttrTransition)(windows_core::Interface::as_raw(self), acpstart, acphalt, cfilterattrs, pafilterattrs, dwflags, pacpnext as _, pffound as _, plfoundoffset as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, paattrvals, pcfetched as _) }
     }
@@ -879,9 +879,9 @@ pub struct ITextStoreACP2_Vtbl {
     pub RequestAttrsAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *const TS_ATTRID, u32) -> windows_core::HRESULT,
     pub RequestAttrsTransitioningAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *const TS_ATTRID, u32) -> windows_core::HRESULT,
     pub FindNextAttrTransition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32, *const TS_ATTRID, u32, *mut i32, *mut windows_core::BOOL, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub RetrieveRequestedAttrs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut TS_ATTRVAL, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     RetrieveRequestedAttrs: usize,
     pub GetEndACP: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetActiveView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TsViewCookie) -> windows_core::HRESULT,
@@ -898,7 +898,7 @@ pub struct ITextStoreACP2_Vtbl {
     #[cfg(not(feature = "windef"))]
     GetScreenExt: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITextStoreACP2_Impl: windows_core::IUnknownImpl {
     fn AdviseSink(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
     fn UnadviseSink(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -926,7 +926,7 @@ pub trait ITextStoreACP2_Impl: windows_core::IUnknownImpl {
     fn GetTextExt(&self, vcview: TsViewCookie, acpstart: i32, acpend: i32, prc: *mut super::RECT, pfclipped: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetScreenExt(&self, vcview: TsViewCookie) -> windows_core::Result<super::RECT>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl ITextStoreACP2_Vtbl {
     pub const fn new<Identity: ITextStoreACP2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseSink<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void, dwmask: u32) -> windows_core::HRESULT {
@@ -1172,7 +1172,7 @@ impl ITextStoreACP2_Vtbl {
         iid == &<ITextStoreACP2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITextStoreACP2 {}
 windows_core::imp::define_interface!(ITextStoreACPSink, ITextStoreACPSink_Vtbl, 0x22d44c94_a419_4542_a272_ae26093ececf);
 windows_core::imp::interface_hierarchy!(ITextStoreACPSink, windows_core::IUnknown);
@@ -1396,7 +1396,7 @@ impl ITextStoreAnchor {
     {
         unsafe { (windows_core::Interface::vtable(self).FindNextAttrTransition)(windows_core::Interface::as_raw(self), pastart.param().abi(), pahalt.param().abi(), cfilterattrs, pafilterattrs, dwflags, pffound as _, plfoundoffset as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, paattrvals, pcfetched as _) }
     }
@@ -1491,9 +1491,9 @@ pub struct ITextStoreAnchor_Vtbl {
     pub RequestAttrsAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const TS_ATTRID, u32) -> windows_core::HRESULT,
     pub RequestAttrsTransitioningAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const TS_ATTRID, u32) -> windows_core::HRESULT,
     pub FindNextAttrTransition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const TS_ATTRID, u32, *mut windows_core::BOOL, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub RetrieveRequestedAttrs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut TS_ATTRVAL, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     RetrieveRequestedAttrs: usize,
     pub GetStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetEnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1524,7 +1524,7 @@ pub struct ITextStoreAnchor_Vtbl {
     #[cfg(not(feature = "objidl"))]
     InsertEmbeddedAtSelection: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITextStoreAnchor_Impl: windows_core::IUnknownImpl {
     fn AdviseSink(&self, riid: *const windows_core::GUID, punk: windows_core::Ref<windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
     fn UnadviseSink(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -1554,7 +1554,7 @@ pub trait ITextStoreAnchor_Impl: windows_core::IUnknownImpl {
     fn InsertTextAtSelection(&self, dwflags: u32, pchtext: *const u16, cch: u32, ppastart: windows_core::OutRef<IAnchor>, ppaend: windows_core::OutRef<IAnchor>) -> windows_core::Result<()>;
     fn InsertEmbeddedAtSelection(&self, dwflags: u32, pdataobject: windows_core::Ref<super::IDataObject>, ppastart: windows_core::OutRef<IAnchor>, ppaend: windows_core::OutRef<IAnchor>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl ITextStoreAnchor_Vtbl {
     pub const fn new<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseSink<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void, dwmask: u32) -> windows_core::HRESULT {
@@ -1814,7 +1814,7 @@ impl ITextStoreAnchor_Vtbl {
         iid == &<ITextStoreAnchor as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITextStoreAnchor {}
 windows_core::imp::define_interface!(ITextStoreAnchorSink, ITextStoreAnchorSink_Vtbl, 0xaa80e905_2021_11d2_93e0_0060b067b86e);
 windows_core::imp::interface_hierarchy!(ITextStoreAnchorSink, windows_core::IUnknown);
@@ -1953,19 +1953,19 @@ pub const TS_AS_STATUS_CHANGE: i32 = 16;
 pub const TS_AS_TEXT_CHANGE: i32 = 1;
 pub type TS_ATTRID = windows_core::GUID;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub struct TS_ATTRVAL {
     pub idAttr: TS_ATTRID,
     pub dwOverlapId: u32,
     pub varValue: super::VARIANT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for TS_ATTRVAL {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for TS_ATTRVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1983,17 +1983,17 @@ pub const TS_CHAR_REPLACEMENT: i32 = 65533;
 pub const TS_CH_FOLLOWING_DEL: i32 = 2;
 pub const TS_CH_PRECEDING_DEL: i32 = 1;
 pub const TS_DEFAULT_SELECTION: u32 = 4294967295;
-pub const TS_E_FORMAT: i32 = -2147220982;
-pub const TS_E_INVALIDPOINT: i32 = -2147220985;
-pub const TS_E_INVALIDPOS: i32 = -2147220992;
-pub const TS_E_NOINTERFACE: i32 = -2147220988;
-pub const TS_E_NOLAYOUT: i32 = -2147220986;
-pub const TS_E_NOLOCK: i32 = -2147220991;
-pub const TS_E_NOOBJECT: i32 = -2147220990;
-pub const TS_E_NOSELECTION: i32 = -2147220987;
-pub const TS_E_NOSERVICE: i32 = -2147220989;
-pub const TS_E_READONLY: i32 = -2147220983;
-pub const TS_E_SYNCHRONOUS: i32 = -2147220984;
+pub const TS_E_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0x8004020A_u32 as _);
+pub const TS_E_INVALIDPOINT: windows_core::HRESULT = windows_core::HRESULT(0x80040207_u32 as _);
+pub const TS_E_INVALIDPOS: windows_core::HRESULT = windows_core::HRESULT(0x80040200_u32 as _);
+pub const TS_E_NOINTERFACE: windows_core::HRESULT = windows_core::HRESULT(0x80040204_u32 as _);
+pub const TS_E_NOLAYOUT: windows_core::HRESULT = windows_core::HRESULT(0x80040206_u32 as _);
+pub const TS_E_NOLOCK: windows_core::HRESULT = windows_core::HRESULT(0x80040201_u32 as _);
+pub const TS_E_NOOBJECT: windows_core::HRESULT = windows_core::HRESULT(0x80040202_u32 as _);
+pub const TS_E_NOSELECTION: windows_core::HRESULT = windows_core::HRESULT(0x80040205_u32 as _);
+pub const TS_E_NOSERVICE: windows_core::HRESULT = windows_core::HRESULT(0x80040203_u32 as _);
+pub const TS_E_READONLY: windows_core::HRESULT = windows_core::HRESULT(0x80040209_u32 as _);
+pub const TS_E_SYNCHRONOUS: windows_core::HRESULT = windows_core::HRESULT(0x80040208_u32 as _);
 pub const TS_GEA_HIDDEN: i32 = 1;
 pub const TS_GR_BACKWARD: TsGravity = 0;
 pub const TS_GR_FORWARD: TsGravity = 1;
@@ -2069,7 +2069,7 @@ pub struct TS_STATUS {
     pub dwStaticFlags: u32,
 }
 pub const TS_ST_CORRECTION: i32 = 1;
-pub const TS_S_ASYNC: i32 = 262912;
+pub const TS_S_ASYNC: windows_core::HRESULT = windows_core::HRESULT(0x40300_u32 as _);
 pub const TS_TC_CORRECTION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2084,6 +2084,4 @@ pub type TsGravity = i32;
 pub type TsLayoutCode = i32;
 pub type TsRunType = i32;
 pub type TsShiftDir = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TsViewCookie(pub u32);
+pub type TsViewCookie = u32;

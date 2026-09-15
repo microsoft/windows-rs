@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IRichEditOle, IRichEditOle_Vtbl, 0x00020d00
 windows_core::imp::interface_hierarchy!(IRichEditOle, windows_core::IUnknown);
 impl IRichEditOle {
     #[cfg(feature = "oleidl")]
-    pub unsafe fn GetClientSite(&self) -> windows_core::Result<super::IOleClientSite> {
+    pub unsafe fn GetClientSite(&self) -> windows_core::Result<super::LPOLECLIENTSITE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetClientSite)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -50,7 +50,7 @@ impl IRichEditOle {
     #[cfg(feature = "objidl")]
     pub unsafe fn SaveCompleted<P1>(&self, iob: i32, lpstg: P1) -> windows_core::HRESULT
     where
-        P1: windows_core::Param<super::IStorage>,
+        P1: windows_core::Param<super::LPSTORAGE>,
     {
         unsafe { (windows_core::Interface::vtable(self).SaveCompleted)(windows_core::Interface::as_raw(self), iob, lpstg.param().abi()) }
     }
@@ -61,13 +61,13 @@ impl IRichEditOle {
         unsafe { (windows_core::Interface::vtable(self).ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.into()) }
     }
     #[cfg(all(feature = "objidl", feature = "richedit"))]
-    pub unsafe fn GetClipboardData(&self, lpchrg: *mut super::CHARRANGE, reco: u32, lplpdataobj: *mut Option<super::IDataObject>) -> windows_core::HRESULT {
+    pub unsafe fn GetClipboardData(&self, lpchrg: *mut super::CHARRANGE, reco: u32, lplpdataobj: *mut Option<super::LPDATAOBJECT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetClipboardData)(windows_core::Interface::as_raw(self), lpchrg as _, reco, core::mem::transmute(lplpdataobj)) }
     }
     #[cfg(all(feature = "minwindef", feature = "objidl", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn ImportDataObject<P0>(&self, lpdataobj: P0, cf: super::CLIPFORMAT, hmetapict: super::HGLOBAL) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<super::IDataObject>,
+        P0: windows_core::Param<super::LPDATAOBJECT>,
     {
         unsafe { (windows_core::Interface::vtable(self).ImportDataObject)(windows_core::Interface::as_raw(self), lpdataobj.param().abi(), cf, hmetapict) }
     }
@@ -113,7 +113,7 @@ pub struct IRichEditOle_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub trait IRichEditOle_Impl: windows_core::IUnknownImpl {
-    fn GetClientSite(&self) -> windows_core::Result<super::IOleClientSite>;
+    fn GetClientSite(&self) -> windows_core::Result<super::LPOLECLIENTSITE>;
     fn GetObjectCount(&self) -> i32;
     fn GetLinkCount(&self) -> i32;
     fn GetObject(&self, iob: i32, lpreobject: *mut REOBJECT, dwflags: u32) -> windows_core::Result<()>;
@@ -124,11 +124,11 @@ pub trait IRichEditOle_Impl: windows_core::IUnknownImpl {
     fn SetLinkAvailable(&self, iob: i32, favailable: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetDvaspect(&self, iob: i32, dvaspect: u32) -> windows_core::Result<()>;
     fn HandsOffStorage(&self, iob: i32) -> windows_core::Result<()>;
-    fn SaveCompleted(&self, iob: i32, lpstg: windows_core::Ref<super::IStorage>) -> windows_core::Result<()>;
+    fn SaveCompleted(&self, iob: i32, lpstg: windows_core::Ref<super::LPSTORAGE>) -> windows_core::Result<()>;
     fn InPlaceDeactivate(&self) -> windows_core::Result<()>;
     fn ContextSensitiveHelp(&self, fentermode: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetClipboardData(&self, lpchrg: *mut super::CHARRANGE, reco: u32, lplpdataobj: windows_core::OutRef<super::IDataObject>) -> windows_core::Result<()>;
-    fn ImportDataObject(&self, lpdataobj: windows_core::Ref<super::IDataObject>, cf: super::CLIPFORMAT, hmetapict: super::HGLOBAL) -> windows_core::Result<()>;
+    fn GetClipboardData(&self, lpchrg: *mut super::CHARRANGE, reco: u32, lplpdataobj: windows_core::OutRef<super::LPDATAOBJECT>) -> windows_core::Result<()>;
+    fn ImportDataObject(&self, lpdataobj: windows_core::Ref<super::LPDATAOBJECT>, cf: super::CLIPFORMAT, hmetapict: super::HGLOBAL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl IRichEditOle_Vtbl {
@@ -265,37 +265,37 @@ windows_core::imp::define_interface!(IRichEditOleCallback, IRichEditOleCallback_
 windows_core::imp::interface_hierarchy!(IRichEditOleCallback, windows_core::IUnknown);
 impl IRichEditOleCallback {
     #[cfg(feature = "objidl")]
-    pub unsafe fn GetNewStorage(&self) -> windows_core::Result<super::IStorage> {
+    pub unsafe fn GetNewStorage(&self) -> windows_core::Result<super::LPSTORAGE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNewStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "oleidl", feature = "windef"))]
-    pub unsafe fn GetInPlaceContext(&self, lplpframe: *mut Option<super::IOleInPlaceFrame>, lplpdoc: *mut Option<super::IOleInPlaceUIWindow>, lpframeinfo: *mut super::OLEINPLACEFRAMEINFO) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetInPlaceContext)(windows_core::Interface::as_raw(self), core::mem::transmute(lplpframe), core::mem::transmute(lplpdoc), lpframeinfo as _) }
+    pub unsafe fn GetInPlaceContext(&self, lplpframe: *mut Option<super::LPOLEINPLACEFRAME>, lplpdoc: *mut Option<super::LPOLEINPLACEUIWINDOW>, lpframeinfo: super::LPOLEINPLACEFRAMEINFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInPlaceContext)(windows_core::Interface::as_raw(self), core::mem::transmute(lplpframe), core::mem::transmute(lplpdoc), lpframeinfo) }
     }
     pub unsafe fn ShowContainerUI(&self, fshow: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ShowContainerUI)(windows_core::Interface::as_raw(self), fshow.into()) }
     }
-    #[cfg(feature = "objidl")]
-    pub unsafe fn QueryInsertObject<P1>(&self, lpclsid: *mut windows_core::GUID, lpstg: P1, cp: i32) -> windows_core::HRESULT
+    #[cfg(all(feature = "guiddef", feature = "objidl"))]
+    pub unsafe fn QueryInsertObject<P1>(&self, lpclsid: super::LPCLSID, lpstg: P1, cp: i32) -> windows_core::HRESULT
     where
-        P1: windows_core::Param<super::IStorage>,
+        P1: windows_core::Param<super::LPSTORAGE>,
     {
-        unsafe { (windows_core::Interface::vtable(self).QueryInsertObject)(windows_core::Interface::as_raw(self), lpclsid as _, lpstg.param().abi(), cp) }
+        unsafe { (windows_core::Interface::vtable(self).QueryInsertObject)(windows_core::Interface::as_raw(self), lpclsid, lpstg.param().abi(), cp) }
     }
     #[cfg(feature = "oleidl")]
     pub unsafe fn DeleteObject<P0>(&self, lpoleobj: P0) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<super::IOleObject>,
+        P0: windows_core::Param<super::LPOLEOBJECT>,
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteObject)(windows_core::Interface::as_raw(self), lpoleobj.param().abi()) }
     }
     #[cfg(all(feature = "minwindef", feature = "objidl", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn QueryAcceptData<P0>(&self, lpdataobj: P0, lpcfformat: *mut super::CLIPFORMAT, reco: u32, freally: bool, hmetapict: super::HGLOBAL) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<super::IDataObject>,
+        P0: windows_core::Param<super::LPDATAOBJECT>,
     {
         unsafe { (windows_core::Interface::vtable(self).QueryAcceptData)(windows_core::Interface::as_raw(self), lpdataobj.param().abi(), lpcfformat as _, reco, freally.into(), hmetapict) }
     }
@@ -303,19 +303,17 @@ impl IRichEditOleCallback {
         unsafe { (windows_core::Interface::vtable(self).ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.into()) }
     }
     #[cfg(all(feature = "objidl", feature = "richedit"))]
-    pub unsafe fn GetClipboardData(&self, lpchrg: *mut super::CHARRANGE, reco: u32, lplpdataobj: *mut Option<super::IDataObject>) -> windows_core::HRESULT {
+    pub unsafe fn GetClipboardData(&self, lpchrg: *mut super::CHARRANGE, reco: u32, lplpdataobj: *mut Option<super::LPDATAOBJECT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetClipboardData)(windows_core::Interface::as_raw(self), lpchrg as _, reco, core::mem::transmute(lplpdataobj)) }
     }
-    pub unsafe fn GetDragDropEffect(&self, fdrag: bool, grfkeystate: u32) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDragDropEffect)(windows_core::Interface::as_raw(self), fdrag.into(), grfkeystate, &mut result__).map(|| result__)
-        }
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn GetDragDropEffect(&self, fdrag: bool, grfkeystate: u32, pdweffect: super::LPDWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDragDropEffect)(windows_core::Interface::as_raw(self), fdrag.into(), grfkeystate, pdweffect) }
     }
     #[cfg(all(feature = "oleidl", feature = "richedit", feature = "windef"))]
     pub unsafe fn GetContextMenu<P1>(&self, seltype: u16, lpoleobj: P1, lpchrg: *mut super::CHARRANGE, lphmenu: *mut super::HMENU) -> windows_core::HRESULT
     where
-        P1: windows_core::Param<super::IOleObject>,
+        P1: windows_core::Param<super::LPOLEOBJECT>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetContextMenu)(windows_core::Interface::as_raw(self), seltype, lpoleobj.param().abi(), lpchrg as _, lphmenu as _) }
     }
@@ -329,13 +327,13 @@ pub struct IRichEditOleCallback_Vtbl {
     #[cfg(not(feature = "objidl"))]
     GetNewStorage: usize,
     #[cfg(all(feature = "oleidl", feature = "windef"))]
-    pub GetInPlaceContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::OLEINPLACEFRAMEINFO) -> windows_core::HRESULT,
+    pub GetInPlaceContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, super::LPOLEINPLACEFRAMEINFO) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "oleidl", feature = "windef")))]
     GetInPlaceContext: usize,
     pub ShowContainerUI: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "objidl")]
-    pub QueryInsertObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidl"))]
+    #[cfg(all(feature = "guiddef", feature = "objidl"))]
+    pub QueryInsertObject: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCLSID, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "objidl")))]
     QueryInsertObject: usize,
     #[cfg(feature = "oleidl")]
     pub DeleteObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -350,26 +348,29 @@ pub struct IRichEditOleCallback_Vtbl {
     pub GetClipboardData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::CHARRANGE, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "objidl", feature = "richedit")))]
     GetClipboardData: usize,
-    pub GetDragDropEffect: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, u32, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub GetDragDropEffect: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, u32, super::LPDWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetDragDropEffect: usize,
     #[cfg(all(feature = "oleidl", feature = "richedit", feature = "windef"))]
     pub GetContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut core::ffi::c_void, *mut super::CHARRANGE, *mut super::HMENU) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "oleidl", feature = "richedit", feature = "windef")))]
     GetContextMenu: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "windef", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub trait IRichEditOleCallback_Impl: windows_core::IUnknownImpl {
-    fn GetNewStorage(&self) -> windows_core::Result<super::IStorage>;
-    fn GetInPlaceContext(&self, lplpframe: windows_core::OutRef<super::IOleInPlaceFrame>, lplpdoc: windows_core::OutRef<super::IOleInPlaceUIWindow>, lpframeinfo: *mut super::OLEINPLACEFRAMEINFO) -> windows_core::Result<()>;
+    fn GetNewStorage(&self) -> windows_core::Result<super::LPSTORAGE>;
+    fn GetInPlaceContext(&self, lplpframe: windows_core::OutRef<super::LPOLEINPLACEFRAME>, lplpdoc: windows_core::OutRef<super::LPOLEINPLACEUIWINDOW>, lpframeinfo: super::LPOLEINPLACEFRAMEINFO) -> windows_core::Result<()>;
     fn ShowContainerUI(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
-    fn QueryInsertObject(&self, lpclsid: *mut windows_core::GUID, lpstg: windows_core::Ref<super::IStorage>, cp: i32) -> windows_core::Result<()>;
-    fn DeleteObject(&self, lpoleobj: windows_core::Ref<super::IOleObject>) -> windows_core::Result<()>;
-    fn QueryAcceptData(&self, lpdataobj: windows_core::Ref<super::IDataObject>, lpcfformat: *mut super::CLIPFORMAT, reco: u32, freally: windows_core::BOOL, hmetapict: super::HGLOBAL) -> windows_core::Result<()>;
+    fn QueryInsertObject(&self, lpclsid: super::LPCLSID, lpstg: windows_core::Ref<super::LPSTORAGE>, cp: i32) -> windows_core::Result<()>;
+    fn DeleteObject(&self, lpoleobj: windows_core::Ref<super::LPOLEOBJECT>) -> windows_core::Result<()>;
+    fn QueryAcceptData(&self, lpdataobj: windows_core::Ref<super::LPDATAOBJECT>, lpcfformat: *mut super::CLIPFORMAT, reco: u32, freally: windows_core::BOOL, hmetapict: super::HGLOBAL) -> windows_core::Result<()>;
     fn ContextSensitiveHelp(&self, fentermode: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetClipboardData(&self, lpchrg: *mut super::CHARRANGE, reco: u32, lplpdataobj: windows_core::OutRef<super::IDataObject>) -> windows_core::Result<()>;
-    fn GetDragDropEffect(&self, fdrag: windows_core::BOOL, grfkeystate: u32) -> windows_core::Result<u32>;
-    fn GetContextMenu(&self, seltype: u16, lpoleobj: windows_core::Ref<super::IOleObject>, lpchrg: *mut super::CHARRANGE, lphmenu: *mut super::HMENU) -> windows_core::Result<()>;
+    fn GetClipboardData(&self, lpchrg: *mut super::CHARRANGE, reco: u32, lplpdataobj: windows_core::OutRef<super::LPDATAOBJECT>) -> windows_core::Result<()>;
+    fn GetDragDropEffect(&self, fdrag: windows_core::BOOL, grfkeystate: u32, pdweffect: super::LPDWORD) -> windows_core::Result<()>;
+    fn GetContextMenu(&self, seltype: u16, lpoleobj: windows_core::Ref<super::LPOLEOBJECT>, lpchrg: *mut super::CHARRANGE, lphmenu: *mut super::HMENU) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "windef", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl IRichEditOleCallback_Vtbl {
     pub const fn new<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNewStorage<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lplpstg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -384,7 +385,7 @@ impl IRichEditOleCallback_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetInPlaceContext<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lplpframe: *mut *mut core::ffi::c_void, lplpdoc: *mut *mut core::ffi::c_void, lpframeinfo: *mut super::OLEINPLACEFRAMEINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetInPlaceContext<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lplpframe: *mut *mut core::ffi::c_void, lplpdoc: *mut *mut core::ffi::c_void, lpframeinfo: super::LPOLEINPLACEFRAMEINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRichEditOleCallback_Impl::GetInPlaceContext(this, core::mem::transmute_copy(&lplpframe), core::mem::transmute_copy(&lplpdoc), core::mem::transmute_copy(&lpframeinfo)).into()
@@ -396,7 +397,7 @@ impl IRichEditOleCallback_Vtbl {
                 IRichEditOleCallback_Impl::ShowContainerUI(this, core::mem::transmute_copy(&fshow)).into()
             }
         }
-        unsafe extern "system" fn QueryInsertObject<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpclsid: *mut windows_core::GUID, lpstg: *mut core::ffi::c_void, cp: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueryInsertObject<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpclsid: super::LPCLSID, lpstg: *mut core::ffi::c_void, cp: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRichEditOleCallback_Impl::QueryInsertObject(this, core::mem::transmute_copy(&lpclsid), core::mem::transmute_copy(&lpstg), core::mem::transmute_copy(&cp)).into()
@@ -426,16 +427,10 @@ impl IRichEditOleCallback_Vtbl {
                 IRichEditOleCallback_Impl::GetClipboardData(this, core::mem::transmute_copy(&lpchrg), core::mem::transmute_copy(&reco), core::mem::transmute_copy(&lplpdataobj)).into()
             }
         }
-        unsafe extern "system" fn GetDragDropEffect<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdrag: windows_core::BOOL, grfkeystate: u32, pdweffect: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDragDropEffect<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdrag: windows_core::BOOL, grfkeystate: u32, pdweffect: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRichEditOleCallback_Impl::GetDragDropEffect(this, core::mem::transmute_copy(&fdrag), core::mem::transmute_copy(&grfkeystate)) {
-                    Ok(ok__) => {
-                        pdweffect.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRichEditOleCallback_Impl::GetDragDropEffect(this, core::mem::transmute_copy(&fdrag), core::mem::transmute_copy(&grfkeystate), core::mem::transmute_copy(&pdweffect)).into()
             }
         }
         unsafe extern "system" fn GetContextMenu<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seltype: u16, lpoleobj: *mut core::ffi::c_void, lpchrg: *mut super::CHARRANGE, lphmenu: *mut super::HMENU) -> windows_core::HRESULT {
@@ -462,8 +457,10 @@ impl IRichEditOleCallback_Vtbl {
         iid == &<IRichEditOleCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "windef", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl windows_core::RuntimeName for IRichEditOleCallback {}
+pub type LPRICHEDITOLE = IRichEditOle;
+pub type LPRICHEDITOLECALLBACK = IRichEditOleCallback;
 pub const RECO_COPY: i32 = 2;
 pub const RECO_CUT: i32 = 3;
 pub const RECO_DRAG: i32 = 4;
@@ -476,9 +473,9 @@ pub struct REOBJECT {
     pub cbStruct: u32,
     pub cp: i32,
     pub clsid: windows_core::GUID,
-    pub poleobj: core::mem::ManuallyDrop<Option<super::IOleObject>>,
-    pub pstg: core::mem::ManuallyDrop<Option<super::IStorage>>,
-    pub polesite: core::mem::ManuallyDrop<Option<super::IOleClientSite>>,
+    pub poleobj: Option<super::LPOLEOBJECT>,
+    pub pstg: Option<super::LPSTORAGE>,
+    pub polesite: Option<super::LPOLECLIENTSITE>,
     pub sizel: super::SIZEL,
     pub dvaspect: u32,
     pub dwFlags: u32,

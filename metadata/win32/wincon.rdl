@@ -1,6 +1,10 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[arch(X86)]
+        const CONSOLE_REAL_INPUT_HANDLE: HANDLE = -3;
+        #[arch(X86)]
+        const CONSOLE_REAL_OUTPUT_HANDLE: HANDLE = -2;
         const CONSOLE_TEXTMODE_BUFFER: i32 = 1;
     }
 }

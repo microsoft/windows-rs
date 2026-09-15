@@ -9,26 +9,61 @@ mod Windows {
             dwLowDateTime: u32,
             dwHighDateTime: u32,
         }
+        type FLOAT = f32;
         type GLOBALHANDLE = HANDLE;
         type HFILE = i32;
         type HGLOBAL = HANDLE;
-        type HINSTANCE = *mut void;
-        type HKEY = *mut void;
-        type HKL = *mut void;
+        type HINSTANCE = *mut HINSTANCE__;
+        struct HINSTANCE__ {
+            unused: i32,
+        }
+        type HKEY = *mut HKEY__;
+        struct HKEY__ {
+            unused: i32,
+        }
+        type HKL = *mut HKL__;
+        struct HKL__ {
+            unused: i32,
+        }
         type HLOCAL = HANDLE;
-        type HLSURF = *mut void;
-        type HMETAFILE = *mut void;
+        type HLSURF = *mut HLSURF__;
+        struct HLSURF__ {
+            unused: i32,
+        }
+        type HMETAFILE = *mut HMETAFILE__;
+        struct HMETAFILE__ {
+            unused: i32,
+        }
         type HMODULE = HINSTANCE;
-        type HRGN = *mut void;
-        type HRSRC = *mut void;
-        type HSPRITE = *mut void;
-        type HSTR = *mut void;
-        type HTASK = *mut void;
-        type HWINSTA = *mut void;
+        type HRGN = *mut HRGN__;
+        struct HRGN__ {
+            unused: i32,
+        }
+        type HRSRC = *mut HRSRC__;
+        struct HRSRC__ {
+            unused: i32,
+        }
+        type HSPRITE = *mut HSPRITE__;
+        struct HSPRITE__ {
+            unused: i32,
+        }
+        type HSTR = *mut HSTR__;
+        struct HSTR__ {
+            unused: i32,
+        }
+        type HTASK = *mut HTASK__;
+        struct HTASK__ {
+            unused: i32,
+        }
+        type HWINSTA = *mut HWINSTA__;
+        struct HWINSTA__ {
+            unused: i32,
+        }
         type LOCALHANDLE = HANDLE;
         type LPARAM = isize;
         type LPBOOL = *mut BOOL;
         type LPBYTE = *mut u8;
+        type LPCVOID = *const void;
         type LPDWORD = *mut u32;
         type LPFILETIME = *mut FILETIME;
         type LPHANDLE = *mut HANDLE;
@@ -42,7 +77,7 @@ mod Windows {
         type PBYTE = *mut u8;
         type PDWORD = *mut u32;
         type PFILETIME = *mut FILETIME;
-        type PFLOAT = *mut f32;
+        type PFLOAT = *mut FLOAT;
         type PHKEY = *mut HKEY;
         type PINT = *mut i32;
         extern fn PROC() -> isize;

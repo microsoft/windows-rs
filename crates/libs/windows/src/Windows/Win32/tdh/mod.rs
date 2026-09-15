@@ -1,13 +1,13 @@
-#[cfg(feature = "evntprov")]
+#[cfg(all(feature = "evntprov", feature = "evntrace", feature = "winnt"))]
 #[inline]
-pub unsafe fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const core::ffi::c_void, eventmatchallflags: Option<*const bool>, eventfilterdescriptor: *mut super::EVENT_FILTER_DESCRIPTOR) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhAggregatePayloadFilters(payloadfiltercount : u32, payloadfilterptrs : *const *const core::ffi::c_void, eventmatchallflags : *const bool, eventfilterdescriptor : *mut super::EVENT_FILTER_DESCRIPTOR) -> TDHSTATUS);
+pub unsafe fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const core::ffi::c_void, eventmatchallflags: Option<super::PBOOLEAN>, eventfilterdescriptor: super::PEVENT_FILTER_DESCRIPTOR) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhAggregatePayloadFilters(payloadfiltercount : u32, payloadfilterptrs : *const *const core::ffi::c_void, eventmatchallflags : super::PBOOLEAN, eventfilterdescriptor : super::PEVENT_FILTER_DESCRIPTOR) -> TDHSTATUS);
     unsafe { TdhAggregatePayloadFilters(payloadfiltercount, payloadfilterptrs, eventmatchallflags.unwrap_or(core::mem::zeroed()) as _, eventfilterdescriptor as _) }
 }
-#[cfg(feature = "evntprov")]
+#[cfg(all(feature = "evntprov", feature = "evntrace"))]
 #[inline]
-pub unsafe fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: *mut super::EVENT_FILTER_DESCRIPTOR) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor : *mut super::EVENT_FILTER_DESCRIPTOR) -> TDHSTATUS);
+pub unsafe fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: super::PEVENT_FILTER_DESCRIPTOR) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor : super::PEVENT_FILTER_DESCRIPTOR) -> TDHSTATUS);
     unsafe { TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor as _) }
 }
 #[cfg(feature = "winnt")]
@@ -16,36 +16,38 @@ pub unsafe fn TdhCloseDecodingHandle(handle: TDH_HANDLE) -> TDHSTATUS {
     windows_core::link!("tdh.dll" "system" fn TdhCloseDecodingHandle(handle : TDH_HANDLE) -> TDHSTATUS);
     unsafe { TdhCloseDecodingHandle(handle) }
 }
-#[cfg(feature = "evntprov")]
+#[cfg(all(feature = "evntprov", feature = "guiddef", feature = "winnt"))]
 #[inline]
-pub unsafe fn TdhCreatePayloadFilter(providerguid: *const windows_core::GUID, eventdescriptor: *const super::EVENT_DESCRIPTOR, eventmatchany: bool, payloadpredicates: &[PAYLOAD_FILTER_PREDICATE], payloadfilter: *mut *mut core::ffi::c_void) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhCreatePayloadFilter(providerguid : *const windows_core::GUID, eventdescriptor : *const super::EVENT_DESCRIPTOR, eventmatchany : bool, payloadpredicatecount : u32, payloadpredicates : *const PAYLOAD_FILTER_PREDICATE, payloadfilter : *mut *mut core::ffi::c_void) -> TDHSTATUS);
-    unsafe { TdhCreatePayloadFilter(providerguid, eventdescriptor, eventmatchany, payloadpredicates.len().try_into().unwrap(), payloadpredicates.as_ptr(), payloadfilter as _) }
+pub unsafe fn TdhCreatePayloadFilter(providerguid: super::LPCGUID, eventdescriptor: super::PCEVENT_DESCRIPTOR, eventmatchany: super::BOOLEAN, payloadpredicates: &[PAYLOAD_FILTER_PREDICATE], payloadfilter: *mut *mut core::ffi::c_void) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhCreatePayloadFilter(providerguid : super::LPCGUID, eventdescriptor : super::PCEVENT_DESCRIPTOR, eventmatchany : super::BOOLEAN, payloadpredicatecount : u32, payloadpredicates : PPAYLOAD_FILTER_PREDICATE, payloadfilter : *mut *mut core::ffi::c_void) -> TDHSTATUS);
+    unsafe { TdhCreatePayloadFilter(providerguid, eventdescriptor, eventmatchany, payloadpredicates.len().try_into().unwrap(), core::mem::transmute(payloadpredicates.as_ptr()), payloadfilter as _) }
 }
 #[inline]
 pub unsafe fn TdhDeletePayloadFilter(payloadfilter: *mut *mut core::ffi::c_void) -> TDHSTATUS {
     windows_core::link!("tdh.dll" "system" fn TdhDeletePayloadFilter(payloadfilter : *mut *mut core::ffi::c_void) -> TDHSTATUS);
     unsafe { TdhDeletePayloadFilter(payloadfilter as _) }
 }
-#[cfg(feature = "evntprov")]
+#[cfg(all(feature = "evntprov", feature = "guiddef"))]
 #[inline]
-pub unsafe fn TdhEnumerateManifestProviderEvents(providerguid: *const windows_core::GUID, buffer: Option<*mut PROVIDER_EVENT_INFO>, buffersize: *mut u32) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhEnumerateManifestProviderEvents(providerguid : *const windows_core::GUID, buffer : *mut PROVIDER_EVENT_INFO, buffersize : *mut u32) -> TDHSTATUS);
+pub unsafe fn TdhEnumerateManifestProviderEvents(providerguid: super::LPGUID, buffer: Option<PPROVIDER_EVENT_INFO>, buffersize: *mut u32) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhEnumerateManifestProviderEvents(providerguid : super::LPGUID, buffer : PPROVIDER_EVENT_INFO, buffersize : *mut u32) -> TDHSTATUS);
     unsafe { TdhEnumerateManifestProviderEvents(providerguid, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
+#[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn TdhEnumerateProviderFieldInformation(pguid: *const windows_core::GUID, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: Option<*mut PROVIDER_FIELD_INFOARRAY>, pbuffersize: *mut u32) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhEnumerateProviderFieldInformation(pguid : *const windows_core::GUID, eventfieldtype : EVENT_FIELD_TYPE, pbuffer : *mut PROVIDER_FIELD_INFOARRAY, pbuffersize : *mut u32) -> TDHSTATUS);
+pub unsafe fn TdhEnumerateProviderFieldInformation(pguid: super::LPGUID, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: Option<PPROVIDER_FIELD_INFOARRAY>, pbuffersize: *mut u32) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhEnumerateProviderFieldInformation(pguid : super::LPGUID, eventfieldtype : EVENT_FIELD_TYPE, pbuffer : PPROVIDER_FIELD_INFOARRAY, pbuffersize : *mut u32) -> TDHSTATUS);
     unsafe { TdhEnumerateProviderFieldInformation(pguid, eventfieldtype, pbuffer.unwrap_or(core::mem::zeroed()) as _, pbuffersize as _) }
 }
+#[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn TdhEnumerateProviderFilters(guid: *const windows_core::GUID, tdhcontext: Option<&[TDH_CONTEXT]>, filtercount: *mut u32, buffer: Option<*mut PPROVIDER_FILTER_INFO>, buffersize: *mut u32) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhEnumerateProviderFilters(guid : *const windows_core::GUID, tdhcontextcount : u32, tdhcontext : *const TDH_CONTEXT, filtercount : *mut u32, buffer : *mut PPROVIDER_FILTER_INFO, buffersize : *mut u32) -> TDHSTATUS);
-    unsafe { TdhEnumerateProviderFilters(guid, tdhcontext.map_or(0, |slice| slice.len().try_into().unwrap()), tdhcontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), filtercount as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
+pub unsafe fn TdhEnumerateProviderFilters(guid: super::LPGUID, tdhcontext: Option<&[TDH_CONTEXT]>, filtercount: *mut u32, buffer: Option<*mut PPROVIDER_FILTER_INFO>, buffersize: *mut u32) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhEnumerateProviderFilters(guid : super::LPGUID, tdhcontextcount : u32, tdhcontext : PTDH_CONTEXT, filtercount : *mut u32, buffer : *mut PPROVIDER_FILTER_INFO, buffersize : *mut u32) -> TDHSTATUS);
+    unsafe { TdhEnumerateProviderFilters(guid, tdhcontext.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(tdhcontext.map_or(core::ptr::null(), |slice| slice.as_ptr())), filtercount as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[inline]
-pub unsafe fn TdhEnumerateProviders(pbuffer: Option<*mut PROVIDER_ENUMERATION_INFO>, pbuffersize: *mut u32) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhEnumerateProviders(pbuffer : *mut PROVIDER_ENUMERATION_INFO, pbuffersize : *mut u32) -> TDHSTATUS);
+pub unsafe fn TdhEnumerateProviders(pbuffer: Option<PPROVIDER_ENUMERATION_INFO>, pbuffersize: *mut u32) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhEnumerateProviders(pbuffer : PPROVIDER_ENUMERATION_INFO, pbuffersize : *mut u32) -> TDHSTATUS);
     unsafe { TdhEnumerateProviders(pbuffer.unwrap_or(core::mem::zeroed()) as _, pbuffersize as _) }
 }
 #[inline]
@@ -53,64 +55,64 @@ pub unsafe fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, bu
     windows_core::link!("tdh.dll" "system" fn TdhEnumerateProvidersForDecodingSource(filter : DECODING_SOURCE, buffer : *mut PROVIDER_ENUMERATION_INFO, buffersize : u32, bufferrequired : *mut u32) -> TDHSTATUS);
     unsafe { TdhEnumerateProvidersForDecodingSource(filter, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, bufferrequired as _) }
 }
-#[cfg(feature = "evntprov")]
+#[cfg(all(feature = "evntprov", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn TdhFormatProperty(eventinfo: *const TRACE_EVENT_INFO, mapinfo: Option<*const EVENT_MAP_INFO>, pointersize: u32, propertyintype: u16, propertyouttype: u16, propertylength: u16, userdata: &[u8], buffersize: *mut u32, buffer: Option<*mut u16>, userdataconsumed: *mut u16) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhFormatProperty(eventinfo : *const TRACE_EVENT_INFO, mapinfo : *const EVENT_MAP_INFO, pointersize : u32, propertyintype : u16, propertyouttype : u16, propertylength : u16, userdatalength : u16, userdata : *const u8, buffersize : *mut u32, buffer : *mut u16, userdataconsumed : *mut u16) -> TDHSTATUS);
-    unsafe { TdhFormatProperty(eventinfo, mapinfo.unwrap_or(core::mem::zeroed()) as _, pointersize, propertyintype, propertyouttype, propertylength, userdata.len().try_into().unwrap(), userdata.as_ptr(), buffersize as _, buffer.unwrap_or(core::mem::zeroed()) as _, userdataconsumed as _) }
+pub unsafe fn TdhFormatProperty(eventinfo: PTRACE_EVENT_INFO, mapinfo: Option<PEVENT_MAP_INFO>, pointersize: u32, propertyintype: u16, propertyouttype: u16, propertylength: u16, userdata: &[u8], buffersize: super::PULONG, buffer: Option<super::PWCHAR>, userdataconsumed: super::PUSHORT) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhFormatProperty(eventinfo : PTRACE_EVENT_INFO, mapinfo : PEVENT_MAP_INFO, pointersize : u32, propertyintype : u16, propertyouttype : u16, propertylength : u16, userdatalength : u16, userdata : super::PBYTE, buffersize : super::PULONG, buffer : super::PWCHAR, userdataconsumed : super::PUSHORT) -> TDHSTATUS);
+    unsafe { TdhFormatProperty(eventinfo, mapinfo.unwrap_or(core::mem::zeroed()) as _, pointersize, propertyintype, propertyouttype, propertylength, userdata.len().try_into().unwrap(), core::mem::transmute(userdata.as_ptr()), buffersize as _, buffer.unwrap_or(core::mem::zeroed()) as _, userdataconsumed as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn TdhGetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *mut TDH_CONTEXT) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhGetDecodingParameter(handle : TDH_HANDLE, tdhcontext : *mut TDH_CONTEXT) -> TDHSTATUS);
+pub unsafe fn TdhGetDecodingParameter(handle: TDH_HANDLE, tdhcontext: PTDH_CONTEXT) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhGetDecodingParameter(handle : TDH_HANDLE, tdhcontext : PTDH_CONTEXT) -> TDHSTATUS);
     unsafe { TdhGetDecodingParameter(handle, tdhcontext as _) }
 }
-#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn TdhGetEventInformation(event: *const super::EVENT_RECORD, tdhcontext: Option<&[TDH_CONTEXT]>, buffer: Option<*mut TRACE_EVENT_INFO>, buffersize: *mut u32) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhGetEventInformation(event : *const super::EVENT_RECORD, tdhcontextcount : u32, tdhcontext : *const TDH_CONTEXT, buffer : *mut TRACE_EVENT_INFO, buffersize : *mut u32) -> TDHSTATUS);
-    unsafe { TdhGetEventInformation(event, tdhcontext.map_or(0, |slice| slice.len().try_into().unwrap()), tdhcontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
+pub unsafe fn TdhGetEventInformation(event: super::PEVENT_RECORD, tdhcontext: Option<&[TDH_CONTEXT]>, buffer: Option<PTRACE_EVENT_INFO>, buffersize: super::PULONG) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhGetEventInformation(event : super::PEVENT_RECORD, tdhcontextcount : u32, tdhcontext : PTDH_CONTEXT, buffer : PTRACE_EVENT_INFO, buffersize : super::PULONG) -> TDHSTATUS);
+    unsafe { TdhGetEventInformation(event, tdhcontext.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(tdhcontext.map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
-#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace", feature = "winnt"))]
 #[inline]
-pub unsafe fn TdhGetEventMapInformation<P1>(pevent: *const super::EVENT_RECORD, pmapname: P1, pbuffer: Option<*mut EVENT_MAP_INFO>, pbuffersize: *mut u32) -> TDHSTATUS
+pub unsafe fn TdhGetEventMapInformation<P1>(pevent: super::PEVENT_RECORD, pmapname: P1, pbuffer: Option<PEVENT_MAP_INFO>, pbuffersize: *mut u32) -> TDHSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("tdh.dll" "system" fn TdhGetEventMapInformation(pevent : *const super::EVENT_RECORD, pmapname : windows_core::PCWSTR, pbuffer : *mut EVENT_MAP_INFO, pbuffersize : *mut u32) -> TDHSTATUS);
+    windows_core::link!("tdh.dll" "system" fn TdhGetEventMapInformation(pevent : super::PEVENT_RECORD, pmapname : windows_core::PCWSTR, pbuffer : PEVENT_MAP_INFO, pbuffersize : *mut u32) -> TDHSTATUS);
     unsafe { TdhGetEventMapInformation(pevent, pmapname.param().abi(), pbuffer.unwrap_or(core::mem::zeroed()) as _, pbuffersize as _) }
 }
-#[cfg(feature = "evntprov")]
+#[cfg(all(feature = "evntprov", feature = "guiddef"))]
 #[inline]
-pub unsafe fn TdhGetManifestEventInformation(providerguid: *const windows_core::GUID, eventdescriptor: *const super::EVENT_DESCRIPTOR, buffer: Option<*mut TRACE_EVENT_INFO>, buffersize: *mut u32) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhGetManifestEventInformation(providerguid : *const windows_core::GUID, eventdescriptor : *const super::EVENT_DESCRIPTOR, buffer : *mut TRACE_EVENT_INFO, buffersize : *mut u32) -> TDHSTATUS);
+pub unsafe fn TdhGetManifestEventInformation(providerguid: super::LPGUID, eventdescriptor: super::PEVENT_DESCRIPTOR, buffer: Option<PTRACE_EVENT_INFO>, buffersize: *mut u32) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhGetManifestEventInformation(providerguid : super::LPGUID, eventdescriptor : super::PEVENT_DESCRIPTOR, buffer : PTRACE_EVENT_INFO, buffersize : *mut u32) -> TDHSTATUS);
     unsafe { TdhGetManifestEventInformation(providerguid, eventdescriptor, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
-#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn TdhGetProperty(pevent: *const super::EVENT_RECORD, ptdhcontext: Option<&[TDH_CONTEXT]>, ppropertydata: &[PROPERTY_DATA_DESCRIPTOR], buffersize: u32, pbuffer: *mut u8) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhGetProperty(pevent : *const super::EVENT_RECORD, tdhcontextcount : u32, ptdhcontext : *const TDH_CONTEXT, propertydatacount : u32, ppropertydata : *const PROPERTY_DATA_DESCRIPTOR, buffersize : u32, pbuffer : *mut u8) -> TDHSTATUS);
-    unsafe { TdhGetProperty(pevent, ptdhcontext.map_or(0, |slice| slice.len().try_into().unwrap()), ptdhcontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), ppropertydata.len().try_into().unwrap(), ppropertydata.as_ptr(), buffersize, pbuffer as _) }
-}
-#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace"))]
-#[inline]
-pub unsafe fn TdhGetPropertySize(pevent: *const super::EVENT_RECORD, ptdhcontext: Option<&[TDH_CONTEXT]>, ppropertydata: &[PROPERTY_DATA_DESCRIPTOR], ppropertysize: *mut u32) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhGetPropertySize(pevent : *const super::EVENT_RECORD, tdhcontextcount : u32, ptdhcontext : *const TDH_CONTEXT, propertydatacount : u32, ppropertydata : *const PROPERTY_DATA_DESCRIPTOR, ppropertysize : *mut u32) -> TDHSTATUS);
-    unsafe { TdhGetPropertySize(pevent, ptdhcontext.map_or(0, |slice| slice.len().try_into().unwrap()), ptdhcontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), ppropertydata.len().try_into().unwrap(), ppropertydata.as_ptr(), ppropertysize as _) }
+pub unsafe fn TdhGetProperty(pevent: super::PEVENT_RECORD, ptdhcontext: Option<&[TDH_CONTEXT]>, ppropertydata: &[PROPERTY_DATA_DESCRIPTOR], buffersize: u32, pbuffer: super::PBYTE) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhGetProperty(pevent : super::PEVENT_RECORD, tdhcontextcount : u32, ptdhcontext : PTDH_CONTEXT, propertydatacount : u32, ppropertydata : PPROPERTY_DATA_DESCRIPTOR, buffersize : u32, pbuffer : super::PBYTE) -> TDHSTATUS);
+    unsafe { TdhGetProperty(pevent, ptdhcontext.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ptdhcontext.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppropertydata.len().try_into().unwrap(), core::mem::transmute(ppropertydata.as_ptr()), buffersize, pbuffer as _) }
 }
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace", feature = "winnt"))]
 #[inline]
-pub unsafe fn TdhGetWppMessage(handle: TDH_HANDLE, eventrecord: *const super::EVENT_RECORD, buffersize: *mut u32, buffer: *mut u8) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhGetWppMessage(handle : TDH_HANDLE, eventrecord : *const super::EVENT_RECORD, buffersize : *mut u32, buffer : *mut u8) -> TDHSTATUS);
+pub unsafe fn TdhGetPropertySize(pevent: super::PEVENT_RECORD, ptdhcontext: Option<&[TDH_CONTEXT]>, ppropertydata: &[PROPERTY_DATA_DESCRIPTOR], ppropertysize: *mut u32) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhGetPropertySize(pevent : super::PEVENT_RECORD, tdhcontextcount : u32, ptdhcontext : PTDH_CONTEXT, propertydatacount : u32, ppropertydata : PPROPERTY_DATA_DESCRIPTOR, ppropertysize : *mut u32) -> TDHSTATUS);
+    unsafe { TdhGetPropertySize(pevent, ptdhcontext.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ptdhcontext.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppropertydata.len().try_into().unwrap(), core::mem::transmute(ppropertydata.as_ptr()), ppropertysize as _) }
+}
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace", feature = "minwindef", feature = "winnt"))]
+#[inline]
+pub unsafe fn TdhGetWppMessage(handle: TDH_HANDLE, eventrecord: super::PEVENT_RECORD, buffersize: super::PULONG, buffer: super::PBYTE) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhGetWppMessage(handle : TDH_HANDLE, eventrecord : super::PEVENT_RECORD, buffersize : super::PULONG, buffer : super::PBYTE) -> TDHSTATUS);
     unsafe { TdhGetWppMessage(handle, eventrecord, buffersize as _, buffer as _) }
 }
-#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace", feature = "winnt"))]
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn TdhGetWppProperty<P2>(handle: TDH_HANDLE, eventrecord: *const super::EVENT_RECORD, propertyname: P2, buffersize: *mut u32, buffer: *mut u8) -> TDHSTATUS
+pub unsafe fn TdhGetWppProperty<P2>(handle: TDH_HANDLE, eventrecord: super::PEVENT_RECORD, propertyname: P2, buffersize: super::PULONG, buffer: super::PBYTE) -> TDHSTATUS
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("tdh.dll" "system" fn TdhGetWppProperty(handle : TDH_HANDLE, eventrecord : *const super::EVENT_RECORD, propertyname : windows_core::PCWSTR, buffersize : *mut u32, buffer : *mut u8) -> TDHSTATUS);
+    windows_core::link!("tdh.dll" "system" fn TdhGetWppProperty(handle : TDH_HANDLE, eventrecord : super::PEVENT_RECORD, propertyname : windows_core::PCWSTR, buffersize : super::PULONG, buffer : super::PBYTE) -> TDHSTATUS);
     unsafe { TdhGetWppProperty(handle, eventrecord, propertyname.param().abi(), buffersize as _, buffer as _) }
 }
 #[inline]
@@ -129,26 +131,28 @@ where
     windows_core::link!("tdh.dll" "system" fn TdhLoadManifestFromBinary(binarypath : windows_core::PCWSTR) -> TDHSTATUS);
     unsafe { TdhLoadManifestFromBinary(binarypath.param().abi()) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn TdhLoadManifestFromMemory(pdata: *const core::ffi::c_void, cbdata: u32) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhLoadManifestFromMemory(pdata : *const core::ffi::c_void, cbdata : u32) -> TDHSTATUS);
+pub unsafe fn TdhLoadManifestFromMemory(pdata: super::LPCVOID, cbdata: u32) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhLoadManifestFromMemory(pdata : super::LPCVOID, cbdata : u32) -> TDHSTATUS);
     unsafe { TdhLoadManifestFromMemory(pdata, cbdata) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn TdhOpenDecodingHandle(handle: *mut super::HANDLE) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhOpenDecodingHandle(handle : *mut super::HANDLE) -> TDHSTATUS);
+pub unsafe fn TdhOpenDecodingHandle(handle: PTDH_HANDLE) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhOpenDecodingHandle(handle : PTDH_HANDLE) -> TDHSTATUS);
     unsafe { TdhOpenDecodingHandle(handle as _) }
 }
+#[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn TdhQueryProviderFieldInformation(pguid: *const windows_core::GUID, eventfieldvalue: u64, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: Option<*mut PROVIDER_FIELD_INFOARRAY>, pbuffersize: *mut u32) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhQueryProviderFieldInformation(pguid : *const windows_core::GUID, eventfieldvalue : u64, eventfieldtype : EVENT_FIELD_TYPE, pbuffer : *mut PROVIDER_FIELD_INFOARRAY, pbuffersize : *mut u32) -> TDHSTATUS);
+pub unsafe fn TdhQueryProviderFieldInformation(pguid: super::LPGUID, eventfieldvalue: u64, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: Option<PPROVIDER_FIELD_INFOARRAY>, pbuffersize: *mut u32) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhQueryProviderFieldInformation(pguid : super::LPGUID, eventfieldvalue : u64, eventfieldtype : EVENT_FIELD_TYPE, pbuffer : PPROVIDER_FIELD_INFOARRAY, pbuffersize : *mut u32) -> TDHSTATUS);
     unsafe { TdhQueryProviderFieldInformation(pguid, eventfieldvalue, eventfieldtype, pbuffer.unwrap_or(core::mem::zeroed()) as _, pbuffersize as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn TdhSetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *const TDH_CONTEXT) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhSetDecodingParameter(handle : TDH_HANDLE, tdhcontext : *const TDH_CONTEXT) -> TDHSTATUS);
+pub unsafe fn TdhSetDecodingParameter(handle: TDH_HANDLE, tdhcontext: PTDH_CONTEXT) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhSetDecodingParameter(handle : TDH_HANDLE, tdhcontext : PTDH_CONTEXT) -> TDHSTATUS);
     unsafe { TdhSetDecodingParameter(handle, tdhcontext) }
 }
 #[inline]
@@ -159,9 +163,10 @@ where
     windows_core::link!("tdh.dll" "system" fn TdhUnloadManifest(manifest : windows_core::PCWSTR) -> TDHSTATUS);
     unsafe { TdhUnloadManifest(manifest.param().abi()) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn TdhUnloadManifestFromMemory(pdata: *const core::ffi::c_void, cbdata: u32) -> TDHSTATUS {
-    windows_core::link!("tdh.dll" "system" fn TdhUnloadManifestFromMemory(pdata : *const core::ffi::c_void, cbdata : u32) -> TDHSTATUS);
+pub unsafe fn TdhUnloadManifestFromMemory(pdata: super::LPCVOID, cbdata: u32) -> TDHSTATUS {
+    windows_core::link!("tdh.dll" "system" fn TdhUnloadManifestFromMemory(pdata : super::LPCVOID, cbdata : u32) -> TDHSTATUS);
     unsafe { TdhUnloadManifestFromMemory(pdata, cbdata) }
 }
 pub type DECODING_SOURCE = i32;
@@ -245,9 +250,9 @@ impl Default for EVENT_PROPERTY_INFO {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union EVENT_PROPERTY_INFO_0 {
-    pub nonStructType: EVENT_PROPERTY_INFO_0_0,
-    pub structType: EVENT_PROPERTY_INFO_0_1,
-    pub customSchemaType: EVENT_PROPERTY_INFO_0_2,
+    pub nonStructType: _nonStructType,
+    pub structType: _structType,
+    pub customSchemaType: _customSchemaType,
 }
 impl Default for EVENT_PROPERTY_INFO_0 {
     fn default() -> Self {
@@ -299,27 +304,6 @@ impl EVENT_PROPERTY_INFO_3_0 {
     pub fn set_Tags(&mut self, value: u32) {
         self._bitfield = (self._bitfield & !268435455) | (value & 268435455);
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EVENT_PROPERTY_INFO_0_0 {
-    pub InType: u16,
-    pub OutType: u16,
-    pub MapNameOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EVENT_PROPERTY_INFO_0_1 {
-    pub StructStartIndex: u16,
-    pub NumOfStructMembers: u16,
-    pub padding: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EVENT_PROPERTY_INFO_0_2 {
-    pub InType: u16,
-    pub OutType: u16,
-    pub CustomSchemaOffset: u32,
 }
 pub const EventChannelInformation: EVENT_FIELD_TYPE = 2;
 pub const EventInformationMax: EVENT_FIELD_TYPE = 5;
@@ -445,9 +429,7 @@ pub const PropertyParamFixedLength: PROPERTY_FLAGS = 16;
 pub const PropertyParamLength: PROPERTY_FLAGS = 2;
 pub const PropertyStruct: PROPERTY_FLAGS = 1;
 pub const PropertyWBEMXmlFragment: PROPERTY_FLAGS = 8;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TDHSTATUS(pub u32);
+pub type TDHSTATUS = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TDH_CONTEXT {
@@ -542,7 +524,7 @@ pub const TDH_OUTTYPE_UNSIGNEDSHORT: _TDH_OUT_TYPE = 6;
 pub const TDH_OUTTYPE_UTF8: _TDH_OUT_TYPE = 35;
 pub const TDH_OUTTYPE_WIN32ERROR: _TDH_OUT_TYPE = 30;
 pub const TDH_OUTTYPE_XML: _TDH_OUT_TYPE = 28;
-pub const TDH_OUTYTPE_ERRORCODE: i32 = 29;
+pub const TDH_OUTYTPE_ERRORCODE: _TDH_OUT_TYPE = 29;
 pub const TEMPLATE_CONTROL_GUID: TEMPLATE_FLAGS = 4;
 pub const TEMPLATE_EVENT_DATA: TEMPLATE_FLAGS = 1;
 pub type TEMPLATE_FLAGS = i32;
@@ -647,3 +629,24 @@ pub struct TRACE_PROVIDER_INFO {
 }
 pub type _TDH_IN_TYPE = i32;
 pub type _TDH_OUT_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _customSchemaType {
+    pub InType: u16,
+    pub OutType: u16,
+    pub CustomSchemaOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _nonStructType {
+    pub InType: u16,
+    pub OutType: u16,
+    pub MapNameOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _structType {
+    pub StructStartIndex: u16,
+    pub NumOfStructMembers: u16,
+    pub padding: u32,
+}

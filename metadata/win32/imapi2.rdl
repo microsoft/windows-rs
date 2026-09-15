@@ -447,7 +447,7 @@ mod Windows {
         interface IDiscRecorder2: IDispatch {
             fn EjectMedia(&self) -> HRESULT;
             fn CloseTray(&self) -> HRESULT;
-            fn AcquireExclusiveAccess(&self, force: VARIANT_BOOL, param1: BSTR) -> HRESULT;
+            fn AcquireExclusiveAccess(&self, force: VARIANT_BOOL, __MIDL__IDiscRecorder20000: BSTR) -> HRESULT;
             fn ReleaseExclusiveAccess(&self) -> HRESULT;
             fn DisableMcn(&self) -> HRESULT;
             fn EnableMcn(&self) -> HRESULT;
@@ -483,20 +483,20 @@ mod Windows {
         }
         #[guid(0x27354132_7f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscRecorder2Ex: IUnknown {
-            fn SendCommandNoData(&self, Cdb: *const u8, CdbSize: u32, #[len_const(18)] SenseBuffer: *mut u8, Timeout: u32) -> HRESULT;
-            fn SendCommandSendDataToDevice(&self, Cdb: *const u8, CdbSize: u32, #[len_const(18)] SenseBuffer: *mut u8, Timeout: u32, Buffer: *const u8, BufferSize: ULONG_IMAPI2_NONZERO) -> HRESULT;
-            fn SendCommandGetDataFromDevice(&self, Cdb: *const u8, CdbSize: u32, #[len_const(18)] SenseBuffer: *mut u8, Timeout: u32, Buffer: *mut u8, BufferSize: ULONG_IMAPI2_NONZERO, BufferFetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> HRESULT;
+            fn SendCommandNoData(&self, #[in] Cdb: *mut u8, CdbSize: u32, SenseBuffer: *mut u8, Timeout: u32) -> HRESULT;
+            fn SendCommandSendDataToDevice(&self, #[in] Cdb: *mut u8, CdbSize: u32, SenseBuffer: *mut u8, Timeout: u32, #[in] Buffer: *mut u8, BufferSize: ULONG_IMAPI2_NONZERO) -> HRESULT;
+            fn SendCommandGetDataFromDevice(&self, #[in] Cdb: *mut u8, CdbSize: u32, SenseBuffer: *mut u8, Timeout: u32, Buffer: *mut u8, BufferSize: ULONG_IMAPI2_NONZERO, BufferFetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> HRESULT;
             fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
-            fn SendDvdStructure(&self, format: u32, data: *const u8, count: ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
+            fn SendDvdStructure(&self, format: u32, #[in] data: *mut u8, count: ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
             fn GetAdapterDescriptor(&self, data: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_ADAPTER_DESCRIPTOR) -> HRESULT;
             fn GetDeviceDescriptor(&self, data: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_DEVICE_DESCRIPTOR) -> HRESULT;
             fn GetDiscInformation(&self, discInformation: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_DISC_INFORMATION) -> HRESULT;
             fn GetTrackInformation(&self, address: u32, addressType: IMAPI_READ_TRACK_ADDRESS_TYPE, trackInformation: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_TRACK_INFORMATION) -> HRESULT;
-            fn GetFeaturePage(&self, requestedFeature: IMAPI_FEATURE_PAGE_TYPE, currentFeatureOnly: bool, featureData: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> HRESULT;
+            fn GetFeaturePage(&self, requestedFeature: IMAPI_FEATURE_PAGE_TYPE, currentFeatureOnly: BOOLEAN, featureData: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> HRESULT;
             fn GetModePage(&self, requestedModePage: IMAPI_MODE_PAGE_TYPE, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, modePageData: *mut *mut u8, byteSize: *mut ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
-            fn SetModePage(&self, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *const u8, byteSize: ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
-            fn GetSupportedFeaturePages(&self, currentFeatureOnly: bool, featureData: *mut *mut IMAPI_FEATURE_PAGE_TYPE, byteSize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> HRESULT;
-            fn GetSupportedProfiles(&self, currentOnly: bool, profileTypes: *mut *mut IMAPI_PROFILE_TYPE, validProfiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> HRESULT;
+            fn SetModePage(&self, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[in] data: *mut u8, byteSize: ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
+            fn GetSupportedFeaturePages(&self, currentFeatureOnly: BOOLEAN, featureData: *mut *mut IMAPI_FEATURE_PAGE_TYPE, byteSize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> HRESULT;
+            fn GetSupportedProfiles(&self, currentOnly: BOOLEAN, profileTypes: *mut *mut IMAPI_PROFILE_TYPE, validProfiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> HRESULT;
             fn GetSupportedModePages(&self, requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, modePageTypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validPages: *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> HRESULT;
             fn GetByteAlignmentMask(&self, #[retval] value: *mut u32) -> HRESULT;
             fn GetMaximumNonPageAlignedTransferSize(&self, #[retval] value: *mut u32) -> HRESULT;
@@ -834,19 +834,19 @@ mod Windows {
         #[guid(0x27354146_7f64_5b0f_8f00_5d77afbe261e)]
         interface IStreamConcatenate: IStream {
             fn Initialize(&self, stream1: IStream, stream2: IStream) -> HRESULT;
-            fn Initialize2(&self, streams: *const IStream, streamCount: u32) -> HRESULT;
+            fn Initialize2(&self, #[in] streams: *mut IStream, streamCount: u32) -> HRESULT;
             fn Append(&self, stream: IStream) -> HRESULT;
-            fn Append2(&self, streams: *const IStream, streamCount: u32) -> HRESULT;
+            fn Append2(&self, #[in] streams: *mut IStream, streamCount: u32) -> HRESULT;
         }
         #[guid(0x27354147_7f64_5b0f_8f00_5d77afbe261e)]
         interface IStreamInterleave: IStream {
-            fn Initialize(&self, streams: *const IStream, interleaveSizes: *const u32, streamCount: u32) -> HRESULT;
+            fn Initialize(&self, #[in] streams: *mut IStream, #[in] interleaveSizes: *mut u32, streamCount: u32) -> HRESULT;
         }
         #[guid(0x27354145_7f64_5b0f_8f00_5d77afbe261e)]
         interface IStreamPseudoRandomBased: IStream {
             fn put_Seed(&self, value: u32) -> HRESULT;
             fn get_Seed(&self, value: *mut u32) -> HRESULT;
-            fn put_ExtendedSeed(&self, values: *const u32, eCount: u32) -> HRESULT;
+            fn put_ExtendedSeed(&self, #[in] values: *mut u32, eCount: u32) -> HRESULT;
             fn get_ExtendedSeed(&self, values: *mut *mut u32, eCount: *mut u32) -> HRESULT;
         }
         #[guid(0x27354135_7f64_5b0f_8f00_5d77afbe261e)]

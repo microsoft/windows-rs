@@ -3,7 +3,7 @@ pub const DISPID_STARTENUM: i32 = -1;
 windows_core::imp::define_interface!(ICanHandleException, ICanHandleException_Vtbl, 0xc5598e60_b307_11d1_b27d_006008c3fbfb);
 windows_core::imp::interface_hierarchy!(ICanHandleException, windows_core::IUnknown);
 impl ICanHandleException {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CanHandleException(&self, pexcepinfo: *const super::EXCEPINFO, pvar: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CanHandleException)(windows_core::Interface::as_raw(self), pexcepinfo, pvar) }
     }
@@ -12,16 +12,16 @@ impl ICanHandleException {
 #[doc(hidden)]
 pub struct ICanHandleException_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub CanHandleException: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::EXCEPINFO, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     CanHandleException: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICanHandleException_Impl: windows_core::IUnknownImpl {
     fn CanHandleException(&self, pexcepinfo: *const super::EXCEPINFO, pvar: *const super::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl ICanHandleException_Vtbl {
     pub const fn new<Identity: ICanHandleException_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CanHandleException<Identity: ICanHandleException_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pexcepinfo: *const super::EXCEPINFO, pvar: *const super::VARIANT) -> windows_core::HRESULT {
@@ -36,7 +36,7 @@ impl ICanHandleException_Vtbl {
         iid == &<ICanHandleException as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICanHandleException {}
 windows_core::imp::define_interface!(IDispError, IDispError_Vtbl, 0xa6ef9861_c720_11d0_9337_00a0c90dcaa9);
 windows_core::imp::interface_hierarchy!(IDispError, windows_core::IUnknown);
@@ -196,7 +196,7 @@ impl IDispatchEx {
             (windows_core::Interface::vtable(self).GetDispID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), grfdex, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "servprov", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "servprov", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn InvokeEx<P6>(&self, id: super::DISPID, lcid: super::LCID, wflags: u16, pdp: *const super::DISPPARAMS, pvarres: Option<*mut super::VARIANT>, pei: Option<*mut super::EXCEPINFO>, pspcaller: P6) -> windows_core::HRESULT
     where
         P6: windows_core::Param<super::IServiceProvider>,
@@ -240,9 +240,9 @@ impl IDispatchEx {
 pub struct IDispatchEx_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub GetDispID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut super::DISPID) -> windows_core::HRESULT,
-    #[cfg(all(feature = "servprov", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "servprov", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub InvokeEx: unsafe extern "system" fn(*mut core::ffi::c_void, super::DISPID, super::LCID, u16, *const super::DISPPARAMS, *mut super::VARIANT, *mut super::EXCEPINFO, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "servprov", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "servprov", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     InvokeEx: usize,
     pub DeleteMemberByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub DeleteMemberByDispID: unsafe extern "system" fn(*mut core::ffi::c_void, super::DISPID) -> windows_core::HRESULT,
@@ -251,7 +251,7 @@ pub struct IDispatchEx_Vtbl {
     pub GetNextDispID: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::DISPID, *mut super::DISPID) -> windows_core::HRESULT,
     pub GetNameSpaceParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "servprov", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "servprov", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDispatchEx_Impl: super::IDispatch_Impl {
     fn GetDispID(&self, bstrname: &windows_core::BSTR, grfdex: u32) -> windows_core::Result<super::DISPID>;
     fn InvokeEx(&self, id: super::DISPID, lcid: super::LCID, wflags: u16, pdp: *const super::DISPPARAMS, pvarres: *mut super::VARIANT, pei: *mut super::EXCEPINFO, pspcaller: windows_core::Ref<super::IServiceProvider>) -> windows_core::Result<()>;
@@ -262,7 +262,7 @@ pub trait IDispatchEx_Impl: super::IDispatch_Impl {
     fn GetNextDispID(&self, grfdex: u32, id: super::DISPID) -> windows_core::Result<super::DISPID>;
     fn GetNameSpaceParent(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "oaidl", feature = "servprov", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "servprov", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDispatchEx_Vtbl {
     pub const fn new<Identity: IDispatchEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDispID<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, grfdex: u32, pid: *mut super::DISPID) -> windows_core::HRESULT {
@@ -359,7 +359,7 @@ impl IDispatchEx_Vtbl {
         iid == &<IDispatchEx as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "servprov", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "servprov", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDispatchEx {}
 windows_core::imp::define_interface!(IObjectIdentity, IObjectIdentity_Vtbl, 0xca04b7e6_0d21_11d1_8cc5_00c04fc2b085);
 windows_core::imp::interface_hierarchy!(IObjectIdentity, windows_core::IUnknown);
@@ -436,7 +436,7 @@ impl windows_core::RuntimeName for IProvideRuntimeContext {}
 windows_core::imp::define_interface!(IVariantChangeType, IVariantChangeType_Vtbl, 0xa6ef9862_c720_11d0_9337_00a0c90dcaa9);
 windows_core::imp::interface_hierarchy!(IVariantChangeType, windows_core::IUnknown);
 impl IVariantChangeType {
-    #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ChangeType(&self, pvardst: *mut super::VARIANT, pvarsrc: *const super::VARIANT, lcid: super::LCID, vtnew: super::VARTYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ChangeType)(windows_core::Interface::as_raw(self), pvardst, pvarsrc, lcid, vtnew) }
     }
@@ -445,16 +445,16 @@ impl IVariantChangeType {
 #[doc(hidden)]
 pub struct IVariantChangeType_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub ChangeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT, *const super::VARIANT, super::LCID, super::VARTYPE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ChangeType: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IVariantChangeType_Impl: windows_core::IUnknownImpl {
     fn ChangeType(&self, pvardst: *mut super::VARIANT, pvarsrc: *const super::VARIANT, lcid: super::LCID, vtnew: super::VARTYPE) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IVariantChangeType_Vtbl {
     pub const fn new<Identity: IVariantChangeType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ChangeType<Identity: IVariantChangeType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardst: *mut super::VARIANT, pvarsrc: *const super::VARIANT, lcid: super::LCID, vtnew: super::VARTYPE) -> windows_core::HRESULT {
@@ -469,7 +469,7 @@ impl IVariantChangeType_Vtbl {
         iid == &<IVariantChangeType as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IVariantChangeType {}
 pub const SID_GetCaller: windows_core::GUID = windows_core::GUID::from_u128(0x4717cc40_bcb9_11d0_9336_00a0c90dcaa9);
 pub const SID_ProvideRuntimeContext: windows_core::GUID = windows_core::GUID::from_u128(0x74a5040c_dd0c_48f0_ac85_194c3259180a);

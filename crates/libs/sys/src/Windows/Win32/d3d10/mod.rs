@@ -1,9 +1,9 @@
 #[cfg(feature = "d3dcommon")]
-windows_link::link!("d3d10.dll" "system" fn D3D10CompileEffectFromMemory(pdata : *const core::ffi::c_void, datalength : usize, psrcfilename : windows_sys::core::PCSTR, pdefines : *const D3D10_SHADER_MACRO, pinclude : *mut core::ffi::c_void, hlslflags : u32, fxflags : u32, ppcompiledeffect : *mut *mut core::ffi::c_void, pperrors : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("d3d10.dll" "system" fn D3D10CompileEffectFromMemory(pdata : *const core::ffi::c_void, datalength : usize, psrcfilename : windows_sys::core::PCSTR, pdefines : *const D3D10_SHADER_MACRO, pinclude : ID3D10Include, hlslflags : u32, fxflags : u32, ppcompiledeffect : *mut *mut core::ffi::c_void, pperrors : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "d3dcommon")]
-windows_link::link!("d3d10.dll" "system" fn D3D10CompileShader(psrcdata : windows_sys::core::PCSTR, srcdatasize : usize, pfilename : windows_sys::core::PCSTR, pdefines : *const D3D10_SHADER_MACRO, pinclude : *mut core::ffi::c_void, pfunctionname : windows_sys::core::PCSTR, pprofile : windows_sys::core::PCSTR, flags : u32, ppshader : *mut *mut core::ffi::c_void, pperrormsgs : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("d3d10.dll" "system" fn D3D10CompileShader(psrcdata : windows_sys::core::PCSTR, srcdatasize : usize, pfilename : windows_sys::core::PCSTR, pdefines : *const D3D10_SHADER_MACRO, pinclude : LPD3D10INCLUDE, pfunctionname : windows_sys::core::PCSTR, pprofile : windows_sys::core::PCSTR, flags : u32, ppshader : *mut *mut core::ffi::c_void, pperrormsgs : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "d3dcommon")]
-windows_link::link!("d3d10.dll" "system" fn D3D10CreateBlob(numbytes : usize, ppbuffer : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("d3d10.dll" "system" fn D3D10CreateBlob(numbytes : usize, ppbuffer : *mut super::LPD3D10BLOB) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "dxgi", feature = "minwindef"))]
 windows_link::link!("d3d10.dll" "system" fn D3D10CreateDevice(padapter : *mut core::ffi::c_void, drivertype : D3D10_DRIVER_TYPE, software : super::HMODULE, flags : u32, sdkversion : u32, ppdevice : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "dxgi", feature = "minwindef"))]
@@ -31,7 +31,7 @@ windows_link::link!("d3d10.dll" "system" fn D3D10GetPixelShaderProfile(pdevice :
 windows_link::link!("d3d10.dll" "system" fn D3D10GetShaderDebugInfo(pshaderbytecode : *const core::ffi::c_void, bytecodelength : usize, ppdebuginfo : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("d3d10.dll" "system" fn D3D10GetVertexShaderProfile(pdevice : *mut core::ffi::c_void) -> windows_sys::core::PCSTR);
 #[cfg(feature = "d3dcommon")]
-windows_link::link!("d3d10.dll" "system" fn D3D10PreprocessShader(psrcdata : windows_sys::core::PCSTR, srcdatasize : usize, pfilename : windows_sys::core::PCSTR, pdefines : *const D3D10_SHADER_MACRO, pinclude : *mut core::ffi::c_void, ppshadertext : *mut *mut core::ffi::c_void, pperrormsgs : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("d3d10.dll" "system" fn D3D10PreprocessShader(psrcdata : windows_sys::core::PCSTR, srcdatasize : usize, pfilename : windows_sys::core::PCSTR, pdefines : *const D3D10_SHADER_MACRO, pinclude : LPD3D10INCLUDE, ppshadertext : *mut *mut core::ffi::c_void, pperrormsgs : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("d3d10.dll" "system" fn D3D10ReflectShader(pshaderbytecode : *const core::ffi::c_void, bytecodelength : usize, ppreflector : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("d3d10.dll" "system" fn D3D10StateBlockMaskDifference(pa : *const D3D10_STATE_BLOCK_MASK, pb : *const D3D10_STATE_BLOCK_MASK, presult : *mut D3D10_STATE_BLOCK_MASK) -> windows_sys::core::HRESULT);
 windows_link::link!("d3d10.dll" "system" fn D3D10StateBlockMaskDisableAll(pmask : *mut D3D10_STATE_BLOCK_MASK) -> windows_sys::core::HRESULT);
@@ -599,6 +599,7 @@ pub const D3D10_FORMAT_SUPPORT_TEXTURE2D: D3D10_FORMAT_SUPPORT = 32;
 pub const D3D10_FORMAT_SUPPORT_TEXTURE3D: D3D10_FORMAT_SUPPORT = 64;
 pub const D3D10_FORMAT_SUPPORT_TEXTURECUBE: D3D10_FORMAT_SUPPORT = 128;
 pub const D3D10_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600.0;
+pub const D3D10_FTOI_INSTRUCTION_MIN_INPUT: f32 = -2147483600.0;
 pub const D3D10_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300.0;
 pub const D3D10_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0.0;
 pub const D3D10_GS_INPUT_PRIM_CONST_REGISTER_COMPONENTS: i32 = 1;
@@ -1233,6 +1234,7 @@ pub const D3D10_MIN_FILTER_SHIFT: i32 = 4;
 pub const D3D10_MIN_MAXANISOTROPY: i32 = 0;
 pub const D3D10_MIP_FILTER_SHIFT: i32 = 0;
 pub const D3D10_MIP_LOD_BIAS_MAX: f32 = 15.99;
+pub const D3D10_MIP_LOD_BIAS_MIN: f32 = -16.0;
 pub const D3D10_MIP_LOD_FRACTIONAL_BIT_COUNT: i32 = 6;
 pub const D3D10_MIP_LOD_RANGE_BIT_COUNT: i32 = 8;
 pub const D3D10_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4;
@@ -1240,6 +1242,7 @@ pub const D3D10_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4;
 pub type D3D10_NAME = super::D3D_NAME;
 pub const D3D10_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct D3D10_PASS_DESC {
     pub Name: windows_sys::core::PCSTR,
@@ -1248,8 +1251,9 @@ pub struct D3D10_PASS_DESC {
     pub IAInputSignatureSize: usize,
     pub StencilRef: u32,
     pub SampleMask: u32,
-    pub BlendFactor: [f32; 4],
+    pub BlendFactor: [super::FLOAT; 4],
 }
+#[cfg(feature = "minwindef")]
 impl Default for D3D10_PASS_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1327,14 +1331,15 @@ pub const D3D10_QUERY_TIMESTAMP_DISJOINT: D3D10_QUERY = 3;
 pub type D3D10_RAISE_FLAG = i32;
 pub const D3D10_RAISE_FLAG_DRIVER_INTERNAL_ERROR: D3D10_RAISE_FLAG = 1;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D10_RASTERIZER_DESC {
     pub FillMode: D3D10_FILL_MODE,
     pub CullMode: D3D10_CULL_MODE,
     pub FrontCounterClockwise: windows_sys::core::BOOL,
     pub DepthBias: i32,
-    pub DepthBiasClamp: f32,
-    pub SlopeScaledDepthBias: f32,
+    pub DepthBiasClamp: super::FLOAT,
+    pub SlopeScaledDepthBias: super::FLOAT,
     pub DepthClipEnable: windows_sys::core::BOOL,
     pub ScissorEnable: windows_sys::core::BOOL,
     pub MultisampleEnable: windows_sys::core::BOOL,
@@ -1438,19 +1443,21 @@ pub const D3D10_RTV_DIMENSION_TEXTURE2DMSARRAY: D3D10_RTV_DIMENSION = 7;
 pub const D3D10_RTV_DIMENSION_TEXTURE3D: D3D10_RTV_DIMENSION = 8;
 pub const D3D10_RTV_DIMENSION_UNKNOWN: D3D10_RTV_DIMENSION = 0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct D3D10_SAMPLER_DESC {
     pub Filter: D3D10_FILTER,
     pub AddressU: D3D10_TEXTURE_ADDRESS_MODE,
     pub AddressV: D3D10_TEXTURE_ADDRESS_MODE,
     pub AddressW: D3D10_TEXTURE_ADDRESS_MODE,
-    pub MipLODBias: f32,
+    pub MipLODBias: super::FLOAT,
     pub MaxAnisotropy: u32,
     pub ComparisonFunc: D3D10_COMPARISON_FUNC,
-    pub BorderColor: [f32; 4],
-    pub MinLOD: f32,
-    pub MaxLOD: f32,
+    pub BorderColor: [super::FLOAT; 4],
+    pub MinLOD: super::FLOAT,
+    pub MaxLOD: super::FLOAT,
 }
+#[cfg(feature = "minwindef")]
 impl Default for D3D10_SAMPLER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1516,6 +1523,7 @@ pub struct D3D10_SHADER_DEBUG_INPUT_INFO {
     pub InitialValue: u32,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct D3D10_SHADER_DEBUG_INST_INFO {
     pub Id: u32,
@@ -1529,6 +1537,7 @@ pub struct D3D10_SHADER_DEBUG_INST_INFO {
     pub AccessedVars: u32,
     pub AccessedVarsInfo: u32,
 }
+#[cfg(feature = "minwindef")]
 impl Default for D3D10_SHADER_DEBUG_INST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1537,6 +1546,7 @@ impl Default for D3D10_SHADER_DEBUG_INST_INFO {
 pub const D3D10_SHADER_DEBUG_NAME_FOR_BINARY: i32 = 8388608;
 pub const D3D10_SHADER_DEBUG_NAME_FOR_SOURCE: i32 = 4194304;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
     pub OutputRegisterSet: D3D10_SHADER_DEBUG_REGTYPE,
@@ -1547,12 +1557,14 @@ pub struct D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
     pub IndexReg: u32,
     pub IndexComp: u32,
 }
+#[cfg(feature = "minwindef")]
 impl Default for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D10_SHADER_DEBUG_OUTPUTVAR {
     pub Var: u32,
@@ -1560,8 +1572,8 @@ pub struct D3D10_SHADER_DEBUG_OUTPUTVAR {
     pub uValueMax: u32,
     pub iValueMin: i32,
     pub iValueMax: i32,
-    pub fValueMin: f32,
-    pub fValueMax: f32,
+    pub fValueMin: super::FLOAT,
+    pub fValueMax: super::FLOAT,
     pub bNaNPossible: windows_sys::core::BOOL,
     pub bInfPossible: windows_sys::core::BOOL,
 }
@@ -2117,14 +2129,15 @@ pub const D3D10_USAGE_DYNAMIC: D3D10_USAGE = 2;
 pub const D3D10_USAGE_IMMUTABLE: D3D10_USAGE = 1;
 pub const D3D10_USAGE_STAGING: D3D10_USAGE = 3;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D10_VIEWPORT {
     pub TopLeftX: i32,
     pub TopLeftY: i32,
     pub Width: u32,
     pub Height: u32,
-    pub MinDepth: f32,
-    pub MaxDepth: f32,
+    pub MinDepth: super::FLOAT,
+    pub MaxDepth: super::FLOAT,
 }
 pub const D3D10_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: i32 = 15;
 pub const D3D10_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: i32 = 16;
@@ -2152,6 +2165,35 @@ pub const D3D_SPEC_VERSION: f64 = 1.050005;
 pub const DXGI_DEBUG_D3D10: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x243b4c52_3606_4d3a_99d7_a7e7b33ed706);
 pub const GUID_DeviceType: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd722fb4d_7a68_437a_b20c_5804ee2494a6);
 #[cfg(feature = "d3dcommon")]
+pub type ID3D10Include = *mut core::ffi::c_void;
+pub type LPD3D10EFFECT = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTBLENDVARIABLE = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTCONSTANTBUFFER = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTDEPTHSTENCILVARIABLE = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTDEPTHSTENCILVIEWVARIABLE = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTMATRIXVARIABLE = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTPASS = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTPOOL = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTRASTERIZERVARIABLE = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTRENDERTARGETVIEWVARIABLE = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTSAMPLERVARIABLE = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTSCALARVARIABLE = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTSHADERRESOURCEVARIABLE = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTSHADERVARIABLE = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTSTRINGVARIABLE = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTTECHNIQUE = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTTYPE = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTVARIABLE = *mut core::ffi::c_void;
+pub type LPD3D10EFFECTVECTORVARIABLE = *mut core::ffi::c_void;
+#[cfg(feature = "d3dcommon")]
+pub type LPD3D10INCLUDE = *mut core::ffi::c_void;
+pub type LPD3D10SHADERREFLECTION = *mut core::ffi::c_void;
+pub type LPD3D10SHADERREFLECTION1 = *mut core::ffi::c_void;
+pub type LPD3D10SHADERREFLECTIONCONSTANTBUFFER = *mut core::ffi::c_void;
+pub type LPD3D10SHADERREFLECTIONTYPE = *mut core::ffi::c_void;
+pub type LPD3D10SHADERREFLECTIONVARIABLE = *mut core::ffi::c_void;
+pub type LPD3D10STATEBLOCK = *mut core::ffi::c_void;
+#[cfg(feature = "d3dcommon")]
 pub type LPD3D10_CBUFFER_TYPE = *mut D3D10_CBUFFER_TYPE;
 #[cfg(feature = "d3dcommon")]
 pub type LPD3D10_SHADER_CBUFFER_FLAGS = *mut D3D10_SHADER_CBUFFER_FLAGS;
@@ -2171,3 +2213,5 @@ pub type LPD3D10_SHADER_VARIABLE_TYPE = *mut D3D10_SHADER_VARIABLE_TYPE;
 pub type PFN_D3D10_CREATE_DEVICE1 = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: D3D10_DRIVER_TYPE, param2: super::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "dxgi", feature = "minwindef", feature = "windef"))]
 pub type PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1 = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: D3D10_DRIVER_TYPE, param2: super::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut super::DXGI_SWAP_CHAIN_DESC, param7: *mut *mut core::ffi::c_void, param8: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub const _FACD3D10: i32 = 2169;
+pub const _FACD3D10DEBUG: i32 = 2170;

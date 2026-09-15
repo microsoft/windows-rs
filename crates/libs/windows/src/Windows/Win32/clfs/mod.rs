@@ -13,34 +13,39 @@ pub unsafe fn ClfsLsnCreate(cidcontainer: CLFS_CONTAINER_ID, offblock: u32, crec
     windows_core::link!("clfsw32.dll" "system" "LsnCreate" fn ClfsLsnCreate(cidcontainer : CLFS_CONTAINER_ID, offblock : u32, crecord : u32) -> CLFS_LSN);
     unsafe { ClfsLsnCreate(cidcontainer, offblock, crecord) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ClfsLsnEqual(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool {
-    windows_core::link!("clfsw32.dll" "system" "LsnEqual" fn ClfsLsnEqual(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> bool);
+pub unsafe fn ClfsLsnEqual(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> super::BOOLEAN {
+    windows_core::link!("clfsw32.dll" "system" "LsnEqual" fn ClfsLsnEqual(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> super::BOOLEAN);
     unsafe { ClfsLsnEqual(plsn1, plsn2) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ClfsLsnGreater(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool {
-    windows_core::link!("clfsw32.dll" "system" "LsnGreater" fn ClfsLsnGreater(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> bool);
+pub unsafe fn ClfsLsnGreater(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> super::BOOLEAN {
+    windows_core::link!("clfsw32.dll" "system" "LsnGreater" fn ClfsLsnGreater(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> super::BOOLEAN);
     unsafe { ClfsLsnGreater(plsn1, plsn2) }
 }
 #[inline]
-pub unsafe fn ClfsLsnIncrement(plsn: *const CLFS_LSN) -> CLFS_LSN {
-    windows_core::link!("clfsw32.dll" "system" "LsnIncrement" fn ClfsLsnIncrement(plsn : *const CLFS_LSN) -> CLFS_LSN);
+pub unsafe fn ClfsLsnIncrement(plsn: PCLFS_LSN) -> CLFS_LSN {
+    windows_core::link!("clfsw32.dll" "system" "LsnIncrement" fn ClfsLsnIncrement(plsn : PCLFS_LSN) -> CLFS_LSN);
     unsafe { ClfsLsnIncrement(plsn) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ClfsLsnInvalid(plsn: *const CLFS_LSN) -> bool {
-    windows_core::link!("clfsw32.dll" "system" "LsnInvalid" fn ClfsLsnInvalid(plsn : *const CLFS_LSN) -> bool);
+pub unsafe fn ClfsLsnInvalid(plsn: *const CLFS_LSN) -> super::BOOLEAN {
+    windows_core::link!("clfsw32.dll" "system" "LsnInvalid" fn ClfsLsnInvalid(plsn : *const CLFS_LSN) -> super::BOOLEAN);
     unsafe { ClfsLsnInvalid(plsn) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ClfsLsnLess(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool {
-    windows_core::link!("clfsw32.dll" "system" "LsnLess" fn ClfsLsnLess(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> bool);
+pub unsafe fn ClfsLsnLess(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> super::BOOLEAN {
+    windows_core::link!("clfsw32.dll" "system" "LsnLess" fn ClfsLsnLess(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> super::BOOLEAN);
     unsafe { ClfsLsnLess(plsn1, plsn2) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ClfsLsnNull(plsn: *const CLFS_LSN) -> bool {
-    windows_core::link!("clfsw32.dll" "system" "LsnNull" fn ClfsLsnNull(plsn : *const CLFS_LSN) -> bool);
+pub unsafe fn ClfsLsnNull(plsn: *const CLFS_LSN) -> super::BOOLEAN {
+    windows_core::link!("clfsw32.dll" "system" "LsnNull" fn ClfsLsnNull(plsn : *const CLFS_LSN) -> super::BOOLEAN);
     unsafe { ClfsLsnNull(plsn) }
 }
 #[inline]
@@ -48,16 +53,12 @@ pub unsafe fn ClfsLsnRecordSequence(plsn: *const CLFS_LSN) -> u32 {
     windows_core::link!("clfsw32.dll" "system" "LsnRecordSequence" fn ClfsLsnRecordSequence(plsn : *const CLFS_LSN) -> u32);
     unsafe { ClfsLsnRecordSequence(plsn) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CLFSSTATUS(pub u32);
+pub type CLFSSTATUS = u32;
 pub type CLFS_ARCHIVE_DESCRIPTOR = CLS_ARCHIVE_DESCRIPTOR;
 pub const CLFS_BASELOG_EXTENSION: windows_core::PCWSTR = windows_core::w!(".blf");
-pub type CLFS_BLOCK_ALLOCATION = Option<unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
-pub type CLFS_BLOCK_DEALLOCATION = Option<unsafe extern "system" fn(pvbuffer: *mut core::ffi::c_void, pvusercontext: *mut core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CLFS_CONTAINER_ID(pub u32);
+pub type CLFS_BLOCK_ALLOCATION = Option<unsafe extern "C" fn(cbbufferlength: u32, pvusercontext: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
+pub type CLFS_BLOCK_DEALLOCATION = Option<unsafe extern "C" fn(pvbuffer: *mut core::ffi::c_void, pvusercontext: *mut core::ffi::c_void)>;
+pub type CLFS_CONTAINER_ID = u32;
 pub type CLFS_CONTAINER_INFORMATION = CLS_CONTAINER_INFORMATION;
 pub const CLFS_CONTAINER_RELATIVE_PREFIX: windows_core::PCWSTR = windows_core::w!("%BLF%\\");
 pub type CLFS_CONTAINER_STATE = CLS_CONTAINER_STATE;
@@ -82,9 +83,7 @@ pub type CLFS_IO_STATISTICS = CLS_IO_STATISTICS;
 pub type CLFS_IO_STATISTICS_HEADER = CLS_IO_STATISTICS_HEADER;
 pub type CLFS_LOG_ARCHIVE_MODE = i32;
 pub type CLFS_LOG_ID = windows_core::GUID;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CLFS_LOG_INFORMATION_CLASS(pub CLS_LOG_INFORMATION_CLASS);
+pub type CLFS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLFS_LOG_NAME_INFORMATION {
@@ -115,9 +114,7 @@ pub struct CLFS_PHYSICAL_LSN_INFORMATION {
 pub type CLFS_RECORD_TYPE = CLS_RECORD_TYPE;
 #[cfg(feature = "winnt")]
 pub type CLFS_SCAN_CONTEXT = CLS_SCAN_CONTEXT;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CLFS_SCAN_MODE(pub u8);
+pub type CLFS_SCAN_MODE = u8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_STREAM_ID_INFORMATION {
@@ -151,9 +148,7 @@ impl Default for CLS_CONTAINER_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CLS_CONTAINER_STATE(pub u32);
+pub type CLS_CONTAINER_STATE = u32;
 pub type CLS_CONTEXT_MODE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -201,9 +196,7 @@ pub type CLS_LOG_INFORMATION_CLASS = i32;
 pub struct CLS_LSN {
     pub Internal: u64,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CLS_RECORD_TYPE(pub u8);
+pub type CLS_RECORD_TYPE = u8;
 #[repr(C, align(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]

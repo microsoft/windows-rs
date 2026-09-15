@@ -1,11 +1,11 @@
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetConnectionEnum<P0, P1>(servername: P0, qualifier: P1, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
+pub unsafe fn NetConnectionEnum<P0, P1>(servername: P0, qualifier: P1, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetConnectionEnum(servername : windows_core::PCWSTR, qualifier : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetConnectionEnum(servername : windows_core::PCWSTR, qualifier : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
     unsafe { NetConnectionEnum(servername.param().abi(), qualifier.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -16,15 +16,15 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetFileClose(servername : windows_core::PCWSTR, fileid : u32) -> u32);
     unsafe { NetFileClose(servername.param().abi(), fileid) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "basetsd", feature = "minwindef"))]
 #[inline]
-pub unsafe fn NetFileEnum<P0, P1, P2>(servername: P0, basepath: P1, username: P2, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut usize>) -> u32
+pub unsafe fn NetFileEnum<P0, P1, P2>(servername: P0, basepath: P1, username: P2, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::PDWORD_PTR>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetFileEnum(servername : windows_core::PCWSTR, basepath : windows_core::PCWSTR, username : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut usize) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetFileEnum(servername : windows_core::PCWSTR, basepath : windows_core::PCWSTR, username : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::PDWORD_PTR) -> u32);
     unsafe { NetFileEnum(servername.param().abi(), basepath.param().abi(), username.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -36,29 +36,31 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetFileGetInfo(servername : windows_core::PCWSTR, fileid : u32, level : u32, bufptr : *mut super::LPBYTE) -> u32);
     unsafe { NetFileGetInfo(servername.param().abi(), fileid, level, bufptr as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetServerAliasAdd<P0>(servername: P0, level: u32, buf: *const u8) -> u32
+pub unsafe fn NetServerAliasAdd<P0>(servername: P0, level: u32, buf: super::LPBYTE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerAliasAdd(servername : windows_core::PCWSTR, level : u32, buf : *const u8) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServerAliasAdd(servername : windows_core::PCWSTR, level : u32, buf : super::LPBYTE) -> u32);
     unsafe { NetServerAliasAdd(servername.param().abi(), level, buf) }
-}
-#[inline]
-pub unsafe fn NetServerAliasDel<P0>(servername: P0, level: u32, buf: *mut u8) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("netapi32.dll" "system" fn NetServerAliasDel(servername : windows_core::PCWSTR, level : u32, buf : *mut u8) -> u32);
-    unsafe { NetServerAliasDel(servername.param().abi(), level, buf as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetServerAliasEnum<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: Option<*mut u32>) -> u32
+pub unsafe fn NetServerAliasDel<P0>(servername: P0, level: u32, buf: super::LPBYTE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerAliasEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServerAliasDel(servername : windows_core::PCWSTR, level : u32, buf : super::LPBYTE) -> u32);
+    unsafe { NetServerAliasDel(servername.param().abi(), level, buf) }
+}
+#[cfg(feature = "minwindef")]
+#[inline]
+pub unsafe fn NetServerAliasEnum<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resumehandle: Option<super::LPDWORD>) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("netapi32.dll" "system" fn NetServerAliasEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::LPDWORD) -> u32);
     unsafe { NetServerAliasEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -73,13 +75,13 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetSessionEnum<P0, P1, P2>(servername: P0, uncclientname: P1, username: P2, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
+pub unsafe fn NetSessionEnum<P0, P1, P2>(servername: P0, uncclientname: P1, username: P2, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetSessionEnum(servername : windows_core::PCWSTR, uncclientname : windows_core::PCWSTR, username : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetSessionEnum(servername : windows_core::PCWSTR, uncclientname : windows_core::PCWSTR, username : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
     unsafe { NetSessionEnum(servername.param().abi(), uncclientname.param().abi(), username.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -93,21 +95,23 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetSessionGetInfo(servername : windows_core::PCWSTR, uncclientname : windows_core::PCWSTR, username : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
     unsafe { NetSessionGetInfo(servername.param().abi(), uncclientname.param().abi(), username.param().abi(), level, bufptr as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetShareAdd<P0>(servername: P0, level: u32, buf: *mut u8, parm_err: Option<*mut u32>) -> u32
+pub unsafe fn NetShareAdd<P0>(servername: P0, level: u32, buf: super::LPBYTE, parm_err: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetShareAdd(servername : windows_core::PCWSTR, level : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
-    unsafe { NetShareAdd(servername.param().abi(), level, buf as _, parm_err.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("netapi32.dll" "system" fn NetShareAdd(servername : windows_core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
+    unsafe { NetShareAdd(servername.param().abi(), level, buf, parm_err.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetShareCheck<P0, P1>(servername: P0, device: P1, r#type: *mut u32) -> u32
+pub unsafe fn NetShareCheck<P0, P1>(servername: P0, device: P1, r#type: super::LPDWORD) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetShareCheck(servername : windows_core::PCWSTR, device : windows_core::PCWSTR, r#type : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetShareCheck(servername : windows_core::PCWSTR, device : windows_core::PCWSTR, r#type : super::LPDWORD) -> u32);
     unsafe { NetShareCheck(servername.param().abi(), device.param().abi(), r#type as _) }
 }
 #[inline]
@@ -119,13 +123,14 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetShareDel(servername : windows_core::PCWSTR, netname : windows_core::PCWSTR, reserved : u32) -> u32);
     unsafe { NetShareDel(servername.param().abi(), netname.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetShareDelEx<P0>(servername: P0, level: u32, buf: *mut u8) -> u32
+pub unsafe fn NetShareDelEx<P0>(servername: P0, level: u32, buf: super::LPBYTE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetShareDelEx(servername : windows_core::PCWSTR, level : u32, buf : *mut u8) -> u32);
-    unsafe { NetShareDelEx(servername.param().abi(), level, buf as _) }
+    windows_core::link!("netapi32.dll" "system" fn NetShareDelEx(servername : windows_core::PCWSTR, level : u32, buf : super::LPBYTE) -> u32);
+    unsafe { NetShareDelEx(servername.param().abi(), level, buf) }
 }
 #[inline]
 pub unsafe fn NetShareDelSticky<P0, P1>(servername: P0, netname: P1, reserved: Option<u32>) -> u32
@@ -138,20 +143,20 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetShareEnum<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
+pub unsafe fn NetShareEnum<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetShareEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetShareEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
     unsafe { NetShareEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetShareEnumSticky<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
+pub unsafe fn NetShareEnumSticky<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetShareEnumSticky(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetShareEnumSticky(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
     unsafe { NetShareEnumSticky(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -164,14 +169,15 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetShareGetInfo(servername : windows_core::PCWSTR, netname : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
     unsafe { NetShareGetInfo(servername.param().abi(), netname.param().abi(), level, bufptr as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetShareSetInfo<P0, P1>(servername: P0, netname: P1, level: u32, buf: *mut u8, parm_err: Option<*mut u32>) -> u32
+pub unsafe fn NetShareSetInfo<P0, P1>(servername: P0, netname: P1, level: u32, buf: super::LPBYTE, parm_err: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetShareSetInfo(servername : windows_core::PCWSTR, netname : windows_core::PCWSTR, level : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
-    unsafe { NetShareSetInfo(servername.param().abi(), netname.param().abi(), level, buf as _, parm_err.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("netapi32.dll" "system" fn NetShareSetInfo(servername : windows_core::PCWSTR, netname : windows_core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
+    unsafe { NetShareSetInfo(servername.param().abi(), netname.param().abi(), level, buf, parm_err.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -213,6 +219,7 @@ pub type LPCONNECTION_INFO_0 = *mut CONNECTION_INFO_0;
 pub type LPCONNECTION_INFO_1 = *mut CONNECTION_INFO_1;
 pub type LPFILE_INFO_2 = *mut FILE_INFO_2;
 pub type LPFILE_INFO_3 = *mut FILE_INFO_3;
+#[cfg(feature = "winnt")]
 pub type LPSERVER_ALIAS_INFO_0 = *mut SERVER_ALIAS_INFO_0;
 pub type LPSESSION_INFO_0 = *mut SESSION_INFO_0;
 pub type LPSESSION_INFO_1 = *mut SESSION_INFO_1;
@@ -240,6 +247,7 @@ pub const PERM_FILE_READ: i32 = 1;
 pub const PERM_FILE_WRITE: i32 = 2;
 pub type PFILE_INFO_2 = *mut FILE_INFO_2;
 pub type PFILE_INFO_3 = *mut FILE_INFO_3;
+#[cfg(feature = "winnt")]
 pub type PSERVER_ALIAS_INFO_0 = *mut SERVER_ALIAS_INFO_0;
 pub type PSESSION_INFO_0 = *mut SESSION_INFO_0;
 pub type PSESSION_INFO_1 = *mut SESSION_INFO_1;
@@ -261,11 +269,12 @@ pub type PSHARE_INFO_502 = *mut SHARE_INFO_502;
 #[cfg(feature = "winnt")]
 pub type PSHARE_INFO_503 = *mut SHARE_INFO_503;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_ALIAS_INFO_0 {
     pub srvai0_alias: windows_core::PWSTR,
     pub srvai0_target: windows_core::PWSTR,
-    pub srvai0_default: bool,
+    pub srvai0_default: super::BOOLEAN,
     pub srvai0_reserved: u32,
 }
 pub const SESI1_NUM_ELEMENTS: i32 = 8;

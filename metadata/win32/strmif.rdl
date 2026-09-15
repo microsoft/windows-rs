@@ -3,12 +3,6 @@ mod Windows {
     mod Win32 {
         const ADVISE_ALL: i32 = 15;
         const ADVISE_ALL2: i32 = 31;
-        const ADVISE_CLIPPING: i32 = 1;
-        const ADVISE_COLORKEY: i32 = 4;
-        const ADVISE_DISPLAY_CHANGE: i32 = 16;
-        const ADVISE_NONE: i32 = 0;
-        const ADVISE_PALETTE: i32 = 2;
-        const ADVISE_POSITION: i32 = 8;
         struct ALLOCATOR_PROPERTIES {
             cBuffers: i32,
             cbBuffer: i32,
@@ -245,9 +239,6 @@ mod Windows {
         const CDEF_DEVMON_SELECTIVE_MASK: i32 = 240;
         const CDEF_MERIT_ABOVE_DO_NOT_USE: i32 = 8;
         const CHARS_IN_GUID: i32 = 39;
-        const CK_INDEX: i32 = 1;
-        const CK_NOCOLORKEY: i32 = 0;
-        const CK_RGB: i32 = 2;
         struct COLORKEY {
             KeyType: u32,
             PaletteIndex: u32,
@@ -759,7 +750,7 @@ mod Windows {
         #[guid(0x6feded3e_0ff1_4901_a2f1_43f7012c8515)]
         interface IAMCertifiedOutputProtection: IUnknown {
             fn KeyExchange(&self, pRandom: *mut GUID, VarLenCertGH: *mut *mut u8, pdwLengthCertGH: *mut u32) -> HRESULT;
-            fn SessionSequenceStart(&self, pSig: *const AMCOPPSignature) -> HRESULT;
+            fn SessionSequenceStart(&self, #[in] pSig: *mut AMCOPPSignature) -> HRESULT;
             fn ProtectionCommand(&self, cmd: *const AMCOPPCommand) -> HRESULT;
             fn ProtectionStatus(&self, pStatusInput: *const AMCOPPStatusInput, pStatusOutput: *mut AMCOPPStatusOutput) -> HRESULT;
         }
@@ -793,7 +784,7 @@ mod Windows {
             fn GetInfo(&self, pdwcbTotalFree: *mut u32, pdwcbLargestFree: *mut u32, pdwcbTotalMemory: *mut u32, pdwcbMinimumChunk: *mut u32) -> HRESULT;
             fn CheckMemory(&self, pBuffer: *const u8) -> HRESULT;
             fn Alloc(&self, ppBuffer: *mut *mut u8, #[in] #[out] pdwcbBuffer: *mut u32) -> HRESULT;
-            fn Free(&self, pBuffer: *const u8) -> HRESULT;
+            fn Free(&self, #[in] pBuffer: *mut u8) -> HRESULT;
             fn GetDevMemoryObject(&self, ppUnkInnner: *mut IUnknown, pUnkOuter: IUnknown) -> HRESULT;
         }
         #[guid(0xc6545bf1_e76b_11d0_bd52_00a0c911ce86)]
@@ -818,8 +809,8 @@ mod Windows {
         #[guid(0xb5730a90_1a2c_11cf_8c23_00aa006b6814)]
         interface IAMExtDevice: IUnknown {
             fn GetCapability(&self, Capability: i32, pValue: *mut i32, pdblValue: *mut f64) -> HRESULT;
-            fn get_ExternalDeviceID(&self, ppszData: *mut PWSTR) -> HRESULT;
-            fn get_ExternalDeviceVersion(&self, ppszData: *mut PWSTR) -> HRESULT;
+            fn get_ExternalDeviceID(&self, ppszData: *mut LPOLESTR) -> HRESULT;
+            fn get_ExternalDeviceVersion(&self, ppszData: *mut LPOLESTR) -> HRESULT;
             fn put_DevicePower(&self, PowerMode: i32) -> HRESULT;
             fn get_DevicePower(&self, pPowerMode: *mut i32) -> HRESULT;
             fn Calibrate(&self, hEvent: HEVENT, Mode: i32, pStatus: *mut i32) -> HRESULT;
@@ -834,8 +825,8 @@ mod Windows {
             fn put_LocalControl(&self, State: i32) -> HRESULT;
             fn get_LocalControl(&self, pState: *mut i32) -> HRESULT;
             fn GetStatus(&self, StatusItem: i32, pValue: *mut i32) -> HRESULT;
-            fn GetTransportBasicParameters(&self, Param: i32, #[in] #[out] pValue: *mut i32, #[in] #[out] ppszData: *mut PWSTR) -> HRESULT;
-            fn SetTransportBasicParameters(&self, Param: i32, Value: i32, pszData: PCWSTR) -> HRESULT;
+            fn GetTransportBasicParameters(&self, Param: i32, #[in] #[out] pValue: *mut i32, #[in] #[out] ppszData: *mut LPOLESTR) -> HRESULT;
+            fn SetTransportBasicParameters(&self, Param: i32, Value: i32, pszData: LPCOLESTR) -> HRESULT;
             fn GetTransportVideoParameters(&self, Param: i32, pValue: *mut i32) -> HRESULT;
             fn SetTransportVideoParameters(&self, Param: i32, Value: i32) -> HRESULT;
             fn GetTransportAudioParameters(&self, Param: i32, pValue: *mut i32) -> HRESULT;
@@ -857,7 +848,7 @@ mod Windows {
             fn get_EditStart(&self, pValue: *mut i32) -> HRESULT;
             fn put_EditStart(&self, Value: i32) -> HRESULT;
         }
-        #[guid(0x56a868fd_0ad4_11ce_b0a3_0020af0ba770)]
+        #[no_guid]
         interface IAMFilterGraphCallback: IUnknown {
             fn UnableToRender(&self, pPin: IPin) -> HRESULT;
         }
@@ -878,7 +869,7 @@ mod Windows {
         }
         #[guid(0x62ea93ba_ec62_11d2_b770_00c04fb6bd3d)]
         interface IAMLatency: IUnknown {
-            fn GetLatency(&self, prtLatency: *mut REFERENCE_TIME) -> HRESULT;
+            fn GetLatency(&self, #[in] #[out] prtLatency: *mut REFERENCE_TIME) -> HRESULT;
         }
         #[guid(0x8e1c39a1_de53_11cf_aa63_0080c744528d)]
         interface IAMOpenProgress: IUnknown {
@@ -893,7 +884,7 @@ mod Windows {
         }
         #[guid(0xf938c991_3029_11cf_8c44_00aa006b6814)]
         interface IAMPhysicalPinInfo: IUnknown {
-            fn GetPhysicalType(&self, pType: *mut i32, ppszType: *mut PWSTR) -> HRESULT;
+            fn GetPhysicalType(&self, pType: *mut i32, ppszType: *mut LPOLESTR) -> HRESULT;
         }
         #[guid(0x0e26a181_f40c_4635_8786_976284b52981)]
         interface IAMPluginControl: IUnknown {
@@ -916,11 +907,11 @@ mod Windows {
         }
         #[guid(0x8389d2d0_77d7_11d1_abe6_00a0c905f375)]
         interface IAMResourceControl: IUnknown {
-            fn Reserve(&self, dwFlags: u32, #[reserved] pvReserved: *const void) -> HRESULT;
+            fn Reserve(&self, dwFlags: u32, #[reserved] #[in] pvReserved: *mut void) -> HRESULT;
         }
         #[guid(0xc6e13340_30ac_11d0_a18c_00a0c9118956)]
         interface IAMStreamConfig: IUnknown {
-            fn SetFormat(&self, pmt: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn SetFormat(&self, #[in] pmt: *mut AM_MEDIA_TYPE) -> HRESULT;
             fn GetFormat(&self, ppmt: *mut *mut AM_MEDIA_TYPE) -> HRESULT;
             fn GetNumberOfCapabilities(&self, piCount: *mut i32, piSize: *mut i32) -> HRESULT;
             fn GetStreamCaps(&self, iIndex: i32, ppmt: *mut *mut AM_MEDIA_TYPE, pSCC: *mut u8) -> HRESULT;
@@ -977,8 +968,8 @@ mod Windows {
             fn SetTCGMode(&self, Param: i32, Value: i32) -> HRESULT;
             fn put_VITCLine(&self, Line: i32) -> HRESULT;
             fn get_VITCLine(&self, pLine: *mut i32) -> HRESULT;
-            fn SetTimecode(&self, pTimecodeSample: *const TIMECODE_SAMPLE) -> HRESULT;
-            fn GetTimecode(&self, pTimecodeSample: *mut TIMECODE_SAMPLE) -> HRESULT;
+            fn SetTimecode(&self, pTimecodeSample: PTIMECODE_SAMPLE) -> HRESULT;
+            fn GetTimecode(&self, #[out] pTimecodeSample: PTIMECODE_SAMPLE) -> HRESULT;
         }
         #[guid(0x9b496ce1_811b_11cf_8c77_00aa006b6814)]
         interface IAMTimecodeReader: IUnknown {
@@ -986,7 +977,7 @@ mod Windows {
             fn SetTCRMode(&self, Param: i32, Value: i32) -> HRESULT;
             fn put_VITCLine(&self, Line: i32) -> HRESULT;
             fn get_VITCLine(&self, pLine: *mut i32) -> HRESULT;
-            fn GetTimecode(&self, pTimecodeSample: *mut TIMECODE_SAMPLE) -> HRESULT;
+            fn GetTimecode(&self, #[out] pTimecodeSample: PTIMECODE_SAMPLE) -> HRESULT;
         }
         #[guid(0x211a8761_03ac_11d1_8d13_00aa00bd8339)]
         interface IAMTuner: IUnknown {
@@ -1020,7 +1011,7 @@ mod Windows {
         interface IAMVfwCompressDialogs: IUnknown {
             fn ShowDialog(&self, iDialog: i32, hwnd: HWND) -> HRESULT;
             fn GetState(&self, #[size_param(1)] pState: *mut void, #[in] #[out] pcbState: *mut i32) -> HRESULT;
-            fn SetState(&self, #[size_param(1)] pState: *const void, cbState: i32) -> HRESULT;
+            fn SetState(&self, #[size_param(1)] #[in] pState: *mut void, cbState: i32) -> HRESULT;
             fn SendDriverMessage(&self, uMsg: i32, dw1: i32, dw2: i32) -> HRESULT;
         }
         #[guid(0xc6e13343_30ac_11d0_a18c_00a0c9118956)]
@@ -1064,7 +1055,7 @@ mod Windows {
         }
         #[guid(0x56a868aa_0ad4_11ce_b03a_0020af0ba770)]
         interface IAsyncReader: IUnknown {
-            fn RequestAllocator(&self, pPreferred: IMemAllocator, pProps: *const ALLOCATOR_PROPERTIES, ppActual: *mut IMemAllocator) -> HRESULT;
+            fn RequestAllocator(&self, pPreferred: IMemAllocator, #[in] pProps: *mut ALLOCATOR_PROPERTIES, ppActual: *mut IMemAllocator) -> HRESULT;
             fn Request(&self, pSample: IMediaSample, dwUser: usize) -> HRESULT;
             fn WaitForNext(&self, dwTimeout: u32, #[opt] ppSample: *mut IMediaSample, pdwUser: *mut usize) -> HRESULT;
             fn SyncReadAligned(&self, pSample: IMediaSample) -> HRESULT;
@@ -1091,23 +1082,23 @@ mod Windows {
         interface ICaptureGraphBuilder: IUnknown {
             fn SetFiltergraph(&self, pfg: IGraphBuilder) -> HRESULT;
             fn GetFiltergraph(&self, ppfg: *mut IGraphBuilder) -> HRESULT;
-            fn SetOutputFileName(&self, pType: *const GUID, lpstrFile: PCWSTR, ppf: *mut IBaseFilter, ppSink: *mut IFileSinkFilter) -> HRESULT;
-            fn FindInterface(&self, #[opt] pCategory: *const GUID, pf: IBaseFilter, riid: *const GUID, #[iid_is] ppint: *mut *mut void) -> HRESULT;
+            fn SetOutputFileName(&self, pType: *const GUID, lpstrFile: LPCOLESTR, ppf: *mut IBaseFilter, ppSink: *mut IFileSinkFilter) -> HRESULT;
+            fn FindInterface(&self, #[opt] pCategory: *const GUID, pf: IBaseFilter, riid: *const GUID, ppint: *mut *mut void) -> HRESULT;
             fn RenderStream(&self, #[opt] pCategory: *const GUID, pSource: IUnknown, pfCompressor: IBaseFilter, pfRenderer: IBaseFilter) -> HRESULT;
-            fn ControlStream(&self, #[opt] pCategory: *const GUID, pFilter: IBaseFilter, pstart: *const REFERENCE_TIME, pstop: *const REFERENCE_TIME, wStartCookie: u16, wStopCookie: u16) -> HRESULT;
-            fn AllocCapFile(&self, lpstr: PCWSTR, dwlSize: DWORDLONG) -> HRESULT;
-            fn CopyCaptureFile(&self, lpwstrOld: PCWSTR, lpwstrNew: PCWSTR, fAllowEscAbort: i32, pCallback: IAMCopyCaptureFileProgress) -> HRESULT;
+            fn ControlStream(&self, #[opt] pCategory: *const GUID, pFilter: IBaseFilter, #[in] pstart: *mut REFERENCE_TIME, #[in] pstop: *mut REFERENCE_TIME, wStartCookie: u16, wStopCookie: u16) -> HRESULT;
+            fn AllocCapFile(&self, lpstr: LPCOLESTR, dwlSize: DWORDLONG) -> HRESULT;
+            fn CopyCaptureFile(&self, lpwstrOld: LPOLESTR, lpwstrNew: LPOLESTR, fAllowEscAbort: i32, pCallback: IAMCopyCaptureFileProgress) -> HRESULT;
         }
         #[guid(0x93e5a4e0_2d50_11d2_abfa_00a0c9c6e38d)]
         interface ICaptureGraphBuilder2: IUnknown {
             fn SetFiltergraph(&self, pfg: IGraphBuilder) -> HRESULT;
             fn GetFiltergraph(&self, ppfg: *mut IGraphBuilder) -> HRESULT;
-            fn SetOutputFileName(&self, pType: *const GUID, lpstrFile: PCWSTR, ppf: *mut IBaseFilter, ppSink: *mut IFileSinkFilter) -> HRESULT;
-            fn FindInterface(&self, #[opt] pCategory: *const GUID, #[opt] pType: *const GUID, pf: IBaseFilter, riid: *const GUID, #[iid_is] ppint: *mut *mut void) -> HRESULT;
+            fn SetOutputFileName(&self, pType: *const GUID, lpstrFile: LPCOLESTR, ppf: *mut IBaseFilter, ppSink: *mut IFileSinkFilter) -> HRESULT;
+            fn FindInterface(&self, #[opt] pCategory: *const GUID, #[opt] pType: *const GUID, pf: IBaseFilter, riid: *const GUID, ppint: *mut *mut void) -> HRESULT;
             fn RenderStream(&self, #[opt] pCategory: *const GUID, pType: *const GUID, pSource: IUnknown, pfCompressor: IBaseFilter, pfRenderer: IBaseFilter) -> HRESULT;
-            fn ControlStream(&self, pCategory: *const GUID, pType: *const GUID, pFilter: IBaseFilter, #[opt] pstart: *const REFERENCE_TIME, #[opt] pstop: *const REFERENCE_TIME, wStartCookie: u16, wStopCookie: u16) -> HRESULT;
-            fn AllocCapFile(&self, lpstr: PCWSTR, dwlSize: DWORDLONG) -> HRESULT;
-            fn CopyCaptureFile(&self, lpwstrOld: PCWSTR, lpwstrNew: PCWSTR, fAllowEscAbort: i32, pCallback: IAMCopyCaptureFileProgress) -> HRESULT;
+            fn ControlStream(&self, pCategory: *const GUID, pType: *const GUID, pFilter: IBaseFilter, #[in] #[opt] pstart: *mut REFERENCE_TIME, #[in] #[opt] pstop: *mut REFERENCE_TIME, wStartCookie: u16, wStopCookie: u16) -> HRESULT;
+            fn AllocCapFile(&self, lpstr: LPCOLESTR, dwlSize: DWORDLONG) -> HRESULT;
+            fn CopyCaptureFile(&self, lpwstrOld: LPOLESTR, lpwstrNew: LPOLESTR, fAllowEscAbort: i32, pCallback: IAMCopyCaptureFileProgress) -> HRESULT;
             fn FindPin(&self, pSource: IUnknown, pindir: PIN_DIRECTION, #[opt] pCategory: *const GUID, #[opt] pType: *const GUID, fUnconnected: BOOL, num: i32, ppPin: *mut IPin) -> HRESULT;
         }
         #[guid(0x901db4c7_31ce_41a2_85dc_8fa0bf41b8da)]
@@ -1118,15 +1109,15 @@ mod Windows {
             fn GetParameterValues(&self, Api: *const GUID, Values: *mut *mut VARIANT, ValuesCount: *mut u32) -> HRESULT;
             fn GetDefaultValue(&self, Api: *const GUID, Value: *mut VARIANT) -> HRESULT;
             fn GetValue(&self, Api: *const GUID, Value: *mut VARIANT) -> HRESULT;
-            fn SetValue(&self, Api: *const GUID, Value: *const VARIANT) -> HRESULT;
+            fn SetValue(&self, Api: *const GUID, #[in] Value: *mut VARIANT) -> HRESULT;
             fn RegisterForEvent(&self, Api: *const GUID, userData: isize) -> HRESULT;
             fn UnregisterForEvent(&self, Api: *const GUID) -> HRESULT;
             fn SetAllDefaults(&self) -> HRESULT;
-            fn SetValueWithNotify(&self, Api: *const GUID, Value: *const VARIANT, ChangedParam: *mut *mut GUID, ChangedParamCount: *mut u32) -> HRESULT;
+            fn SetValueWithNotify(&self, Api: *const GUID, #[in] Value: *mut VARIANT, ChangedParam: *mut *mut GUID, ChangedParamCount: *mut u32) -> HRESULT;
             fn SetAllDefaultsWithNotify(&self, ChangedParam: *mut *mut GUID, ChangedParamCount: *mut u32) -> HRESULT;
-            fn GetAllSettings(&self, param0: IStream) -> HRESULT;
-            fn SetAllSettings(&self, param0: IStream) -> HRESULT;
-            fn SetAllSettingsWithNotify(&self, param0: IStream, ChangedParam: *mut *mut GUID, ChangedParamCount: *mut u32) -> HRESULT;
+            fn GetAllSettings(&self, __MIDL__ICodecAPI0000: IStream) -> HRESULT;
+            fn SetAllSettings(&self, __MIDL__ICodecAPI0001: IStream) -> HRESULT;
+            fn SetAllSettingsWithNotify(&self, __MIDL__ICodecAPI0002: IStream, ChangedParam: *mut *mut GUID, ChangedParamCount: *mut u32) -> HRESULT;
         }
         #[guid(0x5acd6aa0_f482_11ce_8b67_00aa00a3f1a6)]
         interface IConfigAviMux: IUnknown {
@@ -1165,7 +1156,7 @@ mod Windows {
         #[guid(0xd18e17a0_aacb_11d0_afb0_00aa00b67a42)]
         interface IDVEnc: IUnknown {
             fn get_IFormatResolution(&self, VideoFormat: *mut i32, DVFormat: *mut i32, Resolution: *mut i32, fDVInfo: u8, sDVInfo: *mut DVINFO) -> HRESULT;
-            fn put_IFormatResolution(&self, VideoFormat: i32, DVFormat: i32, Resolution: i32, fDVInfo: u8, sDVInfo: *const DVINFO) -> HRESULT;
+            fn put_IFormatResolution(&self, VideoFormat: i32, DVFormat: i32, Resolution: i32, fDVInfo: u8, #[in] sDVInfo: *mut DVINFO) -> HRESULT;
         }
         #[guid(0x58473a19_2bc8_4663_8012_25f81babddd1)]
         interface IDVRGB219: IUnknown {
@@ -1192,7 +1183,7 @@ mod Windows {
         interface IDrawVideoImage: IUnknown {
             fn DrawVideoImageBegin(&self) -> HRESULT;
             fn DrawVideoImageEnd(&self) -> HRESULT;
-            fn DrawVideoImageDraw(&self, hdc: HDC, lprcSrc: *const RECT, lprcDst: *const RECT) -> HRESULT;
+            fn DrawVideoImageDraw(&self, hdc: HDC, lprcSrc: LPRECT, lprcDst: LPRECT) -> HRESULT;
         }
         #[guid(0x5a4a97e4_94ee_4a55_9751_74b5643aa27d)]
         interface IDvdCmd: IUnknown {
@@ -1241,10 +1232,10 @@ mod Windows {
         interface IDvdControl2: IUnknown {
             fn PlayTitle(&self, ulTitle: u32, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
             fn PlayChapterInTitle(&self, ulTitle: u32, ulChapter: u32, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
-            fn PlayAtTimeInTitle(&self, ulTitle: u32, pStartTime: *const DVD_HMSF_TIMECODE, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn PlayAtTimeInTitle(&self, ulTitle: u32, #[in] pStartTime: *mut DVD_HMSF_TIMECODE, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
             fn Stop(&self) -> HRESULT;
             fn ReturnFromSubmenu(&self, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
-            fn PlayAtTime(&self, pTime: *const DVD_HMSF_TIMECODE, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn PlayAtTime(&self, #[in] pTime: *mut DVD_HMSF_TIMECODE, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
             fn PlayChapter(&self, ulChapter: u32, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
             fn PlayPrevChapter(&self, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
             fn ReplayChapter(&self, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
@@ -1264,7 +1255,7 @@ mod Windows {
             fn SetSubpictureState(&self, bState: BOOL, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
             fn SelectAngle(&self, ulAngle: u32, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
             fn SelectParentalLevel(&self, ulParentalLevel: u32) -> HRESULT;
-            fn SelectParentalCountry(&self, #[len_const(2)] bCountry: *const u8) -> HRESULT;
+            fn SelectParentalCountry(&self, #[in] bCountry: *mut u8) -> HRESULT;
             fn SelectKaraokeAudioPresentationMode(&self, ulMode: u32) -> HRESULT;
             fn SelectVideoModePreference(&self, ulPreferredDisplayMode: u32) -> HRESULT;
             fn SetDVDDirectory(&self, pszwPath: PCWSTR) -> HRESULT;
@@ -1274,7 +1265,7 @@ mod Windows {
             fn AcceptParentalLevelChange(&self, bAccept: BOOL) -> HRESULT;
             fn SetOption(&self, flag: DVD_OPTION_FLAG, fState: BOOL) -> HRESULT;
             fn SetState(&self, pState: IDvdState, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
-            fn PlayPeriodInTitleAutoStop(&self, ulTitle: u32, pStartTime: *const DVD_HMSF_TIMECODE, pEndTime: *const DVD_HMSF_TIMECODE, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn PlayPeriodInTitleAutoStop(&self, ulTitle: u32, #[in] pStartTime: *mut DVD_HMSF_TIMECODE, #[in] pEndTime: *mut DVD_HMSF_TIMECODE, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
             fn SetGPRM(&self, ulIndex: u32, wValue: u16, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
             fn SelectDefaultMenuLanguage(&self, Language: LCID) -> HRESULT;
             fn SelectDefaultAudioLanguage(&self, Language: LCID, audioExtension: DVD_AUDIO_LANG_EXT) -> HRESULT;
@@ -1283,7 +1274,7 @@ mod Windows {
         #[guid(0xfcc152b6_f372_11d0_8e00_00c04fd7c08b)]
         interface IDvdGraphBuilder: IUnknown {
             fn GetFiltergraph(&self, ppGB: *mut IGraphBuilder) -> HRESULT;
-            fn GetDvdInterface(&self, riid: *const GUID, #[iid_is] ppvIF: *mut *mut void) -> HRESULT;
+            fn GetDvdInterface(&self, riid: *const GUID, ppvIF: *mut *mut void) -> HRESULT;
             fn RenderDvdVideoVolume(&self, lpcwszPathName: PCWSTR, dwFlags: u32, pStatus: *mut AM_DVD_RENDERSTATUS) -> HRESULT;
         }
         #[guid(0xa70efe60_e2a3_11d0_a9be_00aa0061be93)]
@@ -1337,7 +1328,7 @@ mod Windows {
             fn GetDVDTextLanguageInfo(&self, ulLangIndex: u32, pulNumOfStrings: *mut u32, pLangCode: *mut LCID, pbCharacterSet: *mut DVD_TextCharSet) -> HRESULT;
             fn GetDVDTextStringAsNative(&self, ulLangIndex: u32, ulStringIndex: u32, pbBuffer: *mut u8, ulMaxBufferSize: u32, pulActualSize: *mut u32, pType: *mut DVD_TextStringType) -> HRESULT;
             fn GetDVDTextStringAsUnicode(&self, ulLangIndex: u32, ulStringIndex: u32, pchwBuffer: *mut u16, ulMaxBufferSize: u32, pulActualSize: *mut u32, pType: *mut DVD_TextStringType) -> HRESULT;
-            fn GetPlayerParentalLevel(&self, pulParentalLevel: *mut u32, #[len_const(2)] pbCountryCode: *mut u8) -> HRESULT;
+            fn GetPlayerParentalLevel(&self, pulParentalLevel: *mut u32, pbCountryCode: *mut u8) -> HRESULT;
             fn GetNumberOfChapters(&self, ulTitle: u32, pulNumOfChapters: *mut u32) -> HRESULT;
             fn GetTitleParentalLevels(&self, ulTitle: u32, pulParentalLevels: *mut u32) -> HRESULT;
             fn GetDVDDirectory(&self, #[len_param(1)] #[out] pszwPath: PWSTR, ulMaxSize: u32, pulActualSize: *mut u32) -> HRESULT;
@@ -1367,7 +1358,7 @@ mod Windows {
             fn GetParameterValues(&self, Api: *const GUID, Values: *mut *mut VARIANT, ValuesCount: *mut u32) -> HRESULT;
             fn GetDefaultValue(&self, Api: *const GUID, Value: *mut VARIANT) -> HRESULT;
             fn GetValue(&self, Api: *const GUID, Value: *mut VARIANT) -> HRESULT;
-            fn SetValue(&self, Api: *const GUID, Value: *const VARIANT) -> HRESULT;
+            fn SetValue(&self, Api: *const GUID, #[in] Value: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x56a86893_0ad4_11ce_b03a_0020af0ba770)]
         interface IEnumFilters: IUnknown {
@@ -1399,15 +1390,15 @@ mod Windows {
         }
         #[guid(0x945c1566_6202_46fc_96c7_d87f289c6534)]
         interface IEnumStreamIdMap: IUnknown {
-            fn Next(&self, cRequest: u32, #[len_param(0)] pStreamIdMap: *mut STREAM_ID_MAP, #[opt] pcReceived: *mut u32) -> HRESULT;
+            fn Next(&self, cRequest: u32, #[len_param(0)] #[in] #[out] pStreamIdMap: *mut STREAM_ID_MAP, #[opt] pcReceived: *mut u32) -> HRESULT;
             fn Skip(&self, cRecords: u32) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, ppIEnumStreamIdMap: *mut IEnumStreamIdMap) -> HRESULT;
         }
         #[guid(0xa2104830_7c70_11cf_8bce_00aa00a3f1a6)]
         interface IFileSinkFilter: IUnknown {
-            fn SetFileName(&self, pszFileName: PCWSTR, #[opt] pmt: *const AM_MEDIA_TYPE) -> HRESULT;
-            fn GetCurFile(&self, ppszFileName: *mut PWSTR, pmt: *mut AM_MEDIA_TYPE) -> HRESULT;
+            fn SetFileName(&self, pszFileName: LPCOLESTR, #[opt] pmt: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn GetCurFile(&self, ppszFileName: *mut LPOLESTR, pmt: *mut AM_MEDIA_TYPE) -> HRESULT;
         }
         #[guid(0x00855b90_ce1b_11d0_bd4f_00a0c911ce86)]
         interface IFileSinkFilter2: IFileSinkFilter {
@@ -1416,8 +1407,8 @@ mod Windows {
         }
         #[guid(0x56a868a6_0ad4_11ce_b03a_0020af0ba770)]
         interface IFileSourceFilter: IUnknown {
-            fn Load(&self, pszFileName: PCWSTR, #[opt] pmt: *const AM_MEDIA_TYPE) -> HRESULT;
-            fn GetCurFile(&self, ppszFileName: *mut PWSTR, #[opt] pmt: *mut AM_MEDIA_TYPE) -> HRESULT;
+            fn Load(&self, pszFileName: LPCOLESTR, #[opt] pmt: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn GetCurFile(&self, ppszFileName: *mut LPOLESTR, #[opt] pmt: *mut AM_MEDIA_TYPE) -> HRESULT;
         }
         #[guid(0xdcfbdcf6_0dc2_45f5_9ab2_7c330ea09c29)]
         interface IFilterChain: IUnknown {
@@ -1441,7 +1432,7 @@ mod Windows {
         interface IFilterGraph2: IGraphBuilder {
             fn AddSourceFilterForMoniker(&self, pMoniker: IMoniker, pCtx: IBindCtx, lpcwstrFilterName: PCWSTR, ppFilter: *mut IBaseFilter) -> HRESULT;
             fn ReconnectEx(&self, ppin: IPin, #[opt] pmt: *const AM_MEDIA_TYPE) -> HRESULT;
-            fn RenderEx(&self, pPinOut: IPin, dwFlags: u32, #[reserved] pvContext: *const u32) -> HRESULT;
+            fn RenderEx(&self, pPinOut: IPin, dwFlags: u32, #[reserved] #[in] #[out] pvContext: *mut u32) -> HRESULT;
         }
         #[guid(0xaaf38154_b80b_422f_91e6_b66467509a07)]
         interface IFilterGraph3: IFilterGraph2 {
@@ -1461,8 +1452,8 @@ mod Windows {
         #[guid(0xb79bb0b0_33c1_11d1_abe1_00a0c905f375)]
         interface IFilterMapper2: IUnknown {
             fn CreateCategory(&self, clsidCategory: *const GUID, dwCategoryMerit: u32, Description: PCWSTR) -> HRESULT;
-            fn UnregisterFilter(&self, pclsidCategory: *const GUID, szInstance: PCWSTR, Filter: *const GUID) -> HRESULT;
-            fn RegisterFilter(&self, clsidFilter: *const GUID, Name: PCWSTR, #[in] #[out] #[opt] ppMoniker: *mut IMoniker, pclsidCategory: *const GUID, szInstance: PCWSTR, prf2: *const REGFILTER2) -> HRESULT;
+            fn UnregisterFilter(&self, pclsidCategory: *const GUID, szInstance: LPCOLESTR, Filter: *const GUID) -> HRESULT;
+            fn RegisterFilter(&self, clsidFilter: *const GUID, Name: PCWSTR, #[in] #[out] #[opt] ppMoniker: *mut IMoniker, pclsidCategory: *const GUID, szInstance: LPCOLESTR, prf2: *const REGFILTER2) -> HRESULT;
             fn EnumMatchingFilters(&self, ppEnum: *mut IEnumMoniker, dwFlags: u32, bExactMatch: BOOL, dwMerit: u32, bInputNeeded: BOOL, cInputTypes: u32, #[opt] pInputTypes: *const GUID, #[opt] pMedIn: *const REGPINMEDIUM, #[opt] pPinCategoryIn: *const GUID, bRender: BOOL, bOutputNeeded: BOOL, cOutputTypes: u32, #[opt] pOutputTypes: *const GUID, #[opt] pMedOut: *const REGPINMEDIUM, #[opt] pPinCategoryOut: *const GUID) -> HRESULT;
         }
         #[guid(0xb79bb0b1_33c1_11d1_abe1_00a0c905f375)]
@@ -1486,7 +1477,7 @@ mod Windows {
         #[guid(0x03a1eb8e_32bf_4245_8502_114d08a9cb88)]
         interface IGraphConfig: IUnknown {
             fn Reconnect(&self, pOutputPin: IPin, pInputPin: IPin, pmtFirstConnection: *const AM_MEDIA_TYPE, pUsingFilter: IBaseFilter, hAbortEvent: HANDLE, dwFlags: u32) -> HRESULT;
-            fn Reconfigure(&self, pCallback: IGraphConfigCallback, pvContext: *const void, dwFlags: u32, hAbortEvent: HANDLE) -> HRESULT;
+            fn Reconfigure(&self, pCallback: IGraphConfigCallback, #[in] pvContext: *mut void, dwFlags: u32, hAbortEvent: HANDLE) -> HRESULT;
             fn AddFilterToCache(&self, pFilter: IBaseFilter) -> HRESULT;
             fn EnumCacheFilter(&self, pEnum: *mut IEnumFilters) -> HRESULT;
             fn RemoveFilterFromCache(&self, pFilter: IBaseFilter) -> HRESULT;
@@ -1512,7 +1503,7 @@ mod Windows {
         #[guid(0xd0e04c47_25b8_4369_925a_362a01d95444)]
         interface IMPEG2StreamIdMap: IUnknown {
             fn MapStreamId(&self, ulStreamId: u32, MediaSampleContent: u32, ulSubstreamFilterValue: u32, iDataOffset: i32) -> HRESULT;
-            fn UnmapStreamId(&self, culStreamId: u32, #[len_param(0)] pulStreamId: *const u32) -> HRESULT;
+            fn UnmapStreamId(&self, culStreamId: u32, #[len_param(0)] #[in] pulStreamId: *mut u32) -> HRESULT;
             fn EnumStreamIdMap(&self, ppIEnumStreamIdMap: *mut IEnumStreamIdMap) -> HRESULT;
         }
         #[guid(0x56a868a2_0ad4_11ce_b03a_0020af0ba770)]
@@ -1537,19 +1528,19 @@ mod Windows {
             fn GetPointer(&self, ppBuffer: *mut *mut u8) -> HRESULT;
             fn GetSize(&self) -> i32;
             fn GetTime(&self, pTimeStart: *mut REFERENCE_TIME, pTimeEnd: *mut REFERENCE_TIME) -> HRESULT;
-            fn SetTime(&self, #[opt] pTimeStart: *const REFERENCE_TIME, #[opt] pTimeEnd: *const REFERENCE_TIME) -> HRESULT;
+            fn SetTime(&self, #[in] #[opt] pTimeStart: *mut REFERENCE_TIME, #[in] #[opt] pTimeEnd: *mut REFERENCE_TIME) -> HRESULT;
             fn IsSyncPoint(&self) -> HRESULT;
             fn SetSyncPoint(&self, bIsSyncPoint: BOOL) -> HRESULT;
             fn IsPreroll(&self) -> HRESULT;
             fn SetPreroll(&self, bIsPreroll: BOOL) -> HRESULT;
             fn GetActualDataLength(&self) -> i32;
-            fn SetActualDataLength(&self, param0: i32) -> HRESULT;
+            fn SetActualDataLength(&self, __MIDL__IMediaSample0000: i32) -> HRESULT;
             fn GetMediaType(&self, ppMediaType: *mut *mut AM_MEDIA_TYPE) -> HRESULT;
-            fn SetMediaType(&self, pMediaType: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn SetMediaType(&self, #[in] pMediaType: *mut AM_MEDIA_TYPE) -> HRESULT;
             fn IsDiscontinuity(&self) -> HRESULT;
             fn SetDiscontinuity(&self, bDiscontinuity: BOOL) -> HRESULT;
             fn GetMediaTime(&self, pTimeStart: *mut i64, pTimeEnd: *mut i64) -> HRESULT;
-            fn SetMediaTime(&self, #[opt] pTimeStart: *const i64, #[opt] pTimeEnd: *const i64) -> HRESULT;
+            fn SetMediaTime(&self, #[in] #[opt] pTimeStart: *mut i64, #[in] #[opt] pTimeEnd: *mut i64) -> HRESULT;
         }
         #[guid(0x36b73884_c2c8_11cf_8b46_00805f6cef60)]
         interface IMediaSample2: IMediaSample {
@@ -1582,11 +1573,11 @@ mod Windows {
         }
         #[guid(0x56a8689c_0ad4_11ce_b03a_0020af0ba770)]
         interface IMemAllocator: IUnknown {
-            fn SetProperties(&self, pRequest: *const ALLOCATOR_PROPERTIES, pActual: *mut ALLOCATOR_PROPERTIES) -> HRESULT;
+            fn SetProperties(&self, #[in] pRequest: *mut ALLOCATOR_PROPERTIES, pActual: *mut ALLOCATOR_PROPERTIES) -> HRESULT;
             fn GetProperties(&self, pProps: *mut ALLOCATOR_PROPERTIES) -> HRESULT;
             fn Commit(&self) -> HRESULT;
             fn Decommit(&self) -> HRESULT;
-            fn GetBuffer(&self, ppBuffer: *mut IMediaSample, #[opt] pStartTime: *const REFERENCE_TIME, #[opt] pEndTime: *const REFERENCE_TIME, dwFlags: u32) -> HRESULT;
+            fn GetBuffer(&self, ppBuffer: *mut IMediaSample, #[in] #[opt] pStartTime: *mut REFERENCE_TIME, #[in] #[opt] pEndTime: *mut REFERENCE_TIME, dwFlags: u32) -> HRESULT;
             fn ReleaseBuffer(&self, pBuffer: IMediaSample) -> HRESULT;
         }
         #[guid(0x379a0cf0_c1de_11d2_abf5_00a0c905f375)]
@@ -1604,19 +1595,19 @@ mod Windows {
             fn NotifyAllocator(&self, pAllocator: IMemAllocator, bReadOnly: BOOL) -> HRESULT;
             fn GetAllocatorRequirements(&self, pProps: *mut ALLOCATOR_PROPERTIES) -> HRESULT;
             fn Receive(&self, pSample: IMediaSample) -> HRESULT;
-            fn ReceiveMultiple(&self, #[len_param(1)] pSamples: *const IMediaSample, nSamples: i32, nSamplesProcessed: *mut i32) -> HRESULT;
+            fn ReceiveMultiple(&self, #[len_param(1)] #[in] pSamples: *mut IMediaSample, nSamples: i32, nSamplesProcessed: *mut i32) -> HRESULT;
             fn ReceiveCanBlock(&self) -> HRESULT;
         }
         #[guid(0x436eee9c_264f_4242_90e1_4e330c107512)]
         interface IMpeg2Demultiplexer: IUnknown {
-            fn CreateOutputPin(&self, pMediaType: *const AM_MEDIA_TYPE, pszPinName: PCWSTR, ppIPin: *mut IPin) -> HRESULT;
-            fn SetOutputPinMediaType(&self, pszPinName: PCWSTR, pMediaType: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn CreateOutputPin(&self, #[in] pMediaType: *mut AM_MEDIA_TYPE, pszPinName: PCWSTR, ppIPin: *mut IPin) -> HRESULT;
+            fn SetOutputPinMediaType(&self, pszPinName: PCWSTR, #[in] pMediaType: *mut AM_MEDIA_TYPE) -> HRESULT;
             fn DeleteOutputPin(&self, pszPinName: PCWSTR) -> HRESULT;
         }
         #[guid(0x56a868a1_0ad4_11ce_b03a_0020af0ba770)]
         interface IOverlay: IUnknown {
             fn GetPalette(&self, #[in] #[out] pdwColors: *mut u32, ppPalette: *mut *mut PALETTEENTRY) -> HRESULT;
-            fn SetPalette(&self, dwColors: u32, #[len_param(0)] pPalette: *const PALETTEENTRY) -> HRESULT;
+            fn SetPalette(&self, dwColors: u32, #[len_param(0)] #[in] pPalette: *mut PALETTEENTRY) -> HRESULT;
             fn GetDefaultColorKey(&self, pColorKey: *mut COLORKEY) -> HRESULT;
             fn GetColorKey(&self, pColorKey: *mut COLORKEY) -> HRESULT;
             fn SetColorKey(&self, #[in] #[out] pColorKey: *mut COLORKEY) -> HRESULT;
@@ -1696,7 +1687,7 @@ mod Windows {
         #[guid(0x56a868ac_0ad4_11ce_b03a_0020af0ba770)]
         interface IResourceManager: IUnknown {
             fn Register(&self, pName: PCWSTR, cResource: i32, plToken: *mut i32) -> HRESULT;
-            fn RegisterGroup(&self, pName: PCWSTR, cResource: i32, #[len_param(1)] palTokens: *const i32, plToken: *mut i32) -> HRESULT;
+            fn RegisterGroup(&self, pName: PCWSTR, cResource: i32, #[len_param(1)] #[in] palTokens: *mut i32, plToken: *mut i32) -> HRESULT;
             fn RequestResource(&self, idResource: i32, pFocusObject: IUnknown, pConsumer: IResourceConsumer) -> HRESULT;
             fn NotifyAcquire(&self, idResource: i32, pConsumer: IResourceConsumer, hr: HRESULT) -> HRESULT;
             fn NotifyRelease(&self, idResource: i32, pConsumer: IResourceConsumer, bStillWant: BOOL) -> HRESULT;
@@ -1715,18 +1706,18 @@ mod Windows {
         }
         #[guid(0xede80b5c_bad6_4623_b537_65586c9f8dfd)]
         interface IVMRAspectRatioControl: IUnknown {
-            fn GetAspectRatioMode(&self, lpdwARMode: *mut u32) -> HRESULT;
+            fn GetAspectRatioMode(&self, #[out] lpdwARMode: LPDWORD) -> HRESULT;
             fn SetAspectRatioMode(&self, dwARMode: u32) -> HRESULT;
         }
         #[guid(0xbb057577_0db8_4e6a_87a7_1a8c9a505a0f)]
         interface IVMRDeinterlaceControl: IUnknown {
-            fn GetNumberOfDeinterlaceModes(&self, lpVideoDescription: *const VMRVideoDesc, #[in] #[out] lpdwNumDeinterlaceModes: *mut u32, lpDeinterlaceModes: *mut GUID) -> HRESULT;
-            fn GetDeinterlaceModeCaps(&self, lpDeinterlaceMode: *const GUID, lpVideoDescription: *const VMRVideoDesc, #[in] #[out] lpDeinterlaceCaps: *mut VMRDeinterlaceCaps) -> HRESULT;
-            fn GetDeinterlaceMode(&self, dwStreamID: u32, lpDeinterlaceMode: *mut GUID) -> HRESULT;
-            fn SetDeinterlaceMode(&self, dwStreamID: u32, lpDeinterlaceMode: *const GUID) -> HRESULT;
-            fn GetDeinterlacePrefs(&self, lpdwDeinterlacePrefs: *mut u32) -> HRESULT;
+            fn GetNumberOfDeinterlaceModes(&self, #[in] lpVideoDescription: *mut VMRVideoDesc, #[in] #[out] lpdwNumDeinterlaceModes: LPDWORD, #[out] lpDeinterlaceModes: LPGUID) -> HRESULT;
+            fn GetDeinterlaceModeCaps(&self, lpDeinterlaceMode: LPGUID, #[in] lpVideoDescription: *mut VMRVideoDesc, #[in] #[out] lpDeinterlaceCaps: *mut VMRDeinterlaceCaps) -> HRESULT;
+            fn GetDeinterlaceMode(&self, dwStreamID: u32, #[out] lpDeinterlaceMode: LPGUID) -> HRESULT;
+            fn SetDeinterlaceMode(&self, dwStreamID: u32, lpDeinterlaceMode: LPGUID) -> HRESULT;
+            fn GetDeinterlacePrefs(&self, #[out] lpdwDeinterlacePrefs: LPDWORD) -> HRESULT;
             fn SetDeinterlacePrefs(&self, dwDeinterlacePrefs: u32) -> HRESULT;
-            fn GetActualDeinterlaceMode(&self, dwStreamID: u32, lpDeinterlaceMode: *mut GUID) -> HRESULT;
+            fn GetActualDeinterlaceMode(&self, dwStreamID: u32, #[out] lpDeinterlaceMode: LPGUID) -> HRESULT;
         }
         #[guid(0x9e5530c5_7034_48b4_bb46_0b8a6efc8e36)]
         interface IVMRFilterConfig: IUnknown {
@@ -1740,16 +1731,16 @@ mod Windows {
         }
         #[guid(0x7a4fb5af_479f_4074_bb40_ce6722e43c82)]
         interface IVMRImageCompositor: IUnknown {
-            fn InitCompositionTarget(&self, pD3DDevice: IUnknown, pddsRenderTarget: IDirectDrawSurface7) -> HRESULT;
-            fn TermCompositionTarget(&self, pD3DDevice: IUnknown, pddsRenderTarget: IDirectDrawSurface7) -> HRESULT;
-            fn SetStreamMediaType(&self, dwStrmID: u32, pmt: *const AM_MEDIA_TYPE, fTexture: BOOL) -> HRESULT;
-            fn CompositeImage(&self, pD3DDevice: IUnknown, pddsRenderTarget: IDirectDrawSurface7, pmtRenderTarget: *const AM_MEDIA_TYPE, rtStart: REFERENCE_TIME, rtEnd: REFERENCE_TIME, dwClrBkGnd: u32, pVideoStreamInfo: *const VMRVIDEOSTREAMINFO, cStreams: u32) -> HRESULT;
+            fn InitCompositionTarget(&self, pD3DDevice: IUnknown, pddsRenderTarget: LPDIRECTDRAWSURFACE7) -> HRESULT;
+            fn TermCompositionTarget(&self, pD3DDevice: IUnknown, pddsRenderTarget: LPDIRECTDRAWSURFACE7) -> HRESULT;
+            fn SetStreamMediaType(&self, dwStrmID: u32, #[in] pmt: *mut AM_MEDIA_TYPE, fTexture: BOOL) -> HRESULT;
+            fn CompositeImage(&self, pD3DDevice: IUnknown, pddsRenderTarget: LPDIRECTDRAWSURFACE7, #[in] pmtRenderTarget: *mut AM_MEDIA_TYPE, rtStart: REFERENCE_TIME, rtEnd: REFERENCE_TIME, dwClrBkGnd: u32, #[in] pVideoStreamInfo: *mut VMRVIDEOSTREAMINFO, cStreams: u32) -> HRESULT;
         }
         #[guid(0xce704fe7_e71e_41fb_baa2_c4403e1182f5)]
         interface IVMRImagePresenter: IUnknown {
             fn StartPresenting(&self, dwUserID: usize) -> HRESULT;
             fn StopPresenting(&self, dwUserID: usize) -> HRESULT;
-            fn PresentImage(&self, dwUserID: usize, lpPresInfo: *const VMRPRESENTATIONINFO) -> HRESULT;
+            fn PresentImage(&self, dwUserID: usize, #[in] lpPresInfo: *mut VMRPRESENTATIONINFO) -> HRESULT;
         }
         #[guid(0x9f3a1c85_8555_49ba_935f_be5b5b29d178)]
         interface IVMRImagePresenterConfig: IUnknown {
@@ -1758,14 +1749,14 @@ mod Windows {
         }
         #[guid(0xe6f7ce40_4673_44f1_8f77_5499d68cb4ea)]
         interface IVMRImagePresenterExclModeConfig: IVMRImagePresenterConfig {
-            fn SetXlcModeDDObjAndPrimarySurface(&self, lpDDObj: IDirectDraw7, lpPrimarySurf: IDirectDrawSurface7) -> HRESULT;
-            fn GetXlcModeDDObjAndPrimarySurface(&self, lpDDObj: *mut IDirectDraw7, lpPrimarySurf: *mut IDirectDrawSurface7) -> HRESULT;
+            fn SetXlcModeDDObjAndPrimarySurface(&self, lpDDObj: LPDIRECTDRAW7, lpPrimarySurf: LPDIRECTDRAWSURFACE7) -> HRESULT;
+            fn GetXlcModeDDObjAndPrimarySurface(&self, lpDDObj: *mut LPDIRECTDRAW7, lpPrimarySurf: *mut LPDIRECTDRAWSURFACE7) -> HRESULT;
         }
         #[guid(0x1e673275_0257_40aa_af20_7c608d4a0428)]
         interface IVMRMixerBitmap: IUnknown {
             fn SetAlphaBitmap(&self, pBmpParms: *const VMRALPHABITMAP) -> HRESULT;
-            fn UpdateAlphaBitmapParameters(&self, pBmpParms: *const VMRALPHABITMAP) -> HRESULT;
-            fn GetAlphaBitmapParameters(&self, pBmpParms: *mut VMRALPHABITMAP) -> HRESULT;
+            fn UpdateAlphaBitmapParameters(&self, pBmpParms: PVMRALPHABITMAP) -> HRESULT;
+            fn GetAlphaBitmapParameters(&self, #[out] pBmpParms: PVMRALPHABITMAP) -> HRESULT;
         }
         #[guid(0x1c1a17b0_bed0_415d_974b_dc6696131599)]
         interface IVMRMixerControl: IUnknown {
@@ -1776,7 +1767,7 @@ mod Windows {
             fn SetOutputRect(&self, dwStreamID: u32, pRect: *const NORMALIZEDRECT) -> HRESULT;
             fn GetOutputRect(&self, dwStreamID: u32, pRect: *mut NORMALIZEDRECT) -> HRESULT;
             fn SetBackgroundClr(&self, ClrBkg: COLORREF) -> HRESULT;
-            fn GetBackgroundClr(&self, lpClrBkg: *const COLORREF) -> HRESULT;
+            fn GetBackgroundClr(&self, #[in] lpClrBkg: *mut COLORREF) -> HRESULT;
             fn SetMixingPrefs(&self, dwMixerPrefs: u32) -> HRESULT;
             fn GetMixingPrefs(&self, pdwMixerPrefs: *mut u32) -> HRESULT;
         }
@@ -1793,28 +1784,28 @@ mod Windows {
             fn IsSurfaceLocked(&self) -> HRESULT;
             fn LockSurface(&self, lpSurface: *mut *mut u8) -> HRESULT;
             fn UnlockSurface(&self) -> HRESULT;
-            fn GetSurface(&self, lplpSurface: *mut IDirectDrawSurface7) -> HRESULT;
+            fn GetSurface(&self, lplpSurface: *mut LPDIRECTDRAWSURFACE7) -> HRESULT;
         }
         #[guid(0x31ce832e_4484_458b_8cca_f4d7e3db0b52)]
         interface IVMRSurfaceAllocator: IUnknown {
-            fn AllocateSurface(&self, dwUserID: usize, lpAllocInfo: *const VMRALLOCATIONINFO, #[in] #[out] lpdwActualBuffers: *mut u32, lplpSurface: *mut IDirectDrawSurface7) -> HRESULT;
+            fn AllocateSurface(&self, dwUserID: usize, #[in] lpAllocInfo: *mut VMRALLOCATIONINFO, #[in] #[out] lpdwActualBuffers: *mut u32, lplpSurface: *mut LPDIRECTDRAWSURFACE7) -> HRESULT;
             fn FreeSurface(&self, dwID: usize) -> HRESULT;
-            fn PrepareSurface(&self, dwUserID: usize, lpSurface: IDirectDrawSurface7, dwSurfaceFlags: u32) -> HRESULT;
+            fn PrepareSurface(&self, dwUserID: usize, lpSurface: LPDIRECTDRAWSURFACE7, dwSurfaceFlags: u32) -> HRESULT;
             fn AdviseNotify(&self, lpIVMRSurfAllocNotify: IVMRSurfaceAllocatorNotify) -> HRESULT;
         }
         #[guid(0xaada05a8_5a4e_4729_af0b_cea27aed51e2)]
         interface IVMRSurfaceAllocatorNotify: IUnknown {
             fn AdviseSurfaceAllocator(&self, dwUserID: usize, lpIVRMSurfaceAllocator: IVMRSurfaceAllocator) -> HRESULT;
-            fn SetDDrawDevice(&self, lpDDrawDevice: IDirectDraw7, hMonitor: HMONITOR) -> HRESULT;
-            fn ChangeDDrawDevice(&self, lpDDrawDevice: IDirectDraw7, hMonitor: HMONITOR) -> HRESULT;
+            fn SetDDrawDevice(&self, lpDDrawDevice: LPDIRECTDRAW7, hMonitor: HMONITOR) -> HRESULT;
+            fn ChangeDDrawDevice(&self, lpDDrawDevice: LPDIRECTDRAW7, hMonitor: HMONITOR) -> HRESULT;
             fn RestoreDDrawSurfaces(&self) -> HRESULT;
             fn NotifyEvent(&self, EventCode: i32, Param1: isize, Param2: isize) -> HRESULT;
             fn SetBorderColor(&self, clrBorder: COLORREF) -> HRESULT;
         }
         #[guid(0x058d1f11_2a54_4bef_bd54_df706626b727)]
         interface IVMRVideoStreamControl: IUnknown {
-            fn SetColorKey(&self, lpClrKey: *const DDCOLORKEY) -> HRESULT;
-            fn GetColorKey(&self, lpClrKey: *mut DDCOLORKEY) -> HRESULT;
+            fn SetColorKey(&self, lpClrKey: LPDDCOLORKEY) -> HRESULT;
+            fn GetColorKey(&self, #[out] lpClrKey: LPDDCOLORKEY) -> HRESULT;
             fn SetStreamActiveState(&self, fActive: BOOL) -> HRESULT;
             fn GetStreamActiveState(&self, lpfActive: *mut BOOL) -> HRESULT;
         }
@@ -1823,8 +1814,8 @@ mod Windows {
             fn GetNativeVideoSize(&self, lpWidth: *mut i32, lpHeight: *mut i32, lpARWidth: *mut i32, lpARHeight: *mut i32) -> HRESULT;
             fn GetMinIdealVideoSize(&self, lpWidth: *mut i32, lpHeight: *mut i32) -> HRESULT;
             fn GetMaxIdealVideoSize(&self, lpWidth: *mut i32, lpHeight: *mut i32) -> HRESULT;
-            fn SetVideoPosition(&self, lpSRCRect: *const RECT, lpDSTRect: *const RECT) -> HRESULT;
-            fn GetVideoPosition(&self, lpSRCRect: *mut RECT, lpDSTRect: *mut RECT) -> HRESULT;
+            fn SetVideoPosition(&self, lpSRCRect: LPRECT, lpDSTRect: LPRECT) -> HRESULT;
+            fn GetVideoPosition(&self, #[out] lpSRCRect: LPRECT, #[out] lpDSTRect: LPRECT) -> HRESULT;
             fn GetAspectRatioMode(&self, lpAspectRatioMode: *mut u32) -> HRESULT;
             fn SetAspectRatioMode(&self, AspectRatioMode: u32) -> HRESULT;
             fn SetVideoClippingWindow(&self, hwnd: HWND) -> HRESULT;
@@ -1859,15 +1850,10 @@ mod Windows {
         type LPAMCOPPCommand = *mut AMCOPPCommand;
         type LPAMCOPPStatusInput = *mut AMCOPPStatusInput;
         type LPAMCOPPStatusOutput = *mut AMCOPPStatusOutput;
+        type LPMEDIAPROPERTYBAG = IMediaPropertyBag;
+        type LPPERSISTMEDIAPROPERTYBAG = IPersistMediaPropertyBag;
         const MAX_FILTER_NAME: i32 = 128;
-        const MAX_NUMBER_OF_STREAMS: i32 = 16;
         const MAX_PIN_NAME: i32 = 128;
-        const MERIT_DO_NOT_USE: i32 = 2097152;
-        const MERIT_HW_COMPRESSOR: i32 = 1048656;
-        const MERIT_NORMAL: i32 = 6291456;
-        const MERIT_PREFERRED: i32 = 8388608;
-        const MERIT_SW_COMPRESSOR: i32 = 1048576;
-        const MERIT_UNLIKELY: i32 = 4194304;
         const MPEG2_PROGRAM_DIRECTORY_PES_PACKET: i32 = 2;
         const MPEG2_PROGRAM_ELEMENTARY_STREAM: i32 = 1;
         const MPEG2_PROGRAM_PACK_HEADER: i32 = 3;
@@ -1880,7 +1866,26 @@ mod Windows {
             right: f32,
             bottom: f32,
         }
+        type PAMDEVMEMORYALLOCATOR = IAMDevMemoryAllocator;
+        type PAMDEVMEMORYCONTROL = IAMDevMemoryControl;
+        type PAMOVIESETUP = IAMovieSetup;
+        type PAMPHYSICALPININFO = IAMPhysicalPinInfo;
+        type PAMSTREAMSELECT = IAMStreamSelect;
         type PDVINFO = *mut DVINFO;
+        type PENUMFILTERS = IEnumFilters;
+        type PENUMMEDIATYPES = IEnumMediaTypes;
+        type PENUMPINS = IEnumPins;
+        type PENUMREGFILTERS = IEnumRegFilters;
+        type PEXTDEVICE = IAMExtDevice;
+        type PFILESINKFILTER2 = IFileSinkFilter2;
+        type PFILTER = IBaseFilter;
+        type PFILTERFILESINK = IFileSinkFilter;
+        type PFILTERFILESOURCE = IFileSourceFilter;
+        type PFILTERGRAPH = IFilterGraph;
+        type PIAMEXTTRANSPORT = IAMExtTransport;
+        type PIAMTIMECODEDISPLAY = IAMTimecodeDisplay;
+        type PIAMTIMECODEGENERATOR = IAMTimecodeGenerator;
+        type PIAMTIMECODEREADER = IAMTimecodeReader;
         #[repr(i32)]
         enum PIN_DIRECTION {
             PINDIR_INPUT = 0,
@@ -1891,7 +1896,21 @@ mod Windows {
             dir: PIN_DIRECTION,
             achName: [u16; 128],
         }
+        type PMEDIAEVENTSINK = IMediaEventSink;
+        type PMEDIAFILTER = IMediaFilter;
+        type PMEDIASAMPLE = IMediaSample;
+        type PMEDIASAMPLE2 = IMediaSample2;
+        type PMEDIASEEKING = IMediaSeeking;
+        type PMEMALLOCATOR = IMemAllocator;
+        type PMEMINPUTPIN = IMemInputPin;
         type PNORMALIZEDRECT = *mut NORMALIZEDRECT;
+        type POVERLAY = IOverlay;
+        type POVERLAYNOTIFY = IOverlayNotify;
+        type POVERLAYNOTIFY2 = IOverlayNotify2;
+        type PPIN = IPin;
+        type PQUALITYCONTROL = IQualityControl;
+        type PREFERENCECLOCK = IReferenceClock;
+        type PREFERENCECLOCK2 = IReferenceClock2;
         type PVMRALPHABITMAP = *mut VMRALPHABITMAP;
         #[repr(i32)]
         enum PhysicalConnectorType {
@@ -1932,6 +1951,7 @@ mod Windows {
             Famine = 0,
             Flood = 1,
         }
+        type REFTIME = f64;
         struct REGFILTER {
             Clsid: GUID,
             Name: PWSTR,
@@ -1979,10 +1999,6 @@ mod Windows {
             clsMajorType: *const GUID,
             clsMinorType: *const GUID,
         }
-        const REG_PINFLAG_B_MANY: i32 = 4;
-        const REG_PINFLAG_B_OUTPUT: i32 = 8;
-        const REG_PINFLAG_B_RENDERER: i32 = 2;
-        const REG_PINFLAG_B_ZERO: i32 = 1;
         type SPRMARRAY = [DVD_REGISTER; 24];
         struct STREAM_ID_MAP {
             stream_id: u32,
@@ -2073,10 +2089,10 @@ mod Windows {
         struct VMRALPHABITMAP {
             dwFlags: u32,
             hdc: HDC,
-            pDDS: IDirectDrawSurface7,
+            pDDS: LPDIRECTDRAWSURFACE7,
             rSrc: RECT,
             rDest: NORMALIZEDRECT,
-            fAlpha: f32,
+            fAlpha: FLOAT,
             clrSrcKey: COLORREF,
         }
         const VMRBITMAP_DISABLE: i32 = 1;
@@ -2124,7 +2140,7 @@ mod Windows {
             dwFlags: u32,
             szDevice: [u16; 32],
             szDescription: [u16; 256],
-            liDriverVersion: i64,
+            liDriverVersion: LARGE_INTEGER,
             dwVendorId: u32,
             dwDeviceId: u32,
             dwSubSysId: u32,
@@ -2161,7 +2177,7 @@ mod Windows {
         }
         struct VMRPRESENTATIONINFO {
             dwFlags: u32,
-            lpSurf: IDirectDrawSurface7,
+            lpSurf: LPDIRECTDRAWSURFACE7,
             rtStart: REFERENCE_TIME,
             rtEnd: REFERENCE_TIME,
             szAspectRatio: SIZE,
@@ -2200,11 +2216,11 @@ mod Windows {
             AMAP_DXVA_TARGET = 32,
         }
         struct VMRVIDEOSTREAMINFO {
-            pddsVideoSurface: IDirectDrawSurface7,
+            pddsVideoSurface: LPDIRECTDRAWSURFACE7,
             dwWidth: u32,
             dwHeight: u32,
             dwStrmID: u32,
-            fAlpha: f32,
+            fAlpha: FLOAT,
             ddClrKey: DDCOLORKEY,
             rNormal: NORMALIZEDRECT,
         }
@@ -2365,6 +2381,41 @@ mod Windows {
         #[repr(i32)]
         enum _REM_FILTER_FLAGS {
             REMFILTERF_LEAVECONNECTED = 1,
+        }
+        #[repr(i32)]
+        enum __MIDL_IFilterMapper_0001 {
+            MERIT_PREFERRED = 8388608,
+            MERIT_NORMAL = 6291456,
+            MERIT_UNLIKELY = 4194304,
+            MERIT_DO_NOT_USE = 2097152,
+            MERIT_SW_COMPRESSOR = 1048576,
+            MERIT_HW_COMPRESSOR = 1048656,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_strmif_0000_0023_0001 {
+            REG_PINFLAG_B_ZERO = 1,
+            REG_PINFLAG_B_RENDERER = 2,
+            REG_PINFLAG_B_MANY = 4,
+            REG_PINFLAG_B_OUTPUT = 8,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_strmif_0000_0026_0001 {
+            CK_NOCOLORKEY = 0,
+            CK_INDEX = 1,
+            CK_RGB = 2,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_strmif_0000_0026_0002 {
+            ADVISE_NONE = 0,
+            ADVISE_CLIPPING = 1,
+            ADVISE_PALETTE = 2,
+            ADVISE_COLORKEY = 4,
+            ADVISE_POSITION = 8,
+            ADVISE_DISPLAY_CHANGE = 16,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_strmif_0000_0122_0001 {
+            MAX_NUMBER_OF_STREAMS = 16,
         }
         #[repr(i32)]
         enum tagAM_MEDIAEVENT_FLAGS {

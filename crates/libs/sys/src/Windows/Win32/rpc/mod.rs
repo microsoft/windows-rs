@@ -1,12 +1,12 @@
-windows_link::link!("rpcrt4.dll" "system" fn DceErrorInqTextA(rpcstatus : windows_sys::core::RPC_STATUS, errortext : *mut u8) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn DceErrorInqTextW(rpcstatus : windows_sys::core::RPC_STATUS, errortext : *mut u16) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn DceErrorInqTextA(rpcstatus : windows_sys::core::RPC_STATUS, errortext : RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn DceErrorInqTextW(rpcstatus : windows_sys::core::RPC_STATUS, errortext : RPC_WSTR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcAllocate(size : u32) -> *mut core::ffi::c_void);
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcAsyncAbortCall(pasync : *const RPC_ASYNC_STATE, exceptioncode : u32) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcAsyncAbortCall(pasync : PRPC_ASYNC_STATE, exceptioncode : u32) -> windows_sys::core::RPC_STATUS);
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcAsyncSetHandle(message : *const RPC_MESSAGE, pasync : *const RPC_ASYNC_STATE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcAsyncSetHandle(message : PRPC_MESSAGE, pasync : PRPC_ASYNC_STATE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcBindingCopy(sourcebinding : RPC_BINDING_HANDLE, destinationbinding : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcBindingCreateNP(servername : *const u16, servicename : *const u16, networkoptions : *const u16, binding : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcBindingCreateNP(servername : RPC_WSTR, servicename : RPC_WSTR, networkoptions : RPC_WSTR, binding : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcBindingHandleToAsyncHandle(binding : RPC_BINDING_HANDLE, asynchandle : *mut *mut core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcBindingInqClientTokenAttributes(binding : RPC_BINDING_HANDLE, tokenid : *mut super::LUID, authenticationid : *mut super::LUID, modifiedid : *mut super::LUID) -> windows_sys::core::RPC_STATUS);
@@ -37,39 +37,39 @@ windows_link::link!("rpcrt4.dll" "system" fn I_RpcIfInqTransferSyntaxes(rpcifhan
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcMapWin32Status(status : windows_sys::core::RPC_STATUS) -> i32);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcMgmtEnableDedicatedThreadPool() -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcNegotiateTransferSyntax(message : *mut RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcNsBindingSetEntryNameA(binding : RPC_BINDING_HANDLE, entrynamesyntax : u32, entryname : *const u8) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcNsBindingSetEntryNameW(binding : RPC_BINDING_HANDLE, entrynamesyntax : u32, entryname : *const u16) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn I_RpcNsGetBuffer(message : *const RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcNsBindingSetEntryNameA(binding : RPC_BINDING_HANDLE, entrynamesyntax : u32, entryname : RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcNsBindingSetEntryNameW(binding : RPC_BINDING_HANDLE, entrynamesyntax : u32, entryname : RPC_WSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn I_RpcNsGetBuffer(message : PRPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcNsInterfaceExported(entrynamesyntax : u32, entryname : *const u16, rpcinterfaceinformation : *const RPC_SERVER_INTERFACE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcNsInterfaceUnexported(entrynamesyntax : u32, entryname : *const u16, rpcinterfaceinformation : *const RPC_SERVER_INTERFACE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn I_RpcNsRaiseException(message : *const RPC_MESSAGE, status : windows_sys::core::RPC_STATUS));
-windows_link::link!("rpcns4.dll" "system" fn I_RpcNsSendReceive(message : *const RPC_MESSAGE, handle : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn I_RpcNsRaiseException(message : PRPC_MESSAGE, status : windows_sys::core::RPC_STATUS));
+windows_link::link!("rpcns4.dll" "system" fn I_RpcNsSendReceive(message : PRPC_MESSAGE, handle : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcOpenClientProcess(binding : RPC_BINDING_HANDLE, desiredaccess : u32, clientprocess : *mut *mut core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcPauseExecution(milliseconds : u32));
-windows_link::link!("rpcns4.dll" "system" fn I_RpcReBindBuffer(message : *const RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcReallocPipeBuffer(message : *const RPC_MESSAGE, newsize : u32) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcReceive(message : *mut RPC_MESSAGE, size : u32) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn I_RpcReBindBuffer(message : PRPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcReallocPipeBuffer(message : PRPC_MESSAGE, newsize : u32) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcReceive(message : PRPC_MESSAGE, size : u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcRecordCalloutFailure(rpcstatus : windows_sys::core::RPC_STATUS, calloutstate : *const RDR_CALLOUT_STATE, dllname : *const u16));
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcRequestMutex(mutex : *mut I_RPC_MUTEX));
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcSend(message : *mut RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcSend(message : PRPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcSendReceive(message : *mut RPC_MESSAGE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerCheckClientRestriction(context : RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerDisableExceptionFilter() -> i32);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerGetAssociationID(binding : RPC_BINDING_HANDLE, associationid : *mut u32) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerInqAddressChangeFn() -> RPC_ADDRESS_CHANGE_FN);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerInqAddressChangeFn() -> *mut u8);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerInqLocalConnAddress(binding : RPC_BINDING_HANDLE, buffer : *mut core::ffi::c_void, buffersize : *mut u32, addressformat : *mut u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerInqRemoteConnAddress(binding : RPC_BINDING_HANDLE, buffer : *mut core::ffi::c_void, buffersize : *mut u32, addressformat : *mut u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerInqTransportType(r#type : *mut u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerRegisterForwardFunction(pforwardfunction : RPC_FORWARD_FUNCTION) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerSetAddressChangeFn(paddresschangefn : RPC_ADDRESS_CHANGE_FN) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerStartService(protseq : *const u16, endpoint : *const u16, ifspec : RPC_IF_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerStartService(protseq : RPC_WSTR, endpoint : RPC_WSTR, ifspec : RPC_IF_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerSubscribeForDisconnectNotification(binding : RPC_BINDING_HANDLE, hevent : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerSubscribeForDisconnectNotification2(binding : RPC_BINDING_HANDLE, hevent : *const core::ffi::c_void, subscriptionid : *mut windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerUnsubscribeForDisconnectNotification(binding : RPC_BINDING_HANDLE, subscriptionid : windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseq2A(networkaddress : *const u8, protseq : *const u8, maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseq2W(networkaddress : *const u16, protseq : *const u16, maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseqEp2A(networkaddress : *const u8, protseq : *const u8, maxcalls : u32, endpoint : *const u8, securitydescriptor : *const core::ffi::c_void, policy : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseqEp2W(networkaddress : *const u16, protseq : *const u16, maxcalls : u32, endpoint : *const u16, securitydescriptor : *const core::ffi::c_void, policy : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseq2A(networkaddress : RPC_CSTR, protseq : RPC_CSTR, maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseq2W(networkaddress : RPC_WSTR, protseq : RPC_WSTR, maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseqEp2A(networkaddress : RPC_CSTR, protseq : RPC_CSTR, maxcalls : u32, endpoint : RPC_CSTR, securitydescriptor : *const core::ffi::c_void, policy : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseqEp2W(networkaddress : RPC_WSTR, protseq : RPC_WSTR, maxcalls : u32, endpoint : RPC_WSTR, securitydescriptor : *const core::ffi::c_void, policy : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcSessionStrictContextHandle());
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcSsDontSerializeContext());
 windows_link::link!("rpcrt4.dll" "system" fn I_RpcSystemHandleTypeSpecificWork(handle : *mut core::ffi::c_void, actualtype : u8, idltype : u8, marshaldirection : LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION) -> windows_sys::core::RPC_STATUS);
@@ -78,321 +78,321 @@ windows_link::link!("rpcrt4.dll" "system" fn I_UuidCreate(uuid : *mut windows_sy
 windows_link::link!("rpcrt4.dll" "system" fn NDRCContextBinding(ccontext : NDR_CCONTEXT) -> RPC_BINDING_HANDLE);
 windows_link::link!("rpcrt4.dll" "system" fn NDRCContextMarshall(ccontext : NDR_CCONTEXT, pbuff : *mut core::ffi::c_void));
 windows_link::link!("rpcrt4.dll" "system" fn NDRCContextUnmarshall(pccontext : *mut NDR_CCONTEXT, hbinding : RPC_BINDING_HANDLE, pbuff : *const core::ffi::c_void, datarepresentation : u32));
-windows_link::link!("rpcrt4.dll" "system" fn NDRSContextMarshall(ccontext : *const _NDR_SCONTEXT, pbuff : *mut core::ffi::c_void, userrundownin : NDR_RUNDOWN));
-windows_link::link!("rpcrt4.dll" "system" fn NDRSContextMarshall2(bindinghandle : RPC_BINDING_HANDLE, ccontext : *const _NDR_SCONTEXT, pbuff : *mut core::ffi::c_void, userrundownin : NDR_RUNDOWN, ctxguard : *const core::ffi::c_void, flags : u32));
-windows_link::link!("rpcrt4.dll" "system" fn NDRSContextMarshallEx(bindinghandle : RPC_BINDING_HANDLE, ccontext : *const _NDR_SCONTEXT, pbuff : *mut core::ffi::c_void, userrundownin : NDR_RUNDOWN));
+windows_link::link!("rpcrt4.dll" "system" fn NDRSContextMarshall(ccontext : NDR_SCONTEXT, pbuff : *mut core::ffi::c_void, userrundownin : NDR_RUNDOWN));
+windows_link::link!("rpcrt4.dll" "system" fn NDRSContextMarshall2(bindinghandle : RPC_BINDING_HANDLE, ccontext : NDR_SCONTEXT, pbuff : *mut core::ffi::c_void, userrundownin : NDR_RUNDOWN, ctxguard : *const core::ffi::c_void, flags : u32));
+windows_link::link!("rpcrt4.dll" "system" fn NDRSContextMarshallEx(bindinghandle : RPC_BINDING_HANDLE, ccontext : NDR_SCONTEXT, pbuff : *mut core::ffi::c_void, userrundownin : NDR_RUNDOWN));
 windows_link::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshall(pbuff : *const core::ffi::c_void, datarepresentation : u32) -> NDR_SCONTEXT);
 windows_link::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshall2(bindinghandle : RPC_BINDING_HANDLE, pbuff : *const core::ffi::c_void, datarepresentation : u32, ctxguard : *const core::ffi::c_void, flags : u32) -> NDR_SCONTEXT);
 windows_link::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshallEx(bindinghandle : RPC_BINDING_HANDLE, pbuff : *const core::ffi::c_void, datarepresentation : u32) -> NDR_SCONTEXT);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("rpcrt4.dll" "C" fn Ndr64AsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
-windows_link::link!("rpcrt4.dll" "system" fn Ndr64AsyncServerCall64(prpcmsg : *mut RPC_MESSAGE));
-windows_link::link!("rpcrt4.dll" "system" fn Ndr64AsyncServerCallAll(prpcmsg : *mut RPC_MESSAGE));
+windows_link::link!("rpcrt4.dll" "system" fn Ndr64AsyncServerCall64(prpcmsg : PRPC_MESSAGE));
+windows_link::link!("rpcrt4.dll" "system" fn Ndr64AsyncServerCallAll(prpcmsg : PRPC_MESSAGE));
 #[cfg(feature = "objidlbase")]
 windows_link::link!("rpcrt4.dll" "C" fn Ndr64DcomAsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn Ndr64DcomAsyncStubCall(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
+windows_link::link!("rpcrt4.dll" "system" fn Ndr64DcomAsyncStubCall(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : PRPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrAllocate(pstubmsg : *mut MIDL_STUB_MESSAGE, len : usize) -> *mut core::ffi::c_void);
+windows_link::link!("rpcrt4.dll" "system" fn NdrAllocate(pstubmsg : PMIDL_STUB_MESSAGE, len : usize) -> *mut core::ffi::c_void);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "C" fn NdrAsyncClientCall(pstubdescriptor : *const MIDL_STUB_DESC, pformat : *const u8, ...) -> CLIENT_CALL_RETURN);
-windows_link::link!("rpcrt4.dll" "system" fn NdrAsyncServerCall(prpcmsg : *mut RPC_MESSAGE));
+windows_link::link!("rpcrt4.dll" "C" fn NdrAsyncClientCall(pstubdescriptor : PMIDL_STUB_DESC, pformat : PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN);
+windows_link::link!("rpcrt4.dll" "system" fn NdrAsyncServerCall(prpcmsg : PRPC_MESSAGE));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrByteCountPointerBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrByteCountPointerBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrByteCountPointerFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrByteCountPointerFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrByteCountPointerMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrByteCountPointerMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrByteCountPointerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrByteCountPointerUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrClearOutParameters(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8, argaddr : *mut core::ffi::c_void));
+windows_link::link!("rpcrt4.dll" "system" fn NdrClearOutParameters(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING, argaddr : *mut core::ffi::c_void));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "C" fn NdrClientCall2(pstubdescriptor : *const MIDL_STUB_DESC, pformat : *const u8, ...) -> CLIENT_CALL_RETURN);
+windows_link::link!("rpcrt4.dll" "C" fn NdrClientCall2(pstubdescriptor : PMIDL_STUB_DESC, pformat : PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("rpcrt4.dll" "C" fn NdrClientCall3(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrClientContextMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, contexthandle : NDR_CCONTEXT, fcheck : i32));
+windows_link::link!("rpcrt4.dll" "system" fn NdrClientContextMarshall(pstubmsg : PMIDL_STUB_MESSAGE, contexthandle : NDR_CCONTEXT, fcheck : i32));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrClientContextUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pcontexthandle : *mut NDR_CCONTEXT, bindhandle : RPC_BINDING_HANDLE));
+windows_link::link!("rpcrt4.dll" "system" fn NdrClientContextUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, pcontexthandle : *mut NDR_CCONTEXT, bindhandle : RPC_BINDING_HANDLE));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrClientInitialize(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *const MIDL_STUB_DESC, procnum : u32));
+windows_link::link!("rpcrt4.dll" "system" fn NdrClientInitialize(prpcmsg : PRPC_MESSAGE, pstubmsg : PMIDL_STUB_MESSAGE, pstubdescriptor : PMIDL_STUB_DESC, procnum : u32));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrClientInitializeNew(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *const MIDL_STUB_DESC, procnum : u32));
+windows_link::link!("rpcrt4.dll" "system" fn NdrClientInitializeNew(prpcmsg : PRPC_MESSAGE, pstubmsg : PMIDL_STUB_MESSAGE, pstubdescriptor : PMIDL_STUB_DESC, procnum : u32));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrComplexArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrComplexArrayBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrComplexArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrComplexArrayFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrComplexArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrComplexArrayMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrComplexArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrComplexArrayMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrComplexArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrComplexArrayUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrComplexStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrComplexStructBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrComplexStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrComplexStructFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrComplexStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrComplexStructMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrComplexStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrComplexStructMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrComplexStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrComplexStructUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantArrayBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantArrayFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantArrayMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantArrayMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantArrayUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStringBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStringBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStringMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStringMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStringMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStringMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStringUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStringUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStructBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStructFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStructMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStructMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantStructUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrContextHandleInitialize(pstubmsg : *const MIDL_STUB_MESSAGE, pformat : *const u8) -> NDR_SCONTEXT);
+windows_link::link!("rpcrt4.dll" "system" fn NdrContextHandleInitialize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> NDR_SCONTEXT);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrContextHandleSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrContextHandleSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConvert(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrConvert(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrConvert2(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8, numberparams : i32));
+windows_link::link!("rpcrt4.dll" "system" fn NdrConvert2(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING, numberparams : i32));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrCorrelationFree(pstubmsg : *mut MIDL_STUB_MESSAGE));
+windows_link::link!("rpcrt4.dll" "system" fn NdrCorrelationFree(pstubmsg : PMIDL_STUB_MESSAGE));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrCorrelationInitialize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void, cachesize : u32, flags : u32));
+windows_link::link!("rpcrt4.dll" "system" fn NdrCorrelationInitialize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void, cachesize : u32, flags : u32));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrCorrelationPass(pstubmsg : *mut MIDL_STUB_MESSAGE));
+windows_link::link!("rpcrt4.dll" "system" fn NdrCorrelationPass(pstubmsg : PMIDL_STUB_MESSAGE));
 #[cfg(feature = "objidlbase")]
 windows_link::link!("rpcrt4.dll" "system" fn NdrCreateServerInterfaceFromStub(pstub : *mut core::ffi::c_void, pserverif : *mut RPC_SERVER_INTERFACE) -> windows_sys::core::RPC_STATUS);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "C" fn NdrDcomAsyncClientCall(pstubdescriptor : *const MIDL_STUB_DESC, pformat : *const u8, ...) -> CLIENT_CALL_RETURN);
+windows_link::link!("rpcrt4.dll" "C" fn NdrDcomAsyncClientCall(pstubdescriptor : PMIDL_STUB_DESC, pformat : PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrDcomAsyncStubCall(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrDcomAsyncStubCall(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : PRPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrFixedArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrFixedArrayBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrFixedArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrFixedArrayFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrFixedArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrFixedArrayMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrFixedArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrFixedArrayMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrFixedArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrFixedArrayUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrFreeBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE));
-windows_link::link!("rpcrt4.dll" "system" fn NdrFullPointerXlatFree(pxlattables : *mut FULL_PTR_XLAT_TABLES));
+windows_link::link!("rpcrt4.dll" "system" fn NdrFreeBuffer(pstubmsg : PMIDL_STUB_MESSAGE));
+windows_link::link!("rpcrt4.dll" "system" fn NdrFullPointerXlatFree(pxlattables : PFULL_PTR_XLAT_TABLES));
 windows_link::link!("rpcrt4.dll" "system" fn NdrFullPointerXlatInit(numberofpointers : u32, xlatside : XLAT_SIDE) -> PFULL_PTR_XLAT_TABLES);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrGetBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE, bufferlength : u32, handle : RPC_BINDING_HANDLE) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrGetBuffer(pstubmsg : PMIDL_STUB_MESSAGE, bufferlength : u32, handle : RPC_BINDING_HANDLE) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrGetDcomProtocolVersion(pstubmsg : *mut MIDL_STUB_MESSAGE, pversion : *mut RPC_VERSION) -> windows_sys::core::HRESULT);
+windows_link::link!("rpcrt4.dll" "system" fn NdrGetDcomProtocolVersion(pstubmsg : PMIDL_STUB_MESSAGE, pversion : *mut RPC_VERSION) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("rpcrt4.dll" "system" fn NdrGetUserMarshalInfo(pflags : *const u32, informationlevel : u32, pmarshalinfo : *mut NDR_USER_MARSHAL_INFO) -> windows_sys::core::RPC_STATUS);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrInterfacePointerBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrInterfacePointerBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrInterfacePointerFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrInterfacePointerFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrInterfacePointerMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrInterfacePointerMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrInterfacePointerMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrInterfacePointerMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrInterfacePointerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrInterfacePointerUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrMapCommAndFaultStatus(pstubmsg : *mut MIDL_STUB_MESSAGE, pcommstatus : *mut u32, pfaultstatus : *mut u32, status : windows_sys::core::RPC_STATUS) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn NdrMapCommAndFaultStatus(pstubmsg : PMIDL_STUB_MESSAGE, pcommstatus : *mut u32, pfaultstatus : *mut u32, status : windows_sys::core::RPC_STATUS) -> windows_sys::core::RPC_STATUS);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrNonConformantStringBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrNonConformantStringBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrNonConformantStringMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrNonConformantStringMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrNonConformantStringMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrNonConformantStringMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrNonConformantStringUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrNonConformantStringUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrNsGetBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE, bufferlength : u32, handle : RPC_BINDING_HANDLE) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrNsGetBuffer(pstubmsg : PMIDL_STUB_MESSAGE, bufferlength : u32, handle : RPC_BINDING_HANDLE) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrNsSendReceive(pstubmsg : *mut MIDL_STUB_MESSAGE, pbufferend : *mut u8, pautohandle : *mut RPC_BINDING_HANDLE) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrNsSendReceive(pstubmsg : PMIDL_STUB_MESSAGE, pbufferend : *mut u8, pautohandle : *mut RPC_BINDING_HANDLE) -> *mut u8);
 windows_link::link!("rpcrt4.dll" "system" fn NdrOleAllocate(size : usize) -> *mut core::ffi::c_void);
 windows_link::link!("rpcrt4.dll" "system" fn NdrOleFree(nodetofree : *const core::ffi::c_void));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreClientBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void));
+windows_link::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreClientBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreClientMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void));
+windows_link::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreClientMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreServerInitialize(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut core::ffi::c_void, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreServerInitialize(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut core::ffi::c_void, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreServerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut core::ffi::c_void));
+windows_link::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreServerUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut core::ffi::c_void));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrPointerBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrPointerBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrPointerFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrPointerFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrPointerMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrPointerMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrPointerMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrPointerMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrPointerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrPointerUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrRangeUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrRangeUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 windows_link::link!("rpcrt4.dll" "system" fn NdrRpcSmClientAllocate(size : usize) -> *mut core::ffi::c_void);
 windows_link::link!("rpcrt4.dll" "system" fn NdrRpcSmClientFree(nodetofree : *const core::ffi::c_void));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrRpcSmSetClientToOsf(pmessage : *mut MIDL_STUB_MESSAGE));
+windows_link::link!("rpcrt4.dll" "system" fn NdrRpcSmSetClientToOsf(pmessage : PMIDL_STUB_MESSAGE));
 windows_link::link!("rpcrt4.dll" "system" fn NdrRpcSsDefaultAllocate(size : usize) -> *mut core::ffi::c_void);
 windows_link::link!("rpcrt4.dll" "system" fn NdrRpcSsDefaultFree(nodetofree : *const core::ffi::c_void));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrRpcSsDisableAllocate(pmessage : *mut MIDL_STUB_MESSAGE));
+windows_link::link!("rpcrt4.dll" "system" fn NdrRpcSsDisableAllocate(pmessage : PMIDL_STUB_MESSAGE));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrRpcSsEnableAllocate(pmessage : *mut MIDL_STUB_MESSAGE));
+windows_link::link!("rpcrt4.dll" "system" fn NdrRpcSsEnableAllocate(pmessage : PMIDL_STUB_MESSAGE));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrSendReceive(pstubmsg : *mut MIDL_STUB_MESSAGE, pbufferend : *mut u8) -> *mut u8);
-windows_link::link!("rpcrt4.dll" "system" fn NdrServerCall2(prpcmsg : *mut RPC_MESSAGE));
-windows_link::link!("rpcrt4.dll" "system" fn NdrServerCallAll(prpcmsg : *mut RPC_MESSAGE));
-windows_link::link!("rpcrt4.dll" "system" fn NdrServerCallNdr64(prpcmsg : *mut RPC_MESSAGE));
+windows_link::link!("rpcrt4.dll" "system" fn NdrSendReceive(pstubmsg : PMIDL_STUB_MESSAGE, pbufferend : *mut u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrServerCall2(prpcmsg : PRPC_MESSAGE));
+windows_link::link!("rpcrt4.dll" "system" fn NdrServerCallAll(prpcmsg : PRPC_MESSAGE));
+windows_link::link!("rpcrt4.dll" "system" fn NdrServerCallNdr64(prpcmsg : PRPC_MESSAGE));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrServerContextMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, contexthandle : *mut _NDR_SCONTEXT, rundownroutine : NDR_RUNDOWN));
+windows_link::link!("rpcrt4.dll" "system" fn NdrServerContextMarshall(pstubmsg : PMIDL_STUB_MESSAGE, contexthandle : NDR_SCONTEXT, rundownroutine : NDR_RUNDOWN));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrServerContextNewMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, contexthandle : *mut _NDR_SCONTEXT, rundownroutine : NDR_RUNDOWN, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrServerContextNewMarshall(pstubmsg : PMIDL_STUB_MESSAGE, contexthandle : NDR_SCONTEXT, rundownroutine : NDR_RUNDOWN, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrServerContextNewUnmarshall(pstubmsg : *const MIDL_STUB_MESSAGE, pformat : *const u8) -> NDR_SCONTEXT);
+windows_link::link!("rpcrt4.dll" "system" fn NdrServerContextNewUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> NDR_SCONTEXT);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrServerContextUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE) -> NDR_SCONTEXT);
+windows_link::link!("rpcrt4.dll" "system" fn NdrServerContextUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE) -> NDR_SCONTEXT);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrServerInitialize(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *const MIDL_STUB_DESC) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrServerInitialize(prpcmsg : PRPC_MESSAGE, pstubmsg : PMIDL_STUB_MESSAGE, pstubdescriptor : PMIDL_STUB_DESC) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrServerInitializeMarshall(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE));
+windows_link::link!("rpcrt4.dll" "system" fn NdrServerInitializeMarshall(prpcmsg : PRPC_MESSAGE, pstubmsg : PMIDL_STUB_MESSAGE));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrServerInitializeNew(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *const MIDL_STUB_DESC) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrServerInitializeNew(prpcmsg : PRPC_MESSAGE, pstubmsg : PMIDL_STUB_MESSAGE, pstubdescriptor : PMIDL_STUB_DESC) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrServerInitializePartial(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *const MIDL_STUB_DESC, requestedbuffersize : u32));
+windows_link::link!("rpcrt4.dll" "system" fn NdrServerInitializePartial(prpcmsg : PRPC_MESSAGE, pstubmsg : PMIDL_STUB_MESSAGE, pstubdescriptor : PMIDL_STUB_DESC, requestedbuffersize : u32));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrServerInitializeUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *const MIDL_STUB_DESC, prpcmsg : *mut RPC_MESSAGE) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrServerInitializeUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, pstubdescriptor : PMIDL_STUB_DESC, prpcmsg : PRPC_MESSAGE) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrSimpleStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrSimpleStructBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrSimpleStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrSimpleStructFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrSimpleStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrSimpleStructMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrSimpleStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrSimpleStructMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrSimpleStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrSimpleStructUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrSimpleTypeMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, formatchar : u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrSimpleTypeMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, formatchar : u8));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrSimpleTypeUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, formatchar : u8));
-windows_link::link!("rpcrt4.dll" "system" fn NdrStubCall2(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
-windows_link::link!("rpcrt4.dll" "system" fn NdrStubCall3(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrSimpleTypeUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, formatchar : u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrStubCall2(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : PRPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrStubCall3(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : PRPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrUserMarshalBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrUserMarshalBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrUserMarshalFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrUserMarshalFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrUserMarshalMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrUserMarshalMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrUserMarshalMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrUserMarshalMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 windows_link::link!("rpcrt4.dll" "system" fn NdrUserMarshalSimpleTypeConvert(pflags : *mut u32, pbuffer : *mut u8, formatchar : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrUserMarshalUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrUserMarshalUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrVaryingArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrVaryingArrayBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrVaryingArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrVaryingArrayFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrVaryingArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrVaryingArrayMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrVaryingArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrVaryingArrayMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrVaryingArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrVaryingArrayUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8));
+windows_link::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *const u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *const u8) -> u32);
+windows_link::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *const u8, fmustalloc : u8) -> *mut u8);
+windows_link::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-windows_link::link!("rpcrt4.dll" "system" fn RpcAsyncAbortCall(pasync : *mut RPC_ASYNC_STATE, exceptioncode : u32) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcAsyncAbortCall(pasync : PRPC_ASYNC_STATE, exceptioncode : u32) -> windows_sys::core::RPC_STATUS);
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-windows_link::link!("rpcrt4.dll" "system" fn RpcAsyncCancelCall(pasync : *mut RPC_ASYNC_STATE, fabort : windows_sys::core::BOOL) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcAsyncCancelCall(pasync : PRPC_ASYNC_STATE, fabort : windows_sys::core::BOOL) -> windows_sys::core::RPC_STATUS);
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-windows_link::link!("rpcrt4.dll" "system" fn RpcAsyncCompleteCall(pasync : *mut RPC_ASYNC_STATE, reply : *mut core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcAsyncCompleteCall(pasync : PRPC_ASYNC_STATE, reply : *mut core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-windows_link::link!("rpcrt4.dll" "system" fn RpcAsyncGetCallStatus(pasync : *const RPC_ASYNC_STATE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcAsyncGetCallStatus(pasync : PRPC_ASYNC_STATE) -> windows_sys::core::RPC_STATUS);
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-windows_link::link!("rpcrt4.dll" "system" fn RpcAsyncInitializeHandle(pasync : *mut RPC_ASYNC_STATE, size : u32) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcAsyncInitializeHandle(pasync : PRPC_ASYNC_STATE, size : u32) -> windows_sys::core::RPC_STATUS);
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-windows_link::link!("rpcrt4.dll" "system" fn RpcAsyncRegisterInfo(pasync : *const RPC_ASYNC_STATE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcAsyncRegisterInfo(pasync : PRPC_ASYNC_STATE) -> windows_sys::core::RPC_STATUS);
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-windows_link::link!("rpcrt4.dll" "system" fn RpcBindingBind(pasync : *const RPC_ASYNC_STATE, binding : RPC_BINDING_HANDLE, ifspec : RPC_IF_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcBindingBind(pasync : PRPC_ASYNC_STATE, binding : RPC_BINDING_HANDLE, ifspec : RPC_IF_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcBindingCopy(sourcebinding : RPC_BINDING_HANDLE, destinationbinding : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcBindingCreateA(template : *const RPC_BINDING_HANDLE_TEMPLATE_V1_A, security : *const RPC_BINDING_HANDLE_SECURITY_V1_A, options : *const RPC_BINDING_HANDLE_OPTIONS_V1, binding : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcBindingCreateW(template : *const RPC_BINDING_HANDLE_TEMPLATE_V1_W, security : *const RPC_BINDING_HANDLE_SECURITY_V1_W, options : *const RPC_BINDING_HANDLE_OPTIONS_V1, binding : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcBindingFree(binding : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcBindingFromStringBindingA(stringbinding : *const u8, binding : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcBindingFromStringBindingW(stringbinding : *const u16, binding : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcBindingFromStringBindingA(stringbinding : RPC_CSTR, binding : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcBindingFromStringBindingW(stringbinding : RPC_WSTR, binding : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientA(clientbinding : RPC_BINDING_HANDLE, privs : *mut RPC_AUTHZ_HANDLE, serverprincname : *mut RPC_CSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientExA(clientbinding : RPC_BINDING_HANDLE, privs : *mut RPC_AUTHZ_HANDLE, serverprincname : *mut RPC_CSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32, flags : u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientExW(clientbinding : RPC_BINDING_HANDLE, privs : *mut RPC_AUTHZ_HANDLE, serverprincname : *mut RPC_WSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32, flags : u32) -> windows_sys::core::RPC_STATUS);
@@ -406,10 +406,10 @@ windows_link::link!("rpcrt4.dll" "system" fn RpcBindingInqObject(binding : RPC_B
 windows_link::link!("rpcrt4.dll" "system" fn RpcBindingInqOption(hbinding : RPC_BINDING_HANDLE, option : u32, poptionvalue : *mut usize) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcBindingReset(binding : RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcBindingServerFromClient(clientbinding : RPC_BINDING_HANDLE, serverbinding : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoA(binding : RPC_BINDING_HANDLE, serverprincname : *const u8, authnlevel : u32, authnsvc : u32, authidentity : RPC_AUTH_IDENTITY_HANDLE, authzsvc : u32) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoExA(binding : RPC_BINDING_HANDLE, serverprincname : *const u8, authnlevel : u32, authnsvc : u32, authidentity : RPC_AUTH_IDENTITY_HANDLE, authzsvc : u32, securityqos : *const RPC_SECURITY_QOS) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoExW(binding : RPC_BINDING_HANDLE, serverprincname : *const u16, authnlevel : u32, authnsvc : u32, authidentity : RPC_AUTH_IDENTITY_HANDLE, authzsvc : u32, securityqos : *const RPC_SECURITY_QOS) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoW(binding : RPC_BINDING_HANDLE, serverprincname : *const u16, authnlevel : u32, authnsvc : u32, authidentity : RPC_AUTH_IDENTITY_HANDLE, authzsvc : u32) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoA(binding : RPC_BINDING_HANDLE, serverprincname : RPC_CSTR, authnlevel : u32, authnsvc : u32, authidentity : RPC_AUTH_IDENTITY_HANDLE, authzsvc : u32) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoExA(binding : RPC_BINDING_HANDLE, serverprincname : RPC_CSTR, authnlevel : u32, authnsvc : u32, authidentity : RPC_AUTH_IDENTITY_HANDLE, authzsvc : u32, securityqos : *const RPC_SECURITY_QOS) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoExW(binding : RPC_BINDING_HANDLE, serverprincname : RPC_WSTR, authnlevel : u32, authnsvc : u32, authidentity : RPC_AUTH_IDENTITY_HANDLE, authzsvc : u32, securityqos : *const RPC_SECURITY_QOS) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoW(binding : RPC_BINDING_HANDLE, serverprincname : RPC_WSTR, authnlevel : u32, authnsvc : u32, authidentity : RPC_AUTH_IDENTITY_HANDLE, authzsvc : u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcBindingSetObject(binding : RPC_BINDING_HANDLE, objectuuid : *const windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcBindingSetOption(hbinding : RPC_BINDING_HANDLE, option : u32, optionvalue : usize) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcBindingToStringBindingA(binding : RPC_BINDING_HANDLE, stringbinding : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
@@ -418,10 +418,10 @@ windows_link::link!("rpcrt4.dll" "system" fn RpcBindingUnbind(binding : RPC_BIND
 windows_link::link!("rpcrt4.dll" "system" fn RpcBindingVectorFree(bindingvector : *mut *mut RPC_BINDING_VECTOR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcCancelThread(thread : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcCancelThreadEx(thread : *const core::ffi::c_void, timeout : i32) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcEpRegisterA(ifspec : RPC_IF_HANDLE, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : *const u8) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcEpRegisterNoReplaceA(ifspec : RPC_IF_HANDLE, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : *const u8) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcEpRegisterNoReplaceW(ifspec : RPC_IF_HANDLE, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : *const u16) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcEpRegisterW(ifspec : RPC_IF_HANDLE, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : *const u16) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcEpRegisterA(ifspec : RPC_IF_HANDLE, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcEpRegisterNoReplaceA(ifspec : RPC_IF_HANDLE, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcEpRegisterNoReplaceW(ifspec : RPC_IF_HANDLE, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : RPC_WSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcEpRegisterW(ifspec : RPC_IF_HANDLE, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : RPC_WSTR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcEpResolveBinding(binding : RPC_BINDING_HANDLE, ifspec : RPC_IF_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcEpUnregister(ifspec : RPC_IF_HANDLE, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
@@ -438,7 +438,7 @@ windows_link::link!("rpcrt4.dll" "system" fn RpcErrorStartEnumeration(enumhandle
 windows_link::link!("rpcrt4.dll" "system" fn RpcExceptionFilter(exceptioncode : u32) -> i32);
 windows_link::link!("rpcrt4.dll" "system" fn RpcFreeAuthorizationContext(pauthzclientcontext : *mut *mut core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("rpcrt4.dll" "system" fn RpcGetAuthorizationContextForClient(clientbinding : RPC_BINDING_HANDLE, impersonateonreturn : windows_sys::core::BOOL, reserved1 : *const core::ffi::c_void, pexpirationtime : *const i64, reserved2 : super::LUID, reserved3 : u32, reserved4 : *const core::ffi::c_void, pauthzclientcontext : *mut *mut core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcGetAuthorizationContextForClient(clientbinding : RPC_BINDING_HANDLE, impersonateonreturn : windows_sys::core::BOOL, reserved1 : *const core::ffi::c_void, pexpirationtime : super::PLARGE_INTEGER, reserved2 : super::LUID, reserved3 : u32, reserved4 : *const core::ffi::c_void, pauthzclientcontext : *mut *mut core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcIfIdVectorFree(ifidvector : *mut *mut RPC_IF_ID_VECTOR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcIfInqId(rpcifhandle : RPC_IF_HANDLE, rpcifid : *mut RPC_IF_ID) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcImpersonateClient(bindinghandle : RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
@@ -447,8 +447,8 @@ windows_link::link!("rpcrt4.dll" "system" fn RpcImpersonateClientContainer(bindi
 windows_link::link!("rpcrt4.dll" "system" fn RpcMgmtEnableIdleCleanup() -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqBegin(epbinding : RPC_BINDING_HANDLE, inquirytype : u32, ifid : *const RPC_IF_ID, versoption : u32, objectuuid : *const windows_sys::core::GUID, inquirycontext : *mut RPC_EP_INQ_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqDone(inquirycontext : *mut RPC_EP_INQ_HANDLE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqNextA(inquirycontext : *const I_RPC_HANDLE, ifid : *mut RPC_IF_ID, binding : *mut RPC_BINDING_HANDLE, objectuuid : *mut windows_sys::core::GUID, annotation : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqNextW(inquirycontext : *const I_RPC_HANDLE, ifid : *mut RPC_IF_ID, binding : *mut RPC_BINDING_HANDLE, objectuuid : *mut windows_sys::core::GUID, annotation : *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqNextA(inquirycontext : RPC_EP_INQ_HANDLE, ifid : *mut RPC_IF_ID, binding : *mut RPC_BINDING_HANDLE, objectuuid : *mut windows_sys::core::GUID, annotation : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqNextW(inquirycontext : RPC_EP_INQ_HANDLE, ifid : *mut RPC_IF_ID, binding : *mut RPC_BINDING_HANDLE, objectuuid : *mut windows_sys::core::GUID, annotation : *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcMgmtEpUnregister(epbinding : RPC_BINDING_HANDLE, ifid : *const RPC_IF_ID, binding : RPC_BINDING_HANDLE, objectuuid : *const windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcMgmtInqComTimeout(binding : RPC_BINDING_HANDLE, timeout : *mut u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcMgmtInqDefaultProtectLevel(authnsvc : u32, authnlevel : *mut u32) -> windows_sys::core::RPC_STATUS);
@@ -466,66 +466,66 @@ windows_link::link!("rpcrt4.dll" "system" fn RpcMgmtStopServerListening(binding 
 windows_link::link!("rpcrt4.dll" "system" fn RpcMgmtWaitServerListen() -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcNetworkInqProtseqsA(protseqvector : *mut *mut RPC_PROTSEQ_VECTORA) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcNetworkInqProtseqsW(protseqvector : *mut *mut RPC_PROTSEQ_VECTORW) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcNetworkIsProtseqValidA(protseq : *const u8) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcNetworkIsProtseqValidW(protseq : *const u16) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingExportA(entrynamesyntax : u32, entryname : *const u8, ifspec : RPC_IF_HANDLE, bindingvec : *const RPC_BINDING_VECTOR, objectuuidvec : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingExportPnPA(entrynamesyntax : u32, entryname : *const u8, ifspec : RPC_IF_HANDLE, objectvector : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingExportPnPW(entrynamesyntax : u32, entryname : *const u16, ifspec : RPC_IF_HANDLE, objectvector : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingExportW(entrynamesyntax : u32, entryname : *const u16, ifspec : RPC_IF_HANDLE, bindingvec : *const RPC_BINDING_VECTOR, objectuuidvec : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingImportBeginA(entrynamesyntax : u32, entryname : *const u8, ifspec : RPC_IF_HANDLE, objuuid : *const windows_sys::core::GUID, importcontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingImportBeginW(entrynamesyntax : u32, entryname : *const u16, ifspec : RPC_IF_HANDLE, objuuid : *const windows_sys::core::GUID, importcontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcNetworkIsProtseqValidA(protseq : RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcNetworkIsProtseqValidW(protseq : RPC_WSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingExportA(entrynamesyntax : u32, entryname : RPC_CSTR, ifspec : RPC_IF_HANDLE, bindingvec : *const RPC_BINDING_VECTOR, objectuuidvec : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingExportPnPA(entrynamesyntax : u32, entryname : RPC_CSTR, ifspec : RPC_IF_HANDLE, objectvector : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingExportPnPW(entrynamesyntax : u32, entryname : RPC_WSTR, ifspec : RPC_IF_HANDLE, objectvector : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingExportW(entrynamesyntax : u32, entryname : RPC_WSTR, ifspec : RPC_IF_HANDLE, bindingvec : *const RPC_BINDING_VECTOR, objectuuidvec : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingImportBeginA(entrynamesyntax : u32, entryname : RPC_CSTR, ifspec : RPC_IF_HANDLE, objuuid : *const windows_sys::core::GUID, importcontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingImportBeginW(entrynamesyntax : u32, entryname : RPC_WSTR, ifspec : RPC_IF_HANDLE, objuuid : *const windows_sys::core::GUID, importcontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingImportDone(importcontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingImportNext(importcontext : RPC_NS_HANDLE, binding : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcNsBindingInqEntryNameA(binding : RPC_BINDING_HANDLE, entrynamesyntax : u32, entryname : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcNsBindingInqEntryNameW(binding : RPC_BINDING_HANDLE, entrynamesyntax : u32, entryname : *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingLookupBeginA(entrynamesyntax : u32, entryname : *const u8, ifspec : RPC_IF_HANDLE, objuuid : *const windows_sys::core::GUID, bindingmaxcount : u32, lookupcontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingLookupBeginW(entrynamesyntax : u32, entryname : *const u16, ifspec : RPC_IF_HANDLE, objuuid : *const windows_sys::core::GUID, bindingmaxcount : u32, lookupcontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingLookupBeginA(entrynamesyntax : u32, entryname : RPC_CSTR, ifspec : RPC_IF_HANDLE, objuuid : *const windows_sys::core::GUID, bindingmaxcount : u32, lookupcontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingLookupBeginW(entrynamesyntax : u32, entryname : RPC_WSTR, ifspec : RPC_IF_HANDLE, objuuid : *const windows_sys::core::GUID, bindingmaxcount : u32, lookupcontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingLookupDone(lookupcontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingLookupNext(lookupcontext : RPC_NS_HANDLE, bindingvec : *mut *mut RPC_BINDING_VECTOR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingSelect(bindingvec : *mut RPC_BINDING_VECTOR, binding : *mut RPC_BINDING_HANDLE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportA(entrynamesyntax : u32, entryname : *const u8, ifspec : RPC_IF_HANDLE, objectuuidvec : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportPnPA(entrynamesyntax : u32, entryname : *const u8, ifspec : RPC_IF_HANDLE, objectvector : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportPnPW(entrynamesyntax : u32, entryname : *const u16, ifspec : RPC_IF_HANDLE, objectvector : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportW(entrynamesyntax : u32, entryname : *const u16, ifspec : RPC_IF_HANDLE, objectuuidvec : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsEntryExpandNameA(entrynamesyntax : u32, entryname : *const u8, expandedname : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsEntryExpandNameW(entrynamesyntax : u32, entryname : *const u16, expandedname : *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqBeginA(entrynamesyntax : u32, entryname : *const u8, inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqBeginW(entrynamesyntax : u32, entryname : *const u16, inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportA(entrynamesyntax : u32, entryname : RPC_CSTR, ifspec : RPC_IF_HANDLE, objectuuidvec : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportPnPA(entrynamesyntax : u32, entryname : RPC_CSTR, ifspec : RPC_IF_HANDLE, objectvector : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportPnPW(entrynamesyntax : u32, entryname : RPC_WSTR, ifspec : RPC_IF_HANDLE, objectvector : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportW(entrynamesyntax : u32, entryname : RPC_WSTR, ifspec : RPC_IF_HANDLE, objectuuidvec : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsEntryExpandNameA(entrynamesyntax : u32, entryname : RPC_CSTR, expandedname : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsEntryExpandNameW(entrynamesyntax : u32, entryname : RPC_WSTR, expandedname : *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqBeginA(entrynamesyntax : u32, entryname : RPC_CSTR, inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqBeginW(entrynamesyntax : u32, entryname : RPC_WSTR, inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqDone(inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqNext(inquirycontext : RPC_NS_HANDLE, objuuid : *mut windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupDeleteA(groupnamesyntax : u32, groupname : *const u8) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupDeleteW(groupnamesyntax : u32, groupname : *const u16) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrAddA(groupnamesyntax : u32, groupname : *const u8, membernamesyntax : u32, membername : *const u8) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrAddW(groupnamesyntax : u32, groupname : *const u16, membernamesyntax : u32, membername : *const u16) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqBeginA(groupnamesyntax : u32, groupname : *const u8, membernamesyntax : u32, inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqBeginW(groupnamesyntax : u32, groupname : *const u16, membernamesyntax : u32, inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupDeleteA(groupnamesyntax : u32, groupname : RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupDeleteW(groupnamesyntax : u32, groupname : RPC_WSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrAddA(groupnamesyntax : u32, groupname : RPC_CSTR, membernamesyntax : u32, membername : RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrAddW(groupnamesyntax : u32, groupname : RPC_WSTR, membernamesyntax : u32, membername : RPC_WSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqBeginA(groupnamesyntax : u32, groupname : RPC_CSTR, membernamesyntax : u32, inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqBeginW(groupnamesyntax : u32, groupname : RPC_WSTR, membernamesyntax : u32, inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqDone(inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqNextA(inquirycontext : RPC_NS_HANDLE, membername : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqNextW(inquirycontext : RPC_NS_HANDLE, membername : *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrRemoveA(groupnamesyntax : u32, groupname : *const u8, membernamesyntax : u32, membername : *const u8) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrRemoveW(groupnamesyntax : u32, groupname : *const u16, membernamesyntax : u32, membername : *const u16) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtBindingUnexportA(entrynamesyntax : u32, entryname : *const u8, ifid : *const RPC_IF_ID, versoption : u32, objectuuidvec : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtBindingUnexportW(entrynamesyntax : u32, entryname : *const u16, ifid : *const RPC_IF_ID, versoption : u32, objectuuidvec : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryCreateA(entrynamesyntax : u32, entryname : *const u8) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryCreateW(entrynamesyntax : u32, entryname : *const u16) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryDeleteA(entrynamesyntax : u32, entryname : *const u8) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryDeleteW(entrynamesyntax : u32, entryname : *const u16) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryInqIfIdsA(entrynamesyntax : u32, entryname : *const u8, ifidvec : *mut *mut RPC_IF_ID_VECTOR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryInqIfIdsW(entrynamesyntax : u32, entryname : *const u16, ifidvec : *mut *mut RPC_IF_ID_VECTOR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrRemoveA(groupnamesyntax : u32, groupname : RPC_CSTR, membernamesyntax : u32, membername : RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsGroupMbrRemoveW(groupnamesyntax : u32, groupname : RPC_WSTR, membernamesyntax : u32, membername : RPC_WSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtBindingUnexportA(entrynamesyntax : u32, entryname : RPC_CSTR, ifid : *const RPC_IF_ID, versoption : u32, objectuuidvec : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtBindingUnexportW(entrynamesyntax : u32, entryname : RPC_WSTR, ifid : *const RPC_IF_ID, versoption : u32, objectuuidvec : *const UUID_VECTOR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryCreateA(entrynamesyntax : u32, entryname : RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryCreateW(entrynamesyntax : u32, entryname : RPC_WSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryDeleteA(entrynamesyntax : u32, entryname : RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryDeleteW(entrynamesyntax : u32, entryname : RPC_WSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryInqIfIdsA(entrynamesyntax : u32, entryname : RPC_CSTR, ifidvec : *mut *mut RPC_IF_ID_VECTOR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryInqIfIdsW(entrynamesyntax : u32, entryname : RPC_WSTR, ifidvec : *mut *mut RPC_IF_ID_VECTOR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtHandleSetExpAge(nshandle : RPC_NS_HANDLE, expirationage : u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtInqExpAge(expirationage : *mut u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsMgmtSetExpAge(expirationage : u32) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileDeleteA(profilenamesyntax : u32, profilename : *const u8) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileDeleteW(profilenamesyntax : u32, profilename : *const u16) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltAddA(profilenamesyntax : u32, profilename : *const u8, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : *const u8, priority : u32, annotation : *const u8) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltAddW(profilenamesyntax : u32, profilename : *const u16, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : *const u16, priority : u32, annotation : *const u16) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqBeginA(profilenamesyntax : u32, profilename : *const u8, inquirytype : u32, ifid : *const RPC_IF_ID, versoption : u32, membernamesyntax : u32, membername : *const u8, inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqBeginW(profilenamesyntax : u32, profilename : *const u16, inquirytype : u32, ifid : *const RPC_IF_ID, versoption : u32, membernamesyntax : u32, membername : *const u16, inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileDeleteA(profilenamesyntax : u32, profilename : RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileDeleteW(profilenamesyntax : u32, profilename : RPC_WSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltAddA(profilenamesyntax : u32, profilename : RPC_CSTR, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : RPC_CSTR, priority : u32, annotation : RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltAddW(profilenamesyntax : u32, profilename : RPC_WSTR, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : RPC_WSTR, priority : u32, annotation : RPC_WSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqBeginA(profilenamesyntax : u32, profilename : RPC_CSTR, inquirytype : u32, ifid : *const RPC_IF_ID, versoption : u32, membernamesyntax : u32, membername : RPC_CSTR, inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqBeginW(profilenamesyntax : u32, profilename : RPC_WSTR, inquirytype : u32, ifid : *const RPC_IF_ID, versoption : u32, membernamesyntax : u32, membername : RPC_WSTR, inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqDone(inquirycontext : *mut RPC_NS_HANDLE) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqNextA(inquirycontext : RPC_NS_HANDLE, ifid : *mut RPC_IF_ID, membername : *mut RPC_CSTR, priority : *mut u32, annotation : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqNextW(inquirycontext : RPC_NS_HANDLE, ifid : *mut RPC_IF_ID, membername : *mut RPC_WSTR, priority : *mut u32, annotation : *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltRemoveA(profilenamesyntax : u32, profilename : *const u8, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : *const u8) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltRemoveW(profilenamesyntax : u32, profilename : *const u16, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : *const u16) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltRemoveA(profilenamesyntax : u32, profilename : RPC_CSTR, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcns4.dll" "system" fn RpcNsProfileEltRemoveW(profilenamesyntax : u32, profilename : RPC_WSTR, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : RPC_WSTR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcObjectInqType(objuuid : *const windows_sys::core::GUID, typeuuid : *mut windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcObjectSetInqFn(inquiryfn : RPC_OBJECT_INQ_FN) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcObjectSetType(objuuid : *const windows_sys::core::GUID, typeuuid : *const windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
@@ -546,13 +546,13 @@ windows_link::link!("rpcrt4.dll" "system" fn RpcServerInqDefaultPrincNameW(authn
 windows_link::link!("rpcrt4.dll" "system" fn RpcServerInqIf(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const windows_sys::core::GUID, mgrepv : *mut *mut core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupActivate(ifgroup : RPC_INTERFACE_GROUP) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupClose(ifgroup : RPC_INTERFACE_GROUP) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupCreateA(interfaces : *const RPC_INTERFACE_TEMPLATEA, numifs : u32, endpoints : *const RPC_ENDPOINT_TEMPLATEA, numendpoints : u32, idleperiod : u32, idlecallbackfn : *const core::ffi::c_void, idlecallbackcontext : *const core::ffi::c_void, ifgroup : *mut *mut core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupCreateW(interfaces : *const RPC_INTERFACE_TEMPLATEW, numifs : u32, endpoints : *const RPC_ENDPOINT_TEMPLATEW, numendpoints : u32, idleperiod : u32, idlecallbackfn : *const core::ffi::c_void, idlecallbackcontext : *const core::ffi::c_void, ifgroup : *mut *mut core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupCreateA(interfaces : *const RPC_INTERFACE_TEMPLATEA, numifs : u32, endpoints : *const RPC_ENDPOINT_TEMPLATEA, numendpoints : u32, idleperiod : u32, idlecallbackfn : RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext : *const core::ffi::c_void, ifgroup : PRPC_INTERFACE_GROUP) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupCreateW(interfaces : *const RPC_INTERFACE_TEMPLATEW, numifs : u32, endpoints : *const RPC_ENDPOINT_TEMPLATEW, numendpoints : u32, idleperiod : u32, idlecallbackfn : RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext : *const core::ffi::c_void, ifgroup : PRPC_INTERFACE_GROUP) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupDeactivate(ifgroup : RPC_INTERFACE_GROUP, forcedeactivation : u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupInqBindings(ifgroup : RPC_INTERFACE_GROUP, bindingvector : *mut *mut RPC_BINDING_VECTOR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcServerListen(minimumcallthreads : u32, maxcalls : u32, dontwait : u32) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerRegisterAuthInfoA(serverprincname : *const u8, authnsvc : u32, getkeyfn : RPC_AUTH_KEY_RETRIEVAL_FN, arg : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerRegisterAuthInfoW(serverprincname : *const u16, authnsvc : u32, getkeyfn : RPC_AUTH_KEY_RETRIEVAL_FN, arg : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerRegisterAuthInfoA(serverprincname : RPC_CSTR, authnsvc : u32, getkeyfn : RPC_AUTH_KEY_RETRIEVAL_FN, arg : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerRegisterAuthInfoW(serverprincname : RPC_WSTR, authnsvc : u32, getkeyfn : RPC_AUTH_KEY_RETRIEVAL_FN, arg : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const windows_sys::core::GUID, mgrepv : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf2(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const windows_sys::core::GUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, maxrpcsize : u32, ifcallbackfn : RPC_IF_CALLBACK_FN) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf3(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const windows_sys::core::GUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, maxrpcsize : u32, ifcallback : RPC_IF_CALLBACK_FN, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
@@ -564,21 +564,21 @@ windows_link::link!("rpcrt4.dll" "system" fn RpcServerUnregisterIf(ifspec : RPC_
 windows_link::link!("rpcrt4.dll" "system" fn RpcServerUnregisterIfEx(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const windows_sys::core::GUID, rundowncontexthandles : i32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcServerUnsubscribeForNotification(binding : RPC_BINDING_HANDLE, notification : RPC_NOTIFICATIONS, notificationsqueued : *mut u32) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseAllProtseqs(maxcalls : u32, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseAllProtseqsEx(maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseAllProtseqsEx(maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : PRPC_POLICY) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseAllProtseqsIf(maxcalls : u32, ifspec : RPC_IF_HANDLE, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseAllProtseqsIfEx(maxcalls : u32, ifspec : RPC_IF_HANDLE, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqA(protseq : *const u8, maxcalls : u32, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpA(protseq : *const u8, maxcalls : u32, endpoint : *const u8, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpExA(protseq : *const u8, maxcalls : u32, endpoint : *const u8, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpExW(protseq : *const u16, maxcalls : u32, endpoint : *const u16, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpW(protseq : *const u16, maxcalls : u32, endpoint : *const u16, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqExA(protseq : *const u8, maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqExW(protseq : *const u16, maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfA(protseq : *const u8, maxcalls : u32, ifspec : RPC_IF_HANDLE, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfExA(protseq : *const u8, maxcalls : u32, ifspec : RPC_IF_HANDLE, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfExW(protseq : *const u16, maxcalls : u32, ifspec : RPC_IF_HANDLE, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfW(protseq : *const u16, maxcalls : u32, ifspec : RPC_IF_HANDLE, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqW(protseq : *const u16, maxcalls : u32, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseAllProtseqsIfEx(maxcalls : u32, ifspec : RPC_IF_HANDLE, securitydescriptor : *const core::ffi::c_void, policy : PRPC_POLICY) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqA(protseq : RPC_CSTR, maxcalls : u32, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpA(protseq : RPC_CSTR, maxcalls : u32, endpoint : RPC_CSTR, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpExA(protseq : RPC_CSTR, maxcalls : u32, endpoint : RPC_CSTR, securitydescriptor : *const core::ffi::c_void, policy : PRPC_POLICY) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpExW(protseq : RPC_WSTR, maxcalls : u32, endpoint : RPC_WSTR, securitydescriptor : *const core::ffi::c_void, policy : PRPC_POLICY) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpW(protseq : RPC_WSTR, maxcalls : u32, endpoint : RPC_WSTR, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqExA(protseq : RPC_CSTR, maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : PRPC_POLICY) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqExW(protseq : RPC_WSTR, maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : PRPC_POLICY) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfA(protseq : RPC_CSTR, maxcalls : u32, ifspec : RPC_IF_HANDLE, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfExA(protseq : RPC_CSTR, maxcalls : u32, ifspec : RPC_IF_HANDLE, securitydescriptor : *const core::ffi::c_void, policy : PRPC_POLICY) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfExW(protseq : RPC_WSTR, maxcalls : u32, ifspec : RPC_IF_HANDLE, securitydescriptor : *const core::ffi::c_void, policy : PRPC_POLICY) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfW(protseq : RPC_WSTR, maxcalls : u32, ifspec : RPC_IF_HANDLE, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqW(protseq : RPC_WSTR, maxcalls : u32, securitydescriptor : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcServerYield());
 windows_link::link!("rpcrt4.dll" "system" fn RpcSmAllocate(size : usize, pstatus : *mut windows_sys::core::RPC_STATUS) -> *mut core::ffi::c_void);
 windows_link::link!("rpcrt4.dll" "system" fn RpcSmClientFree(pnodetofree : *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS);
@@ -603,10 +603,10 @@ windows_link::link!("rpcrt4.dll" "system" fn RpcSsGetThreadHandle() -> RPC_SS_TH
 windows_link::link!("rpcrt4.dll" "system" fn RpcSsSetClientAllocFree(clientalloc : RPC_CLIENT_ALLOC, clientfree : RPC_CLIENT_FREE));
 windows_link::link!("rpcrt4.dll" "system" fn RpcSsSetThreadHandle(id : RPC_SS_THREAD_HANDLE));
 windows_link::link!("rpcrt4.dll" "system" fn RpcSsSwapClientAllocFree(clientalloc : RPC_CLIENT_ALLOC, clientfree : RPC_CLIENT_FREE, oldclientalloc : *mut RPC_CLIENT_ALLOC, oldclientfree : *mut RPC_CLIENT_FREE));
-windows_link::link!("rpcrt4.dll" "system" fn RpcStringBindingComposeA(objuuid : *const u8, protseq : *const u8, networkaddr : *const u8, endpoint : *const u8, options : *const u8, stringbinding : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcStringBindingComposeW(objuuid : *const u16, protseq : *const u16, networkaddr : *const u16, endpoint : *const u16, options : *const u16, stringbinding : *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcStringBindingParseA(stringbinding : *const u8, objuuid : *mut RPC_CSTR, protseq : *mut RPC_CSTR, networkaddr : *mut RPC_CSTR, endpoint : *mut RPC_CSTR, networkoptions : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn RpcStringBindingParseW(stringbinding : *const u16, objuuid : *mut RPC_WSTR, protseq : *mut RPC_WSTR, networkaddr : *mut RPC_WSTR, endpoint : *mut RPC_WSTR, networkoptions : *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcStringBindingComposeA(objuuid : RPC_CSTR, protseq : RPC_CSTR, networkaddr : RPC_CSTR, endpoint : RPC_CSTR, options : RPC_CSTR, stringbinding : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcStringBindingComposeW(objuuid : RPC_WSTR, protseq : RPC_WSTR, networkaddr : RPC_WSTR, endpoint : RPC_WSTR, options : RPC_WSTR, stringbinding : *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcStringBindingParseA(stringbinding : RPC_CSTR, objuuid : *mut RPC_CSTR, protseq : *mut RPC_CSTR, networkaddr : *mut RPC_CSTR, endpoint : *mut RPC_CSTR, networkoptions : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn RpcStringBindingParseW(stringbinding : RPC_WSTR, objuuid : *mut RPC_WSTR, protseq : *mut RPC_WSTR, networkaddr : *mut RPC_WSTR, endpoint : *mut RPC_WSTR, networkoptions : *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcStringFreeA(string : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcStringFreeW(string : *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn RpcTestCancel() -> windows_sys::core::RPC_STATUS);
@@ -616,8 +616,8 @@ windows_link::link!("rpcrt4.dll" "system" fn UuidCreate(uuid : *mut windows_sys:
 windows_link::link!("rpcrt4.dll" "system" fn UuidCreateNil(niluuid : *mut windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn UuidCreateSequential(uuid : *mut windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn UuidEqual(uuid1 : *const windows_sys::core::GUID, uuid2 : *const windows_sys::core::GUID, status : *mut windows_sys::core::RPC_STATUS) -> i32);
-windows_link::link!("rpcrt4.dll" "system" fn UuidFromStringA(stringuuid : *const u8, uuid : *mut windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
-windows_link::link!("rpcrt4.dll" "system" fn UuidFromStringW(stringuuid : *const u16, uuid : *mut windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn UuidFromStringA(stringuuid : RPC_CSTR, uuid : *mut windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
+windows_link::link!("rpcrt4.dll" "system" fn UuidFromStringW(stringuuid : RPC_WSTR, uuid : *mut windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS);
 windows_link::link!("rpcrt4.dll" "system" fn UuidHash(uuid : *const windows_sys::core::GUID, status : *mut windows_sys::core::RPC_STATUS) -> u16);
 windows_link::link!("rpcrt4.dll" "system" fn UuidIsNil(uuid : *const windows_sys::core::GUID, status : *mut windows_sys::core::RPC_STATUS) -> i32);
 windows_link::link!("rpcrt4.dll" "system" fn UuidToStringA(uuid : *const windows_sys::core::GUID, stringuuid : *mut RPC_CSTR) -> windows_sys::core::RPC_STATUS);
@@ -699,6 +699,7 @@ pub const IDL_CS_NEW_BUFFER_CONVERT: IDL_CS_CONVERT = 2;
 pub const IDL_CS_NO_CONVERT: IDL_CS_CONVERT = 0;
 pub type I_RPC_HANDLE = *mut core::ffi::c_void;
 pub type I_RPC_MUTEX = *mut core::ffi::c_void;
+pub const I_RRPCUNINITIALIZENDROLE_EXPORT_NAME: windows_sys::core::PCSTR = 1000 as _;
 pub type I_RpcFreeCalloutStateFn = Option<unsafe extern "system" fn(calloutstate: *mut RDR_CALLOUT_STATE)>;
 pub type I_RpcPerformCalloutFn = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> windows_sys::core::RPC_STATUS>;
 #[repr(C)]
@@ -718,7 +719,7 @@ pub type I_RpcProxyFilterIfFn = Option<unsafe extern "system" fn(context: *const
 pub type I_RpcProxyGetClientAddressFn = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, buffer: *mut i8, bufferlength: *mut u32) -> windows_sys::core::RPC_STATUS>;
 pub type I_RpcProxyGetClientSessionAndResourceUUID = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionidpresent: *mut i32, sessionid: *mut windows_sys::core::GUID, resourceidpresent: *mut i32, resourceid: *mut windows_sys::core::GUID) -> windows_sys::core::RPC_STATUS>;
 pub type I_RpcProxyGetConnectionTimeoutFn = Option<unsafe extern "system" fn(connectiontimeout: *mut u32) -> windows_sys::core::RPC_STATUS>;
-pub type I_RpcProxyIsValidMachineFn = Option<unsafe extern "system" fn(machine: *const u16, dotmachine: *const u16, portnumber: u32) -> windows_sys::core::RPC_STATUS>;
+pub type I_RpcProxyIsValidMachineFn = Option<unsafe extern "system" fn(machine: RPC_WSTR, dotmachine: RPC_WSTR, portnumber: u32) -> windows_sys::core::RPC_STATUS>;
 pub type I_RpcProxyUpdatePerfCounterBackendServerFn = Option<unsafe extern "system" fn(machinename: *const u16, isconnectevent: i32)>;
 pub type I_RpcProxyUpdatePerfCounterFn = Option<unsafe extern "system" fn(counter: RpcPerfCounters, modifytrend: i32, size: u32)>;
 pub type LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = i32;
@@ -931,9 +932,15 @@ pub const MidlWinrtTypeSerializationInfoVersionOne: i32 = 1;
 #[derive(Clone, Copy, Default)]
 pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub u8);
 pub const NDR_ASCII_CHAR: u32 = 0;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct NDR_ASYNC_MESSAGE(pub u8);
 pub const NDR_BIG_ENDIAN: u32 = 0;
 pub type NDR_CCONTEXT = *mut core::ffi::c_void;
 pub const NDR_CHAR_REP_MASK: u32 = 15;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct NDR_CORRELATION_INFO(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct NDR_CS_ROUTINES {
@@ -964,7 +971,7 @@ pub const NDR_INT_REP_MASK: u32 = 240;
 pub const NDR_LITTLE_ENDIAN: u32 = 16;
 pub const NDR_LOCAL_DATA_REPRESENTATION: u32 = 16;
 pub const NDR_LOCAL_ENDIAN: u32 = 16;
-pub type NDR_NOTIFY2_ROUTINE = Option<unsafe extern "system" fn(flag: boolean)>;
+pub type NDR_NOTIFY2_ROUTINE = Option<unsafe extern "system" fn(flag: u8)>;
 pub type NDR_NOTIFY_ROUTINE = Option<unsafe extern "system" fn()>;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1038,8 +1045,8 @@ pub type PMIDL_SYNTAX_INFO = *mut MIDL_SYNTAX_INFO;
 #[cfg(feature = "objidlbase")]
 pub type PMIDL_WINRT_TYPE_SERIALIZATION_INFO = *mut MIDL_WINRT_TYPE_SERIALIZATION_INFO;
 pub type PMIDL_XMIT_TYPE = *mut core::ffi::c_void;
-pub type PNDR_ASYNC_MESSAGE = *mut _NDR_ASYNC_MESSAGE;
-pub type PNDR_CORRELATION_INFO = *mut _NDR_CORRELATION_INFO;
+pub type PNDR_ASYNC_MESSAGE = *mut NDR_ASYNC_MESSAGE;
+pub type PNDR_CORRELATION_INFO = *mut NDR_CORRELATION_INFO;
 pub type PPARAM_OFFSETTABLE = *mut u16;
 pub const PROTOCOL_ADDRESS_CHANGE: RPC_ADDRESS_CHANGE_TYPE = 3;
 pub const PROTOCOL_LOADED: RPC_ADDRESS_CHANGE_TYPE = 2;
@@ -1134,7 +1141,7 @@ pub const RPCHTTP_RS_ACCESS_2: RPC_HTTP_REDIRECTOR_STAGE = 4;
 pub const RPCHTTP_RS_INTERFACE: RPC_HTTP_REDIRECTOR_STAGE = 5;
 pub const RPCHTTP_RS_REDIRECT: RPC_HTTP_REDIRECTOR_STAGE = 1;
 pub const RPCHTTP_RS_SESSION: RPC_HTTP_REDIRECTOR_STAGE = 3;
-pub type RPCLT_PDU_FILTER_FUNC = Option<unsafe extern "system" fn(buffer: *const core::ffi::c_void, bufferlength: u32, fdatagram: i32)>;
+pub type RPCLT_PDU_FILTER_FUNC = Option<unsafe extern "C" fn(buffer: *const core::ffi::c_void, bufferlength: u32, fdatagram: i32)>;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 pub type RPCNOTIFICATION_ROUTINE = Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
 pub type RPC_ADDRESS_CHANGE_FN = Option<unsafe extern "system" fn(arg: *mut core::ffi::c_void)>;
@@ -1201,9 +1208,13 @@ impl Default for RPC_ASYNC_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const RPC_ASYNC_VERSION_1_0: u32 = 68;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const RPC_ASYNC_VERSION_1_0: u64 = 112;
 pub type RPC_AUTHZ_HANDLE = *mut core::ffi::c_void;
 pub type RPC_AUTH_IDENTITY_HANDLE = *mut core::ffi::c_void;
-pub type RPC_AUTH_KEY_RETRIEVAL_FN = Option<unsafe extern "system" fn(arg: *const core::ffi::c_void, serverprincname: *const u16, keyver: u32, key: *mut *mut core::ffi::c_void, status: *mut windows_sys::core::RPC_STATUS)>;
+pub type RPC_AUTH_KEY_RETRIEVAL_FN = Option<unsafe extern "system" fn(arg: *const core::ffi::c_void, serverprincname: RPC_WSTR, keyver: u32, key: *mut *mut core::ffi::c_void, status: *mut windows_sys::core::RPC_STATUS)>;
 pub const RPC_BHO_DONTLINGER: i32 = 2;
 pub const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: i32 = 4;
 pub const RPC_BHO_NONCAUSAL: i32 = 1;
@@ -1300,7 +1311,7 @@ impl Default for RPC_BINDING_VECTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type RPC_BLOCKING_FN = Option<unsafe extern "system" fn(hwnd: *const core::ffi::c_void, context: *const core::ffi::c_void, hsyncevent: *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS>;
+pub type RPC_BLOCKING_FN = Option<unsafe extern "C" fn(hwnd: *const core::ffi::c_void, context: *const core::ffi::c_void, hsyncevent: *const core::ffi::c_void) -> windows_sys::core::RPC_STATUS>;
 pub const RPC_BUFFER_ASYNC: i32 = 32768;
 pub const RPC_BUFFER_COMPLETE: i32 = 4096;
 pub const RPC_BUFFER_EXTRA: i32 = 16384;
@@ -1466,6 +1477,10 @@ pub struct RPC_CLIENT_INTERFACE {
     pub Flags: u32,
 }
 pub const RPC_CONTEXT_HANDLE_DEFAULT_FLAGS: u32 = 0;
+#[cfg(target_arch = "x86")]
+pub const RPC_CONTEXT_HANDLE_DEFAULT_GUARD: *mut core::ffi::c_void = core::ptr::without_provenance_mut::<core::ffi::c_void>((-4083i32) as usize);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const RPC_CONTEXT_HANDLE_DEFAULT_GUARD: *mut core::ffi::c_void = core::ptr::without_provenance_mut::<core::ffi::c_void>(4294963213usize);
 pub const RPC_CONTEXT_HANDLE_DONT_SERIALIZE: u32 = 536870912;
 pub const RPC_CONTEXT_HANDLE_FLAGS: u32 = 805306368;
 pub const RPC_CONTEXT_HANDLE_SERIALIZE: u32 = 268435456;
@@ -1540,6 +1555,7 @@ pub const RPC_C_MGMT_INQ_STATS: i32 = 2;
 pub const RPC_C_MGMT_IS_SERVER_LISTEN: i32 = 3;
 pub const RPC_C_MGMT_STOP_SERVER_LISTEN: i32 = 4;
 pub const RPC_C_NOTIFY_ON_SEND_COMPLETE: i32 = 1;
+pub const RPC_C_NO_CREDENTIALS: RPC_AUTH_IDENTITY_HANDLE = -1 as _;
 pub const RPC_C_NS_DEFAULT_EXP_AGE: i32 = -1;
 pub const RPC_C_NS_SYNTAX_DCE: i32 = 3;
 pub const RPC_C_NS_SYNTAX_DEFAULT: i32 = 0;
@@ -1609,7 +1625,7 @@ pub const RPC_C_VERS_COMPATIBLE: i32 = 2;
 pub const RPC_C_VERS_EXACT: i32 = 3;
 pub const RPC_C_VERS_MAJOR_ONLY: i32 = 4;
 pub const RPC_C_VERS_UPTO: i32 = 5;
-pub type RPC_DISPATCH_FUNCTION = Option<unsafe extern "system" fn(message: *mut RPC_MESSAGE)>;
+pub type RPC_DISPATCH_FUNCTION = Option<unsafe extern "system" fn(message: PRPC_MESSAGE)>;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct RPC_DISPATCH_TABLE {
@@ -1707,7 +1723,7 @@ impl Default for RPC_EXTENDED_ERROR_INFO_0 {
 pub const RPC_FLAGS_VALID_BIT: i32 = 32768;
 pub type RPC_FORWARD_FUNCTION = Option<unsafe extern "system" fn(interfaceid: *mut windows_sys::core::GUID, interfaceversion: *mut RPC_VERSION, objectid: *mut windows_sys::core::GUID, rpcpro: *mut u8, ppdestendpoint: *mut *mut core::ffi::c_void) -> windows_sys::core::RPC_STATUS>;
 pub const RPC_FW_IF_FLAG_DCOM: i32 = 1;
-pub type RPC_HTTP_PROXY_FREE_STRING = Option<unsafe extern "system" fn(string: *const u16)>;
+pub type RPC_HTTP_PROXY_FREE_STRING = Option<unsafe extern "system" fn(string: RPC_WSTR)>;
 pub type RPC_HTTP_REDIRECTOR_STAGE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1871,7 +1887,7 @@ pub const RPC_NCA_FLAGS_BROADCAST: i32 = 2;
 pub const RPC_NCA_FLAGS_DEFAULT: i32 = 0;
 pub const RPC_NCA_FLAGS_IDEMPOTENT: i32 = 1;
 pub const RPC_NCA_FLAGS_MAYBE: i32 = 4;
-pub type RPC_NEW_HTTP_PROXY_CHANNEL = Option<unsafe extern "system" fn(redirectorstage: RPC_HTTP_REDIRECTOR_STAGE, servername: *const u16, serverport: *const u16, remoteuser: *const u16, authtype: *const u16, resourceuuid: *mut core::ffi::c_void, sessionid: *mut core::ffi::c_void, interface: *const core::ffi::c_void, reserved: *const core::ffi::c_void, flags: u32, newservername: *mut RPC_WSTR, newserverport: *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS>;
+pub type RPC_NEW_HTTP_PROXY_CHANNEL = Option<unsafe extern "system" fn(redirectorstage: RPC_HTTP_REDIRECTOR_STAGE, servername: RPC_WSTR, serverport: RPC_WSTR, remoteuser: RPC_WSTR, authtype: RPC_WSTR, resourceuuid: *mut core::ffi::c_void, sessionid: *mut core::ffi::c_void, interface: *const core::ffi::c_void, reserved: *const core::ffi::c_void, flags: u32, newservername: *mut RPC_WSTR, newserverport: *mut RPC_WSTR) -> windows_sys::core::RPC_STATUS>;
 pub type RPC_NOTIFICATIONS = i32;
 pub type RPC_NOTIFICATION_TYPES = i32;
 pub type RPC_NS_HANDLE = *mut core::ffi::c_void;
@@ -2246,7 +2262,7 @@ pub const RpcLastCounter: RpcPerfCounters = 12;
 pub type RpcLocalAddressFormat = i32;
 pub const RpcNotificationCallCancel: RPC_NOTIFICATIONS = 2;
 pub const RpcNotificationCallNone: RPC_NOTIFICATIONS = 0;
-pub const RpcNotificationCallStatusChange: i32 = 1;
+pub const RpcNotificationCallStatusChange: RPC_NOTIFICATIONS = 1;
 pub const RpcNotificationClientDisconnect: RPC_NOTIFICATIONS = 1;
 pub const RpcNotificationTypeApc: RPC_NOTIFICATION_TYPES = 2;
 pub const RpcNotificationTypeCallback: RPC_NOTIFICATION_TYPES = 5;
@@ -2295,7 +2311,7 @@ pub const STUB_CALL_SERVER_NO_HRESULT: STUB_PHASE = 3;
 pub const STUB_MARSHAL: STUB_PHASE = 2;
 pub type STUB_PHASE = i32;
 #[cfg(feature = "objidlbase")]
-pub type STUB_THUNK = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
+pub type STUB_THUNK = Option<unsafe extern "system" fn(param0: PMIDL_STUB_MESSAGE)>;
 pub const STUB_UNMARSHAL: STUB_PHASE = 0;
 pub const SYSTEM_HANDLE_COMPOSITION_OBJECT: system_handle_t = 9;
 pub const SYSTEM_HANDLE_EVENT: system_handle_t = 2;
@@ -2386,7 +2402,7 @@ pub const XLAT_CLIENT: XLAT_SIDE = 2;
 pub const XLAT_SERVER: XLAT_SIDE = 1;
 pub type XLAT_SIDE = i32;
 #[cfg(feature = "objidlbase")]
-pub type XMIT_HELPER_ROUTINE = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
+pub type XMIT_HELPER_ROUTINE = Option<unsafe extern "system" fn(param0: PMIDL_STUB_MESSAGE)>;
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
 #[derive(Clone, Copy, Default)]
@@ -2396,12 +2412,6 @@ pub struct XMIT_ROUTINE_QUINTUPLE {
     pub pfnFreeXmit: XMIT_HELPER_ROUTINE,
     pub pfnFreeInst: XMIT_HELPER_ROUTINE,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct _NDR_ASYNC_MESSAGE(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct _NDR_CORRELATION_INFO(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct _NDR_PROC_CONTEXT(pub u8);
@@ -2416,7 +2426,7 @@ impl Default for _NDR_SCONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type boolean = u8;
+pub const __RPCNDR_H_VERSION__: i32 = 501;
 pub type byte = u8;
 pub const cbNDRContext: i32 = 20;
 pub type cs_byte = byte;

@@ -1,4 +1,9 @@
 #[inline]
+pub unsafe fn XAudio2Create(ppxaudio2: *mut Option<IXAudio2>, flags: u32, xaudio2processor: XAUDIO2_PROCESSOR) -> windows_core::HRESULT {
+    windows_core::link!("xaudio2_9.dll" "system" "?XAudio2Create@@YAJPEAPEAUIXAudio2@@II@Z" fn XAudio2Create(ppxaudio2 : *mut *mut core::ffi::c_void, flags : u32, xaudio2processor : XAUDIO2_PROCESSOR) -> windows_core::HRESULT);
+    unsafe { XAudio2Create(core::mem::transmute(ppxaudio2), flags, xaudio2processor) }
+}
+#[inline]
 pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut Option<IXAudio2>, flags: u32, xaudio2processor: XAUDIO2_PROCESSOR, ntddiversion: u32) -> windows_core::HRESULT {
     windows_core::link!("xaudio2_9.dll" "system" fn XAudio2CreateWithVersionInfo(ppxaudio2 : *mut *mut core::ffi::c_void, flags : u32, xaudio2processor : XAUDIO2_PROCESSOR, ntddiversion : u32) -> windows_core::HRESULT);
     unsafe { XAudio2CreateWithVersionInfo(core::mem::transmute(ppxaudio2), flags, xaudio2processor, ntddiversion) }
@@ -57,7 +62,7 @@ impl IXAudio2 {
             (windows_core::Interface::vtable(self).GetPerformanceData)(windows_core::Interface::as_raw(self), pperfdata as _);
         }
     }
-    pub unsafe fn SetDebugConfiguration(&self, pdebugconfiguration: Option<*const XAUDIO2_DEBUG_CONFIGURATION>, preserved: Option<*const core::ffi::c_void>) {
+    pub unsafe fn SetDebugConfiguration(&self, pdebugconfiguration: Option<*const XAUDIO2_DEBUG_CONFIGURATION>, preserved: Option<*mut core::ffi::c_void>) {
         unsafe {
             (windows_core::Interface::vtable(self).SetDebugConfiguration)(windows_core::Interface::as_raw(self), pdebugconfiguration.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _);
         }
@@ -82,7 +87,7 @@ pub struct IXAudio2_Vtbl {
     pub StopEngine: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub CommitChanges: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetPerformanceData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XAUDIO2_PERFORMANCE_DATA),
-    pub SetDebugConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *const XAUDIO2_DEBUG_CONFIGURATION, *const core::ffi::c_void),
+    pub SetDebugConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *const XAUDIO2_DEBUG_CONFIGURATION, *mut core::ffi::c_void),
 }
 #[cfg(all(feature = "audiosessiontypes", feature = "mmeapi"))]
 pub trait IXAudio2_Impl: windows_core::IUnknownImpl {
@@ -95,7 +100,7 @@ pub trait IXAudio2_Impl: windows_core::IUnknownImpl {
     fn StopEngine(&self);
     fn CommitChanges(&self, operationset: u32) -> windows_core::Result<()>;
     fn GetPerformanceData(&self, pperfdata: *mut XAUDIO2_PERFORMANCE_DATA);
-    fn SetDebugConfiguration(&self, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *const core::ffi::c_void);
+    fn SetDebugConfiguration(&self, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *mut core::ffi::c_void);
 }
 #[cfg(all(feature = "audiosessiontypes", feature = "mmeapi"))]
 impl IXAudio2_Vtbl {
@@ -154,7 +159,7 @@ impl IXAudio2_Vtbl {
                 IXAudio2_Impl::GetPerformanceData(this, core::mem::transmute_copy(&pperfdata));
             }
         }
-        unsafe extern "system" fn SetDebugConfiguration<Identity: IXAudio2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *const core::ffi::c_void) {
+        unsafe extern "system" fn SetDebugConfiguration<Identity: IXAudio2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXAudio2_Impl::SetDebugConfiguration(this, core::mem::transmute_copy(&pdebugconfiguration), core::mem::transmute_copy(&preserved));
@@ -253,15 +258,50 @@ impl IXAudio2EngineCallback {
 }
 windows_core::imp::define_interface!(IXAudio2Extension, IXAudio2Extension_Vtbl, 0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
 windows_core::imp::interface_hierarchy!(IXAudio2Extension, windows_core::IUnknown);
+impl IXAudio2Extension {
+    pub unsafe fn GetProcessingQuantum(&self, quantumnumerator: *mut u32, quantumdenominator: *mut u32) {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetProcessingQuantum)(windows_core::Interface::as_raw(self), quantumnumerator as _, quantumdenominator as _);
+        }
+    }
+    pub unsafe fn GetProcessor(&self) -> XAUDIO2_PROCESSOR {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetProcessor)(windows_core::Interface::as_raw(self), &mut result__);
+            result__
+        }
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2Extension_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
+    pub GetProcessingQuantum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32),
+    pub GetProcessor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XAUDIO2_PROCESSOR),
 }
-pub trait IXAudio2Extension_Impl: windows_core::IUnknownImpl {}
+pub trait IXAudio2Extension_Impl: windows_core::IUnknownImpl {
+    fn GetProcessingQuantum(&self, quantumnumerator: *mut u32, quantumdenominator: *mut u32);
+    fn GetProcessor(&self, processor: *mut XAUDIO2_PROCESSOR);
+}
 impl IXAudio2Extension_Vtbl {
     pub const fn new<Identity: IXAudio2Extension_Impl, const OFFSET: isize>() -> Self {
-        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
+        unsafe extern "system" fn GetProcessingQuantum<Identity: IXAudio2Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quantumnumerator: *mut u32, quantumdenominator: *mut u32) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IXAudio2Extension_Impl::GetProcessingQuantum(this, core::mem::transmute_copy(&quantumnumerator), core::mem::transmute_copy(&quantumdenominator));
+            }
+        }
+        unsafe extern "system" fn GetProcessor<Identity: IXAudio2Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processor: *mut XAUDIO2_PROCESSOR) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IXAudio2Extension_Impl::GetProcessor(this, core::mem::transmute_copy(&processor));
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetProcessingQuantum: GetProcessingQuantum::<Identity, OFFSET>,
+            GetProcessor: GetProcessor::<Identity, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IXAudio2Extension as windows_core::Interface>::IID
@@ -1002,6 +1042,7 @@ pub const Processor6: i32 = 32;
 pub const Processor7: i32 = 64;
 pub const Processor8: i32 = 128;
 pub const Processor9: i32 = 256;
+pub const XAUDIO2D_DLL: windows_core::PCSTR = windows_core::s!("xaudio2_9d.dll");
 pub const XAUDIO2D_DLL_A: windows_core::PCSTR = windows_core::s!("xaudio2_9d.dll");
 pub const XAUDIO2D_DLL_W: windows_core::PCWSTR = windows_core::w!("xaudio2_9d.dll");
 pub const XAUDIO2_1024_QUANTUM: i32 = 32768;
@@ -1039,11 +1080,13 @@ pub struct XAUDIO2_DEBUG_CONFIGURATION {
 }
 pub const XAUDIO2_DEBUG_ENGINE: i32 = 1;
 pub const XAUDIO2_DEFAULT_CHANNELS: i32 = 0;
+pub const XAUDIO2_DEFAULT_FILTER_FREQUENCY: f32 = 1.0;
 pub const XAUDIO2_DEFAULT_FILTER_ONEOVERQ: f32 = 1.0;
-pub const XAUDIO2_DEFAULT_FILTER_TYPE: i32 = 0;
+pub const XAUDIO2_DEFAULT_FILTER_TYPE: XAUDIO2_FILTER_TYPE = 0;
 pub const XAUDIO2_DEFAULT_FREQ_RATIO: f32 = 2.0;
 pub const XAUDIO2_DEFAULT_PROCESSOR: i32 = 1;
 pub const XAUDIO2_DEFAULT_SAMPLERATE: i32 = 0;
+pub const XAUDIO2_DLL: windows_core::PCSTR = windows_core::s!("xaudio2_9.dll");
 pub const XAUDIO2_DLL_A: windows_core::PCSTR = windows_core::s!("xaudio2_9.dll");
 pub const XAUDIO2_DLL_W: windows_core::PCWSTR = windows_core::w!("xaudio2_9.dll");
 #[repr(C, packed(1))]
@@ -1097,6 +1140,7 @@ pub const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MONO: i32 = 600000;
 pub const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MULTICHANNEL: i32 = 300000;
 pub const XAUDIO2_MAX_SAMPLE_RATE: i32 = 384000;
 pub const XAUDIO2_MAX_VOLUME_LEVEL: f32 = 16777216.0;
+pub const XAUDIO2_MIN_FREQ_RATIO: f32 = 0.0009765625;
 pub const XAUDIO2_MIN_SAMPLE_RATE: i32 = 1000;
 pub const XAUDIO2_NO_LOOP_REGION: i32 = 0;
 pub const XAUDIO2_NO_VIRTUAL_AUDIO_CLIENT: i32 = 65536;
@@ -1119,10 +1163,9 @@ pub struct XAUDIO2_PERFORMANCE_DATA {
     pub ActiveXmaStreams: u32,
 }
 pub const XAUDIO2_PLAY_TAILS: i32 = 32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct XAUDIO2_PROCESSOR(pub u32);
+pub type XAUDIO2_PROCESSOR = u32;
 pub const XAUDIO2_QUANTUM_DENOMINATOR: i32 = 100;
+pub const XAUDIO2_QUANTUM_MS: f32 = 10.0;
 pub const XAUDIO2_QUANTUM_NUMERATOR: i32 = 1;
 #[repr(C, packed(1))]
 #[derive(Default)]

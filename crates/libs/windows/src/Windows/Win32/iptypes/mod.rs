@@ -585,19 +585,16 @@ pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Reserved: u32,
 }
-pub type IP_ADDRESS_STRING = IP_MASK_STRING;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADDR_STRING {
     pub Next: *mut Self,
-    pub IpAddress: IP_ADDRESS_STRING,
+    pub IpAddress: IP_MASK_STRING,
     pub IpMask: IP_MASK_STRING,
     pub Context: u32,
 }
 #[cfg(feature = "nldef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct IP_DAD_STATE(pub super::NL_DAD_STATE);
+pub type IP_DAD_STATE = super::NL_DAD_STATE;
 pub type IP_INTERFACE_NAME_INFO = IP_INTERFACE_NAME_INFO_W2KSP1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -629,13 +626,9 @@ pub struct IP_PER_ADAPTER_INFO_W2KSP1 {
     pub DnsServerList: IP_ADDR_STRING,
 }
 #[cfg(feature = "nldef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct IP_PREFIX_ORIGIN(pub super::NL_PREFIX_ORIGIN);
+pub type IP_PREFIX_ORIGIN = super::NL_PREFIX_ORIGIN;
 #[cfg(feature = "nldef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct IP_SUFFIX_ORIGIN(pub super::NL_SUFFIX_ORIGIN);
+pub type IP_SUFFIX_ORIGIN = super::NL_SUFFIX_ORIGIN;
 pub const MAX_ADAPTER_ADDRESS_LENGTH: i32 = 8;
 pub const MAX_ADAPTER_DESCRIPTION_LENGTH: i32 = 128;
 pub const MAX_ADAPTER_NAME_LENGTH: i32 = 256;

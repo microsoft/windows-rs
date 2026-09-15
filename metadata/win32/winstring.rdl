@@ -1,14 +1,14 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        extern fn PINSPECT_HSTRING_CALLBACK(context: *const void, readAddress: usize, length: u32, #[len_param(2)] buffer: *mut u8) -> HRESULT;
-        extern fn PINSPECT_HSTRING_CALLBACK2(context: *const void, readAddress: u64, length: u32, #[len_param(2)] buffer: *mut u8) -> HRESULT;
+        extern fn PINSPECT_HSTRING_CALLBACK(#[in] context: *mut void, readAddress: usize, length: u32, #[len_param(2)] buffer: *mut u8) -> HRESULT;
+        extern fn PINSPECT_HSTRING_CALLBACK2(#[in] context: *mut void, readAddress: u64, length: u32, #[len_param(2)] buffer: *mut u8) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsCompareStringOrdinal(#[opt] string1: HSTRING, #[opt] string2: HSTRING, result: *mut i32) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsConcatString(#[opt] string1: HSTRING, #[opt] string2: HSTRING, newString: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsCreateString(#[len_param(1)] #[opt] sourceString: *const u16, length: u32, string: *mut HSTRING) -> HRESULT;
+        extern fn WindowsCreateString(#[len_param(1)] #[opt] sourceString: PCNZWCH, length: u32, string: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsCreateStringReference(#[opt] sourceString: PCWSTR, length: u32, hstringHeader: *mut HSTRING_HEADER, string: *mut HSTRING) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
@@ -22,9 +22,9 @@ mod Windows {
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsGetStringRawBuffer(#[opt] string: HSTRING, #[opt] length: *mut u32) -> PCWSTR;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsInspectString(targetHString: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, #[opt] context: *const void, length: *mut u32, targetStringAddress: *mut usize) -> HRESULT;
+        extern fn WindowsInspectString(targetHString: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, #[in] #[opt] context: *mut void, length: *mut u32, targetStringAddress: *mut usize) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-1.dll")]
-        extern fn WindowsInspectString2(targetHString: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, #[opt] context: *const void, length: *mut u32, targetStringAddress: *mut u64) -> HRESULT;
+        extern fn WindowsInspectString2(targetHString: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, #[in] #[opt] context: *mut void, length: *mut u32, targetStringAddress: *mut u64) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsIsStringEmpty(#[opt] string: HSTRING) -> BOOL;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]

@@ -16,7 +16,7 @@ fn main() {
             None,
             LOAD_LIBRARY_SEARCH_DEFAULT_DIRS as u32,
         );
-        if library.0.is_null() {
+        if library.is_null() {
             println!("Can't load shlwapi.dll");
             return;
         }

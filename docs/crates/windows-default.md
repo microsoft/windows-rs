@@ -103,7 +103,8 @@ separate `include` list. `cargo package -p windows-default` must contain both `.
 
 The metadata is exercised through its consumers:
 
-- `test_bindgen`, `test_rdl`, and `test_clang` cover default and byte inputs.
+- `test_bindgen`, `test_rdl`, and the `windows-clang` integration tests cover default and byte
+  inputs.
 - `tool-winrt`, `tool-win32`, and `tool-roundtrip` verify deterministic metadata generation.
 - The `tool-yml` generated workflows build and document `windows-default` like the other library
   crates.

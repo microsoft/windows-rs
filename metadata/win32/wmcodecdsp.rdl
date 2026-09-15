@@ -142,6 +142,7 @@ mod Windows {
         const CWVC1EncMediaObject: GUID = 0x44653d0d_8cca_41e7_baca_884337b747ac;
         const CZuneAACCCDecMediaObject: GUID = 0xa74e98f2_52d6_4b4e_885b_e0a6ca4f187a;
         const CZuneM4S2DecMediaObject: GUID = 0xc56fc25c_0fc6_404a_9503_b10bf51a8ab9;
+        type ChMtxType = f32;
         const E_TOCPARSER_INVALIDASFFILE: HRESULT = -1728053247;
         const E_TOCPARSER_INVALIDRIFFFILE: HRESULT = -1728053246;
         #[repr(i32)]
@@ -162,7 +163,7 @@ mod Windows {
         #[guid(0x3f07f7b7_c680_41d9_9423_915107ec9ff9)]
         interface IClusterDetector: IUnknown {
             fn Initialize(&self, wBaseEntryLevel: u16, wClusterEntryLevel: u16) -> HRESULT;
-            fn Detect(&self, dwMaxNumClusters: u32, fMinClusterDuration: f32, fMaxClusterDuration: f32, pSrcToc: IToc, ppDstToc: *mut IToc) -> HRESULT;
+            fn Detect(&self, dwMaxNumClusters: u32, fMinClusterDuration: FLOAT, fMaxClusterDuration: FLOAT, pSrcToc: IToc, ppDstToc: *mut IToc) -> HRESULT;
         }
         #[guid(0xbfccd196_1244_4840_ab44_480975c4ffe4)]
         interface IFileClient: IUnknown {
@@ -178,18 +179,18 @@ mod Windows {
             fn GetCurrentPosition(&self, pqwPosition: *mut u64) -> HRESULT;
             fn SetCurrentPosition(&self, qwPosition: u64) -> HRESULT;
             fn IsEndOfStream(&self, pbEndOfStream: *mut BOOL) -> HRESULT;
-            fn Read(&self, pbt: *const u8, ul: u32, pulRead: *mut u32) -> HRESULT;
-            fn Write(&self, pbt: *const u8, ul: u32, pulWritten: *mut u32) -> HRESULT;
+            fn Read(&self, #[in] pbt: *mut u8, ul: u32, pulRead: *mut u32) -> HRESULT;
+            fn Write(&self, #[in] pbt: *mut u8, ul: u32, pulWritten: *mut u32) -> HRESULT;
             fn Seek(&self, eSeekOrigin: SEEK_ORIGIN, qwSeekOffset: u64, dwSeekFlags: u32, pqwCurrentPosition: *mut u64) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0xd6f05441_a919_423b_91a0_89d5b4a8ab77)]
         interface IToc: IUnknown {
-            fn SetDescriptor(&self, pDescriptor: *const TOC_DESCRIPTOR) -> HRESULT;
+            fn SetDescriptor(&self, #[in] pDescriptor: *mut TOC_DESCRIPTOR) -> HRESULT;
             fn GetDescriptor(&self, pDescriptor: *mut TOC_DESCRIPTOR) -> HRESULT;
             fn SetDescription(&self, pwszDescription: PCWSTR) -> HRESULT;
             fn GetDescription(&self, #[in] #[out] pwDescriptionSize: *mut u16, #[len_param(0)] #[out] #[opt] pwszDescription: PWSTR) -> HRESULT;
-            fn SetContext(&self, dwContextSize: u32, pbtContext: *const u8) -> HRESULT;
+            fn SetContext(&self, dwContextSize: u32, #[in] pbtContext: *mut u8) -> HRESULT;
             fn GetContext(&self, #[in] #[out] pdwContextSize: *mut u32, pbtContext: *mut u8) -> HRESULT;
             fn GetEntryListCount(&self, pwCount: *mut u16) -> HRESULT;
             fn GetEntryListByIndex(&self, wEntryListIndex: u16, ppEntryList: *mut ITocEntryList) -> HRESULT;
@@ -209,11 +210,11 @@ mod Windows {
         interface ITocEntry: IUnknown {
             fn SetTitle(&self, pwszTitle: PCWSTR) -> HRESULT;
             fn GetTitle(&self, #[in] #[out] pwTitleSize: *mut u16, #[len_param(0)] #[out] #[opt] pwszTitle: PWSTR) -> HRESULT;
-            fn SetDescriptor(&self, pDescriptor: *const TOC_ENTRY_DESCRIPTOR) -> HRESULT;
+            fn SetDescriptor(&self, #[in] pDescriptor: *mut TOC_ENTRY_DESCRIPTOR) -> HRESULT;
             fn GetDescriptor(&self, pDescriptor: *mut TOC_ENTRY_DESCRIPTOR) -> HRESULT;
-            fn SetSubEntries(&self, dwNumSubEntries: u32, pwSubEntryIndices: *const u16) -> HRESULT;
+            fn SetSubEntries(&self, dwNumSubEntries: u32, #[in] pwSubEntryIndices: *mut u16) -> HRESULT;
             fn GetSubEntries(&self, #[in] #[out] pdwNumSubEntries: *mut u32, pwSubEntryIndices: *mut u16) -> HRESULT;
-            fn SetDescriptionData(&self, dwDescriptionDataSize: u32, pbtDescriptionData: *const u8, pguidType: *const GUID) -> HRESULT;
+            fn SetDescriptionData(&self, dwDescriptionDataSize: u32, #[in] pbtDescriptionData: *mut u8, #[in] pguidType: *mut GUID) -> HRESULT;
             fn GetDescriptionData(&self, #[in] #[out] pdwDescriptionDataSize: *mut u32, pbtDescriptionData: *mut u8, pGuidType: *mut GUID) -> HRESULT;
         }
         #[guid(0x3a8cccbd_0efd_43a3_b838_f38a552ba237)]
@@ -237,7 +238,7 @@ mod Windows {
         }
         #[guid(0x04a578b2_e778_422a_a805_b3ee54d90bd9)]
         interface IValidateBinding: IUnknown {
-            fn GetIdentifier(&self, guidLicensorID: GUID, pbEphemeron: *const u8, cbEphemeron: u32, ppbBlobValidationID: *mut *mut u8, pcbBlobSize: *mut u32) -> HRESULT;
+            fn GetIdentifier(&self, guidLicensorID: GUID, #[in] pbEphemeron: *mut u8, cbEphemeron: u32, ppbBlobValidationID: *mut *mut u8, pcbBlobSize: *mut u32) -> HRESULT;
         }
         #[guid(0xa81ba647_6227_43b7_b231_c7b15135dd7d)]
         interface IWMCodecLeakyBucket: IUnknown {
@@ -252,18 +253,18 @@ mod Windows {
         }
         #[guid(0x73f0be8e_57f7_4f01_aa66_9f57340cfe0e)]
         interface IWMCodecPrivateData: IUnknown {
-            fn SetPartialOutputType(&self, pmt: *const DMO_MEDIA_TYPE) -> HRESULT;
+            fn SetPartialOutputType(&self, #[in] pmt: *mut DMO_MEDIA_TYPE) -> HRESULT;
             fn GetPrivateData(&self, #[in] #[out] pbData: *mut u8, #[in] #[out] pcbData: *mut u32) -> HRESULT;
         }
         #[guid(0x2573e11a_f01a_4fdd_a98d_63b8e0ba9589)]
         interface IWMCodecProps: IUnknown {
-            fn GetFormatProp(&self, pmt: *const DMO_MEDIA_TYPE, pszName: PCWSTR, pType: *mut WMT_PROP_DATATYPE, #[in] #[out] pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
+            fn GetFormatProp(&self, #[in] pmt: *mut DMO_MEDIA_TYPE, pszName: PCWSTR, pType: *mut WMT_PROP_DATATYPE, #[in] #[out] pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
             fn GetCodecProp(&self, dwFormat: u32, pszName: PCWSTR, pType: *mut WMT_PROP_DATATYPE, #[in] #[out] pValue: *mut u8, #[in] #[out] pdwSize: *mut u32) -> HRESULT;
         }
         #[guid(0xa7b2504b_e58a_47fb_958b_cac7165a057d)]
         interface IWMCodecStrings: IUnknown {
-            fn GetName(&self, pmt: *const DMO_MEDIA_TYPE, cchLength: u32, #[len_param(1)] #[out] #[opt] szName: PWSTR, pcchLength: *mut u32) -> HRESULT;
-            fn GetDescription(&self, pmt: *const DMO_MEDIA_TYPE, cchLength: u32, #[len_param(1)] #[out] #[opt] szDescription: PWSTR, pcchLength: *mut u32) -> HRESULT;
+            fn GetName(&self, #[in] pmt: *mut DMO_MEDIA_TYPE, cchLength: u32, #[len_param(1)] #[in] #[out] #[opt] szName: PWSTR, pcchLength: *mut u32) -> HRESULT;
+            fn GetDescription(&self, #[in] pmt: *mut DMO_MEDIA_TYPE, cchLength: u32, #[len_param(1)] #[in] #[out] #[opt] szDescription: PWSTR, pcchLength: *mut u32) -> HRESULT;
         }
         #[guid(0xe6a49e22_c099_421d_aad3_c061fb4ae85b)]
         interface IWMColorConvProps: IUnknown {
@@ -290,7 +291,7 @@ mod Windows {
         #[guid(0xe7e9984f_f09f_4da4_903f_6e2e0efe56b5)]
         interface IWMResamplerProps: IUnknown {
             fn SetHalfFilterLength(&self, lhalfFilterLen: i32) -> HRESULT;
-            fn SetUserChannelMtx(&self, userChannelMtx: *const f32) -> HRESULT;
+            fn SetUserChannelMtx(&self, #[in] userChannelMtx: *mut ChMtxType) -> HRESULT;
         }
         #[guid(0x57665d4c_0414_4faa_905b_10e546f81c33)]
         interface IWMResizerProps: IUnknown {
@@ -316,7 +317,7 @@ mod Windows {
         #[guid(0x45bda2ac_88e2_4923_98ba_3949080711a3)]
         interface IWMVideoDecoderReconBuffer: IUnknown {
             fn GetReconstructedVideoFrameSize(&self, pdwSize: *mut u32) -> HRESULT;
-            fn GetReconstructedVideoFrame(&self, pBuf: IMediaBuffer) -> HRESULT;
+            fn GetReconstructedVideoFrame(&self, #[out] pBuf: IMediaBuffer) -> HRESULT;
             fn SetReconstructedVideoFrame(&self, pBuf: IMediaBuffer) -> HRESULT;
         }
         #[guid(0x9f8496be_5b9a_41b9_a9e8_f21cd80596c2)]

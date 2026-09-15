@@ -1,4 +1,4 @@
-windows_link::link!("coremessaging.dll" "system" fn CreateDispatcherQueueController(options : DispatcherQueueOptions, dispatcherqueuecontroller : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("coremessaging.dll" "system" fn CreateDispatcherQueueController(options : DispatcherQueueOptions, dispatcherqueuecontroller : *mut PDISPATCHERQUEUECONTROLLER) -> windows_sys::core::HRESULT);
 pub type DISPATCHERQUEUE_THREAD_APARTMENTTYPE = i32;
 pub type DISPATCHERQUEUE_THREAD_TYPE = i32;
 pub const DQTAT_COM_ASTA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = 1;
@@ -13,3 +13,4 @@ pub struct DispatcherQueueOptions {
     pub threadType: DISPATCHERQUEUE_THREAD_TYPE,
     pub apartmentType: DISPATCHERQUEUE_THREAD_APARTMENTTYPE,
 }
+pub type PDISPATCHERQUEUECONTROLLER = *mut core::ffi::c_void;

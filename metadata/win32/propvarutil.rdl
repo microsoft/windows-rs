@@ -21,7 +21,7 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn InitPropVariantFromCLSID(clsid: *const GUID, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromDoubleVector(#[len_param(1)] #[opt] prgn: *const f64, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromDoubleVector(#[len_param(1)] #[opt] prgn: *const DOUBLE, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn InitPropVariantFromFileTime(pftIn: *const FILETIME, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
@@ -39,11 +39,11 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn InitPropVariantFromResource(hinst: HINSTANCE, id: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromStrRet(#[in] #[out] pstrret: *mut STRRET, #[opt] pidl: *const ITEMIDLIST, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromStrRet(#[in] #[out] pstrret: *mut STRRET, #[opt] pidl: LPCITEMIDLIST, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn InitPropVariantFromStringAsVector(#[opt] psz: PCWSTR, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitPropVariantFromStringVector(#[len_param(1)] #[opt] prgsz: *const PCWSTR, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
+        extern fn InitPropVariantFromStringVector(#[len_param(1)] #[in] #[opt] prgsz: *mut PCWSTR, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn InitPropVariantFromUInt16Vector(#[len_param(1)] #[opt] prgn: *const u16, cElems: u32, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
@@ -57,7 +57,7 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn InitVariantFromBuffer(#[size_param(1)] pv: *const void, cb: u32, pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromDoubleArray(#[len_param(1)] prgn: *const f64, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromDoubleArray(#[len_param(1)] prgn: *const DOUBLE, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn InitVariantFromFileTime(pft: *const FILETIME, pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
@@ -73,9 +73,9 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn InitVariantFromResource(hinst: HINSTANCE, id: u32, pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromStrRet(pstrret: *const STRRET, pidl: *const ITEMIDLIST, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromStrRet(#[in] pstrret: *mut STRRET, pidl: LPCITEMIDLIST, pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn InitVariantFromStringArray(#[len_param(1)] prgsz: *const PCWSTR, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
+        extern fn InitVariantFromStringArray(#[len_param(1)] #[in] prgsz: *mut PCWSTR, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn InitVariantFromUInt16Array(#[len_param(1)] prgn: *const u16, cElems: u32, pvar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
@@ -104,7 +104,7 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn PropVariantGetBooleanElem(propvar: *const PROPVARIANT, iElem: u32, pfVal: *mut BOOL) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantGetDoubleElem(propvar: *const PROPVARIANT, iElem: u32, pnVal: *mut f64) -> HRESULT;
+        extern fn PropVariantGetDoubleElem(propvar: *const PROPVARIANT, iElem: u32, pnVal: *mut DOUBLE) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantGetElementCount(propvar: *const PROPVARIANT) -> u32;
         #[library("PROPSYS.dll")]
@@ -136,13 +136,13 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn PropVariantToBuffer(propvar: *const PROPVARIANT, #[size_param(2)] pv: *mut void, cb: u32) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToDouble(propvarIn: *const PROPVARIANT, pdblRet: *mut f64) -> HRESULT;
+        extern fn PropVariantToDouble(propvarIn: *const PROPVARIANT, pdblRet: *mut DOUBLE) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToDoubleVector(propvar: *const PROPVARIANT, #[len_param(2)] prgn: *mut f64, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToDoubleVector(propvar: *const PROPVARIANT, #[len_param(2)] prgn: *mut DOUBLE, crgn: u32, pcElem: *mut u32) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToDoubleVectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut f64, pcElem: *mut u32) -> HRESULT;
+        extern fn PropVariantToDoubleVectorAlloc(propvar: *const PROPVARIANT, pprgn: *mut *mut DOUBLE, pcElem: *mut u32) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToDoubleWithDefault(propvarIn: *const PROPVARIANT, dblDefault: f64) -> f64;
+        extern fn PropVariantToDoubleWithDefault(propvarIn: *const PROPVARIANT, dblDefault: DOUBLE) -> DOUBLE;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToFileTime(propvar: *const PROPVARIANT, pstfOut: PSTIME_FLAGS, pftOut: *mut FILETIME) -> HRESULT;
         #[library("PROPSYS.dll")]
@@ -222,7 +222,7 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn VariantGetBooleanElem(var: *const VARIANT, iElem: u32, pfVal: *mut BOOL) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantGetDoubleElem(var: *const VARIANT, iElem: u32, pnVal: *mut f64) -> HRESULT;
+        extern fn VariantGetDoubleElem(var: *const VARIANT, iElem: u32, pnVal: *mut DOUBLE) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantGetElementCount(varIn: *const VARIANT) -> u32;
         #[library("PROPSYS.dll")]
@@ -252,13 +252,13 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn VariantToDosDateTime(varIn: *const VARIANT, pwDate: *mut u16, pwTime: *mut u16) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToDouble(varIn: *const VARIANT, pdblRet: *mut f64) -> HRESULT;
+        extern fn VariantToDouble(varIn: *const VARIANT, pdblRet: *mut DOUBLE) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToDoubleArray(var: *const VARIANT, #[len_param(2)] prgn: *mut f64, crgn: u32, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToDoubleArray(var: *const VARIANT, #[len_param(2)] prgn: *mut DOUBLE, crgn: u32, pcElem: *mut u32) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToDoubleArrayAlloc(var: *const VARIANT, pprgn: *mut *mut f64, pcElem: *mut u32) -> HRESULT;
+        extern fn VariantToDoubleArrayAlloc(var: *const VARIANT, pprgn: *mut *mut DOUBLE, pcElem: *mut u32) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToDoubleWithDefault(varIn: *const VARIANT, dblDefault: f64) -> f64;
+        extern fn VariantToDoubleWithDefault(varIn: *const VARIANT, dblDefault: DOUBLE) -> DOUBLE;
         #[library("PROPSYS.dll")]
         extern fn VariantToFileTime(varIn: *const VARIANT, stfOut: PSTIME_FLAGS, pftOut: *mut FILETIME) -> HRESULT;
         #[library("PROPSYS.dll")]

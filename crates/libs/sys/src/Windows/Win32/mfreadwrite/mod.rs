@@ -8,9 +8,9 @@ windows_link::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromByteSt
 windows_link::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromMediaSource(pmediasource : *mut core::ffi::c_void, pattributes : *mut core::ffi::c_void, ppsourcereader : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "mfobjects")]
 windows_link::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromURL(pwszurl : windows_sys::core::PCWSTR, pattributes : *mut core::ffi::c_void, ppsourcereader : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub const MF_SINK_WRITER_ALL_STREAMS: i32 = -2;
-pub const MF_SINK_WRITER_INVALID_STREAM_INDEX: i32 = -1;
-pub const MF_SINK_WRITER_MEDIASINK: i32 = -1;
+pub const MF_SINK_WRITER_ALL_STREAMS: __MIDL___MIDL_itf_mfreadwrite_0000_0005_0001 = -2;
+pub const MF_SINK_WRITER_INVALID_STREAM_INDEX: __MIDL___MIDL_itf_mfreadwrite_0000_0005_0001 = -1;
+pub const MF_SINK_WRITER_MEDIASINK: __MIDL___MIDL_itf_mfreadwrite_0000_0005_0001 = -1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MF_SINK_WRITER_STATISTICS {
@@ -38,13 +38,16 @@ pub const MF_SOURCE_READERF_ERROR: MF_SOURCE_READER_FLAG = 1;
 pub const MF_SOURCE_READERF_NATIVEMEDIATYPECHANGED: MF_SOURCE_READER_FLAG = 16;
 pub const MF_SOURCE_READERF_NEWSTREAM: MF_SOURCE_READER_FLAG = 4;
 pub const MF_SOURCE_READERF_STREAMTICK: MF_SOURCE_READER_FLAG = 256;
-pub const MF_SOURCE_READER_ALL_STREAMS: i32 = -2;
-pub const MF_SOURCE_READER_ANY_STREAM: i32 = -2;
+pub const MF_SOURCE_READER_ALL_STREAMS: __MIDL___MIDL_itf_mfreadwrite_0000_0001_0001 = -2;
+pub const MF_SOURCE_READER_ANY_STREAM: __MIDL___MIDL_itf_mfreadwrite_0000_0001_0001 = -2;
 pub const MF_SOURCE_READER_CONTROLF_DRAIN: MF_SOURCE_READER_CONTROL_FLAG = 1;
 pub type MF_SOURCE_READER_CONTROL_FLAG = u32;
-pub const MF_SOURCE_READER_CURRENT_TYPE_INDEX: i32 = -1;
-pub const MF_SOURCE_READER_FIRST_AUDIO_STREAM: i32 = -3;
-pub const MF_SOURCE_READER_FIRST_VIDEO_STREAM: i32 = -4;
+pub const MF_SOURCE_READER_CURRENT_TYPE_INDEX: __MIDL___MIDL_itf_mfreadwrite_0000_0001_0002 = -1;
+pub const MF_SOURCE_READER_FIRST_AUDIO_STREAM: __MIDL___MIDL_itf_mfreadwrite_0000_0001_0001 = -3;
+pub const MF_SOURCE_READER_FIRST_VIDEO_STREAM: __MIDL___MIDL_itf_mfreadwrite_0000_0001_0001 = -4;
 pub type MF_SOURCE_READER_FLAG = u32;
-pub const MF_SOURCE_READER_INVALID_STREAM_INDEX: i32 = -1;
-pub const MF_SOURCE_READER_MEDIASOURCE: i32 = -1;
+pub const MF_SOURCE_READER_INVALID_STREAM_INDEX: __MIDL___MIDL_itf_mfreadwrite_0000_0001_0001 = -1;
+pub const MF_SOURCE_READER_MEDIASOURCE: __MIDL___MIDL_itf_mfreadwrite_0000_0001_0001 = -1;
+pub type __MIDL___MIDL_itf_mfreadwrite_0000_0001_0001 = i32;
+pub type __MIDL___MIDL_itf_mfreadwrite_0000_0001_0002 = i32;
+pub type __MIDL___MIDL_itf_mfreadwrite_0000_0005_0001 = i32;

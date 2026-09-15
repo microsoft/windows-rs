@@ -414,9 +414,7 @@ pub struct IKEEXT_COMMON_STATISTICS1 {
     pub totalInvalidPacketsReceived: u32,
     pub currentQueuedWorkitems: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct IKEEXT_COOKIE(pub u64);
+pub type IKEEXT_COOKIE = u64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_COOKIE_PAIR0 {

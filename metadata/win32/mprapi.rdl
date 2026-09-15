@@ -492,23 +492,23 @@ mod Windows {
         const MPR_VS_PptpFirst: i32 = 2;
         const MPR_VS_PptpOnly: i32 = 1;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminBufferFree(pBuffer: *const void) -> u32;
+        extern fn MprAdminBufferFree(#[in] pBuffer: *mut void) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminConnectionClearStats(hRasServer: RAS_SERVER_HANDLE, hRasConnection: HANDLE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminConnectionEnum(hRasServer: RAS_SERVER_HANDLE, dwLevel: u32, lplpbBuffer: *mut LPBYTE, dwPrefMaxLen: u32, lpdwEntriesRead: *mut u32, lpdwTotalEntries: *mut u32, #[opt] lpdwResumeHandle: *const u32) -> u32;
+        extern fn MprAdminConnectionEnum(hRasServer: RAS_SERVER_HANDLE, dwLevel: u32, lplpbBuffer: *mut LPBYTE, dwPrefMaxLen: u32, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[opt] lpdwResumeHandle: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminConnectionEnumEx(hRasServer: RAS_SERVER_HANDLE, pObjectHeader: *const MPRAPI_OBJECT_HEADER, dwPreferedMaxLen: u32, lpdwEntriesRead: *mut u32, lpdwTotalEntries: *mut u32, ppRasConn: *mut PRAS_CONNECTION_EX, lpdwResumeHandle: *const u32) -> u32;
+        extern fn MprAdminConnectionEnumEx(hRasServer: RAS_SERVER_HANDLE, pObjectHeader: PMPRAPI_OBJECT_HEADER, dwPreferedMaxLen: u32, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, ppRasConn: *mut PRAS_CONNECTION_EX, lpdwResumeHandle: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminConnectionGetInfo(hRasServer: RAS_SERVER_HANDLE, dwLevel: u32, hRasConnection: HANDLE, lplpbBuffer: *mut LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminConnectionGetInfoEx(hRasServer: RAS_SERVER_HANDLE, hRasConnection: HANDLE, pRasConnection: *mut RAS_CONNECTION_EX) -> u32;
+        extern fn MprAdminConnectionGetInfoEx(hRasServer: RAS_SERVER_HANDLE, hRasConnection: HANDLE, #[out] pRasConnection: PRAS_CONNECTION_EX) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminConnectionRemoveQuarantine(hRasServer: HANDLE, hRasConnection: HANDLE, fIsIpAddress: BOOL) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminDeregisterConnectionNotification(hMprServer: MPR_SERVER_HANDLE, hEventNotification: HANDLE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminDeviceEnum(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lplpbBuffer: *mut LPBYTE, lpdwTotalEntries: *mut u32) -> u32;
+        extern fn MprAdminDeviceEnum(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lplpbBuffer: *mut LPBYTE, #[out] lpdwTotalEntries: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminEstablishDomainRasServer(pszDomain: PCWSTR, pszMachine: PCWSTR, bEnable: BOOL) -> u32;
         #[library("MPRAPI.dll")]
@@ -518,69 +518,69 @@ mod Windows {
         #[library("MPRAPI.dll")]
         extern fn MprAdminInterfaceConnect(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, hEvent: HANDLE, fSynchronous: BOOL) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminInterfaceCreate(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lpbBuffer: *const u8, phInterface: *mut HANDLE) -> u32;
+        extern fn MprAdminInterfaceCreate(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lpbBuffer: LPBYTE, phInterface: *mut HANDLE) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminInterfaceDelete(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminInterfaceDeviceGetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwIndex: u32, dwLevel: u32, lplpBuffer: *mut LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminInterfaceDeviceSetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwIndex: u32, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        extern fn MprAdminInterfaceDeviceSetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwIndex: u32, dwLevel: u32, lpbBuffer: LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminInterfaceDisconnect(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminInterfaceEnum(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lplpbBuffer: *mut LPBYTE, dwPrefMaxLen: u32, lpdwEntriesRead: *mut u32, lpdwTotalEntries: *mut u32, #[opt] lpdwResumeHandle: *const u32) -> u32;
+        extern fn MprAdminInterfaceEnum(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lplpbBuffer: *mut LPBYTE, dwPrefMaxLen: u32, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[opt] lpdwResumeHandle: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminInterfaceGetCredentials(#[opt] lpwsServer: PCWSTR, lpwsInterfaceName: PCWSTR, #[out] #[opt] lpwsUserName: PWSTR, #[out] #[opt] lpwsPassword: PWSTR, #[out] #[opt] lpwsDomainName: PWSTR) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminInterfaceGetCredentialsEx(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwLevel: u32, lplpbBuffer: *mut LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminInterfaceGetCustomInfoEx(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, pCustomInfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
+        extern fn MprAdminInterfaceGetCustomInfoEx(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, #[out] pCustomInfo: PMPR_IF_CUSTOMINFOEX2) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminInterfaceGetHandle(hMprServer: MPR_SERVER_HANDLE, lpwsInterfaceName: PCWSTR, phInterface: *mut HANDLE, fIncludeClientInterfaces: BOOL) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminInterfaceGetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwLevel: u32, lplpbBuffer: *const LPBYTE) -> u32;
+        extern fn MprAdminInterfaceGetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwLevel: u32, #[in] lplpbBuffer: *mut LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminInterfaceQueryUpdateResult(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwProtocolId: u32, lpdwUpdateResult: *mut u32) -> u32;
+        extern fn MprAdminInterfaceQueryUpdateResult(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwProtocolId: u32, #[out] lpdwUpdateResult: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminInterfaceSetCredentials(#[opt] lpwsServer: PCWSTR, lpwsInterfaceName: PCWSTR, #[opt] lpwsUserName: PCWSTR, #[opt] lpwsDomainName: PCWSTR, #[opt] lpwsPassword: PCWSTR) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminInterfaceSetCredentialsEx(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        extern fn MprAdminInterfaceSetCredentialsEx(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwLevel: u32, lpbBuffer: LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminInterfaceSetCustomInfoEx(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, pCustomInfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
+        extern fn MprAdminInterfaceSetCustomInfoEx(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, pCustomInfo: PMPR_IF_CUSTOMINFOEX2) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminInterfaceSetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        extern fn MprAdminInterfaceSetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwLevel: u32, lpbBuffer: LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminInterfaceTransportAdd(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwTransportId: u32, pInterfaceInfo: *const u8, dwInterfaceInfoSize: u32) -> u32;
+        extern fn MprAdminInterfaceTransportAdd(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwTransportId: u32, pInterfaceInfo: LPBYTE, dwInterfaceInfoSize: u32) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminInterfaceTransportGetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwTransportId: u32, ppInterfaceInfo: *mut LPBYTE, #[opt] lpdwInterfaceInfoSize: *mut u32) -> u32;
+        extern fn MprAdminInterfaceTransportGetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwTransportId: u32, ppInterfaceInfo: *mut LPBYTE, #[out] #[opt] lpdwInterfaceInfoSize: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminInterfaceTransportRemove(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwTransportId: u32) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminInterfaceTransportSetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwTransportId: u32, pInterfaceInfo: *const u8, dwInterfaceInfoSize: u32) -> u32;
+        extern fn MprAdminInterfaceTransportSetInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwTransportId: u32, pInterfaceInfo: LPBYTE, dwInterfaceInfoSize: u32) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminInterfaceUpdatePhonebookInfo(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminInterfaceUpdateRoutes(hMprServer: MPR_SERVER_HANDLE, hInterface: HANDLE, dwProtocolId: u32, hEvent: HANDLE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminIsDomainRasServer(pszDomain: PCWSTR, pszMachine: PCWSTR, pbIsRasServer: *mut BOOL) -> u32;
+        extern fn MprAdminIsDomainRasServer(pszDomain: PCWSTR, pszMachine: PCWSTR, #[out] pbIsRasServer: PBOOL) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminIsServiceInitialized(lpwsServerName: PCWSTR, fIsServiceInitialized: *const BOOL) -> u32;
+        extern fn MprAdminIsServiceInitialized(lpwsServerName: PCWSTR, #[in] fIsServiceInitialized: *mut BOOL) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminIsServiceRunning(lpwsServerName: PCWSTR) -> BOOL;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminMIBBufferFree(pBuffer: *const void) -> u32;
+        extern fn MprAdminMIBBufferFree(#[in] pBuffer: *mut void) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminMIBEntryCreate(hMibServer: MIB_SERVER_HANDLE, dwPid: u32, dwRoutingPid: u32, lpEntry: *const void, dwEntrySize: u32) -> u32;
+        extern fn MprAdminMIBEntryCreate(hMibServer: MIB_SERVER_HANDLE, dwPid: u32, dwRoutingPid: u32, #[in] lpEntry: *mut void, dwEntrySize: u32) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminMIBEntryDelete(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, lpEntry: *const void, dwEntrySize: u32) -> u32;
+        extern fn MprAdminMIBEntryDelete(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, #[in] lpEntry: *mut void, dwEntrySize: u32) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminMIBEntryGet(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, lpInEntry: *const void, dwInEntrySize: u32, lplpOutEntry: *mut *mut void, lpOutEntrySize: *mut u32) -> u32;
+        extern fn MprAdminMIBEntryGet(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, #[in] lpInEntry: *mut void, dwInEntrySize: u32, lplpOutEntry: *mut *mut void, #[out] lpOutEntrySize: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminMIBEntryGetFirst(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, lpInEntry: *const void, dwInEntrySize: u32, lplpOutEntry: *mut *mut void, lpOutEntrySize: *mut u32) -> u32;
+        extern fn MprAdminMIBEntryGetFirst(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, #[in] lpInEntry: *mut void, dwInEntrySize: u32, lplpOutEntry: *mut *mut void, #[out] lpOutEntrySize: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminMIBEntryGetNext(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, lpInEntry: *const void, dwInEntrySize: u32, lplpOutEntry: *mut *mut void, lpOutEntrySize: *mut u32) -> u32;
+        extern fn MprAdminMIBEntryGetNext(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, #[in] lpInEntry: *mut void, dwInEntrySize: u32, lplpOutEntry: *mut *mut void, #[out] lpOutEntrySize: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminMIBEntrySet(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, lpEntry: *const void, dwEntrySize: u32) -> u32;
+        extern fn MprAdminMIBEntrySet(hMibServer: MIB_SERVER_HANDLE, dwProtocolId: u32, dwRoutingPid: u32, #[in] lpEntry: *mut void, dwEntrySize: u32) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminMIBServerConnect(#[opt] lpwsServerName: PCWSTR, phMibServer: *mut MIB_SERVER_HANDLE) -> u32;
         #[library("MPRAPI.dll")]
@@ -590,7 +590,7 @@ mod Windows {
         #[library("MPRAPI.dll")]
         extern fn MprAdminPortDisconnect(hRasServer: RAS_SERVER_HANDLE, hPort: HANDLE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminPortEnum(hRasServer: RAS_SERVER_HANDLE, dwLevel: u32, hRasConnection: HANDLE, lplpbBuffer: *mut LPBYTE, dwPrefMaxLen: u32, lpdwEntriesRead: *mut u32, lpdwTotalEntries: *mut u32, #[opt] lpdwResumeHandle: *const u32) -> u32;
+        extern fn MprAdminPortEnum(hRasServer: RAS_SERVER_HANDLE, dwLevel: u32, hRasConnection: HANDLE, lplpbBuffer: *mut LPBYTE, dwPrefMaxLen: u32, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[opt] lpdwResumeHandle: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminPortGetInfo(hRasServer: RAS_SERVER_HANDLE, dwLevel: u32, hPort: HANDLE, lplpbBuffer: *mut LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
@@ -604,67 +604,67 @@ mod Windows {
         #[library("MPRAPI.dll")]
         extern fn MprAdminServerDisconnect(hMprServer: MPR_SERVER_HANDLE);
         #[library("MPRAPI.dll")]
-        extern fn MprAdminServerGetCredentials(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lplpbBuffer: *const LPBYTE) -> u32;
+        extern fn MprAdminServerGetCredentials(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, #[in] lplpbBuffer: *mut LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminServerGetInfo(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lplpbBuffer: *mut LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprAdminServerGetInfoEx(hMprServer: MPR_SERVER_HANDLE, pServerInfo: *mut MPR_SERVER_EX1) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminServerSetCredentials(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        extern fn MprAdminServerSetCredentials(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lpbBuffer: LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminServerSetInfo(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        extern fn MprAdminServerSetInfo(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lpbBuffer: LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminServerSetInfoEx(hMprServer: MPR_SERVER_HANDLE, pServerInfo: *const MPR_SERVER_SET_CONFIG_EX1) -> u32;
+        extern fn MprAdminServerSetInfoEx(hMprServer: MPR_SERVER_HANDLE, #[in] pServerInfo: *mut MPR_SERVER_SET_CONFIG_EX1) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminTransportCreate(hMprServer: MPR_SERVER_HANDLE, dwTransportId: u32, #[opt] lpwsTransportName: PCWSTR, pGlobalInfo: *const u8, dwGlobalInfoSize: u32, #[opt] pClientInterfaceInfo: *const u8, #[opt] dwClientInterfaceInfoSize: u32, lpwsDLLPath: PCWSTR) -> u32;
+        extern fn MprAdminTransportCreate(hMprServer: MPR_SERVER_HANDLE, dwTransportId: u32, #[opt] lpwsTransportName: PCWSTR, pGlobalInfo: LPBYTE, dwGlobalInfoSize: u32, #[opt] pClientInterfaceInfo: LPBYTE, #[opt] dwClientInterfaceInfoSize: u32, lpwsDLLPath: PCWSTR) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminTransportGetInfo(hMprServer: MPR_SERVER_HANDLE, dwTransportId: u32, #[opt] ppGlobalInfo: *mut LPBYTE, #[opt] lpdwGlobalInfoSize: *mut u32, #[opt] ppClientInterfaceInfo: *mut LPBYTE, #[opt] lpdwClientInterfaceInfoSize: *mut u32) -> u32;
+        extern fn MprAdminTransportGetInfo(hMprServer: MPR_SERVER_HANDLE, dwTransportId: u32, #[opt] ppGlobalInfo: *mut LPBYTE, #[out] #[opt] lpdwGlobalInfoSize: LPDWORD, #[opt] ppClientInterfaceInfo: *mut LPBYTE, #[out] #[opt] lpdwClientInterfaceInfoSize: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminTransportSetInfo(hMprServer: MPR_SERVER_HANDLE, dwTransportId: u32, #[opt] pGlobalInfo: *const u8, dwGlobalInfoSize: u32, #[opt] pClientInterfaceInfo: *const u8, dwClientInterfaceInfoSize: u32) -> u32;
+        extern fn MprAdminTransportSetInfo(hMprServer: MPR_SERVER_HANDLE, dwTransportId: u32, #[opt] pGlobalInfo: LPBYTE, dwGlobalInfoSize: u32, #[opt] pClientInterfaceInfo: LPBYTE, dwClientInterfaceInfoSize: u32) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminUpdateConnection(hRasServer: RAS_SERVER_HANDLE, hRasConnection: HANDLE, pRasUpdateConnection: *const RAS_UPDATE_CONNECTION) -> u32;
+        extern fn MprAdminUpdateConnection(hRasServer: RAS_SERVER_HANDLE, hRasConnection: HANDLE, pRasUpdateConnection: PRAS_UPDATE_CONNECTION) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminUserGetInfo(lpszServer: PCWSTR, lpszUser: PCWSTR, dwLevel: u32, lpbBuffer: *mut u8) -> u32;
+        extern fn MprAdminUserGetInfo(lpszServer: PCWSTR, lpszUser: PCWSTR, dwLevel: u32, #[out] lpbBuffer: LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprAdminUserSetInfo(lpszServer: PCWSTR, lpszUser: PCWSTR, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        extern fn MprAdminUserSetInfo(lpszServer: PCWSTR, lpszUser: PCWSTR, dwLevel: u32, lpbBuffer: LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigBufferFree(pBuffer: *const void) -> u32;
+        extern fn MprConfigBufferFree(#[in] pBuffer: *mut void) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigFilterGetInfo(hMprConfig: HANDLE, dwLevel: u32, dwTransportId: u32, #[in] #[out] lpBuffer: *mut u8) -> u32;
+        extern fn MprConfigFilterGetInfo(hMprConfig: HANDLE, dwLevel: u32, dwTransportId: u32, #[in] #[out] lpBuffer: LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigFilterSetInfo(hMprConfig: HANDLE, dwLevel: u32, dwTransportId: u32, lpBuffer: *const u8) -> u32;
+        extern fn MprConfigFilterSetInfo(hMprConfig: HANDLE, dwLevel: u32, dwTransportId: u32, lpBuffer: LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigGetFriendlyName(hMprConfig: HANDLE, pszGuidName: PCWSTR, #[size_param(3)] pszBuffer: *mut u16, dwBufferSize: u32) -> u32;
+        extern fn MprConfigGetFriendlyName(hMprConfig: HANDLE, pszGuidName: PWSTR, #[size_param(3)] #[out] pszBuffer: PWCHAR, dwBufferSize: u32) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigGetGuidName(hMprConfig: HANDLE, pszFriendlyName: PCWSTR, #[size_param(3)] pszBuffer: *mut u16, dwBufferSize: u32) -> u32;
+        extern fn MprConfigGetGuidName(hMprConfig: HANDLE, pszFriendlyName: PWSTR, #[size_param(3)] #[out] pszBuffer: PWCHAR, dwBufferSize: u32) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigInterfaceCreate(hMprConfig: HANDLE, dwLevel: u32, lpbBuffer: *const u8, phRouterInterface: *mut HANDLE) -> u32;
+        extern fn MprConfigInterfaceCreate(hMprConfig: HANDLE, dwLevel: u32, lpbBuffer: LPBYTE, phRouterInterface: *mut HANDLE) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprConfigInterfaceDelete(hMprConfig: HANDLE, hRouterInterface: HANDLE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigInterfaceEnum(hMprConfig: HANDLE, dwLevel: u32, lplpBuffer: *mut LPBYTE, dwPrefMaxLen: u32, lpdwEntriesRead: *mut u32, lpdwTotalEntries: *mut u32, #[in] #[out] #[opt] lpdwResumeHandle: *mut u32) -> u32;
+        extern fn MprConfigInterfaceEnum(hMprConfig: HANDLE, dwLevel: u32, lplpBuffer: *mut LPBYTE, dwPrefMaxLen: u32, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[out] #[opt] lpdwResumeHandle: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigInterfaceGetCustomInfoEx(hMprConfig: HANDLE, hRouterInterface: HANDLE, pCustomInfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
+        extern fn MprConfigInterfaceGetCustomInfoEx(hMprConfig: HANDLE, hRouterInterface: HANDLE, #[out] pCustomInfo: PMPR_IF_CUSTOMINFOEX2) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprConfigInterfaceGetHandle(hMprConfig: HANDLE, lpwsInterfaceName: PCWSTR, phRouterInterface: *mut HANDLE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigInterfaceGetInfo(hMprConfig: HANDLE, hRouterInterface: HANDLE, dwLevel: u32, #[in] #[out] lplpBuffer: *mut LPBYTE, lpdwBufferSize: *mut u32) -> u32;
+        extern fn MprConfigInterfaceGetInfo(hMprConfig: HANDLE, hRouterInterface: HANDLE, dwLevel: u32, #[in] #[out] lplpBuffer: *mut LPBYTE, #[out] lpdwBufferSize: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigInterfaceSetCustomInfoEx(hMprConfig: HANDLE, hRouterInterface: HANDLE, pCustomInfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
+        extern fn MprConfigInterfaceSetCustomInfoEx(hMprConfig: HANDLE, hRouterInterface: HANDLE, pCustomInfo: PMPR_IF_CUSTOMINFOEX2) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigInterfaceSetInfo(hMprConfig: HANDLE, hRouterInterface: HANDLE, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        extern fn MprConfigInterfaceSetInfo(hMprConfig: HANDLE, hRouterInterface: HANDLE, dwLevel: u32, lpbBuffer: LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigInterfaceTransportAdd(hMprConfig: HANDLE, hRouterInterface: HANDLE, dwTransportId: u32, #[opt] lpwsTransportName: PCWSTR, #[size_param(5)] pInterfaceInfo: *const u8, dwInterfaceInfoSize: u32, phRouterIfTransport: *mut HANDLE) -> u32;
+        extern fn MprConfigInterfaceTransportAdd(hMprConfig: HANDLE, hRouterInterface: HANDLE, dwTransportId: u32, #[opt] lpwsTransportName: PCWSTR, #[size_param(5)] pInterfaceInfo: LPBYTE, dwInterfaceInfoSize: u32, phRouterIfTransport: *mut HANDLE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigInterfaceTransportEnum(hMprConfig: HANDLE, hRouterInterface: HANDLE, dwLevel: u32, lplpBuffer: *mut LPBYTE, dwPrefMaxLen: u32, lpdwEntriesRead: *mut u32, lpdwTotalEntries: *mut u32, #[in] #[out] #[opt] lpdwResumeHandle: *mut u32) -> u32;
+        extern fn MprConfigInterfaceTransportEnum(hMprConfig: HANDLE, hRouterInterface: HANDLE, dwLevel: u32, lplpBuffer: *mut LPBYTE, dwPrefMaxLen: u32, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[out] #[opt] lpdwResumeHandle: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprConfigInterfaceTransportGetHandle(hMprConfig: HANDLE, hRouterInterface: HANDLE, dwTransportId: u32, phRouterIfTransport: *mut HANDLE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigInterfaceTransportGetInfo(hMprConfig: HANDLE, hRouterInterface: HANDLE, hRouterIfTransport: HANDLE, ppInterfaceInfo: *mut LPBYTE, #[opt] lpdwInterfaceInfoSize: *mut u32) -> u32;
+        extern fn MprConfigInterfaceTransportGetInfo(hMprConfig: HANDLE, hRouterInterface: HANDLE, hRouterIfTransport: HANDLE, ppInterfaceInfo: *mut LPBYTE, #[out] #[opt] lpdwInterfaceInfoSize: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprConfigInterfaceTransportRemove(hMprConfig: HANDLE, hRouterInterface: HANDLE, hRouterIfTransport: HANDLE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigInterfaceTransportSetInfo(hMprConfig: HANDLE, hRouterInterface: HANDLE, hRouterIfTransport: HANDLE, #[size_param(4)] #[opt] pInterfaceInfo: *const u8, dwInterfaceInfoSize: u32) -> u32;
+        extern fn MprConfigInterfaceTransportSetInfo(hMprConfig: HANDLE, hRouterInterface: HANDLE, hRouterIfTransport: HANDLE, #[size_param(4)] #[opt] pInterfaceInfo: LPBYTE, dwInterfaceInfoSize: u32) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprConfigServerBackup(hMprConfig: HANDLE, lpwsPath: PCWSTR) -> u32;
         #[library("MPRAPI.dll")]
@@ -676,45 +676,45 @@ mod Windows {
         #[library("MPRAPI.dll")]
         extern fn MprConfigServerGetInfoEx(hMprConfig: HANDLE, pServerInfo: *mut MPR_SERVER_EX1) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigServerInstall(dwLevel: u32, pBuffer: *const void) -> u32;
+        extern fn MprConfigServerInstall(dwLevel: u32, #[in] pBuffer: *mut void) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprConfigServerRefresh(hMprConfig: HANDLE) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprConfigServerRestore(hMprConfig: HANDLE, lpwsPath: PCWSTR) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigServerSetInfo(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lpbBuffer: *const u8) -> u32;
+        extern fn MprConfigServerSetInfo(hMprServer: MPR_SERVER_HANDLE, dwLevel: u32, lpbBuffer: LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigServerSetInfoEx(hMprConfig: HANDLE, pSetServerConfig: *const MPR_SERVER_SET_CONFIG_EX1) -> u32;
+        extern fn MprConfigServerSetInfoEx(hMprConfig: HANDLE, #[in] pSetServerConfig: *mut MPR_SERVER_SET_CONFIG_EX1) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigTransportCreate(hMprConfig: HANDLE, dwTransportId: u32, #[opt] lpwsTransportName: PCWSTR, #[size_param(4)] pGlobalInfo: *const u8, dwGlobalInfoSize: u32, #[size_param(6)] #[opt] pClientInterfaceInfo: *const u8, #[opt] dwClientInterfaceInfoSize: u32, #[opt] lpwsDLLPath: PCWSTR, phRouterTransport: *mut HANDLE) -> u32;
+        extern fn MprConfigTransportCreate(hMprConfig: HANDLE, dwTransportId: u32, #[opt] lpwsTransportName: PCWSTR, #[size_param(4)] pGlobalInfo: LPBYTE, dwGlobalInfoSize: u32, #[size_param(6)] #[opt] pClientInterfaceInfo: LPBYTE, #[opt] dwClientInterfaceInfoSize: u32, #[opt] lpwsDLLPath: PCWSTR, phRouterTransport: *mut HANDLE) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprConfigTransportDelete(hMprConfig: HANDLE, hRouterTransport: HANDLE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigTransportEnum(hMprConfig: HANDLE, dwLevel: u32, lplpBuffer: *mut LPBYTE, dwPrefMaxLen: u32, lpdwEntriesRead: *mut u32, lpdwTotalEntries: *mut u32, #[in] #[out] #[opt] lpdwResumeHandle: *mut u32) -> u32;
+        extern fn MprConfigTransportEnum(hMprConfig: HANDLE, dwLevel: u32, lplpBuffer: *mut LPBYTE, dwPrefMaxLen: u32, #[out] lpdwEntriesRead: LPDWORD, #[out] lpdwTotalEntries: LPDWORD, #[in] #[out] #[opt] lpdwResumeHandle: LPDWORD) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprConfigTransportGetHandle(hMprConfig: HANDLE, dwTransportId: u32, phRouterTransport: *mut HANDLE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigTransportGetInfo(hMprConfig: HANDLE, hRouterTransport: HANDLE, #[in] #[out] #[opt] ppGlobalInfo: *mut LPBYTE, #[opt] lpdwGlobalInfoSize: *mut u32, #[in] #[out] #[opt] ppClientInterfaceInfo: *mut LPBYTE, #[opt] lpdwClientInterfaceInfoSize: *mut u32, #[in] #[out] lplpwsDLLPath: *mut PWSTR) -> u32;
+        extern fn MprConfigTransportGetInfo(hMprConfig: HANDLE, hRouterTransport: HANDLE, #[in] #[out] #[opt] ppGlobalInfo: *mut LPBYTE, #[out] #[opt] lpdwGlobalInfoSize: LPDWORD, #[in] #[out] #[opt] ppClientInterfaceInfo: *mut LPBYTE, #[out] #[opt] lpdwClientInterfaceInfoSize: LPDWORD, #[in] #[out] lplpwsDLLPath: *mut PWSTR) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprConfigTransportSetInfo(hMprConfig: HANDLE, hRouterTransport: HANDLE, #[size_param(3)] #[opt] pGlobalInfo: *const u8, #[opt] dwGlobalInfoSize: u32, #[size_param(5)] #[opt] pClientInterfaceInfo: *const u8, #[opt] dwClientInterfaceInfoSize: u32, #[opt] lpwsDLLPath: PCWSTR) -> u32;
+        extern fn MprConfigTransportSetInfo(hMprConfig: HANDLE, hRouterTransport: HANDLE, #[size_param(3)] #[opt] pGlobalInfo: LPBYTE, #[opt] dwGlobalInfoSize: u32, #[size_param(5)] #[opt] pClientInterfaceInfo: LPBYTE, #[opt] dwClientInterfaceInfoSize: u32, #[opt] lpwsDLLPath: PCWSTR) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprInfoBlockAdd(lpHeader: *const void, dwInfoType: u32, dwItemSize: u32, dwItemCount: u32, lpItemData: *const u8, lplpNewHeader: *mut *mut void) -> u32;
+        extern fn MprInfoBlockAdd(#[in] lpHeader: *mut void, dwInfoType: u32, dwItemSize: u32, dwItemCount: u32, lpItemData: LPBYTE, lplpNewHeader: *mut *mut void) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprInfoBlockFind(lpHeader: *const void, dwInfoType: u32, lpdwItemSize: *mut u32, lpdwItemCount: *mut u32, lplpItemData: *mut LPBYTE) -> u32;
+        extern fn MprInfoBlockFind(#[in] lpHeader: *mut void, dwInfoType: u32, #[out] lpdwItemSize: LPDWORD, #[out] lpdwItemCount: LPDWORD, lplpItemData: *mut LPBYTE) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprInfoBlockQuerySize(lpHeader: *const void) -> u32;
+        extern fn MprInfoBlockQuerySize(#[in] lpHeader: *mut void) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprInfoBlockRemove(lpHeader: *const void, dwInfoType: u32, lplpNewHeader: *mut *mut void) -> u32;
+        extern fn MprInfoBlockRemove(#[in] lpHeader: *mut void, dwInfoType: u32, lplpNewHeader: *mut *mut void) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprInfoBlockSet(lpHeader: *const void, dwInfoType: u32, dwItemSize: u32, dwItemCount: u32, lpItemData: *const u8, lplpNewHeader: *mut *mut void) -> u32;
+        extern fn MprInfoBlockSet(#[in] lpHeader: *mut void, dwInfoType: u32, dwItemSize: u32, dwItemCount: u32, lpItemData: LPBYTE, lplpNewHeader: *mut *mut void) -> u32;
         #[library("MPRAPI.dll")]
         extern fn MprInfoCreate(dwVersion: u32, lplpNewHeader: *mut *mut void) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprInfoDelete(lpHeader: *const void) -> u32;
+        extern fn MprInfoDelete(#[in] lpHeader: *mut void) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprInfoDuplicate(lpHeader: *const void, lplpNewHeader: *mut *mut void) -> u32;
+        extern fn MprInfoDuplicate(#[in] lpHeader: *mut void, lplpNewHeader: *mut *mut void) -> u32;
         #[library("MPRAPI.dll")]
-        extern fn MprInfoRemoveAll(lpHeader: *const void, lplpNewHeader: *mut *mut void) -> u32;
+        extern fn MprInfoRemoveAll(#[in] lpHeader: *mut void, lplpNewHeader: *mut *mut void) -> u32;
         type PGRE_CONFIG_PARAMS0 = *mut GRE_CONFIG_PARAMS0;
         const PID_ATALK: i32 = 41;
         const PID_IP: i32 = 33;

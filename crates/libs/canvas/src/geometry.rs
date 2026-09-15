@@ -19,7 +19,7 @@ impl Path {
     pub fn fill_contains_point(&self, point: Vector2) -> bool {
         unsafe {
             self.raw
-                .FillContainsPoint(point, None, DEFAULT_FLATTENING_TOLERANCE)
+                .FillContainsPoint(to_d2d_point(point), None, DEFAULT_FLATTENING_TOLERANCE)
                 .unwrap()
                 .as_bool()
         }
@@ -30,7 +30,7 @@ impl Path {
         unsafe {
             self.raw
                 .StrokeContainsPoint(
-                    point,
+                    to_d2d_point(point),
                     stroke_width,
                     None,
                     None,
@@ -73,7 +73,8 @@ impl PathBuilder {
     /// Starts a filled figure at `start`.
     pub fn begin(self, start: Vector2) -> PathFigure {
         unsafe {
-            self.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_FILLED);
+            self.sink
+                .BeginFigure(to_d2d_point(start), D2D1_FIGURE_BEGIN_FILLED);
         }
         PathFigure {
             sink: self.sink,
@@ -84,7 +85,8 @@ impl PathBuilder {
     /// Starts a hollow figure at `start`.
     pub fn begin_hollow(self, start: Vector2) -> PathFigure {
         unsafe {
-            self.sink.BeginFigure(start, D2D1_FIGURE_BEGIN_HOLLOW);
+            self.sink
+                .BeginFigure(to_d2d_point(start), D2D1_FIGURE_BEGIN_HOLLOW);
         }
         PathFigure {
             sink: self.sink,
@@ -123,16 +125,16 @@ pub struct PathFigure {
 impl PathFigure {
     /// Adds a straight segment to `point`.
     pub fn line_to(self, point: Vector2) -> Self {
-        unsafe { self.sink.AddLine(point) };
+        unsafe { self.sink.AddLine(to_d2d_point(point)) };
         self
     }
 
     /// Adds a cubic Bezier segment.
     pub fn bezier_to(self, control1: Vector2, control2: Vector2, end: Vector2) -> Self {
         let segment = D2D1_BEZIER_SEGMENT {
-            point1: control1,
-            point2: control2,
-            point3: end,
+            point1: to_d2d_point(control1),
+            point2: to_d2d_point(control2),
+            point3: to_d2d_point(end),
         };
         unsafe { self.sink.AddBezier(&segment) };
         self

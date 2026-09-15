@@ -228,7 +228,7 @@ mod Windows {
         interface IProxyProviderWinEventSink: IUnknown {
             fn AddAutomationPropertyChangedEvent(&self, pProvider: IRawElementProviderSimple, id: PROPERTYID, newValue: VARIANT) -> HRESULT;
             fn AddAutomationEvent(&self, pProvider: IRawElementProviderSimple, id: EVENTID) -> HRESULT;
-            fn AddStructureChangedEvent(&self, pProvider: IRawElementProviderSimple, structureChangeType: StructureChangeType, runtimeId: *const SAFEARRAY) -> HRESULT;
+            fn AddStructureChangedEvent(&self, pProvider: IRawElementProviderSimple, structureChangeType: StructureChangeType, #[in] runtimeId: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x36dc7aef_33e6_4691_afe1_2be7274b3d33)]
         interface IRangeValueProvider: IUnknown {
@@ -248,8 +248,8 @@ mod Windows {
         }
         #[guid(0xa407b27b_0f6d_4427_9292_473c7bf93258)]
         interface IRawElementProviderAdviseEvents: IUnknown {
-            fn AdviseEventAdded(&self, eventId: EVENTID, propertyIDs: *const SAFEARRAY) -> HRESULT;
-            fn AdviseEventRemoved(&self, eventId: EVENTID, propertyIDs: *const SAFEARRAY) -> HRESULT;
+            fn AdviseEventAdded(&self, eventId: EVENTID, #[in] propertyIDs: *mut SAFEARRAY) -> HRESULT;
+            fn AdviseEventRemoved(&self, eventId: EVENTID, #[in] propertyIDs: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xf7063da8_8359_439c_9297_bbc5299a7d87)]
         interface IRawElementProviderFragment: IUnknown {

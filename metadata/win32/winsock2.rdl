@@ -31,7 +31,10 @@ mod Windows {
         const FD_READ_BIT: i32 = 0;
         const FD_ROUTING_INTERFACE_CHANGE: i32 = 256;
         const FD_ROUTING_INTERFACE_CHANGE_BIT: i32 = 8;
-        type FD_SET = fd_set;
+        struct FD_SET {
+            fd_count: u_int,
+            fd_array: [SOCKET; 64],
+        }
         const FD_SETSIZE: i32 = 64;
         const FD_WRITE: i32 = 2;
         const FD_WRITE_BIT: i32 = 1;
@@ -42,30 +45,42 @@ mod Windows {
         type GROUP = u32;
         #[library("WS2_32.dll")]
         extern fn GetHostNameW(#[len_param(1)] #[out] name: PWSTR, namelen: i32) -> i32;
-        type HOSTENT = hostent;
+        struct HOSTENT {
+            h_name: *mut i8,
+            h_aliases: *mut *mut i8,
+            h_addrtype: i16,
+            h_length: i16,
+            h_addr_list: *mut *mut i8,
+        }
         const HOST_NOT_FOUND: i32 = 11001;
         const IMPLINK_HIGHEXPER: i32 = 158;
         const IMPLINK_IP: i32 = 155;
         const IMPLINK_LOWEXPER: i32 = 156;
         const INCL_WINSOCK_API_PROTOTYPES: i32 = 1;
         const INCL_WINSOCK_API_TYPEDEFS: i32 = 0;
+        #[arch(X64 | Arm64)]
         const INVALID_SOCKET: SOCKET = 18446744073709551615;
+        #[arch(X86)]
+        const INVALID_SOCKET: SOCKET = 4294967295;
         const JL_BOTH: i32 = 4;
         const JL_RECEIVER_ONLY: i32 = 2;
         const JL_SENDER_ONLY: i32 = 1;
         const LAYERED_PROTOCOL: i32 = 0;
-        type LINGER = linger;
+        struct LINGER {
+            l_onoff: u_short,
+            l_linger: u_short,
+        }
         const LITTLEENDIAN: i32 = 1;
         type LPAFPROTOCOLS = *mut AFPROTOCOLS;
-        extern fn LPCONDITIONPROC(lpCallerId: *mut WSABUF, lpCallerData: *mut WSABUF, lpSQOS: *mut QOS, lpGQOS: *mut QOS, lpCalleeId: *mut WSABUF, lpCalleeData: *mut WSABUF, g: *mut GROUP, dwCallbackData: usize) -> i32;
-        type LPFD_SET = *mut fd_set;
-        type LPHOSTENT = *mut hostent;
-        type LPLINGER = *mut linger;
-        type LPPROTOENT = *mut protoent;
+        extern fn LPCONDITIONPROC(lpCallerId: LPWSABUF, lpCallerData: LPWSABUF, lpSQOS: LPQOS, lpGQOS: LPQOS, lpCalleeId: LPWSABUF, lpCalleeData: LPWSABUF, g: *mut GROUP, dwCallbackData: usize) -> i32;
+        type LPFD_SET = *mut FD_SET;
+        type LPHOSTENT = *mut HOSTENT;
+        type LPLINGER = *mut LINGER;
+        type LPPROTOENT = *mut PROTOENT;
         type LPQOS = *mut QOS;
-        type LPSERVENT = *mut servent;
+        type LPSERVENT = *mut SERVENT;
         type LPSOCKADDR_IN = *mut SOCKADDR_IN;
-        type LPTIMEVAL = *mut timeval;
+        type LPTIMEVAL = *mut TIMEVAL;
         type LPWSACOMPLETION = *mut WSACOMPLETION;
         type LPWSACOMPLETIONTYPE = *mut WSACOMPLETIONTYPE;
         type LPWSADATA = *mut WSADATA;
@@ -82,7 +97,7 @@ mod Windows {
         type LPWSANSCLASSINFOA = *mut WSANSCLASSINFOA;
         type LPWSANSCLASSINFOW = *mut WSANSCLASSINFOW;
         type LPWSAOVERLAPPED = *mut OVERLAPPED;
-        extern fn LPWSAOVERLAPPED_COMPLETION_ROUTINE(dwError: u32, cbTransferred: u32, lpOverlapped: *mut OVERLAPPED, dwFlags: u32);
+        extern fn LPWSAOVERLAPPED_COMPLETION_ROUTINE(dwError: u32, cbTransferred: u32, lpOverlapped: LPWSAOVERLAPPED, dwFlags: u32);
         type LPWSAPOLLFD = *mut WSAPOLLFD;
         type LPWSAPROTOCOLCHAIN = *mut WSAPROTOCOLCHAIN;
         type LPWSAPROTOCOL_INFO = LPWSAPROTOCOL_INFOA;
@@ -147,7 +162,7 @@ mod Windows {
         const NO_RECOVERY: i32 = 11003;
         const NS_LOCALNAME: i32 = 19;
         type PAFPROTOCOLS = *mut AFPROTOCOLS;
-        type PFD_SET = *mut fd_set;
+        type PFD_SET = *mut FD_SET;
         const PFL_HIDDEN: i32 = 4;
         const PFL_MATCHES_PROTOCOL_ZERO: i32 = 8;
         const PFL_MULTIPLE_PROTO_ENTRIES: i32 = 1;
@@ -180,8 +195,8 @@ mod Windows {
         const PF_UNKNOWN1: i32 = 20;
         const PF_UNSPEC: i32 = 0;
         const PF_VOICEVIEW: i32 = 18;
-        type PHOSTENT = *mut hostent;
-        type PLINGER = *mut linger;
+        type PHOSTENT = *mut HOSTENT;
+        type PLINGER = *mut LINGER;
         const POLLERR: i32 = 1;
         const POLLHUP: i32 = 2;
         const POLLIN: i32 = 768;
@@ -192,10 +207,14 @@ mod Windows {
         const POLLRDNORM: i32 = 256;
         const POLLWRBAND: i32 = 32;
         const POLLWRNORM: i32 = 16;
-        type PPROTOENT = *mut protoent;
-        type PROTOENT = protoent;
-        type PSERVENT = *mut servent;
-        type PTIMEVAL = *mut timeval;
+        type PPROTOENT = *mut PROTOENT;
+        struct PROTOENT {
+            p_name: *mut i8,
+            p_aliases: *mut *mut i8,
+            p_proto: i16,
+        }
+        type PSERVENT = *mut SERVENT;
+        type PTIMEVAL = *mut TIMEVAL;
         const PVD_CONFIG: i32 = 12289;
         type PWSACOMPLETION = *mut WSACOMPLETION;
         type PWSACOMPLETIONTYPE = *mut WSACOMPLETIONTYPE;
@@ -239,24 +258,45 @@ mod Windows {
         const SD_RECEIVE: i32 = 0;
         const SD_SEND: i32 = 1;
         const SECURITY_PROTOCOL_NONE: i32 = 0;
-        type SERVENT = servent;
+        #[arch(X64 | Arm64)]
+        struct SERVENT {
+            s_name: *mut i8,
+            s_aliases: *mut *mut i8,
+            s_proto: *mut i8,
+            s_port: i16,
+        }
+        #[arch(X86)]
+        struct SERVENT {
+            s_name: *mut i8,
+            s_aliases: *mut *mut i8,
+            s_port: i16,
+            s_proto: *mut i8,
+        }
         const SERVICE_MULTIPLE: i32 = 1;
         #[encoding("ansi")]
         const SERVICE_TYPE_VALUE_IPXPORTA: String = "IpxSocket";
         #[encoding("utf-16")]
         const SERVICE_TYPE_VALUE_IPXPORTW: String = "IpxSocket";
         #[encoding("ansi")]
+        const SERVICE_TYPE_VALUE_OBJECTID: String = "ObjectId";
+        #[encoding("ansi")]
         const SERVICE_TYPE_VALUE_OBJECTIDA: String = "ObjectId";
         #[encoding("utf-16")]
         const SERVICE_TYPE_VALUE_OBJECTIDW: String = "ObjectId";
+        #[encoding("ansi")]
+        const SERVICE_TYPE_VALUE_SAPID: String = "SapId";
         #[encoding("ansi")]
         const SERVICE_TYPE_VALUE_SAPIDA: String = "SapId";
         #[encoding("utf-16")]
         const SERVICE_TYPE_VALUE_SAPIDW: String = "SapId";
         #[encoding("ansi")]
+        const SERVICE_TYPE_VALUE_TCPPORT: String = "TcpPort";
+        #[encoding("ansi")]
         const SERVICE_TYPE_VALUE_TCPPORTA: String = "TcpPort";
         #[encoding("utf-16")]
         const SERVICE_TYPE_VALUE_TCPPORTW: String = "TcpPort";
+        #[encoding("ansi")]
+        const SERVICE_TYPE_VALUE_UDPPORT: String = "UdpPort";
         #[encoding("ansi")]
         const SERVICE_TYPE_VALUE_UDPPORTA: String = "UdpPort";
         #[encoding("utf-16")]
@@ -305,15 +345,18 @@ mod Windows {
         const SO_PROTOCOL_INFOW: i32 = 8197;
         const TH_NETDEV: i32 = 1;
         const TH_TAPI: i32 = 2;
-        type TIMEVAL = timeval;
+        struct TIMEVAL {
+            tv_sec: i32,
+            tv_usec: i32,
+        }
         const TRY_AGAIN: i32 = 11002;
-        const WINSOCK_VERSION: u32 = 514;
+        const WINSOCK_VERSION: u16 = 514;
         #[library("WS2_32.dll")]
-        extern fn WSAAccept(s: SOCKET, #[size_param(2)] #[opt] addr: *mut SOCKADDR, #[in] #[out] #[opt] addrlen: *mut i32, #[opt] lpfnCondition: LPCONDITIONPROC, #[opt] dwCallbackData: usize) -> SOCKET;
+        extern fn WSAAccept(s: SOCKET, #[size_param(2)] #[opt] addr: *mut SOCKADDR, #[in] #[out] #[opt] addrlen: LPINT, #[opt] lpfnCondition: LPCONDITIONPROC, #[opt] dwCallbackData: usize) -> SOCKET;
         #[library("WS2_32.dll")]
-        extern fn WSAAddressToStringA(#[size_param(1)] lpsaAddress: *const SOCKADDR, dwAddressLength: u32, #[opt] lpProtocolInfo: *const WSAPROTOCOL_INFOA, #[len_param(4)] #[out] lpszAddressString: PSTR, #[in] #[out] lpdwAddressStringLength: *mut u32) -> i32;
+        extern fn WSAAddressToStringA(#[size_param(1)] lpsaAddress: LPSOCKADDR, dwAddressLength: u32, #[opt] lpProtocolInfo: LPWSAPROTOCOL_INFOA, #[len_param(4)] #[out] lpszAddressString: PSTR, #[in] #[out] lpdwAddressStringLength: LPDWORD) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAAddressToStringW(#[size_param(1)] lpsaAddress: *const SOCKADDR, dwAddressLength: u32, #[opt] lpProtocolInfo: *const WSAPROTOCOL_INFOW, #[len_param(4)] #[out] lpszAddressString: PWSTR, #[in] #[out] lpdwAddressStringLength: *mut u32) -> i32;
+        extern fn WSAAddressToStringW(#[size_param(1)] lpsaAddress: LPSOCKADDR, dwAddressLength: u32, #[opt] lpProtocolInfo: LPWSAPROTOCOL_INFOW, #[len_param(4)] #[out] lpszAddressString: PWSTR, #[in] #[out] lpdwAddressStringLength: LPDWORD) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSAAsyncGetHostByAddr(hWnd: HWND, wMsg: u_int, #[size_param(3)] addr: *const i8, len: i32, r#type: i32, #[size_param(6)] buf: *mut i8, buflen: i32) -> HANDLE;
         #[library("WS2_32.dll")]
@@ -367,13 +410,13 @@ mod Windows {
         #[library("WS2_32.dll")]
         extern fn WSACloseEvent(hEvent: HANDLE) -> BOOL;
         #[library("WS2_32.dll")]
-        extern fn WSAConnect(s: SOCKET, #[size_param(2)] name: *const SOCKADDR, namelen: i32, #[opt] lpCallerData: *const WSABUF, #[opt] lpCalleeData: *mut WSABUF, #[opt] lpSQOS: *const QOS, #[opt] lpGQOS: *const QOS) -> i32;
+        extern fn WSAConnect(s: SOCKET, #[size_param(2)] name: *const SOCKADDR, namelen: i32, #[opt] lpCallerData: LPWSABUF, #[out] #[opt] lpCalleeData: LPWSABUF, #[opt] lpSQOS: LPQOS, #[opt] lpGQOS: LPQOS) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAConnectByList(s: SOCKET, SocketAddress: *const SOCKET_ADDRESS_LIST, #[in] #[out] #[opt] LocalAddressLength: *mut u32, #[size_param(2)] #[opt] LocalAddress: *mut SOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: *mut u32, #[size_param(4)] #[opt] RemoteAddress: *mut SOCKADDR, #[opt] timeout: *const timeval, #[reserved] Reserved: *const OVERLAPPED) -> BOOL;
+        extern fn WSAConnectByList(s: SOCKET, SocketAddress: PSOCKET_ADDRESS_LIST, #[in] #[out] #[opt] LocalAddressLength: LPDWORD, #[size_param(2)] #[out] #[opt] LocalAddress: LPSOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: LPDWORD, #[size_param(4)] #[out] #[opt] RemoteAddress: LPSOCKADDR, #[opt] timeout: *const TIMEVAL, #[reserved] Reserved: LPWSAOVERLAPPED) -> BOOL;
         #[library("WS2_32.dll")]
-        extern fn WSAConnectByNameA(s: SOCKET, nodename: PCSTR, servicename: PCSTR, #[in] #[out] #[opt] LocalAddressLength: *mut u32, #[size_param(3)] #[opt] LocalAddress: *mut SOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: *mut u32, #[size_param(5)] #[opt] RemoteAddress: *mut SOCKADDR, #[opt] timeout: *const timeval, #[reserved] Reserved: *const OVERLAPPED) -> BOOL;
+        extern fn WSAConnectByNameA(s: SOCKET, nodename: PCSTR, servicename: PCSTR, #[in] #[out] #[opt] LocalAddressLength: LPDWORD, #[size_param(3)] #[out] #[opt] LocalAddress: LPSOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: LPDWORD, #[size_param(5)] #[out] #[opt] RemoteAddress: LPSOCKADDR, #[opt] timeout: *const TIMEVAL, #[reserved] Reserved: LPWSAOVERLAPPED) -> BOOL;
         #[library("WS2_32.dll")]
-        extern fn WSAConnectByNameW(s: SOCKET, nodename: PCWSTR, servicename: PCWSTR, #[in] #[out] #[opt] LocalAddressLength: *mut u32, #[size_param(3)] #[opt] LocalAddress: *mut SOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: *mut u32, #[size_param(5)] #[opt] RemoteAddress: *mut SOCKADDR, #[opt] timeout: *const timeval, #[reserved] Reserved: *const OVERLAPPED) -> BOOL;
+        extern fn WSAConnectByNameW(s: SOCKET, nodename: PCWSTR, servicename: PCWSTR, #[in] #[out] #[opt] LocalAddressLength: LPDWORD, #[size_param(3)] #[out] #[opt] LocalAddress: LPSOCKADDR, #[in] #[out] #[opt] RemoteAddressLength: LPDWORD, #[size_param(5)] #[out] #[opt] RemoteAddress: LPSOCKADDR, #[opt] timeout: *const TIMEVAL, #[reserved] Reserved: LPWSAOVERLAPPED) -> BOOL;
         #[library("WS2_32.dll")]
         extern fn WSACreateEvent() -> HANDLE;
         #[arch(X64 | Arm64)]
@@ -398,9 +441,9 @@ mod Windows {
         }
         const WSADESCRIPTION_LEN: i32 = 256;
         #[library("WS2_32.dll")]
-        extern fn WSADuplicateSocketA(s: SOCKET, dwProcessId: u32, lpProtocolInfo: *mut WSAPROTOCOL_INFOA) -> i32;
+        extern fn WSADuplicateSocketA(s: SOCKET, dwProcessId: u32, #[out] lpProtocolInfo: LPWSAPROTOCOL_INFOA) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSADuplicateSocketW(s: SOCKET, dwProcessId: u32, lpProtocolInfo: *mut WSAPROTOCOL_INFOW) -> i32;
+        extern fn WSADuplicateSocketW(s: SOCKET, dwProcessId: u32, #[out] lpProtocolInfo: LPWSAPROTOCOL_INFOW) -> i32;
         #[repr(i32)]
         enum WSAECOMPARATOR {
             COMP_EQUAL = 0,
@@ -413,59 +456,59 @@ mod Windows {
             RNRSERVICE_DELETE = 2,
         }
         #[library("WS2_32.dll")]
-        extern fn WSAEnumNameSpaceProvidersA(#[in] #[out] lpdwBufferLength: *mut u32, #[size_param(0)] lpnspBuffer: *mut WSANAMESPACE_INFOA) -> i32;
+        extern fn WSAEnumNameSpaceProvidersA(#[in] #[out] lpdwBufferLength: LPDWORD, #[size_param(0)] #[out] lpnspBuffer: LPWSANAMESPACE_INFOA) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAEnumNameSpaceProvidersExA(#[in] #[out] lpdwBufferLength: *mut u32, #[size_param(0)] lpnspBuffer: *mut WSANAMESPACE_INFOEXA) -> i32;
+        extern fn WSAEnumNameSpaceProvidersExA(#[in] #[out] lpdwBufferLength: LPDWORD, #[size_param(0)] #[out] lpnspBuffer: LPWSANAMESPACE_INFOEXA) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAEnumNameSpaceProvidersExW(#[in] #[out] lpdwBufferLength: *mut u32, #[size_param(0)] lpnspBuffer: *mut WSANAMESPACE_INFOEXW) -> i32;
+        extern fn WSAEnumNameSpaceProvidersExW(#[in] #[out] lpdwBufferLength: LPDWORD, #[size_param(0)] #[out] lpnspBuffer: LPWSANAMESPACE_INFOEXW) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAEnumNameSpaceProvidersW(#[in] #[out] lpdwBufferLength: *mut u32, #[size_param(0)] lpnspBuffer: *mut WSANAMESPACE_INFOW) -> i32;
+        extern fn WSAEnumNameSpaceProvidersW(#[in] #[out] lpdwBufferLength: LPDWORD, #[size_param(0)] #[out] lpnspBuffer: LPWSANAMESPACE_INFOW) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAEnumNetworkEvents(s: SOCKET, hEventObject: HANDLE, lpNetworkEvents: *mut WSANETWORKEVENTS) -> i32;
+        extern fn WSAEnumNetworkEvents(s: SOCKET, hEventObject: HANDLE, #[out] lpNetworkEvents: LPWSANETWORKEVENTS) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAEnumProtocolsA(#[opt] lpiProtocols: *const i32, #[size_param(2)] #[opt] lpProtocolBuffer: *mut WSAPROTOCOL_INFOA, #[in] #[out] lpdwBufferLength: *mut u32) -> i32;
+        extern fn WSAEnumProtocolsA(#[opt] lpiProtocols: LPINT, #[size_param(2)] #[out] #[opt] lpProtocolBuffer: LPWSAPROTOCOL_INFOA, #[in] #[out] lpdwBufferLength: LPDWORD) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAEnumProtocolsW(#[opt] lpiProtocols: *const i32, #[size_param(2)] #[opt] lpProtocolBuffer: *mut WSAPROTOCOL_INFOW, #[in] #[out] lpdwBufferLength: *mut u32) -> i32;
+        extern fn WSAEnumProtocolsW(#[opt] lpiProtocols: LPINT, #[size_param(2)] #[out] #[opt] lpProtocolBuffer: LPWSAPROTOCOL_INFOW, #[in] #[out] lpdwBufferLength: LPDWORD) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSAEventSelect(s: SOCKET, #[opt] hEventObject: HANDLE, lNetworkEvents: i32) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSAGetLastError() -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAGetOverlappedResult(s: SOCKET, lpOverlapped: *const OVERLAPPED, lpcbTransfer: *mut u32, fWait: BOOL, lpdwFlags: *mut u32) -> BOOL;
+        extern fn WSAGetOverlappedResult(s: SOCKET, lpOverlapped: LPWSAOVERLAPPED, #[out] lpcbTransfer: LPDWORD, fWait: BOOL, #[out] lpdwFlags: LPDWORD) -> BOOL;
         #[library("WS2_32.dll")]
-        extern fn WSAGetQOSByName(s: SOCKET, lpQOSName: *const WSABUF, lpQOS: *mut QOS) -> BOOL;
+        extern fn WSAGetQOSByName(s: SOCKET, lpQOSName: LPWSABUF, #[out] lpQOS: LPQOS) -> BOOL;
         #[library("WS2_32.dll")]
-        extern fn WSAGetServiceClassInfoA(lpProviderId: *const GUID, lpServiceClassId: *const GUID, #[in] #[out] lpdwBufSize: *mut u32, #[size_param(2)] lpServiceClassInfo: *mut WSASERVICECLASSINFOA) -> i32;
+        extern fn WSAGetServiceClassInfoA(lpProviderId: LPGUID, lpServiceClassId: LPGUID, #[in] #[out] lpdwBufSize: LPDWORD, #[size_param(2)] #[out] lpServiceClassInfo: LPWSASERVICECLASSINFOA) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAGetServiceClassInfoW(lpProviderId: *const GUID, lpServiceClassId: *const GUID, #[in] #[out] lpdwBufSize: *mut u32, #[size_param(2)] lpServiceClassInfo: *mut WSASERVICECLASSINFOW) -> i32;
+        extern fn WSAGetServiceClassInfoW(lpProviderId: LPGUID, lpServiceClassId: LPGUID, #[in] #[out] lpdwBufSize: LPDWORD, #[size_param(2)] #[out] lpServiceClassInfo: LPWSASERVICECLASSINFOW) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAGetServiceClassNameByClassIdA(lpServiceClassId: *const GUID, #[size_param(2)] #[out] lpszServiceClassName: PSTR, #[in] #[out] lpdwBufferLength: *mut u32) -> i32;
+        extern fn WSAGetServiceClassNameByClassIdA(lpServiceClassId: LPGUID, #[size_param(2)] #[out] lpszServiceClassName: PSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAGetServiceClassNameByClassIdW(lpServiceClassId: *const GUID, #[size_param(2)] #[out] lpszServiceClassName: PWSTR, #[in] #[out] lpdwBufferLength: *mut u32) -> i32;
+        extern fn WSAGetServiceClassNameByClassIdW(lpServiceClassId: LPGUID, #[size_param(2)] #[out] lpszServiceClassName: PWSTR, #[in] #[out] lpdwBufferLength: LPDWORD) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSAHtonl(s: SOCKET, hostlong: u_long, lpnetlong: *mut u_long) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSAHtons(s: SOCKET, hostshort: u_short, lpnetshort: *mut u_short) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAInstallServiceClassA(lpServiceClassInfo: *const WSASERVICECLASSINFOA) -> i32;
+        extern fn WSAInstallServiceClassA(lpServiceClassInfo: LPWSASERVICECLASSINFOA) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAInstallServiceClassW(lpServiceClassInfo: *const WSASERVICECLASSINFOW) -> i32;
+        extern fn WSAInstallServiceClassW(lpServiceClassInfo: LPWSASERVICECLASSINFOW) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAIoctl(s: SOCKET, dwIoControlCode: u32, #[size_param(3)] #[opt] lpvInBuffer: *const void, cbInBuffer: u32, #[size_param(5)] #[opt] lpvOutBuffer: *mut void, cbOutBuffer: u32, lpcbBytesReturned: *mut u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+        extern fn WSAIoctl(s: SOCKET, dwIoControlCode: u32, #[size_param(3)] #[in] #[opt] lpvInBuffer: *mut void, cbInBuffer: u32, #[size_param(5)] #[opt] lpvOutBuffer: *mut void, cbOutBuffer: u32, #[out] lpcbBytesReturned: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSAIsBlocking() -> BOOL;
         #[library("WS2_32.dll")]
-        extern fn WSAJoinLeaf(s: SOCKET, #[size_param(2)] name: *const SOCKADDR, namelen: i32, #[opt] lpCallerData: *const WSABUF, #[opt] lpCalleeData: *mut WSABUF, #[opt] lpSQOS: *const QOS, #[opt] lpGQOS: *const QOS, dwFlags: u32) -> SOCKET;
+        extern fn WSAJoinLeaf(s: SOCKET, #[size_param(2)] name: *const SOCKADDR, namelen: i32, #[opt] lpCallerData: LPWSABUF, #[out] #[opt] lpCalleeData: LPWSABUF, #[opt] lpSQOS: LPQOS, #[opt] lpGQOS: LPQOS, dwFlags: u32) -> SOCKET;
         #[library("WS2_32.dll")]
-        extern fn WSALookupServiceBeginA(lpqsRestrictions: *const WSAQUERYSETA, dwControlFlags: u32, lphLookup: *mut HANDLE) -> i32;
+        extern fn WSALookupServiceBeginA(lpqsRestrictions: LPWSAQUERYSETA, dwControlFlags: u32, #[out] lphLookup: LPHANDLE) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSALookupServiceBeginW(lpqsRestrictions: *const WSAQUERYSETW, dwControlFlags: u32, lphLookup: *mut HANDLE) -> i32;
+        extern fn WSALookupServiceBeginW(lpqsRestrictions: LPWSAQUERYSETW, dwControlFlags: u32, #[out] lphLookup: LPHANDLE) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSALookupServiceEnd(hLookup: HANDLE) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSALookupServiceNextA(hLookup: HANDLE, dwControlFlags: u32, #[in] #[out] lpdwBufferLength: *mut u32, #[size_param(2)] lpqsResults: *mut WSAQUERYSETA) -> i32;
+        extern fn WSALookupServiceNextA(hLookup: HANDLE, dwControlFlags: u32, #[in] #[out] lpdwBufferLength: LPDWORD, #[size_param(2)] #[out] lpqsResults: LPWSAQUERYSETA) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSALookupServiceNextW(hLookup: HANDLE, dwControlFlags: u32, #[in] #[out] lpdwBufferLength: *mut u32, #[size_param(2)] #[opt] lpqsResults: *mut WSAQUERYSETW) -> i32;
+        extern fn WSALookupServiceNextW(hLookup: HANDLE, dwControlFlags: u32, #[in] #[out] lpdwBufferLength: LPDWORD, #[size_param(2)] #[out] #[opt] lpqsResults: LPWSAQUERYSETW) -> i32;
         type WSANAMESPACE_INFO = WSANAMESPACE_INFOA;
         struct WSANAMESPACE_INFOA {
             NSProviderId: GUID,
@@ -519,7 +562,7 @@ mod Windows {
             lpValue: *mut void,
         }
         #[library("WS2_32.dll")]
-        extern fn WSANSPIoctl(hLookup: HANDLE, dwControlCode: u32, #[size_param(3)] #[opt] lpvInBuffer: *const void, cbInBuffer: u32, #[size_param(5)] #[opt] lpvOutBuffer: *mut void, cbOutBuffer: u32, lpcbBytesReturned: *mut u32, #[opt] lpCompletion: *const WSACOMPLETION) -> i32;
+        extern fn WSANSPIoctl(hLookup: HANDLE, dwControlCode: u32, #[size_param(3)] #[in] #[opt] lpvInBuffer: *mut void, cbInBuffer: u32, #[size_param(5)] #[opt] lpvOutBuffer: *mut void, cbOutBuffer: u32, #[out] lpcbBytesReturned: LPDWORD, #[opt] lpCompletion: LPWSACOMPLETION) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSANtohl(s: SOCKET, netlong: u_long, lphostlong: *mut u_long) -> i32;
         #[library("WS2_32.dll")]
@@ -580,9 +623,9 @@ mod Windows {
         }
         const WSAPROTOCOL_LEN: i32 = 255;
         #[library("WS2_32.dll")]
-        extern fn WSAPoll(#[in] #[out] fdArray: *mut WSAPOLLFD, fds: u32, timeout: i32) -> i32;
+        extern fn WSAPoll(#[in] #[out] fdArray: LPWSAPOLLFD, fds: u32, timeout: i32) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAProviderConfigChange(#[in] #[out] lpNotificationHandle: *mut HANDLE, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+        extern fn WSAProviderConfigChange(#[in] #[out] lpNotificationHandle: LPHANDLE, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
         type WSAQUERYSET = WSAQUERYSETA;
         type WSAQUERYSET2 = WSAQUERYSET2A;
         struct WSAQUERYSET2A {
@@ -652,13 +695,13 @@ mod Windows {
             lpBlob: LPBLOB,
         }
         #[library("WS2_32.dll")]
-        extern fn WSARecv(s: SOCKET, #[len_param(2)] lpBuffers: *const WSABUF, dwBufferCount: u32, #[opt] lpNumberOfBytesRecvd: *mut u32, #[in] #[out] lpFlags: *mut u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+        extern fn WSARecv(s: SOCKET, #[len_param(2)] lpBuffers: LPWSABUF, dwBufferCount: u32, #[out] #[opt] lpNumberOfBytesRecvd: LPDWORD, #[in] #[out] lpFlags: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSARecvDisconnect(s: SOCKET, #[opt] lpInboundDisconnectData: *const WSABUF) -> i32;
+        extern fn WSARecvDisconnect(s: SOCKET, #[opt] lpInboundDisconnectData: LPWSABUF) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSARecvFrom(s: SOCKET, #[len_param(2)] lpBuffers: *const WSABUF, dwBufferCount: u32, #[opt] lpNumberOfBytesRecvd: *mut u32, #[in] #[out] lpFlags: *mut u32, #[size_param(6)] #[opt] lpFrom: *mut SOCKADDR, #[in] #[out] #[opt] lpFromlen: *mut i32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+        extern fn WSARecvFrom(s: SOCKET, #[len_param(2)] lpBuffers: LPWSABUF, dwBufferCount: u32, #[out] #[opt] lpNumberOfBytesRecvd: LPDWORD, #[in] #[out] lpFlags: LPDWORD, #[size_param(6)] #[opt] lpFrom: *mut SOCKADDR, #[in] #[out] #[opt] lpFromlen: LPINT, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSARemoveServiceClass(lpServiceClassId: *const GUID) -> i32;
+        extern fn WSARemoveServiceClass(lpServiceClassId: LPGUID) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSAResetEvent(hEvent: HANDLE) -> BOOL;
         type WSASERVICECLASSINFO = WSASERVICECLASSINFOA;
@@ -676,13 +719,13 @@ mod Windows {
         }
         const WSASYS_STATUS_LEN: i32 = 128;
         #[library("WS2_32.dll")]
-        extern fn WSASend(s: SOCKET, #[len_param(2)] lpBuffers: *const WSABUF, dwBufferCount: u32, #[opt] lpNumberOfBytesSent: *mut u32, dwFlags: u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+        extern fn WSASend(s: SOCKET, #[len_param(2)] lpBuffers: LPWSABUF, dwBufferCount: u32, #[out] #[opt] lpNumberOfBytesSent: LPDWORD, dwFlags: u32, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSASendDisconnect(s: SOCKET, #[opt] lpOutboundDisconnectData: *const WSABUF) -> i32;
+        extern fn WSASendDisconnect(s: SOCKET, #[opt] lpOutboundDisconnectData: LPWSABUF) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSASendMsg(Handle: SOCKET, lpMsg: *const WSAMSG, dwFlags: u32, #[opt] lpNumberOfBytesSent: *mut u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+        extern fn WSASendMsg(Handle: SOCKET, lpMsg: LPWSAMSG, dwFlags: u32, #[out] #[opt] lpNumberOfBytesSent: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSASendTo(s: SOCKET, #[len_param(2)] lpBuffers: *const WSABUF, dwBufferCount: u32, #[opt] lpNumberOfBytesSent: *mut u32, dwFlags: u32, #[size_param(6)] #[opt] lpTo: *const SOCKADDR, iTolen: i32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+        extern fn WSASendTo(s: SOCKET, #[len_param(2)] lpBuffers: LPWSABUF, dwBufferCount: u32, #[out] #[opt] lpNumberOfBytesSent: LPDWORD, dwFlags: u32, #[size_param(6)] #[opt] lpTo: *const SOCKADDR, iTolen: i32, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSASetBlockingHook(lpBlockFunc: FARPROC) -> FARPROC;
         #[library("WS2_32.dll")]
@@ -690,19 +733,19 @@ mod Windows {
         #[library("WS2_32.dll")]
         extern fn WSASetLastError(iError: i32);
         #[library("WS2_32.dll")]
-        extern fn WSASetServiceA(lpqsRegInfo: *const WSAQUERYSETA, essoperation: WSAESETSERVICEOP, dwControlFlags: u32) -> i32;
+        extern fn WSASetServiceA(lpqsRegInfo: LPWSAQUERYSETA, essoperation: WSAESETSERVICEOP, dwControlFlags: u32) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSASetServiceW(lpqsRegInfo: *const WSAQUERYSETW, essoperation: WSAESETSERVICEOP, dwControlFlags: u32) -> i32;
+        extern fn WSASetServiceW(lpqsRegInfo: LPWSAQUERYSETW, essoperation: WSAESETSERVICEOP, dwControlFlags: u32) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSASocketA(af: i32, r#type: i32, protocol: i32, #[opt] lpProtocolInfo: *const WSAPROTOCOL_INFOA, g: GROUP, dwFlags: u32) -> SOCKET;
+        extern fn WSASocketA(af: i32, r#type: i32, protocol: i32, #[opt] lpProtocolInfo: LPWSAPROTOCOL_INFOA, g: GROUP, dwFlags: u32) -> SOCKET;
         #[library("WS2_32.dll")]
-        extern fn WSASocketW(af: i32, r#type: i32, protocol: i32, #[opt] lpProtocolInfo: *const WSAPROTOCOL_INFOW, g: GROUP, dwFlags: u32) -> SOCKET;
+        extern fn WSASocketW(af: i32, r#type: i32, protocol: i32, #[opt] lpProtocolInfo: LPWSAPROTOCOL_INFOW, g: GROUP, dwFlags: u32) -> SOCKET;
         #[library("WS2_32.dll")]
-        extern fn WSAStartup(wVersionRequested: u16, lpWSAData: *mut WSADATA) -> i32;
+        extern fn WSAStartup(wVersionRequested: u16, #[out] lpWSAData: LPWSADATA) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAStringToAddressA(AddressString: PCSTR, AddressFamily: i32, #[opt] lpProtocolInfo: *const WSAPROTOCOL_INFOA, #[size_param(4)] lpAddress: *mut SOCKADDR, #[in] #[out] lpAddressLength: *mut i32) -> i32;
+        extern fn WSAStringToAddressA(AddressString: PCSTR, AddressFamily: i32, #[opt] lpProtocolInfo: LPWSAPROTOCOL_INFOA, #[size_param(4)] #[out] lpAddress: LPSOCKADDR, #[in] #[out] lpAddressLength: LPINT) -> i32;
         #[library("WS2_32.dll")]
-        extern fn WSAStringToAddressW(AddressString: PCWSTR, AddressFamily: i32, #[opt] lpProtocolInfo: *const WSAPROTOCOL_INFOW, #[size_param(4)] lpAddress: *mut SOCKADDR, #[in] #[out] lpAddressLength: *mut i32) -> i32;
+        extern fn WSAStringToAddressW(AddressString: PCWSTR, AddressFamily: i32, #[opt] lpProtocolInfo: LPWSAPROTOCOL_INFOW, #[size_param(4)] #[out] lpAddress: LPSOCKADDR, #[in] #[out] lpAddressLength: LPINT) -> i32;
         #[library("WS2_32.dll")]
         extern fn WSAUnhookBlockingHook() -> i32;
         struct WSAVERSION {
@@ -720,6 +763,7 @@ mod Windows {
         const WSA_FLAG_OVERLAPPED: i32 = 1;
         const WSA_FLAG_REGISTERED_IO: i32 = 256;
         const WSA_INFINITE: u32 = 4294967295;
+        const WSA_INVALID_EVENT: HANDLE = 0;
         const WSA_INVALID_HANDLE: i32 = 6;
         const WSA_INVALID_PARAMETER: i32 = 87;
         const WSA_IO_INCOMPLETE: i32 = 996;
@@ -727,9 +771,9 @@ mod Windows {
         const WSA_MAXIMUM_WAIT_EVENTS: i32 = 64;
         const WSA_NOT_ENOUGH_MEMORY: i32 = 8;
         const WSA_OPERATION_ABORTED: i32 = 995;
-        const WSA_WAIT_EVENT_0: i32 = 0;
+        const WSA_WAIT_EVENT_0: NTSTATUS = 0;
         const WSA_WAIT_FAILED: u32 = 4294967295;
-        const WSA_WAIT_IO_COMPLETION: i32 = 192;
+        const WSA_WAIT_IO_COMPLETION: NTSTATUS = 192;
         const WSA_WAIT_TIMEOUT: i32 = 258;
         const XP1_CONNECTIONLESS: i32 = 1;
         const XP1_CONNECT_DATA: i32 = 128;
@@ -752,7 +796,7 @@ mod Windows {
         const XP1_UNI_RECV: i32 = 65536;
         const XP1_UNI_SEND: i32 = 32768;
         #[library("WS2_32.dll")]
-        extern fn __WSAFDIsSet(fd: SOCKET, param1: *mut fd_set) -> i32;
+        extern fn __WSAFDIsSet(fd: SOCKET, param1: *mut FD_SET) -> i32;
         #[library("WS2_32.dll")]
         extern fn accept(s: SOCKET, #[size_param(2)] #[opt] addr: *mut SOCKADDR, #[in] #[out] #[opt] addrlen: *mut i32) -> SOCKET;
         #[library("WS2_32.dll")]
@@ -761,37 +805,26 @@ mod Windows {
         extern fn closesocket(s: SOCKET) -> i32;
         #[library("WS2_32.dll")]
         extern fn connect(s: SOCKET, #[size_param(2)] name: *const SOCKADDR, namelen: i32) -> i32;
-        struct fd_set {
-            fd_count: u_int,
-            fd_array: [SOCKET; 64],
-        }
         #[library("WS2_32.dll")]
-        extern fn gethostbyaddr(#[size_param(1)] addr: *const i8, len: i32, r#type: i32) -> *mut hostent;
+        extern fn gethostbyaddr(#[size_param(1)] addr: *const i8, len: i32, r#type: i32) -> *mut HOSTENT;
         #[library("WS2_32.dll")]
-        extern fn gethostbyname(name: PCSTR) -> *mut hostent;
+        extern fn gethostbyname(name: PCSTR) -> *mut HOSTENT;
         #[library("WS2_32.dll")]
         extern fn gethostname(#[size_param(1)] name: *mut i8, namelen: i32) -> i32;
         #[library("WS2_32.dll")]
         extern fn getpeername(s: SOCKET, #[size_param(2)] name: *mut SOCKADDR, #[in] #[out] namelen: *mut i32) -> i32;
         #[library("WS2_32.dll")]
-        extern fn getprotobyname(name: PCSTR) -> *mut protoent;
+        extern fn getprotobyname(name: PCSTR) -> *mut PROTOENT;
         #[library("WS2_32.dll")]
-        extern fn getprotobynumber(number: i32) -> *mut protoent;
+        extern fn getprotobynumber(number: i32) -> *mut PROTOENT;
         #[library("WS2_32.dll")]
-        extern fn getservbyname(name: PCSTR, #[opt] proto: PCSTR) -> *mut servent;
+        extern fn getservbyname(name: PCSTR, #[opt] proto: PCSTR) -> *mut SERVENT;
         #[library("WS2_32.dll")]
-        extern fn getservbyport(port: i32, #[opt] proto: PCSTR) -> *mut servent;
+        extern fn getservbyport(port: i32, #[opt] proto: PCSTR) -> *mut SERVENT;
         #[library("WS2_32.dll")]
         extern fn getsockname(s: SOCKET, #[size_param(2)] name: *mut SOCKADDR, #[in] #[out] namelen: *mut i32) -> i32;
         #[library("WS2_32.dll")]
         extern fn getsockopt(s: SOCKET, level: i32, optname: i32, #[size_param(4)] optval: *mut i8, #[in] #[out] optlen: *mut i32) -> i32;
-        struct hostent {
-            h_name: *mut i8,
-            h_aliases: *mut *mut i8,
-            h_addrtype: i16,
-            h_length: i16,
-            h_addr_list: *mut *mut i8,
-        }
         #[library("WS2_32.dll")]
         extern fn htonl(hostlong: u_long) -> u_long;
         #[library("WS2_32.dll")]
@@ -802,10 +835,6 @@ mod Windows {
         extern fn inet_ntoa(r#in: IN_ADDR) -> *mut i8;
         #[library("WS2_32.dll")]
         extern fn ioctlsocket(s: SOCKET, cmd: i32, argp: *mut u_long) -> i32;
-        struct linger {
-            l_onoff: u_short,
-            l_linger: u_short,
-        }
         #[library("WS2_32.dll")]
         extern fn listen(s: SOCKET, backlog: i32) -> i32;
         struct netent {
@@ -818,35 +847,16 @@ mod Windows {
         extern fn ntohl(netlong: u_long) -> u_long;
         #[library("WS2_32.dll")]
         extern fn ntohs(netshort: u_short) -> u_short;
-        struct protoent {
-            p_name: *mut i8,
-            p_aliases: *mut *mut i8,
-            p_proto: i16,
-        }
         #[library("WS2_32.dll")]
         extern fn recv(s: SOCKET, #[size_param(2)] buf: *mut i8, len: i32, flags: i32) -> i32;
         #[library("WS2_32.dll")]
         extern fn recvfrom(s: SOCKET, #[size_param(2)] buf: *mut i8, len: i32, flags: i32, #[size_param(5)] #[opt] from: *mut SOCKADDR, #[in] #[out] #[opt] fromlen: *mut i32) -> i32;
         #[library("WS2_32.dll")]
-        extern fn select(nfds: i32, #[in] #[out] #[opt] readfds: *mut fd_set, #[in] #[out] #[opt] writefds: *mut fd_set, #[in] #[out] #[opt] exceptfds: *mut fd_set, #[opt] timeout: *const timeval) -> i32;
+        extern fn select(nfds: i32, #[in] #[out] #[opt] readfds: *mut FD_SET, #[in] #[out] #[opt] writefds: *mut FD_SET, #[in] #[out] #[opt] exceptfds: *mut FD_SET, #[opt] timeout: *const TIMEVAL) -> i32;
         #[library("WS2_32.dll")]
         extern fn send(s: SOCKET, #[size_param(2)] buf: *const i8, len: i32, flags: i32) -> i32;
         #[library("WS2_32.dll")]
         extern fn sendto(s: SOCKET, #[size_param(2)] buf: *const i8, len: i32, flags: i32, #[size_param(5)] to: *const SOCKADDR, tolen: i32) -> i32;
-        #[arch(X64 | Arm64)]
-        struct servent {
-            s_name: *mut i8,
-            s_aliases: *mut *mut i8,
-            s_proto: *mut i8,
-            s_port: i16,
-        }
-        #[arch(X86)]
-        struct servent {
-            s_name: *mut i8,
-            s_aliases: *mut *mut i8,
-            s_port: i16,
-            s_proto: *mut i8,
-        }
         #[library("WS2_32.dll")]
         extern fn setsockopt(s: SOCKET, level: i32, optname: i32, #[size_param(4)] #[opt] optval: *const i8, optlen: i32) -> i32;
         #[library("WS2_32.dll")]
@@ -856,10 +866,6 @@ mod Windows {
         struct sockproto {
             sp_family: u_short,
             sp_protocol: u_short,
-        }
-        struct timeval {
-            tv_sec: i32,
-            tv_usec: i32,
         }
         type u_char = u8;
         type u_int = u32;

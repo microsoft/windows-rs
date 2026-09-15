@@ -19,23 +19,23 @@ mod Windows {
         const DIURFLAG_RESERVED: i32 = 2;
         const DIURFLAG_VALID: i32 = 3;
         #[library("newdev.dll")]
-        extern fn DiInstallDevice(#[opt] hwndParent: HWND, DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, #[opt] DriverInfoData: PSP_DRVINFO_DATA, Flags: u32, #[opt] NeedReboot: *mut BOOL) -> BOOL;
+        extern fn DiInstallDevice(#[opt] hwndParent: HWND, DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, #[opt] DriverInfoData: PSP_DRVINFO_DATA, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiInstallDriverA(#[opt] hwndParent: HWND, InfPath: PCSTR, Flags: u32, #[opt] NeedReboot: *mut BOOL) -> BOOL;
+        extern fn DiInstallDriverA(#[opt] hwndParent: HWND, InfPath: PCSTR, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiInstallDriverW(#[opt] hwndParent: HWND, InfPath: PCWSTR, Flags: u32, #[opt] NeedReboot: *mut BOOL) -> BOOL;
+        extern fn DiInstallDriverW(#[opt] hwndParent: HWND, InfPath: PCWSTR, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiRollbackDriver(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, #[opt] hwndParent: HWND, Flags: u32, #[opt] NeedReboot: *mut BOOL) -> BOOL;
+        extern fn DiRollbackDriver(DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, #[opt] hwndParent: HWND, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiShowUpdateDevice(#[opt] hwndParent: HWND, DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, Flags: u32, #[opt] NeedReboot: *mut BOOL) -> BOOL;
+        extern fn DiShowUpdateDevice(#[opt] hwndParent: HWND, DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiShowUpdateDriver(hwndParent: HWND, FilePath: PCWSTR, Flags: u32, NeedReboot: *mut BOOL) -> BOOL;
+        extern fn DiShowUpdateDriver(hwndParent: HWND, FilePath: PCWSTR, Flags: u32, NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiUninstallDevice(hwndParent: HWND, DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, Flags: u32, #[opt] NeedReboot: *mut BOOL) -> BOOL;
+        extern fn DiUninstallDevice(hwndParent: HWND, DeviceInfoSet: HDEVINFO, DeviceInfoData: PSP_DEVINFO_DATA, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiUninstallDriverA(#[opt] hwndParent: HWND, InfPath: PCSTR, Flags: u32, #[opt] NeedReboot: *mut BOOL) -> BOOL;
+        extern fn DiUninstallDriverA(#[opt] hwndParent: HWND, InfPath: PCSTR, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiUninstallDriverW(#[opt] hwndParent: HWND, InfPath: PCWSTR, Flags: u32, #[opt] NeedReboot: *mut BOOL) -> BOOL;
+        extern fn DiUninstallDriverW(#[opt] hwndParent: HWND, InfPath: PCWSTR, Flags: u32, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
         const INSTALLFLAG_BITS: i32 = 7;
         const INSTALLFLAG_FORCE: i32 = 1;
         const INSTALLFLAG_NONINTERACTIVE: i32 = 4;
@@ -43,8 +43,8 @@ mod Windows {
         const ROLLBACK_BITS: i32 = 1;
         const ROLLBACK_FLAG_NO_UI: i32 = 1;
         #[library("newdev.dll")]
-        extern fn UpdateDriverForPlugAndPlayDevicesA(#[opt] hwndParent: HWND, HardwareId: PCSTR, FullInfPath: PCSTR, InstallFlags: u32, #[opt] bRebootRequired: *mut BOOL) -> BOOL;
+        extern fn UpdateDriverForPlugAndPlayDevicesA(#[opt] hwndParent: HWND, HardwareId: PCSTR, FullInfPath: PCSTR, InstallFlags: u32, #[out] #[opt] bRebootRequired: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn UpdateDriverForPlugAndPlayDevicesW(#[opt] hwndParent: HWND, HardwareId: PCWSTR, FullInfPath: PCWSTR, InstallFlags: u32, #[opt] bRebootRequired: *mut BOOL) -> BOOL;
+        extern fn UpdateDriverForPlugAndPlayDevicesW(#[opt] hwndParent: HWND, HardwareId: PCWSTR, FullInfPath: PCWSTR, InstallFlags: u32, #[out] #[opt] bRebootRequired: PBOOL) -> BOOL;
     }
 }

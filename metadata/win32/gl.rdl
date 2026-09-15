@@ -592,7 +592,11 @@ mod Windows {
         type GLbitfield = u32;
         type GLboolean = u8;
         type GLbyte = i8;
+        type GLclampd = f64;
+        type GLclampf = f32;
+        type GLdouble = f64;
         type GLenum = u32;
+        type GLfloat = f32;
         type GLint = i32;
         type GLshort = i16;
         type GLsizei = i32;
@@ -610,7 +614,7 @@ mod Windows {
         extern fn PFNGLDRAWRANGEELEMENTSWINPROC(mode: GLenum, start: GLuint, end: GLuint, count: GLsizei, r#type: GLenum, indices: *const GLvoid);
         extern fn PFNGLEDGEFLAGPOINTEREXTPROC(stride: GLsizei, count: GLsizei, pointer: *const GLboolean);
         extern fn PFNGLGETCOLORTABLEEXTPROC(target: GLenum, format: GLenum, r#type: GLenum, data: *mut GLvoid);
-        extern fn PFNGLGETCOLORTABLEPARAMETERFVEXTPROC(target: GLenum, pname: GLenum, params: *mut f32);
+        extern fn PFNGLGETCOLORTABLEPARAMETERFVEXTPROC(target: GLenum, pname: GLenum, params: *mut GLfloat);
         extern fn PFNGLGETCOLORTABLEPARAMETERIVEXTPROC(target: GLenum, pname: GLenum, params: *mut GLint);
         extern fn PFNGLGETPOINTERVEXTPROC(pname: GLenum, params: *mut *mut GLvoid);
         extern fn PFNGLINDEXPOINTEREXTPROC(r#type: GLenum, stride: GLsizei, count: GLsizei, pointer: *const GLvoid);
@@ -618,9 +622,9 @@ mod Windows {
         extern fn PFNGLTEXCOORDPOINTEREXTPROC(size: GLint, r#type: GLenum, stride: GLsizei, count: GLsizei, pointer: *const GLvoid);
         extern fn PFNGLVERTEXPOINTEREXTPROC(size: GLint, r#type: GLenum, stride: GLsizei, count: GLsizei, pointer: *const GLvoid);
         #[library("OPENGL32.dll")]
-        extern fn glAccum(op: GLenum, value: f32);
+        extern fn glAccum(op: GLenum, value: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glAlphaFunc(func: GLenum, r#ref: f32);
+        extern fn glAlphaFunc(func: GLenum, r#ref: GLclampf);
         #[library("OPENGL32.dll")]
         extern fn glAreTexturesResident(n: GLsizei, textures: *const GLuint, residences: *mut GLboolean) -> GLboolean;
         #[library("OPENGL32.dll")]
@@ -630,7 +634,7 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glBindTexture(target: GLenum, texture: GLuint);
         #[library("OPENGL32.dll")]
-        extern fn glBitmap(width: GLsizei, height: GLsizei, xorig: f32, yorig: f32, xmove: f32, ymove: f32, bitmap: *const GLubyte);
+        extern fn glBitmap(width: GLsizei, height: GLsizei, xorig: GLfloat, yorig: GLfloat, xmove: GLfloat, ymove: GLfloat, bitmap: *const GLubyte);
         #[library("OPENGL32.dll")]
         extern fn glBlendFunc(sfactor: GLenum, dfactor: GLenum);
         #[library("OPENGL32.dll")]
@@ -640,29 +644,29 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glClear(mask: GLbitfield);
         #[library("OPENGL32.dll")]
-        extern fn glClearAccum(red: f32, green: f32, blue: f32, alpha: f32);
+        extern fn glClearAccum(red: GLfloat, green: GLfloat, blue: GLfloat, alpha: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glClearColor(red: f32, green: f32, blue: f32, alpha: f32);
+        extern fn glClearColor(red: GLclampf, green: GLclampf, blue: GLclampf, alpha: GLclampf);
         #[library("OPENGL32.dll")]
-        extern fn glClearDepth(depth: f64);
+        extern fn glClearDepth(depth: GLclampd);
         #[library("OPENGL32.dll")]
-        extern fn glClearIndex(c: f32);
+        extern fn glClearIndex(c: GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glClearStencil(s: GLint);
         #[library("OPENGL32.dll")]
-        extern fn glClipPlane(plane: GLenum, equation: *const f64);
+        extern fn glClipPlane(plane: GLenum, equation: *const GLdouble);
         #[library("OPENGL32.dll")]
         extern fn glColor3b(red: GLbyte, green: GLbyte, blue: GLbyte);
         #[library("OPENGL32.dll")]
         extern fn glColor3bv(v: *const GLbyte);
         #[library("OPENGL32.dll")]
-        extern fn glColor3d(red: f64, green: f64, blue: f64);
+        extern fn glColor3d(red: GLdouble, green: GLdouble, blue: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glColor3dv(v: *const f64);
+        extern fn glColor3dv(v: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glColor3f(red: f32, green: f32, blue: f32);
+        extern fn glColor3f(red: GLfloat, green: GLfloat, blue: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glColor3fv(v: *const f32);
+        extern fn glColor3fv(v: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glColor3i(red: GLint, green: GLint, blue: GLint);
         #[library("OPENGL32.dll")]
@@ -688,13 +692,13 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glColor4bv(v: *const GLbyte);
         #[library("OPENGL32.dll")]
-        extern fn glColor4d(red: f64, green: f64, blue: f64, alpha: f64);
+        extern fn glColor4d(red: GLdouble, green: GLdouble, blue: GLdouble, alpha: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glColor4dv(v: *const f64);
+        extern fn glColor4dv(v: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glColor4f(red: f32, green: f32, blue: f32, alpha: f32);
+        extern fn glColor4f(red: GLfloat, green: GLfloat, blue: GLfloat, alpha: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glColor4fv(v: *const f32);
+        extern fn glColor4fv(v: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glColor4i(red: GLint, green: GLint, blue: GLint, alpha: GLint);
         #[library("OPENGL32.dll")]
@@ -742,7 +746,7 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glDepthMask(flag: GLboolean);
         #[library("OPENGL32.dll")]
-        extern fn glDepthRange(zNear: f64, zFar: f64);
+        extern fn glDepthRange(zNear: GLclampd, zFar: GLclampd);
         #[library("OPENGL32.dll")]
         extern fn glDisable(cap: GLenum);
         #[library("OPENGL32.dll")]
@@ -770,21 +774,21 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glEndList();
         #[library("OPENGL32.dll")]
-        extern fn glEvalCoord1d(u: f64);
+        extern fn glEvalCoord1d(u: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glEvalCoord1dv(u: *const f64);
+        extern fn glEvalCoord1dv(u: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glEvalCoord1f(u: f32);
+        extern fn glEvalCoord1f(u: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glEvalCoord1fv(u: *const f32);
+        extern fn glEvalCoord1fv(u: *const GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glEvalCoord2d(u: f64, v: f64);
+        extern fn glEvalCoord2d(u: GLdouble, v: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glEvalCoord2dv(u: *const f64);
+        extern fn glEvalCoord2dv(u: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glEvalCoord2f(u: f32, v: f32);
+        extern fn glEvalCoord2f(u: GLfloat, v: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glEvalCoord2fv(u: *const f32);
+        extern fn glEvalCoord2fv(u: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glEvalMesh1(mode: GLenum, i1: GLint, i2: GLint);
         #[library("OPENGL32.dll")]
@@ -794,15 +798,15 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glEvalPoint2(i: GLint, j: GLint);
         #[library("OPENGL32.dll")]
-        extern fn glFeedbackBuffer(size: GLsizei, r#type: GLenum, buffer: *mut f32);
+        extern fn glFeedbackBuffer(size: GLsizei, r#type: GLenum, buffer: *mut GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glFinish();
         #[library("OPENGL32.dll")]
         extern fn glFlush();
         #[library("OPENGL32.dll")]
-        extern fn glFogf(pname: GLenum, param: f32);
+        extern fn glFogf(pname: GLenum, param: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glFogfv(pname: GLenum, params: *const f32);
+        extern fn glFogfv(pname: GLenum, params: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glFogi(pname: GLenum, param: GLint);
         #[library("OPENGL32.dll")]
@@ -810,7 +814,7 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glFrontFace(mode: GLenum);
         #[library("OPENGL32.dll")]
-        extern fn glFrustum(left: f64, right: f64, bottom: f64, top: f64, zNear: f64, zFar: f64);
+        extern fn glFrustum(left: GLdouble, right: GLdouble, bottom: GLdouble, top: GLdouble, zNear: GLdouble, zFar: GLdouble);
         #[library("OPENGL32.dll")]
         extern fn glGenLists(range: GLsizei) -> GLuint;
         #[library("OPENGL32.dll")]
@@ -818,31 +822,31 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glGetBooleanv(pname: GLenum, params: *mut GLboolean);
         #[library("OPENGL32.dll")]
-        extern fn glGetClipPlane(plane: GLenum, equation: *mut f64);
+        extern fn glGetClipPlane(plane: GLenum, equation: *mut GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glGetDoublev(pname: GLenum, params: *mut f64);
+        extern fn glGetDoublev(pname: GLenum, params: *mut GLdouble);
         #[library("OPENGL32.dll")]
         extern fn glGetError() -> GLenum;
         #[library("OPENGL32.dll")]
-        extern fn glGetFloatv(pname: GLenum, params: *mut f32);
+        extern fn glGetFloatv(pname: GLenum, params: *mut GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glGetIntegerv(pname: GLenum, params: *mut GLint);
         #[library("OPENGL32.dll")]
-        extern fn glGetLightfv(light: GLenum, pname: GLenum, params: *mut f32);
+        extern fn glGetLightfv(light: GLenum, pname: GLenum, params: *mut GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glGetLightiv(light: GLenum, pname: GLenum, params: *mut GLint);
         #[library("OPENGL32.dll")]
-        extern fn glGetMapdv(target: GLenum, query: GLenum, v: *mut f64);
+        extern fn glGetMapdv(target: GLenum, query: GLenum, v: *mut GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glGetMapfv(target: GLenum, query: GLenum, v: *mut f32);
+        extern fn glGetMapfv(target: GLenum, query: GLenum, v: *mut GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glGetMapiv(target: GLenum, query: GLenum, v: *mut GLint);
         #[library("OPENGL32.dll")]
-        extern fn glGetMaterialfv(face: GLenum, pname: GLenum, params: *mut f32);
+        extern fn glGetMaterialfv(face: GLenum, pname: GLenum, params: *mut GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glGetMaterialiv(face: GLenum, pname: GLenum, params: *mut GLint);
         #[library("OPENGL32.dll")]
-        extern fn glGetPixelMapfv(map: GLenum, values: *mut f32);
+        extern fn glGetPixelMapfv(map: GLenum, values: *mut GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glGetPixelMapuiv(map: GLenum, values: *mut GLuint);
         #[library("OPENGL32.dll")]
@@ -854,23 +858,23 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glGetString(name: GLenum) -> *const GLubyte;
         #[library("OPENGL32.dll")]
-        extern fn glGetTexEnvfv(target: GLenum, pname: GLenum, params: *mut f32);
+        extern fn glGetTexEnvfv(target: GLenum, pname: GLenum, params: *mut GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glGetTexEnviv(target: GLenum, pname: GLenum, params: *mut GLint);
         #[library("OPENGL32.dll")]
-        extern fn glGetTexGendv(coord: GLenum, pname: GLenum, params: *mut f64);
+        extern fn glGetTexGendv(coord: GLenum, pname: GLenum, params: *mut GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glGetTexGenfv(coord: GLenum, pname: GLenum, params: *mut f32);
+        extern fn glGetTexGenfv(coord: GLenum, pname: GLenum, params: *mut GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glGetTexGeniv(coord: GLenum, pname: GLenum, params: *mut GLint);
         #[library("OPENGL32.dll")]
         extern fn glGetTexImage(target: GLenum, level: GLint, format: GLenum, r#type: GLenum, pixels: *mut GLvoid);
         #[library("OPENGL32.dll")]
-        extern fn glGetTexLevelParameterfv(target: GLenum, level: GLint, pname: GLenum, params: *mut f32);
+        extern fn glGetTexLevelParameterfv(target: GLenum, level: GLint, pname: GLenum, params: *mut GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glGetTexLevelParameteriv(target: GLenum, level: GLint, pname: GLenum, params: *mut GLint);
         #[library("OPENGL32.dll")]
-        extern fn glGetTexParameterfv(target: GLenum, pname: GLenum, params: *mut f32);
+        extern fn glGetTexParameterfv(target: GLenum, pname: GLenum, params: *mut GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glGetTexParameteriv(target: GLenum, pname: GLenum, params: *mut GLint);
         #[library("OPENGL32.dll")]
@@ -880,13 +884,13 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glIndexPointer(r#type: GLenum, stride: GLsizei, pointer: *const GLvoid);
         #[library("OPENGL32.dll")]
-        extern fn glIndexd(c: f64);
+        extern fn glIndexd(c: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glIndexdv(c: *const f64);
+        extern fn glIndexdv(c: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glIndexf(c: f32);
+        extern fn glIndexf(c: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glIndexfv(c: *const f32);
+        extern fn glIndexfv(c: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glIndexi(c: GLint);
         #[library("OPENGL32.dll")]
@@ -910,17 +914,17 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glIsTexture(texture: GLuint) -> GLboolean;
         #[library("OPENGL32.dll")]
-        extern fn glLightModelf(pname: GLenum, param: f32);
+        extern fn glLightModelf(pname: GLenum, param: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glLightModelfv(pname: GLenum, params: *const f32);
+        extern fn glLightModelfv(pname: GLenum, params: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glLightModeli(pname: GLenum, param: GLint);
         #[library("OPENGL32.dll")]
         extern fn glLightModeliv(pname: GLenum, params: *const GLint);
         #[library("OPENGL32.dll")]
-        extern fn glLightf(light: GLenum, pname: GLenum, param: f32);
+        extern fn glLightf(light: GLenum, pname: GLenum, param: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glLightfv(light: GLenum, pname: GLenum, params: *const f32);
+        extern fn glLightfv(light: GLenum, pname: GLenum, params: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glLighti(light: GLenum, pname: GLenum, param: GLint);
         #[library("OPENGL32.dll")]
@@ -928,39 +932,39 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glLineStipple(factor: GLint, pattern: GLushort);
         #[library("OPENGL32.dll")]
-        extern fn glLineWidth(width: f32);
+        extern fn glLineWidth(width: GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glListBase(base: GLuint);
         #[library("OPENGL32.dll")]
         extern fn glLoadIdentity();
         #[library("OPENGL32.dll")]
-        extern fn glLoadMatrixd(m: *const f64);
+        extern fn glLoadMatrixd(m: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glLoadMatrixf(m: *const f32);
+        extern fn glLoadMatrixf(m: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glLoadName(name: GLuint);
         #[library("OPENGL32.dll")]
         extern fn glLogicOp(opcode: GLenum);
         #[library("OPENGL32.dll")]
-        extern fn glMap1d(target: GLenum, u1: f64, u2: f64, stride: GLint, order: GLint, points: *const f64);
+        extern fn glMap1d(target: GLenum, u1: GLdouble, u2: GLdouble, stride: GLint, order: GLint, points: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glMap1f(target: GLenum, u1: f32, u2: f32, stride: GLint, order: GLint, points: *const f32);
+        extern fn glMap1f(target: GLenum, u1: GLfloat, u2: GLfloat, stride: GLint, order: GLint, points: *const GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glMap2d(target: GLenum, u1: f64, u2: f64, ustride: GLint, uorder: GLint, v1: f64, v2: f64, vstride: GLint, vorder: GLint, points: *const f64);
+        extern fn glMap2d(target: GLenum, u1: GLdouble, u2: GLdouble, ustride: GLint, uorder: GLint, v1: GLdouble, v2: GLdouble, vstride: GLint, vorder: GLint, points: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glMap2f(target: GLenum, u1: f32, u2: f32, ustride: GLint, uorder: GLint, v1: f32, v2: f32, vstride: GLint, vorder: GLint, points: *const f32);
+        extern fn glMap2f(target: GLenum, u1: GLfloat, u2: GLfloat, ustride: GLint, uorder: GLint, v1: GLfloat, v2: GLfloat, vstride: GLint, vorder: GLint, points: *const GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glMapGrid1d(un: GLint, u1: f64, u2: f64);
+        extern fn glMapGrid1d(un: GLint, u1: GLdouble, u2: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glMapGrid1f(un: GLint, u1: f32, u2: f32);
+        extern fn glMapGrid1f(un: GLint, u1: GLfloat, u2: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glMapGrid2d(un: GLint, u1: f64, u2: f64, vn: GLint, v1: f64, v2: f64);
+        extern fn glMapGrid2d(un: GLint, u1: GLdouble, u2: GLdouble, vn: GLint, v1: GLdouble, v2: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glMapGrid2f(un: GLint, u1: f32, u2: f32, vn: GLint, v1: f32, v2: f32);
+        extern fn glMapGrid2f(un: GLint, u1: GLfloat, u2: GLfloat, vn: GLint, v1: GLfloat, v2: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glMaterialf(face: GLenum, pname: GLenum, param: f32);
+        extern fn glMaterialf(face: GLenum, pname: GLenum, param: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glMaterialfv(face: GLenum, pname: GLenum, params: *const f32);
+        extern fn glMaterialfv(face: GLenum, pname: GLenum, params: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glMateriali(face: GLenum, pname: GLenum, param: GLint);
         #[library("OPENGL32.dll")]
@@ -968,9 +972,9 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glMatrixMode(mode: GLenum);
         #[library("OPENGL32.dll")]
-        extern fn glMultMatrixd(m: *const f64);
+        extern fn glMultMatrixd(m: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glMultMatrixf(m: *const f32);
+        extern fn glMultMatrixf(m: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glNewList(list: GLuint, mode: GLenum);
         #[library("OPENGL32.dll")]
@@ -978,13 +982,13 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glNormal3bv(v: *const GLbyte);
         #[library("OPENGL32.dll")]
-        extern fn glNormal3d(nx: f64, ny: f64, nz: f64);
+        extern fn glNormal3d(nx: GLdouble, ny: GLdouble, nz: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glNormal3dv(v: *const f64);
+        extern fn glNormal3dv(v: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glNormal3f(nx: f32, ny: f32, nz: f32);
+        extern fn glNormal3f(nx: GLfloat, ny: GLfloat, nz: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glNormal3fv(v: *const f32);
+        extern fn glNormal3fv(v: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glNormal3i(nx: GLint, ny: GLint, nz: GLint);
         #[library("OPENGL32.dll")]
@@ -996,31 +1000,31 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glNormalPointer(r#type: GLenum, stride: GLsizei, pointer: *const GLvoid);
         #[library("OPENGL32.dll")]
-        extern fn glOrtho(left: f64, right: f64, bottom: f64, top: f64, zNear: f64, zFar: f64);
+        extern fn glOrtho(left: GLdouble, right: GLdouble, bottom: GLdouble, top: GLdouble, zNear: GLdouble, zFar: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glPassThrough(token: f32);
+        extern fn glPassThrough(token: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glPixelMapfv(map: GLenum, mapsize: GLsizei, values: *const f32);
+        extern fn glPixelMapfv(map: GLenum, mapsize: GLsizei, values: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glPixelMapuiv(map: GLenum, mapsize: GLsizei, values: *const GLuint);
         #[library("OPENGL32.dll")]
         extern fn glPixelMapusv(map: GLenum, mapsize: GLsizei, values: *const GLushort);
         #[library("OPENGL32.dll")]
-        extern fn glPixelStoref(pname: GLenum, param: f32);
+        extern fn glPixelStoref(pname: GLenum, param: GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glPixelStorei(pname: GLenum, param: GLint);
         #[library("OPENGL32.dll")]
-        extern fn glPixelTransferf(pname: GLenum, param: f32);
+        extern fn glPixelTransferf(pname: GLenum, param: GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glPixelTransferi(pname: GLenum, param: GLint);
         #[library("OPENGL32.dll")]
-        extern fn glPixelZoom(xfactor: f32, yfactor: f32);
+        extern fn glPixelZoom(xfactor: GLfloat, yfactor: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glPointSize(size: f32);
+        extern fn glPointSize(size: GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glPolygonMode(face: GLenum, mode: GLenum);
         #[library("OPENGL32.dll")]
-        extern fn glPolygonOffset(factor: f32, units: f32);
+        extern fn glPolygonOffset(factor: GLfloat, units: GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glPolygonStipple(mask: *const GLubyte);
         #[library("OPENGL32.dll")]
@@ -1032,7 +1036,7 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glPopName();
         #[library("OPENGL32.dll")]
-        extern fn glPrioritizeTextures(n: GLsizei, textures: *const GLuint, priorities: *const f32);
+        extern fn glPrioritizeTextures(n: GLsizei, textures: *const GLuint, priorities: *const GLclampf);
         #[library("OPENGL32.dll")]
         extern fn glPushAttrib(mask: GLbitfield);
         #[library("OPENGL32.dll")]
@@ -1042,13 +1046,13 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glPushName(name: GLuint);
         #[library("OPENGL32.dll")]
-        extern fn glRasterPos2d(x: f64, y: f64);
+        extern fn glRasterPos2d(x: GLdouble, y: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glRasterPos2dv(v: *const f64);
+        extern fn glRasterPos2dv(v: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glRasterPos2f(x: f32, y: f32);
+        extern fn glRasterPos2f(x: GLfloat, y: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glRasterPos2fv(v: *const f32);
+        extern fn glRasterPos2fv(v: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glRasterPos2i(x: GLint, y: GLint);
         #[library("OPENGL32.dll")]
@@ -1058,13 +1062,13 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glRasterPos2sv(v: *const GLshort);
         #[library("OPENGL32.dll")]
-        extern fn glRasterPos3d(x: f64, y: f64, z: f64);
+        extern fn glRasterPos3d(x: GLdouble, y: GLdouble, z: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glRasterPos3dv(v: *const f64);
+        extern fn glRasterPos3dv(v: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glRasterPos3f(x: f32, y: f32, z: f32);
+        extern fn glRasterPos3f(x: GLfloat, y: GLfloat, z: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glRasterPos3fv(v: *const f32);
+        extern fn glRasterPos3fv(v: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glRasterPos3i(x: GLint, y: GLint, z: GLint);
         #[library("OPENGL32.dll")]
@@ -1074,13 +1078,13 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glRasterPos3sv(v: *const GLshort);
         #[library("OPENGL32.dll")]
-        extern fn glRasterPos4d(x: f64, y: f64, z: f64, w: f64);
+        extern fn glRasterPos4d(x: GLdouble, y: GLdouble, z: GLdouble, w: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glRasterPos4dv(v: *const f64);
+        extern fn glRasterPos4dv(v: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glRasterPos4f(x: f32, y: f32, z: f32, w: f32);
+        extern fn glRasterPos4f(x: GLfloat, y: GLfloat, z: GLfloat, w: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glRasterPos4fv(v: *const f32);
+        extern fn glRasterPos4fv(v: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glRasterPos4i(x: GLint, y: GLint, z: GLint, w: GLint);
         #[library("OPENGL32.dll")]
@@ -1094,13 +1098,13 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glReadPixels(x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, r#type: GLenum, pixels: *mut GLvoid);
         #[library("OPENGL32.dll")]
-        extern fn glRectd(x1: f64, y1: f64, x2: f64, y2: f64);
+        extern fn glRectd(x1: GLdouble, y1: GLdouble, x2: GLdouble, y2: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glRectdv(v1: *const f64, v2: *const f64);
+        extern fn glRectdv(v1: *const GLdouble, v2: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glRectf(x1: f32, y1: f32, x2: f32, y2: f32);
+        extern fn glRectf(x1: GLfloat, y1: GLfloat, x2: GLfloat, y2: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glRectfv(v1: *const f32, v2: *const f32);
+        extern fn glRectfv(v1: *const GLfloat, v2: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glRecti(x1: GLint, y1: GLint, x2: GLint, y2: GLint);
         #[library("OPENGL32.dll")]
@@ -1112,13 +1116,13 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glRenderMode(mode: GLenum) -> GLint;
         #[library("OPENGL32.dll")]
-        extern fn glRotated(angle: f64, x: f64, y: f64, z: f64);
+        extern fn glRotated(angle: GLdouble, x: GLdouble, y: GLdouble, z: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glRotatef(angle: f32, x: f32, y: f32, z: f32);
+        extern fn glRotatef(angle: GLfloat, x: GLfloat, y: GLfloat, z: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glScaled(x: f64, y: f64, z: f64);
+        extern fn glScaled(x: GLdouble, y: GLdouble, z: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glScalef(x: f32, y: f32, z: f32);
+        extern fn glScalef(x: GLfloat, y: GLfloat, z: GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glScissor(x: GLint, y: GLint, width: GLsizei, height: GLsizei);
         #[library("OPENGL32.dll")]
@@ -1132,13 +1136,13 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glStencilOp(fail: GLenum, zfail: GLenum, zpass: GLenum);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord1d(s: f64);
+        extern fn glTexCoord1d(s: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord1dv(v: *const f64);
+        extern fn glTexCoord1dv(v: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord1f(s: f32);
+        extern fn glTexCoord1f(s: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord1fv(v: *const f32);
+        extern fn glTexCoord1fv(v: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glTexCoord1i(s: GLint);
         #[library("OPENGL32.dll")]
@@ -1148,13 +1152,13 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glTexCoord1sv(v: *const GLshort);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord2d(s: f64, t: f64);
+        extern fn glTexCoord2d(s: GLdouble, t: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord2dv(v: *const f64);
+        extern fn glTexCoord2dv(v: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord2f(s: f32, t: f32);
+        extern fn glTexCoord2f(s: GLfloat, t: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord2fv(v: *const f32);
+        extern fn glTexCoord2fv(v: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glTexCoord2i(s: GLint, t: GLint);
         #[library("OPENGL32.dll")]
@@ -1164,13 +1168,13 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glTexCoord2sv(v: *const GLshort);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord3d(s: f64, t: f64, r: f64);
+        extern fn glTexCoord3d(s: GLdouble, t: GLdouble, r: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord3dv(v: *const f64);
+        extern fn glTexCoord3dv(v: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord3f(s: f32, t: f32, r: f32);
+        extern fn glTexCoord3f(s: GLfloat, t: GLfloat, r: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord3fv(v: *const f32);
+        extern fn glTexCoord3fv(v: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glTexCoord3i(s: GLint, t: GLint, r: GLint);
         #[library("OPENGL32.dll")]
@@ -1180,13 +1184,13 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glTexCoord3sv(v: *const GLshort);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord4d(s: f64, t: f64, r: f64, q: f64);
+        extern fn glTexCoord4d(s: GLdouble, t: GLdouble, r: GLdouble, q: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord4dv(v: *const f64);
+        extern fn glTexCoord4dv(v: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord4f(s: f32, t: f32, r: f32, q: f32);
+        extern fn glTexCoord4f(s: GLfloat, t: GLfloat, r: GLfloat, q: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glTexCoord4fv(v: *const f32);
+        extern fn glTexCoord4fv(v: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glTexCoord4i(s: GLint, t: GLint, r: GLint, q: GLint);
         #[library("OPENGL32.dll")]
@@ -1198,21 +1202,21 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glTexCoordPointer(size: GLint, r#type: GLenum, stride: GLsizei, pointer: *const GLvoid);
         #[library("OPENGL32.dll")]
-        extern fn glTexEnvf(target: GLenum, pname: GLenum, param: f32);
+        extern fn glTexEnvf(target: GLenum, pname: GLenum, param: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glTexEnvfv(target: GLenum, pname: GLenum, params: *const f32);
+        extern fn glTexEnvfv(target: GLenum, pname: GLenum, params: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glTexEnvi(target: GLenum, pname: GLenum, param: GLint);
         #[library("OPENGL32.dll")]
         extern fn glTexEnviv(target: GLenum, pname: GLenum, params: *const GLint);
         #[library("OPENGL32.dll")]
-        extern fn glTexGend(coord: GLenum, pname: GLenum, param: f64);
+        extern fn glTexGend(coord: GLenum, pname: GLenum, param: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glTexGendv(coord: GLenum, pname: GLenum, params: *const f64);
+        extern fn glTexGendv(coord: GLenum, pname: GLenum, params: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glTexGenf(coord: GLenum, pname: GLenum, param: f32);
+        extern fn glTexGenf(coord: GLenum, pname: GLenum, param: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glTexGenfv(coord: GLenum, pname: GLenum, params: *const f32);
+        extern fn glTexGenfv(coord: GLenum, pname: GLenum, params: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glTexGeni(coord: GLenum, pname: GLenum, param: GLint);
         #[library("OPENGL32.dll")]
@@ -1222,9 +1226,9 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glTexImage2D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, border: GLint, format: GLenum, r#type: GLenum, pixels: *const GLvoid);
         #[library("OPENGL32.dll")]
-        extern fn glTexParameterf(target: GLenum, pname: GLenum, param: f32);
+        extern fn glTexParameterf(target: GLenum, pname: GLenum, param: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glTexParameterfv(target: GLenum, pname: GLenum, params: *const f32);
+        extern fn glTexParameterfv(target: GLenum, pname: GLenum, params: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glTexParameteri(target: GLenum, pname: GLenum, param: GLint);
         #[library("OPENGL32.dll")]
@@ -1234,17 +1238,17 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glTexSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, r#type: GLenum, pixels: *const GLvoid);
         #[library("OPENGL32.dll")]
-        extern fn glTranslated(x: f64, y: f64, z: f64);
+        extern fn glTranslated(x: GLdouble, y: GLdouble, z: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glTranslatef(x: f32, y: f32, z: f32);
+        extern fn glTranslatef(x: GLfloat, y: GLfloat, z: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glVertex2d(x: f64, y: f64);
+        extern fn glVertex2d(x: GLdouble, y: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glVertex2dv(v: *const f64);
+        extern fn glVertex2dv(v: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glVertex2f(x: f32, y: f32);
+        extern fn glVertex2f(x: GLfloat, y: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glVertex2fv(v: *const f32);
+        extern fn glVertex2fv(v: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glVertex2i(x: GLint, y: GLint);
         #[library("OPENGL32.dll")]
@@ -1254,13 +1258,13 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glVertex2sv(v: *const GLshort);
         #[library("OPENGL32.dll")]
-        extern fn glVertex3d(x: f64, y: f64, z: f64);
+        extern fn glVertex3d(x: GLdouble, y: GLdouble, z: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glVertex3dv(v: *const f64);
+        extern fn glVertex3dv(v: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glVertex3f(x: f32, y: f32, z: f32);
+        extern fn glVertex3f(x: GLfloat, y: GLfloat, z: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glVertex3fv(v: *const f32);
+        extern fn glVertex3fv(v: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glVertex3i(x: GLint, y: GLint, z: GLint);
         #[library("OPENGL32.dll")]
@@ -1270,13 +1274,13 @@ mod Windows {
         #[library("OPENGL32.dll")]
         extern fn glVertex3sv(v: *const GLshort);
         #[library("OPENGL32.dll")]
-        extern fn glVertex4d(x: f64, y: f64, z: f64, w: f64);
+        extern fn glVertex4d(x: GLdouble, y: GLdouble, z: GLdouble, w: GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glVertex4dv(v: *const f64);
+        extern fn glVertex4dv(v: *const GLdouble);
         #[library("OPENGL32.dll")]
-        extern fn glVertex4f(x: f32, y: f32, z: f32, w: f32);
+        extern fn glVertex4f(x: GLfloat, y: GLfloat, z: GLfloat, w: GLfloat);
         #[library("OPENGL32.dll")]
-        extern fn glVertex4fv(v: *const f32);
+        extern fn glVertex4fv(v: *const GLfloat);
         #[library("OPENGL32.dll")]
         extern fn glVertex4i(x: GLint, y: GLint, z: GLint, w: GLint);
         #[library("OPENGL32.dll")]

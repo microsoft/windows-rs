@@ -6,7 +6,7 @@ mod Windows {
         const BackgroundCopyManager4_0: GUID = 0xbb6df56b_cace_11dc_9992_0019b93a3a84;
         #[guid(0xef7e0655_7888_4960_b0e5_730846e03492)]
         interface IBackgroundCopyFile4: IBackgroundCopyFile3 {
-            fn GetPeerDownloadStats(&self, pFromOrigin: *mut u64, pFromPeers: *mut u64) -> HRESULT;
+            fn GetPeerDownloadStats(&self, #[out] pFromOrigin: PUINT64, #[out] pFromPeers: PUINT64) -> HRESULT;
         }
         #[guid(0x9a2584c3_f7d2_457a_9a5e_22b67bffc7d2)]
         interface IBitsTokenOptions: IUnknown {

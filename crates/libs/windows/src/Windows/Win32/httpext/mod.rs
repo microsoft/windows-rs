@@ -45,9 +45,7 @@ impl Default for EXTENSION_CONTROL_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HCONN(pub *mut core::ffi::c_void);
+pub type HCONN = *mut core::ffi::c_void;
 pub const HSE_APPEND_LOG_PARAMETER: i32 = 1003;
 pub const HSE_APP_FLAG_IN_PROCESS: i32 = 0;
 pub const HSE_APP_FLAG_ISOLATED_OOP: i32 = 1;

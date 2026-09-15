@@ -10,7 +10,7 @@ pub unsafe fn AccSetRunningUtilityState(hwndapp: super::HWND, dwutilitystatemask
     windows_core::link!("oleacc.dll" "system" fn AccSetRunningUtilityState(hwndapp : super::HWND, dwutilitystatemask : u32, dwutilitystate : u32) -> windows_core::HRESULT);
     unsafe { AccSetRunningUtilityState(hwndapp, dwutilitystatemask, dwutilitystate) }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn AccessibleChildren<P0>(pacccontainer: P0, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::VARIANT, pcobtained: *mut i32) -> windows_core::HRESULT
 where
@@ -19,13 +19,13 @@ where
     windows_core::link!("oleacc.dll" "system" fn AccessibleChildren(pacccontainer : *mut core::ffi::c_void, ichildstart : i32, cchildren : i32, rgvarchildren : *mut super::VARIANT, pcobtained : *mut i32) -> windows_core::HRESULT);
     unsafe { AccessibleChildren(pacccontainer.param().abi(), ichildstart, cchildren, rgvarchildren, pcobtained as _) }
 }
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn AccessibleObjectFromEvent(hwnd: super::HWND, dwid: u32, dwchildid: u32, ppacc: *mut Option<IAccessible>, pvarchild: *mut super::VARIANT) -> windows_core::HRESULT {
     windows_core::link!("oleacc.dll" "system" fn AccessibleObjectFromEvent(hwnd : super::HWND, dwid : u32, dwchildid : u32, ppacc : *mut *mut core::ffi::c_void, pvarchild : *mut super::VARIANT) -> windows_core::HRESULT);
     unsafe { AccessibleObjectFromEvent(hwnd, dwid, dwchildid, core::mem::transmute(ppacc), pvarchild) }
 }
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::POINT, ppacc: *mut Option<IAccessible>, pvarchild: *mut super::VARIANT) -> windows_core::HRESULT {
     windows_core::link!("oleacc.dll" "system" fn AccessibleObjectFromPoint(ptscreen : super::POINT, ppacc : *mut *mut core::ffi::c_void, pvarchild : *mut super::VARIANT) -> windows_core::HRESULT);
@@ -33,45 +33,33 @@ pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::POINT, ppacc: *mut Opti
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn AccessibleObjectFromWindow<T>(hwnd: super::HWND, dwid: u32) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn AccessibleObjectFromWindow(hwnd: super::HWND, dwid: u32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("oleacc.dll" "system" fn AccessibleObjectFromWindow(hwnd : super::HWND, dwid : u32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { AccessibleObjectFromWindow(hwnd, dwid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { AccessibleObjectFromWindow(hwnd, dwid, riid, ppvobject as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn CreateStdAccessibleObject<T>(hwnd: super::HWND, idobject: i32) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn CreateStdAccessibleObject(hwnd: super::HWND, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("oleacc.dll" "system" fn CreateStdAccessibleObject(hwnd : super::HWND, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreateStdAccessibleObject(hwnd, idobject, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CreateStdAccessibleObject(hwnd, idobject, riid, ppvobject as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn CreateStdAccessibleProxyA<P1, T>(hwnd: super::HWND, pclassname: P1, idobject: i32) -> windows_core::Result<T>
+pub unsafe fn CreateStdAccessibleProxyA<P1>(hwnd: super::HWND, pclassname: P1, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCSTR>,
-    T: windows_core::Interface,
 {
     windows_core::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyA(hwnd : super::HWND, pclassname : windows_core::PCSTR, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreateStdAccessibleProxyA(hwnd, pclassname.param().abi(), idobject, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CreateStdAccessibleProxyA(hwnd, pclassname.param().abi(), idobject, riid, ppvobject as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn CreateStdAccessibleProxyW<P1, T>(hwnd: super::HWND, pclassname: P1, idobject: i32) -> windows_core::Result<T>
+pub unsafe fn CreateStdAccessibleProxyW<P1>(hwnd: super::HWND, pclassname: P1, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    T: windows_core::Interface,
 {
     windows_core::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyW(hwnd : super::HWND, pclassname : windows_core::PCWSTR, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreateStdAccessibleProxyW(hwnd, pclassname.param().abi(), idobject, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CreateStdAccessibleProxyW(hwnd, pclassname.param().abi(), idobject, riid, ppvobject as _) }
 }
 #[inline]
 pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
@@ -109,13 +97,9 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ObjectFromLresult<T>(lresult: super::LRESULT, wparam: super::WPARAM) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn ObjectFromLresult(lresult: super::LRESULT, riid: *const windows_core::GUID, wparam: super::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("oleacc.dll" "system" fn ObjectFromLresult(lresult : super::LRESULT, riid : *const windows_core::GUID, wparam : super::WPARAM, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { ObjectFromLresult(lresult, &T::IID, wparam, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { ObjectFromLresult(lresult, riid, wparam, ppvobject as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "windef"))]
 #[inline]
@@ -189,7 +173,7 @@ impl windows_core::RuntimeName for IAccIdentity {}
 windows_core::imp::define_interface!(IAccPropServer, IAccPropServer_Vtbl, 0x76c0dbbb_15e0_4e7b_b61b_20eeea2001e0);
 windows_core::imp::interface_hierarchy!(IAccPropServer, windows_core::IUnknown);
 impl IAccPropServer {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: MSAAPROPID, pvarvalue: *mut super::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPropValue)(windows_core::Interface::as_raw(self), pidstring, dwidstringlen, idprop, pvarvalue, pfhasprop as _) }
     }
@@ -198,16 +182,16 @@ impl IAccPropServer {
 #[doc(hidden)]
 pub struct IAccPropServer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPropValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, MSAAPROPID, *mut super::VARIANT, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetPropValue: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAccPropServer_Impl: windows_core::IUnknownImpl {
     fn GetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &MSAAPROPID, pvarvalue: *mut super::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IAccPropServer_Vtbl {
     pub const fn new<Identity: IAccPropServer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPropValue<Identity: IAccPropServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: MSAAPROPID, pvarvalue: *mut super::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -222,12 +206,12 @@ impl IAccPropServer_Vtbl {
         iid == &<IAccPropServer as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAccPropServer {}
 windows_core::imp::define_interface!(IAccPropServices, IAccPropServices_Vtbl, 0x6e26e776_04f0_495d_80e4_3330352e3169);
 windows_core::imp::interface_hierarchy!(IAccPropServices, windows_core::IUnknown);
 impl IAccPropServices {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: MSAAPROPID, var: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPropValue)(windows_core::Interface::as_raw(self), pidstring, dwidstringlen, idprop, core::mem::transmute_copy(var)) }
     }
@@ -240,7 +224,7 @@ impl IAccPropServices {
     pub unsafe fn ClearProps(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const MSAAPROPID, cprops: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ClearProps)(windows_core::Interface::as_raw(self), pidstring, dwidstringlen, paprops, cprops) }
     }
-    #[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetHwndProp(&self, hwnd: super::HWND, idobject: u32, idchild: u32, idprop: MSAAPROPID, var: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHwndProp)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, idprop, core::mem::transmute_copy(var)) }
     }
@@ -270,7 +254,7 @@ impl IAccPropServices {
     pub unsafe fn DecomposeHwndIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phwnd: *mut super::HWND, pidobject: *mut u32, pidchild: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DecomposeHwndIdentityString)(windows_core::Interface::as_raw(self), pidstring, dwidstringlen, phwnd as _, pidobject as _, pidchild as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetHmenuProp(&self, hmenu: super::HMENU, idchild: u32, idprop: MSAAPROPID, var: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHmenuProp)(windows_core::Interface::as_raw(self), hmenu, idchild, idprop, core::mem::transmute_copy(var)) }
     }
@@ -305,15 +289,15 @@ impl IAccPropServices {
 #[doc(hidden)]
 pub struct IAccPropServices_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub SetPropValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, MSAAPROPID, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     SetPropValue: usize,
     pub SetPropServer: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *const MSAAPROPID, i32, *mut core::ffi::c_void, AnnoScope) -> windows_core::HRESULT,
     pub ClearProps: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *const MSAAPROPID, i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
     pub SetHwndProp: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, u32, u32, MSAAPROPID, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase")))]
     SetHwndProp: usize,
     #[cfg(feature = "windef")]
     pub SetHwndPropStr: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, u32, u32, MSAAPROPID, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -335,9 +319,9 @@ pub struct IAccPropServices_Vtbl {
     pub DecomposeHwndIdentityString: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut super::HWND, *mut u32, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     DecomposeHwndIdentityString: usize,
-    #[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
     pub SetHmenuProp: unsafe extern "system" fn(*mut core::ffi::c_void, super::HMENU, u32, MSAAPROPID, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase")))]
     SetHmenuProp: usize,
     #[cfg(feature = "windef")]
     pub SetHmenuPropStr: unsafe extern "system" fn(*mut core::ffi::c_void, super::HMENU, u32, MSAAPROPID, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -360,7 +344,7 @@ pub struct IAccPropServices_Vtbl {
     #[cfg(not(feature = "windef"))]
     DecomposeHmenuIdentityString: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAccPropServices_Impl: windows_core::IUnknownImpl {
     fn SetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &MSAAPROPID, var: &super::VARIANT) -> windows_core::Result<()>;
     fn SetPropServer(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const MSAAPROPID, cprops: i32, pserver: windows_core::Ref<IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
@@ -378,7 +362,7 @@ pub trait IAccPropServices_Impl: windows_core::IUnknownImpl {
     fn ComposeHmenuIdentityString(&self, hmenu: super::HMENU, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()>;
     fn DecomposeHmenuIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phmenu: *mut super::HMENU, pidchild: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IAccPropServices_Vtbl {
     pub const fn new<Identity: IAccPropServices_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPropValue<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: MSAAPROPID, var: super::VARIANT) -> windows_core::HRESULT {
@@ -494,7 +478,7 @@ impl IAccPropServices_Vtbl {
         iid == &<IAccPropServices as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAccPropServices {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IAccessible, IAccessible_Vtbl, 0x618736e0_3c3d_11cf_810c_00aa00389b71);
@@ -521,121 +505,121 @@ impl IAccessible {
             (windows_core::Interface::vtable(self).accChildCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accChild(&self, varchild: &super::VARIANT) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accChild)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accName(&self, varchild: &super::VARIANT) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accValue(&self, varchild: &super::VARIANT) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accDescription(&self, varchild: &super::VARIANT) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accRole(&self, varchild: &super::VARIANT) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accState(&self, varchild: &super::VARIANT) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accState)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accHelp(&self, varchild: &super::VARIANT) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accHelp)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accHelpTopic(&self, pszhelpfile: *mut windows_core::BSTR, varchild: &super::VARIANT) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accHelpTopic)(windows_core::Interface::as_raw(self), core::mem::transmute(pszhelpfile), core::mem::transmute_copy(varchild), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accKeyboardShortcut(&self, varchild: &super::VARIANT) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accKeyboardShortcut)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accFocus(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accFocus)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accSelection(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accDefaultAction(&self, varchild: &super::VARIANT) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accDefaultAction)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accSelect(&self, flagsselect: i32, varchild: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).accSelect)(windows_core::Interface::as_raw(self), flagsselect, core::mem::transmute_copy(varchild)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).accLocation)(windows_core::Interface::as_raw(self), pxleft as _, pytop as _, pcxwidth as _, pcyheight as _, core::mem::transmute_copy(varchild)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accNavigate(&self, navdir: i32, varstart: &super::VARIANT) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accNavigate)(windows_core::Interface::as_raw(self), navdir, core::mem::transmute_copy(varstart), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accHitTest(&self, xleft: i32, ytop: i32) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accHitTest)(windows_core::Interface::as_raw(self), xleft, ytop, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn accDoDefaultAction(&self, varchild: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).accDoDefaultAction)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetaccName(&self, varchild: &super::VARIANT, szname: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetaccName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), core::mem::transmute_copy(szname)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetaccValue(&self, varchild: &super::VARIANT, szvalue: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetaccValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), core::mem::transmute_copy(szvalue)) }
     }
@@ -647,84 +631,84 @@ pub struct IAccessible_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub accParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub accChildCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accChild: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accChild: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accName: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accName: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accValue: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accDescription: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accDescription: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accRole: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accRole: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accState: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accState: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accHelp: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accHelp: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accHelpTopic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, super::VARIANT, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accHelpTopic: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accKeyboardShortcut: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accKeyboardShortcut: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accFocus: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accSelection: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accDefaultAction: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accDefaultAction: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accSelect: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accSelect: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accLocation: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accNavigate: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::VARIANT, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accNavigate: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accHitTest: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accHitTest: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub accDoDefaultAction: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     accDoDefaultAction: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub SetaccName: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     SetaccName: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub SetaccValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     SetaccValue: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAccessible_Impl: super::IDispatch_Impl {
     fn accParent(&self) -> windows_core::Result<super::IDispatch>;
     fn accChildCount(&self) -> windows_core::Result<i32>;
@@ -748,7 +732,7 @@ pub trait IAccessible_Impl: super::IDispatch_Impl {
     fn SetaccName(&self, varchild: &super::VARIANT, szname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetaccValue(&self, varchild: &super::VARIANT, szvalue: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAccessible_Vtbl {
     pub const fn new<Identity: IAccessible_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn accParent<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdispparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1002,13 +986,13 @@ impl IAccessible_Vtbl {
         iid == &<IAccessible as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAccessible {}
 windows_core::imp::define_interface!(IAccessibleHandler, IAccessibleHandler_Vtbl, 0x03022430_abc4_11d0_bde2_00aa001a1953);
 windows_core::imp::interface_hierarchy!(IAccessibleHandler, windows_core::IUnknown);
 impl IAccessibleHandler {
     #[cfg(feature = "oaidl")]
-    pub unsafe fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> windows_core::Result<IAccessible> {
+    pub unsafe fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> windows_core::Result<LPACCESSIBLE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AccessibleObjectFromID)(windows_core::Interface::as_raw(self), hwnd, lobjectid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -1026,7 +1010,7 @@ pub struct IAccessibleHandler_Vtbl {
 }
 #[cfg(feature = "oaidl")]
 pub trait IAccessibleHandler_Impl: windows_core::IUnknownImpl {
-    fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> windows_core::Result<IAccessible>;
+    fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> windows_core::Result<LPACCESSIBLE>;
 }
 #[cfg(feature = "oaidl")]
 impl IAccessibleHandler_Vtbl {
@@ -1172,9 +1156,13 @@ pub const IID_IAccPropMgrInternal: windows_core::GUID = windows_core::GUID::from
 pub const IIS_ControlAccessible: windows_core::GUID = windows_core::GUID::from_u128(0x38c682a6_9731_43f2_9fae_e901e641b101);
 pub const IIS_IsOleaccProxy: windows_core::GUID = windows_core::GUID::from_u128(0x902697fa_80e4_4560_802a_a13f22a64709);
 pub const LIBID_Accessibility: windows_core::GUID = windows_core::GUID::from_u128(0x1ea4dbf0_3c3b_11cf_810c_00aa00389b71);
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(feature = "oaidl")]
+pub type LPACCESSIBLE = IAccessible;
+pub type LPACCESSIBLEHANDLER = IAccessibleHandler;
+pub type LPACCESSIBLEWINDOWLESSSITE = IAccessibleWindowlessSite;
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPFNACCESSIBLECHILDREN = Option<unsafe extern "system" fn(pacccontainer: windows_core::Ref<IAccessible>, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::VARIANT, pcobtained: *mut i32) -> windows_core::HRESULT>;
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPFNACCESSIBLEOBJECTFROMPOINT = Option<unsafe extern "system" fn(ptscreen: super::POINT, ppacc: windows_core::OutRef<IAccessible>, pvarchild: *mut super::VARIANT) -> windows_core::HRESULT>;
 #[cfg(feature = "windef")]
 pub type LPFNACCESSIBLEOBJECTFROMWINDOW = Option<unsafe extern "system" fn(hwnd: super::HWND, dwid: u32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;

@@ -246,30 +246,30 @@ mod Windows {
         }
         struct NDIS_802_11_STATISTICS {
             Length: u32,
-            TransmittedFragmentCount: i64,
-            MulticastTransmittedFrameCount: i64,
-            FailedCount: i64,
-            RetryCount: i64,
-            MultipleRetryCount: i64,
-            RTSSuccessCount: i64,
-            RTSFailureCount: i64,
-            ACKFailureCount: i64,
-            FrameDuplicateCount: i64,
-            ReceivedFragmentCount: i64,
-            MulticastReceivedFrameCount: i64,
-            FCSErrorCount: i64,
-            TKIPLocalMICFailures: i64,
-            TKIPICVErrorCount: i64,
-            TKIPCounterMeasuresInvoked: i64,
-            TKIPReplays: i64,
-            CCMPFormatErrors: i64,
-            CCMPReplays: i64,
-            CCMPDecryptErrors: i64,
-            FourWayHandshakeFailures: i64,
-            WEPUndecryptableCount: i64,
-            WEPICVErrorCount: i64,
-            DecryptSuccessCount: i64,
-            DecryptFailureCount: i64,
+            TransmittedFragmentCount: LARGE_INTEGER,
+            MulticastTransmittedFrameCount: LARGE_INTEGER,
+            FailedCount: LARGE_INTEGER,
+            RetryCount: LARGE_INTEGER,
+            MultipleRetryCount: LARGE_INTEGER,
+            RTSSuccessCount: LARGE_INTEGER,
+            RTSFailureCount: LARGE_INTEGER,
+            ACKFailureCount: LARGE_INTEGER,
+            FrameDuplicateCount: LARGE_INTEGER,
+            ReceivedFragmentCount: LARGE_INTEGER,
+            MulticastReceivedFrameCount: LARGE_INTEGER,
+            FCSErrorCount: LARGE_INTEGER,
+            TKIPLocalMICFailures: LARGE_INTEGER,
+            TKIPICVErrorCount: LARGE_INTEGER,
+            TKIPCounterMeasuresInvoked: LARGE_INTEGER,
+            TKIPReplays: LARGE_INTEGER,
+            CCMPFormatErrors: LARGE_INTEGER,
+            CCMPReplays: LARGE_INTEGER,
+            CCMPDecryptErrors: LARGE_INTEGER,
+            FourWayHandshakeFailures: LARGE_INTEGER,
+            WEPUndecryptableCount: LARGE_INTEGER,
+            WEPICVErrorCount: LARGE_INTEGER,
+            DecryptSuccessCount: LARGE_INTEGER,
+            DecryptFailureCount: LARGE_INTEGER,
         }
         struct NDIS_802_11_STATUS_INDICATION {
             StatusType: NDIS_802_11_STATUS_TYPE,
@@ -917,6 +917,10 @@ mod Windows {
         #[arch(X86)]
         const NDIS_SIZEOF_IP_OPER_STATE_REVISION_1: u32 = 20;
         #[arch(X64 | Arm64)]
+        const NDIS_SIZEOF_IP_OPER_STATUS_INFO_REVISION_1: u64 = 396;
+        #[arch(X86)]
+        const NDIS_SIZEOF_IP_OPER_STATUS_INFO_REVISION_1: u32 = 396;
+        #[arch(X64 | Arm64)]
         const NDIS_SIZEOF_LINK_PARAMETERS_REVISION_1: u64 = 32;
         #[arch(X86)]
         const NDIS_SIZEOF_LINK_PARAMETERS_REVISION_1: u32 = 32;
@@ -1166,27 +1170,27 @@ mod Windows {
         struct NDIS_TIMESTAMP_CAPABILITIES {
             Header: NDIS_OBJECT_HEADER,
             HardwareClockFrequencyHz: u64,
-            CrossTimestamp: bool,
+            CrossTimestamp: BOOLEAN,
             Reserved1: u64,
             Reserved2: u64,
             TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
         }
         const NDIS_TIMESTAMP_CAPABILITIES_REVISION_1: i32 = 1;
         struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-            PtpV2OverUdpIPv4EventMsgReceiveHw: bool,
-            PtpV2OverUdpIPv4AllMsgReceiveHw: bool,
-            PtpV2OverUdpIPv4EventMsgTransmitHw: bool,
-            PtpV2OverUdpIPv4AllMsgTransmitHw: bool,
-            PtpV2OverUdpIPv6EventMsgReceiveHw: bool,
-            PtpV2OverUdpIPv6AllMsgReceiveHw: bool,
-            PtpV2OverUdpIPv6EventMsgTransmitHw: bool,
-            PtpV2OverUdpIPv6AllMsgTransmitHw: bool,
-            AllReceiveHw: bool,
-            AllTransmitHw: bool,
-            TaggedTransmitHw: bool,
-            AllReceiveSw: bool,
-            AllTransmitSw: bool,
-            TaggedTransmitSw: bool,
+            PtpV2OverUdpIPv4EventMsgReceiveHw: BOOLEAN,
+            PtpV2OverUdpIPv4AllMsgReceiveHw: BOOLEAN,
+            PtpV2OverUdpIPv4EventMsgTransmitHw: BOOLEAN,
+            PtpV2OverUdpIPv4AllMsgTransmitHw: BOOLEAN,
+            PtpV2OverUdpIPv6EventMsgReceiveHw: BOOLEAN,
+            PtpV2OverUdpIPv6AllMsgReceiveHw: BOOLEAN,
+            PtpV2OverUdpIPv6EventMsgTransmitHw: BOOLEAN,
+            PtpV2OverUdpIPv6AllMsgTransmitHw: BOOLEAN,
+            AllReceiveHw: BOOLEAN,
+            AllTransmitHw: BOOLEAN,
+            TaggedTransmitHw: BOOLEAN,
+            AllReceiveSw: BOOLEAN,
+            AllTransmitSw: BOOLEAN,
+            TaggedTransmitSw: BOOLEAN,
         }
         struct NDIS_VAR_DATA_DESC {
             Length: u16,
@@ -1426,6 +1430,18 @@ mod Windows {
             NodeAddress: [u8; 6],
             Socket: u16,
         }
+        #[arch(X64 | Arm64)]
+        const NETWORK_ADDRESS_LENGTH_IP: u64 = 16;
+        #[arch(X86)]
+        const NETWORK_ADDRESS_LENGTH_IP: u32 = 16;
+        #[arch(X64 | Arm64)]
+        const NETWORK_ADDRESS_LENGTH_IP6: u64 = 28;
+        #[arch(X86)]
+        const NETWORK_ADDRESS_LENGTH_IP6: u32 = 28;
+        #[arch(X64 | Arm64)]
+        const NETWORK_ADDRESS_LENGTH_IPX: u64 = 12;
+        #[arch(X86)]
+        const NETWORK_ADDRESS_LENGTH_IPX: u32 = 12;
         struct NETWORK_ADDRESS_LIST {
             AddressCount: i32,
             AddressType: u16,

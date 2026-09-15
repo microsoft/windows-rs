@@ -175,7 +175,7 @@ mod Windows {
         const NRC_SYSTEM: i32 = 64;
         const NRC_TOOMANY: i32 = 34;
         #[library("NETAPI32.dll")]
-        extern fn Netbios(pncb: *mut NCB) -> u8;
+        extern fn Netbios(pncb: PNCB) -> u8;
         type PACTION_HEADER = *mut ACTION_HEADER;
         type PADAPTER_STATUS = *mut ADAPTER_STATUS;
         type PFIND_NAME_BUFFER = *mut FIND_NAME_BUFFER;

@@ -1,6 +1,22 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[library("ole32.dll")]
+        extern fn HWND_UserFree(param0: *mut u32, param1: *mut HWND);
+        #[library("ole32.dll")]
+        extern fn HWND_UserFree64(param0: *mut u32, param1: *mut HWND);
+        #[library("ole32.dll")]
+        extern fn HWND_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut HWND) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HWND_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HWND) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HWND_UserSize(param0: *mut u32, param1: u32, param2: *mut HWND) -> u32;
+        #[library("ole32.dll")]
+        extern fn HWND_UserSize64(param0: *mut u32, param1: u32, param2: *mut HWND) -> u32;
+        #[library("ole32.dll")]
+        extern fn HWND_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut HWND) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HWND_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HWND) -> *mut u8;
         #[guid(0x5c4ee536_6a98_4b86_a170_587013d6fd4b)]
         interface IHolographicSpaceInterop: IInspectable {
             fn CreateForWindow(&self, window: HWND, riid: *const GUID, #[iid_is] #[retval] holographicSpace: *mut *mut void) -> HRESULT;

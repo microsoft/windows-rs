@@ -101,6 +101,10 @@ pub struct FILTER_MESSAGE_HEADER {
     pub ReplyLength: u32,
     pub MessageId: u64,
 }
+#[cfg(target_arch = "x86")]
+pub const FILTER_NAME_MAX_BYTES: u32 = 510;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const FILTER_NAME_MAX_BYTES: u64 = 510;
 pub const FILTER_NAME_MAX_CHARS: i32 = 255;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -259,6 +263,10 @@ pub struct INSTANCE_FULL_INFORMATION {
     pub FilterNameBufferOffset: u16,
 }
 pub type INSTANCE_INFORMATION_CLASS = i32;
+#[cfg(target_arch = "x86")]
+pub const INSTANCE_NAME_MAX_BYTES: u32 = 510;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const INSTANCE_NAME_MAX_BYTES: u64 = 510;
 pub const INSTANCE_NAME_MAX_CHARS: i32 = 255;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -288,4 +296,8 @@ pub type PINSTANCE_BASIC_INFORMATION = *mut INSTANCE_BASIC_INFORMATION;
 pub type PINSTANCE_FULL_INFORMATION = *mut INSTANCE_FULL_INFORMATION;
 pub type PINSTANCE_INFORMATION_CLASS = *mut INSTANCE_INFORMATION_CLASS;
 pub type PINSTANCE_PARTIAL_INFORMATION = *mut INSTANCE_PARTIAL_INFORMATION;
+#[cfg(target_arch = "x86")]
+pub const VOLUME_NAME_MAX_BYTES: u32 = 2048;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const VOLUME_NAME_MAX_BYTES: u64 = 2048;
 pub const VOLUME_NAME_MAX_CHARS: i32 = 1024;

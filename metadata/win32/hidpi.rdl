@@ -3,20 +3,20 @@ mod Windows {
     mod Win32 {
         struct HIDP_BUTTON_ARRAY_DATA {
             ArrayIndex: u16,
-            On: bool,
+            On: BOOLEAN,
         }
         struct HIDP_BUTTON_CAPS {
             UsagePage: USAGE,
             ReportID: u8,
-            IsAlias: bool,
+            IsAlias: BOOLEAN,
             BitField: u16,
             LinkCollection: u16,
             LinkUsage: USAGE,
             LinkUsagePage: USAGE,
-            IsRange: bool,
-            IsStringRange: bool,
-            IsDesignatorRange: bool,
-            IsAbsolute: bool,
+            IsRange: BOOLEAN,
+            IsStringRange: BOOLEAN,
+            IsDesignatorRange: BOOLEAN,
+            IsAbsolute: BOOLEAN,
             ReportCount: u16,
             Reserved2: u16,
             Reserved: [u32; 9],
@@ -66,7 +66,7 @@ mod Windows {
             Reserved: u16,
             Anonymous: union {
                 RawValue: u32,
-                On: bool,
+                On: BOOLEAN,
             },
         }
         #[arch(X86)]
@@ -143,33 +143,34 @@ mod Windows {
         }
         const HIDP_LINK_COLLECTION_ROOT: u16 = 65535;
         const HIDP_LINK_COLLECTION_UNSPECIFIED: u16 = 0;
+        struct HIDP_PREPARSED_DATA {}
         #[repr(i32)]
         enum HIDP_REPORT_TYPE {
             HidP_Input = 0,
             HidP_Output = 1,
             HidP_Feature = 2,
         }
-        const HIDP_STATUS_BAD_LOG_PHY_VALUES: i32 = -1072627706;
-        const HIDP_STATUS_BUFFER_TOO_SMALL: i32 = -1072627705;
-        const HIDP_STATUS_BUTTON_NOT_PRESSED: i32 = -1072627697;
-        const HIDP_STATUS_DATA_INDEX_NOT_FOUND: i32 = -1072627699;
-        const HIDP_STATUS_DATA_INDEX_OUT_OF_RANGE: i32 = -1072627698;
-        const HIDP_STATUS_I8042_TRANS_UNKNOWN: i32 = -1072627703;
-        const HIDP_STATUS_I8242_TRANS_UNKNOWN: i32 = -1072627703;
-        const HIDP_STATUS_INCOMPATIBLE_REPORT_ID: i32 = -1072627702;
-        const HIDP_STATUS_INTERNAL_ERROR: i32 = -1072627704;
-        const HIDP_STATUS_INVALID_PREPARSED_DATA: i32 = -1072627711;
-        const HIDP_STATUS_INVALID_REPORT_LENGTH: i32 = -1072627709;
-        const HIDP_STATUS_INVALID_REPORT_TYPE: i32 = -1072627710;
-        const HIDP_STATUS_IS_VALUE_ARRAY: i32 = -1072627700;
-        const HIDP_STATUS_NOT_BUTTON_ARRAY: i32 = -1072627679;
-        const HIDP_STATUS_NOT_IMPLEMENTED: i32 = -1072627680;
-        const HIDP_STATUS_NOT_VALUE_ARRAY: i32 = -1072627701;
-        const HIDP_STATUS_NULL: i32 = -2146369535;
-        const HIDP_STATUS_REPORT_DOES_NOT_EXIST: i32 = -1072627696;
-        const HIDP_STATUS_SUCCESS: i32 = 1114112;
-        const HIDP_STATUS_USAGE_NOT_FOUND: i32 = -1072627708;
-        const HIDP_STATUS_VALUE_OUT_OF_RANGE: i32 = -1072627707;
+        const HIDP_STATUS_BAD_LOG_PHY_VALUES: NTSTATUS = -1072627706;
+        const HIDP_STATUS_BUFFER_TOO_SMALL: NTSTATUS = -1072627705;
+        const HIDP_STATUS_BUTTON_NOT_PRESSED: NTSTATUS = -1072627697;
+        const HIDP_STATUS_DATA_INDEX_NOT_FOUND: NTSTATUS = -1072627699;
+        const HIDP_STATUS_DATA_INDEX_OUT_OF_RANGE: NTSTATUS = -1072627698;
+        const HIDP_STATUS_I8042_TRANS_UNKNOWN: NTSTATUS = -1072627703;
+        const HIDP_STATUS_I8242_TRANS_UNKNOWN: NTSTATUS = -1072627703;
+        const HIDP_STATUS_INCOMPATIBLE_REPORT_ID: NTSTATUS = -1072627702;
+        const HIDP_STATUS_INTERNAL_ERROR: NTSTATUS = -1072627704;
+        const HIDP_STATUS_INVALID_PREPARSED_DATA: NTSTATUS = -1072627711;
+        const HIDP_STATUS_INVALID_REPORT_LENGTH: NTSTATUS = -1072627709;
+        const HIDP_STATUS_INVALID_REPORT_TYPE: NTSTATUS = -1072627710;
+        const HIDP_STATUS_IS_VALUE_ARRAY: NTSTATUS = -1072627700;
+        const HIDP_STATUS_NOT_BUTTON_ARRAY: NTSTATUS = -1072627679;
+        const HIDP_STATUS_NOT_IMPLEMENTED: NTSTATUS = -1072627680;
+        const HIDP_STATUS_NOT_VALUE_ARRAY: NTSTATUS = -1072627701;
+        const HIDP_STATUS_NULL: NTSTATUS = -2146369535;
+        const HIDP_STATUS_REPORT_DOES_NOT_EXIST: NTSTATUS = -1072627696;
+        const HIDP_STATUS_SUCCESS: NTSTATUS = 1114112;
+        const HIDP_STATUS_USAGE_NOT_FOUND: NTSTATUS = -1072627708;
+        const HIDP_STATUS_VALUE_OUT_OF_RANGE: NTSTATUS = -1072627707;
         struct HIDP_UNKNOWN_TOKEN {
             Token: u8,
             Reserved: [u8; 3],
@@ -178,16 +179,16 @@ mod Windows {
         struct HIDP_VALUE_CAPS {
             UsagePage: USAGE,
             ReportID: u8,
-            IsAlias: bool,
+            IsAlias: BOOLEAN,
             BitField: u16,
             LinkCollection: u16,
             LinkUsage: USAGE,
             LinkUsagePage: USAGE,
-            IsRange: bool,
-            IsStringRange: bool,
-            IsDesignatorRange: bool,
-            IsAbsolute: bool,
-            HasNull: bool,
+            IsRange: BOOLEAN,
+            IsStringRange: BOOLEAN,
+            IsDesignatorRange: BOOLEAN,
+            IsAbsolute: BOOLEAN,
+            HasNull: BOOLEAN,
             Reserved: u8,
             BitSize: u16,
             ReportCount: u16,
@@ -222,67 +223,67 @@ mod Windows {
             },
         }
         #[library("HID.DLL")]
-        extern fn HidP_GetButtonArray(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, #[len_param(5)] ButtonData: *mut HIDP_BUTTON_ARRAY_DATA, #[in] #[out] ButtonDataLength: *mut u16, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(8)] Report: *const i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_GetButtonArray(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, #[len_param(5)] #[out] ButtonData: PHIDP_BUTTON_ARRAY_DATA, #[in] #[out] ButtonDataLength: PUSHORT, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(8)] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_GetButtonCaps(ReportType: HIDP_REPORT_TYPE, #[len_param(2)] ButtonCaps: *mut HIDP_BUTTON_CAPS, #[in] #[out] ButtonCapsLength: *mut u16, PreparsedData: *const _HIDP_PREPARSED_DATA) -> NTSTATUS;
+        extern fn HidP_GetButtonCaps(ReportType: HIDP_REPORT_TYPE, #[len_param(2)] #[out] ButtonCaps: PHIDP_BUTTON_CAPS, #[in] #[out] ButtonCapsLength: PUSHORT, PreparsedData: PHIDP_PREPARSED_DATA) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_GetCaps(PreparsedData: *const _HIDP_PREPARSED_DATA, Capabilities: *mut HIDP_CAPS) -> NTSTATUS;
+        extern fn HidP_GetCaps(PreparsedData: PHIDP_PREPARSED_DATA, #[out] Capabilities: PHIDP_CAPS) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_GetData(ReportType: HIDP_REPORT_TYPE, #[len_param(2)] DataList: *mut HIDP_DATA, #[in] #[out] DataLength: *mut u32, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(5)] Report: *mut i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_GetData(ReportType: HIDP_REPORT_TYPE, #[len_param(2)] #[out] DataList: PHIDP_DATA, #[in] #[out] DataLength: PULONG, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(5)] #[out] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_GetExtendedAttributes(ReportType: HIDP_REPORT_TYPE, DataIndex: u16, PreparsedData: *const _HIDP_PREPARSED_DATA, #[len_param(4)] Attributes: *mut HIDP_EXTENDED_ATTRIBUTES, #[in] #[out] LengthAttributes: *mut u32) -> NTSTATUS;
+        extern fn HidP_GetExtendedAttributes(ReportType: HIDP_REPORT_TYPE, DataIndex: u16, PreparsedData: PHIDP_PREPARSED_DATA, #[len_param(4)] #[out] Attributes: PHIDP_EXTENDED_ATTRIBUTES, #[in] #[out] LengthAttributes: PULONG) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_GetLinkCollectionNodes(#[len_param(1)] LinkCollectionNodes: *mut HIDP_LINK_COLLECTION_NODE, #[in] #[out] LinkCollectionNodesLength: *mut u32, PreparsedData: *const _HIDP_PREPARSED_DATA) -> NTSTATUS;
+        extern fn HidP_GetLinkCollectionNodes(#[len_param(1)] #[out] LinkCollectionNodes: PHIDP_LINK_COLLECTION_NODE, #[in] #[out] LinkCollectionNodesLength: PULONG, PreparsedData: PHIDP_PREPARSED_DATA) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_GetScaledUsageValue(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, UsageValue: *mut i32, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(7)] Report: *const i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_GetScaledUsageValue(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, #[out] UsageValue: PLONG, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(7)] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_GetSpecificButtonCaps(ReportType: HIDP_REPORT_TYPE, #[opt] UsagePage: USAGE, #[opt] LinkCollection: u16, #[opt] Usage: USAGE, #[len_param(5)] ButtonCaps: *mut HIDP_BUTTON_CAPS, #[in] #[out] ButtonCapsLength: *mut u16, PreparsedData: *const _HIDP_PREPARSED_DATA) -> NTSTATUS;
+        extern fn HidP_GetSpecificButtonCaps(ReportType: HIDP_REPORT_TYPE, #[opt] UsagePage: USAGE, #[opt] LinkCollection: u16, #[opt] Usage: USAGE, #[len_param(5)] #[out] ButtonCaps: PHIDP_BUTTON_CAPS, #[in] #[out] ButtonCapsLength: PUSHORT, PreparsedData: PHIDP_PREPARSED_DATA) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_GetSpecificValueCaps(ReportType: HIDP_REPORT_TYPE, #[opt] UsagePage: USAGE, #[opt] LinkCollection: u16, #[opt] Usage: USAGE, #[len_param(5)] ValueCaps: *mut HIDP_VALUE_CAPS, #[in] #[out] ValueCapsLength: *mut u16, PreparsedData: *const _HIDP_PREPARSED_DATA) -> NTSTATUS;
+        extern fn HidP_GetSpecificValueCaps(ReportType: HIDP_REPORT_TYPE, #[opt] UsagePage: USAGE, #[opt] LinkCollection: u16, #[opt] Usage: USAGE, #[len_param(5)] #[out] ValueCaps: PHIDP_VALUE_CAPS, #[in] #[out] ValueCapsLength: PUSHORT, PreparsedData: PHIDP_PREPARSED_DATA) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_GetUsageValue(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, UsageValue: *mut u32, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(7)] Report: *const i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_GetUsageValue(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, #[out] UsageValue: PULONG, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(7)] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_GetUsageValueArray(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, #[size_param(5)] #[in] #[out] UsageValue: *mut i8, UsageValueByteLength: u16, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(8)] Report: *const i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_GetUsageValueArray(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, #[size_param(5)] #[in] #[out] UsageValue: PCHAR, UsageValueByteLength: u16, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(8)] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_GetUsages(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, #[len_param(4)] UsageList: *mut u16, #[in] #[out] UsageLength: *mut u32, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(7)] Report: *mut i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_GetUsages(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, #[len_param(4)] #[out] UsageList: PUSAGE, #[in] #[out] UsageLength: PULONG, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(7)] #[out] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_GetUsagesEx(ReportType: HIDP_REPORT_TYPE, #[opt] LinkCollection: u16, #[len_param(3)] #[in] #[out] ButtonList: *mut USAGE_AND_PAGE, #[in] #[out] UsageLength: *mut u32, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(6)] Report: *const i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_GetUsagesEx(ReportType: HIDP_REPORT_TYPE, #[opt] LinkCollection: u16, #[len_param(3)] #[in] #[out] ButtonList: PUSAGE_AND_PAGE, #[in] #[out] UsageLength: *mut u32, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(6)] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_GetValueCaps(ReportType: HIDP_REPORT_TYPE, #[len_param(2)] ValueCaps: *mut HIDP_VALUE_CAPS, #[in] #[out] ValueCapsLength: *mut u16, PreparsedData: *const _HIDP_PREPARSED_DATA) -> NTSTATUS;
+        extern fn HidP_GetValueCaps(ReportType: HIDP_REPORT_TYPE, #[len_param(2)] #[out] ValueCaps: PHIDP_VALUE_CAPS, #[in] #[out] ValueCapsLength: PUSHORT, PreparsedData: PHIDP_PREPARSED_DATA) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_InitializeReportForID(ReportType: HIDP_REPORT_TYPE, ReportID: u8, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(4)] Report: *mut i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_InitializeReportForID(ReportType: HIDP_REPORT_TYPE, ReportID: u8, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(4)] #[out] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_MaxDataListLength(ReportType: HIDP_REPORT_TYPE, PreparsedData: *const _HIDP_PREPARSED_DATA) -> u32;
+        extern fn HidP_MaxDataListLength(ReportType: HIDP_REPORT_TYPE, PreparsedData: PHIDP_PREPARSED_DATA) -> u32;
         #[library("HID.DLL")]
-        extern fn HidP_MaxUsageListLength(ReportType: HIDP_REPORT_TYPE, #[opt] UsagePage: USAGE, PreparsedData: *const _HIDP_PREPARSED_DATA) -> u32;
+        extern fn HidP_MaxUsageListLength(ReportType: HIDP_REPORT_TYPE, #[opt] UsagePage: USAGE, PreparsedData: PHIDP_PREPARSED_DATA) -> u32;
         #[library("HID.DLL")]
-        extern fn HidP_SetButtonArray(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, #[len_param(5)] ButtonData: *const HIDP_BUTTON_ARRAY_DATA, ButtonDataLength: u16, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(8)] #[in] #[out] Report: *mut i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_SetButtonArray(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, #[len_param(5)] ButtonData: PHIDP_BUTTON_ARRAY_DATA, ButtonDataLength: u16, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(8)] #[in] #[out] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_SetData(ReportType: HIDP_REPORT_TYPE, #[len_param(2)] #[in] #[out] DataList: *mut HIDP_DATA, #[in] #[out] DataLength: *mut u32, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(5)] Report: *const i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_SetData(ReportType: HIDP_REPORT_TYPE, #[len_param(2)] #[in] #[out] DataList: PHIDP_DATA, #[in] #[out] DataLength: PULONG, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(5)] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_SetScaledUsageValue(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, UsageValue: i32, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(7)] #[in] #[out] Report: *mut i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_SetScaledUsageValue(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, UsageValue: i32, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(7)] #[in] #[out] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_SetUsageValue(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, UsageValue: u32, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(7)] #[in] #[out] Report: *mut i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_SetUsageValue(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, UsageValue: u32, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(7)] #[in] #[out] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_SetUsageValueArray(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, #[size_param(5)] UsageValue: *const i8, UsageValueByteLength: u16, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(8)] #[in] #[out] Report: *mut i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_SetUsageValueArray(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, Usage: USAGE, #[size_param(5)] UsageValue: PCHAR, UsageValueByteLength: u16, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(8)] #[in] #[out] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_SetUsages(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, #[len_param(4)] #[in] #[out] UsageList: *mut u16, #[in] #[out] UsageLength: *mut u32, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(7)] Report: *const i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_SetUsages(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, #[len_param(4)] #[in] #[out] UsageList: PUSAGE, #[in] #[out] UsageLength: PULONG, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(7)] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_TranslateUsagesToI8042ScanCodes(#[len_param(1)] ChangedUsageList: *const u16, UsageListLength: u32, KeyAction: HIDP_KEYBOARD_DIRECTION, #[in] #[out] ModifierState: *mut HIDP_KEYBOARD_MODIFIER_STATE, InsertCodesProcedure: PHIDP_INSERT_SCANCODES, #[opt] InsertCodesContext: *const void) -> NTSTATUS;
+        extern fn HidP_TranslateUsagesToI8042ScanCodes(#[len_param(1)] ChangedUsageList: PUSAGE, UsageListLength: u32, KeyAction: HIDP_KEYBOARD_DIRECTION, #[in] #[out] ModifierState: PHIDP_KEYBOARD_MODIFIER_STATE, InsertCodesProcedure: PHIDP_INSERT_SCANCODES, #[in] #[opt] InsertCodesContext: *mut void) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_UnsetUsages(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, #[len_param(4)] #[in] #[out] UsageList: *mut u16, #[in] #[out] UsageLength: *mut u32, PreparsedData: *const _HIDP_PREPARSED_DATA, #[size_param(7)] Report: *const i8, ReportLength: u32) -> NTSTATUS;
+        extern fn HidP_UnsetUsages(ReportType: HIDP_REPORT_TYPE, UsagePage: USAGE, #[opt] LinkCollection: u16, #[len_param(4)] #[in] #[out] UsageList: PUSAGE, #[in] #[out] UsageLength: PULONG, PreparsedData: PHIDP_PREPARSED_DATA, #[size_param(7)] Report: PCHAR, ReportLength: u32) -> NTSTATUS;
         #[library("HID.DLL")]
-        extern fn HidP_UsageListDifference(#[len_param(4)] PreviousUsageList: *const u16, #[len_param(4)] CurrentUsageList: *const u16, #[len_param(4)] BreakUsageList: *mut u16, #[len_param(4)] MakeUsageList: *mut u16, UsageListLength: u32) -> NTSTATUS;
-        extern fn PFN_HidP_GetVersionInternal(Version: *mut u32) -> NTSTATUS;
+        extern fn HidP_UsageListDifference(#[len_param(4)] PreviousUsageList: PUSAGE, #[len_param(4)] CurrentUsageList: PUSAGE, #[len_param(4)] #[out] BreakUsageList: PUSAGE, #[len_param(4)] #[out] MakeUsageList: PUSAGE, UsageListLength: u32) -> NTSTATUS;
+        extern "C" fn PFN_HidP_GetVersionInternal(Version: *mut u32) -> NTSTATUS;
         type PHIDP_BUTTON_ARRAY_DATA = *mut HIDP_BUTTON_ARRAY_DATA;
         type PHIDP_BUTTON_CAPS = *mut HIDP_BUTTON_CAPS;
         type PHIDP_CAPS = *mut HIDP_CAPS;
         type PHIDP_DATA = *mut HIDP_DATA;
         type PHIDP_EXTENDED_ATTRIBUTES = *mut HIDP_EXTENDED_ATTRIBUTES;
-        extern fn PHIDP_INSERT_SCANCODES(#[opt] Context: *const void, #[size_param(2)] NewScanCodes: *const i8, Length: u32) -> bool;
+        extern "C" fn PHIDP_INSERT_SCANCODES(#[in] #[opt] Context: *mut void, #[size_param(2)] NewScanCodes: PCHAR, Length: u32) -> BOOLEAN;
         type PHIDP_KEYBOARD_MODIFIER_STATE = *mut HIDP_KEYBOARD_MODIFIER_STATE;
         type PHIDP_LINK_COLLECTION_NODE = *mut HIDP_LINK_COLLECTION_NODE;
-        type PHIDP_PREPARSED_DATA = *mut _HIDP_PREPARSED_DATA;
+        type PHIDP_PREPARSED_DATA = *mut HIDP_PREPARSED_DATA;
         type PHIDP_REPORT_DESCRIPTOR = PUCHAR;
         type PHIDP_UNKNOWN_TOKEN = *mut HIDP_UNKNOWN_TOKEN;
         type PHIDP_VALUE_CAPS = *mut HIDP_VALUE_CAPS;
@@ -291,6 +292,5 @@ mod Windows {
             Usage: USAGE,
             UsagePage: USAGE,
         }
-        struct _HIDP_PREPARSED_DATA {}
     }
 }

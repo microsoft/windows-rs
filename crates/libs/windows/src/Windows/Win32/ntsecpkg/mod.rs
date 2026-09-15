@@ -5,9 +5,9 @@ pub const CredFetchForced: CRED_FETCH = 2;
 pub type KSEC_CONTEXT_TYPE = i32;
 pub type KSEC_CREATE_CONTEXT_LIST = Option<unsafe extern "system" fn(r#type: KSEC_CONTEXT_TYPE) -> *mut core::ffi::c_void>;
 #[cfg(feature = "winnt")]
-pub type KSEC_DEREFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: *const KSEC_LIST_ENTRY, delete: *mut bool)>;
+pub type KSEC_DEREFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: PKSEC_LIST_ENTRY, delete: *mut super::BOOLEAN)>;
 #[cfg(feature = "winnt")]
-pub type KSEC_INSERT_LIST_ENTRY = Option<unsafe extern "system" fn(list: *const core::ffi::c_void, entry: *const KSEC_LIST_ENTRY)>;
+pub type KSEC_INSERT_LIST_ENTRY = Option<unsafe extern "system" fn(list: *const core::ffi::c_void, entry: PKSEC_LIST_ENTRY)>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -20,54 +20,60 @@ pub struct KSEC_LIST_ENTRY {
 }
 pub type KSEC_LOCATE_PKG_BY_ID = Option<unsafe extern "system" fn(packageid: u32) -> *mut core::ffi::c_void>;
 #[cfg(feature = "winnt")]
-pub type KSEC_REFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: *const KSEC_LIST_ENTRY, signature: u32, removenoref: bool) -> windows_core::NTSTATUS>;
-pub type KSEC_SERIALIZE_SCHANNEL_AUTH_DATA = Option<unsafe extern "system" fn(pvauthdata: *const core::ffi::c_void, size: *mut u32, serializeddata: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type KSEC_SERIALIZE_WINNT_AUTH_DATA = Option<unsafe extern "system" fn(pvauthdata: *const core::ffi::c_void, size: *mut u32, serializeddata: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type KSEC_REFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: PKSEC_LIST_ENTRY, signature: u32, removenoref: super::BOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type KSEC_SERIALIZE_SCHANNEL_AUTH_DATA = Option<unsafe extern "system" fn(pvauthdata: *const core::ffi::c_void, size: super::PULONG, serializeddata: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type KSEC_SERIALIZE_WINNT_AUTH_DATA = Option<unsafe extern "system" fn(pvauthdata: *const core::ffi::c_void, size: super::PULONG, serializeddata: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub const KSecNonPaged: KSEC_CONTEXT_TYPE = 1;
 pub const KSecPaged: KSEC_CONTEXT_TYPE = 0;
 #[cfg(feature = "sspi")]
-pub type KspCompleteTokenFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, token: *const super::SecBufferDesc) -> windows_core::NTSTATUS>;
-pub type KspDeleteContextFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, lsacontextid: *mut LSA_SEC_HANDLE) -> windows_core::NTSTATUS>;
+pub type KspCompleteTokenFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, token: super::PSecBufferDesc) -> windows_core::NTSTATUS>;
+pub type KspDeleteContextFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, lsacontextid: PLSA_SEC_HANDLE) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type KspGetTokenFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, impersonationtoken: *mut super::HANDLE, rawtoken: *mut super::PACCESS_TOKEN) -> windows_core::NTSTATUS>;
+pub type KspGetTokenFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, impersonationtoken: super::PHANDLE, rawtoken: *mut super::PACCESS_TOKEN) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type KspInitContextFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, contextdata: *const super::SecBuffer, newcontextid: *mut LSA_SEC_HANDLE) -> windows_core::NTSTATUS>;
-#[cfg(feature = "winnt")]
-pub type KspInitPackageFn = Option<unsafe extern "system" fn(functiontable: *const SECPKG_KERNEL_FUNCTIONS) -> windows_core::NTSTATUS>;
+pub type KspInitContextFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, contextdata: super::PSecBuffer, newcontextid: PLSA_SEC_HANDLE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type KspInitPackageFn = Option<unsafe extern "system" fn(functiontable: PSECPKG_KERNEL_FUNCTIONS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type KspMakeSignatureFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, fqop: u32, message: *const super::SecBufferDesc, messageseqno: u32) -> windows_core::NTSTATUS>;
-pub type KspMapHandleFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, lsacontextid: *mut LSA_SEC_HANDLE) -> windows_core::NTSTATUS>;
+pub type KspMakeSignatureFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, fqop: u32, message: super::PSecBufferDesc, messageseqno: u32) -> windows_core::NTSTATUS>;
+pub type KspMapHandleFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, lsacontextid: PLSA_SEC_HANDLE) -> windows_core::NTSTATUS>;
 pub type KspQueryAttributesFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, attribute: u32, buffer: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type KspSealMessageFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, fqop: u32, message: *const super::SecBufferDesc, messageseqno: u32) -> windows_core::NTSTATUS>;
-pub type KspSerializeAuthDataFn = Option<unsafe extern "system" fn(pvauthdata: *const core::ffi::c_void, size: *mut u32, serializeddata: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type KspSetPagingModeFn = Option<unsafe extern "system" fn(pagingmode: bool) -> windows_core::NTSTATUS>;
-#[cfg(feature = "sspi")]
-pub type KspUnsealMessageFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, message: *const super::SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> windows_core::NTSTATUS>;
-#[cfg(feature = "sspi")]
-pub type KspVerifySignatureFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, message: *const super::SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> windows_core::NTSTATUS>;
+pub type KspSealMessageFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, fqop: u32, message: super::PSecBufferDesc, messageseqno: u32) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type KspSerializeAuthDataFn = Option<unsafe extern "system" fn(pvauthdata: *const core::ffi::c_void, size: super::PULONG, serializeddata: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type KspSetPagingModeFn = Option<unsafe extern "system" fn(pagingmode: super::BOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "sspi"))]
+pub type KspUnsealMessageFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, message: super::PSecBufferDesc, messageseqno: u32, pfqop: super::PULONG) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "sspi"))]
+pub type KspVerifySignatureFn = Option<unsafe extern "system" fn(contextid: LSA_SEC_HANDLE, message: super::PSecBufferDesc, messageseqno: u32, pfqop: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-pub type LSA_ADD_CREDENTIAL = Option<unsafe extern "system" fn(logonid: *const super::LUID, authenticationpackage: u32, primarykeyvalue: *const super::LSA_STRING, credentials: *const super::LSA_STRING) -> windows_core::NTSTATUS>;
-pub type LSA_ALLOCATE_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, lengthrequired: u32, clientbaseaddress: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type LSA_ADD_CREDENTIAL = Option<unsafe extern "system" fn(logonid: super::PLUID, authenticationpackage: u32, primarykeyvalue: super::PLSA_STRING, credentials: super::PLSA_STRING) -> windows_core::NTSTATUS>;
+pub type LSA_ALLOCATE_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, lengthrequired: u32, clientbaseaddress: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type LSA_ALLOCATE_LSA_HEAP = Option<unsafe extern "system" fn(length: u32) -> *mut core::ffi::c_void>;
 pub type LSA_ALLOCATE_PRIVATE_HEAP = Option<unsafe extern "system" fn(length: usize) -> *mut core::ffi::c_void>;
 pub type LSA_ALLOCATE_SHARED_MEMORY = Option<unsafe extern "system" fn(sharedmem: *const core::ffi::c_void, size: u32) -> *mut core::ffi::c_void>;
-pub type LSA_AP_CALL_PACKAGE = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> windows_core::NTSTATUS>;
-pub type LSA_AP_CALL_PACKAGE_PASSTHROUGH = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> windows_core::NTSTATUS>;
-pub type LSA_AP_CALL_PACKAGE_UNTRUSTED = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-pub type LSA_AP_INITIALIZE_PACKAGE = Option<unsafe extern "system" fn(authenticationpackageid: u32, lsadispatchtable: *const LSA_DISPATCH_TABLE, database: *const super::LSA_STRING, confidentiality: *const super::LSA_STRING, authenticationpackagename: *mut super::PLSA_STRING) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
+pub type LSA_AP_CALL_PACKAGE = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: super::PULONG, protocolstatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
+pub type LSA_AP_CALL_PACKAGE_PASSTHROUGH = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: super::PULONG, protocolstatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
+pub type LSA_AP_CALL_PACKAGE_UNTRUSTED = Option<unsafe extern "C" fn(clientrequest: PLSA_CLIENT_REQUEST, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: super::PULONG, protocolstatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+pub type LSA_AP_INITIALIZE_PACKAGE = Option<unsafe extern "system" fn(authenticationpackageid: u32, lsadispatchtable: PLSA_DISPATCH_TABLE, database: super::PLSA_STRING, confidentiality: super::PLSA_STRING, authenticationpackagename: *mut super::PLSA_STRING) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type LSA_AP_LOGON_TERMINATED = Option<unsafe extern "system" fn(logonid: *const super::LUID)>;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type LSA_AP_LOGON_USER = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, logontype: super::SECURITY_LOGON_TYPE, authenticationinformation: *const core::ffi::c_void, clientauthenticationbase: *const core::ffi::c_void, authenticationinformationlength: u32, profilebuffer: *mut *mut core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::LUID, substatus: *mut i32, tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut core::ffi::c_void, accountname: *mut super::PLSA_UNICODE_STRING, authenticatingauthority: *mut super::PLSA_UNICODE_STRING) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-pub type LSA_AP_LOGON_USER_EX = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, logontype: super::SECURITY_LOGON_TYPE, authenticationinformation: *const core::ffi::c_void, clientauthenticationbase: *const core::ffi::c_void, authenticationinformationlength: u32, profilebuffer: *mut *mut core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::LUID, substatus: *mut i32, tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut core::ffi::c_void, accountname: *mut super::PUNICODE_STRING, authenticatingauthority: *mut super::PUNICODE_STRING, machinename: *mut super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-pub type LSA_AP_LOGON_USER_EX2 = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, logontype: super::SECURITY_LOGON_TYPE, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbuffersize: u32, profilebuffer: *mut *mut core::ffi::c_void, profilebuffersize: *mut u32, logonid: *mut super::LUID, substatus: *mut i32, tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut core::ffi::c_void, accountname: *mut super::PUNICODE_STRING, authenticatingauthority: *mut super::PUNICODE_STRING, machinename: *mut super::PUNICODE_STRING, primarycredentials: *mut SECPKG_PRIMARY_CRED, supplementalcredentials: *mut PSECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-pub type LSA_AP_LOGON_USER_EX3 =
-    Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, logontype: super::SECURITY_LOGON_TYPE, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbuffersize: u32, surrogatelogon: *mut SECPKG_SURROGATE_LOGON, profilebuffer: *mut *mut core::ffi::c_void, profilebuffersize: *mut u32, logonid: *mut super::LUID, substatus: *mut i32, tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut core::ffi::c_void, accountname: *mut super::PUNICODE_STRING, authenticatingauthority: *mut super::PUNICODE_STRING, machinename: *mut super::PUNICODE_STRING, primarycredentials: *mut SECPKG_PRIMARY_CRED, supplementalcredentials: *mut PSECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_core::NTSTATUS>;
+pub type LSA_AP_LOGON_TERMINATED = Option<unsafe extern "system" fn(logonid: super::PLUID)>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+pub type LSA_AP_LOGON_USER = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, logontype: super::SECURITY_LOGON_TYPE, authenticationinformation: *const core::ffi::c_void, clientauthenticationbase: *const core::ffi::c_void, authenticationinformationlength: u32, profilebuffer: *mut *mut core::ffi::c_void, profilebufferlength: super::PULONG, logonid: super::PLUID, substatus: super::PNTSTATUS, tokeninformationtype: PLSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut core::ffi::c_void, accountname: *mut super::PLSA_UNICODE_STRING, authenticatingauthority: *mut super::PLSA_UNICODE_STRING) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+pub type LSA_AP_LOGON_USER_EX = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, logontype: super::SECURITY_LOGON_TYPE, authenticationinformation: *const core::ffi::c_void, clientauthenticationbase: *const core::ffi::c_void, authenticationinformationlength: u32, profilebuffer: *mut *mut core::ffi::c_void, profilebufferlength: super::PULONG, logonid: super::PLUID, substatus: super::PNTSTATUS, tokeninformationtype: PLSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut core::ffi::c_void, accountname: *mut super::PUNICODE_STRING, authenticatingauthority: *mut super::PUNICODE_STRING, machinename: *mut super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+pub type LSA_AP_LOGON_USER_EX2 = Option<unsafe extern "C" fn(clientrequest: PLSA_CLIENT_REQUEST, logontype: super::SECURITY_LOGON_TYPE, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbuffersize: u32, profilebuffer: *mut *mut core::ffi::c_void, profilebuffersize: super::PULONG, logonid: super::PLUID, substatus: super::PNTSTATUS, tokeninformationtype: PLSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut core::ffi::c_void, accountname: *mut super::PUNICODE_STRING, authenticatingauthority: *mut super::PUNICODE_STRING, machinename: *mut super::PUNICODE_STRING, primarycredentials: PSECPKG_PRIMARY_CRED, supplementalcredentials: *mut PSECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+pub type LSA_AP_LOGON_USER_EX3 = Option<unsafe extern "C" fn(clientrequest: PLSA_CLIENT_REQUEST, logontype: super::SECURITY_LOGON_TYPE, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbuffersize: u32, surrogatelogon: PSECPKG_SURROGATE_LOGON, profilebuffer: *mut *mut core::ffi::c_void, profilebuffersize: super::PULONG, logonid: super::PLUID, substatus: super::PNTSTATUS, tokeninformationtype: PLSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut core::ffi::c_void, accountname: *mut super::PUNICODE_STRING, authenticatingauthority: *mut super::PUNICODE_STRING, machinename: *mut super::PUNICODE_STRING, primarycredentials: PSECPKG_PRIMARY_CRED, supplementalcredentials: *mut PSECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_core::NTSTATUS>;
 pub const LSA_AP_NAME_CALL_PACKAGE: windows_core::PCSTR = windows_core::s!("LsaApCallPackage\u{0}");
 pub const LSA_AP_NAME_CALL_PACKAGE_PASSTHROUGH: windows_core::PCSTR = windows_core::s!("LsaApCallPackagePassthrough\u{0}");
 pub const LSA_AP_NAME_CALL_PACKAGE_UNTRUSTED: windows_core::PCSTR = windows_core::s!("LsaApCallPackageUntrusted\u{0}");
@@ -77,75 +83,56 @@ pub const LSA_AP_NAME_LOGON_USER: windows_core::PCSTR = windows_core::s!("LsaApL
 pub const LSA_AP_NAME_LOGON_USER_EX: windows_core::PCSTR = windows_core::s!("LsaApLogonUserEx\u{0}");
 pub const LSA_AP_NAME_LOGON_USER_EX2: windows_core::PCSTR = windows_core::s!("LsaApLogonUserEx2\u{0}");
 #[cfg(feature = "winnt")]
-pub type LSA_AP_POST_LOGON_USER = Option<unsafe extern "system" fn(postlogonuserinfo: *const SECPKG_POST_LOGON_USER_INFO) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-pub type LSA_AP_POST_LOGON_USER_SURROGATE = Option<
-    unsafe extern "system" fn(
-        clientrequest: *const *const core::ffi::c_void,
-        logontype: super::SECURITY_LOGON_TYPE,
-        protocolsubmitbuffer: *const core::ffi::c_void,
-        clientbufferbase: *const core::ffi::c_void,
-        submitbuffersize: u32,
-        surrogatelogon: *const SECPKG_SURROGATE_LOGON,
-        profilebuffer: *const core::ffi::c_void,
-        profilebuffersize: u32,
-        logonid: *const super::LUID,
-        status: windows_core::NTSTATUS,
-        substatus: windows_core::NTSTATUS,
-        tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE,
-        tokeninformation: *const core::ffi::c_void,
-        accountname: *const super::LSA_UNICODE_STRING,
-        authenticatingauthority: *const super::LSA_UNICODE_STRING,
-        machinename: *const super::LSA_UNICODE_STRING,
-        primarycredentials: *const SECPKG_PRIMARY_CRED,
-        supplementalcredentials: *const SECPKG_SUPPLEMENTAL_CRED_ARRAY,
-    ) -> windows_core::NTSTATUS,
->;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-pub type LSA_AP_PRE_LOGON_USER_SURROGATE = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, logontype: super::SECURITY_LOGON_TYPE, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbuffersize: u32, surrogatelogon: *mut SECPKG_SURROGATE_LOGON, substatus: *mut i32) -> windows_core::NTSTATUS>;
-#[cfg(feature = "lsalookup")]
-pub type LSA_AUDIT_ACCOUNT_LOGON = Option<unsafe extern "system" fn(auditid: u32, success: bool, source: *const super::LSA_UNICODE_STRING, clientname: *const super::LSA_UNICODE_STRING, mappedname: *const super::LSA_UNICODE_STRING, status: windows_core::NTSTATUS) -> windows_core::NTSTATUS>;
+pub type LSA_AP_POST_LOGON_USER = Option<unsafe extern "system" fn(postlogonuserinfo: PSECPKG_POST_LOGON_USER_INFO) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+pub type LSA_AP_POST_LOGON_USER_SURROGATE =
+    Option<unsafe extern "C" fn(clientrequest: PLSA_CLIENT_REQUEST, logontype: super::SECURITY_LOGON_TYPE, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbuffersize: u32, surrogatelogon: PSECPKG_SURROGATE_LOGON, profilebuffer: *const core::ffi::c_void, profilebuffersize: u32, logonid: super::PLUID, status: windows_core::NTSTATUS, substatus: windows_core::NTSTATUS, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *const core::ffi::c_void, accountname: super::PUNICODE_STRING, authenticatingauthority: super::PUNICODE_STRING, machinename: super::PUNICODE_STRING, primarycredentials: PSECPKG_PRIMARY_CRED, supplementalcredentials: PSECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "ntsecapi", feature = "winnt"))]
+pub type LSA_AP_PRE_LOGON_USER_SURROGATE = Option<unsafe extern "C" fn(clientrequest: PLSA_CLIENT_REQUEST, logontype: super::SECURITY_LOGON_TYPE, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbuffersize: u32, surrogatelogon: PSECPKG_SURROGATE_LOGON, substatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type LSA_AUDIT_LOGON = Option<unsafe extern "system" fn(status: windows_core::NTSTATUS, substatus: windows_core::NTSTATUS, accountname: *const super::LSA_UNICODE_STRING, authenticatingauthority: *const super::LSA_UNICODE_STRING, workstationname: *const super::LSA_UNICODE_STRING, usersid: super::PSID, logontype: super::SECURITY_LOGON_TYPE, tokensource: *const super::TOKEN_SOURCE, logonid: *const super::LUID)>;
+pub type LSA_AUDIT_ACCOUNT_LOGON = Option<unsafe extern "system" fn(auditid: u32, success: super::BOOLEAN, source: super::PUNICODE_STRING, clientname: super::PUNICODE_STRING, mappedname: super::PUNICODE_STRING, status: windows_core::NTSTATUS) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type LSA_AUDIT_LOGON_EX = Option<unsafe extern "system" fn(status: windows_core::NTSTATUS, substatus: windows_core::NTSTATUS, accountname: *const super::LSA_UNICODE_STRING, authenticatingauthority: *const super::LSA_UNICODE_STRING, workstationname: *const super::LSA_UNICODE_STRING, usersid: super::PSID, logontype: super::SECURITY_LOGON_TYPE, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokensource: *const super::TOKEN_SOURCE, logonid: *const super::LUID)>;
+pub type LSA_AUDIT_LOGON = Option<unsafe extern "system" fn(status: windows_core::NTSTATUS, substatus: windows_core::NTSTATUS, accountname: super::PUNICODE_STRING, authenticatingauthority: super::PUNICODE_STRING, workstationname: super::PUNICODE_STRING, usersid: super::PSID, logontype: super::SECURITY_LOGON_TYPE, tokensource: super::PTOKEN_SOURCE, logonid: super::PLUID)>;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type LSA_AUDIT_LOGON_EX = Option<unsafe extern "system" fn(status: windows_core::NTSTATUS, substatus: windows_core::NTSTATUS, accountname: super::PUNICODE_STRING, authenticatingauthority: super::PUNICODE_STRING, workstationname: super::PUNICODE_STRING, usersid: super::PSID, logontype: super::SECURITY_LOGON_TYPE, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokensource: super::PTOKEN_SOURCE, logonid: super::PLUID)>;
 #[cfg(feature = "sspi")]
-pub type LSA_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(argument1: usize, argument2: usize, inputbuffer: *mut super::SecBuffer, outputbuffer: *mut super::SecBuffer) -> windows_core::NTSTATUS>;
-#[cfg(feature = "lsalookup")]
-pub type LSA_CALL_PACKAGE = Option<unsafe extern "system" fn(authenticationpackage: *const super::LSA_UNICODE_STRING, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> windows_core::NTSTATUS>;
-#[cfg(feature = "lsalookup")]
-pub type LSA_CALL_PACKAGEEX = Option<unsafe extern "system" fn(authenticationpackage: *const super::LSA_UNICODE_STRING, clientbufferbase: *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> windows_core::NTSTATUS>;
-#[cfg(feature = "lsalookup")]
-pub type LSA_CALL_PACKAGE_PASSTHROUGH = Option<unsafe extern "system" fn(authenticationpackage: *const super::LSA_UNICODE_STRING, clientbufferbase: *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> windows_core::NTSTATUS>;
+pub type LSA_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(argument1: usize, argument2: usize, inputbuffer: super::PSecBuffer, outputbuffer: super::PSecBuffer) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
+pub type LSA_CALL_PACKAGE = Option<unsafe extern "system" fn(authenticationpackage: super::PUNICODE_STRING, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: super::PULONG, protocolstatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
+pub type LSA_CALL_PACKAGEEX = Option<unsafe extern "system" fn(authenticationpackage: super::PUNICODE_STRING, clientbufferbase: *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: super::PULONG, protocolstatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
+pub type LSA_CALL_PACKAGE_PASSTHROUGH = Option<unsafe extern "system" fn(authenticationpackage: super::PUNICODE_STRING, clientbufferbase: *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: super::PULONG, protocolstatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type LSA_CANCEL_NOTIFICATION = Option<unsafe extern "system" fn(notifyhandle: super::HANDLE) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type LSA_CHECK_PROTECTED_USER_BY_TOKEN = Option<unsafe extern "system" fn(usertoken: super::HANDLE, protecteduser: *mut bool) -> windows_core::NTSTATUS>;
-#[cfg(feature = "sspi")]
-pub type LSA_CLIENT_CALLBACK = Option<unsafe extern "system" fn(callback: *const i8, argument1: usize, argument2: usize, input: *const super::SecBuffer, output: *mut super::SecBuffer) -> windows_core::NTSTATUS>;
+pub type LSA_CHECK_PROTECTED_USER_BY_TOKEN = Option<unsafe extern "system" fn(usertoken: super::HANDLE, protecteduser: super::PBOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "sspi", feature = "winnt"))]
+pub type LSA_CLIENT_CALLBACK = Option<unsafe extern "system" fn(callback: super::PCHAR, argument1: usize, argument2: usize, input: super::PSecBuffer, output: super::PSecBuffer) -> windows_core::NTSTATUS>;
 pub type LSA_CLOSE_SAM_USER = Option<unsafe extern "system" fn(userhandle: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type LSA_CONVERT_AUTH_DATA_TO_TOKEN = Option<unsafe extern "system" fn(userauthdata: *const core::ffi::c_void, userauthdatasize: u32, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokensource: *const super::TOKEN_SOURCE, logontype: super::SECURITY_LOGON_TYPE, authorityname: *const super::LSA_UNICODE_STRING, token: *mut super::HANDLE, logonid: *mut super::LUID, accountname: *mut super::LSA_UNICODE_STRING, substatus: *mut i32) -> windows_core::NTSTATUS>;
-pub type LSA_COPY_FROM_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, length: u32, buffertocopy: *mut core::ffi::c_void, clientbaseaddress: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type LSA_COPY_TO_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, length: u32, clientbaseaddress: *mut core::ffi::c_void, buffertocopy: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(feature = "lsalookup")]
-pub type LSA_CRACK_SINGLE_NAME = Option<unsafe extern "system" fn(formatoffered: u32, performatgc: bool, nameinput: *const super::LSA_UNICODE_STRING, prefix: *const super::LSA_UNICODE_STRING, requestedformat: u32, crackedname: *mut super::LSA_UNICODE_STRING, dnsdomainname: *mut super::LSA_UNICODE_STRING, substatus: *mut u32) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type LSA_CONVERT_AUTH_DATA_TO_TOKEN = Option<unsafe extern "system" fn(userauthdata: *const core::ffi::c_void, userauthdatasize: u32, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokensource: super::PTOKEN_SOURCE, logontype: super::SECURITY_LOGON_TYPE, authorityname: super::PUNICODE_STRING, token: super::PHANDLE, logonid: super::PLUID, accountname: super::PUNICODE_STRING, substatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+pub type LSA_COPY_FROM_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, length: u32, buffertocopy: *mut core::ffi::c_void, clientbaseaddress: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type LSA_COPY_TO_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, length: u32, clientbaseaddress: *mut core::ffi::c_void, buffertocopy: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+pub type LSA_CRACK_SINGLE_NAME = Option<unsafe extern "system" fn(formatoffered: u32, performatgc: super::BOOLEAN, nameinput: super::PUNICODE_STRING, prefix: super::PUNICODE_STRING, requestedformat: u32, crackedname: super::PUNICODE_STRING, dnsdomainname: super::PUNICODE_STRING, substatus: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type LSA_CREATE_LOGON_SESSION = Option<unsafe extern "system" fn(logonid: *mut super::LUID) -> windows_core::NTSTATUS>;
+pub type LSA_CREATE_LOGON_SESSION = Option<unsafe extern "system" fn(logonid: super::PLUID) -> windows_core::NTSTATUS>;
 pub type LSA_CREATE_SHARED_MEMORY = Option<unsafe extern "system" fn(maxsize: u32, initialsize: u32) -> *mut core::ffi::c_void>;
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-pub type LSA_CREATE_THREAD = Option<unsafe extern "system" fn(securityattributes: SEC_ATTRS, stacksize: u32, startfunction: SEC_THREAD_START, threadparameter: *const core::ffi::c_void, creationflags: u32, threadid: *mut u32) -> super::HANDLE>;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type LSA_CREATE_TOKEN = Option<unsafe extern "system" fn(logonid: *const super::LUID, tokensource: *const super::TOKEN_SOURCE, logontype: super::SECURITY_LOGON_TYPE, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *const core::ffi::c_void, tokengroups: *const super::TOKEN_GROUPS, accountname: *const super::LSA_UNICODE_STRING, authorityname: *const super::LSA_UNICODE_STRING, workstation: *const super::LSA_UNICODE_STRING, profilepath: *const super::LSA_UNICODE_STRING, token: *mut super::HANDLE, substatus: *mut i32) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type LSA_CREATE_TOKEN_EX = Option<unsafe extern "system" fn(logonid: *const super::LUID, tokensource: *const super::TOKEN_SOURCE, logontype: super::SECURITY_LOGON_TYPE, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *const core::ffi::c_void, tokengroups: *const super::TOKEN_GROUPS, workstation: *const super::LSA_UNICODE_STRING, profilepath: *const super::LSA_UNICODE_STRING, sessioninformation: *const core::ffi::c_void, sessioninformationtype: SECPKG_SESSIONINFO_TYPE, token: *mut super::HANDLE, substatus: *mut i32) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+pub type LSA_CREATE_THREAD = Option<unsafe extern "system" fn(securityattributes: SEC_ATTRS, stacksize: u32, startfunction: SEC_THREAD_START, threadparameter: *const core::ffi::c_void, creationflags: u32, threadid: super::PULONG) -> super::HANDLE>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type LSA_CREATE_TOKEN = Option<unsafe extern "system" fn(logonid: super::PLUID, tokensource: super::PTOKEN_SOURCE, logontype: super::SECURITY_LOGON_TYPE, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *const core::ffi::c_void, tokengroups: super::PTOKEN_GROUPS, accountname: super::PUNICODE_STRING, authorityname: super::PUNICODE_STRING, workstation: super::PUNICODE_STRING, profilepath: super::PUNICODE_STRING, token: super::PHANDLE, substatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type LSA_CREATE_TOKEN_EX = Option<unsafe extern "system" fn(logonid: super::PLUID, tokensource: super::PTOKEN_SOURCE, logontype: super::SECURITY_LOGON_TYPE, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *const core::ffi::c_void, tokengroups: super::PTOKEN_GROUPS, workstation: super::PUNICODE_STRING, profilepath: super::PUNICODE_STRING, sessioninformation: *const core::ffi::c_void, sessioninformationtype: SECPKG_SESSIONINFO_TYPE, token: super::PHANDLE, substatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-pub type LSA_DELETE_CREDENTIAL = Option<unsafe extern "system" fn(logonid: *const super::LUID, authenticationpackage: u32, primarykeyvalue: *const super::LSA_STRING) -> windows_core::NTSTATUS>;
+pub type LSA_DELETE_CREDENTIAL = Option<unsafe extern "system" fn(logonid: super::PLUID, authenticationpackage: u32, primarykeyvalue: super::PLSA_STRING) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type LSA_DELETE_LOGON_SESSION = Option<unsafe extern "system" fn(logonid: *const super::LUID) -> windows_core::NTSTATUS>;
-pub type LSA_DELETE_SHARED_MEMORY = Option<unsafe extern "system" fn(sharedmem: *const core::ffi::c_void) -> bool>;
+pub type LSA_DELETE_LOGON_SESSION = Option<unsafe extern "system" fn(logonid: super::PLUID) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type LSA_DELETE_SHARED_MEMORY = Option<unsafe extern "system" fn(sharedmem: *const core::ffi::c_void) -> super::BOOLEAN>;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct LSA_DISPATCH_TABLE {
     pub CreateLogonSession: PLSA_CREATE_LOGON_SESSION,
@@ -161,66 +148,65 @@ pub struct LSA_DISPATCH_TABLE {
     pub CopyFromClientBuffer: PLSA_COPY_FROM_CLIENT_BUFFER,
 }
 #[cfg(feature = "winnt")]
-pub type LSA_DUPLICATE_HANDLE = Option<unsafe extern "system" fn(sourcehandle: super::HANDLE, destionationhandle: *mut super::HANDLE) -> windows_core::NTSTATUS>;
+pub type LSA_DUPLICATE_HANDLE = Option<unsafe extern "system" fn(sourcehandle: super::HANDLE, destionationhandle: super::PHANDLE) -> windows_core::NTSTATUS>;
 #[cfg(feature = "minwindef")]
-pub type LSA_EXPAND_AUTH_DATA_FOR_DOMAIN = Option<unsafe extern "system" fn(userauthdata: *const u8, userauthdatasize: u32, reserved: *const core::ffi::c_void, expandedauthdata: *mut super::PUCHAR, expandedauthdatasize: *mut u32) -> windows_core::NTSTATUS>;
-pub type LSA_FREE_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, clientbaseaddress: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type LSA_EXPAND_AUTH_DATA_FOR_DOMAIN = Option<unsafe extern "system" fn(userauthdata: super::PUCHAR, userauthdatasize: u32, reserved: *const core::ffi::c_void, expandedauthdata: *mut super::PUCHAR, expandedauthdatasize: super::PULONG) -> windows_core::NTSTATUS>;
+pub type LSA_FREE_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, clientbaseaddress: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type LSA_FREE_LSA_HEAP = Option<unsafe extern "system" fn(base: *const core::ffi::c_void)>;
 pub type LSA_FREE_PRIVATE_HEAP = Option<unsafe extern "system" fn(base: *const core::ffi::c_void)>;
 pub type LSA_FREE_SHARED_MEMORY = Option<unsafe extern "system" fn(sharedmem: *const core::ffi::c_void, memory: *mut core::ffi::c_void)>;
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "sspi")]
-pub type LSA_GET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: *mut u32, argument1: *mut u32, argument2: *mut u32, userdata: *mut super::SecBuffer, returntolsa: *mut bool) -> windows_core::NTSTATUS>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "sspi")]
-pub type LSA_GET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: *mut u32, argument1: *mut u64, argument2: *mut u64, userdata: *mut super::SecBuffer, returntolsa: *mut bool) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "sspi"))]
-pub type LSA_GET_AUTH_DATA_FOR_USER = Option<unsafe extern "system" fn(name: *const super::SECURITY_STRING, nametype: SECPKG_NAME_TYPE, prefix: *const super::SECURITY_STRING, userauthdata: *mut super::PUCHAR, userauthdatasize: *mut u32, userflatname: *mut super::LSA_UNICODE_STRING) -> windows_core::NTSTATUS>;
-pub type LSA_GET_CALL_INFO = Option<unsafe extern "system" fn(info: *mut SECPKG_CALL_INFO) -> bool>;
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "sspi", feature = "winnt"))]
+pub type LSA_GET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: super::PULONG, argument1: super::PULONG_PTR, argument2: super::PULONG_PTR, userdata: super::PSecBuffer, returntolsa: super::PBOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "sspi"))]
+pub type LSA_GET_AUTH_DATA_FOR_USER = Option<unsafe extern "system" fn(name: super::PSECURITY_STRING, nametype: SECPKG_NAME_TYPE, prefix: super::PSECURITY_STRING, userauthdata: *mut super::PUCHAR, userauthdatasize: super::PULONG, userflatname: super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type LSA_GET_CLIENT_INFO = Option<unsafe extern "system" fn(clientinfo: *mut SECPKG_CLIENT_INFO) -> windows_core::NTSTATUS>;
+pub type LSA_GET_CALL_INFO = Option<unsafe extern "system" fn(info: PSECPKG_CALL_INFO) -> super::BOOLEAN>;
 #[cfg(feature = "winnt")]
-pub type LSA_GET_CLIENT_INFO_EX = Option<unsafe extern "system" fn(clientinfo: *mut SECPKG_CLIENT_INFO_EX, structsize: u32) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-pub type LSA_GET_CREDENTIALS = Option<unsafe extern "system" fn(logonid: *const super::LUID, authenticationpackage: u32, querycontext: *mut u32, retrieveallcredentials: bool, primarykeyvalue: *const super::LSA_STRING, primarykeylength: *mut u32, credentials: *const super::LSA_STRING) -> windows_core::NTSTATUS>;
-pub type LSA_GET_EXTENDED_CALL_FLAGS = Option<unsafe extern "system" fn(flags: *mut u32) -> windows_core::NTSTATUS>;
-pub type LSA_GET_SECPKG_FAILURE_REASON = Option<unsafe extern "system" fn(packageid: usize, reason: *mut SECPKG_FAILURE_REASON) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-pub type LSA_GET_SERVICE_ACCOUNT_PASSWORD = Option<unsafe extern "system" fn(accountname: *const super::LSA_UNICODE_STRING, domainname: *const super::LSA_UNICODE_STRING, credfetch: CRED_FETCH, filetimeexpiry: *mut super::FILETIME, currentpassword: *mut super::LSA_UNICODE_STRING, previouspassword: *mut super::LSA_UNICODE_STRING, filetimecurrpwdvalidforoutbound: *mut super::FILETIME) -> windows_core::NTSTATUS>;
+pub type LSA_GET_CLIENT_INFO = Option<unsafe extern "system" fn(clientinfo: PSECPKG_CLIENT_INFO) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type LSA_GET_CLIENT_INFO_EX = Option<unsafe extern "system" fn(clientinfo: PSECPKG_CLIENT_INFO_EX, structsize: u32) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+pub type LSA_GET_CREDENTIALS = Option<unsafe extern "system" fn(logonid: super::PLUID, authenticationpackage: u32, querycontext: super::PULONG, retrieveallcredentials: super::BOOLEAN, primarykeyvalue: super::PLSA_STRING, primarykeylength: super::PULONG, credentials: super::PLSA_STRING) -> windows_core::NTSTATUS>;
 #[cfg(feature = "minwindef")]
-pub type LSA_GET_USER_AUTH_DATA = Option<unsafe extern "system" fn(userhandle: *const core::ffi::c_void, userauthdata: *mut super::PUCHAR, userauthdatasize: *mut u32) -> windows_core::NTSTATUS>;
-pub type LSA_GET_USER_CREDENTIALS = Option<unsafe extern "system" fn(userhandle: *const core::ffi::c_void, primarycreds: *mut *mut core::ffi::c_void, primarycredssize: *mut u32, supplementalcreds: *mut *mut core::ffi::c_void, supplementalcredssize: *mut u32) -> windows_core::NTSTATUS>;
+pub type LSA_GET_EXTENDED_CALL_FLAGS = Option<unsafe extern "system" fn(flags: super::PULONG) -> windows_core::NTSTATUS>;
+pub type LSA_GET_SECPKG_FAILURE_REASON = Option<unsafe extern "system" fn(packageid: usize, reason: *mut SECPKG_FAILURE_REASON) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
+pub type LSA_GET_SERVICE_ACCOUNT_PASSWORD = Option<unsafe extern "system" fn(accountname: super::PUNICODE_STRING, domainname: super::PUNICODE_STRING, credfetch: CRED_FETCH, filetimeexpiry: *mut super::FILETIME, currentpassword: super::PUNICODE_STRING, previouspassword: super::PUNICODE_STRING, filetimecurrpwdvalidforoutbound: *mut super::FILETIME) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type LSA_GET_USER_AUTH_DATA = Option<unsafe extern "system" fn(userhandle: *const core::ffi::c_void, userauthdata: *mut super::PUCHAR, userauthdatasize: super::PULONG) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type LSA_GET_USER_CREDENTIALS = Option<unsafe extern "system" fn(userhandle: *const core::ffi::c_void, primarycreds: *mut *mut core::ffi::c_void, primarycredssize: super::PULONG, supplementalcreds: *mut *mut core::ffi::c_void, supplementalcredssize: super::PULONG) -> windows_core::NTSTATUS>;
 pub type LSA_IMPERSONATE_CLIENT = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
 pub type LSA_LOCATE_PKG_BY_ID = Option<unsafe extern "system" fn(packgeid: u32) -> *mut core::ffi::c_void>;
 #[cfg(feature = "sspi")]
-pub type LSA_MAP_BUFFER = Option<unsafe extern "system" fn(inputbuffer: *const super::SecBuffer, outputbuffer: *mut super::SecBuffer) -> windows_core::NTSTATUS>;
-#[cfg(feature = "sspi")]
-pub type LSA_OPEN_SAM_USER = Option<unsafe extern "system" fn(name: *const super::SECURITY_STRING, nametype: SECPKG_NAME_TYPE, prefix: *const super::SECURITY_STRING, allowguest: bool, reserved: u32, userhandle: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type LSA_MAP_BUFFER = Option<unsafe extern "system" fn(inputbuffer: super::PSecBuffer, outputbuffer: super::PSecBuffer) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "sspi", feature = "winnt"))]
+pub type LSA_OPEN_SAM_USER = Option<unsafe extern "system" fn(name: super::PSECURITY_STRING, nametype: SECPKG_NAME_TYPE, prefix: super::PSECURITY_STRING, allowguest: super::BOOLEAN, reserved: u32, userhandle: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type LSA_OPEN_TOKEN_BY_LOGON_ID = Option<unsafe extern "system" fn(logonid: *const super::LUID, rettokenhandle: *mut super::HANDLE) -> windows_core::NTSTATUS>;
+pub type LSA_OPEN_TOKEN_BY_LOGON_ID = Option<unsafe extern "system" fn(logonid: super::PLUID, rettokenhandle: *mut super::HANDLE) -> windows_core::NTSTATUS>;
 pub type LSA_PROTECT_MEMORY = Option<unsafe extern "system" fn(buffer: *mut core::ffi::c_void, buffersize: u32)>;
 pub const LSA_QUERY_CLIENT_PRELOGON_SESSION_ID: i32 = 1;
-pub type LSA_QUERY_CLIENT_REQUEST = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, querytype: u32, replybuffer: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type LSA_QUERY_CLIENT_REQUEST = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, querytype: u32, replybuffer: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type LSA_REDIRECTED_LOGON_CALLBACK = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32, returnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type LSA_REDIRECTED_LOGON_CLEANUP_CALLBACK = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE)>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type LSA_REDIRECTED_LOGON_GET_LOGON_CREDS = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, logonbuffer: *mut super::PBYTE, logonbufferlength: *mut u32) -> windows_core::NTSTATUS>;
+pub type LSA_REDIRECTED_LOGON_GET_LOGON_CREDS = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, logonbuffer: *mut super::PBYTE, logonbufferlength: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type LSA_REDIRECTED_LOGON_GET_SID = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, sid: *mut super::PSID) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 pub type LSA_REDIRECTED_LOGON_GET_SUPP_CREDS = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, supplementalcredentials: *mut PSECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type LSA_REDIRECTED_LOGON_INIT = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, packagename: *const super::UNICODE_STRING, sessionid: u32, logonid: *const super::LUID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
 pub type LSA_REGISTER_CALLBACK = Option<unsafe extern "system" fn(callbackid: u32, callback: PLSA_CALLBACK_FUNCTION) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 pub type LSA_REGISTER_NOTIFICATION = Option<unsafe extern "system" fn(startfunction: SEC_THREAD_START, parameter: *const core::ffi::c_void, notificationtype: u32, notificationclass: u32, notificationflags: u32, intervalminutes: u32, waitevent: super::HANDLE) -> super::HANDLE>;
 #[cfg(feature = "winnt")]
-pub type LSA_SAVE_SUPPLEMENTAL_CREDENTIALS = Option<unsafe extern "system" fn(logonid: *const super::LUID, supplementalcredsize: u32, supplementalcreds: *const core::ffi::c_void, synchronous: bool) -> windows_core::NTSTATUS>;
+pub type LSA_SAVE_SUPPLEMENTAL_CREDENTIALS = Option<unsafe extern "system" fn(logonid: super::PLUID, supplementalcredsize: u32, supplementalcreds: *const core::ffi::c_void, synchronous: super::BOOLEAN) -> windows_core::NTSTATUS>;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct LSA_SECPKG_FUNCTION_TABLE {
     pub CreateLogonSession: PLSA_CREATE_LOGON_SESSION,
@@ -290,25 +276,29 @@ pub struct LSA_SECPKG_FUNCTION_TABLE {
     pub GetSecpkgFailureReason: PLSA_GET_SECPKG_FAILURE_REASON,
     pub SetSecpkgFailureReason: PLSA_SET_SECPKG_FAILURE_REASON,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LSA_SEC_HANDLE(pub usize);
-#[cfg(feature = "sspi")]
-pub type LSA_SET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: u32, argument1: usize, argument2: usize, userdata: *const super::SecBuffer, returntolsa: bool) -> windows_core::NTSTATUS>;
+pub type LSA_SEC_HANDLE = usize;
+#[cfg(all(feature = "sspi", feature = "winnt"))]
+pub type LSA_SET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: u32, argument1: usize, argument2: usize, userdata: super::PSecBuffer, returntolsa: super::BOOLEAN) -> windows_core::NTSTATUS>;
 pub type LSA_SET_SECPKG_FAILURE_REASON = Option<unsafe extern "system" fn(reason: SECPKG_FAILURE_REASON) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct LSA_TOKEN_INFORMATION_NULL {
-    pub ExpirationTime: i64,
+    pub ExpirationTime: super::LARGE_INTEGER,
     pub Groups: super::PTOKEN_GROUPS,
+}
+#[cfg(feature = "winnt")]
+impl Default for LSA_TOKEN_INFORMATION_NULL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type LSA_TOKEN_INFORMATION_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct LSA_TOKEN_INFORMATION_V1 {
-    pub ExpirationTime: i64,
+    pub ExpirationTime: super::LARGE_INTEGER,
     pub User: super::TOKEN_USER,
     pub Groups: super::PTOKEN_GROUPS,
     pub PrimaryGroup: super::TOKEN_PRIMARY_GROUP,
@@ -317,12 +307,18 @@ pub struct LSA_TOKEN_INFORMATION_V1 {
     pub DefaultDacl: super::TOKEN_DEFAULT_DACL,
 }
 #[cfg(feature = "winnt")]
+impl Default for LSA_TOKEN_INFORMATION_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "winnt")]
 pub type LSA_TOKEN_INFORMATION_V2 = LSA_TOKEN_INFORMATION_V1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct LSA_TOKEN_INFORMATION_V3 {
-    pub ExpirationTime: i64,
+    pub ExpirationTime: super::LARGE_INTEGER,
     pub User: super::TOKEN_USER,
     pub Groups: super::PTOKEN_GROUPS,
     pub PrimaryGroup: super::TOKEN_PRIMARY_GROUP,
@@ -333,9 +329,15 @@ pub struct LSA_TOKEN_INFORMATION_V3 {
     pub DeviceClaims: super::TOKEN_DEVICE_CLAIMS,
     pub DeviceGroups: super::PTOKEN_GROUPS,
 }
+#[cfg(feature = "winnt")]
+impl Default for LSA_TOKEN_INFORMATION_V3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type LSA_UNLOAD_PACKAGE = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-pub type LSA_UPDATE_PRIMARY_CREDENTIALS = Option<unsafe extern "system" fn(primarycredentials: *const SECPKG_PRIMARY_CRED, credentials: *const SECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+pub type LSA_UPDATE_PRIMARY_CREDENTIALS = Option<unsafe extern "system" fn(primarycredentials: PSECPKG_PRIMARY_CRED, credentials: PSECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_core::NTSTATUS>;
 pub const LsaTokenInformationNull: LSA_TOKEN_INFORMATION_TYPE = 0;
 pub const LsaTokenInformationV1: LSA_TOKEN_INFORMATION_TYPE = 1;
 pub const LsaTokenInformationV2: LSA_TOKEN_INFORMATION_TYPE = 2;
@@ -357,150 +359,149 @@ pub const NO_LONG_NAMES: i32 = 2;
 pub type PCRED_FETCH = *mut CRED_FETCH;
 pub type PKSEC_CREATE_CONTEXT_LIST = Option<unsafe extern "system" fn(r#type: KSEC_CONTEXT_TYPE) -> *mut core::ffi::c_void>;
 #[cfg(feature = "winnt")]
-pub type PKSEC_DEREFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: *const KSEC_LIST_ENTRY, delete: *mut bool)>;
+pub type PKSEC_DEREFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: PKSEC_LIST_ENTRY, delete: *mut super::BOOLEAN)>;
 #[cfg(feature = "winnt")]
-pub type PKSEC_INSERT_LIST_ENTRY = Option<unsafe extern "system" fn(list: *const core::ffi::c_void, entry: *const KSEC_LIST_ENTRY)>;
+pub type PKSEC_INSERT_LIST_ENTRY = Option<unsafe extern "system" fn(list: *const core::ffi::c_void, entry: PKSEC_LIST_ENTRY)>;
 #[cfg(feature = "winnt")]
 pub type PKSEC_LIST_ENTRY = *mut KSEC_LIST_ENTRY;
 pub type PKSEC_LOCATE_PKG_BY_ID = Option<unsafe extern "system" fn(packageid: u32) -> *mut core::ffi::c_void>;
 #[cfg(feature = "winnt")]
-pub type PKSEC_REFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: *const KSEC_LIST_ENTRY, signature: u32, removenoref: bool) -> windows_core::NTSTATUS>;
-pub type PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA = Option<unsafe extern "system" fn(pvauthdata: *const core::ffi::c_void, size: *mut u32, serializeddata: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PKSEC_SERIALIZE_WINNT_AUTH_DATA = Option<unsafe extern "system" fn(pvauthdata: *const core::ffi::c_void, size: *mut u32, serializeddata: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PKSEC_REFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: PKSEC_LIST_ENTRY, signature: u32, removenoref: super::BOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA = Option<unsafe extern "system" fn(pvauthdata: *const core::ffi::c_void, size: super::PULONG, serializeddata: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type PKSEC_SERIALIZE_WINNT_AUTH_DATA = Option<unsafe extern "system" fn(pvauthdata: *const core::ffi::c_void, size: super::PULONG, serializeddata: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-pub type PLSA_ADD_CREDENTIAL = Option<unsafe extern "system" fn(logonid: *const super::LUID, authenticationpackage: u32, primarykeyvalue: *const super::LSA_STRING, credentials: *const super::LSA_STRING) -> windows_core::NTSTATUS>;
-pub type PLSA_ALLOCATE_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, lengthrequired: u32, clientbaseaddress: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PLSA_ADD_CREDENTIAL = Option<unsafe extern "system" fn(logonid: super::PLUID, authenticationpackage: u32, primarykeyvalue: super::PLSA_STRING, credentials: super::PLSA_STRING) -> windows_core::NTSTATUS>;
+pub type PLSA_ALLOCATE_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, lengthrequired: u32, clientbaseaddress: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type PLSA_ALLOCATE_LSA_HEAP = Option<unsafe extern "system" fn(length: u32) -> *mut core::ffi::c_void>;
 pub type PLSA_ALLOCATE_PRIVATE_HEAP = Option<unsafe extern "system" fn(length: usize) -> *mut core::ffi::c_void>;
 pub type PLSA_ALLOCATE_SHARED_MEMORY = Option<unsafe extern "system" fn(sharedmem: *const core::ffi::c_void, size: u32) -> *mut core::ffi::c_void>;
-pub type PLSA_AP_CALL_PACKAGE = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> windows_core::NTSTATUS>;
-pub type PLSA_AP_CALL_PACKAGE_PASSTHROUGH = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> windows_core::NTSTATUS>;
-pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-pub type PLSA_AP_INITIALIZE_PACKAGE = Option<unsafe extern "system" fn(authenticationpackageid: u32, lsadispatchtable: *const LSA_DISPATCH_TABLE, database: *const super::LSA_STRING, confidentiality: *const super::LSA_STRING, authenticationpackagename: *mut super::PLSA_STRING) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
+pub type PLSA_AP_CALL_PACKAGE = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: super::PULONG, protocolstatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
+pub type PLSA_AP_CALL_PACKAGE_PASSTHROUGH = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: super::PULONG, protocolstatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
+pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = Option<unsafe extern "C" fn(param0: PLSA_CLIENT_REQUEST, param1: *mut core::ffi::c_void, param2: *mut core::ffi::c_void, param3: u32, param4: *mut *mut core::ffi::c_void, param5: super::PULONG, param6: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+pub type PLSA_AP_INITIALIZE_PACKAGE = Option<unsafe extern "system" fn(authenticationpackageid: u32, lsadispatchtable: PLSA_DISPATCH_TABLE, database: super::PLSA_STRING, confidentiality: super::PLSA_STRING, authenticationpackagename: *mut super::PLSA_STRING) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PLSA_AP_LOGON_TERMINATED = Option<unsafe extern "system" fn(logonid: *const super::LUID)>;
+pub type PLSA_AP_LOGON_TERMINATED = Option<unsafe extern "system" fn(logonid: super::PLUID)>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+pub type PLSA_AP_LOGON_USER = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, logontype: super::SECURITY_LOGON_TYPE, authenticationinformation: *const core::ffi::c_void, clientauthenticationbase: *const core::ffi::c_void, authenticationinformationlength: u32, profilebuffer: *mut *mut core::ffi::c_void, profilebufferlength: super::PULONG, logonid: super::PLUID, substatus: super::PNTSTATUS, tokeninformationtype: PLSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut core::ffi::c_void, accountname: *mut super::PLSA_UNICODE_STRING, authenticatingauthority: *mut super::PLSA_UNICODE_STRING) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+pub type PLSA_AP_LOGON_USER_EX = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, logontype: super::SECURITY_LOGON_TYPE, authenticationinformation: *const core::ffi::c_void, clientauthenticationbase: *const core::ffi::c_void, authenticationinformationlength: u32, profilebuffer: *mut *mut core::ffi::c_void, profilebufferlength: super::PULONG, logonid: super::PLUID, substatus: super::PNTSTATUS, tokeninformationtype: PLSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut core::ffi::c_void, accountname: *mut super::PUNICODE_STRING, authenticatingauthority: *mut super::PUNICODE_STRING, machinename: *mut super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
+pub type PLSA_AP_LOGON_USER_EX2 = *mut u8;
+pub type PLSA_AP_LOGON_USER_EX3 = *mut u8;
+pub type PLSA_AP_POST_LOGON_USER_SURROGATE = *mut u8;
+pub type PLSA_AP_PRE_LOGON_USER_SURROGATE = *mut u8;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type PLSA_AP_LOGON_USER = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, logontype: super::SECURITY_LOGON_TYPE, authenticationinformation: *const core::ffi::c_void, clientauthenticationbase: *const core::ffi::c_void, authenticationinformationlength: u32, profilebuffer: *mut *mut core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::LUID, substatus: *mut i32, tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut core::ffi::c_void, accountname: *mut super::PLSA_UNICODE_STRING, authenticatingauthority: *mut super::PLSA_UNICODE_STRING) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-pub type PLSA_AP_LOGON_USER_EX = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, logontype: super::SECURITY_LOGON_TYPE, authenticationinformation: *const core::ffi::c_void, clientauthenticationbase: *const core::ffi::c_void, authenticationinformationlength: u32, profilebuffer: *mut *mut core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::LUID, substatus: *mut i32, tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut core::ffi::c_void, accountname: *mut super::PUNICODE_STRING, authenticatingauthority: *mut super::PUNICODE_STRING, machinename: *mut super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-pub type PLSA_AP_LOGON_USER_EX2 = *mut LSA_AP_LOGON_USER_EX2;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-pub type PLSA_AP_LOGON_USER_EX3 = *mut LSA_AP_LOGON_USER_EX3;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-pub type PLSA_AP_POST_LOGON_USER_SURROGATE = *mut LSA_AP_POST_LOGON_USER_SURROGATE;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-pub type PLSA_AP_PRE_LOGON_USER_SURROGATE = *mut LSA_AP_PRE_LOGON_USER_SURROGATE;
-#[cfg(feature = "lsalookup")]
-pub type PLSA_AUDIT_ACCOUNT_LOGON = Option<unsafe extern "system" fn(auditid: u32, success: bool, source: *const super::LSA_UNICODE_STRING, clientname: *const super::LSA_UNICODE_STRING, mappedname: *const super::LSA_UNICODE_STRING, status: windows_core::NTSTATUS) -> windows_core::NTSTATUS>;
+pub type PLSA_AUDIT_ACCOUNT_LOGON = Option<unsafe extern "system" fn(auditid: u32, success: super::BOOLEAN, source: super::PUNICODE_STRING, clientname: super::PUNICODE_STRING, mappedname: super::PUNICODE_STRING, status: windows_core::NTSTATUS) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type PLSA_AUDIT_LOGON = Option<unsafe extern "system" fn(status: windows_core::NTSTATUS, substatus: windows_core::NTSTATUS, accountname: *const super::LSA_UNICODE_STRING, authenticatingauthority: *const super::LSA_UNICODE_STRING, workstationname: *const super::LSA_UNICODE_STRING, usersid: super::PSID, logontype: super::SECURITY_LOGON_TYPE, tokensource: *const super::TOKEN_SOURCE, logonid: *const super::LUID)>;
+pub type PLSA_AUDIT_LOGON = Option<unsafe extern "system" fn(status: windows_core::NTSTATUS, substatus: windows_core::NTSTATUS, accountname: super::PUNICODE_STRING, authenticatingauthority: super::PUNICODE_STRING, workstationname: super::PUNICODE_STRING, usersid: super::PSID, logontype: super::SECURITY_LOGON_TYPE, tokensource: super::PTOKEN_SOURCE, logonid: super::PLUID)>;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type PLSA_AUDIT_LOGON_EX = Option<unsafe extern "system" fn(status: windows_core::NTSTATUS, substatus: windows_core::NTSTATUS, accountname: *const super::LSA_UNICODE_STRING, authenticatingauthority: *const super::LSA_UNICODE_STRING, workstationname: *const super::LSA_UNICODE_STRING, usersid: super::PSID, logontype: super::SECURITY_LOGON_TYPE, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokensource: *const super::TOKEN_SOURCE, logonid: *const super::LUID)>;
+pub type PLSA_AUDIT_LOGON_EX = Option<unsafe extern "system" fn(status: windows_core::NTSTATUS, substatus: windows_core::NTSTATUS, accountname: super::PUNICODE_STRING, authenticatingauthority: super::PUNICODE_STRING, workstationname: super::PUNICODE_STRING, usersid: super::PSID, logontype: super::SECURITY_LOGON_TYPE, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokensource: super::PTOKEN_SOURCE, logonid: super::PLUID)>;
 #[cfg(feature = "sspi")]
-pub type PLSA_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(argument1: usize, argument2: usize, inputbuffer: *mut super::SecBuffer, outputbuffer: *mut super::SecBuffer) -> windows_core::NTSTATUS>;
-#[cfg(feature = "lsalookup")]
-pub type PLSA_CALL_PACKAGE = Option<unsafe extern "system" fn(authenticationpackage: *const super::LSA_UNICODE_STRING, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> windows_core::NTSTATUS>;
-#[cfg(feature = "lsalookup")]
-pub type PLSA_CALL_PACKAGEEX = Option<unsafe extern "system" fn(authenticationpackage: *const super::LSA_UNICODE_STRING, clientbufferbase: *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> windows_core::NTSTATUS>;
-#[cfg(feature = "lsalookup")]
-pub type PLSA_CALL_PACKAGE_PASSTHROUGH = Option<unsafe extern "system" fn(authenticationpackage: *const super::LSA_UNICODE_STRING, clientbufferbase: *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> windows_core::NTSTATUS>;
+pub type PLSA_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(argument1: usize, argument2: usize, inputbuffer: super::PSecBuffer, outputbuffer: super::PSecBuffer) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
+pub type PLSA_CALL_PACKAGE = Option<unsafe extern "system" fn(authenticationpackage: super::PUNICODE_STRING, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: super::PULONG, protocolstatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
+pub type PLSA_CALL_PACKAGEEX = Option<unsafe extern "system" fn(authenticationpackage: super::PUNICODE_STRING, clientbufferbase: *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: super::PULONG, protocolstatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
+pub type PLSA_CALL_PACKAGE_PASSTHROUGH = Option<unsafe extern "system" fn(authenticationpackage: super::PUNICODE_STRING, clientbufferbase: *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: super::PULONG, protocolstatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PLSA_CANCEL_NOTIFICATION = Option<unsafe extern "system" fn(notifyhandle: super::HANDLE) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PLSA_CHECK_PROTECTED_USER_BY_TOKEN = Option<unsafe extern "system" fn(usertoken: super::HANDLE, protecteduser: *mut bool) -> windows_core::NTSTATUS>;
-#[cfg(feature = "sspi")]
-pub type PLSA_CLIENT_CALLBACK = Option<unsafe extern "system" fn(callback: *const i8, argument1: usize, argument2: usize, input: *const super::SecBuffer, output: *mut super::SecBuffer) -> windows_core::NTSTATUS>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PLSA_CLIENT_REQUEST(pub *mut *mut core::ffi::c_void);
+pub type PLSA_CHECK_PROTECTED_USER_BY_TOKEN = Option<unsafe extern "system" fn(usertoken: super::HANDLE, protecteduser: super::PBOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "sspi", feature = "winnt"))]
+pub type PLSA_CLIENT_CALLBACK = Option<unsafe extern "system" fn(callback: super::PCHAR, argument1: usize, argument2: usize, input: super::PSecBuffer, output: super::PSecBuffer) -> windows_core::NTSTATUS>;
+pub type PLSA_CLIENT_REQUEST = *mut *mut core::ffi::c_void;
 pub type PLSA_CLOSE_SAM_USER = Option<unsafe extern "system" fn(userhandle: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type PLSA_CONVERT_AUTH_DATA_TO_TOKEN = Option<unsafe extern "system" fn(userauthdata: *const core::ffi::c_void, userauthdatasize: u32, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokensource: *const super::TOKEN_SOURCE, logontype: super::SECURITY_LOGON_TYPE, authorityname: *const super::LSA_UNICODE_STRING, token: *mut super::HANDLE, logonid: *mut super::LUID, accountname: *mut super::LSA_UNICODE_STRING, substatus: *mut i32) -> windows_core::NTSTATUS>;
-pub type PLSA_COPY_FROM_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, length: u32, buffertocopy: *mut core::ffi::c_void, clientbaseaddress: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-pub type PLSA_COPY_TO_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, length: u32, clientbaseaddress: *mut core::ffi::c_void, buffertocopy: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(feature = "lsalookup")]
-pub type PLSA_CRACK_SINGLE_NAME = Option<unsafe extern "system" fn(formatoffered: u32, performatgc: bool, nameinput: *const super::LSA_UNICODE_STRING, prefix: *const super::LSA_UNICODE_STRING, requestedformat: u32, crackedname: *mut super::LSA_UNICODE_STRING, dnsdomainname: *mut super::LSA_UNICODE_STRING, substatus: *mut u32) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type PLSA_CONVERT_AUTH_DATA_TO_TOKEN = Option<unsafe extern "system" fn(userauthdata: *const core::ffi::c_void, userauthdatasize: u32, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokensource: super::PTOKEN_SOURCE, logontype: super::SECURITY_LOGON_TYPE, authorityname: super::PUNICODE_STRING, token: super::PHANDLE, logonid: super::PLUID, accountname: super::PUNICODE_STRING, substatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+pub type PLSA_COPY_FROM_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, length: u32, buffertocopy: *mut core::ffi::c_void, clientbaseaddress: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PLSA_COPY_TO_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, length: u32, clientbaseaddress: *mut core::ffi::c_void, buffertocopy: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+pub type PLSA_CRACK_SINGLE_NAME = Option<unsafe extern "system" fn(formatoffered: u32, performatgc: super::BOOLEAN, nameinput: super::PUNICODE_STRING, prefix: super::PUNICODE_STRING, requestedformat: u32, crackedname: super::PUNICODE_STRING, dnsdomainname: super::PUNICODE_STRING, substatus: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PLSA_CREATE_LOGON_SESSION = Option<unsafe extern "system" fn(logonid: *mut super::LUID) -> windows_core::NTSTATUS>;
+pub type PLSA_CREATE_LOGON_SESSION = Option<unsafe extern "system" fn(logonid: super::PLUID) -> windows_core::NTSTATUS>;
 pub type PLSA_CREATE_SHARED_MEMORY = Option<unsafe extern "system" fn(maxsize: u32, initialsize: u32) -> *mut core::ffi::c_void>;
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-pub type PLSA_CREATE_THREAD = Option<unsafe extern "system" fn(securityattributes: SEC_ATTRS, stacksize: u32, startfunction: SEC_THREAD_START, threadparameter: *const core::ffi::c_void, creationflags: u32, threadid: *mut u32) -> super::HANDLE>;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type PLSA_CREATE_TOKEN = Option<unsafe extern "system" fn(logonid: *const super::LUID, tokensource: *const super::TOKEN_SOURCE, logontype: super::SECURITY_LOGON_TYPE, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *const core::ffi::c_void, tokengroups: *const super::TOKEN_GROUPS, accountname: *const super::LSA_UNICODE_STRING, authorityname: *const super::LSA_UNICODE_STRING, workstation: *const super::LSA_UNICODE_STRING, profilepath: *const super::LSA_UNICODE_STRING, token: *mut super::HANDLE, substatus: *mut i32) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type PLSA_CREATE_TOKEN_EX = Option<unsafe extern "system" fn(logonid: *const super::LUID, tokensource: *const super::TOKEN_SOURCE, logontype: super::SECURITY_LOGON_TYPE, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *const core::ffi::c_void, tokengroups: *const super::TOKEN_GROUPS, workstation: *const super::LSA_UNICODE_STRING, profilepath: *const super::LSA_UNICODE_STRING, sessioninformation: *const core::ffi::c_void, sessioninformationtype: SECPKG_SESSIONINFO_TYPE, token: *mut super::HANDLE, substatus: *mut i32) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+pub type PLSA_CREATE_THREAD = Option<unsafe extern "system" fn(securityattributes: SEC_ATTRS, stacksize: u32, startfunction: SEC_THREAD_START, threadparameter: *const core::ffi::c_void, creationflags: u32, threadid: super::PULONG) -> super::HANDLE>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type PLSA_CREATE_TOKEN = Option<unsafe extern "system" fn(logonid: super::PLUID, tokensource: super::PTOKEN_SOURCE, logontype: super::SECURITY_LOGON_TYPE, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *const core::ffi::c_void, tokengroups: super::PTOKEN_GROUPS, accountname: super::PUNICODE_STRING, authorityname: super::PUNICODE_STRING, workstation: super::PUNICODE_STRING, profilepath: super::PUNICODE_STRING, token: super::PHANDLE, substatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type PLSA_CREATE_TOKEN_EX = Option<unsafe extern "system" fn(logonid: super::PLUID, tokensource: super::PTOKEN_SOURCE, logontype: super::SECURITY_LOGON_TYPE, impersonationlevel: super::SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *const core::ffi::c_void, tokengroups: super::PTOKEN_GROUPS, workstation: super::PUNICODE_STRING, profilepath: super::PUNICODE_STRING, sessioninformation: *const core::ffi::c_void, sessioninformationtype: SECPKG_SESSIONINFO_TYPE, token: super::PHANDLE, substatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-pub type PLSA_DELETE_CREDENTIAL = Option<unsafe extern "system" fn(logonid: *const super::LUID, authenticationpackage: u32, primarykeyvalue: *const super::LSA_STRING) -> windows_core::NTSTATUS>;
+pub type PLSA_DELETE_CREDENTIAL = Option<unsafe extern "system" fn(logonid: super::PLUID, authenticationpackage: u32, primarykeyvalue: super::PLSA_STRING) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PLSA_DELETE_LOGON_SESSION = Option<unsafe extern "system" fn(logonid: *const super::LUID) -> windows_core::NTSTATUS>;
-pub type PLSA_DELETE_SHARED_MEMORY = Option<unsafe extern "system" fn(sharedmem: *const core::ffi::c_void) -> bool>;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+pub type PLSA_DELETE_LOGON_SESSION = Option<unsafe extern "system" fn(logonid: super::PLUID) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PLSA_DELETE_SHARED_MEMORY = Option<unsafe extern "system" fn(sharedmem: *const core::ffi::c_void) -> super::BOOLEAN>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
 pub type PLSA_DISPATCH_TABLE = *mut LSA_DISPATCH_TABLE;
 #[cfg(feature = "winnt")]
-pub type PLSA_DUPLICATE_HANDLE = Option<unsafe extern "system" fn(sourcehandle: super::HANDLE, destionationhandle: *mut super::HANDLE) -> windows_core::NTSTATUS>;
+pub type PLSA_DUPLICATE_HANDLE = Option<unsafe extern "system" fn(sourcehandle: super::HANDLE, destionationhandle: super::PHANDLE) -> windows_core::NTSTATUS>;
 #[cfg(feature = "minwindef")]
-pub type PLSA_EXPAND_AUTH_DATA_FOR_DOMAIN = Option<unsafe extern "system" fn(userauthdata: *const u8, userauthdatasize: u32, reserved: *const core::ffi::c_void, expandedauthdata: *mut super::PUCHAR, expandedauthdatasize: *mut u32) -> windows_core::NTSTATUS>;
-pub type PLSA_FREE_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, clientbaseaddress: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PLSA_EXPAND_AUTH_DATA_FOR_DOMAIN = Option<unsafe extern "system" fn(userauthdata: super::PUCHAR, userauthdatasize: u32, reserved: *const core::ffi::c_void, expandedauthdata: *mut super::PUCHAR, expandedauthdatasize: super::PULONG) -> windows_core::NTSTATUS>;
+pub type PLSA_FREE_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, clientbaseaddress: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type PLSA_FREE_LSA_HEAP = Option<unsafe extern "system" fn(base: *const core::ffi::c_void)>;
 pub type PLSA_FREE_PRIVATE_HEAP = Option<unsafe extern "system" fn(base: *const core::ffi::c_void)>;
 pub type PLSA_FREE_SHARED_MEMORY = Option<unsafe extern "system" fn(sharedmem: *const core::ffi::c_void, memory: *mut core::ffi::c_void)>;
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "sspi")]
-pub type PLSA_GET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: *mut u32, argument1: *mut u32, argument2: *mut u32, userdata: *mut super::SecBuffer, returntolsa: *mut bool) -> windows_core::NTSTATUS>;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "sspi")]
-pub type PLSA_GET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: *mut u32, argument1: *mut u64, argument2: *mut u64, userdata: *mut super::SecBuffer, returntolsa: *mut bool) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "sspi"))]
-pub type PLSA_GET_AUTH_DATA_FOR_USER = Option<unsafe extern "system" fn(name: *const super::SECURITY_STRING, nametype: SECPKG_NAME_TYPE, prefix: *const super::SECURITY_STRING, userauthdata: *mut super::PUCHAR, userauthdatasize: *mut u32, userflatname: *mut super::LSA_UNICODE_STRING) -> windows_core::NTSTATUS>;
-pub type PLSA_GET_CALL_INFO = Option<unsafe extern "system" fn(info: *mut SECPKG_CALL_INFO) -> bool>;
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "sspi", feature = "winnt"))]
+pub type PLSA_GET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: super::PULONG, argument1: super::PULONG_PTR, argument2: super::PULONG_PTR, userdata: super::PSecBuffer, returntolsa: super::PBOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "sspi"))]
+pub type PLSA_GET_AUTH_DATA_FOR_USER = Option<unsafe extern "system" fn(name: super::PSECURITY_STRING, nametype: SECPKG_NAME_TYPE, prefix: super::PSECURITY_STRING, userauthdata: *mut super::PUCHAR, userauthdatasize: super::PULONG, userflatname: super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PLSA_GET_CLIENT_INFO = Option<unsafe extern "system" fn(clientinfo: *mut SECPKG_CLIENT_INFO) -> windows_core::NTSTATUS>;
+pub type PLSA_GET_CALL_INFO = Option<unsafe extern "system" fn(info: PSECPKG_CALL_INFO) -> super::BOOLEAN>;
 #[cfg(feature = "winnt")]
-pub type PLSA_GET_CLIENT_INFO_EX = Option<unsafe extern "system" fn(clientinfo: *mut SECPKG_CLIENT_INFO_EX, structsize: u32) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-pub type PLSA_GET_CREDENTIALS = Option<unsafe extern "system" fn(logonid: *const super::LUID, authenticationpackage: u32, querycontext: *mut u32, retrieveallcredentials: bool, primarykeyvalue: *const super::LSA_STRING, primarykeylength: *mut u32, credentials: *const super::LSA_STRING) -> windows_core::NTSTATUS>;
-pub type PLSA_GET_EXTENDED_CALL_FLAGS = Option<unsafe extern "system" fn(flags: *mut u32) -> windows_core::NTSTATUS>;
-pub type PLSA_GET_SECPKG_FAILURE_REASON = Option<unsafe extern "system" fn(packageid: usize, reason: *mut SECPKG_FAILURE_REASON) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-pub type PLSA_GET_SERVICE_ACCOUNT_PASSWORD = Option<unsafe extern "system" fn(accountname: *const super::LSA_UNICODE_STRING, domainname: *const super::LSA_UNICODE_STRING, credfetch: CRED_FETCH, filetimeexpiry: *mut super::FILETIME, currentpassword: *mut super::LSA_UNICODE_STRING, previouspassword: *mut super::LSA_UNICODE_STRING, filetimecurrpwdvalidforoutbound: *mut super::FILETIME) -> windows_core::NTSTATUS>;
+pub type PLSA_GET_CLIENT_INFO = Option<unsafe extern "system" fn(clientinfo: PSECPKG_CLIENT_INFO) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PLSA_GET_CLIENT_INFO_EX = Option<unsafe extern "system" fn(clientinfo: PSECPKG_CLIENT_INFO_EX, structsize: u32) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+pub type PLSA_GET_CREDENTIALS = Option<unsafe extern "system" fn(logonid: super::PLUID, authenticationpackage: u32, querycontext: super::PULONG, retrieveallcredentials: super::BOOLEAN, primarykeyvalue: super::PLSA_STRING, primarykeylength: super::PULONG, credentials: super::PLSA_STRING) -> windows_core::NTSTATUS>;
 #[cfg(feature = "minwindef")]
-pub type PLSA_GET_USER_AUTH_DATA = Option<unsafe extern "system" fn(userhandle: *const core::ffi::c_void, userauthdata: *mut super::PUCHAR, userauthdatasize: *mut u32) -> windows_core::NTSTATUS>;
-pub type PLSA_GET_USER_CREDENTIALS = Option<unsafe extern "system" fn(userhandle: *const core::ffi::c_void, primarycreds: *mut *mut core::ffi::c_void, primarycredssize: *mut u32, supplementalcreds: *mut *mut core::ffi::c_void, supplementalcredssize: *mut u32) -> windows_core::NTSTATUS>;
+pub type PLSA_GET_EXTENDED_CALL_FLAGS = Option<unsafe extern "system" fn(flags: super::PULONG) -> windows_core::NTSTATUS>;
+pub type PLSA_GET_SECPKG_FAILURE_REASON = Option<unsafe extern "system" fn(packageid: usize, reason: *mut SECPKG_FAILURE_REASON) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
+pub type PLSA_GET_SERVICE_ACCOUNT_PASSWORD = Option<unsafe extern "system" fn(accountname: super::PUNICODE_STRING, domainname: super::PUNICODE_STRING, credfetch: CRED_FETCH, filetimeexpiry: *mut super::FILETIME, currentpassword: super::PUNICODE_STRING, previouspassword: super::PUNICODE_STRING, filetimecurrpwdvalidforoutbound: *mut super::FILETIME) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type PLSA_GET_USER_AUTH_DATA = Option<unsafe extern "system" fn(userhandle: *const core::ffi::c_void, userauthdata: *mut super::PUCHAR, userauthdatasize: super::PULONG) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type PLSA_GET_USER_CREDENTIALS = Option<unsafe extern "system" fn(userhandle: *const core::ffi::c_void, primarycreds: *mut *mut core::ffi::c_void, primarycredssize: super::PULONG, supplementalcreds: *mut *mut core::ffi::c_void, supplementalcredssize: super::PULONG) -> windows_core::NTSTATUS>;
 pub type PLSA_IMPERSONATE_CLIENT = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
 pub type PLSA_LOCATE_PKG_BY_ID = Option<unsafe extern "system" fn(packgeid: u32) -> *mut core::ffi::c_void>;
 #[cfg(feature = "sspi")]
-pub type PLSA_MAP_BUFFER = Option<unsafe extern "system" fn(inputbuffer: *const super::SecBuffer, outputbuffer: *mut super::SecBuffer) -> windows_core::NTSTATUS>;
-#[cfg(feature = "sspi")]
-pub type PLSA_OPEN_SAM_USER = Option<unsafe extern "system" fn(name: *const super::SECURITY_STRING, nametype: SECPKG_NAME_TYPE, prefix: *const super::SECURITY_STRING, allowguest: bool, reserved: u32, userhandle: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PLSA_MAP_BUFFER = Option<unsafe extern "system" fn(inputbuffer: super::PSecBuffer, outputbuffer: super::PSecBuffer) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "sspi", feature = "winnt"))]
+pub type PLSA_OPEN_SAM_USER = Option<unsafe extern "system" fn(name: super::PSECURITY_STRING, nametype: SECPKG_NAME_TYPE, prefix: super::PSECURITY_STRING, allowguest: super::BOOLEAN, reserved: u32, userhandle: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PLSA_OPEN_TOKEN_BY_LOGON_ID = Option<unsafe extern "system" fn(logonid: *const super::LUID, rettokenhandle: *mut super::HANDLE) -> windows_core::NTSTATUS>;
+pub type PLSA_OPEN_TOKEN_BY_LOGON_ID = Option<unsafe extern "system" fn(logonid: super::PLUID, rettokenhandle: *mut super::HANDLE) -> windows_core::NTSTATUS>;
 pub type PLSA_PROTECT_MEMORY = Option<unsafe extern "system" fn(buffer: *mut core::ffi::c_void, buffersize: u32)>;
-pub type PLSA_QUERY_CLIENT_REQUEST = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, querytype: u32, replybuffer: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type PLSA_QUERY_CLIENT_REQUEST = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, querytype: u32, replybuffer: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PLSA_REDIRECTED_LOGON_CALLBACK = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32, returnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE)>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, logonbuffer: *mut super::PBYTE, logonbufferlength: *mut u32) -> windows_core::NTSTATUS>;
+pub type PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, logonbuffer: *mut super::PBYTE, logonbufferlength: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PLSA_REDIRECTED_LOGON_GET_SID = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, sid: *mut super::PSID) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 pub type PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, supplementalcredentials: *mut PSECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PLSA_REDIRECTED_LOGON_INIT = Option<unsafe extern "system" fn(redirectedlogonhandle: super::HANDLE, packagename: *const super::UNICODE_STRING, sessionid: u32, logonid: *const super::LUID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
 pub type PLSA_REGISTER_CALLBACK = Option<unsafe extern "system" fn(callbackid: u32, callback: PLSA_CALLBACK_FUNCTION) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 pub type PLSA_REGISTER_NOTIFICATION = Option<unsafe extern "system" fn(startfunction: SEC_THREAD_START, parameter: *const core::ffi::c_void, notificationtype: u32, notificationclass: u32, notificationflags: u32, intervalminutes: u32, waitevent: super::HANDLE) -> super::HANDLE>;
 #[cfg(feature = "winnt")]
-pub type PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS = Option<unsafe extern "system" fn(logonid: *const super::LUID, supplementalcredsize: u32, supplementalcreds: *const core::ffi::c_void, synchronous: bool) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
+pub type PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS = Option<unsafe extern "system" fn(logonid: super::PLUID, supplementalcredsize: u32, supplementalcreds: *const core::ffi::c_void, synchronous: super::BOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt", feature = "winternl"))]
 pub type PLSA_SECPKG_FUNCTION_TABLE = *mut LSA_SECPKG_FUNCTION_TABLE;
 pub type PLSA_SEC_HANDLE = *mut LSA_SEC_HANDLE;
-#[cfg(feature = "sspi")]
-pub type PLSA_SET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: u32, argument1: usize, argument2: usize, userdata: *const super::SecBuffer, returntolsa: bool) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "sspi", feature = "winnt"))]
+pub type PLSA_SET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: u32, argument1: usize, argument2: usize, userdata: super::PSecBuffer, returntolsa: super::BOOLEAN) -> windows_core::NTSTATUS>;
 pub type PLSA_SET_SECPKG_FAILURE_REASON = Option<unsafe extern "system" fn(reason: SECPKG_FAILURE_REASON) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PLSA_TOKEN_INFORMATION_NULL = *mut LSA_TOKEN_INFORMATION_NULL;
@@ -512,8 +513,8 @@ pub type PLSA_TOKEN_INFORMATION_V2 = *mut LSA_TOKEN_INFORMATION_V1;
 #[cfg(feature = "winnt")]
 pub type PLSA_TOKEN_INFORMATION_V3 = *mut LSA_TOKEN_INFORMATION_V3;
 pub type PLSA_UNLOAD_PACKAGE = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-pub type PLSA_UPDATE_PRIMARY_CREDENTIALS = Option<unsafe extern "system" fn(primarycredentials: *const SECPKG_PRIMARY_CRED, credentials: *const SECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+pub type PLSA_UPDATE_PRIMARY_CREDENTIALS = Option<unsafe extern "system" fn(primarycredentials: PSECPKG_PRIMARY_CRED, credentials: PSECPKG_SUPPLEMENTAL_CRED_ARRAY) -> windows_core::NTSTATUS>;
 pub const PRIMARY_CRED_ARSO_LOGON: i32 = 2097152;
 pub const PRIMARY_CRED_AUTH_ID: i32 = 512;
 pub const PRIMARY_CRED_CACHED_INTERACTIVE_LOGON: i32 = 262144;
@@ -541,19 +542,23 @@ pub const PRIMARY_CRED_RESTRICTED_TS: i32 = 16384;
 pub const PRIMARY_CRED_SUPPLEMENTAL: i32 = 4194304;
 pub const PRIMARY_CRED_TRANSFER: i32 = 8192;
 pub const PRIMARY_CRED_UPDATE: i32 = 4;
-pub type PSAM_CREDENTIAL_UPDATE_FREE_ROUTINE = Option<unsafe extern "system" fn(p: *const core::ffi::c_void)>;
-#[cfg(feature = "lsalookup")]
-pub type PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(clearpassword: *const super::LSA_UNICODE_STRING, oldcredentials: *const core::ffi::c_void, oldcredentialsize: u32, useraccountcontrol: u32, upn: *const super::LSA_UNICODE_STRING, username: *const super::LSA_UNICODE_STRING, netbiosdomainname: *const super::LSA_UNICODE_STRING, dnsdomainname: *const super::LSA_UNICODE_STRING, newcredentials: *mut *mut core::ffi::c_void, newcredentialsize: *mut u32) -> windows_core::NTSTATUS>;
-pub type PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE = Option<unsafe extern "system" fn(table: *mut SAM_REGISTER_MAPPING_TABLE) -> windows_core::NTSTATUS>;
-#[cfg(feature = "lsalookup")]
-pub type PSAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE = Option<unsafe extern "system" fn(credentialname: *mut super::LSA_UNICODE_STRING) -> bool>;
+pub type PSAM_CREDENTIAL_UPDATE_FREE_ROUTINE = Option<unsafe extern "C" fn(p: *const core::ffi::c_void)>;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
+pub type PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = Option<unsafe extern "C" fn(clearpassword: super::PUNICODE_STRING, oldcredentials: *const core::ffi::c_void, oldcredentialsize: u32, useraccountcontrol: u32, upn: super::PUNICODE_STRING, username: super::PUNICODE_STRING, netbiosdomainname: super::PUNICODE_STRING, dnsdomainname: super::PUNICODE_STRING, newcredentials: *mut *mut core::ffi::c_void, newcredentialsize: *mut u32) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE = Option<unsafe extern "C" fn(table: *mut SAM_REGISTER_MAPPING_TABLE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type PSAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE = Option<unsafe extern "C" fn(credentialname: super::PUNICODE_STRING) -> super::BOOLEAN>;
+#[cfg(feature = "winnt")]
 pub type PSAM_REGISTER_MAPPING_ELEMENT = *mut SAM_REGISTER_MAPPING_ELEMENT;
+#[cfg(feature = "winnt")]
 pub type PSAM_REGISTER_MAPPING_LIST = *mut SAM_REGISTER_MAPPING_LIST;
+#[cfg(feature = "winnt")]
 pub type PSAM_REGISTER_MAPPING_TABLE = *mut SAM_REGISTER_MAPPING_TABLE;
 pub type PSECPKG_BYTE_VECTOR = *mut SECPKG_BYTE_VECTOR;
 pub type PSECPKG_CALL_INFO = *mut SECPKG_CALL_INFO;
 pub type PSECPKG_CALL_PACKAGE_MESSAGE_TYPE = *mut SECPKG_CALL_PACKAGE_MESSAGE_TYPE;
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 pub type PSECPKG_CALL_PACKAGE_PIN_DC_REQUEST = *mut SECPKG_CALL_PACKAGE_PIN_DC_REQUEST;
 #[cfg(feature = "winnt")]
 pub type PSECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST = *mut SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST;
@@ -567,7 +572,7 @@ pub type PSECPKG_CONTEXT_THUNKS = *mut SECPKG_CONTEXT_THUNKS;
 pub type PSECPKG_CREDENTIAL = *mut SECPKG_CREDENTIAL;
 #[cfg(feature = "sspi")]
 pub type PSECPKG_DLL_FUNCTIONS = *mut SECPKG_DLL_FUNCTIONS;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PSECPKG_EVENT_DOMAIN_CHANGE = *mut SECPKG_PARAMETERS;
 pub type PSECPKG_EVENT_NOTIFY = *mut SECPKG_EVENT_NOTIFY;
 #[cfg(feature = "sspi")]
@@ -578,32 +583,32 @@ pub type PSECPKG_EXTENDED_INFORMATION = *mut SECPKG_EXTENDED_INFORMATION;
 pub type PSECPKG_EXTRA_OIDS = *mut SECPKG_EXTRA_OIDS;
 pub type PSECPKG_FAILURE_REASON = *mut SECPKG_FAILURE_REASON;
 pub type PSECPKG_FAILURE_SPECIAL_REASON = *mut SECPKG_FAILURE_SPECIAL_REASON;
-#[cfg(all(feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt", feature = "winternl"))]
 pub type PSECPKG_FUNCTION_TABLE = *mut SECPKG_FUNCTION_TABLE;
 pub type PSECPKG_GSS_INFO = *mut SECPKG_GSS_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PSECPKG_KERNEL_FUNCTIONS = *mut SECPKG_KERNEL_FUNCTIONS;
-#[cfg(all(feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "sspi", feature = "winnt"))]
 pub type PSECPKG_KERNEL_FUNCTION_TABLE = *mut SECPKG_KERNEL_FUNCTION_TABLE;
 pub type PSECPKG_MUTUAL_AUTH_LEVEL = *mut SECPKG_MUTUAL_AUTH_LEVEL;
 pub type PSECPKG_NEGO2_INFO = *mut SECPKG_NEGO2_INFO;
 #[cfg(feature = "minwindef")]
 pub type PSECPKG_NTLM_TARGETINFO = *mut SECPKG_NTLM_TARGETINFO;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PSECPKG_PARAMETERS = *mut SECPKG_PARAMETERS;
 #[cfg(feature = "winnt")]
 pub type PSECPKG_POST_LOGON_USER_INFO = *mut SECPKG_POST_LOGON_USER_INFO;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PSECPKG_PRIMARY_CRED = *mut SECPKG_PRIMARY_CRED;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type PSECPKG_PRIMARY_CRED_EX = *mut SECPKG_PRIMARY_CRED_EX;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 pub type PSECPKG_REDIRECTED_LOGON_BUFFER = *mut SECPKG_REDIRECTED_LOGON_BUFFER;
 pub type PSECPKG_SERIALIZED_OID = *mut SECPKG_SERIALIZED_OID;
 pub type PSECPKG_SHORT_VECTOR = *mut SECPKG_SHORT_VECTOR;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 pub type PSECPKG_SUPPLEMENTAL_CRED = *mut SECPKG_SUPPLEMENTAL_CRED;
-#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 pub type PSECPKG_SUPPLEMENTAL_CRED_ARRAY = *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY;
 pub type PSECPKG_SUPPLIED_CREDENTIAL = *mut SECPKG_SUPPLIED_CREDENTIAL;
 #[cfg(feature = "winnt")]
@@ -627,19 +632,22 @@ pub const SAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE: windows_core::PCSTR = windows_co
 pub const SAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE: windows_core::PCSTR = windows_core::s!("RegisterMappedEntrypoints");
 pub const SAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE: windows_core::PCSTR = windows_core::s!("CredentialUpdateRegister");
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAM_REGISTER_MAPPING_ELEMENT {
     pub Original: windows_core::PSTR,
     pub Mapped: windows_core::PSTR,
-    pub Continuable: bool,
+    pub Continuable: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAM_REGISTER_MAPPING_LIST {
     pub Count: u32,
     pub Elements: PSAM_REGISTER_MAPPING_ELEMENT,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAM_REGISTER_MAPPING_TABLE {
     pub Count: u32,
@@ -680,7 +688,7 @@ pub const SECPKG_CALL_NEGO_EXTENDER: i32 = 32768;
 pub const SECPKG_CALL_NETWORK_ONLY: i32 = 1024;
 pub type SECPKG_CALL_PACKAGE_MESSAGE_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "ntsecapi")]
+#[cfg(feature = "winternl")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
     pub MessageType: u32,
@@ -724,9 +732,9 @@ pub struct SECPKG_CLIENT_INFO {
     pub LogonId: super::LUID,
     pub ProcessID: u32,
     pub ThreadID: u32,
-    pub HasTcbPrivilege: bool,
-    pub Impersonating: bool,
-    pub Restricted: bool,
+    pub HasTcbPrivilege: super::BOOLEAN,
+    pub Impersonating: super::BOOLEAN,
+    pub Restricted: super::BOOLEAN,
     pub ClientFlags: u8,
     pub ImpersonationLevel: super::SECURITY_IMPERSONATION_LEVEL,
     pub ClientToken: super::HANDLE,
@@ -738,9 +746,9 @@ pub struct SECPKG_CLIENT_INFO_EX {
     pub LogonId: super::LUID,
     pub ProcessID: u32,
     pub ThreadID: u32,
-    pub HasTcbPrivilege: bool,
-    pub Impersonating: bool,
-    pub Restricted: bool,
+    pub HasTcbPrivilege: super::BOOLEAN,
+    pub Impersonating: super::BOOLEAN,
+    pub Restricted: super::BOOLEAN,
     pub ClientFlags: u8,
     pub ImpersonationLevel: super::SECURITY_IMPERSONATION_LEVEL,
     pub ClientToken: super::HANDLE,
@@ -792,7 +800,7 @@ pub struct SECPKG_DLL_FUNCTIONS {
     pub RegisterCallback: PLSA_REGISTER_CALLBACK,
     pub LocatePackageById: PLSA_LOCATE_PKG_BY_ID,
 }
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 pub type SECPKG_EVENT_DOMAIN_CHANGE = SECPKG_PARAMETERS;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -867,23 +875,23 @@ pub struct SECPKG_FAILURE_REASON {
 }
 pub type SECPKG_FAILURE_SPECIAL_REASON = i32;
 #[repr(C)]
-#[cfg(all(feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt", feature = "winternl"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct SECPKG_FUNCTION_TABLE {
     pub InitializePackage: PLSA_AP_INITIALIZE_PACKAGE,
-    pub LogonUser: PLSA_AP_LOGON_USER,
+    pub LogonUserA: PLSA_AP_LOGON_USER,
     pub CallPackage: PLSA_AP_CALL_PACKAGE,
     pub LogonTerminated: PLSA_AP_LOGON_TERMINATED,
     pub CallPackageUntrusted: PLSA_AP_CALL_PACKAGE_UNTRUSTED,
     pub CallPackagePassthrough: PLSA_AP_CALL_PACKAGE_PASSTHROUGH,
-    pub LogonUserEx: PLSA_AP_LOGON_USER_EX,
+    pub LogonUserExA: PLSA_AP_LOGON_USER_EX,
     pub LogonUserEx2: PLSA_AP_LOGON_USER_EX2,
     pub Initialize: SpInitializeFn,
     pub Shutdown: SpShutdownFn,
     pub GetInfo: SpGetInfoFn,
     pub AcceptCredentials: SpAcceptCredentialsFn,
-    pub AcquireCredentialsHandle: SpAcquireCredentialsHandleFn,
-    pub QueryCredentialsAttributes: SpQueryCredentialsAttributesFn,
+    pub AcquireCredentialsHandleA: SpAcquireCredentialsHandleFn,
+    pub QueryCredentialsAttributesA: SpQueryCredentialsAttributesFn,
     pub FreeCredentialsHandle: SpFreeCredentialsHandleFn,
     pub SaveCredentials: SpSaveCredentialsFn,
     pub GetCredentials: SpGetCredentialsFn,
@@ -894,12 +902,12 @@ pub struct SECPKG_FUNCTION_TABLE {
     pub ApplyControlToken: SpApplyControlTokenFn,
     pub GetUserInfo: SpGetUserInfoFn,
     pub GetExtendedInformation: SpGetExtendedInformationFn,
-    pub QueryContextAttributes: SpQueryContextAttributesFn,
-    pub AddCredentials: SpAddCredentialsFn,
+    pub QueryContextAttributesA: SpQueryContextAttributesFn,
+    pub AddCredentialsA: SpAddCredentialsFn,
     pub SetExtendedInformation: SpSetExtendedInformationFn,
-    pub SetContextAttributes: SpSetContextAttributesFn,
-    pub SetCredentialsAttributes: SpSetCredentialsAttributesFn,
-    pub ChangeAccountPassword: SpChangeAccountPasswordFn,
+    pub SetContextAttributesA: SpSetContextAttributesFn,
+    pub SetCredentialsAttributesA: SpSetCredentialsAttributesFn,
+    pub ChangeAccountPasswordA: SpChangeAccountPasswordFn,
     pub QueryMetaData: SpQueryMetaDataFn,
     pub ExchangeMetaData: SpExchangeMetaDataFn,
     pub GetCredUIContext: SpGetCredUIContextFn,
@@ -937,7 +945,7 @@ pub const SECPKG_INTERFACE_VERSION_7: i32 = 4194304;
 pub const SECPKG_INTERFACE_VERSION_8: i32 = 8388608;
 pub const SECPKG_INTERFACE_VERSION_9: i32 = 16777216;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct SECPKG_KERNEL_FUNCTIONS {
     pub AllocateHeap: PLSA_ALLOCATE_LSA_HEAP,
@@ -951,7 +959,7 @@ pub struct SECPKG_KERNEL_FUNCTIONS {
     pub LocatePackageById: PKSEC_LOCATE_PKG_BY_ID,
 }
 #[repr(C)]
-#[cfg(all(feature = "sspi", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "sspi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct SECPKG_KERNEL_FUNCTION_TABLE {
     pub Initialize: KspInitPackageFn,
@@ -1009,7 +1017,7 @@ pub const SECPKG_PACKAGE_CHANGE_LOAD: i32 = 0;
 pub const SECPKG_PACKAGE_CHANGE_SELECT: i32 = 2;
 pub const SECPKG_PACKAGE_CHANGE_UNLOAD: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_PARAMETERS {
     pub Version: u32,
@@ -1029,7 +1037,7 @@ pub struct SECPKG_POST_LOGON_USER_INFO {
     pub LinkedLogonId: super::LUID,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_PRIMARY_CRED {
     pub LogonId: super::LUID,
@@ -1048,7 +1056,7 @@ pub struct SECPKG_PRIMARY_CRED {
     pub Spare4: super::UNICODE_STRING,
 }
 #[repr(C)]
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_PRIMARY_CRED_EX {
     pub LogonId: super::LUID,
@@ -1071,7 +1079,7 @@ pub struct SECPKG_PRIMARY_CRED_EX {
 }
 pub const SECPKG_PRIMARY_CRED_EX_FLAGS_EX_DELEGATION_TOKEN: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub RedirectedLogonGuid: windows_core::GUID,
@@ -1110,7 +1118,7 @@ pub const SECPKG_STATE_STANDALONE: i32 = 16;
 pub const SECPKG_STATE_STRONG_ENCRYPTION_PERMITTED: i32 = 2;
 pub const SECPKG_STATE_WORKSTATION: i32 = 8;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_SUPPLEMENTAL_CRED {
     pub PackageName: super::UNICODE_STRING,
@@ -1118,13 +1126,13 @@ pub struct SECPKG_SUPPLEMENTAL_CRED {
     pub Credentials: super::PUCHAR,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_SUPPLEMENTAL_CRED_ARRAY {
     pub CredentialCount: u32,
     pub Credentials: [SECPKG_SUPPLEMENTAL_CRED; 1],
 }
-#[cfg(all(feature = "minwindef", feature = "ntsecapi"))]
+#[cfg(all(feature = "minwindef", feature = "winternl"))]
 impl Default for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1176,7 +1184,7 @@ pub struct SECPKG_USER_FUNCTION_TABLE {
     pub SealMessage: SpSealMessageFn,
     pub UnsealMessage: SpUnsealMessageFn,
     pub GetContextToken: SpGetContextTokenFn,
-    pub QueryContextAttributes: SpQueryContextAttributesFn,
+    pub QueryContextAttributesA: SpQueryContextAttributesFn,
     pub CompleteAuthToken: SpCompleteAuthTokenFn,
     pub DeleteUserModeContext: SpDeleteContextFn,
     pub FormatCredentials: SpFormatCredentialsFn,
@@ -1269,86 +1277,88 @@ pub const SecpkgNego2Info: SECPKG_EXTENDED_INFORMATION_CLASS = 7;
 pub const SecpkgWowClientDll: SECPKG_EXTENDED_INFORMATION_CLASS = 4;
 #[cfg(all(feature = "sspi", feature = "winnt"))]
 pub type SecurityUserData = SECURITY_USER_DATA;
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-pub type SpAcceptCredentialsFn = Option<unsafe extern "system" fn(logontype: super::SECURITY_LOGON_TYPE, accountname: *const super::LSA_UNICODE_STRING, primarycredentials: *const SECPKG_PRIMARY_CRED, supplementalcredentials: *const SECPKG_SUPPLEMENTAL_CRED) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
+pub type SpAcceptCredentialsFn = Option<unsafe extern "system" fn(logontype: super::SECURITY_LOGON_TYPE, accountname: super::PUNICODE_STRING, primarycredentials: PSECPKG_PRIMARY_CRED, supplementalcredentials: PSECPKG_SUPPLEMENTAL_CRED) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "sspi", feature = "winnt"))]
+pub type SpAcceptLsaModeContextFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, contexthandle: LSA_SEC_HANDLE, inputbuffer: super::PSecBufferDesc, contextrequirements: u32, targetdatarep: u32, newcontexthandle: PLSA_SEC_HANDLE, outputbuffer: super::PSecBufferDesc, contextattributes: super::PULONG, expirationtime: super::PTimeStamp, mappedcontext: super::PBOOLEAN, contextdata: super::PSecBuffer) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
+pub type SpAcquireCredentialsHandleFn = Option<unsafe extern "system" fn(principalname: super::PUNICODE_STRING, credentialuseflags: u32, logonid: super::PLUID, authorizationdata: *const core::ffi::c_void, getkeyfunciton: *const core::ffi::c_void, getkeyargument: *const core::ffi::c_void, credentialhandle: PLSA_SEC_HANDLE, expirationtime: super::PTimeStamp) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
+pub type SpAddCredentialsFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, principalname: super::PUNICODE_STRING, package: super::PUNICODE_STRING, credentialuseflags: u32, authorizationdata: *const core::ffi::c_void, getkeyfunciton: *const core::ffi::c_void, getkeyargument: *const core::ffi::c_void, expirationtime: super::PTimeStamp) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type SpAcceptLsaModeContextFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, contexthandle: LSA_SEC_HANDLE, inputbuffer: *const super::SecBufferDesc, contextrequirements: u32, targetdatarep: u32, newcontexthandle: *mut LSA_SEC_HANDLE, outputbuffer: *mut super::SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut super::SECURITY_INTEGER, mappedcontext: *mut bool, contextdata: *mut super::SecBuffer) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
-pub type SpAcquireCredentialsHandleFn = Option<unsafe extern "system" fn(principalname: *const super::LSA_UNICODE_STRING, credentialuseflags: u32, logonid: *const super::LUID, authorizationdata: *const core::ffi::c_void, getkeyfunciton: *const core::ffi::c_void, getkeyargument: *const core::ffi::c_void, credentialhandle: *mut LSA_SEC_HANDLE, expirationtime: *mut super::SECURITY_INTEGER) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "sspi"))]
-pub type SpAddCredentialsFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, principalname: *const super::LSA_UNICODE_STRING, package: *const super::LSA_UNICODE_STRING, credentialuseflags: u32, authorizationdata: *const core::ffi::c_void, getkeyfunciton: *const core::ffi::c_void, getkeyargument: *const core::ffi::c_void, expirationtime: *mut super::SECURITY_INTEGER) -> windows_core::NTSTATUS>;
+pub type SpApplyControlTokenFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, controltoken: super::PSecBufferDesc) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
+pub type SpChangeAccountPasswordFn = Option<unsafe extern "system" fn(pdomainname: super::PUNICODE_STRING, paccountname: super::PUNICODE_STRING, poldpassword: super::PUNICODE_STRING, pnewpassword: super::PUNICODE_STRING, impersonating: super::BOOLEAN, poutput: super::PSecBufferDesc) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type SpApplyControlTokenFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, controltoken: *const super::SecBufferDesc) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "sspi"))]
-pub type SpChangeAccountPasswordFn = Option<unsafe extern "system" fn(pdomainname: *const super::LSA_UNICODE_STRING, paccountname: *const super::LSA_UNICODE_STRING, poldpassword: *const super::LSA_UNICODE_STRING, pnewpassword: *const super::LSA_UNICODE_STRING, impersonating: bool, poutput: *mut super::SecBufferDesc) -> windows_core::NTSTATUS>;
-#[cfg(feature = "sspi")]
-pub type SpCompleteAuthTokenFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, inputbuffer: *const super::SecBufferDesc) -> windows_core::NTSTATUS>;
+pub type SpCompleteAuthTokenFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, inputbuffer: super::PSecBufferDesc) -> windows_core::NTSTATUS>;
 pub type SpDeleteContextFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type SpDeleteCredentialsFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, key: *const super::SecBuffer) -> windows_core::NTSTATUS>;
-#[cfg(feature = "lsalookup")]
-pub type SpExchangeMetaDataFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, targetname: *const super::LSA_UNICODE_STRING, contextrequirements: u32, metadatalength: u32, metadata: *const u8, contexthandle: *mut LSA_SEC_HANDLE) -> windows_core::NTSTATUS>;
+pub type SpDeleteCredentialsFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, key: super::PSecBuffer) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
+pub type SpExchangeMetaDataFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, targetname: super::PUNICODE_STRING, contextrequirements: u32, metadatalength: u32, metadata: super::PUCHAR, contexthandle: PLSA_SEC_HANDLE) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "sspi", feature = "winnt"))]
-pub type SpExportSecurityContextFn = Option<unsafe extern "system" fn(phcontext: LSA_SEC_HANDLE, fflags: u32, ppackedcontext: *mut super::SecBuffer, ptoken: *mut super::HANDLE) -> windows_core::NTSTATUS>;
-pub type SpExtractTargetInfoFn = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, ppvtargetinfo: *mut *mut core::ffi::c_void, pcbtargetinfo: *mut u32) -> windows_core::NTSTATUS>;
+pub type SpExportSecurityContextFn = Option<unsafe extern "system" fn(phcontext: LSA_SEC_HANDLE, fflags: u32, ppackedcontext: super::PSecBuffer, ptoken: super::PHANDLE) -> windows_core::NTSTATUS>;
+pub type SpExtractTargetInfoFn = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, ppvtargetinfo: *mut *mut core::ffi::c_void, pcbtargetinfo: *mut u32) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type SpFormatCredentialsFn = Option<unsafe extern "system" fn(credentials: *const super::SecBuffer, formattedcredentials: *mut super::SecBuffer) -> windows_core::NTSTATUS>;
+pub type SpFormatCredentialsFn = Option<unsafe extern "system" fn(credentials: super::PSecBuffer, formattedcredentials: super::PSecBuffer) -> windows_core::NTSTATUS>;
 pub type SpFreeCredentialsHandleFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type SpGetContextTokenFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, impersonationtoken: *mut super::HANDLE) -> windows_core::NTSTATUS>;
+pub type SpGetContextTokenFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, impersonationtoken: super::PHANDLE) -> windows_core::NTSTATUS>;
 #[cfg(feature = "minwindef")]
-pub type SpGetCredUIContextFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, credtype: *const windows_core::GUID, flatcreduicontextlength: *mut u32, flatcreduicontext: *mut super::PUCHAR) -> windows_core::NTSTATUS>;
+pub type SpGetCredUIContextFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, credtype: *const windows_core::GUID, flatcreduicontextlength: super::PULONG, flatcreduicontext: *mut super::PUCHAR) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type SpGetCredentialsFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, credentials: *mut super::SecBuffer) -> windows_core::NTSTATUS>;
+pub type SpGetCredentialsFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, credentials: super::PSecBuffer) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
 pub type SpGetExtendedInformationFn = Option<unsafe extern "system" fn(class: SECPKG_EXTENDED_INFORMATION_CLASS, ppinformation: *mut PSECPKG_EXTENDED_INFORMATION) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type SpGetInfoFn = Option<unsafe extern "system" fn(packageinfo: *mut super::SecPkgInfoA) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-pub type SpGetRemoteCredGuardLogonBufferFn = Option<unsafe extern "system" fn(credhandle: LSA_SEC_HANDLE, contexthandle: LSA_SEC_HANDLE, targetname: *const super::UNICODE_STRING, redirectedlogonhandle: *mut super::HANDLE, callback: *mut PLSA_REDIRECTED_LOGON_CALLBACK, cleanupcallback: *mut PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK, logonbuffersize: *mut u32, logonbuffer: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-pub type SpGetRemoteCredGuardSupplementalCredsFn = Option<unsafe extern "system" fn(credhandle: LSA_SEC_HANDLE, targetname: *const super::UNICODE_STRING, redirectedlogonhandle: *mut super::HANDLE, callback: *mut PLSA_REDIRECTED_LOGON_CALLBACK, cleanupcallback: *mut PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK, supplementalcredssize: *mut u32, supplementalcreds: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(feature = "winnt")]
-pub type SpGetTbalSupplementalCredsFn = Option<unsafe extern "system" fn(logonid: super::LUID, supplementalcredssize: *mut u32, supplementalcreds: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type SpGetInfoFn = Option<unsafe extern "system" fn(packageinfo: super::PSecPkgInfoA) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+pub type SpGetRemoteCredGuardLogonBufferFn = Option<unsafe extern "system" fn(credhandle: LSA_SEC_HANDLE, contexthandle: LSA_SEC_HANDLE, targetname: *const super::UNICODE_STRING, redirectedlogonhandle: super::PHANDLE, callback: *mut PLSA_REDIRECTED_LOGON_CALLBACK, cleanupcallback: *mut PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK, logonbuffersize: super::PULONG, logonbuffer: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winternl"))]
+pub type SpGetRemoteCredGuardSupplementalCredsFn = Option<unsafe extern "system" fn(credhandle: LSA_SEC_HANDLE, targetname: *const super::UNICODE_STRING, redirectedlogonhandle: super::PHANDLE, callback: *mut PLSA_REDIRECTED_LOGON_CALLBACK, cleanupcallback: *mut PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK, supplementalcredssize: super::PULONG, supplementalcreds: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type SpGetTbalSupplementalCredsFn = Option<unsafe extern "system" fn(logonid: super::LUID, supplementalcredssize: super::PULONG, supplementalcreds: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "sspi", feature = "winnt"))]
-pub type SpGetUserInfoFn = Option<unsafe extern "system" fn(logonid: *const super::LUID, flags: u32, userdata: *mut PSecurityUserData) -> windows_core::NTSTATUS>;
+pub type SpGetUserInfoFn = Option<unsafe extern "system" fn(logonid: super::PLUID, flags: u32, userdata: *mut PSecurityUserData) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "sspi", feature = "winnt"))]
-pub type SpImportSecurityContextFn = Option<unsafe extern "system" fn(ppackedcontext: *const super::SecBuffer, token: super::HANDLE, phcontext: *mut LSA_SEC_HANDLE) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "sspi"))]
-pub type SpInitLsaModeContextFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, contexthandle: LSA_SEC_HANDLE, targetname: *const super::LSA_UNICODE_STRING, contextrequirements: u32, targetdatarep: u32, inputbuffers: *const super::SecBufferDesc, newcontexthandle: *mut LSA_SEC_HANDLE, outputbuffers: *mut super::SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut super::SECURITY_INTEGER, mappedcontext: *mut bool, contextdata: *mut super::SecBuffer) -> windows_core::NTSTATUS>;
+pub type SpImportSecurityContextFn = Option<unsafe extern "system" fn(ppackedcontext: super::PSecBuffer, token: super::HANDLE, phcontext: PLSA_SEC_HANDLE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
+pub type SpInitLsaModeContextFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, contexthandle: LSA_SEC_HANDLE, targetname: super::PUNICODE_STRING, contextrequirements: u32, targetdatarep: u32, inputbuffers: super::PSecBufferDesc, newcontexthandle: PLSA_SEC_HANDLE, outputbuffers: super::PSecBufferDesc, contextattributes: super::PULONG, expirationtime: super::PTimeStamp, mappedcontext: super::PBOOLEAN, contextdata: super::PSecBuffer) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type SpInitUserModeContextFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, packedcontext: *const super::SecBuffer) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
-pub type SpInitializeFn = Option<unsafe extern "system" fn(packageid: usize, parameters: *const SECPKG_PARAMETERS, functiontable: *const LSA_SECPKG_FUNCTION_TABLE) -> windows_core::NTSTATUS>;
+pub type SpInitUserModeContextFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, packedcontext: super::PSecBuffer) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt", feature = "winternl"))]
+pub type SpInitializeFn = Option<unsafe extern "system" fn(packageid: usize, parameters: PSECPKG_PARAMETERS, functiontable: PLSA_SECPKG_FUNCTION_TABLE) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type SpInstanceInitFn = Option<unsafe extern "system" fn(version: u32, functiontable: *const SECPKG_DLL_FUNCTIONS, userfunctions: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt", feature = "winternl"))]
-pub type SpLsaModeInitializeFn = Option<unsafe extern "system" fn(lsaversion: u32, packageversion: *mut u32, pptables: *mut PSECPKG_FUNCTION_TABLE, pctables: *mut u32) -> windows_core::NTSTATUS>;
+pub type SpInstanceInitFn = Option<unsafe extern "system" fn(version: u32, functiontable: PSECPKG_DLL_FUNCTIONS, userfunctions: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt", feature = "winternl"))]
+pub type SpLsaModeInitializeFn = Option<unsafe extern "system" fn(lsaversion: u32, packageversion: super::PULONG, pptables: *mut PSECPKG_FUNCTION_TABLE, pctables: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type SpMakeSignatureFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, qualityofprotection: u32, messagebuffers: *const super::SecBufferDesc, messagesequencenumber: u32) -> windows_core::NTSTATUS>;
+pub type SpMakeSignatureFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, qualityofprotection: u32, messagebuffers: super::PSecBufferDesc, messagesequencenumber: u32) -> windows_core::NTSTATUS>;
 #[cfg(feature = "minwindef")]
-pub type SpMarshalAttributeDataFn = Option<unsafe extern "system" fn(attributeinfo: u32, attribute: u32, attributedatasize: u32, attributedata: *const u8, marshaledattributedatasize: *mut u32, marshaledattributedata: *mut super::PBYTE) -> windows_core::NTSTATUS>;
-pub type SpMarshallSupplementalCredsFn = Option<unsafe extern "system" fn(credentialsize: u32, credentials: *const u8, marshalledcredsize: *mut u32, marshalledcreds: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
+pub type SpMarshalAttributeDataFn = Option<unsafe extern "system" fn(attributeinfo: u32, attribute: u32, attributedatasize: u32, attributedata: super::PBYTE, marshaledattributedatasize: super::PULONG, marshaledattributedata: *mut super::PBYTE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type SpMarshallSupplementalCredsFn = Option<unsafe extern "system" fn(credentialsize: u32, credentials: super::PUCHAR, marshalledcredsize: super::PULONG, marshalledcreds: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type SpQueryContextAttributesFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, contextattribute: u32, buffer: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type SpQueryCredentialsAttributesFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, credentialattribute: u32, buffer: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-pub type SpQueryMetaDataFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, targetname: *const super::LSA_UNICODE_STRING, contextrequirements: u32, metadatalength: *mut u32, metadata: *mut super::PUCHAR, contexthandle: *mut LSA_SEC_HANDLE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
+pub type SpQueryMetaDataFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, targetname: super::PUNICODE_STRING, contextrequirements: u32, metadatalength: super::PULONG, metadata: *mut super::PUCHAR, contexthandle: PLSA_SEC_HANDLE) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type SpSaveCredentialsFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, credentials: *const super::SecBuffer) -> windows_core::NTSTATUS>;
+pub type SpSaveCredentialsFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, credentials: super::PSecBuffer) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type SpSealMessageFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, qualityofprotection: u32, messagebuffers: *const super::SecBufferDesc, messagesequencenumber: u32) -> windows_core::NTSTATUS>;
+pub type SpSealMessageFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, qualityofprotection: u32, messagebuffers: super::PSecBufferDesc, messagesequencenumber: u32) -> windows_core::NTSTATUS>;
 pub type SpSetContextAttributesFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, contextattribute: u32, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::NTSTATUS>;
 pub type SpSetCredentialsAttributesFn = Option<unsafe extern "system" fn(credentialhandle: LSA_SEC_HANDLE, credentialattribute: u32, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::NTSTATUS>;
 #[cfg(feature = "sspi")]
-pub type SpSetExtendedInformationFn = Option<unsafe extern "system" fn(class: SECPKG_EXTENDED_INFORMATION_CLASS, info: *const SECPKG_EXTENDED_INFORMATION) -> windows_core::NTSTATUS>;
+pub type SpSetExtendedInformationFn = Option<unsafe extern "system" fn(class: SECPKG_EXTENDED_INFORMATION_CLASS, info: PSECPKG_EXTENDED_INFORMATION) -> windows_core::NTSTATUS>;
 pub type SpShutdownFn = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
-#[cfg(feature = "sspi")]
-pub type SpUnsealMessageFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, messagebuffers: *const super::SecBufferDesc, messagesequencenumber: u32, qualityofprotection: *mut u32) -> windows_core::NTSTATUS>;
-pub type SpUpdateCredentialsFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, credtype: *const windows_core::GUID, flatcreduicontextlength: u32, flatcreduicontext: *const u8) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "sspi"))]
+pub type SpUnsealMessageFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, messagebuffers: super::PSecBufferDesc, messagesequencenumber: u32, qualityofprotection: super::PULONG) -> windows_core::NTSTATUS>;
+#[cfg(feature = "minwindef")]
+pub type SpUpdateCredentialsFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, credtype: *const windows_core::GUID, flatcreduicontextlength: u32, flatcreduicontext: super::PUCHAR) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "sspi", feature = "winnt"))]
-pub type SpUserModeInitializeFn = Option<unsafe extern "system" fn(lsaversion: u32, packageversion: *mut u32, pptables: *mut PSECPKG_USER_FUNCTION_TABLE, pctables: *mut u32) -> windows_core::NTSTATUS>;
+pub type SpUserModeInitializeFn = Option<unsafe extern "system" fn(lsaversion: u32, packageversion: super::PULONG, pptables: *mut PSECPKG_USER_FUNCTION_TABLE, pctables: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type SpValidateTargetInfoFn = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, targetinfo: *const SECPKG_TARGETINFO) -> windows_core::NTSTATUS>;
-#[cfg(feature = "sspi")]
-pub type SpVerifySignatureFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, messagebuffers: *const super::SecBufferDesc, messagesequencenumber: u32, qualityofprotection: *mut u32) -> windows_core::NTSTATUS>;
+pub type SpValidateTargetInfoFn = Option<unsafe extern "system" fn(clientrequest: PLSA_CLIENT_REQUEST, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, targetinfo: PSECPKG_TARGETINFO) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "sspi"))]
+pub type SpVerifySignatureFn = Option<unsafe extern "system" fn(contexthandle: LSA_SEC_HANDLE, messagebuffers: super::PSecBufferDesc, messagesequencenumber: u32, qualityofprotection: super::PULONG) -> windows_core::NTSTATUS>;
 pub const UNDERSTANDS_LONG_NAMES: i32 = 1;

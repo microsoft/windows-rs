@@ -11,14 +11,14 @@ pub unsafe fn MprAdminConnectionClearStats(hrasserver: RAS_SERVER_HANDLE, hrasco
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminConnectionEnum(hrasserver: RAS_SERVER_HANDLE, dwlevel: u32, lplpbbuffer: *mut super::LPBYTE, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: Option<*const u32>) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminConnectionEnum(hrasserver : RAS_SERVER_HANDLE, dwlevel : u32, lplpbbuffer : *mut super::LPBYTE, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *const u32) -> u32);
+pub unsafe fn MprAdminConnectionEnum(hrasserver: RAS_SERVER_HANDLE, dwlevel: u32, lplpbbuffer: *mut super::LPBYTE, dwprefmaxlen: u32, lpdwentriesread: super::LPDWORD, lpdwtotalentries: super::LPDWORD, lpdwresumehandle: Option<super::LPDWORD>) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminConnectionEnum(hrasserver : RAS_SERVER_HANDLE, dwlevel : u32, lplpbbuffer : *mut super::LPBYTE, dwprefmaxlen : u32, lpdwentriesread : super::LPDWORD, lpdwtotalentries : super::LPDWORD, lpdwresumehandle : super::LPDWORD) -> u32);
     unsafe { MprAdminConnectionEnum(hrasserver, dwlevel, lplpbbuffer as _, dwprefmaxlen, lpdwentriesread as _, lpdwtotalentries as _, lpdwresumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminConnectionEnumEx(hrasserver: RAS_SERVER_HANDLE, pobjectheader: *const MPRAPI_OBJECT_HEADER, dwpreferedmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, pprasconn: *mut PRAS_CONNECTION_EX, lpdwresumehandle: *const u32) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminConnectionEnumEx(hrasserver : RAS_SERVER_HANDLE, pobjectheader : *const MPRAPI_OBJECT_HEADER, dwpreferedmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, pprasconn : *mut PRAS_CONNECTION_EX, lpdwresumehandle : *const u32) -> u32);
+pub unsafe fn MprAdminConnectionEnumEx(hrasserver: RAS_SERVER_HANDLE, pobjectheader: PMPRAPI_OBJECT_HEADER, dwpreferedmaxlen: u32, lpdwentriesread: super::LPDWORD, lpdwtotalentries: super::LPDWORD, pprasconn: *mut PRAS_CONNECTION_EX, lpdwresumehandle: super::LPDWORD) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminConnectionEnumEx(hrasserver : RAS_SERVER_HANDLE, pobjectheader : PMPRAPI_OBJECT_HEADER, dwpreferedmaxlen : u32, lpdwentriesread : super::LPDWORD, lpdwtotalentries : super::LPDWORD, pprasconn : *mut PRAS_CONNECTION_EX, lpdwresumehandle : super::LPDWORD) -> u32);
     unsafe { MprAdminConnectionEnumEx(hrasserver, pobjectheader, dwpreferedmaxlen, lpdwentriesread as _, lpdwtotalentries as _, pprasconn as _, lpdwresumehandle) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -29,8 +29,8 @@ pub unsafe fn MprAdminConnectionGetInfo(hrasserver: RAS_SERVER_HANDLE, dwlevel: 
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminConnectionGetInfoEx(hrasserver: RAS_SERVER_HANDLE, hrasconnection: super::HANDLE, prasconnection: *mut RAS_CONNECTION_EX) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminConnectionGetInfoEx(hrasserver : RAS_SERVER_HANDLE, hrasconnection : super::HANDLE, prasconnection : *mut RAS_CONNECTION_EX) -> u32);
+pub unsafe fn MprAdminConnectionGetInfoEx(hrasserver: RAS_SERVER_HANDLE, hrasconnection: super::HANDLE, prasconnection: PRAS_CONNECTION_EX) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminConnectionGetInfoEx(hrasserver : RAS_SERVER_HANDLE, hrasconnection : super::HANDLE, prasconnection : PRAS_CONNECTION_EX) -> u32);
     unsafe { MprAdminConnectionGetInfoEx(hrasserver, hrasconnection, prasconnection as _) }
 }
 #[cfg(feature = "winnt")]
@@ -47,8 +47,8 @@ pub unsafe fn MprAdminDeregisterConnectionNotification(hmprserver: MPR_SERVER_HA
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminDeviceEnum(hmprserver: MPR_SERVER_HANDLE, dwlevel: u32, lplpbbuffer: *mut super::LPBYTE, lpdwtotalentries: *mut u32) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminDeviceEnum(hmprserver : MPR_SERVER_HANDLE, dwlevel : u32, lplpbbuffer : *mut super::LPBYTE, lpdwtotalentries : *mut u32) -> u32);
+pub unsafe fn MprAdminDeviceEnum(hmprserver: MPR_SERVER_HANDLE, dwlevel: u32, lplpbbuffer: *mut super::LPBYTE, lpdwtotalentries: super::LPDWORD) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminDeviceEnum(hmprserver : MPR_SERVER_HANDLE, dwlevel : u32, lplpbbuffer : *mut super::LPBYTE, lpdwtotalentries : super::LPDWORD) -> u32);
     unsafe { MprAdminDeviceEnum(hmprserver, dwlevel, lplpbbuffer as _, lpdwtotalentries as _) }
 }
 #[inline]
@@ -80,10 +80,10 @@ pub unsafe fn MprAdminInterfaceConnect(hmprserver: MPR_SERVER_HANDLE, hinterface
     windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceConnect(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, hevent : super::HANDLE, fsynchronous : windows_core::BOOL) -> u32);
     unsafe { MprAdminInterfaceConnect(hmprserver, hinterface, hevent, fsynchronous.into()) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminInterfaceCreate(hmprserver: MPR_SERVER_HANDLE, dwlevel: u32, lpbbuffer: *const u8, phinterface: *mut super::HANDLE) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceCreate(hmprserver : MPR_SERVER_HANDLE, dwlevel : u32, lpbbuffer : *const u8, phinterface : *mut super::HANDLE) -> u32);
+pub unsafe fn MprAdminInterfaceCreate(hmprserver: MPR_SERVER_HANDLE, dwlevel: u32, lpbbuffer: super::LPBYTE, phinterface: *mut super::HANDLE) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceCreate(hmprserver : MPR_SERVER_HANDLE, dwlevel : u32, lpbbuffer : super::LPBYTE, phinterface : *mut super::HANDLE) -> u32);
     unsafe { MprAdminInterfaceCreate(hmprserver, dwlevel, lpbbuffer, phinterface as _) }
 }
 #[cfg(feature = "winnt")]
@@ -98,10 +98,10 @@ pub unsafe fn MprAdminInterfaceDeviceGetInfo(hmprserver: MPR_SERVER_HANDLE, hint
     windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceDeviceGetInfo(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwindex : u32, dwlevel : u32, lplpbuffer : *mut super::LPBYTE) -> u32);
     unsafe { MprAdminInterfaceDeviceGetInfo(hmprserver, hinterface, dwindex, dwlevel, lplpbuffer as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminInterfaceDeviceSetInfo(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, dwindex: u32, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceDeviceSetInfo(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwindex : u32, dwlevel : u32, lpbbuffer : *const u8) -> u32);
+pub unsafe fn MprAdminInterfaceDeviceSetInfo(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, dwindex: u32, dwlevel: u32, lpbbuffer: super::LPBYTE) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceDeviceSetInfo(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwindex : u32, dwlevel : u32, lpbbuffer : super::LPBYTE) -> u32);
     unsafe { MprAdminInterfaceDeviceSetInfo(hmprserver, hinterface, dwindex, dwlevel, lpbbuffer) }
 }
 #[cfg(feature = "winnt")]
@@ -112,8 +112,8 @@ pub unsafe fn MprAdminInterfaceDisconnect(hmprserver: MPR_SERVER_HANDLE, hinterf
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminInterfaceEnum(hmprserver: MPR_SERVER_HANDLE, dwlevel: u32, lplpbbuffer: *mut super::LPBYTE, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: Option<*const u32>) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceEnum(hmprserver : MPR_SERVER_HANDLE, dwlevel : u32, lplpbbuffer : *mut super::LPBYTE, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *const u32) -> u32);
+pub unsafe fn MprAdminInterfaceEnum(hmprserver: MPR_SERVER_HANDLE, dwlevel: u32, lplpbbuffer: *mut super::LPBYTE, dwprefmaxlen: u32, lpdwentriesread: super::LPDWORD, lpdwtotalentries: super::LPDWORD, lpdwresumehandle: Option<super::LPDWORD>) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceEnum(hmprserver : MPR_SERVER_HANDLE, dwlevel : u32, lplpbbuffer : *mut super::LPBYTE, dwprefmaxlen : u32, lpdwentriesread : super::LPDWORD, lpdwtotalentries : super::LPDWORD, lpdwresumehandle : super::LPDWORD) -> u32);
     unsafe { MprAdminInterfaceEnum(hmprserver, dwlevel, lplpbbuffer as _, dwprefmaxlen, lpdwentriesread as _, lpdwtotalentries as _, lpdwresumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -133,8 +133,8 @@ pub unsafe fn MprAdminInterfaceGetCredentialsEx(hmprserver: MPR_SERVER_HANDLE, h
 }
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "wincrypt", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminInterfaceGetCustomInfoEx(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceGetCustomInfoEx(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, pcustominfo : *mut MPR_IF_CUSTOMINFOEX2) -> u32);
+pub unsafe fn MprAdminInterfaceGetCustomInfoEx(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, pcustominfo: PMPR_IF_CUSTOMINFOEX2) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceGetCustomInfoEx(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, pcustominfo : PMPR_IF_CUSTOMINFOEX2) -> u32);
     unsafe { MprAdminInterfaceGetCustomInfoEx(hmprserver, hinterface, pcustominfo as _) }
 }
 #[cfg(feature = "winnt")]
@@ -152,10 +152,10 @@ pub unsafe fn MprAdminInterfaceGetInfo(hmprserver: MPR_SERVER_HANDLE, hinterface
     windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceGetInfo(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwlevel : u32, lplpbbuffer : *const super::LPBYTE) -> u32);
     unsafe { MprAdminInterfaceGetInfo(hmprserver, hinterface, dwlevel, lplpbbuffer) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminInterfaceQueryUpdateResult(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, dwprotocolid: u32, lpdwupdateresult: *mut u32) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceQueryUpdateResult(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwprotocolid : u32, lpdwupdateresult : *mut u32) -> u32);
+pub unsafe fn MprAdminInterfaceQueryUpdateResult(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, dwprotocolid: u32, lpdwupdateresult: super::LPDWORD) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceQueryUpdateResult(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwprotocolid : u32, lpdwupdateresult : super::LPDWORD) -> u32);
     unsafe { MprAdminInterfaceQueryUpdateResult(hmprserver, hinterface, dwprotocolid, lpdwupdateresult as _) }
 }
 #[inline]
@@ -170,34 +170,34 @@ where
     windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCredentials(lpwsserver : windows_core::PCWSTR, lpwsinterfacename : windows_core::PCWSTR, lpwsusername : windows_core::PCWSTR, lpwsdomainname : windows_core::PCWSTR, lpwspassword : windows_core::PCWSTR) -> u32);
     unsafe { MprAdminInterfaceSetCredentials(lpwsserver.param().abi(), lpwsinterfacename.param().abi(), lpwsusername.param().abi(), lpwsdomainname.param().abi(), lpwspassword.param().abi()) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminInterfaceSetCredentialsEx(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCredentialsEx(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwlevel : u32, lpbbuffer : *const u8) -> u32);
+pub unsafe fn MprAdminInterfaceSetCredentialsEx(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, dwlevel: u32, lpbbuffer: super::LPBYTE) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCredentialsEx(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwlevel : u32, lpbbuffer : super::LPBYTE) -> u32);
     unsafe { MprAdminInterfaceSetCredentialsEx(hmprserver, hinterface, dwlevel, lpbbuffer) }
 }
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "wincrypt", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminInterfaceSetCustomInfoEx(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCustomInfoEx(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, pcustominfo : *const MPR_IF_CUSTOMINFOEX2) -> u32);
+pub unsafe fn MprAdminInterfaceSetCustomInfoEx(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, pcustominfo: PMPR_IF_CUSTOMINFOEX2) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCustomInfoEx(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, pcustominfo : PMPR_IF_CUSTOMINFOEX2) -> u32);
     unsafe { MprAdminInterfaceSetCustomInfoEx(hmprserver, hinterface, pcustominfo) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminInterfaceSetInfo(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceSetInfo(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwlevel : u32, lpbbuffer : *const u8) -> u32);
+pub unsafe fn MprAdminInterfaceSetInfo(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, dwlevel: u32, lpbbuffer: super::LPBYTE) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceSetInfo(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwlevel : u32, lpbbuffer : super::LPBYTE) -> u32);
     unsafe { MprAdminInterfaceSetInfo(hmprserver, hinterface, dwlevel, lpbbuffer) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminInterfaceTransportAdd(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportAdd(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwtransportid : u32, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32) -> u32);
+pub unsafe fn MprAdminInterfaceTransportAdd(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, dwtransportid: u32, pinterfaceinfo: super::LPBYTE, dwinterfaceinfosize: u32) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportAdd(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwtransportid : u32, pinterfaceinfo : super::LPBYTE, dwinterfaceinfosize : u32) -> u32);
     unsafe { MprAdminInterfaceTransportAdd(hmprserver, hinterface, dwtransportid, pinterfaceinfo, dwinterfaceinfosize) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminInterfaceTransportGetInfo(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, dwtransportid: u32, ppinterfaceinfo: *mut super::LPBYTE, lpdwinterfaceinfosize: Option<*mut u32>) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportGetInfo(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwtransportid : u32, ppinterfaceinfo : *mut super::LPBYTE, lpdwinterfaceinfosize : *mut u32) -> u32);
+pub unsafe fn MprAdminInterfaceTransportGetInfo(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, dwtransportid: u32, ppinterfaceinfo: *mut super::LPBYTE, lpdwinterfaceinfosize: Option<super::LPDWORD>) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportGetInfo(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwtransportid : u32, ppinterfaceinfo : *mut super::LPBYTE, lpdwinterfaceinfosize : super::LPDWORD) -> u32);
     unsafe { MprAdminInterfaceTransportGetInfo(hmprserver, hinterface, dwtransportid, ppinterfaceinfo as _, lpdwinterfaceinfosize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -206,10 +206,10 @@ pub unsafe fn MprAdminInterfaceTransportRemove(hmprserver: MPR_SERVER_HANDLE, hi
     windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportRemove(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwtransportid : u32) -> u32);
     unsafe { MprAdminInterfaceTransportRemove(hmprserver, hinterface, dwtransportid) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminInterfaceTransportSetInfo(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportSetInfo(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwtransportid : u32, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32) -> u32);
+pub unsafe fn MprAdminInterfaceTransportSetInfo(hmprserver: MPR_SERVER_HANDLE, hinterface: super::HANDLE, dwtransportid: u32, pinterfaceinfo: super::LPBYTE, dwinterfaceinfosize: u32) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportSetInfo(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwtransportid : u32, pinterfaceinfo : super::LPBYTE, dwinterfaceinfosize : u32) -> u32);
     unsafe { MprAdminInterfaceTransportSetInfo(hmprserver, hinterface, dwtransportid, pinterfaceinfo, dwinterfaceinfosize) }
 }
 #[cfg(feature = "winnt")]
@@ -224,13 +224,14 @@ pub unsafe fn MprAdminInterfaceUpdateRoutes(hmprserver: MPR_SERVER_HANDLE, hinte
     windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceUpdateRoutes(hmprserver : MPR_SERVER_HANDLE, hinterface : super::HANDLE, dwprotocolid : u32, hevent : super::HANDLE) -> u32);
     unsafe { MprAdminInterfaceUpdateRoutes(hmprserver, hinterface, dwprotocolid, hevent) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn MprAdminIsDomainRasServer<P0, P1>(pszdomain: P0, pszmachine: P1, pbisrasserver: *mut windows_core::BOOL) -> u32
+pub unsafe fn MprAdminIsDomainRasServer<P0, P1>(pszdomain: P0, pszmachine: P1, pbisrasserver: super::PBOOL) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminIsDomainRasServer(pszdomain : windows_core::PCWSTR, pszmachine : windows_core::PCWSTR, pbisrasserver : *mut windows_core::BOOL) -> u32);
+    windows_core::link!("mprapi.dll" "system" fn MprAdminIsDomainRasServer(pszdomain : windows_core::PCWSTR, pszmachine : windows_core::PCWSTR, pbisrasserver : super::PBOOL) -> u32);
     unsafe { MprAdminIsDomainRasServer(pszdomain.param().abi(), pszmachine.param().abi(), pbisrasserver as _) }
 }
 #[inline]
@@ -266,22 +267,22 @@ pub unsafe fn MprAdminMIBEntryDelete(hmibserver: MIB_SERVER_HANDLE, dwprotocolid
     windows_core::link!("mprapi.dll" "system" fn MprAdminMIBEntryDelete(hmibserver : MIB_SERVER_HANDLE, dwprotocolid : u32, dwroutingpid : u32, lpentry : *const core::ffi::c_void, dwentrysize : u32) -> u32);
     unsafe { MprAdminMIBEntryDelete(hmibserver, dwprotocolid, dwroutingpid, lpentry, dwentrysize) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminMIBEntryGet(hmibserver: MIB_SERVER_HANDLE, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut core::ffi::c_void, lpoutentrysize: *mut u32) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminMIBEntryGet(hmibserver : MIB_SERVER_HANDLE, dwprotocolid : u32, dwroutingpid : u32, lpinentry : *const core::ffi::c_void, dwinentrysize : u32, lplpoutentry : *mut *mut core::ffi::c_void, lpoutentrysize : *mut u32) -> u32);
+pub unsafe fn MprAdminMIBEntryGet(hmibserver: MIB_SERVER_HANDLE, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut core::ffi::c_void, lpoutentrysize: super::LPDWORD) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminMIBEntryGet(hmibserver : MIB_SERVER_HANDLE, dwprotocolid : u32, dwroutingpid : u32, lpinentry : *const core::ffi::c_void, dwinentrysize : u32, lplpoutentry : *mut *mut core::ffi::c_void, lpoutentrysize : super::LPDWORD) -> u32);
     unsafe { MprAdminMIBEntryGet(hmibserver, dwprotocolid, dwroutingpid, lpinentry, dwinentrysize, lplpoutentry as _, lpoutentrysize as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminMIBEntryGetFirst(hmibserver: MIB_SERVER_HANDLE, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut core::ffi::c_void, lpoutentrysize: *mut u32) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminMIBEntryGetFirst(hmibserver : MIB_SERVER_HANDLE, dwprotocolid : u32, dwroutingpid : u32, lpinentry : *const core::ffi::c_void, dwinentrysize : u32, lplpoutentry : *mut *mut core::ffi::c_void, lpoutentrysize : *mut u32) -> u32);
+pub unsafe fn MprAdminMIBEntryGetFirst(hmibserver: MIB_SERVER_HANDLE, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut core::ffi::c_void, lpoutentrysize: super::LPDWORD) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminMIBEntryGetFirst(hmibserver : MIB_SERVER_HANDLE, dwprotocolid : u32, dwroutingpid : u32, lpinentry : *const core::ffi::c_void, dwinentrysize : u32, lplpoutentry : *mut *mut core::ffi::c_void, lpoutentrysize : super::LPDWORD) -> u32);
     unsafe { MprAdminMIBEntryGetFirst(hmibserver, dwprotocolid, dwroutingpid, lpinentry, dwinentrysize, lplpoutentry as _, lpoutentrysize as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminMIBEntryGetNext(hmibserver: MIB_SERVER_HANDLE, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut core::ffi::c_void, lpoutentrysize: *mut u32) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminMIBEntryGetNext(hmibserver : MIB_SERVER_HANDLE, dwprotocolid : u32, dwroutingpid : u32, lpinentry : *const core::ffi::c_void, dwinentrysize : u32, lplpoutentry : *mut *mut core::ffi::c_void, lpoutentrysize : *mut u32) -> u32);
+pub unsafe fn MprAdminMIBEntryGetNext(hmibserver: MIB_SERVER_HANDLE, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut core::ffi::c_void, lpoutentrysize: super::LPDWORD) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminMIBEntryGetNext(hmibserver : MIB_SERVER_HANDLE, dwprotocolid : u32, dwroutingpid : u32, lpinentry : *const core::ffi::c_void, dwinentrysize : u32, lplpoutentry : *mut *mut core::ffi::c_void, lpoutentrysize : super::LPDWORD) -> u32);
     unsafe { MprAdminMIBEntryGetNext(hmibserver, dwprotocolid, dwroutingpid, lpinentry, dwinentrysize, lplpoutentry as _, lpoutentrysize as _) }
 }
 #[cfg(feature = "winnt")]
@@ -319,8 +320,8 @@ pub unsafe fn MprAdminPortDisconnect(hrasserver: RAS_SERVER_HANDLE, hport: super
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminPortEnum(hrasserver: RAS_SERVER_HANDLE, dwlevel: u32, hrasconnection: super::HANDLE, lplpbbuffer: *mut super::LPBYTE, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: Option<*const u32>) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminPortEnum(hrasserver : RAS_SERVER_HANDLE, dwlevel : u32, hrasconnection : super::HANDLE, lplpbbuffer : *mut super::LPBYTE, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *const u32) -> u32);
+pub unsafe fn MprAdminPortEnum(hrasserver: RAS_SERVER_HANDLE, dwlevel: u32, hrasconnection: super::HANDLE, lplpbbuffer: *mut super::LPBYTE, dwprefmaxlen: u32, lpdwentriesread: super::LPDWORD, lpdwtotalentries: super::LPDWORD, lpdwresumehandle: Option<super::LPDWORD>) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminPortEnum(hrasserver : RAS_SERVER_HANDLE, dwlevel : u32, hrasconnection : super::HANDLE, lplpbbuffer : *mut super::LPBYTE, dwprefmaxlen : u32, lpdwentriesread : super::LPDWORD, lpdwtotalentries : super::LPDWORD, lpdwresumehandle : super::LPDWORD) -> u32);
     unsafe { MprAdminPortEnum(hrasserver, dwlevel, hrasconnection, lplpbbuffer as _, dwprefmaxlen, lpdwentriesread as _, lpdwtotalentries as _, lpdwresumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -383,16 +384,16 @@ pub unsafe fn MprAdminServerGetInfoEx(hmprserver: MPR_SERVER_HANDLE, pserverinfo
     windows_core::link!("mprapi.dll" "system" fn MprAdminServerGetInfoEx(hmprserver : MPR_SERVER_HANDLE, pserverinfo : *mut MPR_SERVER_EX1) -> u32);
     unsafe { MprAdminServerGetInfoEx(hmprserver, pserverinfo as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminServerSetCredentials(hmprserver: MPR_SERVER_HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminServerSetCredentials(hmprserver : MPR_SERVER_HANDLE, dwlevel : u32, lpbbuffer : *const u8) -> u32);
+pub unsafe fn MprAdminServerSetCredentials(hmprserver: MPR_SERVER_HANDLE, dwlevel: u32, lpbbuffer: super::LPBYTE) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminServerSetCredentials(hmprserver : MPR_SERVER_HANDLE, dwlevel : u32, lpbbuffer : super::LPBYTE) -> u32);
     unsafe { MprAdminServerSetCredentials(hmprserver, dwlevel, lpbbuffer) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminServerSetInfo(hmprserver: MPR_SERVER_HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminServerSetInfo(hmprserver : MPR_SERVER_HANDLE, dwlevel : u32, lpbbuffer : *const u8) -> u32);
+pub unsafe fn MprAdminServerSetInfo(hmprserver: MPR_SERVER_HANDLE, dwlevel: u32, lpbbuffer: super::LPBYTE) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminServerSetInfo(hmprserver : MPR_SERVER_HANDLE, dwlevel : u32, lpbbuffer : super::LPBYTE) -> u32);
     unsafe { MprAdminServerSetInfo(hmprserver, dwlevel, lpbbuffer) }
 }
 #[cfg(all(feature = "wincrypt", feature = "winnt"))]
@@ -401,50 +402,52 @@ pub unsafe fn MprAdminServerSetInfoEx(hmprserver: MPR_SERVER_HANDLE, pserverinfo
     windows_core::link!("mprapi.dll" "system" fn MprAdminServerSetInfoEx(hmprserver : MPR_SERVER_HANDLE, pserverinfo : *const MPR_SERVER_SET_CONFIG_EX1) -> u32);
     unsafe { MprAdminServerSetInfoEx(hmprserver, pserverinfo) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminTransportCreate<P2, P7>(hmprserver: MPR_SERVER_HANDLE, dwtransportid: u32, lpwstransportname: P2, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: Option<*const u8>, dwclientinterfaceinfosize: Option<u32>, lpwsdllpath: P7) -> u32
+pub unsafe fn MprAdminTransportCreate<P2, P7>(hmprserver: MPR_SERVER_HANDLE, dwtransportid: u32, lpwstransportname: P2, pglobalinfo: super::LPBYTE, dwglobalinfosize: u32, pclientinterfaceinfo: Option<super::LPBYTE>, dwclientinterfaceinfosize: Option<u32>, lpwsdllpath: P7) -> u32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminTransportCreate(hmprserver : MPR_SERVER_HANDLE, dwtransportid : u32, lpwstransportname : windows_core::PCWSTR, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_core::PCWSTR) -> u32);
+    windows_core::link!("mprapi.dll" "system" fn MprAdminTransportCreate(hmprserver : MPR_SERVER_HANDLE, dwtransportid : u32, lpwstransportname : windows_core::PCWSTR, pglobalinfo : super::LPBYTE, dwglobalinfosize : u32, pclientinterfaceinfo : super::LPBYTE, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_core::PCWSTR) -> u32);
     unsafe { MprAdminTransportCreate(hmprserver, dwtransportid, lpwstransportname.param().abi(), pglobalinfo, dwglobalinfosize, pclientinterfaceinfo.unwrap_or(core::mem::zeroed()) as _, dwclientinterfaceinfosize.unwrap_or(core::mem::zeroed()) as _, lpwsdllpath.param().abi()) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminTransportGetInfo(hmprserver: MPR_SERVER_HANDLE, dwtransportid: u32, ppglobalinfo: Option<*mut super::LPBYTE>, lpdwglobalinfosize: Option<*mut u32>, ppclientinterfaceinfo: Option<*mut super::LPBYTE>, lpdwclientinterfaceinfosize: Option<*mut u32>) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminTransportGetInfo(hmprserver : MPR_SERVER_HANDLE, dwtransportid : u32, ppglobalinfo : *mut super::LPBYTE, lpdwglobalinfosize : *mut u32, ppclientinterfaceinfo : *mut super::LPBYTE, lpdwclientinterfaceinfosize : *mut u32) -> u32);
+pub unsafe fn MprAdminTransportGetInfo(hmprserver: MPR_SERVER_HANDLE, dwtransportid: u32, ppglobalinfo: Option<*mut super::LPBYTE>, lpdwglobalinfosize: Option<super::LPDWORD>, ppclientinterfaceinfo: Option<*mut super::LPBYTE>, lpdwclientinterfaceinfosize: Option<super::LPDWORD>) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminTransportGetInfo(hmprserver : MPR_SERVER_HANDLE, dwtransportid : u32, ppglobalinfo : *mut super::LPBYTE, lpdwglobalinfosize : super::LPDWORD, ppclientinterfaceinfo : *mut super::LPBYTE, lpdwclientinterfaceinfosize : super::LPDWORD) -> u32);
     unsafe { MprAdminTransportGetInfo(hmprserver, dwtransportid, ppglobalinfo.unwrap_or(core::mem::zeroed()) as _, lpdwglobalinfosize.unwrap_or(core::mem::zeroed()) as _, ppclientinterfaceinfo.unwrap_or(core::mem::zeroed()) as _, lpdwclientinterfaceinfosize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprAdminTransportSetInfo(hmprserver: MPR_SERVER_HANDLE, dwtransportid: u32, pglobalinfo: Option<*const u8>, dwglobalinfosize: u32, pclientinterfaceinfo: Option<*const u8>, dwclientinterfaceinfosize: u32) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminTransportSetInfo(hmprserver : MPR_SERVER_HANDLE, dwtransportid : u32, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32) -> u32);
+pub unsafe fn MprAdminTransportSetInfo(hmprserver: MPR_SERVER_HANDLE, dwtransportid: u32, pglobalinfo: Option<super::LPBYTE>, dwglobalinfosize: u32, pclientinterfaceinfo: Option<super::LPBYTE>, dwclientinterfaceinfosize: u32) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminTransportSetInfo(hmprserver : MPR_SERVER_HANDLE, dwtransportid : u32, pglobalinfo : super::LPBYTE, dwglobalinfosize : u32, pclientinterfaceinfo : super::LPBYTE, dwclientinterfaceinfosize : u32) -> u32);
     unsafe { MprAdminTransportSetInfo(hmprserver, dwtransportid, pglobalinfo.unwrap_or(core::mem::zeroed()) as _, dwglobalinfosize, pclientinterfaceinfo.unwrap_or(core::mem::zeroed()) as _, dwclientinterfaceinfosize) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn MprAdminUpdateConnection(hrasserver: RAS_SERVER_HANDLE, hrasconnection: super::HANDLE, prasupdateconnection: *const RAS_UPDATE_CONNECTION) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminUpdateConnection(hrasserver : RAS_SERVER_HANDLE, hrasconnection : super::HANDLE, prasupdateconnection : *const RAS_UPDATE_CONNECTION) -> u32);
+pub unsafe fn MprAdminUpdateConnection(hrasserver: RAS_SERVER_HANDLE, hrasconnection: super::HANDLE, prasupdateconnection: PRAS_UPDATE_CONNECTION) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprAdminUpdateConnection(hrasserver : RAS_SERVER_HANDLE, hrasconnection : super::HANDLE, prasupdateconnection : PRAS_UPDATE_CONNECTION) -> u32);
     unsafe { MprAdminUpdateConnection(hrasserver, hrasconnection, prasupdateconnection) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn MprAdminUserGetInfo<P0, P1>(lpszserver: P0, lpszuser: P1, dwlevel: u32, lpbbuffer: *mut u8) -> u32
+pub unsafe fn MprAdminUserGetInfo<P0, P1>(lpszserver: P0, lpszuser: P1, dwlevel: u32, lpbbuffer: super::LPBYTE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminUserGetInfo(lpszserver : windows_core::PCWSTR, lpszuser : windows_core::PCWSTR, dwlevel : u32, lpbbuffer : *mut u8) -> u32);
+    windows_core::link!("mprapi.dll" "system" fn MprAdminUserGetInfo(lpszserver : windows_core::PCWSTR, lpszuser : windows_core::PCWSTR, dwlevel : u32, lpbbuffer : super::LPBYTE) -> u32);
     unsafe { MprAdminUserGetInfo(lpszserver.param().abi(), lpszuser.param().abi(), dwlevel, lpbbuffer as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn MprAdminUserSetInfo<P0, P1>(lpszserver: P0, lpszuser: P1, dwlevel: u32, lpbbuffer: *const u8) -> u32
+pub unsafe fn MprAdminUserSetInfo<P0, P1>(lpszserver: P0, lpszuser: P1, dwlevel: u32, lpbbuffer: super::LPBYTE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mprapi.dll" "system" fn MprAdminUserSetInfo(lpszserver : windows_core::PCWSTR, lpszuser : windows_core::PCWSTR, dwlevel : u32, lpbbuffer : *const u8) -> u32);
+    windows_core::link!("mprapi.dll" "system" fn MprAdminUserSetInfo(lpszserver : windows_core::PCWSTR, lpszuser : windows_core::PCWSTR, dwlevel : u32, lpbbuffer : super::LPBYTE) -> u32);
     unsafe { MprAdminUserSetInfo(lpszserver.param().abi(), lpszuser.param().abi(), dwlevel, lpbbuffer) }
 }
 #[inline]
@@ -452,40 +455,40 @@ pub unsafe fn MprConfigBufferFree(pbuffer: *const core::ffi::c_void) -> u32 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigBufferFree(pbuffer : *const core::ffi::c_void) -> u32);
     unsafe { MprConfigBufferFree(pbuffer) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigFilterGetInfo(hmprconfig: super::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: *mut u8) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigFilterGetInfo(hmprconfig : super::HANDLE, dwlevel : u32, dwtransportid : u32, lpbuffer : *mut u8) -> u32);
+pub unsafe fn MprConfigFilterGetInfo(hmprconfig: super::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: super::LPBYTE) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprConfigFilterGetInfo(hmprconfig : super::HANDLE, dwlevel : u32, dwtransportid : u32, lpbuffer : super::LPBYTE) -> u32);
     unsafe { MprConfigFilterGetInfo(hmprconfig, dwlevel, dwtransportid, lpbuffer as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigFilterSetInfo(hmprconfig: super::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: *const u8) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigFilterSetInfo(hmprconfig : super::HANDLE, dwlevel : u32, dwtransportid : u32, lpbuffer : *const u8) -> u32);
+pub unsafe fn MprConfigFilterSetInfo(hmprconfig: super::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: super::LPBYTE) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprConfigFilterSetInfo(hmprconfig : super::HANDLE, dwlevel : u32, dwtransportid : u32, lpbuffer : super::LPBYTE) -> u32);
     unsafe { MprConfigFilterSetInfo(hmprconfig, dwlevel, dwtransportid, lpbuffer) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn MprConfigGetFriendlyName<P1>(hmprconfig: super::HANDLE, pszguidname: P1, pszbuffer: *mut u16, dwbuffersize: u32) -> u32
+pub unsafe fn MprConfigGetFriendlyName<P1>(hmprconfig: super::HANDLE, pszguidname: P1, pszbuffer: super::PWCHAR, dwbuffersize: u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigGetFriendlyName(hmprconfig : super::HANDLE, pszguidname : windows_core::PCWSTR, pszbuffer : *mut u16, dwbuffersize : u32) -> u32);
+    windows_core::link!("mprapi.dll" "system" fn MprConfigGetFriendlyName(hmprconfig : super::HANDLE, pszguidname : windows_core::PCWSTR, pszbuffer : super::PWCHAR, dwbuffersize : u32) -> u32);
     unsafe { MprConfigGetFriendlyName(hmprconfig, pszguidname.param().abi(), pszbuffer as _, dwbuffersize) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn MprConfigGetGuidName<P1>(hmprconfig: super::HANDLE, pszfriendlyname: P1, pszbuffer: *mut u16, dwbuffersize: u32) -> u32
+pub unsafe fn MprConfigGetGuidName<P1>(hmprconfig: super::HANDLE, pszfriendlyname: P1, pszbuffer: super::PWCHAR, dwbuffersize: u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigGetGuidName(hmprconfig : super::HANDLE, pszfriendlyname : windows_core::PCWSTR, pszbuffer : *mut u16, dwbuffersize : u32) -> u32);
+    windows_core::link!("mprapi.dll" "system" fn MprConfigGetGuidName(hmprconfig : super::HANDLE, pszfriendlyname : windows_core::PCWSTR, pszbuffer : super::PWCHAR, dwbuffersize : u32) -> u32);
     unsafe { MprConfigGetGuidName(hmprconfig, pszfriendlyname.param().abi(), pszbuffer as _, dwbuffersize) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigInterfaceCreate(hmprconfig: super::HANDLE, dwlevel: u32, lpbbuffer: *const u8, phrouterinterface: *mut super::HANDLE) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceCreate(hmprconfig : super::HANDLE, dwlevel : u32, lpbbuffer : *const u8, phrouterinterface : *mut super::HANDLE) -> u32);
+pub unsafe fn MprConfigInterfaceCreate(hmprconfig: super::HANDLE, dwlevel: u32, lpbbuffer: super::LPBYTE, phrouterinterface: *mut super::HANDLE) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceCreate(hmprconfig : super::HANDLE, dwlevel : u32, lpbbuffer : super::LPBYTE, phrouterinterface : *mut super::HANDLE) -> u32);
     unsafe { MprConfigInterfaceCreate(hmprconfig, dwlevel, lpbbuffer, phrouterinterface as _) }
 }
 #[cfg(feature = "winnt")]
@@ -496,14 +499,14 @@ pub unsafe fn MprConfigInterfaceDelete(hmprconfig: super::HANDLE, hrouterinterfa
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigInterfaceEnum(hmprconfig: super::HANDLE, dwlevel: u32, lplpbuffer: *mut super::LPBYTE, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: Option<*mut u32>) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceEnum(hmprconfig : super::HANDLE, dwlevel : u32, lplpbuffer : *mut super::LPBYTE, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *mut u32) -> u32);
+pub unsafe fn MprConfigInterfaceEnum(hmprconfig: super::HANDLE, dwlevel: u32, lplpbuffer: *mut super::LPBYTE, dwprefmaxlen: u32, lpdwentriesread: super::LPDWORD, lpdwtotalentries: super::LPDWORD, lpdwresumehandle: Option<super::LPDWORD>) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceEnum(hmprconfig : super::HANDLE, dwlevel : u32, lplpbuffer : *mut super::LPBYTE, dwprefmaxlen : u32, lpdwentriesread : super::LPDWORD, lpdwtotalentries : super::LPDWORD, lpdwresumehandle : super::LPDWORD) -> u32);
     unsafe { MprConfigInterfaceEnum(hmprconfig, dwlevel, lplpbuffer as _, dwprefmaxlen, lpdwentriesread as _, lpdwtotalentries as _, lpdwresumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "wincrypt", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigInterfaceGetCustomInfoEx(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceGetCustomInfoEx(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, pcustominfo : *mut MPR_IF_CUSTOMINFOEX2) -> u32);
+pub unsafe fn MprConfigInterfaceGetCustomInfoEx(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, pcustominfo: PMPR_IF_CUSTOMINFOEX2) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceGetCustomInfoEx(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, pcustominfo : PMPR_IF_CUSTOMINFOEX2) -> u32);
     unsafe { MprConfigInterfaceGetCustomInfoEx(hmprconfig, hrouterinterface, pcustominfo as _) }
 }
 #[cfg(feature = "winnt")]
@@ -517,35 +520,35 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigInterfaceGetInfo(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, dwlevel: u32, lplpbuffer: *mut super::LPBYTE, lpdwbuffersize: *mut u32) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceGetInfo(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, dwlevel : u32, lplpbuffer : *mut super::LPBYTE, lpdwbuffersize : *mut u32) -> u32);
+pub unsafe fn MprConfigInterfaceGetInfo(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, dwlevel: u32, lplpbuffer: *mut super::LPBYTE, lpdwbuffersize: super::LPDWORD) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceGetInfo(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, dwlevel : u32, lplpbuffer : *mut super::LPBYTE, lpdwbuffersize : super::LPDWORD) -> u32);
     unsafe { MprConfigInterfaceGetInfo(hmprconfig, hrouterinterface, dwlevel, lplpbuffer as _, lpdwbuffersize as _) }
 }
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "wincrypt", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigInterfaceSetCustomInfoEx(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceSetCustomInfoEx(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, pcustominfo : *const MPR_IF_CUSTOMINFOEX2) -> u32);
+pub unsafe fn MprConfigInterfaceSetCustomInfoEx(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, pcustominfo: PMPR_IF_CUSTOMINFOEX2) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceSetCustomInfoEx(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, pcustominfo : PMPR_IF_CUSTOMINFOEX2) -> u32);
     unsafe { MprConfigInterfaceSetCustomInfoEx(hmprconfig, hrouterinterface, pcustominfo) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigInterfaceSetInfo(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceSetInfo(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, dwlevel : u32, lpbbuffer : *const u8) -> u32);
+pub unsafe fn MprConfigInterfaceSetInfo(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, dwlevel: u32, lpbbuffer: super::LPBYTE) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceSetInfo(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, dwlevel : u32, lpbbuffer : super::LPBYTE) -> u32);
     unsafe { MprConfigInterfaceSetInfo(hmprconfig, hrouterinterface, dwlevel, lpbbuffer) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportAdd<P3>(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, dwtransportid: u32, lpwstransportname: P3, pinterfaceinfo: &[u8], phrouteriftransport: *mut super::HANDLE) -> u32
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportAdd(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, dwtransportid : u32, lpwstransportname : windows_core::PCWSTR, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32, phrouteriftransport : *mut super::HANDLE) -> u32);
-    unsafe { MprConfigInterfaceTransportAdd(hmprconfig, hrouterinterface, dwtransportid, lpwstransportname.param().abi(), pinterfaceinfo.as_ptr(), pinterfaceinfo.len().try_into().unwrap(), phrouteriftransport as _) }
+    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportAdd(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, dwtransportid : u32, lpwstransportname : windows_core::PCWSTR, pinterfaceinfo : super::LPBYTE, dwinterfaceinfosize : u32, phrouteriftransport : *mut super::HANDLE) -> u32);
+    unsafe { MprConfigInterfaceTransportAdd(hmprconfig, hrouterinterface, dwtransportid, lpwstransportname.param().abi(), core::mem::transmute(pinterfaceinfo.as_ptr()), pinterfaceinfo.len().try_into().unwrap(), phrouteriftransport as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigInterfaceTransportEnum(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, dwlevel: u32, lplpbuffer: *mut super::LPBYTE, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: Option<*mut u32>) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportEnum(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, dwlevel : u32, lplpbuffer : *mut super::LPBYTE, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *mut u32) -> u32);
+pub unsafe fn MprConfigInterfaceTransportEnum(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, dwlevel: u32, lplpbuffer: *mut super::LPBYTE, dwprefmaxlen: u32, lpdwentriesread: super::LPDWORD, lpdwtotalentries: super::LPDWORD, lpdwresumehandle: Option<super::LPDWORD>) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportEnum(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, dwlevel : u32, lplpbuffer : *mut super::LPBYTE, dwprefmaxlen : u32, lpdwentriesread : super::LPDWORD, lpdwtotalentries : super::LPDWORD, lpdwresumehandle : super::LPDWORD) -> u32);
     unsafe { MprConfigInterfaceTransportEnum(hmprconfig, hrouterinterface, dwlevel, lplpbuffer as _, dwprefmaxlen, lpdwentriesread as _, lpdwtotalentries as _, lpdwresumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -556,8 +559,8 @@ pub unsafe fn MprConfigInterfaceTransportGetHandle(hmprconfig: super::HANDLE, hr
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigInterfaceTransportGetInfo(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, hrouteriftransport: super::HANDLE, ppinterfaceinfo: *mut super::LPBYTE, lpdwinterfaceinfosize: Option<*mut u32>) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportGetInfo(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, hrouteriftransport : super::HANDLE, ppinterfaceinfo : *mut super::LPBYTE, lpdwinterfaceinfosize : *mut u32) -> u32);
+pub unsafe fn MprConfigInterfaceTransportGetInfo(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, hrouteriftransport: super::HANDLE, ppinterfaceinfo: *mut super::LPBYTE, lpdwinterfaceinfosize: Option<super::LPDWORD>) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportGetInfo(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, hrouteriftransport : super::HANDLE, ppinterfaceinfo : *mut super::LPBYTE, lpdwinterfaceinfosize : super::LPDWORD) -> u32);
     unsafe { MprConfigInterfaceTransportGetInfo(hmprconfig, hrouterinterface, hrouteriftransport, ppinterfaceinfo as _, lpdwinterfaceinfosize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -566,11 +569,11 @@ pub unsafe fn MprConfigInterfaceTransportRemove(hmprconfig: super::HANDLE, hrout
     windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportRemove(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, hrouteriftransport : super::HANDLE) -> u32);
     unsafe { MprConfigInterfaceTransportRemove(hmprconfig, hrouterinterface, hrouteriftransport) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportSetInfo(hmprconfig: super::HANDLE, hrouterinterface: super::HANDLE, hrouteriftransport: super::HANDLE, pinterfaceinfo: Option<&[u8]>) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportSetInfo(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, hrouteriftransport : super::HANDLE, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32) -> u32);
-    unsafe { MprConfigInterfaceTransportSetInfo(hmprconfig, hrouterinterface, hrouteriftransport, pinterfaceinfo.map_or(core::ptr::null(), |slice| slice.as_ptr()), pinterfaceinfo.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportSetInfo(hmprconfig : super::HANDLE, hrouterinterface : super::HANDLE, hrouteriftransport : super::HANDLE, pinterfaceinfo : super::LPBYTE, dwinterfaceinfosize : u32) -> u32);
+    unsafe { MprConfigInterfaceTransportSetInfo(hmprconfig, hrouterinterface, hrouteriftransport, core::mem::transmute(pinterfaceinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), pinterfaceinfo.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -628,10 +631,10 @@ where
     windows_core::link!("mprapi.dll" "system" fn MprConfigServerRestore(hmprconfig : super::HANDLE, lpwspath : windows_core::PCWSTR) -> u32);
     unsafe { MprConfigServerRestore(hmprconfig, lpwspath.param().abi()) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigServerSetInfo(hmprserver: MPR_SERVER_HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigServerSetInfo(hmprserver : MPR_SERVER_HANDLE, dwlevel : u32, lpbbuffer : *const u8) -> u32);
+pub unsafe fn MprConfigServerSetInfo(hmprserver: MPR_SERVER_HANDLE, dwlevel: u32, lpbbuffer: super::LPBYTE) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprConfigServerSetInfo(hmprserver : MPR_SERVER_HANDLE, dwlevel : u32, lpbbuffer : super::LPBYTE) -> u32);
     unsafe { MprConfigServerSetInfo(hmprserver, dwlevel, lpbbuffer) }
 }
 #[cfg(all(feature = "wincrypt", feature = "winnt"))]
@@ -640,15 +643,15 @@ pub unsafe fn MprConfigServerSetInfoEx(hmprconfig: super::HANDLE, psetserverconf
     windows_core::link!("mprapi.dll" "system" fn MprConfigServerSetInfoEx(hmprconfig : super::HANDLE, psetserverconfig : *const MPR_SERVER_SET_CONFIG_EX1) -> u32);
     unsafe { MprConfigServerSetInfoEx(hmprconfig, psetserverconfig) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn MprConfigTransportCreate<P2, P7>(hmprconfig: super::HANDLE, dwtransportid: u32, lpwstransportname: P2, pglobalinfo: &[u8], pclientinterfaceinfo: Option<&[u8]>, lpwsdllpath: P7, phroutertransport: *mut super::HANDLE) -> u32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigTransportCreate(hmprconfig : super::HANDLE, dwtransportid : u32, lpwstransportname : windows_core::PCWSTR, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_core::PCWSTR, phroutertransport : *mut super::HANDLE) -> u32);
-    unsafe { MprConfigTransportCreate(hmprconfig, dwtransportid, lpwstransportname.param().abi(), pglobalinfo.as_ptr(), pglobalinfo.len().try_into().unwrap(), pclientinterfaceinfo.map_or(core::ptr::null(), |slice| slice.as_ptr()), pclientinterfaceinfo.map_or(0, |slice| slice.len().try_into().unwrap()), lpwsdllpath.param().abi(), phroutertransport as _) }
+    windows_core::link!("mprapi.dll" "system" fn MprConfigTransportCreate(hmprconfig : super::HANDLE, dwtransportid : u32, lpwstransportname : windows_core::PCWSTR, pglobalinfo : super::LPBYTE, dwglobalinfosize : u32, pclientinterfaceinfo : super::LPBYTE, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_core::PCWSTR, phroutertransport : *mut super::HANDLE) -> u32);
+    unsafe { MprConfigTransportCreate(hmprconfig, dwtransportid, lpwstransportname.param().abi(), core::mem::transmute(pglobalinfo.as_ptr()), pglobalinfo.len().try_into().unwrap(), core::mem::transmute(pclientinterfaceinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.map_or(0, |slice| slice.len().try_into().unwrap()), lpwsdllpath.param().abi(), phroutertransport as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -658,8 +661,8 @@ pub unsafe fn MprConfigTransportDelete(hmprconfig: super::HANDLE, hroutertranspo
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigTransportEnum(hmprconfig: super::HANDLE, dwlevel: u32, lplpbuffer: *mut super::LPBYTE, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: Option<*mut u32>) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigTransportEnum(hmprconfig : super::HANDLE, dwlevel : u32, lplpbuffer : *mut super::LPBYTE, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *mut u32) -> u32);
+pub unsafe fn MprConfigTransportEnum(hmprconfig: super::HANDLE, dwlevel: u32, lplpbuffer: *mut super::LPBYTE, dwprefmaxlen: u32, lpdwentriesread: super::LPDWORD, lpdwtotalentries: super::LPDWORD, lpdwresumehandle: Option<super::LPDWORD>) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprConfigTransportEnum(hmprconfig : super::HANDLE, dwlevel : u32, lplpbuffer : *mut super::LPBYTE, dwprefmaxlen : u32, lpdwentriesread : super::LPDWORD, lpdwtotalentries : super::LPDWORD, lpdwresumehandle : super::LPDWORD) -> u32);
     unsafe { MprConfigTransportEnum(hmprconfig, dwlevel, lplpbuffer as _, dwprefmaxlen, lpdwentriesread as _, lpdwtotalentries as _, lpdwresumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -670,28 +673,29 @@ pub unsafe fn MprConfigTransportGetHandle(hmprconfig: super::HANDLE, dwtransport
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn MprConfigTransportGetInfo(hmprconfig: super::HANDLE, hroutertransport: super::HANDLE, ppglobalinfo: Option<*mut super::LPBYTE>, lpdwglobalinfosize: Option<*mut u32>, ppclientinterfaceinfo: Option<*mut super::LPBYTE>, lpdwclientinterfaceinfosize: Option<*mut u32>, lplpwsdllpath: *mut windows_core::PWSTR) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigTransportGetInfo(hmprconfig : super::HANDLE, hroutertransport : super::HANDLE, ppglobalinfo : *mut super::LPBYTE, lpdwglobalinfosize : *mut u32, ppclientinterfaceinfo : *mut super::LPBYTE, lpdwclientinterfaceinfosize : *mut u32, lplpwsdllpath : *mut windows_core::PWSTR) -> u32);
+pub unsafe fn MprConfigTransportGetInfo(hmprconfig: super::HANDLE, hroutertransport: super::HANDLE, ppglobalinfo: Option<*mut super::LPBYTE>, lpdwglobalinfosize: Option<super::LPDWORD>, ppclientinterfaceinfo: Option<*mut super::LPBYTE>, lpdwclientinterfaceinfosize: Option<super::LPDWORD>, lplpwsdllpath: *mut windows_core::PWSTR) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprConfigTransportGetInfo(hmprconfig : super::HANDLE, hroutertransport : super::HANDLE, ppglobalinfo : *mut super::LPBYTE, lpdwglobalinfosize : super::LPDWORD, ppclientinterfaceinfo : *mut super::LPBYTE, lpdwclientinterfaceinfosize : super::LPDWORD, lplpwsdllpath : *mut windows_core::PWSTR) -> u32);
     unsafe { MprConfigTransportGetInfo(hmprconfig, hroutertransport, ppglobalinfo.unwrap_or(core::mem::zeroed()) as _, lpdwglobalinfosize.unwrap_or(core::mem::zeroed()) as _, ppclientinterfaceinfo.unwrap_or(core::mem::zeroed()) as _, lpdwclientinterfaceinfosize.unwrap_or(core::mem::zeroed()) as _, lplpwsdllpath as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn MprConfigTransportSetInfo<P6>(hmprconfig: super::HANDLE, hroutertransport: super::HANDLE, pglobalinfo: Option<&[u8]>, pclientinterfaceinfo: Option<&[u8]>, lpwsdllpath: P6) -> u32
 where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mprapi.dll" "system" fn MprConfigTransportSetInfo(hmprconfig : super::HANDLE, hroutertransport : super::HANDLE, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_core::PCWSTR) -> u32);
-    unsafe { MprConfigTransportSetInfo(hmprconfig, hroutertransport, pglobalinfo.map_or(core::ptr::null(), |slice| slice.as_ptr()), pglobalinfo.map_or(0, |slice| slice.len().try_into().unwrap()), pclientinterfaceinfo.map_or(core::ptr::null(), |slice| slice.as_ptr()), pclientinterfaceinfo.map_or(0, |slice| slice.len().try_into().unwrap()), lpwsdllpath.param().abi()) }
+    windows_core::link!("mprapi.dll" "system" fn MprConfigTransportSetInfo(hmprconfig : super::HANDLE, hroutertransport : super::HANDLE, pglobalinfo : super::LPBYTE, dwglobalinfosize : u32, pclientinterfaceinfo : super::LPBYTE, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_core::PCWSTR) -> u32);
+    unsafe { MprConfigTransportSetInfo(hmprconfig, hroutertransport, core::mem::transmute(pglobalinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), pglobalinfo.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pclientinterfaceinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.map_or(0, |slice| slice.len().try_into().unwrap()), lpwsdllpath.param().abi()) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn MprInfoBlockAdd(lpheader: *const core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut core::ffi::c_void) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprInfoBlockAdd(lpheader : *const core::ffi::c_void, dwinfotype : u32, dwitemsize : u32, dwitemcount : u32, lpitemdata : *const u8, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
+pub unsafe fn MprInfoBlockAdd(lpheader: *const core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: super::LPBYTE, lplpnewheader: *mut *mut core::ffi::c_void) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprInfoBlockAdd(lpheader : *const core::ffi::c_void, dwinfotype : u32, dwitemsize : u32, dwitemcount : u32, lpitemdata : super::LPBYTE, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
     unsafe { MprInfoBlockAdd(lpheader, dwinfotype, dwitemsize, dwitemcount, lpitemdata, lplpnewheader as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn MprInfoBlockFind(lpheader: *const core::ffi::c_void, dwinfotype: u32, lpdwitemsize: *mut u32, lpdwitemcount: *mut u32, lplpitemdata: *mut super::LPBYTE) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprInfoBlockFind(lpheader : *const core::ffi::c_void, dwinfotype : u32, lpdwitemsize : *mut u32, lpdwitemcount : *mut u32, lplpitemdata : *mut super::LPBYTE) -> u32);
+pub unsafe fn MprInfoBlockFind(lpheader: *const core::ffi::c_void, dwinfotype: u32, lpdwitemsize: super::LPDWORD, lpdwitemcount: super::LPDWORD, lplpitemdata: *mut super::LPBYTE) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprInfoBlockFind(lpheader : *const core::ffi::c_void, dwinfotype : u32, lpdwitemsize : super::LPDWORD, lpdwitemcount : super::LPDWORD, lplpitemdata : *mut super::LPBYTE) -> u32);
     unsafe { MprInfoBlockFind(lpheader, dwinfotype, lpdwitemsize as _, lpdwitemcount as _, lplpitemdata as _) }
 }
 #[inline]
@@ -704,9 +708,10 @@ pub unsafe fn MprInfoBlockRemove(lpheader: *const core::ffi::c_void, dwinfotype:
     windows_core::link!("mprapi.dll" "system" fn MprInfoBlockRemove(lpheader : *const core::ffi::c_void, dwinfotype : u32, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
     unsafe { MprInfoBlockRemove(lpheader, dwinfotype, lplpnewheader as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn MprInfoBlockSet(lpheader: *const core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut core::ffi::c_void) -> u32 {
-    windows_core::link!("mprapi.dll" "system" fn MprInfoBlockSet(lpheader : *const core::ffi::c_void, dwinfotype : u32, dwitemsize : u32, dwitemcount : u32, lpitemdata : *const u8, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
+pub unsafe fn MprInfoBlockSet(lpheader: *const core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: super::LPBYTE, lplpnewheader: *mut *mut core::ffi::c_void) -> u32 {
+    windows_core::link!("mprapi.dll" "system" fn MprInfoBlockSet(lpheader : *const core::ffi::c_void, dwinfotype : u32, dwitemsize : u32, dwitemcount : u32, lpitemdata : super::LPBYTE, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
     unsafe { MprInfoBlockSet(lpheader, dwinfotype, dwitemsize, dwitemcount, lpitemdata, lplpnewheader as _) }
 }
 #[inline]

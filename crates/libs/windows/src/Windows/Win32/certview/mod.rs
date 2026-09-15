@@ -79,7 +79,7 @@ impl ICertView {
     pub unsafe fn SetResultColumn(&self, columnindex: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetResultColumn)(windows_core::Interface::as_raw(self), columnindex) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetRestriction(&self, columnindex: i32, seekoperator: i32, sortorder: i32, pvarvalue: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRestriction)(windows_core::Interface::as_raw(self), columnindex, seekoperator, sortorder, pvarvalue) }
     }
@@ -101,13 +101,13 @@ pub struct ICertView_Vtbl {
     pub GetColumnIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetResultColumnCount: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub SetResultColumn: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub SetRestriction: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     SetRestriction: usize,
     pub OpenView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertView_Impl: super::IDispatch_Impl {
     fn OpenConnection(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<()>;
     fn EnumCertViewColumn(&self, fresultcolumn: i32) -> windows_core::Result<IEnumCERTVIEWCOLUMN>;
@@ -118,7 +118,7 @@ pub trait ICertView_Impl: super::IDispatch_Impl {
     fn SetRestriction(&self, columnindex: i32, seekoperator: i32, sortorder: i32, pvarvalue: *const super::VARIANT) -> windows_core::Result<()>;
     fn OpenView(&self) -> windows_core::Result<IEnumCERTVIEWROW>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertView_Vtbl {
     pub const fn new<Identity: ICertView_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OpenConnection<Identity: ICertView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -209,7 +209,7 @@ impl ICertView_Vtbl {
         iid == &<ICertView as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertView {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertView2, ICertView2_Vtbl, 0xd594b282_8851_4b61_9c66_3edadf848863);
@@ -235,11 +235,11 @@ pub struct ICertView2_Vtbl {
     pub base__: ICertView_Vtbl,
     pub SetTable: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertView2_Impl: ICertView_Impl {
     fn SetTable(&self, table: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertView2_Vtbl {
     pub const fn new<Identity: ICertView2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetTable<Identity: ICertView2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, table: i32) -> windows_core::HRESULT {
@@ -254,7 +254,7 @@ impl ICertView2_Vtbl {
         iid == &<ICertView2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertView as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertView2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IEnumCERTVIEWATTRIBUTE, IEnumCERTVIEWATTRIBUTE_Vtbl, 0xe77db656_7653_11d1_9bde_00c04fb683fa);
@@ -312,7 +312,7 @@ pub struct IEnumCERTVIEWATTRIBUTE_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEnumCERTVIEWATTRIBUTE_Impl: super::IDispatch_Impl {
     fn Next(&self) -> windows_core::Result<i32>;
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -321,7 +321,7 @@ pub trait IEnumCERTVIEWATTRIBUTE_Impl: super::IDispatch_Impl {
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWATTRIBUTE>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IEnumCERTVIEWATTRIBUTE_Vtbl {
     pub const fn new<Identity: IEnumCERTVIEWATTRIBUTE_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumCERTVIEWATTRIBUTE_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pindex: *mut i32) -> windows_core::HRESULT {
@@ -398,7 +398,7 @@ impl IEnumCERTVIEWATTRIBUTE_Vtbl {
         iid == &<IEnumCERTVIEWATTRIBUTE as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IEnumCERTVIEWATTRIBUTE {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IEnumCERTVIEWCOLUMN, IEnumCERTVIEWCOLUMN_Vtbl, 0x9c735be2_57a5_11d1_9bdb_00c04fb683fa);
@@ -449,7 +449,7 @@ impl IEnumCERTVIEWCOLUMN {
             (windows_core::Interface::vtable(self).GetMaxLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self, flags: i32) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -480,15 +480,15 @@ pub struct IEnumCERTVIEWCOLUMN_Vtbl {
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub IsIndexed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetMaxLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEnumCERTVIEWCOLUMN_Impl: super::IDispatch_Impl {
     fn Next(&self) -> windows_core::Result<i32>;
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -501,7 +501,7 @@ pub trait IEnumCERTVIEWCOLUMN_Impl: super::IDispatch_Impl {
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWCOLUMN>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IEnumCERTVIEWCOLUMN_Vtbl {
     pub const fn new<Identity: IEnumCERTVIEWCOLUMN_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumCERTVIEWCOLUMN_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pindex: *mut i32) -> windows_core::HRESULT {
@@ -630,7 +630,7 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
         iid == &<IEnumCERTVIEWCOLUMN as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IEnumCERTVIEWCOLUMN {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IEnumCERTVIEWEXTENSION, IEnumCERTVIEWEXTENSION_Vtbl, 0xe7dd1466_7653_11d1_9bde_00c04fb683fa);
@@ -663,7 +663,7 @@ impl IEnumCERTVIEWEXTENSION {
             (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self, r#type: i32, flags: i32) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -691,15 +691,15 @@ pub struct IEnumCERTVIEWEXTENSION_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEnumCERTVIEWEXTENSION_Impl: super::IDispatch_Impl {
     fn Next(&self) -> windows_core::Result<i32>;
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -709,7 +709,7 @@ pub trait IEnumCERTVIEWEXTENSION_Impl: super::IDispatch_Impl {
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWEXTENSION>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IEnumCERTVIEWEXTENSION_Vtbl {
     pub const fn new<Identity: IEnumCERTVIEWEXTENSION_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumCERTVIEWEXTENSION_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pindex: *mut i32) -> windows_core::HRESULT {
@@ -799,7 +799,7 @@ impl IEnumCERTVIEWEXTENSION_Vtbl {
         iid == &<IEnumCERTVIEWEXTENSION as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IEnumCERTVIEWEXTENSION {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IEnumCERTVIEWROW, IEnumCERTVIEWROW_Vtbl, 0xd1157f4c_5af2_11d1_9bdc_00c04fb683fa);
@@ -871,7 +871,7 @@ pub struct IEnumCERTVIEWROW_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMaxIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEnumCERTVIEWROW_Impl: super::IDispatch_Impl {
     fn Next(&self) -> windows_core::Result<i32>;
     fn EnumCertViewColumn(&self) -> windows_core::Result<IEnumCERTVIEWCOLUMN>;
@@ -882,7 +882,7 @@ pub trait IEnumCERTVIEWROW_Impl: super::IDispatch_Impl {
     fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWROW>;
     fn GetMaxIndex(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IEnumCERTVIEWROW_Vtbl {
     pub const fn new<Identity: IEnumCERTVIEWROW_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumCERTVIEWROW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pindex: *mut i32) -> windows_core::HRESULT {
@@ -985,5 +985,5 @@ impl IEnumCERTVIEWROW_Vtbl {
         iid == &<IEnumCERTVIEWROW as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IEnumCERTVIEWROW {}

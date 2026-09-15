@@ -1,11 +1,11 @@
 pub const ADVISE_ALL: i32 = 15;
 pub const ADVISE_ALL2: i32 = 31;
-pub const ADVISE_CLIPPING: i32 = 1;
-pub const ADVISE_COLORKEY: i32 = 4;
-pub const ADVISE_DISPLAY_CHANGE: i32 = 16;
-pub const ADVISE_NONE: i32 = 0;
-pub const ADVISE_PALETTE: i32 = 2;
-pub const ADVISE_POSITION: i32 = 8;
+pub const ADVISE_CLIPPING: __MIDL___MIDL_itf_strmif_0000_0026_0002 = 1;
+pub const ADVISE_COLORKEY: __MIDL___MIDL_itf_strmif_0000_0026_0002 = 4;
+pub const ADVISE_DISPLAY_CHANGE: __MIDL___MIDL_itf_strmif_0000_0026_0002 = 16;
+pub const ADVISE_NONE: __MIDL___MIDL_itf_strmif_0000_0026_0002 = 0;
+pub const ADVISE_PALETTE: __MIDL___MIDL_itf_strmif_0000_0026_0002 = 2;
+pub const ADVISE_POSITION: __MIDL___MIDL_itf_strmif_0000_0026_0002 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct ALLOCATOR_PROPERTIES {
@@ -201,7 +201,7 @@ pub const AM_QUERY_DECODER_DXVA_1_SUPPORT: i32 = 2;
 pub const AM_QUERY_DECODER_VMR_SUPPORT: i32 = 1;
 pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Default)]
 pub struct AM_SAMPLE2_PROPERTIES {
     pub cbData: u32,
@@ -246,7 +246,7 @@ pub const AM_SEEKING_Segment: AM_SEEKING_SEEKING_FLAGS = 16;
 pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = 256;
 pub const AM_STREAM_CONTROL: tagAM_SAMPLE_PROPERTY_FLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Default)]
 pub struct AM_STREAM_INFO {
     pub tStart: super::REFERENCE_TIME,
@@ -312,9 +312,9 @@ pub const CDEF_DEVMON_PNP_DEVICE: i32 = 64;
 pub const CDEF_DEVMON_SELECTIVE_MASK: i32 = 240;
 pub const CDEF_MERIT_ABOVE_DO_NOT_USE: i32 = 8;
 pub const CHARS_IN_GUID: i32 = 39;
-pub const CK_INDEX: i32 = 1;
-pub const CK_NOCOLORKEY: i32 = 0;
-pub const CK_RGB: i32 = 2;
+pub const CK_INDEX: __MIDL___MIDL_itf_strmif_0000_0026_0001 = 1;
+pub const CK_NOCOLORKEY: __MIDL___MIDL_itf_strmif_0000_0026_0001 = 0;
+pub const CK_RGB: __MIDL___MIDL_itf_strmif_0000_0026_0001 = 2;
 #[repr(C)]
 #[cfg(feature = "windef")]
 #[derive(Clone, Copy, Default)]
@@ -831,15 +831,19 @@ pub type InterleavingMode = i32;
 pub type LPAMCOPPCommand = *mut AMCOPPCommand;
 pub type LPAMCOPPStatusInput = *mut AMCOPPStatusInput;
 pub type LPAMCOPPStatusOutput = *mut AMCOPPStatusOutput;
+#[cfg(feature = "oaidl")]
+pub type LPMEDIAPROPERTYBAG = *mut core::ffi::c_void;
+#[cfg(feature = "objidl")]
+pub type LPPERSISTMEDIAPROPERTYBAG = *mut core::ffi::c_void;
 pub const MAX_FILTER_NAME: i32 = 128;
-pub const MAX_NUMBER_OF_STREAMS: i32 = 16;
+pub const MAX_NUMBER_OF_STREAMS: __MIDL___MIDL_itf_strmif_0000_0122_0001 = 16;
 pub const MAX_PIN_NAME: i32 = 128;
-pub const MERIT_DO_NOT_USE: i32 = 2097152;
-pub const MERIT_HW_COMPRESSOR: i32 = 1048656;
-pub const MERIT_NORMAL: i32 = 6291456;
-pub const MERIT_PREFERRED: i32 = 8388608;
-pub const MERIT_SW_COMPRESSOR: i32 = 1048576;
-pub const MERIT_UNLIKELY: i32 = 4194304;
+pub const MERIT_DO_NOT_USE: __MIDL_IFilterMapper_0001 = 2097152;
+pub const MERIT_HW_COMPRESSOR: __MIDL_IFilterMapper_0001 = 1048656;
+pub const MERIT_NORMAL: __MIDL_IFilterMapper_0001 = 6291456;
+pub const MERIT_PREFERRED: __MIDL_IFilterMapper_0001 = 8388608;
+pub const MERIT_SW_COMPRESSOR: __MIDL_IFilterMapper_0001 = 1048576;
+pub const MERIT_UNLIKELY: __MIDL_IFilterMapper_0001 = 4194304;
 pub const MPEG2_PROGRAM_DIRECTORY_PES_PACKET: i32 = 2;
 pub const MPEG2_PROGRAM_ELEMENTARY_STREAM: i32 = 1;
 pub const MPEG2_PROGRAM_PACK_HEADER: i32 = 3;
@@ -873,7 +877,27 @@ pub struct NORMALIZEDRECT {
     pub right: f32,
     pub bottom: f32,
 }
+pub type PAMDEVMEMORYALLOCATOR = *mut core::ffi::c_void;
+pub type PAMDEVMEMORYCONTROL = *mut core::ffi::c_void;
+pub type PAMOVIESETUP = *mut core::ffi::c_void;
+pub type PAMPHYSICALPININFO = *mut core::ffi::c_void;
+pub type PAMSTREAMSELECT = *mut core::ffi::c_void;
 pub type PDVINFO = *mut DVINFO;
+pub type PENUMFILTERS = *mut core::ffi::c_void;
+pub type PENUMMEDIATYPES = *mut core::ffi::c_void;
+pub type PENUMPINS = *mut core::ffi::c_void;
+pub type PENUMREGFILTERS = *mut core::ffi::c_void;
+pub type PEXTDEVICE = *mut core::ffi::c_void;
+pub type PFILESINKFILTER2 = *mut core::ffi::c_void;
+#[cfg(feature = "objidl")]
+pub type PFILTER = *mut core::ffi::c_void;
+pub type PFILTERFILESINK = *mut core::ffi::c_void;
+pub type PFILTERFILESOURCE = *mut core::ffi::c_void;
+pub type PFILTERGRAPH = *mut core::ffi::c_void;
+pub type PIAMEXTTRANSPORT = *mut core::ffi::c_void;
+pub type PIAMTIMECODEDISPLAY = *mut core::ffi::c_void;
+pub type PIAMTIMECODEGENERATOR = *mut core::ffi::c_void;
+pub type PIAMTIMECODEREADER = *mut core::ffi::c_void;
 pub const PINDIR_INPUT: PIN_DIRECTION = 0;
 pub const PINDIR_OUTPUT: PIN_DIRECTION = 1;
 pub type PIN_DIRECTION = i32;
@@ -891,8 +915,25 @@ impl Default for PIN_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
+pub type PMEDIAEVENTSINK = *mut core::ffi::c_void;
+#[cfg(feature = "objidl")]
+pub type PMEDIAFILTER = *mut core::ffi::c_void;
+pub type PMEDIASAMPLE = *mut core::ffi::c_void;
+pub type PMEDIASAMPLE2 = *mut core::ffi::c_void;
+pub type PMEDIASEEKING = *mut core::ffi::c_void;
+pub type PMEMALLOCATOR = *mut core::ffi::c_void;
+pub type PMEMINPUTPIN = *mut core::ffi::c_void;
 pub type PNORMALIZEDRECT = *mut NORMALIZEDRECT;
-#[cfg(all(feature = "ddraw", feature = "windef"))]
+pub type POVERLAY = *mut core::ffi::c_void;
+pub type POVERLAYNOTIFY = *mut core::ffi::c_void;
+pub type POVERLAYNOTIFY2 = *mut core::ffi::c_void;
+pub type PPIN = *mut core::ffi::c_void;
+pub type PQUALITYCONTROL = *mut core::ffi::c_void;
+#[cfg(feature = "dsound")]
+pub type PREFERENCECLOCK = *mut core::ffi::c_void;
+#[cfg(feature = "dsound")]
+pub type PREFERENCECLOCK2 = *mut core::ffi::c_void;
+#[cfg(all(feature = "ddraw", feature = "minwindef", feature = "windef"))]
 pub type PVMRALPHABITMAP = *mut VMRALPHABITMAP;
 pub const PhysConn_Audio_1394: PhysicalConnectorType = 4103;
 pub const PhysConn_Audio_AESDigital: PhysicalConnectorType = 4099;
@@ -921,7 +962,7 @@ pub const PhysConn_Video_VideoEncoder: PhysicalConnectorType = 13;
 pub const PhysConn_Video_YRYBY: PhysicalConnectorType = 5;
 pub type PhysicalConnectorType = i32;
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Default)]
 pub struct Quality {
     pub Type: QualityMessageType,
@@ -930,6 +971,7 @@ pub struct Quality {
     pub TimeStamp: super::REFERENCE_TIME,
 }
 pub type QualityMessageType = i32;
+pub type REFTIME = f64;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct REGFILTER {
@@ -1008,10 +1050,10 @@ pub struct REGPINTYPES {
     pub clsMajorType: *const windows_sys::core::GUID,
     pub clsMinorType: *const windows_sys::core::GUID,
 }
-pub const REG_PINFLAG_B_MANY: i32 = 4;
-pub const REG_PINFLAG_B_OUTPUT: i32 = 8;
-pub const REG_PINFLAG_B_RENDERER: i32 = 2;
-pub const REG_PINFLAG_B_ZERO: i32 = 1;
+pub const REG_PINFLAG_B_MANY: __MIDL___MIDL_itf_strmif_0000_0023_0001 = 4;
+pub const REG_PINFLAG_B_OUTPUT: __MIDL___MIDL_itf_strmif_0000_0023_0001 = 8;
+pub const REG_PINFLAG_B_RENDERER: __MIDL___MIDL_itf_strmif_0000_0023_0001 = 2;
+pub const REG_PINFLAG_B_ZERO: __MIDL___MIDL_itf_strmif_0000_0023_0001 = 1;
 pub const REMFILTERF_LEAVECONNECTED: _REM_FILTER_FLAGS = 1;
 pub const RenderPrefs_AllowOffscreen: VMRRenderPrefs = 0;
 pub const RenderPrefs_AllowOverlays: VMRRenderPrefs = 0;
@@ -1106,15 +1148,15 @@ pub struct VMRALLOCATIONINFO {
     pub szNativeSize: super::SIZE,
 }
 #[repr(C)]
-#[cfg(all(feature = "ddraw", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct VMRALPHABITMAP {
     pub dwFlags: u32,
     pub hdc: super::HDC,
-    pub pDDS: *mut core::ffi::c_void,
+    pub pDDS: super::LPDIRECTDRAWSURFACE7,
     pub rSrc: super::RECT,
     pub rDest: NORMALIZEDRECT,
-    pub fAlpha: f32,
+    pub fAlpha: super::FLOAT,
     pub clrSrcKey: super::COLORREF,
 }
 pub const VMRBITMAP_DISABLE: i32 = 1;
@@ -1146,7 +1188,7 @@ pub struct VMRGUID {
     pub GUID: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct VMRMONITORINFO {
     pub guid: VMRGUID,
@@ -1155,13 +1197,13 @@ pub struct VMRMONITORINFO {
     pub dwFlags: u32,
     pub szDevice: [u16; 32],
     pub szDescription: [u16; 256],
-    pub liDriverVersion: i64,
+    pub liDriverVersion: super::LARGE_INTEGER,
     pub dwVendorId: u32,
     pub dwDeviceId: u32,
     pub dwSubSysId: u32,
     pub dwRevision: u32,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for VMRMONITORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1174,11 +1216,11 @@ pub const VMRMode_Renderless: VMRMode = 4;
 pub const VMRMode_Windowed: VMRMode = 1;
 pub const VMRMode_Windowless: VMRMode = 2;
 #[repr(C)]
-#[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct VMRPRESENTATIONINFO {
     pub dwFlags: u32,
-    pub lpSurf: *mut core::ffi::c_void,
+    pub lpSurf: super::LPDIRECTDRAWSURFACE7,
     pub rtStart: super::REFERENCE_TIME,
     pub rtEnd: super::REFERENCE_TIME,
     pub szAspectRatio: super::SIZE,
@@ -1196,14 +1238,14 @@ pub const VMRSample_SyncPoint: VMRPresentationFlags = 1;
 pub const VMRSample_TimeValid: VMRPresentationFlags = 8;
 pub type VMRSurfaceAllocationFlags = i32;
 #[repr(C)]
-#[cfg(feature = "ddraw")]
+#[cfg(all(feature = "ddraw", feature = "minwindef"))]
 #[derive(Clone, Copy, Default)]
 pub struct VMRVIDEOSTREAMINFO {
-    pub pddsVideoSurface: *mut core::ffi::c_void,
+    pub pddsVideoSurface: super::LPDIRECTDRAWSURFACE7,
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub dwStrmID: u32,
-    pub fAlpha: f32,
+    pub fAlpha: super::FLOAT,
     pub ddClrKey: super::DDCOLORKEY,
     pub rNormal: NORMALIZEDRECT,
 }
@@ -1270,5 +1312,10 @@ pub type _DVENCODERRESOLUTION = i32;
 pub type _DVENCODERVIDEOFORMAT = i32;
 pub type _DVRESOLUTION = i32;
 pub type _REM_FILTER_FLAGS = i32;
+pub type __MIDL_IFilterMapper_0001 = i32;
+pub type __MIDL___MIDL_itf_strmif_0000_0023_0001 = i32;
+pub type __MIDL___MIDL_itf_strmif_0000_0026_0001 = i32;
+pub type __MIDL___MIDL_itf_strmif_0000_0026_0002 = i32;
+pub type __MIDL___MIDL_itf_strmif_0000_0122_0001 = i32;
 pub type tagAM_MEDIAEVENT_FLAGS = i32;
 pub type tagAM_SAMPLE_PROPERTY_FLAGS = i32;

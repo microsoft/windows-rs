@@ -431,4 +431,8 @@ impl IEnumGUID_Vtbl {
 impl windows_core::RuntimeName for IEnumGUID {}
 #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
 pub type LPCATEGORYINFO = *mut CATEGORYINFO;
+pub type LPCATINFORMATION = ICatInformation;
+pub type LPCATREGISTER = ICatRegister;
+pub type LPENUMCATEGORYINFO = IEnumCATEGORYINFO;
+pub type LPENUMGUID = IEnumGUID;
 pub type REFCATID = *const windows_core::GUID;

@@ -164,14 +164,14 @@ mod Windows {
             #[special]
             fn get_MultisessionInterfaces(&self, #[retval] pVal: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_MultisessionInterfaces(&self, newVal: *const SAFEARRAY) -> HRESULT;
+            fn put_MultisessionInterfaces(&self, #[in] newVal: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xd7644b2c_1537_4767_b62f_f1387b02ddfd)]
         interface IFileSystemImage2: IFileSystemImage {
             #[special]
             fn get_BootImageOptionsArray(&self, #[retval] pVal: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_BootImageOptionsArray(&self, newVal: *const SAFEARRAY) -> HRESULT;
+            fn put_BootImageOptionsArray(&self, #[in] newVal: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x7cff842c_7e97_4807_8304_910dd8f7c051)]
         interface IFileSystemImage3: IFileSystemImage2 {
@@ -253,17 +253,17 @@ mod Windows {
             #[special]
             fn get_FullPath(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_CreationTime(&self, #[retval] pVal: *mut f64) -> HRESULT;
+            fn get_CreationTime(&self, #[retval] pVal: *mut DATE) -> HRESULT;
             #[special]
-            fn put_CreationTime(&self, newVal: f64) -> HRESULT;
+            fn put_CreationTime(&self, newVal: DATE) -> HRESULT;
             #[special]
-            fn get_LastAccessedTime(&self, #[retval] pVal: *mut f64) -> HRESULT;
+            fn get_LastAccessedTime(&self, #[retval] pVal: *mut DATE) -> HRESULT;
             #[special]
-            fn put_LastAccessedTime(&self, newVal: f64) -> HRESULT;
+            fn put_LastAccessedTime(&self, newVal: DATE) -> HRESULT;
             #[special]
-            fn get_LastModifiedTime(&self, #[retval] pVal: *mut f64) -> HRESULT;
+            fn get_LastModifiedTime(&self, #[retval] pVal: *mut DATE) -> HRESULT;
             #[special]
-            fn put_LastModifiedTime(&self, newVal: f64) -> HRESULT;
+            fn put_LastModifiedTime(&self, newVal: DATE) -> HRESULT;
             #[special]
             fn get_IsHidden(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
             #[special]

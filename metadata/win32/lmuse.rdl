@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         struct BLOCK_NTLM_INFO {
-            BlockNTLM: bool,
+            BlockNTLM: BOOLEAN,
             Reserved1: u8,
             Reserved2: u16,
             Reserved3: u32,
@@ -22,11 +22,11 @@ mod Windows {
         type LPUSE_INFO_4 = *mut USE_INFO_4;
         type LPUSE_INFO_5 = *mut USE_INFO_5;
         #[library("NETAPI32.dll")]
-        extern fn NetUseAdd(#[opt] servername: LPTSTR, LevelFlags: u32, buf: *mut u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetUseAdd(#[opt] servername: LPTSTR, LevelFlags: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetUseDel(#[opt] UncServerName: PCWSTR, UseName: PCWSTR, ForceLevelFlags: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetUseEnum(#[opt] UncServerName: PCWSTR, LevelFlags: u32, BufPtr: *mut LPBYTE, PreferedMaximumSize: u32, #[opt] EntriesRead: *mut u32, TotalEntries: *mut u32, #[in] #[out] #[opt] ResumeHandle: *mut u32) -> u32;
+        extern fn NetUseEnum(#[opt] UncServerName: PCWSTR, LevelFlags: u32, BufPtr: *mut LPBYTE, PreferedMaximumSize: u32, #[out] #[opt] EntriesRead: LPDWORD, #[out] TotalEntries: LPDWORD, #[in] #[out] #[opt] ResumeHandle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetUseGetInfo(#[opt] UncServerName: PCWSTR, UseName: PCWSTR, LevelFlags: u32, bufptr: *mut LPBYTE) -> u32;
         type PBLOCK_NTLM_INFO = *mut BLOCK_NTLM_INFO;
@@ -48,7 +48,7 @@ mod Windows {
         type PUSE_OPTION_PROPERTIES = *mut USE_OPTION_PROPERTIES;
         type PUSE_OPTION_TRANSPORT_PARAMETERS = *mut USE_OPTION_TRANSPORT_PARAMETERS;
         struct SMB_COMPRESSION_INFO {
-            Switch: bool,
+            Switch: BOOLEAN,
             Reserved1: u8,
             Reserved2: u16,
             Reserved3: u32,
@@ -66,7 +66,7 @@ mod Windows {
         }
         struct TRANSPORT_INFO {
             Type: TRANSPORT_TYPE,
-            SkipCertificateCheck: bool,
+            SkipCertificateCheck: BOOLEAN,
             TcpPort: u16,
             QuicPort: u16,
             RdmaPort: u16,

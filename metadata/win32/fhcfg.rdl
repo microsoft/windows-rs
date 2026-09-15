@@ -68,14 +68,14 @@ mod Windows {
             fn GetBackupStatus(&self, BackupStatus: *mut FH_BACKUP_STATUS) -> HRESULT;
             fn SetBackupStatus(&self, BackupStatus: FH_BACKUP_STATUS) -> HRESULT;
             fn GetDefaultTarget(&self, DefaultTarget: *mut IFhTarget) -> HRESULT;
-            fn ValidateTarget(&self, TargetUrl: BSTR, ValidationResult: *mut FH_DEVICE_VALIDATION_RESULT) -> HRESULT;
+            fn ValidateTarget(&self, TargetUrl: BSTR, #[out] ValidationResult: PFH_DEVICE_VALIDATION_RESULT) -> HRESULT;
             fn ProvisionAndSetNewTarget(&self, TargetUrl: BSTR, TargetName: BSTR) -> HRESULT;
             fn ChangeDefaultTargetRecommendation(&self, Recommend: BOOL) -> HRESULT;
             fn QueryProtectionStatus(&self, ProtectionState: *mut u32, ProtectedUntilTime: *mut BSTR) -> HRESULT;
         }
         #[guid(0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee)]
         interface IFhReassociation: IUnknown {
-            fn ValidateTarget(&self, TargetUrl: BSTR, ValidationResult: *mut FH_DEVICE_VALIDATION_RESULT) -> HRESULT;
+            fn ValidateTarget(&self, TargetUrl: BSTR, #[out] ValidationResult: PFH_DEVICE_VALIDATION_RESULT) -> HRESULT;
             fn ScanTargetForConfigurations(&self, TargetUrl: BSTR) -> HRESULT;
             fn GetConfigurationDetails(&self, Index: u32, UserName: *mut BSTR, PcName: *mut BSTR, BackupTime: *mut FILETIME) -> HRESULT;
             fn SelectConfiguration(&self, Index: u32) -> HRESULT;

@@ -58,7 +58,7 @@ mod Windows {
         #[guid(0x72d6135b_35e9_412c_b926_fd5265f2a885)]
         interface IMFCaptureSink: IUnknown {
             fn GetOutputMediaType(&self, dwSinkStreamIndex: u32, #[opt] ppMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetService(&self, dwSinkStreamIndex: u32, rguidService: *const GUID, riid: *const GUID, #[iid_is] #[opt] ppUnknown: *mut *mut void) -> HRESULT;
+            fn GetService(&self, dwSinkStreamIndex: u32, rguidService: *const GUID, riid: *const GUID, #[opt] ppUnknown: *mut IUnknown) -> HRESULT;
             fn AddStream(&self, dwSourceStreamIndex: u32, pMediaType: IMFMediaType, #[opt] pAttributes: IMFAttributes, #[opt] pdwSinkStreamIndex: *mut u32) -> HRESULT;
             fn Prepare(&self) -> HRESULT;
             fn RemoveAllStreams(&self) -> HRESULT;
@@ -71,7 +71,7 @@ mod Windows {
         interface IMFCaptureSource: IUnknown {
             fn GetCaptureDeviceSource(&self, mfCaptureEngineDeviceType: MF_CAPTURE_ENGINE_DEVICE_TYPE, #[opt] ppMediaSource: *mut IMFMediaSource) -> HRESULT;
             fn GetCaptureDeviceActivate(&self, mfCaptureEngineDeviceType: MF_CAPTURE_ENGINE_DEVICE_TYPE, #[opt] ppActivate: *mut IMFActivate) -> HRESULT;
-            fn GetService(&self, rguidService: *const GUID, riid: *const GUID, #[iid_is] #[opt] ppUnknown: *mut *mut void) -> HRESULT;
+            fn GetService(&self, rguidService: *const GUID, riid: *const GUID, #[opt] ppUnknown: *mut IUnknown) -> HRESULT;
             fn AddEffect(&self, dwSourceStreamIndex: u32, pUnknown: IUnknown) -> HRESULT;
             fn RemoveEffect(&self, dwSourceStreamIndex: u32, pUnknown: IUnknown) -> HRESULT;
             fn RemoveAllEffects(&self, dwSourceStreamIndex: u32) -> HRESULT;
@@ -94,7 +94,6 @@ mod Windows {
             MF_CAPTURE_ENGINE_DEVICE_TYPE_AUDIO = 0,
             MF_CAPTURE_ENGINE_DEVICE_TYPE_VIDEO = 1,
         }
-        const MF_CAPTURE_ENGINE_MEDIASOURCE: i32 = -1;
         #[repr(i32)]
         enum MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
             MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_OTHER = 0,
@@ -106,11 +105,6 @@ mod Windows {
             MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_UNIFORMSPEECH = 6,
             MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_VOICETYPING = 7,
         }
-        const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_AUDIO: i32 = -9;
-        const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_METADATA: i32 = -10;
-        const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_PHOTO: i32 = -8;
-        const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_VIDEO_PREVIEW: i32 = -6;
-        const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_VIDEO_RECORD: i32 = -7;
         #[repr(i32)]
         enum MF_CAPTURE_ENGINE_SINK_TYPE {
             MF_CAPTURE_ENGINE_SINK_TYPE_RECORD = 0,
@@ -126,6 +120,15 @@ mod Windows {
             MF_CAPTURE_ENGINE_STREAM_CATEGORY_AUDIO = 4,
             MF_CAPTURE_ENGINE_STREAM_CATEGORY_UNSUPPORTED = 5,
             MF_CAPTURE_ENGINE_STREAM_CATEGORY_METADATA = 6,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_mfcaptureengine_0000_0000_0001 {
+            MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_VIDEO_PREVIEW = -6,
+            MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_VIDEO_RECORD = -7,
+            MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_PHOTO = -8,
+            MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_AUDIO = -9,
+            MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_METADATA = -10,
+            MF_CAPTURE_ENGINE_MEDIASOURCE = -1,
         }
     }
 }

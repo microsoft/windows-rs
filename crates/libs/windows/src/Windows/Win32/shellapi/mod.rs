@@ -162,14 +162,14 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn SHAppBarMessage(dwmessage: u32, pdata: *mut APPBARDATA) -> usize {
-    windows_core::link!("shell32.dll" "system" fn SHAppBarMessage(dwmessage : u32, pdata : *mut APPBARDATA) -> usize);
+pub unsafe fn SHAppBarMessage(dwmessage: u32, pdata: PAPPBARDATA) -> usize {
+    windows_core::link!("shell32.dll" "system" fn SHAppBarMessage(dwmessage : u32, pdata : PAPPBARDATA) -> usize);
     unsafe { SHAppBarMessage(dwmessage, pdata as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SHCreateProcessAsUserW(pscpi: *mut SHCREATEPROCESSINFOW) -> windows_core::BOOL {
-    windows_core::link!("shell32.dll" "system" fn SHCreateProcessAsUserW(pscpi : *mut SHCREATEPROCESSINFOW) -> windows_core::BOOL);
+pub unsafe fn SHCreateProcessAsUserW(pscpi: PSHCREATEPROCESSINFOW) -> windows_core::BOOL {
+    windows_core::link!("shell32.dll" "system" fn SHCreateProcessAsUserW(pscpi : PSHCREATEPROCESSINFOW) -> windows_core::BOOL);
     unsafe { SHCreateProcessAsUserW(pscpi as _) }
 }
 #[cfg(feature = "windef")]
@@ -206,14 +206,14 @@ where
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SHFileOperationA(lpfileop: *mut SHFILEOPSTRUCTA) -> i32 {
-    windows_core::link!("shell32.dll" "system" fn SHFileOperationA(lpfileop : *mut SHFILEOPSTRUCTA) -> i32);
+pub unsafe fn SHFileOperationA(lpfileop: LPSHFILEOPSTRUCTA) -> i32 {
+    windows_core::link!("shell32.dll" "system" fn SHFileOperationA(lpfileop : LPSHFILEOPSTRUCTA) -> i32);
     unsafe { SHFileOperationA(lpfileop as _) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SHFileOperationW(lpfileop: *mut SHFILEOPSTRUCTW) -> i32 {
-    windows_core::link!("shell32.dll" "system" fn SHFileOperationW(lpfileop : *mut SHFILEOPSTRUCTW) -> i32);
+pub unsafe fn SHFileOperationW(lpfileop: LPSHFILEOPSTRUCTW) -> i32 {
+    windows_core::link!("shell32.dll" "system" fn SHFileOperationW(lpfileop : LPSHFILEOPSTRUCTW) -> i32);
     unsafe { SHFileOperationW(lpfileop as _) }
 }
 #[cfg(feature = "winnt")]
@@ -222,20 +222,22 @@ pub unsafe fn SHFreeNameMappings(hnamemappings: Option<super::HANDLE>) {
     windows_core::link!("shell32.dll" "system" fn SHFreeNameMappings(hnamemappings : super::HANDLE));
     unsafe { SHFreeNameMappings(hnamemappings.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn SHGetDiskFreeSpaceExA<P0>(pszdirectoryname: P0, pulfreebytesavailabletocaller: Option<*mut u64>, pultotalnumberofbytes: Option<*mut u64>, pultotalnumberoffreebytes: Option<*mut u64>) -> windows_core::BOOL
+pub unsafe fn SHGetDiskFreeSpaceExA<P0>(pszdirectoryname: P0, pulfreebytesavailabletocaller: Option<*mut super::ULARGE_INTEGER>, pultotalnumberofbytes: Option<*mut super::ULARGE_INTEGER>, pultotalnumberoffreebytes: Option<*mut super::ULARGE_INTEGER>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExA(pszdirectoryname : windows_core::PCSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> windows_core::BOOL);
+    windows_core::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExA(pszdirectoryname : windows_core::PCSTR, pulfreebytesavailabletocaller : *mut super::ULARGE_INTEGER, pultotalnumberofbytes : *mut super::ULARGE_INTEGER, pultotalnumberoffreebytes : *mut super::ULARGE_INTEGER) -> windows_core::BOOL);
     unsafe { SHGetDiskFreeSpaceExA(pszdirectoryname.param().abi(), pulfreebytesavailabletocaller.unwrap_or(core::mem::zeroed()) as _, pultotalnumberofbytes.unwrap_or(core::mem::zeroed()) as _, pultotalnumberoffreebytes.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn SHGetDiskFreeSpaceExW<P0>(pszdirectoryname: P0, pulfreebytesavailabletocaller: Option<*mut u64>, pultotalnumberofbytes: Option<*mut u64>, pultotalnumberoffreebytes: Option<*mut u64>) -> windows_core::BOOL
+pub unsafe fn SHGetDiskFreeSpaceExW<P0>(pszdirectoryname: P0, pulfreebytesavailabletocaller: Option<*mut super::ULARGE_INTEGER>, pultotalnumberofbytes: Option<*mut super::ULARGE_INTEGER>, pultotalnumberoffreebytes: Option<*mut super::ULARGE_INTEGER>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExW(pszdirectoryname : windows_core::PCWSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> windows_core::BOOL);
+    windows_core::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExW(pszdirectoryname : windows_core::PCWSTR, pulfreebytesavailabletocaller : *mut super::ULARGE_INTEGER, pultotalnumberofbytes : *mut super::ULARGE_INTEGER, pultotalnumberoffreebytes : *mut super::ULARGE_INTEGER) -> windows_core::BOOL);
     unsafe { SHGetDiskFreeSpaceExW(pszdirectoryname.param().abi(), pulfreebytesavailabletocaller.unwrap_or(core::mem::zeroed()) as _, pultotalnumberofbytes.unwrap_or(core::mem::zeroed()) as _, pultotalnumberoffreebytes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -268,13 +270,9 @@ where
     unsafe { SHGetFileInfoW(pszpath.param().abi(), dwfileattributes, psfi.unwrap_or(core::mem::zeroed()) as _, cbfileinfo, uflags) }
 }
 #[inline]
-pub unsafe fn SHGetImageList<T>(iimagelist: i32) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn SHGetImageList(iimagelist: i32, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHGetImageList(iimagelist : i32, riid : *const windows_core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { SHGetImageList(iimagelist, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { SHGetImageList(iimagelist, riid, ppvobj as _) }
 }
 #[inline]
 pub unsafe fn SHGetLocalizedName<P0>(pszpath: P0, pszresmodule: windows_core::PWSTR, cch: u32, pidsres: *mut i32) -> windows_core::HRESULT
@@ -304,13 +302,9 @@ where
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn SHGetPropertyStoreForWindow<T>(hwnd: super::HWND) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn SHGetPropertyStoreForWindow(hwnd: super::HWND, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHGetPropertyStoreForWindow(hwnd : super::HWND, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { SHGetPropertyStoreForWindow(hwnd, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { SHGetPropertyStoreForWindow(hwnd, riid, ppv as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -361,19 +355,19 @@ pub unsafe fn SHLoadNonloadedIconOverlayIdentifiers() -> windows_core::HRESULT {
     unsafe { SHLoadNonloadedIconOverlayIdentifiers() }
 }
 #[inline]
-pub unsafe fn SHQueryRecycleBinA<P0>(pszrootpath: P0, pshqueryrbinfo: *mut SHQUERYRBINFO) -> windows_core::HRESULT
+pub unsafe fn SHQueryRecycleBinA<P0>(pszrootpath: P0, pshqueryrbinfo: LPSHQUERYRBINFO) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("shell32.dll" "system" fn SHQueryRecycleBinA(pszrootpath : windows_core::PCSTR, pshqueryrbinfo : *mut SHQUERYRBINFO) -> windows_core::HRESULT);
+    windows_core::link!("shell32.dll" "system" fn SHQueryRecycleBinA(pszrootpath : windows_core::PCSTR, pshqueryrbinfo : LPSHQUERYRBINFO) -> windows_core::HRESULT);
     unsafe { SHQueryRecycleBinA(pszrootpath.param().abi(), pshqueryrbinfo as _) }
 }
 #[inline]
-pub unsafe fn SHQueryRecycleBinW<P0>(pszrootpath: P0, pshqueryrbinfo: *mut SHQUERYRBINFO) -> windows_core::HRESULT
+pub unsafe fn SHQueryRecycleBinW<P0>(pszrootpath: P0, pshqueryrbinfo: LPSHQUERYRBINFO) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("shell32.dll" "system" fn SHQueryRecycleBinW(pszrootpath : windows_core::PCWSTR, pshqueryrbinfo : *mut SHQUERYRBINFO) -> windows_core::HRESULT);
+    windows_core::link!("shell32.dll" "system" fn SHQueryRecycleBinW(pszrootpath : windows_core::PCWSTR, pshqueryrbinfo : LPSHQUERYRBINFO) -> windows_core::HRESULT);
     unsafe { SHQueryRecycleBinW(pszrootpath.param().abi(), pshqueryrbinfo as _) }
 }
 #[inline]
@@ -474,8 +468,8 @@ where
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn Shell_NotifyIconA(dwmessage: u32, lpdata: *const NOTIFYICONDATAA) -> windows_core::BOOL {
-    windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconA(dwmessage : u32, lpdata : *const NOTIFYICONDATAA) -> windows_core::BOOL);
+pub unsafe fn Shell_NotifyIconA(dwmessage: u32, lpdata: PNOTIFYICONDATAA) -> windows_core::BOOL {
+    windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconA(dwmessage : u32, lpdata : PNOTIFYICONDATAA) -> windows_core::BOOL);
     unsafe { Shell_NotifyIconA(dwmessage, lpdata) }
 }
 #[cfg(feature = "windef")]
@@ -489,8 +483,8 @@ pub unsafe fn Shell_NotifyIconGetRect(identifier: *const NOTIFYICONIDENTIFIER) -
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn Shell_NotifyIconW(dwmessage: u32, lpdata: *const NOTIFYICONDATAW) -> windows_core::BOOL {
-    windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : u32, lpdata : *const NOTIFYICONDATAW) -> windows_core::BOOL);
+pub unsafe fn Shell_NotifyIconW(dwmessage: u32, lpdata: PNOTIFYICONDATAW) -> windows_core::BOOL {
+    windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : u32, lpdata : PNOTIFYICONDATAW) -> windows_core::BOOL);
     unsafe { Shell_NotifyIconW(dwmessage, lpdata) }
 }
 pub const ABC_OVERLAYDESKTOPICONS: i32 = 1;
@@ -618,9 +612,7 @@ pub struct DRAGINFOW {
     pub lpFileList: super::PZZWSTR,
     pub grfKeyState: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct FILEOP_FLAGS(pub u16);
+pub type FILEOP_FLAGS = u16;
 pub const FOF_ALLOWUNDO: i32 = 64;
 pub const FOF_CONFIRMMOUSE: i32 = 2;
 pub const FOF_FILESONLY: i32 = 128;
@@ -642,9 +634,19 @@ pub const FO_COPY: i32 = 2;
 pub const FO_DELETE: i32 = 3;
 pub const FO_MOVE: i32 = 1;
 pub const FO_RENAME: i32 = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HDROP(pub *mut core::ffi::c_void);
+pub type HDROP = *mut HDROP__;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct HDROP__ {
+    pub unused: i32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HDROP__ {
+    pub unused: i32,
+}
 #[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPDRAGINFO = LPDRAGINFOA;
 #[cfg(all(feature = "windef", feature = "winnt"))]
@@ -1019,9 +1021,7 @@ pub const PRINTACTION_OPENNETPRN: i32 = 5;
 pub const PRINTACTION_PROPERTIES: i32 = 1;
 pub const PRINTACTION_SERVERPROPERTIES: i32 = 7;
 pub const PRINTACTION_TESTPAGE: i32 = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PRINTEROP_FLAGS(pub u16);
+pub type PRINTEROP_FLAGS = u16;
 pub const PRINT_PROP_FORCE_NAME: i32 = 1;
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
 pub type PSHCREATEPROCESSINFOW = *mut SHCREATEPROCESSINFOW;

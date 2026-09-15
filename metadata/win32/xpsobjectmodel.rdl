@@ -3,8 +3,8 @@ mod Windows {
     mod Win32 {
         #[guid(0x56a3f80c_ea4c_4187_a57b_a2a473b2b42b)]
         interface IXpsOMBrush: IXpsOMShareable {
-            fn GetOpacity(&self, #[retval] opacity: *mut f32) -> HRESULT;
-            fn SetOpacity(&self, opacity: f32) -> HRESULT;
+            fn GetOpacity(&self, #[retval] opacity: *mut FLOAT) -> HRESULT;
+            fn SetOpacity(&self, opacity: FLOAT) -> HRESULT;
         }
         #[guid(0x221d1452_331e_47c6_87e9_6ccefb9b5ba3)]
         interface IXpsOMCanvas: IXpsOMVisual {
@@ -160,10 +160,10 @@ mod Windows {
         #[guid(0xd410dc83_908c_443e_8947_b1795d3c165a)]
         interface IXpsOMGeometryFigure: IUnknown {
             fn GetOwner(&self, #[retval] owner: *mut IXpsOMGeometry) -> HRESULT;
-            fn GetSegmentData(&self, #[in] #[out] dataCount: *mut u32, #[in] #[out] segmentData: *mut f32) -> HRESULT;
+            fn GetSegmentData(&self, #[in] #[out] dataCount: *mut u32, #[in] #[out] segmentData: *mut FLOAT) -> HRESULT;
             fn GetSegmentTypes(&self, #[in] #[out] segmentCount: *mut u32, #[in] #[out] segmentTypes: *mut XPS_SEGMENT_TYPE) -> HRESULT;
             fn GetSegmentStrokes(&self, #[in] #[out] segmentCount: *mut u32, #[in] #[out] segmentStrokes: *mut BOOL) -> HRESULT;
-            fn SetSegments(&self, segmentCount: u32, segmentDataCount: u32, segmentTypes: *const XPS_SEGMENT_TYPE, segmentData: *const f32, segmentStrokes: *const BOOL) -> HRESULT;
+            fn SetSegments(&self, segmentCount: u32, segmentDataCount: u32, segmentTypes: *const XPS_SEGMENT_TYPE, segmentData: *const FLOAT, segmentStrokes: *const BOOL) -> HRESULT;
             fn GetStartPoint(&self, #[retval] startPoint: *mut XPS_POINT) -> HRESULT;
             fn SetStartPoint(&self, startPoint: *const XPS_POINT) -> HRESULT;
             fn GetIsClosed(&self, #[retval] isClosed: *mut BOOL) -> HRESULT;
@@ -200,8 +200,8 @@ mod Windows {
             fn SetStyleSimulations(&self, styleSimulations: XPS_STYLE_SIMULATION) -> HRESULT;
             fn GetOrigin(&self, #[retval] origin: *mut XPS_POINT) -> HRESULT;
             fn SetOrigin(&self, origin: *const XPS_POINT) -> HRESULT;
-            fn GetFontRenderingEmSize(&self, #[retval] fontRenderingEmSize: *mut f32) -> HRESULT;
-            fn SetFontRenderingEmSize(&self, fontRenderingEmSize: f32) -> HRESULT;
+            fn GetFontRenderingEmSize(&self, #[retval] fontRenderingEmSize: *mut FLOAT) -> HRESULT;
+            fn SetFontRenderingEmSize(&self, fontRenderingEmSize: FLOAT) -> HRESULT;
             fn GetFontResource(&self, #[retval] fontResource: *mut IXpsOMFontResource) -> HRESULT;
             fn SetFontResource(&self, fontResource: IXpsOMFontResource) -> HRESULT;
             fn GetFontFaceIndex(&self, #[retval] fontFaceIndex: *mut i16) -> HRESULT;
@@ -251,8 +251,8 @@ mod Windows {
         #[guid(0x5cf4f5cc_3969_49b5_a70a_5550b618fe49)]
         interface IXpsOMGradientStop: IUnknown {
             fn GetOwner(&self, #[retval] owner: *mut IXpsOMGradientBrush) -> HRESULT;
-            fn GetOffset(&self, #[retval] offset: *mut f32) -> HRESULT;
-            fn SetOffset(&self, offset: f32) -> HRESULT;
+            fn GetOffset(&self, #[retval] offset: *mut FLOAT) -> HRESULT;
+            fn SetOffset(&self, offset: FLOAT) -> HRESULT;
             fn GetColor(&self, color: *mut XPS_COLOR, #[retval] colorProfile: *mut IXpsOMColorProfileResource) -> HRESULT;
             fn SetColor(&self, color: *const XPS_COLOR, colorProfile: IXpsOMColorProfileResource) -> HRESULT;
             fn Clone(&self, #[retval] gradientStop: *mut IXpsOMGradientStop) -> HRESULT;
@@ -338,13 +338,13 @@ mod Windows {
             fn CreateImageResource(&self, acquiredStream: IStream, contentType: XPS_IMAGE_TYPE, partUri: IOpcPartUri, #[retval] imageResource: *mut IXpsOMImageResource) -> HRESULT;
             fn CreatePrintTicketResource(&self, acquiredStream: IStream, partUri: IOpcPartUri, #[retval] printTicketResource: *mut IXpsOMPrintTicketResource) -> HRESULT;
             fn CreateFontResource(&self, acquiredStream: IStream, fontEmbedding: XPS_FONT_EMBEDDING, partUri: IOpcPartUri, isObfSourceStream: BOOL, #[retval] fontResource: *mut IXpsOMFontResource) -> HRESULT;
-            fn CreateGradientStop(&self, color: *const XPS_COLOR, colorProfile: IXpsOMColorProfileResource, offset: f32, #[retval] gradientStop: *mut IXpsOMGradientStop) -> HRESULT;
+            fn CreateGradientStop(&self, color: *const XPS_COLOR, colorProfile: IXpsOMColorProfileResource, offset: FLOAT, #[retval] gradientStop: *mut IXpsOMGradientStop) -> HRESULT;
             fn CreateLinearGradientBrush(&self, gradStop1: IXpsOMGradientStop, gradStop2: IXpsOMGradientStop, startPoint: *const XPS_POINT, endPoint: *const XPS_POINT, #[retval] linearGradientBrush: *mut IXpsOMLinearGradientBrush) -> HRESULT;
             fn CreateRadialGradientBrush(&self, gradStop1: IXpsOMGradientStop, gradStop2: IXpsOMGradientStop, centerPoint: *const XPS_POINT, gradientOrigin: *const XPS_POINT, radiiSizes: *const XPS_SIZE, #[retval] radialGradientBrush: *mut IXpsOMRadialGradientBrush) -> HRESULT;
             fn CreateCoreProperties(&self, partUri: IOpcPartUri, #[retval] coreProperties: *mut IXpsOMCoreProperties) -> HRESULT;
             fn CreateDictionary(&self, #[retval] dictionary: *mut IXpsOMDictionary) -> HRESULT;
             fn CreatePartUriCollection(&self, #[retval] partUriCollection: *mut IXpsOMPartUriCollection) -> HRESULT;
-            fn CreatePackageWriterOnFile(&self, fileName: PCWSTR, securityAttributes: *const SECURITY_ATTRIBUTES, flagsAndAttributes: u32, optimizeMarkupSize: BOOL, interleaving: XPS_INTERLEAVING, documentSequencePartName: IOpcPartUri, coreProperties: IXpsOMCoreProperties, packageThumbnail: IXpsOMImageResource, documentSequencePrintTicket: IXpsOMPrintTicketResource, discardControlPartName: IOpcPartUri, #[retval] packageWriter: *mut IXpsOMPackageWriter) -> HRESULT;
+            fn CreatePackageWriterOnFile(&self, fileName: PCWSTR, securityAttributes: LPSECURITY_ATTRIBUTES, flagsAndAttributes: u32, optimizeMarkupSize: BOOL, interleaving: XPS_INTERLEAVING, documentSequencePartName: IOpcPartUri, coreProperties: IXpsOMCoreProperties, packageThumbnail: IXpsOMImageResource, documentSequencePrintTicket: IXpsOMPrintTicketResource, discardControlPartName: IOpcPartUri, #[retval] packageWriter: *mut IXpsOMPackageWriter) -> HRESULT;
             fn CreatePackageWriterOnStream(&self, outputStream: ISequentialStream, optimizeMarkupSize: BOOL, interleaving: XPS_INTERLEAVING, documentSequencePartName: IOpcPartUri, coreProperties: IXpsOMCoreProperties, packageThumbnail: IXpsOMImageResource, documentSequencePrintTicket: IXpsOMPrintTicketResource, discardControlPartName: IOpcPartUri, #[retval] packageWriter: *mut IXpsOMPackageWriter) -> HRESULT;
             fn CreatePartUri(&self, uri: PCWSTR, #[retval] partUri: *mut IOpcPartUri) -> HRESULT;
             fn CreateReadOnlyStreamOnFile(&self, filename: PCWSTR, #[retval] stream: *mut IStream) -> HRESULT;
@@ -359,7 +359,7 @@ mod Windows {
             fn SetDiscardControlPartName(&self, discardControlPartUri: IOpcPartUri) -> HRESULT;
             fn GetThumbnailResource(&self, #[retval] imageResource: *mut IXpsOMImageResource) -> HRESULT;
             fn SetThumbnailResource(&self, imageResource: IXpsOMImageResource) -> HRESULT;
-            fn WriteToFile(&self, fileName: PCWSTR, securityAttributes: *const SECURITY_ATTRIBUTES, flagsAndAttributes: u32, optimizeMarkupSize: BOOL) -> HRESULT;
+            fn WriteToFile(&self, fileName: PCWSTR, securityAttributes: LPSECURITY_ATTRIBUTES, flagsAndAttributes: u32, optimizeMarkupSize: BOOL) -> HRESULT;
             fn WriteToStream(&self, stream: ISequentialStream, optimizeMarkupSize: BOOL) -> HRESULT;
         }
         #[guid(0x219a9db0_4959_47d0_8034_b1ce84f41a4d)]
@@ -470,18 +470,18 @@ mod Windows {
             fn GetStrokeDashes(&self, #[retval] strokeDashes: *mut IXpsOMDashCollection) -> HRESULT;
             fn GetStrokeDashCap(&self, #[retval] strokeDashCap: *mut XPS_DASH_CAP) -> HRESULT;
             fn SetStrokeDashCap(&self, strokeDashCap: XPS_DASH_CAP) -> HRESULT;
-            fn GetStrokeDashOffset(&self, #[retval] strokeDashOffset: *mut f32) -> HRESULT;
-            fn SetStrokeDashOffset(&self, strokeDashOffset: f32) -> HRESULT;
+            fn GetStrokeDashOffset(&self, #[retval] strokeDashOffset: *mut FLOAT) -> HRESULT;
+            fn SetStrokeDashOffset(&self, strokeDashOffset: FLOAT) -> HRESULT;
             fn GetStrokeStartLineCap(&self, #[retval] strokeStartLineCap: *mut XPS_LINE_CAP) -> HRESULT;
             fn SetStrokeStartLineCap(&self, strokeStartLineCap: XPS_LINE_CAP) -> HRESULT;
             fn GetStrokeEndLineCap(&self, #[retval] strokeEndLineCap: *mut XPS_LINE_CAP) -> HRESULT;
             fn SetStrokeEndLineCap(&self, strokeEndLineCap: XPS_LINE_CAP) -> HRESULT;
             fn GetStrokeLineJoin(&self, #[retval] strokeLineJoin: *mut XPS_LINE_JOIN) -> HRESULT;
             fn SetStrokeLineJoin(&self, strokeLineJoin: XPS_LINE_JOIN) -> HRESULT;
-            fn GetStrokeMiterLimit(&self, #[retval] strokeMiterLimit: *mut f32) -> HRESULT;
-            fn SetStrokeMiterLimit(&self, strokeMiterLimit: f32) -> HRESULT;
-            fn GetStrokeThickness(&self, #[retval] strokeThickness: *mut f32) -> HRESULT;
-            fn SetStrokeThickness(&self, strokeThickness: f32) -> HRESULT;
+            fn GetStrokeMiterLimit(&self, #[retval] strokeMiterLimit: *mut FLOAT) -> HRESULT;
+            fn SetStrokeMiterLimit(&self, strokeMiterLimit: FLOAT) -> HRESULT;
+            fn GetStrokeThickness(&self, #[retval] strokeThickness: *mut FLOAT) -> HRESULT;
+            fn SetStrokeThickness(&self, strokeThickness: FLOAT) -> HRESULT;
             fn GetFillBrush(&self, #[retval] brush: *mut IXpsOMBrush) -> HRESULT;
             fn GetFillBrushLocal(&self, #[retval] brush: *mut IXpsOMBrush) -> HRESULT;
             fn SetFillBrushLocal(&self, brush: IXpsOMBrush) -> HRESULT;
@@ -584,8 +584,8 @@ mod Windows {
             fn SetClipGeometryLocal(&self, clipGeometry: IXpsOMGeometry) -> HRESULT;
             fn GetClipGeometryLookup(&self, #[retval] key: *mut PWSTR) -> HRESULT;
             fn SetClipGeometryLookup(&self, key: PCWSTR) -> HRESULT;
-            fn GetOpacity(&self, #[retval] opacity: *mut f32) -> HRESULT;
-            fn SetOpacity(&self, opacity: f32) -> HRESULT;
+            fn GetOpacity(&self, #[retval] opacity: *mut FLOAT) -> HRESULT;
+            fn SetOpacity(&self, opacity: FLOAT) -> HRESULT;
             fn GetOpacityMaskBrush(&self, #[retval] opacityMaskBrush: *mut IXpsOMBrush) -> HRESULT;
             fn GetOpacityMaskBrushLocal(&self, #[retval] opacityMaskBrush: *mut IXpsOMBrush) -> HRESULT;
             fn SetOpacityMaskBrushLocal(&self, opacityMaskBrush: IXpsOMBrush) -> HRESULT;
@@ -620,25 +620,7 @@ mod Windows {
         }
         struct XPS_COLOR {
             colorType: XPS_COLOR_TYPE,
-            value: XPS_COLOR_0,
-        }
-        union XPS_COLOR_0 {
-            sRGB: struct {
-                alpha: u8,
-                red: u8,
-                green: u8,
-                blue: u8,
-            },
-            scRGB: struct {
-                alpha: f32,
-                red: f32,
-                green: f32,
-                blue: f32,
-            },
-            context: struct {
-                channelCount: u8,
-                channels: [f32; 9],
-            },
+            value: __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028,
         }
         #[repr(i32)]
         enum XPS_COLOR_INTERPOLATION {
@@ -652,8 +634,8 @@ mod Windows {
             XPS_COLOR_TYPE_CONTEXT = 3,
         }
         struct XPS_DASH {
-            length: f32,
-            gap: f32,
+            length: FLOAT,
+            gap: FLOAT,
         }
         #[repr(i32)]
         enum XPS_DASH_CAP {
@@ -662,81 +644,81 @@ mod Windows {
             XPS_DASH_CAP_SQUARE = 3,
             XPS_DASH_CAP_TRIANGLE = 4,
         }
-        const XPS_E_ALREADY_OWNED: i32 = -2142108413;
-        const XPS_E_BLEED_BOX_PAGE_DIMENSIONS_NOT_IN_SYNC: i32 = -2142108407;
-        const XPS_E_BOTH_PATHFIGURE_AND_ABBR_SYNTAX_PRESENT: i32 = -2142108409;
-        const XPS_E_BOTH_RESOURCE_AND_SOURCEATTR_PRESENT: i32 = -2142108408;
-        const XPS_E_CARET_OUTSIDE_STRING: i32 = -2142108923;
-        const XPS_E_CARET_OUT_OF_ORDER: i32 = -2142108922;
-        const XPS_E_COLOR_COMPONENT_OUT_OF_RANGE: i32 = -2142108410;
-        const XPS_E_DICTIONARY_ITEM_NAMED: i32 = -2142108671;
-        const XPS_E_DUPLICATE_NAMES: i32 = -2142109175;
-        const XPS_E_DUPLICATE_RESOURCE_KEYS: i32 = -2142109184;
-        const XPS_E_INDEX_OUT_OF_RANGE: i32 = -2142108416;
-        const XPS_E_INVALID_BLEED_BOX: i32 = -2142109692;
-        const XPS_E_INVALID_CONTENT_BOX: i32 = -2142109685;
-        const XPS_E_INVALID_CONTENT_TYPE: i32 = -2142109682;
-        const XPS_E_INVALID_FLOAT: i32 = -2142109689;
-        const XPS_E_INVALID_FONT_URI: i32 = -2142109686;
-        const XPS_E_INVALID_LANGUAGE: i32 = -2142109696;
-        const XPS_E_INVALID_LOOKUP_TYPE: i32 = -2142109690;
-        const XPS_E_INVALID_MARKUP: i32 = -2142109684;
-        const XPS_E_INVALID_NAME: i32 = -2142109695;
-        const XPS_E_INVALID_OBFUSCATED_FONT_URI: i32 = -2142109681;
-        const XPS_E_INVALID_PAGE_SIZE: i32 = -2142109693;
-        const XPS_E_INVALID_RESOURCE_KEY: i32 = -2142109694;
-        const XPS_E_INVALID_THUMBNAIL_IMAGE_TYPE: i32 = -2142109691;
-        const XPS_E_INVALID_XML_ENCODING: i32 = -2142109683;
-        const XPS_E_MAPPING_OUTSIDE_INDICES: i32 = -2142108924;
-        const XPS_E_MAPPING_OUTSIDE_STRING: i32 = -2142108925;
-        const XPS_E_MAPPING_OUT_OF_ORDER: i32 = -2142108926;
-        const XPS_E_MISSING_COLORPROFILE: i32 = -2142109436;
-        const XPS_E_MISSING_DISCARDCONTROL: i32 = -2142109422;
-        const XPS_E_MISSING_DOCUMENT: i32 = -2142109431;
-        const XPS_E_MISSING_DOCUMENTSEQUENCE_RELATIONSHIP: i32 = -2142109432;
-        const XPS_E_MISSING_FONTURI: i32 = -2142109433;
-        const XPS_E_MISSING_GLYPHS: i32 = -2142109438;
-        const XPS_E_MISSING_IMAGE_IN_IMAGEBRUSH: i32 = -2142109426;
-        const XPS_E_MISSING_LOOKUP: i32 = -2142109439;
-        const XPS_E_MISSING_NAME: i32 = -2142109440;
-        const XPS_E_MISSING_PAGE_IN_DOCUMENT: i32 = -2142109428;
-        const XPS_E_MISSING_PAGE_IN_PAGEREFERENCE: i32 = -2142109427;
-        const XPS_E_MISSING_PART_REFERENCE: i32 = -2142109424;
-        const XPS_E_MISSING_PART_STREAM: i32 = -2142109421;
-        const XPS_E_MISSING_REFERRED_DOCUMENT: i32 = -2142109430;
-        const XPS_E_MISSING_REFERRED_PAGE: i32 = -2142109429;
-        const XPS_E_MISSING_RELATIONSHIP_TARGET: i32 = -2142109435;
-        const XPS_E_MISSING_RESOURCE_KEY: i32 = -2142109425;
-        const XPS_E_MISSING_RESOURCE_RELATIONSHIP: i32 = -2142109434;
-        const XPS_E_MISSING_RESTRICTED_FONT_RELATIONSHIP: i32 = -2142109423;
-        const XPS_E_MISSING_SEGMENT_DATA: i32 = -2142109437;
-        const XPS_E_MULTIPLE_DOCUMENTSEQUENCE_RELATIONSHIPS: i32 = -2142109182;
-        const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENT: i32 = -2142109178;
-        const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENTSEQUENCE: i32 = -2142109177;
-        const XPS_E_MULTIPLE_PRINTTICKETS_ON_PAGE: i32 = -2142109179;
-        const XPS_E_MULTIPLE_REFERENCES_TO_PART: i32 = -2142109176;
-        const XPS_E_MULTIPLE_RESOURCES: i32 = -2142109183;
-        const XPS_E_MULTIPLE_THUMBNAILS_ON_PACKAGE: i32 = -2142109180;
-        const XPS_E_MULTIPLE_THUMBNAILS_ON_PAGE: i32 = -2142109181;
-        const XPS_E_NEGATIVE_FLOAT: i32 = -2142108918;
-        const XPS_E_NESTED_REMOTE_DICTIONARY: i32 = -2142108670;
-        const XPS_E_NOT_ENOUGH_GRADIENT_STOPS: i32 = -2142108405;
-        const XPS_E_NO_CUSTOM_OBJECTS: i32 = -2142108414;
-        const XPS_E_ODD_BIDILEVEL: i32 = -2142108921;
-        const XPS_E_ONE_TO_ONE_MAPPING_EXPECTED: i32 = -2142108920;
-        const XPS_E_PACKAGE_WRITER_NOT_CLOSED: i32 = -2142108404;
-        const XPS_E_RELATIONSHIP_EXTERNAL: i32 = -2142108406;
-        const XPS_E_RESOURCE_NOT_OWNED: i32 = -2142108412;
-        const XPS_E_RESTRICTED_FONT_NOT_OBFUSCATED: i32 = -2142108919;
-        const XPS_E_STRING_TOO_LONG: i32 = -2142108928;
-        const XPS_E_TOO_MANY_INDICES: i32 = -2142108927;
-        const XPS_E_UNAVAILABLE_PACKAGE: i32 = -2142109420;
-        const XPS_E_UNEXPECTED_COLORPROFILE: i32 = -2142108411;
-        const XPS_E_UNEXPECTED_CONTENT_TYPE: i32 = -2142109688;
-        const XPS_E_UNEXPECTED_RELATIONSHIP_TYPE: i32 = -2142109680;
-        const XPS_E_UNEXPECTED_RESTRICTED_FONT_RELATIONSHIP: i32 = -2142109679;
-        const XPS_E_VISUAL_CIRCULAR_REF: i32 = -2142108415;
-        const XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: i32 = -2142108672;
+        const XPS_E_ALREADY_OWNED: HRESULT = -2142108413;
+        const XPS_E_BLEED_BOX_PAGE_DIMENSIONS_NOT_IN_SYNC: HRESULT = -2142108407;
+        const XPS_E_BOTH_PATHFIGURE_AND_ABBR_SYNTAX_PRESENT: HRESULT = -2142108409;
+        const XPS_E_BOTH_RESOURCE_AND_SOURCEATTR_PRESENT: HRESULT = -2142108408;
+        const XPS_E_CARET_OUTSIDE_STRING: HRESULT = -2142108923;
+        const XPS_E_CARET_OUT_OF_ORDER: HRESULT = -2142108922;
+        const XPS_E_COLOR_COMPONENT_OUT_OF_RANGE: HRESULT = -2142108410;
+        const XPS_E_DICTIONARY_ITEM_NAMED: HRESULT = -2142108671;
+        const XPS_E_DUPLICATE_NAMES: HRESULT = -2142109175;
+        const XPS_E_DUPLICATE_RESOURCE_KEYS: HRESULT = -2142109184;
+        const XPS_E_INDEX_OUT_OF_RANGE: HRESULT = -2142108416;
+        const XPS_E_INVALID_BLEED_BOX: HRESULT = -2142109692;
+        const XPS_E_INVALID_CONTENT_BOX: HRESULT = -2142109685;
+        const XPS_E_INVALID_CONTENT_TYPE: HRESULT = -2142109682;
+        const XPS_E_INVALID_FLOAT: HRESULT = -2142109689;
+        const XPS_E_INVALID_FONT_URI: HRESULT = -2142109686;
+        const XPS_E_INVALID_LANGUAGE: HRESULT = -2142109696;
+        const XPS_E_INVALID_LOOKUP_TYPE: HRESULT = -2142109690;
+        const XPS_E_INVALID_MARKUP: HRESULT = -2142109684;
+        const XPS_E_INVALID_NAME: HRESULT = -2142109695;
+        const XPS_E_INVALID_OBFUSCATED_FONT_URI: HRESULT = -2142109681;
+        const XPS_E_INVALID_PAGE_SIZE: HRESULT = -2142109693;
+        const XPS_E_INVALID_RESOURCE_KEY: HRESULT = -2142109694;
+        const XPS_E_INVALID_THUMBNAIL_IMAGE_TYPE: HRESULT = -2142109691;
+        const XPS_E_INVALID_XML_ENCODING: HRESULT = -2142109683;
+        const XPS_E_MAPPING_OUTSIDE_INDICES: HRESULT = -2142108924;
+        const XPS_E_MAPPING_OUTSIDE_STRING: HRESULT = -2142108925;
+        const XPS_E_MAPPING_OUT_OF_ORDER: HRESULT = -2142108926;
+        const XPS_E_MISSING_COLORPROFILE: HRESULT = -2142109436;
+        const XPS_E_MISSING_DISCARDCONTROL: HRESULT = -2142109422;
+        const XPS_E_MISSING_DOCUMENT: HRESULT = -2142109431;
+        const XPS_E_MISSING_DOCUMENTSEQUENCE_RELATIONSHIP: HRESULT = -2142109432;
+        const XPS_E_MISSING_FONTURI: HRESULT = -2142109433;
+        const XPS_E_MISSING_GLYPHS: HRESULT = -2142109438;
+        const XPS_E_MISSING_IMAGE_IN_IMAGEBRUSH: HRESULT = -2142109426;
+        const XPS_E_MISSING_LOOKUP: HRESULT = -2142109439;
+        const XPS_E_MISSING_NAME: HRESULT = -2142109440;
+        const XPS_E_MISSING_PAGE_IN_DOCUMENT: HRESULT = -2142109428;
+        const XPS_E_MISSING_PAGE_IN_PAGEREFERENCE: HRESULT = -2142109427;
+        const XPS_E_MISSING_PART_REFERENCE: HRESULT = -2142109424;
+        const XPS_E_MISSING_PART_STREAM: HRESULT = -2142109421;
+        const XPS_E_MISSING_REFERRED_DOCUMENT: HRESULT = -2142109430;
+        const XPS_E_MISSING_REFERRED_PAGE: HRESULT = -2142109429;
+        const XPS_E_MISSING_RELATIONSHIP_TARGET: HRESULT = -2142109435;
+        const XPS_E_MISSING_RESOURCE_KEY: HRESULT = -2142109425;
+        const XPS_E_MISSING_RESOURCE_RELATIONSHIP: HRESULT = -2142109434;
+        const XPS_E_MISSING_RESTRICTED_FONT_RELATIONSHIP: HRESULT = -2142109423;
+        const XPS_E_MISSING_SEGMENT_DATA: HRESULT = -2142109437;
+        const XPS_E_MULTIPLE_DOCUMENTSEQUENCE_RELATIONSHIPS: HRESULT = -2142109182;
+        const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENT: HRESULT = -2142109178;
+        const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENTSEQUENCE: HRESULT = -2142109177;
+        const XPS_E_MULTIPLE_PRINTTICKETS_ON_PAGE: HRESULT = -2142109179;
+        const XPS_E_MULTIPLE_REFERENCES_TO_PART: HRESULT = -2142109176;
+        const XPS_E_MULTIPLE_RESOURCES: HRESULT = -2142109183;
+        const XPS_E_MULTIPLE_THUMBNAILS_ON_PACKAGE: HRESULT = -2142109180;
+        const XPS_E_MULTIPLE_THUMBNAILS_ON_PAGE: HRESULT = -2142109181;
+        const XPS_E_NEGATIVE_FLOAT: HRESULT = -2142108918;
+        const XPS_E_NESTED_REMOTE_DICTIONARY: HRESULT = -2142108670;
+        const XPS_E_NOT_ENOUGH_GRADIENT_STOPS: HRESULT = -2142108405;
+        const XPS_E_NO_CUSTOM_OBJECTS: HRESULT = -2142108414;
+        const XPS_E_ODD_BIDILEVEL: HRESULT = -2142108921;
+        const XPS_E_ONE_TO_ONE_MAPPING_EXPECTED: HRESULT = -2142108920;
+        const XPS_E_PACKAGE_WRITER_NOT_CLOSED: HRESULT = -2142108404;
+        const XPS_E_RELATIONSHIP_EXTERNAL: HRESULT = -2142108406;
+        const XPS_E_RESOURCE_NOT_OWNED: HRESULT = -2142108412;
+        const XPS_E_RESTRICTED_FONT_NOT_OBFUSCATED: HRESULT = -2142108919;
+        const XPS_E_STRING_TOO_LONG: HRESULT = -2142108928;
+        const XPS_E_TOO_MANY_INDICES: HRESULT = -2142108927;
+        const XPS_E_UNAVAILABLE_PACKAGE: HRESULT = -2142109420;
+        const XPS_E_UNEXPECTED_COLORPROFILE: HRESULT = -2142108411;
+        const XPS_E_UNEXPECTED_CONTENT_TYPE: HRESULT = -2142109688;
+        const XPS_E_UNEXPECTED_RELATIONSHIP_TYPE: HRESULT = -2142109680;
+        const XPS_E_UNEXPECTED_RESTRICTED_FONT_RELATIONSHIP: HRESULT = -2142109679;
+        const XPS_E_VISUAL_CIRCULAR_REF: HRESULT = -2142108415;
+        const XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: HRESULT = -2142108672;
         #[repr(i32)]
         enum XPS_FILL_RULE {
             XPS_FILL_RULE_EVENODD = 1,
@@ -751,9 +733,9 @@ mod Windows {
         }
         struct XPS_GLYPH_INDEX {
             index: i32,
-            advanceWidth: f32,
-            horizontalOffset: f32,
-            verticalOffset: f32,
+            advanceWidth: FLOAT,
+            horizontalOffset: FLOAT,
+            verticalOffset: FLOAT,
         }
         struct XPS_GLYPH_MAPPING {
             unicodeStringStart: u32,
@@ -788,12 +770,12 @@ mod Windows {
             XPS_LINE_JOIN_ROUND = 3,
         }
         struct XPS_MATRIX {
-            m11: f32,
-            m12: f32,
-            m21: f32,
-            m22: f32,
-            m31: f32,
-            m32: f32,
+            m11: FLOAT,
+            m12: FLOAT,
+            m21: FLOAT,
+            m22: FLOAT,
+            m31: FLOAT,
+            m32: FLOAT,
         }
         #[repr(i32)]
         enum XPS_OBJECT_TYPE {
@@ -809,14 +791,14 @@ mod Windows {
             XPS_OBJECT_TYPE_VISUAL_BRUSH = 10,
         }
         struct XPS_POINT {
-            x: f32,
-            y: f32,
+            x: FLOAT,
+            y: FLOAT,
         }
         struct XPS_RECT {
-            x: f32,
-            y: f32,
-            width: f32,
-            height: f32,
+            x: FLOAT,
+            y: FLOAT,
+            width: FLOAT,
+            height: FLOAT,
         }
         #[repr(i32)]
         enum XPS_SEGMENT_STROKE_PATTERN {
@@ -835,8 +817,8 @@ mod Windows {
             XPS_SEGMENT_TYPE_QUADRATIC_BEZIER = 7,
         }
         struct XPS_SIZE {
-            width: f32,
-            height: f32,
+            width: FLOAT,
+            height: FLOAT,
         }
         #[repr(i32)]
         enum XPS_SPREAD_METHOD {
@@ -868,5 +850,23 @@ mod Windows {
         }
         const XpsOMObjectFactory: GUID = 0xe974d26d_3d9b_4d47_88cc_3872f2dc3585;
         const XpsOMThumbnailGenerator: GUID = 0x7e4a23e2_b969_4761_be35_1a8ced58e323;
+        union __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028 {
+            sRGB: struct {
+                alpha: u8,
+                red: u8,
+                green: u8,
+                blue: u8,
+            },
+            scRGB: struct {
+                alpha: FLOAT,
+                red: FLOAT,
+                green: FLOAT,
+                blue: FLOAT,
+            },
+            context: struct {
+                channelCount: u8,
+                channels: [FLOAT; 9],
+            },
+        }
     }
 }

@@ -55,9 +55,10 @@ pub unsafe fn CredFree(buffer: *const core::ffi::c_void) {
     windows_core::link!("advapi32.dll" "system" fn CredFree(buffer : *const core::ffi::c_void));
     unsafe { CredFree(buffer) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CredGetSessionTypes(maximumpersistcount: u32, maximumpersist: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn CredGetSessionTypes(maximumpersistcount : u32, maximumpersist : *mut u32) -> windows_core::BOOL);
+pub unsafe fn CredGetSessionTypes(maximumpersistcount: u32, maximumpersist: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn CredGetSessionTypes(maximumpersistcount : u32, maximumpersist : super::LPDWORD) -> windows_core::BOOL);
     unsafe { CredGetSessionTypes(maximumpersistcount, maximumpersist as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -120,22 +121,24 @@ pub unsafe fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *c
     windows_core::link!("advapi32.dll" "system" fn CredMarshalCredentialW(credtype : CRED_MARSHAL_TYPE, credential : *const core::ffi::c_void, marshaledcredential : *mut windows_core::PWSTR) -> windows_core::BOOL);
     unsafe { CredMarshalCredentialW(credtype, credential, marshaledcredential as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CredPackAuthenticationBufferA<P1, P2>(dwflags: u32, pszusername: P1, pszpassword: P2, ppackedcredentials: Option<*mut u8>, pcbpackedcredentials: *mut u32) -> windows_core::BOOL
+pub unsafe fn CredPackAuthenticationBufferA<P1, P2>(dwflags: u32, pszusername: P1, pszpassword: P2, ppackedcredentials: Option<super::PBYTE>, pcbpackedcredentials: *mut u32) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredPackAuthenticationBufferA(dwflags : u32, pszusername : windows_core::PCSTR, pszpassword : windows_core::PCSTR, ppackedcredentials : *mut u8, pcbpackedcredentials : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("credui.dll" "system" fn CredPackAuthenticationBufferA(dwflags : u32, pszusername : windows_core::PCSTR, pszpassword : windows_core::PCSTR, ppackedcredentials : super::PBYTE, pcbpackedcredentials : *mut u32) -> windows_core::BOOL);
     unsafe { CredPackAuthenticationBufferA(dwflags, pszusername.param().abi(), pszpassword.param().abi(), ppackedcredentials.unwrap_or(core::mem::zeroed()) as _, pcbpackedcredentials as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CredPackAuthenticationBufferW<P1, P2>(dwflags: u32, pszusername: P1, pszpassword: P2, ppackedcredentials: Option<*mut u8>, pcbpackedcredentials: *mut u32) -> windows_core::BOOL
+pub unsafe fn CredPackAuthenticationBufferW<P1, P2>(dwflags: u32, pszusername: P1, pszpassword: P2, ppackedcredentials: Option<super::PBYTE>, pcbpackedcredentials: *mut u32) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredPackAuthenticationBufferW(dwflags : u32, pszusername : windows_core::PCWSTR, pszpassword : windows_core::PCWSTR, ppackedcredentials : *mut u8, pcbpackedcredentials : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("credui.dll" "system" fn CredPackAuthenticationBufferW(dwflags : u32, pszusername : windows_core::PCWSTR, pszpassword : windows_core::PCWSTR, ppackedcredentials : super::PBYTE, pcbpackedcredentials : *mut u32) -> windows_core::BOOL);
     unsafe { CredPackAuthenticationBufferW(dwflags, pszusername.param().abi(), pszpassword.param().abi(), ppackedcredentials.unwrap_or(core::mem::zeroed()) as _, pcbpackedcredentials as _) }
 }
 #[inline]
@@ -159,14 +162,14 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CredReadDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, flags: u32, count: *mut u32, credential: *mut *mut PCREDENTIALA) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn CredReadDomainCredentialsA(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONA, flags : u32, count : *mut u32, credential : *mut *mut PCREDENTIALA) -> windows_core::BOOL);
+pub unsafe fn CredReadDomainCredentialsA(targetinfo: PCREDENTIAL_TARGET_INFORMATIONA, flags: u32, count: *mut u32, credential: *mut *mut PCREDENTIALA) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn CredReadDomainCredentialsA(targetinfo : PCREDENTIAL_TARGET_INFORMATIONA, flags : u32, count : *mut u32, credential : *mut *mut PCREDENTIALA) -> windows_core::BOOL);
     unsafe { CredReadDomainCredentialsA(targetinfo, flags, count as _, credential as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CredReadDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, flags: u32, count: *mut u32, credential: *mut *mut PCREDENTIALW) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn CredReadDomainCredentialsW(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONW, flags : u32, count : *mut u32, credential : *mut *mut PCREDENTIALW) -> windows_core::BOOL);
+pub unsafe fn CredReadDomainCredentialsW(targetinfo: PCREDENTIAL_TARGET_INFORMATIONW, flags: u32, count: *mut u32, credential: *mut *mut PCREDENTIALW) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn CredReadDomainCredentialsW(targetinfo : PCREDENTIAL_TARGET_INFORMATIONW, flags : u32, count : *mut u32, credential : *mut *mut PCREDENTIALW) -> windows_core::BOOL);
     unsafe { CredReadDomainCredentialsW(targetinfo, flags, count as _, credential as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -196,22 +199,22 @@ where
     windows_core::link!("advapi32.dll" "system" fn CredRenameW(oldtargetname : windows_core::PCWSTR, newtargetname : windows_core::PCWSTR, r#type : u32, flags : u32) -> windows_core::BOOL);
     unsafe { CredRenameW(oldtargetname.param().abi(), newtargetname.param().abi(), r#type, flags.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "sspi")]
+#[cfg(all(feature = "minwindef", feature = "sspi"))]
 #[inline]
-pub unsafe fn CredUICmdLinePromptForCredentialsA<P0>(psztargetname: P0, pcontext: Option<super::PCtxtHandle>, dwautherror: u32, username: &mut [u8], pszpassword: &mut [u8], pfsave: Option<*mut windows_core::BOOL>, dwflags: u32) -> u32
+pub unsafe fn CredUICmdLinePromptForCredentialsA<P0>(psztargetname: P0, pcontext: Option<super::PCtxtHandle>, dwautherror: u32, username: &mut [u8], pszpassword: &mut [u8], pfsave: Option<super::PBOOL>, dwflags: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsA(psztargetname : windows_core::PCSTR, pcontext : super::PCtxtHandle, dwautherror : u32, username : windows_core::PSTR, uluserbuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, pfsave : *mut windows_core::BOOL, dwflags : u32) -> u32);
+    windows_core::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsA(psztargetname : windows_core::PCSTR, pcontext : super::PCtxtHandle, dwautherror : u32, username : windows_core::PSTR, uluserbuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, pfsave : super::PBOOL, dwflags : u32) -> u32);
     unsafe { CredUICmdLinePromptForCredentialsA(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(username.as_mut_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
-#[cfg(feature = "sspi")]
+#[cfg(all(feature = "minwindef", feature = "sspi"))]
 #[inline]
-pub unsafe fn CredUICmdLinePromptForCredentialsW<P0>(psztargetname: P0, pcontext: Option<super::PCtxtHandle>, dwautherror: u32, username: &mut [u16], pszpassword: &mut [u16], pfsave: Option<*mut windows_core::BOOL>, dwflags: u32) -> u32
+pub unsafe fn CredUICmdLinePromptForCredentialsW<P0>(psztargetname: P0, pcontext: Option<super::PCtxtHandle>, dwautherror: u32, username: &mut [u16], pszpassword: &mut [u16], pfsave: Option<super::PBOOL>, dwflags: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsW(psztargetname : windows_core::PCWSTR, pcontext : super::PCtxtHandle, dwautherror : u32, username : windows_core::PWSTR, uluserbuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, pfsave : *mut windows_core::BOOL, dwflags : u32) -> u32);
+    windows_core::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsW(psztargetname : windows_core::PCWSTR, pcontext : super::PCtxtHandle, dwautherror : u32, username : windows_core::PWSTR, uluserbuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, pfsave : super::PBOOL, dwflags : u32) -> u32);
     unsafe { CredUICmdLinePromptForCredentialsW(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(username.as_mut_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[inline]
@@ -248,32 +251,32 @@ where
 }
 #[cfg(all(feature = "sspi", feature = "windef"))]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsA<P1>(puiinfo: Option<*const CREDUI_INFOA>, psztargetname: P1, pcontext: Option<super::PCtxtHandle>, dwautherror: u32, pszusername: &mut [u8], pszpassword: &mut [u8], save: Option<*mut windows_core::BOOL>, dwflags: u32) -> u32
+pub unsafe fn CredUIPromptForCredentialsA<P1>(puiinfo: Option<PCREDUI_INFOA>, psztargetname: P1, pcontext: Option<super::PCtxtHandle>, dwautherror: u32, pszusername: &mut [u8], pszpassword: &mut [u8], save: Option<*mut windows_core::BOOL>, dwflags: u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : *const CREDUI_INFOA, psztargetname : windows_core::PCSTR, pcontext : super::PCtxtHandle, dwautherror : u32, pszusername : windows_core::PSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : u32) -> u32);
+    windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : PCREDUI_INFOA, psztargetname : windows_core::PCSTR, pcontext : super::PCtxtHandle, dwautherror : u32, pszusername : windows_core::PSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : u32) -> u32);
     unsafe { CredUIPromptForCredentialsA(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_mut_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(all(feature = "sspi", feature = "windef"))]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsW<P1>(puiinfo: Option<*const CREDUI_INFOW>, psztargetname: P1, pcontext: Option<super::PCtxtHandle>, dwautherror: u32, pszusername: &mut [u16], pszpassword: &mut [u16], save: Option<*mut windows_core::BOOL>, dwflags: u32) -> u32
+pub unsafe fn CredUIPromptForCredentialsW<P1>(puiinfo: Option<PCREDUI_INFOW>, psztargetname: P1, pcontext: Option<super::PCtxtHandle>, dwautherror: u32, pszusername: &mut [u16], pszpassword: &mut [u16], save: Option<*mut windows_core::BOOL>, dwflags: u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : *const CREDUI_INFOW, psztargetname : windows_core::PCWSTR, pcontext : super::PCtxtHandle, dwautherror : u32, pszusername : windows_core::PWSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : u32) -> u32);
+    windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : PCREDUI_INFOW, psztargetname : windows_core::PCWSTR, pcontext : super::PCtxtHandle, dwautherror : u32, pszusername : windows_core::PWSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : u32) -> u32);
     unsafe { CredUIPromptForCredentialsW(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_mut_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn CredUIPromptForWindowsCredentialsA(puiinfo: Option<*const CREDUI_INFOA>, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: Option<*const core::ffi::c_void>, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: Option<*mut windows_core::BOOL>, dwflags: u32) -> u32 {
-    windows_core::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsA(puiinfo : *const CREDUI_INFOA, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : *const core::ffi::c_void, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut windows_core::BOOL, dwflags : u32) -> u32);
+pub unsafe fn CredUIPromptForWindowsCredentialsA(puiinfo: Option<PCREDUI_INFOA>, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: Option<super::LPCVOID>, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: Option<*mut windows_core::BOOL>, dwflags: u32) -> u32 {
+    windows_core::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsA(puiinfo : PCREDUI_INFOA, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : super::LPCVOID, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut windows_core::BOOL, dwflags : u32) -> u32);
     unsafe { CredUIPromptForWindowsCredentialsA(puiinfo.unwrap_or(core::mem::zeroed()) as _, dwautherror, pulauthpackage as _, pvinauthbuffer.unwrap_or(core::mem::zeroed()) as _, ulinauthbuffersize, ppvoutauthbuffer as _, puloutauthbuffersize as _, pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn CredUIPromptForWindowsCredentialsW(puiinfo: Option<*const CREDUI_INFOW>, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: Option<*const core::ffi::c_void>, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: Option<*mut windows_core::BOOL>, dwflags: u32) -> u32 {
-    windows_core::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsW(puiinfo : *const CREDUI_INFOW, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : *const core::ffi::c_void, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut windows_core::BOOL, dwflags : u32) -> u32);
+pub unsafe fn CredUIPromptForWindowsCredentialsW(puiinfo: Option<PCREDUI_INFOW>, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: Option<super::LPCVOID>, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: Option<*mut windows_core::BOOL>, dwflags: u32) -> u32 {
+    windows_core::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsW(puiinfo : PCREDUI_INFOW, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : super::LPCVOID, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut windows_core::BOOL, dwflags : u32) -> u32);
     unsafe { CredUIPromptForWindowsCredentialsW(puiinfo.unwrap_or(core::mem::zeroed()) as _, dwautherror, pulauthpackage as _, pvinauthbuffer.unwrap_or(core::mem::zeroed()) as _, ulinauthbuffersize, ppvoutauthbuffer as _, puloutauthbuffersize as _, pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[inline]
@@ -305,19 +308,19 @@ pub unsafe fn CredUnPackAuthenticationBufferW(dwflags: u32, pauthbuffer: *const 
     unsafe { CredUnPackAuthenticationBufferW(dwflags, pauthbuffer, cbauthbuffer, pszusername.unwrap_or(core::mem::zeroed()) as _, pcchmaxusername as _, pszdomainname.unwrap_or(core::mem::zeroed()) as _, pcchmaxdomainname.unwrap_or(core::mem::zeroed()) as _, pszpassword.unwrap_or(core::mem::zeroed()) as _, pcchmaxpassword as _) }
 }
 #[inline]
-pub unsafe fn CredUnmarshalCredentialA<P0>(marshaledcredential: P0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut core::ffi::c_void) -> windows_core::BOOL
+pub unsafe fn CredUnmarshalCredentialA<P0>(marshaledcredential: P0, credtype: PCRED_MARSHAL_TYPE, credential: *mut *mut core::ffi::c_void) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn CredUnmarshalCredentialA(marshaledcredential : windows_core::PCSTR, credtype : *mut CRED_MARSHAL_TYPE, credential : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn CredUnmarshalCredentialA(marshaledcredential : windows_core::PCSTR, credtype : PCRED_MARSHAL_TYPE, credential : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { CredUnmarshalCredentialA(marshaledcredential.param().abi(), credtype as _, credential as _) }
 }
 #[inline]
-pub unsafe fn CredUnmarshalCredentialW<P0>(marshaledcredential: P0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut core::ffi::c_void) -> windows_core::BOOL
+pub unsafe fn CredUnmarshalCredentialW<P0>(marshaledcredential: P0, credtype: PCRED_MARSHAL_TYPE, credential: *mut *mut core::ffi::c_void) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn CredUnmarshalCredentialW(marshaledcredential : windows_core::PCWSTR, credtype : *mut CRED_MARSHAL_TYPE, credential : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn CredUnmarshalCredentialW(marshaledcredential : windows_core::PCWSTR, credtype : PCRED_MARSHAL_TYPE, credential : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { CredUnmarshalCredentialW(marshaledcredential.param().abi(), credtype as _, credential as _) }
 }
 #[inline]
@@ -332,26 +335,26 @@ pub unsafe fn CredUnprotectW(fasself: bool, pszprotectedcredentials: &[u16], psz
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CredWriteA(credential: *const CREDENTIALA, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn CredWriteA(credential : *const CREDENTIALA, flags : u32) -> windows_core::BOOL);
+pub unsafe fn CredWriteA(credential: PCREDENTIALA, flags: u32) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn CredWriteA(credential : PCREDENTIALA, flags : u32) -> windows_core::BOOL);
     unsafe { CredWriteA(credential, flags) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CredWriteDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, credential: *const CREDENTIALA, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn CredWriteDomainCredentialsA(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONA, credential : *const CREDENTIALA, flags : u32) -> windows_core::BOOL);
+pub unsafe fn CredWriteDomainCredentialsA(targetinfo: PCREDENTIAL_TARGET_INFORMATIONA, credential: PCREDENTIALA, flags: u32) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn CredWriteDomainCredentialsA(targetinfo : PCREDENTIAL_TARGET_INFORMATIONA, credential : PCREDENTIALA, flags : u32) -> windows_core::BOOL);
     unsafe { CredWriteDomainCredentialsA(targetinfo, credential, flags) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CredWriteDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, credential: *const CREDENTIALW, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn CredWriteDomainCredentialsW(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONW, credential : *const CREDENTIALW, flags : u32) -> windows_core::BOOL);
+pub unsafe fn CredWriteDomainCredentialsW(targetinfo: PCREDENTIAL_TARGET_INFORMATIONW, credential: PCREDENTIALW, flags: u32) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn CredWriteDomainCredentialsW(targetinfo : PCREDENTIAL_TARGET_INFORMATIONW, credential : PCREDENTIALW, flags : u32) -> windows_core::BOOL);
     unsafe { CredWriteDomainCredentialsW(targetinfo, credential, flags) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn CredWriteW(credential : *const CREDENTIALW, flags : u32) -> windows_core::BOOL);
+pub unsafe fn CredWriteW(credential: PCREDENTIALW, flags: u32) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn CredWriteW(credential : PCREDENTIALW, flags : u32) -> windows_core::BOOL);
     unsafe { CredWriteW(credential, flags) }
 }
 pub const BACK_BUTTON_IDENTIFY_AUTH_PACKAGE: u32 = 3402629121;
@@ -562,36 +565,95 @@ pub type CRED_PROTECTION_TYPE = i32;
 pub const CRED_PROTECT_AS_SELF: i32 = 1;
 pub const CRED_PROTECT_TO_SYSTEM: i32 = 2;
 pub const CRED_PROTECT_VALID_FLAGS: i32 = 3;
+pub const CRED_SESSION_WILDCARD_NAME: windows_core::PCSTR = windows_core::s!("*Session");
 pub const CRED_SESSION_WILDCARD_NAME_A: windows_core::PCSTR = windows_core::s!("*Session");
+#[cfg(target_arch = "x86")]
+pub const CRED_SESSION_WILDCARD_NAME_LENGTH: u32 = 8;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CRED_SESSION_WILDCARD_NAME_LENGTH: u64 = 8;
 pub const CRED_SESSION_WILDCARD_NAME_W: windows_core::PCWSTR = windows_core::w!("*Session");
+pub const CRED_TARGETNAME_ATTRIBUTE_BATCH: windows_core::PCSTR = windows_core::s!("batch");
 pub const CRED_TARGETNAME_ATTRIBUTE_BATCH_A: windows_core::PCSTR = windows_core::s!("batch");
+#[cfg(target_arch = "x86")]
+pub const CRED_TARGETNAME_ATTRIBUTE_BATCH_LENGTH: u32 = 5;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CRED_TARGETNAME_ATTRIBUTE_BATCH_LENGTH: u64 = 5;
 pub const CRED_TARGETNAME_ATTRIBUTE_BATCH_W: windows_core::PCWSTR = windows_core::w!("batch");
+pub const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE: windows_core::PCSTR = windows_core::s!("cachedinteractive");
 pub const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE_A: windows_core::PCSTR = windows_core::s!("cachedinteractive");
+#[cfg(target_arch = "x86")]
+pub const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE_LENGTH: u32 = 17;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE_LENGTH: u64 = 17;
 pub const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE_W: windows_core::PCWSTR = windows_core::w!("cachedinteractive");
+pub const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE: windows_core::PCSTR = windows_core::s!("interactive");
 pub const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE_A: windows_core::PCSTR = windows_core::s!("interactive");
+#[cfg(target_arch = "x86")]
+pub const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE_LENGTH: u32 = 11;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE_LENGTH: u64 = 11;
 pub const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE_W: windows_core::PCWSTR = windows_core::w!("interactive");
+pub const CRED_TARGETNAME_ATTRIBUTE_NAME: windows_core::PCSTR = windows_core::s!("name");
 pub const CRED_TARGETNAME_ATTRIBUTE_NAME_A: windows_core::PCSTR = windows_core::s!("name");
+#[cfg(target_arch = "x86")]
+pub const CRED_TARGETNAME_ATTRIBUTE_NAME_LENGTH: u32 = 4;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CRED_TARGETNAME_ATTRIBUTE_NAME_LENGTH: u64 = 4;
 pub const CRED_TARGETNAME_ATTRIBUTE_NAME_W: windows_core::PCWSTR = windows_core::w!("name");
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORK: windows_core::PCSTR = windows_core::s!("network");
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT: windows_core::PCSTR = windows_core::s!("networkcleartext");
 pub const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT_A: windows_core::PCSTR = windows_core::s!("networkcleartext");
+#[cfg(target_arch = "x86")]
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT_LENGTH: u32 = 16;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT_LENGTH: u64 = 16;
 pub const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT_W: windows_core::PCWSTR = windows_core::w!("networkcleartext");
 pub const CRED_TARGETNAME_ATTRIBUTE_NETWORK_A: windows_core::PCSTR = windows_core::s!("network");
+#[cfg(target_arch = "x86")]
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORK_LENGTH: u32 = 7;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORK_LENGTH: u64 = 7;
 pub const CRED_TARGETNAME_ATTRIBUTE_NETWORK_W: windows_core::PCWSTR = windows_core::w!("network");
+pub const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE: windows_core::PCSTR = windows_core::s!("remoteinteractive");
 pub const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE_A: windows_core::PCSTR = windows_core::s!("remoteinteractive");
+#[cfg(target_arch = "x86")]
+pub const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE_LENGTH: u32 = 17;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE_LENGTH: u64 = 17;
 pub const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE_W: windows_core::PCWSTR = windows_core::w!("remoteinteractive");
-pub const CRED_TARGETNAME_ATTRIBUTE_SEPERATOR_A: u32 = 61;
-pub const CRED_TARGETNAME_ATTRIBUTE_SEPERATOR_W: u32 = 61;
+pub const CRED_TARGETNAME_ATTRIBUTE_SEPERATOR_A: i8 = 61;
+pub const CRED_TARGETNAME_ATTRIBUTE_SEPERATOR_W: u16 = 61;
+pub const CRED_TARGETNAME_ATTRIBUTE_SERVICE: windows_core::PCSTR = windows_core::s!("service");
 pub const CRED_TARGETNAME_ATTRIBUTE_SERVICE_A: windows_core::PCSTR = windows_core::s!("service");
+#[cfg(target_arch = "x86")]
+pub const CRED_TARGETNAME_ATTRIBUTE_SERVICE_LENGTH: u32 = 7;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CRED_TARGETNAME_ATTRIBUTE_SERVICE_LENGTH: u64 = 7;
 pub const CRED_TARGETNAME_ATTRIBUTE_SERVICE_W: windows_core::PCWSTR = windows_core::w!("service");
+pub const CRED_TARGETNAME_ATTRIBUTE_TARGET: windows_core::PCSTR = windows_core::s!("target");
 pub const CRED_TARGETNAME_ATTRIBUTE_TARGET_A: windows_core::PCSTR = windows_core::s!("target");
+#[cfg(target_arch = "x86")]
+pub const CRED_TARGETNAME_ATTRIBUTE_TARGET_LENGTH: u32 = 6;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CRED_TARGETNAME_ATTRIBUTE_TARGET_LENGTH: u64 = 6;
 pub const CRED_TARGETNAME_ATTRIBUTE_TARGET_W: windows_core::PCWSTR = windows_core::w!("target");
-pub const CRED_TARGETNAME_DOMAIN_EXTENDED_USERNAME_SEPARATOR_A: u32 = 124;
-pub const CRED_TARGETNAME_DOMAIN_EXTENDED_USERNAME_SEPARATOR_W: u32 = 124;
+pub const CRED_TARGETNAME_DOMAIN_EXTENDED_USERNAME_SEPARATOR_A: i8 = 124;
+pub const CRED_TARGETNAME_DOMAIN_EXTENDED_USERNAME_SEPARATOR_W: u16 = 124;
+pub const CRED_TARGETNAME_DOMAIN_NAMESPACE: windows_core::PCSTR = windows_core::s!("Domain");
 pub const CRED_TARGETNAME_DOMAIN_NAMESPACE_A: windows_core::PCSTR = windows_core::s!("Domain");
+#[cfg(target_arch = "x86")]
+pub const CRED_TARGETNAME_DOMAIN_NAMESPACE_LENGTH: u32 = 6;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CRED_TARGETNAME_DOMAIN_NAMESPACE_LENGTH: u64 = 6;
 pub const CRED_TARGETNAME_DOMAIN_NAMESPACE_W: windows_core::PCWSTR = windows_core::w!("Domain");
 pub const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_A: windows_core::PCSTR = windows_core::s!("LegacyGeneric");
+#[cfg(target_arch = "x86")]
+pub const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_LENGTH: u32 = 13;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_LENGTH: u64 = 13;
 pub const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_W: windows_core::PCWSTR = windows_core::w!("LegacyGeneric");
-pub const CRED_TARGETNAME_NAMESPACE_SEPERATOR_A: u32 = 58;
-pub const CRED_TARGETNAME_NAMESPACE_SEPERATOR_W: u32 = 58;
+pub const CRED_TARGETNAME_NAMESPACE_SEPERATOR_A: i8 = 58;
+pub const CRED_TARGETNAME_NAMESPACE_SEPERATOR_W: u16 = 58;
 pub const CRED_TI_CREATE_EXPLICIT_CRED: i32 = 16;
 pub const CRED_TI_DNSTREE_IS_DFS_SERVER: i32 = 64;
 pub const CRED_TI_DOMAIN_FORMAT_UNKNOWN: i32 = 2;
@@ -608,8 +670,8 @@ pub const CRED_TYPE_GENERIC: i32 = 1;
 pub const CRED_TYPE_GENERIC_CERTIFICATE: i32 = 5;
 pub const CRED_TYPE_MAXIMUM: i32 = 7;
 pub const CRED_TYPE_MAXIMUM_EX: i32 = 1007;
-pub const CRED_UNIVERSAL_WILDCARD_A: u32 = 42;
-pub const CRED_UNIVERSAL_WILDCARD_W: u32 = 42;
+pub const CRED_UNIVERSAL_WILDCARD_A: i8 = 42;
+pub const CRED_UNIVERSAL_WILDCARD_W: u16 = 42;
 pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: i32 = 2;
 pub const CRED_UNPROTECT_AS_SELF: i32 = 1;
 pub const CRED_UNPROTECT_VALID_FLAGS: i32 = 3;

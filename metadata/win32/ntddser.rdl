@@ -2,9 +2,11 @@
 mod Windows {
     mod Win32 {
         const EVEN_PARITY: i32 = 2;
-        const GUID_DEVINTERFACE_COMPORT: GUID = 0x86e0d1e0_8089_11d0_9ce4_08003e301f73;
-        const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: GUID = 0x4d36e978_e325_11ce_bfc1_08002be10318;
         const IOCTL_INTERNAL_SERENUM_REMOVE_SELF: i32 = 3604999;
+        const IOCTL_SERENUM_EXPOSE_HARDWARE: i32 = 3604992;
+        const IOCTL_SERENUM_GET_PORT_NAME: i32 = 3605004;
+        const IOCTL_SERENUM_PORT_DESC: i32 = 3605000;
+        const IOCTL_SERENUM_REMOVE_HARDWARE: i32 = 3604996;
         const IOCTL_SERIAL_APPLY_DEFAULT_CONFIGURATION: i32 = 1769632;
         const IOCTL_SERIAL_CLEAR_STATS: i32 = 1769616;
         const IOCTL_SERIAL_CLR_DTR: i32 = 1769512;
@@ -28,6 +30,7 @@ mod Windows {
         const IOCTL_SERIAL_INTERNAL_CANCEL_WAIT_WAKE: i32 = 1769480;
         const IOCTL_SERIAL_INTERNAL_DO_WAIT_WAKE: i32 = 1769476;
         const IOCTL_SERIAL_INTERNAL_RESTORE_SETTINGS: i32 = 1769488;
+        const IOCTL_SERIAL_LSRMST_INSERT: i32 = 1769596;
         const IOCTL_SERIAL_PURGE: i32 = 1769548;
         const IOCTL_SERIAL_RESET_DEVICE: i32 = 1769516;
         const IOCTL_SERIAL_SET_BAUD_RATE: i32 = 1769476;
@@ -54,8 +57,8 @@ mod Windows {
         const ODD_PARITY: i32 = 1;
         type PSERENUM_PORT_DESC = *mut SERENUM_PORT_DESC;
         type PSERENUM_PORT_PARAMETERS = *mut SERENUM_PORT_PARAMETERS;
-        extern fn PSERENUM_READPORT(SerPortAddress: *const void) -> u8;
-        extern fn PSERENUM_WRITEPORT(SerPortAddress: *const void, Value: u8);
+        extern "C" fn PSERENUM_READPORT(#[in] SerPortAddress: *mut void) -> u8;
+        extern "C" fn PSERENUM_WRITEPORT(#[in] SerPortAddress: *mut void, Value: u8);
         type PSERIALCONFIG = *mut SERIALCONFIG;
         type PSERIALPERF_STATS = *mut SERIALPERF_STATS;
         type PSERIAL_BASIC_SETTINGS = *mut SERIAL_BASIC_SETTINGS;
@@ -77,7 +80,7 @@ mod Windows {
         struct SERENUM_PORT_DESC {
             Size: u32,
             PortHandle: *mut void,
-            PortAddress: i64,
+            PortAddress: LARGE_INTEGER,
             Reserved: [u16; 1],
         }
         struct SERENUM_PORT_PARAMETERS {
@@ -211,11 +214,28 @@ mod Windows {
             XonLimit: i32,
             XoffLimit: i32,
         }
+        const SERIAL_IOC_FCR_DMA_MODE: u32 = 8;
+        const SERIAL_IOC_FCR_FIFO_ENABLE: u32 = 1;
+        const SERIAL_IOC_FCR_RCVR_RESET: u32 = 2;
+        const SERIAL_IOC_FCR_RCVR_TRIGGER_LSB: u32 = 64;
+        const SERIAL_IOC_FCR_RCVR_TRIGGER_MSB: u32 = 128;
+        const SERIAL_IOC_FCR_RES1: u32 = 16;
+        const SERIAL_IOC_FCR_RES2: u32 = 32;
+        const SERIAL_IOC_FCR_XMIT_RESET: u32 = 4;
+        const SERIAL_IOC_MCR_DTR: u32 = 1;
+        const SERIAL_IOC_MCR_LOOP: u32 = 16;
+        const SERIAL_IOC_MCR_OUT1: u32 = 4;
+        const SERIAL_IOC_MCR_OUT2: u32 = 8;
+        const SERIAL_IOC_MCR_RTS: u32 = 2;
         struct SERIAL_LINE_CONTROL {
             StopBits: u8,
             Parity: u8,
             WordLength: u8,
         }
+        const SERIAL_LSRMST_ESCAPE: u8 = 0;
+        const SERIAL_LSRMST_LSR_DATA: u8 = 1;
+        const SERIAL_LSRMST_LSR_NODATA: u8 = 2;
+        const SERIAL_LSRMST_MST: u8 = 3;
         const SERIAL_NULL_STRIPPING: u32 = 8;
         const SERIAL_OUT_HANDSHAKEMASK: u32 = 56;
         const SERIAL_PARITY_EVEN: u16 = 1024;
@@ -273,8 +293,8 @@ mod Windows {
             HoldReasons: u32,
             AmountInInQueue: u32,
             AmountInOutQueue: u32,
-            EofReceived: bool,
-            WaitForImmediate: bool,
+            EofReceived: BOOLEAN,
+            WaitForImmediate: BOOLEAN,
         }
         const SERIAL_STOPBITS_10: u16 = 1;
         const SERIAL_STOPBITS_15: u16 = 2;

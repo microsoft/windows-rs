@@ -25,6 +25,22 @@ mod Windows {
         const DROPEFFECT_NEWTARGET: i32 = 1073741824;
         const DROPEFFECT_NONE: i32 = 0;
         const DROPEFFECT_SCROLL: u32 = 2147483648;
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserFree(param0: *mut u32, param1: *mut HGLOBAL);
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserFree64(param0: *mut u32, param1: *mut HGLOBAL);
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut HGLOBAL) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HGLOBAL) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserSize(param0: *mut u32, param1: u32, param2: *mut HGLOBAL) -> u32;
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserSize64(param0: *mut u32, param1: u32, param2: *mut HGLOBAL) -> u32;
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut HGLOBAL) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HGLOBAL_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HGLOBAL) -> *mut u8;
         type HOLEMENU = HGLOBAL;
         #[guid(0x0000012a_0000_0000_c000_000000000046)]
         interface IContinue: IUnknown {
@@ -54,7 +70,7 @@ mod Windows {
         }
         #[guid(0x00000104_0000_0000_c000_000000000046)]
         interface IEnumOLEVERB: IUnknown {
-            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut OLEVERB, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Next(&self, celt: u32, #[len_param(0)] #[out] rgelt: LPOLEVERB, #[opt] pceltFetched: *mut u32) -> HRESULT;
             fn Skip(&self, celt: u32) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, ppenum: *mut IEnumOLEVERB) -> HRESULT;
@@ -70,20 +86,20 @@ mod Windows {
         }
         #[guid(0x0000011e_0000_0000_c000_000000000046)]
         interface IOleCache: IUnknown {
-            fn Cache(&self, pformatetc: *const FORMATETC, advf: u32, pdwConnection: *mut u32) -> HRESULT;
+            fn Cache(&self, #[in] pformatetc: *mut FORMATETC, advf: u32, pdwConnection: *mut u32) -> HRESULT;
             fn Uncache(&self, dwConnection: u32) -> HRESULT;
             fn EnumCache(&self, ppenumSTATDATA: *mut IEnumSTATDATA) -> HRESULT;
             fn InitCache(&self, pDataObject: IDataObject) -> HRESULT;
-            fn SetData(&self, pformatetc: *const FORMATETC, pmedium: *const STGMEDIUM, fRelease: BOOL) -> HRESULT;
+            fn SetData(&self, #[in] pformatetc: *mut FORMATETC, #[in] pmedium: *mut STGMEDIUM, fRelease: BOOL) -> HRESULT;
         }
         #[guid(0x00000128_0000_0000_c000_000000000046)]
         interface IOleCache2: IOleCache {
-            fn UpdateCache(&self, pDataObject: IDataObject, grfUpdf: u32, #[reserved] pReserved: *const void) -> HRESULT;
+            fn UpdateCache(&self, pDataObject: LPDATAOBJECT, grfUpdf: u32, #[reserved] #[in] pReserved: *mut void) -> HRESULT;
             fn DiscardCache(&self, dwDiscardOptions: u32) -> HRESULT;
         }
         #[guid(0x00000129_0000_0000_c000_000000000046)]
         interface IOleCacheControl: IUnknown {
-            fn OnRun(&self, pDataObject: IDataObject) -> HRESULT;
+            fn OnRun(&self, pDataObject: LPDATAOBJECT) -> HRESULT;
             fn OnStop(&self) -> HRESULT;
         }
         #[guid(0x00000118_0000_0000_c000_000000000046)]
@@ -102,26 +118,26 @@ mod Windows {
         }
         #[guid(0x00000117_0000_0000_c000_000000000046)]
         interface IOleInPlaceActiveObject: IOleWindow {
-            fn TranslateAccelerator(&self, #[opt] lpmsg: *const MSG) -> HRESULT;
+            fn TranslateAccelerator(&self, #[opt] lpmsg: LPMSG) -> HRESULT;
             fn OnFrameWindowActivate(&self, fActivate: BOOL) -> HRESULT;
             fn OnDocWindowActivate(&self, fActivate: BOOL) -> HRESULT;
-            fn ResizeBorder(&self, prcBorder: *const RECT, pUIWindow: IOleInPlaceUIWindow, fFrameWindow: BOOL) -> HRESULT;
+            fn ResizeBorder(&self, prcBorder: LPCRECT, pUIWindow: IOleInPlaceUIWindow, fFrameWindow: BOOL) -> HRESULT;
             fn EnableModeless(&self, fEnable: BOOL) -> HRESULT;
         }
         #[guid(0x00000116_0000_0000_c000_000000000046)]
         interface IOleInPlaceFrame: IOleInPlaceUIWindow {
-            fn InsertMenus(&self, hmenuShared: HMENU, #[in] #[out] lpMenuWidths: *mut OLEMENUGROUPWIDTHS) -> HRESULT;
+            fn InsertMenus(&self, hmenuShared: HMENU, #[in] #[out] lpMenuWidths: LPOLEMENUGROUPWIDTHS) -> HRESULT;
             fn SetMenu(&self, hmenuShared: HMENU, holemenu: HOLEMENU, hwndActiveObject: HWND) -> HRESULT;
             fn RemoveMenus(&self, hmenuShared: HMENU) -> HRESULT;
-            fn SetStatusText(&self, pszStatusText: PCWSTR) -> HRESULT;
+            fn SetStatusText(&self, pszStatusText: LPCOLESTR) -> HRESULT;
             fn EnableModeless(&self, fEnable: BOOL) -> HRESULT;
-            fn TranslateAccelerator(&self, lpmsg: *const MSG, wID: u16) -> HRESULT;
+            fn TranslateAccelerator(&self, lpmsg: LPMSG, wID: u16) -> HRESULT;
         }
         #[guid(0x00000113_0000_0000_c000_000000000046)]
         interface IOleInPlaceObject: IOleWindow {
             fn InPlaceDeactivate(&self) -> HRESULT;
             fn UIDeactivate(&self) -> HRESULT;
-            fn SetObjectRects(&self, lprcPosRect: *const RECT, lprcClipRect: *const RECT) -> HRESULT;
+            fn SetObjectRects(&self, lprcPosRect: LPCRECT, lprcClipRect: LPCRECT) -> HRESULT;
             fn ReactivateAndUndo(&self) -> HRESULT;
         }
         #[guid(0x00000119_0000_0000_c000_000000000046)]
@@ -129,26 +145,26 @@ mod Windows {
             fn CanInPlaceActivate(&self) -> HRESULT;
             fn OnInPlaceActivate(&self) -> HRESULT;
             fn OnUIActivate(&self) -> HRESULT;
-            fn GetWindowContext(&self, ppFrame: *mut IOleInPlaceFrame, ppDoc: *mut IOleInPlaceUIWindow, lprcPosRect: *mut RECT, lprcClipRect: *mut RECT, #[in] #[out] lpFrameInfo: *mut OLEINPLACEFRAMEINFO) -> HRESULT;
+            fn GetWindowContext(&self, ppFrame: *mut IOleInPlaceFrame, ppDoc: *mut IOleInPlaceUIWindow, #[out] lprcPosRect: LPRECT, #[out] lprcClipRect: LPRECT, #[in] #[out] lpFrameInfo: LPOLEINPLACEFRAMEINFO) -> HRESULT;
             fn Scroll(&self, scrollExtant: SIZE) -> HRESULT;
             fn OnUIDeactivate(&self, fUndoable: BOOL) -> HRESULT;
             fn OnInPlaceDeactivate(&self) -> HRESULT;
             fn DiscardUndoState(&self) -> HRESULT;
             fn DeactivateAndUndo(&self) -> HRESULT;
-            fn OnPosRectChange(&self, lprcPosRect: *const RECT) -> HRESULT;
+            fn OnPosRectChange(&self, lprcPosRect: LPCRECT) -> HRESULT;
         }
         #[guid(0x00000115_0000_0000_c000_000000000046)]
         interface IOleInPlaceUIWindow: IOleWindow {
-            fn GetBorder(&self, lprectBorder: *mut RECT) -> HRESULT;
+            fn GetBorder(&self, #[out] lprectBorder: LPRECT) -> HRESULT;
             fn RequestBorderSpace(&self, pborderwidths: LPCBORDERWIDTHS) -> HRESULT;
             fn SetBorderSpace(&self, pborderwidths: LPCBORDERWIDTHS) -> HRESULT;
-            fn SetActiveObject(&self, pActiveObject: IOleInPlaceActiveObject, pszObjName: PCWSTR) -> HRESULT;
+            fn SetActiveObject(&self, pActiveObject: IOleInPlaceActiveObject, pszObjName: LPCOLESTR) -> HRESULT;
         }
         #[guid(0x0000011c_0000_0000_c000_000000000046)]
         interface IOleItemContainer: IOleContainer {
-            fn GetObject(&self, pszItem: PCWSTR, dwSpeedNeeded: u32, pbc: IBindCtx, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
-            fn GetObjectStorage(&self, pszItem: PCWSTR, pbc: IBindCtx, riid: *const GUID, #[iid_is] ppvStorage: *mut *mut void) -> HRESULT;
-            fn IsRunning(&self, pszItem: PCWSTR) -> HRESULT;
+            fn GetObject(&self, pszItem: LPOLESTR, dwSpeedNeeded: u32, pbc: IBindCtx, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn GetObjectStorage(&self, pszItem: LPOLESTR, pbc: IBindCtx, riid: *const GUID, #[iid_is] ppvStorage: *mut *mut void) -> HRESULT;
+            fn IsRunning(&self, pszItem: LPOLESTR) -> HRESULT;
         }
         #[guid(0x0000011d_0000_0000_c000_000000000046)]
         interface IOleLink: IUnknown {
@@ -156,8 +172,8 @@ mod Windows {
             fn GetUpdateOptions(&self, pdwUpdateOpt: *mut u32) -> HRESULT;
             fn SetSourceMoniker(&self, pmk: IMoniker, rclsid: *const GUID) -> HRESULT;
             fn GetSourceMoniker(&self, ppmk: *mut IMoniker) -> HRESULT;
-            fn SetSourceDisplayName(&self, pszStatusText: PCWSTR) -> HRESULT;
-            fn GetSourceDisplayName(&self, ppszDisplayName: *mut PWSTR) -> HRESULT;
+            fn SetSourceDisplayName(&self, pszStatusText: LPCOLESTR) -> HRESULT;
+            fn GetSourceDisplayName(&self, ppszDisplayName: *mut LPOLESTR) -> HRESULT;
             fn BindToSource(&self, bindflags: u32, pbc: IBindCtx) -> HRESULT;
             fn BindIfRunning(&self) -> HRESULT;
             fn GetBoundSource(&self, ppunk: *mut IUnknown) -> HRESULT;
@@ -168,25 +184,25 @@ mod Windows {
         interface IOleObject: IUnknown {
             fn SetClientSite(&self, pClientSite: IOleClientSite) -> HRESULT;
             fn GetClientSite(&self, ppClientSite: *mut IOleClientSite) -> HRESULT;
-            fn SetHostNames(&self, szContainerApp: PCWSTR, szContainerObj: PCWSTR) -> HRESULT;
+            fn SetHostNames(&self, szContainerApp: LPCOLESTR, szContainerObj: LPCOLESTR) -> HRESULT;
             fn Close(&self, dwSaveOption: u32) -> HRESULT;
             fn SetMoniker(&self, dwWhichMoniker: u32, pmk: IMoniker) -> HRESULT;
             fn GetMoniker(&self, dwAssign: u32, dwWhichMoniker: u32, ppmk: *mut IMoniker) -> HRESULT;
             fn InitFromData(&self, pDataObject: IDataObject, fCreation: BOOL, dwReserved: u32) -> HRESULT;
             fn GetClipboardData(&self, dwReserved: u32, ppDataObject: *mut IDataObject) -> HRESULT;
-            fn DoVerb(&self, iVerb: i32, lpmsg: *const MSG, pActiveSite: IOleClientSite, lindex: i32, hwndParent: HWND, lprcPosRect: *const RECT) -> HRESULT;
+            fn DoVerb(&self, iVerb: i32, lpmsg: LPMSG, pActiveSite: IOleClientSite, lindex: i32, hwndParent: HWND, lprcPosRect: LPCRECT) -> HRESULT;
             fn EnumVerbs(&self, ppEnumOleVerb: *mut IEnumOLEVERB) -> HRESULT;
             fn Update(&self) -> HRESULT;
             fn IsUpToDate(&self) -> HRESULT;
             fn GetUserClassID(&self, pClsid: *mut GUID) -> HRESULT;
-            fn GetUserType(&self, dwFormOfType: u32, pszUserType: *mut PWSTR) -> HRESULT;
-            fn SetExtent(&self, dwDrawAspect: u32, psizel: *const SIZEL) -> HRESULT;
+            fn GetUserType(&self, dwFormOfType: u32, pszUserType: *mut LPOLESTR) -> HRESULT;
+            fn SetExtent(&self, dwDrawAspect: u32, #[in] psizel: *mut SIZEL) -> HRESULT;
             fn GetExtent(&self, dwDrawAspect: u32, psizel: *mut SIZEL) -> HRESULT;
             fn Advise(&self, pAdvSink: IAdviseSink, pdwConnection: *mut u32) -> HRESULT;
             fn Unadvise(&self, dwConnection: u32) -> HRESULT;
             fn EnumAdvise(&self, ppenumAdvise: *mut IEnumSTATDATA) -> HRESULT;
             fn GetMiscStatus(&self, dwAspect: u32, pdwStatus: *mut u32) -> HRESULT;
-            fn SetColorScheme(&self, pLogpal: *const LOGPALETTE) -> HRESULT;
+            fn SetColorScheme(&self, #[in] pLogpal: *mut LOGPALETTE) -> HRESULT;
         }
         #[guid(0x00000114_0000_0000_c000_000000000046)]
         interface IOleWindow: IUnknown {
@@ -195,42 +211,54 @@ mod Windows {
         }
         #[guid(0x0000011a_0000_0000_c000_000000000046)]
         interface IParseDisplayName: IUnknown {
-            fn ParseDisplayName(&self, pbc: IBindCtx, pszDisplayName: PCWSTR, pchEaten: *mut u32, ppmkOut: *mut IMoniker) -> HRESULT;
+            fn ParseDisplayName(&self, pbc: IBindCtx, pszDisplayName: LPOLESTR, pchEaten: *mut u32, ppmkOut: *mut IMoniker) -> HRESULT;
         }
         #[guid(0x0000010d_0000_0000_c000_000000000046)]
         interface IViewObject: IUnknown {
-            fn Draw(&self, dwDrawAspect: u32, lindex: i32, pvAspect: *const void, #[opt] ptd: *const DVTARGETDEVICE, #[opt] hdcTargetDev: HDC, hdcDraw: HDC, #[opt] lprcBounds: *const RECTL, #[opt] lprcWBounds: *const RECTL, #[opt] pfnContinue: *const u8, dwContinue: usize) -> HRESULT;
-            fn GetColorSet(&self, dwDrawAspect: u32, lindex: i32, pvAspect: *const void, #[opt] ptd: *const DVTARGETDEVICE, #[opt] hicTargetDev: HDC, ppColorSet: *mut *mut LOGPALETTE) -> HRESULT;
-            fn Freeze(&self, dwDrawAspect: u32, lindex: i32, pvAspect: *const void, pdwFreeze: *mut u32) -> HRESULT;
+            fn Draw(&self, dwDrawAspect: u32, lindex: i32, #[in] pvAspect: *mut void, #[in] #[opt] ptd: *mut DVTARGETDEVICE, #[opt] hdcTargetDev: HDC, hdcDraw: HDC, #[opt] lprcBounds: LPCRECTL, #[opt] lprcWBounds: LPCRECTL, #[in] #[opt] pfnContinue: *mut u8, dwContinue: usize) -> HRESULT;
+            fn GetColorSet(&self, dwDrawAspect: u32, lindex: i32, #[in] pvAspect: *mut void, #[in] #[opt] ptd: *mut DVTARGETDEVICE, #[opt] hicTargetDev: HDC, ppColorSet: *mut *mut LOGPALETTE) -> HRESULT;
+            fn Freeze(&self, dwDrawAspect: u32, lindex: i32, #[in] pvAspect: *mut void, pdwFreeze: *mut u32) -> HRESULT;
             fn Unfreeze(&self, dwFreeze: u32) -> HRESULT;
             fn SetAdvise(&self, aspects: u32, advf: u32, pAdvSink: IAdviseSink) -> HRESULT;
             fn GetAdvise(&self, #[opt] pAspects: *mut u32, #[opt] pAdvf: *mut u32, ppAdvSink: *mut IAdviseSink) -> HRESULT;
         }
         #[guid(0x00000127_0000_0000_c000_000000000046)]
         interface IViewObject2: IViewObject {
-            fn GetExtent(&self, dwDrawAspect: u32, lindex: i32, ptd: *const DVTARGETDEVICE, lpsizel: *mut SIZE) -> HRESULT;
+            fn GetExtent(&self, dwDrawAspect: u32, lindex: i32, #[in] ptd: *mut DVTARGETDEVICE, #[out] lpsizel: LPSIZEL) -> HRESULT;
         }
-        type LINKSRCDESCRIPTOR = OBJECTDESCRIPTOR;
+        type LINKSRCDESCRIPTOR = tagOBJECTDESCRIPTOR;
         type LPBORDERWIDTHS = LPRECT;
         type LPCBORDERWIDTHS = LPCRECT;
-        type LPLINKSRCDESCRIPTOR = *mut OBJECTDESCRIPTOR;
-        type LPOBJECTDESCRIPTOR = *mut OBJECTDESCRIPTOR;
+        type LPDROPSOURCE = IDropSource;
+        type LPDROPTARGET = IDropTarget;
+        type LPENUMOLEVERB = IEnumOLEVERB;
+        type LPLINKSRCDESCRIPTOR = *mut tagOBJECTDESCRIPTOR;
+        type LPOBJECTDESCRIPTOR = *mut tagOBJECTDESCRIPTOR;
+        type LPOLEADVISEHOLDER = IOleAdviseHolder;
+        type LPOLECACHE = IOleCache;
+        type LPOLECACHE2 = IOleCache2;
+        type LPOLECACHECONTROL = IOleCacheControl;
+        type LPOLECLIENTSITE = IOleClientSite;
+        type LPOLECONTAINER = IOleContainer;
+        type LPOLEINPLACEACTIVEOBJECT = IOleInPlaceActiveObject;
+        type LPOLEINPLACEFRAME = IOleInPlaceFrame;
         type LPOLEINPLACEFRAMEINFO = *mut OLEINPLACEFRAMEINFO;
+        type LPOLEINPLACEOBJECT = IOleInPlaceObject;
+        type LPOLEINPLACESITE = IOleInPlaceSite;
+        type LPOLEINPLACEUIWINDOW = IOleInPlaceUIWindow;
+        type LPOLEITEMCONTAINER = IOleItemContainer;
+        type LPOLELINK = IOleLink;
         type LPOLEMENUGROUPWIDTHS = *mut OLEMENUGROUPWIDTHS;
+        type LPOLEOBJECT = IOleObject;
         type LPOLERENDER = *mut OLERENDER;
         type LPOLEUPDATE = *mut OLEUPDATE;
         type LPOLEVERB = *mut OLEVERB;
+        type LPOLEWINDOW = IOleWindow;
+        type LPPARSEDISPLAYNAME = IParseDisplayName;
+        type LPVIEWOBJECT = IViewObject;
+        type LPVIEWOBJECT2 = IViewObject2;
         const MK_ALT: i32 = 32;
-        struct OBJECTDESCRIPTOR {
-            cbSize: u32,
-            clsid: GUID,
-            dwDrawAspect: u32,
-            sizel: SIZEL,
-            pointl: POINTL,
-            dwStatus: u32,
-            dwFullUserTypeName: u32,
-            dwSrcOfCopy: u32,
-        }
+        type OBJECTDESCRIPTOR = tagOBJECTDESCRIPTOR;
         #[repr(i32)]
         enum OLECLOSE {
             OLECLOSE_SAVEIFDIRTY = 0,
@@ -305,7 +333,7 @@ mod Windows {
         }
         struct OLEVERB {
             lVerb: i32,
-            lpszVerbName: PWSTR,
+            lpszVerbName: LPOLESTR,
             fuFlags: u32,
             grfAttribs: u32,
         }
@@ -320,8 +348,8 @@ mod Windows {
             OLEWHICHMK_OBJREL = 2,
             OLEWHICHMK_OBJFULL = 3,
         }
-        type PLINKSRCDESCRIPTOR = *mut OBJECTDESCRIPTOR;
-        type POBJECTDESCRIPTOR = *mut OBJECTDESCRIPTOR;
+        type PLINKSRCDESCRIPTOR = *mut tagOBJECTDESCRIPTOR;
+        type POBJECTDESCRIPTOR = *mut tagOBJECTDESCRIPTOR;
         type POLEUPDATE = *mut OLEUPDATE;
         const UPDFCACHE_ALL: u32 = 2147483647;
         const UPDFCACHE_ALLBUTNODATACACHE: u32 = 2147483646;
@@ -337,6 +365,16 @@ mod Windows {
             USERCLASSTYPE_FULL = 1,
             USERCLASSTYPE_SHORT = 2,
             USERCLASSTYPE_APPNAME = 3,
+        }
+        struct tagOBJECTDESCRIPTOR {
+            cbSize: u32,
+            clsid: GUID,
+            dwDrawAspect: u32,
+            sizel: SIZEL,
+            pointl: POINTL,
+            dwStatus: u32,
+            dwFullUserTypeName: u32,
+            dwSrcOfCopy: u32,
         }
     }
 }

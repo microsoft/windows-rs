@@ -79,6 +79,8 @@ mod Windows {
         const XINPUT_DEVSUBTYPE_WHEEL: i32 = 2;
         const XINPUT_DEVTYPE_GAMEPAD: i32 = 1;
         #[encoding("ansi")]
+        const XINPUT_DLL: String = "xinput1_4.dll";
+        #[encoding("ansi")]
         const XINPUT_DLL_A: String = "xinput1_4.dll";
         #[encoding("utf-16")]
         const XINPUT_DLL_W: String = "xinput1_4.dll";
@@ -136,11 +138,11 @@ mod Windows {
         #[library("XINPUT1_4.dll")]
         extern fn XInputGetCapabilities(dwUserIndex: u32, dwFlags: u32, pCapabilities: *mut XINPUT_CAPABILITIES) -> u32;
         #[library("XINPUT1_4.dll")]
-        extern fn XInputGetKeystroke(dwUserIndex: u32, #[reserved] dwReserved: u32, pKeystroke: *mut XINPUT_KEYSTROKE) -> u32;
+        extern fn XInputGetKeystroke(dwUserIndex: u32, #[reserved] dwReserved: u32, #[out] pKeystroke: PXINPUT_KEYSTROKE) -> u32;
         #[library("XINPUT1_4.dll")]
         extern fn XInputGetState(dwUserIndex: u32, pState: *mut XINPUT_STATE) -> u32;
         #[library("XINPUT1_4.dll")]
-        extern fn XInputSetState(dwUserIndex: u32, pVibration: *const XINPUT_VIBRATION) -> u32;
+        extern fn XInputSetState(dwUserIndex: u32, #[in] pVibration: *mut XINPUT_VIBRATION) -> u32;
         const XUSER_INDEX_ANY: i32 = 255;
         const XUSER_MAX_COUNT: i32 = 4;
     }

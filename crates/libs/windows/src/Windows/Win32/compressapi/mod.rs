@@ -8,24 +8,26 @@ pub unsafe fn CloseDecompressor(decompressorhandle: DECOMPRESSOR_HANDLE) -> wind
     windows_core::link!("cabinet.dll" "system" fn CloseDecompressor(decompressorhandle : DECOMPRESSOR_HANDLE) -> windows_core::BOOL);
     unsafe { CloseDecompressor(decompressorhandle) }
 }
+#[cfg(all(feature = "basetsd", feature = "minwindef"))]
 #[inline]
-pub unsafe fn Compress(compressorhandle: COMPRESSOR_HANDLE, uncompresseddata: Option<*const core::ffi::c_void>, uncompresseddatasize: usize, compressedbuffer: Option<*mut core::ffi::c_void>, compressedbuffersize: usize, compresseddatasize: *mut usize) -> windows_core::BOOL {
-    windows_core::link!("cabinet.dll" "system" fn Compress(compressorhandle : COMPRESSOR_HANDLE, uncompresseddata : *const core::ffi::c_void, uncompresseddatasize : usize, compressedbuffer : *mut core::ffi::c_void, compressedbuffersize : usize, compresseddatasize : *mut usize) -> windows_core::BOOL);
+pub unsafe fn Compress(compressorhandle: COMPRESSOR_HANDLE, uncompresseddata: Option<super::LPCVOID>, uncompresseddatasize: usize, compressedbuffer: Option<*mut core::ffi::c_void>, compressedbuffersize: usize, compresseddatasize: super::PSIZE_T) -> windows_core::BOOL {
+    windows_core::link!("cabinet.dll" "system" fn Compress(compressorhandle : COMPRESSOR_HANDLE, uncompresseddata : super::LPCVOID, uncompresseddatasize : usize, compressedbuffer : *mut core::ffi::c_void, compressedbuffersize : usize, compresseddatasize : super::PSIZE_T) -> windows_core::BOOL);
     unsafe { Compress(compressorhandle, uncompresseddata.unwrap_or(core::mem::zeroed()) as _, uncompresseddatasize, compressedbuffer.unwrap_or(core::mem::zeroed()) as _, compressedbuffersize, compresseddatasize as _) }
 }
 #[inline]
-pub unsafe fn CreateCompressor(algorithm: u32, allocationroutines: Option<*const COMPRESS_ALLOCATION_ROUTINES>, compressorhandle: *mut COMPRESSOR_HANDLE) -> windows_core::BOOL {
-    windows_core::link!("cabinet.dll" "system" fn CreateCompressor(algorithm : u32, allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES, compressorhandle : *mut COMPRESSOR_HANDLE) -> windows_core::BOOL);
+pub unsafe fn CreateCompressor(algorithm: u32, allocationroutines: Option<PCOMPRESS_ALLOCATION_ROUTINES>, compressorhandle: PCOMPRESSOR_HANDLE) -> windows_core::BOOL {
+    windows_core::link!("cabinet.dll" "system" fn CreateCompressor(algorithm : u32, allocationroutines : PCOMPRESS_ALLOCATION_ROUTINES, compressorhandle : PCOMPRESSOR_HANDLE) -> windows_core::BOOL);
     unsafe { CreateCompressor(algorithm, allocationroutines.unwrap_or(core::mem::zeroed()) as _, compressorhandle as _) }
 }
 #[inline]
-pub unsafe fn CreateDecompressor(algorithm: u32, allocationroutines: Option<*const COMPRESS_ALLOCATION_ROUTINES>, decompressorhandle: *mut COMPRESSOR_HANDLE) -> windows_core::BOOL {
-    windows_core::link!("cabinet.dll" "system" fn CreateDecompressor(algorithm : u32, allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES, decompressorhandle : *mut COMPRESSOR_HANDLE) -> windows_core::BOOL);
+pub unsafe fn CreateDecompressor(algorithm: u32, allocationroutines: Option<PCOMPRESS_ALLOCATION_ROUTINES>, decompressorhandle: PDECOMPRESSOR_HANDLE) -> windows_core::BOOL {
+    windows_core::link!("cabinet.dll" "system" fn CreateDecompressor(algorithm : u32, allocationroutines : PCOMPRESS_ALLOCATION_ROUTINES, decompressorhandle : PDECOMPRESSOR_HANDLE) -> windows_core::BOOL);
     unsafe { CreateDecompressor(algorithm, allocationroutines.unwrap_or(core::mem::zeroed()) as _, decompressorhandle as _) }
 }
+#[cfg(all(feature = "basetsd", feature = "minwindef"))]
 #[inline]
-pub unsafe fn Decompress(decompressorhandle: DECOMPRESSOR_HANDLE, compresseddata: Option<*const core::ffi::c_void>, compresseddatasize: usize, uncompressedbuffer: Option<*mut core::ffi::c_void>, uncompressedbuffersize: usize, uncompresseddatasize: Option<*mut usize>) -> windows_core::BOOL {
-    windows_core::link!("cabinet.dll" "system" fn Decompress(decompressorhandle : DECOMPRESSOR_HANDLE, compresseddata : *const core::ffi::c_void, compresseddatasize : usize, uncompressedbuffer : *mut core::ffi::c_void, uncompressedbuffersize : usize, uncompresseddatasize : *mut usize) -> windows_core::BOOL);
+pub unsafe fn Decompress(decompressorhandle: DECOMPRESSOR_HANDLE, compresseddata: Option<super::LPCVOID>, compresseddatasize: usize, uncompressedbuffer: Option<*mut core::ffi::c_void>, uncompressedbuffersize: usize, uncompresseddatasize: Option<super::PSIZE_T>) -> windows_core::BOOL {
+    windows_core::link!("cabinet.dll" "system" fn Decompress(decompressorhandle : DECOMPRESSOR_HANDLE, compresseddata : super::LPCVOID, compresseddatasize : usize, uncompressedbuffer : *mut core::ffi::c_void, uncompressedbuffersize : usize, uncompresseddatasize : super::PSIZE_T) -> windows_core::BOOL);
     unsafe { Decompress(decompressorhandle, compresseddata.unwrap_or(core::mem::zeroed()) as _, compresseddatasize, uncompressedbuffer.unwrap_or(core::mem::zeroed()) as _, uncompressedbuffersize, uncompresseddatasize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -48,19 +50,24 @@ pub unsafe fn ResetDecompressor(decompressorhandle: DECOMPRESSOR_HANDLE) -> wind
     windows_core::link!("cabinet.dll" "system" fn ResetDecompressor(decompressorhandle : DECOMPRESSOR_HANDLE) -> windows_core::BOOL);
     unsafe { ResetDecompressor(decompressorhandle) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn SetCompressorInformation(compressorhandle: COMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const core::ffi::c_void, compressinformationsize: usize) -> windows_core::BOOL {
-    windows_core::link!("cabinet.dll" "system" fn SetCompressorInformation(compressorhandle : COMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *const core::ffi::c_void, compressinformationsize : usize) -> windows_core::BOOL);
+pub unsafe fn SetCompressorInformation(compressorhandle: COMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: super::LPCVOID, compressinformationsize: usize) -> windows_core::BOOL {
+    windows_core::link!("cabinet.dll" "system" fn SetCompressorInformation(compressorhandle : COMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : super::LPCVOID, compressinformationsize : usize) -> windows_core::BOOL);
     unsafe { SetCompressorInformation(compressorhandle, compressinformationclass, compressinformation, compressinformationsize) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn SetDecompressorInformation(decompressorhandle: DECOMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const core::ffi::c_void, compressinformationsize: usize) -> windows_core::BOOL {
-    windows_core::link!("cabinet.dll" "system" fn SetDecompressorInformation(decompressorhandle : DECOMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *const core::ffi::c_void, compressinformationsize : usize) -> windows_core::BOOL);
+pub unsafe fn SetDecompressorInformation(decompressorhandle: DECOMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: super::LPCVOID, compressinformationsize: usize) -> windows_core::BOOL {
+    windows_core::link!("cabinet.dll" "system" fn SetDecompressorInformation(decompressorhandle : DECOMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : super::LPCVOID, compressinformationsize : usize) -> windows_core::BOOL);
     unsafe { SetDecompressorInformation(decompressorhandle, compressinformationclass, compressinformation, compressinformationsize) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct COMPRESSOR_HANDLE(pub *mut core::ffi::c_void);
+pub type COMPRESSOR_HANDLE = *mut COMPRESSOR_HANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COMPRESSOR_HANDLE__ {
+    pub unused: i32,
+}
 pub const COMPRESS_ALGORITHM_INVALID: i32 = 0;
 pub const COMPRESS_ALGORITHM_LZMS: i32 = 5;
 pub const COMPRESS_ALGORITHM_MAX: i32 = 6;

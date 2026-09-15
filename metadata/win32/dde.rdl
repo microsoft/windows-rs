@@ -58,7 +58,7 @@ mod Windows {
             rgb: [u8; 1],
         }
         #[library("USER32.dll")]
-        extern fn DdeSetQualityOfService(hwndClient: HWND, pqosNew: *const SECURITY_QUALITY_OF_SERVICE, pqosPrev: *mut SECURITY_QUALITY_OF_SERVICE) -> BOOL;
+        extern fn DdeSetQualityOfService(hwndClient: HWND, pqosNew: *const SECURITY_QUALITY_OF_SERVICE, pqosPrev: PSECURITY_QUALITY_OF_SERVICE) -> BOOL;
         #[library("USER32.dll")]
         extern fn FreeDDElParam(msg: u32, lParam: LPARAM) -> BOOL;
         #[library("USER32.dll")]
@@ -67,12 +67,8 @@ mod Windows {
         extern fn PackDDElParam(msg: u32, uiLo: usize, uiHi: usize) -> LPARAM;
         #[library("USER32.dll")]
         extern fn ReuseDDElParam(lParam: LPARAM, msgIn: u32, msgOut: u32, uiLo: usize, uiHi: usize) -> LPARAM;
-        #[arch(X64 | Arm64)]
         #[library("USER32.dll")]
-        extern fn UnpackDDElParam(msg: u32, lParam: LPARAM, puiLo: *mut u64, puiHi: *mut u64) -> BOOL;
-        #[arch(X86)]
-        #[library("USER32.dll")]
-        extern fn UnpackDDElParam(msg: u32, lParam: LPARAM, puiLo: *mut u32, puiHi: *mut u32) -> BOOL;
+        extern fn UnpackDDElParam(msg: u32, lParam: LPARAM, #[out] puiLo: PUINT_PTR, #[out] puiHi: PUINT_PTR) -> BOOL;
         const WM_DDE_ACK: i32 = 996;
         const WM_DDE_ADVISE: i32 = 994;
         const WM_DDE_DATA: i32 = 997;

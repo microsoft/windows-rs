@@ -9,66 +9,38 @@ pub struct DATE_STRUCT {
     pub month: SQLUSMALLINT,
     pub day: SQLUSMALLINT,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HDBC(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HENV(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HSTMT(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PTR(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct RETCODE(pub i16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SCHAR(pub i8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SDWORD(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SLONG(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLBIGINT(pub i64);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLCHAR(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLDATE(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLDECIMAL(pub u8);
+pub type HDBC = *mut core::ffi::c_void;
+pub type HENV = *mut core::ffi::c_void;
+pub type HSTMT = *mut core::ffi::c_void;
+pub type LDOUBLE = f64;
+pub type PTR = *mut core::ffi::c_void;
+pub type RETCODE = i16;
+pub type SCHAR = i8;
+pub type SDOUBLE = f64;
+pub type SDWORD = i32;
+pub type SFLOAT = f32;
+pub type SLONG = i32;
+pub type SQLBIGINT = i64;
+pub type SQLCHAR = u8;
+pub type SQLDATE = u8;
+pub type SQLDECIMAL = u8;
+pub type SQLDOUBLE = f64;
+pub type SQLFLOAT = f64;
 pub type SQLGUID = windows_core::GUID;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLHANDLE(pub *mut core::ffi::c_void);
+pub type SQLHANDLE = *mut core::ffi::c_void;
 pub type SQLHDBC = SQLHANDLE;
 pub type SQLHDESC = SQLHANDLE;
 pub type SQLHENV = SQLHANDLE;
 pub type SQLHSTMT = SQLHANDLE;
 #[cfg(feature = "windef")]
 pub type SQLHWND = super::HWND;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLINTEGER(pub i32);
+pub type SQLINTEGER = i32;
 pub type SQLINTERVAL = i32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLLEN(pub i64);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLNUMERIC(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLPOINTER(pub *mut core::ffi::c_void);
+pub type SQLLEN = i64;
+pub type SQLNUMERIC = u8;
+pub type SQLPOINTER = *mut core::ffi::c_void;
+pub type SQLREAL = f32;
 pub type SQLRETURN = SQLSMALLINT;
 #[cfg(target_arch = "x86")]
 pub type SQLROWCOUNT = SQLUINTEGER;
@@ -82,46 +54,24 @@ pub type SQLROWOFFSET = SQLLEN;
 pub type SQLROWSETSIZE = SQLUINTEGER;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type SQLROWSETSIZE = SQLULEN;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLSCHAR(pub i8);
+pub type SQLSCHAR = i8;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLSETPOSIROW(pub u64);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLSMALLINT(pub i16);
+pub type SQLSETPOSIROW = u64;
+pub type SQLSMALLINT = i16;
 pub type SQLTCHAR = SQLCHAR;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLTIME(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLTIMESTAMP(pub u8);
+pub type SQLTIME = u8;
+pub type SQLTIMESTAMP = u8;
 #[cfg(target_arch = "x86")]
 pub type SQLTRANSID = SQLUINTEGER;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type SQLTRANSID = SQLULEN;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLUBIGINT(pub u64);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLUINTEGER(pub u32);
+pub type SQLUBIGINT = u64;
+pub type SQLUINTEGER = u32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLULEN(pub u64);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLUSMALLINT(pub u16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLVARCHAR(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLWCHAR(pub u16);
+pub type SQLULEN = u64;
+pub type SQLUSMALLINT = u16;
+pub type SQLVARCHAR = u8;
+pub type SQLWCHAR = u16;
 pub type SQL_DATE_STRUCT = DATE_STRUCT;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -190,12 +140,8 @@ pub struct SQL_YEAR_MONTH_STRUCT {
     pub year: SQLUINTEGER,
     pub month: SQLUINTEGER,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SSHORT(pub i16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SWORD(pub i16);
+pub type SSHORT = i16;
+pub type SWORD = i16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMESTAMP_STRUCT {
@@ -214,6 +160,4 @@ pub struct TIME_STRUCT {
     pub minute: SQLUSMALLINT,
     pub second: SQLUSMALLINT,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct UDWORD(pub u32);
+pub type UDWORD = u32;

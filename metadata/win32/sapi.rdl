@@ -525,7 +525,7 @@ mod Windows {
         #[guid(0x14056581_e16c_11d2_bb90_00c04f8ee6c0)]
         interface ISpDataKey: IUnknown {
             fn SetData(&self, pszValueName: PCWSTR, cbData: u32, pData: *const u8) -> HRESULT;
-            fn GetData(&self, pszValueName: PCWSTR, pcbData: *const u32, pData: *mut u8) -> HRESULT;
+            fn GetData(&self, pszValueName: PCWSTR, #[in] pcbData: *mut u32, pData: *mut u8) -> HRESULT;
             fn SetStringValue(&self, #[opt] pszValueName: PCWSTR, pszValue: PCWSTR) -> HRESULT;
             fn GetStringValue(&self, #[opt] pszValueName: PCWSTR, ppszValue: *mut PWSTR) -> HRESULT;
             fn SetDWORD(&self, pszValueName: PCWSTR, dwValue: u32) -> HRESULT;
@@ -631,8 +631,8 @@ mod Windows {
             fn GetStorageFileName(&self, clsidCaller: *const GUID, pszValueName: PCWSTR, #[opt] pszFileNameSpecifier: PCWSTR, nFolder: u32, ppszFilePath: *mut PWSTR) -> HRESULT;
             fn RemoveStorageFileName(&self, clsidCaller: *const GUID, pszKeyName: PCWSTR, fDeleteFile: BOOL) -> HRESULT;
             fn Remove(&self, #[opt] pclsidCaller: *const GUID) -> HRESULT;
-            fn IsUISupported(&self, pszTypeOfUI: PCWSTR, pvExtraData: *const void, cbExtraData: u32, punkObject: IUnknown, pfSupported: *mut BOOL) -> HRESULT;
-            fn DisplayUI(&self, hwndParent: HWND, pszTitle: PCWSTR, pszTypeOfUI: PCWSTR, pvExtraData: *const void, cbExtraData: u32, punkObject: IUnknown) -> HRESULT;
+            fn IsUISupported(&self, pszTypeOfUI: PCWSTR, #[in] pvExtraData: *mut void, cbExtraData: u32, punkObject: IUnknown, pfSupported: *mut BOOL) -> HRESULT;
+            fn DisplayUI(&self, hwndParent: HWND, pszTitle: PCWSTR, pszTypeOfUI: PCWSTR, #[in] pvExtraData: *mut void, cbExtraData: u32, punkObject: IUnknown) -> HRESULT;
             fn MatchesAttributes(&self, pszAttributes: PCWSTR, pfMatches: *mut BOOL) -> HRESULT;
         }
         #[guid(0x2d3d3845_39af_4850_bbf9_40b49780011d)]
@@ -705,10 +705,10 @@ mod Windows {
             fn GetRecognizer(&self, ppRecognizer: *mut ISpRecognizer) -> HRESULT;
             fn CreateGrammar(&self, ullGrammarId: u64, ppGrammar: *mut ISpRecoGrammar) -> HRESULT;
             fn GetStatus(&self, pStatus: *mut SPRECOCONTEXTSTATUS) -> HRESULT;
-            fn GetMaxAlternates(&self, pcAlternates: *const u32) -> HRESULT;
+            fn GetMaxAlternates(&self, #[in] pcAlternates: *mut u32) -> HRESULT;
             fn SetMaxAlternates(&self, cAlternates: u32) -> HRESULT;
             fn SetAudioOptions(&self, Options: SPAUDIOOPTIONS, pAudioFormatId: *const GUID, pWaveFormatEx: *const WAVEFORMATEX) -> HRESULT;
-            fn GetAudioOptions(&self, pOptions: *const SPAUDIOOPTIONS, pAudioFormatId: *mut GUID, ppCoMemWFEX: *mut *mut WAVEFORMATEX) -> HRESULT;
+            fn GetAudioOptions(&self, #[in] pOptions: *mut SPAUDIOOPTIONS, pAudioFormatId: *mut GUID, ppCoMemWFEX: *mut *mut WAVEFORMATEX) -> HRESULT;
             fn DeserializeResult(&self, pSerializedResult: *const SPSERIALIZEDRESULT, ppResult: *mut ISpRecoResult) -> HRESULT;
             fn Bookmark(&self, Options: SPBOOKMARKOPTIONS, ullStreamPosition: u64, lparamEvent: LPARAM) -> HRESULT;
             fn SetAdaptationData(&self, pAdaptationData: PCWSTR, cch: u32) -> HRESULT;
@@ -736,7 +736,7 @@ mod Windows {
             fn LoadCmdFromResource(&self, hModule: HMODULE, pszResourceName: PCWSTR, pszResourceType: PCWSTR, wLanguage: u16, Options: SPLOADOPTIONS) -> HRESULT;
             fn LoadCmdFromMemory(&self, pGrammar: *const SPBINARYGRAMMAR, Options: SPLOADOPTIONS) -> HRESULT;
             fn LoadCmdFromProprietaryGrammar(&self, rguidParam: *const GUID, pszStringParam: PCWSTR, pvDataPrarm: *const void, cbDataSize: u32, Options: SPLOADOPTIONS) -> HRESULT;
-            fn SetRuleState(&self, #[opt] pszName: PCWSTR, pReserved: *const void, NewState: SPRULESTATE) -> HRESULT;
+            fn SetRuleState(&self, #[opt] pszName: PCWSTR, #[in] pReserved: *mut void, NewState: SPRULESTATE) -> HRESULT;
             fn SetRuleIdState(&self, ulRuleId: u32, NewState: SPRULESTATE) -> HRESULT;
             fn LoadDictation(&self, #[opt] pszTopicName: PCWSTR, Options: SPLOADOPTIONS) -> HRESULT;
             fn UnloadDictation(&self) -> HRESULT;
@@ -790,8 +790,8 @@ mod Windows {
             fn SetRecoState(&self, NewState: SPRECOSTATE) -> HRESULT;
             fn GetStatus(&self, pStatus: *mut SPRECOGNIZERSTATUS) -> HRESULT;
             fn GetFormat(&self, WaveFormatType: SPSTREAMFORMATTYPE, pFormatId: *mut GUID, ppCoMemWFEX: *mut *mut WAVEFORMATEX) -> HRESULT;
-            fn IsUISupported(&self, pszTypeOfUI: PCWSTR, pvExtraData: *const void, cbExtraData: u32, pfSupported: *mut BOOL) -> HRESULT;
-            fn DisplayUI(&self, hwndParent: HWND, #[opt] pszTitle: PCWSTR, pszTypeOfUI: PCWSTR, pvExtraData: *const void, cbExtraData: u32) -> HRESULT;
+            fn IsUISupported(&self, pszTypeOfUI: PCWSTR, #[in] pvExtraData: *mut void, cbExtraData: u32, pfSupported: *mut BOOL) -> HRESULT;
+            fn DisplayUI(&self, hwndParent: HWND, #[opt] pszTitle: PCWSTR, pszTypeOfUI: PCWSTR, #[in] pvExtraData: *mut void, cbExtraData: u32) -> HRESULT;
             fn EmulateRecognition(&self, pPhrase: ISpPhrase) -> HRESULT;
         }
         #[guid(0x8fc6d974_c81e_4098_93c5_0147f61ed4d3)]
@@ -818,7 +818,7 @@ mod Windows {
         #[guid(0x21b501a0_0ec7_46c9_92c3_a2bc784c54b9)]
         interface ISpSerializeState: IUnknown {
             fn GetSerializedState(&self, ppbData: *mut *mut u8, pulSize: *mut u32, dwReserved: u32) -> HRESULT;
-            fn SetSerializedState(&self, pbData: *const u8, ulSize: u32, dwReserved: u32) -> HRESULT;
+            fn SetSerializedState(&self, #[in] pbData: *mut u8, ulSize: u32, dwReserved: u32) -> HRESULT;
         }
         #[guid(0x3df681e2_ea56_11d9_8bde_f66bad1e3f3a)]
         interface ISpShortcut: IUnknown {
@@ -840,7 +840,7 @@ mod Windows {
         }
         #[guid(0xbed530be_2606_4f4d_a1c0_54c5cda5566f)]
         interface ISpStreamFormat: IStream {
-            fn GetFormat(&self, pguidFormatId: *const GUID, ppCoMemWaveFormatEx: *mut *mut WAVEFORMATEX) -> HRESULT;
+            fn GetFormat(&self, #[in] pguidFormatId: *mut GUID, ppCoMemWaveFormatEx: *mut *mut WAVEFORMATEX) -> HRESULT;
         }
         #[guid(0x678a932c_ea71_4446_9b41_78fda6280a29)]
         interface ISpStreamFormatConverter: ISpStreamFormat {
@@ -881,8 +881,8 @@ mod Windows {
             fn SetSyncSpeakTimeout(&self, msTimeout: u32) -> HRESULT;
             fn GetSyncSpeakTimeout(&self, pmsTimeout: *mut u32) -> HRESULT;
             fn SpeakCompleteEvent(&self) -> HANDLE;
-            fn IsUISupported(&self, pszTypeOfUI: PCWSTR, pvExtraData: *const void, cbExtraData: u32, pfSupported: *mut BOOL) -> HRESULT;
-            fn DisplayUI(&self, hwndParent: HWND, pszTitle: PCWSTR, pszTypeOfUI: PCWSTR, pvExtraData: *const void, cbExtraData: u32) -> HRESULT;
+            fn IsUISupported(&self, pszTypeOfUI: PCWSTR, #[in] pvExtraData: *mut void, cbExtraData: u32, pfSupported: *mut BOOL) -> HRESULT;
+            fn DisplayUI(&self, hwndParent: HWND, pszTitle: PCWSTR, pszTypeOfUI: PCWSTR, #[in] pvExtraData: *mut void, cbExtraData: u32) -> HRESULT;
         }
         #[guid(0xae39362b_45a8_4074_9b9e_ccf49aa2d0b6)]
         interface ISpXMLRecoResult: ISpRecoResult {
@@ -1005,9 +1005,9 @@ mod Windows {
             fn get_Rule(&self, #[retval] Rule: *mut ISpeechGrammarRule) -> HRESULT;
             #[special]
             fn get_Transitions(&self, #[retval] Transitions: *mut ISpeechGrammarRuleStateTransitions) -> HRESULT;
-            fn AddWordTransition(&self, DestState: ISpeechGrammarRuleState, Words: BSTR, Separators: BSTR, Type: SpeechGrammarWordType, PropertyName: BSTR, PropertyId: i32, PropertyValue: *const VARIANT, Weight: f32) -> HRESULT;
-            fn AddRuleTransition(&self, DestinationState: ISpeechGrammarRuleState, Rule: ISpeechGrammarRule, PropertyName: BSTR, PropertyId: i32, PropertyValue: *const VARIANT, Weight: f32) -> HRESULT;
-            fn AddSpecialTransition(&self, DestinationState: ISpeechGrammarRuleState, Type: SpeechSpecialTransitionType, PropertyName: BSTR, PropertyId: i32, PropertyValue: *const VARIANT, Weight: f32) -> HRESULT;
+            fn AddWordTransition(&self, DestState: ISpeechGrammarRuleState, Words: BSTR, Separators: BSTR, Type: SpeechGrammarWordType, PropertyName: BSTR, PropertyId: i32, #[in] PropertyValue: *mut VARIANT, Weight: f32) -> HRESULT;
+            fn AddRuleTransition(&self, DestinationState: ISpeechGrammarRuleState, Rule: ISpeechGrammarRule, PropertyName: BSTR, PropertyId: i32, #[in] PropertyValue: *mut VARIANT, Weight: f32) -> HRESULT;
+            fn AddSpecialTransition(&self, DestinationState: ISpeechGrammarRuleState, Type: SpeechSpecialTransitionType, PropertyName: BSTR, PropertyId: i32, #[in] PropertyValue: *mut VARIANT, Weight: f32) -> HRESULT;
         }
         #[guid(0xcafd1db1_41d1_4a06_9863_e2e81da17a9a)]
         interface ISpeechGrammarRuleStateTransition: IDispatch {
@@ -1056,9 +1056,9 @@ mod Windows {
             fn get_GenerationId(&self, #[retval] GenerationId: *mut i32) -> HRESULT;
             fn GetWords(&self, Flags: SpeechLexiconType, GenerationID: *mut i32, #[retval] Words: *mut ISpeechLexiconWords) -> HRESULT;
             fn AddPronunciation(&self, bstrWord: BSTR, LangId: SpeechLanguageId, PartOfSpeech: SpeechPartOfSpeech, bstrPronunciation: BSTR) -> HRESULT;
-            fn AddPronunciationByPhoneIds(&self, bstrWord: BSTR, LangId: SpeechLanguageId, PartOfSpeech: SpeechPartOfSpeech, PhoneIds: *const VARIANT) -> HRESULT;
+            fn AddPronunciationByPhoneIds(&self, bstrWord: BSTR, LangId: SpeechLanguageId, PartOfSpeech: SpeechPartOfSpeech, #[in] PhoneIds: *mut VARIANT) -> HRESULT;
             fn RemovePronunciation(&self, bstrWord: BSTR, LangId: SpeechLanguageId, PartOfSpeech: SpeechPartOfSpeech, bstrPronunciation: BSTR) -> HRESULT;
-            fn RemovePronunciationByPhoneIds(&self, bstrWord: BSTR, LangId: SpeechLanguageId, PartOfSpeech: SpeechPartOfSpeech, PhoneIds: *const VARIANT) -> HRESULT;
+            fn RemovePronunciationByPhoneIds(&self, bstrWord: BSTR, LangId: SpeechLanguageId, PartOfSpeech: SpeechPartOfSpeech, #[in] PhoneIds: *mut VARIANT) -> HRESULT;
             fn GetPronunciations(&self, bstrWord: BSTR, LangId: SpeechLanguageId, TypeFlags: SpeechLexiconType, #[retval] ppPronunciations: *mut ISpeechLexiconPronunciations) -> HRESULT;
             fn GetGenerationChange(&self, #[in] #[out] GenerationID: *mut i32, #[retval] ppWords: *mut ISpeechLexiconWords) -> HRESULT;
         }
@@ -1259,7 +1259,7 @@ mod Windows {
         }
         #[guid(0x3b151836_df3a_4e0a_846c_d2adc9334333)]
         interface ISpeechPhraseInfoBuilder: IDispatch {
-            fn RestorePhraseFromMemory(&self, PhraseInMemory: *const VARIANT, #[retval] PhraseInfo: *mut ISpeechPhraseInfo) -> HRESULT;
+            fn RestorePhraseFromMemory(&self, #[in] PhraseInMemory: *mut VARIANT, #[retval] PhraseInfo: *mut ISpeechPhraseInfo) -> HRESULT;
         }
         #[guid(0x08166b47_102e_4b23_a599_bdb98dbfd1f4)]
         interface ISpeechPhraseProperties: IDispatch {
@@ -1377,7 +1377,7 @@ mod Windows {
             fn Pause(&self) -> HRESULT;
             fn Resume(&self) -> HRESULT;
             fn CreateGrammar(&self, GrammarId: VARIANT, #[retval] Grammar: *mut ISpeechRecoGrammar) -> HRESULT;
-            fn CreateResultFromMemory(&self, ResultBlock: *const VARIANT, #[retval] Result: *mut ISpeechRecoResult) -> HRESULT;
+            fn CreateResultFromMemory(&self, #[in] ResultBlock: *mut VARIANT, #[retval] Result: *mut ISpeechRecoResult) -> HRESULT;
             fn Bookmark(&self, Options: SpeechBookmarkOptions, StreamPos: VARIANT, BookmarkId: VARIANT) -> HRESULT;
             fn SetAdaptationData(&self, AdaptationString: BSTR) -> HRESULT;
         }
@@ -1486,7 +1486,7 @@ mod Windows {
             fn putref_Profile(&self, Profile: ISpeechObjectToken) -> HRESULT;
             #[special]
             fn get_Profile(&self, #[retval] Profile: *mut ISpeechObjectToken) -> HRESULT;
-            fn EmulateRecognition(&self, TextElements: VARIANT, ElementDisplayAttributes: *const VARIANT, LanguageId: i32) -> HRESULT;
+            fn EmulateRecognition(&self, TextElements: VARIANT, #[in] ElementDisplayAttributes: *mut VARIANT, LanguageId: i32) -> HRESULT;
             fn CreateRecoContext(&self, #[retval] NewContext: *mut ISpeechRecoContext) -> HRESULT;
             fn GetFormat(&self, Type: SpeechFormatType, #[retval] Format: *mut ISpeechAudioFormat) -> HRESULT;
             fn SetPropertyNumber(&self, Name: BSTR, Value: i32, #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
@@ -2206,7 +2206,7 @@ mod Windows {
         #[encoding("utf-16")]
         const SPREG_USER_ROOT: String = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech";
         const SPRP_NORMAL: i32 = 0;
-        const SPRR_ALL_ELEMENTS: i32 = -1;
+        const SPRR_ALL_ELEMENTS: SPPHRASERNG = -1;
         struct SPRULE {
             pszRuleName: PCWSTR,
             ulRuleId: u32,
@@ -2219,6 +2219,9 @@ mod Windows {
             SPRS_ACTIVE_WITH_AUTO_PAUSE = 3,
             SPRS_ACTIVE_USER_DELIMITED = 4,
         }
+        const SPRULETRANS_DICTATION: SPSTATEHANDLE = -3;
+        const SPRULETRANS_TEXTBUFFER: SPSTATEHANDLE = -1;
+        const SPRULETRANS_WILDCARD: SPSTATEHANDLE = -2;
         #[repr(i32)]
         enum SPRUNSTATE {
             SPRS_DONE = 1,
@@ -2288,7 +2291,10 @@ mod Windows {
             SPPS_RESERVED3 = 20480,
             SPPS_RESERVED4 = 61440,
         }
-        type SPSTATEHANDLE = *mut void;
+        type SPSTATEHANDLE = *mut SPSTATEHANDLE__;
+        struct SPSTATEHANDLE__ {
+            unused: i32,
+        }
         #[repr(i32)]
         enum SPSTREAMFORMAT {
             SPSF_Default = -1,
@@ -2541,13 +2547,21 @@ mod Windows {
             SPXRO_Alternates_SML = 1,
         }
         const SP_EMULATE_RESULT: i32 = 1073741824;
-        const SP_GETWHOLEPHRASE: i32 = -1;
+        const SP_GETWHOLEPHRASE: SPPHRASERNG = -1;
         const SP_HIGH_CONFIDENCE: i32 = 1;
         const SP_LOW_CONFIDENCE: i32 = -1;
         const SP_MAX_LANGIDS: i32 = 20;
         const SP_MAX_PRON_LENGTH: i32 = 384;
         const SP_MAX_WORD_LENGTH: i32 = 128;
         const SP_NORMAL_CONFIDENCE: i32 = 0;
+        #[arch(X64 | Arm64)]
+        const SP_SPPHRASESIZE_500: u64 = 160;
+        #[arch(X86)]
+        const SP_SPPHRASESIZE_500: u32 = 120;
+        #[arch(X64 | Arm64)]
+        const SP_SPPHRASESIZE_530: u64 = 176;
+        #[arch(X86)]
+        const SP_SPPHRASESIZE_530: u32 = 128;
         const SP_STREAMPOS_ASAP: i32 = 0;
         const SP_STREAMPOS_REALTIME: i32 = -1;
         const SpAudioFormat: GUID = 0x9ef96870_e160_4792_820d_48cf0649e4ec;
@@ -2953,5 +2967,6 @@ mod Windows {
         interface _ISpeechRecoContextEvents: IDispatch {}
         #[guid(0xa372acd1_3bef_4bbd_8ffb_cb3e2b416af8)]
         interface _ISpeechVoiceEvents: IDispatch {}
+        const _SAPI_VER: i32 = 84;
     }
 }

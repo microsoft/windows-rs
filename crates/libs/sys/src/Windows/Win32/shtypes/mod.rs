@@ -16,6 +16,7 @@ pub struct ITEMIDLIST {
 pub type ITEMIDLIST_ABSOLUTE = ITEMIDLIST;
 pub type ITEMIDLIST_RELATIVE = ITEMIDLIST;
 pub type ITEMID_CHILD = ITEMIDLIST;
+pub type KF_REDIRECT_FLAGS = u32;
 pub type KNOWNFOLDERID = windows_sys::core::GUID;
 pub type LPCITEMIDLIST = *const ITEMIDLIST;
 #[cfg(feature = "wtypes")]

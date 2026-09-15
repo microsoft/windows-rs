@@ -7,7 +7,7 @@ mod Windows {
             DirectedDiscovery = 1,
             SecureDirectedDiscovery = 2,
         }
-        extern fn PWSD_SOAP_MESSAGE_HANDLER(thisUnknown: IUnknown, event: *mut WSD_EVENT) -> HRESULT;
+        extern "C" fn PWSD_SOAP_MESSAGE_HANDLER(thisUnknown: IUnknown, event: *mut WSD_EVENT) -> HRESULT;
         struct REQUESTBODY_GetStatus {
             Any: *mut WSDXML_ELEMENT,
         }
@@ -305,7 +305,7 @@ mod Windows {
             Body: *mut void,
             BodyType: *mut WSDXML_TYPE,
         }
-        extern fn WSD_STUB_FUNCTION(server: IUnknown, session: IWSDServiceMessaging, event: *mut WSD_EVENT) -> HRESULT;
+        extern "C" fn WSD_STUB_FUNCTION(server: IUnknown, session: IWSDServiceMessaging, event: *mut WSD_EVENT) -> HRESULT;
         struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
             hr: HRESULT,
             eventHandle: HANDLE,

@@ -8718,8 +8718,8 @@ pub const NVME_LOG_PAGE_SUPPORTED_CAPACITY_CONFIGURATION_LIST: NVME_LOG_PAGES = 
 pub const NVME_LOG_PAGE_SUPPORTED_LOG_PAGES: NVME_LOG_PAGES = 0;
 pub const NVME_LOG_PAGE_TELEMETRY_CTLR_INITIATED: NVME_LOG_PAGES = 8;
 pub const NVME_LOG_PAGE_TELEMETRY_HOST_INITIATED: NVME_LOG_PAGES = 7;
-pub const NVME_LOG_PAGE_WCS_DEVICE_ERROR_RECOVERY: i32 = 193;
-pub const NVME_LOG_PAGE_WCS_DEVICE_SMART_ATTRIBUTES: i32 = 192;
+pub const NVME_LOG_PAGE_WCS_DEVICE_ERROR_RECOVERY: NVME_VENDOR_LOG_PAGES = 193;
+pub const NVME_LOG_PAGE_WCS_DEVICE_SMART_ATTRIBUTES: NVME_VENDOR_LOG_PAGES = 192;
 pub const NVME_MAX_HOST_IDENTIFIER_SIZE: i32 = 16;
 pub const NVME_MAX_LOG_PAGE_IDENTIFIER: i32 = 255;
 pub const NVME_MAX_LOG_SIZE: i32 = 4096;
@@ -9200,7 +9200,7 @@ pub struct NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2 {
     pub PanicResetAction: NVME_WCS_DEVICE_RESET_ACTION,
     pub DeviceRecoveryAction1: u8,
     pub PanicId: u64,
-    pub DeviceCapabilities: NVME_WCS_DEVICE_CAPABILITIES,
+    pub DeviceCapabilitiesA: NVME_WCS_DEVICE_CAPABILITIES,
     pub VendorSpecificRecoveryCode: u8,
     pub Reserved0: [u8; 3],
     pub VendorSpecificCommandCDW12: u32,
@@ -10687,7 +10687,7 @@ pub struct NVME_WCS_DEVICE_ERROR_RECOVERY_LOG {
     pub PanicResetAction: NVME_WCS_DEVICE_RESET_ACTION,
     pub DriveRecoveryAction: u8,
     pub PanicId: u64,
-    pub DeviceCapabilities: NVME_WCS_DEVICE_CAPABILITIES,
+    pub DeviceCapabilitiesA: NVME_WCS_DEVICE_CAPABILITIES,
     pub VendorSpecificRecoveryCode: u8,
     pub Reserved0: [u8; 3],
     pub VendorSpecificCommandCDW12: u32,

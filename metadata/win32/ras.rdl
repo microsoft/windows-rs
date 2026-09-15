@@ -5,7 +5,10 @@ mod Windows {
         const ET_Optional: i32 = 3;
         const ET_Require: i32 = 1;
         const ET_RequireMax: i32 = 2;
-        type HRASCONN = *mut void;
+        type HRASCONN = *mut HRASCONN__;
+        struct HRASCONN__ {
+            unused: i32,
+        }
         #[repr(i32)]
         enum IKEV2_ID_PAYLOAD_TYPE {
             IKEV2_ID_PAYLOAD_TYPE_INVALID = 0,
@@ -22,12 +25,12 @@ mod Windows {
             IKEV2_ID_PAYLOAD_TYPE_KEY_ID = 11,
             IKEV2_ID_PAYLOAD_TYPE_MAX = 12,
         }
-        extern fn ORASADFUNC(param0: HWND, param1: PSTR, param2: u32, param3: *mut u32) -> BOOL;
-        extern fn PFNRASFREEBUFFER(pBufer: *mut u8) -> u32;
-        extern fn PFNRASGETBUFFER(ppBuffer: *mut PBYTE, pdwSize: *mut u32) -> u32;
-        extern fn PFNRASRECEIVEBUFFER(hPort: HANDLE, pBuffer: *mut u8, pdwSize: *mut u32, dwTimeOut: u32, hEvent: HANDLE) -> u32;
-        extern fn PFNRASRETRIEVEBUFFER(hPort: HANDLE, pBuffer: *mut u8, pdwSize: *mut u32) -> u32;
-        extern fn PFNRASSENDBUFFER(hPort: HANDLE, pBuffer: *mut u8, dwSize: u32) -> u32;
+        extern fn ORASADFUNC(param0: HWND, param1: PSTR, param2: u32, param3: LPDWORD) -> BOOL;
+        extern fn PFNRASFREEBUFFER(pBufer: PBYTE) -> u32;
+        extern fn PFNRASGETBUFFER(ppBuffer: *mut PBYTE, pdwSize: PDWORD) -> u32;
+        extern fn PFNRASRECEIVEBUFFER(hPort: HANDLE, pBuffer: PBYTE, pdwSize: PDWORD, dwTimeOut: u32, hEvent: HANDLE) -> u32;
+        extern fn PFNRASRETRIEVEBUFFER(hPort: HANDLE, pBuffer: PBYTE, pdwSize: PDWORD) -> u32;
+        extern fn PFNRASSENDBUFFER(hPort: HANDLE, pBuffer: PBYTE, dwSize: u32) -> u32;
         extern fn PFNRASSETCOMMSETTINGS(hPort: HANDLE, pRasCommSettings: *mut tagRASCOMMSETTINGS, pvReserved: *mut void) -> u32;
         type PRASDEVSPECIFICINFO = *mut RASDEVSPECIFICINFO;
         type PRASIKEV2_PROJECTION_INFO = *mut RASIKEV2_PROJECTION_INFO;
@@ -35,8 +38,8 @@ mod Windows {
         type PRAS_PROJECTION_INFO = *mut RAS_PROJECTION_INFO;
         type PRAS_STATS = *mut RAS_STATS;
         const RASADFLG_PositionDlg: i32 = 1;
-        extern fn RASADFUNCA(param0: PSTR, param1: PSTR, param2: *mut tagRASADPARAMS, param3: *mut u32) -> BOOL;
-        extern fn RASADFUNCW(param0: PWSTR, param1: PWSTR, param2: *mut tagRASADPARAMS, param3: *mut u32) -> BOOL;
+        extern fn RASADFUNCA(param0: PSTR, param1: PSTR, param2: *mut tagRASADPARAMS, param3: LPDWORD) -> BOOL;
+        extern fn RASADFUNCW(param0: PWSTR, param1: PWSTR, param2: *mut tagRASADPARAMS, param3: LPDWORD) -> BOOL;
         const RASADP_ConnectionQueryTimeout: i32 = 4;
         const RASADP_DisableConnectionQuery: i32 = 0;
         const RASADP_FailedConnectionTimeout: i32 = 3;
@@ -49,7 +52,7 @@ mod Windows {
             RASAPIVERSION_600 = 3,
             RASAPIVERSION_601 = 4,
         }
-        const RASAPIVERSION_CURRENT: i32 = 4;
+        const RASAPIVERSION_CURRENT: RASAPIVERSION = 4;
         const RASCCPCA_MPPC: i32 = 6;
         const RASCCPCA_STAC: i32 = 5;
         const RASCCPO_Compression: i32 = 1;
@@ -372,45 +375,45 @@ mod Windows {
         #[library("RASAPI32.dll")]
         extern fn RasDeleteSubEntryW(#[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, dwSubEntryId: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasDialA(#[opt] param0: *const tagRASDIALEXTENSIONS, #[opt] param1: PCSTR, param2: *const tagRASDIALPARAMSA, param3: u32, #[opt] param4: *const void, param5: *mut HRASCONN) -> u32;
+        extern fn RasDialA(#[in] #[opt] param0: *mut tagRASDIALEXTENSIONS, #[opt] param1: PCSTR, #[in] param2: *mut tagRASDIALPARAMSA, param3: u32, #[in] #[opt] param4: *mut void, param5: *mut HRASCONN) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasDialW(#[opt] param0: *const tagRASDIALEXTENSIONS, #[opt] param1: PCWSTR, param2: *const tagRASDIALPARAMSW, param3: u32, #[opt] param4: *const void, param5: *mut HRASCONN) -> u32;
+        extern fn RasDialW(#[in] #[opt] param0: *mut tagRASDIALEXTENSIONS, #[opt] param1: PCWSTR, #[in] param2: *mut tagRASDIALPARAMSW, param3: u32, #[in] #[opt] param4: *mut void, param5: *mut HRASCONN) -> u32;
         #[library("RASAPI32.dll")]
         extern fn RasEditPhonebookEntryA(param0: HWND, #[opt] param1: PCSTR, param2: PCSTR) -> u32;
         #[library("RASAPI32.dll")]
         extern fn RasEditPhonebookEntryW(param0: HWND, #[opt] param1: PCWSTR, param2: PCWSTR) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumAutodialAddressesA(#[size_param(1)] #[in] #[out] #[opt] lppRasAutodialAddresses: *mut PSTR, #[in] #[out] lpdwcbRasAutodialAddresses: *mut u32, lpdwcRasAutodialAddresses: *mut u32) -> u32;
+        extern fn RasEnumAutodialAddressesA(#[size_param(1)] #[in] #[out] #[opt] lppRasAutodialAddresses: *mut PSTR, #[in] #[out] lpdwcbRasAutodialAddresses: LPDWORD, #[out] lpdwcRasAutodialAddresses: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumAutodialAddressesW(#[size_param(1)] #[in] #[out] #[opt] lppRasAutodialAddresses: *mut PWSTR, #[in] #[out] lpdwcbRasAutodialAddresses: *mut u32, lpdwcRasAutodialAddresses: *mut u32) -> u32;
+        extern fn RasEnumAutodialAddressesW(#[size_param(1)] #[in] #[out] #[opt] lppRasAutodialAddresses: *mut PWSTR, #[in] #[out] lpdwcbRasAutodialAddresses: LPDWORD, #[out] lpdwcRasAutodialAddresses: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumConnectionsA(#[in] #[out] #[opt] param0: *mut tagRASCONNA, #[in] #[out] param1: *mut u32, param2: *mut u32) -> u32;
+        extern fn RasEnumConnectionsA(#[in] #[out] #[opt] param0: *mut tagRASCONNA, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumConnectionsW(#[in] #[out] #[opt] param0: *mut tagRASCONNW, #[in] #[out] param1: *mut u32, param2: *mut u32) -> u32;
+        extern fn RasEnumConnectionsW(#[in] #[out] #[opt] param0: *mut tagRASCONNW, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumDevicesA(#[in] #[out] #[opt] param0: *mut tagRASDEVINFOA, #[in] #[out] param1: *mut u32, param2: *mut u32) -> u32;
+        extern fn RasEnumDevicesA(#[in] #[out] #[opt] param0: *mut tagRASDEVINFOA, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumDevicesW(#[in] #[out] #[opt] param0: *mut tagRASDEVINFOW, #[in] #[out] param1: *mut u32, param2: *mut u32) -> u32;
+        extern fn RasEnumDevicesW(#[in] #[out] #[opt] param0: *mut tagRASDEVINFOW, #[in] #[out] param1: LPDWORD, #[out] param2: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumEntriesA(#[opt] param0: PCSTR, #[opt] param1: PCSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYNAMEA, #[in] #[out] param3: *mut u32, param4: *mut u32) -> u32;
+        extern fn RasEnumEntriesA(#[opt] param0: PCSTR, #[opt] param1: PCSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYNAMEA, #[in] #[out] param3: LPDWORD, #[out] param4: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasEnumEntriesW(#[opt] param0: PCWSTR, #[opt] param1: PCWSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYNAMEW, #[in] #[out] param3: *mut u32, param4: *mut u32) -> u32;
+        extern fn RasEnumEntriesW(#[opt] param0: PCWSTR, #[opt] param1: PCWSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYNAMEW, #[in] #[out] param3: LPDWORD, #[out] param4: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasFreeEapUserIdentityA(pRasEapUserIdentity: *const tagRASEAPUSERIDENTITYA);
+        extern fn RasFreeEapUserIdentityA(#[in] pRasEapUserIdentity: *mut tagRASEAPUSERIDENTITYA);
         #[library("RASAPI32.dll")]
-        extern fn RasFreeEapUserIdentityW(pRasEapUserIdentity: *const tagRASEAPUSERIDENTITYW);
+        extern fn RasFreeEapUserIdentityW(#[in] pRasEapUserIdentity: *mut tagRASEAPUSERIDENTITYW);
         #[library("RASAPI32.dll")]
-        extern fn RasGetAutodialAddressA(#[opt] param0: PCSTR, #[opt] param1: *const u32, #[in] #[out] #[opt] param2: *mut tagRASAUTODIALENTRYA, #[in] #[out] param3: *mut u32, param4: *mut u32) -> u32;
+        extern fn RasGetAutodialAddressA(#[opt] param0: PCSTR, #[opt] param1: LPDWORD, #[in] #[out] #[opt] param2: *mut tagRASAUTODIALENTRYA, #[in] #[out] param3: LPDWORD, #[out] param4: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetAutodialAddressW(#[opt] param0: PCWSTR, #[opt] param1: *const u32, #[in] #[out] #[opt] param2: *mut tagRASAUTODIALENTRYW, #[in] #[out] param3: *mut u32, param4: *mut u32) -> u32;
+        extern fn RasGetAutodialAddressW(#[opt] param0: PCWSTR, #[opt] param1: LPDWORD, #[in] #[out] #[opt] param2: *mut tagRASAUTODIALENTRYW, #[in] #[out] param3: LPDWORD, #[out] param4: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetAutodialEnableA(param0: u32, param1: *mut BOOL) -> u32;
+        extern fn RasGetAutodialEnableA(param0: u32, #[out] param1: LPBOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetAutodialEnableW(param0: u32, param1: *mut BOOL) -> u32;
+        extern fn RasGetAutodialEnableW(param0: u32, #[out] param1: LPBOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetAutodialParamA(param0: u32, param1: *mut void, #[in] #[out] param2: *mut u32) -> u32;
+        extern fn RasGetAutodialParamA(param0: u32, param1: *mut void, #[in] #[out] param2: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetAutodialParamW(param0: u32, param1: *mut void, #[in] #[out] param2: *mut u32) -> u32;
+        extern fn RasGetAutodialParamW(param0: u32, param1: *mut void, #[in] #[out] param2: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
         extern fn RasGetConnectStatusA(param0: HRASCONN, #[in] #[out] param1: *mut tagRASCONNSTATUSA) -> u32;
         #[library("RASAPI32.dll")]
@@ -418,9 +421,9 @@ mod Windows {
         #[library("RASAPI32.dll")]
         extern fn RasGetConnectionStatistics(hRasConn: HRASCONN, #[in] #[out] lpStatistics: *mut RAS_STATS) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetCountryInfoA(#[in] #[out] #[opt] param0: *mut RASCTRYINFO, #[in] #[out] param1: *mut u32) -> u32;
+        extern fn RasGetCountryInfoA(#[in] #[out] #[opt] param0: *mut RASCTRYINFO, #[in] #[out] param1: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetCountryInfoW(#[in] #[out] #[opt] param0: *mut RASCTRYINFO, #[in] #[out] param1: *mut u32) -> u32;
+        extern fn RasGetCountryInfoW(#[in] #[out] #[opt] param0: *mut RASCTRYINFO, #[in] #[out] param1: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
         extern fn RasGetCredentialsA(#[opt] param0: PCSTR, param1: PCSTR, #[in] #[out] param2: *mut tagRASCREDENTIALSA) -> u32;
         #[library("RASAPI32.dll")]
@@ -438,13 +441,13 @@ mod Windows {
         #[library("RASAPI32.dll")]
         extern fn RasGetEapUserIdentityW(#[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, dwFlags: u32, hwnd: HWND, ppRasEapUserIdentity: *mut *mut tagRASEAPUSERIDENTITYW) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetEntryDialParamsA(#[opt] param0: PCSTR, #[in] #[out] param1: *mut tagRASDIALPARAMSA, param2: *mut BOOL) -> u32;
+        extern fn RasGetEntryDialParamsA(#[opt] param0: PCSTR, #[in] #[out] param1: *mut tagRASDIALPARAMSA, #[out] param2: LPBOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetEntryDialParamsW(#[opt] param0: PCWSTR, #[in] #[out] param1: *mut tagRASDIALPARAMSW, param2: *mut BOOL) -> u32;
+        extern fn RasGetEntryDialParamsW(#[opt] param0: PCWSTR, #[in] #[out] param1: *mut tagRASDIALPARAMSW, #[out] param2: LPBOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYA, #[in] #[out] param3: *mut u32, #[opt] param4: *mut u8, #[in] #[out] #[opt] param5: *mut u32) -> u32;
+        extern fn RasGetEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYA, #[in] #[out] param3: LPDWORD, #[out] #[opt] param4: LPBYTE, #[in] #[out] #[opt] param5: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYW, #[in] #[out] param3: *mut u32, #[opt] param4: *mut u8, #[in] #[out] #[opt] param5: *mut u32) -> u32;
+        extern fn RasGetEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, #[in] #[out] #[opt] param2: *mut tagRASENTRYW, #[in] #[out] param3: LPDWORD, #[out] #[opt] param4: LPBYTE, #[in] #[out] #[opt] param5: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
         extern fn RasGetErrorStringA(ResourceId: u32, #[len_param(2)] #[out] lpszString: PSTR, InBufSize: u32) -> u32;
         #[library("RASAPI32.dll")]
@@ -454,67 +457,67 @@ mod Windows {
         #[library("RASAPI32.dll")]
         extern fn RasGetPCscf(#[out] lpszPCscf: PWSTR) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetProjectionInfoA(param0: HRASCONN, param1: tagRASPROJECTION, param2: *mut void, #[in] #[out] param3: *mut u32) -> u32;
+        extern fn RasGetProjectionInfoA(param0: HRASCONN, param1: tagRASPROJECTION, param2: *mut void, #[in] #[out] param3: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetProjectionInfoEx(hrasconn: HRASCONN, #[in] #[out] #[opt] pRasProjection: *mut RAS_PROJECTION_INFO, #[in] #[out] lpdwSize: *mut u32) -> u32;
+        extern fn RasGetProjectionInfoEx(hrasconn: HRASCONN, #[in] #[out] #[opt] pRasProjection: PRAS_PROJECTION_INFO, #[in] #[out] lpdwSize: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetProjectionInfoW(param0: HRASCONN, param1: tagRASPROJECTION, param2: *mut void, #[in] #[out] param3: *mut u32) -> u32;
+        extern fn RasGetProjectionInfoW(param0: HRASCONN, param1: tagRASPROJECTION, param2: *mut void, #[in] #[out] param3: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
         extern fn RasGetSubEntryHandleA(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
         #[library("RASAPI32.dll")]
         extern fn RasGetSubEntryHandleW(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetSubEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, param2: u32, #[in] #[out] #[opt] param3: *mut tagRASSUBENTRYA, #[in] #[out] #[opt] param4: *mut u32, #[opt] param5: *mut u8, #[in] #[out] #[opt] param6: *mut u32) -> u32;
+        extern fn RasGetSubEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, param2: u32, #[in] #[out] #[opt] param3: *mut tagRASSUBENTRYA, #[in] #[out] #[opt] param4: LPDWORD, #[out] #[opt] param5: LPBYTE, #[in] #[out] #[opt] param6: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasGetSubEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: u32, #[in] #[out] #[opt] param3: *mut tagRASSUBENTRYW, #[in] #[out] #[opt] param4: *mut u32, #[opt] param5: *mut u8, #[in] #[out] #[opt] param6: *mut u32) -> u32;
+        extern fn RasGetSubEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: u32, #[in] #[out] #[opt] param3: *mut tagRASSUBENTRYW, #[in] #[out] #[opt] param4: LPDWORD, #[out] #[opt] param5: LPBYTE, #[in] #[out] #[opt] param6: LPDWORD) -> u32;
         #[library("RASAPI32.dll")]
         extern fn RasHangUpA(param0: HRASCONN) -> u32;
         #[library("RASAPI32.dll")]
         extern fn RasHangUpW(param0: HRASCONN) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasInvokeEapUI(param0: HRASCONN, param1: u32, param2: *const tagRASDIALEXTENSIONS, param3: HWND) -> u32;
+        extern fn RasInvokeEapUI(param0: HRASCONN, param1: u32, #[in] param2: *mut tagRASDIALEXTENSIONS, param3: HWND) -> u32;
         #[library("RASAPI32.dll")]
         extern fn RasRenameEntryA(#[opt] param0: PCSTR, param1: PCSTR, param2: PCSTR) -> u32;
         #[library("RASAPI32.dll")]
         extern fn RasRenameEntryW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: PCWSTR) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetAutodialAddressA(#[opt] param0: PCSTR, param1: u32, #[opt] param2: *const tagRASAUTODIALENTRYA, param3: u32, param4: u32) -> u32;
+        extern fn RasSetAutodialAddressA(#[opt] param0: PCSTR, param1: u32, #[in] #[opt] param2: *mut tagRASAUTODIALENTRYA, param3: u32, param4: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetAutodialAddressW(#[opt] param0: PCWSTR, param1: u32, #[opt] param2: *const tagRASAUTODIALENTRYW, param3: u32, param4: u32) -> u32;
+        extern fn RasSetAutodialAddressW(#[opt] param0: PCWSTR, param1: u32, #[in] #[opt] param2: *mut tagRASAUTODIALENTRYW, param3: u32, param4: u32) -> u32;
         #[library("RASAPI32.dll")]
         extern fn RasSetAutodialEnableA(param0: u32, param1: BOOL) -> u32;
         #[library("RASAPI32.dll")]
         extern fn RasSetAutodialEnableW(param0: u32, param1: BOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetAutodialParamA(param0: u32, param1: *const void, param2: u32) -> u32;
+        extern fn RasSetAutodialParamA(param0: u32, #[in] param1: *mut void, param2: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetAutodialParamW(param0: u32, param1: *const void, param2: u32) -> u32;
+        extern fn RasSetAutodialParamW(param0: u32, #[in] param1: *mut void, param2: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetCredentialsA(#[opt] param0: PCSTR, param1: PCSTR, param2: *const tagRASCREDENTIALSA, param3: BOOL) -> u32;
+        extern fn RasSetCredentialsA(#[opt] param0: PCSTR, param1: PCSTR, #[in] param2: *mut tagRASCREDENTIALSA, param3: BOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetCredentialsW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: *const tagRASCREDENTIALSW, param3: BOOL) -> u32;
+        extern fn RasSetCredentialsW(#[opt] param0: PCWSTR, param1: PCWSTR, #[in] param2: *mut tagRASCREDENTIALSW, param3: BOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetCustomAuthDataA(#[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, #[size_param(3)] pbCustomAuthData: *const u8, dwSizeofCustomAuthData: u32) -> u32;
+        extern fn RasSetCustomAuthDataA(#[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, #[size_param(3)] #[in] pbCustomAuthData: *mut u8, dwSizeofCustomAuthData: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetCustomAuthDataW(#[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, #[size_param(3)] pbCustomAuthData: *const u8, dwSizeofCustomAuthData: u32) -> u32;
+        extern fn RasSetCustomAuthDataW(#[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, #[size_param(3)] #[in] pbCustomAuthData: *mut u8, dwSizeofCustomAuthData: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetEapUserDataA(#[opt] hToken: HANDLE, #[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, pbEapData: *const u8, dwSizeofEapData: u32) -> u32;
+        extern fn RasSetEapUserDataA(#[opt] hToken: HANDLE, #[opt] pszPhonebook: PCSTR, pszEntry: PCSTR, #[in] pbEapData: *mut u8, dwSizeofEapData: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetEapUserDataW(#[opt] hToken: HANDLE, #[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, pbEapData: *const u8, dwSizeofEapData: u32) -> u32;
+        extern fn RasSetEapUserDataW(#[opt] hToken: HANDLE, #[opt] pszPhonebook: PCWSTR, pszEntry: PCWSTR, #[in] pbEapData: *mut u8, dwSizeofEapData: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetEntryDialParamsA(#[opt] param0: PCSTR, param1: *const tagRASDIALPARAMSA, param2: BOOL) -> u32;
+        extern fn RasSetEntryDialParamsA(#[opt] param0: PCSTR, #[in] param1: *mut tagRASDIALPARAMSA, param2: BOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetEntryDialParamsW(#[opt] param0: PCWSTR, param1: *const tagRASDIALPARAMSW, param2: BOOL) -> u32;
+        extern fn RasSetEntryDialParamsW(#[opt] param0: PCWSTR, #[in] param1: *mut tagRASDIALPARAMSW, param2: BOOL) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, param2: *const tagRASENTRYA, param3: u32, #[opt] param4: *const u8, param5: u32) -> u32;
+        extern fn RasSetEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, #[in] param2: *mut tagRASENTRYA, param3: u32, #[opt] param4: LPBYTE, param5: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: *const tagRASENTRYW, param3: u32, #[opt] param4: *const u8, param5: u32) -> u32;
+        extern fn RasSetEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, #[in] param2: *mut tagRASENTRYW, param3: u32, #[opt] param4: LPBYTE, param5: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetSubEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, param2: u32, param3: *const tagRASSUBENTRYA, param4: u32, #[opt] param5: *const u8, param6: u32) -> u32;
+        extern fn RasSetSubEntryPropertiesA(#[opt] param0: PCSTR, param1: PCSTR, param2: u32, #[in] param3: *mut tagRASSUBENTRYA, param4: u32, #[opt] param5: LPBYTE, param6: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasSetSubEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: u32, param3: *const tagRASSUBENTRYW, param4: u32, #[opt] param5: *const u8, param6: u32) -> u32;
+        extern fn RasSetSubEntryPropertiesW(#[opt] param0: PCWSTR, param1: PCWSTR, param2: u32, #[in] param3: *mut tagRASSUBENTRYW, param4: u32, #[opt] param5: LPBYTE, param6: u32) -> u32;
         #[library("RASAPI32.dll")]
-        extern fn RasUpdateConnection(hrasconn: HRASCONN, lprasupdateconn: *const tagRASUPDATECONN) -> u32;
+        extern fn RasUpdateConnection(hrasconn: HRASCONN, #[in] lprasupdateconn: *mut tagRASUPDATECONN) -> u32;
         #[library("RASAPI32.dll")]
         extern fn RasValidateEntryNameA(#[opt] param0: PCSTR, param1: PCSTR) -> u32;
         #[library("RASAPI32.dll")]

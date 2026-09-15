@@ -44,7 +44,7 @@ pub struct IEnumNetworkConnections_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEnumNetworkConnections_Impl: super::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
     fn Next(&self, celt: u32, rgelt: windows_core::OutRef<INetworkConnection>, pceltfetched: *mut u32) -> windows_core::Result<()>;
@@ -52,7 +52,7 @@ pub trait IEnumNetworkConnections_Impl: super::IDispatch_Impl {
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumNetworkConnections>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IEnumNetworkConnections_Vtbl {
     pub const fn new<Identity: IEnumNetworkConnections_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: IEnumNetworkConnections_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumvar: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -110,7 +110,7 @@ impl IEnumNetworkConnections_Vtbl {
         iid == &<IEnumNetworkConnections as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IEnumNetworkConnections {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IEnumNetworks, IEnumNetworks_Vtbl, 0xdcb00003_570f_4a9b_8d69_199fdba5723b);
@@ -158,7 +158,7 @@ pub struct IEnumNetworks_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEnumNetworks_Impl: super::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
     fn Next(&self, celt: u32, rgelt: windows_core::OutRef<INetwork>, pceltfetched: *mut u32) -> windows_core::Result<()>;
@@ -166,7 +166,7 @@ pub trait IEnumNetworks_Impl: super::IDispatch_Impl {
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumNetworks>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IEnumNetworks_Vtbl {
     pub const fn new<Identity: IEnumNetworks_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: IEnumNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumvar: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -224,7 +224,7 @@ impl IEnumNetworks_Vtbl {
         iid == &<IEnumNetworks as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IEnumNetworks {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(INetwork, INetwork_Vtbl, 0xdcb00002_570f_4a9b_8d69_199fdba5723b);
@@ -333,7 +333,7 @@ pub struct INetwork_Vtbl {
     pub GetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NLM_NETWORK_CATEGORY) -> windows_core::HRESULT,
     pub SetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, NLM_NETWORK_CATEGORY) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetwork_Impl: super::IDispatch_Impl {
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, sznetworknewname: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -349,7 +349,7 @@ pub trait INetwork_Impl: super::IDispatch_Impl {
     fn GetCategory(&self) -> windows_core::Result<NLM_NETWORK_CATEGORY>;
     fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INetwork_Vtbl {
     pub const fn new<Identity: INetwork_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetName<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psznetworkname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -505,7 +505,7 @@ impl INetwork_Vtbl {
         iid == &<INetwork as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for INetwork {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(INetwork2, INetwork2_Vtbl, 0xb5550abb_3391_4310_804f_25dcc325ed81);
@@ -534,11 +534,11 @@ pub struct INetwork2_Vtbl {
     pub base__: INetwork_Vtbl,
     pub IsDomainAuthenticatedBy: unsafe extern "system" fn(*mut core::ffi::c_void, NLM_DOMAIN_AUTHENTICATION_KIND, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetwork2_Impl: INetwork_Impl {
     fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INetwork2_Vtbl {
     pub const fn new<Identity: INetwork2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsDomainAuthenticatedBy<Identity: INetwork2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND, pvalue: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -559,7 +559,7 @@ impl INetwork2_Vtbl {
         iid == &<INetwork2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<INetwork as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for INetwork2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(INetworkConnection, INetworkConnection_Vtbl, 0xdcb00005_570f_4a9b_8d69_199fdba5723b);
@@ -638,7 +638,7 @@ pub struct INetworkConnection_Vtbl {
     pub GetAdapterId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetDomainType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NLM_DOMAIN_TYPE) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetworkConnection_Impl: super::IDispatch_Impl {
     fn GetNetwork(&self) -> windows_core::Result<INetwork>;
     fn IsConnectedToInternet(&self) -> windows_core::Result<super::VARIANT_BOOL>;
@@ -648,7 +648,7 @@ pub trait INetworkConnection_Impl: super::IDispatch_Impl {
     fn GetAdapterId(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetDomainType(&self) -> windows_core::Result<NLM_DOMAIN_TYPE>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INetworkConnection_Vtbl {
     pub const fn new<Identity: INetworkConnection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNetwork<Identity: INetworkConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -750,7 +750,7 @@ impl INetworkConnection_Vtbl {
         iid == &<INetworkConnection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for INetworkConnection {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(INetworkConnection2, INetworkConnection2_Vtbl, 0x00e676ed_5a35_4738_92eb_8581738d0f0a);
@@ -779,11 +779,11 @@ pub struct INetworkConnection2_Vtbl {
     pub base__: INetworkConnection_Vtbl,
     pub IsDomainAuthenticatedBy: unsafe extern "system" fn(*mut core::ffi::c_void, NLM_DOMAIN_AUTHENTICATION_KIND, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetworkConnection2_Impl: INetworkConnection_Impl {
     fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INetworkConnection2_Vtbl {
     pub const fn new<Identity: INetworkConnection2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsDomainAuthenticatedBy<Identity: INetworkConnection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND, pvalue: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -804,7 +804,7 @@ impl INetworkConnection2_Vtbl {
         iid == &<INetworkConnection2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<INetworkConnection as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for INetworkConnection2 {}
 windows_core::imp::define_interface!(INetworkConnectionCost, INetworkConnectionCost_Vtbl, 0xdcb0000a_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkConnectionCost, windows_core::IUnknown);
@@ -1230,7 +1230,7 @@ pub struct INetworkListManager_Vtbl {
     pub SetSimulatedProfileInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::HRESULT,
     pub ClearSimulatedProfileInfo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait INetworkListManager_Impl: super::IDispatch_Impl {
     fn GetNetworks(&self, flags: NLM_ENUM_NETWORK) -> windows_core::Result<IEnumNetworks>;
     fn GetNetwork(&self, gdnetworkid: &windows_core::GUID) -> windows_core::Result<INetwork>;
@@ -1242,7 +1242,7 @@ pub trait INetworkListManager_Impl: super::IDispatch_Impl {
     fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::Result<()>;
     fn ClearSimulatedProfileInfo(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl INetworkListManager_Vtbl {
     pub const fn new<Identity: INetworkListManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNetworks<Identity: INetworkListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: NLM_ENUM_NETWORK, ppenumnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1358,7 +1358,7 @@ impl INetworkListManager_Vtbl {
         iid == &<INetworkListManager as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for INetworkListManager {}
 windows_core::imp::define_interface!(INetworkListManagerEvents, INetworkListManagerEvents_Vtbl, 0xdcb00001_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkListManagerEvents, windows_core::IUnknown);

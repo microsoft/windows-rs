@@ -720,5 +720,6 @@ mod Windows {
             BDA_XMIT_MODE_32K = 8,
             BDA_XMIT_MODE_MAX = 9,
         }
+        const _BDATYPES_: i32 = 1;
     }
 }

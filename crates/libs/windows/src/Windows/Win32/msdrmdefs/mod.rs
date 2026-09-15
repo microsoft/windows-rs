@@ -23,20 +23,14 @@ pub const DRMENCODINGTYPE_RAW: DRMENCODINGTYPE = 5;
 pub const DRMENCODINGTYPE_STRING: DRMENCODINGTYPE = 1;
 pub const DRMENCODINGTYPE_TIME: DRMENCODINGTYPE = 3;
 pub const DRMENCODINGTYPE_UINT: DRMENCODINGTYPE = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DRMENVHANDLE(pub u32);
+pub type DRMENVHANDLE = u32;
 pub const DRMENVHANDLE_INVALID: i32 = 0;
 pub type DRMGLOBALOPTIONS = i32;
 pub const DRMGLOBALOPTIONS_USE_SERVERSECURITYPROCESSOR: DRMGLOBALOPTIONS = 1;
 pub const DRMGLOBALOPTIONS_USE_WINHTTP: DRMGLOBALOPTIONS = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DRMHANDLE(pub u32);
+pub type DRMHANDLE = u32;
 pub const DRMHANDLE_INVALID: i32 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DRMHSESSION(pub u32);
+pub type DRMHSESSION = u32;
 pub const DRMHSESSION_INVALID: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -45,13 +39,9 @@ pub struct DRMID {
     pub wszIDType: windows_core::PWSTR,
     pub wszID: windows_core::PWSTR,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DRMPUBHANDLE(pub u32);
+pub type DRMPUBHANDLE = u32;
 pub const DRMPUBHANDLE_INVALID: i32 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DRMQUERYHANDLE(pub u32);
+pub type DRMQUERYHANDLE = u32;
 pub const DRMQUERYHANDLE_INVALID: i32 = 0;
 pub type DRMSECURITYPROVIDERTYPE = i32;
 pub const DRMSECURITYPROVIDERTYPE_SOFTWARESECREP: DRMSECURITYPROVIDERTYPE = 0;

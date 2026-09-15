@@ -52,7 +52,7 @@ mod Windows {
             D2D1_SVG_DISPLAY_FORCE_DWORD = -1,
         }
         struct D2D1_SVG_LENGTH {
-            value: f32,
+            value: FLOAT,
             units: D2D1_SVG_LENGTH_UNITS,
         }
         #[repr(i32)]
@@ -127,10 +127,10 @@ mod Windows {
             D2D1_SVG_UNIT_TYPE_FORCE_DWORD = -1,
         }
         struct D2D1_SVG_VIEWBOX {
-            x: f32,
-            y: f32,
-            width: f32,
-            height: f32,
+            x: FLOAT,
+            y: FLOAT,
+            width: FLOAT,
+            height: FLOAT,
         }
         #[repr(i32)]
         enum D2D1_SVG_VISIBILITY {
@@ -145,17 +145,17 @@ mod Windows {
         }
         #[guid(0x86b88e4d_afa4_4d7b_88e4_68a51c4a0aec)]
         interface ID2D1SvgDocument: ID2D1Resource {
-            fn SetViewportSize(&self, viewportSize: D2D_SIZE_F) -> HRESULT;
-            fn GetViewportSize(&self) -> D2D_SIZE_F;
+            fn SetViewportSize(&self, viewportSize: D2D1_SIZE_F) -> HRESULT;
+            fn GetViewportSize(&self) -> D2D1_SIZE_F;
             fn SetRoot(&self, #[opt] root: ID2D1SvgElement) -> HRESULT;
             fn GetRoot(&self, root: *mut ID2D1SvgElement);
             fn FindElementById(&self, id: PCWSTR, svgElement: *mut ID2D1SvgElement) -> HRESULT;
             fn Serialize(&self, outputXmlStream: IStream, #[opt] subtree: ID2D1SvgElement) -> HRESULT;
             fn Deserialize(&self, inputXmlStream: IStream, subtree: *mut ID2D1SvgElement) -> HRESULT;
-            fn CreatePaint(&self, paintType: D2D1_SVG_PAINT_TYPE, #[opt] color: *const D2D_COLOR_F, #[opt] id: PCWSTR, paint: *mut ID2D1SvgPaint) -> HRESULT;
+            fn CreatePaint(&self, paintType: D2D1_SVG_PAINT_TYPE, #[opt] color: *const D2D1_COLOR_F, #[opt] id: PCWSTR, paint: *mut ID2D1SvgPaint) -> HRESULT;
             fn CreateStrokeDashArray(&self, #[len_param(1)] #[opt] dashes: *const D2D1_SVG_LENGTH, dashesCount: u32, strokeDashArray: *mut ID2D1SvgStrokeDashArray) -> HRESULT;
-            fn CreatePointCollection(&self, #[len_param(1)] #[opt] points: *const super::Foundation::Numerics::Vector2, pointsCount: u32, pointCollection: *mut ID2D1SvgPointCollection) -> HRESULT;
-            fn CreatePathData(&self, #[len_param(1)] #[opt] segmentData: *const f32, segmentDataCount: u32, #[len_param(3)] #[opt] commands: *const D2D1_SVG_PATH_COMMAND, commandsCount: u32, pathData: *mut ID2D1SvgPathData) -> HRESULT;
+            fn CreatePointCollection(&self, #[len_param(1)] #[opt] points: *const D2D1_POINT_2F, pointsCount: u32, pointCollection: *mut ID2D1SvgPointCollection) -> HRESULT;
+            fn CreatePathData(&self, #[len_param(1)] #[opt] segmentData: *const FLOAT, segmentDataCount: u32, #[len_param(3)] #[opt] commands: *const D2D1_SVG_PATH_COMMAND, commandsCount: u32, pathData: *mut ID2D1SvgPathData) -> HRESULT;
         }
         #[guid(0xac7b67a6_183e_49c1_a823_0ebe40b0db29)]
         interface ID2D1SvgElement: ID2D1Resource {
@@ -194,8 +194,8 @@ mod Windows {
         interface ID2D1SvgPaint: ID2D1SvgAttribute {
             fn SetPaintType(&self, paintType: D2D1_SVG_PAINT_TYPE) -> HRESULT;
             fn GetPaintType(&self) -> D2D1_SVG_PAINT_TYPE;
-            fn SetColor(&self, color: *const D2D_COLOR_F) -> HRESULT;
-            fn GetColor(&self, color: *mut D2D_COLOR_F);
+            fn SetColor(&self, color: *const D2D1_COLOR_F) -> HRESULT;
+            fn GetColor(&self, color: *mut D2D1_COLOR_F);
             fn SetId(&self, id: PCWSTR) -> HRESULT;
             fn GetId(&self, #[len_param(1)] #[out] id: PWSTR, idCount: u32) -> HRESULT;
             fn GetIdLength(&self) -> u32;
@@ -203,8 +203,8 @@ mod Windows {
         #[guid(0xc095e4f4_bb98_43d6_9745_4d1b84ec9888)]
         interface ID2D1SvgPathData: ID2D1SvgAttribute {
             fn RemoveSegmentDataAtEnd(&self, dataCount: u32) -> HRESULT;
-            fn UpdateSegmentData(&self, #[len_param(1)] data: *const f32, dataCount: u32, startIndex: u32) -> HRESULT;
-            fn GetSegmentData(&self, #[len_param(1)] data: *mut f32, dataCount: u32, startIndex: u32) -> HRESULT;
+            fn UpdateSegmentData(&self, #[len_param(1)] data: *const FLOAT, dataCount: u32, startIndex: u32) -> HRESULT;
+            fn GetSegmentData(&self, #[len_param(1)] data: *mut FLOAT, dataCount: u32, startIndex: u32) -> HRESULT;
             fn GetSegmentDataCount(&self) -> u32;
             fn RemoveCommandsAtEnd(&self, commandsCount: u32) -> HRESULT;
             fn UpdateCommands(&self, #[len_param(1)] commands: *const D2D1_SVG_PATH_COMMAND, commandsCount: u32, startIndex: u32) -> HRESULT;
@@ -215,17 +215,17 @@ mod Windows {
         #[guid(0x9dbe4c0d_3572_4dd9_9825_5530813bb712)]
         interface ID2D1SvgPointCollection: ID2D1SvgAttribute {
             fn RemovePointsAtEnd(&self, pointsCount: u32) -> HRESULT;
-            fn UpdatePoints(&self, #[len_param(1)] points: *const super::Foundation::Numerics::Vector2, pointsCount: u32, startIndex: u32) -> HRESULT;
-            fn GetPoints(&self, #[len_param(1)] points: *mut super::Foundation::Numerics::Vector2, pointsCount: u32, startIndex: u32) -> HRESULT;
+            fn UpdatePoints(&self, #[len_param(1)] points: *const D2D1_POINT_2F, pointsCount: u32, startIndex: u32) -> HRESULT;
+            fn GetPoints(&self, #[len_param(1)] points: *mut D2D1_POINT_2F, pointsCount: u32, startIndex: u32) -> HRESULT;
             fn GetPointsCount(&self) -> u32;
         }
         #[guid(0xf1c0ca52_92a3_4f00_b4ce_f35691efd9d9)]
         interface ID2D1SvgStrokeDashArray: ID2D1SvgAttribute {
             fn RemoveDashesAtEnd(&self, dashesCount: u32) -> HRESULT;
             fn UpdateDashes(&self, #[len_param(1)] dashes: *const D2D1_SVG_LENGTH, dashesCount: u32, startIndex: u32) -> HRESULT;
-            fn UpdateDashes(&self, #[len_param(1)] dashes: *const f32, dashesCount: u32, startIndex: u32) -> HRESULT;
+            fn UpdateDashes(&self, #[len_param(1)] dashes: *const FLOAT, dashesCount: u32, startIndex: u32) -> HRESULT;
             fn GetDashes(&self, #[len_param(1)] dashes: *mut D2D1_SVG_LENGTH, dashesCount: u32, startIndex: u32) -> HRESULT;
-            fn GetDashes(&self, #[len_param(1)] dashes: *mut f32, dashesCount: u32, startIndex: u32) -> HRESULT;
+            fn GetDashes(&self, #[len_param(1)] dashes: *mut FLOAT, dashesCount: u32, startIndex: u32) -> HRESULT;
             fn GetDashesCount(&self) -> u32;
         }
     }

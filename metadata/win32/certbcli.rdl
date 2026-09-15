@@ -6,15 +6,15 @@ mod Windows {
         const CSBACKUP_TYPE_LOGS_ONLY: i32 = 2;
         const CSBACKUP_TYPE_MASK: i32 = 3;
         type CSBFT = u16;
-        const CSBFT_CERTSERVER_DATABASE: u32 = 68;
-        const CSBFT_CHECKPOINT_DIR: u32 = 131;
+        const CSBFT_CERTSERVER_DATABASE: CSBFT = 68;
+        const CSBFT_CHECKPOINT_DIR: CSBFT = 131;
         const CSBFT_DATABASE_DIRECTORY: i32 = 64;
         const CSBFT_DIRECTORY: i32 = 128;
-        const CSBFT_LOG: u32 = 33;
-        const CSBFT_LOG_DIR: u32 = 130;
+        const CSBFT_LOG: CSBFT = 33;
+        const CSBFT_LOG_DIR: CSBFT = 130;
         const CSBFT_LOG_DIRECTORY: i32 = 32;
-        const CSBFT_PATCH_FILE: u32 = 37;
-        const CSBFT_UNKNOWN: u32 = 15;
+        const CSBFT_PATCH_FILE: CSBFT = 37;
+        const CSBFT_UNKNOWN: CSBFT = 15;
         const CSCONTROL_RESTART: i32 = 3;
         const CSCONTROL_SHUTDOWN: i32 = 1;
         const CSCONTROL_SUSPEND: i32 = 2;
@@ -31,7 +31,7 @@ mod Windows {
         #[library("certadm.dll")]
         extern fn CertSrvBackupEnd(hbc: HCSBC) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvBackupFree(pv: *const void);
+        extern fn CertSrvBackupFree(#[in] pv: *mut void);
         #[library("certadm.dll")]
         extern fn CertSrvBackupGetBackupLogsW(hbc: HCSBC, ppwszzBackupLogFiles: *mut PWSTR, pcbSize: *mut u32) -> HRESULT;
         #[library("certadm.dll")]
@@ -39,7 +39,7 @@ mod Windows {
         #[library("certadm.dll")]
         extern fn CertSrvBackupGetDynamicFileListW(hbc: HCSBC, ppwszzFileList: *mut PWSTR, pcbSize: *mut u32) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvBackupOpenFileW(hbc: HCSBC, pwszAttachmentName: *const u16, cbReadHintSize: u32, pliFileSize: *mut i64) -> HRESULT;
+        extern fn CertSrvBackupOpenFileW(hbc: HCSBC, pwszAttachmentName: *const u16, cbReadHintSize: u32, pliFileSize: *mut LARGE_INTEGER) -> HRESULT;
         #[library("certadm.dll")]
         extern fn CertSrvBackupPrepareW(pwszServerName: *const u16, grbitJet: u32, dwBackupFlags: u32, phbc: *mut HCSBC) -> HRESULT;
         #[library("certadm.dll")]
@@ -57,9 +57,9 @@ mod Windows {
         #[library("certadm.dll")]
         extern fn CertSrvRestoreRegisterComplete(#[opt] hbc: HCSBC, hrRestoreState: HRESULT) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvRestoreRegisterThroughFile(hbc: HCSBC, #[opt] pwszCheckPointFilePath: *const u16, #[opt] pwszLogPath: *const u16, #[opt] rgrstmap: *const CSEDB_RSTMAPW, crstmap: i32, #[opt] pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
+        extern fn CertSrvRestoreRegisterThroughFile(hbc: HCSBC, #[opt] pwszCheckPointFilePath: *const u16, #[opt] pwszLogPath: *const u16, #[in] #[opt] rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, #[opt] pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
         #[library("certadm.dll")]
-        extern fn CertSrvRestoreRegisterW(#[opt] hbc: HCSBC, #[opt] pwszCheckPointFilePath: *const u16, #[opt] pwszLogPath: *const u16, #[opt] rgrstmap: *const CSEDB_RSTMAPW, crstmap: i32, #[opt] pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
+        extern fn CertSrvRestoreRegisterW(#[opt] hbc: HCSBC, #[opt] pwszCheckPointFilePath: *const u16, #[opt] pwszLogPath: *const u16, #[in] #[opt] rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, #[opt] pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
         #[library("certadm.dll")]
         extern fn CertSrvServerControlW(pwszServerName: *const u16, dwControlFlags: u32, #[opt] pcbOut: *mut u32, #[opt] ppbOut: *mut *mut u8) -> HRESULT;
         extern fn FNCERTSRVBACKUPCLOSE(hbc: HCSBC) -> HRESULT;
@@ -68,7 +68,7 @@ mod Windows {
         extern fn FNCERTSRVBACKUPGETBACKUPLOGSW(hbc: HCSBC, ppwszzBackupLogFiles: *mut *mut u16, pcbSize: *mut u32) -> HRESULT;
         extern fn FNCERTSRVBACKUPGETDATABASENAMESW(hbc: HCSBC, ppwszzAttachmentInformation: *mut *mut u16, pcbSize: *mut u32) -> HRESULT;
         extern fn FNCERTSRVBACKUPGETDYNAMICFILELISTW(hbc: HCSBC, ppwszzFileList: *mut *mut u16, pcbSize: *mut u32) -> HRESULT;
-        extern fn FNCERTSRVBACKUPOPENFILEW(hbc: HCSBC, pwszAttachmentName: *const u16, cbReadHintSize: u32, pliFileSize: *mut i64) -> HRESULT;
+        extern fn FNCERTSRVBACKUPOPENFILEW(hbc: HCSBC, pwszAttachmentName: *const u16, cbReadHintSize: u32, pliFileSize: *mut LARGE_INTEGER) -> HRESULT;
         extern fn FNCERTSRVBACKUPPREPAREW(pwszServerName: *const u16, grbitJet: u32, dwBackupFlags: u32, phbc: *mut HCSBC) -> HRESULT;
         extern fn FNCERTSRVBACKUPREAD(hbc: HCSBC, pvBuffer: *mut void, cbBuffer: u32, pcbRead: *mut u32) -> HRESULT;
         extern fn FNCERTSRVBACKUPTRUNCATELOGS(hbc: HCSBC) -> HRESULT;

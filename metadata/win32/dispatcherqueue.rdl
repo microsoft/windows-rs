@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         #[library("CoreMessaging.dll")]
-        extern fn CreateDispatcherQueueController(options: DispatcherQueueOptions, dispatcherQueueController: *mut super::System::IDispatcherQueueController) -> HRESULT;
+        extern fn CreateDispatcherQueueController(options: DispatcherQueueOptions, dispatcherQueueController: *mut PDISPATCHERQUEUECONTROLLER) -> HRESULT;
         #[repr(i32)]
         enum DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
             DQTAT_COM_NONE = 0,
@@ -19,5 +19,7 @@ mod Windows {
             threadType: DISPATCHERQUEUE_THREAD_TYPE,
             apartmentType: DISPATCHERQUEUE_THREAD_APARTMENTTYPE,
         }
+        type PDISPATCHERQUEUE = super::System::IDispatcherQueue;
+        type PDISPATCHERQUEUECONTROLLER = super::System::IDispatcherQueueController;
     }
 }

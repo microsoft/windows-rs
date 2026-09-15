@@ -1,6 +1,22 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[library("ole32.dll")]
+        extern fn HICON_UserFree(param0: *mut u32, param1: *mut HICON);
+        #[library("ole32.dll")]
+        extern fn HICON_UserFree64(param0: *mut u32, param1: *mut HICON);
+        #[library("ole32.dll")]
+        extern fn HICON_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut HICON) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HICON_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HICON) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HICON_UserSize(param0: *mut u32, param1: u32, param2: *mut HICON) -> u32;
+        #[library("ole32.dll")]
+        extern fn HICON_UserSize64(param0: *mut u32, param1: u32, param2: *mut HICON) -> u32;
+        #[library("ole32.dll")]
+        extern fn HICON_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut HICON) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HICON_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HICON) -> *mut u8;
         #[guid(0x583f34d0_de25_11d2_afdd_00105a2799b5)]
         interface IEnumTfLangBarItems: IUnknown {
             fn Clone(&self, ppEnum: *mut IEnumTfLangBarItems) -> HRESULT;
@@ -65,8 +81,8 @@ mod Windows {
             fn GetItemsStatus(&self, ulCount: u32, prgguid: *const GUID, pdwStatus: *mut u32) -> HRESULT;
             fn GetItemNum(&self, pulCount: *mut u32) -> HRESULT;
             fn GetItems(&self, ulCount: u32, ppItem: *mut ITfLangBarItem, pInfo: *mut TF_LANGBARITEMINFO, pdwStatus: *mut u32, #[in] #[out] pcFetched: *mut u32) -> HRESULT;
-            fn AdviseItemsSink(&self, ulCount: u32, ppunk: *const ITfLangBarItemSink, pguidItem: *const GUID, pdwCookie: *mut u32) -> HRESULT;
-            fn UnadviseItemsSink(&self, ulCount: u32, pdwCookie: *const u32) -> HRESULT;
+            fn AdviseItemsSink(&self, ulCount: u32, #[in] ppunk: *mut ITfLangBarItemSink, pguidItem: *const GUID, pdwCookie: *mut u32) -> HRESULT;
+            fn UnadviseItemsSink(&self, ulCount: u32, #[in] pdwCookie: *mut u32) -> HRESULT;
         }
         #[guid(0x57dbe1a0_de25_11d2_afdd_00105a2799b5)]
         interface ITfLangBarItemSink: IUnknown {
@@ -74,7 +90,7 @@ mod Windows {
         }
         #[guid(0x87955690_e627_11d2_8ddb_00105a2799b5)]
         interface ITfLangBarMgr: IUnknown {
-            fn AdviseEventSink(&self, pSink: ITfLangBarEventSink, hwnd: HWND, dwFlags: u32, pdwCookie: *const u32) -> HRESULT;
+            fn AdviseEventSink(&self, pSink: ITfLangBarEventSink, hwnd: HWND, dwFlags: u32, #[in] pdwCookie: *mut u32) -> HRESULT;
             fn UnadviseEventSink(&self, dwCookie: u32) -> HRESULT;
             fn GetThreadMarshalInterface(&self, dwThreadId: u32, dwType: u32, riid: *const GUID, #[iid_is] ppunk: *mut *mut void) -> HRESULT;
             fn GetThreadLangBarItemMgr(&self, dwThreadId: u32, pplbi: *mut ITfLangBarItemMgr, pdwThreadid: *mut u32) -> HRESULT;
@@ -96,7 +112,7 @@ mod Windows {
         #[guid(0x1e13e9ec_6b33_4d4a_b5eb_8a92f029f356)]
         interface ITfSystemLangBarItem: IUnknown {
             fn SetIcon(&self, hIcon: HICON) -> HRESULT;
-            fn SetTooltipString(&self, pchToolTip: *const u16, cch: u32) -> HRESULT;
+            fn SetTooltipString(&self, #[in] pchToolTip: *mut u16, cch: u32) -> HRESULT;
         }
         #[guid(0x1449d9ab_13cf_4687_aa3e_8d8b18574396)]
         interface ITfSystemLangBarItemSink: IUnknown {
@@ -109,6 +125,8 @@ mod Windows {
             fn GetItemText(&self, pbstrText: *mut BSTR) -> HRESULT;
         }
         const TF_DTLBI_USEPROFILEICON: i32 = 1;
+        #[encoding("ansi")]
+        const TF_FLOATINGLANGBAR_WNDTITLE: String = "TF_FloatingLangBar_WndTitle";
         #[encoding("ansi")]
         const TF_FLOATINGLANGBAR_WNDTITLEA: String = "TF_FloatingLangBar_WndTitle";
         #[encoding("utf-16")]

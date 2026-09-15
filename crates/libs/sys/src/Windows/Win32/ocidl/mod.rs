@@ -1,3 +1,51 @@
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserFree(param0 : *mut u32, param1 : *mut super::HACCEL));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserFree64(param0 : *mut u32, param1 : *mut super::HACCEL));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HACCEL) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HACCEL) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HACCEL) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HACCEL) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HACCEL) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HACCEL_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HACCEL) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserFree(param0 : *mut u32, param1 : *mut super::HPALETTE));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserFree64(param0 : *mut u32, param1 : *mut super::HPALETTE));
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HPALETTE) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HPALETTE) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HPALETTE) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HPALETTE) -> u32);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HPALETTE) -> *mut u8);
+#[cfg(feature = "windef")]
+windows_link::link!("ole32.dll" "system" fn HPALETTE_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HPALETTE) -> *mut u8);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ole32.dll" "system" fn HRGN_UserFree(param0 : *mut u32, param1 : *mut super::HRGN));
+#[cfg(feature = "minwindef")]
+windows_link::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserFree64(param0 : *mut u32, param1 : *mut super::HRGN));
+#[cfg(feature = "minwindef")]
+windows_link::link!("ole32.dll" "system" fn HRGN_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HRGN) -> *mut u8);
+#[cfg(feature = "minwindef")]
+windows_link::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HRGN) -> *mut u8);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ole32.dll" "system" fn HRGN_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HRGN) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HRGN) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ole32.dll" "system" fn HRGN_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HRGN) -> *mut u8);
+#[cfg(feature = "minwindef")]
+windows_link::link!("api-ms-win-core-marshal-l1-1-0.dll" "system" fn HRGN_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HRGN) -> *mut u8);
 pub type ACTIVATEFLAGS = i32;
 pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = 1;
 #[repr(C)]
@@ -7,10 +55,11 @@ pub struct CADWORD {
     pub pElems: *mut u32,
 }
 #[repr(C)]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy, Default)]
 pub struct CALPOLESTR {
     pub cElems: u32,
-    pub pElems: *mut windows_sys::core::PWSTR,
+    pub pElems: *mut super::LPOLESTR,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -73,18 +122,73 @@ pub struct LICINFO {
     pub fRuntimeKeyAvail: windows_sys::core::BOOL,
     pub fLicVerified: windows_sys::core::BOOL,
 }
+#[cfg(feature = "objidl")]
+pub type LPADVISESINKEX = *mut core::ffi::c_void;
 pub type LPCADWORD = *mut CADWORD;
+#[cfg(feature = "wtypesbase")]
 pub type LPCALPOLESTR = *mut CALPOLESTR;
 pub type LPCAUUID = *mut CAUUID;
+#[cfg(feature = "unknwnbase")]
+pub type LPCLASSFACTORY2 = *mut core::ffi::c_void;
 pub type LPCONNECTDATA = *mut CONNECTDATA;
+pub type LPCONNECTIONPOINT = *mut core::ffi::c_void;
+pub type LPCONNECTIONPOINTCONTAINER = *mut core::ffi::c_void;
 #[cfg(feature = "windef")]
 pub type LPCONTROLINFO = *mut CONTROLINFO;
+pub type LPENUMCONNECTIONPOINTS = *mut core::ffi::c_void;
+pub type LPENUMCONNECTIONS = *mut core::ffi::c_void;
+pub type LPENUMOLEUNDOUNITS = *mut core::ffi::c_void;
+pub type LPFONT = *mut core::ffi::c_void;
+#[cfg(feature = "oaidl")]
+pub type LPFONTDISP = *mut core::ffi::c_void;
+#[cfg(feature = "oaidl")]
+pub type LPFONTEVENTS = *mut core::ffi::c_void;
 pub type LPLICINFO = *mut LICINFO;
+pub type LPOBJECTWITHSITE = *mut core::ffi::c_void;
+pub type LPOLECONTROL = *mut core::ffi::c_void;
+pub type LPOLECONTROLSITE = *mut core::ffi::c_void;
+#[cfg(feature = "oleidl")]
+pub type LPOLEINPLACEOBJECTWINDOWLESS = *mut core::ffi::c_void;
+#[cfg(feature = "oleidl")]
+pub type LPOLEINPLACESITEEX = *mut core::ffi::c_void;
+#[cfg(feature = "oleidl")]
+pub type LPOLEINPLACESITEWINDOWLESS = *mut core::ffi::c_void;
+pub type LPOLEPARENTUNDOUNIT = *mut core::ffi::c_void;
+pub type LPOLEUNDOMANAGER = *mut core::ffi::c_void;
+pub type LPOLEUNDOUNIT = *mut core::ffi::c_void;
+pub type LPPERPROPERTYBROWSING = *mut core::ffi::c_void;
+#[cfg(feature = "objidl")]
+pub type LPPERSISTMEMORY = *mut core::ffi::c_void;
+#[cfg(feature = "objidl")]
+pub type LPPERSISTPROPERTYBAG = *mut core::ffi::c_void;
+#[cfg(feature = "objidl")]
+pub type LPPERSISTPROPERTYBAG2 = *mut core::ffi::c_void;
+#[cfg(feature = "objidl")]
+pub type LPPERSISTSTREAMINIT = *mut core::ffi::c_void;
+pub type LPPICTURE = *mut core::ffi::c_void;
+pub type LPPICTURE2 = *mut core::ffi::c_void;
+#[cfg(feature = "oaidl")]
+pub type LPPICTUREDISP = *mut core::ffi::c_void;
+pub type LPPOINTERINACTIVE = *mut core::ffi::c_void;
+#[cfg(feature = "minwindef")]
 pub type LPPOINTF = *mut POINTF;
-#[cfg(feature = "windef")]
+pub type LPPROPERTYBAG2 = *mut core::ffi::c_void;
+pub type LPPROPERTYNOTIFYSINK = *mut core::ffi::c_void;
+pub type LPPROPERTYPAGE = *mut core::ffi::c_void;
+pub type LPPROPERTYPAGE2 = *mut core::ffi::c_void;
+pub type LPPROPERTYPAGESITE = *mut core::ffi::c_void;
+#[cfg(all(feature = "windef", feature = "wtypesbase"))]
 pub type LPPROPPAGEINFO = *mut PROPPAGEINFO;
+pub type LPPROVIDECLASSINFO = *mut core::ffi::c_void;
+pub type LPPROVIDECLASSINFO2 = *mut core::ffi::c_void;
+pub type LPPROVIDEMULTIPLECLASSINFO = *mut core::ffi::c_void;
+pub type LPQUICKACTIVATE = *mut core::ffi::c_void;
+pub type LPSIMPLEFRAMESITE = *mut core::ffi::c_void;
+pub type LPSPECIFYPROPERTYPAGES = *mut core::ffi::c_void;
 #[cfg(feature = "wingdi")]
 pub type LPTEXTMETRICOLE = *mut TEXTMETRICOLE;
+#[cfg(feature = "oleidl")]
+pub type LPVIEWOBJECTEX = *mut core::ffi::c_void;
 pub const MULTICLASSINFO_GETIIDPRIMARY: i32 = 4;
 pub const MULTICLASSINFO_GETIIDSOURCE: i32 = 8;
 pub const MULTICLASSINFO_GETNUMRESERVEDDISPIDS: i32 = 2;
@@ -100,6 +204,10 @@ pub type OLE_XSIZE_HIMETRIC = i32;
 pub type OLE_YPOS_HIMETRIC = i32;
 pub type OLE_YSIZE_HIMETRIC = i32;
 pub type PCONNECTDATA = *mut CONNECTDATA;
+pub type PCONNECTIONPOINT = *mut core::ffi::c_void;
+pub type PCONNECTIONPOINTCONTAINER = *mut core::ffi::c_void;
+pub type PENUMCONNECTIONPOINTS = *mut core::ffi::c_void;
+pub type PENUMCONNECTIONS = *mut core::ffi::c_void;
 pub type PICTUREATTRIBUTES = i32;
 pub const PICTURE_SCALABLE: PICTUREATTRIBUTES = 1;
 pub const PICTURE_TRANSPARENT: PICTUREATTRIBUTES = 2;
@@ -108,20 +216,21 @@ pub const POINTERINACTIVE_ACTIVATEONDRAG: POINTERINACTIVE = 4;
 pub const POINTERINACTIVE_ACTIVATEONENTRY: POINTERINACTIVE = 1;
 pub const POINTERINACTIVE_DEACTIVATEONLEAVE: POINTERINACTIVE = 2;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct POINTF {
-    pub x: f32,
-    pub y: f32,
+    pub x: super::FLOAT,
+    pub y: super::FLOAT,
 }
 #[repr(C)]
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct PROPBAG2 {
     pub dwType: u32,
     pub vt: super::VARTYPE,
     pub cfType: super::CLIPFORMAT,
     pub dwHint: u32,
-    pub pstrName: windows_sys::core::PWSTR,
+    pub pstrName: super::LPOLESTR,
     pub clsid: windows_sys::core::GUID,
 }
 pub type PROPBAG2_TYPE = i32;
@@ -133,14 +242,14 @@ pub const PROPBAG2_TYPE_STREAM: PROPBAG2_TYPE = 4;
 pub const PROPBAG2_TYPE_UNDEFINED: PROPBAG2_TYPE = 0;
 pub const PROPBAG2_TYPE_URL: PROPBAG2_TYPE = 2;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct PROPPAGEINFO {
     pub cb: u32,
-    pub pszTitle: windows_sys::core::PWSTR,
+    pub pszTitle: super::LPOLESTR,
     pub size: super::SIZE,
-    pub pszDocString: windows_sys::core::PWSTR,
-    pub pszHelpFile: windows_sys::core::PWSTR,
+    pub pszDocString: super::LPOLESTR,
+    pub pszHelpFile: super::LPOLESTR,
     pub dwHelpContext: u32,
 }
 pub type PROPPAGESTATUS = i32;
@@ -148,7 +257,7 @@ pub const PROPPAGESTATUS_CLEAN: PROPPAGESTATUS = 4;
 pub const PROPPAGESTATUS_DIRTY: PROPPAGESTATUS = 1;
 pub const PROPPAGESTATUS_VALIDATE: PROPPAGESTATUS = 2;
 #[repr(C)]
-#[cfg(all(feature = "objidl", feature = "oleidl", feature = "urlmon", feature = "windef"))]
+#[cfg(all(feature = "objidl", feature = "oleidl", feature = "servprov", feature = "urlmon", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct QACONTAINER {
     pub cbSize: u32,

@@ -2,16 +2,16 @@
 windows_link::link!("setupapi.dll" "system" fn InstallHinfSectionA(window : super::HWND, modulehandle : super::HINSTANCE, commandline : windows_sys::core::PCSTR, showcommand : i32));
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("setupapi.dll" "system" fn InstallHinfSectionW(window : super::HWND, modulehandle : super::HINSTANCE, commandline : windows_sys::core::PCWSTR, showcommand : i32));
-windows_link::link!("setupapi.dll" "system" fn SetupAddInstallSectionToDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_sys::core::PCSTR, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupAddInstallSectionToDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_sys::core::PCWSTR, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupAddSectionToDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_sys::core::PCSTR, operation : u32, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupAddSectionToDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_sys::core::PCWSTR, operation : u32, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupAddToDiskSpaceListA(diskspace : HDSKSPC, targetfilespec : windows_sys::core::PCSTR, filesize : i64, operation : u32, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupAddToDiskSpaceListW(diskspace : HDSKSPC, targetfilespec : windows_sys::core::PCWSTR, filesize : i64, operation : u32, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupAddInstallSectionToDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_sys::core::PCSTR, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupAddInstallSectionToDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_sys::core::PCWSTR, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupAddSectionToDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_sys::core::PCSTR, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupAddSectionToDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_sys::core::PCWSTR, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupAddToDiskSpaceListA(diskspace : HDSKSPC, targetfilespec : windows_sys::core::PCSTR, filesize : i64, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupAddToDiskSpaceListW(diskspace : HDSKSPC, targetfilespec : windows_sys::core::PCWSTR, filesize : i64, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupAddToSourceListA(flags : u32, source : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupAddToSourceListW(flags : u32, source : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupAdjustDiskSpaceListA(diskspace : HDSKSPC, driveroot : windows_sys::core::PCSTR, amount : i64, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupAdjustDiskSpaceListW(diskspace : HDSKSPC, driveroot : windows_sys::core::PCWSTR, amount : i64, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupAdjustDiskSpaceListA(diskspace : HDSKSPC, driveroot : windows_sys::core::PCSTR, amount : i64, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupAdjustDiskSpaceListW(diskspace : HDSKSPC, driveroot : windows_sys::core::PCWSTR, amount : i64, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("setupapi.dll" "system" fn SetupBackupErrorA(hwndparent : super::HWND, dialogtitle : windows_sys::core::PCSTR, sourcefile : windows_sys::core::PCSTR, targetfile : windows_sys::core::PCSTR, win32errorcode : u32, style : u32) -> u32);
 #[cfg(feature = "windef")]
@@ -26,16 +26,20 @@ windows_link::link!("setupapi.dll" "system" fn SetupCommitFileQueueA(owner : sup
 windows_link::link!("setupapi.dll" "system" fn SetupCommitFileQueueW(owner : super::HWND, queuehandle : HSPFILEQ, msghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupConfigureWmiFromInfSectionA(infhandle : HINF, sectionname : windows_sys::core::PCSTR, flags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupConfigureWmiFromInfSectionW(infhandle : HINF, sectionname : windows_sys::core::PCWSTR, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupCopyErrorA(hwndparent : super::HWND, dialogtitle : windows_sys::core::PCSTR, diskname : windows_sys::core::PCSTR, pathtosource : windows_sys::core::PCSTR, sourcefile : windows_sys::core::PCSTR, targetpathfile : windows_sys::core::PCSTR, win32errorcode : u32, style : u32, pathbuffer : windows_sys::core::PSTR, pathbuffersize : u32, pathrequiredsize : *mut u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupCopyErrorW(hwndparent : super::HWND, dialogtitle : windows_sys::core::PCWSTR, diskname : windows_sys::core::PCWSTR, pathtosource : windows_sys::core::PCWSTR, sourcefile : windows_sys::core::PCWSTR, targetpathfile : windows_sys::core::PCWSTR, win32errorcode : u32, style : u32, pathbuffer : windows_sys::core::PWSTR, pathbuffersize : u32, pathrequiredsize : *mut u32) -> u32);
-windows_link::link!("setupapi.dll" "system" fn SetupCopyOEMInfA(sourceinffilename : windows_sys::core::PCSTR, oemsourcemedialocation : windows_sys::core::PCSTR, oemsourcemediatype : u32, copystyle : u32, destinationinffilename : windows_sys::core::PSTR, destinationinffilenamesize : u32, requiredsize : *mut u32, destinationinffilenamecomponent : *mut windows_sys::core::PSTR) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupCopyOEMInfW(sourceinffilename : windows_sys::core::PCWSTR, oemsourcemedialocation : windows_sys::core::PCWSTR, oemsourcemediatype : u32, copystyle : u32, destinationinffilename : windows_sys::core::PWSTR, destinationinffilenamesize : u32, requiredsize : *mut u32, destinationinffilenamecomponent : *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupCreateDiskSpaceListA(reserved1 : *const core::ffi::c_void, reserved2 : u32, flags : u32) -> HDSKSPC);
-windows_link::link!("setupapi.dll" "system" fn SetupCreateDiskSpaceListW(reserved1 : *const core::ffi::c_void, reserved2 : u32, flags : u32) -> HDSKSPC);
-windows_link::link!("setupapi.dll" "system" fn SetupDecompressOrCopyFileA(sourcefilename : windows_sys::core::PCSTR, targetfilename : windows_sys::core::PCSTR, compressiontype : *const u32) -> u32);
-windows_link::link!("setupapi.dll" "system" fn SetupDecompressOrCopyFileW(sourcefilename : windows_sys::core::PCWSTR, targetfilename : windows_sys::core::PCWSTR, compressiontype : *const u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupCopyErrorA(hwndparent : super::HWND, dialogtitle : windows_sys::core::PCSTR, diskname : windows_sys::core::PCSTR, pathtosource : windows_sys::core::PCSTR, sourcefile : windows_sys::core::PCSTR, targetpathfile : windows_sys::core::PCSTR, win32errorcode : u32, style : u32, pathbuffer : windows_sys::core::PSTR, pathbuffersize : u32, pathrequiredsize : super::PDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupCopyErrorW(hwndparent : super::HWND, dialogtitle : windows_sys::core::PCWSTR, diskname : windows_sys::core::PCWSTR, pathtosource : windows_sys::core::PCWSTR, sourcefile : windows_sys::core::PCWSTR, targetpathfile : windows_sys::core::PCWSTR, win32errorcode : u32, style : u32, pathbuffer : windows_sys::core::PWSTR, pathbuffersize : u32, pathrequiredsize : super::PDWORD) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupCopyOEMInfA(sourceinffilename : windows_sys::core::PCSTR, oemsourcemedialocation : windows_sys::core::PCSTR, oemsourcemediatype : u32, copystyle : u32, destinationinffilename : windows_sys::core::PSTR, destinationinffilenamesize : u32, requiredsize : super::PDWORD, destinationinffilenamecomponent : *mut windows_sys::core::PSTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupCopyOEMInfW(sourceinffilename : windows_sys::core::PCWSTR, oemsourcemedialocation : windows_sys::core::PCWSTR, oemsourcemediatype : u32, copystyle : u32, destinationinffilename : windows_sys::core::PWSTR, destinationinffilenamesize : u32, requiredsize : super::PDWORD, destinationinffilenamecomponent : *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupCreateDiskSpaceListA(reserved1 : *mut core::ffi::c_void, reserved2 : u32, flags : u32) -> HDSKSPC);
+windows_link::link!("setupapi.dll" "system" fn SetupCreateDiskSpaceListW(reserved1 : *mut core::ffi::c_void, reserved2 : u32, flags : u32) -> HDSKSPC);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDecompressOrCopyFileA(sourcefilename : windows_sys::core::PCSTR, targetfilename : windows_sys::core::PCSTR, compressiontype : super::PUINT) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDecompressOrCopyFileW(sourcefilename : windows_sys::core::PCWSTR, targetfilename : windows_sys::core::PCWSTR, compressiontype : super::PUINT) -> u32);
 windows_link::link!("setupapi.dll" "system" fn SetupDefaultQueueCallbackA(context : *const core::ffi::c_void, notification : u32, param1 : usize, param2 : usize) -> u32);
 windows_link::link!("setupapi.dll" "system" fn SetupDefaultQueueCallbackW(context : *const core::ffi::c_void, notification : u32, param1 : usize, param2 : usize) -> u32);
 #[cfg(feature = "windef")]
@@ -43,290 +47,366 @@ windows_link::link!("setupapi.dll" "system" fn SetupDeleteErrorA(hwndparent : su
 #[cfg(feature = "windef")]
 windows_link::link!("setupapi.dll" "system" fn SetupDeleteErrorW(hwndparent : super::HWND, dialogtitle : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, win32errorcode : u32, style : u32) -> u32);
 windows_link::link!("setupapi.dll" "system" fn SetupDestroyDiskSpaceList(diskspace : HDSKSPC) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiAskForOEMDisk(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoList(flags : u32, classguidlist : *mut windows_sys::core::GUID, classguidlistsize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoListExA(flags : u32, classguidlist : *mut windows_sys::core::GUID, classguidlistsize : u32, requiredsize : *mut u32, machinename : windows_sys::core::PCSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoListExW(flags : u32, classguidlist : *mut windows_sys::core::GUID, classguidlistsize : u32, requiredsize : *mut u32, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiBuildDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, drivertype : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiCallClassInstaller(installfunction : DI_FUNCTION, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiAskForOEMDisk(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoList(flags : u32, classguidlist : super::LPGUID, classguidlistsize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoListExA(flags : u32, classguidlist : super::LPGUID, classguidlistsize : u32, requiredsize : super::PDWORD, machinename : windows_sys::core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoListExW(flags : u32, classguidlist : super::LPGUID, classguidlistsize : u32, requiredsize : super::PDWORD, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiBuildDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, drivertype : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiCallClassInstaller(installfunction : DI_FUNCTION, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupDiCancelDriverInfoSearch(deviceinfoset : HDEVINFO) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiChangeState(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameA(classname : windows_sys::core::PCSTR, classguidlist : *mut windows_sys::core::GUID, classguidlistsize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameExA(classname : windows_sys::core::PCSTR, classguidlist : *mut windows_sys::core::GUID, classguidlistsize : u32, requiredsize : *mut u32, machinename : windows_sys::core::PCSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameExW(classname : windows_sys::core::PCWSTR, classguidlist : *mut windows_sys::core::GUID, classguidlistsize : u32, requiredsize : *mut u32, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameW(classname : windows_sys::core::PCWSTR, classguidlist : *mut windows_sys::core::GUID, classguidlistsize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidA(classguid : *const windows_sys::core::GUID, classname : windows_sys::core::PSTR, classnamesize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidExA(classguid : *const windows_sys::core::GUID, classname : windows_sys::core::PSTR, classnamesize : u32, requiredsize : *mut u32, machinename : windows_sys::core::PCSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidExW(classguid : *const windows_sys::core::GUID, classname : windows_sys::core::PWSTR, classnamesize : u32, requiredsize : *mut u32, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidW(classguid : *const windows_sys::core::GUID, classname : windows_sys::core::PWSTR, classnamesize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiChangeState(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameA(classname : windows_sys::core::PCSTR, classguidlist : super::LPGUID, classguidlistsize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameExA(classname : windows_sys::core::PCSTR, classguidlist : super::LPGUID, classguidlistsize : u32, requiredsize : super::PDWORD, machinename : windows_sys::core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameExW(classname : windows_sys::core::PCWSTR, classguidlist : super::LPGUID, classguidlistsize : u32, requiredsize : super::PDWORD, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameW(classname : windows_sys::core::PCWSTR, classguidlist : super::LPGUID, classguidlistsize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, infhandle : HINF, infsectionname : windows_sys::core::PCSTR) -> super::HKEY);
+windows_link::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidA(classguid : *const windows_sys::core::GUID, classname : windows_sys::core::PSTR, classnamesize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, infhandle : HINF, infsectionname : windows_sys::core::PCWSTR) -> super::HKEY);
+windows_link::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidExA(classguid : *const windows_sys::core::GUID, classname : windows_sys::core::PSTR, classnamesize : u32, requiredsize : super::PDWORD, machinename : windows_sys::core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidExW(classguid : *const windows_sys::core::GUID, classname : windows_sys::core::PWSTR, classnamesize : u32, requiredsize : super::PDWORD, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidW(classguid : *const windows_sys::core::GUID, classname : windows_sys::core::PWSTR, classnamesize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, infhandle : HINF, infsectionname : windows_sys::core::PCSTR) -> super::HKEY);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, infhandle : HINF, infsectionname : windows_sys::core::PCWSTR) -> super::HKEY);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoA(deviceinfoset : HDEVINFO, devicename : windows_sys::core::PCSTR, classguid : *const windows_sys::core::GUID, devicedescription : windows_sys::core::PCSTR, hwndparent : super::HWND, creationflags : u32, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoA(deviceinfoset : HDEVINFO, devicename : windows_sys::core::PCSTR, classguid : *const windows_sys::core::GUID, devicedescription : windows_sys::core::PCSTR, hwndparent : super::HWND, creationflags : u32, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoList(classguid : *const windows_sys::core::GUID, hwndparent : super::HWND) -> HDEVINFO);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExA(classguid : *const windows_sys::core::GUID, hwndparent : super::HWND, machinename : windows_sys::core::PCSTR, reserved : *const core::ffi::c_void) -> HDEVINFO);
+windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExA(classguid : *const windows_sys::core::GUID, hwndparent : super::HWND, machinename : windows_sys::core::PCSTR, reserved : *mut core::ffi::c_void) -> HDEVINFO);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExW(classguid : *const windows_sys::core::GUID, hwndparent : super::HWND, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> HDEVINFO);
+windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExW(classguid : *const windows_sys::core::GUID, hwndparent : super::HWND, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> HDEVINFO);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoW(deviceinfoset : HDEVINFO, devicename : windows_sys::core::PCWSTR, classguid : *const windows_sys::core::GUID, devicedescription : windows_sys::core::PCWSTR, hwndparent : super::HWND, creationflags : u32, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, interfaceclassguid : *const windows_sys::core::GUID, referencestring : windows_sys::core::PCSTR, creationflags : u32, deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoW(deviceinfoset : HDEVINFO, devicename : windows_sys::core::PCWSTR, classguid : *const windows_sys::core::GUID, devicedescription : windows_sys::core::PCWSTR, hwndparent : super::HWND, creationflags : u32, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, interfaceclassguid : *const windows_sys::core::GUID, referencestring : windows_sys::core::PCSTR, creationflags : u32, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : super::REGSAM, infhandle : HINF, infsectionname : windows_sys::core::PCSTR) -> super::HKEY);
+windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : super::REGSAM, infhandle : HINF, infsectionname : windows_sys::core::PCSTR) -> super::HKEY);
 #[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : super::REGSAM, infhandle : HINF, infsectionname : windows_sys::core::PCWSTR) -> super::HKEY);
-windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, interfaceclassguid : *const windows_sys::core::GUID, referencestring : windows_sys::core::PCWSTR, creationflags : u32, deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiDeleteDevRegKey(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiDeleteDeviceInfo(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiDeleteDeviceInterfaceData(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, reserved : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : super::REGSAM, infhandle : HINF, infsectionname : windows_sys::core::PCWSTR) -> super::HKEY);
+windows_link::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, interfaceclassguid : *const windows_sys::core::GUID, referencestring : windows_sys::core::PCWSTR, creationflags : u32, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiDeleteDevRegKey(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiDeleteDeviceInfo(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiDeleteDeviceInterfaceData(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, reserved : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "commctrl")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiDestroyClassImageList(classimagelistdata : *const SP_CLASSIMAGELIST_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiDestroyClassImageList(classimagelistdata : PSP_CLASSIMAGELIST_DATA) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupDiDestroyDeviceInfoList(deviceinfoset : HDEVINFO) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiDestroyDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiDestroyDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, drivertype : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("setupapi.dll" "system" fn SetupDiDrawMiniIcon(hdc : super::HDC, rc : super::RECT, miniiconindex : i32, flags : u32) -> i32);
-windows_link::link!("setupapi.dll" "system" fn SetupDiEnumDeviceInfo(deviceinfoset : HDEVINFO, memberindex : u32, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiEnumDeviceInterfaces(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, interfaceclassguid : *const windows_sys::core::GUID, memberindex : u32, deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiEnumDeviceInfo(deviceinfoset : HDEVINFO, memberindex : u32, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiEnumDeviceInterfaces(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, interfaceclassguid : *const windows_sys::core::GUID, memberindex : u32, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : u32, memberindex : u32, driverinfodata : PSP_DRVINFO_DATA_A) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, drivertype : u32, memberindex : u32, driverinfodata : PSP_DRVINFO_DATA_A) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : u32, memberindex : u32, driverinfodata : PSP_DRVINFO_DATA_W) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetActualModelsSectionA(context : *const INFCONTEXT, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_sys::core::PSTR, infsectionwithextsize : u32, requiredsize : *mut u32, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetActualModelsSectionW(context : *const INFCONTEXT, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_sys::core::PWSTR, infsectionwithextsize : u32, requiredsize : *mut u32, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallA(infhandle : HINF, infsectionname : windows_sys::core::PCSTR, infsectionwithext : windows_sys::core::PSTR, infsectionwithextsize : u32, requiredsize : *mut u32, extension : *mut windows_sys::core::PSTR) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallExA(infhandle : HINF, infsectionname : windows_sys::core::PCSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_sys::core::PSTR, infsectionwithextsize : u32, requiredsize : *mut u32, extension : *mut windows_sys::core::PSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallExW(infhandle : HINF, infsectionname : windows_sys::core::PCWSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_sys::core::PWSTR, infsectionwithextsize : u32, requiredsize : *mut u32, extension : *mut windows_sys::core::PWSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallW(infhandle : HINF, infsectionname : windows_sys::core::PCWSTR, infsectionwithext : windows_sys::core::PWSTR, infsectionwithextsize : u32, requiredsize : *mut u32, extension : *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassBitmapIndex(classguid : *const windows_sys::core::GUID, miniiconindex : *mut i32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionA(classguid : *const windows_sys::core::GUID, classdescription : windows_sys::core::PSTR, classdescriptionsize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionExA(classguid : *const windows_sys::core::GUID, classdescription : windows_sys::core::PSTR, classdescriptionsize : u32, requiredsize : *mut u32, machinename : windows_sys::core::PCSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionExW(classguid : *const windows_sys::core::GUID, classdescription : windows_sys::core::PWSTR, classdescriptionsize : u32, requiredsize : *mut u32, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionW(classguid : *const windows_sys::core::GUID, classdescription : windows_sys::core::PWSTR, classdescriptionsize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, drivertype : u32, memberindex : u32, driverinfodata : PSP_DRVINFO_DATA_W) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetActualModelsSectionA(context : PINFCONTEXT, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_sys::core::PSTR, infsectionwithextsize : u32, requiredsize : super::PDWORD, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetActualModelsSectionW(context : PINFCONTEXT, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_sys::core::PWSTR, infsectionwithextsize : u32, requiredsize : super::PDWORD, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallA(infhandle : HINF, infsectionname : windows_sys::core::PCSTR, infsectionwithext : windows_sys::core::PSTR, infsectionwithextsize : u32, requiredsize : super::PDWORD, extension : *mut windows_sys::core::PSTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallExA(infhandle : HINF, infsectionname : windows_sys::core::PCSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_sys::core::PSTR, infsectionwithextsize : u32, requiredsize : super::PDWORD, extension : *mut windows_sys::core::PSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallExW(infhandle : HINF, infsectionname : windows_sys::core::PCWSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_sys::core::PWSTR, infsectionwithextsize : u32, requiredsize : super::PDWORD, extension : *mut windows_sys::core::PWSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallW(infhandle : HINF, infsectionname : windows_sys::core::PCWSTR, infsectionwithext : windows_sys::core::PWSTR, infsectionwithextsize : u32, requiredsize : super::PDWORD, extension : *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassBitmapIndex(classguid : *const windows_sys::core::GUID, miniiconindex : super::PINT) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionA(classguid : *const windows_sys::core::GUID, classdescription : windows_sys::core::PSTR, classdescriptionsize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionExA(classguid : *const windows_sys::core::GUID, classdescription : windows_sys::core::PSTR, classdescriptionsize : u32, requiredsize : super::PDWORD, machinename : windows_sys::core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionExW(classguid : *const windows_sys::core::GUID, classdescription : windows_sys::core::PWSTR, classdescriptionsize : u32, requiredsize : super::PDWORD, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionW(classguid : *const windows_sys::core::GUID, classdescription : windows_sys::core::PWSTR, classdescriptionsize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt", feature = "winuser"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDevPropertySheetsA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, propertysheetheader : super::LPPROPSHEETHEADERA, propertysheetheaderpagelistsize : u32, requiredsize : *mut u32, propertysheettype : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDevPropertySheetsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertysheetheader : super::LPPROPSHEETHEADERA, propertysheetheaderpagelistsize : u32, requiredsize : super::PDWORD, propertysheettype : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt", feature = "winuser"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDevPropertySheetsW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, propertysheetheader : super::LPPROPSHEETHEADERW, propertysheetheaderpagelistsize : u32, requiredsize : *mut u32, propertysheettype : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDevPropertySheetsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertysheetheader : super::LPPROPSHEETHEADERW, propertysheetheaderpagelistsize : u32, requiredsize : super::PDWORD, propertysheettype : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDevsA(classguid : *const windows_sys::core::GUID, enumerator : windows_sys::core::PCSTR, hwndparent : super::HWND, flags : u32) -> HDEVINFO);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExA(classguid : *const windows_sys::core::GUID, enumerator : windows_sys::core::PCSTR, hwndparent : super::HWND, flags : u32, deviceinfoset : HDEVINFO, machinename : windows_sys::core::PCSTR, reserved : *const core::ffi::c_void) -> HDEVINFO);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExA(classguid : *const windows_sys::core::GUID, enumerator : windows_sys::core::PCSTR, hwndparent : super::HWND, flags : u32, deviceinfoset : HDEVINFO, machinename : windows_sys::core::PCSTR, reserved : *mut core::ffi::c_void) -> HDEVINFO);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExW(classguid : *const windows_sys::core::GUID, enumerator : windows_sys::core::PCWSTR, hwndparent : super::HWND, flags : u32, deviceinfoset : HDEVINFO, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> HDEVINFO);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExW(classguid : *const windows_sys::core::GUID, enumerator : windows_sys::core::PCWSTR, hwndparent : super::HWND, flags : u32, deviceinfoset : HDEVINFO, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> HDEVINFO);
 #[cfg(feature = "windef")]
 windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassDevsW(classguid : *const windows_sys::core::GUID, enumerator : windows_sys::core::PCWSTR, hwndparent : super::HWND, flags : u32) -> HDEVINFO);
+#[cfg(all(feature = "commctrl", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassImageIndex(classimagelistdata : PSP_CLASSIMAGELIST_DATA, classguid : *const windows_sys::core::GUID, imageindex : super::PINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "commctrl")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassImageIndex(classimagelistdata : *const SP_CLASSIMAGELIST_DATA, classguid : *const windows_sys::core::GUID, imageindex : *mut i32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassImageList(classimagelistdata : PSP_CLASSIMAGELIST_DATA) -> windows_sys::core::BOOL);
 #[cfg(feature = "commctrl")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassImageList(classimagelistdata : *mut SP_CLASSIMAGELIST_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassImageListExA(classimagelistdata : PSP_CLASSIMAGELIST_DATA, machinename : windows_sys::core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "commctrl")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassImageListExA(classimagelistdata : *mut SP_CLASSIMAGELIST_DATA, machinename : windows_sys::core::PCSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "commctrl")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassImageListExW(classimagelistdata : *mut SP_CLASSIMAGELIST_DATA, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, classinstallparams : *mut SP_CLASSINSTALL_HEADER, classinstallparamssize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, classinstallparams : *mut SP_CLASSINSTALL_HEADER, classinstallparamssize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "devpropdef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyExW(classguid : *const windows_sys::core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, flags : u32, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "devpropdef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyKeys(classguid : *const windows_sys::core::GUID, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : *mut u32, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "devpropdef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyKeysExW(classguid : *const windows_sys::core::GUID, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : *mut u32, flags : u32, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "devpropdef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyW(classguid : *const windows_sys::core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, flags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassRegistryPropertyA(classguid : *const windows_sys::core::GUID, property : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, machinename : windows_sys::core::PCSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassRegistryPropertyW(classguid : *const windows_sys::core::GUID, property : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetCustomDevicePropertyA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, custompropertyname : windows_sys::core::PCSTR, flags : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetCustomDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, custompropertyname : windows_sys::core::PCWSTR, flags : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInfoListClass(deviceinfoset : HDEVINFO, classguid : *mut windows_sys::core::GUID) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassImageListExW(classimagelistdata : PSP_CLASSIMAGELIST_DATA, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, classinstallparams : PSP_CLASSINSTALL_HEADER, classinstallparamssize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, classinstallparams : PSP_CLASSINSTALL_HEADER, classinstallparamssize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyExW(classguid : *const windows_sys::core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD, flags : u32, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyKeys(classguid : *const windows_sys::core::GUID, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : super::PDWORD, flags : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyKeysExW(classguid : *const windows_sys::core::GUID, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : super::PDWORD, flags : u32, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyW(classguid : *const windows_sys::core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD, flags : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassRegistryPropertyA(classguid : *const windows_sys::core::GUID, property : u32, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD, machinename : windows_sys::core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetClassRegistryPropertyW(classguid : *const windows_sys::core::GUID, property : u32, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetCustomDevicePropertyA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, custompropertyname : windows_sys::core::PCSTR, flags : u32, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetCustomDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, custompropertyname : windows_sys::core::PCWSTR, flags : u32, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "guiddef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInfoListClass(deviceinfoset : HDEVINFO, classguid : super::LPGUID) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInfoListDetailA(deviceinfoset : HDEVINFO, deviceinfosetdetaildata : *mut SP_DEVINFO_LIST_DETAIL_DATA_A) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInfoListDetailA(deviceinfoset : HDEVINFO, deviceinfosetdetaildata : PSP_DEVINFO_LIST_DETAIL_DATA_A) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInfoListDetailW(deviceinfoset : HDEVINFO, deviceinfosetdetaildata : *mut SP_DEVINFO_LIST_DETAIL_DATA_W) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInfoListDetailW(deviceinfoset : HDEVINFO, deviceinfosetdetaildata : PSP_DEVINFO_LIST_DETAIL_DATA_W) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, deviceinstallparams : *mut SP_DEVINSTALL_PARAMS_A) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, deviceinstallparams : PSP_DEVINSTALL_PARAMS_A) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, deviceinstallparams : *mut SP_DEVINSTALL_PARAMS_W) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstanceIdA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, deviceinstanceid : windows_sys::core::PSTR, deviceinstanceidsize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstanceIdW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, deviceinstanceid : windows_sys::core::PWSTR, deviceinstanceidsize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfaceAlias(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, aliasinterfaceclassguid : *const windows_sys::core::GUID, aliasdeviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfaceDetailA(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata : *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A, deviceinterfacedetaildatasize : u32, requiredsize : *mut u32, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfaceDetailW(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata : *mut SP_DEVICE_INTERFACE_DETAIL_DATA_W, deviceinterfacedetaildatasize : u32, requiredsize : *mut u32, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-#[cfg(feature = "devpropdef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : *mut u32, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "devpropdef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "devpropdef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDevicePropertyKeys(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : *mut u32, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "devpropdef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, flags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, property : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, property : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, deviceinstallparams : PSP_DEVINSTALL_PARAMS_W) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstanceIdA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, deviceinstanceid : windows_sys::core::PSTR, deviceinstanceidsize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstanceIdW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, deviceinstanceid : windows_sys::core::PWSTR, deviceinstanceidsize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfaceAlias(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, aliasinterfaceclassguid : *const windows_sys::core::GUID, aliasdeviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfaceDetailA(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata : PSP_DEVICE_INTERFACE_DETAIL_DATA_A, deviceinterfacedetaildatasize : u32, requiredsize : super::PDWORD, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfaceDetailW(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata : PSP_DEVICE_INTERFACE_DETAIL_DATA_W, deviceinterfacedetaildatasize : u32, requiredsize : super::PDWORD, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : super::PDWORD, flags : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD, flags : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDevicePropertyKeys(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : super::PDWORD, flags : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD, flags : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, property : u32, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, property : u32, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDriverInfoDetailA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A, driverinfodetaildata : *mut SP_DRVINFO_DETAIL_DATA_A, driverinfodetaildatasize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDriverInfoDetailA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A, driverinfodetaildata : PSP_DRVINFO_DETAIL_DATA_A, driverinfodetaildatasize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDriverInfoDetailW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W, driverinfodetaildata : *mut SP_DRVINFO_DETAIL_DATA_W, driverinfodetaildatasize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDriverInfoDetailW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W, driverinfodetaildata : PSP_DRVINFO_DETAIL_DATA_W, driverinfodetaildatasize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDriverInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A, driverinstallparams : *mut SP_DRVINSTALL_PARAMS) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDriverInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A, driverinstallparams : PSP_DRVINSTALL_PARAMS) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetDriverInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W, driverinstallparams : *mut SP_DRVINSTALL_PARAMS) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameA(hwprofile : u32, friendlyname : windows_sys::core::PSTR, friendlynamesize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameExA(hwprofile : u32, friendlyname : windows_sys::core::PSTR, friendlynamesize : u32, requiredsize : *mut u32, machinename : windows_sys::core::PCSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameExW(hwprofile : u32, friendlyname : windows_sys::core::PWSTR, friendlynamesize : u32, requiredsize : *mut u32, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameW(hwprofile : u32, friendlyname : windows_sys::core::PWSTR, friendlynamesize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetHwProfileList(hwprofilelist : *mut u32, hwprofilelistsize : u32, requiredsize : *mut u32, currentlyactiveindex : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetHwProfileListExA(hwprofilelist : *mut u32, hwprofilelistsize : u32, requiredsize : *mut u32, currentlyactiveindex : *mut u32, machinename : windows_sys::core::PCSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetHwProfileListExW(hwprofilelist : *mut u32, hwprofilelistsize : u32, requiredsize : *mut u32, currentlyactiveindex : *mut u32, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetINFClassA(infname : windows_sys::core::PCSTR, classguid : *mut windows_sys::core::GUID, classname : windows_sys::core::PSTR, classnamesize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetINFClassW(infname : windows_sys::core::PCWSTR, classguid : *mut windows_sys::core::GUID, classname : windows_sys::core::PWSTR, classnamesize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetSelectedDevice(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetDriverInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W, driverinstallparams : PSP_DRVINSTALL_PARAMS) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameA(hwprofile : u32, friendlyname : windows_sys::core::PSTR, friendlynamesize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameExA(hwprofile : u32, friendlyname : windows_sys::core::PSTR, friendlynamesize : u32, requiredsize : super::PDWORD, machinename : windows_sys::core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameExW(hwprofile : u32, friendlyname : windows_sys::core::PWSTR, friendlynamesize : u32, requiredsize : super::PDWORD, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameW(hwprofile : u32, friendlyname : windows_sys::core::PWSTR, friendlynamesize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetHwProfileList(hwprofilelist : super::PDWORD, hwprofilelistsize : u32, requiredsize : super::PDWORD, currentlyactiveindex : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetHwProfileListExA(hwprofilelist : super::PDWORD, hwprofilelistsize : u32, requiredsize : super::PDWORD, currentlyactiveindex : super::PDWORD, machinename : windows_sys::core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetHwProfileListExW(hwprofilelist : super::PDWORD, hwprofilelistsize : u32, requiredsize : super::PDWORD, currentlyactiveindex : super::PDWORD, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetINFClassA(infname : windows_sys::core::PCSTR, classguid : super::LPGUID, classname : windows_sys::core::PSTR, classnamesize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetINFClassW(infname : windows_sys::core::PCWSTR, classguid : super::LPGUID, classname : windows_sys::core::PWSTR, classnamesize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetSelectedDevice(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetSelectedDriverA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetSelectedDriverA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetSelectedDriverW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetSelectedDriverW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiGetWizardPage(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, installwizarddata : *const SP_INSTALLWIZARD_DATA, pagetype : u32, flags : u32) -> super::HPROPSHEETPAGE);
+windows_link::link!("setupapi.dll" "system" fn SetupDiGetWizardPage(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, installwizarddata : PSP_INSTALLWIZARD_DATA, pagetype : u32, flags : u32) -> super::HPROPSHEETPAGE);
 #[cfg(feature = "windef")]
 windows_link::link!("setupapi.dll" "system" fn SetupDiInstallClassA(hwndparent : super::HWND, inffilename : windows_sys::core::PCSTR, flags : u32, filequeue : HSPFILEQ) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiInstallClassExA(hwndparent : super::HWND, inffilename : windows_sys::core::PCSTR, flags : u32, filequeue : HSPFILEQ, interfaceclassguid : *const windows_sys::core::GUID, reserved1 : *const core::ffi::c_void, reserved2 : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiInstallClassExA(hwndparent : super::HWND, inffilename : windows_sys::core::PCSTR, flags : u32, filequeue : HSPFILEQ, interfaceclassguid : *const windows_sys::core::GUID, reserved1 : *mut core::ffi::c_void, reserved2 : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiInstallClassExW(hwndparent : super::HWND, inffilename : windows_sys::core::PCWSTR, flags : u32, filequeue : HSPFILEQ, interfaceclassguid : *const windows_sys::core::GUID, reserved1 : *const core::ffi::c_void, reserved2 : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiInstallClassExW(hwndparent : super::HWND, inffilename : windows_sys::core::PCWSTR, flags : u32, filequeue : HSPFILEQ, interfaceclassguid : *const windows_sys::core::GUID, reserved1 : *mut core::ffi::c_void, reserved2 : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("setupapi.dll" "system" fn SetupDiInstallClassW(hwndparent : super::HWND, inffilename : windows_sys::core::PCWSTR, flags : u32, filequeue : HSPFILEQ) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiInstallDevice(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiInstallDeviceInterfaces(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiInstallDriverFiles(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiInstallDevice(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiInstallDeviceInterfaces(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiInstallDriverFiles(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiLoadClassIcon(classguid : *const windows_sys::core::GUID, largeicon : *mut super::HICON, miniiconindex : super::PINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiLoadClassIcon(classguid : *const windows_sys::core::GUID, largeicon : *mut super::HICON, miniiconindex : *mut i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiLoadDeviceIcon(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, cxicon : u32, cyicon : u32, flags : u32, hicon : *mut super::HICON) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiLoadDeviceIcon(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, cxicon : u32, cyicon : u32, flags : u32, hicon : *mut super::HICON) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 windows_link::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKey(classguid : *const windows_sys::core::GUID, samdesired : super::REGSAM) -> super::HKEY);
 #[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExA(classguid : *const windows_sys::core::GUID, samdesired : super::REGSAM, flags : u32, machinename : windows_sys::core::PCSTR, reserved : *const core::ffi::c_void) -> super::HKEY);
+windows_link::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExA(classguid : *const windows_sys::core::GUID, samdesired : super::REGSAM, flags : u32, machinename : windows_sys::core::PCSTR, reserved : *mut core::ffi::c_void) -> super::HKEY);
 #[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExW(classguid : *const windows_sys::core::GUID, samdesired : super::REGSAM, flags : u32, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> super::HKEY);
+windows_link::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExW(classguid : *const windows_sys::core::GUID, samdesired : super::REGSAM, flags : u32, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> super::HKEY);
 #[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiOpenDevRegKey(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, samdesired : super::REGSAM) -> super::HKEY);
+windows_link::link!("setupapi.dll" "system" fn SetupDiOpenDevRegKey(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, samdesired : super::REGSAM) -> super::HKEY);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInfoA(deviceinfoset : HDEVINFO, deviceinstanceid : windows_sys::core::PCSTR, hwndparent : super::HWND, openflags : u32, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInfoA(deviceinfoset : HDEVINFO, deviceinstanceid : windows_sys::core::PCSTR, hwndparent : super::HWND, openflags : u32, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInfoW(deviceinfoset : HDEVINFO, deviceinstanceid : windows_sys::core::PCWSTR, hwndparent : super::HWND, openflags : u32, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceA(deviceinfoset : HDEVINFO, devicepath : windows_sys::core::PCSTR, openflags : u32, deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInfoW(deviceinfoset : HDEVINFO, deviceinstanceid : windows_sys::core::PCWSTR, hwndparent : super::HWND, openflags : u32, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceA(deviceinfoset : HDEVINFO, devicepath : windows_sys::core::PCSTR, openflags : u32, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : super::REGSAM) -> super::HKEY);
-windows_link::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceW(deviceinfoset : HDEVINFO, devicepath : windows_sys::core::PCWSTR, openflags : u32, deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiRegisterCoDeviceInstallers(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiRegisterDeviceInfo(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, flags : u32, compareproc : PSP_DETSIG_CMPPROC, comparecontext : *const core::ffi::c_void, dupdeviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiRemoveDevice(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiRemoveDeviceInterface(deviceinfoset : HDEVINFO, deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiRestartDevices(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiSelectBestCompatDrv(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiSelectDevice(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : super::REGSAM) -> super::HKEY);
+windows_link::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceW(deviceinfoset : HDEVINFO, devicepath : windows_sys::core::PCWSTR, openflags : u32, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiRegisterCoDeviceInstallers(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiRegisterDeviceInfo(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, flags : u32, compareproc : PSP_DETSIG_CMPPROC, comparecontext : *const core::ffi::c_void, dupdeviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiRemoveDevice(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiRemoveDeviceInterface(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiRestartDevices(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSelectBestCompatDrv(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSelectDevice(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiSelectOEMDrv(hwndparent : super::HWND, deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetClassInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, classinstallparams : *const SP_CLASSINSTALL_HEADER, classinstallparamssize : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetClassInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, classinstallparams : *const SP_CLASSINSTALL_HEADER, classinstallparamssize : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "devpropdef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetClassPropertyExW(classguid : *const windows_sys::core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : *const u8, propertybuffersize : u32, flags : u32, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "devpropdef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetClassPropertyW(classguid : *const windows_sys::core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : *const u8, propertybuffersize : u32, flags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetClassRegistryPropertyA(classguid : *const windows_sys::core::GUID, property : u32, propertybuffer : *const u8, propertybuffersize : u32, machinename : windows_sys::core::PCSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetClassRegistryPropertyW(classguid : *const windows_sys::core::GUID, property : u32, propertybuffer : *const u8, propertybuffersize : u32, machinename : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSelectOEMDrv(hwndparent : super::HWND, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetClassInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, classinstallparams : PSP_CLASSINSTALL_HEADER, classinstallparamssize : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetClassInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, classinstallparams : PSP_CLASSINSTALL_HEADER, classinstallparamssize : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetClassPropertyExW(classguid : *const windows_sys::core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, flags : u32, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetClassPropertyW(classguid : *const windows_sys::core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetClassRegistryPropertyA(classguid : *const windows_sys::core::GUID, property : u32, propertybuffer : *const u8, propertybuffersize : u32, machinename : windows_sys::core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetClassRegistryPropertyW(classguid : *const windows_sys::core::GUID, property : u32, propertybuffer : *const u8, propertybuffersize : u32, machinename : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetDeviceInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, deviceinstallparams : *const SP_DEVINSTALL_PARAMS_A) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetDeviceInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, deviceinstallparams : PSP_DEVINSTALL_PARAMS_A) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetDeviceInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, deviceinstallparams : *const SP_DEVINSTALL_PARAMS_W) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetDeviceInterfaceDefault(deviceinfoset : HDEVINFO, deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA, flags : u32, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "devpropdef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : *const u8, propertybuffersize : u32, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "devpropdef")]
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : *const u8, propertybuffersize : u32, flags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, property : u32, propertybuffer : *const u8, propertybuffersize : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, property : u32, propertybuffer : *const u8, propertybuffersize : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetDeviceInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, deviceinstallparams : PSP_DEVINSTALL_PARAMS_W) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetDeviceInterfaceDefault(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, flags : u32, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, flags : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, property : u32, propertybuffer : *const u8, propertybuffersize : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, property : u32, propertybuffer : *const u8, propertybuffersize : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetDriverInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A, driverinstallparams : *const SP_DRVINSTALL_PARAMS) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetDriverInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A, driverinstallparams : PSP_DRVINSTALL_PARAMS) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetDriverInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W, driverinstallparams : *const SP_DRVINSTALL_PARAMS) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetSelectedDevice(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetDriverInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W, driverinstallparams : PSP_DRVINSTALL_PARAMS) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetSelectedDevice(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetSelectedDriverA(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetSelectedDriverA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupDiSetSelectedDriverW(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDiUnremoveDevice(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupDuplicateDiskSpaceListA(diskspace : HDSKSPC, reserved1 : *const core::ffi::c_void, reserved2 : u32, flags : u32) -> HDSKSPC);
-windows_link::link!("setupapi.dll" "system" fn SetupDuplicateDiskSpaceListW(diskspace : HDSKSPC, reserved1 : *const core::ffi::c_void, reserved2 : u32, flags : u32) -> HDSKSPC);
+windows_link::link!("setupapi.dll" "system" fn SetupDiSetSelectedDriverW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDiUnremoveDevice(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupDuplicateDiskSpaceListA(diskspace : HDSKSPC, reserved1 : *mut core::ffi::c_void, reserved2 : u32, flags : u32) -> HDSKSPC);
+windows_link::link!("setupapi.dll" "system" fn SetupDuplicateDiskSpaceListW(diskspace : HDSKSPC, reserved1 : *mut core::ffi::c_void, reserved2 : u32, flags : u32) -> HDSKSPC);
 windows_link::link!("setupapi.dll" "system" fn SetupEnumInfSectionsA(infhandle : HINF, index : u32, buffer : windows_sys::core::PSTR, size : u32, sizeneeded : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupEnumInfSectionsW(infhandle : HINF, index : u32, buffer : windows_sys::core::PWSTR, size : u32, sizeneeded : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupFindFirstLineA(infhandle : HINF, section : windows_sys::core::PCSTR, key : windows_sys::core::PCSTR, context : *mut INFCONTEXT) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupFindFirstLineW(infhandle : HINF, section : windows_sys::core::PCWSTR, key : windows_sys::core::PCWSTR, context : *mut INFCONTEXT) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupFindNextLine(contextin : *const INFCONTEXT, contextout : *mut INFCONTEXT) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupFindNextMatchLineA(contextin : *const INFCONTEXT, key : windows_sys::core::PCSTR, contextout : *mut INFCONTEXT) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupFindNextMatchLineW(contextin : *const INFCONTEXT, key : windows_sys::core::PCWSTR, contextout : *mut INFCONTEXT) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupFindFirstLineA(infhandle : HINF, section : windows_sys::core::PCSTR, key : windows_sys::core::PCSTR, context : PINFCONTEXT) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupFindFirstLineW(infhandle : HINF, section : windows_sys::core::PCWSTR, key : windows_sys::core::PCWSTR, context : PINFCONTEXT) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupFindNextLine(contextin : PINFCONTEXT, contextout : PINFCONTEXT) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupFindNextMatchLineA(contextin : PINFCONTEXT, key : windows_sys::core::PCSTR, contextout : PINFCONTEXT) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupFindNextMatchLineW(contextin : PINFCONTEXT, key : windows_sys::core::PCWSTR, contextout : PINFCONTEXT) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupFreeSourceListA(list : *mut *mut windows_sys::core::PCSTR, count : u32) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupFreeSourceListW(list : *mut *mut windows_sys::core::PCWSTR, count : u32) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupGetBackupInformationA(queuehandle : HSPFILEQ, backupparams : PSP_BACKUP_QUEUE_PARAMS_A) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupGetBackupInformationW(queuehandle : HSPFILEQ, backupparams : PSP_BACKUP_QUEUE_PARAMS_W) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetBinaryField(context : *const INFCONTEXT, fieldindex : u32, returnbuffer : *mut u8, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetFieldCount(context : *const INFCONTEXT) -> u32);
-windows_link::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoA(sourcefilename : windows_sys::core::PCSTR, actualsourcefilename : *mut windows_sys::core::PSTR, sourcefilesize : *mut u32, targetfilesize : *mut u32, compressiontype : *mut u32) -> u32);
-windows_link::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoExA(sourcefilename : windows_sys::core::PCSTR, actualsourcefilenamebuffer : windows_sys::core::PCSTR, actualsourcefilenamebufferlen : u32, requiredbufferlen : *mut u32, sourcefilesize : *mut u32, targetfilesize : *mut u32, compressiontype : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoExW(sourcefilename : windows_sys::core::PCWSTR, actualsourcefilenamebuffer : windows_sys::core::PCWSTR, actualsourcefilenamebufferlen : u32, requiredbufferlen : *mut u32, sourcefilesize : *mut u32, targetfilesize : *mut u32, compressiontype : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoW(sourcefilename : windows_sys::core::PCWSTR, actualsourcefilename : *mut windows_sys::core::PWSTR, sourcefilesize : *mut u32, targetfilesize : *mut u32, compressiontype : *mut u32) -> u32);
-windows_link::link!("setupapi.dll" "system" fn SetupGetFileQueueCount(filequeue : HSPFILEQ, subqueuefileop : u32, numoperations : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetFileQueueFlags(filequeue : HSPFILEQ, flags : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetInfDriverStoreLocationA(filename : windows_sys::core::PCSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, localename : windows_sys::core::PCSTR, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetInfDriverStoreLocationW(filename : windows_sys::core::PCWSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, localename : windows_sys::core::PCWSTR, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetInfFileListA(directorypath : windows_sys::core::PCSTR, infstyle : u32, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetInfFileListW(directorypath : windows_sys::core::PCWSTR, infstyle : u32, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetInfInformationA(infspec : *const core::ffi::c_void, searchcontrol : u32, returnbuffer : *mut SP_INF_INFORMATION, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetInfInformationW(infspec : *const core::ffi::c_void, searchcontrol : u32, returnbuffer : *mut SP_INF_INFORMATION, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetInfPublishedNameA(driverstorelocation : windows_sys::core::PCSTR, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetInfPublishedNameW(driverstorelocation : windows_sys::core::PCWSTR, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetIntField(context : *const INFCONTEXT, fieldindex : u32, integervalue : *mut i32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetLineByIndexA(infhandle : HINF, section : windows_sys::core::PCSTR, index : u32, context : *mut INFCONTEXT) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetLineByIndexW(infhandle : HINF, section : windows_sys::core::PCWSTR, index : u32, context : *mut INFCONTEXT) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetBinaryField(context : PINFCONTEXT, fieldindex : u32, returnbuffer : super::PBYTE, returnbuffersize : u32, requiredsize : super::LPDWORD) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupGetFieldCount(context : PINFCONTEXT) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoA(sourcefilename : windows_sys::core::PCSTR, actualsourcefilename : *mut windows_sys::core::PSTR, sourcefilesize : super::PDWORD, targetfilesize : super::PDWORD, compressiontype : super::PUINT) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoExA(sourcefilename : windows_sys::core::PCSTR, actualsourcefilenamebuffer : windows_sys::core::PCSTR, actualsourcefilenamebufferlen : u32, requiredbufferlen : super::PDWORD, sourcefilesize : super::PDWORD, targetfilesize : super::PDWORD, compressiontype : super::PUINT) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoExW(sourcefilename : windows_sys::core::PCWSTR, actualsourcefilenamebuffer : windows_sys::core::PCWSTR, actualsourcefilenamebufferlen : u32, requiredbufferlen : super::PDWORD, sourcefilesize : super::PDWORD, targetfilesize : super::PDWORD, compressiontype : super::PUINT) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoW(sourcefilename : windows_sys::core::PCWSTR, actualsourcefilename : *mut windows_sys::core::PWSTR, sourcefilesize : super::PDWORD, targetfilesize : super::PDWORD, compressiontype : super::PUINT) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetFileQueueCount(filequeue : HSPFILEQ, subqueuefileop : u32, numoperations : super::PUINT) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetFileQueueFlags(filequeue : HSPFILEQ, flags : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetInfDriverStoreLocationA(filename : windows_sys::core::PCSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, localename : windows_sys::core::PCSTR, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetInfDriverStoreLocationW(filename : windows_sys::core::PCWSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, localename : windows_sys::core::PCWSTR, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetInfFileListA(directorypath : windows_sys::core::PCSTR, infstyle : u32, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetInfFileListW(directorypath : windows_sys::core::PCWSTR, infstyle : u32, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetInfInformationA(infspec : super::LPCVOID, searchcontrol : u32, returnbuffer : PSP_INF_INFORMATION, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetInfInformationW(infspec : super::LPCVOID, searchcontrol : u32, returnbuffer : PSP_INF_INFORMATION, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetInfPublishedNameA(driverstorelocation : windows_sys::core::PCSTR, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetInfPublishedNameW(driverstorelocation : windows_sys::core::PCWSTR, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetIntField(context : PINFCONTEXT, fieldindex : u32, integervalue : super::PINT) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupGetLineByIndexA(infhandle : HINF, section : windows_sys::core::PCSTR, index : u32, context : PINFCONTEXT) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupGetLineByIndexW(infhandle : HINF, section : windows_sys::core::PCWSTR, index : u32, context : PINFCONTEXT) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupGetLineCountA(infhandle : HINF, section : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("setupapi.dll" "system" fn SetupGetLineCountW(infhandle : HINF, section : windows_sys::core::PCWSTR) -> i32);
-windows_link::link!("setupapi.dll" "system" fn SetupGetLineTextA(context : *const INFCONTEXT, infhandle : HINF, section : windows_sys::core::PCSTR, key : windows_sys::core::PCSTR, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetLineTextW(context : *const INFCONTEXT, infhandle : HINF, section : windows_sys::core::PCWSTR, key : windows_sys::core::PCWSTR, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetMultiSzFieldA(context : *const INFCONTEXT, fieldindex : u32, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetMultiSzFieldW(context : *const INFCONTEXT, fieldindex : u32, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetLineTextA(context : PINFCONTEXT, infhandle : HINF, section : windows_sys::core::PCSTR, key : windows_sys::core::PCSTR, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetLineTextW(context : PINFCONTEXT, infhandle : HINF, section : windows_sys::core::PCWSTR, key : windows_sys::core::PCWSTR, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetMultiSzFieldA(context : PINFCONTEXT, fieldindex : u32, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetMultiSzFieldW(context : PINFCONTEXT, fieldindex : u32, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : super::LPDWORD) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupGetNonInteractiveMode() -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetSourceFileLocationA(infhandle : HINF, infcontext : *const INFCONTEXT, filename : windows_sys::core::PCSTR, sourceid : *mut u32, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetSourceFileLocationW(infhandle : HINF, infcontext : *const INFCONTEXT, filename : windows_sys::core::PCWSTR, sourceid : *mut u32, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetSourceFileSizeA(infhandle : HINF, infcontext : *const INFCONTEXT, filename : windows_sys::core::PCSTR, section : windows_sys::core::PCSTR, filesize : *mut u32, roundingfactor : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetSourceFileSizeW(infhandle : HINF, infcontext : *const INFCONTEXT, filename : windows_sys::core::PCWSTR, section : windows_sys::core::PCWSTR, filesize : *mut u32, roundingfactor : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetSourceInfoA(infhandle : HINF, sourceid : u32, infodesired : u32, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetSourceInfoW(infhandle : HINF, sourceid : u32, infodesired : u32, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetStringFieldA(context : *const INFCONTEXT, fieldindex : u32, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetStringFieldW(context : *const INFCONTEXT, fieldindex : u32, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetTargetPathA(infhandle : HINF, infcontext : *const INFCONTEXT, section : windows_sys::core::PCSTR, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupGetTargetPathW(infhandle : HINF, infcontext : *const INFCONTEXT, section : windows_sys::core::PCWSTR, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetSourceFileLocationA(infhandle : HINF, infcontext : PINFCONTEXT, filename : windows_sys::core::PCSTR, sourceid : super::PUINT, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetSourceFileLocationW(infhandle : HINF, infcontext : PINFCONTEXT, filename : windows_sys::core::PCWSTR, sourceid : super::PUINT, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetSourceFileSizeA(infhandle : HINF, infcontext : PINFCONTEXT, filename : windows_sys::core::PCSTR, section : windows_sys::core::PCSTR, filesize : super::PDWORD, roundingfactor : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetSourceFileSizeW(infhandle : HINF, infcontext : PINFCONTEXT, filename : windows_sys::core::PCWSTR, section : windows_sys::core::PCWSTR, filesize : super::PDWORD, roundingfactor : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetSourceInfoA(infhandle : HINF, sourceid : u32, infodesired : u32, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetSourceInfoW(infhandle : HINF, sourceid : u32, infodesired : u32, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetStringFieldA(context : PINFCONTEXT, fieldindex : u32, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetStringFieldW(context : PINFCONTEXT, fieldindex : u32, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetTargetPathA(infhandle : HINF, infcontext : PINFCONTEXT, section : windows_sys::core::PCSTR, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupGetTargetPathW(infhandle : HINF, infcontext : PINFCONTEXT, section : windows_sys::core::PCWSTR, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "spapidef", feature = "winnt"))]
 windows_link::link!("setupapi.dll" "system" fn SetupGetThreadLogToken() -> super::SP_LOG_TOKEN);
 #[cfg(feature = "windef")]
 windows_link::link!("setupapi.dll" "system" fn SetupInitDefaultQueueCallback(ownerwindow : super::HWND) -> *mut core::ffi::c_void);
 #[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupInitDefaultQueueCallbackEx(ownerwindow : super::HWND, alternateprogresswindow : super::HWND, progressmessage : u32, reserved1 : u32, reserved2 : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+windows_link::link!("setupapi.dll" "system" fn SetupInitDefaultQueueCallbackEx(ownerwindow : super::HWND, alternateprogresswindow : super::HWND, progressmessage : u32, reserved1 : u32, reserved2 : *mut core::ffi::c_void) -> *mut core::ffi::c_void);
 windows_link::link!("setupapi.dll" "system" fn SetupInitializeFileLogA(logfilename : windows_sys::core::PCSTR, flags : u32) -> HSPFILELOG);
 windows_link::link!("setupapi.dll" "system" fn SetupInitializeFileLogW(logfilename : windows_sys::core::PCWSTR, flags : u32) -> HSPFILELOG);
-windows_link::link!("setupapi.dll" "system" fn SetupInstallFileA(infhandle : HINF, infcontext : *const INFCONTEXT, sourcefile : windows_sys::core::PCSTR, sourcepathroot : windows_sys::core::PCSTR, destinationname : windows_sys::core::PCSTR, copystyle : u32, copymsghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupInstallFileExA(infhandle : HINF, infcontext : *const INFCONTEXT, sourcefile : windows_sys::core::PCSTR, sourcepathroot : windows_sys::core::PCSTR, destinationname : windows_sys::core::PCSTR, copystyle : u32, copymsghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void, filewasinuse : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupInstallFileExW(infhandle : HINF, infcontext : *const INFCONTEXT, sourcefile : windows_sys::core::PCWSTR, sourcepathroot : windows_sys::core::PCWSTR, destinationname : windows_sys::core::PCWSTR, copystyle : u32, copymsghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void, filewasinuse : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupInstallFileW(infhandle : HINF, infcontext : *const INFCONTEXT, sourcefile : windows_sys::core::PCWSTR, sourcepathroot : windows_sys::core::PCWSTR, destinationname : windows_sys::core::PCWSTR, copystyle : u32, copymsghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupInstallFileA(infhandle : HINF, infcontext : PINFCONTEXT, sourcefile : windows_sys::core::PCSTR, sourcepathroot : windows_sys::core::PCSTR, destinationname : windows_sys::core::PCSTR, copystyle : u32, copymsghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupInstallFileExA(infhandle : HINF, infcontext : PINFCONTEXT, sourcefile : windows_sys::core::PCSTR, sourcepathroot : windows_sys::core::PCSTR, destinationname : windows_sys::core::PCSTR, copystyle : u32, copymsghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void, filewasinuse : super::PBOOL) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupInstallFileExW(infhandle : HINF, infcontext : PINFCONTEXT, sourcefile : windows_sys::core::PCWSTR, sourcepathroot : windows_sys::core::PCWSTR, destinationname : windows_sys::core::PCWSTR, copystyle : u32, copymsghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void, filewasinuse : super::PBOOL) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupInstallFileW(infhandle : HINF, infcontext : PINFCONTEXT, sourcefile : windows_sys::core::PCWSTR, sourcepathroot : windows_sys::core::PCWSTR, destinationname : windows_sys::core::PCWSTR, copystyle : u32, copymsghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupInstallFilesFromInfSectionA(infhandle : HINF, layoutinfhandle : HINF, filequeue : HSPFILEQ, sectionname : windows_sys::core::PCSTR, sourcerootpath : windows_sys::core::PCSTR, copyflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupInstallFilesFromInfSectionW(infhandle : HINF, layoutinfhandle : HINF, filequeue : HSPFILEQ, sectionname : windows_sys::core::PCWSTR, sourcerootpath : windows_sys::core::PCWSTR, copyflags : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("setupapi.dll" "system" fn SetupInstallFromInfSectionA(owner : super::HWND, infhandle : HINF, sectionname : windows_sys::core::PCSTR, flags : u32, relativekeyroot : super::HKEY, sourcerootpath : windows_sys::core::PCSTR, copyflags : u32, msghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupInstallFromInfSectionA(owner : super::HWND, infhandle : HINF, sectionname : windows_sys::core::PCSTR, flags : u32, relativekeyroot : super::HKEY, sourcerootpath : windows_sys::core::PCSTR, copyflags : u32, msghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("setupapi.dll" "system" fn SetupInstallFromInfSectionW(owner : super::HWND, infhandle : HINF, sectionname : windows_sys::core::PCWSTR, flags : u32, relativekeyroot : super::HKEY, sourcerootpath : windows_sys::core::PCWSTR, copyflags : u32, msghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupInstallFromInfSectionW(owner : super::HWND, infhandle : HINF, sectionname : windows_sys::core::PCWSTR, flags : u32, relativekeyroot : super::HKEY, sourcerootpath : windows_sys::core::PCWSTR, copyflags : u32, msghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionA(infhandle : HINF, sectionname : windows_sys::core::PCSTR, flags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionExA(infhandle : HINF, sectionname : windows_sys::core::PCSTR, flags : u32, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, reserved1 : *const core::ffi::c_void, reserved2 : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionExW(infhandle : HINF, sectionname : windows_sys::core::PCWSTR, flags : u32, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, reserved1 : *const core::ffi::c_void, reserved2 : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionExA(infhandle : HINF, sectionname : windows_sys::core::PCSTR, flags : u32, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, reserved1 : *mut core::ffi::c_void, reserved2 : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionExW(infhandle : HINF, sectionname : windows_sys::core::PCWSTR, flags : u32, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, reserved1 : *mut core::ffi::c_void, reserved2 : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionW(infhandle : HINF, sectionname : windows_sys::core::PCWSTR, flags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupIterateCabinetA(cabinetfile : windows_sys::core::PCSTR, reserved : u32, msghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupIterateCabinetW(cabinetfile : windows_sys::core::PCWSTR, reserved : u32, msghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
@@ -334,38 +414,52 @@ windows_link::link!("setupapi.dll" "system" fn SetupLogErrorA(messagestring : wi
 windows_link::link!("setupapi.dll" "system" fn SetupLogErrorW(messagestring : windows_sys::core::PCWSTR, severity : u32) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupLogFileA(fileloghandle : HSPFILELOG, logsectionname : windows_sys::core::PCSTR, sourcefilename : windows_sys::core::PCSTR, targetfilename : windows_sys::core::PCSTR, checksum : u32, disktagfile : windows_sys::core::PCSTR, diskdescription : windows_sys::core::PCSTR, otherinfo : windows_sys::core::PCSTR, flags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupLogFileW(fileloghandle : HSPFILELOG, logsectionname : windows_sys::core::PCWSTR, sourcefilename : windows_sys::core::PCWSTR, targetfilename : windows_sys::core::PCWSTR, checksum : u32, disktagfile : windows_sys::core::PCWSTR, diskdescription : windows_sys::core::PCWSTR, otherinfo : windows_sys::core::PCWSTR, flags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupOpenAppendInfFileA(filename : windows_sys::core::PCSTR, infhandle : HINF, errorline : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupOpenAppendInfFileW(filename : windows_sys::core::PCWSTR, infhandle : HINF, errorline : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupOpenAppendInfFileA(filename : windows_sys::core::PCSTR, infhandle : HINF, errorline : super::PUINT) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupOpenAppendInfFileW(filename : windows_sys::core::PCWSTR, infhandle : HINF, errorline : super::PUINT) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupOpenFileQueue() -> HSPFILEQ);
-windows_link::link!("setupapi.dll" "system" fn SetupOpenInfFileA(filename : windows_sys::core::PCSTR, infclass : windows_sys::core::PCSTR, infstyle : u32, errorline : *mut u32) -> HINF);
-windows_link::link!("setupapi.dll" "system" fn SetupOpenInfFileW(filename : windows_sys::core::PCWSTR, infclass : windows_sys::core::PCWSTR, infstyle : u32, errorline : *mut u32) -> HINF);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupOpenInfFileA(filename : windows_sys::core::PCSTR, infclass : windows_sys::core::PCSTR, infstyle : u32, errorline : super::PUINT) -> HINF);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupOpenInfFileW(filename : windows_sys::core::PCWSTR, infclass : windows_sys::core::PCWSTR, infstyle : u32, errorline : super::PUINT) -> HINF);
 windows_link::link!("setupapi.dll" "system" fn SetupOpenLog(erase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupOpenMasterInf() -> HINF);
 windows_link::link!("setupapi.dll" "system" fn SetupPrepareQueueForRestoreA(queuehandle : HSPFILEQ, backuppath : windows_sys::core::PCSTR, restoreflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupPrepareQueueForRestoreW(queuehandle : HSPFILEQ, backuppath : windows_sys::core::PCWSTR, restoreflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupPromptForDiskA(hwndparent : super::HWND, dialogtitle : windows_sys::core::PCSTR, diskname : windows_sys::core::PCSTR, pathtosource : windows_sys::core::PCSTR, filesought : windows_sys::core::PCSTR, tagfile : windows_sys::core::PCSTR, diskpromptstyle : u32, pathbuffer : windows_sys::core::PSTR, pathbuffersize : u32, pathrequiredsize : *mut u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupPromptForDiskW(hwndparent : super::HWND, dialogtitle : windows_sys::core::PCWSTR, diskname : windows_sys::core::PCWSTR, pathtosource : windows_sys::core::PCWSTR, filesought : windows_sys::core::PCWSTR, tagfile : windows_sys::core::PCWSTR, diskpromptstyle : u32, pathbuffer : windows_sys::core::PWSTR, pathbuffersize : u32, pathrequiredsize : *mut u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupPromptForDiskA(hwndparent : super::HWND, dialogtitle : windows_sys::core::PCSTR, diskname : windows_sys::core::PCSTR, pathtosource : windows_sys::core::PCSTR, filesought : windows_sys::core::PCSTR, tagfile : windows_sys::core::PCSTR, diskpromptstyle : u32, pathbuffer : windows_sys::core::PSTR, pathbuffersize : u32, pathrequiredsize : super::PDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupPromptForDiskW(hwndparent : super::HWND, dialogtitle : windows_sys::core::PCWSTR, diskname : windows_sys::core::PCWSTR, pathtosource : windows_sys::core::PCWSTR, filesought : windows_sys::core::PCWSTR, tagfile : windows_sys::core::PCWSTR, diskpromptstyle : u32, pathbuffer : windows_sys::core::PWSTR, pathbuffersize : u32, pathrequiredsize : super::PDWORD) -> u32);
 #[cfg(feature = "windef")]
 windows_link::link!("setupapi.dll" "system" fn SetupPromptReboot(filequeue : HSPFILEQ, owner : super::HWND, scanonly : windows_sys::core::BOOL) -> i32);
-windows_link::link!("setupapi.dll" "system" fn SetupQueryDrivesInDiskSpaceListA(diskspace : HDSKSPC, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQueryDrivesInDiskSpaceListW(diskspace : HDSKSPC, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQueryFileLogA(fileloghandle : HSPFILELOG, logsectionname : windows_sys::core::PCSTR, targetfilename : windows_sys::core::PCSTR, desiredinfo : SetupFileLogInfo, dataout : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQueryFileLogW(fileloghandle : HSPFILELOG, logsectionname : windows_sys::core::PCWSTR, targetfilename : windows_sys::core::PCWSTR, desiredinfo : SetupFileLogInfo, dataout : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQueryInfFileInformationA(infinformation : *const SP_INF_INFORMATION, infindex : u32, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQueryInfFileInformationW(infinformation : *const SP_INF_INFORMATION, infindex : u32, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQueryInfOriginalFileInformationA(infinformation : *const SP_INF_INFORMATION, infindex : u32, alternateplatforminfo : PSP_ALTPLATFORM_INFO, originalfileinfo : *mut SP_ORIGINAL_FILE_INFO_A) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQueryInfOriginalFileInformationW(infinformation : *const SP_INF_INFORMATION, infindex : u32, alternateplatforminfo : PSP_ALTPLATFORM_INFO, originalfileinfo : *mut SP_ORIGINAL_FILE_INFO_W) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQueryInfVersionInformationA(infinformation : *const SP_INF_INFORMATION, infindex : u32, key : windows_sys::core::PCSTR, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQueryInfVersionInformationW(infinformation : *const SP_INF_INFORMATION, infindex : u32, key : windows_sys::core::PCWSTR, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQuerySourceListA(flags : u32, list : *mut *mut windows_sys::core::PCSTR, count : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQuerySourceListW(flags : u32, list : *mut *mut windows_sys::core::PCWSTR, count : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQuerySpaceRequiredOnDriveA(diskspace : HDSKSPC, drivespec : windows_sys::core::PCSTR, spacerequired : *mut i64, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQuerySpaceRequiredOnDriveW(diskspace : HDSKSPC, drivespec : windows_sys::core::PCWSTR, spacerequired : *mut i64, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupQueryDrivesInDiskSpaceListA(diskspace : HDSKSPC, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupQueryDrivesInDiskSpaceListW(diskspace : HDSKSPC, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupQueryFileLogA(fileloghandle : HSPFILELOG, logsectionname : windows_sys::core::PCSTR, targetfilename : windows_sys::core::PCSTR, desiredinfo : SetupFileLogInfo, dataout : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupQueryFileLogW(fileloghandle : HSPFILELOG, logsectionname : windows_sys::core::PCWSTR, targetfilename : windows_sys::core::PCWSTR, desiredinfo : SetupFileLogInfo, dataout : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupQueryInfFileInformationA(infinformation : PSP_INF_INFORMATION, infindex : u32, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupQueryInfFileInformationW(infinformation : PSP_INF_INFORMATION, infindex : u32, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupQueryInfOriginalFileInformationA(infinformation : PSP_INF_INFORMATION, infindex : u32, alternateplatforminfo : PSP_ALTPLATFORM_INFO, originalfileinfo : PSP_ORIGINAL_FILE_INFO_A) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupQueryInfOriginalFileInformationW(infinformation : PSP_INF_INFORMATION, infindex : u32, alternateplatforminfo : PSP_ALTPLATFORM_INFO, originalfileinfo : PSP_ORIGINAL_FILE_INFO_W) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupQueryInfVersionInformationA(infinformation : PSP_INF_INFORMATION, infindex : u32, key : windows_sys::core::PCSTR, returnbuffer : windows_sys::core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupQueryInfVersionInformationW(infinformation : PSP_INF_INFORMATION, infindex : u32, key : windows_sys::core::PCWSTR, returnbuffer : windows_sys::core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupQuerySourceListA(flags : u32, list : *mut *mut windows_sys::core::PCSTR, count : super::PUINT) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("setupapi.dll" "system" fn SetupQuerySourceListW(flags : u32, list : *mut *mut windows_sys::core::PCWSTR, count : super::PUINT) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupQuerySpaceRequiredOnDriveA(diskspace : HDSKSPC, drivespec : windows_sys::core::PCSTR, spacerequired : *mut i64, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupQuerySpaceRequiredOnDriveW(diskspace : HDSKSPC, drivespec : windows_sys::core::PCWSTR, spacerequired : *mut i64, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupQueueCopyA(queuehandle : HSPFILEQ, sourcerootpath : windows_sys::core::PCSTR, sourcepath : windows_sys::core::PCSTR, sourcefilename : windows_sys::core::PCSTR, sourcedescription : windows_sys::core::PCSTR, sourcetagfile : windows_sys::core::PCSTR, targetdirectory : windows_sys::core::PCSTR, targetfilename : windows_sys::core::PCSTR, copystyle : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQueueCopyIndirectA(copyparams : *const SP_FILE_COPY_PARAMS_A) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupQueueCopyIndirectW(copyparams : *const SP_FILE_COPY_PARAMS_W) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupQueueCopyIndirectA(copyparams : PSP_FILE_COPY_PARAMS_A) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupQueueCopyIndirectW(copyparams : PSP_FILE_COPY_PARAMS_W) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupQueueCopySectionA(queuehandle : HSPFILEQ, sourcerootpath : windows_sys::core::PCSTR, infhandle : HINF, listinfhandle : HINF, section : windows_sys::core::PCSTR, copystyle : u32) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupQueueCopySectionW(queuehandle : HSPFILEQ, sourcerootpath : windows_sys::core::PCWSTR, infhandle : HINF, listinfhandle : HINF, section : windows_sys::core::PCWSTR, copystyle : u32) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupQueueCopyW(queuehandle : HSPFILEQ, sourcerootpath : windows_sys::core::PCWSTR, sourcepath : windows_sys::core::PCWSTR, sourcefilename : windows_sys::core::PCWSTR, sourcedescription : windows_sys::core::PCWSTR, sourcetagfile : windows_sys::core::PCWSTR, targetdirectory : windows_sys::core::PCWSTR, targetfilename : windows_sys::core::PCWSTR, copystyle : u32) -> windows_sys::core::BOOL);
@@ -381,25 +475,25 @@ windows_link::link!("setupapi.dll" "system" fn SetupQueueRenameSectionW(queuehan
 windows_link::link!("setupapi.dll" "system" fn SetupQueueRenameW(queuehandle : HSPFILEQ, sourcepath : windows_sys::core::PCWSTR, sourcefilename : windows_sys::core::PCWSTR, targetpath : windows_sys::core::PCWSTR, targetfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupRemoveFileLogEntryA(fileloghandle : HSPFILELOG, logsectionname : windows_sys::core::PCSTR, targetfilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupRemoveFileLogEntryW(fileloghandle : HSPFILELOG, logsectionname : windows_sys::core::PCWSTR, targetfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupRemoveFromDiskSpaceListA(diskspace : HDSKSPC, targetfilespec : windows_sys::core::PCSTR, operation : u32, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupRemoveFromDiskSpaceListW(diskspace : HDSKSPC, targetfilespec : windows_sys::core::PCWSTR, operation : u32, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupRemoveFromDiskSpaceListA(diskspace : HDSKSPC, targetfilespec : windows_sys::core::PCSTR, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupRemoveFromDiskSpaceListW(diskspace : HDSKSPC, targetfilespec : windows_sys::core::PCWSTR, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupRemoveFromSourceListA(flags : u32, source : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupRemoveFromSourceListW(flags : u32, source : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupRemoveInstallSectionFromDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_sys::core::PCSTR, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupRemoveInstallSectionFromDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_sys::core::PCWSTR, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupRemoveSectionFromDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_sys::core::PCSTR, operation : u32, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupRemoveSectionFromDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_sys::core::PCWSTR, operation : u32, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupRemoveInstallSectionFromDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_sys::core::PCSTR, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupRemoveInstallSectionFromDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_sys::core::PCWSTR, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupRemoveSectionFromDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_sys::core::PCSTR, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupRemoveSectionFromDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_sys::core::PCWSTR, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("setupapi.dll" "system" fn SetupRenameErrorA(hwndparent : super::HWND, dialogtitle : windows_sys::core::PCSTR, sourcefile : windows_sys::core::PCSTR, targetfile : windows_sys::core::PCSTR, win32errorcode : u32, style : u32) -> u32);
 #[cfg(feature = "windef")]
 windows_link::link!("setupapi.dll" "system" fn SetupRenameErrorW(hwndparent : super::HWND, dialogtitle : windows_sys::core::PCWSTR, sourcefile : windows_sys::core::PCWSTR, targetfile : windows_sys::core::PCWSTR, win32errorcode : u32, style : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupScanFileQueueA(filequeue : HSPFILEQ, flags : u32, window : super::HWND, callbackroutine : PSP_FILE_CALLBACK_A, callbackcontext : *const core::ffi::c_void, result : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("setupapi.dll" "system" fn SetupScanFileQueueW(filequeue : HSPFILEQ, flags : u32, window : super::HWND, callbackroutine : PSP_FILE_CALLBACK_W, callbackcontext : *const core::ffi::c_void, result : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupScanFileQueueA(filequeue : HSPFILEQ, flags : u32, window : super::HWND, callbackroutine : PSP_FILE_CALLBACK_A, callbackcontext : *const core::ffi::c_void, result : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("setupapi.dll" "system" fn SetupScanFileQueueW(filequeue : HSPFILEQ, flags : u32, window : super::HWND, callbackroutine : PSP_FILE_CALLBACK_W, callbackcontext : *const core::ffi::c_void, result : super::PDWORD) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupSetDirectoryIdA(infhandle : HINF, id : u32, directory : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupSetDirectoryIdExA(infhandle : HINF, id : u32, directory : windows_sys::core::PCSTR, flags : u32, reserved1 : u32, reserved2 : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupSetDirectoryIdExW(infhandle : HINF, id : u32, directory : windows_sys::core::PCWSTR, flags : u32, reserved1 : u32, reserved2 : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupSetDirectoryIdExA(infhandle : HINF, id : u32, directory : windows_sys::core::PCSTR, flags : u32, reserved1 : u32, reserved2 : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupSetDirectoryIdExW(infhandle : HINF, id : u32, directory : windows_sys::core::PCWSTR, flags : u32, reserved1 : u32, reserved2 : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupSetDirectoryIdW(infhandle : HINF, id : u32, directory : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupSetFileQueueAlternatePlatformA(queuehandle : HSPFILEQ, alternateplatforminfo : PSP_ALTPLATFORM_INFO, alternatedefaultcatalogfile : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupSetFileQueueAlternatePlatformW(queuehandle : HSPFILEQ, alternateplatforminfo : PSP_ALTPLATFORM_INFO, alternatedefaultcatalogfile : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
@@ -413,9 +507,9 @@ windows_link::link!("setupapi.dll" "system" fn SetupSetSourceListW(flags : u32, 
 windows_link::link!("setupapi.dll" "system" fn SetupSetThreadLogToken(logtoken : super::SP_LOG_TOKEN));
 windows_link::link!("setupapi.dll" "system" fn SetupTermDefaultQueueCallback(context : *const core::ffi::c_void));
 windows_link::link!("setupapi.dll" "system" fn SetupTerminateFileLog(fileloghandle : HSPFILELOG) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupUninstallNewlyCopiedInfs(filequeue : HSPFILEQ, flags : u32, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupUninstallOEMInfA(inffilename : windows_sys::core::PCSTR, flags : u32, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("setupapi.dll" "system" fn SetupUninstallOEMInfW(inffilename : windows_sys::core::PCWSTR, flags : u32, reserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupUninstallNewlyCopiedInfs(filequeue : HSPFILEQ, flags : u32, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupUninstallOEMInfA(inffilename : windows_sys::core::PCSTR, flags : u32, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("setupapi.dll" "system" fn SetupUninstallOEMInfW(inffilename : windows_sys::core::PCWSTR, flags : u32, reserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupVerifyInfFileA(infname : windows_sys::core::PCSTR, altplatforminfo : PSP_ALTPLATFORM_INFO, infsignerinfo : PSP_INF_SIGNER_INFO_A) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupVerifyInfFileW(infname : windows_sys::core::PCWSTR, altplatforminfo : PSP_ALTPLATFORM_INFO, infsignerinfo : PSP_INF_SIGNER_INFO_W) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "spapidef", feature = "winnt"))]
@@ -423,7 +517,7 @@ windows_link::link!("setupapi.dll" "C" fn SetupWriteTextLog(logtoken : super::SP
 #[cfg(all(feature = "spapidef", feature = "winnt"))]
 windows_link::link!("setupapi.dll" "C" fn SetupWriteTextLogError(logtoken : super::SP_LOG_TOKEN, category : u32, logflags : u32, error : u32, messagestr : windows_sys::core::PCSTR, ...));
 #[cfg(all(feature = "spapidef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupWriteTextLogInfLine(logtoken : super::SP_LOG_TOKEN, flags : u32, infhandle : HINF, context : *const INFCONTEXT));
+windows_link::link!("setupapi.dll" "system" fn SetupWriteTextLogInfLine(logtoken : super::SP_LOG_TOKEN, flags : u32, infhandle : HINF, context : PINFCONTEXT));
 pub type CABINET_INFO = CABINET_INFO_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
@@ -1178,7 +1272,7 @@ pub type PSP_BACKUP_QUEUE_PARAMS_W = PSP_BACKUP_QUEUE_PARAMS_V2_W;
 pub type PSP_CLASSIMAGELIST_DATA = *mut SP_CLASSIMAGELIST_DATA;
 pub type PSP_CLASSINSTALL_HEADER = *mut SP_CLASSINSTALL_HEADER;
 pub type PSP_DETECTDEVICE_PARAMS = *mut SP_DETECTDEVICE_PARAMS;
-pub type PSP_DETSIG_CMPPROC = Option<unsafe extern "system" fn(deviceinfoset: HDEVINFO, newdevicedata: *const SP_DEVINFO_DATA, existingdevicedata: *const SP_DEVINFO_DATA, comparecontext: *const core::ffi::c_void) -> u32>;
+pub type PSP_DETSIG_CMPPROC = Option<unsafe extern "system" fn(deviceinfoset: HDEVINFO, newdevicedata: PSP_DEVINFO_DATA, existingdevicedata: PSP_DEVINFO_DATA, comparecontext: *const core::ffi::c_void) -> u32>;
 pub type PSP_DEVICE_INTERFACE_DATA = *mut SP_DEVICE_INTERFACE_DATA;
 pub type PSP_DEVICE_INTERFACE_DETAIL_DATA = PSP_DEVICE_INTERFACE_DETAIL_DATA_A;
 pub type PSP_DEVICE_INTERFACE_DETAIL_DATA_A = *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A;
@@ -3008,3 +3102,4 @@ pub type SetupFileLogInfo = i32;
 pub const SetupFileLogMax: SetupFileLogInfo = 5;
 pub const SetupFileLogOtherInfo: SetupFileLogInfo = 4;
 pub const SetupFileLogSourceFilename: SetupFileLogInfo = 0;
+pub const _SETUPAPI_VER: i32 = 2560;

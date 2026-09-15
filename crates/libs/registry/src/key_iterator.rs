@@ -50,7 +50,7 @@ impl Iterator for KeyIterator<'_> {
                     index as u32,
                     self.name.as_mut_ptr(),
                     &mut len,
-                    null(),
+                    null_mut(),
                     null_mut(),
                     null_mut(),
                     null_mut(),

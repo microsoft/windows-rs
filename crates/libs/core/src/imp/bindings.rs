@@ -19,13 +19,23 @@ pub const CLSCTX_INPROC_SERVER: CLSCTX = 1;
 pub type COINIT = i32;
 pub const COINIT_APARTMENTTHREADED: COINIT = 2;
 pub const CO_E_NOTINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x800401F0_u32 as _);
-pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
+pub type CO_MTA_USAGE_COOKIE = *mut CO_MTA_USAGE_COOKIE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct CO_MTA_USAGE_COOKIE__ {
+    pub unused: i32,
+}
 pub const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
 pub const E_NOINTERFACE: windows_core::HRESULT = windows_core::HRESULT(0x80004002_u32 as _);
 pub const E_POINTER: windows_core::HRESULT = windows_core::HRESULT(0x80004003_u32 as _);
 pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
 pub type HANDLE = *mut core::ffi::c_void;
-pub type HINSTANCE = *mut core::ffi::c_void;
+pub type HINSTANCE = *mut HINSTANCE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HINSTANCE__ {
+    pub unused: i32,
+}
 pub type HMODULE = HINSTANCE;
 windows_core::imp::define_interface!(
     IAgileObject,

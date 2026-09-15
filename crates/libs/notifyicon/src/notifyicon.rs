@@ -73,7 +73,7 @@ impl Drop for OwnedIcon {
     fn drop(&mut self) {
         if self.owned {
             unsafe {
-                _ = DestroyIcon(self.handle);
+                _ = DestroyIcon(self.handle.cast());
             }
         }
     }
@@ -101,7 +101,7 @@ impl Registration {
 
         let version = NOTIFYICONDATAW {
             cbSize: size_of::<NOTIFYICONDATAW>() as u32,
-            hWnd: hwnd,
+            hWnd: hwnd.cast(),
             uID: ICON_ID,
             Anonymous: NOTIFYICONDATAW_0 {
                 uVersion: NOTIFYICON_VERSION_4 as u32,
@@ -152,7 +152,7 @@ impl Registration {
     {
         let data = NOTIFYICONDATAW {
             cbSize: size_of::<NOTIFYICONDATAW>() as u32,
-            hWnd: hwnd,
+            hWnd: hwnd.cast(),
             uID: ICON_ID,
             ..Default::default()
         };
@@ -197,11 +197,11 @@ impl Registration {
         let flags = NIF_MESSAGE | NIF_ICON | NIF_TIP | NIF_SHOWTIP;
         NOTIFYICONDATAW {
             cbSize: size_of::<NOTIFYICONDATAW>() as u32,
-            hWnd: hwnd,
+            hWnd: hwnd.cast(),
             uID: ICON_ID,
             uFlags: flags as u32,
             uCallbackMessage: CALLBACK_MESSAGE,
-            hIcon: self.icon.handle,
+            hIcon: self.icon.handle.cast(),
             szTip: self.tooltip.unwrap_or([0; 128]),
             ..Default::default()
         }
@@ -239,7 +239,7 @@ impl Shared {
 
     fn post(&self, hwnd: *mut core::ffi::c_void, pending: Pending) {
         self.pending.borrow_mut().push_back(pending);
-        if !unsafe { PostMessageW(hwnd, DISPATCH_MESSAGE, 0, 0) }.as_bool() {
+        if !unsafe { PostMessageW(hwnd.cast(), DISPATCH_MESSAGE, 0, 0) }.as_bool() {
             self.pending.borrow_mut().pop_back();
             eprintln!("windows-notifyicon could not queue Shell work");
         }
@@ -453,7 +453,12 @@ fn dispatch_window(shared: Weak<Shared>) -> WindowBuilder {
 
 fn allow_message(hwnd: *mut core::ffi::c_void, message: u32) -> Result<()> {
     if unsafe {
-        ChangeWindowMessageFilterEx(hwnd, message, MSGFLT_ALLOW as u32, core::ptr::null_mut())
+        ChangeWindowMessageFilterEx(
+            hwnd.cast(),
+            message,
+            MSGFLT_ALLOW as u32,
+            core::ptr::null_mut(),
+        )
     }
     .as_bool()
     {
@@ -473,7 +478,7 @@ fn allow_message(hwnd: *mut core::ffi::c_void, message: u32) -> Result<()> {
 fn icon_rect(hwnd: *mut core::ffi::c_void) -> Result<RECT> {
     let identifier = NOTIFYICONIDENTIFIER {
         cbSize: size_of::<NOTIFYICONIDENTIFIER>() as u32,
-        hWnd: hwnd,
+        hWnd: hwnd.cast(),
         uID: ICON_ID,
         ..Default::default()
     };
@@ -508,7 +513,7 @@ fn register_taskbar_created() -> Result<u32> {
 }
 
 fn shell_notify(message: u32, data: &NOTIFYICONDATAW) -> bool {
-    unsafe { Shell_NotifyIconW(message, data) }.as_bool()
+    unsafe { Shell_NotifyIconW(message, core::ptr::from_ref(data).cast_mut()) }.as_bool()
 }
 
 fn wide_path(value: &Path) -> Result<Vec<u16>> {

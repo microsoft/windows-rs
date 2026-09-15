@@ -15,4 +15,8 @@ impl Default for CATEGORYINFO {
 pub type CATID = windows_sys::core::GUID;
 #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
 pub type LPCATEGORYINFO = *mut CATEGORYINFO;
+pub type LPCATINFORMATION = *mut core::ffi::c_void;
+pub type LPCATREGISTER = *mut core::ffi::c_void;
+pub type LPENUMCATEGORYINFO = *mut core::ffi::c_void;
+pub type LPENUMGUID = *mut core::ffi::c_void;
 pub type REFCATID = *const windows_sys::core::GUID;

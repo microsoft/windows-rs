@@ -300,7 +300,7 @@ pub struct FIELD_INFO {
     pub TypeId: u32,
     pub FieldOffset: u32,
     pub BufferSize: u32,
-    pub BitField: FIELD_INFO_1,
+    pub BitField: _BitField,
     pub _bitfield: u32,
 }
 #[cfg(feature = "minwindef")]
@@ -321,12 +321,6 @@ impl Default for FIELD_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct FIELD_INFO_1 {
-    pub Position: u16,
-    pub Size: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -874,18 +868,18 @@ pub type PWDBGEXTS_QUERY_INTERFACE = *mut WDBGEXTS_QUERY_INTERFACE;
 pub type PWDBGEXTS_THREAD_OS_INFO = *mut WDBGEXTS_THREAD_OS_INFO;
 pub type PWINDBG_CHECK_CONTROL_C = Option<unsafe extern "system" fn() -> u32>;
 pub type PWINDBG_CHECK_VERSION = Option<unsafe extern "system" fn() -> u32>;
-pub type PWINDBG_DISASM = Option<unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: windows_sys::core::PSTR, fshoweffectiveaddress: u32) -> u32>;
-pub type PWINDBG_DISASM32 = Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: windows_sys::core::PSTR, fshoweffectiveaddress: u32) -> u32>;
-pub type PWINDBG_DISASM64 = Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: windows_sys::core::PSTR, fshoweffectiveaddress: u32) -> u32>;
-#[cfg(feature = "winnt")]
+pub type PWINDBG_DISASM = Option<unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
+pub type PWINDBG_DISASM32 = Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
+pub type PWINDBG_DISASM64 = Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PWINDBG_EXTENSION_APIS = *mut WINDBG_EXTENSION_APIS;
 pub type PWINDBG_EXTENSION_API_VERSION = Option<unsafe extern "system" fn() -> LPEXT_API_VERSION>;
-#[cfg(feature = "winnt")]
-pub type PWINDBG_EXTENSION_DLL_INIT = Option<unsafe extern "system" fn(lpextensionapis: *const WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16)>;
-#[cfg(feature = "winnt")]
-pub type PWINDBG_EXTENSION_DLL_INIT32 = Option<unsafe extern "system" fn(lpextensionapis: *const WINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16)>;
-#[cfg(feature = "winnt")]
-pub type PWINDBG_EXTENSION_DLL_INIT64 = Option<unsafe extern "system" fn(lpextensionapis: *const WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16)>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type PWINDBG_EXTENSION_DLL_INIT = Option<unsafe extern "system" fn(lpextensionapis: PWINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16)>;
+#[cfg(all(feature = "dbgeng", feature = "minwindef", feature = "winnt"))]
+pub type PWINDBG_EXTENSION_DLL_INIT32 = Option<unsafe extern "system" fn(lpextensionapis: super::PWINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16)>;
+#[cfg(all(feature = "basetsd", feature = "dbgeng", feature = "minwindef", feature = "winnt"))]
+pub type PWINDBG_EXTENSION_DLL_INIT64 = Option<unsafe extern "system" fn(lpextensionapis: super::PWINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16)>;
 #[cfg(feature = "winnt")]
 pub type PWINDBG_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(hcurrentprocess: super::HANDLE, hcurrentthread: super::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: windows_sys::core::PCSTR)>;
 #[cfg(feature = "winnt")]
@@ -895,39 +889,45 @@ pub type PWINDBG_EXTENSION_ROUTINE64 = Option<unsafe extern "system" fn(hcurrent
 pub type PWINDBG_GET_EXPRESSION = Option<unsafe extern "system" fn(lpexpression: windows_sys::core::PCSTR) -> usize>;
 pub type PWINDBG_GET_EXPRESSION32 = Option<unsafe extern "system" fn(lpexpression: windows_sys::core::PCSTR) -> u32>;
 pub type PWINDBG_GET_EXPRESSION64 = Option<unsafe extern "system" fn(lpexpression: windows_sys::core::PCSTR) -> u64>;
-pub type PWINDBG_GET_SYMBOL = Option<unsafe extern "system" fn(offset: *const core::ffi::c_void, pchbuffer: *mut i8, pdisplacement: *mut usize)>;
-pub type PWINDBG_GET_SYMBOL32 = Option<unsafe extern "system" fn(offset: u32, pchbuffer: *mut i8, pdisplacement: *mut u32)>;
-pub type PWINDBG_GET_SYMBOL64 = Option<unsafe extern "system" fn(offset: u64, pchbuffer: *mut i8, pdisplacement: *mut u64)>;
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
-#[cfg(target_arch = "aarch64")]
+pub type PWINDBG_GET_SYMBOL = Option<unsafe extern "system" fn(offset: *const core::ffi::c_void, pchbuffer: super::PCHAR, pdisplacement: *mut usize)>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type PWINDBG_GET_SYMBOL32 = Option<unsafe extern "system" fn(offset: u32, pchbuffer: super::PCHAR, pdisplacement: super::PULONG)>;
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
+pub type PWINDBG_GET_SYMBOL64 = Option<unsafe extern "system" fn(offset: u64, pchbuffer: super::PCHAR, pdisplacement: super::PULONG64)>;
 #[cfg(feature = "winnt")]
-pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::ARM64_NT_CONTEXT, cbsizeofcontext: u32) -> u32>;
+pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: super::PCONTEXT, cbsizeofcontext: u32) -> u32>;
 pub type PWINDBG_IOCTL_ROUTINE = Option<unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut core::ffi::c_void, cbsize: u32) -> u32>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PWINDBG_OLDKD_EXTENSION_APIS = *mut WINDBG_OLDKD_EXTENSION_APIS;
-pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *const WINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: windows_sys::core::PCSTR)>;
-pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(address: u64, buffer: *mut core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32>;
-pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(address: u64, buffer: *const core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: PWINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: windows_sys::core::PCSTR)>;
+#[cfg(feature = "minwindef")]
+pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(address: u64, buffer: *mut core::ffi::c_void, count: u32, bytesread: super::PULONG) -> u32>;
+#[cfg(feature = "minwindef")]
+pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(address: u64, buffer: *const core::ffi::c_void, length: u32, byteswritten: super::PULONG) -> u32>;
+#[cfg(feature = "winnt")]
 pub type PWINDBG_OLD_EXTENSION_APIS = *mut WINDBG_OLD_EXTENSION_APIS;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type PWINDBG_OLD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: PWINDBG_EXTENSION_APIS, lpargumentstring: windows_sys::core::PCSTR)>;
+pub type PWINDBG_OUTPUT_ROUTINE = Option<unsafe extern "C" fn(lpformat: windows_sys::core::PCSTR)>;
+#[cfg(feature = "minwindef")]
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: super::PULONG) -> u32>;
+#[cfg(feature = "minwindef")]
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: super::PULONG) -> u32>;
+#[cfg(feature = "minwindef")]
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: super::PULONG) -> u32>;
 #[cfg(feature = "winnt")]
-pub type PWINDBG_OLD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *const WINDBG_EXTENSION_APIS, lpargumentstring: windows_sys::core::PCSTR)>;
-pub type PWINDBG_OUTPUT_ROUTINE = *mut u8;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *const super::CONTEXT, cbsizeofcontext: u32) -> u32>;
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "winnt")]
-pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *const super::ARM64_NT_CONTEXT, cbsizeofcontext: u32) -> u32>;
-pub type PWINDBG_STACKTRACE_ROUTINE = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;
-pub type PWINDBG_STACKTRACE_ROUTINE32 = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32>;
-pub type PWINDBG_STACKTRACE_ROUTINE64 = Option<unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: *mut EXTSTACKTRACE64, frames: u32) -> u32>;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: super::PCONTEXT, cbsizeofcontext: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: PEXTSTACKTRACE, frames: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE32 = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: PEXTSTACKTRACE32, frames: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE64 = Option<unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: PEXTSTACKTRACE64, frames: u32) -> u32>;
+#[cfg(feature = "minwindef")]
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: super::LPCVOID, cb: u32, lpcbbyteswritten: super::PULONG) -> u32>;
+#[cfg(feature = "minwindef")]
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: super::LPCVOID, cb: u32, lpcbbyteswritten: super::PULONG) -> u32>;
+#[cfg(feature = "minwindef")]
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: super::LPCVOID, cb: u32, lpcbbyteswritten: super::PULONG) -> u32>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct READCONTROLSPACE {
@@ -1099,7 +1099,7 @@ pub struct WDBGEXTS_THREAD_OS_INFO {
     pub Affinity: u64,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINDBG_EXTENSION_APIS {
     pub nSize: u32,
@@ -1116,7 +1116,7 @@ pub struct WINDBG_EXTENSION_APIS {
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINDBG_EXTENSION_APIS32 {
     pub nSize: u32,
@@ -1133,7 +1133,7 @@ pub struct WINDBG_EXTENSION_APIS32 {
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE32,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINDBG_EXTENSION_APIS64 {
     pub nSize: u32,
@@ -1150,6 +1150,7 @@ pub struct WINDBG_EXTENSION_APIS64 {
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE64,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub nSize: u32,
@@ -1164,6 +1165,7 @@ pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub lpWritePhysicalMemRoutine: PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct WINDBG_OLD_EXTENSION_APIS {
     pub nSize: u32,
@@ -1172,4 +1174,10 @@ pub struct WINDBG_OLD_EXTENSION_APIS {
     pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
     pub lpDisasmRoutine: PWINDBG_DISASM,
     pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _BitField {
+    pub Position: u16,
+    pub Size: u16,
 }

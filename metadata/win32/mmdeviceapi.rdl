@@ -9,7 +9,7 @@ mod Windows {
             AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT = 3,
         }
         #[library("MMDevAPI.DLL")]
-        extern fn ActivateAudioInterfaceAsync(deviceInterfacePath: PCWSTR, riid: *const GUID, #[opt] activationParams: *const PROPVARIANT, completionHandler: IActivateAudioInterfaceCompletionHandler, activationOperation: *mut IActivateAudioInterfaceAsyncOperation) -> HRESULT;
+        extern fn ActivateAudioInterfaceAsync(deviceInterfacePath: PCWSTR, riid: *const GUID, #[in] #[opt] activationParams: *mut PROPVARIANT, completionHandler: IActivateAudioInterfaceCompletionHandler, activationOperation: *mut IActivateAudioInterfaceAsyncOperation) -> HRESULT;
         struct AudioExtensionParams {
             AddPageParam: LPARAM,
             pEndpoint: IMMDevice,
@@ -46,8 +46,7 @@ mod Windows {
             eCommunications = 2,
             ERole_enum_count = 3,
         }
-        const E_NOTFOUND: i32 = -2147023728;
-        const E_UNSUPPORTED_TYPE: i32 = -2147023266;
+        const E_UNSUPPORTED_TYPE: HRESULT = -2147023266;
         #[repr(i32)]
         enum EndpointFormFactor {
             RemoteNetworkDevice = 0,
@@ -63,7 +62,7 @@ mod Windows {
             UnknownFormFactor = 10,
             EndpointFormFactor_enum_count = 11,
         }
-        const HDMI: i32 = 9;
+        const HDMI: EndpointFormFactor = 9;
         #[guid(0x72a22d78_cde4_431d_b8cc_843a71199b6d)]
         interface IActivateAudioInterfaceAsyncOperation: IUnknown {
             fn GetActivateResult(&self, activateResult: *mut HRESULT, activatedInterface: *mut IUnknown) -> HRESULT;
@@ -88,14 +87,14 @@ mod Windows {
         }
         #[guid(0xd666063f_1587_4e43_81f1_b948e807363f)]
         interface IMMDevice: IUnknown {
-            fn Activate(&self, iid: *const GUID, dwClsCtx: u32, #[opt] pActivationParams: *const PROPVARIANT, #[iid_is] ppInterface: *mut *mut void) -> HRESULT;
+            fn Activate(&self, iid: *const GUID, dwClsCtx: u32, #[in] #[opt] pActivationParams: *mut PROPVARIANT, #[iid_is] ppInterface: *mut *mut void) -> HRESULT;
             fn OpenPropertyStore(&self, stgmAccess: u32, ppProperties: *mut IPropertyStore) -> HRESULT;
             fn GetId(&self, ppstrId: *mut PWSTR) -> HRESULT;
             fn GetState(&self, pdwState: *mut u32) -> HRESULT;
         }
         #[guid(0x3b0d0ea4_d0a9_4b0e_935b_09516746fac0)]
         interface IMMDeviceActivator: IUnknown {
-            fn Activate(&self, iid: *const GUID, pDevice: IMMDevice, #[opt] pActivationParams: *const PROPVARIANT, #[iid_is] ppInterface: *mut *mut void) -> HRESULT;
+            fn Activate(&self, iid: *const GUID, pDevice: IMMDevice, #[in] #[opt] pActivationParams: *mut PROPVARIANT, #[iid_is] ppInterface: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0bd7a1be_7a1a_44db_8397_cc5392387b5e)]
         interface IMMDeviceCollection: IUnknown {

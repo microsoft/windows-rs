@@ -1,10 +1,10 @@
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn auxGetDevCapsA(udeviceid : usize, pac : *mut AUXCAPSA, cbac : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn auxGetDevCapsA(udeviceid : usize, pac : LPAUXCAPSA, cbac : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn auxGetDevCapsW(udeviceid : usize, pac : *mut AUXCAPSW, cbac : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn auxGetDevCapsW(udeviceid : usize, pac : LPAUXCAPSW, cbac : u32) -> super::MMRESULT);
 windows_link::link!("winmm.dll" "system" fn auxGetNumDevs() -> u32);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn auxGetVolume(udeviceid : u32, pdwvolume : *mut u32) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
+windows_link::link!("winmm.dll" "system" fn auxGetVolume(udeviceid : u32, pdwvolume : super::LPDWORD) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn auxOutMessage(udeviceid : u32, umsg : u32, dw1 : usize, dw2 : usize) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
@@ -14,26 +14,26 @@ windows_link::link!("winmm.dll" "system" fn midiConnect(hmi : HMIDI, hmo : HMIDI
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiDisconnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInAddBuffer(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiInAddBuffer(hmi : HMIDIIN, pmh : LPMIDIHDR, cbmh : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiInClose(hmi : HMIDIIN) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInGetDevCapsA(udeviceid : usize, pmic : *mut MIDIINCAPSA, cbmic : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiInGetDevCapsA(udeviceid : usize, pmic : LPMIDIINCAPSA, cbmic : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInGetDevCapsW(udeviceid : usize, pmic : *mut MIDIINCAPSW, cbmic : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiInGetDevCapsW(udeviceid : usize, pmic : LPMIDIINCAPSW, cbmic : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiInGetErrorTextA(mmrerror : super::MMRESULT, psztext : windows_sys::core::PSTR, cchtext : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiInGetErrorTextW(mmrerror : super::MMRESULT, psztext : windows_sys::core::PWSTR, cchtext : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInGetID(hmi : HMIDIIN, pudeviceid : *mut u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiInGetID(hmi : HMIDIIN, pudeviceid : super::LPUINT) -> super::MMRESULT);
 windows_link::link!("winmm.dll" "system" fn midiInGetNumDevs() -> u32);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiInMessage(hmi : HMIDIIN, umsg : u32, dw1 : usize, dw2 : usize) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInOpen(phmi : *mut HMIDIIN, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiInOpen(phmi : LPHMIDIIN, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInPrepareHeader(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiInPrepareHeader(hmi : HMIDIIN, pmh : LPMIDIHDR, cbmh : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiInReset(hmi : HMIDIIN) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
@@ -41,34 +41,34 @@ windows_link::link!("winmm.dll" "system" fn midiInStart(hmi : HMIDIIN) -> super:
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiInStop(hmi : HMIDIIN) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiInUnprepareHeader(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutCacheDrumPatches(hmo : HMIDIOUT, upatch : u32, pwkya : *const u16, fucache : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutCachePatches(hmo : HMIDIOUT, ubank : u32, pwpa : *const u16, fucache : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiInUnprepareHeader(hmi : HMIDIIN, pmh : LPMIDIHDR, cbmh : u32) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
+windows_link::link!("winmm.dll" "system" fn midiOutCacheDrumPatches(hmo : HMIDIOUT, upatch : u32, pwkya : super::LPWORD, fucache : u32) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
+windows_link::link!("winmm.dll" "system" fn midiOutCachePatches(hmo : HMIDIOUT, ubank : u32, pwpa : super::LPWORD, fucache : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiOutClose(hmo : HMIDIOUT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutGetDevCapsA(udeviceid : usize, pmoc : *mut MIDIOUTCAPSA, cbmoc : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiOutGetDevCapsA(udeviceid : usize, pmoc : LPMIDIOUTCAPSA, cbmoc : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutGetDevCapsW(udeviceid : usize, pmoc : *mut MIDIOUTCAPSW, cbmoc : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiOutGetDevCapsW(udeviceid : usize, pmoc : LPMIDIOUTCAPSW, cbmoc : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiOutGetErrorTextA(mmrerror : super::MMRESULT, psztext : windows_sys::core::PSTR, cchtext : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiOutGetErrorTextW(mmrerror : super::MMRESULT, psztext : windows_sys::core::PWSTR, cchtext : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutGetID(hmo : HMIDIOUT, pudeviceid : *mut u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiOutGetID(hmo : HMIDIOUT, pudeviceid : super::LPUINT) -> super::MMRESULT);
 windows_link::link!("winmm.dll" "system" fn midiOutGetNumDevs() -> u32);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
+windows_link::link!("winmm.dll" "system" fn midiOutGetVolume(hmo : HMIDIOUT, pdwvolume : super::LPDWORD) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutGetVolume(hmo : HMIDIOUT, pdwvolume : *mut u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutLongMsg(hmo : HMIDIOUT, pmh : *const MIDIHDR, cbmh : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiOutLongMsg(hmo : HMIDIOUT, pmh : LPMIDIHDR, cbmh : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiOutMessage(hmo : HMIDIOUT, umsg : u32, dw1 : usize, dw2 : usize) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutOpen(phmo : *mut HMIDIOUT, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiOutOpen(phmo : LPHMIDIOUT, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutPrepareHeader(hmo : HMIDIOUT, pmh : *mut MIDIHDR, cbmh : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiOutPrepareHeader(hmo : HMIDIOUT, pmh : LPMIDIHDR, cbmh : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiOutReset(hmo : HMIDIOUT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
@@ -76,19 +76,19 @@ windows_link::link!("winmm.dll" "system" fn midiOutSetVolume(hmo : HMIDIOUT, dwv
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiOutShortMsg(hmo : HMIDIOUT, dwmsg : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiOutUnprepareHeader(hmo : HMIDIOUT, pmh : *mut MIDIHDR, cbmh : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiOutUnprepareHeader(hmo : HMIDIOUT, pmh : LPMIDIHDR, cbmh : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiStreamClose(hms : HMIDISTRM) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiStreamOpen(phms : *mut HMIDISTRM, pudeviceid : *mut u32, cmidi : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiStreamOpen(phms : LPHMIDISTRM, pudeviceid : super::LPUINT, cmidi : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiStreamOut(hms : HMIDISTRM, pmh : *mut MIDIHDR, cbmh : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiStreamOut(hms : HMIDISTRM, pmh : LPMIDIHDR, cbmh : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiStreamPause(hms : HMIDISTRM) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiStreamPosition(hms : HMIDISTRM, lpmmt : *mut super::MMTIME, cbmmt : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn midiStreamProperty(hms : HMIDISTRM, lppropdata : *mut u8, dwproperty : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn midiStreamPosition(hms : HMIDISTRM, lpmmt : super::LPMMTIME, cbmmt : u32) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
+windows_link::link!("winmm.dll" "system" fn midiStreamProperty(hms : HMIDISTRM, lppropdata : super::LPBYTE, dwproperty : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn midiStreamRestart(hms : HMIDISTRM) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
@@ -96,52 +96,52 @@ windows_link::link!("winmm.dll" "system" fn midiStreamStop(hms : HMIDISTRM) -> s
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn mixerClose(hmx : HMIXER) -> super::MMRESULT);
 #[cfg(all(feature = "mmsyscom", feature = "windef"))]
-windows_link::link!("winmm.dll" "system" fn mixerGetControlDetailsA(hmxobj : HMIXEROBJ, pmxcd : *mut MIXERCONTROLDETAILS, fdwdetails : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn mixerGetControlDetailsA(hmxobj : HMIXEROBJ, pmxcd : LPMIXERCONTROLDETAILS, fdwdetails : u32) -> super::MMRESULT);
 #[cfg(all(feature = "mmsyscom", feature = "windef"))]
-windows_link::link!("winmm.dll" "system" fn mixerGetControlDetailsW(hmxobj : HMIXEROBJ, pmxcd : *mut MIXERCONTROLDETAILS, fdwdetails : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn mixerGetControlDetailsW(hmxobj : HMIXEROBJ, pmxcd : LPMIXERCONTROLDETAILS, fdwdetails : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerGetDevCapsA(umxid : usize, pmxcaps : *mut MIXERCAPSA, cbmxcaps : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn mixerGetDevCapsA(umxid : usize, pmxcaps : LPMIXERCAPSA, cbmxcaps : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerGetDevCapsW(umxid : usize, pmxcaps : *mut MIXERCAPSW, cbmxcaps : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn mixerGetDevCapsW(umxid : usize, pmxcaps : LPMIXERCAPSW, cbmxcaps : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn mixerGetID(hmxobj : HMIXEROBJ, pumxid : *mut u32, fdwid : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerGetLineControlsA(hmxobj : HMIXEROBJ, pmxlc : *mut MIXERLINECONTROLSA, fdwcontrols : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn mixerGetLineControlsA(hmxobj : HMIXEROBJ, pmxlc : LPMIXERLINECONTROLSA, fdwcontrols : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerGetLineControlsW(hmxobj : HMIXEROBJ, pmxlc : *mut MIXERLINECONTROLSW, fdwcontrols : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn mixerGetLineControlsW(hmxobj : HMIXEROBJ, pmxlc : LPMIXERLINECONTROLSW, fdwcontrols : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerGetLineInfoA(hmxobj : HMIXEROBJ, pmxl : *mut MIXERLINEA, fdwinfo : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn mixerGetLineInfoA(hmxobj : HMIXEROBJ, pmxl : LPMIXERLINEA, fdwinfo : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerGetLineInfoW(hmxobj : HMIXEROBJ, pmxl : *mut MIXERLINEW, fdwinfo : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn mixerGetLineInfoW(hmxobj : HMIXEROBJ, pmxl : LPMIXERLINEW, fdwinfo : u32) -> super::MMRESULT);
 windows_link::link!("winmm.dll" "system" fn mixerGetNumDevs() -> u32);
 windows_link::link!("winmm.dll" "system" fn mixerMessage(hmx : HMIXER, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn mixerOpen(phmx : *mut HMIXER, umxid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn mixerOpen(phmx : LPHMIXER, umxid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
 #[cfg(all(feature = "mmsyscom", feature = "windef"))]
-windows_link::link!("winmm.dll" "system" fn mixerSetControlDetails(hmxobj : HMIXEROBJ, pmxcd : *const MIXERCONTROLDETAILS, fdwdetails : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn mixerSetControlDetails(hmxobj : HMIXEROBJ, pmxcd : LPMIXERCONTROLDETAILS, fdwdetails : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInAddBuffer(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveInAddBuffer(hwi : HWAVEIN, pwh : LPWAVEHDR, cbwh : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveInClose(hwi : HWAVEIN) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInGetDevCapsA(udeviceid : usize, pwic : *mut WAVEINCAPSA, cbwic : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveInGetDevCapsA(udeviceid : usize, pwic : LPWAVEINCAPSA, cbwic : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInGetDevCapsW(udeviceid : usize, pwic : *mut WAVEINCAPSW, cbwic : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveInGetDevCapsW(udeviceid : usize, pwic : LPWAVEINCAPSW, cbwic : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveInGetErrorTextA(mmrerror : super::MMRESULT, psztext : windows_sys::core::PSTR, cchtext : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveInGetErrorTextW(mmrerror : super::MMRESULT, psztext : windows_sys::core::PWSTR, cchtext : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInGetID(hwi : HWAVEIN, pudeviceid : *const u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveInGetID(hwi : HWAVEIN, pudeviceid : super::LPUINT) -> super::MMRESULT);
 windows_link::link!("winmm.dll" "system" fn waveInGetNumDevs() -> u32);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInGetPosition(hwi : HWAVEIN, pmmt : *mut super::MMTIME, cbmmt : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveInGetPosition(hwi : HWAVEIN, pmmt : super::LPMMTIME, cbmmt : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveInMessage(hwi : HWAVEIN, umsg : u32, dw1 : usize, dw2 : usize) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInOpen(phwi : *mut HWAVEIN, udeviceid : u32, pwfx : *const WAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveInOpen(phwi : LPHWAVEIN, udeviceid : u32, pwfx : LPCWAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInPrepareHeader(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveInPrepareHeader(hwi : HWAVEIN, pwh : LPWAVEHDR, cbwh : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveInReset(hwi : HWAVEIN) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
@@ -149,38 +149,38 @@ windows_link::link!("winmm.dll" "system" fn waveInStart(hwi : HWAVEIN) -> super:
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveInStop(hwi : HWAVEIN) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveInUnprepareHeader(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveInUnprepareHeader(hwi : HWAVEIN, pwh : LPWAVEHDR, cbwh : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveOutBreakLoop(hwo : HWAVEOUT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveOutClose(hwo : HWAVEOUT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutGetDevCapsA(udeviceid : usize, pwoc : *mut WAVEOUTCAPSA, cbwoc : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveOutGetDevCapsA(udeviceid : usize, pwoc : LPWAVEOUTCAPSA, cbwoc : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutGetDevCapsW(udeviceid : usize, pwoc : *mut WAVEOUTCAPSW, cbwoc : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveOutGetDevCapsW(udeviceid : usize, pwoc : LPWAVEOUTCAPSW, cbwoc : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveOutGetErrorTextA(mmrerror : super::MMRESULT, psztext : windows_sys::core::PSTR, cchtext : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveOutGetErrorTextW(mmrerror : super::MMRESULT, psztext : windows_sys::core::PWSTR, cchtext : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutGetID(hwo : HWAVEOUT, pudeviceid : *mut u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveOutGetID(hwo : HWAVEOUT, pudeviceid : super::LPUINT) -> super::MMRESULT);
 windows_link::link!("winmm.dll" "system" fn waveOutGetNumDevs() -> u32);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
+windows_link::link!("winmm.dll" "system" fn waveOutGetPitch(hwo : HWAVEOUT, pdwpitch : super::LPDWORD) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
+windows_link::link!("winmm.dll" "system" fn waveOutGetPlaybackRate(hwo : HWAVEOUT, pdwrate : super::LPDWORD) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutGetPitch(hwo : HWAVEOUT, pdwpitch : *mut u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutGetPlaybackRate(hwo : HWAVEOUT, pdwrate : *mut u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutGetPosition(hwo : HWAVEOUT, pmmt : *mut super::MMTIME, cbmmt : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutGetVolume(hwo : HWAVEOUT, pdwvolume : *mut u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveOutGetPosition(hwo : HWAVEOUT, pmmt : super::LPMMTIME, cbmmt : u32) -> super::MMRESULT);
+#[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
+windows_link::link!("winmm.dll" "system" fn waveOutGetVolume(hwo : HWAVEOUT, pdwvolume : super::LPDWORD) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveOutMessage(hwo : HWAVEOUT, umsg : u32, dw1 : usize, dw2 : usize) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutOpen(phwo : *mut HWAVEOUT, udeviceid : u32, pwfx : *const WAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveOutOpen(phwo : LPHWAVEOUT, udeviceid : u32, pwfx : LPCWAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveOutPause(hwo : HWAVEOUT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutPrepareHeader(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveOutPrepareHeader(hwo : HWAVEOUT, pwh : LPWAVEHDR, cbwh : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveOutReset(hwo : HWAVEOUT) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
@@ -192,9 +192,9 @@ windows_link::link!("winmm.dll" "system" fn waveOutSetPlaybackRate(hwo : HWAVEOU
 #[cfg(feature = "mmsyscom")]
 windows_link::link!("winmm.dll" "system" fn waveOutSetVolume(hwo : HWAVEOUT, dwvolume : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutUnprepareHeader(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveOutUnprepareHeader(hwo : HWAVEOUT, pwh : LPWAVEHDR, cbwh : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn waveOutWrite(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> super::MMRESULT);
+windows_link::link!("winmm.dll" "system" fn waveOutWrite(hwo : HWAVEOUT, pwh : LPWAVEHDR, cbwh : u32) -> super::MMRESULT);
 #[cfg(feature = "mmsyscom")]
 pub type AUXCAPS = AUXCAPSA;
 #[cfg(feature = "mmsyscom")]
@@ -282,15 +282,60 @@ pub const AUXCAPS_CDAUDIO: i32 = 1;
 pub const AUXCAPS_LRVOLUME: i32 = 2;
 pub const AUXCAPS_VOLUME: i32 = 1;
 pub const AUX_MAPPER: u32 = 4294967295;
-pub type HMIDI = *mut core::ffi::c_void;
-pub type HMIDIIN = *mut core::ffi::c_void;
-pub type HMIDIOUT = *mut core::ffi::c_void;
-pub type HMIDISTRM = *mut core::ffi::c_void;
-pub type HMIXER = *mut core::ffi::c_void;
-pub type HMIXEROBJ = *mut core::ffi::c_void;
-pub type HWAVE = *mut core::ffi::c_void;
-pub type HWAVEIN = *mut core::ffi::c_void;
-pub type HWAVEOUT = *mut core::ffi::c_void;
+pub type HMIDI = *mut HMIDI__;
+pub type HMIDIIN = *mut HMIDIIN__;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct HMIDIIN__ {
+    pub unused: i32,
+}
+pub type HMIDIOUT = *mut HMIDIOUT__;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct HMIDIOUT__ {
+    pub unused: i32,
+}
+pub type HMIDISTRM = *mut HMIDISTRM__;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct HMIDISTRM__ {
+    pub unused: i32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct HMIDI__ {
+    pub unused: i32,
+}
+pub type HMIXER = *mut HMIXER__;
+pub type HMIXEROBJ = *mut HMIXEROBJ__;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct HMIXEROBJ__ {
+    pub unused: i32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct HMIXER__ {
+    pub unused: i32,
+}
+pub type HWAVE = *mut HWAVE__;
+pub type HWAVEIN = *mut HWAVEIN__;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct HWAVEIN__ {
+    pub unused: i32,
+}
+pub type HWAVEOUT = *mut HWAVEOUT__;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct HWAVEOUT__ {
+    pub unused: i32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct HWAVE__ {
+    pub unused: i32,
+}
 pub type KEYARRAY = [u16; 128];
 #[cfg(feature = "mmsyscom")]
 pub type LPAUXCAPS = LPAUXCAPSA;
@@ -314,7 +359,8 @@ pub type LPHMIXEROBJ = *mut HMIXEROBJ;
 pub type LPHWAVEIN = *mut HWAVEIN;
 pub type LPHWAVEOUT = *mut HWAVEOUT;
 pub type LPKEYARRAY = *mut u16;
-pub type LPMIDICALLBACK = Option<unsafe extern "system" fn()>;
+#[cfg(feature = "mmsyscom")]
+pub type LPMIDICALLBACK = Option<unsafe extern "C" fn(param0: super::HDRVR, param1: u32, param2: usize, param3: usize, param4: usize)>;
 pub type LPMIDIHDR = *mut MIDIHDR;
 #[cfg(feature = "mmsyscom")]
 pub type LPMIDIINCAPS = LPMIDIINCAPSA;
@@ -376,7 +422,8 @@ pub type LPMIXERLINECONTROLSW = *mut MIXERLINECONTROLSW;
 pub type LPMIXERLINEW = *mut MIXERLINEW;
 pub type LPPATCHARRAY = *mut u16;
 pub type LPPCMWAVEFORMAT = *mut PCMWAVEFORMAT;
-pub type LPWAVECALLBACK = Option<unsafe extern "system" fn()>;
+#[cfg(feature = "mmsyscom")]
+pub type LPWAVECALLBACK = Option<unsafe extern "C" fn(param0: super::HDRVR, param1: u32, param2: usize, param3: usize, param4: usize)>;
 pub type LPWAVEFORMAT = *mut WAVEFORMAT;
 pub type LPWAVEFORMATEX = *mut WAVEFORMATEX;
 pub type LPWAVEHDR = *mut WAVEHDR;
@@ -418,7 +465,7 @@ pub const MHDR_INQUEUE: i32 = 4;
 pub const MHDR_ISSTRM: i32 = 8;
 pub const MHDR_PREPARED: i32 = 2;
 #[cfg(feature = "mmsyscom")]
-pub type MIDICALLBACK = Option<unsafe extern "system" fn(hdrvr: super::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type MIDICALLBACK = Option<unsafe extern "C" fn(hdrvr: super::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub const MIDICAPS_CACHE: i32 = 4;
 pub const MIDICAPS_LRVOLUME: i32 = 2;
 pub const MIDICAPS_STREAM: i32 = 8;
@@ -1366,7 +1413,7 @@ pub type PWAVEOUTCAPSA = *mut WAVEOUTCAPSA;
 #[cfg(feature = "mmsyscom")]
 pub type PWAVEOUTCAPSW = *mut WAVEOUTCAPSW;
 #[cfg(feature = "mmsyscom")]
-pub type WAVECALLBACK = Option<unsafe extern "system" fn(hdrvr: super::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type WAVECALLBACK = Option<unsafe extern "C" fn(hdrvr: super::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub const WAVECAPS_LRVOLUME: i32 = 8;
 pub const WAVECAPS_PITCH: i32 = 1;
 pub const WAVECAPS_PLAYBACKRATE: i32 = 2;

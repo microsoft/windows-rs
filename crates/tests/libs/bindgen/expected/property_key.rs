@@ -1,11 +1,9 @@
 pub const DEVPKEY_Test_Sample: DEVPROPKEY = DEVPROPKEY {
     fmtid: windows_core::GUID::from_u128(0x26e3e2a2_1234_5678_9abc_def012345678),
-    pid: DEVPROPID(26),
+    pid: 26,
 };
 pub type DEVPROPGUID = windows_core::GUID;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DEVPROPID(pub u32);
+pub type DEVPROPID = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROPKEY {

@@ -15,6 +15,7 @@ windows_link::link!("dwmapi.dll" "system" fn DwmGetColorizationColor(pcrcoloriza
 #[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmGetCompositionTimingInfo(hwnd : super::HWND, ptiminginfo : *mut DWM_TIMING_INFO) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmGetGraphicsStreamClient(uindex : u32, pclientuuid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypesbase")]
 windows_link::link!("dwmapi.dll" "system" fn DwmGetGraphicsStreamTransformHint(uindex : u32, ptransform : *mut MilMatrix3x2D) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmGetTransportAttributes(pfisremoting : *mut windows_sys::core::BOOL, pfisconnected : *mut windows_sys::core::BOOL, pdwgeneration : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
@@ -27,9 +28,9 @@ windows_link::link!("dwmapi.dll" "system" fn DwmIsCompositionEnabled(pfenabled :
 #[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmModifyPreviousDxFrameDuration(hwnd : super::HWND, crefreshes : i32, frelative : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("dwmapi.dll" "system" fn DwmQueryThumbnailSourceSize(hthumbnail : HTHUMBNAIL, psize : *mut super::SIZE) -> windows_sys::core::HRESULT);
+windows_link::link!("dwmapi.dll" "system" fn DwmQueryThumbnailSourceSize(hthumbnail : HTHUMBNAIL, psize : super::PSIZE) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("dwmapi.dll" "system" fn DwmRegisterThumbnail(hwnddestination : super::HWND, hwndsource : super::HWND, phthumbnailid : *mut HTHUMBNAIL) -> windows_sys::core::HRESULT);
+windows_link::link!("dwmapi.dll" "system" fn DwmRegisterThumbnail(hwnddestination : super::HWND, hwndsource : super::HWND, phthumbnailid : PHTHUMBNAIL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmRenderGesture(gt : GESTURE_TYPE, ccontacts : u32, pdwpointerid : *const u32, ppoints : *const super::POINT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
@@ -40,8 +41,8 @@ windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicLivePreviewBitmap(hwnd 
 windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicThumbnail(hwnd : super::HWND, hbmp : super::HBITMAP, dwsitflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmSetPresentParameters(hwnd : super::HWND, ppresentparams : *mut DWM_PRESENT_PARAMETERS) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::HWND, dwattribute : u32, pvattribute : *const core::ffi::c_void, cbattribute : u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::HWND, dwattribute : u32, pvattribute : super::LPCVOID, cbattribute : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmShowContact(dwpointerid : u32, eshowcontact : DWM_SHOWCONTACT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("dwmapi.dll" "system" fn DwmTetherContact(dwpointerid : u32, fenable : windows_sys::core::BOOL, pttether : super::POINT) -> windows_sys::core::HRESULT);
@@ -235,16 +236,18 @@ pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = 7;
 pub const GT_TOUCH_TAP: GESTURE_TYPE = 5;
 #[cfg(feature = "winnt")]
 pub type HTHUMBNAIL = super::HANDLE;
+#[cfg(feature = "wtypesbase")]
 pub type MIL_MATRIX3X2D = MilMatrix3x2D;
 #[repr(C, packed(1))]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy, Default)]
 pub struct MilMatrix3x2D {
-    pub S_11: f64,
-    pub S_12: f64,
-    pub S_21: f64,
-    pub S_22: f64,
-    pub DX: f64,
-    pub DY: f64,
+    pub S_11: super::DOUBLE,
+    pub S_12: super::DOUBLE,
+    pub S_21: super::DOUBLE,
+    pub S_22: super::DOUBLE,
+    pub DX: super::DOUBLE,
+    pub DY: super::DOUBLE,
 }
 #[cfg(feature = "minwindef")]
 pub type PDWM_BLURBEHIND = *mut DWM_BLURBEHIND;

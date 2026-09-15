@@ -52,13 +52,13 @@ mod Windows {
             Monitor: HMONITOR,
             BitsPerColor: u32,
             ColorSpace: DXGI_COLOR_SPACE_TYPE,
-            RedPrimary: [f32; 2],
-            GreenPrimary: [f32; 2],
-            BluePrimary: [f32; 2],
-            WhitePoint: [f32; 2],
-            MinLuminance: f32,
-            MaxLuminance: f32,
-            MaxFullFrameLuminance: f32,
+            RedPrimary: [FLOAT; 2],
+            GreenPrimary: [FLOAT; 2],
+            BluePrimary: [FLOAT; 2],
+            WhitePoint: [FLOAT; 2],
+            MinLuminance: FLOAT,
+            MaxLuminance: FLOAT,
+            MaxFullFrameLuminance: FLOAT,
         }
         #[guid(0x3c8d99d1_4fbf_4181_a82c_af66bf7bd24e)]
         interface IDXGIAdapter4: IDXGIAdapter3 {

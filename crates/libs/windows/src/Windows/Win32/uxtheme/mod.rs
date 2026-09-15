@@ -58,26 +58,26 @@ pub unsafe fn CloseThemeData(htheme: super::HTHEME) -> windows_core::HRESULT {
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn DrawThemeBackground(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, prect: *const super::RECT, pcliprect: Option<*const super::RECT>) -> windows_core::HRESULT {
-    windows_core::link!("uxtheme.dll" "system" fn DrawThemeBackground(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, prect : *const super::RECT, pcliprect : *const super::RECT) -> windows_core::HRESULT);
+pub unsafe fn DrawThemeBackground(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, prect: super::LPCRECT, pcliprect: Option<super::LPCRECT>) -> windows_core::HRESULT {
+    windows_core::link!("uxtheme.dll" "system" fn DrawThemeBackground(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, prect : super::LPCRECT, pcliprect : super::LPCRECT) -> windows_core::HRESULT);
     unsafe { DrawThemeBackground(htheme, hdc, ipartid, istateid, prect, pcliprect.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn DrawThemeBackgroundEx(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, prect: *const super::RECT, poptions: Option<*const DTBGOPTS>) -> windows_core::HRESULT {
-    windows_core::link!("uxtheme.dll" "system" fn DrawThemeBackgroundEx(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, prect : *const super::RECT, poptions : *const DTBGOPTS) -> windows_core::HRESULT);
+pub unsafe fn DrawThemeBackgroundEx(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, prect: super::LPCRECT, poptions: Option<*const DTBGOPTS>) -> windows_core::HRESULT {
+    windows_core::link!("uxtheme.dll" "system" fn DrawThemeBackgroundEx(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, prect : super::LPCRECT, poptions : *const DTBGOPTS) -> windows_core::HRESULT);
     unsafe { DrawThemeBackgroundEx(htheme, hdc, ipartid, istateid, prect, poptions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn DrawThemeEdge(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, pdestrect: *const super::RECT, uedge: u32, uflags: u32, pcontentrect: Option<*mut super::RECT>) -> windows_core::HRESULT {
-    windows_core::link!("uxtheme.dll" "system" fn DrawThemeEdge(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, pdestrect : *const super::RECT, uedge : u32, uflags : u32, pcontentrect : *mut super::RECT) -> windows_core::HRESULT);
+pub unsafe fn DrawThemeEdge(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, pdestrect: super::LPCRECT, uedge: u32, uflags: u32, pcontentrect: Option<super::LPRECT>) -> windows_core::HRESULT {
+    windows_core::link!("uxtheme.dll" "system" fn DrawThemeEdge(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, pdestrect : super::LPCRECT, uedge : u32, uflags : u32, pcontentrect : super::LPRECT) -> windows_core::HRESULT);
     unsafe { DrawThemeEdge(htheme, hdc, ipartid, istateid, pdestrect, uedge, uflags, pcontentrect.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "commctrl", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn DrawThemeIcon(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, prect: *const super::RECT, himl: *const super::_IMAGELIST, iimageindex: i32) -> windows_core::HRESULT {
-    windows_core::link!("uxtheme.dll" "system" fn DrawThemeIcon(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, prect : *const super::RECT, himl : *const super::_IMAGELIST, iimageindex : i32) -> windows_core::HRESULT);
+pub unsafe fn DrawThemeIcon(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, prect: super::LPCRECT, himl: super::HIMAGELIST, iimageindex: i32) -> windows_core::HRESULT {
+    windows_core::link!("uxtheme.dll" "system" fn DrawThemeIcon(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, prect : super::LPCRECT, himl : super::HIMAGELIST, iimageindex : i32) -> windows_core::HRESULT);
     unsafe { DrawThemeIcon(htheme, hdc, ipartid, istateid, prect, himl, iimageindex) }
 }
 #[cfg(feature = "windef")]
@@ -94,14 +94,14 @@ pub unsafe fn DrawThemeParentBackgroundEx(hwnd: super::HWND, hdc: super::HDC, dw
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn DrawThemeText(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: u32, dwtextflags2: u32, prect: *const super::RECT) -> windows_core::HRESULT {
-    windows_core::link!("uxtheme.dll" "system" fn DrawThemeText(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchtext : i32, dwtextflags : u32, dwtextflags2 : u32, prect : *const super::RECT) -> windows_core::HRESULT);
+pub unsafe fn DrawThemeText(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: u32, dwtextflags2: u32, prect: super::LPCRECT) -> windows_core::HRESULT {
+    windows_core::link!("uxtheme.dll" "system" fn DrawThemeText(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchtext : i32, dwtextflags : u32, dwtextflags2 : u32, prect : super::LPCRECT) -> windows_core::HRESULT);
     unsafe { DrawThemeText(htheme, hdc, ipartid, istateid, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, dwtextflags2, prect) }
 }
 #[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn DrawThemeTextEx(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: u32, prect: *mut super::RECT, poptions: Option<*const DTTOPTS>) -> windows_core::HRESULT {
-    windows_core::link!("uxtheme.dll" "system" fn DrawThemeTextEx(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchtext : i32, dwtextflags : u32, prect : *mut super::RECT, poptions : *const DTTOPTS) -> windows_core::HRESULT);
+pub unsafe fn DrawThemeTextEx(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: u32, prect: super::LPRECT, poptions: Option<*const DTTOPTS>) -> windows_core::HRESULT {
+    windows_core::link!("uxtheme.dll" "system" fn DrawThemeTextEx(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchtext : i32, dwtextflags : u32, prect : super::LPRECT, poptions : *const DTTOPTS) -> windows_core::HRESULT);
     unsafe { DrawThemeTextEx(htheme, hdc, ipartid, istateid, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, prect as _, poptions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -184,8 +184,8 @@ pub unsafe fn GetThemeAppProperties() -> u32 {
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetThemeBackgroundContentRect(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, pboundingrect: *const super::RECT) -> windows_core::Result<super::RECT> {
-    windows_core::link!("uxtheme.dll" "system" fn GetThemeBackgroundContentRect(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, pboundingrect : *const super::RECT, pcontentrect : *mut super::RECT) -> windows_core::HRESULT);
+pub unsafe fn GetThemeBackgroundContentRect(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, pboundingrect: super::LPCRECT) -> windows_core::Result<super::RECT> {
+    windows_core::link!("uxtheme.dll" "system" fn GetThemeBackgroundContentRect(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, pboundingrect : super::LPCRECT, pcontentrect : super::LPRECT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetThemeBackgroundContentRect(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, pboundingrect, &mut result__).map(|| result__)
@@ -193,8 +193,8 @@ pub unsafe fn GetThemeBackgroundContentRect(htheme: super::HTHEME, hdc: Option<s
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetThemeBackgroundExtent(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, pcontentrect: *const super::RECT) -> windows_core::Result<super::RECT> {
-    windows_core::link!("uxtheme.dll" "system" fn GetThemeBackgroundExtent(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, pcontentrect : *const super::RECT, pextentrect : *mut super::RECT) -> windows_core::HRESULT);
+pub unsafe fn GetThemeBackgroundExtent(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, pcontentrect: super::LPCRECT) -> windows_core::Result<super::RECT> {
+    windows_core::link!("uxtheme.dll" "system" fn GetThemeBackgroundExtent(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, pcontentrect : super::LPCRECT, pextentrect : super::LPRECT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetThemeBackgroundExtent(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, pcontentrect, &mut result__).map(|| result__)
@@ -202,8 +202,8 @@ pub unsafe fn GetThemeBackgroundExtent(htheme: super::HTHEME, hdc: Option<super:
 }
 #[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetThemeBackgroundRegion(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, prect: *const super::RECT) -> windows_core::Result<super::HRGN> {
-    windows_core::link!("uxtheme.dll" "system" fn GetThemeBackgroundRegion(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, prect : *const super::RECT, pregion : *mut super::HRGN) -> windows_core::HRESULT);
+pub unsafe fn GetThemeBackgroundRegion(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, prect: super::LPCRECT) -> windows_core::Result<super::HRGN> {
+    windows_core::link!("uxtheme.dll" "system" fn GetThemeBackgroundRegion(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, prect : super::LPCRECT, pregion : *mut super::HRGN) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetThemeBackgroundRegion(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, prect, &mut result__).map(|| result__)
@@ -283,8 +283,8 @@ pub unsafe fn GetThemeIntList(htheme: super::HTHEME, ipartid: i32, istateid: i32
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetThemeMargins(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, ipropid: i32, prc: Option<*const super::RECT>) -> windows_core::Result<MARGINS> {
-    windows_core::link!("uxtheme.dll" "system" fn GetThemeMargins(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, ipropid : i32, prc : *const super::RECT, pmargins : *mut MARGINS) -> windows_core::HRESULT);
+pub unsafe fn GetThemeMargins(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, ipropid: i32, prc: Option<super::LPCRECT>) -> windows_core::Result<MARGINS> {
+    windows_core::link!("uxtheme.dll" "system" fn GetThemeMargins(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, ipropid : i32, prc : super::LPCRECT, pmargins : *mut MARGINS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetThemeMargins(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, ipropid, prc.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
@@ -301,8 +301,8 @@ pub unsafe fn GetThemeMetric(htheme: super::HTHEME, hdc: Option<super::HDC>, ipa
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetThemePartSize(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, prc: Option<*const super::RECT>, esize: THEMESIZE) -> windows_core::Result<super::SIZE> {
-    windows_core::link!("uxtheme.dll" "system" fn GetThemePartSize(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, prc : *const super::RECT, esize : THEMESIZE, psz : *mut super::SIZE) -> windows_core::HRESULT);
+pub unsafe fn GetThemePartSize(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, prc: Option<super::LPCRECT>, esize: THEMESIZE) -> windows_core::Result<super::SIZE> {
+    windows_core::link!("uxtheme.dll" "system" fn GetThemePartSize(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, prc : super::LPCRECT, esize : THEMESIZE, psz : *mut super::SIZE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetThemePartSize(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, prc.unwrap_or(core::mem::zeroed()) as _, esize, &mut result__).map(|| result__)
@@ -329,7 +329,7 @@ pub unsafe fn GetThemePropertyOrigin(htheme: super::HTHEME, ipartid: i32, istate
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetThemeRect(htheme: super::HTHEME, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<super::RECT> {
-    windows_core::link!("uxtheme.dll" "system" fn GetThemeRect(htheme : super::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, prect : *mut super::RECT) -> windows_core::HRESULT);
+    windows_core::link!("uxtheme.dll" "system" fn GetThemeRect(htheme : super::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, prect : super::LPRECT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetThemeRect(htheme, ipartid, istateid, ipropid, &mut result__).map(|| result__)
@@ -394,8 +394,8 @@ pub unsafe fn GetThemeSysString(htheme: super::HTHEME, istringid: i32, pszstring
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetThemeTextExtent(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: u32, pboundingrect: Option<*const super::RECT>) -> windows_core::Result<super::RECT> {
-    windows_core::link!("uxtheme.dll" "system" fn GetThemeTextExtent(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchcharcount : i32, dwtextflags : u32, pboundingrect : *const super::RECT, pextentrect : *mut super::RECT) -> windows_core::HRESULT);
+pub unsafe fn GetThemeTextExtent(htheme: super::HTHEME, hdc: super::HDC, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: u32, pboundingrect: Option<super::LPCRECT>) -> windows_core::Result<super::RECT> {
+    windows_core::link!("uxtheme.dll" "system" fn GetThemeTextExtent(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchcharcount : i32, dwtextflags : u32, pboundingrect : super::LPCRECT, pextentrect : super::LPRECT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetThemeTextExtent(htheme, hdc, ipartid, istateid, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, pboundingrect.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
@@ -430,8 +430,8 @@ pub unsafe fn GetWindowTheme(hwnd: super::HWND) -> super::HTHEME {
 }
 #[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn HitTestThemeBackground(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, dwoptions: u32, prect: *const super::RECT, hrgn: Option<super::HRGN>, pttest: super::POINT) -> windows_core::Result<u16> {
-    windows_core::link!("uxtheme.dll" "system" fn HitTestThemeBackground(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, dwoptions : u32, prect : *const super::RECT, hrgn : super::HRGN, pttest : super::POINT, pwhittestcode : *mut u16) -> windows_core::HRESULT);
+pub unsafe fn HitTestThemeBackground(htheme: super::HTHEME, hdc: Option<super::HDC>, ipartid: i32, istateid: i32, dwoptions: u32, prect: super::LPCRECT, hrgn: Option<super::HRGN>, pttest: super::POINT) -> windows_core::Result<u16> {
+    windows_core::link!("uxtheme.dll" "system" fn HitTestThemeBackground(htheme : super::HTHEME, hdc : super::HDC, ipartid : i32, istateid : i32, dwoptions : u32, prect : super::LPCRECT, hrgn : super::HRGN, pttest : super::POINT, pwhittestcode : *mut u16) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         HitTestThemeBackground(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, dwoptions, prect, hrgn.unwrap_or(core::mem::zeroed()) as _, pttest, &mut result__).map(|| result__)
@@ -529,7 +529,7 @@ pub const BPAS_LINEAR: BP_ANIMATIONSTYLE = 1;
 pub const BPAS_NONE: BP_ANIMATIONSTYLE = 0;
 pub const BPAS_SINE: BP_ANIMATIONSTYLE = 3;
 pub const BPBF_COMPATIBLEBITMAP: BP_BUFFERFORMAT = 0;
-pub const BPBF_COMPOSITED: i32 = 2;
+pub const BPBF_COMPOSITED: BP_BUFFERFORMAT = 2;
 pub const BPBF_DIB: BP_BUFFERFORMAT = 1;
 pub const BPBF_TOPDOWNDIB: BP_BUFFERFORMAT = 2;
 pub const BPBF_TOPDOWNMONODIB: BP_BUFFERFORMAT = 3;
@@ -600,7 +600,7 @@ pub const DTT_BORDERSIZE: u32 = 32;
 pub const DTT_CALCRECT: u32 = 512;
 pub const DTT_CALLBACK: u32 = 4096;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type DTT_CALLBACK_PROC = Option<unsafe extern "system" fn(hdc: super::HDC, psztext: windows_core::PWSTR, cchtext: i32, prc: *mut super::RECT, dwflags: u32, lparam: super::LPARAM) -> i32>;
+pub type DTT_CALLBACK_PROC = Option<unsafe extern "system" fn(hdc: super::HDC, psztext: windows_core::PWSTR, cchtext: i32, prc: super::LPRECT, dwflags: u32, lparam: super::LPARAM) -> i32>;
 pub const DTT_COLORPROP: u32 = 128;
 pub const DTT_COMPOSITED: u32 = 8192;
 pub const DTT_FLAGS2VALIDBITS: i32 = 1;

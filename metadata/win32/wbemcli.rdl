@@ -35,7 +35,7 @@ mod Windows {
         #[guid(0x6daf974e_2e37_11d2_aec9_00c04fb68820)]
         interface IMofCompiler: IUnknown {
             fn CompileFile(&self, FileName: PCWSTR, ServerAndNamespace: PCWSTR, User: PCWSTR, Authority: PCWSTR, Password: PCWSTR, lOptionFlags: i32, lClassFlags: i32, lInstanceFlags: i32, #[in] #[out] pInfo: *mut WBEM_COMPILE_STATUS_INFO) -> HRESULT;
-            fn CompileBuffer(&self, BuffSize: i32, #[size_param(0)] pBuffer: *const u8, ServerAndNamespace: PCWSTR, User: PCWSTR, Authority: PCWSTR, Password: PCWSTR, lOptionFlags: i32, lClassFlags: i32, lInstanceFlags: i32, #[in] #[out] pInfo: *mut WBEM_COMPILE_STATUS_INFO) -> HRESULT;
+            fn CompileBuffer(&self, BuffSize: i32, #[size_param(0)] #[in] pBuffer: *mut u8, ServerAndNamespace: PCWSTR, User: PCWSTR, Authority: PCWSTR, Password: PCWSTR, lOptionFlags: i32, lClassFlags: i32, lInstanceFlags: i32, #[in] #[out] pInfo: *mut WBEM_COMPILE_STATUS_INFO) -> HRESULT;
             fn CreateBMOF(&self, TextFileName: PCWSTR, BMOFFileName: PCWSTR, ServerAndNamespace: PCWSTR, lOptionFlags: i32, lClassFlags: i32, lInstanceFlags: i32, #[in] #[out] pInfo: *mut WBEM_COMPILE_STATUS_INFO) -> HRESULT;
         }
         #[guid(0x1cfaba8c_1523_11d1_ad79_00c04fd8fdff)]
@@ -63,9 +63,9 @@ mod Windows {
         interface IWbemClassObject: IUnknown {
             fn GetQualifierSet(&self, ppQualSet: *mut IWbemQualifierSet) -> HRESULT;
             fn Get(&self, wszName: PCWSTR, lFlags: i32, #[in] #[out] pVal: *mut VARIANT, #[in] #[out] pType: *mut CIMTYPE, #[in] #[out] plFlavor: *mut i32) -> HRESULT;
-            fn Put(&self, wszName: PCWSTR, lFlags: i32, pVal: *const VARIANT, Type: CIMTYPE) -> HRESULT;
+            fn Put(&self, wszName: PCWSTR, lFlags: i32, #[in] pVal: *mut VARIANT, Type: CIMTYPE) -> HRESULT;
             fn Delete(&self, wszName: PCWSTR) -> HRESULT;
-            fn GetNames(&self, wszQualifierName: PCWSTR, lFlags: i32, pQualifierVal: *const VARIANT, pNames: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetNames(&self, wszQualifierName: PCWSTR, lFlags: i32, #[in] pQualifierVal: *mut VARIANT, pNames: *mut *mut SAFEARRAY) -> HRESULT;
             fn BeginEnumeration(&self, lEnumFlags: i32) -> HRESULT;
             fn Next(&self, lFlags: i32, #[in] #[out] strName: *mut BSTR, #[in] #[out] pVal: *mut VARIANT, #[in] #[out] pType: *mut CIMTYPE, #[in] #[out] plFlavor: *mut i32) -> HRESULT;
             fn EndEnumeration(&self) -> HRESULT;
@@ -101,15 +101,15 @@ mod Windows {
             fn BeginEnumeration(&self, lFlags: i32) -> HRESULT;
             fn Next(&self, lFlags: i32, pstrName: *mut BSTR, pValue: *mut VARIANT) -> HRESULT;
             fn EndEnumeration(&self) -> HRESULT;
-            fn SetValue(&self, wszName: PCWSTR, lFlags: i32, pValue: *const VARIANT) -> HRESULT;
+            fn SetValue(&self, wszName: PCWSTR, lFlags: i32, #[in] pValue: *mut VARIANT) -> HRESULT;
             fn GetValue(&self, wszName: PCWSTR, lFlags: i32, pValue: *mut VARIANT) -> HRESULT;
             fn DeleteValue(&self, wszName: PCWSTR, lFlags: i32) -> HRESULT;
             fn DeleteAll(&self) -> HRESULT;
         }
         #[guid(0x2705c288_79ae_11d2_b348_00105a1f8177)]
         interface IWbemHiPerfEnum: IUnknown {
-            fn AddObjects(&self, lFlags: i32, uNumObjects: u32, apIds: *const i32, apObj: *const IWbemObjectAccess) -> HRESULT;
-            fn RemoveObjects(&self, lFlags: i32, uNumObjects: u32, apIds: *const i32) -> HRESULT;
+            fn AddObjects(&self, lFlags: i32, uNumObjects: u32, #[in] apIds: *mut i32, #[in] apObj: *mut IWbemObjectAccess) -> HRESULT;
+            fn RemoveObjects(&self, lFlags: i32, uNumObjects: u32, #[in] apIds: *mut i32) -> HRESULT;
             fn GetObjects(&self, lFlags: i32, uNumObjects: u32, apObj: *mut IWbemObjectAccess, puReturned: *mut u32) -> HRESULT;
             fn RemoveAll(&self, lFlags: i32) -> HRESULT;
         }
@@ -132,7 +132,7 @@ mod Windows {
         }
         #[guid(0x7c857801_7381_11cf_884d_00aa004b2e24)]
         interface IWbemObjectSink: IUnknown {
-            fn Indicate(&self, lObjectCount: i32, apObjArray: *const IWbemClassObject) -> HRESULT;
+            fn Indicate(&self, lObjectCount: i32, #[in] apObjArray: *mut IWbemClassObject) -> HRESULT;
             fn SetStatus(&self, lFlags: i32, hResult: HRESULT, strParam: BSTR, pObjParam: IWbemClassObject) -> HRESULT;
         }
         #[guid(0xe7d35cfa_348b_485e_b524_252725d697ca)]
@@ -141,7 +141,7 @@ mod Windows {
             fn WriteError(&self, pObjError: IWbemClassObject, puReturned: *mut u8) -> HRESULT;
             fn PromptUser(&self, strMessage: BSTR, uPromptType: u8, puReturned: *mut u8) -> HRESULT;
             fn WriteProgress(&self, strActivity: BSTR, strCurrentOperation: BSTR, strStatusDescription: BSTR, uPercentComplete: u32, uSecondsRemaining: u32) -> HRESULT;
-            fn WriteStreamParameter(&self, strName: BSTR, vtValue: *const VARIANT, ulType: u32, ulFlags: u32) -> HRESULT;
+            fn WriteStreamParameter(&self, strName: BSTR, #[in] vtValue: *mut VARIANT, ulType: u32, ulFlags: u32) -> HRESULT;
         }
         #[guid(0xbfbf883a_cad7_11d3_a11b_00105a1f515a)]
         interface IWbemObjectTextSrc: IUnknown {
@@ -151,7 +151,7 @@ mod Windows {
         #[guid(0xdc12a680_737f_11cf_884d_00aa004b2e24)]
         interface IWbemQualifierSet: IUnknown {
             fn Get(&self, wszName: PCWSTR, lFlags: i32, #[in] #[out] pVal: *mut VARIANT, #[in] #[out] plFlavor: *mut i32) -> HRESULT;
-            fn Put(&self, wszName: PCWSTR, pVal: *const VARIANT, lFlavor: i32) -> HRESULT;
+            fn Put(&self, wszName: PCWSTR, #[in] pVal: *mut VARIANT, lFlavor: i32) -> HRESULT;
             fn Delete(&self, wszName: PCWSTR) -> HRESULT;
             fn GetNames(&self, lFlags: i32, pNames: *mut *mut SAFEARRAY) -> HRESULT;
             fn BeginEnumeration(&self, lFlags: i32) -> HRESULT;

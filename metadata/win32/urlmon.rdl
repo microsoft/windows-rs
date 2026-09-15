@@ -79,9 +79,9 @@ mod Windows {
             BINDF2_RESERVED_2 = 1073741824,
             BINDF2_RESERVED_1 = -2147483648,
         }
-        const BINDF_DONTPUTINCACHE: i32 = 32;
-        const BINDF_DONTUSECACHE: i32 = 16;
-        const BINDF_NOCOPYDATA: i32 = 128;
+        const BINDF_DONTPUTINCACHE: BINDF = 32;
+        const BINDF_DONTUSECACHE: BINDF = 16;
+        const BINDF_NOCOPYDATA: BINDF = 128;
         #[repr(i32)]
         enum BINDHANDLETYPES {
             BINDHANDLETYPES_APPCACHE = 0,
@@ -286,7 +286,7 @@ mod Windows {
         }
         const CONFIRMSAFETYACTION_LOADOBJECT: i32 = 1;
         #[library("urlmon.dll")]
-        extern fn CoGetClassObjectFromURL(rCLASSID: *const GUID, szCODE: PCWSTR, dwFileVersionMS: u32, dwFileVersionLS: u32, szTYPE: PCWSTR, pBindCtx: IBindCtx, dwClsContext: u32, #[reserved] pvReserved: *const void, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        extern fn CoGetClassObjectFromURL(rCLASSID: *const GUID, szCODE: PCWSTR, dwFileVersionMS: u32, dwFileVersionLS: u32, szTYPE: PCWSTR, pBindCtx: LPBINDCTX, dwClsContext: u32, #[reserved] pvReserved: *mut void, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn CoInternetCombineIUri(pBaseUri: IUri, pRelativeUri: IUri, dwCombineFlags: u32, ppCombinedUri: *mut IUri, #[opt] dwReserved: usize) -> HRESULT;
         #[library("urlmon.dll")]
@@ -324,9 +324,9 @@ mod Windows {
         #[library("urlmon.dll")]
         extern fn CoInternetSetFeatureEnabled(FeatureEntry: INTERNETFEATURELIST, dwFlags: u32, fEnable: BOOL) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn CompareSecurityIds(#[len_param(1)] pbSecurityId1: *const u8, dwLen1: u32, #[len_param(3)] pbSecurityId2: *const u8, dwLen2: u32, dwReserved: u32) -> HRESULT;
+        extern fn CompareSecurityIds(#[len_param(1)] #[in] pbSecurityId1: *mut u8, dwLen1: u32, #[len_param(3)] #[in] pbSecurityId2: *mut u8, dwLen2: u32, dwReserved: u32) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn CompatFlagsFromClsid(pclsid: *const GUID, pdwCompatFlags: *mut u32, pdwMiscStatusFlags: *mut u32) -> HRESULT;
+        extern fn CompatFlagsFromClsid(#[in] pclsid: *mut GUID, #[out] pdwCompatFlags: LPDWORD, #[out] pdwMiscStatusFlags: LPDWORD) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn CopyBindInfo(pcbiSrc: *const BINDINFO, pbiDest: *mut BINDINFO) -> HRESULT;
         #[library("urlmon.dll")]
@@ -336,15 +336,15 @@ mod Windows {
         #[library("urlmon.dll")]
         extern fn CreateAsyncBindCtxEx(pbc: IBindCtx, dwOptions: u32, pBSCb: IBindStatusCallback, #[opt] pEnum: IEnumFORMATETC, ppBC: *mut IBindCtx, reserved: u32) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn CreateFormatEnumerator(cfmtetc: u32, #[len_param(0)] rgfmtetc: *const FORMATETC, ppenumfmtetc: *mut IEnumFORMATETC) -> HRESULT;
+        extern fn CreateFormatEnumerator(cfmtetc: u32, #[len_param(0)] #[in] rgfmtetc: *mut FORMATETC, ppenumfmtetc: *mut IEnumFORMATETC) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn CreateIUriBuilder(#[opt] pIUri: IUri, dwFlags: u32, dwReserved: usize, ppIUriBuilder: *mut IUriBuilder) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn CreateURLMoniker(#[opt] pMkCtx: IMoniker, szURL: PCWSTR, ppmk: *mut IMoniker) -> HRESULT;
+        extern fn CreateURLMoniker(#[opt] pMkCtx: LPMONIKER, szURL: PCWSTR, ppmk: *mut LPMONIKER) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn CreateURLMonikerEx(#[opt] pMkCtx: IMoniker, szURL: PCWSTR, ppmk: *mut IMoniker, dwFlags: u32) -> HRESULT;
+        extern fn CreateURLMonikerEx(#[opt] pMkCtx: LPMONIKER, szURL: PCWSTR, ppmk: *mut LPMONIKER, dwFlags: u32) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn CreateURLMonikerEx2(#[opt] pMkCtx: IMoniker, pUri: IUri, ppmk: *mut IMoniker, dwFlags: u32) -> HRESULT;
+        extern fn CreateURLMonikerEx2(#[opt] pMkCtx: LPMONIKER, pUri: IUri, ppmk: *mut LPMONIKER, dwFlags: u32) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn CreateUri(pwzURI: PCWSTR, dwFlags: u32, #[reserved] dwReserved: usize, ppURI: *mut IUri) -> HRESULT;
         #[library("urlmon.dll")]
@@ -371,13 +371,13 @@ mod Windows {
         const FMFD_SERVERMIME: i32 = 8;
         const FMFD_URLASFILENAME: i32 = 1;
         #[library("urlmon.dll")]
-        extern fn FaultInIEFeature(hWnd: HWND, pClassSpec: *const uCLSSPEC, #[in] #[out] #[opt] pQuery: *mut QUERYCONTEXT, dwFlags: u32) -> HRESULT;
+        extern fn FaultInIEFeature(hWnd: HWND, #[in] pClassSpec: *mut uCLSSPEC, #[in] #[out] #[opt] pQuery: *mut QUERYCONTEXT, dwFlags: u32) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn FindMediaType(rgszTypes: PCSTR, rgcfTypes: *mut CLIPFORMAT) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn FindMediaTypeClass(pBC: IBindCtx, szType: PCSTR, pclsID: *mut GUID, reserved: u32) -> HRESULT;
+        extern fn FindMediaTypeClass(pBC: LPBC, szType: PCSTR, pclsID: *mut GUID, reserved: u32) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn FindMimeFromData(#[opt] pBC: IBindCtx, #[opt] pwzUrl: PCWSTR, #[size_param(3)] #[opt] pBuffer: *const void, cbSize: u32, #[opt] pwzMimeProposed: PCWSTR, dwMimeFlags: u32, ppwzMimeOut: *mut PWSTR, #[reserved] dwReserved: u32) -> HRESULT;
+        extern fn FindMimeFromData(#[opt] pBC: LPBC, #[opt] pwzUrl: PCWSTR, #[size_param(3)] #[in] #[opt] pBuffer: *mut void, cbSize: u32, #[opt] pwzMimeProposed: PCWSTR, dwMimeFlags: u32, ppwzMimeOut: *mut PWSTR, #[reserved] dwReserved: u32) -> HRESULT;
         const GET_FEATURE_FROM_PROCESS: i32 = 2;
         const GET_FEATURE_FROM_REGISTRY: i32 = 4;
         const GET_FEATURE_FROM_THREAD: i32 = 1;
@@ -387,13 +387,13 @@ mod Windows {
         const GET_FEATURE_FROM_THREAD_RESTRICTED: i32 = 128;
         const GET_FEATURE_FROM_THREAD_TRUSTED: i32 = 32;
         #[library("urlmon.dll")]
-        extern fn GetClassFileOrMime(#[opt] pBC: IBindCtx, #[opt] szFilename: PCWSTR, #[size_param(3)] #[opt] pBuffer: *const void, cbSize: u32, #[opt] szMime: PCWSTR, dwReserved: u32, pclsid: *mut GUID) -> HRESULT;
+        extern fn GetClassFileOrMime(#[opt] pBC: LPBC, #[opt] szFilename: PCWSTR, #[size_param(3)] #[in] #[opt] pBuffer: *mut void, cbSize: u32, #[opt] szMime: PCWSTR, dwReserved: u32, pclsid: *mut GUID) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn GetClassURL(szURL: PCWSTR, pClsID: *mut GUID) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn GetComponentIDFromCLSSPEC(pClassspec: *const uCLSSPEC, ppszComponentID: *mut PSTR) -> HRESULT;
+        extern fn GetComponentIDFromCLSSPEC(#[in] pClassspec: *mut uCLSSPEC, ppszComponentID: *mut PSTR) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn GetSoftwareUpdateInfo(szDistUnit: PCWSTR, psdi: *mut SOFTDISTINFO) -> HRESULT;
+        extern fn GetSoftwareUpdateInfo(szDistUnit: PCWSTR, #[out] psdi: LPSOFTDISTINFO) -> HRESULT;
         struct HIT_LOGGING_INFO {
             dwStructSize: u32,
             lpszLoggedUrlName: PSTR,
@@ -419,7 +419,7 @@ mod Windows {
         }
         #[guid(0x2ad1edaf_d83d_48b5_9adf_03dbe19f53bd)]
         interface IAuthenticateEx: IAuthenticate {
-            fn AuthenticateEx(&self, phwnd: *mut HWND, pszUsername: *mut PWSTR, pszPassword: *mut PWSTR, pauthinfo: *const AUTHENTICATEINFO) -> HRESULT;
+            fn AuthenticateEx(&self, phwnd: *mut HWND, pszUsername: *mut PWSTR, pszPassword: *mut PWSTR, #[in] pauthinfo: *mut AUTHENTICATEINFO) -> HRESULT;
         }
         #[guid(0x11c81bc2_121e_4ed5_b9c4_b430bd54f2c0)]
         interface IBindCallbackRedirect: IUnknown {
@@ -427,9 +427,9 @@ mod Windows {
         }
         #[guid(0xfc4801a1_2ba9_11cf_a229_00aa003d7352)]
         interface IBindHost: IUnknown {
-            fn CreateMoniker(&self, szName: PCWSTR, pBC: IBindCtx, ppmk: *mut IMoniker, dwReserved: u32) -> HRESULT;
-            fn MonikerBindToStorage(&self, pMk: IMoniker, pBC: IBindCtx, pBSC: IBindStatusCallback, riid: *const GUID, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
-            fn MonikerBindToObject(&self, pMk: IMoniker, pBC: IBindCtx, pBSC: IBindStatusCallback, riid: *const GUID, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+            fn CreateMoniker(&self, szName: LPOLESTR, pBC: IBindCtx, ppmk: *mut IMoniker, dwReserved: u32) -> HRESULT;
+            fn MonikerBindToStorage(&self, pMk: IMoniker, pBC: IBindCtx, pBSC: IBindStatusCallback, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn MonikerBindToObject(&self, pMk: IMoniker, pBC: IBindCtx, pBSC: IBindStatusCallback, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
         }
         #[guid(0xa9eda967_f50e_4a33_b358_206f6ef3086d)]
         interface IBindHttpSecurity: IUnknown {
@@ -447,7 +447,7 @@ mod Windows {
             fn OnProgress(&self, ulProgress: u32, ulProgressMax: u32, ulStatusCode: u32, szStatusText: PCWSTR) -> HRESULT;
             fn OnStopBinding(&self, hresult: HRESULT, szError: PCWSTR) -> HRESULT;
             fn GetBindInfo(&self, grfBINDF: *mut u32, #[in] #[out] pbindinfo: *mut BINDINFO) -> HRESULT;
-            fn OnDataAvailable(&self, grfBSCF: u32, dwSize: u32, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) -> HRESULT;
+            fn OnDataAvailable(&self, grfBSCF: u32, dwSize: u32, #[in] pformatetc: *mut FORMATETC, #[in] pstgmed: *mut STGMEDIUM) -> HRESULT;
             fn OnObjectAvailable(&self, riid: *const GUID, punk: IUnknown) -> HRESULT;
         }
         #[guid(0xaaa74ef9_8ee7_4659_88d9_f8c504da73cc)]
@@ -461,7 +461,7 @@ mod Windows {
             fn Resume(&self) -> HRESULT;
             fn SetPriority(&self, nPriority: i32) -> HRESULT;
             fn GetPriority(&self, pnPriority: *mut i32) -> HRESULT;
-            fn GetBindResult(&self, pclsidProtocol: *mut GUID, pdwResult: *mut u32, pszResult: *mut PWSTR, #[in] #[out] pdwReserved: *mut u32) -> HRESULT;
+            fn GetBindResult(&self, pclsidProtocol: *mut GUID, pdwResult: *mut u32, pszResult: *mut LPOLESTR, #[in] #[out] pdwReserved: *mut u32) -> HRESULT;
         }
         #[guid(0x711c7600_6b48_11d1_b403_00aa00b92af1)]
         interface ICatalogFileInfo: IUnknown {
@@ -474,14 +474,14 @@ mod Windows {
         }
         #[guid(0x69d14c80_c18e_11d0_a9ce_006097942311)]
         interface IDataFilter: IUnknown {
-            fn DoEncode(&self, dwFlags: u32, lInBufferSize: i32, pbInBuffer: *const u8, lOutBufferSize: i32, pbOutBuffer: *mut u8, lInBytesAvailable: i32, plInBytesRead: *mut i32, plOutBytesWritten: *mut i32, dwReserved: u32) -> HRESULT;
-            fn DoDecode(&self, dwFlags: u32, lInBufferSize: i32, pbInBuffer: *const u8, lOutBufferSize: i32, pbOutBuffer: *mut u8, lInBytesAvailable: i32, plInBytesRead: *mut i32, plOutBytesWritten: *mut i32, dwReserved: u32) -> HRESULT;
+            fn DoEncode(&self, dwFlags: u32, lInBufferSize: i32, #[in] pbInBuffer: *mut u8, lOutBufferSize: i32, pbOutBuffer: *mut u8, lInBytesAvailable: i32, plInBytesRead: *mut i32, plOutBytesWritten: *mut i32, dwReserved: u32) -> HRESULT;
+            fn DoDecode(&self, dwFlags: u32, lInBufferSize: i32, #[in] pbInBuffer: *mut u8, lOutBufferSize: i32, pbOutBuffer: *mut u8, lInBytesAvailable: i32, plInBytesRead: *mut i32, plOutBytesWritten: *mut i32, dwReserved: u32) -> HRESULT;
             fn SetEncodingLevel(&self, dwEncLevel: u32) -> HRESULT;
         }
         #[library("urlmon.dll")]
         extern fn IEGetUserPrivateNamespaceName() -> PWSTR;
         #[library("urlmon.dll")]
-        extern fn IEInstallScope(pdwScope: *mut u32) -> HRESULT;
+        extern fn IEInstallScope(#[out] pdwScope: LPDWORD) -> HRESULT;
         #[repr(i32)]
         enum IEObjectType {
             IE_EPM_OBJECT_EVENT = 0,
@@ -524,7 +524,7 @@ mod Windows {
         #[guid(0x79eac9e1_baf9_11ce_8c82_00aa004ba90b)]
         interface IInternetBindInfo: IUnknown {
             fn GetBindInfo(&self, grfBINDF: *mut u32, #[in] #[out] pbindinfo: *mut BINDINFO) -> HRESULT;
-            fn GetBindString(&self, ulStringType: u32, #[in] #[out] ppwzStr: *mut PWSTR, cEl: u32, #[in] #[out] pcElFetched: *mut u32) -> HRESULT;
+            fn GetBindString(&self, ulStringType: u32, #[in] #[out] ppwzStr: *mut LPOLESTR, cEl: u32, #[in] #[out] pcElFetched: *mut u32) -> HRESULT;
         }
         #[guid(0xa3e015b7_a82c_4dcd_a150_569aeeed36ab)]
         interface IInternetBindInfoEx: IInternetBindInfo {
@@ -533,8 +533,8 @@ mod Windows {
         #[guid(0x3af280b6_cb3f_11d0_891e_00c04fb6bfc4)]
         interface IInternetHostSecurityManager: IUnknown {
             fn GetSecurityId(&self, #[len_param(1)] pbSecurityId: *mut u8, #[in] #[out] pcbSecurityId: *mut u32, dwReserved: usize) -> HRESULT;
-            fn ProcessUrlAction(&self, dwAction: u32, #[len_param(2)] pPolicy: *mut u8, cbPolicy: u32, #[len_param(4)] #[opt] pContext: *const u8, cbContext: u32, dwFlags: u32, dwReserved: u32) -> HRESULT;
-            fn QueryCustomPolicy(&self, guidKey: *const GUID, ppPolicy: *mut *mut u8, pcbPolicy: *mut u32, #[len_param(4)] pContext: *const u8, cbContext: u32, dwReserved: u32) -> HRESULT;
+            fn ProcessUrlAction(&self, dwAction: u32, #[len_param(2)] pPolicy: *mut u8, cbPolicy: u32, #[len_param(4)] #[in] #[opt] pContext: *mut u8, cbContext: u32, dwFlags: u32, dwReserved: u32) -> HRESULT;
+            fn QueryCustomPolicy(&self, guidKey: *const GUID, ppPolicy: *mut *mut u8, pcbPolicy: *mut u32, #[len_param(4)] #[in] pContext: *mut u8, cbContext: u32, dwReserved: u32) -> HRESULT;
         }
         #[guid(0x79eac9eb_baf9_11ce_8c82_00aa004ba90b)]
         interface IInternetPriority: IUnknown {
@@ -544,7 +544,7 @@ mod Windows {
         #[guid(0x79eac9e4_baf9_11ce_8c82_00aa004ba90b)]
         interface IInternetProtocol: IInternetProtocolRoot {
             fn Read(&self, #[in] #[out] pv: *mut void, cb: u32, pcbRead: *mut u32) -> HRESULT;
-            fn Seek(&self, dlibMove: i64, dwOrigin: u32, plibNewPosition: *mut u64) -> HRESULT;
+            fn Seek(&self, dlibMove: LARGE_INTEGER, dwOrigin: u32, plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
             fn LockRequest(&self, dwOptions: u32) -> HRESULT;
             fn UnlockRequest(&self) -> HRESULT;
         }
@@ -562,7 +562,7 @@ mod Windows {
         #[guid(0x79eac9e3_baf9_11ce_8c82_00aa004ba90b)]
         interface IInternetProtocolRoot: IUnknown {
             fn Start(&self, szUrl: PCWSTR, pOIProtSink: IInternetProtocolSink, pOIBindInfo: IInternetBindInfo, grfPI: u32, dwReserved: HANDLE_PTR) -> HRESULT;
-            fn Continue(&self, pProtocolData: *const PROTOCOLDATA) -> HRESULT;
+            fn Continue(&self, #[in] pProtocolData: *mut PROTOCOLDATA) -> HRESULT;
             fn Abort(&self, hrReason: HRESULT, dwOptions: u32) -> HRESULT;
             fn Terminate(&self, dwOptions: u32) -> HRESULT;
             fn Suspend(&self) -> HRESULT;
@@ -570,7 +570,7 @@ mod Windows {
         }
         #[guid(0x79eac9e5_baf9_11ce_8c82_00aa004ba90b)]
         interface IInternetProtocolSink: IUnknown {
-            fn Switch(&self, pProtocolData: *const PROTOCOLDATA) -> HRESULT;
+            fn Switch(&self, #[in] pProtocolData: *mut PROTOCOLDATA) -> HRESULT;
             fn ReportProgress(&self, ulStatusCode: u32, szStatusText: PCWSTR) -> HRESULT;
             fn ReportData(&self, grfBSCF: u32, ulProgress: u32, ulProgressMax: u32) -> HRESULT;
             fn ReportResult(&self, hrResult: HRESULT, dwError: u32, szResult: PCWSTR) -> HRESULT;
@@ -587,21 +587,21 @@ mod Windows {
             fn GetSecuritySite(&self, ppSite: *mut IInternetSecurityMgrSite) -> HRESULT;
             fn MapUrlToZone(&self, pwszUrl: PCWSTR, pdwZone: *mut u32, dwFlags: u32) -> HRESULT;
             fn GetSecurityId(&self, pwszUrl: PCWSTR, pbSecurityId: *mut u8, #[in] #[out] pcbSecurityId: *mut u32, dwReserved: usize) -> HRESULT;
-            fn ProcessUrlAction(&self, pwszUrl: PCWSTR, dwAction: u32, pPolicy: *mut u8, cbPolicy: u32, pContext: *const u8, cbContext: u32, dwFlags: u32, dwReserved: u32) -> HRESULT;
-            fn QueryCustomPolicy(&self, pwszUrl: PCWSTR, guidKey: *const GUID, ppPolicy: *mut *mut u8, pcbPolicy: *mut u32, pContext: *const u8, cbContext: u32, dwReserved: u32) -> HRESULT;
+            fn ProcessUrlAction(&self, pwszUrl: PCWSTR, dwAction: u32, pPolicy: *mut u8, cbPolicy: u32, #[in] pContext: *mut u8, cbContext: u32, dwFlags: u32, dwReserved: u32) -> HRESULT;
+            fn QueryCustomPolicy(&self, pwszUrl: PCWSTR, guidKey: *const GUID, ppPolicy: *mut *mut u8, pcbPolicy: *mut u32, #[in] pContext: *mut u8, cbContext: u32, dwReserved: u32) -> HRESULT;
             fn SetZoneMapping(&self, dwZone: u32, lpszPattern: PCWSTR, dwFlags: u32) -> HRESULT;
             fn GetZoneMappings(&self, dwZone: u32, ppenumString: *mut IEnumString, dwFlags: u32) -> HRESULT;
         }
         #[guid(0xf164edf1_cc7c_4f0d_9a94_34222625c393)]
         interface IInternetSecurityManagerEx: IInternetSecurityManager {
-            fn ProcessUrlActionEx(&self, pwszUrl: PCWSTR, dwAction: u32, pPolicy: *mut u8, cbPolicy: u32, pContext: *const u8, cbContext: u32, dwFlags: u32, dwReserved: u32, pdwOutFlags: *mut u32) -> HRESULT;
+            fn ProcessUrlActionEx(&self, pwszUrl: PCWSTR, dwAction: u32, pPolicy: *mut u8, cbPolicy: u32, #[in] pContext: *mut u8, cbContext: u32, dwFlags: u32, dwReserved: u32, pdwOutFlags: *mut u32) -> HRESULT;
         }
         #[guid(0xf1e50292_a795_4117_8e09_2b560a72ac60)]
         interface IInternetSecurityManagerEx2: IInternetSecurityManagerEx {
             fn MapUrlToZoneEx2(&self, pUri: IUri, pdwZone: *mut u32, dwFlags: u32, ppwszMappedUrl: *mut PWSTR, #[opt] pdwOutFlags: *mut u32) -> HRESULT;
-            fn ProcessUrlActionEx2(&self, pUri: IUri, dwAction: u32, pPolicy: *mut u8, cbPolicy: u32, pContext: *const u8, cbContext: u32, dwFlags: u32, dwReserved: usize, pdwOutFlags: *mut u32) -> HRESULT;
+            fn ProcessUrlActionEx2(&self, pUri: IUri, dwAction: u32, pPolicy: *mut u8, cbPolicy: u32, #[in] pContext: *mut u8, cbContext: u32, dwFlags: u32, dwReserved: usize, pdwOutFlags: *mut u32) -> HRESULT;
             fn GetSecurityIdEx2(&self, pUri: IUri, pbSecurityId: *mut u8, #[in] #[out] pcbSecurityId: *mut u32, dwReserved: usize) -> HRESULT;
-            fn QueryCustomPolicyEx2(&self, pUri: IUri, guidKey: *const GUID, ppPolicy: *mut *mut u8, pcbPolicy: *mut u32, pContext: *const u8, cbContext: u32, dwReserved: usize) -> HRESULT;
+            fn QueryCustomPolicyEx2(&self, pUri: IUri, guidKey: *const GUID, ppPolicy: *mut *mut u8, pcbPolicy: *mut u32, #[in] pContext: *mut u8, cbContext: u32, dwReserved: usize) -> HRESULT;
         }
         #[guid(0x79eac9ed_baf9_11ce_8c82_00aa004ba90b)]
         interface IInternetSecurityMgrSite: IUnknown {
@@ -614,8 +614,8 @@ mod Windows {
             fn UnregisterNameSpace(&self, pCF: IClassFactory, pszProtocol: PCWSTR) -> HRESULT;
             fn RegisterMimeFilter(&self, pCF: IClassFactory, rclsid: *const GUID, pwzType: PCWSTR) -> HRESULT;
             fn UnregisterMimeFilter(&self, pCF: IClassFactory, pwzType: PCWSTR) -> HRESULT;
-            fn CreateBinding(&self, pBC: IBindCtx, szUrl: PCWSTR, pUnkOuter: IUnknown, ppUnk: *mut IUnknown, ppOInetProt: *mut IInternetProtocol, dwOption: u32) -> HRESULT;
-            fn SetSessionOption(&self, dwOption: u32, pBuffer: *const void, dwBufferLength: u32, dwReserved: u32) -> HRESULT;
+            fn CreateBinding(&self, pBC: LPBC, szUrl: PCWSTR, pUnkOuter: IUnknown, ppUnk: *mut IUnknown, ppOInetProt: *mut IInternetProtocol, dwOption: u32) -> HRESULT;
+            fn SetSessionOption(&self, dwOption: u32, #[in] pBuffer: *mut void, dwBufferLength: u32, dwReserved: u32) -> HRESULT;
             fn GetSessionOption(&self, dwOption: u32, #[in] #[out] pBuffer: *mut void, #[in] #[out] pdwBufferLength: *mut u32, dwReserved: u32) -> HRESULT;
         }
         #[guid(0x79eac9e8_baf9_11ce_8c82_00aa004ba90b)]
@@ -626,11 +626,11 @@ mod Windows {
         #[guid(0x79eac9ef_baf9_11ce_8c82_00aa004ba90b)]
         interface IInternetZoneManager: IUnknown {
             fn GetZoneAttributes(&self, dwZone: u32, #[in] #[out] pZoneAttributes: *mut ZONEATTRIBUTES) -> HRESULT;
-            fn SetZoneAttributes(&self, dwZone: u32, pZoneAttributes: *const ZONEATTRIBUTES) -> HRESULT;
+            fn SetZoneAttributes(&self, dwZone: u32, #[in] pZoneAttributes: *mut ZONEATTRIBUTES) -> HRESULT;
             fn GetZoneCustomPolicy(&self, dwZone: u32, guidKey: *const GUID, ppPolicy: *mut *mut u8, pcbPolicy: *mut u32, urlZoneReg: URLZONEREG) -> HRESULT;
-            fn SetZoneCustomPolicy(&self, dwZone: u32, guidKey: *const GUID, #[len_param(3)] pPolicy: *const u8, cbPolicy: u32, urlZoneReg: URLZONEREG) -> HRESULT;
+            fn SetZoneCustomPolicy(&self, dwZone: u32, guidKey: *const GUID, #[len_param(3)] #[in] pPolicy: *mut u8, cbPolicy: u32, urlZoneReg: URLZONEREG) -> HRESULT;
             fn GetZoneActionPolicy(&self, dwZone: u32, dwAction: u32, #[len_param(3)] pPolicy: *mut u8, cbPolicy: u32, urlZoneReg: URLZONEREG) -> HRESULT;
-            fn SetZoneActionPolicy(&self, dwZone: u32, dwAction: u32, #[len_param(3)] pPolicy: *const u8, cbPolicy: u32, urlZoneReg: URLZONEREG) -> HRESULT;
+            fn SetZoneActionPolicy(&self, dwZone: u32, dwAction: u32, #[len_param(3)] #[in] pPolicy: *mut u8, cbPolicy: u32, urlZoneReg: URLZONEREG) -> HRESULT;
             fn PromptAction(&self, dwAction: u32, hwndParent: HWND, pwszUrl: PCWSTR, pwszText: PCWSTR, dwPromptFlags: u32) -> HRESULT;
             fn LogAction(&self, dwAction: u32, pwszUrl: PCWSTR, pwszText: PCWSTR, dwLogFlags: u32) -> HRESULT;
             fn CreateZoneEnumerator(&self, pdwEnum: *mut u32, pdwCount: *mut u32, dwFlags: u32) -> HRESULT;
@@ -641,13 +641,13 @@ mod Windows {
         #[guid(0xa4c23339_8e06_431e_9bf4_7e711c085648)]
         interface IInternetZoneManagerEx: IInternetZoneManager {
             fn GetZoneActionPolicyEx(&self, dwZone: u32, dwAction: u32, #[len_param(3)] pPolicy: *mut u8, cbPolicy: u32, urlZoneReg: URLZONEREG, dwFlags: u32) -> HRESULT;
-            fn SetZoneActionPolicyEx(&self, dwZone: u32, dwAction: u32, #[len_param(3)] pPolicy: *const u8, cbPolicy: u32, urlZoneReg: URLZONEREG, dwFlags: u32) -> HRESULT;
+            fn SetZoneActionPolicyEx(&self, dwZone: u32, dwAction: u32, #[len_param(3)] #[in] pPolicy: *mut u8, cbPolicy: u32, urlZoneReg: URLZONEREG, dwFlags: u32) -> HRESULT;
         }
         #[guid(0xedc17559_dd5d_4846_8eef_8becba5a4abf)]
         interface IInternetZoneManagerEx2: IInternetZoneManagerEx {
             fn GetZoneAttributesEx(&self, dwZone: u32, #[in] #[out] pZoneAttributes: *mut ZONEATTRIBUTES, dwFlags: u32) -> HRESULT;
-            fn GetZoneSecurityState(&self, dwZoneIndex: u32, fRespectPolicy: BOOL, #[in] #[out] pdwState: *mut u32, #[in] #[out] pfPolicyEncountered: *mut BOOL) -> HRESULT;
-            fn GetIESecurityState(&self, fRespectPolicy: BOOL, #[in] #[out] pdwState: *mut u32, #[in] #[out] pfPolicyEncountered: *mut BOOL, fNoCache: BOOL) -> HRESULT;
+            fn GetZoneSecurityState(&self, dwZoneIndex: u32, fRespectPolicy: BOOL, #[in] #[out] pdwState: LPDWORD, #[in] #[out] pfPolicyEncountered: *mut BOOL) -> HRESULT;
+            fn GetIESecurityState(&self, fRespectPolicy: BOOL, #[in] #[out] pdwState: LPDWORD, #[in] #[out] pfPolicyEncountered: *mut BOOL, fNoCache: BOOL) -> HRESULT;
             fn FixUnsecureSettings(&self) -> HRESULT;
         }
         #[guid(0xa5ca5f7f_1847_4d87_9c5b_918509f7511d)]
@@ -665,12 +665,12 @@ mod Windows {
         const INET_E_CODE_INSTALL_BLOCKED_BY_HASH_POLICY: HRESULT = -2146695936;
         const INET_E_CODE_INSTALL_BLOCKED_IMMERSIVE: HRESULT = -2146695934;
         const INET_E_CODE_INSTALL_SUPPRESSED: HRESULT = -2146696192;
-        const INET_E_DEFAULT_ACTION: i32 = -2146697199;
+        const INET_E_DEFAULT_ACTION: HRESULT = -2146697199;
         const INET_E_DOMINJECTIONVALIDATION: HRESULT = -2146697188;
         const INET_E_DOWNLOAD_BLOCKED_BY_CSP: HRESULT = -2146695928;
         const INET_E_DOWNLOAD_BLOCKED_BY_INPRIVATE: HRESULT = -2146695935;
         const INET_E_ERROR_FIRST: HRESULT = -2146697214;
-        const INET_E_ERROR_LAST: i32 = -2146695928;
+        const INET_E_ERROR_LAST: HRESULT = -2146695928;
         const INET_E_FORBIDFRAMING: HRESULT = -2146695933;
         const INET_E_HSTS_CERTIFICATE_ERROR: HRESULT = -2146697186;
         const INET_E_QUERYOPTION_UNKNOWN: HRESULT = -2146697197;
@@ -718,21 +718,22 @@ mod Windows {
             FEATURE_BLOCK_INPUT_PROMPTS = 27,
             FEATURE_ENTRY_COUNT = 28,
         }
+        const INVALID_P_ROOT_SECURITY_ID: *mut u8 = -1;
         #[guid(0x79eac9c9_baf9_11ce_8c82_00aa004ba90b)]
         interface IPersistMoniker: IUnknown {
             fn GetClassID(&self, pClassID: *mut GUID) -> HRESULT;
             fn IsDirty(&self) -> HRESULT;
-            fn Load(&self, fFullyAvailable: BOOL, pimkName: IMoniker, pibc: IBindCtx, grfMode: u32) -> HRESULT;
-            fn Save(&self, pimkName: IMoniker, pbc: IBindCtx, fRemember: BOOL) -> HRESULT;
-            fn SaveCompleted(&self, pimkName: IMoniker, pibc: IBindCtx) -> HRESULT;
+            fn Load(&self, fFullyAvailable: BOOL, pimkName: IMoniker, pibc: LPBC, grfMode: u32) -> HRESULT;
+            fn Save(&self, pimkName: IMoniker, pbc: LPBC, fRemember: BOOL) -> HRESULT;
+            fn SaveCompleted(&self, pimkName: IMoniker, pibc: LPBC) -> HRESULT;
             fn GetCurMoniker(&self, ppimkName: *mut IMoniker) -> HRESULT;
         }
         #[guid(0xb15b8dc1_c7e1_11d0_8680_00aa00bdcb71)]
         interface ISoftDistExt: IUnknown {
-            fn ProcessSoftDist(&self, szCDFURL: PCWSTR, pSoftDistElement: IXMLElement, #[in] #[out] lpsdi: *mut SOFTDISTINFO) -> HRESULT;
-            fn GetFirstCodeBase(&self, szCodeBase: *const PWSTR, dwMaxSize: *const u32) -> HRESULT;
-            fn GetNextCodeBase(&self, szCodeBase: *const PWSTR, dwMaxSize: *const u32) -> HRESULT;
-            fn AsyncInstallDistributionUnit(&self, pbc: IBindCtx, pvReserved: *const void, flags: u32, lpcbh: *const CODEBASEHOLD) -> HRESULT;
+            fn ProcessSoftDist(&self, szCDFURL: PCWSTR, pSoftDistElement: IXMLElement, #[in] #[out] lpsdi: LPSOFTDISTINFO) -> HRESULT;
+            fn GetFirstCodeBase(&self, #[in] szCodeBase: *mut PWSTR, dwMaxSize: LPDWORD) -> HRESULT;
+            fn GetNextCodeBase(&self, #[in] szCodeBase: *mut PWSTR, dwMaxSize: LPDWORD) -> HRESULT;
+            fn AsyncInstallDistributionUnit(&self, pbc: IBindCtx, #[in] pvReserved: *mut void, flags: u32, lpcbh: LPCODEBASEHOLD) -> HRESULT;
         }
         #[guid(0xa39ee748_6a27_4817_a6f2_13914bef5890)]
         interface IUri: IUnknown {
@@ -759,7 +760,7 @@ mod Windows {
             fn GetPort(&self, pdwPort: *mut u32) -> HRESULT;
             fn GetScheme(&self, pdwScheme: *mut u32) -> HRESULT;
             fn GetZone(&self, pdwZone: *mut u32) -> HRESULT;
-            fn GetProperties(&self, pdwFlags: *mut u32) -> HRESULT;
+            fn GetProperties(&self, #[out] pdwFlags: LPDWORD) -> HRESULT;
             fn IsEqual(&self, pUri: IUri, pfEqual: *mut BOOL) -> HRESULT;
         }
         #[guid(0x4221b2e1_8955_46c0_bd5b_de9897565de7)]
@@ -852,17 +853,53 @@ mod Windows {
         #[library("urlmon.dll")]
         extern fn IsLoggingEnabledW(pwszUrl: PCWSTR) -> BOOL;
         #[library("urlmon.dll")]
-        extern fn IsValidURL(#[opt] pBC: IBindCtx, szURL: PCWSTR, dwReserved: u32) -> HRESULT;
+        extern fn IsValidURL(#[opt] pBC: LPBC, szURL: PCWSTR, dwReserved: u32) -> HRESULT;
+        type LPAUTHENTICATION = IAuthenticate;
+        type LPAUTHENTICATIONEX = IAuthenticateEx;
+        type LPBINDCALLBACKREDIRECT = IBindCallbackRedirect;
+        type LPBINDHOST = IBindHost;
+        type LPBINDING = IBinding;
+        type LPBINDPROTOCOL = IBindProtocol;
+        type LPBINDSTATUSCALLBACK = IBindStatusCallback;
+        type LPBINDSTATUSCALLBACKEX = IBindStatusCallbackEx;
+        type LPCATALOGFILEINFO = ICatalogFileInfo;
         type LPCODEBASEHOLD = *mut CODEBASEHOLD;
+        type LPCODEINSTALL = ICodeInstall;
+        type LPDATAFILTER = IDataFilter;
+        type LPENCODINGFILTERFACTORY = IEncodingFilterFactory;
+        type LPGETBINDHANDLE = IGetBindHandle;
         type LPHIT_LOGGING_INFO = *mut HIT_LOGGING_INFO;
+        type LPHTTPNEGOTIATE = IHttpNegotiate;
+        type LPHTTPNEGOTIATE2 = IHttpNegotiate2;
+        type LPHTTPNEGOTIATE3 = IHttpNegotiate3;
+        type LPHTTPSECURITY = IHttpSecurity;
+        type LPIINTERNET = IInternet;
+        type LPIINTERNETBINDINFO = IInternetBindInfo;
+        type LPIINTERNETBINDINFOEX = IInternetBindInfoEx;
+        type LPIINTERNETPRIORITY = IInternetPriority;
+        type LPIINTERNETPROTOCOL = IInternetProtocol;
+        type LPIINTERNETPROTOCOLINFO = IInternetProtocolInfo;
+        type LPIINTERNETPROTOCOLROOT = IInternetProtocolRoot;
+        type LPIINTERNETPROTOCOLSINK = IInternetProtocolSink;
+        type LPIINTERNETPROTOCOLSINKStackable = IInternetProtocolSinkStackable;
+        type LPIINTERNETSESSION = IInternetSession;
+        type LPIINTERNETTHREADSWITCH = IInternetThreadSwitch;
+        type LPIWRAPPEDPROTOCOL = IWrappedProtocol;
+        type LPMONIKERPROP = IMonikerProp;
+        type LPPERSISTMONIKER = IPersistMoniker;
         type LPPROTOCOL_ARGUMENT = *mut PROTOCOL_ARGUMENT;
         type LPREMFORMATETC = *mut RemFORMATETC;
         type LPREMSECURITY_ATTRIBUTES = *mut REMSECURITY_ATTRIBUTES;
         type LPSOFTDISTINFO = *mut SOFTDISTINFO;
+        type LPURLZONEMANAGER = IInternetZoneManager;
+        type LPWINDOWFORBINDINGUI = IWindowForBindingUI;
+        type LPWININETCACHEHINTS = IWinInetCacheHints;
+        type LPWININETCACHEHINTS2 = IWinInetCacheHints2;
+        type LPWININETFILESTREAM = IWinInetFileStream;
+        type LPWININETHTTPINFO = IWinInetHttpInfo;
+        type LPWININETINFO = IWinInetInfo;
         type LPZONEATTRIBUTES = *mut ZONEATTRIBUTES;
         const MAX_SIZE_SECURITY_ID: i32 = 512;
-        const MAX_ZONE_DESCRIPTION: i32 = 200;
-        const MAX_ZONE_PATH: i32 = 260;
         const MKSYS_URLMONIKER: i32 = 6;
         const MK_S_ASYNCHRONOUS: HRESULT = 262632;
         #[repr(i32)]
@@ -884,7 +921,7 @@ mod Windows {
         const MUTZ_REQUIRESAVEDFILECHECK: i32 = 1024;
         const MUTZ_RESERVED: i32 = 512;
         #[library("urlmon.dll")]
-        extern fn MkParseDisplayNameEx(pbc: IBindCtx, szDisplayName: PCWSTR, pchEaten: *mut u32, ppmk: *mut IMoniker) -> HRESULT;
+        extern fn MkParseDisplayNameEx(pbc: IBindCtx, szDisplayName: PCWSTR, pchEaten: *mut u32, ppmk: *mut LPMONIKER) -> HRESULT;
         #[repr(i32)]
         enum OIBDG_FLAGS {
             OIBDG_APARTMENTTHREADED = 256,
@@ -914,9 +951,9 @@ mod Windows {
             PARSE_ESCAPE = 18,
             PARSE_UNESCAPE = 19,
         }
-        const PARSE_DECODE: i32 = 8;
-        const PARSE_ENCODE: i32 = 7;
-        const PI_DOCFILECLSIDLOOKUP: i32 = 32;
+        const PARSE_DECODE: PARSEACTION = 8;
+        const PARSE_ENCODE: PARSEACTION = 7;
+        const PI_DOCFILECLSIDLOOKUP: PI_FLAGS = 32;
         #[repr(i32)]
         enum PI_FLAGS {
             PI_PARSE_URL = 1,
@@ -1013,11 +1050,11 @@ mod Windows {
             bInheritHandle: BOOL,
         }
         #[library("urlmon.dll")]
-        extern fn RegisterBindStatusCallback(pBC: IBindCtx, pBSCb: IBindStatusCallback, ppBSCBPrev: *mut IBindStatusCallback, dwReserved: u32) -> HRESULT;
+        extern fn RegisterBindStatusCallback(pBC: LPBC, pBSCb: IBindStatusCallback, ppBSCBPrev: *mut IBindStatusCallback, dwReserved: u32) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn RegisterFormatEnumerator(pBC: IBindCtx, pEFetc: IEnumFORMATETC, reserved: u32) -> HRESULT;
+        extern fn RegisterFormatEnumerator(pBC: LPBC, pEFetc: IEnumFORMATETC, reserved: u32) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn RegisterMediaTypeClass(pBC: IBindCtx, ctypes: u32, #[len_param(1)] rgszTypes: *const PCSTR, #[len_param(1)] rgclsID: *const GUID, reserved: u32) -> HRESULT;
+        extern fn RegisterMediaTypeClass(pBC: LPBC, ctypes: u32, #[len_param(1)] rgszTypes: *const PCSTR, #[len_param(1)] #[in] rgclsID: *mut GUID, reserved: u32) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn RegisterMediaTypes(ctypes: u32, #[len_param(0)] rgszTypes: *const PCSTR, #[len_param(0)] rgcfTypes: *mut CLIPFORMAT) -> HRESULT;
         #[library("urlmon.dll")]
@@ -1045,9 +1082,9 @@ mod Windows {
             tymed: u32,
         }
         #[library("urlmon.dll")]
-        extern fn RevokeBindStatusCallback(pBC: IBindCtx, pBSCb: IBindStatusCallback) -> HRESULT;
+        extern fn RevokeBindStatusCallback(pBC: LPBC, pBSCb: IBindStatusCallback) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn RevokeFormatEnumerator(pBC: IBindCtx, pEFetc: IEnumFORMATETC) -> HRESULT;
+        extern fn RevokeFormatEnumerator(pBC: LPBC, pEFetc: IEnumFORMATETC) -> HRESULT;
         const SECURITY_IE_STATE_GREEN: i32 = 0;
         const SECURITY_IE_STATE_RED: i32 = 1;
         const SET_FEATURE_IN_REGISTRY: i32 = 4;
@@ -1086,7 +1123,7 @@ mod Windows {
             SZM_CREATE = 0,
             SZM_DELETE = 1,
         }
-        const S_ASYNCHRONOUS: i32 = 262632;
+        const S_ASYNCHRONOUS: HRESULT = 262632;
         #[library("urlmon.dll")]
         extern fn SetAccessForIEAppContainer(hObject: HANDLE, ieObjectType: IEObjectType, dwAccessMask: u32) -> HRESULT;
         #[library("urlmon.dll")]
@@ -1240,13 +1277,13 @@ mod Windows {
         const URLACTION_WINFX_SETUP: i32 = 9728;
         const URLACTION_XPS_DOCUMENTS: i32 = 9217;
         #[library("urlmon.dll")]
-        extern fn URLDownloadToCacheFileA(#[opt] param0: IUnknown, param1: PCSTR, #[len_param(3)] #[out] param2: PSTR, cchFileName: u32, param4: u32, #[opt] param5: IBindStatusCallback) -> HRESULT;
+        extern fn URLDownloadToCacheFileA(#[opt] param0: IUnknown, param1: PCSTR, #[len_param(3)] #[out] param2: PSTR, cchFileName: u32, param4: u32, #[opt] param5: LPBINDSTATUSCALLBACK) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn URLDownloadToCacheFileW(#[opt] param0: IUnknown, param1: PCWSTR, #[len_param(3)] #[out] param2: PWSTR, cchFileName: u32, param4: u32, #[opt] param5: IBindStatusCallback) -> HRESULT;
+        extern fn URLDownloadToCacheFileW(#[opt] param0: IUnknown, param1: PCWSTR, #[len_param(3)] #[out] param2: PWSTR, cchFileName: u32, param4: u32, #[opt] param5: LPBINDSTATUSCALLBACK) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn URLDownloadToFileA(#[opt] param0: IUnknown, param1: PCSTR, #[opt] param2: PCSTR, param3: u32, #[opt] param4: IBindStatusCallback) -> HRESULT;
+        extern fn URLDownloadToFileA(#[opt] param0: IUnknown, param1: PCSTR, #[opt] param2: PCSTR, param3: u32, #[opt] param4: LPBINDSTATUSCALLBACK) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn URLDownloadToFileW(#[opt] param0: IUnknown, param1: PCWSTR, #[opt] param2: PCWSTR, param3: u32, #[opt] param4: IBindStatusCallback) -> HRESULT;
+        extern fn URLDownloadToFileW(#[opt] param0: IUnknown, param1: PCWSTR, #[opt] param2: PCWSTR, param3: u32, #[opt] param4: LPBINDSTATUSCALLBACK) -> HRESULT;
         const URLMON_OPTION_URL_ENCODING: i32 = 268435460;
         const URLMON_OPTION_USERAGENT: i32 = 268435457;
         const URLMON_OPTION_USERAGENT_REFRESH: i32 = 268435458;
@@ -1256,17 +1293,17 @@ mod Windows {
         const URLOSTRM_USECACHEDCOPY: i32 = 2;
         const URLOSTRM_USECACHEDCOPY_ONLY: i32 = 1;
         #[library("urlmon.dll")]
-        extern fn URLOpenBlockingStreamA(#[opt] param0: IUnknown, param1: PCSTR, param2: *mut IStream, param3: u32, #[opt] param4: IBindStatusCallback) -> HRESULT;
+        extern fn URLOpenBlockingStreamA(#[opt] param0: IUnknown, param1: PCSTR, param2: *mut LPSTREAM, param3: u32, #[opt] param4: LPBINDSTATUSCALLBACK) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn URLOpenBlockingStreamW(#[opt] param0: IUnknown, param1: PCWSTR, param2: *mut IStream, param3: u32, #[opt] param4: IBindStatusCallback) -> HRESULT;
+        extern fn URLOpenBlockingStreamW(#[opt] param0: IUnknown, param1: PCWSTR, param2: *mut LPSTREAM, param3: u32, #[opt] param4: LPBINDSTATUSCALLBACK) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn URLOpenPullStreamA(#[opt] param0: IUnknown, param1: PCSTR, param2: u32, #[opt] param3: IBindStatusCallback) -> HRESULT;
+        extern fn URLOpenPullStreamA(#[opt] param0: IUnknown, param1: PCSTR, param2: u32, #[opt] param3: LPBINDSTATUSCALLBACK) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn URLOpenPullStreamW(#[opt] param0: IUnknown, param1: PCWSTR, param2: u32, #[opt] param3: IBindStatusCallback) -> HRESULT;
+        extern fn URLOpenPullStreamW(#[opt] param0: IUnknown, param1: PCWSTR, param2: u32, #[opt] param3: LPBINDSTATUSCALLBACK) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn URLOpenStreamA(#[opt] param0: IUnknown, param1: PCSTR, param2: u32, #[opt] param3: IBindStatusCallback) -> HRESULT;
+        extern fn URLOpenStreamA(#[opt] param0: IUnknown, param1: PCSTR, param2: u32, #[opt] param3: LPBINDSTATUSCALLBACK) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn URLOpenStreamW(#[opt] param0: IUnknown, param1: PCWSTR, param2: u32, #[opt] param3: IBindStatusCallback) -> HRESULT;
+        extern fn URLOpenStreamW(#[opt] param0: IUnknown, param1: PCWSTR, param2: u32, #[opt] param3: LPBINDSTATUSCALLBACK) -> HRESULT;
         const URLPOLICY_ACTIVEX_CHECK_LIST: i32 = 65536;
         const URLPOLICY_ALLOW: i32 = 0;
         const URLPOLICY_AUTHENTICATE_CHALLENGE_RESPONSE: i32 = 65536;
@@ -1420,10 +1457,10 @@ mod Windows {
         #[library("urlmon.dll")]
         extern fn UrlMkGetSessionOption(dwOption: u32, #[size_param(2)] #[opt] pBuffer: *mut void, dwBufferLength: u32, pdwBufferLengthOut: *mut u32, #[reserved] dwReserved: u32) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn UrlMkSetSessionOption(dwOption: u32, #[size_param(2)] #[opt] pBuffer: *const void, dwBufferLength: u32, #[reserved] dwReserved: u32) -> HRESULT;
+        extern fn UrlMkSetSessionOption(dwOption: u32, #[size_param(2)] #[in] #[opt] pBuffer: *mut void, dwBufferLength: u32, #[reserved] dwReserved: u32) -> HRESULT;
         const WININETINFO_OPTION_LOCK_HANDLE: i32 = 65534;
         #[library("urlmon.dll")]
-        extern fn WriteHitLogging(lpLogginginfo: *const HIT_LOGGING_INFO) -> BOOL;
+        extern fn WriteHitLogging(lpLogginginfo: LPHIT_LOGGING_INFO) -> BOOL;
         #[repr(i32)]
         enum ZAFLAGS {
             ZAFLAGS_CUSTOM_EDIT = 1,
@@ -1448,6 +1485,11 @@ mod Windows {
             dwTemplateRecommended: u32,
             dwTemplateCurrentLevel: u32,
             dwFlags: u32,
+        }
+        #[repr(i32)]
+        enum __MIDL_IInternetZoneManager_0001 {
+            MAX_ZONE_PATH = 260,
+            MAX_ZONE_DESCRIPTION = 200,
         }
     }
 }

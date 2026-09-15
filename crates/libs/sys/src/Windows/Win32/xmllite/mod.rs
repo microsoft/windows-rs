@@ -1,18 +1,20 @@
 #[cfg(feature = "objidlbase")]
 windows_link::link!("xmllite.dll" "system" fn CreateXmlReader(riid : *const windows_sys::core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingCodePage(pinputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, nencodingcodepage : u32, fencodinghint : windows_sys::core::BOOL, pwszbaseuri : windows_sys::core::PCWSTR, ppinput : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingCodePage(pinputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, nencodingcodepage : u32, fencodinghint : windows_sys::core::BOOL, pwszbaseuri : windows_sys::core::PCWSTR, ppinput : *mut IXmlReaderInput) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingName(pinputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, pwszencodingname : windows_sys::core::PCWSTR, fencodinghint : windows_sys::core::BOOL, pwszbaseuri : windows_sys::core::PCWSTR, ppinput : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingName(pinputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, pwszencodingname : windows_sys::core::PCWSTR, fencodinghint : windows_sys::core::BOOL, pwszbaseuri : windows_sys::core::PCWSTR, ppinput : *mut IXmlReaderInput) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("xmllite.dll" "system" fn CreateXmlWriter(riid : *const windows_sys::core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingCodePage(poutputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, nencodingcodepage : u32, ppoutput : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingCodePage(poutputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, nencodingcodepage : u32, ppoutput : *mut IXmlWriterOutput) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
-windows_link::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingName(poutputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, pwszencodingname : windows_sys::core::PCWSTR, ppoutput : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingName(poutputstream : *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void, pwszencodingname : windows_sys::core::PCWSTR, ppoutput : *mut IXmlWriterOutput) -> windows_sys::core::HRESULT);
 pub type DtdProcessing = i32;
 pub const DtdProcessing_Parse: DtdProcessing = 1;
 pub const DtdProcessing_Prohibit: DtdProcessing = 0;
+pub type IXmlReaderInput = *mut core::ffi::c_void;
+pub type IXmlWriterOutput = *mut core::ffi::c_void;
 pub const MX_E_ENCODING: XmlError = -1072894462;
 pub const MX_E_ENCODINGSIGNATURE: XmlError = -1072894460;
 pub const MX_E_ENCODINGSWITCH: XmlError = -1072894461;

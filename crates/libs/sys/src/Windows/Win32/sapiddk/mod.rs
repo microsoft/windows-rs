@@ -5,7 +5,12 @@ pub const SPCFGN_ADD: SPCFGNOTIFY = 0;
 pub const SPCFGN_DEACTIVATE: SPCFGNOTIFY = 4;
 pub const SPCFGN_INVALIDATE: SPCFGNOTIFY = 2;
 pub const SPCFGN_REMOVE: SPCFGNOTIFY = 1;
-pub type SPGRAMMARHANDLE = *mut core::ffi::c_void;
+pub type SPGRAMMARHANDLE = *mut SPGRAMMARHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct SPGRAMMARHANDLE__ {
+    pub unused: i32,
+}
 #[repr(C)]
 #[cfg(feature = "sapi")]
 #[derive(Clone, Copy, Default)]
@@ -51,13 +56,28 @@ pub struct SPPHRASEALTREQUEST {
     pub pPhrase: *mut core::ffi::c_void,
     pub pRecoContext: *mut core::ffi::c_void,
 }
-pub type SPPHRASEPROPERTYHANDLE = *mut core::ffi::c_void;
-pub type SPPHRASERULEHANDLE = *mut core::ffi::c_void;
+pub type SPPHRASEPROPERTYHANDLE = *mut SPPHRASEPROPERTYHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct SPPHRASEPROPERTYHANDLE__ {
+    pub unused: i32,
+}
+pub type SPPHRASERULEHANDLE = *mut SPPHRASERULEHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct SPPHRASERULEHANDLE__ {
+    pub unused: i32,
+}
 pub type SPPROPSRC = i32;
 pub const SPPROPSRC_RECO_CTX: SPPROPSRC = 1;
 pub const SPPROPSRC_RECO_GRAMMAR: SPPROPSRC = 2;
 pub const SPPROPSRC_RECO_INST: SPPROPSRC = 0;
-pub type SPRECOCONTEXTHANDLE = *mut core::ffi::c_void;
+pub type SPRECOCONTEXTHANDLE = *mut SPRECOCONTEXTHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct SPRECOCONTEXTHANDLE__ {
+    pub unused: i32,
+}
 pub const SPRECOEXTENSION: windows_sys::core::PCWSTR = windows_sys::core::w!("RecoExtension");
 #[repr(C)]
 #[cfg(feature = "sapi")]
@@ -103,7 +123,12 @@ pub struct SPRULEENTRY {
     pub pvClientRuleContext: *mut core::ffi::c_void,
     pub pvClientGrammarContext: *mut core::ffi::c_void,
 }
-pub type SPRULEHANDLE = *mut core::ffi::c_void;
+pub type SPRULEHANDLE = *mut SPRULEHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct SPRULEHANDLE__ {
+    pub unused: i32,
+}
 pub type SPRULEINFOOPT = i32;
 #[repr(C)]
 #[cfg(feature = "sapi")]
@@ -185,9 +210,14 @@ pub struct SPTRANSITIONENTRY_1_1 {
 pub struct SPTRANSITIONENTRY_1_2 {
     pub pvGrammarCookie: *mut core::ffi::c_void,
 }
-pub type SPTRANSITIONID = *mut core::ffi::c_void;
+pub type SPTRANSITIONID = *mut SPTRANSITIONID__;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Clone, Copy, Default)]
+pub struct SPTRANSITIONID__ {
+    pub unused: i32,
+}
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SPTRANSITIONPROPERTY {
     pub pszName: windows_sys::core::PCWSTR,
@@ -195,7 +225,7 @@ pub struct SPTRANSITIONPROPERTY {
     pub pszValue: windows_sys::core::PCWSTR,
     pub vValue: super::VARIANT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPTRANSITIONPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -237,7 +267,12 @@ pub struct SPWORDENTRY {
     pub aPhoneId: *mut super::SPPHONEID,
     pub pvClientContext: *mut core::ffi::c_void,
 }
-pub type SPWORDHANDLE = *mut core::ffi::c_void;
+pub type SPWORDHANDLE = *mut SPWORDHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct SPWORDHANDLE__ {
+    pub unused: i32,
+}
 pub type SPWORDINFOOPT = i32;
 pub const SR_LOCALIZED_DESCRIPTION: windows_sys::core::PCWSTR = windows_sys::core::w!("Description");
 pub const SpDataKey: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd9f6ee60_58c9_458b_88e1_2f908fd7f87c);

@@ -67,19 +67,19 @@ mod Windows {
         type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32;
         type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 = *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32;
         type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 = *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64;
-        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES(EnclaveAddress: *const void, NumberOfBytes: usize, #[opt] SourceAddress: *const void, PageProtection: u32) -> i32;
-        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(ThreadDescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32;
-        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES(EnclaveAddress: *const void, NumberOfBytes: usize) -> i32;
-        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY(#[in] #[out] KeyRequest: *mut ENCLAVE_VBS_BASIC_KEY_REQUEST, RequestedKeySize: u32, #[len_param(1)] ReturnedKey: *mut u8) -> i32;
-        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA(#[size_param(1)] Buffer: *mut u8, NumberOfBytes: u32, Generation: *mut u64) -> i32;
-        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT(#[len_const(64)] #[opt] EnclaveData: *const u8, #[size_param(2)] #[opt] Report: *mut void, BufferSize: u32, OutputSize: *mut u32) -> i32;
-        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION(EnclaveInfo: *mut ENCLAVE_INFORMATION) -> i32;
-        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD(ThreadDescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32;
-        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES(EnclaveAddress: *const void, NumberOfytes: usize, PageProtection: u32) -> i32;
-        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE(ReturnValue: usize);
-        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION(ExceptionRecord: PVBS_BASIC_ENCLAVE_EXCEPTION) -> i32;
-        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD(ThreadDescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32;
-        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT(#[size_param(1)] Report: *const void, ReportSize: u32) -> i32;
+        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES(#[in] EnclaveAddress: *mut void, NumberOfBytes: usize, #[in] #[opt] SourceAddress: *mut void, PageProtection: u32) -> i32;
+        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(ThreadDescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32;
+        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES(#[in] EnclaveAddress: *mut void, NumberOfBytes: usize) -> i32;
+        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY(#[in] #[out] KeyRequest: PENCLAVE_VBS_BASIC_KEY_REQUEST, RequestedKeySize: u32, #[len_param(1)] #[out] ReturnedKey: PUCHAR) -> i32;
+        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA(#[size_param(1)] #[out] Buffer: PUCHAR, NumberOfBytes: u32, #[out] Generation: PULONGLONG) -> i32;
+        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT(#[opt] EnclaveData: *const u8, #[size_param(2)] #[opt] Report: *mut void, BufferSize: u32, OutputSize: *mut u32) -> i32;
+        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION(EnclaveInfo: *mut ENCLAVE_INFORMATION) -> i32;
+        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD(ThreadDescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32;
+        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES(#[in] EnclaveAddress: *mut void, NumberOfytes: usize, PageProtection: u32) -> i32;
+        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE(ReturnValue: usize);
+        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION(ExceptionRecord: PVBS_BASIC_ENCLAVE_EXCEPTION) -> i32;
+        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD(ThreadDescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32;
+        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT(#[size_param(1)] Report: *const void, ReportSize: u32) -> i32;
         #[arch(X64)]
         type VBS_BASIC_ENCLAVE_EXCEPTION = VBS_BASIC_ENCLAVE_EXCEPTION_AMD64;
         #[arch(X86 | Arm64)]
@@ -95,19 +95,19 @@ mod Windows {
             ExceptionRSP: usize,
         }
         struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
-            ReturnFromEnclave: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE,
-            ReturnFromException: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION,
-            TerminateThread: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD,
-            InterruptThread: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD,
-            CommitPages: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES,
-            DecommitPages: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES,
-            ProtectPages: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES,
-            CreateThread: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD,
-            GetEnclaveInformation: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION,
-            GenerateKey: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY,
-            GenerateReport: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT,
-            VerifyReport: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT,
-            GenerateRandomData: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA,
+            ReturnFromEnclave: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE,
+            ReturnFromException: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION,
+            TerminateThread: VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD,
+            InterruptThread: VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD,
+            CommitPages: VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES,
+            DecommitPages: VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES,
+            ProtectPages: VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES,
+            CreateThread: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD,
+            GetEnclaveInformation: VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION,
+            GenerateKey: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY,
+            GenerateReport: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT,
+            VerifyReport: VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT,
+            GenerateRandomData: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA,
         }
         #[arch(X64 | Arm64)]
         type VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64;

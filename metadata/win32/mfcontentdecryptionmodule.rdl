@@ -20,7 +20,7 @@ mod Windows {
         #[guid(0x7d5abf16_4cbb_4e08_b977_9ba59049943e)]
         interface IMFContentDecryptionModuleFactory: IUnknown {
             fn IsTypeSupported(&self, keySystem: PCWSTR, #[opt] contentType: PCWSTR) -> BOOL;
-            fn CreateContentDecryptionModuleAccess(&self, keySystem: PCWSTR, configurations: *const IPropertyStore, numConfigurations: u32, contentDecryptionModuleAccess: *mut IMFContentDecryptionModuleAccess) -> HRESULT;
+            fn CreateContentDecryptionModuleAccess(&self, keySystem: PCWSTR, #[in] configurations: *mut IPropertyStore, numConfigurations: u32, contentDecryptionModuleAccess: *mut IMFContentDecryptionModuleAccess) -> HRESULT;
         }
         #[guid(0x4e233efd_1dd2_49e8_b577_d63eee4c0d33)]
         interface IMFContentDecryptionModuleSession: IUnknown {

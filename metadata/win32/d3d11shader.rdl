@@ -171,14 +171,14 @@ mod Windows {
         const D3D_SHADER_REQUIRES_UAVS_AT_EVERY_STAGE: i32 = 4;
         #[guid(0x54133220_1ce8_43d3_8236_9855c5ceecff)]
         interface ID3D11FunctionLinkingGraph: IUnknown {
-            fn CreateModuleInstance(&self, ppModuleInstance: *mut ID3D11ModuleInstance, ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
+            fn CreateModuleInstance(&self, ppModuleInstance: *mut ID3D11ModuleInstance, ppErrorBuffer: *mut ID3DBlob) -> HRESULT;
             fn SetInputSignature(&self, pInputParameters: *const D3D11_PARAMETER_DESC, cInputParameters: u32, ppInputNode: *mut ID3D11LinkingNode) -> HRESULT;
             fn SetOutputSignature(&self, pOutputParameters: *const D3D11_PARAMETER_DESC, cOutputParameters: u32, ppOutputNode: *mut ID3D11LinkingNode) -> HRESULT;
             fn CallFunction(&self, #[opt] pModuleInstanceNamespace: PCSTR, pModuleWithFunctionPrototype: ID3D11Module, pFunctionName: PCSTR, ppCallNode: *mut ID3D11LinkingNode) -> HRESULT;
             fn PassValue(&self, pSrcNode: ID3D11LinkingNode, SrcParameterIndex: i32, pDstNode: ID3D11LinkingNode, DstParameterIndex: i32) -> HRESULT;
             fn PassValueWithSwizzle(&self, pSrcNode: ID3D11LinkingNode, SrcParameterIndex: i32, pSrcSwizzle: PCSTR, pDstNode: ID3D11LinkingNode, DstParameterIndex: i32, pDstSwizzle: PCSTR) -> HRESULT;
-            fn GetLastError(&self, ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
-            fn GenerateHlsl(&self, uFlags: u32, ppBuffer: *mut ID3D10Blob) -> HRESULT;
+            fn GetLastError(&self, ppErrorBuffer: *mut ID3DBlob) -> HRESULT;
+            fn GenerateHlsl(&self, uFlags: u32, ppBuffer: *mut ID3DBlob) -> HRESULT;
         }
         #[guid(0x42757488_334f_47fe_982e_1a65d08cc462)]
         interface ID3D11FunctionParameterReflection {
@@ -201,7 +201,7 @@ mod Windows {
         }
         #[guid(0x59a6cd0e_e10d_4c1f_88c0_63aba1daf30e)]
         interface ID3D11Linker: IUnknown {
-            fn Link(&self, pEntry: ID3D11ModuleInstance, pEntryName: PCSTR, pTargetName: PCSTR, uFlags: u32, ppShaderBlob: *mut ID3D10Blob, ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
+            fn Link(&self, pEntry: ID3D11ModuleInstance, pEntryName: PCSTR, pTargetName: PCSTR, uFlags: u32, ppShaderBlob: *mut ID3DBlob, ppErrorBuffer: *mut ID3DBlob) -> HRESULT;
             fn UseLibrary(&self, pLibraryMI: ID3D11ModuleInstance) -> HRESULT;
             fn AddClipPlaneFromCBuffer(&self, uCBufferSlot: u32, uCBufferEntry: u32) -> HRESULT;
         }
@@ -273,5 +273,12 @@ mod Windows {
             fn GetBuffer(&self) -> ID3D11ShaderReflectionConstantBuffer;
             fn GetInterfaceSlot(&self, uArrayIndex: u32) -> u32;
         }
+        type LPD3D11FUNCTIONPARAMETERREFLECTION = ID3D11FunctionParameterReflection;
+        type LPD3D11FUNCTIONREFLECTION = ID3D11FunctionReflection;
+        type LPD3D11LIBRARYREFLECTION = ID3D11LibraryReflection;
+        type LPD3D11SHADERREFLECTION = ID3D11ShaderReflection;
+        type LPD3D11SHADERREFLECTIONCONSTANTBUFFER = ID3D11ShaderReflectionConstantBuffer;
+        type LPD3D11SHADERREFLECTIONTYPE = ID3D11ShaderReflectionType;
+        type LPD3D11SHADERREFLECTIONVARIABLE = ID3D11ShaderReflectionVariable;
     }
 }

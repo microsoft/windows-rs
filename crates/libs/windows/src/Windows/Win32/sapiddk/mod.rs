@@ -65,7 +65,7 @@ impl ISpCFGInterpreterSite {
     pub unsafe fn AddTextReplacement(&self, preplace: *const super::SPPHRASEREPLACEMENT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddTextReplacement)(windows_core::Interface::as_raw(self), preplace) }
     }
-    #[cfg(all(feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddProperty(&self, pproperty: *const super::SPPHRASEPROPERTY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddProperty)(windows_core::Interface::as_raw(self), pproperty) }
     }
@@ -87,19 +87,19 @@ pub struct ISpCFGInterpreterSite_Vtbl {
     pub AddTextReplacement: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SPPHRASEREPLACEMENT) -> windows_core::HRESULT,
     #[cfg(not(feature = "sapi"))]
     AddTextReplacement: usize,
-    #[cfg(all(feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
     pub AddProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SPPHRASEPROPERTY) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase")))]
     AddProperty: usize,
     pub GetResourceValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpCFGInterpreterSite_Impl: windows_core::IUnknownImpl {
     fn AddTextReplacement(&self, preplace: *const super::SPPHRASEREPLACEMENT) -> windows_core::Result<()>;
     fn AddProperty(&self, pproperty: *const super::SPPHRASEPROPERTY) -> windows_core::Result<()>;
     fn GetResourceValue(&self, pszresourcename: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpCFGInterpreterSite_Vtbl {
     pub const fn new<Identity: ISpCFGInterpreterSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddTextReplacement<Identity: ISpCFGInterpreterSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preplace: *const super::SPPHRASEREPLACEMENT) -> windows_core::HRESULT {
@@ -137,7 +137,7 @@ impl ISpCFGInterpreterSite_Vtbl {
         iid == &<ISpCFGInterpreterSite as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpCFGInterpreterSite {}
 windows_core::imp::define_interface!(ISpErrorLog, ISpErrorLog_Vtbl, 0xf4711347_e608_11d2_a086_00c04f8ef9b5);
 windows_core::imp::interface_hierarchy!(ISpErrorLog, windows_core::IUnknown);
@@ -210,12 +210,12 @@ pub struct ISpGramCompBackend_Vtbl {
     SetSaveObjects: usize,
     pub InitFromBinaryGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SPBINARYGRAMMAR) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpGramCompBackend_Impl: super::ISpGrammarBuilder_Impl {
     fn SetSaveObjects(&self, pstream: windows_core::Ref<super::IStream>, perrorlog: windows_core::Ref<ISpErrorLog>) -> windows_core::Result<()>;
     fn InitFromBinaryGrammar(&self, pbinarydata: *const super::SPBINARYGRAMMAR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpGramCompBackend_Vtbl {
     pub const fn new<Identity: ISpGramCompBackend_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetSaveObjects<Identity: ISpGramCompBackend_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, perrorlog: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -240,21 +240,20 @@ impl ISpGramCompBackend_Vtbl {
         iid == &<ISpGramCompBackend as windows_core::Interface>::IID || iid == &<super::ISpGrammarBuilder as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpGramCompBackend {}
 windows_core::imp::define_interface!(ISpGrammarCompiler, ISpGrammarCompiler_Vtbl, 0xb1e29d58_a675_11d2_8302_00c04f8ee6c0);
 windows_core::imp::interface_hierarchy!(ISpGrammarCompiler, windows_core::IUnknown);
 impl ISpGrammarCompiler {
     #[cfg(feature = "objidlbase")]
-    pub unsafe fn CompileStream<P0, P1, P2, P3, P4>(&self, psource: P0, pdest: P1, pheader: P2, preserved: P3, perrorlog: P4, dwflags: u32) -> windows_core::HRESULT
+    pub unsafe fn CompileStream<P0, P2, P3, P4>(&self, psource: P0, pdest: &Option<super::IStream>, pheader: P2, preserved: P3, perrorlog: P4, dwflags: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
-        P1: windows_core::Param<super::IStream>,
         P2: windows_core::Param<super::IStream>,
         P3: windows_core::Param<windows_core::IUnknown>,
         P4: windows_core::Param<ISpErrorLog>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CompileStream)(windows_core::Interface::as_raw(self), psource.param().abi(), pdest.param().abi(), pheader.param().abi(), preserved.param().abi(), perrorlog.param().abi(), dwflags) }
+        unsafe { (windows_core::Interface::vtable(self).CompileStream)(windows_core::Interface::as_raw(self), psource.param().abi(), core::mem::transmute_copy(pdest), pheader.param().abi(), preserved.param().abi(), perrorlog.param().abi(), dwflags) }
     }
 }
 #[repr(C)]
@@ -268,7 +267,7 @@ pub struct ISpGrammarCompiler_Vtbl {
 }
 #[cfg(feature = "objidlbase")]
 pub trait ISpGrammarCompiler_Impl: windows_core::IUnknownImpl {
-    fn CompileStream(&self, psource: windows_core::Ref<super::IStream>, pdest: windows_core::Ref<super::IStream>, pheader: windows_core::Ref<super::IStream>, preserved: windows_core::Ref<windows_core::IUnknown>, perrorlog: windows_core::Ref<ISpErrorLog>, dwflags: u32) -> windows_core::Result<()>;
+    fn CompileStream(&self, psource: windows_core::Ref<super::IStream>, pdest: windows_core::OutRef<super::IStream>, pheader: windows_core::Ref<super::IStream>, preserved: windows_core::Ref<windows_core::IUnknown>, perrorlog: windows_core::Ref<ISpErrorLog>, dwflags: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "objidlbase")]
 impl ISpGrammarCompiler_Vtbl {
@@ -276,7 +275,7 @@ impl ISpGrammarCompiler_Vtbl {
         unsafe extern "system" fn CompileStream<Identity: ISpGrammarCompiler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psource: *mut core::ffi::c_void, pdest: *mut core::ffi::c_void, pheader: *mut core::ffi::c_void, preserved: *mut core::ffi::c_void, perrorlog: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISpGrammarCompiler_Impl::CompileStream(this, core::mem::transmute_copy(&psource), core::mem::transmute_copy(&pdest), core::mem::transmute_copy(&pheader), core::mem::transmute_copy(&preserved), core::mem::transmute_copy(&perrorlog), core::mem::transmute_copy(&dwflags)).into()
+                ISpGrammarCompiler_Impl::CompileStream(this, core::mem::transmute_copy(&psource), core::mem::transmute(&pdest), core::mem::transmute_copy(&pheader), core::mem::transmute_copy(&preserved), core::mem::transmute_copy(&perrorlog), core::mem::transmute_copy(&dwflags)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CompileStream: CompileStream::<Identity, OFFSET> }
@@ -470,7 +469,7 @@ impl core::ops::Deref for ISpPhraseBuilder {
 windows_core::imp::interface_hierarchy!(ISpPhraseBuilder, windows_core::IUnknown, super::ISpPhrase);
 #[cfg(feature = "sapi")]
 impl ISpPhraseBuilder {
-    #[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn InitFromPhrase(&self, pphrase: *const super::SPPHRASE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitFromPhrase)(windows_core::Interface::as_raw(self), pphrase) }
     }
@@ -486,7 +485,7 @@ impl ISpPhraseBuilder {
             (windows_core::Interface::vtable(self).AddRules)(windows_core::Interface::as_raw(self), hparent, prule, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddProperties(&self, hparent: SPPHRASEPROPERTYHANDLE, pproperty: *const super::SPPHRASEPROPERTY) -> windows_core::Result<SPPHRASEPROPERTYHANDLE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -502,20 +501,20 @@ impl ISpPhraseBuilder {
 #[doc(hidden)]
 pub struct ISpPhraseBuilder_Vtbl {
     pub base__: super::ISpPhrase_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
     pub InitFromPhrase: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SPPHRASE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase")))]
     InitFromPhrase: usize,
     pub InitFromSerializedPhrase: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SPSERIALIZEDPHRASE) -> windows_core::HRESULT,
     pub AddElements: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::SPPHRASEELEMENT) -> windows_core::HRESULT,
     pub AddRules: unsafe extern "system" fn(*mut core::ffi::c_void, SPPHRASERULEHANDLE, *const super::SPPHRASERULE, *mut SPPHRASERULEHANDLE) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
     pub AddProperties: unsafe extern "system" fn(*mut core::ffi::c_void, SPPHRASEPROPERTYHANDLE, *const super::SPPHRASEPROPERTY, *mut SPPHRASEPROPERTYHANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase")))]
     AddProperties: usize,
     pub AddReplacements: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::SPPHRASEREPLACEMENT) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpPhraseBuilder_Impl: super::ISpPhrase_Impl {
     fn InitFromPhrase(&self, pphrase: *const super::SPPHRASE) -> windows_core::Result<()>;
     fn InitFromSerializedPhrase(&self, pphrase: *const super::SPSERIALIZEDPHRASE) -> windows_core::Result<()>;
@@ -524,7 +523,7 @@ pub trait ISpPhraseBuilder_Impl: super::ISpPhrase_Impl {
     fn AddProperties(&self, hparent: SPPHRASEPROPERTYHANDLE, pproperty: *const super::SPPHRASEPROPERTY) -> windows_core::Result<SPPHRASEPROPERTYHANDLE>;
     fn AddReplacements(&self, creplacements: u32, preplacements: *const super::SPPHRASEREPLACEMENT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
 impl ISpPhraseBuilder_Vtbl {
     pub const fn new<Identity: ISpPhraseBuilder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitFromPhrase<Identity: ISpPhraseBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphrase: *const super::SPPHRASE) -> windows_core::HRESULT {
@@ -589,7 +588,7 @@ impl ISpPhraseBuilder_Vtbl {
         iid == &<ISpPhraseBuilder as windows_core::Interface>::IID || iid == &<super::ISpPhrase as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "sapi", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISpPhraseBuilder {}
 windows_core::imp::define_interface!(ISpPrivateEngineCallEx, ISpPrivateEngineCallEx_Vtbl, 0xdefd682a_fe0a_42b9_bfa1_56d3d6cecfaf);
 windows_core::imp::interface_hierarchy!(ISpPrivateEngineCallEx, windows_core::IUnknown);
@@ -1481,7 +1480,7 @@ impl ISpSREngineSite {
             (windows_core::Interface::vtable(self).GetResource)(windows_core::Interface::as_raw(self), hrule, pszresourcename.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetTransitionProperty(&self, id: SPTRANSITIONID) -> windows_core::Result<*mut SPTRANSITIONPROPERTY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1542,9 +1541,9 @@ pub struct ISpSREngineSite_Vtbl {
     #[cfg(not(feature = "sapi"))]
     GetStateInfo: usize,
     pub GetResource: unsafe extern "system" fn(*mut core::ffi::c_void, SPRULEHANDLE, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetTransitionProperty: unsafe extern "system" fn(*mut core::ffi::c_void, SPTRANSITIONID, *mut *mut SPTRANSITIONPROPERTY) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetTransitionProperty: usize,
     pub IsAlternate: unsafe extern "system" fn(*mut core::ffi::c_void, SPRULEHANDLE, SPRULEHANDLE) -> windows_core::HRESULT,
     pub GetMaxAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, SPRULEHANDLE, *mut u32) -> windows_core::HRESULT,
@@ -2567,9 +2566,12 @@ pub const SPCFGN_ADD: SPCFGNOTIFY = 0;
 pub const SPCFGN_DEACTIVATE: SPCFGNOTIFY = 4;
 pub const SPCFGN_INVALIDATE: SPCFGNOTIFY = 2;
 pub const SPCFGN_REMOVE: SPCFGNOTIFY = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPGRAMMARHANDLE(pub *mut core::ffi::c_void);
+pub type SPGRAMMARHANDLE = *mut SPGRAMMARHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPGRAMMARHANDLE__ {
+    pub unused: i32,
+}
 #[repr(C)]
 #[cfg(feature = "sapi")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2615,19 +2617,28 @@ pub struct SPPHRASEALTREQUEST {
     pub pPhrase: core::mem::ManuallyDrop<Option<super::ISpPhrase>>,
     pub pRecoContext: core::mem::ManuallyDrop<Option<super::ISpRecoContext>>,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPPHRASEPROPERTYHANDLE(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPPHRASERULEHANDLE(pub *mut core::ffi::c_void);
+pub type SPPHRASEPROPERTYHANDLE = *mut SPPHRASEPROPERTYHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPPHRASEPROPERTYHANDLE__ {
+    pub unused: i32,
+}
+pub type SPPHRASERULEHANDLE = *mut SPPHRASERULEHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPPHRASERULEHANDLE__ {
+    pub unused: i32,
+}
 pub type SPPROPSRC = i32;
 pub const SPPROPSRC_RECO_CTX: SPPROPSRC = 1;
 pub const SPPROPSRC_RECO_GRAMMAR: SPPROPSRC = 2;
 pub const SPPROPSRC_RECO_INST: SPPROPSRC = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPRECOCONTEXTHANDLE(pub *mut core::ffi::c_void);
+pub type SPRECOCONTEXTHANDLE = *mut SPRECOCONTEXTHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPRECOCONTEXTHANDLE__ {
+    pub unused: i32,
+}
 pub const SPRECOEXTENSION: windows_core::PCWSTR = windows_core::w!("RecoExtension");
 #[repr(C)]
 #[cfg(feature = "sapi")]
@@ -2673,9 +2684,12 @@ pub struct SPRULEENTRY {
     pub pvClientRuleContext: *mut core::ffi::c_void,
     pub pvClientGrammarContext: *mut core::ffi::c_void,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPRULEHANDLE(pub *mut core::ffi::c_void);
+pub type SPRULEHANDLE = *mut SPRULEHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPRULEHANDLE__ {
+    pub unused: i32,
+}
 pub type SPRULEINFOOPT = i32;
 #[repr(C)]
 #[cfg(feature = "sapi")]
@@ -2757,24 +2771,27 @@ pub struct SPTRANSITIONENTRY_1_1 {
 pub struct SPTRANSITIONENTRY_1_2 {
     pub pvGrammarCookie: *mut core::ffi::c_void,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPTRANSITIONID(pub *mut core::ffi::c_void);
+pub type SPTRANSITIONID = *mut SPTRANSITIONID__;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPTRANSITIONID__ {
+    pub unused: i32,
+}
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub struct SPTRANSITIONPROPERTY {
     pub pszName: windows_core::PCWSTR,
     pub ulId: u32,
     pub pszValue: windows_core::PCWSTR,
     pub vValue: super::VARIANT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for SPTRANSITIONPROPERTY {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPTRANSITIONPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2816,9 +2833,12 @@ pub struct SPWORDENTRY {
     pub aPhoneId: *mut super::SPPHONEID,
     pub pvClientContext: *mut core::ffi::c_void,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SPWORDHANDLE(pub *mut core::ffi::c_void);
+pub type SPWORDHANDLE = *mut SPWORDHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SPWORDHANDLE__ {
+    pub unused: i32,
+}
 pub type SPWORDINFOOPT = i32;
 pub const SR_LOCALIZED_DESCRIPTION: windows_core::PCWSTR = windows_core::w!("Description");
 pub const SpDataKey: windows_core::GUID = windows_core::GUID::from_u128(0xd9f6ee60_58c9_458b_88e1_2f908fd7f87c);

@@ -169,11 +169,18 @@ Named policy methods keep style decisions out of individual writers:
 - `Config::emit_runtime_name` controls WinRT runtime-name constants.
 - `Style::derive_std_traits` and `emit_core_traits` control generated trait blocks.
 - `Style::emit_bare_typedef` controls handle and unscoped-enum representation.
+- `NativeTypedefAttribute` preserves a C typedef as a Rust type alias in every output style.
 
 `Config::item_vis` applies `dead_code` visibility to callable items. Nameable items stay public
 because handwritten code and exported macros may re-export or reference them.
 
 ### Type selection
+
+`Type::projection_type` resolves native typedef chains when classifying parameters and return
+values. This lets full bindings retain slices, output returns, interface conversions, and other
+projection behavior without replacing the declared alias in public signatures or raw ABI
+declarations. `Type::projection_pointee` performs the corresponding one-level dereference while
+retaining an alias on the pointee.
 
 For precise filters, `TypeClosure::build` starts from selected types and follows signature
 dependencies. Selected entry points are full types; signature dependencies are shells unless
@@ -217,7 +224,7 @@ range and OR in the masked value. Identity shifts are omitted to keep generated 
 `-D warnings`.
 
 RDL spells the same shape as a block on the backing field. Coverage lives in
-`test_clang/input/bitfields.h` and `test_bindgen/input/struct_bitfield.rdl`.
+`windows-clang` checkpoint tests and `test_bindgen/input/struct_bitfield.rdl`.
 
 ### Counted buffers
 
@@ -263,5 +270,6 @@ output-neutral unless a projection change is intended. Run the owning `tool-*` g
 bindgen change and inspect all generated diffs.
 
 `test_bindgen` covers filter closure, styles, layouts, methods, buffers, returns, implementation
-support, and variadics. `test_rdl` and `test_clang` cover the input stages. CI regenerates committed
+support, and variadics. `test_rdl` and the `windows-clang` integration tests cover the input
+stages. CI regenerates committed
 bindings and package output and rejects drift.

@@ -186,9 +186,7 @@ pub const ROUTE_SHORTER: i32 = 33;
 pub const ROUTE_STATE: i32 = 34;
 pub type SCOPE_NAME = *mut SN_CHAR;
 pub type SCOPE_NAME_BUFFER = [SN_CHAR; 256];
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SN_CHAR(pub u16);
+pub type SN_CHAR = u16;
 pub const TCP6_STATS: i32 = 38;
 #[repr(C)]
 #[cfg(feature = "winnt")]

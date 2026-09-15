@@ -10,9 +10,9 @@ mod Windows {
         type PCWER_DUMP_CUSTOM_OPTIONS_V3 = *const WER_DUMP_CUSTOM_OPTIONS_V3;
         type PCWER_REPORT_INFORMATION_V4 = *const WER_REPORT_INFORMATION_V4;
         type PCWER_REPORT_INFORMATION_V5 = *const WER_REPORT_INFORMATION_V5;
-        extern fn PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(pContext: *const void, pExceptionInformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbIsCustomDebugger: *mut BOOL, #[len_param(4)] #[out] pwszDebuggerLaunch: PWSTR, #[in] #[out] pchDebuggerLaunch: *mut u32, pbIsDebuggerAutolaunch: *mut BOOL) -> HRESULT;
-        extern fn PFN_WER_RUNTIME_EXCEPTION_EVENT(pContext: *const void, pExceptionInformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbOwnershipClaimed: *mut BOOL, #[len_param(4)] #[out] pwszEventName: PWSTR, #[in] #[out] pchSize: *mut u32, pdwSignatureCount: *mut u32) -> HRESULT;
-        extern fn PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(pContext: *const void, pExceptionInformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwIndex: u32, #[len_param(4)] #[out] pwszName: PWSTR, #[in] #[out] pchName: *mut u32, #[len_param(6)] #[out] pwszValue: PWSTR, #[in] #[out] pchValue: *mut u32) -> HRESULT;
+        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(#[in] pContext: *mut void, pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, #[out] pbIsCustomDebugger: PBOOL, #[len_param(4)] #[out] pwszDebuggerLaunch: PWSTR, #[in] #[out] pchDebuggerLaunch: PDWORD, #[out] pbIsDebuggerAutolaunch: PBOOL) -> HRESULT;
+        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_EVENT(#[in] pContext: *mut void, pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, pbOwnershipClaimed: *mut BOOL, #[len_param(4)] #[out] pwszEventName: PWSTR, #[in] #[out] pchSize: PDWORD, #[out] pdwSignatureCount: PDWORD) -> HRESULT;
+        extern "C" fn PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(#[in] pContext: *mut void, pExceptionInformation: PWER_RUNTIME_EXCEPTION_INFORMATION, dwIndex: u32, #[len_param(4)] #[out] pwszName: PWSTR, #[in] #[out] pchName: PDWORD, #[len_param(6)] #[out] pwszValue: PWSTR, #[in] #[out] pchValue: PDWORD) -> HRESULT;
         type PHREPORTSTORE = *mut *mut void;
         type PWER_DUMP_CUSTOM_OPTIONS = *mut WER_DUMP_CUSTOM_OPTIONS;
         type PWER_DUMP_CUSTOM_OPTIONS_V2 = *mut WER_DUMP_CUSTOM_OPTIONS_V2;
@@ -25,7 +25,7 @@ mod Windows {
         type PWER_REPORT_METADATA_V1 = *mut WER_REPORT_METADATA_V1;
         type PWER_REPORT_METADATA_V2 = *mut WER_REPORT_METADATA_V2;
         type PWER_REPORT_METADATA_V3 = *mut WER_REPORT_METADATA_V3;
-        type PWER_REPORT_PARAMETER = WER_REPORT_PARAMETER;
+        type PWER_REPORT_PARAMETER = _WER_REPORT_PARAMETER;
         type PWER_REPORT_SIGNATURE = *mut WER_REPORT_SIGNATURE;
         type PWER_RUNTIME_EXCEPTION_INFORMATION = *mut WER_RUNTIME_EXCEPTION_INFORMATION;
         type PWER_SUBMIT_RESULT = *mut WER_SUBMIT_RESULT;
@@ -117,12 +117,12 @@ mod Windows {
             pExceptionPointers: PEXCEPTION_POINTERS,
             bClientPointers: BOOL,
         }
-        const WER_E_CABBING_FAILURE: i32 = -2147024865;
-        const WER_E_INSUFFICIENT_BUFFER: i32 = -2147024774;
-        const WER_E_INVALID_STATE: i32 = -2147019873;
-        const WER_E_LENGTH_EXCEEDED: i32 = -2147023613;
-        const WER_E_MISSING_DUMP: i32 = -2147024323;
-        const WER_E_NOT_FOUND: i32 = -2147023728;
+        const WER_E_CABBING_FAILURE: HRESULT = -2147024865;
+        const WER_E_INSUFFICIENT_BUFFER: HRESULT = -2147024774;
+        const WER_E_INVALID_STATE: HRESULT = -2147019873;
+        const WER_E_LENGTH_EXCEEDED: HRESULT = -2147023613;
+        const WER_E_MISSING_DUMP: HRESULT = -2147024323;
+        const WER_E_NOT_FOUND: HRESULT = -2147023728;
         const WER_FAULT_REPORTING_ALWAYS_SHOW_UI: i32 = 16;
         const WER_FAULT_REPORTING_CRITICAL: i32 = 512;
         const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_CRASH: i32 = 128;
@@ -278,10 +278,7 @@ mod Windows {
             BucketIdString: [u16; 260],
             LegacyBucketId: u64,
         }
-        struct WER_REPORT_PARAMETER {
-            Name: [u16; 129],
-            Value: [u16; 260],
-        }
+        type WER_REPORT_PARAMETER = _WER_REPORT_PARAMETER;
         struct WER_REPORT_SIGNATURE {
             EventName: [u16; 65],
             Parameters: [WER_REPORT_PARAMETER; 10],
@@ -363,7 +360,7 @@ mod Windows {
         #[library("wer.dll")]
         extern "C" fn WerFreeString(pwszStr: PCWSTR);
         #[library("KERNEL32.dll")]
-        extern fn WerGetFlags(hProcess: HANDLE, pdwFlags: *mut u32) -> HRESULT;
+        extern fn WerGetFlags(hProcess: HANDLE, #[out] pdwFlags: PDWORD) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn WerRegisterAdditionalProcess(processId: u32, captureExtraInfoForThreadId: u32) -> HRESULT;
         #[library("KERNEL32.dll")]
@@ -375,25 +372,25 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn WerRegisterFile(pwzFile: PCWSTR, regFileType: WER_REGISTER_FILE_TYPE, dwFlags: u32) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerRegisterMemoryBlock(pvAddress: *const void, dwSize: u32) -> HRESULT;
+        extern fn WerRegisterMemoryBlock(#[in] pvAddress: *mut void, dwSize: u32) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerRegisterRuntimeExceptionModule(pwszOutOfProcessCallbackDll: PCWSTR, pContext: *const void) -> HRESULT;
+        extern fn WerRegisterRuntimeExceptionModule(pwszOutOfProcessCallbackDll: PCWSTR, #[in] pContext: *mut void) -> HRESULT;
         #[library("wer.dll")]
         extern fn WerRemoveExcludedApplication(pwzExeName: PCWSTR, bAllUsers: BOOL) -> HRESULT;
         #[library("wer.dll")]
-        extern fn WerReportAddDump(hReportHandle: HREPORT, hProcess: HANDLE, #[opt] hThread: HANDLE, dumpType: WER_DUMP_TYPE, #[opt] pExceptionParam: *const WER_EXCEPTION_INFORMATION, #[opt] pDumpCustomOptions: *const WER_DUMP_CUSTOM_OPTIONS, dwFlags: u32) -> HRESULT;
+        extern fn WerReportAddDump(hReportHandle: HREPORT, hProcess: HANDLE, #[opt] hThread: HANDLE, dumpType: WER_DUMP_TYPE, #[opt] pExceptionParam: PWER_EXCEPTION_INFORMATION, #[opt] pDumpCustomOptions: PWER_DUMP_CUSTOM_OPTIONS, dwFlags: u32) -> HRESULT;
         #[library("wer.dll")]
         extern fn WerReportAddFile(hReportHandle: HREPORT, pwzPath: PCWSTR, repFileType: WER_FILE_TYPE, dwFileFlags: u32) -> HRESULT;
         #[library("wer.dll")]
         extern fn WerReportCloseHandle(hReportHandle: HREPORT) -> HRESULT;
         #[library("wer.dll")]
-        extern fn WerReportCreate(pwzEventType: PCWSTR, repType: WER_REPORT_TYPE, #[opt] pReportInformation: *const WER_REPORT_INFORMATION, phReportHandle: *mut HREPORT) -> HRESULT;
+        extern fn WerReportCreate(pwzEventType: PCWSTR, repType: WER_REPORT_TYPE, #[opt] pReportInformation: PWER_REPORT_INFORMATION, phReportHandle: *mut HREPORT) -> HRESULT;
         #[library("wer.dll")]
         extern fn WerReportSetParameter(hReportHandle: HREPORT, dwparamID: u32, #[opt] pwzName: PCWSTR, pwzValue: PCWSTR) -> HRESULT;
         #[library("wer.dll")]
         extern fn WerReportSetUIOption(hReportHandle: HREPORT, repUITypeID: WER_REPORT_UI, pwzValue: PCWSTR) -> HRESULT;
         #[library("wer.dll")]
-        extern fn WerReportSubmit(hReportHandle: HREPORT, consent: WER_CONSENT, dwFlags: u32, #[opt] pSubmitResult: *mut WER_SUBMIT_RESULT) -> HRESULT;
+        extern fn WerReportSubmit(hReportHandle: HREPORT, consent: WER_CONSENT, dwFlags: u32, #[out] #[opt] pSubmitResult: PWER_SUBMIT_RESULT) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn WerSetFlags(dwFlags: u32) -> HRESULT;
         #[library("wer.dll")]
@@ -407,17 +404,17 @@ mod Windows {
         #[library("wer.dll")]
         extern "C" fn WerStoreGetSizeOnDisk(hReportStore: HREPORTSTORE, pqwSizeInBytes: *mut u64) -> HRESULT;
         #[library("wer.dll")]
-        extern "C" fn WerStoreOpen(repStoreType: REPORT_STORE_TYPES, phReportStore: *mut *mut void) -> HRESULT;
+        extern "C" fn WerStoreOpen(repStoreType: REPORT_STORE_TYPES, #[out] phReportStore: PHREPORTSTORE) -> HRESULT;
         #[library("wer.dll")]
         extern "C" fn WerStorePurge() -> HRESULT;
         #[library("wer.dll")]
-        extern "C" fn WerStoreQueryReportMetadataV1(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, pReportMetadata: *mut WER_REPORT_METADATA_V1) -> HRESULT;
+        extern "C" fn WerStoreQueryReportMetadataV1(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V1) -> HRESULT;
         #[library("wer.dll")]
-        extern "C" fn WerStoreQueryReportMetadataV2(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, pReportMetadata: *mut WER_REPORT_METADATA_V2) -> HRESULT;
+        extern "C" fn WerStoreQueryReportMetadataV2(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V2) -> HRESULT;
         #[library("wer.dll")]
-        extern "C" fn WerStoreQueryReportMetadataV3(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, pReportMetadata: *mut WER_REPORT_METADATA_V3) -> HRESULT;
+        extern "C" fn WerStoreQueryReportMetadataV3(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, #[out] pReportMetadata: PWER_REPORT_METADATA_V3) -> HRESULT;
         #[library("wer.dll")]
-        extern "C" fn WerStoreUploadReport(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, dwFlags: u32, #[opt] pSubmitResult: *mut WER_SUBMIT_RESULT) -> HRESULT;
+        extern "C" fn WerStoreUploadReport(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, dwFlags: u32, #[out] #[opt] pSubmitResult: PWER_SUBMIT_RESULT) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn WerUnregisterAdditionalProcess(processId: u32) -> HRESULT;
         #[library("KERNEL32.dll")]
@@ -429,8 +426,12 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn WerUnregisterFile(pwzFilePath: PCWSTR) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerUnregisterMemoryBlock(pvAddress: *const void) -> HRESULT;
+        extern fn WerUnregisterMemoryBlock(#[in] pvAddress: *mut void) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn WerUnregisterRuntimeExceptionModule(pwszOutOfProcessCallbackDll: PCWSTR, pContext: *const void) -> HRESULT;
+        extern fn WerUnregisterRuntimeExceptionModule(pwszOutOfProcessCallbackDll: PCWSTR, #[in] pContext: *mut void) -> HRESULT;
+        struct _WER_REPORT_PARAMETER {
+            Name: [u16; 129],
+            Value: [u16; 260],
+        }
     }
 }

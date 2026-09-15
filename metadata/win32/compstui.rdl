@@ -106,12 +106,13 @@ mod Windows {
         const CPSUI_PDLGPAGE_DOCPROP: PDLGPAGE = 1;
         const CPSUI_PDLGPAGE_PRINTERPROP: PDLGPAGE = 3;
         const CPSUI_PDLGPAGE_TREEVIEWONLY: PDLGPAGE = 4;
+        const CPSUI_PDLGPAGE_TREEVIWONLY: PDLGPAGE = 4;
         const CPSUI_REBOOTSYSTEM: i32 = 3;
         const CPSUI_RESTARTWINDOWS: i32 = 2;
         #[library("COMPSTUI.dll")]
-        extern fn CommonPropertySheetUIA(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[opt] pResult: *mut u32) -> i32;
+        extern fn CommonPropertySheetUIA(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[out] #[opt] pResult: LPDWORD) -> i32;
         #[library("COMPSTUI.dll")]
-        extern fn CommonPropertySheetUIW(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[opt] pResult: *mut u32) -> i32;
+        extern fn CommonPropertySheetUIW(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[out] #[opt] pResult: LPDWORD) -> i32;
         struct DLGPAGE {
             cbSize: u16,
             Flags: u16,
@@ -247,8 +248,14 @@ mod Windows {
         }
         #[library("COMPSTUI.dll")]
         extern fn GetCPSUIUserData(hDlg: HWND) -> usize;
+        #[arch(X64 | Arm64)]
         const HINSPSUIPAGE_FIRST: HANDLE = 4294967294;
+        #[arch(X86)]
+        const HINSPSUIPAGE_FIRST: HANDLE = -2;
+        #[arch(X64 | Arm64)]
         const HINSPSUIPAGE_LAST: HANDLE = 4294967295;
+        #[arch(X86)]
+        const HINSPSUIPAGE_LAST: HANDLE = -1;
         const IDI_CPSUI_ADVANCE: i32 = 64058;
         const IDI_CPSUI_AUTOSEL: i32 = 64025;
         const IDI_CPSUI_COLLATE: i32 = 64030;
@@ -680,7 +687,7 @@ mod Windows {
         type PEXTCHKBOX = *mut EXTCHKBOX;
         type PEXTPUSH = *mut EXTPUSH;
         extern fn PFNCOMPROPSHEET(hComPropSheet: HANDLE, Function: u32, lParam1: LPARAM, lParam2: LPARAM) -> isize;
-        extern fn PFNPROPSHEETUI(pPSUIInfo: *mut PROPSHEETUI_INFO, lParam: LPARAM) -> i32;
+        extern fn PFNPROPSHEETUI(pPSUIInfo: PPROPSHEETUI_INFO, lParam: LPARAM) -> i32;
         type PINSERTPSUIPAGE_INFO = *mut INSERTPSUIPAGE_INFO;
         type POIEXT = *mut OIEXT;
         type POPTCOMBO = *mut OPTCOMBO;
@@ -778,6 +785,6 @@ mod Windows {
         const TVOT_SCROLLBAR: i32 = 4;
         const TVOT_TRACKBAR: i32 = 3;
         const TVOT_UDARROW: i32 = 2;
-        extern fn _CPSUICALLBACK(pCPSUICBParam: *mut CPSUICBPARAM) -> i32;
+        extern fn _CPSUICALLBACK(pCPSUICBParam: PCPSUICBPARAM) -> i32;
     }
 }

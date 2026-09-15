@@ -61,10 +61,10 @@ mod Windows {
         #[library("wsdapi.dll")]
         extern fn WSDCreateDiscoveryProvider(pContext: IWSDXMLContext, ppProvider: *mut IWSDiscoveryProvider) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateDiscoveryProvider2(pContext: IWSDXMLContext, #[len_param(2)] #[opt] pConfigParams: *const WSD_CONFIG_PARAM, dwConfigParamCount: u32, ppProvider: *mut IWSDiscoveryProvider) -> HRESULT;
+        extern fn WSDCreateDiscoveryProvider2(pContext: IWSDXMLContext, #[len_param(2)] #[in] #[opt] pConfigParams: *mut WSD_CONFIG_PARAM, dwConfigParamCount: u32, ppProvider: *mut IWSDiscoveryProvider) -> HRESULT;
         #[library("wsdapi.dll")]
         extern fn WSDCreateDiscoveryPublisher(pContext: IWSDXMLContext, ppPublisher: *mut IWSDiscoveryPublisher) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDCreateDiscoveryPublisher2(pContext: IWSDXMLContext, #[len_param(2)] #[opt] pConfigParams: *const WSD_CONFIG_PARAM, dwConfigParamCount: u32, ppPublisher: *mut IWSDiscoveryPublisher) -> HRESULT;
+        extern fn WSDCreateDiscoveryPublisher2(pContext: IWSDXMLContext, #[len_param(2)] #[in] #[opt] pConfigParams: *mut WSD_CONFIG_PARAM, dwConfigParamCount: u32, ppPublisher: *mut IWSDiscoveryPublisher) -> HRESULT;
     }
 }

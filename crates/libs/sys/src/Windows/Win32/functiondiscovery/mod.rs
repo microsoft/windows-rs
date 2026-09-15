@@ -44,6 +44,7 @@ pub const FD_CONSTRAINTVALUE_COMCLSCONTEXT_INPROC_SERVER: windows_sys::core::PCW
 pub const FD_CONSTRAINTVALUE_COMCLSCONTEXT_LOCAL_SERVER: windows_sys::core::PCWSTR = windows_sys::core::w!("4");
 pub const FD_CONSTRAINTVALUE_FALSE: windows_sys::core::PCWSTR = windows_sys::core::w!("FALSE");
 pub const FD_CONSTRAINTVALUE_PAIRED: windows_sys::core::PCWSTR = windows_sys::core::w!("Paired");
+pub const FD_CONSTRAINTVALUE_RECURSESUBCATEGORY_TRUE: windows_sys::core::PCWSTR = windows_sys::core::w!("TRUE");
 pub const FD_CONSTRAINTVALUE_ROUTINGSCOPE_ALL: windows_sys::core::PCWSTR = windows_sys::core::w!("All");
 pub const FD_CONSTRAINTVALUE_ROUTINGSCOPE_DIRECT: windows_sys::core::PCWSTR = windows_sys::core::w!("Direct");
 pub const FD_CONSTRAINTVALUE_TRUE: windows_sys::core::PCWSTR = windows_sys::core::w!("TRUE");
@@ -587,6 +588,8 @@ pub const PNPX_INSTALLSTATE_FAILED: i32 = 3;
 pub const PNPX_INSTALLSTATE_INSTALLED: i32 = 1;
 pub const PNPX_INSTALLSTATE_INSTALLING: i32 = 2;
 pub const PNPX_INSTALLSTATE_NOTINSTALLED: i32 = 0;
+pub const PNP_CONSTRAINTVALUE_NOTIFICATIONSONLY: windows_sys::core::PCWSTR = windows_sys::core::w!("TRUE");
+pub const PNP_CONSTRAINTVALUE_NOTPRESENT: windows_sys::core::PCWSTR = windows_sys::core::w!("TRUE");
 pub const PROVIDERDDO_QUERYCONSTRAINT_DEVICEFUNCTIONDISPLAYOBJECTS: windows_sys::core::PCWSTR = windows_sys::core::w!("DeviceFunctionDisplayObjects");
 pub const PROVIDERDDO_QUERYCONSTRAINT_DEVICEINTERFACES: windows_sys::core::PCWSTR = windows_sys::core::w!("DeviceInterfaces");
 pub const PROVIDERDDO_QUERYCONSTRAINT_ONLYCONNECTEDDEVICES: windows_sys::core::PCWSTR = windows_sys::core::w!("OnlyConnectedDevices");

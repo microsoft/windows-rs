@@ -1,45 +1,129 @@
-pub const DBGPROP_ATTRIB_ACCESS_FINAL: i32 = 32768;
-pub const DBGPROP_ATTRIB_ACCESS_PRIVATE: i32 = 8192;
-pub const DBGPROP_ATTRIB_ACCESS_PROTECTED: i32 = 16384;
-pub const DBGPROP_ATTRIB_ACCESS_PUBLIC: i32 = 4096;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DBGPROP_ATTRIB_FLAGS(pub u32);
-pub const DBGPROP_ATTRIB_FRAME_INCATCHBLOCK: i32 = 33554432;
-pub const DBGPROP_ATTRIB_FRAME_INFINALLYBLOCK: i32 = 67108864;
-pub const DBGPROP_ATTRIB_FRAME_INTRYBLOCK: i32 = 16777216;
-pub const DBGPROP_ATTRIB_HAS_EXTENDED_ATTRIBS: i32 = 8388608;
-pub const DBGPROP_ATTRIB_NO_ATTRIB: i32 = 0;
-pub const DBGPROP_ATTRIB_STORAGE_FIELD: i32 = 262144;
-pub const DBGPROP_ATTRIB_STORAGE_GLOBAL: i32 = 65536;
-pub const DBGPROP_ATTRIB_STORAGE_STATIC: i32 = 131072;
-pub const DBGPROP_ATTRIB_STORAGE_VIRTUAL: i32 = 524288;
-pub const DBGPROP_ATTRIB_TYPE_IS_CONSTANT: i32 = 1048576;
-pub const DBGPROP_ATTRIB_TYPE_IS_SYNCHRONIZED: i32 = 2097152;
-pub const DBGPROP_ATTRIB_TYPE_IS_VOLATILE: i32 = 4194304;
-pub const DBGPROP_ATTRIB_VALUE_IS_EVENT: i32 = 512;
-pub const DBGPROP_ATTRIB_VALUE_IS_EXPANDABLE: i32 = 16;
-pub const DBGPROP_ATTRIB_VALUE_IS_FAKE: i32 = 32;
-pub const DBGPROP_ATTRIB_VALUE_IS_INVALID: i32 = 8;
-pub const DBGPROP_ATTRIB_VALUE_IS_METHOD: i32 = 256;
-pub const DBGPROP_ATTRIB_VALUE_IS_RAW_STRING: i32 = 1024;
-pub const DBGPROP_ATTRIB_VALUE_IS_RETURN_VALUE: i32 = 134217728;
-pub const DBGPROP_ATTRIB_VALUE_PENDING_MUTATION: i32 = 268435456;
-pub const DBGPROP_ATTRIB_VALUE_READONLY: i32 = 2048;
+#[inline]
+pub unsafe fn BSTR_UserFree(param0: *mut u32, param1: *mut windows_core::BSTR) {
+    windows_core::link!("oleaut32.dll" "system" fn BSTR_UserFree(param0 : *mut u32, param1 : *mut *mut core::ffi::c_void));
+    unsafe { BSTR_UserFree(param0 as _, core::mem::transmute(param1)) }
+}
+#[inline]
+pub unsafe fn BSTR_UserFree64(param0: *mut u32, param1: *mut windows_core::BSTR) {
+    windows_core::link!("oleaut32.dll" "system" fn BSTR_UserFree64(param0 : *mut u32, param1 : *mut *mut core::ffi::c_void));
+    unsafe { BSTR_UserFree64(param0 as _, core::mem::transmute(param1)) }
+}
+#[inline]
+pub unsafe fn BSTR_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut windows_core::BSTR) -> *mut u8 {
+    windows_core::link!("oleaut32.dll" "system" fn BSTR_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut *mut core::ffi::c_void) -> *mut u8);
+    unsafe { BSTR_UserMarshal(param0 as _, param1 as _, core::mem::transmute(param2)) }
+}
+#[inline]
+pub unsafe fn BSTR_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut windows_core::BSTR) -> *mut u8 {
+    windows_core::link!("oleaut32.dll" "system" fn BSTR_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut *mut core::ffi::c_void) -> *mut u8);
+    unsafe { BSTR_UserMarshal64(param0 as _, param1 as _, core::mem::transmute(param2)) }
+}
+#[inline]
+pub unsafe fn BSTR_UserSize(param0: *mut u32, param1: u32, param2: *mut windows_core::BSTR) -> u32 {
+    windows_core::link!("oleaut32.dll" "system" fn BSTR_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut *mut core::ffi::c_void) -> u32);
+    unsafe { BSTR_UserSize(param0 as _, param1, core::mem::transmute(param2)) }
+}
+#[inline]
+pub unsafe fn BSTR_UserSize64(param0: *mut u32, param1: u32, param2: *mut windows_core::BSTR) -> u32 {
+    windows_core::link!("oleaut32.dll" "system" fn BSTR_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut *mut core::ffi::c_void) -> u32);
+    unsafe { BSTR_UserSize64(param0 as _, param1, core::mem::transmute(param2)) }
+}
+#[inline]
+pub unsafe fn BSTR_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut windows_core::BSTR) -> *mut u8 {
+    windows_core::link!("oleaut32.dll" "system" fn BSTR_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut *mut core::ffi::c_void) -> *mut u8);
+    unsafe { BSTR_UserUnmarshal(param0 as _, param1 as _, core::mem::transmute(param2)) }
+}
+#[inline]
+pub unsafe fn BSTR_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut windows_core::BSTR) -> *mut u8 {
+    windows_core::link!("oleaut32.dll" "system" fn BSTR_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut *mut core::ffi::c_void) -> *mut u8);
+    unsafe { BSTR_UserUnmarshal64(param0 as _, param1 as _, core::mem::transmute(param2)) }
+}
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[inline]
+pub unsafe fn VARIANT_UserFree(param0: *mut u32, param1: *mut super::VARIANT) {
+    windows_core::link!("oleaut32.dll" "system" fn VARIANT_UserFree(param0 : *mut u32, param1 : *mut super::VARIANT));
+    unsafe { VARIANT_UserFree(param0 as _, param1) }
+}
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[inline]
+pub unsafe fn VARIANT_UserFree64(param0: *mut u32, param1: *mut super::VARIANT) {
+    windows_core::link!("oleaut32.dll" "system" fn VARIANT_UserFree64(param0 : *mut u32, param1 : *mut super::VARIANT));
+    unsafe { VARIANT_UserFree64(param0 as _, param1) }
+}
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[inline]
+pub unsafe fn VARIANT_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::VARIANT) -> *mut u8 {
+    windows_core::link!("oleaut32.dll" "system" fn VARIANT_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::VARIANT) -> *mut u8);
+    unsafe { VARIANT_UserMarshal(param0 as _, param1 as _, param2) }
+}
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[inline]
+pub unsafe fn VARIANT_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::VARIANT) -> *mut u8 {
+    windows_core::link!("oleaut32.dll" "system" fn VARIANT_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::VARIANT) -> *mut u8);
+    unsafe { VARIANT_UserMarshal64(param0 as _, param1 as _, param2) }
+}
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[inline]
+pub unsafe fn VARIANT_UserSize(param0: *mut u32, param1: u32, param2: *mut super::VARIANT) -> u32 {
+    windows_core::link!("oleaut32.dll" "system" fn VARIANT_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::VARIANT) -> u32);
+    unsafe { VARIANT_UserSize(param0 as _, param1, param2) }
+}
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[inline]
+pub unsafe fn VARIANT_UserSize64(param0: *mut u32, param1: u32, param2: *mut super::VARIANT) -> u32 {
+    windows_core::link!("oleaut32.dll" "system" fn VARIANT_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::VARIANT) -> u32);
+    unsafe { VARIANT_UserSize64(param0 as _, param1, param2) }
+}
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[inline]
+pub unsafe fn VARIANT_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::VARIANT) -> *mut u8 {
+    windows_core::link!("oleaut32.dll" "system" fn VARIANT_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::VARIANT) -> *mut u8);
+    unsafe { VARIANT_UserUnmarshal(param0 as _, param1 as _, param2) }
+}
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[inline]
+pub unsafe fn VARIANT_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::VARIANT) -> *mut u8 {
+    windows_core::link!("oleaut32.dll" "system" fn VARIANT_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::VARIANT) -> *mut u8);
+    unsafe { VARIANT_UserUnmarshal64(param0 as _, param1 as _, param2) }
+}
+pub const DBGPROP_ATTRIB_ACCESS_FINAL: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 32768;
+pub const DBGPROP_ATTRIB_ACCESS_PRIVATE: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 8192;
+pub const DBGPROP_ATTRIB_ACCESS_PROTECTED: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 16384;
+pub const DBGPROP_ATTRIB_ACCESS_PUBLIC: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 4096;
+pub type DBGPROP_ATTRIB_FLAGS = u32;
+pub const DBGPROP_ATTRIB_FRAME_INCATCHBLOCK: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 33554432;
+pub const DBGPROP_ATTRIB_FRAME_INFINALLYBLOCK: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 67108864;
+pub const DBGPROP_ATTRIB_FRAME_INTRYBLOCK: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 16777216;
+pub const DBGPROP_ATTRIB_HAS_EXTENDED_ATTRIBS: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 8388608;
+pub const DBGPROP_ATTRIB_NO_ATTRIB: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 0;
+pub const DBGPROP_ATTRIB_STORAGE_FIELD: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 262144;
+pub const DBGPROP_ATTRIB_STORAGE_GLOBAL: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 65536;
+pub const DBGPROP_ATTRIB_STORAGE_STATIC: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 131072;
+pub const DBGPROP_ATTRIB_STORAGE_VIRTUAL: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 524288;
+pub const DBGPROP_ATTRIB_TYPE_IS_CONSTANT: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 1048576;
+pub const DBGPROP_ATTRIB_TYPE_IS_SYNCHRONIZED: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 2097152;
+pub const DBGPROP_ATTRIB_TYPE_IS_VOLATILE: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 4194304;
+pub const DBGPROP_ATTRIB_VALUE_IS_EVENT: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 512;
+pub const DBGPROP_ATTRIB_VALUE_IS_EXPANDABLE: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 16;
+pub const DBGPROP_ATTRIB_VALUE_IS_FAKE: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 32;
+pub const DBGPROP_ATTRIB_VALUE_IS_INVALID: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 8;
+pub const DBGPROP_ATTRIB_VALUE_IS_METHOD: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 256;
+pub const DBGPROP_ATTRIB_VALUE_IS_RAW_STRING: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 1024;
+pub const DBGPROP_ATTRIB_VALUE_IS_RETURN_VALUE: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 134217728;
+pub const DBGPROP_ATTRIB_VALUE_PENDING_MUTATION: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 268435456;
+pub const DBGPROP_ATTRIB_VALUE_READONLY: __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = 2048;
 pub const DBGPROP_INFO_ALL: i32 = 63;
-pub const DBGPROP_INFO_ATTRIBUTES: i32 = 8;
-pub const DBGPROP_INFO_AUTOEXPAND: i32 = 134217728;
-pub const DBGPROP_INFO_BEAUTIFY: i32 = 33554432;
-pub const DBGPROP_INFO_CALLTOSTRING: i32 = 67108864;
-pub const DBGPROP_INFO_DEBUGPROP: i32 = 16;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DBGPROP_INFO_FLAGS(pub u32);
-pub const DBGPROP_INFO_FULLNAME: i32 = 32;
-pub const DBGPROP_INFO_NAME: i32 = 1;
+pub const DBGPROP_INFO_ATTRIBUTES: __MIDL___MIDL_itf_dbgprop_0000_0000_0002 = 8;
+pub const DBGPROP_INFO_AUTOEXPAND: __MIDL___MIDL_itf_dbgprop_0000_0000_0002 = 134217728;
+pub const DBGPROP_INFO_BEAUTIFY: __MIDL___MIDL_itf_dbgprop_0000_0000_0002 = 33554432;
+pub const DBGPROP_INFO_CALLTOSTRING: __MIDL___MIDL_itf_dbgprop_0000_0000_0002 = 67108864;
+pub const DBGPROP_INFO_DEBUGPROP: __MIDL___MIDL_itf_dbgprop_0000_0000_0002 = 16;
+pub type DBGPROP_INFO_FLAGS = u32;
+pub const DBGPROP_INFO_FULLNAME: __MIDL___MIDL_itf_dbgprop_0000_0000_0002 = 32;
+pub const DBGPROP_INFO_NAME: __MIDL___MIDL_itf_dbgprop_0000_0000_0002 = 1;
 pub const DBGPROP_INFO_STANDARD: i32 = 15;
-pub const DBGPROP_INFO_TYPE: i32 = 2;
-pub const DBGPROP_INFO_VALUE: i32 = 4;
+pub const DBGPROP_INFO_TYPE: __MIDL___MIDL_itf_dbgprop_0000_0000_0002 = 2;
+pub const DBGPROP_INFO_VALUE: __MIDL___MIDL_itf_dbgprop_0000_0000_0002 = 4;
 #[repr(C)]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DebugPropertyInfo {
@@ -58,13 +142,13 @@ pub const EX_PROP_INFO_LOCKBYTES: EX_PROP_INFO_FLAGS = 2048;
 pub const EX_PROP_INFO_NTYPE: EX_PROP_INFO_FLAGS = 512;
 pub const EX_PROP_INFO_NVALUE: EX_PROP_INFO_FLAGS = 1024;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
 pub struct ExtendedDebugPropertyInfo {
     pub dwValidFields: u32,
-    pub pszName: windows_core::PWSTR,
-    pub pszType: windows_core::PWSTR,
-    pub pszValue: windows_core::PWSTR,
-    pub pszFullName: windows_core::PWSTR,
+    pub pszName: super::LPOLESTR,
+    pub pszType: super::LPOLESTR,
+    pub pszValue: super::LPOLESTR,
+    pub pszFullName: super::LPOLESTR,
     pub dwAttrib: u32,
     pub pDebugProp: core::mem::ManuallyDrop<Option<IDebugProperty>>,
     pub nDISPID: u32,
@@ -73,13 +157,13 @@ pub struct ExtendedDebugPropertyInfo {
     pub plbValue: core::mem::ManuallyDrop<Option<super::ILockBytes>>,
     pub pDebugExtProp: core::mem::ManuallyDrop<Option<IDebugExtendedProperty>>,
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for ExtendedDebugPropertyInfo {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for ExtendedDebugPropertyInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -94,7 +178,7 @@ impl core::ops::Deref for IDebugExtendedProperty {
 }
 windows_core::imp::interface_hierarchy!(IDebugExtendedProperty, windows_core::IUnknown, IDebugProperty);
 impl IDebugExtendedProperty {
-    #[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, pextendedpropertyinfo) }
     }
@@ -109,18 +193,18 @@ impl IDebugExtendedProperty {
 #[doc(hidden)]
 pub struct IDebugExtendedProperty_Vtbl {
     pub base__: IDebugProperty_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetExtendedPropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut ExtendedDebugPropertyInfo) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase")))]
     GetExtendedPropertyInfo: usize,
     pub EnumExtendedMembers: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDebugExtendedProperty_Impl: IDebugProperty_Impl {
     fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::Result<()>;
     fn EnumExtendedMembers(&self, dwfieldspec: u32, nradix: u32) -> windows_core::Result<IEnumDebugExtendedPropertyInfo>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IDebugExtendedProperty_Vtbl {
     pub const fn new<Identity: IDebugExtendedProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetExtendedPropertyInfo<Identity: IDebugExtendedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::HRESULT {
@@ -151,7 +235,7 @@ impl IDebugExtendedProperty_Vtbl {
         iid == &<IDebugExtendedProperty as windows_core::Interface>::IID || iid == &<IDebugProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDebugExtendedProperty {}
 windows_core::imp::define_interface!(IDebugProperty, IDebugProperty_Vtbl, 0x51973c50_cb0c_11d0_b5c9_00a0244a0e7a);
 windows_core::imp::interface_hierarchy!(IDebugProperty, windows_core::IUnknown);
@@ -159,18 +243,16 @@ impl IDebugProperty {
     pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, ppropertyinfo) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const windows_core::GUID) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetExtendedInfo)(windows_core::Interface::as_raw(self), cinfos, rgguidextendedinfo, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetValueAsString<P0>(&self, pszvalue: P0, nradix: u32) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetValueAsString)(windows_core::Interface::as_raw(self), pszvalue.param().abi(), nradix) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetValueAsString(&self, pszvalue: super::LPCOLESTR, nradix: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetValueAsString)(windows_core::Interface::as_raw(self), pszvalue, nradix) }
     }
     pub unsafe fn EnumMembers(&self, dwfieldspec: u32, nradix: u32, refiid: *const windows_core::GUID) -> windows_core::Result<IEnumDebugPropertyInfo> {
         unsafe {
@@ -190,23 +272,26 @@ impl IDebugProperty {
 pub struct IDebugProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DebugPropertyInfo) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetExtendedInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetExtendedInfo: usize,
-    pub SetValueAsString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub SetValueAsString: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetValueAsString: usize,
     pub EnumMembers: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDebugProperty_Impl: windows_core::IUnknownImpl {
     fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::Result<()>;
     fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const windows_core::GUID) -> windows_core::Result<super::VARIANT>;
-    fn SetValueAsString(&self, pszvalue: &windows_core::PCWSTR, nradix: u32) -> windows_core::Result<()>;
+    fn SetValueAsString(&self, pszvalue: super::LPCOLESTR, nradix: u32) -> windows_core::Result<()>;
     fn EnumMembers(&self, dwfieldspec: u32, nradix: u32, refiid: *const windows_core::GUID) -> windows_core::Result<IEnumDebugPropertyInfo>;
     fn GetParent(&self) -> windows_core::Result<IDebugProperty>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IDebugProperty_Vtbl {
     pub const fn new<Identity: IDebugProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPropertyInfo<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::HRESULT {
@@ -227,10 +312,10 @@ impl IDebugProperty_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetValueAsString<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvalue: windows_core::PCWSTR, nradix: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValueAsString<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvalue: super::LPCOLESTR, nradix: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugProperty_Impl::SetValueAsString(this, core::mem::transmute(&pszvalue), core::mem::transmute_copy(&nradix)).into()
+                IDebugProperty_Impl::SetValueAsString(this, core::mem::transmute_copy(&pszvalue), core::mem::transmute_copy(&nradix)).into()
             }
         }
         unsafe extern "system" fn EnumMembers<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: u32, nradix: u32, refiid: *const windows_core::GUID, ppepi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -270,7 +355,7 @@ impl IDebugProperty_Vtbl {
         iid == &<IDebugProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDebugProperty {}
 windows_core::imp::define_interface!(IDebugPropertyEnumType_All, IDebugPropertyEnumType_All_Vtbl, 0x51973c55_cb0c_11d0_b5c9_00a0244a0e7a);
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_All, windows_core::IUnknown);
@@ -293,12 +378,12 @@ pub trait IDebugPropertyEnumType_All_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugPropertyEnumType_All_Vtbl {
     pub const fn new<Identity: IDebugPropertyEnumType_All_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetName<Identity: IDebugPropertyEnumType_All_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: IDebugPropertyEnumType_All_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDebugPropertyEnumType_All_Impl::GetName(this) {
                     Ok(ok__) => {
-                        param0.write(core::mem::transmute(ok__));
+                        __midl__idebugpropertyenumtype_all0000.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -407,7 +492,7 @@ impl windows_core::RuntimeName for IDebugPropertyEnumType_Registers {}
 windows_core::imp::define_interface!(IEnumDebugExtendedPropertyInfo, IEnumDebugExtendedPropertyInfo_Vtbl, 0x51973c53_cb0c_11d0_b5c9_00a0244a0e7a);
 windows_core::imp::interface_hierarchy!(IEnumDebugExtendedPropertyInfo, windows_core::IUnknown);
 impl IEnumDebugExtendedPropertyInfo {
-    #[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Next(&self, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgextendedpropertyinfo, pceltfetched as _) }
     }
@@ -434,16 +519,16 @@ impl IEnumDebugExtendedPropertyInfo {
 #[doc(hidden)]
 pub struct IEnumDebugExtendedPropertyInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut ExtendedDebugPropertyInfo, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase")))]
     Next: usize,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEnumDebugExtendedPropertyInfo_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
@@ -451,7 +536,7 @@ pub trait IEnumDebugExtendedPropertyInfo_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumDebugExtendedPropertyInfo>;
     fn GetCount(&self) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IEnumDebugExtendedPropertyInfo_Vtbl {
     pub const fn new<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> windows_core::HRESULT {
@@ -509,7 +594,7 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
         iid == &<IEnumDebugExtendedPropertyInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IEnumDebugExtendedPropertyInfo {}
 windows_core::imp::define_interface!(IEnumDebugPropertyInfo, IEnumDebugPropertyInfo_Vtbl, 0x51973c51_cb0c_11d0_b5c9_00a0244a0e7a);
 windows_core::imp::interface_hierarchy!(IEnumDebugPropertyInfo, windows_core::IUnknown);
@@ -628,7 +713,7 @@ impl IPerPropertyBrowsing2 {
             (windows_core::Interface::vtable(self).MapPropertyToPage)(windows_core::Interface::as_raw(self), dispid, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "oaidl", feature = "ocidl"))]
+    #[cfg(all(feature = "oaidl", feature = "ocidl", feature = "wtypesbase"))]
     pub unsafe fn GetPredefinedStrings(&self, dispid: super::DISPID, pcastrings: *mut super::CALPOLESTR, pcacookies: *mut super::CADWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPredefinedStrings)(windows_core::Interface::as_raw(self), dispid, pcastrings as _, pcacookies as _) }
     }
@@ -649,23 +734,23 @@ pub struct IPerPropertyBrowsing2_Vtbl {
     pub MapPropertyToPage: unsafe extern "system" fn(*mut core::ffi::c_void, super::DISPID, *mut windows_core::GUID) -> windows_core::HRESULT,
     #[cfg(not(feature = "oaidl"))]
     MapPropertyToPage: usize,
-    #[cfg(all(feature = "oaidl", feature = "ocidl"))]
+    #[cfg(all(feature = "oaidl", feature = "ocidl", feature = "wtypesbase"))]
     pub GetPredefinedStrings: unsafe extern "system" fn(*mut core::ffi::c_void, super::DISPID, *mut super::CALPOLESTR, *mut super::CADWORD) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "ocidl")))]
+    #[cfg(not(all(feature = "oaidl", feature = "ocidl", feature = "wtypesbase")))]
     GetPredefinedStrings: usize,
     #[cfg(feature = "oaidl")]
     pub SetPredefinedValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::DISPID, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "oaidl"))]
     SetPredefinedValue: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl"))]
+#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "wtypesbase"))]
 pub trait IPerPropertyBrowsing2_Impl: windows_core::IUnknownImpl {
     fn GetDisplayString(&self, dispid: super::DISPID) -> windows_core::Result<windows_core::BSTR>;
     fn MapPropertyToPage(&self, dispid: super::DISPID) -> windows_core::Result<windows_core::GUID>;
     fn GetPredefinedStrings(&self, dispid: super::DISPID, pcastrings: *mut super::CALPOLESTR, pcacookies: *mut super::CADWORD) -> windows_core::Result<()>;
     fn SetPredefinedValue(&self, dispid: super::DISPID, dwcookie: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl"))]
+#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "wtypesbase"))]
 impl IPerPropertyBrowsing2_Vtbl {
     pub const fn new<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDisplayString<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: super::DISPID, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -716,7 +801,7 @@ impl IPerPropertyBrowsing2_Vtbl {
         iid == &<IPerPropertyBrowsing2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl"))]
+#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPerPropertyBrowsing2 {}
 pub const OBJECT_ATTRIB_ACCESS_FINAL: OBJECT_ATTRIB_FLAGS = 32768;
 pub const OBJECT_ATTRIB_ACCESS_PRIVATE: OBJECT_ATTRIB_FLAGS = 8192;
@@ -764,3 +849,5 @@ pub const PROP_INFO_NAME: PROP_INFO_FLAGS = 1;
 pub const PROP_INFO_STANDARD: i32 = 15;
 pub const PROP_INFO_TYPE: PROP_INFO_FLAGS = 2;
 pub const PROP_INFO_VALUE: PROP_INFO_FLAGS = 4;
+pub type __MIDL___MIDL_itf_dbgprop_0000_0000_0001 = i32;
+pub type __MIDL___MIDL_itf_dbgprop_0000_0000_0002 = i32;

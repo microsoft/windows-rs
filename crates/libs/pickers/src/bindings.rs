@@ -24,16 +24,21 @@ pub const FOLDERID_PicturesLibrary: windows_core::GUID =
     windows_core::GUID::from_u128(0xa990ae9f_a03b_4e80_94bc_9912d7504104);
 pub const FOLDERID_VideosLibrary: windows_core::GUID =
     windows_core::GUID::from_u128(0x491e922f_5643_4af4_a7eb_4e7a138d8174);
-pub const FOS_ALLOWMULTISELECT: FILEOPENDIALOGOPTIONS = 512;
-pub const FOS_FORCEFILESYSTEM: FILEOPENDIALOGOPTIONS = 64;
-pub const FOS_OVERWRITEPROMPT: FILEOPENDIALOGOPTIONS = 2;
-pub const FOS_PICKFOLDERS: FILEOPENDIALOGOPTIONS = 32;
-pub const FOS_STRICTFILETYPES: FILEOPENDIALOGOPTIONS = 4;
+pub const FOS_ALLOWMULTISELECT: _FILEOPENDIALOGOPTIONS = 512;
+pub const FOS_FORCEFILESYSTEM: _FILEOPENDIALOGOPTIONS = 64;
+pub const FOS_OVERWRITEPROMPT: _FILEOPENDIALOGOPTIONS = 2;
+pub const FOS_PICKFOLDERS: _FILEOPENDIALOGOPTIONS = 32;
+pub const FOS_STRICTFILETYPES: _FILEOPENDIALOGOPTIONS = 4;
 pub const FileOpenDialog: windows_core::GUID =
     windows_core::GUID::from_u128(0xdc1c5a9c_e88a_4dde_a5a1_60f82a20aef7);
 pub const FileSaveDialog: windows_core::GUID =
     windows_core::GUID::from_u128(0xc0b4e2f3_ba21_4773_8dba_335ec946eb8b);
-pub type HWND = *mut core::ffi::c_void;
+pub type HWND = *mut HWND__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HWND__ {
+    pub unused: i32,
+}
 windows_core::imp::define_interface!(
     IBindCtx,
     IBindCtx_Vtbl,
@@ -458,3 +463,4 @@ impl windows_core::RuntimeName for IShellItemArray {}
 pub type KNOWNFOLDERID = windows_core::GUID;
 pub type SIGDN = i32;
 pub const SIGDN_FILESYSPATH: SIGDN = -2147123200;
+pub type _FILEOPENDIALOGOPTIONS = i32;

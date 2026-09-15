@@ -75,8 +75,8 @@ mod Windows {
             fn get_IsInterval(&self, #[retval] bIsInterval: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
             fn put_IsInterval(&self, bIsInterval: VARIANT_BOOL) -> HRESULT;
-            fn GetVarDate(&self, bIsLocal: VARIANT_BOOL, #[retval] dVarDate: *mut f64) -> HRESULT;
-            fn SetVarDate(&self, dVarDate: f64, bIsLocal: VARIANT_BOOL) -> HRESULT;
+            fn GetVarDate(&self, bIsLocal: VARIANT_BOOL, #[retval] dVarDate: *mut DATE) -> HRESULT;
+            fn SetVarDate(&self, dVarDate: DATE, bIsLocal: VARIANT_BOOL) -> HRESULT;
             fn GetFileTime(&self, bIsLocal: VARIANT_BOOL, #[retval] strFileTime: *mut BSTR) -> HRESULT;
             fn SetFileTime(&self, strFileTime: BSTR, bIsLocal: VARIANT_BOOL) -> HRESULT;
         }
@@ -120,7 +120,7 @@ mod Windows {
             #[special]
             fn get_Value(&self, #[retval] varValue: *mut VARIANT) -> HRESULT;
             #[special]
-            fn put_Value(&self, varValue: *const VARIANT) -> HRESULT;
+            fn put_Value(&self, #[in] varValue: *mut VARIANT) -> HRESULT;
             #[special]
             fn get_Name(&self, #[retval] strName: *mut BSTR) -> HRESULT;
         }
@@ -131,7 +131,7 @@ mod Windows {
             fn Item(&self, strName: BSTR, iFlags: i32, #[retval] objWbemNamedValue: *mut ISWbemNamedValue) -> HRESULT;
             #[special]
             fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
-            fn Add(&self, strName: BSTR, varValue: *const VARIANT, iFlags: i32, #[retval] objWbemNamedValue: *mut ISWbemNamedValue) -> HRESULT;
+            fn Add(&self, strName: BSTR, #[in] varValue: *mut VARIANT, iFlags: i32, #[retval] objWbemNamedValue: *mut ISWbemNamedValue) -> HRESULT;
             fn Remove(&self, strName: BSTR, iFlags: i32) -> HRESULT;
             fn Clone(&self, #[retval] objWbemNamedValueSet: *mut ISWbemNamedValueSet) -> HRESULT;
             fn DeleteAll(&self) -> HRESULT;
@@ -266,7 +266,7 @@ mod Windows {
             #[special]
             fn get_Value(&self, #[retval] varValue: *mut VARIANT) -> HRESULT;
             #[special]
-            fn put_Value(&self, varValue: *const VARIANT) -> HRESULT;
+            fn put_Value(&self, #[in] varValue: *mut VARIANT) -> HRESULT;
             #[special]
             fn get_Name(&self, #[retval] strName: *mut BSTR) -> HRESULT;
             #[special]
@@ -295,7 +295,7 @@ mod Windows {
             #[special]
             fn get_Value(&self, #[retval] varValue: *mut VARIANT) -> HRESULT;
             #[special]
-            fn put_Value(&self, varValue: *const VARIANT) -> HRESULT;
+            fn put_Value(&self, #[in] varValue: *mut VARIANT) -> HRESULT;
             #[special]
             fn get_Name(&self, #[retval] strName: *mut BSTR) -> HRESULT;
             #[special]
@@ -322,7 +322,7 @@ mod Windows {
             fn Item(&self, name: BSTR, iFlags: i32, #[retval] objWbemQualifier: *mut ISWbemQualifier) -> HRESULT;
             #[special]
             fn get_Count(&self, #[retval] iCount: *mut i32) -> HRESULT;
-            fn Add(&self, strName: BSTR, varVal: *const VARIANT, bPropagatesToSubclass: VARIANT_BOOL, bPropagatesToInstance: VARIANT_BOOL, bIsOverridable: VARIANT_BOOL, iFlags: i32, #[retval] objWbemQualifier: *mut ISWbemQualifier) -> HRESULT;
+            fn Add(&self, strName: BSTR, #[in] varVal: *mut VARIANT, bPropagatesToSubclass: VARIANT_BOOL, bPropagatesToInstance: VARIANT_BOOL, bIsOverridable: VARIANT_BOOL, iFlags: i32, #[retval] objWbemQualifier: *mut ISWbemQualifier) -> HRESULT;
             fn Remove(&self, strName: BSTR, iFlags: i32) -> HRESULT;
         }
         #[guid(0x5ad4bf92_daab_11d3_b38f_00105a1f473a)]

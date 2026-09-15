@@ -9,7 +9,11 @@ mod Windows {
         const CALLBACK_TYPEMASK: i32 = 458752;
         const CALLBACK_WINDOW: i32 = 65536;
         extern fn DRVCALLBACK(hdrvr: HDRVR, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
-        type HDRVR = *mut void;
+        type HDRVR = *mut HDRVR__;
+        #[packed(1)]
+        struct HDRVR__ {
+            unused: i32,
+        }
         const JOYERR_BASE: i32 = 160;
         extern fn LPDRVCALLBACK(hdrvr: HDRVR, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
         type LPMMTIME = *mut MMTIME;

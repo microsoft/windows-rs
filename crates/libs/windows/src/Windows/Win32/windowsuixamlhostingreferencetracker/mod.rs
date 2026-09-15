@@ -279,8 +279,7 @@ impl IReferenceTrackerManager {
     pub unsafe fn ReferenceTrackingStarted(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReferenceTrackingStarted)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "rpc")]
-    pub unsafe fn FindTrackerTargetsCompleted(&self, findfailed: super::boolean) -> windows_core::HRESULT {
+    pub unsafe fn FindTrackerTargetsCompleted(&self, findfailed: u8) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FindTrackerTargetsCompleted)(windows_core::Interface::as_raw(self), findfailed) }
     }
     pub unsafe fn ReferenceTrackingCompleted(&self) -> windows_core::HRESULT {
@@ -298,21 +297,16 @@ impl IReferenceTrackerManager {
 pub struct IReferenceTrackerManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReferenceTrackingStarted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "rpc")]
-    pub FindTrackerTargetsCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::boolean) -> windows_core::HRESULT,
-    #[cfg(not(feature = "rpc"))]
-    FindTrackerTargetsCompleted: usize,
+    pub FindTrackerTargetsCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
     pub ReferenceTrackingCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetReferenceTrackerHost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "rpc")]
 pub trait IReferenceTrackerManager_Impl: windows_core::IUnknownImpl {
     fn ReferenceTrackingStarted(&self) -> windows_core::Result<()>;
-    fn FindTrackerTargetsCompleted(&self, findfailed: super::boolean) -> windows_core::Result<()>;
+    fn FindTrackerTargetsCompleted(&self, findfailed: u8) -> windows_core::Result<()>;
     fn ReferenceTrackingCompleted(&self) -> windows_core::Result<()>;
     fn SetReferenceTrackerHost(&self, value: windows_core::Ref<IReferenceTrackerHost>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "rpc")]
 impl IReferenceTrackerManager_Vtbl {
     pub const fn new<Identity: IReferenceTrackerManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReferenceTrackingStarted<Identity: IReferenceTrackerManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -321,7 +315,7 @@ impl IReferenceTrackerManager_Vtbl {
                 IReferenceTrackerManager_Impl::ReferenceTrackingStarted(this).into()
             }
         }
-        unsafe extern "system" fn FindTrackerTargetsCompleted<Identity: IReferenceTrackerManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, findfailed: super::boolean) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindTrackerTargetsCompleted<Identity: IReferenceTrackerManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, findfailed: u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IReferenceTrackerManager_Impl::FindTrackerTargetsCompleted(this, core::mem::transmute_copy(&findfailed)).into()
@@ -351,7 +345,6 @@ impl IReferenceTrackerManager_Vtbl {
         iid == &<IReferenceTrackerManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for IReferenceTrackerManager {}
 windows_core::imp::define_interface!(IReferenceTrackerTarget, IReferenceTrackerTarget_Vtbl, 0x64bd43f8_bfee_4ec4_b7eb_2935158dae21);
 windows_core::imp::interface_hierarchy!(IReferenceTrackerTarget, windows_core::IUnknown);
@@ -441,8 +434,7 @@ impl ITrackerOwner {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTrackerValue)(windows_core::Interface::as_raw(self), handle, value.param().abi()) }
     }
-    #[cfg(feature = "rpc")]
-    pub unsafe fn TryGetSafeTrackerValue(&self, handle: TrackerHandle, returnvalue: *mut Option<windows_core::IUnknown>) -> super::boolean {
+    pub unsafe fn TryGetSafeTrackerValue(&self, handle: TrackerHandle, returnvalue: *mut Option<windows_core::IUnknown>) -> u8 {
         unsafe { (windows_core::Interface::vtable(self).TryGetSafeTrackerValue)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(returnvalue)) }
     }
 }
@@ -453,19 +445,14 @@ pub struct ITrackerOwner_Vtbl {
     pub CreateTrackerHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TrackerHandle) -> windows_core::HRESULT,
     pub DeleteTrackerHandle: unsafe extern "system" fn(*mut core::ffi::c_void, TrackerHandle) -> windows_core::HRESULT,
     pub SetTrackerValue: unsafe extern "system" fn(*mut core::ffi::c_void, TrackerHandle, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "rpc")]
-    pub TryGetSafeTrackerValue: unsafe extern "system" fn(*mut core::ffi::c_void, TrackerHandle, *mut *mut core::ffi::c_void) -> super::boolean,
-    #[cfg(not(feature = "rpc"))]
-    TryGetSafeTrackerValue: usize,
+    pub TryGetSafeTrackerValue: unsafe extern "system" fn(*mut core::ffi::c_void, TrackerHandle, *mut *mut core::ffi::c_void) -> u8,
 }
-#[cfg(feature = "rpc")]
 pub trait ITrackerOwner_Impl: windows_core::IUnknownImpl {
     fn CreateTrackerHandle(&self) -> windows_core::Result<TrackerHandle>;
     fn DeleteTrackerHandle(&self, handle: TrackerHandle) -> windows_core::Result<()>;
     fn SetTrackerValue(&self, handle: TrackerHandle, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn TryGetSafeTrackerValue(&self, handle: TrackerHandle, returnvalue: windows_core::OutRef<windows_core::IUnknown>) -> super::boolean;
+    fn TryGetSafeTrackerValue(&self, handle: TrackerHandle, returnvalue: windows_core::OutRef<windows_core::IUnknown>) -> u8;
 }
-#[cfg(feature = "rpc")]
 impl ITrackerOwner_Vtbl {
     pub const fn new<Identity: ITrackerOwner_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateTrackerHandle<Identity: ITrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, returnvalue: *mut TrackerHandle) -> windows_core::HRESULT {
@@ -492,7 +479,7 @@ impl ITrackerOwner_Vtbl {
                 ITrackerOwner_Impl::SetTrackerValue(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn TryGetSafeTrackerValue<Identity: ITrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: TrackerHandle, returnvalue: *mut *mut core::ffi::c_void) -> super::boolean {
+        unsafe extern "system" fn TryGetSafeTrackerValue<Identity: ITrackerOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: TrackerHandle, returnvalue: *mut *mut core::ffi::c_void) -> u8 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITrackerOwner_Impl::TryGetSafeTrackerValue(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&returnvalue))
@@ -510,11 +497,13 @@ impl ITrackerOwner_Vtbl {
         iid == &<ITrackerOwner as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "rpc")]
 impl windows_core::RuntimeName for ITrackerOwner {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TrackerHandle(pub *mut core::ffi::c_void);
+pub type TrackerHandle = *mut TrackerHandle__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TrackerHandle__ {
+    pub unused: i32,
+}
 pub type XAML_REFERENCETRACKER_DISCONNECT = i32;
 pub const XAML_REFERENCETRACKER_DISCONNECT_DEFAULT: XAML_REFERENCETRACKER_DISCONNECT = 0;
 pub const XAML_REFERENCETRACKER_DISCONNECT_SUSPEND: XAML_REFERENCETRACKER_DISCONNECT = 1;

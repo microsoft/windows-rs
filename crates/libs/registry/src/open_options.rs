@@ -91,11 +91,11 @@ impl<'a> OpenOptions<'a> {
                         null(),
                         self.options,
                         self.access,
-                        null(),
+                        null_mut(),
                         &mut handle,
                         null_mut(),
                         transaction.0,
-                        null(),
+                        null_mut(),
                     )
                 } else {
                     RegOpenKeyTransactedW(
@@ -105,7 +105,7 @@ impl<'a> OpenOptions<'a> {
                         self.access,
                         &mut handle,
                         transaction.0,
-                        null(),
+                        null_mut(),
                     )
                 }
             } else if self.create {
@@ -116,7 +116,7 @@ impl<'a> OpenOptions<'a> {
                     null(),
                     self.options,
                     self.access,
-                    null(),
+                    null_mut(),
                     &mut handle,
                     null_mut(),
                 )

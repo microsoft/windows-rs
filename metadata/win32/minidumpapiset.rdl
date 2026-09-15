@@ -23,6 +23,30 @@ mod Windows {
             CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
             CallbackParam: *mut void,
         }
+        #[arch(X86)]
+        struct MINIDUMP_CALLBACK_INPUT {
+            ProcessId: u32,
+            ProcessHandle: HANDLE,
+            CallbackType: u32,
+            Anonymous: union {
+                Status: HRESULT,
+                Thread: MINIDUMP_THREAD_CALLBACK,
+                ThreadEx: MINIDUMP_THREAD_EX_CALLBACK,
+                Module: MINIDUMP_MODULE_CALLBACK,
+                IncludeThread: MINIDUMP_INCLUDE_THREAD_CALLBACK,
+                IncludeModule: MINIDUMP_INCLUDE_MODULE_CALLBACK,
+                Io: MINIDUMP_IO_CALLBACK,
+                ReadMemoryFailure: MINIDUMP_READ_MEMORY_FAILURE_CALLBACK,
+                SecondaryFlags: u32,
+                VmQuery: MINIDUMP_VM_QUERY_CALLBACK,
+                VmPreRead: MINIDUMP_VM_PRE_READ_CALLBACK,
+                VmPostRead: MINIDUMP_VM_POST_READ_CALLBACK,
+                CompressedMemoryStreamFinish: MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK,
+            },
+        }
+        #[packed(4)]
+        #[align(16)]
+        #[arch(X64 | Arm64)]
         struct MINIDUMP_CALLBACK_INPUT {
             ProcessId: u32,
             ProcessHandle: HANDLE,
@@ -105,7 +129,7 @@ mod Windows {
                 Status: HRESULT,
             },
         }
-        extern fn MINIDUMP_CALLBACK_ROUTINE(#[in] #[out] CallbackParam: *mut void, CallbackInput: *const MINIDUMP_CALLBACK_INPUT, #[in] #[out] CallbackOutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> BOOL;
+        extern fn MINIDUMP_CALLBACK_ROUTINE(#[in] #[out] CallbackParam: *mut void, CallbackInput: PMINIDUMP_CALLBACK_INPUT, #[in] #[out] CallbackOutput: PMINIDUMP_CALLBACK_OUTPUT) -> BOOL;
         #[repr(i32)]
         enum MINIDUMP_CALLBACK_TYPE {
             ModuleCallback = 0,
@@ -818,6 +842,8 @@ mod Windows {
             Stack: MINIDUMP_MEMORY_DESCRIPTOR,
             ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
         }
+        #[packed(4)]
+        #[align(16)]
         #[arch(Arm64)]
         struct MINIDUMP_THREAD_CALLBACK {
             ThreadId: u32,
@@ -828,6 +854,8 @@ mod Windows {
             StackBase: u64,
             StackEnd: u64,
         }
+        #[packed(4)]
+        #[align(16)]
         #[arch(X64)]
         struct MINIDUMP_THREAD_CALLBACK {
             ThreadId: u32,
@@ -858,6 +886,8 @@ mod Windows {
             ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
             BackingStore: MINIDUMP_MEMORY_DESCRIPTOR,
         }
+        #[packed(4)]
+        #[align(16)]
         #[arch(Arm64)]
         struct MINIDUMP_THREAD_EX_CALLBACK {
             ThreadId: u32,
@@ -870,6 +900,8 @@ mod Windows {
             BackingStoreBase: u64,
             BackingStoreEnd: u64,
         }
+        #[packed(4)]
+        #[align(16)]
         #[arch(X64)]
         struct MINIDUMP_THREAD_EX_CALLBACK {
             ThreadId: u32,
@@ -1050,9 +1082,9 @@ mod Windows {
             ModuleWriteCodeSegs = 64,
         }
         #[library("dbghelp.dll")]
-        extern fn MiniDumpReadDumpStream(BaseOfDump: *const void, StreamNumber: u32, Dir: *mut PMINIDUMP_DIRECTORY, StreamPointer: *mut *mut void, #[opt] StreamSize: *mut u32) -> BOOL;
+        extern fn MiniDumpReadDumpStream(#[in] BaseOfDump: *mut void, StreamNumber: u32, Dir: *mut PMINIDUMP_DIRECTORY, StreamPointer: *mut *mut void, #[opt] StreamSize: *mut u32) -> BOOL;
         #[library("dbghelp.dll")]
-        extern fn MiniDumpWriteDump(hProcess: HANDLE, ProcessId: u32, hFile: HANDLE, DumpType: MINIDUMP_TYPE, #[opt] ExceptionParam: *const MINIDUMP_EXCEPTION_INFORMATION, #[opt] UserStreamParam: *const MINIDUMP_USER_STREAM_INFORMATION, #[opt] CallbackParam: *const MINIDUMP_CALLBACK_INFORMATION) -> BOOL;
+        extern fn MiniDumpWriteDump(hProcess: HANDLE, ProcessId: u32, hFile: HANDLE, DumpType: MINIDUMP_TYPE, #[opt] ExceptionParam: PMINIDUMP_EXCEPTION_INFORMATION, #[opt] UserStreamParam: PMINIDUMP_USER_STREAM_INFORMATION, #[opt] CallbackParam: PMINIDUMP_CALLBACK_INFORMATION) -> BOOL;
         type PCPU_INFORMATION = *mut CPU_INFORMATION;
         type PMINIDUMP_CALLBACK_INFORMATION = *mut MINIDUMP_CALLBACK_INFORMATION;
         type PMINIDUMP_CALLBACK_INPUT = *mut MINIDUMP_CALLBACK_INPUT;

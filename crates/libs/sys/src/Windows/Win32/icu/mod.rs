@@ -9,8 +9,8 @@ windows_link::link!("icuuc.dll" "C" fn UCNV_TO_U_CALLBACK_SUBSTITUTE(context : *
 windows_link::link!("icuuc.dll" "C" fn u_UCharsToChars(us : *const UChar, cs : *mut i8, length : i32));
 windows_link::link!("icuuc.dll" "C" fn u_austrcpy(dst : *mut i8, src : *const UChar) -> *mut i8);
 windows_link::link!("icuuc.dll" "C" fn u_austrncpy(dst : *mut i8, src : *const UChar, n : i32) -> *mut i8);
-windows_link::link!("icuuc.dll" "C" fn u_catclose(catd : *mut UResourceBundle));
-windows_link::link!("icuuc.dll" "C" fn u_catgets(catd : *mut UResourceBundle, set_num : i32, msg_num : i32, s : *const UChar, len : *mut i32, ec : *mut UErrorCode) -> *const UChar);
+windows_link::link!("icuuc.dll" "C" fn u_catclose(catd : u_nl_catd));
+windows_link::link!("icuuc.dll" "C" fn u_catgets(catd : u_nl_catd, set_num : i32, msg_num : i32, s : *const UChar, len : *mut i32, ec : *mut UErrorCode) -> *const UChar);
 windows_link::link!("icuuc.dll" "C" fn u_catopen(name : *const i8, locale : *const i8, ec : *mut UErrorCode) -> u_nl_catd);
 windows_link::link!("icuuc.dll" "C" fn u_charAge(c : UChar32, versionarray : *mut u8));
 windows_link::link!("icuuc.dll" "C" fn u_charDigitValue(c : UChar32) -> i32);
@@ -144,32 +144,20 @@ windows_link::link!("icuuc.dll" "C" fn u_unescape(src : *const i8, dest : *mut U
 windows_link::link!("icuuc.dll" "C" fn u_unescapeAt(charat : UNESCAPE_CHAR_AT, offset : *mut i32, length : i32, context : *mut core::ffi::c_void) -> UChar32);
 windows_link::link!("icuuc.dll" "C" fn u_versionFromString(versionarray : *mut u8, versionstring : *const i8));
 windows_link::link!("icuuc.dll" "C" fn u_versionFromUString(versionarray : *mut u8, versionstring : *const UChar));
-windows_link::link!("icuuc.dll" "C" fn u_versionToString(versionarray : *mut u8, versionstring : *mut i8));
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("icuin.dll" "C" fn u_vformatMessage(locale : *const i8, pattern : *const UChar, patternlength : i32, result : *mut UChar, resultlength : i32, ap : *mut i8, status : *mut UErrorCode) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+windows_link::link!("icuuc.dll" "C" fn u_versionToString(versionarray : *const u8, versionstring : *mut i8));
 #[cfg(feature = "vadefs")]
 windows_link::link!("icuin.dll" "C" fn u_vformatMessage(locale : *const i8, pattern : *const UChar, patternlength : i32, result : *mut UChar, resultlength : i32, ap : super::va_list, status : *mut UErrorCode) -> i32);
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("icuin.dll" "C" fn u_vformatMessageWithError(locale : *const i8, pattern : *const UChar, patternlength : i32, result : *mut UChar, resultlength : i32, parseerror : *mut UParseError, ap : *mut i8, status : *mut UErrorCode) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(feature = "vadefs")]
 windows_link::link!("icuin.dll" "C" fn u_vformatMessageWithError(locale : *const i8, pattern : *const UChar, patternlength : i32, result : *mut UChar, resultlength : i32, parseerror : *mut UParseError, ap : super::va_list, status : *mut UErrorCode) -> i32);
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("icuin.dll" "C" fn u_vparseMessage(locale : *const i8, pattern : *const UChar, patternlength : i32, source : *const UChar, sourcelength : i32, ap : *mut i8, status : *mut UErrorCode));
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(feature = "vadefs")]
 windows_link::link!("icuin.dll" "C" fn u_vparseMessage(locale : *const i8, pattern : *const UChar, patternlength : i32, source : *const UChar, sourcelength : i32, ap : super::va_list, status : *mut UErrorCode));
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("icuin.dll" "C" fn u_vparseMessageWithError(locale : *const i8, pattern : *const UChar, patternlength : i32, source : *const UChar, sourcelength : i32, ap : *mut i8, parseerror : *mut UParseError, status : *mut UErrorCode));
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(feature = "vadefs")]
 windows_link::link!("icuin.dll" "C" fn u_vparseMessageWithError(locale : *const i8, pattern : *const UChar, patternlength : i32, source : *const UChar, sourcelength : i32, ap : super::va_list, parseerror : *mut UParseError, status : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ubidi_close(pbidi : *mut UBiDi));
 windows_link::link!("icuuc.dll" "C" fn ubidi_countParagraphs(pbidi : *mut UBiDi) -> i32);
 windows_link::link!("icuuc.dll" "C" fn ubidi_countRuns(pbidi : *mut UBiDi, perrorcode : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn ubidi_getBaseDirection(text : *const UChar, length : i32) -> UBiDiDirection);
-windows_link::link!("icuuc.dll" "C" fn ubidi_getClassCallback(pbidi : *mut UBiDi, r#fn : *mut UBiDiClassCallback, context : *mut *mut core::ffi::c_void));
+windows_link::link!("icuuc.dll" "C" fn ubidi_getClassCallback(pbidi : *mut UBiDi, r#fn : *mut UBiDiClassCallback, context : *const *const core::ffi::c_void));
 windows_link::link!("icuuc.dll" "C" fn ubidi_getCustomizedClass(pbidi : *mut UBiDi, c : UChar32) -> UCharDirection);
 windows_link::link!("icuuc.dll" "C" fn ubidi_getDirection(pbidi : *const UBiDi) -> UBiDiDirection);
 windows_link::link!("icuuc.dll" "C" fn ubidi_getLength(pbidi : *const UBiDi) -> i32);
@@ -197,7 +185,7 @@ windows_link::link!("icuuc.dll" "C" fn ubidi_openSized(maxlength : i32, maxrunco
 windows_link::link!("icuuc.dll" "C" fn ubidi_orderParagraphsLTR(pbidi : *mut UBiDi, orderparagraphsltr : UBool));
 windows_link::link!("icuuc.dll" "C" fn ubidi_reorderLogical(levels : *const UBiDiLevel, length : i32, indexmap : *mut i32));
 windows_link::link!("icuuc.dll" "C" fn ubidi_reorderVisual(levels : *const UBiDiLevel, length : i32, indexmap : *mut i32));
-windows_link::link!("icuuc.dll" "C" fn ubidi_setClassCallback(pbidi : *mut UBiDi, newfn : UBiDiClassCallback, newcontext : *const core::ffi::c_void, oldfn : *mut UBiDiClassCallback, oldcontext : *mut *mut core::ffi::c_void, perrorcode : *mut UErrorCode));
+windows_link::link!("icuuc.dll" "C" fn ubidi_setClassCallback(pbidi : *mut UBiDi, newfn : UBiDiClassCallback, newcontext : *const core::ffi::c_void, oldfn : *mut UBiDiClassCallback, oldcontext : *const *const core::ffi::c_void, perrorcode : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ubidi_setContext(pbidi : *mut UBiDi, prologue : *const UChar, prolength : i32, epilogue : *const UChar, epilength : i32, perrorcode : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ubidi_setInverse(pbidi : *mut UBiDi, isinverse : UBool));
 windows_link::link!("icuuc.dll" "C" fn ubidi_setLine(pparabidi : *const UBiDi, start : i32, limit : i32, plinebidi : *mut UBiDi, perrorcode : *mut UErrorCode));
@@ -247,26 +235,26 @@ windows_link::link!("icuin.dll" "C" fn ucal_getCanonicalTimeZoneID(id : *const U
 windows_link::link!("icuin.dll" "C" fn ucal_getDSTSavings(zoneid : *const UChar, ec : *mut UErrorCode) -> i32);
 windows_link::link!("icuin.dll" "C" fn ucal_getDayOfWeekType(cal : *const UCalendar, dayofweek : UCalendarDaysOfWeek, status : *mut UErrorCode) -> UCalendarWeekdayType);
 windows_link::link!("icuin.dll" "C" fn ucal_getDefaultTimeZone(result : *mut UChar, resultcapacity : i32, ec : *mut UErrorCode) -> i32);
-windows_link::link!("icuin.dll" "C" fn ucal_getFieldDifference(cal : *mut UCalendar, target : f64, field : UCalendarDateFields, status : *mut UErrorCode) -> i32);
-windows_link::link!("icuin.dll" "C" fn ucal_getGregorianChange(cal : *const UCalendar, perrorcode : *mut UErrorCode) -> f64);
+windows_link::link!("icuin.dll" "C" fn ucal_getFieldDifference(cal : *mut UCalendar, target : UDate, field : UCalendarDateFields, status : *mut UErrorCode) -> i32);
+windows_link::link!("icuin.dll" "C" fn ucal_getGregorianChange(cal : *const UCalendar, perrorcode : *mut UErrorCode) -> UDate);
 windows_link::link!("icu.dll" "C" fn ucal_getHostTimeZone(result : *mut UChar, resultcapacity : i32, ec : *mut UErrorCode) -> i32);
 windows_link::link!("icuin.dll" "C" fn ucal_getKeywordValuesForLocale(key : *const i8, locale : *const i8, commonlyused : UBool, status : *mut UErrorCode) -> *mut UEnumeration);
 windows_link::link!("icuin.dll" "C" fn ucal_getLimit(cal : *const UCalendar, field : UCalendarDateFields, r#type : UCalendarLimitType, status : *mut UErrorCode) -> i32);
 windows_link::link!("icuin.dll" "C" fn ucal_getLocaleByType(cal : *const UCalendar, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> *const i8);
-windows_link::link!("icuin.dll" "C" fn ucal_getMillis(cal : *const UCalendar, status : *mut UErrorCode) -> f64);
-windows_link::link!("icuin.dll" "C" fn ucal_getNow() -> f64);
+windows_link::link!("icuin.dll" "C" fn ucal_getMillis(cal : *const UCalendar, status : *mut UErrorCode) -> UDate);
+windows_link::link!("icuin.dll" "C" fn ucal_getNow() -> UDate);
 windows_link::link!("icuin.dll" "C" fn ucal_getTZDataVersion(status : *mut UErrorCode) -> *const i8);
 windows_link::link!("icuin.dll" "C" fn ucal_getTimeZoneDisplayName(cal : *const UCalendar, r#type : UCalendarDisplayNameType, locale : *const i8, result : *mut UChar, resultlength : i32, status : *mut UErrorCode) -> i32);
 windows_link::link!("icuin.dll" "C" fn ucal_getTimeZoneID(cal : *const UCalendar, result : *mut UChar, resultlength : i32, status : *mut UErrorCode) -> i32);
 windows_link::link!("icuin.dll" "C" fn ucal_getTimeZoneIDForWindowsID(winid : *const UChar, len : i32, region : *const i8, id : *mut UChar, idcapacity : i32, status : *mut UErrorCode) -> i32);
 windows_link::link!("icu.dll" "C" fn ucal_getTimeZoneOffsetFromLocal(cal : *const UCalendar, nonexistingtimeopt : UTimeZoneLocalOption, duplicatedtimeopt : UTimeZoneLocalOption, rawoffset : *mut i32, dstoffset : *mut i32, status : *mut UErrorCode));
-windows_link::link!("icuin.dll" "C" fn ucal_getTimeZoneTransitionDate(cal : *const UCalendar, r#type : UTimeZoneTransitionType, transition : *mut f64, status : *mut UErrorCode) -> UBool);
+windows_link::link!("icuin.dll" "C" fn ucal_getTimeZoneTransitionDate(cal : *const UCalendar, r#type : UTimeZoneTransitionType, transition : *mut UDate, status : *mut UErrorCode) -> UBool);
 windows_link::link!("icuin.dll" "C" fn ucal_getType(cal : *const UCalendar, status : *mut UErrorCode) -> *const i8);
 windows_link::link!("icuin.dll" "C" fn ucal_getWeekendTransition(cal : *const UCalendar, dayofweek : UCalendarDaysOfWeek, status : *mut UErrorCode) -> i32);
 windows_link::link!("icuin.dll" "C" fn ucal_getWindowsTimeZoneID(id : *const UChar, len : i32, winid : *mut UChar, winidcapacity : i32, status : *mut UErrorCode) -> i32);
 windows_link::link!("icuin.dll" "C" fn ucal_inDaylightTime(cal : *const UCalendar, status : *mut UErrorCode) -> UBool);
 windows_link::link!("icuin.dll" "C" fn ucal_isSet(cal : *const UCalendar, field : UCalendarDateFields) -> UBool);
-windows_link::link!("icuin.dll" "C" fn ucal_isWeekend(cal : *const UCalendar, date : f64, status : *mut UErrorCode) -> UBool);
+windows_link::link!("icuin.dll" "C" fn ucal_isWeekend(cal : *const UCalendar, date : UDate, status : *mut UErrorCode) -> UBool);
 windows_link::link!("icuin.dll" "C" fn ucal_open(zoneid : *const UChar, len : i32, locale : *const i8, r#type : UCalendarType, status : *mut UErrorCode) -> *mut UCalendar);
 windows_link::link!("icuin.dll" "C" fn ucal_openCountryTimeZones(country : *const i8, ec : *mut UErrorCode) -> *mut UEnumeration);
 windows_link::link!("icuin.dll" "C" fn ucal_openTimeZoneIDEnumeration(zonetype : USystemTimeZoneType, region : *const i8, rawoffset : *const i32, ec : *mut UErrorCode) -> *mut UEnumeration);
@@ -277,8 +265,8 @@ windows_link::link!("icuin.dll" "C" fn ucal_setAttribute(cal : *mut UCalendar, a
 windows_link::link!("icuin.dll" "C" fn ucal_setDate(cal : *mut UCalendar, year : i32, month : i32, date : i32, status : *mut UErrorCode));
 windows_link::link!("icuin.dll" "C" fn ucal_setDateTime(cal : *mut UCalendar, year : i32, month : i32, date : i32, hour : i32, minute : i32, second : i32, status : *mut UErrorCode));
 windows_link::link!("icuin.dll" "C" fn ucal_setDefaultTimeZone(zoneid : *const UChar, ec : *mut UErrorCode));
-windows_link::link!("icuin.dll" "C" fn ucal_setGregorianChange(cal : *mut UCalendar, date : f64, perrorcode : *mut UErrorCode));
-windows_link::link!("icuin.dll" "C" fn ucal_setMillis(cal : *mut UCalendar, datetime : f64, status : *mut UErrorCode));
+windows_link::link!("icuin.dll" "C" fn ucal_setGregorianChange(cal : *mut UCalendar, date : UDate, perrorcode : *mut UErrorCode));
+windows_link::link!("icuin.dll" "C" fn ucal_setMillis(cal : *mut UCalendar, datetime : UDate, status : *mut UErrorCode));
 windows_link::link!("icuin.dll" "C" fn ucal_setTimeZone(cal : *mut UCalendar, zoneid : *const UChar, len : i32, status : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucasemap_close(csm : *mut UCaseMap));
 windows_link::link!("icuuc.dll" "C" fn ucasemap_getBreakIterator(csm : *const UCaseMap) -> *const UBreakIterator);
@@ -307,14 +295,14 @@ windows_link::link!("icu.dll" "C" fn ucfpos_setInt64IterationContext(ucfpos : *m
 windows_link::link!("icu.dll" "C" fn ucfpos_setState(ucfpos : *mut UConstrainedFieldPosition, category : i32, field : i32, start : i32, limit : i32, ec : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_cbFromUWriteBytes(args : *mut UConverterFromUnicodeArgs, source : *const i8, length : i32, offsetindex : i32, err : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_cbFromUWriteSub(args : *mut UConverterFromUnicodeArgs, offsetindex : i32, err : *mut UErrorCode));
-windows_link::link!("icuuc.dll" "C" fn ucnv_cbFromUWriteUChars(args : *mut UConverterFromUnicodeArgs, source : *mut *mut UChar, sourcelimit : *const UChar, offsetindex : i32, err : *mut UErrorCode));
+windows_link::link!("icuuc.dll" "C" fn ucnv_cbFromUWriteUChars(args : *mut UConverterFromUnicodeArgs, source : *const *const UChar, sourcelimit : *const UChar, offsetindex : i32, err : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_cbToUWriteSub(args : *mut UConverterToUnicodeArgs, offsetindex : i32, err : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_cbToUWriteUChars(args : *mut UConverterToUnicodeArgs, source : *const UChar, length : i32, offsetindex : i32, err : *mut UErrorCode));
 windows_link::link!("icu.dll" "C" fn ucnv_clone(cnv : *const UConverter, status : *mut UErrorCode) -> *mut UConverter);
 windows_link::link!("icuuc.dll" "C" fn ucnv_close(converter : *mut UConverter));
 windows_link::link!("icuuc.dll" "C" fn ucnv_compareNames(name1 : *const i8, name2 : *const i8) -> i32);
 windows_link::link!("icuuc.dll" "C" fn ucnv_convert(toconvertername : *const i8, fromconvertername : *const i8, target : *mut i8, targetcapacity : i32, source : *const i8, sourcelength : i32, perrorcode : *mut UErrorCode) -> i32);
-windows_link::link!("icuuc.dll" "C" fn ucnv_convertEx(targetcnv : *mut UConverter, sourcecnv : *mut UConverter, target : *mut *mut i8, targetlimit : *const i8, source : *mut *mut i8, sourcelimit : *const i8, pivotstart : *mut UChar, pivotsource : *mut *mut UChar, pivottarget : *mut *mut UChar, pivotlimit : *const UChar, reset : UBool, flush : UBool, perrorcode : *mut UErrorCode));
+windows_link::link!("icuuc.dll" "C" fn ucnv_convertEx(targetcnv : *mut UConverter, sourcecnv : *mut UConverter, target : *mut *mut i8, targetlimit : *const i8, source : *const *const i8, sourcelimit : *const i8, pivotstart : *mut UChar, pivotsource : *mut *mut UChar, pivottarget : *mut *mut UChar, pivotlimit : *const UChar, reset : UBool, flush : UBool, perrorcode : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_countAliases(alias : *const i8, perrorcode : *mut UErrorCode) -> u16);
 windows_link::link!("icuuc.dll" "C" fn ucnv_countAvailable() -> i32);
 windows_link::link!("icuuc.dll" "C" fn ucnv_countStandards() -> u16);
@@ -324,27 +312,27 @@ windows_link::link!("icuuc.dll" "C" fn ucnv_flushCache() -> i32);
 windows_link::link!("icuuc.dll" "C" fn ucnv_fromAlgorithmic(cnv : *mut UConverter, algorithmictype : UConverterType, target : *mut i8, targetcapacity : i32, source : *const i8, sourcelength : i32, perrorcode : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn ucnv_fromUChars(cnv : *mut UConverter, dest : *mut i8, destcapacity : i32, src : *const UChar, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn ucnv_fromUCountPending(cnv : *const UConverter, status : *mut UErrorCode) -> i32);
-windows_link::link!("icuuc.dll" "C" fn ucnv_fromUnicode(converter : *mut UConverter, target : *mut *mut i8, targetlimit : *const i8, source : *mut *mut UChar, sourcelimit : *const UChar, offsets : *mut i32, flush : UBool, err : *mut UErrorCode));
+windows_link::link!("icuuc.dll" "C" fn ucnv_fromUnicode(converter : *mut UConverter, target : *mut *mut i8, targetlimit : *const i8, source : *const *const UChar, sourcelimit : *const UChar, offsets : *mut i32, flush : UBool, err : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_getAlias(alias : *const i8, n : u16, perrorcode : *mut UErrorCode) -> *const i8);
-windows_link::link!("icuuc.dll" "C" fn ucnv_getAliases(alias : *const i8, aliases : *mut *mut i8, perrorcode : *mut UErrorCode));
+windows_link::link!("icuuc.dll" "C" fn ucnv_getAliases(alias : *const i8, aliases : *const *const i8, perrorcode : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_getAvailableName(n : i32) -> *const i8);
 windows_link::link!("icuuc.dll" "C" fn ucnv_getCCSID(converter : *const UConverter, err : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn ucnv_getCanonicalName(alias : *const i8, standard : *const i8, perrorcode : *mut UErrorCode) -> *const i8);
 windows_link::link!("icuuc.dll" "C" fn ucnv_getDefaultName() -> *const i8);
 windows_link::link!("icuuc.dll" "C" fn ucnv_getDisplayName(converter : *const UConverter, displaylocale : *const i8, displayname : *mut UChar, displaynamecapacity : i32, err : *mut UErrorCode) -> i32);
-windows_link::link!("icuuc.dll" "C" fn ucnv_getFromUCallBack(converter : *const UConverter, action : *mut UConverterFromUCallback, context : *mut *mut core::ffi::c_void));
+windows_link::link!("icuuc.dll" "C" fn ucnv_getFromUCallBack(converter : *const UConverter, action : *mut UConverterFromUCallback, context : *const *const core::ffi::c_void));
 windows_link::link!("icuuc.dll" "C" fn ucnv_getInvalidChars(converter : *const UConverter, errbytes : *mut i8, len : *mut i8, err : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_getInvalidUChars(converter : *const UConverter, erruchars : *mut UChar, len : *mut i8, err : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_getMaxCharSize(converter : *const UConverter) -> i8);
 windows_link::link!("icuuc.dll" "C" fn ucnv_getMinCharSize(converter : *const UConverter) -> i8);
 windows_link::link!("icuuc.dll" "C" fn ucnv_getName(converter : *const UConverter, err : *mut UErrorCode) -> *const i8);
-windows_link::link!("icuuc.dll" "C" fn ucnv_getNextUChar(converter : *mut UConverter, source : *mut *mut i8, sourcelimit : *const i8, err : *mut UErrorCode) -> UChar32);
+windows_link::link!("icuuc.dll" "C" fn ucnv_getNextUChar(converter : *mut UConverter, source : *const *const i8, sourcelimit : *const i8, err : *mut UErrorCode) -> UChar32);
 windows_link::link!("icuuc.dll" "C" fn ucnv_getPlatform(converter : *const UConverter, err : *mut UErrorCode) -> UConverterPlatform);
 windows_link::link!("icuuc.dll" "C" fn ucnv_getStandard(n : u16, perrorcode : *mut UErrorCode) -> *const i8);
 windows_link::link!("icuuc.dll" "C" fn ucnv_getStandardName(name : *const i8, standard : *const i8, perrorcode : *mut UErrorCode) -> *const i8);
 windows_link::link!("icuuc.dll" "C" fn ucnv_getStarters(converter : *const UConverter, starters : *mut UBool, err : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_getSubstChars(converter : *const UConverter, subchars : *mut i8, len : *mut i8, err : *mut UErrorCode));
-windows_link::link!("icuuc.dll" "C" fn ucnv_getToUCallBack(converter : *const UConverter, action : *mut UConverterToUCallback, context : *mut *mut core::ffi::c_void));
+windows_link::link!("icuuc.dll" "C" fn ucnv_getToUCallBack(converter : *const UConverter, action : *mut UConverterToUCallback, context : *const *const core::ffi::c_void));
 windows_link::link!("icuuc.dll" "C" fn ucnv_getType(converter : *const UConverter) -> UConverterType);
 windows_link::link!("icuuc.dll" "C" fn ucnv_getUnicodeSet(cnv : *const UConverter, setfillin : *mut USet, whichset : UConverterUnicodeSet, perrorcode : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_isAmbiguous(cnv : *const UConverter) -> UBool);
@@ -361,14 +349,14 @@ windows_link::link!("icuuc.dll" "C" fn ucnv_resetToUnicode(converter : *mut UCon
 windows_link::link!("icuuc.dll" "C" fn ucnv_safeClone(cnv : *const UConverter, stackbuffer : *mut core::ffi::c_void, pbuffersize : *mut i32, status : *mut UErrorCode) -> *mut UConverter);
 windows_link::link!("icuuc.dll" "C" fn ucnv_setDefaultName(name : *const i8));
 windows_link::link!("icuuc.dll" "C" fn ucnv_setFallback(cnv : *mut UConverter, usesfallback : UBool));
-windows_link::link!("icuuc.dll" "C" fn ucnv_setFromUCallBack(converter : *mut UConverter, newaction : UConverterFromUCallback, newcontext : *const core::ffi::c_void, oldaction : *mut UConverterFromUCallback, oldcontext : *mut *mut core::ffi::c_void, err : *mut UErrorCode));
+windows_link::link!("icuuc.dll" "C" fn ucnv_setFromUCallBack(converter : *mut UConverter, newaction : UConverterFromUCallback, newcontext : *const core::ffi::c_void, oldaction : *mut UConverterFromUCallback, oldcontext : *const *const core::ffi::c_void, err : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_setSubstChars(converter : *mut UConverter, subchars : *const i8, len : i8, err : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_setSubstString(cnv : *mut UConverter, s : *const UChar, length : i32, err : *mut UErrorCode));
-windows_link::link!("icuuc.dll" "C" fn ucnv_setToUCallBack(converter : *mut UConverter, newaction : UConverterToUCallback, newcontext : *const core::ffi::c_void, oldaction : *mut UConverterToUCallback, oldcontext : *mut *mut core::ffi::c_void, err : *mut UErrorCode));
+windows_link::link!("icuuc.dll" "C" fn ucnv_setToUCallBack(converter : *mut UConverter, newaction : UConverterToUCallback, newcontext : *const core::ffi::c_void, oldaction : *mut UConverterToUCallback, oldcontext : *const *const core::ffi::c_void, err : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_toAlgorithmic(algorithmictype : UConverterType, cnv : *mut UConverter, target : *mut i8, targetcapacity : i32, source : *const i8, sourcelength : i32, perrorcode : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn ucnv_toUChars(cnv : *mut UConverter, dest : *mut UChar, destcapacity : i32, src : *const i8, srclength : i32, perrorcode : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn ucnv_toUCountPending(cnv : *const UConverter, status : *mut UErrorCode) -> i32);
-windows_link::link!("icuuc.dll" "C" fn ucnv_toUnicode(converter : *mut UConverter, target : *mut *mut UChar, targetlimit : *const UChar, source : *mut *mut i8, sourcelimit : *const i8, offsets : *mut i32, flush : UBool, err : *mut UErrorCode));
+windows_link::link!("icuuc.dll" "C" fn ucnv_toUnicode(converter : *mut UConverter, target : *mut *mut UChar, targetlimit : *const UChar, source : *const *const i8, sourcelimit : *const i8, offsets : *mut i32, flush : UBool, err : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ucnv_usesFallback(cnv : *const UConverter) -> UBool);
 windows_link::link!("icuuc.dll" "C" fn ucnvsel_close(sel : *mut UConverterSelector));
 windows_link::link!("icuuc.dll" "C" fn ucnvsel_open(converterlist : *const *const i8, converterlistsize : i32, excludedcodepoints : *const USet, whichset : UConverterUnicodeSet, status : *mut UErrorCode) -> *mut UConverterSelector);
@@ -456,9 +444,9 @@ windows_link::link!("icuin.dll" "C" fn ucsdet_isInputFilterEnabled(ucsd : *const
 windows_link::link!("icuin.dll" "C" fn ucsdet_open(status : *mut UErrorCode) -> *mut UCharsetDetector);
 windows_link::link!("icuin.dll" "C" fn ucsdet_setDeclaredEncoding(ucsd : *mut UCharsetDetector, encoding : *const i8, length : i32, status : *mut UErrorCode));
 windows_link::link!("icuin.dll" "C" fn ucsdet_setText(ucsd : *mut UCharsetDetector, textin : *const i8, len : i32, status : *mut UErrorCode));
-windows_link::link!("icuuc.dll" "C" fn ucurr_countCurrencies(locale : *const i8, date : f64, ec : *mut UErrorCode) -> i32);
+windows_link::link!("icuuc.dll" "C" fn ucurr_countCurrencies(locale : *const i8, date : UDate, ec : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn ucurr_forLocale(locale : *const i8, buff : *mut UChar, buffcapacity : i32, ec : *mut UErrorCode) -> i32);
-windows_link::link!("icuuc.dll" "C" fn ucurr_forLocaleAndDate(locale : *const i8, date : f64, index : i32, buff : *mut UChar, buffcapacity : i32, ec : *mut UErrorCode) -> i32);
+windows_link::link!("icuuc.dll" "C" fn ucurr_forLocaleAndDate(locale : *const i8, date : UDate, index : i32, buff : *mut UChar, buffcapacity : i32, ec : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn ucurr_getDefaultFractionDigits(currency : *const UChar, ec : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn ucurr_getDefaultFractionDigitsForUsage(currency : *const UChar, usage : UCurrencyUsage, ec : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn ucurr_getKeywordValuesForLocale(key : *const i8, locale : *const i8, commonlyused : UBool, status : *mut UErrorCode) -> *mut UEnumeration);
@@ -467,7 +455,7 @@ windows_link::link!("icuuc.dll" "C" fn ucurr_getNumericCode(currency : *const UC
 windows_link::link!("icuuc.dll" "C" fn ucurr_getPluralName(currency : *const UChar, locale : *const i8, ischoiceformat : *mut UBool, pluralcount : *const i8, len : *mut i32, ec : *mut UErrorCode) -> *const UChar);
 windows_link::link!("icuuc.dll" "C" fn ucurr_getRoundingIncrement(currency : *const UChar, ec : *mut UErrorCode) -> f64);
 windows_link::link!("icuuc.dll" "C" fn ucurr_getRoundingIncrementForUsage(currency : *const UChar, usage : UCurrencyUsage, ec : *mut UErrorCode) -> f64);
-windows_link::link!("icuuc.dll" "C" fn ucurr_isAvailable(isocode : *const UChar, from : f64, to : f64, errorcode : *mut UErrorCode) -> UBool);
+windows_link::link!("icuuc.dll" "C" fn ucurr_isAvailable(isocode : *const UChar, from : UDate, to : UDate, errorcode : *mut UErrorCode) -> UBool);
 windows_link::link!("icuuc.dll" "C" fn ucurr_openISOCurrencies(currtype : u32, perrorcode : *mut UErrorCode) -> *mut UEnumeration);
 windows_link::link!("icuuc.dll" "C" fn ucurr_register(isocode : *const UChar, locale : *const i8, status : *mut UErrorCode) -> UCurrRegistryKey);
 windows_link::link!("icuuc.dll" "C" fn ucurr_unregister(key : UCurrRegistryKey, status : *mut UErrorCode) -> UBool);
@@ -478,11 +466,11 @@ windows_link::link!("icuin.dll" "C" fn udat_clone(fmt : *const UDateFormat, stat
 windows_link::link!("icuin.dll" "C" fn udat_close(format : *mut UDateFormat));
 windows_link::link!("icuin.dll" "C" fn udat_countAvailable() -> i32);
 windows_link::link!("icuin.dll" "C" fn udat_countSymbols(fmt : *const UDateFormat, r#type : UDateFormatSymbolType) -> i32);
-windows_link::link!("icuin.dll" "C" fn udat_format(format : *const UDateFormat, datetoformat : f64, result : *mut UChar, resultlength : i32, position : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
+windows_link::link!("icuin.dll" "C" fn udat_format(format : *const UDateFormat, datetoformat : UDate, result : *mut UChar, resultlength : i32, position : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
 windows_link::link!("icuin.dll" "C" fn udat_formatCalendar(format : *const UDateFormat, calendar : *mut UCalendar, result : *mut UChar, capacity : i32, position : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
 windows_link::link!("icuin.dll" "C" fn udat_formatCalendarForFields(format : *const UDateFormat, calendar : *mut UCalendar, result : *mut UChar, capacity : i32, fpositer : *mut UFieldPositionIterator, status : *mut UErrorCode) -> i32);
-windows_link::link!("icuin.dll" "C" fn udat_formatForFields(format : *const UDateFormat, datetoformat : f64, result : *mut UChar, resultlength : i32, fpositer : *mut UFieldPositionIterator, status : *mut UErrorCode) -> i32);
-windows_link::link!("icuin.dll" "C" fn udat_get2DigitYearStart(fmt : *const UDateFormat, status : *mut UErrorCode) -> f64);
+windows_link::link!("icuin.dll" "C" fn udat_formatForFields(format : *const UDateFormat, datetoformat : UDate, result : *mut UChar, resultlength : i32, fpositer : *mut UFieldPositionIterator, status : *mut UErrorCode) -> i32);
+windows_link::link!("icuin.dll" "C" fn udat_get2DigitYearStart(fmt : *const UDateFormat, status : *mut UErrorCode) -> UDate);
 windows_link::link!("icuin.dll" "C" fn udat_getAvailable(localeindex : i32) -> *const i8);
 windows_link::link!("icuin.dll" "C" fn udat_getBooleanAttribute(fmt : *const UDateFormat, attr : UDateFormatBooleanAttribute, status : *mut UErrorCode) -> UBool);
 windows_link::link!("icuin.dll" "C" fn udat_getCalendar(fmt : *const UDateFormat) -> *const UCalendar);
@@ -493,9 +481,9 @@ windows_link::link!("icuin.dll" "C" fn udat_getNumberFormatForField(fmt : *const
 windows_link::link!("icuin.dll" "C" fn udat_getSymbols(fmt : *const UDateFormat, r#type : UDateFormatSymbolType, symbolindex : i32, result : *mut UChar, resultlength : i32, status : *mut UErrorCode) -> i32);
 windows_link::link!("icuin.dll" "C" fn udat_isLenient(fmt : *const UDateFormat) -> UBool);
 windows_link::link!("icuin.dll" "C" fn udat_open(timestyle : UDateFormatStyle, datestyle : UDateFormatStyle, locale : *const i8, tzid : *const UChar, tzidlength : i32, pattern : *const UChar, patternlength : i32, status : *mut UErrorCode) -> *mut UDateFormat);
-windows_link::link!("icuin.dll" "C" fn udat_parse(format : *const UDateFormat, text : *const UChar, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> f64);
+windows_link::link!("icuin.dll" "C" fn udat_parse(format : *const UDateFormat, text : *const UChar, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode) -> UDate);
 windows_link::link!("icuin.dll" "C" fn udat_parseCalendar(format : *const UDateFormat, calendar : *mut UCalendar, text : *const UChar, textlength : i32, parsepos : *mut i32, status : *mut UErrorCode));
-windows_link::link!("icuin.dll" "C" fn udat_set2DigitYearStart(fmt : *mut UDateFormat, d : f64, status : *mut UErrorCode));
+windows_link::link!("icuin.dll" "C" fn udat_set2DigitYearStart(fmt : *mut UDateFormat, d : UDate, status : *mut UErrorCode));
 windows_link::link!("icuin.dll" "C" fn udat_setBooleanAttribute(fmt : *mut UDateFormat, attr : UDateFormatBooleanAttribute, newvalue : UBool, status : *mut UErrorCode));
 windows_link::link!("icuin.dll" "C" fn udat_setCalendar(fmt : *mut UDateFormat, calendartoset : *const UCalendar));
 windows_link::link!("icuin.dll" "C" fn udat_setContext(fmt : *mut UDateFormat, value : UDisplayContext, status : *mut UErrorCode));
@@ -530,8 +518,8 @@ windows_link::link!("icuin.dll" "C" fn udatpg_setDateTimeFormat(dtpg : *const UD
 windows_link::link!("icuin.dll" "C" fn udatpg_setDecimal(dtpg : *mut UDateTimePatternGenerator, decimal : *const UChar, length : i32));
 windows_link::link!("icuin.dll" "C" fn udtitvfmt_close(formatter : *mut UDateIntervalFormat));
 windows_link::link!("icu.dll" "C" fn udtitvfmt_closeResult(uresult : *mut UFormattedDateInterval));
-windows_link::link!("icuin.dll" "C" fn udtitvfmt_format(formatter : *const UDateIntervalFormat, fromdate : f64, todate : f64, result : *mut UChar, resultcapacity : i32, position : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
-windows_link::link!("icu.dll" "C" fn udtitvfmt_formatToResult(formatter : *const UDateIntervalFormat, fromdate : f64, todate : f64, result : *mut UFormattedDateInterval, status : *mut UErrorCode));
+windows_link::link!("icuin.dll" "C" fn udtitvfmt_format(formatter : *const UDateIntervalFormat, fromdate : UDate, todate : UDate, result : *mut UChar, resultcapacity : i32, position : *mut UFieldPosition, status : *mut UErrorCode) -> i32);
+windows_link::link!("icu.dll" "C" fn udtitvfmt_formatToResult(formatter : *const UDateIntervalFormat, fromdate : UDate, todate : UDate, result : *mut UFormattedDateInterval, status : *mut UErrorCode));
 windows_link::link!("icu.dll" "C" fn udtitvfmt_getContext(formatter : *const UDateIntervalFormat, r#type : UDisplayContextType, status : *mut UErrorCode) -> UDisplayContext);
 windows_link::link!("icuin.dll" "C" fn udtitvfmt_open(locale : *const i8, skeleton : *const UChar, skeletonlength : i32, tzid : *const UChar, tzidlength : i32, status : *mut UErrorCode) -> *mut UDateIntervalFormat);
 windows_link::link!("icu.dll" "C" fn udtitvfmt_openResult(ec : *mut UErrorCode) -> *mut UFormattedDateInterval);
@@ -540,8 +528,8 @@ windows_link::link!("icu.dll" "C" fn udtitvfmt_setContext(formatter : *mut UDate
 windows_link::link!("icuuc.dll" "C" fn uenum_close(en : *mut UEnumeration));
 windows_link::link!("icuuc.dll" "C" fn uenum_count(en : *mut UEnumeration, status : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn uenum_next(en : *mut UEnumeration, resultlength : *mut i32, status : *mut UErrorCode) -> *const i8);
-windows_link::link!("icuuc.dll" "C" fn uenum_openCharStringsEnumeration(strings : *mut *mut i8, count : i32, ec : *mut UErrorCode) -> *mut UEnumeration);
-windows_link::link!("icuuc.dll" "C" fn uenum_openUCharStringsEnumeration(strings : *mut *mut UChar, count : i32, ec : *mut UErrorCode) -> *mut UEnumeration);
+windows_link::link!("icuuc.dll" "C" fn uenum_openCharStringsEnumeration(strings : *const *const i8, count : i32, ec : *mut UErrorCode) -> *mut UEnumeration);
+windows_link::link!("icuuc.dll" "C" fn uenum_openUCharStringsEnumeration(strings : *const *const UChar, count : i32, ec : *mut UErrorCode) -> *mut UEnumeration);
 windows_link::link!("icuuc.dll" "C" fn uenum_reset(en : *mut UEnumeration, status : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn uenum_unext(en : *mut UEnumeration, resultlength : *mut i32, status : *mut UErrorCode) -> *const UChar);
 windows_link::link!("icuin.dll" "C" fn ufieldpositer_close(fpositer : *mut UFieldPositionIterator));
@@ -550,7 +538,7 @@ windows_link::link!("icuin.dll" "C" fn ufieldpositer_open(status : *mut UErrorCo
 windows_link::link!("icuin.dll" "C" fn ufmt_close(fmt : *mut UFormattable));
 windows_link::link!("icuin.dll" "C" fn ufmt_getArrayItemByIndex(fmt : *mut UFormattable, n : i32, status : *mut UErrorCode) -> *mut UFormattable);
 windows_link::link!("icuin.dll" "C" fn ufmt_getArrayLength(fmt : *const UFormattable, status : *mut UErrorCode) -> i32);
-windows_link::link!("icuin.dll" "C" fn ufmt_getDate(fmt : *const UFormattable, status : *mut UErrorCode) -> f64);
+windows_link::link!("icuin.dll" "C" fn ufmt_getDate(fmt : *const UFormattable, status : *mut UErrorCode) -> UDate);
 windows_link::link!("icuin.dll" "C" fn ufmt_getDecNumChars(fmt : *mut UFormattable, len : *mut i32, status : *mut UErrorCode) -> *const i8);
 windows_link::link!("icuin.dll" "C" fn ufmt_getDouble(fmt : *mut UFormattable, status : *mut UErrorCode) -> f64);
 windows_link::link!("icuin.dll" "C" fn ufmt_getInt64(fmt : *mut UFormattable, status : *mut UErrorCode) -> i64);
@@ -598,13 +586,13 @@ windows_link::link!("icuuc.dll" "C" fn uldn_scriptDisplayName(ldn : *const ULoca
 windows_link::link!("icuuc.dll" "C" fn uldn_variantDisplayName(ldn : *const ULocaleDisplayNames, variant : *const i8, result : *mut UChar, maxresultsize : i32, perrorcode : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn ulistfmt_close(listfmt : *mut UListFormatter));
 windows_link::link!("icu.dll" "C" fn ulistfmt_closeResult(uresult : *mut UFormattedList));
-windows_link::link!("icuuc.dll" "C" fn ulistfmt_format(listfmt : *const UListFormatter, strings : *mut *mut UChar, stringlengths : *const i32, stringcount : i32, result : *mut UChar, resultcapacity : i32, status : *mut UErrorCode) -> i32);
-windows_link::link!("icu.dll" "C" fn ulistfmt_formatStringsToResult(listfmt : *const UListFormatter, strings : *mut *mut UChar, stringlengths : *const i32, stringcount : i32, uresult : *mut UFormattedList, status : *mut UErrorCode));
+windows_link::link!("icuuc.dll" "C" fn ulistfmt_format(listfmt : *const UListFormatter, strings : *const *const UChar, stringlengths : *const i32, stringcount : i32, result : *mut UChar, resultcapacity : i32, status : *mut UErrorCode) -> i32);
+windows_link::link!("icu.dll" "C" fn ulistfmt_formatStringsToResult(listfmt : *const UListFormatter, strings : *const *const UChar, stringlengths : *const i32, stringcount : i32, uresult : *mut UFormattedList, status : *mut UErrorCode));
 windows_link::link!("icuuc.dll" "C" fn ulistfmt_open(locale : *const i8, status : *mut UErrorCode) -> *mut UListFormatter);
 windows_link::link!("icu.dll" "C" fn ulistfmt_openForType(locale : *const i8, r#type : UListFormatterType, width : UListFormatterWidth, status : *mut UErrorCode) -> *mut UListFormatter);
 windows_link::link!("icu.dll" "C" fn ulistfmt_openResult(ec : *mut UErrorCode) -> *mut UFormattedList);
 windows_link::link!("icu.dll" "C" fn ulistfmt_resultAsValue(uresult : *const UFormattedList, ec : *mut UErrorCode) -> *const UFormattedValue);
-windows_link::link!("icuuc.dll" "C" fn uloc_acceptLanguage(result : *mut i8, resultavailable : i32, outresult : *mut UAcceptResult, acceptlist : *mut *mut i8, acceptlistcount : i32, availablelocales : *mut UEnumeration, status : *mut UErrorCode) -> i32);
+windows_link::link!("icuuc.dll" "C" fn uloc_acceptLanguage(result : *mut i8, resultavailable : i32, outresult : *mut UAcceptResult, acceptlist : *const *const i8, acceptlistcount : i32, availablelocales : *mut UEnumeration, status : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn uloc_acceptLanguageFromHTTP(result : *mut i8, resultavailable : i32, outresult : *mut UAcceptResult, httpacceptlanguage : *const i8, availablelocales : *mut UEnumeration, status : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn uloc_addLikelySubtags(localeid : *const i8, maximizedlocaleid : *mut i8, maximizedlocaleidcapacity : i32, err : *mut UErrorCode) -> i32);
 windows_link::link!("icuuc.dll" "C" fn uloc_canonicalize(localeid : *const i8, name : *mut i8, namecapacity : i32, err : *mut UErrorCode) -> i32);
@@ -667,14 +655,8 @@ windows_link::link!("icuin.dll" "C" fn umsg_open(pattern : *const UChar, pattern
 windows_link::link!("icuin.dll" "C" fn umsg_parse(fmt : *const UMessageFormat, source : *const UChar, sourcelength : i32, count : *mut i32, status : *mut UErrorCode, ...));
 windows_link::link!("icuin.dll" "C" fn umsg_setLocale(fmt : *mut UMessageFormat, locale : *const i8));
 windows_link::link!("icuin.dll" "C" fn umsg_toPattern(fmt : *const UMessageFormat, result : *mut UChar, resultlength : i32, status : *mut UErrorCode) -> i32);
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("icuin.dll" "C" fn umsg_vformat(fmt : *const UMessageFormat, result : *mut UChar, resultlength : i32, ap : *mut i8, status : *mut UErrorCode) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(feature = "vadefs")]
 windows_link::link!("icuin.dll" "C" fn umsg_vformat(fmt : *const UMessageFormat, result : *mut UChar, resultlength : i32, ap : super::va_list, status : *mut UErrorCode) -> i32);
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("icuin.dll" "C" fn umsg_vparse(fmt : *const UMessageFormat, source : *const UChar, sourcelength : i32, count : *mut i32, ap : *mut i8, status : *mut UErrorCode));
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(feature = "vadefs")]
 windows_link::link!("icuin.dll" "C" fn umsg_vparse(fmt : *const UMessageFormat, source : *const UChar, sourcelength : i32, count : *mut i32, ap : super::va_list, status : *mut UErrorCode));
 windows_link::link!("icu.dll" "C" fn umutablecptrie_buildImmutable(trie : *mut UMutableCPTrie, r#type : UCPTrieType, valuewidth : UCPTrieValueWidth, perrorcode : *mut UErrorCode) -> *mut UCPTrie);
@@ -789,8 +771,8 @@ windows_link::link!("icuin.dll" "C" fn uregex_find(regexp : *mut URegularExpress
 windows_link::link!("icuin.dll" "C" fn uregex_find64(regexp : *mut URegularExpression, startindex : i64, status : *mut UErrorCode) -> UBool);
 windows_link::link!("icuin.dll" "C" fn uregex_findNext(regexp : *mut URegularExpression, status : *mut UErrorCode) -> UBool);
 windows_link::link!("icuin.dll" "C" fn uregex_flags(regexp : *const URegularExpression, status : *mut UErrorCode) -> i32);
-windows_link::link!("icuin.dll" "C" fn uregex_getFindProgressCallback(regexp : *const URegularExpression, callback : *mut URegexFindProgressCallback, context : *mut *mut core::ffi::c_void, status : *mut UErrorCode));
-windows_link::link!("icuin.dll" "C" fn uregex_getMatchCallback(regexp : *const URegularExpression, callback : *mut URegexMatchCallback, context : *mut *mut core::ffi::c_void, status : *mut UErrorCode));
+windows_link::link!("icuin.dll" "C" fn uregex_getFindProgressCallback(regexp : *const URegularExpression, callback : *mut URegexFindProgressCallback, context : *const *const core::ffi::c_void, status : *mut UErrorCode));
+windows_link::link!("icuin.dll" "C" fn uregex_getMatchCallback(regexp : *const URegularExpression, callback : *mut URegexMatchCallback, context : *const *const core::ffi::c_void, status : *mut UErrorCode));
 windows_link::link!("icuin.dll" "C" fn uregex_getStackLimit(regexp : *const URegularExpression, status : *mut UErrorCode) -> i32);
 windows_link::link!("icuin.dll" "C" fn uregex_getText(regexp : *mut URegularExpression, textlength : *mut i32, status : *mut UErrorCode) -> *const UChar);
 windows_link::link!("icuin.dll" "C" fn uregex_getTimeLimit(regexp : *const URegularExpression, status : *mut UErrorCode) -> i32);
@@ -871,7 +853,7 @@ windows_link::link!("icuuc.dll" "C" fn ures_getIntVector(resourcebundle : *const
 windows_link::link!("icuuc.dll" "C" fn ures_getKey(resourcebundle : *const UResourceBundle) -> *const i8);
 windows_link::link!("icuuc.dll" "C" fn ures_getLocaleByType(resourcebundle : *const UResourceBundle, r#type : ULocDataLocaleType, status : *mut UErrorCode) -> *const i8);
 windows_link::link!("icuuc.dll" "C" fn ures_getNextResource(resourcebundle : *mut UResourceBundle, fillin : *mut UResourceBundle, status : *mut UErrorCode) -> *mut UResourceBundle);
-windows_link::link!("icuuc.dll" "C" fn ures_getNextString(resourcebundle : *mut UResourceBundle, len : *mut i32, key : *mut *mut i8, status : *mut UErrorCode) -> *const UChar);
+windows_link::link!("icuuc.dll" "C" fn ures_getNextString(resourcebundle : *mut UResourceBundle, len : *mut i32, key : *const *const i8, status : *mut UErrorCode) -> *const UChar);
 windows_link::link!("icuuc.dll" "C" fn ures_getSize(resourcebundle : *const UResourceBundle) -> i32);
 windows_link::link!("icuuc.dll" "C" fn ures_getString(resourcebundle : *const UResourceBundle, len : *mut i32, status : *mut UErrorCode) -> *const UChar);
 windows_link::link!("icuuc.dll" "C" fn ures_getStringByIndex(resourcebundle : *const UResourceBundle, indexs : i32, len : *mut i32, status : *mut UErrorCode) -> *const UChar);
@@ -1055,14 +1037,11 @@ windows_link::link!("icuin.dll" "C" fn utmscale_toInt64(universaltime : i64, tim
 windows_link::link!("icuuc.dll" "C" fn utrace_format(outbuf : *mut i8, capacity : i32, indent : i32, fmt : *const i8, ...) -> i32);
 windows_link::link!("icuuc.dll" "C" fn utrace_functionName(fnnumber : i32) -> *const i8);
 #[cfg(feature = "vadefs")]
-windows_link::link!("icuuc.dll" "C" fn utrace_getFunctions(context : *mut *mut core::ffi::c_void, e : *mut UTraceEntry, x : *mut UTraceExit, d : *mut UTraceData));
+windows_link::link!("icuuc.dll" "C" fn utrace_getFunctions(context : *const *const core::ffi::c_void, e : *mut UTraceEntry, x : *mut UTraceExit, d : *mut UTraceData));
 windows_link::link!("icuuc.dll" "C" fn utrace_getLevel() -> i32);
 #[cfg(feature = "vadefs")]
 windows_link::link!("icuuc.dll" "C" fn utrace_setFunctions(context : *const core::ffi::c_void, e : UTraceEntry, x : UTraceExit, d : UTraceData));
 windows_link::link!("icuuc.dll" "C" fn utrace_setLevel(tracelevel : i32));
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("icuuc.dll" "C" fn utrace_vformat(outbuf : *mut i8, capacity : i32, indent : i32, fmt : *const i8, args : *mut i8) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(feature = "vadefs")]
 windows_link::link!("icuuc.dll" "C" fn utrace_vformat(outbuf : *mut i8, capacity : i32, indent : i32, fmt : *const i8, args : super::va_list) -> i32);
 windows_link::link!("icuin.dll" "C" fn utrans_clone(trans : *const UTransliterator, status : *mut UErrorCode) -> *mut UTransliterator);
@@ -1713,7 +1692,7 @@ pub const UCNV_MAX_CONVERTER_NAME_LENGTH: i32 = 60;
 pub const UCNV_MAX_FULL_FILE_NAME_LENGTH: i32 = 660;
 pub const UCNV_MBCS: UConverterType = 2;
 pub const UCNV_NUMBER_OF_SUPPORTED_CONVERTER_TYPES: UConverterType = 34;
-pub const UCNV_OPTION_SEP_CHAR: u32 = 44;
+pub const UCNV_OPTION_SEP_CHAR: i8 = 44;
 pub const UCNV_OPTION_SEP_STRING: windows_sys::core::PCSTR = windows_sys::core::s!(",");
 pub const UCNV_RESET: UConverterCallbackReason = 3;
 pub const UCNV_ROUNDTRIP_AND_FALLBACK_SET: UConverterUnicodeSet = 1;
@@ -1737,7 +1716,7 @@ pub const UCNV_UTF32_BigEndian: UConverterType = 7;
 pub const UCNV_UTF32_LittleEndian: UConverterType = 8;
 pub const UCNV_UTF7: UConverterType = 27;
 pub const UCNV_UTF8: UConverterType = 4;
-pub const UCNV_VALUE_SEP_CHAR: u32 = 61;
+pub const UCNV_VALUE_SEP_CHAR: i8 = 61;
 pub const UCNV_VALUE_SEP_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("=");
 pub const UCNV_VERSION_OPTION_STRING: windows_sys::core::PCSTR = windows_sys::core::s!(",version=");
 pub const UCOL_ALTERNATE_HANDLING: UColAttribute = 1;
@@ -2180,6 +2159,7 @@ pub const UDTS_MAC_TIME: UDateTimeScale = 6;
 pub const UDTS_UNIX_MICROSECONDS_TIME: UDateTimeScale = 9;
 pub const UDTS_UNIX_TIME: UDateTimeScale = 1;
 pub const UDTS_WINDOWS_FILE_TIME: UDateTimeScale = 3;
+pub type UDate = f64;
 pub type UDateFormat = *mut core::ffi::c_void;
 pub type UDateFormatBooleanAttribute = i32;
 pub type UDateFormatField = i32;
@@ -2353,11 +2333,11 @@ pub const ULOC_JAPAN: windows_sys::core::PCSTR = windows_sys::core::s!("ja_JP");
 pub const ULOC_JAPANESE: windows_sys::core::PCSTR = windows_sys::core::s!("ja");
 pub const ULOC_KEYWORDS_CAPACITY: i32 = 96;
 pub const ULOC_KEYWORD_AND_VALUES_CAPACITY: i32 = 100;
-pub const ULOC_KEYWORD_ASSIGN: u32 = 61;
+pub const ULOC_KEYWORD_ASSIGN: i8 = 61;
 pub const ULOC_KEYWORD_ASSIGN_UNICODE: i32 = 61;
-pub const ULOC_KEYWORD_ITEM_SEPARATOR: u32 = 59;
+pub const ULOC_KEYWORD_ITEM_SEPARATOR: i8 = 59;
 pub const ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE: i32 = 59;
-pub const ULOC_KEYWORD_SEPARATOR: u32 = 64;
+pub const ULOC_KEYWORD_SEPARATOR: i8 = 64;
 pub const ULOC_KEYWORD_SEPARATOR_UNICODE: i32 = 64;
 pub const ULOC_KOREA: windows_sys::core::PCSTR = windows_sys::core::s!("ko_KR");
 pub const ULOC_KOREAN: windows_sys::core::PCSTR = windows_sys::core::s!("ko");
@@ -3098,15 +3078,9 @@ pub type UTextReplace = Option<unsafe extern "C" fn(ut: *mut UText, nativestart:
 pub type UTimeScaleValue = i32;
 pub type UTimeZoneLocalOption = i32;
 pub type UTimeZoneTransitionType = i32;
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type UTraceData = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, fnnumber: i32, level: i32, fmt: *const i8, args: *mut i8)>;
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(feature = "vadefs")]
 pub type UTraceData = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, fnnumber: i32, level: i32, fmt: *const i8, args: super::va_list)>;
 pub type UTraceEntry = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, fnnumber: i32)>;
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type UTraceExit = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, fnnumber: i32, fmt: *const i8, args: *mut i8)>;
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(feature = "vadefs")]
 pub type UTraceExit = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, fnnumber: i32, fmt: *const i8, args: super::va_list)>;
 pub type UTraceFunctionNumber = i32;
@@ -3169,6 +3143,8 @@ pub const U_COPYRIGHT_STRING_LENGTH: i32 = 128;
 pub const U_CPLUSPLUS_VERSION: i32 = 14;
 pub const U_CURRENCY_SYMBOL: UCharCategory = 25;
 pub const U_DASH_PUNCTUATION: UCharCategory = 19;
+pub const U_DATE_MAX: f64 = 179769313486231570000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0;
+pub const U_DATE_MIN: f64 = -179769313486231570000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0;
 pub const U_DEBUG: i32 = 0;
 pub const U_DECIMAL_DIGIT_NUMBER: UCharCategory = 9;
 pub const U_DECIMAL_NUMBER_SYNTAX_ERROR: UErrorCode = 65808;
@@ -3590,6 +3566,7 @@ pub const U_MULTIPLE_PERMILL_SYMBOLS: UErrorCode = 65797;
 pub const U_MULTIPLE_POST_CONTEXTS: UErrorCode = 65551;
 pub const U_NON_SPACING_MARK: UCharCategory = 6;
 pub const U_NO_DEFAULT_INCLUDE_UTF_HEADERS: i32 = 1;
+pub const U_NO_NUMERIC_VALUE: f64 = -123456789.0;
 pub const U_NO_SPACE_AVAILABLE: UErrorCode = 20;
 pub const U_NO_WRITE_PERMISSION: UErrorCode = 30;
 pub const U_NT_DECIMAL: UNumericType = 1;
@@ -3784,7 +3761,7 @@ pub const U_USING_DEFAULT_WARNING: UErrorCode = -127;
 pub const U_USING_FALLBACK_WARNING: UErrorCode = -128;
 pub const U_VARIABLE_RANGE_EXHAUSTED: UErrorCode = 65565;
 pub const U_VARIABLE_RANGE_OVERLAP: UErrorCode = 65566;
-pub const U_VERSION_DELIMITER: u32 = 46;
+pub const U_VERSION_DELIMITER: i8 = 46;
 pub const U_VO_ROTATED: UVerticalOrientation = 0;
 pub const U_VO_TRANSFORMED_ROTATED: UVerticalOrientation = 1;
 pub const U_VO_TRANSFORMED_UPRIGHT: UVerticalOrientation = 2;

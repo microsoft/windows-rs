@@ -1,25 +1,26 @@
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn AddUsersToEncryptedFile(lpfilename : windows_sys::core::PCWSTR, pencryptioncertificates : *const ENCRYPTION_CERTIFICATE_LIST) -> u32);
+windows_link::link!("advapi32.dll" "system" fn AddUsersToEncryptedFile(lpfilename : windows_sys::core::PCWSTR, pencryptioncertificates : PENCRYPTION_CERTIFICATE_LIST) -> u32);
 #[cfg(feature = "minwinbase")]
-windows_link::link!("advapi32.dll" "system" fn DuplicateEncryptionInfoFile(srcfilename : windows_sys::core::PCWSTR, dstfilename : windows_sys::core::PCWSTR, dwcreationdistribution : u32, dwattributes : u32, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES) -> u32);
+windows_link::link!("advapi32.dll" "system" fn DuplicateEncryptionInfoFile(srcfilename : windows_sys::core::PCWSTR, dstfilename : windows_sys::core::PCWSTR, dwcreationdistribution : u32, dwattributes : u32, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES) -> u32);
 windows_link::link!("advapi32.dll" "system" fn EncryptionDisable(dirpath : windows_sys::core::PCWSTR, disable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn FreeEncryptedFileMetadata(pbmetadata : *const u8));
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn FreeEncryptionCertificateHashList(pusers : *const ENCRYPTION_CERTIFICATE_HASH_LIST));
 #[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn GetEncryptedFileMetadata(lpfilename : windows_sys::core::PCWSTR, pcbmetadata : *mut u32, ppbmetadata : *mut super::PBYTE) -> u32);
+windows_link::link!("advapi32.dll" "system" fn FreeEncryptedFileMetadata(pbmetadata : super::PBYTE));
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn FreeEncryptionCertificateHashList(pusers : PENCRYPTION_CERTIFICATE_HASH_LIST));
+#[cfg(feature = "minwindef")]
+windows_link::link!("advapi32.dll" "system" fn GetEncryptedFileMetadata(lpfilename : windows_sys::core::PCWSTR, pcbmetadata : super::PDWORD, ppbmetadata : *mut super::PBYTE) -> u32);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn QueryRecoveryAgentsOnEncryptedFile(lpfilename : windows_sys::core::PCWSTR, precoveryagents : *mut PENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("advapi32.dll" "system" fn QueryUsersOnEncryptedFile(lpfilename : windows_sys::core::PCWSTR, pusers : *mut PENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn RemoveUsersFromEncryptedFile(lpfilename : windows_sys::core::PCWSTR, phashes : *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
+windows_link::link!("advapi32.dll" "system" fn RemoveUsersFromEncryptedFile(lpfilename : windows_sys::core::PCWSTR, phashes : PENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn SetEncryptedFileMetadata(lpfilename : windows_sys::core::PCWSTR, pboldmetadata : *const u8, pbnewmetadata : *const u8, pownerhash : *const ENCRYPTION_CERTIFICATE_HASH, dwoperation : u32, pcertificatesadded : *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
+windows_link::link!("advapi32.dll" "system" fn SetEncryptedFileMetadata(lpfilename : windows_sys::core::PCWSTR, pboldmetadata : super::PBYTE, pbnewmetadata : super::PBYTE, pownerhash : PENCRYPTION_CERTIFICATE_HASH, dwoperation : u32, pcertificatesadded : PENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn SetUserFileEncryptionKey(pencryptioncertificate : *const ENCRYPTION_CERTIFICATE) -> u32);
+windows_link::link!("advapi32.dll" "system" fn SetUserFileEncryptionKey(pencryptioncertificate : PENCRYPTION_CERTIFICATE) -> u32);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn SetUserFileEncryptionKeyEx(pencryptioncertificate : *const ENCRYPTION_CERTIFICATE, dwcapabilities : u32, dwflags : u32, pvreserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("advapi32.dll" "system" fn SetUserFileEncryptionKeyEx(pencryptioncertificate : PENCRYPTION_CERTIFICATE, dwcapabilities : u32, dwflags : u32, pvreserved : *mut core::ffi::c_void) -> u32);
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]

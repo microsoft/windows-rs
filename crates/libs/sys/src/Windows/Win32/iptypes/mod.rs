@@ -522,12 +522,11 @@ pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Reserved: u32,
 }
-pub type IP_ADDRESS_STRING = IP_MASK_STRING;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct IP_ADDR_STRING {
     pub Next: *mut Self,
-    pub IpAddress: IP_ADDRESS_STRING,
+    pub IpAddress: IP_MASK_STRING,
     pub IpMask: IP_MASK_STRING,
     pub Context: u32,
 }

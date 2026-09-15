@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        struct GUID_NULL {}
+        const GUID_NULL: GUID = 0x00000000_0000_0000_0000_000000000000;
         const IOCTL_KS_DISABLE_EVENT: i32 = 3080203;
         const IOCTL_KS_ENABLE_EVENT: i32 = 3080199;
         const IOCTL_KS_METHOD: i32 = 3080207;
@@ -58,25 +58,25 @@ mod Windows {
             Attribute: GUID,
         }
         const KSATTRIBUTE_REQUIRED: i32 = 1;
-        struct KSCATEGORY_BRIDGE {}
-        struct KSCATEGORY_CAPTURE {}
-        struct KSCATEGORY_CLOCK {}
-        struct KSCATEGORY_COMMUNICATIONSTRANSFORM {}
-        struct KSCATEGORY_DATACOMPRESSOR {}
-        struct KSCATEGORY_DATADECOMPRESSOR {}
-        struct KSCATEGORY_DATATRANSFORM {}
-        struct KSCATEGORY_FILESYSTEM {}
-        struct KSCATEGORY_INTERFACETRANSFORM {}
-        struct KSCATEGORY_MEDIUMTRANSFORM {}
-        struct KSCATEGORY_MIXER {}
-        struct KSCATEGORY_NETWORK_CAMERA {}
-        struct KSCATEGORY_PROXY {}
-        struct KSCATEGORY_QUALITY {}
-        struct KSCATEGORY_RENDER {}
-        struct KSCATEGORY_SENSOR_CAMERA {}
-        struct KSCATEGORY_SENSOR_GROUP {}
-        struct KSCATEGORY_SPLITTER {}
-        struct KSCATEGORY_VIDEO_CAMERA {}
+        const KSCATEGORY_BRIDGE: GUID = 0x085aff00_62ce_11cf_a5d6_28db04c10000;
+        const KSCATEGORY_CAPTURE: GUID = 0x65e8773d_8f56_11d0_a3b9_00a0c9223196;
+        const KSCATEGORY_CLOCK: GUID = 0x53172480_4791_11d0_a5d6_28db04c10000;
+        const KSCATEGORY_COMMUNICATIONSTRANSFORM: GUID = 0xcf1dda2c_9743_11d0_a3ee_00a0c9223196;
+        const KSCATEGORY_DATACOMPRESSOR: GUID = 0x1e84c900_7e70_11d0_a5d6_28db04c10000;
+        const KSCATEGORY_DATADECOMPRESSOR: GUID = 0x2721ae20_7e70_11d0_a5d6_28db04c10000;
+        const KSCATEGORY_DATATRANSFORM: GUID = 0x2eb07ea0_7e70_11d0_a5d6_28db04c10000;
+        const KSCATEGORY_FILESYSTEM: GUID = 0x760fed5e_9357_11d0_a3cc_00a0c9223196;
+        const KSCATEGORY_INTERFACETRANSFORM: GUID = 0xcf1dda2d_9743_11d0_a3ee_00a0c9223196;
+        const KSCATEGORY_MEDIUMTRANSFORM: GUID = 0xcf1dda2e_9743_11d0_a3ee_00a0c9223196;
+        const KSCATEGORY_MIXER: GUID = 0xad809c00_7b88_11d0_a5d6_28db04c10000;
+        const KSCATEGORY_NETWORK_CAMERA: GUID = 0xb8238652_b500_41eb_b4f3_4234f7f5ae99;
+        const KSCATEGORY_PROXY: GUID = 0x97ebaaca_95bd_11d0_a3ea_00a0c9223196;
+        const KSCATEGORY_QUALITY: GUID = 0x97ebaacb_95bd_11d0_a3ea_00a0c9223196;
+        const KSCATEGORY_RENDER: GUID = 0x65e8773e_8f56_11d0_a3b9_00a0c9223196;
+        const KSCATEGORY_SENSOR_CAMERA: GUID = 0x24e552d7_6523_47f7_a647_d3465bf1f5ca;
+        const KSCATEGORY_SENSOR_GROUP: GUID = 0x669c7214_0a88_4311_a7f3_4e79820e33bd;
+        const KSCATEGORY_SPLITTER: GUID = 0x0a4252a0_7e70_11d0_a5d6_28db04c10000;
+        const KSCATEGORY_VIDEO_CAMERA: GUID = 0xe5323777_f976_4f5b_9b55_b94699c46e44;
         struct KSCLOCK_CREATE {
             CreateFlags: u32,
         }
@@ -92,16 +92,15 @@ mod Windows {
             Time: i64,
             SystemTime: i64,
         }
-        type KSDATAFORMAT = KSDATARANGE;
         const KSDATAFORMAT_ATTRIBUTES: i32 = 2;
         const KSDATAFORMAT_BIT_ATTRIBUTES: i32 = 1;
         const KSDATAFORMAT_BIT_TEMPORAL_COMPRESSION: i32 = 0;
-        struct KSDATAFORMAT_SPECIFIER_FILEHANDLE {}
-        struct KSDATAFORMAT_SPECIFIER_FILENAME {}
-        struct KSDATAFORMAT_SPECIFIER_NONE {}
-        struct KSDATAFORMAT_SUBTYPE_NONE {}
+        const KSDATAFORMAT_SPECIFIER_FILEHANDLE: GUID = 0x65e8773c_8f56_11d0_a3b9_00a0c9223196;
+        const KSDATAFORMAT_SPECIFIER_FILENAME: GUID = 0xaa797b40_e974_11cf_a5d6_28db04c10000;
+        const KSDATAFORMAT_SPECIFIER_NONE: GUID = 0x0f6417d6_c318_11d0_a43f_00a0c9223196;
+        const KSDATAFORMAT_SUBTYPE_NONE: GUID = 0xe436eb8e_524f_11ce_9f53_0020af0ba770;
         const KSDATAFORMAT_TEMPORAL_COMPRESSION: i32 = 1;
-        struct KSDATAFORMAT_TYPE_STREAM {}
+        const KSDATAFORMAT_TYPE_STREAM: GUID = 0xe436eb83_524f_11ce_9f53_0020af0ba770;
         union KSDATARANGE {
             Anonymous: struct {
                 FormatSize: u32,
@@ -119,7 +118,7 @@ mod Windows {
         const KSDATARANGE_BIT_REQUIRED_ATTRIBUTES: i32 = 2;
         const KSDATARANGE_REQUIRED_ATTRIBUTES: i32 = 4;
         type KSDEGRADE = KSIDENTIFIER;
-        struct KSDEGRADESETID_Standard {}
+        const KSDEGRADESETID_Standard: GUID = 0x9f564180_704c_11d0_a5d6_28db04c10000;
         #[repr(i32)]
         enum KSDEGRADE_STANDARD {
             KSDEGRADE_STANDARD_SAMPLE = 0,
@@ -157,12 +156,12 @@ mod Windows {
         }
         const KSEVENTF_EVENT_HANDLE: i32 = 1;
         const KSEVENTF_SEMAPHORE_HANDLE: i32 = 2;
-        struct KSEVENTSETID_Clock {}
-        struct KSEVENTSETID_Connection {}
-        struct KSEVENTSETID_Device {}
-        struct KSEVENTSETID_PinCapsChange {}
-        struct KSEVENTSETID_StreamAllocator {}
-        struct KSEVENTSETID_VolumeLimit {}
+        const KSEVENTSETID_Clock: GUID = 0x364d8e20_62c7_11cf_a5d6_28db04c10000;
+        const KSEVENTSETID_Connection: GUID = 0x7f4bcbe0_9ea5_11cf_a5d6_28db04c10000;
+        const KSEVENTSETID_Device: GUID = 0x288296ec_9f94_41b4_a153_aa31aeecb33f;
+        const KSEVENTSETID_PinCapsChange: GUID = 0xdd4f192e_3b78_49ad_a534_2c315b822000;
+        const KSEVENTSETID_StreamAllocator: GUID = 0x75d95571_073c_11d0_a161_0020afd156e4;
+        const KSEVENTSETID_VolumeLimit: GUID = 0xda168465_3a7c_4858_9d4a_3e8e24701aef;
         #[repr(i32)]
         enum KSEVENT_CLOCK_POSITION {
             KSEVENT_CLOCK_INTERVAL_MARK = 0,
@@ -242,8 +241,8 @@ mod Windows {
             },
         }
         const KSINSTANCE_INDETERMINATE: u32 = 4294967295;
-        struct KSINTERFACESETID_FileIo {}
-        struct KSINTERFACESETID_Standard {}
+        const KSINTERFACESETID_FileIo: GUID = 0x8c6f932c_e771_11d0_b8ff_00a0c9223196;
+        const KSINTERFACESETID_Standard: GUID = 0x1a8766a0_62ce_11cf_a5d6_28db04c10000;
         #[repr(i32)]
         enum KSINTERFACE_FILEIO {
             KSINTERFACE_FILEIO_STREAMING = 0,
@@ -258,17 +257,17 @@ mod Windows {
             TimeBase: i64,
             Interval: i64,
         }
-        struct KSMEDIUMSETID_Standard {}
+        const KSMEDIUMSETID_Standard: GUID = 0x4747b320_62ce_11cf_a5d6_28db04c10000;
         const KSMEDIUM_STANDARD_DEVIO: i32 = 0;
         const KSMEDIUM_TYPE_ANYINSTANCE: i32 = 0;
-        struct KSMEMORY_TYPE_DEVICE_UNKNOWN {}
-        struct KSMEMORY_TYPE_KERNEL_NONPAGED {}
-        struct KSMEMORY_TYPE_KERNEL_PAGED {}
-        struct KSMEMORY_TYPE_SYSTEM {}
-        struct KSMEMORY_TYPE_USER {}
+        const KSMEMORY_TYPE_DEVICE_UNKNOWN: GUID = 0x091bb639_603f_11d1_b067_00a0c9062802;
+        const KSMEMORY_TYPE_KERNEL_NONPAGED: GUID = 0x4a6d5fc4_7895_11d1_b069_00a0c9062802;
+        const KSMEMORY_TYPE_KERNEL_PAGED: GUID = 0xd833f8f8_7894_11d1_b069_00a0c9062802;
+        const KSMEMORY_TYPE_SYSTEM: GUID = 0x091bb638_603f_11d1_b067_00a0c9062802;
+        const KSMEMORY_TYPE_USER: GUID = 0x8cb0fc28_7893_11d1_b069_00a0c9062802;
         type KSMETHOD = KSIDENTIFIER;
-        struct KSMETHODSETID_StreamAllocator {}
-        struct KSMETHODSETID_StreamIo {}
+        const KSMETHODSETID_StreamAllocator: GUID = 0xcf6e4341_ec87_11cf_a130_0020afd156e4;
+        const KSMETHODSETID_StreamIo: GUID = 0x65d003ca_1523_11d2_b27a_00a0c9223196;
         #[repr(i32)]
         enum KSMETHOD_STREAMALLOCATOR {
             KSMETHOD_STREAMALLOCATOR_ALLOC = 0,
@@ -288,16 +287,16 @@ mod Windows {
         const KSMETHOD_TYPE_SOURCE: i32 = 4;
         const KSMETHOD_TYPE_TOPOLOGY: i32 = 268435456;
         const KSMETHOD_TYPE_WRITE: i32 = 2;
-        struct KSMFT_CATEGORY_AUDIO_DECODER {}
-        struct KSMFT_CATEGORY_AUDIO_EFFECT {}
-        struct KSMFT_CATEGORY_AUDIO_ENCODER {}
-        struct KSMFT_CATEGORY_DEMULTIPLEXER {}
-        struct KSMFT_CATEGORY_MULTIPLEXER {}
-        struct KSMFT_CATEGORY_OTHER {}
-        struct KSMFT_CATEGORY_VIDEO_DECODER {}
-        struct KSMFT_CATEGORY_VIDEO_EFFECT {}
-        struct KSMFT_CATEGORY_VIDEO_ENCODER {}
-        struct KSMFT_CATEGORY_VIDEO_PROCESSOR {}
+        const KSMFT_CATEGORY_AUDIO_DECODER: GUID = 0x9ea73fb4_ef7a_4559_8d5d_719d8f0426c7;
+        const KSMFT_CATEGORY_AUDIO_EFFECT: GUID = 0x11064c48_3648_4ed0_932e_05ce8ac811b7;
+        const KSMFT_CATEGORY_AUDIO_ENCODER: GUID = 0x91c64bd0_f91e_4d8c_9276_db248279d975;
+        const KSMFT_CATEGORY_DEMULTIPLEXER: GUID = 0xa8700a7a_939b_44c5_99d7_76226b23b3f1;
+        const KSMFT_CATEGORY_MULTIPLEXER: GUID = 0x059c561e_05ae_4b61_b69d_55b61ee54a7b;
+        const KSMFT_CATEGORY_OTHER: GUID = 0x90175d57_b7ea_4901_aeb3_933a8747756f;
+        const KSMFT_CATEGORY_VIDEO_DECODER: GUID = 0xd6c02d4b_6833_45b4_971a_05a4b04bab91;
+        const KSMFT_CATEGORY_VIDEO_EFFECT: GUID = 0x12e17c21_532c_4a6e_8a1c_40825a736397;
+        const KSMFT_CATEGORY_VIDEO_ENCODER: GUID = 0xf79eac7d_e545_4387_bdee_d647d7bde42a;
+        const KSMFT_CATEGORY_VIDEO_PROCESSOR: GUID = 0x302ea3fc_aa5f_47f9_9f7a_c2188bb16302;
         struct KSMULTIPLE_ITEM {
             Size: u32,
             Count: u32,
@@ -307,11 +306,11 @@ mod Windows {
             NodeId: u32,
             Reserved: u32,
         }
-        struct KSNAME_Allocator {}
-        struct KSNAME_Clock {}
-        struct KSNAME_Filter {}
-        struct KSNAME_Pin {}
-        struct KSNAME_TopologyNode {}
+        const KSNAME_Allocator: GUID = 0x642f5d00_4791_11d0_a5d6_28db04c10000;
+        const KSNAME_Clock: GUID = 0x53172480_4791_11d0_a5d6_28db04c10000;
+        const KSNAME_Filter: GUID = 0x9b365890_165f_11d0_a195_0020afd156e4;
+        const KSNAME_Pin: GUID = 0x146f1a80_4791_11d0_a5d6_28db04c10000;
+        const KSNAME_TopologyNode: GUID = 0x0621061a_ee75_11d0_b915_00a0c9223196;
         struct KSNODE_CREATE {
             CreateFlags: u32,
             Node: u32,
@@ -549,19 +548,19 @@ mod Windows {
         const KSPROPERTY_TYPE_TOPOLOGY: i32 = 268435456;
         const KSPROPERTY_TYPE_UNSERIALIZERAW: i32 = 16384;
         const KSPROPERTY_TYPE_UNSERIALIZESET: i32 = 4096;
-        struct KSPROPSETID_Clock {}
-        struct KSPROPSETID_Connection {}
-        struct KSPROPSETID_General {}
-        struct KSPROPSETID_MediaSeeking {}
-        struct KSPROPSETID_MemoryTransport {}
-        struct KSPROPSETID_Pin {}
-        struct KSPROPSETID_PinMDLCacheClearProp {}
-        struct KSPROPSETID_Quality {}
-        struct KSPROPSETID_Stream {}
-        struct KSPROPSETID_StreamAllocator {}
-        struct KSPROPSETID_StreamInterface {}
-        struct KSPROPSETID_Topology {}
-        struct KSPROPTYPESETID_General {}
+        const KSPROPSETID_Clock: GUID = 0xdf12a4c0_ac17_11cf_a5d6_28db04c10000;
+        const KSPROPSETID_Connection: GUID = 0x1d58c920_ac9b_11cf_a5d6_28db04c10000;
+        const KSPROPSETID_General: GUID = 0x1464eda5_6a8f_11d1_9aa7_00a0c9223196;
+        const KSPROPSETID_MediaSeeking: GUID = 0xee904f0c_d09b_11d0_abe9_00a0c9223196;
+        const KSPROPSETID_MemoryTransport: GUID = 0x0a3d1c5d_5243_4819_9ed0_aee8044cee2b;
+        const KSPROPSETID_Pin: GUID = 0x8c134960_51ad_11cf_878a_94f801c10000;
+        const KSPROPSETID_PinMDLCacheClearProp: GUID = 0xbd718a7b_97fc_40c7_88ce_d3ff06f55b16;
+        const KSPROPSETID_Quality: GUID = 0xd16ad380_ac1a_11cf_a5d6_28db04c10000;
+        const KSPROPSETID_Stream: GUID = 0x65aaba60_98ae_11cf_a10d_0020afd156e4;
+        const KSPROPSETID_StreamAllocator: GUID = 0xcf6e4342_ec87_11cf_a130_0020afd156e4;
+        const KSPROPSETID_StreamInterface: GUID = 0x1fdd8ee1_9cd3_11d0_82aa_0000f822fe8a;
+        const KSPROPSETID_Topology: GUID = 0x720d4ac0_7533_11d0_a5d6_28db04c10000;
+        const KSPROPTYPESETID_General: GUID = 0x97e99ba0_bdea_11cf_a5d6_28db04c10000;
         struct KSP_NODE {
             Property: KSPROPERTY,
             NodeId: u32,
@@ -734,11 +733,11 @@ mod Windows {
             Numerator: u32,
             Denominator: u32,
         }
-        struct KSTIME_FORMAT_BYTE {}
-        struct KSTIME_FORMAT_FIELD {}
-        struct KSTIME_FORMAT_FRAME {}
-        struct KSTIME_FORMAT_MEDIA_TIME {}
-        struct KSTIME_FORMAT_SAMPLE {}
+        const KSTIME_FORMAT_BYTE: GUID = 0x7b785571_8c82_11cf_bc0c_00aa00ac74f6;
+        const KSTIME_FORMAT_FIELD: GUID = 0x7b785573_8c82_11cf_bc0c_00aa00ac74f6;
+        const KSTIME_FORMAT_FRAME: GUID = 0x7b785570_8c82_11cf_bc0c_00aa00ac74f6;
+        const KSTIME_FORMAT_MEDIA_TIME: GUID = 0x7b785574_8c82_11cf_bc0c_00aa00ac74f6;
+        const KSTIME_FORMAT_SAMPLE: GUID = 0x7b785572_8c82_11cf_bc0c_00aa00ac74f6;
         struct KSTOPOLOGY {
             CategoriesCount: u32,
             Categories: *const GUID,
@@ -806,21 +805,21 @@ mod Windows {
             KS_SEEKING_ReturnTime = 8,
         }
         #[library("ksuser.dll")]
-        extern fn KsCreateAllocator(ConnectionHandle: HANDLE, AllocatorFraming: *const KSALLOCATOR_FRAMING, AllocatorHandle: *mut HANDLE) -> u32;
+        extern fn KsCreateAllocator(ConnectionHandle: HANDLE, AllocatorFraming: PKSALLOCATOR_FRAMING, #[out] AllocatorHandle: PHANDLE) -> u32;
         #[library("ksuser.dll")]
-        extern fn KsCreateAllocator2(ConnectionHandle: HANDLE, AllocatorFraming: *const KSALLOCATOR_FRAMING, AllocatorHandle: *mut HANDLE) -> HRESULT;
+        extern fn KsCreateAllocator2(ConnectionHandle: HANDLE, AllocatorFraming: PKSALLOCATOR_FRAMING, #[out] AllocatorHandle: PHANDLE) -> HRESULT;
         #[library("ksuser.dll")]
-        extern fn KsCreateClock(ConnectionHandle: HANDLE, ClockCreate: *const KSCLOCK_CREATE, ClockHandle: *mut HANDLE) -> u32;
+        extern fn KsCreateClock(ConnectionHandle: HANDLE, ClockCreate: PKSCLOCK_CREATE, #[out] ClockHandle: PHANDLE) -> u32;
         #[library("ksuser.dll")]
-        extern fn KsCreateClock2(ConnectionHandle: HANDLE, ClockCreate: *const KSCLOCK_CREATE, ClockHandle: *mut HANDLE) -> HRESULT;
+        extern fn KsCreateClock2(ConnectionHandle: HANDLE, ClockCreate: PKSCLOCK_CREATE, #[out] ClockHandle: PHANDLE) -> HRESULT;
         #[library("ksuser.dll")]
-        extern fn KsCreatePin(FilterHandle: HANDLE, Connect: *const KSPIN_CONNECT, DesiredAccess: ACCESS_MASK, ConnectionHandle: *mut HANDLE) -> u32;
+        extern fn KsCreatePin(FilterHandle: HANDLE, Connect: PKSPIN_CONNECT, DesiredAccess: ACCESS_MASK, #[out] ConnectionHandle: PHANDLE) -> u32;
         #[library("ksuser.dll")]
-        extern fn KsCreatePin2(FilterHandle: HANDLE, Connect: *const KSPIN_CONNECT, DesiredAccess: ACCESS_MASK, ConnectionHandle: *mut HANDLE) -> HRESULT;
+        extern fn KsCreatePin2(FilterHandle: HANDLE, Connect: PKSPIN_CONNECT, DesiredAccess: ACCESS_MASK, #[out] ConnectionHandle: PHANDLE) -> HRESULT;
         #[library("ksuser.dll")]
-        extern fn KsCreateTopologyNode(ParentHandle: HANDLE, NodeCreate: *const KSNODE_CREATE, DesiredAccess: ACCESS_MASK, NodeHandle: *mut HANDLE) -> u32;
+        extern fn KsCreateTopologyNode(ParentHandle: HANDLE, NodeCreate: PKSNODE_CREATE, DesiredAccess: ACCESS_MASK, #[out] NodeHandle: PHANDLE) -> u32;
         #[library("ksuser.dll")]
-        extern fn KsCreateTopologyNode2(ParentHandle: HANDLE, NodeCreate: *const KSNODE_CREATE, DesiredAccess: ACCESS_MASK, NodeHandle: *mut HANDLE) -> HRESULT;
+        extern fn KsCreateTopologyNode2(ParentHandle: HANDLE, NodeCreate: PKSNODE_CREATE, DesiredAccess: ACCESS_MASK, #[out] NodeHandle: PHANDLE) -> HRESULT;
         union MF_MDL_SHARED_PAYLOAD_KEY {
             combined: struct {
                 pHandle: u32,

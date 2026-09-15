@@ -38,7 +38,7 @@ mod Windows {
             Type: u32,
         }
         struct EVENT_FILTER_EVENT_ID {
-            FilterIn: bool,
+            FilterIn: BOOLEAN,
             Reserved: u8,
             Count: u16,
             Events: [u16; 1],
@@ -47,7 +47,7 @@ mod Windows {
             MatchAnyKeyword: u64,
             MatchAllKeyword: u64,
             Level: u8,
-            FilterIn: bool,
+            FilterIn: BOOLEAN,
             NameCount: u16,
             Names: [u8; 1],
         }
@@ -63,7 +63,7 @@ mod Windows {
             MatchAnyKeyword: u64,
             MatchAllKeyword: u64,
             Level: u8,
-            FilterIn: bool,
+            FilterIn: BOOLEAN,
         }
         const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416;
         const EVENT_FILTER_TYPE_EVENT_ID: u32 = 2147484160;
@@ -94,25 +94,25 @@ mod Windows {
         const EVENT_WRITE_FLAG_INPRIVATE: i32 = 2;
         const EVENT_WRITE_FLAG_NO_FAULTING: i32 = 1;
         #[library("ADVAPI32.dll")]
-        extern fn EventActivityIdControl(ControlCode: u32, #[in] #[out] ActivityId: *mut GUID) -> u32;
+        extern fn EventActivityIdControl(ControlCode: u32, #[in] #[out] ActivityId: LPGUID) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn EventEnabled(RegHandle: REGHANDLE, EventDescriptor: *const EVENT_DESCRIPTOR) -> bool;
+        extern fn EventEnabled(RegHandle: REGHANDLE, EventDescriptor: PCEVENT_DESCRIPTOR) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn EventProviderEnabled(RegHandle: REGHANDLE, Level: u8, Keyword: u64) -> bool;
+        extern fn EventProviderEnabled(RegHandle: REGHANDLE, Level: u8, Keyword: u64) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
-        extern fn EventRegister(ProviderId: *const GUID, #[opt] EnableCallback: PENABLECALLBACK, #[opt] CallbackContext: *const void, RegHandle: *mut u64) -> u32;
+        extern fn EventRegister(ProviderId: LPCGUID, #[opt] EnableCallback: PENABLECALLBACK, #[in] #[opt] CallbackContext: *mut void, #[out] RegHandle: PREGHANDLE) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn EventSetInformation(RegHandle: REGHANDLE, InformationClass: EVENT_INFO_CLASS, #[size_param(3)] EventInformation: *const void, InformationLength: u32) -> u32;
+        extern fn EventSetInformation(RegHandle: REGHANDLE, InformationClass: EVENT_INFO_CLASS, #[size_param(3)] #[in] EventInformation: *mut void, InformationLength: u32) -> u32;
         #[library("ADVAPI32.dll")]
         extern fn EventUnregister(RegHandle: REGHANDLE) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn EventWrite(RegHandle: REGHANDLE, EventDescriptor: *const EVENT_DESCRIPTOR, UserDataCount: u32, #[len_param(2)] #[opt] UserData: *const EVENT_DATA_DESCRIPTOR) -> u32;
+        extern fn EventWrite(RegHandle: REGHANDLE, EventDescriptor: PCEVENT_DESCRIPTOR, UserDataCount: u32, #[len_param(2)] #[opt] UserData: PEVENT_DATA_DESCRIPTOR) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn EventWriteEx(RegHandle: REGHANDLE, EventDescriptor: *const EVENT_DESCRIPTOR, Filter: u64, Flags: u32, #[opt] ActivityId: *const GUID, #[opt] RelatedActivityId: *const GUID, UserDataCount: u32, #[len_param(6)] #[opt] UserData: *const EVENT_DATA_DESCRIPTOR) -> u32;
+        extern fn EventWriteEx(RegHandle: REGHANDLE, EventDescriptor: PCEVENT_DESCRIPTOR, Filter: u64, Flags: u32, #[opt] ActivityId: LPCGUID, #[opt] RelatedActivityId: LPCGUID, UserDataCount: u32, #[len_param(6)] #[opt] UserData: PEVENT_DATA_DESCRIPTOR) -> u32;
         #[library("ADVAPI32.dll")]
         extern fn EventWriteString(RegHandle: REGHANDLE, Level: u8, Keyword: u64, String: PCWSTR) -> u32;
         #[library("ADVAPI32.dll")]
-        extern fn EventWriteTransfer(RegHandle: REGHANDLE, EventDescriptor: *const EVENT_DESCRIPTOR, #[opt] ActivityId: *const GUID, #[opt] RelatedActivityId: *const GUID, UserDataCount: u32, #[len_param(4)] #[opt] UserData: *const EVENT_DATA_DESCRIPTOR) -> u32;
+        extern fn EventWriteTransfer(RegHandle: REGHANDLE, EventDescriptor: PCEVENT_DESCRIPTOR, #[opt] ActivityId: LPCGUID, #[opt] RelatedActivityId: LPCGUID, UserDataCount: u32, #[len_param(4)] #[opt] UserData: PEVENT_DATA_DESCRIPTOR) -> u32;
         const MAX_EVENT_DATA_DESCRIPTORS: i32 = 128;
         const MAX_EVENT_FILTERS_COUNT: i32 = 13;
         const MAX_EVENT_FILTER_DATA_SIZE: i32 = 1024;
@@ -121,7 +121,7 @@ mod Windows {
         const MAX_EVENT_FILTER_PAYLOAD_SIZE: i32 = 4096;
         const MAX_EVENT_FILTER_PID_COUNT: i32 = 8;
         type PCEVENT_DESCRIPTOR = *const EVENT_DESCRIPTOR;
-        extern fn PENABLECALLBACK(SourceId: *const GUID, IsEnabled: u32, Level: u8, MatchAnyKeyword: u64, MatchAllKeyword: u64, #[opt] FilterData: *const EVENT_FILTER_DESCRIPTOR, #[in] #[out] #[opt] CallbackContext: *mut void);
+        extern fn PENABLECALLBACK(SourceId: LPCGUID, IsEnabled: u32, Level: u8, MatchAnyKeyword: u64, MatchAllKeyword: u64, #[opt] FilterData: PEVENT_FILTER_DESCRIPTOR, #[in] #[out] #[opt] CallbackContext: *mut void);
         type PEVENT_DATA_DESCRIPTOR = *mut EVENT_DATA_DESCRIPTOR;
         type PEVENT_DESCRIPTOR = *mut EVENT_DESCRIPTOR;
         type PEVENT_FILTER_EVENT_ID = *mut EVENT_FILTER_EVENT_ID;

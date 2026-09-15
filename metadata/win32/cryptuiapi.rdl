@@ -228,25 +228,25 @@ mod Windows {
         const CRYPTUI_WIZ_IMPORT_TO_LOCALMACHINE: i32 = 1048576;
         const CRYPTUI_WIZ_NO_UI: i32 = 1;
         #[library("CRYPTUI.dll")]
-        extern fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, ppOutBuffer: *mut *mut void, pulOutBufferSize: *mut u32) -> HRESULT;
+        extern fn CertSelectionGetSerializedBlob(pcsi: PCERT_SELECTUI_INPUT, ppOutBuffer: *mut *mut void, pulOutBufferSize: *mut u32) -> HRESULT;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIDlgCertMgr(pCryptUICertMgr: *const CRYPTUI_CERT_MGR_STRUCT) -> BOOL;
+        extern fn CryptUIDlgCertMgr(pCryptUICertMgr: PCCRYPTUI_CERT_MGR_STRUCT) -> BOOL;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIDlgSelectCertificateFromStore(hCertStore: HCERTSTORE, #[opt] hwnd: HWND, #[opt] pwszTitle: PCWSTR, #[opt] pwszDisplayString: PCWSTR, dwDontUseColumn: u32, dwFlags: u32, pvReserved: *const void) -> PCCERT_CONTEXT;
+        extern fn CryptUIDlgSelectCertificateFromStore(hCertStore: HCERTSTORE, #[opt] hwnd: HWND, #[opt] pwszTitle: PCWSTR, #[opt] pwszDisplayString: PCWSTR, dwDontUseColumn: u32, dwFlags: u32, #[in] pvReserved: *mut void) -> PCCERT_CONTEXT;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIDlgViewCertificateA(pCertViewInfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTA, pfPropertiesChanged: *mut BOOL) -> BOOL;
+        extern fn CryptUIDlgViewCertificateA(pCertViewInfo: PCCRYPTUI_VIEWCERTIFICATE_STRUCTA, pfPropertiesChanged: *mut BOOL) -> BOOL;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIDlgViewCertificateW(pCertViewInfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTW, pfPropertiesChanged: *mut BOOL) -> BOOL;
+        extern fn CryptUIDlgViewCertificateW(pCertViewInfo: PCCRYPTUI_VIEWCERTIFICATE_STRUCTW, pfPropertiesChanged: *mut BOOL) -> BOOL;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIDlgViewContext(dwContextType: u32, pvContext: *const void, #[opt] hwnd: HWND, #[opt] pwszTitle: PCWSTR, dwFlags: u32, pvReserved: *const void) -> BOOL;
+        extern fn CryptUIDlgViewContext(dwContextType: u32, pvContext: *const void, #[opt] hwnd: HWND, #[opt] pwszTitle: PCWSTR, dwFlags: u32, #[in] pvReserved: *mut void) -> BOOL;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIWizDigitalSign(dwFlags: u32, #[opt] hwndParent: HWND, #[opt] pwszWizardTitle: PCWSTR, pDigitalSignInfo: *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppSignContext: *mut PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> BOOL;
+        extern fn CryptUIWizDigitalSign(dwFlags: u32, #[opt] hwndParent: HWND, #[opt] pwszWizardTitle: PCWSTR, pDigitalSignInfo: PCCRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppSignContext: *mut PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> BOOL;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIWizExport(dwFlags: u32, #[opt] hwndParent: HWND, #[opt] pwszWizardTitle: PCWSTR, pExportInfo: *const CRYPTUI_WIZ_EXPORT_INFO, #[opt] pvoid: *const void) -> BOOL;
+        extern fn CryptUIWizExport(dwFlags: u32, #[opt] hwndParent: HWND, #[opt] pwszWizardTitle: PCWSTR, pExportInfo: PCCRYPTUI_WIZ_EXPORT_INFO, #[in] #[opt] pvoid: *mut void) -> BOOL;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIWizFreeDigitalSignContext(pSignContext: *const CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> BOOL;
+        extern fn CryptUIWizFreeDigitalSignContext(pSignContext: PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> BOOL;
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIWizImport(dwFlags: u32, #[opt] hwndParent: HWND, #[opt] pwszWizardTitle: PCWSTR, #[opt] pImportSrc: *const CRYPTUI_WIZ_IMPORT_SRC_INFO, #[opt] hDestCertStore: HCERTSTORE) -> BOOL;
+        extern fn CryptUIWizImport(dwFlags: u32, #[opt] hwndParent: HWND, #[opt] pwszWizardTitle: PCWSTR, #[opt] pImportSrc: PCCRYPTUI_WIZ_IMPORT_SRC_INFO, #[opt] hDestCertStore: HCERTSTORE) -> BOOL;
         type PCCRYPTUI_CERT_MGR_STRUCT = *const CRYPTUI_CERT_MGR_STRUCT;
         type PCCRYPTUI_VIEWCERTIFICATE_STRUCTA = *const CRYPTUI_VIEWCERTIFICATE_STRUCTA;
         type PCCRYPTUI_VIEWCERTIFICATE_STRUCTW = *const CRYPTUI_VIEWCERTIFICATE_STRUCTW;
@@ -275,6 +275,6 @@ mod Windows {
         type PCRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO = *mut CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO;
         type PCRYPTUI_WIZ_EXPORT_INFO = *mut CRYPTUI_WIZ_EXPORT_INFO;
         type PCRYPTUI_WIZ_IMPORT_SRC_INFO = *mut CRYPTUI_WIZ_IMPORT_SRC_INFO;
-        extern fn PFNCFILTERPROC(pCertContext: *const CERT_CONTEXT, pfInitialSelectedCert: *mut BOOL, pvCallbackData: *mut void) -> BOOL;
+        extern fn PFNCFILTERPROC(pCertContext: PCCERT_CONTEXT, pfInitialSelectedCert: *mut BOOL, pvCallbackData: *mut void) -> BOOL;
     }
 }

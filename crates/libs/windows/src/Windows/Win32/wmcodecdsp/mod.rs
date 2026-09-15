@@ -134,6 +134,7 @@ pub const CWVC1DecMediaObject: windows_core::GUID = windows_core::GUID::from_u12
 pub const CWVC1EncMediaObject: windows_core::GUID = windows_core::GUID::from_u128(0x44653d0d_8cca_41e7_baca_884337b747ac);
 pub const CZuneAACCCDecMediaObject: windows_core::GUID = windows_core::GUID::from_u128(0xa74e98f2_52d6_4b4e_885b_e0a6ca4f187a);
 pub const CZuneM4S2DecMediaObject: windows_core::GUID = windows_core::GUID::from_u128(0xc56fc25c_0fc6_404a_9503_b10bf51a8ab9);
+pub type ChMtxType = f32;
 pub const E_TOCPARSER_INVALIDASFFILE: windows_core::HRESULT = windows_core::HRESULT(0x99000001_u32 as _);
 pub const E_TOCPARSER_INVALIDRIFFFILE: windows_core::HRESULT = windows_core::HRESULT(0x99000002_u32 as _);
 pub type FILE_ACCESSMODE = i32;
@@ -144,7 +145,8 @@ impl IClusterDetector {
     pub unsafe fn Initialize(&self, wbaseentrylevel: u16, wclusterentrylevel: u16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), wbaseentrylevel, wclusterentrylevel) }
     }
-    pub unsafe fn Detect<P3>(&self, dwmaxnumclusters: u32, fminclusterduration: f32, fmaxclusterduration: f32, psrctoc: P3) -> windows_core::Result<IToc>
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn Detect<P3>(&self, dwmaxnumclusters: u32, fminclusterduration: super::FLOAT, fmaxclusterduration: super::FLOAT, psrctoc: P3) -> windows_core::Result<IToc>
     where
         P3: windows_core::Param<IToc>,
     {
@@ -159,12 +161,17 @@ impl IClusterDetector {
 pub struct IClusterDetector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16) -> windows_core::HRESULT,
-    pub Detect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32, f32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub Detect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::FLOAT, super::FLOAT, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    Detect: usize,
 }
+#[cfg(feature = "minwindef")]
 pub trait IClusterDetector_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, wbaseentrylevel: u16, wclusterentrylevel: u16) -> windows_core::Result<()>;
-    fn Detect(&self, dwmaxnumclusters: u32, fminclusterduration: f32, fmaxclusterduration: f32, psrctoc: windows_core::Ref<IToc>) -> windows_core::Result<IToc>;
+    fn Detect(&self, dwmaxnumclusters: u32, fminclusterduration: super::FLOAT, fmaxclusterduration: super::FLOAT, psrctoc: windows_core::Ref<IToc>) -> windows_core::Result<IToc>;
 }
+#[cfg(feature = "minwindef")]
 impl IClusterDetector_Vtbl {
     pub const fn new<Identity: IClusterDetector_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IClusterDetector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wbaseentrylevel: u16, wclusterentrylevel: u16) -> windows_core::HRESULT {
@@ -173,7 +180,7 @@ impl IClusterDetector_Vtbl {
                 IClusterDetector_Impl::Initialize(this, core::mem::transmute_copy(&wbaseentrylevel), core::mem::transmute_copy(&wclusterentrylevel)).into()
             }
         }
-        unsafe extern "system" fn Detect<Identity: IClusterDetector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmaxnumclusters: u32, fminclusterduration: f32, fmaxclusterduration: f32, psrctoc: *mut core::ffi::c_void, ppdsttoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Detect<Identity: IClusterDetector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmaxnumclusters: u32, fminclusterduration: super::FLOAT, fmaxclusterduration: super::FLOAT, psrctoc: *mut core::ffi::c_void, ppdsttoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IClusterDetector_Impl::Detect(this, core::mem::transmute_copy(&dwmaxnumclusters), core::mem::transmute_copy(&fminclusterduration), core::mem::transmute_copy(&fmaxclusterduration), core::mem::transmute_copy(&psrctoc)) {
@@ -191,6 +198,7 @@ impl IClusterDetector_Vtbl {
         iid == &<IClusterDetector as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IClusterDetector {}
 windows_core::imp::define_interface!(IFileClient, IFileClient_Vtbl, 0xbfccd196_1244_4840_ab44_480975c4ffe4);
 windows_core::imp::interface_hierarchy!(IFileClient, windows_core::IUnknown);
@@ -1287,7 +1295,7 @@ impl windows_core::RuntimeName for IWMCodecLeakyBucket {}
 windows_core::imp::define_interface!(IWMCodecOutputTimestamp, IWMCodecOutputTimestamp_Vtbl, 0xb72adf95_7adc_4a72_bc05_577d8ea6bf68);
 windows_core::imp::interface_hierarchy!(IWMCodecOutputTimestamp, windows_core::IUnknown);
 impl IWMCodecOutputTimestamp {
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetNextOutputTime(&self) -> windows_core::Result<super::REFERENCE_TIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1299,16 +1307,16 @@ impl IWMCodecOutputTimestamp {
 #[doc(hidden)]
 pub struct IWMCodecOutputTimestamp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub GetNextOutputTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetNextOutputTime: usize,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub trait IWMCodecOutputTimestamp_Impl: windows_core::IUnknownImpl {
     fn GetNextOutputTime(&self) -> windows_core::Result<super::REFERENCE_TIME>;
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl IWMCodecOutputTimestamp_Vtbl {
     pub const fn new<Identity: IWMCodecOutputTimestamp_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNextOutputTime<Identity: IWMCodecOutputTimestamp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prttime: *mut super::REFERENCE_TIME) -> windows_core::HRESULT {
@@ -1329,7 +1337,7 @@ impl IWMCodecOutputTimestamp_Vtbl {
         iid == &<IWMCodecOutputTimestamp as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IWMCodecOutputTimestamp {}
 windows_core::imp::define_interface!(IWMCodecPrivateData, IWMCodecPrivateData_Vtbl, 0x73f0be8e_57f7_4f01_aa66_9f57340cfe0e);
 windows_core::imp::interface_hierarchy!(IWMCodecPrivateData, windows_core::IUnknown);
@@ -1447,12 +1455,12 @@ windows_core::imp::define_interface!(IWMCodecStrings, IWMCodecStrings_Vtbl, 0xa7
 windows_core::imp::interface_hierarchy!(IWMCodecStrings, windows_core::IUnknown);
 impl IWMCodecStrings {
     #[cfg(feature = "mediaobj")]
-    pub unsafe fn GetName(&self, pmt: *const super::DMO_MEDIA_TYPE, cchlength: u32, szname: Option<windows_core::PWSTR>, pcchlength: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pmt, cchlength, szname.unwrap_or(core::mem::zeroed()) as _, pcchlength as _) }
+    pub unsafe fn GetName(&self, pmt: *const super::DMO_MEDIA_TYPE, szname: Option<&mut [u16]>, pcchlength: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pmt, szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pcchlength as _) }
     }
     #[cfg(feature = "mediaobj")]
-    pub unsafe fn GetDescription(&self, pmt: *const super::DMO_MEDIA_TYPE, cchlength: u32, szdescription: Option<windows_core::PWSTR>, pcchlength: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), pmt, cchlength, szdescription.unwrap_or(core::mem::zeroed()) as _, pcchlength as _) }
+    pub unsafe fn GetDescription(&self, pmt: *const super::DMO_MEDIA_TYPE, szdescription: Option<&mut [u16]>, pcchlength: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), pmt, szdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szdescription.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pcchlength as _) }
     }
 }
 #[repr(C)]
@@ -1711,7 +1719,7 @@ impl IWMResamplerProps {
     pub unsafe fn SetHalfFilterLength(&self, lhalffilterlen: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHalfFilterLength)(windows_core::Interface::as_raw(self), lhalffilterlen) }
     }
-    pub unsafe fn SetUserChannelMtx(&self, userchannelmtx: *const f32) -> windows_core::HRESULT {
+    pub unsafe fn SetUserChannelMtx(&self, userchannelmtx: *const ChMtxType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetUserChannelMtx)(windows_core::Interface::as_raw(self), userchannelmtx) }
     }
 }
@@ -1720,11 +1728,11 @@ impl IWMResamplerProps {
 pub struct IWMResamplerProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetHalfFilterLength: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub SetUserChannelMtx: unsafe extern "system" fn(*mut core::ffi::c_void, *const f32) -> windows_core::HRESULT,
+    pub SetUserChannelMtx: unsafe extern "system" fn(*mut core::ffi::c_void, *const ChMtxType) -> windows_core::HRESULT,
 }
 pub trait IWMResamplerProps_Impl: windows_core::IUnknownImpl {
     fn SetHalfFilterLength(&self, lhalffilterlen: i32) -> windows_core::Result<()>;
-    fn SetUserChannelMtx(&self, userchannelmtx: *const f32) -> windows_core::Result<()>;
+    fn SetUserChannelMtx(&self, userchannelmtx: *const ChMtxType) -> windows_core::Result<()>;
 }
 impl IWMResamplerProps_Vtbl {
     pub const fn new<Identity: IWMResamplerProps_Impl, const OFFSET: isize>() -> Self {
@@ -1734,7 +1742,7 @@ impl IWMResamplerProps_Vtbl {
                 IWMResamplerProps_Impl::SetHalfFilterLength(this, core::mem::transmute_copy(&lhalffilterlen)).into()
             }
         }
-        unsafe extern "system" fn SetUserChannelMtx<Identity: IWMResamplerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, userchannelmtx: *const f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetUserChannelMtx<Identity: IWMResamplerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, userchannelmtx: *const ChMtxType) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMResamplerProps_Impl::SetUserChannelMtx(this, core::mem::transmute_copy(&userchannelmtx)).into()
@@ -1960,11 +1968,8 @@ impl IWMVideoDecoderReconBuffer {
         }
     }
     #[cfg(feature = "mediaobj")]
-    pub unsafe fn GetReconstructedVideoFrame<P0>(&self, pbuf: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<super::IMediaBuffer>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetReconstructedVideoFrame)(windows_core::Interface::as_raw(self), pbuf.param().abi()) }
+    pub unsafe fn GetReconstructedVideoFrame(&self, pbuf: &Option<super::IMediaBuffer>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetReconstructedVideoFrame)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pbuf)) }
     }
     #[cfg(feature = "mediaobj")]
     pub unsafe fn SetReconstructedVideoFrame<P0>(&self, pbuf: P0) -> windows_core::HRESULT
@@ -1991,7 +1996,7 @@ pub struct IWMVideoDecoderReconBuffer_Vtbl {
 #[cfg(feature = "mediaobj")]
 pub trait IWMVideoDecoderReconBuffer_Impl: windows_core::IUnknownImpl {
     fn GetReconstructedVideoFrameSize(&self) -> windows_core::Result<u32>;
-    fn GetReconstructedVideoFrame(&self, pbuf: windows_core::Ref<super::IMediaBuffer>) -> windows_core::Result<()>;
+    fn GetReconstructedVideoFrame(&self, pbuf: windows_core::OutRef<super::IMediaBuffer>) -> windows_core::Result<()>;
     fn SetReconstructedVideoFrame(&self, pbuf: windows_core::Ref<super::IMediaBuffer>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "mediaobj")]
@@ -2012,7 +2017,7 @@ impl IWMVideoDecoderReconBuffer_Vtbl {
         unsafe extern "system" fn GetReconstructedVideoFrame<Identity: IWMVideoDecoderReconBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuf: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMVideoDecoderReconBuffer_Impl::GetReconstructedVideoFrame(this, core::mem::transmute_copy(&pbuf)).into()
+                IWMVideoDecoderReconBuffer_Impl::GetReconstructedVideoFrame(this, core::mem::transmute(&pbuf)).into()
             }
         }
         unsafe extern "system" fn SetReconstructedVideoFrame<Identity: IWMVideoDecoderReconBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuf: *mut core::ffi::c_void) -> windows_core::HRESULT {

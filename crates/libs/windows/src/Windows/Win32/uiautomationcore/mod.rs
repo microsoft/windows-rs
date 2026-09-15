@@ -20,9 +20,7 @@ pub const BulletStyle_HollowRoundBullet: BulletStyle = 1;
 pub const BulletStyle_HollowSquareBullet: BulletStyle = 3;
 pub const BulletStyle_None: BulletStyle = 0;
 pub const BulletStyle_Other: BulletStyle = -1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CONTROLTYPEID(pub i32);
+pub type CONTROLTYPEID = i32;
 pub const CUIAutomationClientInfo: windows_core::GUID = windows_core::GUID::from_u128(0xc2d4f567_8a9b_4c3e_9f1a_2b5c7d8e0f3a);
 pub const CUIAutomationClientInfoSource: windows_core::GUID = windows_core::GUID::from_u128(0xa8d4f123_7b2c_4e5f_9a1b_3c8d6e9f0a2b);
 pub const CUIAutomationRegistrar: windows_core::GUID = windows_core::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
@@ -49,9 +47,7 @@ pub const DockPosition_Left: DockPosition = 1;
 pub const DockPosition_None: DockPosition = 5;
 pub const DockPosition_Right: DockPosition = 3;
 pub const DockPosition_Top: DockPosition = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct EVENTID(pub i32);
+pub type EVENTID = i32;
 pub type ExpandCollapseState = i32;
 pub const ExpandCollapseState_Collapsed: ExpandCollapseState = 0;
 pub const ExpandCollapseState_Expanded: ExpandCollapseState = 1;
@@ -68,9 +64,7 @@ pub const FlowDirections_BottomToTop: FlowDirections = 2;
 pub const FlowDirections_Default: FlowDirections = 0;
 pub const FlowDirections_RightToLeft: FlowDirections = 1;
 pub const FlowDirections_Vertical: FlowDirections = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HEADINGLEVELID(pub i32);
+pub type HEADINGLEVELID = i32;
 pub type HorizontalTextAlignment = i32;
 pub const HorizontalTextAlignment_Centered: HorizontalTextAlignment = 1;
 pub const HorizontalTextAlignment_Justified: HorizontalTextAlignment = 3;
@@ -984,7 +978,7 @@ impl windows_core::RuntimeName for IInvokeProvider {}
 windows_core::imp::define_interface!(IItemContainerProvider, IItemContainerProvider_Vtbl, 0xe747770b_39ce_4382_ab30_d8fb3f336f24);
 windows_core::imp::interface_hierarchy!(IItemContainerProvider, windows_core::IUnknown);
 impl IItemContainerProvider {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FindItemByProperty<P0>(&self, pstartafter: P0, propertyid: PROPERTYID, value: &super::VARIANT) -> windows_core::Result<IRawElementProviderSimple>
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
@@ -999,16 +993,16 @@ impl IItemContainerProvider {
 #[doc(hidden)]
 pub struct IItemContainerProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub FindItemByProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PROPERTYID, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     FindItemByProperty: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IItemContainerProvider_Impl: windows_core::IUnknownImpl {
     fn FindItemByProperty(&self, pstartafter: windows_core::Ref<IRawElementProviderSimple>, propertyid: PROPERTYID, value: &super::VARIANT) -> windows_core::Result<IRawElementProviderSimple>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IItemContainerProvider_Vtbl {
     pub const fn new<Identity: IItemContainerProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FindItemByProperty<Identity: IItemContainerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstartafter: *mut core::ffi::c_void, propertyid: PROPERTYID, value: super::VARIANT, pfound: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1029,7 +1023,7 @@ impl IItemContainerProvider_Vtbl {
         iid == &<IItemContainerProvider as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IItemContainerProvider {}
 windows_core::imp::define_interface!(ILegacyIAccessibleProvider, ILegacyIAccessibleProvider_Vtbl, 0xe44c3566_915d_4070_99c6_047bff5a08f5);
 windows_core::imp::interface_hierarchy!(ILegacyIAccessibleProvider, windows_core::IUnknown);
@@ -1522,7 +1516,7 @@ impl windows_core::RuntimeName for IProxyProviderWinEventHandler {}
 windows_core::imp::define_interface!(IProxyProviderWinEventSink, IProxyProviderWinEventSink_Vtbl, 0x4fd82b78_a43e_46ac_9803_0a6969c7c183);
 windows_core::imp::interface_hierarchy!(IProxyProviderWinEventSink, windows_core::IUnknown);
 impl IProxyProviderWinEventSink {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddAutomationPropertyChangedEvent<P0>(&self, pprovider: P0, id: PROPERTYID, newvalue: &super::VARIANT) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
@@ -1547,9 +1541,9 @@ impl IProxyProviderWinEventSink {
 #[doc(hidden)]
 pub struct IProxyProviderWinEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub AddAutomationPropertyChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PROPERTYID, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     AddAutomationPropertyChangedEvent: usize,
     pub AddAutomationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, EVENTID) -> windows_core::HRESULT,
     #[cfg(feature = "oaidl")]
@@ -1557,13 +1551,13 @@ pub struct IProxyProviderWinEventSink_Vtbl {
     #[cfg(not(feature = "oaidl"))]
     AddStructureChangedEvent: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IProxyProviderWinEventSink_Impl: windows_core::IUnknownImpl {
     fn AddAutomationPropertyChangedEvent(&self, pprovider: windows_core::Ref<IRawElementProviderSimple>, id: PROPERTYID, newvalue: &super::VARIANT) -> windows_core::Result<()>;
     fn AddAutomationEvent(&self, pprovider: windows_core::Ref<IRawElementProviderSimple>, id: EVENTID) -> windows_core::Result<()>;
     fn AddStructureChangedEvent(&self, pprovider: windows_core::Ref<IRawElementProviderSimple>, structurechangetype: StructureChangeType, runtimeid: *const super::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IProxyProviderWinEventSink_Vtbl {
     pub const fn new<Identity: IProxyProviderWinEventSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddAutomationPropertyChangedEvent<Identity: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, id: PROPERTYID, newvalue: super::VARIANT) -> windows_core::HRESULT {
@@ -1595,7 +1589,7 @@ impl IProxyProviderWinEventSink_Vtbl {
         iid == &<IProxyProviderWinEventSink as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IProxyProviderWinEventSink {}
 windows_core::imp::define_interface!(IRangeValueProvider, IRangeValueProvider_Vtbl, 0x36dc7aef_33e6_4691_afe1_2be7274b3d33);
 windows_core::imp::interface_hierarchy!(IRangeValueProvider, windows_core::IUnknown);
@@ -2137,7 +2131,7 @@ impl IRawElementProviderSimple {
             (windows_core::Interface::vtable(self).GetPatternProvider)(windows_core::Interface::as_raw(self), patternid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPropertyValue(&self, propertyid: PROPERTYID) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2157,20 +2151,20 @@ pub struct IRawElementProviderSimple_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProviderOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderOptions) -> windows_core::HRESULT,
     pub GetPatternProvider: unsafe extern "system" fn(*mut core::ffi::c_void, PATTERNID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, PROPERTYID, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetPropertyValue: usize,
     pub HostRawElementProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRawElementProviderSimple_Impl: windows_core::IUnknownImpl {
     fn ProviderOptions(&self) -> windows_core::Result<ProviderOptions>;
     fn GetPatternProvider(&self, patternid: PATTERNID) -> windows_core::Result<windows_core::IUnknown>;
     fn GetPropertyValue(&self, propertyid: PROPERTYID) -> windows_core::Result<super::VARIANT>;
     fn HostRawElementProvider(&self) -> windows_core::Result<IRawElementProviderSimple>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IRawElementProviderSimple_Vtbl {
     pub const fn new<Identity: IRawElementProviderSimple_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProviderOptions<Identity: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut ProviderOptions) -> windows_core::HRESULT {
@@ -2233,7 +2227,7 @@ impl IRawElementProviderSimple_Vtbl {
         iid == &<IRawElementProviderSimple as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRawElementProviderSimple {}
 windows_core::imp::define_interface!(IRawElementProviderSimple2, IRawElementProviderSimple2_Vtbl, 0xa0a839a9_8da1_4a82_806a_8e0d44e79f56);
 impl core::ops::Deref for IRawElementProviderSimple2 {
@@ -2254,11 +2248,11 @@ pub struct IRawElementProviderSimple2_Vtbl {
     pub base__: IRawElementProviderSimple_Vtbl,
     pub ShowContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRawElementProviderSimple2_Impl: IRawElementProviderSimple_Impl {
     fn ShowContextMenu(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IRawElementProviderSimple2_Vtbl {
     pub const fn new<Identity: IRawElementProviderSimple2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ShowContextMenu<Identity: IRawElementProviderSimple2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2273,7 +2267,7 @@ impl IRawElementProviderSimple2_Vtbl {
         iid == &<IRawElementProviderSimple2 as windows_core::Interface>::IID || iid == &<IRawElementProviderSimple as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRawElementProviderSimple2 {}
 windows_core::imp::define_interface!(IRawElementProviderSimple3, IRawElementProviderSimple3_Vtbl, 0xfcf5d820_d7ec_4613_bdf6_42a84ce7daaf);
 impl core::ops::Deref for IRawElementProviderSimple3 {
@@ -2284,7 +2278,7 @@ impl core::ops::Deref for IRawElementProviderSimple3 {
 }
 windows_core::imp::interface_hierarchy!(IRawElementProviderSimple3, windows_core::IUnknown, IRawElementProviderSimple, IRawElementProviderSimple2);
 impl IRawElementProviderSimple3 {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetMetadataValue(&self, targetid: i32, metadataid: METADATAID) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2296,16 +2290,16 @@ impl IRawElementProviderSimple3 {
 #[doc(hidden)]
 pub struct IRawElementProviderSimple3_Vtbl {
     pub base__: IRawElementProviderSimple2_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetMetadataValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, METADATAID, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetMetadataValue: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRawElementProviderSimple3_Impl: IRawElementProviderSimple2_Impl {
     fn GetMetadataValue(&self, targetid: i32, metadataid: METADATAID) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IRawElementProviderSimple3_Vtbl {
     pub const fn new<Identity: IRawElementProviderSimple3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMetadataValue<Identity: IRawElementProviderSimple3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetid: i32, metadataid: METADATAID, returnval: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -2326,7 +2320,7 @@ impl IRawElementProviderSimple3_Vtbl {
         iid == &<IRawElementProviderSimple3 as windows_core::Interface>::IID || iid == &<IRawElementProviderSimple as windows_core::Interface>::IID || iid == &<IRawElementProviderSimple2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRawElementProviderSimple3 {}
 windows_core::imp::define_interface!(IRawElementProviderWindowlessSite, IRawElementProviderWindowlessSite_Vtbl, 0x0a2a93cc_bfad_42ac_9b2e_0991fb0d3ea0);
 windows_core::imp::interface_hierarchy!(IRawElementProviderWindowlessSite, windows_core::IUnknown);
@@ -3839,7 +3833,7 @@ impl ITextRangeProvider {
     pub unsafe fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ExpandToEnclosingUnit)(windows_core::Interface::as_raw(self), unit) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FindAttribute(&self, attributeid: TEXTATTRIBUTEID, val: &super::VARIANT, backward: bool) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3852,7 +3846,7 @@ impl ITextRangeProvider {
             (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), backward.into(), ignorecase.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAttributeValue(&self, attributeid: TEXTATTRIBUTEID) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3924,14 +3918,14 @@ pub struct ITextRangeProvider_Vtbl {
     pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CompareEndpoints: unsafe extern "system" fn(*mut core::ffi::c_void, TextPatternRangeEndpoint, *mut core::ffi::c_void, TextPatternRangeEndpoint, *mut i32) -> windows_core::HRESULT,
     pub ExpandToEnclosingUnit: unsafe extern "system" fn(*mut core::ffi::c_void, TextUnit) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub FindAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, TEXTATTRIBUTEID, super::VARIANT, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     FindAttribute: usize,
     pub FindText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetAttributeValue: unsafe extern "system" fn(*mut core::ffi::c_void, TEXTATTRIBUTEID, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetAttributeValue: usize,
     #[cfg(feature = "oaidl")]
     pub GetBoundingRectangles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
@@ -3951,7 +3945,7 @@ pub struct ITextRangeProvider_Vtbl {
     #[cfg(not(feature = "oaidl"))]
     GetChildren: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITextRangeProvider_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<ITextRangeProvider>;
     fn Compare(&self, range: windows_core::Ref<ITextRangeProvider>) -> windows_core::Result<windows_core::BOOL>;
@@ -3972,7 +3966,7 @@ pub trait ITextRangeProvider_Impl: windows_core::IUnknownImpl {
     fn ScrollIntoView(&self, aligntotop: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetChildren(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl ITextRangeProvider_Vtbl {
     pub const fn new<Identity: ITextRangeProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Clone<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4181,7 +4175,7 @@ impl ITextRangeProvider_Vtbl {
         iid == &<ITextRangeProvider as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITextRangeProvider {}
 windows_core::imp::define_interface!(ITextRangeProvider2, ITextRangeProvider2_Vtbl, 0x9bbce42c_1921_4f18_89ca_dba1910a0386);
 impl core::ops::Deref for ITextRangeProvider2 {
@@ -4202,11 +4196,11 @@ pub struct ITextRangeProvider2_Vtbl {
     pub base__: ITextRangeProvider_Vtbl,
     pub ShowContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITextRangeProvider2_Impl: ITextRangeProvider_Impl {
     fn ShowContextMenu(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl ITextRangeProvider2_Vtbl {
     pub const fn new<Identity: ITextRangeProvider2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ShowContextMenu<Identity: ITextRangeProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4221,7 +4215,7 @@ impl ITextRangeProvider2_Vtbl {
         iid == &<ITextRangeProvider2 as windows_core::Interface>::IID || iid == &<ITextRangeProvider as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITextRangeProvider2 {}
 windows_core::imp::define_interface!(IToggleProvider, IToggleProvider_Vtbl, 0x56d00bd0_c4f4_433c_a836_1a52a57e0892);
 windows_core::imp::interface_hierarchy!(IToggleProvider, windows_core::IUnknown);
@@ -5219,13 +5213,9 @@ impl IWindowProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWindowProvider {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LANDMARKTYPEID(pub i32);
+pub type LANDMARKTYPEID = i32;
 pub type LiveSetting = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct METADATAID(pub i32);
+pub type METADATAID = i32;
 pub type NavigateDirection = i32;
 pub const NavigateDirection_FirstChild: NavigateDirection = 3;
 pub const NavigateDirection_LastChild: NavigateDirection = 4;
@@ -5256,12 +5246,8 @@ pub const OutlineStyles_Engraved: OutlineStyles = 4;
 pub const OutlineStyles_None: OutlineStyles = 0;
 pub const OutlineStyles_Outline: OutlineStyles = 1;
 pub const OutlineStyles_Shadow: OutlineStyles = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PATTERNID(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PROPERTYID(pub i32);
+pub type PATTERNID = i32;
+pub type PROPERTYID = i32;
 pub const Polite: LiveSetting = 1;
 pub type ProviderOptions = u32;
 pub const ProviderOptions_ClientSideProvider: ProviderOptions = 1;
@@ -5329,9 +5315,7 @@ pub const SynchronizedInputType_LeftMouseDown: SynchronizedInputType = 8;
 pub const SynchronizedInputType_LeftMouseUp: SynchronizedInputType = 4;
 pub const SynchronizedInputType_RightMouseDown: SynchronizedInputType = 32;
 pub const SynchronizedInputType_RightMouseUp: SynchronizedInputType = 16;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TEXTATTRIBUTEID(pub i32);
+pub type TEXTATTRIBUTEID = i32;
 pub type TextDecorationLineStyle = i32;
 pub const TextDecorationLineStyle_Dash: TextDecorationLineStyle = 5;
 pub const TextDecorationLineStyle_DashDot: TextDecorationLineStyle = 6;
@@ -5450,19 +5434,19 @@ pub const UIAutomationType_RectArray: UIAutomationType = 65542;
 pub const UIAutomationType_String: UIAutomationType = 3;
 pub const UIAutomationType_StringArray: UIAutomationType = 65539;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub struct UiaChangeInfo {
     pub uiaId: i32,
     pub payload: super::VARIANT,
     pub extraInfo: super::VARIANT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for UiaChangeInfo {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for UiaChangeInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

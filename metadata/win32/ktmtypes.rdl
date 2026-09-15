@@ -6,6 +6,10 @@ mod Windows {
         type CRM_PROTOCOL_ID = GUID;
         const CRM_PROTOCOL_MAXIMUM_OPTION: i32 = 3;
         const ENLISTMENT_MAXIMUM_OPTION: i32 = 1;
+        #[arch(X64 | Arm64)]
+        const ENLISTMENT_OBJECT_NAME_LENGTH_IN_BYTES: u64 = 102;
+        #[arch(X86)]
+        const ENLISTMENT_OBJECT_NAME_LENGTH_IN_BYTES: u32 = 102;
         #[encoding("utf-16")]
         const ENLISTMENT_OBJECT_PATH: String = "\\Enlistment\\";
         const ENLISTMENT_SUPERIOR: i32 = 1;
@@ -53,10 +57,18 @@ mod Windows {
         type PUOW = *mut GUID;
         const RESOURCE_MANAGER_COMMUNICATION: i32 = 2;
         const RESOURCE_MANAGER_MAXIMUM_OPTION: i32 = 3;
+        #[arch(X64 | Arm64)]
+        const RESOURCE_MANAGER_OBJECT_NAME_LENGTH_IN_BYTES: u64 = 112;
+        #[arch(X86)]
+        const RESOURCE_MANAGER_OBJECT_NAME_LENGTH_IN_BYTES: u32 = 112;
         #[encoding("utf-16")]
         const RESOURCE_MANAGER_OBJECT_PATH: String = "\\ResourceManager\\";
         const RESOURCE_MANAGER_VOLATILE: i32 = 1;
         type SAVEPOINT_ID = u32;
+        #[arch(X64 | Arm64)]
+        const TRANSACTIONMANAGER_OBJECT_NAME_LENGTH_IN_BYTES: u64 = 118;
+        #[arch(X86)]
+        const TRANSACTIONMANAGER_OBJECT_NAME_LENGTH_IN_BYTES: u32 = 118;
         #[encoding("utf-16")]
         const TRANSACTIONMANAGER_OBJECT_PATH: String = "\\TransactionManager\\";
         const TRANSACTION_DO_NOT_PROMOTE: i32 = 1;
@@ -72,7 +84,7 @@ mod Windows {
         struct TRANSACTION_NOTIFICATION {
             TransactionKey: *mut void,
             TransactionNotification: u32,
-            TmVirtualClock: i64,
+            TmVirtualClock: LARGE_INTEGER,
             ArgumentLength: u32,
         }
         struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
@@ -125,6 +137,10 @@ mod Windows {
         const TRANSACTION_NOTIFY_ROLLBACK_COMPLETE: i32 = 128;
         const TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT: i32 = 512;
         const TRANSACTION_NOTIFY_TM_ONLINE: i32 = 33554432;
+        #[arch(X64 | Arm64)]
+        const TRANSACTION_OBJECT_NAME_LENGTH_IN_BYTES: u64 = 104;
+        #[arch(X86)]
+        const TRANSACTION_OBJECT_NAME_LENGTH_IN_BYTES: u32 = 104;
         #[encoding("utf-16")]
         const TRANSACTION_OBJECT_PATH: String = "\\Transaction\\";
         type UOW = GUID;

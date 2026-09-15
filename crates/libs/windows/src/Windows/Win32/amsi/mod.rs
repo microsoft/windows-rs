@@ -173,12 +173,18 @@ pub const AMSI_UAC_TRUST_STATE_MAX: AMSI_UAC_TRUST_STATE = 3;
 pub const AMSI_UAC_TRUST_STATE_TRUSTED: AMSI_UAC_TRUST_STATE = 0;
 pub const AMSI_UAC_TRUST_STATE_UNTRUSTED: AMSI_UAC_TRUST_STATE = 1;
 pub const CAntimalware: windows_core::GUID = windows_core::GUID::from_u128(0xfdb00e52_a214_4aa1_8fba_4357bb0072ec);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HAMSICONTEXT(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HAMSISESSION(pub *mut core::ffi::c_void);
+pub type HAMSICONTEXT = *mut HAMSICONTEXT__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HAMSICONTEXT__ {
+    pub unused: i32,
+}
+pub type HAMSISESSION = *mut HAMSISESSION__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HAMSISESSION__ {
+    pub unused: i32,
+}
 windows_core::imp::define_interface!(IAmsiStream, IAmsiStream_Vtbl, 0x3e47f2e5_81d4_4d3b_897f_545096770373);
 windows_core::imp::interface_hierarchy!(IAmsiStream, windows_core::IUnknown);
 impl IAmsiStream {
@@ -452,7 +458,7 @@ impl windows_core::RuntimeName for IAntimalwareProvider2 {}
 windows_core::imp::define_interface!(IAntimalwareUacProvider, IAntimalwareUacProvider_Vtbl, 0xb2cabfe4_fe04_42b1_a5df_08d483d4d125);
 windows_core::imp::interface_hierarchy!(IAntimalwareUacProvider, windows_core::IUnknown);
 impl IAntimalwareUacProvider {
-    pub unsafe fn UacScan(&self, context: *const AMSI_UAC_REQUEST_CONTEXT) -> windows_core::Result<AMSI_RESULT> {
+    pub unsafe fn UacScan(&self, context: LPAMSI_UAC_REQUEST_CONTEXT) -> windows_core::Result<AMSI_RESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UacScan)(windows_core::Interface::as_raw(self), context, &mut result__).map(|| result__)
@@ -469,16 +475,16 @@ impl IAntimalwareUacProvider {
 #[doc(hidden)]
 pub struct IAntimalwareUacProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub UacScan: unsafe extern "system" fn(*mut core::ffi::c_void, *const AMSI_UAC_REQUEST_CONTEXT, *mut AMSI_RESULT) -> windows_core::HRESULT,
+    pub UacScan: unsafe extern "system" fn(*mut core::ffi::c_void, LPAMSI_UAC_REQUEST_CONTEXT, *mut AMSI_RESULT) -> windows_core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait IAntimalwareUacProvider_Impl: windows_core::IUnknownImpl {
-    fn UacScan(&self, context: *const AMSI_UAC_REQUEST_CONTEXT) -> windows_core::Result<AMSI_RESULT>;
+    fn UacScan(&self, context: LPAMSI_UAC_REQUEST_CONTEXT) -> windows_core::Result<AMSI_RESULT>;
     fn DisplayName(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
 impl IAntimalwareUacProvider_Vtbl {
     pub const fn new<Identity: IAntimalwareUacProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn UacScan<Identity: IAntimalwareUacProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *const AMSI_UAC_REQUEST_CONTEXT, result: *mut AMSI_RESULT) -> windows_core::HRESULT {
+        unsafe extern "system" fn UacScan<Identity: IAntimalwareUacProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: LPAMSI_UAC_REQUEST_CONTEXT, result: *mut AMSI_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAntimalwareUacProvider_Impl::UacScan(this, core::mem::transmute_copy(&context)) {

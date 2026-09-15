@@ -1,12 +1,11 @@
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CURSOR_ID(pub u32);
+pub type CURSOR_ID = u32;
 pub const IP_CURSOR_DOWN: i32 = 1;
 pub const IP_INVERTED: i32 = 2;
 pub const IP_MARGIN: i32 = 4;
 pub const MAX_PACKET_BUTTON_COUNT: i32 = 32;
 pub const MAX_PACKET_PROPERTY_COUNT: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PACKET_DESCRIPTION {
     pub cbPacketSize: u32,
@@ -16,22 +15,27 @@ pub struct PACKET_DESCRIPTION {
     pub pguidButtons: *mut windows_core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PACKET_PROPERTY {
     pub guid: windows_core::GUID,
     pub PropertyMetrics: PROPERTY_METRICS,
 }
+#[cfg(feature = "minwindef")]
 pub type PPACKET_DESCRIPTION = *mut PACKET_DESCRIPTION;
+#[cfg(feature = "minwindef")]
 pub type PPACKET_PROPERTY = *mut PACKET_PROPERTY;
+#[cfg(feature = "minwindef")]
 pub type PPROPERTY_METRICS = *mut PROPERTY_METRICS;
 pub type PPROPERTY_UNITS = *mut PROPERTY_UNITS;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPERTY_METRICS {
     pub nLogicalMin: i32,
     pub nLogicalMax: i32,
     pub Units: PROPERTY_UNITS,
-    pub fResolution: f32,
+    pub fResolution: super::FLOAT,
 }
 pub type PROPERTY_UNITS = i32;
 pub const PROPERTY_UNITS_AMPERE: PROPERTY_UNITS = 15;
@@ -57,9 +61,7 @@ pub struct STROKE_RANGE {
     pub iStrokeBegin: u32,
     pub iStrokeEnd: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SYSTEM_EVENT(pub u16);
+pub type SYSTEM_EVENT = u16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_EVENT_DATA {
@@ -70,9 +72,7 @@ pub struct SYSTEM_EVENT_DATA {
     pub bCursorMode: u8,
     pub dwButtonState: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TABLET_CONTEXT_ID(pub u32);
+pub type TABLET_CONTEXT_ID = u32;
 pub const TABLET_DISABLE_FLICKFALLBACKKEYS: i32 = 1048576;
 pub const TABLET_DISABLE_FLICKS: i32 = 65536;
 pub const TABLET_DISABLE_PENBARRELFEEDBACK: i32 = 16;

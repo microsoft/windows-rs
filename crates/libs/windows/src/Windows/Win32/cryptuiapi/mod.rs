@@ -1,13 +1,13 @@
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[inline]
-pub unsafe fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, ppoutbuffer: *mut *mut core::ffi::c_void, puloutbuffersize: *mut u32) -> windows_core::HRESULT {
-    windows_core::link!("cryptui.dll" "system" fn CertSelectionGetSerializedBlob(pcsi : *const CERT_SELECTUI_INPUT, ppoutbuffer : *mut *mut core::ffi::c_void, puloutbuffersize : *mut u32) -> windows_core::HRESULT);
+pub unsafe fn CertSelectionGetSerializedBlob(pcsi: PCERT_SELECTUI_INPUT, ppoutbuffer: *mut *mut core::ffi::c_void, puloutbuffersize: *mut u32) -> windows_core::HRESULT {
+    windows_core::link!("cryptui.dll" "system" fn CertSelectionGetSerializedBlob(pcsi : PCERT_SELECTUI_INPUT, ppoutbuffer : *mut *mut core::ffi::c_void, puloutbuffersize : *mut u32) -> windows_core::HRESULT);
     unsafe { CertSelectionGetSerializedBlob(pcsi, ppoutbuffer as _, puloutbuffersize as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn CryptUIDlgCertMgr(pcryptuicertmgr: *const CRYPTUI_CERT_MGR_STRUCT) -> windows_core::BOOL {
-    windows_core::link!("cryptui.dll" "system" fn CryptUIDlgCertMgr(pcryptuicertmgr : *const CRYPTUI_CERT_MGR_STRUCT) -> windows_core::BOOL);
+pub unsafe fn CryptUIDlgCertMgr(pcryptuicertmgr: PCCRYPTUI_CERT_MGR_STRUCT) -> windows_core::BOOL {
+    windows_core::link!("cryptui.dll" "system" fn CryptUIDlgCertMgr(pcryptuicertmgr : PCCRYPTUI_CERT_MGR_STRUCT) -> windows_core::BOOL);
     unsafe { CryptUIDlgCertMgr(pcryptuicertmgr) }
 }
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef"))]
@@ -22,14 +22,14 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
 #[inline]
-pub unsafe fn CryptUIDlgViewCertificateA(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTA, pfpropertieschanged: *mut windows_core::BOOL) -> windows_core::BOOL {
-    windows_core::link!("cryptui.dll" "system" fn CryptUIDlgViewCertificateA(pcertviewinfo : *const CRYPTUI_VIEWCERTIFICATE_STRUCTA, pfpropertieschanged : *mut windows_core::BOOL) -> windows_core::BOOL);
+pub unsafe fn CryptUIDlgViewCertificateA(pcertviewinfo: PCCRYPTUI_VIEWCERTIFICATE_STRUCTA, pfpropertieschanged: *mut windows_core::BOOL) -> windows_core::BOOL {
+    windows_core::link!("cryptui.dll" "system" fn CryptUIDlgViewCertificateA(pcertviewinfo : PCCRYPTUI_VIEWCERTIFICATE_STRUCTA, pfpropertieschanged : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { CryptUIDlgViewCertificateA(pcertviewinfo, pfpropertieschanged as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
 #[inline]
-pub unsafe fn CryptUIDlgViewCertificateW(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTW, pfpropertieschanged: *mut windows_core::BOOL) -> windows_core::BOOL {
-    windows_core::link!("cryptui.dll" "system" fn CryptUIDlgViewCertificateW(pcertviewinfo : *const CRYPTUI_VIEWCERTIFICATE_STRUCTW, pfpropertieschanged : *mut windows_core::BOOL) -> windows_core::BOOL);
+pub unsafe fn CryptUIDlgViewCertificateW(pcertviewinfo: PCCRYPTUI_VIEWCERTIFICATE_STRUCTW, pfpropertieschanged: *mut windows_core::BOOL) -> windows_core::BOOL {
+    windows_core::link!("cryptui.dll" "system" fn CryptUIDlgViewCertificateW(pcertviewinfo : PCCRYPTUI_VIEWCERTIFICATE_STRUCTW, pfpropertieschanged : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { CryptUIDlgViewCertificateW(pcertviewinfo, pfpropertieschanged as _) }
 }
 #[cfg(feature = "windef")]
@@ -43,34 +43,34 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef"))]
 #[inline]
-pub unsafe fn CryptUIWizDigitalSign<P2>(dwflags: u32, hwndparent: Option<super::HWND>, pwszwizardtitle: P2, pdigitalsigninfo: *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext: *mut PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> windows_core::BOOL
+pub unsafe fn CryptUIWizDigitalSign<P2>(dwflags: u32, hwndparent: Option<super::HWND>, pwszwizardtitle: P2, pdigitalsigninfo: PCCRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext: *mut PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("cryptui.dll" "system" fn CryptUIWizDigitalSign(dwflags : u32, hwndparent : super::HWND, pwszwizardtitle : windows_core::PCWSTR, pdigitalsigninfo : *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext : *mut PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> windows_core::BOOL);
+    windows_core::link!("cryptui.dll" "system" fn CryptUIWizDigitalSign(dwflags : u32, hwndparent : super::HWND, pwszwizardtitle : windows_core::PCWSTR, pdigitalsigninfo : PCCRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext : *mut PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> windows_core::BOOL);
     unsafe { CryptUIWizDigitalSign(dwflags, hwndparent.unwrap_or(core::mem::zeroed()) as _, pwszwizardtitle.param().abi(), pdigitalsigninfo, ppsigncontext as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef"))]
 #[inline]
-pub unsafe fn CryptUIWizExport<P2>(dwflags: u32, hwndparent: Option<super::HWND>, pwszwizardtitle: P2, pexportinfo: *const CRYPTUI_WIZ_EXPORT_INFO, pvoid: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn CryptUIWizExport<P2>(dwflags: u32, hwndparent: Option<super::HWND>, pwszwizardtitle: P2, pexportinfo: PCCRYPTUI_WIZ_EXPORT_INFO, pvoid: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("cryptui.dll" "system" fn CryptUIWizExport(dwflags : u32, hwndparent : super::HWND, pwszwizardtitle : windows_core::PCWSTR, pexportinfo : *const CRYPTUI_WIZ_EXPORT_INFO, pvoid : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("cryptui.dll" "system" fn CryptUIWizExport(dwflags : u32, hwndparent : super::HWND, pwszwizardtitle : windows_core::PCWSTR, pexportinfo : PCCRYPTUI_WIZ_EXPORT_INFO, pvoid : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { CryptUIWizExport(dwflags, hwndparent.unwrap_or(core::mem::zeroed()) as _, pwszwizardtitle.param().abi(), pexportinfo, pvoid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn CryptUIWizFreeDigitalSignContext(psigncontext: *const CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> windows_core::BOOL {
-    windows_core::link!("cryptui.dll" "system" fn CryptUIWizFreeDigitalSignContext(psigncontext : *const CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> windows_core::BOOL);
+pub unsafe fn CryptUIWizFreeDigitalSignContext(psigncontext: PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> windows_core::BOOL {
+    windows_core::link!("cryptui.dll" "system" fn CryptUIWizFreeDigitalSignContext(psigncontext : PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> windows_core::BOOL);
     unsafe { CryptUIWizFreeDigitalSignContext(psigncontext) }
 }
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef"))]
 #[inline]
-pub unsafe fn CryptUIWizImport<P2>(dwflags: u32, hwndparent: Option<super::HWND>, pwszwizardtitle: P2, pimportsrc: Option<*const CRYPTUI_WIZ_IMPORT_SRC_INFO>, hdestcertstore: Option<super::HCERTSTORE>) -> windows_core::BOOL
+pub unsafe fn CryptUIWizImport<P2>(dwflags: u32, hwndparent: Option<super::HWND>, pwszwizardtitle: P2, pimportsrc: Option<PCCRYPTUI_WIZ_IMPORT_SRC_INFO>, hdestcertstore: Option<super::HCERTSTORE>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("cryptui.dll" "system" fn CryptUIWizImport(dwflags : u32, hwndparent : super::HWND, pwszwizardtitle : windows_core::PCWSTR, pimportsrc : *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore : super::HCERTSTORE) -> windows_core::BOOL);
+    windows_core::link!("cryptui.dll" "system" fn CryptUIWizImport(dwflags : u32, hwndparent : super::HWND, pwszwizardtitle : windows_core::PCWSTR, pimportsrc : PCCRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore : super::HCERTSTORE) -> windows_core::BOOL);
     unsafe { CryptUIWizImport(dwflags, hwndparent.unwrap_or(core::mem::zeroed()) as _, pwszwizardtitle.param().abi(), pimportsrc.unwrap_or(core::mem::zeroed()) as _, hdestcertstore.unwrap_or(core::mem::zeroed()) as _) }
 }
 pub const CERT_CREDENTIAL_PROVIDER_ID: i32 = -509;
@@ -495,4 +495,4 @@ pub type PCRYPTUI_WIZ_EXPORT_INFO = *mut CRYPTUI_WIZ_EXPORT_INFO;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 pub type PCRYPTUI_WIZ_IMPORT_SRC_INFO = *mut CRYPTUI_WIZ_IMPORT_SRC_INFO;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-pub type PFNCFILTERPROC = Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, pfinitialselectedcert: *mut windows_core::BOOL, pvcallbackdata: *mut core::ffi::c_void) -> windows_core::BOOL>;
+pub type PFNCFILTERPROC = Option<unsafe extern "system" fn(pcertcontext: super::PCCERT_CONTEXT, pfinitialselectedcert: *mut windows_core::BOOL, pvcallbackdata: *mut core::ffi::c_void) -> windows_core::BOOL>;

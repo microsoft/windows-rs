@@ -263,5 +263,12 @@ mod Windows {
             fn GetBuffer(&self) -> ID3D12ShaderReflectionConstantBuffer;
             fn GetInterfaceSlot(&self, uArrayIndex: u32) -> u32;
         }
+        type LPD3D12FUNCTIONPARAMETERREFLECTION = ID3D12FunctionParameterReflection;
+        type LPD3D12FUNCTIONREFLECTION = ID3D12FunctionReflection;
+        type LPD3D12LIBRARYREFLECTION = ID3D12LibraryReflection;
+        type LPD3D12SHADERREFLECTION = ID3D12ShaderReflection;
+        type LPD3D12SHADERREFLECTIONCONSTANTBUFFER = ID3D12ShaderReflectionConstantBuffer;
+        type LPD3D12SHADERREFLECTIONTYPE = ID3D12ShaderReflectionType;
+        type LPD3D12SHADERREFLECTIONVARIABLE = ID3D12ShaderReflectionVariable;
     }
 }

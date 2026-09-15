@@ -1,21 +1,25 @@
+#[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn EventActivityIdControl(controlcode: u32, activityid: *mut windows_core::GUID) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn EventActivityIdControl(controlcode : u32, activityid : *mut windows_core::GUID) -> u32);
+pub unsafe fn EventActivityIdControl(controlcode: u32, activityid: super::LPGUID) -> u32 {
+    windows_core::link!("advapi32.dll" "system" fn EventActivityIdControl(controlcode : u32, activityid : super::LPGUID) -> u32);
     unsafe { EventActivityIdControl(controlcode, activityid as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn EventEnabled(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn EventEnabled(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR) -> bool);
+pub unsafe fn EventEnabled(reghandle: REGHANDLE, eventdescriptor: PCEVENT_DESCRIPTOR) -> super::BOOLEAN {
+    windows_core::link!("advapi32.dll" "system" fn EventEnabled(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR) -> super::BOOLEAN);
     unsafe { EventEnabled(reghandle, eventdescriptor) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn EventProviderEnabled(reghandle: REGHANDLE, level: u8, keyword: u64) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : REGHANDLE, level : u8, keyword : u64) -> bool);
+pub unsafe fn EventProviderEnabled(reghandle: REGHANDLE, level: u8, keyword: u64) -> super::BOOLEAN {
+    windows_core::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : REGHANDLE, level : u8, keyword : u64) -> super::BOOLEAN);
     unsafe { EventProviderEnabled(reghandle, level, keyword) }
 }
+#[cfg(all(feature = "evntrace", feature = "guiddef"))]
 #[inline]
-pub unsafe fn EventRegister(providerid: *const windows_core::GUID, enablecallback: PENABLECALLBACK, callbackcontext: Option<*const core::ffi::c_void>, reghandle: *mut u64) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn EventRegister(providerid : *const windows_core::GUID, enablecallback : PENABLECALLBACK, callbackcontext : *const core::ffi::c_void, reghandle : *mut u64) -> u32);
+pub unsafe fn EventRegister(providerid: super::LPCGUID, enablecallback: PENABLECALLBACK, callbackcontext: Option<*const core::ffi::c_void>, reghandle: PREGHANDLE) -> u32 {
+    windows_core::link!("advapi32.dll" "system" fn EventRegister(providerid : super::LPCGUID, enablecallback : PENABLECALLBACK, callbackcontext : *const core::ffi::c_void, reghandle : PREGHANDLE) -> u32);
     unsafe { EventRegister(providerid, enablecallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _, reghandle as _) }
 }
 #[inline]
@@ -29,14 +33,15 @@ pub unsafe fn EventUnregister(reghandle: REGHANDLE) -> u32 {
     unsafe { EventUnregister(reghandle) }
 }
 #[inline]
-pub unsafe fn EventWrite(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn EventWrite(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-    unsafe { EventWrite(reghandle, eventdescriptor, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), userdata.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+pub unsafe fn EventWrite(reghandle: REGHANDLE, eventdescriptor: PCEVENT_DESCRIPTOR, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
+    windows_core::link!("advapi32.dll" "system" fn EventWrite(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, userdatacount : u32, userdata : PEVENT_DATA_DESCRIPTOR) -> u32);
+    unsafe { EventWrite(reghandle, eventdescriptor, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
+#[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn EventWriteEx(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-    unsafe { EventWriteEx(reghandle, eventdescriptor, filter, flags, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), userdata.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+pub unsafe fn EventWriteEx(reghandle: REGHANDLE, eventdescriptor: PCEVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: Option<super::LPCGUID>, relatedactivityid: Option<super::LPCGUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
+    windows_core::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : super::LPCGUID, relatedactivityid : super::LPCGUID, userdatacount : u32, userdata : PEVENT_DATA_DESCRIPTOR) -> u32);
+    unsafe { EventWriteEx(reghandle, eventdescriptor, filter, flags, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
 pub unsafe fn EventWriteString<P3>(reghandle: REGHANDLE, level: u8, keyword: u64, string: P3) -> u32
@@ -46,10 +51,11 @@ where
     windows_core::link!("advapi32.dll" "system" fn EventWriteString(reghandle : REGHANDLE, level : u8, keyword : u64, string : windows_core::PCWSTR) -> u32);
     unsafe { EventWriteString(reghandle, level, keyword, string.param().abi()) }
 }
+#[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn EventWriteTransfer(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-    unsafe { EventWriteTransfer(reghandle, eventdescriptor, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), userdata.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
+pub unsafe fn EventWriteTransfer(reghandle: REGHANDLE, eventdescriptor: PCEVENT_DESCRIPTOR, activityid: Option<super::LPCGUID>, relatedactivityid: Option<super::LPCGUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
+    windows_core::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : REGHANDLE, eventdescriptor : PCEVENT_DESCRIPTOR, activityid : super::LPCGUID, relatedactivityid : super::LPCGUID, userdatacount : u32, userdata : PEVENT_DATA_DESCRIPTOR) -> u32);
+    unsafe { EventWriteTransfer(reghandle, eventdescriptor, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 pub const EVENT_ACTIVITY_CTRL_CREATE_ID: i32 = 3;
 pub const EVENT_ACTIVITY_CTRL_CREATE_SET_ID: i32 = 5;
@@ -110,28 +116,32 @@ pub struct EVENT_FILTER_DESCRIPTOR {
     pub Type: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_FILTER_EVENT_ID {
-    pub FilterIn: bool,
+    pub FilterIn: super::BOOLEAN,
     pub Reserved: u8,
     pub Count: u16,
     pub Events: [u16; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for EVENT_FILTER_EVENT_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_FILTER_EVENT_NAME {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
     pub Level: u8,
-    pub FilterIn: bool,
+    pub FilterIn: super::BOOLEAN,
     pub NameCount: u16,
     pub Names: [u8; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for EVENT_FILTER_EVENT_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -153,12 +163,13 @@ impl Default for EVENT_FILTER_HEADER {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_FILTER_LEVEL_KW {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
     pub Level: u8,
-    pub FilterIn: bool,
+    pub FilterIn: super::BOOLEAN,
 }
 pub const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416;
 pub const EVENT_FILTER_TYPE_EVENT_ID: u32 = 2147484160;
@@ -194,14 +205,16 @@ pub const MAX_EVENT_FILTER_PAYLOAD_SIZE: i32 = 4096;
 pub const MAX_EVENT_FILTER_PID_COUNT: i32 = 8;
 pub const MaxEventInfo: EVENT_INFO_CLASS = 5;
 pub type PCEVENT_DESCRIPTOR = *const EVENT_DESCRIPTOR;
-pub type PENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_core::GUID, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
+#[cfg(all(feature = "evntrace", feature = "guiddef"))]
+pub type PENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: super::LPCGUID, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: super::PEVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
 pub type PEVENT_DATA_DESCRIPTOR = *mut EVENT_DATA_DESCRIPTOR;
 pub type PEVENT_DESCRIPTOR = *mut EVENT_DESCRIPTOR;
+#[cfg(feature = "winnt")]
 pub type PEVENT_FILTER_EVENT_ID = *mut EVENT_FILTER_EVENT_ID;
+#[cfg(feature = "winnt")]
 pub type PEVENT_FILTER_EVENT_NAME = *mut EVENT_FILTER_EVENT_NAME;
 pub type PEVENT_FILTER_HEADER = *mut EVENT_FILTER_HEADER;
+#[cfg(feature = "winnt")]
 pub type PEVENT_FILTER_LEVEL_KW = *mut EVENT_FILTER_LEVEL_KW;
 pub type PREGHANDLE = *mut u64;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct REGHANDLE(pub u64);
+pub type REGHANDLE = u64;

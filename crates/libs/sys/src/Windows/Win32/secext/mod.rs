@@ -1,9 +1,15 @@
-windows_link::link!("secur32.dll" "system" fn GetComputerObjectNameA(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_sys::core::PSTR, nsize : *mut u32) -> bool);
-windows_link::link!("secur32.dll" "system" fn GetComputerObjectNameW(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_sys::core::PWSTR, nsize : *mut u32) -> bool);
-windows_link::link!("secur32.dll" "system" fn GetUserNameExA(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_sys::core::PSTR, nsize : *mut u32) -> bool);
-windows_link::link!("secur32.dll" "system" fn GetUserNameExW(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_sys::core::PWSTR, nsize : *mut u32) -> bool);
-windows_link::link!("secur32.dll" "system" fn TranslateNameA(lpaccountname : windows_sys::core::PCSTR, accountnameformat : EXTENDED_NAME_FORMAT, desirednameformat : EXTENDED_NAME_FORMAT, lptranslatedname : windows_sys::core::PSTR, nsize : *mut u32) -> bool);
-windows_link::link!("secur32.dll" "system" fn TranslateNameW(lpaccountname : windows_sys::core::PCWSTR, accountnameformat : EXTENDED_NAME_FORMAT, desirednameformat : EXTENDED_NAME_FORMAT, lptranslatedname : windows_sys::core::PWSTR, nsize : *mut u32) -> bool);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("secur32.dll" "system" fn GetComputerObjectNameA(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_sys::core::PSTR, nsize : super::PULONG) -> super::BOOLEAN);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("secur32.dll" "system" fn GetComputerObjectNameW(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_sys::core::PWSTR, nsize : super::PULONG) -> super::BOOLEAN);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("secur32.dll" "system" fn GetUserNameExA(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_sys::core::PSTR, nsize : super::PULONG) -> super::BOOLEAN);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("secur32.dll" "system" fn GetUserNameExW(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_sys::core::PWSTR, nsize : super::PULONG) -> super::BOOLEAN);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("secur32.dll" "system" fn TranslateNameA(lpaccountname : windows_sys::core::PCSTR, accountnameformat : EXTENDED_NAME_FORMAT, desirednameformat : EXTENDED_NAME_FORMAT, lptranslatedname : windows_sys::core::PSTR, nsize : super::PULONG) -> super::BOOLEAN);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("secur32.dll" "system" fn TranslateNameW(lpaccountname : windows_sys::core::PCWSTR, accountnameformat : EXTENDED_NAME_FORMAT, desirednameformat : EXTENDED_NAME_FORMAT, lptranslatedname : windows_sys::core::PWSTR, nsize : super::PULONG) -> super::BOOLEAN);
 pub type EXTENDED_NAME_FORMAT = i32;
 pub const NameCanonical: EXTENDED_NAME_FORMAT = 7;
 pub const NameCanonicalEx: EXTENDED_NAME_FORMAT = 9;

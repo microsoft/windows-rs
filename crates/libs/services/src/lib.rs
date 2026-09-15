@@ -197,17 +197,17 @@ impl<'a> Service<'a> {
         } as u32;
 
         // Makes a copy to avoid holding a lock while calling `SetServiceStatus`.
-        let status: SERVICE_STATUS = *writer;
+        let mut status: SERVICE_STATUS = *writer;
         drop(writer);
 
         unsafe {
-            SetServiceStatus(self.handle(), &status);
+            SetServiceStatus(*self.handle.read().unwrap(), &mut status);
         }
     }
 
     /// The raw handle representing the service.
     pub fn handle(&self) -> *mut c_void {
-        *self.handle.read().unwrap()
+        self.handle.read().unwrap().cast()
     }
 
     /// Returns the current state of the service.

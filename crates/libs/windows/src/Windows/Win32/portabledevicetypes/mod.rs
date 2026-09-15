@@ -1,3 +1,51 @@
+#[cfg(feature = "oaidl")]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserFree(param0: *mut u32, param1: *mut super::LPSAFEARRAY) {
+    windows_core::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserFree(param0 : *mut u32, param1 : *mut super::LPSAFEARRAY));
+    unsafe { LPSAFEARRAY_UserFree(param0 as _, param1 as _) }
+}
+#[cfg(feature = "oaidl")]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserFree64(param0: *mut u32, param1: *mut super::LPSAFEARRAY) {
+    windows_core::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserFree64(param0 : *mut u32, param1 : *mut super::LPSAFEARRAY));
+    unsafe { LPSAFEARRAY_UserFree64(param0 as _, param1 as _) }
+}
+#[cfg(feature = "oaidl")]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::LPSAFEARRAY) -> *mut u8 {
+    windows_core::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::LPSAFEARRAY) -> *mut u8);
+    unsafe { LPSAFEARRAY_UserMarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "oaidl")]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::LPSAFEARRAY) -> *mut u8 {
+    windows_core::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::LPSAFEARRAY) -> *mut u8);
+    unsafe { LPSAFEARRAY_UserMarshal64(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "oaidl")]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserSize(param0: *mut u32, param1: u32, param2: *mut super::LPSAFEARRAY) -> u32 {
+    windows_core::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::LPSAFEARRAY) -> u32);
+    unsafe { LPSAFEARRAY_UserSize(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "oaidl")]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserSize64(param0: *mut u32, param1: u32, param2: *mut super::LPSAFEARRAY) -> u32 {
+    windows_core::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::LPSAFEARRAY) -> u32);
+    unsafe { LPSAFEARRAY_UserSize64(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "oaidl")]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::LPSAFEARRAY) -> *mut u8 {
+    windows_core::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::LPSAFEARRAY) -> *mut u8);
+    unsafe { LPSAFEARRAY_UserUnmarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "oaidl")]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::LPSAFEARRAY) -> *mut u8 {
+    windows_core::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::LPSAFEARRAY) -> *mut u8);
+    unsafe { LPSAFEARRAY_UserUnmarshal64(param0 as _, param1 as _, param2 as _) }
+}
 windows_core::imp::define_interface!(IPortableDeviceKeyCollection, IPortableDeviceKeyCollection_Vtbl, 0xdada2357_e0ad_492e_98db_dd61c53ba353);
 windows_core::imp::interface_hierarchy!(IPortableDeviceKeyCollection, windows_core::IUnknown);
 impl IPortableDeviceKeyCollection {
@@ -97,11 +145,11 @@ impl IPortableDevicePropVariantCollection {
     pub unsafe fn GetCount(&self, pcelems: *const u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pcelems) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAt(&self, dwindex: u32, pvalue: *const super::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), dwindex, pvalue) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Add(&self, pvalue: *const super::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), pvalue) }
     }
@@ -128,13 +176,13 @@ impl IPortableDevicePropVariantCollection {
 pub struct IPortableDevicePropVariantCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetAt: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Add: usize,
     #[cfg(feature = "wtypes")]
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARTYPE) -> windows_core::HRESULT,
@@ -147,7 +195,7 @@ pub struct IPortableDevicePropVariantCollection_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPortableDevicePropVariantCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self, pcelems: *const u32) -> windows_core::Result<()>;
     fn GetAt(&self, dwindex: u32, pvalue: *const super::PROPVARIANT) -> windows_core::Result<()>;
@@ -157,7 +205,7 @@ pub trait IPortableDevicePropVariantCollection_Impl: windows_core::IUnknownImpl 
     fn Clear(&self) -> windows_core::Result<()>;
     fn RemoveAt(&self, dwindex: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPortableDevicePropVariantCollection_Vtbl {
     pub const fn new<Identity: IPortableDevicePropVariantCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IPortableDevicePropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelems: *const u32) -> windows_core::HRESULT {
@@ -223,7 +271,7 @@ impl IPortableDevicePropVariantCollection_Vtbl {
         iid == &<IPortableDevicePropVariantCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPortableDevicePropVariantCollection {}
 windows_core::imp::define_interface!(IPortableDeviceValues, IPortableDeviceValues_Vtbl, 0x6848f6f2_3155_4f86_b6f5_263eeeab3143);
 windows_core::imp::interface_hierarchy!(IPortableDeviceValues, windows_core::IUnknown);
@@ -231,15 +279,15 @@ impl IPortableDeviceValues {
     pub unsafe fn GetCount(&self, pcelt: *const u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pcelt) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAt(&self, index: u32, pkey: *mut super::PROPERTYKEY, pvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, pkey as _, pvalue) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, key: *const super::PROPERTYKEY, pvalue: *const super::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), key, pvalue) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<super::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -304,12 +352,12 @@ impl IPortableDeviceValues {
             (windows_core::Interface::vtable(self).GetSignedLargeIntegerValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn SetFloatValue(&self, key: *const super::PROPERTYKEY, value: f32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "wtypes"))]
+    pub unsafe fn SetFloatValue(&self, key: *const super::PROPERTYKEY, value: super::FLOAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFloatValue)(windows_core::Interface::as_raw(self), key, value) }
     }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn GetFloatValue(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<f32> {
+    #[cfg(all(feature = "minwindef", feature = "wtypes"))]
+    pub unsafe fn GetFloatValue(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<super::FLOAT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFloatValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
@@ -461,17 +509,17 @@ impl IPortableDeviceValues {
 pub struct IPortableDeviceValues_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::PROPERTYKEY, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetAt: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *const super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetValue: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
     #[cfg(feature = "wtypes")]
     pub SetStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -513,13 +561,13 @@ pub struct IPortableDeviceValues_Vtbl {
     pub GetSignedLargeIntegerValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *mut i64) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     GetSignedLargeIntegerValue: usize,
-    #[cfg(feature = "wtypes")]
-    pub SetFloatValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, f32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypes"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes"))]
+    pub SetFloatValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes")))]
     SetFloatValue: usize,
-    #[cfg(feature = "wtypes")]
-    pub GetFloatValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *mut f32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypes"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes"))]
+    pub GetFloatValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *mut super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes")))]
     GetFloatValue: usize,
     #[cfg(feature = "wtypes")]
     pub SetErrorValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -615,7 +663,7 @@ pub struct IPortableDeviceValues_Vtbl {
     CopyValuesToPropertyStore: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPortableDeviceValues_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self, pcelt: *const u32) -> windows_core::Result<()>;
     fn GetAt(&self, index: u32, pkey: *mut super::PROPERTYKEY, pvalue: *mut super::PROPVARIANT) -> windows_core::Result<()>;
@@ -631,8 +679,8 @@ pub trait IPortableDeviceValues_Impl: windows_core::IUnknownImpl {
     fn GetUnsignedLargeIntegerValue(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<u64>;
     fn SetSignedLargeIntegerValue(&self, key: *const super::PROPERTYKEY, value: i64) -> windows_core::Result<()>;
     fn GetSignedLargeIntegerValue(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<i64>;
-    fn SetFloatValue(&self, key: *const super::PROPERTYKEY, value: f32) -> windows_core::Result<()>;
-    fn GetFloatValue(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<f32>;
+    fn SetFloatValue(&self, key: *const super::PROPERTYKEY, value: super::FLOAT) -> windows_core::Result<()>;
+    fn GetFloatValue(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<super::FLOAT>;
     fn SetErrorValue(&self, key: *const super::PROPERTYKEY, value: windows_core::HRESULT) -> windows_core::Result<()>;
     fn GetErrorValue(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<windows_core::HRESULT>;
     fn SetKeyValue(&self, key: *const super::PROPERTYKEY, value: *const super::PROPERTYKEY) -> windows_core::Result<()>;
@@ -658,7 +706,7 @@ pub trait IPortableDeviceValues_Impl: windows_core::IUnknownImpl {
     fn CopyValuesToPropertyStore(&self, pstore: windows_core::Ref<super::IPropertyStore>) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPortableDeviceValues_Vtbl {
     pub const fn new<Identity: IPortableDeviceValues_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *const u32) -> windows_core::HRESULT {
@@ -781,13 +829,13 @@ impl IPortableDeviceValues_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetFloatValue<Identity: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::PROPERTYKEY, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFloatValue<Identity: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::PROPERTYKEY, value: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPortableDeviceValues_Impl::SetFloatValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn GetFloatValue<Identity: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::PROPERTYKEY, pvalue: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFloatValue<Identity: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::PROPERTYKEY, pvalue: *mut super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetFloatValue(this, core::mem::transmute_copy(&key)) {
@@ -1039,7 +1087,7 @@ impl IPortableDeviceValues_Vtbl {
         iid == &<IPortableDeviceValues as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "propsys", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPortableDeviceValues {}
 windows_core::imp::define_interface!(IPortableDeviceValuesCollection, IPortableDeviceValuesCollection_Vtbl, 0x6e3f2d79_4e07_48c4_8208_d8c2e5af4a99);
 windows_core::imp::interface_hierarchy!(IPortableDeviceValuesCollection, windows_core::IUnknown);

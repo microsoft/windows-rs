@@ -2,17 +2,17 @@
 mod Windows {
     mod Win32 {
         #[library("ole32.dll")]
-        extern fn CreateOleAdviseHolder(ppOAHolder: *mut IOleAdviseHolder) -> HRESULT;
-        const DATA_E_FORMATETC: i32 = -2147221404;
+        extern fn CreateOleAdviseHolder(ppOAHolder: *mut LPOLEADVISEHOLDER) -> HRESULT;
+        const DATA_E_FORMATETC: HRESULT = -2147221404;
         #[library("ole32.dll")]
-        extern fn DoDragDrop(pDataObj: IDataObject, pDropSource: IDropSource, dwOKEffects: u32, pdwEffect: *mut u32) -> HRESULT;
+        extern fn DoDragDrop(pDataObj: LPDATAOBJECT, pDropSource: LPDROPSOURCE, dwOKEffects: u32, #[out] pdwEffect: LPDWORD) -> HRESULT;
         const EMBDHLP_CREATENOW: i32 = 0;
         const EMBDHLP_DELAYCREATE: i32 = 65536;
         const EMBDHLP_INPROC_HANDLER: i32 = 0;
         const EMBDHLP_INPROC_SERVER: i32 = 1;
-        const E_DRAW: i32 = -2147221184;
+        const E_DRAW: HRESULT = -2147221184;
         #[library("ole32.dll")]
-        extern fn IsAccelerator(hAccel: HACCEL, cAccelEntries: i32, lpMsg: *const MSG, lpwCmd: *mut u16) -> BOOL;
+        extern fn IsAccelerator(hAccel: HACCEL, cAccelEntries: i32, lpMsg: LPMSG, lpwCmd: *mut u16) -> BOOL;
         type LPOLESTREAM = *mut OLESTREAM;
         type LPOLESTREAMVTBL = *mut OLESTREAMVTBL;
         const OLECREATE_LEAVERUNNING: i32 = 1;
@@ -26,7 +26,7 @@ mod Windows {
         struct OLESTREAM {
             lpstbl: LPOLESTREAMVTBL,
         }
-        extern fn OLESTREAMQUERYCONVERTOLELINKCALLBACK(pClsid: *const GUID, szClass: PCWSTR, #[opt] szTopicName: PCWSTR, #[opt] szItemName: PCWSTR, #[opt] szUNCName: PCWSTR, #[opt] linkUpdatingOption: u32, #[opt] pvContext: *const void) -> HRESULT;
+        extern fn OLESTREAMQUERYCONVERTOLELINKCALLBACK(pClsid: LPCLSID, szClass: LPOLESTR, #[opt] szTopicName: LPOLESTR, #[opt] szItemName: LPOLESTR, #[opt] szUNCName: LPOLESTR, #[opt] linkUpdatingOption: u32, #[in] #[opt] pvContext: *mut void) -> HRESULT;
         struct OLESTREAMVTBL {
             Get: *mut u8,
             Put: *mut u8,
@@ -36,126 +36,126 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn OleBuildVersion() -> u32;
         #[library("ole32.dll")]
-        extern fn OleConvertIStorageToOLESTREAM(pstg: IStorage, lpolestream: *mut OLESTREAM) -> HRESULT;
+        extern fn OleConvertIStorageToOLESTREAM(pstg: LPSTORAGE, #[out] lpolestream: LPOLESTREAM) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleConvertIStorageToOLESTREAMEx(pstg: IStorage, cfFormat: CLIPFORMAT, lWidth: i32, lHeight: i32, dwSize: u32, pmedium: *const STGMEDIUM, polestm: *mut OLESTREAM) -> HRESULT;
+        extern fn OleConvertIStorageToOLESTREAMEx(pstg: LPSTORAGE, cfFormat: CLIPFORMAT, lWidth: i32, lHeight: i32, dwSize: u32, pmedium: LPSTGMEDIUM, #[out] polestm: LPOLESTREAM) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleConvertOLESTREAMToIStorage(lpolestream: *const OLESTREAM, pstg: IStorage, ptd: *const DVTARGETDEVICE) -> HRESULT;
+        extern fn OleConvertOLESTREAMToIStorage(lpolestream: LPOLESTREAM, #[out] pstg: LPSTORAGE, ptd: *const DVTARGETDEVICE) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleConvertOLESTREAMToIStorage2(lpolestream: *const OLESTREAM, pstg: IStorage, #[opt] ptd: *const DVTARGETDEVICE, #[opt] opt: u32, #[opt] pvCallbackContext: *const void, #[opt] pQueryConvertOLELinkCallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> HRESULT;
+        extern fn OleConvertOLESTREAMToIStorage2(lpolestream: LPOLESTREAM, #[out] pstg: LPSTORAGE, #[opt] ptd: *const DVTARGETDEVICE, #[opt] opt: u32, #[in] #[opt] pvCallbackContext: *mut void, #[opt] pQueryConvertOLELinkCallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleConvertOLESTREAMToIStorageEx(polestm: *const OLESTREAM, pstg: IStorage, pcfFormat: *mut CLIPFORMAT, plwWidth: *mut i32, plHeight: *mut i32, pdwSize: *mut u32, pmedium: *mut STGMEDIUM) -> HRESULT;
+        extern fn OleConvertOLESTREAMToIStorageEx(polestm: LPOLESTREAM, #[out] pstg: LPSTORAGE, pcfFormat: *mut CLIPFORMAT, plwWidth: *mut i32, plHeight: *mut i32, pdwSize: *mut u32, #[out] pmedium: LPSTGMEDIUM) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleConvertOLESTREAMToIStorageEx2(polestm: *const OLESTREAM, pstg: IStorage, pcfFormat: *mut CLIPFORMAT, plwWidth: *mut i32, plHeight: *mut i32, pdwSize: *mut u32, pmedium: *mut STGMEDIUM, #[opt] opt: u32, #[opt] pvCallbackContext: *const void, #[opt] pQueryConvertOLELinkCallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> HRESULT;
+        extern fn OleConvertOLESTREAMToIStorageEx2(polestm: LPOLESTREAM, #[out] pstg: LPSTORAGE, pcfFormat: *mut CLIPFORMAT, plwWidth: *mut i32, plHeight: *mut i32, pdwSize: *mut u32, #[out] pmedium: LPSTGMEDIUM, #[opt] opt: u32, #[in] #[opt] pvCallbackContext: *mut void, #[opt] pQueryConvertOLELinkCallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreate(rclsid: *const GUID, riid: *const GUID, renderopt: u32, pFormatEtc: *const FORMATETC, pClientSite: IOleClientSite, pStg: IStorage, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreate(rclsid: *const GUID, riid: *const GUID, renderopt: u32, pFormatEtc: LPFORMATETC, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreateDefaultHandler(clsid: *const GUID, pUnkOuter: IUnknown, riid: *const GUID, #[iid_is] lplpObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateDefaultHandler(clsid: *const GUID, pUnkOuter: IUnknown, riid: *const GUID, lplpObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreateEmbeddingHelper(clsid: *const GUID, pUnkOuter: IUnknown, flags: u32, pCF: IClassFactory, riid: *const GUID, #[iid_is] lplpObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateEmbeddingHelper(clsid: *const GUID, pUnkOuter: IUnknown, flags: u32, pCF: LPCLASSFACTORY, riid: *const GUID, lplpObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreateEx(rclsid: *const GUID, riid: *const GUID, dwFlags: u32, renderopt: u32, cFormats: u32, rgAdvf: *const u32, rgFormatEtc: *const FORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut u32, pClientSite: IOleClientSite, pStg: IStorage, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateEx(rclsid: *const GUID, riid: *const GUID, dwFlags: u32, renderopt: u32, cFormats: u32, #[in] rgAdvf: *mut u32, rgFormatEtc: LPFORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut u32, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreateFromData(pSrcDataObj: IDataObject, riid: *const GUID, renderopt: u32, pFormatEtc: *const FORMATETC, pClientSite: IOleClientSite, pStg: IStorage, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateFromData(pSrcDataObj: LPDATAOBJECT, riid: *const GUID, renderopt: u32, pFormatEtc: LPFORMATETC, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreateFromDataEx(pSrcDataObj: IDataObject, riid: *const GUID, dwFlags: u32, renderopt: u32, cFormats: u32, rgAdvf: *const u32, rgFormatEtc: *const FORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut u32, pClientSite: IOleClientSite, pStg: IStorage, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateFromDataEx(pSrcDataObj: LPDATAOBJECT, riid: *const GUID, dwFlags: u32, renderopt: u32, cFormats: u32, #[in] rgAdvf: *mut u32, rgFormatEtc: LPFORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut u32, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreateFromFile(rclsid: *const GUID, lpszFileName: PCWSTR, riid: *const GUID, renderopt: u32, lpFormatEtc: *const FORMATETC, pClientSite: IOleClientSite, pStg: IStorage, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateFromFile(rclsid: *const GUID, lpszFileName: LPCOLESTR, riid: *const GUID, renderopt: u32, lpFormatEtc: LPFORMATETC, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreateFromFileEx(rclsid: *const GUID, lpszFileName: PCWSTR, riid: *const GUID, dwFlags: u32, renderopt: u32, cFormats: u32, rgAdvf: *const u32, rgFormatEtc: *const FORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut u32, pClientSite: IOleClientSite, pStg: IStorage, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateFromFileEx(rclsid: *const GUID, lpszFileName: LPCOLESTR, riid: *const GUID, dwFlags: u32, renderopt: u32, cFormats: u32, #[in] rgAdvf: *mut u32, rgFormatEtc: LPFORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut u32, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreateLink(pmkLinkSrc: IMoniker, riid: *const GUID, renderopt: u32, lpFormatEtc: *const FORMATETC, pClientSite: IOleClientSite, pStg: IStorage, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateLink(pmkLinkSrc: LPMONIKER, riid: *const GUID, renderopt: u32, lpFormatEtc: LPFORMATETC, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreateLinkEx(pmkLinkSrc: IMoniker, riid: *const GUID, dwFlags: u32, renderopt: u32, cFormats: u32, rgAdvf: *const u32, rgFormatEtc: *const FORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut u32, pClientSite: IOleClientSite, pStg: IStorage, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateLinkEx(pmkLinkSrc: LPMONIKER, riid: *const GUID, dwFlags: u32, renderopt: u32, cFormats: u32, #[in] rgAdvf: *mut u32, rgFormatEtc: LPFORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut u32, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreateLinkFromData(pSrcDataObj: IDataObject, riid: *const GUID, renderopt: u32, pFormatEtc: *const FORMATETC, pClientSite: IOleClientSite, pStg: IStorage, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateLinkFromData(pSrcDataObj: LPDATAOBJECT, riid: *const GUID, renderopt: u32, pFormatEtc: LPFORMATETC, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreateLinkFromDataEx(pSrcDataObj: IDataObject, riid: *const GUID, dwFlags: u32, renderopt: u32, cFormats: u32, rgAdvf: *const u32, rgFormatEtc: *const FORMATETC, lpAdviseSink: IAdviseSink, #[in] #[out] rgdwConnection: *mut u32, pClientSite: IOleClientSite, pStg: IStorage, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateLinkFromDataEx(pSrcDataObj: LPDATAOBJECT, riid: *const GUID, dwFlags: u32, renderopt: u32, cFormats: u32, #[in] rgAdvf: *mut u32, rgFormatEtc: LPFORMATETC, lpAdviseSink: IAdviseSink, #[in] #[out] rgdwConnection: *mut u32, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreateLinkToFile(lpszFileName: PCWSTR, riid: *const GUID, renderopt: u32, lpFormatEtc: *const FORMATETC, pClientSite: IOleClientSite, pStg: IStorage, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateLinkToFile(lpszFileName: LPCOLESTR, riid: *const GUID, renderopt: u32, lpFormatEtc: LPFORMATETC, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreateLinkToFileEx(lpszFileName: PCWSTR, riid: *const GUID, dwFlags: u32, renderopt: u32, cFormats: u32, rgAdvf: *const u32, rgFormatEtc: *const FORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut u32, pClientSite: IOleClientSite, pStg: IStorage, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateLinkToFileEx(lpszFileName: LPCOLESTR, riid: *const GUID, dwFlags: u32, renderopt: u32, cFormats: u32, #[in] rgAdvf: *mut u32, rgFormatEtc: LPFORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut u32, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleCreateMenuDescriptor(hmenuCombined: HMENU, lpMenuWidths: *const OLEMENUGROUPWIDTHS) -> HOLEMENU;
+        extern fn OleCreateMenuDescriptor(hmenuCombined: HMENU, lpMenuWidths: LPOLEMENUGROUPWIDTHS) -> HOLEMENU;
         #[library("ole32.dll")]
-        extern fn OleCreateStaticFromData(pSrcDataObj: IDataObject, iid: *const GUID, renderopt: u32, pFormatEtc: *const FORMATETC, pClientSite: IOleClientSite, pStg: IStorage, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateStaticFromData(pSrcDataObj: LPDATAOBJECT, iid: *const GUID, renderopt: u32, pFormatEtc: LPFORMATETC, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleDestroyMenuDescriptor(holemenu: HOLEMENU) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleDoAutoConvert(pStg: IStorage, pClsidNew: *mut GUID) -> HRESULT;
+        extern fn OleDoAutoConvert(pStg: LPSTORAGE, #[out] pClsidNew: LPCLSID) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleDraw(pUnknown: IUnknown, dwAspect: u32, hdcDraw: HDC, lprcBounds: *const RECT) -> HRESULT;
+        extern fn OleDraw(pUnknown: IUnknown, dwAspect: u32, hdcDraw: HDC, lprcBounds: LPCRECT) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleDuplicateData(hSrc: HANDLE, cfFormat: CLIPFORMAT, uiFlags: u32) -> HANDLE;
         #[library("ole32.dll")]
         extern fn OleFlushClipboard() -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleGetAutoConvert(clsidOld: *const GUID, pClsidNew: *mut GUID) -> HRESULT;
+        extern fn OleGetAutoConvert(clsidOld: *const GUID, #[out] pClsidNew: LPCLSID) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleGetClipboard(ppDataObj: *mut IDataObject) -> HRESULT;
+        extern fn OleGetClipboard(ppDataObj: *mut LPDATAOBJECT) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleGetClipboardWithEnterpriseInfo(dataObject: *mut IDataObject, dataEnterpriseId: *mut PWSTR, sourceDescription: *mut PWSTR, targetDescription: *mut PWSTR, dataDescription: *mut PWSTR) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleGetIconOfClass(rclsid: *const GUID, #[opt] lpszLabel: PCWSTR, fUseTypeAsLabel: BOOL) -> HGLOBAL;
+        extern fn OleGetIconOfClass(rclsid: *const GUID, #[opt] lpszLabel: LPOLESTR, fUseTypeAsLabel: BOOL) -> HGLOBAL;
         #[library("ole32.dll")]
-        extern fn OleGetIconOfFile(lpszPath: PCWSTR, fUseFileAsLabel: BOOL) -> HGLOBAL;
+        extern fn OleGetIconOfFile(lpszPath: LPOLESTR, fUseFileAsLabel: BOOL) -> HGLOBAL;
         #[library("ole32.dll")]
-        extern fn OleInitialize(pvReserved: *const void) -> HRESULT;
+        extern fn OleInitialize(#[in] pvReserved: *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleIsCurrentClipboard(pDataObj: IDataObject) -> HRESULT;
+        extern fn OleIsCurrentClipboard(pDataObj: LPDATAOBJECT) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleIsRunning(pObject: IOleObject) -> BOOL;
+        extern fn OleIsRunning(pObject: LPOLEOBJECT) -> BOOL;
         #[library("ole32.dll")]
-        extern fn OleLoad(pStg: IStorage, riid: *const GUID, pClientSite: IOleClientSite, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleLoad(pStg: LPSTORAGE, riid: *const GUID, pClientSite: LPOLECLIENTSITE, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleLoadFromStream(pStm: IStream, iidInterface: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn OleLoadFromStream(pStm: LPSTREAM, iidInterface: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleLockRunning(pUnknown: IUnknown, fLock: BOOL, fLastUnlockCloses: BOOL) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleMetafilePictFromIconAndLabel(hIcon: HICON, lpszLabel: PCWSTR, lpszSourceFile: PCWSTR, iIconIndex: u32) -> HGLOBAL;
+        extern fn OleMetafilePictFromIconAndLabel(hIcon: HICON, lpszLabel: LPOLESTR, lpszSourceFile: LPOLESTR, iIconIndex: u32) -> HGLOBAL;
         #[library("ole32.dll")]
         extern fn OleNoteObjectVisible(pUnknown: IUnknown, fVisible: BOOL) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleQueryCreateFromData(pSrcDataObject: IDataObject) -> HRESULT;
+        extern fn OleQueryCreateFromData(pSrcDataObject: LPDATAOBJECT) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleQueryLinkFromData(pSrcDataObject: IDataObject) -> HRESULT;
+        extern fn OleQueryLinkFromData(pSrcDataObject: LPDATAOBJECT) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleRegEnumFormatEtc(clsid: *const GUID, dwDirection: u32, ppenum: *mut IEnumFORMATETC) -> HRESULT;
+        extern fn OleRegEnumFormatEtc(clsid: *const GUID, dwDirection: u32, ppenum: *mut LPENUMFORMATETC) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleRegEnumVerbs(clsid: *const GUID, ppenum: *mut IEnumOLEVERB) -> HRESULT;
+        extern fn OleRegEnumVerbs(clsid: *const GUID, ppenum: *mut LPENUMOLEVERB) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleRegGetMiscStatus(clsid: *const GUID, dwAspect: u32, pdwStatus: *mut u32) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleRegGetUserType(clsid: *const GUID, dwFormOfType: u32, pszUserType: *mut PWSTR) -> HRESULT;
+        extern fn OleRegGetUserType(clsid: *const GUID, dwFormOfType: u32, pszUserType: *mut LPOLESTR) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleRun(pUnknown: IUnknown) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleSave(pPS: IPersistStorage, pStg: IStorage, fSameAsLoad: BOOL) -> HRESULT;
+        extern fn OleSave(pPS: LPPERSISTSTORAGE, pStg: LPSTORAGE, fSameAsLoad: BOOL) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleSaveToStream(pPStm: IPersistStream, pStm: IStream) -> HRESULT;
+        extern fn OleSaveToStream(pPStm: LPPERSISTSTREAM, pStm: LPSTREAM) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleSetAutoConvert(clsidOld: *const GUID, clsidNew: *const GUID) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleSetClipboard(pDataObj: IDataObject) -> HRESULT;
+        extern fn OleSetClipboard(pDataObj: LPDATAOBJECT) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleSetContainedObject(pUnknown: IUnknown, fContained: BOOL) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleSetMenuDescriptor(holemenu: HOLEMENU, hwndFrame: HWND, hwndActiveObject: HWND, lpFrame: IOleInPlaceFrame, lpActiveObj: IOleInPlaceActiveObject) -> HRESULT;
+        extern fn OleSetMenuDescriptor(holemenu: HOLEMENU, hwndFrame: HWND, hwndActiveObject: HWND, lpFrame: LPOLEINPLACEFRAME, lpActiveObj: LPOLEINPLACEACTIVEOBJECT) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn OleTranslateAccelerator(lpFrame: IOleInPlaceFrame, lpFrameInfo: *const OLEINPLACEFRAMEINFO, lpmsg: *const MSG) -> HRESULT;
+        extern fn OleTranslateAccelerator(lpFrame: LPOLEINPLACEFRAME, lpFrameInfo: LPOLEINPLACEFRAMEINFO, lpmsg: LPMSG) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleUninitialize();
         #[library("ole32.dll")]
-        extern fn ReadFmtUserTypeStg(pstg: IStorage, pcf: *mut CLIPFORMAT, lplpszUserType: *mut PWSTR) -> HRESULT;
+        extern fn ReadFmtUserTypeStg(pstg: LPSTORAGE, pcf: *mut CLIPFORMAT, lplpszUserType: *mut LPOLESTR) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn RegisterDragDrop(hwnd: HWND, pDropTarget: IDropTarget) -> HRESULT;
+        extern fn RegisterDragDrop(hwnd: HWND, pDropTarget: LPDROPTARGET) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn ReleaseStgMedium(param0: *const STGMEDIUM);
+        extern fn ReleaseStgMedium(param0: LPSTGMEDIUM);
         #[library("ole32.dll")]
         extern fn RevokeDragDrop(hwnd: HWND) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn SetConvertStg(pStg: IStorage, fConvert: BOOL) -> HRESULT;
+        extern fn SetConvertStg(pStg: LPSTORAGE, fConvert: BOOL) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn WriteFmtUserTypeStg(pstg: IStorage, cf: CLIPFORMAT, lpszUserType: PCWSTR) -> HRESULT;
+        extern fn WriteFmtUserTypeStg(pstg: LPSTORAGE, cf: CLIPFORMAT, lpszUserType: LPOLESTR) -> HRESULT;
     }
 }

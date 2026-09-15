@@ -60,7 +60,7 @@ mod Windows {
         const HandwrittenTextInsertion: GUID = 0x9f074ee2_e6e9_4d8a_a047_eb5b5c3c55da;
         #[guid(0x56fdea97_ecd6_43e7_aa3a_816be7785860)]
         interface IHandwrittenTextInsertion: IUnknown {
-            fn InsertRecognitionResultsArray(&self, psaAlternates: *const SAFEARRAY, locale: LCID, fAlternateContainsAutoSpacingInformation: BOOL) -> HRESULT;
+            fn InsertRecognitionResultsArray(&self, #[in] psaAlternates: *mut SAFEARRAY, locale: LCID, fAlternateContainsAutoSpacingInformation: BOOL) -> HRESULT;
             fn InsertInkRecognitionResult(&self, pIInkRecoResult: IInkRecognitionResult, locale: LCID, fAlternateContainsAutoSpacingInformation: BOOL) -> HRESULT;
         }
         #[guid(0x4af81847_fdc4_4fc3_ad0b_422479c1b935)]
@@ -182,8 +182,8 @@ mod Windows {
             fn CorrectionModeChanged(&self, oldCorrectionMode: CorrectionMode, newCorrectionMode: CorrectionMode) -> HRESULT;
             fn InPlaceVisibilityChanging(&self, oldVisible: BOOL, newVisible: BOOL) -> HRESULT;
             fn InPlaceVisibilityChanged(&self, oldVisible: BOOL, newVisible: BOOL) -> HRESULT;
-            fn TextInserting(&self, Ink: *const SAFEARRAY) -> HRESULT;
-            fn TextInserted(&self, Ink: *const SAFEARRAY) -> HRESULT;
+            fn TextInserting(&self, #[in] Ink: *mut SAFEARRAY) -> HRESULT;
+            fn TextInserted(&self, #[in] Ink: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x9f424568_1920_48cc_9811_a993cbf5adba)]
         interface ITextInputPanelRunInfo: IUnknown {

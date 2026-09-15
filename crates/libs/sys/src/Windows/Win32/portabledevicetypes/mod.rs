@@ -1,3 +1,19 @@
+#[cfg(feature = "oaidl")]
+windows_link::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserFree(param0 : *mut u32, param1 : *mut super::LPSAFEARRAY));
+#[cfg(feature = "oaidl")]
+windows_link::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserFree64(param0 : *mut u32, param1 : *mut super::LPSAFEARRAY));
+#[cfg(feature = "oaidl")]
+windows_link::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::LPSAFEARRAY) -> *mut u8);
+#[cfg(feature = "oaidl")]
+windows_link::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::LPSAFEARRAY) -> *mut u8);
+#[cfg(feature = "oaidl")]
+windows_link::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::LPSAFEARRAY) -> u32);
+#[cfg(feature = "oaidl")]
+windows_link::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::LPSAFEARRAY) -> u32);
+#[cfg(feature = "oaidl")]
+windows_link::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::LPSAFEARRAY) -> *mut u8);
+#[cfg(feature = "oaidl")]
+windows_link::link!("oleaut32.dll" "system" fn LPSAFEARRAY_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::LPSAFEARRAY) -> *mut u8);
 pub const PortableDeviceKeyCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde2d022d_2480_43be_97f0_d1fa2cf98f4f);
 pub const PortableDevicePropVariantCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x08a99e2f_6d6d_4b80_af5a_baf2bcbe4cb9);
 pub const PortableDeviceValues: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0c15d503_d017_47ce_9016_7b3f978721cc);

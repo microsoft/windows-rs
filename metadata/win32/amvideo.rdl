@@ -50,8 +50,8 @@ mod Windows {
             fn GetEmulatedCaps(&self, pCaps: *mut DDCAPS) -> HRESULT;
             fn GetSurfaceDesc(&self, #[in] #[out] pSurfaceDesc: *mut DDSURFACEDESC) -> HRESULT;
             fn GetFourCCCodes(&self, pCount: *mut u32, pCodes: *mut u32) -> HRESULT;
-            fn SetDirectDraw(&self, pDirectDraw: IDirectDraw) -> HRESULT;
-            fn GetDirectDraw(&self, ppDirectDraw: *mut IDirectDraw) -> HRESULT;
+            fn SetDirectDraw(&self, pDirectDraw: LPDIRECTDRAW) -> HRESULT;
+            fn GetDirectDraw(&self, ppDirectDraw: *mut LPDIRECTDRAW) -> HRESULT;
             fn GetSurfaceType(&self, pSurfaceType: *mut u32) -> HRESULT;
             fn SetDefault(&self) -> HRESULT;
             fn UseScanLine(&self, UseScanLine: i32) -> HRESULT;
@@ -104,7 +104,23 @@ mod Windows {
             cbSequenceHeader: u32,
             bSequenceHeader: [u8; 1],
         }
+        #[arch(X64 | Arm64)]
+        const SIZE_EGA_PALETTE: u64 = 64;
+        #[arch(X86)]
+        const SIZE_EGA_PALETTE: u32 = 64;
+        #[arch(X64 | Arm64)]
+        const SIZE_MASKS: u64 = 12;
+        #[arch(X86)]
+        const SIZE_MASKS: u32 = 12;
+        #[arch(X64 | Arm64)]
+        const SIZE_PALETTE: u64 = 1024;
+        #[arch(X86)]
+        const SIZE_PALETTE: u32 = 1024;
         const SIZE_PREHEADER: i32 = 48;
+        #[arch(X64 | Arm64)]
+        const SIZE_VIDEOHEADER: u64 = 88;
+        #[arch(X86)]
+        const SIZE_VIDEOHEADER: u32 = 88;
         struct TRUECOLORINFO {
             dwBitMasks: [u32; 3],
             bmiColors: [RGBQUAD; 256],

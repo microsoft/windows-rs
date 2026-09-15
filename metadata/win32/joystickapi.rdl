@@ -244,19 +244,17 @@ mod Windows {
         type PJOYINFO = *mut JOYINFO;
         type PJOYINFOEX = *mut JOYINFOEX;
         #[library("WINMM.dll")]
-        extern fn joyConfigChanged(dwFlags: u32) -> MMRESULT;
+        extern fn joyGetDevCapsA(uJoyID: usize, #[size_param(2)] #[out] pjc: LPJOYCAPSA, cbjc: u32) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn joyGetDevCapsA(uJoyID: usize, #[size_param(2)] pjc: *mut JOYCAPSA, cbjc: u32) -> MMRESULT;
-        #[library("WINMM.dll")]
-        extern fn joyGetDevCapsW(uJoyID: usize, #[size_param(2)] pjc: *mut JOYCAPSW, cbjc: u32) -> MMRESULT;
+        extern fn joyGetDevCapsW(uJoyID: usize, #[size_param(2)] #[out] pjc: LPJOYCAPSW, cbjc: u32) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn joyGetNumDevs() -> u32;
         #[library("WINMM.dll")]
-        extern fn joyGetPos(uJoyID: u32, pji: *mut JOYINFO) -> MMRESULT;
+        extern fn joyGetPos(uJoyID: u32, #[out] pji: LPJOYINFO) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn joyGetPosEx(uJoyID: u32, pji: *mut JOYINFOEX) -> MMRESULT;
+        extern fn joyGetPosEx(uJoyID: u32, #[out] pji: LPJOYINFOEX) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn joyGetThreshold(uJoyID: u32, puThreshold: *mut u32) -> MMRESULT;
+        extern fn joyGetThreshold(uJoyID: u32, #[out] puThreshold: LPUINT) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn joyReleaseCapture(uJoyID: u32) -> MMRESULT;
         #[library("WINMM.dll")]

@@ -29,7 +29,7 @@ mod Windows {
         #[guid(0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa)]
         interface IWPCWebSettings: IWPCSettings {
             fn GetSettings(&self, pdwSettings: *mut u32) -> HRESULT;
-            fn RequestURLOverride(&self, hWnd: HWND, pcszURL: PCWSTR, cURLs: u32, ppcszSubURLs: *const PCWSTR, pfChanged: *mut BOOL) -> HRESULT;
+            fn RequestURLOverride(&self, hWnd: HWND, pcszURL: PCWSTR, cURLs: u32, #[in] ppcszSubURLs: *mut PCWSTR, pfChanged: *mut BOOL) -> HRESULT;
         }
         #[guid(0x28b4d88b_e072_49e6_804d_26edbe21a7b9)]
         interface IWindowsParentalControls: IWindowsParentalControlsCore {

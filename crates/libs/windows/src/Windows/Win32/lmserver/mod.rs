@@ -19,21 +19,21 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetServerDiskEnum<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
+pub unsafe fn NetServerDiskEnum<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerDiskEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServerDiskEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
     unsafe { NetServerDiskEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetServerEnum<P0, P7>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: u32, domain: P7, resume_handle: Option<*mut u32>) -> u32
+pub unsafe fn NetServerEnum<P0, P7>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, servertype: u32, domain: P7, resume_handle: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, servertype : u32, domain : windows_core::PCWSTR, resume_handle : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServerEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, servertype : u32, domain : windows_core::PCWSTR, resume_handle : super::LPDWORD) -> u32);
     unsafe { NetServerEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, servertype, domain.param().abi(), resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -45,45 +45,49 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetServerGetInfo(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
     unsafe { NetServerGetInfo(servername.param().abi(), level, bufptr as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetServerSetInfo<P0>(servername: P0, level: u32, buf: *mut u8, parmerror: Option<*mut u32>) -> u32
+pub unsafe fn NetServerSetInfo<P0>(servername: P0, level: u32, buf: super::LPBYTE, parmerror: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerSetInfo(servername : windows_core::PCWSTR, level : u32, buf : *mut u8, parmerror : *mut u32) -> u32);
-    unsafe { NetServerSetInfo(servername.param().abi(), level, buf as _, parmerror.unwrap_or(core::mem::zeroed()) as _) }
-}
-#[inline]
-pub unsafe fn NetServerTransportAdd<P0>(servername: P0, level: u32, bufptr: *const u8) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("netapi32.dll" "system" fn NetServerTransportAdd(servername : windows_core::PCWSTR, level : u32, bufptr : *const u8) -> u32);
-    unsafe { NetServerTransportAdd(servername.param().abi(), level, bufptr) }
-}
-#[inline]
-pub unsafe fn NetServerTransportAddEx<P0>(servername: P0, level: u32, bufptr: *mut u8) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("netapi32.dll" "system" fn NetServerTransportAddEx(servername : windows_core::PCWSTR, level : u32, bufptr : *mut u8) -> u32);
-    unsafe { NetServerTransportAddEx(servername.param().abi(), level, bufptr as _) }
-}
-#[inline]
-pub unsafe fn NetServerTransportDel<P0>(servername: P0, level: u32, bufptr: *mut u8) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("netapi32.dll" "system" fn NetServerTransportDel(servername : windows_core::PCWSTR, level : u32, bufptr : *mut u8) -> u32);
-    unsafe { NetServerTransportDel(servername.param().abi(), level, bufptr as _) }
+    windows_core::link!("netapi32.dll" "system" fn NetServerSetInfo(servername : windows_core::PCWSTR, level : u32, buf : super::LPBYTE, parmerror : super::LPDWORD) -> u32);
+    unsafe { NetServerSetInfo(servername.param().abi(), level, buf, parmerror.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetServerTransportEnum<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
+pub unsafe fn NetServerTransportAdd<P0>(servername: P0, level: u32, bufptr: super::LPBYTE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerTransportEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServerTransportAdd(servername : windows_core::PCWSTR, level : u32, bufptr : super::LPBYTE) -> u32);
+    unsafe { NetServerTransportAdd(servername.param().abi(), level, bufptr) }
+}
+#[cfg(feature = "minwindef")]
+#[inline]
+pub unsafe fn NetServerTransportAddEx<P0>(servername: P0, level: u32, bufptr: super::LPBYTE) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("netapi32.dll" "system" fn NetServerTransportAddEx(servername : windows_core::PCWSTR, level : u32, bufptr : super::LPBYTE) -> u32);
+    unsafe { NetServerTransportAddEx(servername.param().abi(), level, bufptr) }
+}
+#[cfg(feature = "minwindef")]
+#[inline]
+pub unsafe fn NetServerTransportDel<P0>(servername: P0, level: u32, bufptr: super::LPBYTE) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("netapi32.dll" "system" fn NetServerTransportDel(servername : windows_core::PCWSTR, level : u32, bufptr : super::LPBYTE) -> u32);
+    unsafe { NetServerTransportDel(servername.param().abi(), level, bufptr) }
+}
+#[cfg(feature = "minwindef")]
+#[inline]
+pub unsafe fn NetServerTransportEnum<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("netapi32.dll" "system" fn NetServerTransportEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
     unsafe { NetServerTransportEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winsvc")]
@@ -186,7 +190,9 @@ pub type LPSERVER_INFO_1595 = *mut SERVER_INFO_1595;
 pub type LPSERVER_INFO_1596 = *mut SERVER_INFO_1596;
 pub type LPSERVER_INFO_1597 = *mut SERVER_INFO_1597;
 pub type LPSERVER_INFO_1598 = *mut SERVER_INFO_1598;
+#[cfg(feature = "winnt")]
 pub type LPSERVER_INFO_1599 = *mut SERVER_INFO_1599;
+#[cfg(feature = "winnt")]
 pub type LPSERVER_INFO_1600 = *mut SERVER_INFO_1600;
 pub type LPSERVER_INFO_1601 = *mut SERVER_INFO_1601;
 pub type LPSERVER_INFO_1602 = *mut SERVER_INFO_1602;
@@ -299,7 +305,9 @@ pub type PSERVER_INFO_1595 = *mut SERVER_INFO_1595;
 pub type PSERVER_INFO_1596 = *mut SERVER_INFO_1596;
 pub type PSERVER_INFO_1597 = *mut SERVER_INFO_1597;
 pub type PSERVER_INFO_1598 = *mut SERVER_INFO_1598;
+#[cfg(feature = "winnt")]
 pub type PSERVER_INFO_1599 = *mut SERVER_INFO_1599;
+#[cfg(feature = "winnt")]
 pub type PSERVER_INFO_1600 = *mut SERVER_INFO_1600;
 pub type PSERVER_INFO_1601 = *mut SERVER_INFO_1601;
 pub type PSERVER_INFO_1602 = *mut SERVER_INFO_1602;
@@ -819,14 +827,16 @@ pub struct SERVER_INFO_1598 {
     pub sv1598_enableW9xsecuritysignature: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1599 {
-    pub sv1598_enforcekerberosreauthentication: bool,
+    pub sv1598_enforcekerberosreauthentication: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1600 {
-    pub sv1598_disabledos: bool,
+    pub sv1598_disabledos: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -86,13 +86,13 @@ impl TextFormat {
 
         let raw = unsafe {
             factory.CreateTextFormat(
-                PCWSTR(family_wide.as_ptr()),
+                family_wide.as_ptr(),
                 None,
                 weight.0,
                 DWRITE_FONT_STYLE_NORMAL,
                 DWRITE_FONT_STRETCH_NORMAL,
                 size,
-                PCWSTR(locale_wide.as_ptr()),
+                locale_wide.as_ptr(),
             )?
         };
 

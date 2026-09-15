@@ -19,4 +19,10 @@ mod Test {
     const UNSIGNED_FROM_I64: usize = -1i64;
     type SOCKET = usize;
     const INVALID_SOCKET: SOCKET = -1;
+    struct ITEM {
+        value: i32,
+    }
+    const MUT_PTR: *mut ITEM = 1;
+    const CONST_PTR: *const ITEM = -1;
+    const VOID_PTR: *mut void = 0;
 }

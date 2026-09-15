@@ -6,8 +6,8 @@ pub unsafe fn AddSIDToBoundaryDescriptor(boundarydescriptor: *mut super::HANDLE,
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ClosePrivateNamespace(handle: super::HANDLE, flags: u32) -> bool {
-    windows_core::link!("kernel32.dll" "system" fn ClosePrivateNamespace(handle : super::HANDLE, flags : u32) -> bool);
+pub unsafe fn ClosePrivateNamespace(handle: super::HANDLE, flags: u32) -> super::BOOLEAN {
+    windows_core::link!("kernel32.dll" "system" fn ClosePrivateNamespace(handle : super::HANDLE, flags : u32) -> super::BOOLEAN);
     unsafe { ClosePrivateNamespace(handle, flags) }
 }
 #[cfg(feature = "winnt")]
@@ -21,11 +21,11 @@ where
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreatePrivateNamespaceW<P2>(lpprivatenamespaceattributes: Option<*const super::SECURITY_ATTRIBUTES>, lpboundarydescriptor: *const core::ffi::c_void, lpaliasprefix: P2) -> super::HANDLE
+pub unsafe fn CreatePrivateNamespaceW<P2>(lpprivatenamespaceattributes: Option<super::LPSECURITY_ATTRIBUTES>, lpboundarydescriptor: *const core::ffi::c_void, lpaliasprefix: P2) -> super::HANDLE
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreatePrivateNamespaceW(lpprivatenamespaceattributes : *const super::SECURITY_ATTRIBUTES, lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCWSTR) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn CreatePrivateNamespaceW(lpprivatenamespaceattributes : super::LPSECURITY_ATTRIBUTES, lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCWSTR) -> super::HANDLE);
     unsafe { CreatePrivateNamespaceW(lpprivatenamespaceattributes.unwrap_or(core::mem::zeroed()) as _, lpboundarydescriptor, lpaliasprefix.param().abi()) }
 }
 #[cfg(feature = "winnt")]

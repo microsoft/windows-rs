@@ -1,5 +1,5 @@
-windows_link::link!("ddraw.dll" "system" fn DirectDrawCreate(lpguid : *mut windows_sys::core::GUID, lplpdd : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("ddraw.dll" "system" fn DirectDrawCreateClipper(dwflags : u32, lplpddclipper : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("ddraw.dll" "system" fn DirectDrawCreate(lpguid : *mut windows_sys::core::GUID, lplpdd : *mut LPDIRECTDRAW, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("ddraw.dll" "system" fn DirectDrawCreateClipper(dwflags : u32, lplpddclipper : *mut LPDIRECTDRAWCLIPPER, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ddraw.dll" "system" fn DirectDrawCreateEx(lpguid : *mut windows_sys::core::GUID, lplpdd : *mut *mut core::ffi::c_void, iid : *const windows_sys::core::GUID, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ddraw.dll" "system" fn DirectDrawEnumerateA(lpcallback : LPDDENUMCALLBACKA, lpcontext : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
@@ -30,7 +30,7 @@ pub const DDBD_8: i32 = 2048;
 #[derive(Clone, Copy, Default)]
 pub struct DDBLTBATCH {
     pub lprDest: super::LPRECT,
-    pub lpDDSSrc: *mut core::ffi::c_void,
+    pub lpDDSSrc: LPDIRECTDRAWSURFACE,
     pub lprSrc: super::LPRECT,
     pub dwFlags: u32,
     pub lpDDBltFx: LPDDBLTFX,
@@ -76,7 +76,7 @@ impl Default for DDBLTFX {
 #[derive(Clone, Copy)]
 pub union DDBLTFX_0 {
     pub dwZDestConst: u32,
-    pub lpDDSZBufferDest: *mut core::ffi::c_void,
+    pub lpDDSZBufferDest: LPDIRECTDRAWSURFACE,
 }
 impl Default for DDBLTFX_0 {
     fn default() -> Self {
@@ -87,7 +87,7 @@ impl Default for DDBLTFX_0 {
 #[derive(Clone, Copy)]
 pub union DDBLTFX_1 {
     pub dwZSrcConst: u32,
-    pub lpDDSZBufferSrc: *mut core::ffi::c_void,
+    pub lpDDSZBufferSrc: LPDIRECTDRAWSURFACE,
 }
 impl Default for DDBLTFX_1 {
     fn default() -> Self {
@@ -98,7 +98,7 @@ impl Default for DDBLTFX_1 {
 #[derive(Clone, Copy)]
 pub union DDBLTFX_2 {
     pub dwAlphaDestConst: u32,
-    pub lpDDSAlphaDest: *mut core::ffi::c_void,
+    pub lpDDSAlphaDest: LPDIRECTDRAWSURFACE,
 }
 impl Default for DDBLTFX_2 {
     fn default() -> Self {
@@ -109,7 +109,7 @@ impl Default for DDBLTFX_2 {
 #[derive(Clone, Copy)]
 pub union DDBLTFX_3 {
     pub dwAlphaSrcConst: u32,
-    pub lpDDSAlphaSrc: *mut core::ffi::c_void,
+    pub lpDDSAlphaSrc: LPDIRECTDRAWSURFACE,
 }
 impl Default for DDBLTFX_3 {
     fn default() -> Self {
@@ -122,7 +122,7 @@ pub union DDBLTFX_4 {
     pub dwFillColor: u32,
     pub dwFillDepth: u32,
     pub dwFillPixel: u32,
-    pub lpDDSPattern: *mut core::ffi::c_void,
+    pub lpDDSPattern: LPDIRECTDRAWSURFACE,
 }
 impl Default for DDBLTFX_4 {
     fn default() -> Self {
@@ -588,28 +588,31 @@ pub const DDCOLOR_SHARPNESS: i32 = 16;
 pub const DDCREATE_EMULATIONONLY: i32 = 2;
 pub const DDCREATE_HARDWAREONLY: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DDDEVICEIDENTIFIER {
     pub szDriver: [i8; 512],
     pub szDescription: [i8; 512],
-    pub liDriverVersion: i64,
+    pub liDriverVersion: super::LARGE_INTEGER,
     pub dwVendorId: u32,
     pub dwDeviceId: u32,
     pub dwSubSysId: u32,
     pub dwRevision: u32,
     pub guidDeviceIdentifier: windows_sys::core::GUID,
 }
+#[cfg(feature = "winnt")]
 impl Default for DDDEVICEIDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DDDEVICEIDENTIFIER2 {
     pub szDriver: [i8; 512],
     pub szDescription: [i8; 512],
-    pub liDriverVersion: i64,
+    pub liDriverVersion: super::LARGE_INTEGER,
     pub dwVendorId: u32,
     pub dwDeviceId: u32,
     pub dwSubSysId: u32,
@@ -617,6 +620,7 @@ pub struct DDDEVICEIDENTIFIER2 {
     pub guidDeviceIdentifier: windows_sys::core::GUID,
     pub dwWHQLLevel: u32,
 }
+#[cfg(feature = "winnt")]
 impl Default for DDDEVICEIDENTIFIER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -638,125 +642,125 @@ pub const DDENUMSURFACES_NOMATCH: i32 = 4;
 pub const DDENUM_ATTACHEDSECONDARYDEVICES: i32 = 1;
 pub const DDENUM_DETACHEDSECONDARYDEVICES: i32 = 2;
 pub const DDENUM_NONDISPLAYDEVICES: i32 = 4;
-pub const DDERR_ALREADYINITIALIZED: i32 = -2005532667;
-pub const DDERR_BLTFASTCANTCLIP: i32 = -2005532098;
-pub const DDERR_CANNOTATTACHSURFACE: i32 = -2005532662;
-pub const DDERR_CANNOTDETACHSURFACE: i32 = -2005532652;
-pub const DDERR_CANTCREATEDC: i32 = -2005532087;
-pub const DDERR_CANTDUPLICATE: i32 = -2005532089;
-pub const DDERR_CANTLOCKSURFACE: i32 = -2005532237;
-pub const DDERR_CANTPAGELOCK: i32 = -2005532032;
-pub const DDERR_CANTPAGEUNLOCK: i32 = -2005532012;
-pub const DDERR_CLIPPERISUSINGHWND: i32 = -2005532105;
-pub const DDERR_COLORKEYNOTSET: i32 = -2005532272;
-pub const DDERR_CURRENTLYNOTAVAIL: i32 = -2005532632;
-pub const DDERR_D3DNOTINITIALIZED: i32 = -2005531978;
-pub const DDERR_DCALREADYCREATED: i32 = -2005532052;
-pub const DDERR_DDSCAPSCOMPLEXREQUIRED: i32 = -2005532130;
-pub const DDERR_DEVICEDOESNTOWNSURFACE: i32 = -2005531973;
-pub const DDERR_DIRECTDRAWALREADYCREATED: i32 = -2005532110;
-pub const DDERR_EXCEPTION: i32 = -2005532617;
-pub const DDERR_EXCLUSIVEMODEALREADYSET: i32 = -2005532091;
-pub const DDERR_EXPIRED: i32 = -2005531981;
-pub const DDERR_GENERIC: i32 = -2147467259;
-pub const DDERR_HEIGHTALIGN: i32 = -2005532582;
-pub const DDERR_HWNDALREADYSET: i32 = -2005532101;
-pub const DDERR_HWNDSUBCLASSED: i32 = -2005532102;
-pub const DDERR_IMPLICITLYCREATED: i32 = -2005532084;
-pub const DDERR_INCOMPATIBLEPRIMARY: i32 = -2005532577;
-pub const DDERR_INVALIDCAPS: i32 = -2005532572;
-pub const DDERR_INVALIDCLIPLIST: i32 = -2005532562;
-pub const DDERR_INVALIDDIRECTDRAWGUID: i32 = -2005532111;
-pub const DDERR_INVALIDMODE: i32 = -2005532552;
-pub const DDERR_INVALIDOBJECT: i32 = -2005532542;
-pub const DDERR_INVALIDPARAMS: i32 = -2147024809;
-pub const DDERR_INVALIDPIXELFORMAT: i32 = -2005532527;
-pub const DDERR_INVALIDPOSITION: i32 = -2005532093;
-pub const DDERR_INVALIDRECT: i32 = -2005532522;
-pub const DDERR_INVALIDSTREAM: i32 = -2005532151;
-pub const DDERR_INVALIDSURFACETYPE: i32 = -2005532080;
-pub const DDERR_LOCKEDSURFACES: i32 = -2005532512;
-pub const DDERR_MOREDATA: i32 = -2005531982;
-pub const DDERR_NEWMODE: i32 = -2005531979;
-pub const DDERR_NO3D: i32 = -2005532502;
-pub const DDERR_NOALPHAHW: i32 = -2005532492;
-pub const DDERR_NOBLTHW: i32 = -2005532097;
-pub const DDERR_NOCLIPLIST: i32 = -2005532467;
-pub const DDERR_NOCLIPPERATTACHED: i32 = -2005532104;
-pub const DDERR_NOCOLORCONVHW: i32 = -2005532462;
-pub const DDERR_NOCOLORKEY: i32 = -2005532457;
-pub const DDERR_NOCOLORKEYHW: i32 = -2005532452;
-pub const DDERR_NOCOOPERATIVELEVELSET: i32 = -2005532460;
-pub const DDERR_NODC: i32 = -2005532086;
-pub const DDERR_NODDROPSHW: i32 = -2005532096;
-pub const DDERR_NODIRECTDRAWHW: i32 = -2005532109;
-pub const DDERR_NODIRECTDRAWSUPPORT: i32 = -2005532450;
-pub const DDERR_NODRIVERSUPPORT: i32 = -2005531975;
-pub const DDERR_NOEMULATION: i32 = -2005532107;
-pub const DDERR_NOEXCLUSIVEMODE: i32 = -2005532447;
-pub const DDERR_NOFLIPHW: i32 = -2005532442;
-pub const DDERR_NOFOCUSWINDOW: i32 = -2005532070;
-pub const DDERR_NOGDI: i32 = -2005532432;
-pub const DDERR_NOHWND: i32 = -2005532103;
-pub const DDERR_NOMIPMAPHW: i32 = -2005532081;
-pub const DDERR_NOMIRRORHW: i32 = -2005532422;
-pub const DDERR_NOMONITORINFORMATION: i32 = -2005531976;
-pub const DDERR_NONONLOCALVIDMEM: i32 = -2005532042;
-pub const DDERR_NOOPTIMIZEHW: i32 = -2005532072;
-pub const DDERR_NOOVERLAYDEST: i32 = -2005532094;
-pub const DDERR_NOOVERLAYHW: i32 = -2005532412;
-pub const DDERR_NOPALETTEATTACHED: i32 = -2005532100;
-pub const DDERR_NOPALETTEHW: i32 = -2005532099;
-pub const DDERR_NORASTEROPHW: i32 = -2005532392;
-pub const DDERR_NOROTATIONHW: i32 = -2005532382;
-pub const DDERR_NOSTEREOHARDWARE: i32 = -2005532491;
-pub const DDERR_NOSTRETCHHW: i32 = -2005532362;
-pub const DDERR_NOSURFACELEFT: i32 = -2005532490;
-pub const DDERR_NOT4BITCOLOR: i32 = -2005532356;
-pub const DDERR_NOT4BITCOLORINDEX: i32 = -2005532355;
-pub const DDERR_NOT8BITCOLOR: i32 = -2005532352;
-pub const DDERR_NOTAOVERLAYSURFACE: i32 = -2005532092;
-pub const DDERR_NOTEXTUREHW: i32 = -2005532342;
-pub const DDERR_NOTFLIPPABLE: i32 = -2005532090;
-pub const DDERR_NOTFOUND: i32 = -2005532417;
-pub const DDERR_NOTINITIALIZED: i32 = -2147221008;
-pub const DDERR_NOTLOADED: i32 = -2005532071;
-pub const DDERR_NOTLOCKED: i32 = -2005532088;
-pub const DDERR_NOTONMIPMAPSUBLEVEL: i32 = -2005532069;
-pub const DDERR_NOTPAGELOCKED: i32 = -2005531992;
-pub const DDERR_NOTPALETTIZED: i32 = -2005532083;
-pub const DDERR_NOVSYNCHW: i32 = -2005532337;
-pub const DDERR_NOZBUFFERHW: i32 = -2005532332;
-pub const DDERR_NOZOVERLAYHW: i32 = -2005532322;
-pub const DDERR_OUTOFCAPS: i32 = -2005532312;
-pub const DDERR_OUTOFMEMORY: i32 = -2147024882;
-pub const DDERR_OUTOFVIDEOMEMORY: i32 = -2005532292;
-pub const DDERR_OVERLAPPINGRECTS: i32 = -2005532402;
-pub const DDERR_OVERLAYCANTCLIP: i32 = -2005532290;
-pub const DDERR_OVERLAYCOLORKEYONLYONEACTIVE: i32 = -2005532288;
-pub const DDERR_OVERLAYNOTVISIBLE: i32 = -2005532095;
-pub const DDERR_PALETTEBUSY: i32 = -2005532285;
-pub const DDERR_PRIMARYSURFACEALREADYEXISTS: i32 = -2005532108;
-pub const DDERR_REGIONTOOSMALL: i32 = -2005532106;
-pub const DDERR_SURFACEALREADYATTACHED: i32 = -2005532262;
-pub const DDERR_SURFACEALREADYDEPENDENT: i32 = -2005532252;
-pub const DDERR_SURFACEBUSY: i32 = -2005532242;
-pub const DDERR_SURFACEISOBSCURED: i32 = -2005532232;
-pub const DDERR_SURFACELOST: i32 = -2005532222;
-pub const DDERR_SURFACENOTATTACHED: i32 = -2005532212;
-pub const DDERR_TESTFINISHED: i32 = -2005531980;
-pub const DDERR_TOOBIGHEIGHT: i32 = -2005532202;
-pub const DDERR_TOOBIGSIZE: i32 = -2005532192;
-pub const DDERR_TOOBIGWIDTH: i32 = -2005532182;
-pub const DDERR_UNSUPPORTED: i32 = -2147467263;
-pub const DDERR_UNSUPPORTEDFORMAT: i32 = -2005532162;
-pub const DDERR_UNSUPPORTEDMASK: i32 = -2005532152;
-pub const DDERR_UNSUPPORTEDMODE: i32 = -2005532082;
-pub const DDERR_VERTICALBLANKINPROGRESS: i32 = -2005532135;
-pub const DDERR_VIDEONOTACTIVE: i32 = -2005531977;
-pub const DDERR_WASSTILLDRAWING: i32 = -2005532132;
-pub const DDERR_WRONGMODE: i32 = -2005532085;
-pub const DDERR_XALIGN: i32 = -2005532112;
+pub const DDERR_ALREADYINITIALIZED: windows_sys::core::HRESULT = 0x88760005_u32 as _;
+pub const DDERR_BLTFASTCANTCLIP: windows_sys::core::HRESULT = 0x8876023E_u32 as _;
+pub const DDERR_CANNOTATTACHSURFACE: windows_sys::core::HRESULT = 0x8876000A_u32 as _;
+pub const DDERR_CANNOTDETACHSURFACE: windows_sys::core::HRESULT = 0x88760014_u32 as _;
+pub const DDERR_CANTCREATEDC: windows_sys::core::HRESULT = 0x88760249_u32 as _;
+pub const DDERR_CANTDUPLICATE: windows_sys::core::HRESULT = 0x88760247_u32 as _;
+pub const DDERR_CANTLOCKSURFACE: windows_sys::core::HRESULT = 0x887601B3_u32 as _;
+pub const DDERR_CANTPAGELOCK: windows_sys::core::HRESULT = 0x88760280_u32 as _;
+pub const DDERR_CANTPAGEUNLOCK: windows_sys::core::HRESULT = 0x88760294_u32 as _;
+pub const DDERR_CLIPPERISUSINGHWND: windows_sys::core::HRESULT = 0x88760237_u32 as _;
+pub const DDERR_COLORKEYNOTSET: windows_sys::core::HRESULT = 0x88760190_u32 as _;
+pub const DDERR_CURRENTLYNOTAVAIL: windows_sys::core::HRESULT = 0x88760028_u32 as _;
+pub const DDERR_D3DNOTINITIALIZED: windows_sys::core::HRESULT = 0x887602B6_u32 as _;
+pub const DDERR_DCALREADYCREATED: windows_sys::core::HRESULT = 0x8876026C_u32 as _;
+pub const DDERR_DDSCAPSCOMPLEXREQUIRED: windows_sys::core::HRESULT = 0x8876021E_u32 as _;
+pub const DDERR_DEVICEDOESNTOWNSURFACE: windows_sys::core::HRESULT = 0x887602BB_u32 as _;
+pub const DDERR_DIRECTDRAWALREADYCREATED: windows_sys::core::HRESULT = 0x88760232_u32 as _;
+pub const DDERR_EXCEPTION: windows_sys::core::HRESULT = 0x88760037_u32 as _;
+pub const DDERR_EXCLUSIVEMODEALREADYSET: windows_sys::core::HRESULT = 0x88760245_u32 as _;
+pub const DDERR_EXPIRED: windows_sys::core::HRESULT = 0x887602B3_u32 as _;
+pub const DDERR_GENERIC: windows_sys::core::HRESULT = 0x80004005_u32 as _;
+pub const DDERR_HEIGHTALIGN: windows_sys::core::HRESULT = 0x8876005A_u32 as _;
+pub const DDERR_HWNDALREADYSET: windows_sys::core::HRESULT = 0x8876023B_u32 as _;
+pub const DDERR_HWNDSUBCLASSED: windows_sys::core::HRESULT = 0x8876023A_u32 as _;
+pub const DDERR_IMPLICITLYCREATED: windows_sys::core::HRESULT = 0x8876024C_u32 as _;
+pub const DDERR_INCOMPATIBLEPRIMARY: windows_sys::core::HRESULT = 0x8876005F_u32 as _;
+pub const DDERR_INVALIDCAPS: windows_sys::core::HRESULT = 0x88760064_u32 as _;
+pub const DDERR_INVALIDCLIPLIST: windows_sys::core::HRESULT = 0x8876006E_u32 as _;
+pub const DDERR_INVALIDDIRECTDRAWGUID: windows_sys::core::HRESULT = 0x88760231_u32 as _;
+pub const DDERR_INVALIDMODE: windows_sys::core::HRESULT = 0x88760078_u32 as _;
+pub const DDERR_INVALIDOBJECT: windows_sys::core::HRESULT = 0x88760082_u32 as _;
+pub const DDERR_INVALIDPARAMS: windows_sys::core::HRESULT = 0x80070057_u32 as _;
+pub const DDERR_INVALIDPIXELFORMAT: windows_sys::core::HRESULT = 0x88760091_u32 as _;
+pub const DDERR_INVALIDPOSITION: windows_sys::core::HRESULT = 0x88760243_u32 as _;
+pub const DDERR_INVALIDRECT: windows_sys::core::HRESULT = 0x88760096_u32 as _;
+pub const DDERR_INVALIDSTREAM: windows_sys::core::HRESULT = 0x88760209_u32 as _;
+pub const DDERR_INVALIDSURFACETYPE: windows_sys::core::HRESULT = 0x88760250_u32 as _;
+pub const DDERR_LOCKEDSURFACES: windows_sys::core::HRESULT = 0x887600A0_u32 as _;
+pub const DDERR_MOREDATA: windows_sys::core::HRESULT = 0x887602B2_u32 as _;
+pub const DDERR_NEWMODE: windows_sys::core::HRESULT = 0x887602B5_u32 as _;
+pub const DDERR_NO3D: windows_sys::core::HRESULT = 0x887600AA_u32 as _;
+pub const DDERR_NOALPHAHW: windows_sys::core::HRESULT = 0x887600B4_u32 as _;
+pub const DDERR_NOBLTHW: windows_sys::core::HRESULT = 0x8876023F_u32 as _;
+pub const DDERR_NOCLIPLIST: windows_sys::core::HRESULT = 0x887600CD_u32 as _;
+pub const DDERR_NOCLIPPERATTACHED: windows_sys::core::HRESULT = 0x88760238_u32 as _;
+pub const DDERR_NOCOLORCONVHW: windows_sys::core::HRESULT = 0x887600D2_u32 as _;
+pub const DDERR_NOCOLORKEY: windows_sys::core::HRESULT = 0x887600D7_u32 as _;
+pub const DDERR_NOCOLORKEYHW: windows_sys::core::HRESULT = 0x887600DC_u32 as _;
+pub const DDERR_NOCOOPERATIVELEVELSET: windows_sys::core::HRESULT = 0x887600D4_u32 as _;
+pub const DDERR_NODC: windows_sys::core::HRESULT = 0x8876024A_u32 as _;
+pub const DDERR_NODDROPSHW: windows_sys::core::HRESULT = 0x88760240_u32 as _;
+pub const DDERR_NODIRECTDRAWHW: windows_sys::core::HRESULT = 0x88760233_u32 as _;
+pub const DDERR_NODIRECTDRAWSUPPORT: windows_sys::core::HRESULT = 0x887600DE_u32 as _;
+pub const DDERR_NODRIVERSUPPORT: windows_sys::core::HRESULT = 0x887602B9_u32 as _;
+pub const DDERR_NOEMULATION: windows_sys::core::HRESULT = 0x88760235_u32 as _;
+pub const DDERR_NOEXCLUSIVEMODE: windows_sys::core::HRESULT = 0x887600E1_u32 as _;
+pub const DDERR_NOFLIPHW: windows_sys::core::HRESULT = 0x887600E6_u32 as _;
+pub const DDERR_NOFOCUSWINDOW: windows_sys::core::HRESULT = 0x8876025A_u32 as _;
+pub const DDERR_NOGDI: windows_sys::core::HRESULT = 0x887600F0_u32 as _;
+pub const DDERR_NOHWND: windows_sys::core::HRESULT = 0x88760239_u32 as _;
+pub const DDERR_NOMIPMAPHW: windows_sys::core::HRESULT = 0x8876024F_u32 as _;
+pub const DDERR_NOMIRRORHW: windows_sys::core::HRESULT = 0x887600FA_u32 as _;
+pub const DDERR_NOMONITORINFORMATION: windows_sys::core::HRESULT = 0x887602B8_u32 as _;
+pub const DDERR_NONONLOCALVIDMEM: windows_sys::core::HRESULT = 0x88760276_u32 as _;
+pub const DDERR_NOOPTIMIZEHW: windows_sys::core::HRESULT = 0x88760258_u32 as _;
+pub const DDERR_NOOVERLAYDEST: windows_sys::core::HRESULT = 0x88760242_u32 as _;
+pub const DDERR_NOOVERLAYHW: windows_sys::core::HRESULT = 0x88760104_u32 as _;
+pub const DDERR_NOPALETTEATTACHED: windows_sys::core::HRESULT = 0x8876023C_u32 as _;
+pub const DDERR_NOPALETTEHW: windows_sys::core::HRESULT = 0x8876023D_u32 as _;
+pub const DDERR_NORASTEROPHW: windows_sys::core::HRESULT = 0x88760118_u32 as _;
+pub const DDERR_NOROTATIONHW: windows_sys::core::HRESULT = 0x88760122_u32 as _;
+pub const DDERR_NOSTEREOHARDWARE: windows_sys::core::HRESULT = 0x887600B5_u32 as _;
+pub const DDERR_NOSTRETCHHW: windows_sys::core::HRESULT = 0x88760136_u32 as _;
+pub const DDERR_NOSURFACELEFT: windows_sys::core::HRESULT = 0x887600B6_u32 as _;
+pub const DDERR_NOT4BITCOLOR: windows_sys::core::HRESULT = 0x8876013C_u32 as _;
+pub const DDERR_NOT4BITCOLORINDEX: windows_sys::core::HRESULT = 0x8876013D_u32 as _;
+pub const DDERR_NOT8BITCOLOR: windows_sys::core::HRESULT = 0x88760140_u32 as _;
+pub const DDERR_NOTAOVERLAYSURFACE: windows_sys::core::HRESULT = 0x88760244_u32 as _;
+pub const DDERR_NOTEXTUREHW: windows_sys::core::HRESULT = 0x8876014A_u32 as _;
+pub const DDERR_NOTFLIPPABLE: windows_sys::core::HRESULT = 0x88760246_u32 as _;
+pub const DDERR_NOTFOUND: windows_sys::core::HRESULT = 0x887600FF_u32 as _;
+pub const DDERR_NOTINITIALIZED: windows_sys::core::HRESULT = 0x800401F0_u32 as _;
+pub const DDERR_NOTLOADED: windows_sys::core::HRESULT = 0x88760259_u32 as _;
+pub const DDERR_NOTLOCKED: windows_sys::core::HRESULT = 0x88760248_u32 as _;
+pub const DDERR_NOTONMIPMAPSUBLEVEL: windows_sys::core::HRESULT = 0x8876025B_u32 as _;
+pub const DDERR_NOTPAGELOCKED: windows_sys::core::HRESULT = 0x887602A8_u32 as _;
+pub const DDERR_NOTPALETTIZED: windows_sys::core::HRESULT = 0x8876024D_u32 as _;
+pub const DDERR_NOVSYNCHW: windows_sys::core::HRESULT = 0x8876014F_u32 as _;
+pub const DDERR_NOZBUFFERHW: windows_sys::core::HRESULT = 0x88760154_u32 as _;
+pub const DDERR_NOZOVERLAYHW: windows_sys::core::HRESULT = 0x8876015E_u32 as _;
+pub const DDERR_OUTOFCAPS: windows_sys::core::HRESULT = 0x88760168_u32 as _;
+pub const DDERR_OUTOFMEMORY: windows_sys::core::HRESULT = 0x8007000E_u32 as _;
+pub const DDERR_OUTOFVIDEOMEMORY: windows_sys::core::HRESULT = 0x8876017C_u32 as _;
+pub const DDERR_OVERLAPPINGRECTS: windows_sys::core::HRESULT = 0x8876010E_u32 as _;
+pub const DDERR_OVERLAYCANTCLIP: windows_sys::core::HRESULT = 0x8876017E_u32 as _;
+pub const DDERR_OVERLAYCOLORKEYONLYONEACTIVE: windows_sys::core::HRESULT = 0x88760180_u32 as _;
+pub const DDERR_OVERLAYNOTVISIBLE: windows_sys::core::HRESULT = 0x88760241_u32 as _;
+pub const DDERR_PALETTEBUSY: windows_sys::core::HRESULT = 0x88760183_u32 as _;
+pub const DDERR_PRIMARYSURFACEALREADYEXISTS: windows_sys::core::HRESULT = 0x88760234_u32 as _;
+pub const DDERR_REGIONTOOSMALL: windows_sys::core::HRESULT = 0x88760236_u32 as _;
+pub const DDERR_SURFACEALREADYATTACHED: windows_sys::core::HRESULT = 0x8876019A_u32 as _;
+pub const DDERR_SURFACEALREADYDEPENDENT: windows_sys::core::HRESULT = 0x887601A4_u32 as _;
+pub const DDERR_SURFACEBUSY: windows_sys::core::HRESULT = 0x887601AE_u32 as _;
+pub const DDERR_SURFACEISOBSCURED: windows_sys::core::HRESULT = 0x887601B8_u32 as _;
+pub const DDERR_SURFACELOST: windows_sys::core::HRESULT = 0x887601C2_u32 as _;
+pub const DDERR_SURFACENOTATTACHED: windows_sys::core::HRESULT = 0x887601CC_u32 as _;
+pub const DDERR_TESTFINISHED: windows_sys::core::HRESULT = 0x887602B4_u32 as _;
+pub const DDERR_TOOBIGHEIGHT: windows_sys::core::HRESULT = 0x887601D6_u32 as _;
+pub const DDERR_TOOBIGSIZE: windows_sys::core::HRESULT = 0x887601E0_u32 as _;
+pub const DDERR_TOOBIGWIDTH: windows_sys::core::HRESULT = 0x887601EA_u32 as _;
+pub const DDERR_UNSUPPORTED: windows_sys::core::HRESULT = 0x80004001_u32 as _;
+pub const DDERR_UNSUPPORTEDFORMAT: windows_sys::core::HRESULT = 0x887601FE_u32 as _;
+pub const DDERR_UNSUPPORTEDMASK: windows_sys::core::HRESULT = 0x88760208_u32 as _;
+pub const DDERR_UNSUPPORTEDMODE: windows_sys::core::HRESULT = 0x8876024E_u32 as _;
+pub const DDERR_VERTICALBLANKINPROGRESS: windows_sys::core::HRESULT = 0x88760219_u32 as _;
+pub const DDERR_VIDEONOTACTIVE: windows_sys::core::HRESULT = 0x887602B7_u32 as _;
+pub const DDERR_WASSTILLDRAWING: windows_sys::core::HRESULT = 0x8876021C_u32 as _;
+pub const DDERR_WRONGMODE: windows_sys::core::HRESULT = 0x8876024B_u32 as _;
+pub const DDERR_XALIGN: windows_sys::core::HRESULT = 0x88760230_u32 as _;
 pub const DDFLIP_DONOTWAIT: i32 = 32;
 pub const DDFLIP_EVEN: i32 = 2;
 pub const DDFLIP_INTERVAL2: i32 = 33554432;
@@ -895,7 +899,7 @@ impl Default for DDOVERLAYFX {
 #[derive(Clone, Copy)]
 pub union DDOVERLAYFX_0 {
     pub dwAlphaDestConst: u32,
-    pub lpDDSAlphaDest: *mut core::ffi::c_void,
+    pub lpDDSAlphaDest: LPDIRECTDRAWSURFACE,
 }
 impl Default for DDOVERLAYFX_0 {
     fn default() -> Self {
@@ -906,7 +910,7 @@ impl Default for DDOVERLAYFX_0 {
 #[derive(Clone, Copy)]
 pub union DDOVERLAYFX_1 {
     pub dwAlphaSrcConst: u32,
-    pub lpDDSAlphaSrc: *mut core::ffi::c_void,
+    pub lpDDSAlphaSrc: LPDIRECTDRAWSURFACE,
 }
 impl Default for DDOVERLAYFX_1 {
     fn default() -> Self {
@@ -1301,8 +1305,8 @@ pub const DDSVCAPS_STEREOSEQUENTIAL: i32 = 16;
 pub const DDWAITVB_BLOCKBEGIN: i32 = 1;
 pub const DDWAITVB_BLOCKBEGINEVENT: i32 = 2;
 pub const DDWAITVB_BLOCKEND: i32 = 4;
-pub const DD_FALSE: i32 = 1;
-pub const DD_OK: i32 = 0;
+pub const DD_FALSE: windows_sys::core::HRESULT = 0x1_u32 as _;
+pub const DD_OK: windows_sys::core::HRESULT = 0x0_u32 as _;
 pub const DD_ROP_SPACE: i32 = 8;
 pub const DIRECTDRAW_VERSION: i32 = 1792;
 pub const FOURCC_DXT1: u32 = 827611204;
@@ -1311,7 +1315,7 @@ pub const FOURCC_DXT3: u32 = 861165636;
 pub const FOURCC_DXT4: u32 = 877942852;
 pub const FOURCC_DXT5: u32 = 894720068;
 #[cfg(feature = "windef")]
-pub type LPCLIPPERCALLBACK = Option<unsafe extern "system" fn(lpddclipper: *mut core::ffi::c_void, hwnd: super::HWND, code: u32, lpcontext: *mut core::ffi::c_void) -> u32>;
+pub type LPCLIPPERCALLBACK = Option<unsafe extern "system" fn(lpddclipper: LPDIRECTDRAWCLIPPER, hwnd: super::HWND, code: u32, lpcontext: *mut core::ffi::c_void) -> u32>;
 pub type LPDDARGB = *mut DDARGB;
 #[cfg(feature = "windef")]
 pub type LPDDBLTBATCH = *mut DDBLTBATCH;
@@ -1324,7 +1328,9 @@ pub type LPDDCAPS_DX6 = *mut DDCAPS_DX6;
 pub type LPDDCAPS_DX7 = *mut DDCAPS_DX7;
 pub type LPDDCOLORCONTROL = *mut DDCOLORCONTROL;
 pub type LPDDCOLORKEY = *mut DDCOLORKEY;
+#[cfg(feature = "winnt")]
 pub type LPDDDEVICEIDENTIFIER = *mut DDDEVICEIDENTIFIER;
+#[cfg(feature = "winnt")]
 pub type LPDDDEVICEIDENTIFIER2 = *mut DDDEVICEIDENTIFIER2;
 pub type LPDDENUMCALLBACK = LPDDENUMCALLBACKA;
 pub type LPDDENUMCALLBACKA = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
@@ -1336,15 +1342,15 @@ pub type LPDDENUMCALLBACKEXA = Option<unsafe extern "system" fn(param0: *mut win
 pub type LPDDENUMCALLBACKEXW = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void, param4: super::HMONITOR) -> windows_sys::core::BOOL>;
 pub type LPDDENUMCALLBACKW = Option<unsafe extern "system" fn(param0: *mut windows_sys::core::GUID, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 #[cfg(feature = "ksmedia")]
-pub type LPDDENUMMODESCALLBACK = Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC, param1: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type LPDDENUMMODESCALLBACK = Option<unsafe extern "system" fn(param0: LPDDSURFACEDESC, param1: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "ksmedia")]
-pub type LPDDENUMMODESCALLBACK2 = Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC2, param1: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type LPDDENUMMODESCALLBACK2 = Option<unsafe extern "system" fn(param0: LPDDSURFACEDESC2, param1: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "ksmedia")]
-pub type LPDDENUMSURFACESCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type LPDDENUMSURFACESCALLBACK = Option<unsafe extern "system" fn(param0: LPDIRECTDRAWSURFACE, param1: LPDDSURFACEDESC, param2: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "ksmedia")]
-pub type LPDDENUMSURFACESCALLBACK2 = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type LPDDENUMSURFACESCALLBACK2 = Option<unsafe extern "system" fn(param0: LPDIRECTDRAWSURFACE4, param1: LPDDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "ksmedia")]
-pub type LPDDENUMSURFACESCALLBACK7 = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type LPDDENUMSURFACESCALLBACK7 = Option<unsafe extern "system" fn(param0: LPDIRECTDRAWSURFACE7, param1: LPDDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type LPDDFXROP = *mut _DDFXROP;
 pub type LPDDGAMMARAMP = *mut DDGAMMARAMP;
 pub type LPDDOSCAPS = *mut DDOSCAPS;
@@ -1357,12 +1363,25 @@ pub type LPDDSCAPSEX = *mut DDSCAPSEX;
 pub type LPDDSURFACEDESC = *mut DDSURFACEDESC;
 #[cfg(feature = "ksmedia")]
 pub type LPDDSURFACEDESC2 = *mut DDSURFACEDESC2;
+pub type LPDIRECTDRAW = *mut core::ffi::c_void;
+pub type LPDIRECTDRAW2 = *mut core::ffi::c_void;
+pub type LPDIRECTDRAW4 = *mut core::ffi::c_void;
+pub type LPDIRECTDRAW7 = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWCLIPPER = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWCOLORCONTROL = *mut core::ffi::c_void;
 #[cfg(feature = "windef")]
 pub type LPDIRECTDRAWENUMERATEEX = LPDIRECTDRAWENUMERATEEXA;
 #[cfg(feature = "windef")]
 pub type LPDIRECTDRAWENUMERATEEXA = Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "windef")]
 pub type LPDIRECTDRAWENUMERATEEXW = Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut core::ffi::c_void, dwflags: u32) -> windows_sys::core::HRESULT>;
+pub type LPDIRECTDRAWGAMMACONTROL = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWPALETTE = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWSURFACE = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWSURFACE2 = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWSURFACE3 = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWSURFACE4 = *mut core::ffi::c_void;
+pub type LPDIRECTDRAWSURFACE7 = *mut core::ffi::c_void;
 pub const MAX_DDDEVICEID_STRING: i32 = 512;
 pub const REGSTR_KEY_DDHW_DESCRIPTION: windows_sys::core::PCSTR = windows_sys::core::s!("Description");
 pub const REGSTR_KEY_DDHW_DRIVERNAME: windows_sys::core::PCSTR = windows_sys::core::s!("DriverName");
@@ -1370,3 +1389,4 @@ pub const REGSTR_PATH_DDHW: windows_sys::core::PCSTR = windows_sys::core::s!("Ha
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct _DDFXROP(pub u8);
+pub const _FACDD: i32 = 2166;

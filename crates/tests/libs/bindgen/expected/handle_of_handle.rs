@@ -1,11 +1,7 @@
 pub type AliasHandle = Handle;
-pub const FLAG: Grbit = Grbit(1);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct Grbit(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct Handle(pub *mut core::ffi::c_void);
-pub const INVALID: Handle = Handle(-1 as _);
+pub const FLAG: Grbit = 1;
+pub type Grbit = u32;
+pub type Handle = *mut core::ffi::c_void;
+pub const INVALID: Handle = -1 as _;
 pub type PGrbit = *mut Grbit;
 pub type PHandle = *mut Handle;

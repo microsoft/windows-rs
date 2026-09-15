@@ -70,8 +70,8 @@ impl WebResourceRequest {
         let mut headers = Vec::new();
 
         while unsafe { iterator.HasCurrentHeader()? }.as_bool() {
-            let mut name: LPWSTR = std::ptr::null_mut();
-            let mut value: LPWSTR = std::ptr::null_mut();
+            let mut name = PWSTR::null();
+            let mut value = PWSTR::null();
             unsafe { iterator.GetCurrentHeader(&mut name, &mut value).ok()? };
             headers.push((unsafe { string::take(name) }, unsafe {
                 string::take(value)

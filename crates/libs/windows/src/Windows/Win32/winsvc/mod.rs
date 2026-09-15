@@ -8,8 +8,9 @@ pub unsafe fn ChangeServiceConfig2W(hservice: SC_HANDLE, dwinfolevel: u32, lpinf
     windows_core::link!("advapi32.dll" "system" fn ChangeServiceConfig2W(hservice : SC_HANDLE, dwinfolevel : u32, lpinfo : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { ChangeServiceConfig2W(hservice, dwinfolevel, lpinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ChangeServiceConfigA<P4, P5, P7, P8, P9, P10>(hservice: SC_HANDLE, dwservicetype: u32, dwstarttype: u32, dwerrorcontrol: u32, lpbinarypathname: P4, lploadordergroup: P5, lpdwtagid: Option<*mut u32>, lpdependencies: P7, lpservicestartname: P8, lppassword: P9, lpdisplayname: P10) -> windows_core::BOOL
+pub unsafe fn ChangeServiceConfigA<P4, P5, P7, P8, P9, P10>(hservice: SC_HANDLE, dwservicetype: u32, dwstarttype: u32, dwerrorcontrol: u32, lpbinarypathname: P4, lploadordergroup: P5, lpdwtagid: Option<super::LPDWORD>, lpdependencies: P7, lpservicestartname: P8, lppassword: P9, lpdisplayname: P10) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
     P5: windows_core::Param<windows_core::PCSTR>,
@@ -18,11 +19,12 @@ where
     P9: windows_core::Param<windows_core::PCSTR>,
     P10: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn ChangeServiceConfigA(hservice : SC_HANDLE, dwservicetype : u32, dwstarttype : u32, dwerrorcontrol : u32, lpbinarypathname : windows_core::PCSTR, lploadordergroup : windows_core::PCSTR, lpdwtagid : *mut u32, lpdependencies : windows_core::PCSTR, lpservicestartname : windows_core::PCSTR, lppassword : windows_core::PCSTR, lpdisplayname : windows_core::PCSTR) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn ChangeServiceConfigA(hservice : SC_HANDLE, dwservicetype : u32, dwstarttype : u32, dwerrorcontrol : u32, lpbinarypathname : windows_core::PCSTR, lploadordergroup : windows_core::PCSTR, lpdwtagid : super::LPDWORD, lpdependencies : windows_core::PCSTR, lpservicestartname : windows_core::PCSTR, lppassword : windows_core::PCSTR, lpdisplayname : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { ChangeServiceConfigA(hservice, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.param().abi(), lploadordergroup.param().abi(), lpdwtagid.unwrap_or(core::mem::zeroed()) as _, lpdependencies.param().abi(), lpservicestartname.param().abi(), lppassword.param().abi(), lpdisplayname.param().abi()) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ChangeServiceConfigW<P4, P5, P7, P8, P9, P10>(hservice: SC_HANDLE, dwservicetype: u32, dwstarttype: u32, dwerrorcontrol: u32, lpbinarypathname: P4, lploadordergroup: P5, lpdwtagid: Option<*mut u32>, lpdependencies: P7, lpservicestartname: P8, lppassword: P9, lpdisplayname: P10) -> windows_core::BOOL
+pub unsafe fn ChangeServiceConfigW<P4, P5, P7, P8, P9, P10>(hservice: SC_HANDLE, dwservicetype: u32, dwstarttype: u32, dwerrorcontrol: u32, lpbinarypathname: P4, lploadordergroup: P5, lpdwtagid: Option<super::LPDWORD>, lpdependencies: P7, lpservicestartname: P8, lppassword: P9, lpdisplayname: P10) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
@@ -31,7 +33,7 @@ where
     P9: windows_core::Param<windows_core::PCWSTR>,
     P10: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn ChangeServiceConfigW(hservice : SC_HANDLE, dwservicetype : u32, dwstarttype : u32, dwerrorcontrol : u32, lpbinarypathname : windows_core::PCWSTR, lploadordergroup : windows_core::PCWSTR, lpdwtagid : *mut u32, lpdependencies : windows_core::PCWSTR, lpservicestartname : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, lpdisplayname : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn ChangeServiceConfigW(hservice : SC_HANDLE, dwservicetype : u32, dwstarttype : u32, dwerrorcontrol : u32, lpbinarypathname : windows_core::PCWSTR, lploadordergroup : windows_core::PCWSTR, lpdwtagid : super::LPDWORD, lpdependencies : windows_core::PCWSTR, lpservicestartname : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, lpdisplayname : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { ChangeServiceConfigW(hservice, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.param().abi(), lploadordergroup.param().abi(), lpdwtagid.unwrap_or(core::mem::zeroed()) as _, lpdependencies.param().abi(), lpservicestartname.param().abi(), lppassword.param().abi(), lpdisplayname.param().abi()) }
 }
 #[inline]
@@ -40,8 +42,8 @@ pub unsafe fn CloseServiceHandle(hscobject: SC_HANDLE) -> windows_core::BOOL {
     unsafe { CloseServiceHandle(hscobject) }
 }
 #[inline]
-pub unsafe fn ControlService(hservice: SC_HANDLE, dwcontrol: u32, lpservicestatus: *mut SERVICE_STATUS) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn ControlService(hservice : SC_HANDLE, dwcontrol : u32, lpservicestatus : *mut SERVICE_STATUS) -> windows_core::BOOL);
+pub unsafe fn ControlService(hservice: SC_HANDLE, dwcontrol: u32, lpservicestatus: LPSERVICE_STATUS) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn ControlService(hservice : SC_HANDLE, dwcontrol : u32, lpservicestatus : LPSERVICE_STATUS) -> windows_core::BOOL);
     unsafe { ControlService(hservice, dwcontrol, lpservicestatus as _) }
 }
 #[inline]
@@ -54,8 +56,9 @@ pub unsafe fn ControlServiceExW(hservice: SC_HANDLE, dwcontrol: u32, dwinfolevel
     windows_core::link!("advapi32.dll" "system" fn ControlServiceExW(hservice : SC_HANDLE, dwcontrol : u32, dwinfolevel : u32, pcontrolparams : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { ControlServiceExW(hservice, dwcontrol, dwinfolevel, pcontrolparams as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CreateServiceA<P1, P2, P7, P8, P10, P11, P12>(hscmanager: SC_HANDLE, lpservicename: P1, lpdisplayname: P2, dwdesiredaccess: u32, dwservicetype: u32, dwstarttype: u32, dwerrorcontrol: u32, lpbinarypathname: P7, lploadordergroup: P8, lpdwtagid: Option<*mut u32>, lpdependencies: P10, lpservicestartname: P11, lppassword: P12) -> SC_HANDLE
+pub unsafe fn CreateServiceA<P1, P2, P7, P8, P10, P11, P12>(hscmanager: SC_HANDLE, lpservicename: P1, lpdisplayname: P2, dwdesiredaccess: u32, dwservicetype: u32, dwstarttype: u32, dwerrorcontrol: u32, lpbinarypathname: P7, lploadordergroup: P8, lpdwtagid: Option<super::LPDWORD>, lpdependencies: P10, lpservicestartname: P11, lppassword: P12) -> SC_HANDLE
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -65,11 +68,12 @@ where
     P11: windows_core::Param<windows_core::PCSTR>,
     P12: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn CreateServiceA(hscmanager : SC_HANDLE, lpservicename : windows_core::PCSTR, lpdisplayname : windows_core::PCSTR, dwdesiredaccess : u32, dwservicetype : u32, dwstarttype : u32, dwerrorcontrol : u32, lpbinarypathname : windows_core::PCSTR, lploadordergroup : windows_core::PCSTR, lpdwtagid : *mut u32, lpdependencies : windows_core::PCSTR, lpservicestartname : windows_core::PCSTR, lppassword : windows_core::PCSTR) -> SC_HANDLE);
+    windows_core::link!("advapi32.dll" "system" fn CreateServiceA(hscmanager : SC_HANDLE, lpservicename : windows_core::PCSTR, lpdisplayname : windows_core::PCSTR, dwdesiredaccess : u32, dwservicetype : u32, dwstarttype : u32, dwerrorcontrol : u32, lpbinarypathname : windows_core::PCSTR, lploadordergroup : windows_core::PCSTR, lpdwtagid : super::LPDWORD, lpdependencies : windows_core::PCSTR, lpservicestartname : windows_core::PCSTR, lppassword : windows_core::PCSTR) -> SC_HANDLE);
     unsafe { CreateServiceA(hscmanager, lpservicename.param().abi(), lpdisplayname.param().abi(), dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.param().abi(), lploadordergroup.param().abi(), lpdwtagid.unwrap_or(core::mem::zeroed()) as _, lpdependencies.param().abi(), lpservicestartname.param().abi(), lppassword.param().abi()) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CreateServiceW<P1, P2, P7, P8, P10, P11, P12>(hscmanager: SC_HANDLE, lpservicename: P1, lpdisplayname: P2, dwdesiredaccess: u32, dwservicetype: u32, dwstarttype: u32, dwerrorcontrol: u32, lpbinarypathname: P7, lploadordergroup: P8, lpdwtagid: Option<*mut u32>, lpdependencies: P10, lpservicestartname: P11, lppassword: P12) -> SC_HANDLE
+pub unsafe fn CreateServiceW<P1, P2, P7, P8, P10, P11, P12>(hscmanager: SC_HANDLE, lpservicename: P1, lpdisplayname: P2, dwdesiredaccess: u32, dwservicetype: u32, dwstarttype: u32, dwerrorcontrol: u32, lpbinarypathname: P7, lploadordergroup: P8, lpdwtagid: Option<super::LPDWORD>, lpdependencies: P10, lpservicestartname: P11, lppassword: P12) -> SC_HANDLE
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -79,7 +83,7 @@ where
     P11: windows_core::Param<windows_core::PCWSTR>,
     P12: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn CreateServiceW(hscmanager : SC_HANDLE, lpservicename : windows_core::PCWSTR, lpdisplayname : windows_core::PCWSTR, dwdesiredaccess : u32, dwservicetype : u32, dwstarttype : u32, dwerrorcontrol : u32, lpbinarypathname : windows_core::PCWSTR, lploadordergroup : windows_core::PCWSTR, lpdwtagid : *mut u32, lpdependencies : windows_core::PCWSTR, lpservicestartname : windows_core::PCWSTR, lppassword : windows_core::PCWSTR) -> SC_HANDLE);
+    windows_core::link!("advapi32.dll" "system" fn CreateServiceW(hscmanager : SC_HANDLE, lpservicename : windows_core::PCWSTR, lpdisplayname : windows_core::PCWSTR, dwdesiredaccess : u32, dwservicetype : u32, dwstarttype : u32, dwerrorcontrol : u32, lpbinarypathname : windows_core::PCWSTR, lploadordergroup : windows_core::PCWSTR, lpdwtagid : super::LPDWORD, lpdependencies : windows_core::PCWSTR, lpservicestartname : windows_core::PCWSTR, lppassword : windows_core::PCWSTR) -> SC_HANDLE);
     unsafe { CreateServiceW(hscmanager, lpservicename.param().abi(), lpdisplayname.param().abi(), dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.param().abi(), lploadordergroup.param().abi(), lpdwtagid.unwrap_or(core::mem::zeroed()) as _, lpdependencies.param().abi(), lpservicestartname.param().abi(), lppassword.param().abi()) }
 }
 #[inline]
@@ -87,77 +91,88 @@ pub unsafe fn DeleteService(hservice: SC_HANDLE) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn DeleteService(hservice : SC_HANDLE) -> windows_core::BOOL);
     unsafe { DeleteService(hservice) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn EnumDependentServicesA(hservice: SC_HANDLE, dwservicestate: u32, lpservices: Option<*mut ENUM_SERVICE_STATUSA>, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn EnumDependentServicesA(hservice : SC_HANDLE, dwservicestate : u32, lpservices : *mut ENUM_SERVICE_STATUSA, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EnumDependentServicesA(hservice: SC_HANDLE, dwservicestate: u32, lpservices: Option<LPENUM_SERVICE_STATUSA>, cbbufsize: u32, pcbbytesneeded: super::LPDWORD, lpservicesreturned: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn EnumDependentServicesA(hservice : SC_HANDLE, dwservicestate : u32, lpservices : LPENUM_SERVICE_STATUSA, cbbufsize : u32, pcbbytesneeded : super::LPDWORD, lpservicesreturned : super::LPDWORD) -> windows_core::BOOL);
     unsafe { EnumDependentServicesA(hservice, dwservicestate, lpservices.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _, lpservicesreturned as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn EnumDependentServicesW(hservice: SC_HANDLE, dwservicestate: u32, lpservices: Option<*mut ENUM_SERVICE_STATUSW>, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn EnumDependentServicesW(hservice : SC_HANDLE, dwservicestate : u32, lpservices : *mut ENUM_SERVICE_STATUSW, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EnumDependentServicesW(hservice: SC_HANDLE, dwservicestate: u32, lpservices: Option<LPENUM_SERVICE_STATUSW>, cbbufsize: u32, pcbbytesneeded: super::LPDWORD, lpservicesreturned: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn EnumDependentServicesW(hservice : SC_HANDLE, dwservicestate : u32, lpservices : LPENUM_SERVICE_STATUSW, cbbufsize : u32, pcbbytesneeded : super::LPDWORD, lpservicesreturned : super::LPDWORD) -> windows_core::BOOL);
     unsafe { EnumDependentServicesW(hservice, dwservicestate, lpservices.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _, lpservicesreturned as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn EnumServicesStatusA(hscmanager: SC_HANDLE, dwservicetype: u32, dwservicestate: u32, lpservices: Option<*mut ENUM_SERVICE_STATUSA>, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: Option<*mut u32>) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn EnumServicesStatusA(hscmanager : SC_HANDLE, dwservicetype : u32, dwservicestate : u32, lpservices : *mut ENUM_SERVICE_STATUSA, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EnumServicesStatusA(hscmanager: SC_HANDLE, dwservicetype: u32, dwservicestate: u32, lpservices: Option<LPENUM_SERVICE_STATUSA>, cbbufsize: u32, pcbbytesneeded: super::LPDWORD, lpservicesreturned: super::LPDWORD, lpresumehandle: Option<super::LPDWORD>) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn EnumServicesStatusA(hscmanager : SC_HANDLE, dwservicetype : u32, dwservicestate : u32, lpservices : LPENUM_SERVICE_STATUSA, cbbufsize : u32, pcbbytesneeded : super::LPDWORD, lpservicesreturned : super::LPDWORD, lpresumehandle : super::LPDWORD) -> windows_core::BOOL);
     unsafe { EnumServicesStatusA(hscmanager, dwservicetype, dwservicestate, lpservices.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _, lpservicesreturned as _, lpresumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn EnumServicesStatusExA<P9>(hscmanager: SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: u32, dwservicestate: u32, lpservices: Option<*mut u8>, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: Option<*mut u32>, pszgroupname: P9) -> windows_core::BOOL
+pub unsafe fn EnumServicesStatusExA<P9>(hscmanager: SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: u32, dwservicestate: u32, lpservices: Option<super::LPBYTE>, cbbufsize: u32, pcbbytesneeded: super::LPDWORD, lpservicesreturned: super::LPDWORD, lpresumehandle: Option<super::LPDWORD>, pszgroupname: P9) -> windows_core::BOOL
 where
     P9: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn EnumServicesStatusExA(hscmanager : SC_HANDLE, infolevel : SC_ENUM_TYPE, dwservicetype : u32, dwservicestate : u32, lpservices : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32, pszgroupname : windows_core::PCSTR) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn EnumServicesStatusExA(hscmanager : SC_HANDLE, infolevel : SC_ENUM_TYPE, dwservicetype : u32, dwservicestate : u32, lpservices : super::LPBYTE, cbbufsize : u32, pcbbytesneeded : super::LPDWORD, lpservicesreturned : super::LPDWORD, lpresumehandle : super::LPDWORD, pszgroupname : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { EnumServicesStatusExA(hscmanager, infolevel, dwservicetype, dwservicestate, lpservices.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _, lpservicesreturned as _, lpresumehandle.unwrap_or(core::mem::zeroed()) as _, pszgroupname.param().abi()) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn EnumServicesStatusExW<P9>(hscmanager: SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: u32, dwservicestate: u32, lpservices: Option<*mut u8>, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: Option<*mut u32>, pszgroupname: P9) -> windows_core::BOOL
+pub unsafe fn EnumServicesStatusExW<P9>(hscmanager: SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: u32, dwservicestate: u32, lpservices: Option<super::LPBYTE>, cbbufsize: u32, pcbbytesneeded: super::LPDWORD, lpservicesreturned: super::LPDWORD, lpresumehandle: Option<super::LPDWORD>, pszgroupname: P9) -> windows_core::BOOL
 where
     P9: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn EnumServicesStatusExW(hscmanager : SC_HANDLE, infolevel : SC_ENUM_TYPE, dwservicetype : u32, dwservicestate : u32, lpservices : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32, pszgroupname : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn EnumServicesStatusExW(hscmanager : SC_HANDLE, infolevel : SC_ENUM_TYPE, dwservicetype : u32, dwservicestate : u32, lpservices : super::LPBYTE, cbbufsize : u32, pcbbytesneeded : super::LPDWORD, lpservicesreturned : super::LPDWORD, lpresumehandle : super::LPDWORD, pszgroupname : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { EnumServicesStatusExW(hscmanager, infolevel, dwservicetype, dwservicestate, lpservices.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _, lpservicesreturned as _, lpresumehandle.unwrap_or(core::mem::zeroed()) as _, pszgroupname.param().abi()) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn EnumServicesStatusW(hscmanager: SC_HANDLE, dwservicetype: u32, dwservicestate: u32, lpservices: Option<*mut ENUM_SERVICE_STATUSW>, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: Option<*mut u32>) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn EnumServicesStatusW(hscmanager : SC_HANDLE, dwservicetype : u32, dwservicestate : u32, lpservices : *mut ENUM_SERVICE_STATUSW, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32) -> windows_core::BOOL);
+pub unsafe fn EnumServicesStatusW(hscmanager: SC_HANDLE, dwservicetype: u32, dwservicestate: u32, lpservices: Option<LPENUM_SERVICE_STATUSW>, cbbufsize: u32, pcbbytesneeded: super::LPDWORD, lpservicesreturned: super::LPDWORD, lpresumehandle: Option<super::LPDWORD>) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn EnumServicesStatusW(hscmanager : SC_HANDLE, dwservicetype : u32, dwservicestate : u32, lpservices : LPENUM_SERVICE_STATUSW, cbbufsize : u32, pcbbytesneeded : super::LPDWORD, lpservicesreturned : super::LPDWORD, lpresumehandle : super::LPDWORD) -> windows_core::BOOL);
     unsafe { EnumServicesStatusW(hscmanager, dwservicetype, dwservicestate, lpservices.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _, lpservicesreturned as _, lpresumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetServiceDirectory(hservicestatus: SERVICE_STATUS_HANDLE, edirectorytype: SERVICE_DIRECTORY_TYPE, lppathbuffer: Option<*mut u16>, cchpathbufferlength: u32, lpcchrequiredbufferlength: *mut u32) -> u32 {
-    windows_core::link!("api-ms-win-service-core-l1-1-4.dll" "system" fn GetServiceDirectory(hservicestatus : SERVICE_STATUS_HANDLE, edirectorytype : SERVICE_DIRECTORY_TYPE, lppathbuffer : *mut u16, cchpathbufferlength : u32, lpcchrequiredbufferlength : *mut u32) -> u32);
+pub unsafe fn GetServiceDirectory(hservicestatus: SERVICE_STATUS_HANDLE, edirectorytype: SERVICE_DIRECTORY_TYPE, lppathbuffer: Option<super::PWCHAR>, cchpathbufferlength: u32, lpcchrequiredbufferlength: *mut u32) -> u32 {
+    windows_core::link!("api-ms-win-service-core-l1-1-4.dll" "system" fn GetServiceDirectory(hservicestatus : SERVICE_STATUS_HANDLE, edirectorytype : SERVICE_DIRECTORY_TYPE, lppathbuffer : super::PWCHAR, cchpathbufferlength : u32, lpcchrequiredbufferlength : *mut u32) -> u32);
     unsafe { GetServiceDirectory(hservicestatus, edirectorytype, lppathbuffer.unwrap_or(core::mem::zeroed()) as _, cchpathbufferlength, lpcchrequiredbufferlength as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn GetServiceDisplayNameA<P1>(hscmanager: SC_HANDLE, lpservicename: P1, lpdisplayname: Option<windows_core::PSTR>, lpcchbuffer: *mut u32) -> windows_core::BOOL
+pub unsafe fn GetServiceDisplayNameA<P1>(hscmanager: SC_HANDLE, lpservicename: P1, lpdisplayname: Option<windows_core::PSTR>, lpcchbuffer: super::LPDWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn GetServiceDisplayNameA(hscmanager : SC_HANDLE, lpservicename : windows_core::PCSTR, lpdisplayname : windows_core::PSTR, lpcchbuffer : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn GetServiceDisplayNameA(hscmanager : SC_HANDLE, lpservicename : windows_core::PCSTR, lpdisplayname : windows_core::PSTR, lpcchbuffer : super::LPDWORD) -> windows_core::BOOL);
     unsafe { GetServiceDisplayNameA(hscmanager, lpservicename.param().abi(), lpdisplayname.unwrap_or(core::mem::zeroed()) as _, lpcchbuffer as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn GetServiceDisplayNameW<P1>(hscmanager: SC_HANDLE, lpservicename: P1, lpdisplayname: Option<windows_core::PWSTR>, lpcchbuffer: *mut u32) -> windows_core::BOOL
+pub unsafe fn GetServiceDisplayNameW<P1>(hscmanager: SC_HANDLE, lpservicename: P1, lpdisplayname: Option<windows_core::PWSTR>, lpcchbuffer: super::LPDWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn GetServiceDisplayNameW(hscmanager : SC_HANDLE, lpservicename : windows_core::PCWSTR, lpdisplayname : windows_core::PWSTR, lpcchbuffer : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn GetServiceDisplayNameW(hscmanager : SC_HANDLE, lpservicename : windows_core::PCWSTR, lpdisplayname : windows_core::PWSTR, lpcchbuffer : super::LPDWORD) -> windows_core::BOOL);
     unsafe { GetServiceDisplayNameW(hscmanager, lpservicename.param().abi(), lpdisplayname.unwrap_or(core::mem::zeroed()) as _, lpcchbuffer as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn GetServiceKeyNameA<P1>(hscmanager: SC_HANDLE, lpdisplayname: P1, lpservicename: Option<windows_core::PSTR>, lpcchbuffer: *mut u32) -> windows_core::BOOL
+pub unsafe fn GetServiceKeyNameA<P1>(hscmanager: SC_HANDLE, lpdisplayname: P1, lpservicename: Option<windows_core::PSTR>, lpcchbuffer: super::LPDWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn GetServiceKeyNameA(hscmanager : SC_HANDLE, lpdisplayname : windows_core::PCSTR, lpservicename : windows_core::PSTR, lpcchbuffer : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn GetServiceKeyNameA(hscmanager : SC_HANDLE, lpdisplayname : windows_core::PCSTR, lpservicename : windows_core::PSTR, lpcchbuffer : super::LPDWORD) -> windows_core::BOOL);
     unsafe { GetServiceKeyNameA(hscmanager, lpdisplayname.param().abi(), lpservicename.unwrap_or(core::mem::zeroed()) as _, lpcchbuffer as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn GetServiceKeyNameW<P1>(hscmanager: SC_HANDLE, lpdisplayname: P1, lpservicename: Option<windows_core::PWSTR>, lpcchbuffer: *mut u32) -> windows_core::BOOL
+pub unsafe fn GetServiceKeyNameW<P1>(hscmanager: SC_HANDLE, lpdisplayname: P1, lpservicename: Option<windows_core::PWSTR>, lpcchbuffer: super::LPDWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn GetServiceKeyNameW(hscmanager : SC_HANDLE, lpdisplayname : windows_core::PCWSTR, lpservicename : windows_core::PWSTR, lpcchbuffer : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn GetServiceKeyNameW(hscmanager : SC_HANDLE, lpdisplayname : windows_core::PCWSTR, lpservicename : windows_core::PWSTR, lpcchbuffer : super::LPDWORD) -> windows_core::BOOL);
     unsafe { GetServiceKeyNameW(hscmanager, lpdisplayname.param().abi(), lpservicename.unwrap_or(core::mem::zeroed()) as _, lpcchbuffer as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -166,9 +181,10 @@ pub unsafe fn GetServiceRegistryStateKey(servicestatushandle: SERVICE_STATUS_HAN
     windows_core::link!("api-ms-win-service-core-l1-1-3.dll" "system" fn GetServiceRegistryStateKey(servicestatushandle : SERVICE_STATUS_HANDLE, statetype : SERVICE_REGISTRY_STATE_TYPE, accessmask : u32, servicestatekey : *mut super::HKEY) -> u32);
     unsafe { GetServiceRegistryStateKey(servicestatushandle, statetype, accessmask, servicestatekey as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetSharedServiceDirectory(servicehandle: SC_HANDLE, directorytype: SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer: Option<*mut u16>, pathbufferlength: u32, requiredbufferlength: *mut u32) -> u32 {
-    windows_core::link!("api-ms-win-service-core-l1-1-5.dll" "system" fn GetSharedServiceDirectory(servicehandle : SC_HANDLE, directorytype : SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer : *mut u16, pathbufferlength : u32, requiredbufferlength : *mut u32) -> u32);
+pub unsafe fn GetSharedServiceDirectory(servicehandle: SC_HANDLE, directorytype: SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer: Option<super::PWCHAR>, pathbufferlength: u32, requiredbufferlength: *mut u32) -> u32 {
+    windows_core::link!("api-ms-win-service-core-l1-1-5.dll" "system" fn GetSharedServiceDirectory(servicehandle : SC_HANDLE, directorytype : SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer : super::PWCHAR, pathbufferlength : u32, requiredbufferlength : *mut u32) -> u32);
     unsafe { GetSharedServiceDirectory(servicehandle, directorytype, pathbuffer.unwrap_or(core::mem::zeroed()) as _, pathbufferlength, requiredbufferlength as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -188,13 +204,13 @@ pub unsafe fn NotifyBootConfigStatus(bootacceptable: bool) -> windows_core::BOOL
     unsafe { NotifyBootConfigStatus(bootacceptable.into()) }
 }
 #[inline]
-pub unsafe fn NotifyServiceStatusChangeA(hservice: SC_HANDLE, dwnotifymask: u32, pnotifybuffer: *const SERVICE_NOTIFY_2A) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn NotifyServiceStatusChangeA(hservice : SC_HANDLE, dwnotifymask : u32, pnotifybuffer : *const SERVICE_NOTIFY_2A) -> u32);
+pub unsafe fn NotifyServiceStatusChangeA(hservice: SC_HANDLE, dwnotifymask: u32, pnotifybuffer: PSERVICE_NOTIFYA) -> u32 {
+    windows_core::link!("advapi32.dll" "system" fn NotifyServiceStatusChangeA(hservice : SC_HANDLE, dwnotifymask : u32, pnotifybuffer : PSERVICE_NOTIFYA) -> u32);
     unsafe { NotifyServiceStatusChangeA(hservice, dwnotifymask, pnotifybuffer) }
 }
 #[inline]
-pub unsafe fn NotifyServiceStatusChangeW(hservice: SC_HANDLE, dwnotifymask: u32, pnotifybuffer: *const SERVICE_NOTIFY_2W) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn NotifyServiceStatusChangeW(hservice : SC_HANDLE, dwnotifymask : u32, pnotifybuffer : *const SERVICE_NOTIFY_2W) -> u32);
+pub unsafe fn NotifyServiceStatusChangeW(hservice: SC_HANDLE, dwnotifymask: u32, pnotifybuffer: PSERVICE_NOTIFYW) -> u32 {
+    windows_core::link!("advapi32.dll" "system" fn NotifyServiceStatusChangeW(hservice : SC_HANDLE, dwnotifymask : u32, pnotifybuffer : PSERVICE_NOTIFYW) -> u32);
     unsafe { NotifyServiceStatusChangeW(hservice, dwnotifymask, pnotifybuffer) }
 }
 #[inline]
@@ -231,24 +247,28 @@ where
     windows_core::link!("advapi32.dll" "system" fn OpenServiceW(hscmanager : SC_HANDLE, lpservicename : windows_core::PCWSTR, dwdesiredaccess : u32) -> SC_HANDLE);
     unsafe { OpenServiceW(hscmanager, lpservicename.param().abi(), dwdesiredaccess) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn QueryServiceConfig2A(hservice: SC_HANDLE, dwinfolevel: u32, lpbuffer: Option<*mut u8>, cbbufsize: u32, pcbbytesneeded: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn QueryServiceConfig2A(hservice : SC_HANDLE, dwinfolevel : u32, lpbuffer : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
+pub unsafe fn QueryServiceConfig2A(hservice: SC_HANDLE, dwinfolevel: u32, lpbuffer: Option<super::LPBYTE>, cbbufsize: u32, pcbbytesneeded: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn QueryServiceConfig2A(hservice : SC_HANDLE, dwinfolevel : u32, lpbuffer : super::LPBYTE, cbbufsize : u32, pcbbytesneeded : super::LPDWORD) -> windows_core::BOOL);
     unsafe { QueryServiceConfig2A(hservice, dwinfolevel, lpbuffer.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn QueryServiceConfig2W(hservice: SC_HANDLE, dwinfolevel: u32, lpbuffer: Option<*mut u8>, cbbufsize: u32, pcbbytesneeded: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn QueryServiceConfig2W(hservice : SC_HANDLE, dwinfolevel : u32, lpbuffer : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
+pub unsafe fn QueryServiceConfig2W(hservice: SC_HANDLE, dwinfolevel: u32, lpbuffer: Option<super::LPBYTE>, cbbufsize: u32, pcbbytesneeded: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn QueryServiceConfig2W(hservice : SC_HANDLE, dwinfolevel : u32, lpbuffer : super::LPBYTE, cbbufsize : u32, pcbbytesneeded : super::LPDWORD) -> windows_core::BOOL);
     unsafe { QueryServiceConfig2W(hservice, dwinfolevel, lpbuffer.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn QueryServiceConfigA(hservice: SC_HANDLE, lpserviceconfig: Option<*mut QUERY_SERVICE_CONFIGA>, cbbufsize: u32, pcbbytesneeded: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn QueryServiceConfigA(hservice : SC_HANDLE, lpserviceconfig : *mut QUERY_SERVICE_CONFIGA, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
+pub unsafe fn QueryServiceConfigA(hservice: SC_HANDLE, lpserviceconfig: Option<LPQUERY_SERVICE_CONFIGA>, cbbufsize: u32, pcbbytesneeded: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn QueryServiceConfigA(hservice : SC_HANDLE, lpserviceconfig : LPQUERY_SERVICE_CONFIGA, cbbufsize : u32, pcbbytesneeded : super::LPDWORD) -> windows_core::BOOL);
     unsafe { QueryServiceConfigA(hservice, lpserviceconfig.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn QueryServiceConfigW(hservice: SC_HANDLE, lpserviceconfig: Option<*mut QUERY_SERVICE_CONFIGW>, cbbufsize: u32, pcbbytesneeded: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn QueryServiceConfigW(hservice : SC_HANDLE, lpserviceconfig : *mut QUERY_SERVICE_CONFIGW, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
+pub unsafe fn QueryServiceConfigW(hservice: SC_HANDLE, lpserviceconfig: Option<LPQUERY_SERVICE_CONFIGW>, cbbufsize: u32, pcbbytesneeded: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn QueryServiceConfigW(hservice : SC_HANDLE, lpserviceconfig : LPQUERY_SERVICE_CONFIGW, cbbufsize : u32, pcbbytesneeded : super::LPDWORD) -> windows_core::BOOL);
     unsafe { QueryServiceConfigW(hservice, lpserviceconfig.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _) }
 }
 #[inline]
@@ -256,30 +276,33 @@ pub unsafe fn QueryServiceDynamicInformation(hservicestatus: SERVICE_STATUS_HAND
     windows_core::link!("advapi32.dll" "system" fn QueryServiceDynamicInformation(hservicestatus : SERVICE_STATUS_HANDLE, dwinfolevel : u32, ppdynamicinfo : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { QueryServiceDynamicInformation(hservicestatus, dwinfolevel, ppdynamicinfo as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn QueryServiceLockStatusA(hscmanager: SC_HANDLE, lplockstatus: Option<*mut QUERY_SERVICE_LOCK_STATUSA>, cbbufsize: u32, pcbbytesneeded: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn QueryServiceLockStatusA(hscmanager : SC_HANDLE, lplockstatus : *mut QUERY_SERVICE_LOCK_STATUSA, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
+pub unsafe fn QueryServiceLockStatusA(hscmanager: SC_HANDLE, lplockstatus: Option<LPQUERY_SERVICE_LOCK_STATUSA>, cbbufsize: u32, pcbbytesneeded: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn QueryServiceLockStatusA(hscmanager : SC_HANDLE, lplockstatus : LPQUERY_SERVICE_LOCK_STATUSA, cbbufsize : u32, pcbbytesneeded : super::LPDWORD) -> windows_core::BOOL);
     unsafe { QueryServiceLockStatusA(hscmanager, lplockstatus.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn QueryServiceLockStatusW(hscmanager: SC_HANDLE, lplockstatus: Option<*mut QUERY_SERVICE_LOCK_STATUSW>, cbbufsize: u32, pcbbytesneeded: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn QueryServiceLockStatusW(hscmanager : SC_HANDLE, lplockstatus : *mut QUERY_SERVICE_LOCK_STATUSW, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
+pub unsafe fn QueryServiceLockStatusW(hscmanager: SC_HANDLE, lplockstatus: Option<LPQUERY_SERVICE_LOCK_STATUSW>, cbbufsize: u32, pcbbytesneeded: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn QueryServiceLockStatusW(hscmanager : SC_HANDLE, lplockstatus : LPQUERY_SERVICE_LOCK_STATUSW, cbbufsize : u32, pcbbytesneeded : super::LPDWORD) -> windows_core::BOOL);
     unsafe { QueryServiceLockStatusW(hscmanager, lplockstatus.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn QueryServiceObjectSecurity(hservice: SC_HANDLE, dwsecurityinformation: super::SECURITY_INFORMATION, lpsecuritydescriptor: Option<super::PSECURITY_DESCRIPTOR>, cbbufsize: u32, pcbbytesneeded: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn QueryServiceObjectSecurity(hservice : SC_HANDLE, dwsecurityinformation : super::SECURITY_INFORMATION, lpsecuritydescriptor : super::PSECURITY_DESCRIPTOR, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
+pub unsafe fn QueryServiceObjectSecurity(hservice: SC_HANDLE, dwsecurityinformation: super::SECURITY_INFORMATION, lpsecuritydescriptor: Option<super::PSECURITY_DESCRIPTOR>, cbbufsize: u32, pcbbytesneeded: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn QueryServiceObjectSecurity(hservice : SC_HANDLE, dwsecurityinformation : super::SECURITY_INFORMATION, lpsecuritydescriptor : super::PSECURITY_DESCRIPTOR, cbbufsize : u32, pcbbytesneeded : super::LPDWORD) -> windows_core::BOOL);
     unsafe { QueryServiceObjectSecurity(hservice, dwsecurityinformation, lpsecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _) }
 }
 #[inline]
-pub unsafe fn QueryServiceStatus(hservice: SC_HANDLE, lpservicestatus: *mut SERVICE_STATUS) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn QueryServiceStatus(hservice : SC_HANDLE, lpservicestatus : *mut SERVICE_STATUS) -> windows_core::BOOL);
+pub unsafe fn QueryServiceStatus(hservice: SC_HANDLE, lpservicestatus: LPSERVICE_STATUS) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn QueryServiceStatus(hservice : SC_HANDLE, lpservicestatus : LPSERVICE_STATUS) -> windows_core::BOOL);
     unsafe { QueryServiceStatus(hservice, lpservicestatus as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn QueryServiceStatusEx(hservice: SC_HANDLE, infolevel: SC_STATUS_TYPE, lpbuffer: Option<*mut u8>, cbbufsize: u32, pcbbytesneeded: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn QueryServiceStatusEx(hservice : SC_HANDLE, infolevel : SC_STATUS_TYPE, lpbuffer : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
+pub unsafe fn QueryServiceStatusEx(hservice: SC_HANDLE, infolevel: SC_STATUS_TYPE, lpbuffer: Option<super::LPBYTE>, cbbufsize: u32, pcbbytesneeded: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn QueryServiceStatusEx(hservice : SC_HANDLE, infolevel : SC_STATUS_TYPE, lpbuffer : super::LPBYTE, cbbufsize : u32, pcbbytesneeded : super::LPDWORD) -> windows_core::BOOL);
     unsafe { QueryServiceStatusEx(hservice, infolevel, lpbuffer.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _) }
 }
 #[inline]
@@ -321,8 +344,8 @@ pub unsafe fn SetServiceObjectSecurity(hservice: SC_HANDLE, dwsecurityinformatio
     unsafe { SetServiceObjectSecurity(hservice, dwsecurityinformation, lpsecuritydescriptor) }
 }
 #[inline]
-pub unsafe fn SetServiceStatus(hservicestatus: SERVICE_STATUS_HANDLE, lpservicestatus: *const SERVICE_STATUS) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn SetServiceStatus(hservicestatus : SERVICE_STATUS_HANDLE, lpservicestatus : *const SERVICE_STATUS) -> windows_core::BOOL);
+pub unsafe fn SetServiceStatus(hservicestatus: SERVICE_STATUS_HANDLE, lpservicestatus: LPSERVICE_STATUS) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn SetServiceStatus(hservicestatus : SERVICE_STATUS_HANDLE, lpservicestatus : LPSERVICE_STATUS) -> windows_core::BOOL);
     unsafe { SetServiceStatus(hservicestatus, lpservicestatus) }
 }
 #[inline]
@@ -420,6 +443,7 @@ pub type LPSERVICE_FAILURE_ACTIONSW = *mut SERVICE_FAILURE_ACTIONSW;
 pub type LPSERVICE_FAILURE_ACTIONS_FLAG = *mut SERVICE_FAILURE_ACTIONS_FLAG;
 pub type LPSERVICE_MAIN_FUNCTIONA = Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut windows_core::PSTR)>;
 pub type LPSERVICE_MAIN_FUNCTIONW = Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut windows_core::PWSTR)>;
+#[cfg(feature = "winnt")]
 pub type LPSERVICE_PREFERRED_NODE_INFO = *mut SERVICE_PREFERRED_NODE_INFO;
 pub type LPSERVICE_PRESHUTDOWN_INFO = *mut SERVICE_PRESHUTDOWN_INFO;
 pub type LPSERVICE_REQUIRED_PRIVILEGES_INFO = LPSERVICE_REQUIRED_PRIVILEGES_INFOA;
@@ -439,7 +463,7 @@ pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: windows_core::GUID = win
 pub type PFN_SC_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(pparameter: *const core::ffi::c_void)>;
 pub type PSC_EVENT_TYPE = *mut SC_EVENT_TYPE;
 pub type PSC_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(dwnotify: u32, pcallbackcontext: *const core::ffi::c_void)>;
-pub type PSC_NOTIFICATION_REGISTRATION = *mut _SC_NOTIFICATION_REGISTRATION;
+pub type PSC_NOTIFICATION_REGISTRATION = *mut SC_NOTIFICATION_REGISTRATION;
 pub type PSERVICE_CONTROL_STATUS_REASON_PARAMS = PSERVICE_CONTROL_STATUS_REASON_PARAMSA;
 pub type PSERVICE_CONTROL_STATUS_REASON_PARAMSA = *mut SERVICE_CONTROL_STATUS_REASON_PARAMSA;
 pub type PSERVICE_CONTROL_STATUS_REASON_PARAMSW = *mut SERVICE_CONTROL_STATUS_REASON_PARAMSW;
@@ -452,6 +476,7 @@ pub type PSERVICE_NOTIFY_2 = PSERVICE_NOTIFY_2A;
 pub type PSERVICE_NOTIFY_2A = *mut SERVICE_NOTIFY_2A;
 pub type PSERVICE_NOTIFY_2W = *mut SERVICE_NOTIFY_2W;
 pub type PSERVICE_START_REASON = *mut SERVICE_START_REASON;
+#[cfg(feature = "winnt")]
 pub type PSERVICE_TIMECHANGE_INFO = *mut SERVICE_TIMECHANGE_INFO;
 #[cfg(feature = "minwindef")]
 pub type PSERVICE_TRIGGER = *mut SERVICE_TRIGGER;
@@ -521,15 +546,16 @@ pub const SC_EVENT_DATABASE_CHANGE: SC_EVENT_TYPE = 0;
 pub const SC_EVENT_PROPERTY_CHANGE: SC_EVENT_TYPE = 1;
 pub const SC_EVENT_STATUS_CHANGE: SC_EVENT_TYPE = 2;
 pub type SC_EVENT_TYPE = i32;
-pub const SC_GROUP_IDENTIFIER: u32 = 43;
-pub const SC_GROUP_IDENTIFIERA: u32 = 43;
-pub const SC_GROUP_IDENTIFIERW: u32 = 43;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SC_HANDLE(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SC_LOCK(pub *mut core::ffi::c_void);
+pub const SC_GROUP_IDENTIFIER: i8 = 43;
+pub const SC_GROUP_IDENTIFIERA: i8 = 43;
+pub const SC_GROUP_IDENTIFIERW: u16 = 43;
+pub type SC_HANDLE = *mut SC_HANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SC_HANDLE__ {
+    pub unused: i32,
+}
+pub type SC_LOCK = *mut core::ffi::c_void;
 pub const SC_MANAGER_ALL_ACCESS: i32 = 983103;
 pub const SC_MANAGER_CONNECT: i32 = 1;
 pub const SC_MANAGER_CREATE_SERVICE: i32 = 2;
@@ -538,10 +564,15 @@ pub const SC_MANAGER_LOCK: i32 = 8;
 pub const SC_MANAGER_MODIFY_BOOT_CONFIG: i32 = 32;
 pub const SC_MANAGER_QUERY_LOCK_STATUS: i32 = 16;
 pub type SC_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(dwnotify: u32, pcallbackcontext: *const core::ffi::c_void)>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SC_NOTIFICATION_REGISTRATION(pub u8);
 pub const SC_STATUS_PROCESS_INFO: SC_STATUS_TYPE = 0;
 pub type SC_STATUS_TYPE = i32;
+pub const SERVICES_ACTIVE_DATABASE: windows_core::PCSTR = windows_core::s!("ServicesActive");
 pub const SERVICES_ACTIVE_DATABASEA: windows_core::PCSTR = windows_core::s!("ServicesActive");
 pub const SERVICES_ACTIVE_DATABASEW: windows_core::PCWSTR = windows_core::w!("ServicesActive");
+pub const SERVICES_FAILED_DATABASE: windows_core::PCSTR = windows_core::s!("ServicesFailed");
 pub const SERVICES_FAILED_DATABASEA: windows_core::PCSTR = windows_core::s!("ServicesFailed");
 pub const SERVICES_FAILED_DATABASEW: windows_core::PCWSTR = windows_core::w!("ServicesFailed");
 pub const SERVICE_ACCEPT_HARDWAREPROFILECHANGE: i32 = 32;
@@ -749,10 +780,11 @@ pub const SERVICE_PAUSED: i32 = 7;
 pub const SERVICE_PAUSE_CONTINUE: i32 = 64;
 pub const SERVICE_PAUSE_PENDING: i32 = 6;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_PREFERRED_NODE_INFO {
     pub usPreferredNode: u16,
-    pub fDelete: bool,
+    pub fDelete: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -809,9 +841,12 @@ pub struct SERVICE_STATUS {
     pub dwCheckPoint: u32,
     pub dwWaitHint: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SERVICE_STATUS_HANDLE(pub *mut core::ffi::c_void);
+pub type SERVICE_STATUS_HANDLE = *mut SERVICE_STATUS_HANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SERVICE_STATUS_HANDLE__ {
+    pub unused: i32,
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_STATUS_PROCESS {
@@ -885,10 +920,17 @@ pub struct SERVICE_TABLE_ENTRYW {
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct SERVICE_TIMECHANGE_INFO {
-    pub liNewTime: i64,
-    pub liOldTime: i64,
+    pub liNewTime: super::LARGE_INTEGER,
+    pub liOldTime: super::LARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for SERVICE_TIMECHANGE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -951,6 +993,3 @@ pub const ServiceRegistryStatePersistent: SERVICE_REGISTRY_STATE_TYPE = 1;
 pub const ServiceSharedDirectoryPersistentState: SERVICE_SHARED_DIRECTORY_TYPE = 0;
 pub const ServiceSharedRegistryPersistentState: SERVICE_SHARED_REGISTRY_STATE_TYPE = 0;
 pub const USER_POLICY_PRESENT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x54fb46c8_f089_464c_b1fd_59d1b62c3b50);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _SC_NOTIFICATION_REGISTRATION(pub u8);

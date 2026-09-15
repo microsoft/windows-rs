@@ -28,11 +28,11 @@ pub struct DFileSystemImageEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait DFileSystemImageEvents_Impl: super::IDispatch_Impl {
     fn Update(&self, object: windows_core::Ref<super::IDispatch>, currentfile: &windows_core::BSTR, copiedsectors: i32, totalsectors: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl DFileSystemImageEvents_Vtbl {
     pub const fn new<Identity: DFileSystemImageEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Update<Identity: DFileSystemImageEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, currentfile: *mut core::ffi::c_void, copiedsectors: i32, totalsectors: i32) -> windows_core::HRESULT {
@@ -47,7 +47,7 @@ impl DFileSystemImageEvents_Vtbl {
         iid == &<DFileSystemImageEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for DFileSystemImageEvents {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(DFileSystemImageImportEvents, DFileSystemImageImportEvents_Vtbl, 0xd25c30f9_4087_4366_9e24_e55be286424b);
@@ -76,11 +76,11 @@ pub struct DFileSystemImageImportEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub UpdateImport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, FsiFileSystems, *mut core::ffi::c_void, i32, i32, i32, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait DFileSystemImageImportEvents_Impl: super::IDispatch_Impl {
     fn UpdateImport(&self, object: windows_core::Ref<super::IDispatch>, filesystem: FsiFileSystems, currentitem: &windows_core::BSTR, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl DFileSystemImageImportEvents_Vtbl {
     pub const fn new<Identity: DFileSystemImageImportEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn UpdateImport<Identity: DFileSystemImageImportEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, filesystem: FsiFileSystems, currentitem: *mut core::ffi::c_void, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> windows_core::HRESULT {
@@ -95,7 +95,7 @@ impl DFileSystemImageImportEvents_Vtbl {
         iid == &<DFileSystemImageImportEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for DFileSystemImageImportEvents {}
 pub const DISPID_DFILESYSTEMIMAGEEVENTS_UPDATE: i32 = 256;
 pub const DISPID_DFILESYSTEMIMAGEIMPORTEVENTS_UPDATEIMPORT: i32 = 257;
@@ -204,7 +204,7 @@ pub struct IBootOptions_Vtbl {
     #[cfg(not(feature = "objidlbase"))]
     AssignBootImage: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBootOptions_Impl: super::IDispatch_Impl {
     fn BootImage(&self) -> windows_core::Result<super::IStream>;
     fn Manufacturer(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -216,7 +216,7 @@ pub trait IBootOptions_Impl: super::IDispatch_Impl {
     fn ImageSize(&self) -> windows_core::Result<u32>;
     fn AssignBootImage(&self, newval: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IBootOptions_Vtbl {
     pub const fn new<Identity: IBootOptions_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BootImage<Identity: IBootOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -320,7 +320,7 @@ impl IBootOptions_Vtbl {
         iid == &<IBootOptions as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IBootOptions {}
 windows_core::imp::define_interface!(IEnumFsiItems, IEnumFsiItems_Vtbl, 0x2c941fda_975b_59be_a960_9a2a262853a5);
 windows_core::imp::interface_hierarchy!(IEnumFsiItems, windows_core::IUnknown);
@@ -862,7 +862,7 @@ pub struct IFileSystemImage_Vtbl {
     pub MultisessionInterfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
     pub SetMultisessionInterfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "imapi2", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFileSystemImage_Impl: super::IDispatch_Impl {
     fn Root(&self) -> windows_core::Result<IFsiDirectoryItem>;
     fn SessionStartBlock(&self) -> windows_core::Result<i32>;
@@ -915,7 +915,7 @@ pub trait IFileSystemImage_Impl: super::IDispatch_Impl {
     fn MultisessionInterfaces(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn SetMultisessionInterfaces(&self, newval: *const super::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "imapi2", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFileSystemImage_Vtbl {
     pub const fn new<Identity: IFileSystemImage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Root<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1468,7 +1468,7 @@ impl IFileSystemImage_Vtbl {
         iid == &<IFileSystemImage as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "imapi2", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFileSystemImage {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFileSystemImage2, IFileSystemImage2_Vtbl, 0xd7644b2c_1537_4767_b62f_f1387b02ddfd);
@@ -1501,12 +1501,12 @@ pub struct IFileSystemImage2_Vtbl {
     pub BootImageOptionsArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
     pub SetBootImageOptionsArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "imapi2", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFileSystemImage2_Impl: IFileSystemImage_Impl {
     fn BootImageOptionsArray(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn SetBootImageOptionsArray(&self, newval: *const super::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "imapi2", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFileSystemImage2_Vtbl {
     pub const fn new<Identity: IFileSystemImage2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BootImageOptionsArray<Identity: IFileSystemImage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -1537,7 +1537,7 @@ impl IFileSystemImage2_Vtbl {
         iid == &<IFileSystemImage2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFileSystemImage as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "imapi2", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFileSystemImage2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFileSystemImage3, IFileSystemImage3_Vtbl, 0x7cff842c_7e97_4807_8304_910dd8f7c051);
@@ -1589,13 +1589,13 @@ pub struct IFileSystemImage3_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     ProbeSpecificFileSystem: usize,
 }
-#[cfg(all(feature = "imapi2", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFileSystemImage3_Impl: IFileSystemImage2_Impl {
     fn CreateRedundantUdfMetadataFiles(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetCreateRedundantUdfMetadataFiles(&self, newval: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn ProbeSpecificFileSystem(&self, filesystemtoprobe: FsiFileSystems) -> windows_core::Result<super::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "imapi2", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFileSystemImage3_Vtbl {
     pub const fn new<Identity: IFileSystemImage3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateRedundantUdfMetadataFiles<Identity: IFileSystemImage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1639,7 +1639,7 @@ impl IFileSystemImage3_Vtbl {
         iid == &<IFileSystemImage3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFileSystemImage as windows_core::Interface>::IID || iid == &<IFileSystemImage2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "imapi2", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFileSystemImage3 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFileSystemImageResult, IFileSystemImageResult_Vtbl, 0x2c941fd8_975b_59be_a960_9a2a262853a5);
@@ -1700,7 +1700,7 @@ pub struct IFileSystemImageResult_Vtbl {
     pub BlockSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub DiscId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFileSystemImageResult_Impl: super::IDispatch_Impl {
     fn ImageStream(&self) -> windows_core::Result<super::IStream>;
     fn ProgressItems(&self) -> windows_core::Result<IProgressItems>;
@@ -1708,7 +1708,7 @@ pub trait IFileSystemImageResult_Impl: super::IDispatch_Impl {
     fn BlockSize(&self) -> windows_core::Result<i32>;
     fn DiscId(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFileSystemImageResult_Vtbl {
     pub const fn new<Identity: IFileSystemImageResult_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ImageStream<Identity: IFileSystemImageResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1784,7 +1784,7 @@ impl IFileSystemImageResult_Vtbl {
         iid == &<IFileSystemImageResult as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFileSystemImageResult {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFileSystemImageResult2, IFileSystemImageResult2_Vtbl, 0xb507ca29_2204_11dd_966a_001aa01bbc58);
@@ -1817,11 +1817,11 @@ pub struct IFileSystemImageResult2_Vtbl {
     #[cfg(not(feature = "imapi2"))]
     ModifiedBlocks: usize,
 }
-#[cfg(all(feature = "imapi2", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFileSystemImageResult2_Impl: IFileSystemImageResult_Impl {
     fn ModifiedBlocks(&self) -> windows_core::Result<super::IBlockRangeList>;
 }
-#[cfg(all(feature = "imapi2", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFileSystemImageResult2_Vtbl {
     pub const fn new<Identity: IFileSystemImageResult2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ModifiedBlocks<Identity: IFileSystemImageResult2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1842,7 +1842,7 @@ impl IFileSystemImageResult2_Vtbl {
         iid == &<IFileSystemImageResult2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFileSystemImageResult as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "imapi2", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "imapi2", feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFileSystemImageResult2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsiDirectoryItem, IFsiDirectoryItem_Vtbl, 0x2c941fdc_975b_59be_a960_9a2a262853a5);
@@ -1930,7 +1930,7 @@ pub struct IFsiDirectoryItem_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveTree: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsiDirectoryItem_Impl: IFsiItem_Impl {
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
     fn Item(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsiItem>;
@@ -1943,7 +1943,7 @@ pub trait IFsiDirectoryItem_Impl: IFsiItem_Impl {
     fn Remove(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
     fn RemoveTree(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsiDirectoryItem_Vtbl {
     pub const fn new<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2048,7 +2048,7 @@ impl IFsiDirectoryItem_Vtbl {
         iid == &<IFsiDirectoryItem as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsiItem as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsiDirectoryItem {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsiDirectoryItem2, IFsiDirectoryItem2_Vtbl, 0xf7fb4b9b_6d96_4d7b_9115_201b144811ef);
@@ -2078,11 +2078,11 @@ pub struct IFsiDirectoryItem2_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     AddTreeWithNamedStreams: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsiDirectoryItem2_Impl: IFsiDirectoryItem_Impl {
     fn AddTreeWithNamedStreams(&self, sourcedirectory: &windows_core::BSTR, includebasedirectory: super::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsiDirectoryItem2_Vtbl {
     pub const fn new<Identity: IFsiDirectoryItem2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddTreeWithNamedStreams<Identity: IFsiDirectoryItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcedirectory: *mut core::ffi::c_void, includebasedirectory: super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2097,7 +2097,7 @@ impl IFsiDirectoryItem2_Vtbl {
         iid == &<IFsiDirectoryItem2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsiItem as windows_core::Interface>::IID || iid == &<IFsiDirectoryItem as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsiDirectoryItem2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsiFileItem, IFsiFileItem_Vtbl, 0x2c941fdb_975b_59be_a960_9a2a262853a5);
@@ -2162,7 +2162,7 @@ pub struct IFsiFileItem_Vtbl {
     #[cfg(not(feature = "objidlbase"))]
     SetData: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsiFileItem_Impl: IFsiItem_Impl {
     fn DataSize(&self) -> windows_core::Result<i64>;
     fn DataSize32BitLow(&self) -> windows_core::Result<i32>;
@@ -2170,7 +2170,7 @@ pub trait IFsiFileItem_Impl: IFsiItem_Impl {
     fn Data(&self) -> windows_core::Result<super::IStream>;
     fn SetData(&self, newval: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsiFileItem_Vtbl {
     pub const fn new<Identity: IFsiFileItem_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DataSize<Identity: IFsiFileItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i64) -> windows_core::HRESULT {
@@ -2240,7 +2240,7 @@ impl IFsiFileItem_Vtbl {
         iid == &<IFsiFileItem as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsiItem as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsiFileItem {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsiFileItem2, IFsiFileItem2_Vtbl, 0x199d0c19_11e1_40eb_8ec2_c8c822a07792);
@@ -2314,7 +2314,7 @@ pub struct IFsiFileItem2_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     SetIsRealTime: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsiFileItem2_Impl: IFsiFileItem_Impl {
     fn FsiNamedStreams(&self) -> windows_core::Result<IFsiNamedStreams>;
     fn IsNamedStream(&self) -> windows_core::Result<super::VARIANT_BOOL>;
@@ -2323,7 +2323,7 @@ pub trait IFsiFileItem2_Impl: IFsiFileItem_Impl {
     fn IsRealTime(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetIsRealTime(&self, newval: super::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsiFileItem2_Vtbl {
     pub const fn new<Identity: IFsiFileItem2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FsiNamedStreams<Identity: IFsiFileItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streams: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2394,7 +2394,7 @@ impl IFsiFileItem2_Vtbl {
         iid == &<IFsiFileItem2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IFsiItem as windows_core::Interface>::IID || iid == &<IFsiFileItem as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsiFileItem2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsiItem, IFsiItem_Vtbl, 0x2c941fd9_975b_59be_a960_9a2a262853a5);
@@ -2421,31 +2421,37 @@ impl IFsiItem {
             (windows_core::Interface::vtable(self).FullPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CreationTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn CreationTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCreationTime(&self, newval: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetCreationTime(&self, newval: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCreationTime)(windows_core::Interface::as_raw(self), newval) }
     }
-    pub unsafe fn LastAccessedTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn LastAccessedTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastAccessedTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLastAccessedTime(&self, newval: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetLastAccessedTime(&self, newval: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLastAccessedTime)(windows_core::Interface::as_raw(self), newval) }
     }
-    pub unsafe fn LastModifiedTime(&self) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn LastModifiedTime(&self) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastModifiedTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLastModifiedTime(&self, newval: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetLastModifiedTime(&self, newval: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLastModifiedTime)(windows_core::Interface::as_raw(self), newval) }
     }
     #[cfg(feature = "wtypes")]
@@ -2479,12 +2485,30 @@ pub struct IFsiItem_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FullPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetCreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub LastAccessedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetLastAccessedTime: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub LastModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetLastModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub CreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    CreationTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetCreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetCreationTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub LastAccessedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    LastAccessedTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetLastAccessedTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetLastAccessedTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub LastModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    LastModifiedTime: usize,
+    #[cfg(feature = "wtypes")]
+    pub SetLastModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetLastModifiedTime: usize,
     #[cfg(feature = "wtypes")]
     pub IsHidden: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
@@ -2496,22 +2520,22 @@ pub struct IFsiItem_Vtbl {
     pub FileSystemName: unsafe extern "system" fn(*mut core::ffi::c_void, FsiFileSystems, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FileSystemPath: unsafe extern "system" fn(*mut core::ffi::c_void, FsiFileSystems, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsiItem_Impl: super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn FullPath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CreationTime(&self) -> windows_core::Result<f64>;
-    fn SetCreationTime(&self, newval: f64) -> windows_core::Result<()>;
-    fn LastAccessedTime(&self) -> windows_core::Result<f64>;
-    fn SetLastAccessedTime(&self, newval: f64) -> windows_core::Result<()>;
-    fn LastModifiedTime(&self) -> windows_core::Result<f64>;
-    fn SetLastModifiedTime(&self, newval: f64) -> windows_core::Result<()>;
+    fn CreationTime(&self) -> windows_core::Result<super::DATE>;
+    fn SetCreationTime(&self, newval: super::DATE) -> windows_core::Result<()>;
+    fn LastAccessedTime(&self) -> windows_core::Result<super::DATE>;
+    fn SetLastAccessedTime(&self, newval: super::DATE) -> windows_core::Result<()>;
+    fn LastModifiedTime(&self) -> windows_core::Result<super::DATE>;
+    fn SetLastModifiedTime(&self, newval: super::DATE) -> windows_core::Result<()>;
     fn IsHidden(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetIsHidden(&self, newval: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn FileSystemName(&self, filesystem: FsiFileSystems) -> windows_core::Result<windows_core::BSTR>;
     fn FileSystemPath(&self, filesystem: FsiFileSystems) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsiItem_Vtbl {
     pub const fn new<Identity: IFsiItem_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2538,7 +2562,7 @@ impl IFsiItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreationTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreationTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiItem_Impl::CreationTime(this) {
@@ -2550,13 +2574,13 @@ impl IFsiItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCreationTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCreationTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFsiItem_Impl::SetCreationTime(this, core::mem::transmute_copy(&newval)).into()
             }
         }
-        unsafe extern "system" fn LastAccessedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastAccessedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiItem_Impl::LastAccessedTime(this) {
@@ -2568,13 +2592,13 @@ impl IFsiItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLastAccessedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLastAccessedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFsiItem_Impl::SetLastAccessedTime(this, core::mem::transmute_copy(&newval)).into()
             }
         }
-        unsafe extern "system" fn LastModifiedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastModifiedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiItem_Impl::LastModifiedTime(this) {
@@ -2586,7 +2610,7 @@ impl IFsiItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLastModifiedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLastModifiedTime<Identity: IFsiItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFsiItem_Impl::SetLastModifiedTime(this, core::mem::transmute_copy(&newval)).into()
@@ -2654,7 +2678,7 @@ impl IFsiItem_Vtbl {
         iid == &<IFsiItem as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsiItem {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFsiNamedStreams, IFsiNamedStreams_Vtbl, 0xed79ba56_5294_4250_8d46_f9aecee23459);
@@ -2704,14 +2728,14 @@ pub struct IFsiNamedStreams_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub EnumNamedStreams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFsiNamedStreams_Impl: super::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
     fn Item(&self, index: i32) -> windows_core::Result<IFsiFileItem2>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn EnumNamedStreams(&self) -> windows_core::Result<IEnumFsiItems>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFsiNamedStreams_Vtbl {
     pub const fn new<Identity: IFsiNamedStreams_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: IFsiNamedStreams_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2774,7 +2798,7 @@ impl IFsiNamedStreams_Vtbl {
         iid == &<IFsiNamedStreams as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFsiNamedStreams {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IIsoImageManager, IIsoImageManager_Vtbl, 0x6ca38be5_fbbb_4800_95a1_a438865eb0d4);
@@ -2833,7 +2857,7 @@ pub struct IIsoImageManager_Vtbl {
     SetStream: usize,
     pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IIsoImageManager_Impl: super::IDispatch_Impl {
     fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Stream(&self) -> windows_core::Result<super::IStream>;
@@ -2841,7 +2865,7 @@ pub trait IIsoImageManager_Impl: super::IDispatch_Impl {
     fn SetStream(&self, data: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
     fn Validate(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IIsoImageManager_Vtbl {
     pub const fn new<Identity: IIsoImageManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Path<Identity: IIsoImageManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2899,7 +2923,7 @@ impl IIsoImageManager_Vtbl {
         iid == &<IIsoImageManager as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IIsoImageManager {}
 pub const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: i32 = 32;
 pub const IMAPI2FS_FullVersion_STR: windows_core::PCSTR = windows_core::s!("1.0");
@@ -2954,14 +2978,14 @@ pub struct IProgressItem_Vtbl {
     pub LastBlock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub BlockCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IProgressItem_Impl: super::IDispatch_Impl {
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn FirstBlock(&self) -> windows_core::Result<u32>;
     fn LastBlock(&self) -> windows_core::Result<u32>;
     fn BlockCount(&self) -> windows_core::Result<u32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IProgressItem_Vtbl {
     pub const fn new<Identity: IProgressItem_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Description<Identity: IProgressItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3024,7 +3048,7 @@ impl IProgressItem_Vtbl {
         iid == &<IProgressItem as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IProgressItem {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IProgressItems, IProgressItems_Vtbl, 0x2c941fd7_975b_59be_a960_9a2a262853a5);
@@ -3088,7 +3112,7 @@ pub struct IProgressItems_Vtbl {
     pub ProgressItemFromDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumProgressItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IProgressItems_Impl: super::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
     fn Item(&self, index: i32) -> windows_core::Result<IProgressItem>;
@@ -3097,7 +3121,7 @@ pub trait IProgressItems_Impl: super::IDispatch_Impl {
     fn ProgressItemFromDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<IProgressItem>;
     fn EnumProgressItems(&self) -> windows_core::Result<IEnumProgressItems>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IProgressItems_Vtbl {
     pub const fn new<Identity: IProgressItems_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: IProgressItems_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3186,7 +3210,7 @@ impl IProgressItems_Vtbl {
         iid == &<IProgressItems as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IProgressItems {}
 pub const MsftFileSystemImage: windows_core::GUID = windows_core::GUID::from_u128(0x2c941fc5_975b_59be_a960_9a2a262853a5);
 pub const MsftIsoImageManager: windows_core::GUID = windows_core::GUID::from_u128(0xceee3b62_8f56_4056_869b_ef16917e3efc);

@@ -1,40 +1,48 @@
-#[cfg(feature = "bcrypt")]
-windows_link::link!("ncrypt.dll" "system" fn NCryptCreateClaim(hsubjectkey : NCRYPT_KEY_HANDLE, hauthoritykey : NCRYPT_KEY_HANDLE, dwclaimtype : u32, pparameterlist : *const NCryptBufferDesc, pbclaimblob : *mut u8, cbclaimblob : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptCreateClaim(hsubjectkey : NCRYPT_KEY_HANDLE, hauthoritykey : NCRYPT_KEY_HANDLE, dwclaimtype : u32, pparameterlist : *const NCryptBufferDesc, pbclaimblob : super::PBYTE, cbclaimblob : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
 windows_link::link!("ncrypt.dll" "system" fn NCryptCreatePersistedKey(hprovider : NCRYPT_PROV_HANDLE, phkey : *mut NCRYPT_KEY_HANDLE, pszalgid : windows_sys::core::PCWSTR, pszkeyname : windows_sys::core::PCWSTR, dwlegacykeyspec : u32, dwflags : u32) -> SECURITY_STATUS);
-windows_link::link!("ncrypt.dll" "system" fn NCryptDecapsulate(hkey : NCRYPT_KEY_HANDLE, pbciphertext : *const u8, cbciphertext : u32, pbsecretkey : *mut u8, cbsecretkey : u32, pcbsecretkey : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-windows_link::link!("ncrypt.dll" "system" fn NCryptDecrypt(hkey : NCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ncrypt.dll" "system" fn NCryptDecapsulate(hkey : NCRYPT_KEY_HANDLE, pbciphertext : super::PBYTE, cbciphertext : u32, pbsecretkey : super::PBYTE, cbsecretkey : u32, pcbsecretkey : *mut u32, dwflags : u32) -> SECURITY_STATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ncrypt.dll" "system" fn NCryptDecrypt(hkey : NCRYPT_KEY_HANDLE, pbinput : super::PBYTE, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pboutput : super::PBYTE, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
 windows_link::link!("ncrypt.dll" "system" fn NCryptDeleteKey(hkey : NCRYPT_KEY_HANDLE, dwflags : u32) -> SECURITY_STATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("ncrypt.dll" "system" fn NCryptDeriveKey(hsharedsecret : NCRYPT_SECRET_HANDLE, pwszkdf : windows_sys::core::PCWSTR, pparameterlist : *const NCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-windows_link::link!("ncrypt.dll" "system" fn NCryptEncapsulate(hkey : NCRYPT_KEY_HANDLE, pbsecretkey : *mut u8, cbsecretkey : u32, pcbsecretkey : *mut u32, pbciphertext : *mut u8, cbciphertext : u32, pcbciphertext : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-windows_link::link!("ncrypt.dll" "system" fn NCryptEncrypt(hkey : NCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptDeriveKey(hsharedsecret : NCRYPT_SECRET_HANDLE, pwszkdf : windows_sys::core::PCWSTR, pparameterlist : *const NCryptBufferDesc, pbderivedkey : super::PBYTE, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ncrypt.dll" "system" fn NCryptEncapsulate(hkey : NCRYPT_KEY_HANDLE, pbsecretkey : super::PBYTE, cbsecretkey : u32, pcbsecretkey : *mut u32, pbciphertext : super::PBYTE, cbciphertext : u32, pcbciphertext : *mut u32, dwflags : u32) -> SECURITY_STATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ncrypt.dll" "system" fn NCryptEncrypt(hkey : NCRYPT_KEY_HANDLE, pbinput : super::PBYTE, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pboutput : super::PBYTE, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
 windows_link::link!("ncrypt.dll" "system" fn NCryptEnumAlgorithms(hprovider : NCRYPT_PROV_HANDLE, dwalgoperations : u32, pdwalgcount : *mut u32, ppalglist : *mut *mut NCryptAlgorithmName, dwflags : u32) -> SECURITY_STATUS);
 windows_link::link!("ncrypt.dll" "system" fn NCryptEnumKeys(hprovider : NCRYPT_PROV_HANDLE, pszscope : windows_sys::core::PCWSTR, ppkeyname : *mut *mut NCryptKeyName, ppenumstate : *mut *mut core::ffi::c_void, dwflags : u32) -> SECURITY_STATUS);
 windows_link::link!("ncrypt.dll" "system" fn NCryptEnumStorageProviders(pdwprovidercount : *mut u32, ppproviderlist : *mut *mut NCryptProviderName, dwflags : u32) -> SECURITY_STATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("ncrypt.dll" "system" fn NCryptExportKey(hkey : NCRYPT_KEY_HANDLE, hexportkey : NCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, pparameterlist : *const NCryptBufferDesc, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptExportKey(hkey : NCRYPT_KEY_HANDLE, hexportkey : NCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, pparameterlist : *const NCryptBufferDesc, pboutput : super::PBYTE, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
 windows_link::link!("ncrypt.dll" "system" fn NCryptFinalizeKey(hkey : NCRYPT_KEY_HANDLE, dwflags : u32) -> SECURITY_STATUS);
 windows_link::link!("ncrypt.dll" "system" fn NCryptFreeBuffer(pvinput : *mut core::ffi::c_void) -> SECURITY_STATUS);
 windows_link::link!("ncrypt.dll" "system" fn NCryptFreeObject(hobject : NCRYPT_HANDLE) -> SECURITY_STATUS);
-windows_link::link!("ncrypt.dll" "system" fn NCryptGetProperty(hobject : NCRYPT_HANDLE, pszproperty : windows_sys::core::PCWSTR, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("ncrypt.dll" "system" fn NCryptImportKey(hprovider : NCRYPT_PROV_HANDLE, himportkey : NCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, pparameterlist : *const NCryptBufferDesc, phkey : *mut NCRYPT_KEY_HANDLE, pbdata : *const u8, cbdata : u32, dwflags : u32) -> SECURITY_STATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ncrypt.dll" "system" fn NCryptGetProperty(hobject : NCRYPT_HANDLE, pszproperty : windows_sys::core::PCWSTR, pboutput : super::PBYTE, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptImportKey(hprovider : NCRYPT_PROV_HANDLE, himportkey : NCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, pparameterlist : *const NCryptBufferDesc, phkey : *mut NCRYPT_KEY_HANDLE, pbdata : super::PBYTE, cbdata : u32, dwflags : u32) -> SECURITY_STATUS);
 windows_link::link!("ncrypt.dll" "system" fn NCryptIsAlgSupported(hprovider : NCRYPT_PROV_HANDLE, pszalgid : windows_sys::core::PCWSTR, dwflags : u32) -> SECURITY_STATUS);
 windows_link::link!("ncrypt.dll" "system" fn NCryptIsKeyHandle(hkey : NCRYPT_KEY_HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("ncrypt.dll" "system" fn NCryptKeyDerivation(hkey : NCRYPT_KEY_HANDLE, pparameterlist : *const NCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptKeyDerivation(hkey : NCRYPT_KEY_HANDLE, pparameterlist : *const NCryptBufferDesc, pbderivedkey : super::PUCHAR, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ncrypt.dll" "system" fn NCryptNotifyChangeKey(hprovider : NCRYPT_PROV_HANDLE, phevent : *mut super::HANDLE, dwflags : u32) -> SECURITY_STATUS);
 windows_link::link!("ncrypt.dll" "system" fn NCryptOpenKey(hprovider : NCRYPT_PROV_HANDLE, phkey : *mut NCRYPT_KEY_HANDLE, pszkeyname : windows_sys::core::PCWSTR, dwlegacykeyspec : u32, dwflags : u32) -> SECURITY_STATUS);
 windows_link::link!("ncrypt.dll" "system" fn NCryptOpenStorageProvider(phprovider : *mut NCRYPT_PROV_HANDLE, pszprovidername : windows_sys::core::PCWSTR, dwflags : u32) -> SECURITY_STATUS);
 windows_link::link!("ncrypt.dll" "system" fn NCryptSecretAgreement(hprivkey : NCRYPT_KEY_HANDLE, hpubkey : NCRYPT_KEY_HANDLE, phagreedsecret : *mut NCRYPT_SECRET_HANDLE, dwflags : u32) -> SECURITY_STATUS);
-windows_link::link!("ncrypt.dll" "system" fn NCryptSetProperty(hobject : NCRYPT_HANDLE, pszproperty : windows_sys::core::PCWSTR, pbinput : *const u8, cbinput : u32, dwflags : u32) -> SECURITY_STATUS);
-windows_link::link!("ncrypt.dll" "system" fn NCryptSignHash(hkey : NCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhashvalue : *const u8, cbhashvalue : u32, pbsignature : *mut u8, cbsignature : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ncrypt.dll" "system" fn NCryptSetProperty(hobject : NCRYPT_HANDLE, pszproperty : windows_sys::core::PCWSTR, pbinput : super::PBYTE, cbinput : u32, dwflags : u32) -> SECURITY_STATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ncrypt.dll" "system" fn NCryptSignHash(hkey : NCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhashvalue : super::PBYTE, cbhashvalue : u32, pbsignature : super::PBYTE, cbsignature : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
 #[cfg(feature = "wincrypt")]
 windows_link::link!("ncrypt.dll" "system" fn NCryptTranslateHandle(phprovider : *mut NCRYPT_PROV_HANDLE, phkey : *mut NCRYPT_KEY_HANDLE, hlegacyprov : super::HCRYPTPROV, hlegacykey : super::HCRYPTKEY, dwlegacykeyspec : u32, dwflags : u32) -> SECURITY_STATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("ncrypt.dll" "system" fn NCryptVerifyClaim(hsubjectkey : NCRYPT_KEY_HANDLE, hauthoritykey : NCRYPT_KEY_HANDLE, dwclaimtype : u32, pparameterlist : *const NCryptBufferDesc, pbclaimblob : *const u8, cbclaimblob : u32, poutput : *mut NCryptBufferDesc, dwflags : u32) -> SECURITY_STATUS);
-windows_link::link!("ncrypt.dll" "system" fn NCryptVerifySignature(hkey : NCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhashvalue : *const u8, cbhashvalue : u32, pbsignature : *const u8, cbsignature : u32, dwflags : u32) -> SECURITY_STATUS);
+#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptVerifyClaim(hsubjectkey : NCRYPT_KEY_HANDLE, hauthoritykey : NCRYPT_KEY_HANDLE, dwclaimtype : u32, pparameterlist : *const NCryptBufferDesc, pbclaimblob : super::PBYTE, cbclaimblob : u32, poutput : *mut NCryptBufferDesc, dwflags : u32) -> SECURITY_STATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("ncrypt.dll" "system" fn NCryptVerifySignature(hkey : NCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhashvalue : super::PBYTE, cbhashvalue : u32, pbsignature : super::PBYTE, cbsignature : u32, dwflags : u32) -> SECURITY_STATUS);
 pub const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_1: i32 = 1;
 pub const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_2: i32 = 2;
 pub const IFX_RSA_KEYGEN_VUL_NOT_AFFECTED: i32 = 0;
@@ -88,6 +96,10 @@ pub const NCRYPTBUFFER_TPM_SEAL_TICKET: i32 = 72;
 pub const NCRYPTBUFFER_VBS_ATTESTATION_STATEMENT_IDENTITY_DETAILS: i32 = 95;
 pub const NCRYPTBUFFER_VBS_ATTESTATION_STATEMENT_ROOT_DETAILS: i32 = 94;
 pub const NCRYPTBUFFER_VERSION: i32 = 0;
+pub const NCRYPT_3DES_112_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("3DES_112");
+pub const NCRYPT_3DES_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("3DES");
+pub const NCRYPT_AES_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("AES");
+pub const NCRYPT_AES_ALGORITHM_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("AES");
 pub const NCRYPT_ALGORITHM_GROUP_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Algorithm Group");
 pub const NCRYPT_ALGORITHM_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Algorithm Name");
 #[repr(C)]
@@ -111,6 +123,7 @@ pub const NCRYPT_ALLOW_PLAINTEXT_ARCHIVING_FLAG: i32 = 8;
 pub const NCRYPT_ALLOW_PLAINTEXT_EXPORT_FLAG: i32 = 2;
 pub const NCRYPT_ALLOW_SIGNING_FLAG: i32 = 2;
 pub const NCRYPT_ALLOW_SILENT_KEY_ACCESS: i32 = 1;
+pub const NCRYPT_ALTERNATE_KEY_STORAGE_LOCATION_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("PCP_ALTERNATE_KEY_STORAGE_LOCATION");
 pub const NCRYPT_ASSOCIATED_ECDH_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("SmartCardAssociatedECDHKey");
 pub const NCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: i32 = 3;
 pub const NCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: i32 = 4;
@@ -118,9 +131,11 @@ pub const NCRYPT_ATTESTATION_FLAG: i32 = 32;
 pub const NCRYPT_AUTHORITY_KEY_FLAG: i32 = 256;
 pub const NCRYPT_AUTH_TAG_LENGTH: windows_sys::core::PCWSTR = windows_sys::core::w!("AuthTagLength");
 pub const NCRYPT_BLOCK_LENGTH_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Block Length");
+pub const NCRYPT_CAPI_KDF_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("CAPI_KDF");
 pub const NCRYPT_CERTIFICATE_FROM_NVRAM_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("KeyCertificateFromTpmNvram");
 pub const NCRYPT_CERTIFICATE_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("SmartCardKeyCertificate");
 pub const NCRYPT_CHAINING_MODE_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Chaining Mode");
+pub const NCRYPT_CHANGEPASSWORD_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("PCP_CHANGEPASSWORD");
 pub const NCRYPT_CIPHER_BLOCK_PADDING_FLAG: i32 = 1;
 pub const NCRYPT_CIPHER_INTERFACE: i32 = 1;
 pub const NCRYPT_CIPHER_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("CipherKeyBlob");
@@ -149,11 +164,29 @@ pub const NCRYPT_CLAIM_VBS_KEY_ATTESTATION_STATEMENT: i32 = 4;
 pub const NCRYPT_CLAIM_VBS_ROOT: i32 = 5;
 pub const NCRYPT_CLAIM_WEB_AUTH_SUBJECT_ONLY: i32 = 258;
 pub const NCRYPT_CLAIM_WEB_AUTH_SUBJECT_ONLY_V2: i32 = 259;
+pub const NCRYPT_DESX_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("DESX");
+pub const NCRYPT_DES_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("DES");
 pub const NCRYPT_DES_ALGORITHM_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("DES");
+pub const NCRYPT_DH_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("DH");
+pub const NCRYPT_DH_ALGORITHM_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("DH");
+pub const NCRYPT_DH_PARAMETERS_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("DHParameters");
 pub const NCRYPT_DISMISS_UI_TIMEOUT_SEC_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("SmartCardDismissUITimeoutSeconds");
 pub const NCRYPT_DO_NOT_FINALIZE_FLAG: i32 = 1024;
+pub const NCRYPT_DSA_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("DSA");
+pub const NCRYPT_DSA_ALGORITHM_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("DSA");
+pub const NCRYPT_ECC_CURVE_NAME_LIST_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("ECCCurveNameList");
+pub const NCRYPT_ECC_CURVE_NAME_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("ECCCurveName");
+pub const NCRYPT_ECC_PARAMETERS_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("ECCParameters");
+pub const NCRYPT_ECDH_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("ECDH");
 pub const NCRYPT_ECDH_ALGORITHM_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("ECDH");
+pub const NCRYPT_ECDH_P256_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("ECDH_P256");
+pub const NCRYPT_ECDH_P384_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("ECDH_P384");
+pub const NCRYPT_ECDH_P521_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("ECDH_P521");
+pub const NCRYPT_ECDSA_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("ECDSA");
 pub const NCRYPT_ECDSA_ALGORITHM_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("ECDSA");
+pub const NCRYPT_ECDSA_P256_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("ECDSA_P256");
+pub const NCRYPT_ECDSA_P384_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("ECDSA_P384");
+pub const NCRYPT_ECDSA_P521_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("ECDSA_P521");
 pub const NCRYPT_EPHEMERAL_NAME_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Ephemeral Name");
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -189,6 +222,7 @@ pub const NCRYPT_IMPL_REMOVABLE_FLAG: i32 = 8;
 pub const NCRYPT_IMPL_SOFTWARE_FLAG: i32 = 2;
 pub const NCRYPT_IMPL_TYPE_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Impl Type");
 pub const NCRYPT_IMPL_VIRTUAL_ISOLATION_FLAG: i32 = 32;
+pub const NCRYPT_INITIALIZATION_VECTOR: windows_sys::core::PCWSTR = windows_sys::core::w!("IV");
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
@@ -205,6 +239,8 @@ pub const NCRYPT_ISOLATED_KEY_FLAG_PER_BOOT_KEY: i32 = 4;
 pub const NCRYPT_KDF_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("KDFKeyBlob");
 pub const NCRYPT_KDF_KEY_BLOB_MAGIC: i32 = 826688587;
 pub const NCRYPT_KDF_SECRET_VALUE: windows_sys::core::PCWSTR = windows_sys::core::w!("KDFKeySecret");
+pub const NCRYPT_KEM_CIPHERTEXT_LENGTH_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("KEMCiphertextLength");
+pub const NCRYPT_KEM_SHARED_SECRET_LENGTH_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("KEMSharedSecretLength");
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct NCRYPT_KEY_ACCESS_POLICY_BLOB {
@@ -248,13 +284,20 @@ pub const NCRYPT_KEY_USAGE_PROPERTY: windows_sys::core::PCWSTR = windows_sys::co
 pub const NCRYPT_LAST_MODIFIED_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Modified");
 pub const NCRYPT_LENGTHS_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Lengths");
 pub const NCRYPT_LENGTH_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Length");
+pub const NCRYPT_LMS_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("LMS");
+pub const NCRYPT_LMS_ALGORITHM_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("LMS");
 pub const NCRYPT_MACHINE_KEY_FLAG: i32 = 32;
 pub const NCRYPT_MAX_ALG_ID_LENGTH: i32 = 512;
 pub const NCRYPT_MAX_KEY_NAME_LENGTH: i32 = 512;
 pub const NCRYPT_MAX_NAME_LENGTH_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Max Name Length");
 pub const NCRYPT_MAX_PROPERTY_DATA: i32 = 1048576;
 pub const NCRYPT_MAX_PROPERTY_NAME: i32 = 64;
+pub const NCRYPT_MD2_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("MD2");
+pub const NCRYPT_MD4_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("MD4");
+pub const NCRYPT_MD5_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("MD5");
+pub const NCRYPT_MLDSA_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("ML-DSA");
 pub const NCRYPT_MLDSA_ALGORITHM_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("MLDSA");
+pub const NCRYPT_MLKEM_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("ML-KEM");
 pub const NCRYPT_MLKEM_ALGORITHM_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("MLKEM");
 pub const NCRYPT_NAME_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Name");
 pub const NCRYPT_NO_CACHED_PASSWORD: i32 = 16384;
@@ -267,6 +310,8 @@ pub const NCRYPT_PAD_OAEP_FLAG: i32 = 4;
 pub const NCRYPT_PAD_PKCS1_FLAG: i32 = 2;
 pub const NCRYPT_PAD_PQDSA_FLAG: i32 = 32;
 pub const NCRYPT_PAD_PSS_FLAG: i32 = 8;
+pub const NCRYPT_PARAMETER_SET_NAME_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("ParameterSetName");
+pub const NCRYPT_PBKDF2_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("PBKDF2");
 pub const NCRYPT_PCP_AIKSTORE_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("PCP_AIKSTORE");
 pub const NCRYPT_PCP_ALTERNATE_KEY_STORAGE_LOCATION_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("PCP_ALTERNATE_KEY_STORAGE_LOCATION");
 pub const NCRYPT_PCP_CHANGEPASSWORD_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("PCP_CHANGEPASSWORD");
@@ -413,6 +458,7 @@ pub struct NCRYPT_PQ_BLOB {
 }
 pub const NCRYPT_PQ_PRIVATE_BLOB_MAGIC: i32 = 1380995408;
 pub const NCRYPT_PQ_PRIVATE_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("PQPrivateKeyBlob");
+pub const NCRYPT_PQ_PUBLIC_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("PUBLICBLOB");
 pub const NCRYPT_PREFER_VBS_FLAG: i32 = 65536;
 pub const NCRYPT_PREFER_VIRTUAL_ISOLATION_FLAG: i32 = 65536;
 pub const NCRYPT_PROTECTED_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("ProtectedKeyBlob");
@@ -420,6 +466,9 @@ pub const NCRYPT_PROTECTED_KEY_BLOB_MAGIC: i32 = 1263817296;
 pub const NCRYPT_PROTECT_TO_LOCAL_SYSTEM: i32 = 32768;
 pub const NCRYPT_PROVIDER_HANDLE_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Provider Handle");
 pub type NCRYPT_PROV_HANDLE = usize;
+pub const NCRYPT_PUBLIC_LENGTH_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("PublicKeyLength");
+pub const NCRYPT_RC2_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("RC2");
+pub const NCRYPT_RC2_ALGORITHM_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("RC2");
 pub const NCRYPT_READER_ICON_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("SmartCardReaderIcon");
 pub const NCRYPT_READER_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("SmartCardReader");
 pub const NCRYPT_REGISTER_NOTIFY_FLAG: i32 = 1;
@@ -427,6 +476,9 @@ pub const NCRYPT_REQUIRE_KDS_LRPC_BIND_FLAG: i32 = 536870912;
 pub const NCRYPT_REQUIRE_VBS_FLAG: i32 = 131072;
 pub const NCRYPT_RNG_OPERATION: i32 = 32;
 pub const NCRYPT_ROOT_CERTSTORE_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("SmartcardRootCertStore");
+pub const NCRYPT_RSA_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("RSA");
+pub const NCRYPT_RSA_ALGORITHM_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("RSA");
+pub const NCRYPT_RSA_SIGN_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("RSA_SIGN");
 pub const NCRYPT_SCARD_NGC_KEY_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("SmartCardNgcKeyName");
 pub const NCRYPT_SCARD_PIN_ID: windows_sys::core::PCWSTR = windows_sys::core::w!("SmartCardPinId");
 pub const NCRYPT_SCARD_PIN_INFO: windows_sys::core::PCWSTR = windows_sys::core::w!("SmartCardPinInfo");
@@ -439,11 +491,19 @@ pub type NCRYPT_SECRET_HANDLE = usize;
 pub const NCRYPT_SECURE_PIN_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("SmartCardSecurePin");
 pub const NCRYPT_SECURITY_DESCR_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Security Descr");
 pub const NCRYPT_SECURITY_DESCR_SUPPORT_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Security Descr Support");
+pub const NCRYPT_SHA1_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("SHA1");
+pub const NCRYPT_SHA256_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("SHA256");
+pub const NCRYPT_SHA384_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("SHA384");
+pub const NCRYPT_SHA512_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("SHA512");
 pub const NCRYPT_SIGNATURE_INTERFACE: i32 = 5;
+pub const NCRYPT_SIGNATURE_LENGTH_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("SignatureLength");
 pub const NCRYPT_SIGNATURE_OPERATION: i32 = 16;
 pub const NCRYPT_SILENT_FLAG: i32 = 64;
+pub const NCRYPT_SLHDSA_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("SLH-DSA");
 pub const NCRYPT_SLHDSA_ALGORITHM_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("SLHDSA");
 pub const NCRYPT_SMARTCARD_GUID_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("SmartCardGuid");
+pub const NCRYPT_SP800108_CTR_HMAC_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("SP800_108_CTR_HMAC");
+pub const NCRYPT_SP80056A_CONCAT_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("SP800_56A_CONCAT");
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct NCRYPT_SUPPORTED_LENGTHS {
@@ -464,6 +524,10 @@ pub struct NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     pub cbName: u32,
 }
 pub const NCRYPT_TPM_LOADABLE_KEY_BLOB_MAGIC: i32 = 1297371211;
+#[cfg(target_arch = "x86")]
+pub const NCRYPT_TPM_LOADABLE_KEY_BLOB_MIN_SIZE: u32 = 20;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const NCRYPT_TPM_LOADABLE_KEY_BLOB_MIN_SIZE: u64 = 20;
 pub const NCRYPT_TPM_PAD_PSS_IGNORE_SALT: i32 = 32;
 pub const NCRYPT_TPM_PERSISTENT_KEY_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("PcpTpmPersistentKeyBlob");
 #[repr(C)]
@@ -474,6 +538,10 @@ pub struct NCRYPT_TPM_PERSISTENT_KEY_BLOB_HEADER {
     pub tpmHandle: u32,
 }
 pub const NCRYPT_TPM_PERSISTENT_KEY_BLOB_MAGIC: i32 = 1297371211;
+#[cfg(target_arch = "x86")]
+pub const NCRYPT_TPM_PERSISTENT_KEY_BLOB_MIN_SIZE: u32 = 12;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const NCRYPT_TPM_PERSISTENT_KEY_BLOB_MIN_SIZE: u64 = 12;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
@@ -589,6 +657,8 @@ pub const NCRYPT_VBS_ROOT_PUB_PROPERTY: windows_sys::core::PCWSTR = windows_sys:
 pub const NCRYPT_VERSION_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("Version");
 pub const NCRYPT_WINDOW_HANDLE_PROPERTY: windows_sys::core::PCWSTR = windows_sys::core::w!("HWND Handle");
 pub const NCRYPT_WRITE_KEY_TO_LEGACY_STORE_FLAG: i32 = 512;
+pub const NCRYPT_XMSS_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("XMSS");
+pub const NCRYPT_XMSS_ALGORITHM_GROUP: windows_sys::core::PCWSTR = windows_sys::core::w!("XMSS");
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct NCryptAlgorithmName {

@@ -398,7 +398,7 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn FwpmCalloutSetSecurityInfoByKey0(engineHandle: HANDLE, #[opt] key: *const GUID, securityInfo: SECURITY_INFORMATION, #[opt] sidOwner: *const SID, #[opt] sidGroup: *const SID, #[opt] dacl: *const ACL, #[opt] sacl: *const ACL) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmCalloutSubscribeChanges0(engineHandle: HANDLE, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: FWPM_CALLOUT_CHANGE_CALLBACK0, #[opt] context: *const void, changeHandle: *mut HANDLE) -> u32;
+        extern fn FwpmCalloutSubscribeChanges0(engineHandle: HANDLE, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: FWPM_CALLOUT_CHANGE_CALLBACK0, #[in] #[opt] context: *mut void, changeHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
         extern fn FwpmCalloutSubscriptionsGet0(engineHandle: HANDLE, entries: *mut *mut *mut FWPM_CALLOUT_SUBSCRIPTION0, numEntries: *mut u32) -> u32;
         #[library("fwpuclnt.dll")]
@@ -420,11 +420,11 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn FwpmConnectionSetSecurityInfo0(engineHandle: HANDLE, securityInfo: SECURITY_INFORMATION, #[opt] sidOwner: *const SID, #[opt] sidGroup: *const SID, #[opt] dacl: *const ACL, #[opt] sacl: *const ACL) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmConnectionSubscribe0(engineHandle: HANDLE, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: FWPM_CONNECTION_CALLBACK0, #[opt] context: *const void, eventsHandle: *mut HANDLE) -> u32;
+        extern fn FwpmConnectionSubscribe0(engineHandle: HANDLE, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: FWPM_CONNECTION_CALLBACK0, #[in] #[opt] context: *mut void, eventsHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
         extern fn FwpmConnectionUnsubscribe0(engineHandle: HANDLE, #[in] #[out] eventsHandle: HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: FWPM_DYNAMIC_KEYWORD_CALLBACK0, #[opt] context: *const void, subscriptionHandle: *mut HANDLE) -> u32;
+        extern fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: FWPM_DYNAMIC_KEYWORD_CALLBACK0, #[in] #[opt] context: *mut void, subscriptionHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
         extern fn FwpmDynamicKeywordUnsubscribe0(subscriptionHandle: HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
@@ -434,7 +434,7 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn FwpmEngineGetSecurityInfo0(engineHandle: HANDLE, securityInfo: SECURITY_INFORMATION, sidOwner: *mut PSID, sidGroup: *mut PSID, dacl: *mut PACL, sacl: *mut PACL, securityDescriptor: *mut PSECURITY_DESCRIPTOR) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmEngineOpen0(#[opt] serverName: *const u16, authnService: u32, #[opt] authIdentity: *const SEC_WINNT_AUTH_IDENTITY_W, #[opt] session: *const FWPM_SESSION0, engineHandle: *mut HANDLE) -> u32;
+        extern fn FwpmEngineOpen0(#[opt] serverName: *const u16, authnService: u32, #[in] #[opt] authIdentity: *mut SEC_WINNT_AUTH_IDENTITY_W, #[opt] session: *const FWPM_SESSION0, engineHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
         extern fn FwpmEngineSetOption0(engineHandle: HANDLE, option: FWPM_ENGINE_OPTION, newValue: *const FWP_VALUE0) -> u32;
         #[library("fwpuclnt.dll")]
@@ -460,7 +460,7 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn FwpmFilterSetSecurityInfoByKey0(engineHandle: HANDLE, #[opt] key: *const GUID, securityInfo: SECURITY_INFORMATION, #[opt] sidOwner: *const SID, #[opt] sidGroup: *const SID, #[opt] dacl: *const ACL, #[opt] sacl: *const ACL) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmFilterSubscribeChanges0(engineHandle: HANDLE, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: FWPM_FILTER_CHANGE_CALLBACK0, #[opt] context: *const void, changeHandle: *mut HANDLE) -> u32;
+        extern fn FwpmFilterSubscribeChanges0(engineHandle: HANDLE, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: FWPM_FILTER_CHANGE_CALLBACK0, #[in] #[opt] context: *mut void, changeHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
         extern fn FwpmFilterSubscriptionsGet0(engineHandle: HANDLE, entries: *mut *mut *mut FWPM_FILTER_SUBSCRIPTION0, numEntries: *mut u32) -> u32;
         #[library("fwpuclnt.dll")]
@@ -510,15 +510,15 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn FwpmNetEventEnum5(engineHandle: HANDLE, enumHandle: HANDLE, numEntriesRequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT5, numEntriesReturned: *mut u32) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmNetEventSubscribe0(engineHandle: HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK0, #[opt] context: *const void, eventsHandle: *mut HANDLE) -> u32;
+        extern fn FwpmNetEventSubscribe0(engineHandle: HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK0, #[in] #[opt] context: *mut void, eventsHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmNetEventSubscribe1(engineHandle: HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK1, #[opt] context: *const void, eventsHandle: *mut HANDLE) -> u32;
+        extern fn FwpmNetEventSubscribe1(engineHandle: HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK1, #[in] #[opt] context: *mut void, eventsHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmNetEventSubscribe2(engineHandle: HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK2, #[opt] context: *const void, eventsHandle: *mut HANDLE) -> u32;
+        extern fn FwpmNetEventSubscribe2(engineHandle: HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK2, #[in] #[opt] context: *mut void, eventsHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmNetEventSubscribe3(engineHandle: HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK3, #[opt] context: *const void, eventsHandle: *mut HANDLE) -> u32;
+        extern fn FwpmNetEventSubscribe3(engineHandle: HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK3, #[in] #[opt] context: *mut void, eventsHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmNetEventSubscribe4(engineHandle: HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK4, #[opt] context: *const void, eventsHandle: *mut HANDLE) -> u32;
+        extern fn FwpmNetEventSubscribe4(engineHandle: HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK4, #[in] #[opt] context: *mut void, eventsHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
         extern fn FwpmNetEventSubscriptionsGet0(engineHandle: HANDLE, entries: *mut *mut *mut FWPM_NET_EVENT_SUBSCRIPTION0, numEntries: *mut u32) -> u32;
         #[library("fwpuclnt.dll")]
@@ -574,7 +574,7 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn FwpmProviderContextSetSecurityInfoByKey0(engineHandle: HANDLE, #[opt] key: *const GUID, securityInfo: SECURITY_INFORMATION, #[opt] sidOwner: *const SID, #[opt] sidGroup: *const SID, #[opt] dacl: *const ACL, #[opt] sacl: *const ACL) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmProviderContextSubscribeChanges0(engineHandle: HANDLE, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0, #[opt] context: *const void, changeHandle: *mut HANDLE) -> u32;
+        extern fn FwpmProviderContextSubscribeChanges0(engineHandle: HANDLE, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0, #[in] #[opt] context: *mut void, changeHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
         extern fn FwpmProviderContextSubscriptionsGet0(engineHandle: HANDLE, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, numEntries: *mut u32) -> u32;
         #[library("fwpuclnt.dll")]
@@ -594,7 +594,7 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn FwpmProviderSetSecurityInfoByKey0(engineHandle: HANDLE, #[opt] key: *const GUID, securityInfo: SECURITY_INFORMATION, #[opt] sidOwner: *const SID, #[opt] sidGroup: *const SID, #[opt] dacl: *const ACL, #[opt] sacl: *const ACL) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmProviderSubscribeChanges0(engineHandle: HANDLE, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: FWPM_PROVIDER_CHANGE_CALLBACK0, #[opt] context: *const void, changeHandle: *mut HANDLE) -> u32;
+        extern fn FwpmProviderSubscribeChanges0(engineHandle: HANDLE, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: FWPM_PROVIDER_CHANGE_CALLBACK0, #[in] #[opt] context: *mut void, changeHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
         extern fn FwpmProviderSubscriptionsGet0(engineHandle: HANDLE, entries: *mut *mut *mut FWPM_PROVIDER_SUBSCRIPTION0, numEntries: *mut u32) -> u32;
         #[library("fwpuclnt.dll")]
@@ -622,7 +622,7 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn FwpmSubLayerSetSecurityInfoByKey0(engineHandle: HANDLE, #[opt] key: *const GUID, securityInfo: SECURITY_INFORMATION, #[opt] sidOwner: *const SID, #[opt] sidGroup: *const SID, #[opt] dacl: *const ACL, #[opt] sacl: *const ACL) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmSubLayerSubscribeChanges0(engineHandle: HANDLE, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: FWPM_SUBLAYER_CHANGE_CALLBACK0, #[opt] context: *const void, changeHandle: *mut HANDLE) -> u32;
+        extern fn FwpmSubLayerSubscribeChanges0(engineHandle: HANDLE, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: FWPM_SUBLAYER_CHANGE_CALLBACK0, #[in] #[opt] context: *mut void, changeHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
         extern fn FwpmSubLayerSubscriptionsGet0(engineHandle: HANDLE, entries: *mut *mut *mut FWPM_SUBLAYER_SUBSCRIPTION0, numEntries: *mut u32) -> u32;
         #[library("fwpuclnt.dll")]
@@ -630,7 +630,7 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn FwpmSystemPortsGet0(#[opt] engineHandle: HANDLE, sysPorts: *mut *mut FWPM_SYSTEM_PORTS0) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmSystemPortsSubscribe0(#[opt] engineHandle: HANDLE, #[reserved] reserved: *const void, callback: FWPM_SYSTEM_PORTS_CALLBACK0, #[opt] context: *const void, sysPortsHandle: *mut HANDLE) -> u32;
+        extern fn FwpmSystemPortsSubscribe0(#[opt] engineHandle: HANDLE, #[reserved] reserved: *mut void, callback: FWPM_SYSTEM_PORTS_CALLBACK0, #[in] #[opt] context: *mut void, sysPortsHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
         extern fn FwpmSystemPortsUnsubscribe0(#[opt] engineHandle: HANDLE, #[in] #[out] sysPortsHandle: HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
@@ -640,7 +640,7 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn FwpmTransactionCommit0(engineHandle: HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmvSwitchEventSubscribe0(engineHandle: HANDLE, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: FWPM_VSWITCH_EVENT_CALLBACK0, #[opt] context: *const void, subscriptionHandle: *mut HANDLE) -> u32;
+        extern fn FwpmvSwitchEventSubscribe0(engineHandle: HANDLE, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: FWPM_VSWITCH_EVENT_CALLBACK0, #[in] #[opt] context: *mut void, subscriptionHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
         extern fn FwpmvSwitchEventUnsubscribe0(engineHandle: HANDLE, #[in] #[out] subscriptionHandle: HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
@@ -726,7 +726,7 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn IPsecSaContextSetSpi0(engineHandle: HANDLE, id: u64, getSpi: *const IPSEC_GETSPI1, inboundSpi: IPSEC_SA_SPI) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn IPsecSaContextSubscribe0(engineHandle: HANDLE, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: IPSEC_SA_CONTEXT_CALLBACK0, #[opt] context: *const void, eventsHandle: *mut HANDLE) -> u32;
+        extern fn IPsecSaContextSubscribe0(engineHandle: HANDLE, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: IPSEC_SA_CONTEXT_CALLBACK0, #[in] #[opt] context: *mut void, eventsHandle: *mut HANDLE) -> u32;
         #[library("fwpuclnt.dll")]
         extern fn IPsecSaContextSubscriptionsGet0(engineHandle: HANDLE, entries: *mut *mut *mut IPSEC_SA_CONTEXT_SUBSCRIPTION0, numEntries: *mut u32) -> u32;
         #[library("fwpuclnt.dll")]
@@ -768,8 +768,8 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn IkeextSaGetById0(engineHandle: HANDLE, id: u64, sa: *mut *mut IKEEXT_SA_DETAILS0) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn IkeextSaGetById1(engineHandle: HANDLE, id: u64, #[opt] saLookupContext: *const GUID, sa: *mut *mut IKEEXT_SA_DETAILS1) -> u32;
+        extern fn IkeextSaGetById1(engineHandle: HANDLE, id: u64, #[in] #[opt] saLookupContext: *mut GUID, sa: *mut *mut IKEEXT_SA_DETAILS1) -> u32;
         #[library("fwpuclnt.dll")]
-        extern fn IkeextSaGetById2(engineHandle: HANDLE, id: u64, #[opt] saLookupContext: *const GUID, sa: *mut *mut IKEEXT_SA_DETAILS2) -> u32;
+        extern fn IkeextSaGetById2(engineHandle: HANDLE, id: u64, #[in] #[opt] saLookupContext: *mut GUID, sa: *mut *mut IKEEXT_SA_DETAILS2) -> u32;
     }
 }

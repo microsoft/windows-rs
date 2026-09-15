@@ -14,6 +14,10 @@ fn resolves_to_delegate(ty: &Type, reader: &Reader) -> bool {
 impl Config<'_> {
     // Shared bare-alias policy for typedef emission and constant constructors.
     pub fn typedef_emits_bare(&self, def: TypeDef) -> bool {
+        if def.has_attribute("NativeTypedefAttribute") {
+            return true;
+        }
+
         let ty = def.underlying_type_ext(self.reader);
 
         // Function-pointer typedef chains stay aliases to avoid unsafe `PartialEq` on callbacks.

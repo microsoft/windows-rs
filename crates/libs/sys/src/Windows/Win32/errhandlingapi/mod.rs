@@ -8,17 +8,14 @@ windows_link::link!("kernel32.dll" "system" fn GetErrorMode() -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetLastError() -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetThreadErrorMode() -> u32);
 windows_link::link!("kernel32.dll" "system" fn RaiseException(dwexceptioncode : u32, dwexceptionflags : u32, nnumberofarguments : u32, lparguments : *const usize));
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn RaiseFailFastException(pexceptionrecord : *const super::EXCEPTION_RECORD, pcontextrecord : *const super::CONTEXT, dwflags : u32));
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn RaiseFailFastException(pexceptionrecord : *const super::EXCEPTION_RECORD, pcontextrecord : *const super::ARM64_NT_CONTEXT, dwflags : u32));
+windows_link::link!("kernel32.dll" "system" fn RaiseFailFastException(pexceptionrecord : super::PEXCEPTION_RECORD, pcontextrecord : super::PCONTEXT, dwflags : u32));
 windows_link::link!("kernel32.dll" "system" fn RemoveVectoredContinueHandler(handle : *const core::ffi::c_void) -> u32);
 windows_link::link!("kernel32.dll" "system" fn RemoveVectoredExceptionHandler(handle : *const core::ffi::c_void) -> u32);
 windows_link::link!("kernel32.dll" "system" fn SetErrorMode(umode : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn SetLastError(dwerrcode : u32));
-windows_link::link!("kernel32.dll" "system" fn SetThreadErrorMode(dwnewmode : u32, lpoldmode : *const u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn SetThreadErrorMode(dwnewmode : u32, lpoldmode : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter : LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER);
 windows_link::link!("api-ms-win-core-errorhandling-l1-1-3.dll" "system" fn TerminateProcessOnMemoryExhaustion(failedallocationsize : usize));

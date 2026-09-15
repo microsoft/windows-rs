@@ -80,7 +80,7 @@ mod Windows {
         }
         #[guid(0x0b63e385_9ccc_11d0_bcdb_00805fccce04)]
         interface IProtocolHandlerSite: IUnknown {
-            fn GetFilter(&self, pclsidObj: *const GUID, pcwszContentType: PCWSTR, pcwszExtension: PCWSTR, ppFilter: *mut IFilter) -> HRESULT;
+            fn GetFilter(&self, #[in] pclsidObj: *mut GUID, pcwszContentType: PCWSTR, pcwszExtension: PCWSTR, ppFilter: *mut IFilter) -> HRESULT;
         }
         #[guid(0x1551aea5_5d66_4b11_86f5_d5634cb211b9)]
         interface IRowsetEvents: IUnknown {
@@ -100,7 +100,7 @@ mod Windows {
             #[special]
             fn get_Name(&self, #[retval] pszName: *mut PWSTR) -> HRESULT;
             fn GetParameter(&self, pszName: PCWSTR, #[retval] ppValue: *mut *mut PROPVARIANT) -> HRESULT;
-            fn SetParameter(&self, pszName: PCWSTR, pValue: *const PROPVARIANT) -> HRESULT;
+            fn SetParameter(&self, pszName: PCWSTR, #[in] pValue: *mut PROPVARIANT) -> HRESULT;
             fn GetCatalogStatus(&self, pStatus: *mut CatalogStatus, pPausedReason: *mut CatalogPausedReason) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Reindex(&self) -> HRESULT;
@@ -166,7 +166,7 @@ mod Windows {
         interface ISearchItemsChangedSink: IUnknown {
             fn StartedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
             fn StoppedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
-            fn OnItemsChanged(&self, dwNumberOfChanges: u32, rgDataChangeEntries: *const SEARCH_ITEM_CHANGE, rgdwDocIds: *mut u32, rghrCompletionCodes: *mut HRESULT) -> HRESULT;
+            fn OnItemsChanged(&self, dwNumberOfChanges: u32, #[in] rgDataChangeEntries: *mut SEARCH_ITEM_CHANGE, rgdwDocIds: *mut u32, rghrCompletionCodes: *mut HRESULT) -> HRESULT;
         }
         #[guid(0x24c3cbaa_ebc1_491a_9ef1_9f6d8deb1b8f)]
         interface ISearchLanguageSupport: IUnknown {
@@ -206,25 +206,25 @@ mod Windows {
         }
         #[guid(0xb5702e61_e75c_4b64_82a1_6cb4f832fccf)]
         interface ISearchNotifyInlineSite: IUnknown {
-            fn OnItemIndexedStatusChange(&self, sipStatus: SEARCH_INDEXING_PHASE, dwNumEntries: u32, rgItemStatusEntries: *const SEARCH_ITEM_INDEXING_STATUS) -> HRESULT;
+            fn OnItemIndexedStatusChange(&self, sipStatus: SEARCH_INDEXING_PHASE, dwNumEntries: u32, #[in] rgItemStatusEntries: *mut SEARCH_ITEM_INDEXING_STATUS) -> HRESULT;
             fn OnCatalogStatusChange(&self, guidCatalogResetSignature: *const GUID, guidCheckPointSignature: *const GUID, dwLastCheckPointNumber: u32) -> HRESULT;
         }
         #[guid(0xa2ffdf9b_4758_4f84_b729_df81a1a0612f)]
         interface ISearchPersistentItemsChangedSink: IUnknown {
             fn StartedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
             fn StoppedMonitoringScope(&self, pszURL: PCWSTR) -> HRESULT;
-            fn OnItemsChanged(&self, dwNumberOfChanges: u32, DataChangeEntries: *const SEARCH_ITEM_PERSISTENT_CHANGE, hrCompletionCodes: *mut HRESULT) -> HRESULT;
+            fn OnItemsChanged(&self, dwNumberOfChanges: u32, #[in] DataChangeEntries: *mut SEARCH_ITEM_PERSISTENT_CHANGE, hrCompletionCodes: *mut HRESULT) -> HRESULT;
         }
         #[guid(0xc73106ba_ac80_11d1_8df3_00c04fb6ef4f)]
         interface ISearchProtocol: IUnknown {
-            fn Init(&self, pTimeoutInfo: *const TIMEOUT_INFO, pProtocolHandlerSite: IProtocolHandlerSite, pProxyInfo: *const PROXY_INFO) -> HRESULT;
-            fn CreateAccessor(&self, pcwszURL: PCWSTR, pAuthenticationInfo: *const AUTHENTICATION_INFO, pIncrementalAccessInfo: *const INCREMENTAL_ACCESS_INFO, pItemInfo: *const ITEM_INFO, ppAccessor: *mut IUrlAccessor) -> HRESULT;
+            fn Init(&self, #[in] pTimeoutInfo: *mut TIMEOUT_INFO, pProtocolHandlerSite: IProtocolHandlerSite, #[in] pProxyInfo: *mut PROXY_INFO) -> HRESULT;
+            fn CreateAccessor(&self, pcwszURL: PCWSTR, #[in] pAuthenticationInfo: *mut AUTHENTICATION_INFO, #[in] pIncrementalAccessInfo: *mut INCREMENTAL_ACCESS_INFO, #[in] pItemInfo: *mut ITEM_INFO, ppAccessor: *mut IUrlAccessor) -> HRESULT;
             fn CloseAccessor(&self, pAccessor: IUrlAccessor) -> HRESULT;
             fn ShutDown(&self) -> HRESULT;
         }
         #[guid(0x7789f0b2_b5b2_4722_8b65_5dbd150697a9)]
         interface ISearchProtocol2: ISearchProtocol {
-            fn CreateAccessorEx(&self, pcwszURL: PCWSTR, pAuthenticationInfo: *const AUTHENTICATION_INFO, pIncrementalAccessInfo: *const INCREMENTAL_ACCESS_INFO, pItemInfo: *const ITEM_INFO, pUserData: *const BLOB, ppAccessor: *mut IUrlAccessor) -> HRESULT;
+            fn CreateAccessorEx(&self, pcwszURL: PCWSTR, #[in] pAuthenticationInfo: *mut AUTHENTICATION_INFO, #[in] pIncrementalAccessInfo: *mut INCREMENTAL_ACCESS_INFO, #[in] pItemInfo: *mut ITEM_INFO, pUserData: *const BLOB, ppAccessor: *mut IUrlAccessor) -> HRESULT;
         }
         #[guid(0xc73106e1_ac80_11d1_8df3_00c04fb6ef4f)]
         interface ISearchProtocolThreadContext: IUnknown {
@@ -269,7 +269,7 @@ mod Windows {
             #[special]
             fn get_QuerySorting(&self, #[retval] ppszSorting: *mut PWSTR) -> HRESULT;
             fn GenerateSQLFromUserQuery(&self, pszQuery: PCWSTR, #[retval] ppszSQL: *mut PWSTR) -> HRESULT;
-            fn WriteProperties(&self, itemID: ITEMID, dwNumberOfColumns: u32, pColumns: *const PROPERTYKEY, pValues: *const SEARCH_COLUMN_PROPERTIES, pftGatherModifiedTime: *const FILETIME) -> HRESULT;
+            fn WriteProperties(&self, itemID: ITEMID, dwNumberOfColumns: u32, #[in] pColumns: *mut PROPERTYKEY, #[in] pValues: *mut SEARCH_COLUMN_PROPERTIES, #[in] pftGatherModifiedTime: *mut FILETIME) -> HRESULT;
             #[special]
             fn put_QueryMaxResults(&self, cMaxResults: i32) -> HRESULT;
             #[special]
@@ -335,7 +335,7 @@ mod Windows {
         }
         #[guid(0xab310581_ac80_11d1_8df3_00c04fb6ef65)]
         interface ISearchViewChangedSink: IUnknown {
-            fn OnChange(&self, pdwDocID: *const ITEMID, pChange: *const SEARCH_ITEM_CHANGE, pfInView: *const BOOL) -> HRESULT;
+            fn OnChange(&self, #[in] pdwDocID: *mut ITEMID, #[in] pChange: *mut SEARCH_ITEM_CHANGE, #[in] pfInView: *mut BOOL) -> HRESULT;
         }
         type ITEMID = i32;
         struct ITEM_INFO {
@@ -347,7 +347,7 @@ mod Windows {
         }
         #[guid(0x0b63e318_9ccc_11d0_bcdb_00805fccce04)]
         interface IUrlAccessor: IUnknown {
-            fn AddRequestParameter(&self, pSpec: *const PROPSPEC, pVar: *const PROPVARIANT) -> HRESULT;
+            fn AddRequestParameter(&self, #[in] pSpec: *mut PROPSPEC, #[in] pVar: *mut PROPVARIANT) -> HRESULT;
             fn GetDocFormat(&self, wszDocFormat: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;
             fn GetCLSID(&self, pClsid: *mut GUID) -> HRESULT;
             fn GetHost(&self, wszHost: *mut u16, dwSize: u32, pdwLength: *mut u32) -> HRESULT;

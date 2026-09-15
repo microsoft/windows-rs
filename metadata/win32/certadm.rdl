@@ -27,28 +27,28 @@ mod Windows {
         interface ICertAdmin: IDispatch {
             fn IsValidCertificate(&self, strConfig: BSTR, strSerialNumber: BSTR, #[retval] pDisposition: *mut i32) -> HRESULT;
             fn GetRevocationReason(&self, #[retval] pReason: *mut i32) -> HRESULT;
-            fn RevokeCertificate(&self, strConfig: BSTR, strSerialNumber: BSTR, Reason: i32, Date: f64) -> HRESULT;
+            fn RevokeCertificate(&self, strConfig: BSTR, strSerialNumber: BSTR, Reason: i32, Date: DATE) -> HRESULT;
             fn SetRequestAttributes(&self, strConfig: BSTR, RequestId: i32, strAttributes: BSTR) -> HRESULT;
             fn SetCertificateExtension(&self, strConfig: BSTR, RequestId: i32, strExtensionName: BSTR, Type: i32, Flags: i32, pvarValue: *const VARIANT) -> HRESULT;
             fn DenyRequest(&self, strConfig: BSTR, RequestId: i32) -> HRESULT;
             fn ResubmitRequest(&self, strConfig: BSTR, RequestId: i32, #[retval] pDisposition: *mut i32) -> HRESULT;
-            fn PublishCRL(&self, strConfig: BSTR, Date: f64) -> HRESULT;
+            fn PublishCRL(&self, strConfig: BSTR, Date: DATE) -> HRESULT;
             fn GetCRL(&self, strConfig: BSTR, Flags: i32, #[retval] pstrCRL: *mut BSTR) -> HRESULT;
             fn ImportCertificate(&self, strConfig: BSTR, strCertificate: BSTR, Flags: i32, #[retval] pRequestId: *mut i32) -> HRESULT;
         }
         #[guid(0xf7c3ac41_b8ce_4fb4_aa58_3d1dc0e36b39)]
         interface ICertAdmin2: ICertAdmin {
-            fn PublishCRLs(&self, strConfig: BSTR, Date: f64, CRLFlags: i32) -> HRESULT;
+            fn PublishCRLs(&self, strConfig: BSTR, Date: DATE, CRLFlags: i32) -> HRESULT;
             fn GetCAProperty(&self, strConfig: BSTR, PropId: i32, PropIndex: i32, PropType: i32, Flags: i32, #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
-            fn SetCAProperty(&self, strConfig: BSTR, PropId: i32, PropIndex: i32, PropType: i32, pvarPropertyValue: *const VARIANT) -> HRESULT;
+            fn SetCAProperty(&self, strConfig: BSTR, PropId: i32, PropIndex: i32, PropType: i32, #[in] pvarPropertyValue: *mut VARIANT) -> HRESULT;
             fn GetCAPropertyFlags(&self, strConfig: BSTR, PropId: i32, #[retval] pPropFlags: *mut i32) -> HRESULT;
             fn GetCAPropertyDisplayName(&self, strConfig: BSTR, PropId: i32, #[retval] pstrDisplayName: *mut BSTR) -> HRESULT;
             fn GetArchivedKey(&self, strConfig: BSTR, RequestId: i32, Flags: i32, #[retval] pstrArchivedKey: *mut BSTR) -> HRESULT;
             fn GetConfigEntry(&self, strConfig: BSTR, strNodePath: BSTR, strEntryName: BSTR, #[retval] pvarEntry: *mut VARIANT) -> HRESULT;
-            fn SetConfigEntry(&self, strConfig: BSTR, strNodePath: BSTR, strEntryName: BSTR, pvarEntry: *const VARIANT) -> HRESULT;
+            fn SetConfigEntry(&self, strConfig: BSTR, strNodePath: BSTR, strEntryName: BSTR, #[in] pvarEntry: *mut VARIANT) -> HRESULT;
             fn ImportKey(&self, strConfig: BSTR, RequestId: i32, strCertHash: BSTR, Flags: i32, strKey: BSTR) -> HRESULT;
             fn GetMyRoles(&self, strConfig: BSTR, #[retval] pRoles: *mut i32) -> HRESULT;
-            fn DeleteRow(&self, strConfig: BSTR, Flags: i32, Date: f64, Table: i32, RowId: i32, #[retval] pcDeleted: *mut i32) -> HRESULT;
+            fn DeleteRow(&self, strConfig: BSTR, Flags: i32, Date: DATE, Table: i32, RowId: i32, #[retval] pcDeleted: *mut i32) -> HRESULT;
         }
         const IKF_OVERWRITE: i32 = 65536;
         #[guid(0x322e830d_67db_4fe9_9577_4596d9f09294)]

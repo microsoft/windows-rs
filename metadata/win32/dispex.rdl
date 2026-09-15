@@ -5,7 +5,7 @@ mod Windows {
         const DISPID_STARTENUM: i32 = -1;
         #[guid(0xc5598e60_b307_11d1_b27d_006008c3fbfb)]
         interface ICanHandleException: IUnknown {
-            fn CanHandleException(&self, pExcepInfo: *const EXCEPINFO, pvar: *const VARIANT) -> HRESULT;
+            fn CanHandleException(&self, #[in] pExcepInfo: *mut EXCEPINFO, #[in] pvar: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xa6ef9861_c720_11d0_9337_00a0c90dcaa9)]
         interface IDispError: IUnknown {
@@ -19,7 +19,7 @@ mod Windows {
         #[guid(0xa6ef9860_c720_11d0_9337_00a0c90dcaa9)]
         interface IDispatchEx: IDispatch {
             fn GetDispID(&self, bstrName: BSTR, grfdex: u32, pid: *mut DISPID) -> HRESULT;
-            fn InvokeEx(&self, id: DISPID, lcid: LCID, wFlags: u16, pdp: *const DISPPARAMS, #[opt] pvarRes: *mut VARIANT, #[opt] pei: *mut EXCEPINFO, #[opt] pspCaller: IServiceProvider) -> HRESULT;
+            fn InvokeEx(&self, id: DISPID, lcid: LCID, wFlags: u16, #[in] pdp: *mut DISPPARAMS, #[opt] pvarRes: *mut VARIANT, #[opt] pei: *mut EXCEPINFO, #[opt] pspCaller: IServiceProvider) -> HRESULT;
             fn DeleteMemberByName(&self, bstrName: BSTR, grfdex: u32) -> HRESULT;
             fn DeleteMemberByDispID(&self, id: DISPID) -> HRESULT;
             fn GetMemberProperties(&self, id: DISPID, grfdexFetch: u32, pgrfdex: *mut u32) -> HRESULT;
@@ -37,7 +37,7 @@ mod Windows {
         }
         #[guid(0xa6ef9862_c720_11d0_9337_00a0c90dcaa9)]
         interface IVariantChangeType: IUnknown {
-            fn ChangeType(&self, #[in] #[out] pvarDst: *mut VARIANT, pvarSrc: *const VARIANT, lcid: LCID, vtNew: VARTYPE) -> HRESULT;
+            fn ChangeType(&self, #[in] #[out] pvarDst: *mut VARIANT, #[in] pvarSrc: *mut VARIANT, lcid: LCID, vtNew: VARTYPE) -> HRESULT;
         }
         const SID_GetCaller: GUID = 0x4717cc40_bcb9_11d0_9336_00a0c90dcaa9;
         const SID_ProvideRuntimeContext: GUID = 0x74a5040c_dd0c_48f0_ac85_194c3259180a;

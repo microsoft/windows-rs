@@ -343,8 +343,8 @@ fn run_measurement(
     measurements: Arc<Measurements>,
 ) -> Result<Report, String> {
     unsafe {
-        let _ = SetForegroundWindow(HWND(hwnd as *mut _));
-        if GetForegroundWindow() != HWND(hwnd as *mut _) {
+        let _ = SetForegroundWindow(hwnd as HWND);
+        if GetForegroundWindow() != hwnd as HWND {
             return Err("measurement window is not foreground".to_string());
         }
     }

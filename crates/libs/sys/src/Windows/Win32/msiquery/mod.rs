@@ -44,18 +44,18 @@ windows_link::link!("msi.dll" "system" fn MsiDoActionA(hinstall : super::MSIHAND
 windows_link::link!("msi.dll" "system" fn MsiDoActionW(hinstall : super::MSIHANDLE, szaction : windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiEnableUIPreview(hdatabase : super::MSIHANDLE, phpreview : *mut super::MSIHANDLE) -> u32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiEnumComponentCostsA(hinstall : super::MSIHANDLE, szcomponent : windows_sys::core::PCSTR, dwindex : u32, istate : super::INSTALLSTATE, szdrivebuf : windows_sys::core::PSTR, pcchdrivebuf : *mut u32, picost : *mut i32, pitempcost : *mut i32) -> u32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiEnumComponentCostsW(hinstall : super::MSIHANDLE, szcomponent : windows_sys::core::PCWSTR, dwindex : u32, istate : super::INSTALLSTATE, szdrivebuf : windows_sys::core::PWSTR, pcchdrivebuf : *mut u32, picost : *mut i32, pitempcost : *mut i32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiEnumComponentCostsA(hinstall : super::MSIHANDLE, szcomponent : windows_sys::core::PCSTR, dwindex : u32, istate : super::INSTALLSTATE, szdrivebuf : windows_sys::core::PSTR, pcchdrivebuf : super::LPDWORD, picost : super::LPINT, pitempcost : super::LPINT) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiEnumComponentCostsW(hinstall : super::MSIHANDLE, szcomponent : windows_sys::core::PCWSTR, dwindex : u32, istate : super::INSTALLSTATE, szdrivebuf : windows_sys::core::PWSTR, pcchdrivebuf : super::LPDWORD, picost : super::LPINT, pitempcost : super::LPINT) -> u32);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiEvaluateConditionA(hinstall : super::MSIHANDLE, szcondition : windows_sys::core::PCSTR) -> MSICONDITION);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiEvaluateConditionW(hinstall : super::MSIHANDLE, szcondition : windows_sys::core::PCWSTR) -> MSICONDITION);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiFormatRecordA(hinstall : super::MSIHANDLE, hrecord : super::MSIHANDLE, szresultbuf : windows_sys::core::PSTR, pcchresultbuf : *mut u32) -> u32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiFormatRecordW(hinstall : super::MSIHANDLE, hrecord : super::MSIHANDLE, szresultbuf : windows_sys::core::PWSTR, pcchresultbuf : *mut u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiFormatRecordA(hinstall : super::MSIHANDLE, hrecord : super::MSIHANDLE, szresultbuf : windows_sys::core::PSTR, pcchresultbuf : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiFormatRecordW(hinstall : super::MSIHANDLE, hrecord : super::MSIHANDLE, szresultbuf : windows_sys::core::PWSTR, pcchresultbuf : super::LPDWORD) -> u32);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiGetActiveDatabase(hinstall : super::MSIHANDLE) -> super::MSIHANDLE);
 #[cfg(feature = "msi")]
@@ -64,40 +64,40 @@ windows_link::link!("msi.dll" "system" fn MsiGetComponentStateA(hinstall : super
 windows_link::link!("msi.dll" "system" fn MsiGetComponentStateW(hinstall : super::MSIHANDLE, szcomponent : windows_sys::core::PCWSTR, piinstalled : *mut super::INSTALLSTATE, piaction : *mut super::INSTALLSTATE) -> u32);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiGetDatabaseState(hdatabase : super::MSIHANDLE) -> MSIDBSTATE);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiGetFeatureCostA(hinstall : super::MSIHANDLE, szfeature : windows_sys::core::PCSTR, icosttree : MSICOSTTREE, istate : super::INSTALLSTATE, picost : *mut i32) -> u32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiGetFeatureCostW(hinstall : super::MSIHANDLE, szfeature : windows_sys::core::PCWSTR, icosttree : MSICOSTTREE, istate : super::INSTALLSTATE, picost : *mut i32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiGetFeatureCostA(hinstall : super::MSIHANDLE, szfeature : windows_sys::core::PCSTR, icosttree : MSICOSTTREE, istate : super::INSTALLSTATE, picost : super::LPINT) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiGetFeatureCostW(hinstall : super::MSIHANDLE, szfeature : windows_sys::core::PCWSTR, icosttree : MSICOSTTREE, istate : super::INSTALLSTATE, picost : super::LPINT) -> u32);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiGetFeatureStateA(hinstall : super::MSIHANDLE, szfeature : windows_sys::core::PCSTR, piinstalled : *mut super::INSTALLSTATE, piaction : *mut super::INSTALLSTATE) -> u32);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiGetFeatureStateW(hinstall : super::MSIHANDLE, szfeature : windows_sys::core::PCWSTR, piinstalled : *mut super::INSTALLSTATE, piaction : *mut super::INSTALLSTATE) -> u32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiGetFeatureValidStatesA(hinstall : super::MSIHANDLE, szfeature : windows_sys::core::PCSTR, lpinstallstates : *mut u32) -> u32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiGetFeatureValidStatesW(hinstall : super::MSIHANDLE, szfeature : windows_sys::core::PCWSTR, lpinstallstates : *mut u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiGetFeatureValidStatesA(hinstall : super::MSIHANDLE, szfeature : windows_sys::core::PCSTR, lpinstallstates : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiGetFeatureValidStatesW(hinstall : super::MSIHANDLE, szfeature : windows_sys::core::PCWSTR, lpinstallstates : super::LPDWORD) -> u32);
 #[cfg(all(feature = "msi", feature = "winnt"))]
 windows_link::link!("msi.dll" "system" fn MsiGetLanguage(hinstall : super::MSIHANDLE) -> super::LANGID);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiGetLastErrorRecord() -> super::MSIHANDLE);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiGetMode(hinstall : super::MSIHANDLE, erunmode : MSIRUNMODE) -> windows_sys::core::BOOL);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiGetPropertyA(hinstall : super::MSIHANDLE, szname : windows_sys::core::PCSTR, szvaluebuf : windows_sys::core::PSTR, pcchvaluebuf : *mut u32) -> u32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiGetPropertyW(hinstall : super::MSIHANDLE, szname : windows_sys::core::PCWSTR, szvaluebuf : windows_sys::core::PWSTR, pcchvaluebuf : *mut u32) -> u32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiGetSourcePathA(hinstall : super::MSIHANDLE, szfolder : windows_sys::core::PCSTR, szpathbuf : windows_sys::core::PSTR, pcchpathbuf : *mut u32) -> u32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiGetSourcePathW(hinstall : super::MSIHANDLE, szfolder : windows_sys::core::PCWSTR, szpathbuf : windows_sys::core::PWSTR, pcchpathbuf : *mut u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiGetPropertyA(hinstall : super::MSIHANDLE, szname : windows_sys::core::PCSTR, szvaluebuf : windows_sys::core::PSTR, pcchvaluebuf : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiGetPropertyW(hinstall : super::MSIHANDLE, szname : windows_sys::core::PCWSTR, szvaluebuf : windows_sys::core::PWSTR, pcchvaluebuf : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiGetSourcePathA(hinstall : super::MSIHANDLE, szfolder : windows_sys::core::PCSTR, szpathbuf : windows_sys::core::PSTR, pcchpathbuf : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiGetSourcePathW(hinstall : super::MSIHANDLE, szfolder : windows_sys::core::PCWSTR, szpathbuf : windows_sys::core::PWSTR, pcchpathbuf : super::LPDWORD) -> u32);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiGetSummaryInformationA(hdatabase : super::MSIHANDLE, szdatabasepath : windows_sys::core::PCSTR, uiupdatecount : u32, phsummaryinfo : *mut super::MSIHANDLE) -> u32);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiGetSummaryInformationW(hdatabase : super::MSIHANDLE, szdatabasepath : windows_sys::core::PCWSTR, uiupdatecount : u32, phsummaryinfo : *mut super::MSIHANDLE) -> u32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiGetTargetPathA(hinstall : super::MSIHANDLE, szfolder : windows_sys::core::PCSTR, szpathbuf : windows_sys::core::PSTR, pcchpathbuf : *mut u32) -> u32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiGetTargetPathW(hinstall : super::MSIHANDLE, szfolder : windows_sys::core::PCWSTR, szpathbuf : windows_sys::core::PWSTR, pcchpathbuf : *mut u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiGetTargetPathA(hinstall : super::MSIHANDLE, szfolder : windows_sys::core::PCSTR, szpathbuf : windows_sys::core::PSTR, pcchpathbuf : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiGetTargetPathW(hinstall : super::MSIHANDLE, szfolder : windows_sys::core::PCWSTR, szpathbuf : windows_sys::core::PWSTR, pcchpathbuf : super::LPDWORD) -> u32);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiOpenDatabaseA(szdatabasepath : windows_sys::core::PCSTR, szpersist : windows_sys::core::PCSTR, phdatabase : *mut super::MSIHANDLE) -> u32);
 #[cfg(feature = "msi")]
@@ -120,14 +120,14 @@ windows_link::link!("msi.dll" "system" fn MsiRecordDataSize(hrecord : super::MSI
 windows_link::link!("msi.dll" "system" fn MsiRecordGetFieldCount(hrecord : super::MSIHANDLE) -> u32);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiRecordGetInteger(hrecord : super::MSIHANDLE, ifield : u32) -> i32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiRecordGetStringA(hrecord : super::MSIHANDLE, ifield : u32, szvaluebuf : windows_sys::core::PSTR, pcchvaluebuf : *mut u32) -> u32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiRecordGetStringW(hrecord : super::MSIHANDLE, ifield : u32, szvaluebuf : windows_sys::core::PWSTR, pcchvaluebuf : *mut u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiRecordGetStringA(hrecord : super::MSIHANDLE, ifield : u32, szvaluebuf : windows_sys::core::PSTR, pcchvaluebuf : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiRecordGetStringW(hrecord : super::MSIHANDLE, ifield : u32, szvaluebuf : windows_sys::core::PWSTR, pcchvaluebuf : super::LPDWORD) -> u32);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiRecordIsNull(hrecord : super::MSIHANDLE, ifield : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiRecordReadStream(hrecord : super::MSIHANDLE, ifield : u32, szdatabuf : *mut i8, pcbdatabuf : *mut u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiRecordReadStream(hrecord : super::MSIHANDLE, ifield : u32, szdatabuf : *mut i8, pcbdatabuf : super::LPDWORD) -> u32);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiRecordSetInteger(hrecord : super::MSIHANDLE, ifield : u32, ivalue : i32) -> u32);
 #[cfg(feature = "msi")]
@@ -167,11 +167,11 @@ windows_link::link!("msi.dll" "system" fn MsiSetTargetPathA(hinstall : super::MS
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiSetTargetPathW(hinstall : super::MSIHANDLE, szfolder : windows_sys::core::PCWSTR, szfolderpath : windows_sys::core::PCWSTR) -> u32);
 #[cfg(all(feature = "minwindef", feature = "msi"))]
-windows_link::link!("msi.dll" "system" fn MsiSummaryInfoGetPropertyA(hsummaryinfo : super::MSIHANDLE, uiproperty : u32, puidatatype : *mut u32, pivalue : *mut i32, pftvalue : *mut super::FILETIME, szvaluebuf : windows_sys::core::PSTR, pcchvaluebuf : *mut u32) -> u32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiSummaryInfoGetPropertyCount(hsummaryinfo : super::MSIHANDLE, puipropertycount : *mut u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiSummaryInfoGetPropertyA(hsummaryinfo : super::MSIHANDLE, uiproperty : u32, puidatatype : super::PUINT, pivalue : super::LPINT, pftvalue : *mut super::FILETIME, szvaluebuf : windows_sys::core::PSTR, pcchvaluebuf : super::LPDWORD) -> u32);
 #[cfg(all(feature = "minwindef", feature = "msi"))]
-windows_link::link!("msi.dll" "system" fn MsiSummaryInfoGetPropertyW(hsummaryinfo : super::MSIHANDLE, uiproperty : u32, puidatatype : *mut u32, pivalue : *mut i32, pftvalue : *mut super::FILETIME, szvaluebuf : windows_sys::core::PWSTR, pcchvaluebuf : *mut u32) -> u32);
+windows_link::link!("msi.dll" "system" fn MsiSummaryInfoGetPropertyCount(hsummaryinfo : super::MSIHANDLE, puipropertycount : super::PUINT) -> u32);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiSummaryInfoGetPropertyW(hsummaryinfo : super::MSIHANDLE, uiproperty : u32, puidatatype : super::PUINT, pivalue : super::LPINT, pftvalue : *mut super::FILETIME, szvaluebuf : windows_sys::core::PWSTR, pcchvaluebuf : super::LPDWORD) -> u32);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiSummaryInfoPersist(hsummaryinfo : super::MSIHANDLE) -> u32);
 #[cfg(all(feature = "minwindef", feature = "msi"))]
@@ -188,10 +188,10 @@ windows_link::link!("msi.dll" "system" fn MsiViewExecute(hview : super::MSIHANDL
 windows_link::link!("msi.dll" "system" fn MsiViewFetch(hview : super::MSIHANDLE, phrecord : *mut super::MSIHANDLE) -> u32);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiViewGetColumnInfo(hview : super::MSIHANDLE, ecolumninfo : MSICOLINFO, phrecord : *mut super::MSIHANDLE) -> u32);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiViewGetErrorA(hview : super::MSIHANDLE, szcolumnnamebuffer : windows_sys::core::PSTR, pcchbuf : *mut u32) -> MSIDBERROR);
-#[cfg(feature = "msi")]
-windows_link::link!("msi.dll" "system" fn MsiViewGetErrorW(hview : super::MSIHANDLE, szcolumnnamebuffer : windows_sys::core::PWSTR, pcchbuf : *mut u32) -> MSIDBERROR);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiViewGetErrorA(hview : super::MSIHANDLE, szcolumnnamebuffer : windows_sys::core::PSTR, pcchbuf : super::LPDWORD) -> MSIDBERROR);
+#[cfg(all(feature = "minwindef", feature = "msi"))]
+windows_link::link!("msi.dll" "system" fn MsiViewGetErrorW(hview : super::MSIHANDLE, szcolumnnamebuffer : windows_sys::core::PWSTR, pcchbuf : super::LPDWORD) -> MSIDBERROR);
 #[cfg(feature = "msi")]
 windows_link::link!("msi.dll" "system" fn MsiViewModify(hview : super::MSIHANDLE, emodifymode : MSIMODIFY, hrecord : super::MSIHANDLE) -> u32);
 pub const INSTALLMESSAGE_TYPEMASK: u32 = 4278190080;
@@ -248,6 +248,10 @@ pub const MSIDBOPEN_CREATE: super::LPCTSTR = 3 as _;
 pub const MSIDBOPEN_CREATEDIRECT: super::LPCTSTR = 4 as _;
 #[cfg(feature = "winnt")]
 pub const MSIDBOPEN_DIRECT: super::LPCTSTR = 2 as _;
+#[cfg(target_arch = "x86")]
+pub const MSIDBOPEN_PATCHFILE: u32 = 32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const MSIDBOPEN_PATCHFILE: u64 = 32;
 #[cfg(feature = "winnt")]
 pub const MSIDBOPEN_READONLY: super::LPCTSTR = 0 as _;
 #[cfg(feature = "winnt")]

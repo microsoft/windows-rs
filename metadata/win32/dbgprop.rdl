@@ -1,44 +1,26 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const DBGPROP_ATTRIB_ACCESS_FINAL: i32 = 32768;
-        const DBGPROP_ATTRIB_ACCESS_PRIVATE: i32 = 8192;
-        const DBGPROP_ATTRIB_ACCESS_PROTECTED: i32 = 16384;
-        const DBGPROP_ATTRIB_ACCESS_PUBLIC: i32 = 4096;
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserFree(param0: *mut u32, param1: *mut BSTR);
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserFree64(param0: *mut u32, param1: *mut BSTR);
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut BSTR) -> *mut u8;
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut BSTR) -> *mut u8;
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserSize(param0: *mut u32, param1: u32, param2: *mut BSTR) -> u32;
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserSize64(param0: *mut u32, param1: u32, param2: *mut BSTR) -> u32;
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut BSTR) -> *mut u8;
+        #[library("OLEAUT32.dll")]
+        extern fn BSTR_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut BSTR) -> *mut u8;
         type DBGPROP_ATTRIB_FLAGS = u32;
-        const DBGPROP_ATTRIB_FRAME_INCATCHBLOCK: i32 = 33554432;
-        const DBGPROP_ATTRIB_FRAME_INFINALLYBLOCK: i32 = 67108864;
-        const DBGPROP_ATTRIB_FRAME_INTRYBLOCK: i32 = 16777216;
-        const DBGPROP_ATTRIB_HAS_EXTENDED_ATTRIBS: i32 = 8388608;
-        const DBGPROP_ATTRIB_NO_ATTRIB: i32 = 0;
-        const DBGPROP_ATTRIB_STORAGE_FIELD: i32 = 262144;
-        const DBGPROP_ATTRIB_STORAGE_GLOBAL: i32 = 65536;
-        const DBGPROP_ATTRIB_STORAGE_STATIC: i32 = 131072;
-        const DBGPROP_ATTRIB_STORAGE_VIRTUAL: i32 = 524288;
-        const DBGPROP_ATTRIB_TYPE_IS_CONSTANT: i32 = 1048576;
-        const DBGPROP_ATTRIB_TYPE_IS_SYNCHRONIZED: i32 = 2097152;
-        const DBGPROP_ATTRIB_TYPE_IS_VOLATILE: i32 = 4194304;
-        const DBGPROP_ATTRIB_VALUE_IS_EVENT: i32 = 512;
-        const DBGPROP_ATTRIB_VALUE_IS_EXPANDABLE: i32 = 16;
-        const DBGPROP_ATTRIB_VALUE_IS_FAKE: i32 = 32;
-        const DBGPROP_ATTRIB_VALUE_IS_INVALID: i32 = 8;
-        const DBGPROP_ATTRIB_VALUE_IS_METHOD: i32 = 256;
-        const DBGPROP_ATTRIB_VALUE_IS_RAW_STRING: i32 = 1024;
-        const DBGPROP_ATTRIB_VALUE_IS_RETURN_VALUE: i32 = 134217728;
-        const DBGPROP_ATTRIB_VALUE_PENDING_MUTATION: i32 = 268435456;
-        const DBGPROP_ATTRIB_VALUE_READONLY: i32 = 2048;
         const DBGPROP_INFO_ALL: i32 = 63;
-        const DBGPROP_INFO_ATTRIBUTES: i32 = 8;
-        const DBGPROP_INFO_AUTOEXPAND: i32 = 134217728;
-        const DBGPROP_INFO_BEAUTIFY: i32 = 33554432;
-        const DBGPROP_INFO_CALLTOSTRING: i32 = 67108864;
-        const DBGPROP_INFO_DEBUGPROP: i32 = 16;
         type DBGPROP_INFO_FLAGS = u32;
-        const DBGPROP_INFO_FULLNAME: i32 = 32;
-        const DBGPROP_INFO_NAME: i32 = 1;
         const DBGPROP_INFO_STANDARD: i32 = 15;
-        const DBGPROP_INFO_TYPE: i32 = 2;
-        const DBGPROP_INFO_VALUE: i32 = 4;
         struct DebugPropertyInfo {
             m_dwValidFields: u32,
             m_bstrName: BSTR,
@@ -58,10 +40,10 @@ mod Windows {
         }
         struct ExtendedDebugPropertyInfo {
             dwValidFields: u32,
-            pszName: PWSTR,
-            pszType: PWSTR,
-            pszValue: PWSTR,
-            pszFullName: PWSTR,
+            pszName: LPOLESTR,
+            pszType: LPOLESTR,
+            pszValue: LPOLESTR,
+            pszFullName: LPOLESTR,
             dwAttrib: u32,
             pDebugProp: IDebugProperty,
             nDISPID: u32,
@@ -78,14 +60,14 @@ mod Windows {
         #[guid(0x51973c50_cb0c_11d0_b5c9_00a0244a0e7a)]
         interface IDebugProperty: IUnknown {
             fn GetPropertyInfo(&self, dwFieldSpec: u32, nRadix: u32, pPropertyInfo: *mut DebugPropertyInfo) -> HRESULT;
-            fn GetExtendedInfo(&self, cInfos: u32, rgguidExtendedInfo: *const GUID, rgvar: *mut VARIANT) -> HRESULT;
-            fn SetValueAsString(&self, pszValue: PCWSTR, nRadix: u32) -> HRESULT;
+            fn GetExtendedInfo(&self, cInfos: u32, #[in] rgguidExtendedInfo: *mut GUID, rgvar: *mut VARIANT) -> HRESULT;
+            fn SetValueAsString(&self, pszValue: LPCOLESTR, nRadix: u32) -> HRESULT;
             fn EnumMembers(&self, dwFieldSpec: u32, nRadix: u32, refiid: *const GUID, ppepi: *mut IEnumDebugPropertyInfo) -> HRESULT;
             fn GetParent(&self, ppDebugProp: *mut IDebugProperty) -> HRESULT;
         }
         #[guid(0x51973c55_cb0c_11d0_b5c9_00a0244a0e7a)]
         interface IDebugPropertyEnumType_All: IUnknown {
-            fn GetName(&self, param0: *mut BSTR) -> HRESULT;
+            fn GetName(&self, __MIDL__IDebugPropertyEnumType_All0000: *mut BSTR) -> HRESULT;
         }
         #[guid(0x51973c57_cb0c_11d0_b5c9_00a0244a0e7a)]
         interface IDebugPropertyEnumType_Arguments: IDebugPropertyEnumType_All {}
@@ -168,5 +150,61 @@ mod Windows {
             PROP_INFO_AUTOEXPAND = 134217728,
         }
         const PROP_INFO_STANDARD: i32 = 15;
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserFree(param0: *mut u32, param1: *mut VARIANT);
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserFree64(param0: *mut u32, param1: *mut VARIANT);
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut VARIANT) -> *mut u8;
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut VARIANT) -> *mut u8;
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserSize(param0: *mut u32, param1: u32, param2: *mut VARIANT) -> u32;
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserSize64(param0: *mut u32, param1: u32, param2: *mut VARIANT) -> u32;
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut VARIANT) -> *mut u8;
+        #[library("OLEAUT32.dll")]
+        extern fn VARIANT_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut VARIANT) -> *mut u8;
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_dbgprop_0000_0000_0001 {
+            DBGPROP_ATTRIB_NO_ATTRIB = 0,
+            DBGPROP_ATTRIB_VALUE_IS_INVALID = 8,
+            DBGPROP_ATTRIB_VALUE_IS_EXPANDABLE = 16,
+            DBGPROP_ATTRIB_VALUE_IS_FAKE = 32,
+            DBGPROP_ATTRIB_VALUE_IS_METHOD = 256,
+            DBGPROP_ATTRIB_VALUE_IS_EVENT = 512,
+            DBGPROP_ATTRIB_VALUE_IS_RAW_STRING = 1024,
+            DBGPROP_ATTRIB_VALUE_READONLY = 2048,
+            DBGPROP_ATTRIB_ACCESS_PUBLIC = 4096,
+            DBGPROP_ATTRIB_ACCESS_PRIVATE = 8192,
+            DBGPROP_ATTRIB_ACCESS_PROTECTED = 16384,
+            DBGPROP_ATTRIB_ACCESS_FINAL = 32768,
+            DBGPROP_ATTRIB_STORAGE_GLOBAL = 65536,
+            DBGPROP_ATTRIB_STORAGE_STATIC = 131072,
+            DBGPROP_ATTRIB_STORAGE_FIELD = 262144,
+            DBGPROP_ATTRIB_STORAGE_VIRTUAL = 524288,
+            DBGPROP_ATTRIB_TYPE_IS_CONSTANT = 1048576,
+            DBGPROP_ATTRIB_TYPE_IS_SYNCHRONIZED = 2097152,
+            DBGPROP_ATTRIB_TYPE_IS_VOLATILE = 4194304,
+            DBGPROP_ATTRIB_HAS_EXTENDED_ATTRIBS = 8388608,
+            DBGPROP_ATTRIB_FRAME_INTRYBLOCK = 16777216,
+            DBGPROP_ATTRIB_FRAME_INCATCHBLOCK = 33554432,
+            DBGPROP_ATTRIB_FRAME_INFINALLYBLOCK = 67108864,
+            DBGPROP_ATTRIB_VALUE_IS_RETURN_VALUE = 134217728,
+            DBGPROP_ATTRIB_VALUE_PENDING_MUTATION = 268435456,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_dbgprop_0000_0000_0002 {
+            DBGPROP_INFO_NAME = 1,
+            DBGPROP_INFO_TYPE = 2,
+            DBGPROP_INFO_VALUE = 4,
+            DBGPROP_INFO_FULLNAME = 32,
+            DBGPROP_INFO_ATTRIBUTES = 8,
+            DBGPROP_INFO_DEBUGPROP = 16,
+            DBGPROP_INFO_BEAUTIFY = 33554432,
+            DBGPROP_INFO_CALLTOSTRING = 67108864,
+            DBGPROP_INFO_AUTOEXPAND = 134217728,
+        }
     }
 }

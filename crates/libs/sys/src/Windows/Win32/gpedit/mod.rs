@@ -1,10 +1,15 @@
-#[cfg(feature = "windef")]
-windows_link::link!("gpedit.dll" "system" fn BrowseForGPO(lpbrowseinfo : *mut GPOBROWSEINFO) -> windows_sys::core::HRESULT);
-windows_link::link!("gpedit.dll" "system" fn CreateGPOLink(lpgpo : windows_sys::core::PCWSTR, lpcontainer : windows_sys::core::PCWSTR, fhighpriority : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-windows_link::link!("gpedit.dll" "system" fn DeleteAllGPOLinks(lpcontainer : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("gpedit.dll" "system" fn DeleteGPOLink(lpgpo : windows_sys::core::PCWSTR, lpcontainer : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("gpedit.dll" "system" fn ExportRSoPData(lpnamespace : windows_sys::core::PCWSTR, lpfilename : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("gpedit.dll" "system" fn ImportRSoPData(lpnamespace : windows_sys::core::PCWSTR, lpfilename : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "windef", feature = "wtypesbase"))]
+windows_link::link!("gpedit.dll" "system" fn BrowseForGPO(lpbrowseinfo : LPGPOBROWSEINFO) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypesbase")]
+windows_link::link!("gpedit.dll" "system" fn CreateGPOLink(lpgpo : super::LPOLESTR, lpcontainer : super::LPOLESTR, fhighpriority : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypesbase")]
+windows_link::link!("gpedit.dll" "system" fn DeleteAllGPOLinks(lpcontainer : super::LPOLESTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypesbase")]
+windows_link::link!("gpedit.dll" "system" fn DeleteGPOLink(lpgpo : super::LPOLESTR, lpcontainer : super::LPOLESTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypesbase")]
+windows_link::link!("gpedit.dll" "system" fn ExportRSoPData(lpnamespace : super::LPOLESTR, lpfilename : super::LPOLESTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "wtypesbase")]
+windows_link::link!("gpedit.dll" "system" fn ImportRSoPData(lpnamespace : super::LPOLESTR, lpfilename : super::LPOLESTR) -> windows_sys::core::HRESULT);
 pub const CLSID_GPESnapIn: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fc0b734_a0e1_11d1_a7d3_0000f87571e3);
 pub const CLSID_GroupPolicyObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea502722_a23d_11d1_a7d3_0000f87571e3);
 pub const CLSID_RSOPSnapIn: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6dc3804b_7212_458d_adb0_9a07e2ae1fa2);
@@ -14,17 +19,17 @@ pub const GPHintOrganizationalUnit: GROUP_POLICY_HINT_TYPE = 4;
 pub const GPHintSite: GROUP_POLICY_HINT_TYPE = 2;
 pub const GPHintUnknown: GROUP_POLICY_HINT_TYPE = 0;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub hwndOwner: super::HWND,
-    pub lpTitle: windows_sys::core::PWSTR,
-    pub lpInitialOU: windows_sys::core::PWSTR,
-    pub lpDSPath: windows_sys::core::PWSTR,
+    pub lpTitle: super::LPOLESTR,
+    pub lpInitialOU: super::LPOLESTR,
+    pub lpDSPath: super::LPOLESTR,
     pub dwDSPathSize: u32,
-    pub lpName: windows_sys::core::PWSTR,
+    pub lpName: super::LPOLESTR,
     pub dwNameSize: u32,
     pub gpoType: GROUP_POLICY_OBJECT_TYPE,
     pub gpoHint: GROUP_POLICY_HINT_TYPE,
@@ -50,8 +55,11 @@ pub const GPO_SECTION_ROOT: i32 = 0;
 pub const GPO_SECTION_USER: i32 = 1;
 pub type GROUP_POLICY_HINT_TYPE = i32;
 pub type GROUP_POLICY_OBJECT_TYPE = i32;
-#[cfg(feature = "windef")]
+pub type LPGPEINFORMATION = *mut core::ffi::c_void;
+#[cfg(all(feature = "windef", feature = "wtypesbase"))]
 pub type LPGPOBROWSEINFO = *mut GPOBROWSEINFO;
+pub type LPGROUPPOLICYOBJECT = *mut core::ffi::c_void;
+pub type LPRSOPINFORMATION = *mut core::ffi::c_void;
 pub const NODEID_Machine: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fc0b737_a0e1_11d1_a7d3_0000f87571e3);
 pub const NODEID_MachineSWSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fc0b73a_a0e1_11d1_a7d3_0000f87571e3);
 pub const NODEID_RSOPMachine: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbd4c1a2e_0b7a_4a62_a6b0_c0577539c97e);

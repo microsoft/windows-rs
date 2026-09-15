@@ -119,6 +119,7 @@ pub struct CLSIDDATA2 {
 pub const COMEvents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
 pub type COMPLUS_APPTYPE = i32;
 #[repr(C)]
+#[cfg(feature = "wtypesbase")]
 #[derive(Clone, Copy, Default)]
 pub struct COMSVCSEVENTINFO {
     pub cbSize: u32,
@@ -127,7 +128,7 @@ pub struct COMSVCSEVENTINFO {
     pub lMicroTime: i32,
     pub perfCount: i64,
     pub guidApp: windows_sys::core::GUID,
-    pub sMachineName: windows_sys::core::PWSTR,
+    pub sMachineName: super::LPOLESTR,
 }
 pub const CRMClerk: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
 pub type CRMFLAGS = i32;
@@ -289,7 +290,8 @@ pub type RESID = usize;
 pub type RESOURCERATING = u32;
 pub type RESTYPID = usize;
 pub type ReleaseModes = i32;
-pub type SRESID = windows_sys::core::PWSTR;
+#[cfg(feature = "wtypesbase")]
+pub type SRESID = super::LPOLESTR;
 pub const SecurityCallContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a7_7f19_11d2_978e_0000f8757e2a);
 pub const SecurityCallers: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a6_7f19_11d2_978e_0000f8757e2a);
 pub const SecurityIdentity: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a5_7f19_11d2_978e_0000f8757e2a);
@@ -333,7 +335,8 @@ pub const comqcErrPSLoad: Error_Constants = -2146367993;
 pub const comqcErrRecorderMarshalled: Error_Constants = -2146367996;
 pub const comqcErrRecorderNotTrusted: Error_Constants = -2146367994;
 pub const comqcErrWrongMsgExtension: Error_Constants = -2146367918;
-pub type constSRESID = windows_sys::core::PCWSTR;
+#[cfg(feature = "wtypesbase")]
+pub type constSRESID = super::LPCOLESTR;
 pub const mtsErrCtxAborted: Error_Constants = -2147164158;
 pub const mtsErrCtxAborting: Error_Constants = -2147164157;
 pub const mtsErrCtxNoContext: Error_Constants = -2147164156;

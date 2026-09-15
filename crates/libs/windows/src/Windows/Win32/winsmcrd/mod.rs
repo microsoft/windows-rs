@@ -168,6 +168,4 @@ pub struct SCARD_T1_REQUEST {
 }
 pub const SCARD_UNKNOWN: i32 = 0;
 pub const SCARD_WARM_RESET: i32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct UWORD(pub u16);
+pub type UWORD = u16;

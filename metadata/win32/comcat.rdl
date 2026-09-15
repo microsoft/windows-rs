@@ -18,12 +18,12 @@ mod Windows {
         }
         #[guid(0x0002e012_0000_0000_c000_000000000046)]
         interface ICatRegister: IUnknown {
-            fn RegisterCategories(&self, cCategories: u32, rgCategoryInfo: *const CATEGORYINFO) -> HRESULT;
-            fn UnRegisterCategories(&self, cCategories: u32, rgcatid: *const CATID) -> HRESULT;
-            fn RegisterClassImplCategories(&self, rclsid: *const GUID, cCategories: u32, rgcatid: *const CATID) -> HRESULT;
-            fn UnRegisterClassImplCategories(&self, rclsid: *const GUID, cCategories: u32, rgcatid: *const CATID) -> HRESULT;
-            fn RegisterClassReqCategories(&self, rclsid: *const GUID, cCategories: u32, rgcatid: *const CATID) -> HRESULT;
-            fn UnRegisterClassReqCategories(&self, rclsid: *const GUID, cCategories: u32, rgcatid: *const CATID) -> HRESULT;
+            fn RegisterCategories(&self, cCategories: u32, #[in] rgCategoryInfo: *mut CATEGORYINFO) -> HRESULT;
+            fn UnRegisterCategories(&self, cCategories: u32, #[in] rgcatid: *mut CATID) -> HRESULT;
+            fn RegisterClassImplCategories(&self, rclsid: *const GUID, cCategories: u32, #[in] rgcatid: *mut CATID) -> HRESULT;
+            fn UnRegisterClassImplCategories(&self, rclsid: *const GUID, cCategories: u32, #[in] rgcatid: *mut CATID) -> HRESULT;
+            fn RegisterClassReqCategories(&self, rclsid: *const GUID, cCategories: u32, #[in] rgcatid: *mut CATID) -> HRESULT;
+            fn UnRegisterClassReqCategories(&self, rclsid: *const GUID, cCategories: u32, #[in] rgcatid: *mut CATID) -> HRESULT;
         }
         #[guid(0x0002e011_0000_0000_c000_000000000046)]
         interface IEnumCATEGORYINFO: IUnknown {
@@ -40,6 +40,10 @@ mod Windows {
             fn Clone(&self, ppenum: *mut IEnumGUID) -> HRESULT;
         }
         type LPCATEGORYINFO = *mut CATEGORYINFO;
+        type LPCATINFORMATION = ICatInformation;
+        type LPCATREGISTER = ICatRegister;
+        type LPENUMCATEGORYINFO = IEnumCATEGORYINFO;
+        type LPENUMGUID = IEnumGUID;
         type REFCATID = *const GUID;
     }
 }

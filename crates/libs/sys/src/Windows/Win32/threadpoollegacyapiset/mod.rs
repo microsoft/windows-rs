@@ -3,7 +3,7 @@ windows_link::link!("kernel32.dll" "system" fn ChangeTimerQueueTimer(timerqueue 
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn CreateTimerQueue() -> super::HANDLE);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn CreateTimerQueueTimer(phnewtimer : *mut super::HANDLE, timerqueue : super::HANDLE, callback : super::WAITORTIMERCALLBACK, parameter : *const core::ffi::c_void, duetime : u32, period : u32, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn CreateTimerQueueTimer(phnewtimer : super::PHANDLE, timerqueue : super::HANDLE, callback : super::WAITORTIMERCALLBACK, parameter : *const core::ffi::c_void, duetime : u32, period : u32, flags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn DeleteTimerQueue(timerqueue : super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
