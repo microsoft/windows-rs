@@ -6,7 +6,7 @@ rust-version = "1.95"
 publish = false
 
 [dependencies]
-windows-clang = { workspace = true }
+helpers = { workspace = true }
 windows-metadata = { workspace = true }
 windows-rdl = { workspace = true }
 

@@ -1,4 +1,4 @@
-use windows_clang::nuget_package;
+use helpers::nuget_package;
 use windows_metadata::merge;
 
 /// The committed, canonical WinRT winmd. Checked in as `windows-bindgen`'s default WinRT
