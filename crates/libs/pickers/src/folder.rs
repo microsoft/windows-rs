@@ -67,7 +67,8 @@ impl FolderPicker {
     /// The calling thread must be a COM single-threaded apartment (STA).
     pub fn show_for_hwnd(self, owner: *mut core::ffi::c_void) -> Result<Option<PathBuf>> {
         validate_owner(owner)?;
-        let (dialog, _prepared) = self.prepare(FOS_FORCEFILESYSTEM | FOS_PICKFOLDERS)?;
+        let (dialog, _prepared) =
+            self.prepare((FOS_FORCEFILESYSTEM | FOS_PICKFOLDERS) as FILEOPENDIALOGOPTIONS)?;
         show_dialog(&dialog, owner)
     }
 
@@ -85,8 +86,9 @@ impl FolderPicker {
     /// apartment (STA).
     pub fn show_multiple_for_hwnd(self, owner: *mut core::ffi::c_void) -> Result<Vec<PathBuf>> {
         validate_owner(owner)?;
-        let (dialog, _prepared) =
-            self.prepare(FOS_FORCEFILESYSTEM | FOS_PICKFOLDERS | FOS_ALLOWMULTISELECT)?;
+        let (dialog, _prepared) = self.prepare(
+            (FOS_FORCEFILESYSTEM | FOS_PICKFOLDERS | FOS_ALLOWMULTISELECT) as FILEOPENDIALOGOPTIONS,
+        )?;
         show_dialog_multiple(&dialog, owner)
     }
 
