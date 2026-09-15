@@ -1,11 +1,11 @@
-windows_core::link!("user32.dll" "system" fn AdjustWindowRectExForDpi(lprect : *mut RECT, dwstyle : u32, bmenu : windows_core::BOOL, dwexstyle : u32, dpi : u32) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn AdjustWindowRectExForDpi(lprect : LPRECT, dwstyle : u32, bmenu : windows_core::BOOL, dwexstyle : u32, dpi : u32) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn CreateWindowExW(dwexstyle : u32, lpclassname : windows_core::PCWSTR, lpwindowname : windows_core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : HWND, hmenu : HMENU, hinstance : HINSTANCE, lpparam : *const core::ffi::c_void) -> HWND);
 windows_core::link!("user32.dll" "system" fn DefWindowProcW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> LRESULT);
 windows_core::link!("user32.dll" "system" fn DestroyWindow(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn DispatchMessageW(lpmsg : *const MSG) -> LRESULT);
-windows_core::link!("user32.dll" "system" fn GetClientRect(hwnd : HWND, lprect : *mut RECT) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn GetClientRect(hwnd : HWND, lprect : LPRECT) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn GetDpiForSystem() -> u32);
-windows_core::link!("user32.dll" "system" fn GetMessageW(lpmsg : *mut MSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn GetMessageW(lpmsg : LPMSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> windows_core::BOOL);
 #[cfg(any(
     target_arch = "aarch64",
     target_arch = "arm64ec",
@@ -16,7 +16,7 @@ windows_core::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : HWND, nind
 pub use GetWindowLongW as GetWindowLongPtrW;
 windows_core::link!("user32.dll" "system" fn GetWindowLongW(hwnd : HWND, nindex : i32) -> i32);
 windows_core::link!("user32.dll" "system" fn LoadCursorW(hinstance : HINSTANCE, lpcursorname : windows_core::PCWSTR) -> HCURSOR);
-windows_core::link!("user32.dll" "system" fn PeekMessageW(lpmsg : *mut MSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32, wremovemsg : u32) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn PeekMessageW(lpmsg : LPMSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32, wremovemsg : u32) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
 windows_core::link!("user32.dll" "system" fn RegisterClassW(lpwndclass : *const WNDCLASSW) -> ATOM);
 windows_core::link!("user32.dll" "system" fn SendMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> LRESULT);
@@ -36,17 +36,49 @@ pub type ATOM = u16;
 pub const CS_HREDRAW: i32 = 2;
 pub const CS_VREDRAW: i32 = 1;
 pub const CW_USEDEFAULT: i32 = -2147483648;
-pub type DPI_AWARENESS_CONTEXT = *mut core::ffi::c_void;
+pub type DPI_AWARENESS_CONTEXT = *mut DPI_AWARENESS_CONTEXT__;
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4 as _;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DPI_AWARENESS_CONTEXT__ {
+    pub unused: i32,
+}
 pub const GWLP_USERDATA: i32 = -21;
-pub type HBRUSH = *mut core::ffi::c_void;
+pub type HBRUSH = *mut HBRUSH__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HBRUSH__ {
+    pub unused: i32,
+}
 pub type HCURSOR = HICON;
-pub type HICON = *mut core::ffi::c_void;
-pub type HINSTANCE = *mut core::ffi::c_void;
-pub type HMENU = *mut core::ffi::c_void;
-pub type HWND = *mut core::ffi::c_void;
-pub const IDC_ARROW: windows_core::PCWSTR = windows_core::PCWSTR(32512 as _);
+pub type HICON = *mut HICON__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HICON__ {
+    pub unused: i32,
+}
+pub type HINSTANCE = *mut HINSTANCE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HINSTANCE__ {
+    pub unused: i32,
+}
+pub type HMENU = *mut HMENU__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HMENU__ {
+    pub unused: i32,
+}
+pub type HWND = *mut HWND__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HWND__ {
+    pub unused: i32,
+}
+pub const IDC_ARROW: windows_core::PCSTR = windows_core::PCSTR(32512 as _);
 pub type LPARAM = isize;
+pub type LPMSG = *mut MSG;
+pub type LPRECT = *mut RECT;
 pub type LRESULT = isize;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
