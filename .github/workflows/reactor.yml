@@ -134,6 +134,13 @@ jobs:
           if ($LASTEXITCODE -ne 0 -or -not ($lifetime -match "1 passed")) {
             throw "Reactor application lifetime test did not run successfully"
           }
+          $menu = cargo test -p test_reactor --test public_surface `
+            application_menu_does_not_require_a_reactor_window `
+            -- --ignored --exact --test-threads=1 2>&1
+          $menu | Write-Output
+          if ($LASTEXITCODE -ne 0 -or -not ($menu -match "1 passed")) {
+            throw "Reactor application menu test did not run successfully"
+          }
           $replacement = cargo test -p test_reactor --test public_surface `
             last_window_can_be_replaced_in_one_publication `
             -- --ignored --exact --test-threads=1 2>&1

@@ -1,34 +1,42 @@
 #![windows_subsystem = "windows"]
 
-use std::cell::{Cell, RefCell};
+use std::cell::RefCell;
 use std::rc::Rc;
 
 use windows_notifyicon::{NotifyIcon, NotifyIconEvent};
 use windows_reactor::*;
 
+const EXIT: &str = "Exit";
+const OPEN: &str = "Open";
+
 struct AppState {
-    activate_window: RefCell<Option<Callback<()>>>,
     app: AppContext,
     icon: RefCell<Option<NotifyIcon>>,
-    window_open: Cell<bool>,
+    window: RefCell<OpenWindow>,
+}
+
+enum OpenWindow {
+    Closed,
+    Opening,
+    Open(Callback<()>),
 }
 
 impl AppState {
     fn add_icon(self: &Rc<Self>) -> windows_notifyicon::Result<()> {
-        if self.icon.borrow().is_some() {
-            return Ok(());
-        }
-
-        let state = Rc::downgrade(self);
+        let events = Rc::downgrade(self);
         let icon = NotifyIcon::new(concat!(env!("CARGO_MANIFEST_DIR"), "\\..\\icon\\icon.ico"))
-            .tooltip("Left-click to open; right-click to exit")
+            .tooltip("Left-click to open; right-click for menu")
             .on_event(move |event| {
-                let Some(state) = state.upgrade() else {
+                let Some(state) = events.upgrade() else {
                     return;
                 };
                 match event {
                     NotifyIconEvent::Activate { .. } => state.open_window(),
-                    NotifyIconEvent::ContextMenu { .. } => state.exit(),
+                    NotifyIconEvent::ContextMenu { position } => state.show_menu(position),
+                    NotifyIconEvent::Unavailable => {
+                        eprintln!("the Windows Shell could not restore the notification icon");
+                        state.exit();
+                    }
                     _ => {}
                 }
             })
@@ -38,17 +46,50 @@ impl AppState {
     }
 
     fn toggle_icon(self: &Rc<Self>) {
-        let removed = self.icon.borrow_mut().take().is_some();
-        if !removed && let Err(error) = self.add_icon() {
+        if self.icon.borrow_mut().take().is_some() {
+            return;
+        }
+        if let Err(error) = self.add_icon() {
             eprintln!("could not add notification icon: {error}");
         }
     }
 
+    fn show_menu(self: &Rc<Self>, position: windows_notifyicon::Point) {
+        let state = Rc::clone(self);
+        let menu = Menu::new(
+            [
+                MenuItem::item("open", OPEN),
+                MenuItem::separator("separator"),
+                MenuItem::item("exit", EXIT),
+            ],
+            move |label: String| match label.as_str() {
+                OPEN => state.open_window(),
+                EXIT => state.exit(),
+                _ => {}
+            },
+        );
+        if let Err(error) = self
+            .app
+            .show_menu_at(ScreenPoint::new(position.x, position.y), menu)
+        {
+            eprintln!("could not show notification icon menu: {error}");
+        }
+    }
+
     fn open_window(self: &Rc<Self>) {
-        if self.window_open.replace(true) {
-            if let Some(activate) = self.activate_window.borrow().as_ref() {
-                _ = activate.call(());
+        let activate = {
+            let mut window = self.window.borrow_mut();
+            match &*window {
+                OpenWindow::Closed => {
+                    *window = OpenWindow::Opening;
+                    None
+                }
+                OpenWindow::Opening => return,
+                OpenWindow::Open(activate) => Some(activate.clone()),
             }
+        };
+        if let Some(activate) = activate {
+            _ = activate.call(());
             return;
         }
         if let Err(error) =
@@ -57,7 +98,7 @@ impl AppState {
                     Rc::clone(self),
                 )))
         {
-            self.window_open.set(false);
+            *self.window.borrow_mut() = OpenWindow::Closed;
             eprintln!("could not open Reactor window: {error}");
         }
     }
@@ -94,15 +135,11 @@ impl Component for NotifyWindow {
     type Message = Message;
 
     fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
-        *input.0.activate_window.borrow_mut() =
-            Some(context.sender().callback(|()| Message::Activate));
+        *input.0.window.borrow_mut() =
+            OpenWindow::Open(context.sender().callback(|()| Message::Activate));
         Self {
             state: Rc::clone(&input.0),
         }
-    }
-
-    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
-        self.state = Rc::clone(&input.0);
     }
 
     fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
@@ -141,8 +178,7 @@ impl Component for NotifyWindow {
 
 impl Drop for NotifyWindow {
     fn drop(&mut self) {
-        self.state.activate_window.borrow_mut().take();
-        self.state.window_open.set(false);
+        *self.state.window.borrow_mut() = OpenWindow::Closed;
         if self.state.icon.borrow().is_none() {
             self.state.exit();
         }
@@ -152,10 +188,9 @@ impl Drop for NotifyWindow {
 fn main() {
     App::run_with(|app| {
         let state = Rc::new(AppState {
-            activate_window: RefCell::new(None),
             app: app.clone(),
             icon: RefCell::new(None),
-            window_open: Cell::new(false),
+            window: RefCell::new(OpenWindow::Closed),
         });
         state.add_icon()?;
         Ok(state)

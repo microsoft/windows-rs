@@ -456,6 +456,101 @@ fn application_lifetime_is_independent_of_windows() {
     completed.store(true, Ordering::Release);
 }
 
+fn wait_for_application_menu(proxy: &AppProxy, open: bool) -> bool {
+    let observed = Arc::new(AtomicBool::new(!open));
+    let deadline = Instant::now() + Duration::from_secs(5);
+    while Instant::now() < deadline && observed.load(Ordering::Acquire) != open {
+        let observed = Arc::clone(&observed);
+        proxy
+            .dispatch(move |_| {
+                observed.store(test::live_application_menu_is_open(), Ordering::Release);
+            })
+            .unwrap();
+        std::thread::sleep(Duration::from_millis(10));
+    }
+    observed.load(Ordering::Acquire) == open
+}
+
+#[test]
+#[ignore = "runs the interactive WinUI application loop"]
+fn application_menu_does_not_require_a_reactor_window() {
+    let invoked = Arc::new(AtomicBool::new(false));
+    let reopened = Arc::new(AtomicBool::new(false));
+    App::run_with({
+        let invoked = Arc::clone(&invoked);
+        let reopened = Arc::clone(&reopened);
+        move |app| {
+            let selected = Arc::clone(&invoked);
+            app.show_menu_at(
+                ScreenPoint::new(200, 200),
+                Menu::new([MenuItem::item("close", "Close")], move |_: String| {
+                    selected.store(true, Ordering::Release);
+                }),
+            )?;
+            assert!(
+                app.show_menu_at(
+                    ScreenPoint::new(200, 200),
+                    Menu::new([MenuItem::item("second", "Second")], |_: String| {}),
+                )
+                .is_err()
+            );
+            let proxy = app.proxy();
+            Ok(std::thread::spawn(move || {
+                if !wait_for_application_menu(&proxy, true) {
+                    proxy.exit().unwrap();
+                    return;
+                }
+
+                proxy
+                    .dispatch(|_| {
+                        if let Err(error) = test::invoke_live_application_menu_item() {
+                            eprintln!("could not invoke live application menu item: {error}");
+                        }
+                    })
+                    .unwrap();
+
+                let deadline = Instant::now() + Duration::from_secs(5);
+                while Instant::now() < deadline && !invoked.load(Ordering::Acquire) {
+                    std::thread::sleep(Duration::from_millis(10));
+                }
+                if !invoked.load(Ordering::Acquire) {
+                    proxy.exit().unwrap();
+                    return;
+                }
+
+                if !wait_for_application_menu(&proxy, false) {
+                    proxy.exit().unwrap();
+                    return;
+                }
+
+                let reopened_result = Arc::clone(&reopened);
+                proxy
+                    .dispatch(move |app| {
+                        if app
+                            .show_menu_at(
+                                ScreenPoint::new(200, 200),
+                                Menu::new([MenuItem::item("second", "Second")], |_: String| {}),
+                            )
+                            .is_ok()
+                        {
+                            reopened_result.store(true, Ordering::Release);
+                        }
+                    })
+                    .unwrap();
+
+                let deadline = Instant::now() + Duration::from_secs(5);
+                while Instant::now() < deadline && !reopened.load(Ordering::Acquire) {
+                    std::thread::sleep(Duration::from_millis(10));
+                }
+                proxy.exit().unwrap();
+            }))
+        }
+    })
+    .unwrap();
+    assert!(invoked.load(Ordering::Acquire));
+    assert!(reopened.load(Ordering::Acquire));
+}
+
 #[test]
 #[ignore = "runs the interactive WinUI application loop"]
 fn application_startup_error_is_returned() {
@@ -482,4 +577,12 @@ fn excessive_startup_windows_are_rejected() {
 fn app_proxy_is_send_and_sync() {
     fn assert_send_sync<T: Send + Sync>() {}
     assert_send_sync::<AppProxy>();
+}
+
+#[test]
+fn application_menu_uses_screen_coordinates() {
+    let point = ScreenPoint::new(-10, 20);
+    assert_eq!(point, ScreenPoint { x: -10, y: 20 });
+    let _: fn(&AppContext, ScreenPoint, Menu) -> windows_core::Result<()> =
+        AppContext::show_menu_at;
 }

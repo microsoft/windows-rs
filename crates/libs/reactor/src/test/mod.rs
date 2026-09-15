@@ -5,7 +5,8 @@ use crate::core::*;
 
 #[cfg(feature = "test")]
 pub use crate::app::test::{
-    LiveProbe, bring_live_virtual_index, clear_live_performance_times, live_virtual_shell_counts,
+    LiveProbe, bring_live_virtual_index, clear_live_performance_times,
+    invoke_live_application_menu_item, live_application_menu_is_open, live_virtual_shell_counts,
     schedule_live_event_subscription_count, schedule_live_input_probe, schedule_live_probe,
     schedule_live_window_handle, take_live_diagnostics, take_live_performance_times,
 };

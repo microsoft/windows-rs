@@ -8,6 +8,7 @@ pub(crate) enum FeedbackExpectation {
 }
 
 mod winui;
+pub(crate) use winui::{NativeGrid, NativeHorizontalAlignment, NativeVerticalAlignment};
 
 #[cfg(feature = "test")]
 pub use winui::test::{

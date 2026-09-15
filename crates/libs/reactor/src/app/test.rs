@@ -63,6 +63,31 @@ pub fn take_live_diagnostics() -> Vec<String> {
     DIAGNOSTICS.with(|diagnostics| diagnostics.take())
 }
 
+pub fn invoke_live_application_menu_item() -> windows_core::Result<()> {
+    let item = HOST.with(|host| {
+        let host = host.borrow();
+        let menu = host
+            .as_ref()
+            .and_then(|host| host.transient_menu.as_ref())
+            .ok_or_else(|| {
+                windows_core::Error::new(E_FAIL, "live application menu is unavailable")
+            })?;
+        menu.item_for_test()
+    })?;
+    MenuFlyoutItemAutomationPeer::CreateInstanceWithOwner(&item)?
+        .cast::<IInvokeProvider>()?
+        .Invoke()
+}
+
+pub fn live_application_menu_is_open() -> bool {
+    HOST.with(|host| {
+        host.borrow()
+            .as_ref()
+            .and_then(|host| host.transient_menu.as_ref())
+            .is_some_and(|menu| menu.is_open_for_test())
+    })
+}
+
 pub fn schedule_live_event_subscription_count(
     completion: impl FnOnce(Result<usize, String>) + 'static,
 ) -> windows_core::Result<()> {
