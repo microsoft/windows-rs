@@ -11,6 +11,7 @@ const OPEN: &str = "Open";
 
 struct AppState {
     app: AppContext,
+    icon: RefCell<Option<NotifyIcon>>,
     window: RefCell<OpenWindow>,
 }
 
@@ -21,6 +22,38 @@ enum OpenWindow {
 }
 
 impl AppState {
+    fn add_icon(self: &Rc<Self>) -> windows_notifyicon::Result<()> {
+        let events = Rc::downgrade(self);
+        let icon = NotifyIcon::new(concat!(env!("CARGO_MANIFEST_DIR"), "\\..\\icon\\icon.ico"))
+            .tooltip("Left-click to open; right-click for menu")
+            .on_event(move |event| {
+                let Some(state) = events.upgrade() else {
+                    return;
+                };
+                match event {
+                    NotifyIconEvent::Activate { .. } => state.open_window(),
+                    NotifyIconEvent::ContextMenu { position } => state.show_menu(position),
+                    NotifyIconEvent::Unavailable => {
+                        eprintln!("the Windows Shell could not restore the notification icon");
+                        state.exit();
+                    }
+                    _ => {}
+                }
+            })
+            .build()?;
+        *self.icon.borrow_mut() = Some(icon);
+        Ok(())
+    }
+
+    fn toggle_icon(self: &Rc<Self>) {
+        if self.icon.borrow_mut().take().is_some() {
+            return;
+        }
+        if let Err(error) = self.add_icon() {
+            eprintln!("could not add notification icon: {error}");
+        }
+    }
+
     fn show_menu(self: &Rc<Self>, position: windows_notifyicon::Point) {
         let state = Rc::clone(self);
         let menu = Menu::new(
@@ -90,6 +123,7 @@ impl PartialEq for NotifyWindowInput {
 enum Message {
     Activate,
     Exit,
+    ToggleIcon,
 }
 
 struct NotifyWindow {
@@ -116,15 +150,24 @@ impl Component for NotifyWindow {
                 }
             }
             Message::Exit => self.state.exit(),
+            Message::ToggleIcon => self.state.toggle_icon(),
         }
     }
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        let icon_button = if self.state.icon.borrow().is_some() {
+            "Remove notification icon"
+        } else {
+            "Add notification icon"
+        };
         context.window_frame(
             "Reactor notification icon",
             StackPanel::new().spacing(8.0).children((
                 "This window is independent of the notification icon.",
                 "Close it and use the notification icon to open another.",
+                Button::new()
+                    .on_click(context.message(Message::ToggleIcon))
+                    .content(icon_button),
                 Button::new()
                     .on_click(context.message(Message::Exit))
                     .content("Exit application"),
@@ -136,6 +179,9 @@ impl Component for NotifyWindow {
 impl Drop for NotifyWindow {
     fn drop(&mut self) {
         *self.state.window.borrow_mut() = OpenWindow::Closed;
+        if self.state.icon.borrow().is_none() {
+            self.state.exit();
+        }
     }
 }
 
@@ -143,22 +189,11 @@ fn main() {
     App::run_with(|app| {
         let state = Rc::new(AppState {
             app: app.clone(),
+            icon: RefCell::new(None),
             window: RefCell::new(OpenWindow::Closed),
         });
-        let events = Rc::clone(&state);
-        let icon = NotifyIcon::new(concat!(env!("CARGO_MANIFEST_DIR"), "\\..\\icon\\icon.ico"))
-            .tooltip("Left-click to open; right-click for menu")
-            .on_event(move |event| match event {
-                NotifyIconEvent::Activate { .. } => events.open_window(),
-                NotifyIconEvent::ContextMenu { position } => events.show_menu(position),
-                NotifyIconEvent::Unavailable => {
-                    eprintln!("the Windows Shell could not restore the notification icon");
-                    events.exit();
-                }
-                _ => {}
-            })
-            .build()?;
-        Ok(icon)
+        state.add_icon()?;
+        Ok(state)
     })
     .unwrap();
 }
