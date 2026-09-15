@@ -11,9 +11,9 @@ pub const D2D1_ALPHA_MODE_PREMULTIPLIED: D2D1_ALPHA_MODE = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D1_BEZIER_SEGMENT {
-    pub point1: windows_numerics::Vector2,
-    pub point2: windows_numerics::Vector2,
-    pub point3: windows_numerics::Vector2,
+    pub point1: D2D1_POINT_2F,
+    pub point2: D2D1_POINT_2F,
+    pub point3: D2D1_POINT_2F,
 }
 pub type D2D1_BITMAP_OPTIONS = u32;
 pub const D2D1_BITMAP_OPTIONS_CANNOT_DRAW: D2D1_BITMAP_OPTIONS = 2;
@@ -23,22 +23,28 @@ pub const D2D1_BITMAP_OPTIONS_TARGET: D2D1_BITMAP_OPTIONS = 1;
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct D2D1_BITMAP_PROPERTIES1 {
     pub pixelFormat: D2D1_PIXEL_FORMAT,
-    pub dpiX: f32,
-    pub dpiY: f32,
+    pub dpiX: FLOAT,
+    pub dpiY: FLOAT,
     pub bitmapOptions: D2D1_BITMAP_OPTIONS,
     pub colorContext: core::mem::ManuallyDrop<Option<ID2D1ColorContext>>,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct D2D1_BRUSH_PROPERTIES {
-    pub opacity: f32,
-    pub transform: windows_numerics::Matrix3x2,
+    pub opacity: FLOAT,
+    pub transform: D2D1_MATRIX_3X2_F,
+}
+impl Default for D2D1_BRUSH_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type D2D1_CAP_STYLE = i32;
 pub const D2D1_CAP_STYLE_FLAT: D2D1_CAP_STYLE = 0;
 pub const D2D1_CAP_STYLE_ROUND: D2D1_CAP_STYLE = 2;
 pub const D2D1_CAP_STYLE_SQUARE: D2D1_CAP_STYLE = 1;
 pub const D2D1_CAP_STYLE_TRIANGLE: D2D1_CAP_STYLE = 3;
+pub type D2D1_COLOR_F = D2D_COLOR_F;
 pub type D2D1_COMPOSITE_MODE = i32;
 pub type D2D1_DASH_STYLE = i32;
 pub const D2D1_DASH_STYLE_DASH: D2D1_DASH_STYLE = 1;
@@ -53,9 +59,9 @@ pub const D2D1_DRAW_TEXT_OPTIONS_NONE: D2D1_DRAW_TEXT_OPTIONS = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D1_ELLIPSE {
-    pub point: windows_numerics::Vector2,
-    pub radiusX: f32,
-    pub radiusY: f32,
+    pub point: D2D1_POINT_2F,
+    pub radiusX: FLOAT,
+    pub radiusY: FLOAT,
 }
 pub type D2D1_EXTEND_MODE = i32;
 pub const D2D1_EXTEND_MODE_CLAMP: D2D1_EXTEND_MODE = 0;
@@ -77,16 +83,16 @@ pub const D2D1_GAMMA_2_2: D2D1_GAMMA = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D1_GRADIENT_STOP {
-    pub position: f32,
-    pub color: D2D_COLOR_F,
+    pub position: FLOAT,
+    pub color: D2D1_COLOR_F,
 }
 pub type D2D1_INTERPOLATION_MODE = i32;
 pub const D2D1_INTERPOLATION_MODE_LINEAR: D2D1_INTERPOLATION_MODE = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
-    pub startPoint: windows_numerics::Vector2,
-    pub endPoint: windows_numerics::Vector2,
+    pub startPoint: D2D1_POINT_2F,
+    pub endPoint: D2D1_POINT_2F,
 }
 pub type D2D1_LINE_JOIN = i32;
 pub const D2D1_LINE_JOIN_BEVEL: D2D1_LINE_JOIN = 1;
@@ -100,27 +106,35 @@ pub struct D2D1_MAPPED_RECT {
 }
 pub type D2D1_MAP_OPTIONS = u32;
 pub const D2D1_MAP_OPTIONS_READ: D2D1_MAP_OPTIONS = 1;
+pub type D2D1_MATRIX_3X2_F = D2D_MATRIX_3X2_F;
+pub type D2D1_MATRIX_4X4_F = D2D_MATRIX_4X4_F;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_PIXEL_FORMAT {
     pub format: DXGI_FORMAT,
     pub alphaMode: D2D1_ALPHA_MODE,
 }
+pub type D2D1_POINT_2F = D2D_POINT_2F;
+pub type D2D1_POINT_2U = D2D_POINT_2U;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
-    pub center: windows_numerics::Vector2,
-    pub gradientOriginOffset: windows_numerics::Vector2,
-    pub radiusX: f32,
-    pub radiusY: f32,
+    pub center: D2D1_POINT_2F,
+    pub gradientOriginOffset: D2D1_POINT_2F,
+    pub radiusX: FLOAT,
+    pub radiusY: FLOAT,
 }
+pub type D2D1_RECT_F = D2D_RECT_F;
+pub type D2D1_RECT_U = D2D_RECT_U;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D1_ROUNDED_RECT {
-    pub rect: D2D_RECT_F,
-    pub radiusX: f32,
-    pub radiusY: f32,
+    pub rect: D2D1_RECT_F,
+    pub radiusX: FLOAT,
+    pub radiusY: FLOAT,
 }
+pub type D2D1_SIZE_F = D2D_SIZE_F;
+pub type D2D1_SIZE_U = D2D_SIZE_U;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D1_STROKE_STYLE_PROPERTIES1 {
@@ -128,9 +142,9 @@ pub struct D2D1_STROKE_STYLE_PROPERTIES1 {
     pub endCap: D2D1_CAP_STYLE,
     pub dashCap: D2D1_CAP_STYLE,
     pub lineJoin: D2D1_LINE_JOIN,
-    pub miterLimit: f32,
+    pub miterLimit: FLOAT,
     pub dashStyle: D2D1_DASH_STYLE,
-    pub dashOffset: f32,
+    pub dashOffset: FLOAT,
     pub transformType: D2D1_STROKE_TRANSFORM_TYPE,
 }
 pub type D2D1_STROKE_TRANSFORM_TYPE = i32;
@@ -138,6 +152,95 @@ pub type D2D1_TAG = u64;
 pub const D2DERR_RECREATE_TARGET: windows_core::HRESULT =
     windows_core::HRESULT(0x8899000C_u32 as _);
 pub type D2D_COLOR_F = D3DCOLORVALUE;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D2D_MATRIX_3X2_F {
+    pub Anonymous: D2D_MATRIX_3X2_F_0,
+}
+impl Default for D2D_MATRIX_3X2_F {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D2D_MATRIX_3X2_F_0 {
+    pub Anonymous: D2D_MATRIX_3X2_F_0_0,
+    pub Anonymous2: D2D_MATRIX_3X2_F_0_1,
+    pub m: [[FLOAT; 2]; 3],
+}
+impl Default for D2D_MATRIX_3X2_F_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D2D_MATRIX_3X2_F_0_0 {
+    pub m11: FLOAT,
+    pub m12: FLOAT,
+    pub m21: FLOAT,
+    pub m22: FLOAT,
+    pub dx: FLOAT,
+    pub dy: FLOAT,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D2D_MATRIX_3X2_F_0_1 {
+    pub _11: FLOAT,
+    pub _12: FLOAT,
+    pub _21: FLOAT,
+    pub _22: FLOAT,
+    pub _31: FLOAT,
+    pub _32: FLOAT,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D2D_MATRIX_4X4_F {
+    pub Anonymous: D2D_MATRIX_4X4_F_0,
+}
+impl Default for D2D_MATRIX_4X4_F {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D2D_MATRIX_4X4_F_0 {
+    pub Anonymous: D2D_MATRIX_4X4_F_0_0,
+    pub m: [[FLOAT; 4]; 4],
+}
+impl Default for D2D_MATRIX_4X4_F_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D2D_MATRIX_4X4_F_0_0 {
+    pub _11: FLOAT,
+    pub _12: FLOAT,
+    pub _13: FLOAT,
+    pub _14: FLOAT,
+    pub _21: FLOAT,
+    pub _22: FLOAT,
+    pub _23: FLOAT,
+    pub _24: FLOAT,
+    pub _31: FLOAT,
+    pub _32: FLOAT,
+    pub _33: FLOAT,
+    pub _34: FLOAT,
+    pub _41: FLOAT,
+    pub _42: FLOAT,
+    pub _43: FLOAT,
+    pub _44: FLOAT,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D2D_POINT_2F {
+    pub x: FLOAT,
+    pub y: FLOAT,
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D_POINT_2U {
@@ -147,10 +250,10 @@ pub struct D2D_POINT_2U {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D_RECT_F {
-    pub left: f32,
-    pub top: f32,
-    pub right: f32,
-    pub bottom: f32,
+    pub left: FLOAT,
+    pub top: FLOAT,
+    pub right: FLOAT,
+    pub bottom: FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -163,8 +266,8 @@ pub struct D2D_RECT_U {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D_SIZE_F {
-    pub width: f32,
-    pub height: f32,
+    pub width: FLOAT,
+    pub height: FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -200,10 +303,10 @@ pub type DWRITE_FONT_WEIGHT = i32;
 pub struct DWRITE_HIT_TEST_METRICS {
     pub textPosition: u32,
     pub length: u32,
-    pub left: f32,
-    pub top: f32,
-    pub width: f32,
-    pub height: f32,
+    pub left: FLOAT,
+    pub top: FLOAT,
+    pub width: FLOAT,
+    pub height: FLOAT,
     pub bidiLevel: u32,
     pub isText: windows_core::BOOL,
     pub isTrimmed: windows_core::BOOL,
@@ -220,13 +323,13 @@ pub const DWRITE_TEXT_ALIGNMENT_TRAILING: DWRITE_TEXT_ALIGNMENT = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_TEXT_METRICS {
-    pub left: f32,
-    pub top: f32,
-    pub width: f32,
-    pub widthIncludingTrailingWhitespace: f32,
-    pub height: f32,
-    pub layoutWidth: f32,
-    pub layoutHeight: f32,
+    pub left: FLOAT,
+    pub top: FLOAT,
+    pub width: FLOAT,
+    pub widthIncludingTrailingWhitespace: FLOAT,
+    pub height: FLOAT,
+    pub layoutWidth: FLOAT,
+    pub layoutHeight: FLOAT,
     pub maxBidiReorderingDepth: u32,
     pub lineCount: u32,
 }
@@ -249,12 +352,12 @@ pub const DXGI_FORMAT_UNKNOWN: DXGI_FORMAT = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_MATRIX_3X2_F {
-    pub _11: f32,
-    pub _12: f32,
-    pub _21: f32,
-    pub _22: f32,
-    pub _31: f32,
-    pub _32: f32,
+    pub _11: FLOAT,
+    pub _12: FLOAT,
+    pub _21: FLOAT,
+    pub _22: FLOAT,
+    pub _31: FLOAT,
+    pub _32: FLOAT,
 }
 pub type DXGI_MODE_SCALING = i32;
 pub type DXGI_MODE_SCANLINE_ORDER = i32;
@@ -300,12 +403,23 @@ pub type DXGI_USAGE = u32;
 pub const DXGI_USAGE_RENDER_TARGET_OUTPUT: u32 = 32;
 pub const E_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80004005_u32 as _);
 pub const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
+pub type FLOAT = f32;
 pub const GENERIC_READ: u32 = 2147483648;
 pub const GUID_WICPixelFormat32bppPBGRA: windows_core::GUID =
     windows_core::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc910);
-pub type HINSTANCE = *mut core::ffi::c_void;
+pub type HINSTANCE = *mut HINSTANCE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HINSTANCE__ {
+    pub unused: i32,
+}
 pub type HMODULE = HINSTANCE;
-pub type HWND = *mut core::ffi::c_void;
+pub type HWND = *mut HWND__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HWND__ {
+    pub unused: i32,
+}
 windows_core::imp::define_interface!(
     ID2D1Bitmap,
     ID2D1Bitmap_Vtbl,
@@ -324,7 +438,7 @@ windows_core::imp::interface_hierarchy!(
     ID2D1Image
 );
 impl ID2D1Bitmap {
-    pub(crate) unsafe fn GetSize(&self) -> D2D_SIZE_F {
+    pub(crate) unsafe fn GetSize(&self) -> D2D1_SIZE_F {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSize)(
@@ -336,9 +450,9 @@ impl ID2D1Bitmap {
     }
     pub(crate) unsafe fn CopyFromBitmap<P1>(
         &self,
-        destpoint: Option<*const D2D_POINT_2U>,
+        destpoint: Option<*const D2D1_POINT_2U>,
         bitmap: P1,
-        srcrect: Option<*const D2D_RECT_U>,
+        srcrect: Option<*const D2D1_RECT_U>,
     ) -> windows_core::HRESULT
     where
         P1: windows_core::Param<Self>,
@@ -356,15 +470,15 @@ impl ID2D1Bitmap {
 #[repr(C)]
 pub struct ID2D1Bitmap_Vtbl {
     pub base__: ID2D1Image_Vtbl,
-    pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D_SIZE_F),
+    pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D1_SIZE_F),
     GetPixelSize: usize,
     GetPixelFormat: usize,
     GetDpi: usize,
     pub CopyFromBitmap: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *const D2D_POINT_2U,
+        *const D2D1_POINT_2U,
         *mut core::ffi::c_void,
-        *const D2D_RECT_U,
+        *const D2D1_RECT_U,
     ) -> windows_core::HRESULT,
     CopyFromRenderTarget: usize,
     CopyFromMemory: usize,
@@ -526,7 +640,7 @@ windows_core::imp::interface_hierarchy!(
 impl ID2D1DeviceContext {
     pub(crate) unsafe fn CreateBitmap(
         &self,
-        size: D2D_SIZE_U,
+        size: D2D1_SIZE_U,
         sourcedata: Option<*const core::ffi::c_void>,
         pitch: u32,
         bitmapproperties: *const D2D1_BITMAP_PROPERTIES1,
@@ -620,8 +734,8 @@ impl ID2D1DeviceContext {
     pub(crate) unsafe fn DrawImage<P0>(
         &self,
         image: P0,
-        targetoffset: Option<*const windows_numerics::Vector2>,
-        imagerectangle: Option<*const D2D_RECT_F>,
+        targetoffset: Option<*const D2D1_POINT_2F>,
+        imagerectangle: Option<*const D2D1_RECT_F>,
         interpolationmode: D2D1_INTERPOLATION_MODE,
         compositemode: D2D1_COMPOSITE_MODE,
     ) where
@@ -641,11 +755,11 @@ impl ID2D1DeviceContext {
     pub(crate) unsafe fn DrawBitmap<P0>(
         &self,
         bitmap: P0,
-        destinationrectangle: Option<*const D2D_RECT_F>,
-        opacity: f32,
+        destinationrectangle: Option<*const D2D1_RECT_F>,
+        opacity: FLOAT,
         interpolationmode: D2D1_INTERPOLATION_MODE,
-        sourcerectangle: Option<*const D2D_RECT_F>,
-        perspectivetransform: Option<*const windows_numerics::Matrix4x4>,
+        sourcerectangle: Option<*const D2D1_RECT_F>,
+        perspectivetransform: Option<*const D2D1_MATRIX_4X4_F>,
     ) where
         P0: windows_core::Param<ID2D1Bitmap>,
     {
@@ -667,7 +781,7 @@ pub struct ID2D1DeviceContext_Vtbl {
     pub base__: ID2D1RenderTarget_Vtbl,
     pub CreateBitmap: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        D2D_SIZE_U,
+        D2D1_SIZE_U,
         *const core::ffi::c_void,
         u32,
         *const D2D1_BITMAP_PROPERTIES1,
@@ -715,8 +829,8 @@ pub struct ID2D1DeviceContext_Vtbl {
     pub DrawImage: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *const windows_numerics::Vector2,
-        *const D2D_RECT_F,
+        *const D2D1_POINT_2F,
+        *const D2D1_RECT_F,
         D2D1_INTERPOLATION_MODE,
         D2D1_COMPOSITE_MODE,
     ),
@@ -724,11 +838,11 @@ pub struct ID2D1DeviceContext_Vtbl {
     pub DrawBitmap: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        *const D2D_RECT_F,
-        f32,
+        *const D2D1_RECT_F,
+        FLOAT,
         D2D1_INTERPOLATION_MODE,
-        *const D2D_RECT_F,
-        *const windows_numerics::Matrix4x4,
+        *const D2D1_RECT_F,
+        *const D2D1_MATRIX_4X4_F,
     ),
     PushLayer: usize,
     InvalidateEffectInputRectangle: usize,
@@ -848,7 +962,7 @@ impl ID2D1Factory1 {
     pub(crate) unsafe fn CreateStrokeStyle(
         &self,
         strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1,
-        dashes: Option<&[f32]>,
+        dashes: Option<&[FLOAT]>,
     ) -> windows_core::Result<ID2D1StrokeStyle1> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -884,7 +998,7 @@ pub struct ID2D1Factory1_Vtbl {
     pub CreateStrokeStyle: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *const D2D1_STROKE_STYLE_PROPERTIES1,
-        *const f32,
+        *const FLOAT,
         u32,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -916,8 +1030,8 @@ windows_core::imp::interface_hierarchy!(ID2D1Geometry, windows_core::IUnknown, I
 impl ID2D1Geometry {
     pub(crate) unsafe fn GetBounds(
         &self,
-        worldtransform: Option<*const windows_numerics::Matrix3x2>,
-    ) -> windows_core::Result<D2D_RECT_F> {
+        worldtransform: Option<*const D2D1_MATRIX_3X2_F>,
+    ) -> windows_core::Result<D2D1_RECT_F> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBounds)(
@@ -930,11 +1044,11 @@ impl ID2D1Geometry {
     }
     pub(crate) unsafe fn StrokeContainsPoint<P2>(
         &self,
-        point: windows_numerics::Vector2,
-        strokewidth: f32,
+        point: D2D1_POINT_2F,
+        strokewidth: FLOAT,
         strokestyle: P2,
-        worldtransform: Option<*const windows_numerics::Matrix3x2>,
-        flatteningtolerance: f32,
+        worldtransform: Option<*const D2D1_MATRIX_3X2_F>,
+        flatteningtolerance: FLOAT,
     ) -> windows_core::Result<windows_core::BOOL>
     where
         P2: windows_core::Param<ID2D1StrokeStyle>,
@@ -955,9 +1069,9 @@ impl ID2D1Geometry {
     }
     pub(crate) unsafe fn FillContainsPoint(
         &self,
-        point: windows_numerics::Vector2,
-        worldtransform: Option<*const windows_numerics::Matrix3x2>,
-        flatteningtolerance: f32,
+        point: D2D1_POINT_2F,
+        worldtransform: Option<*const D2D1_MATRIX_3X2_F>,
+        flatteningtolerance: FLOAT,
     ) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -977,24 +1091,24 @@ pub struct ID2D1Geometry_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
     pub GetBounds: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *const windows_numerics::Matrix3x2,
-        *mut D2D_RECT_F,
+        *const D2D1_MATRIX_3X2_F,
+        *mut D2D1_RECT_F,
     ) -> windows_core::HRESULT,
     GetWidenedBounds: usize,
     pub StrokeContainsPoint: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_numerics::Vector2,
-        f32,
+        D2D1_POINT_2F,
+        FLOAT,
         *mut core::ffi::c_void,
-        *const windows_numerics::Matrix3x2,
-        f32,
+        *const D2D1_MATRIX_3X2_F,
+        FLOAT,
         *mut windows_core::BOOL,
     ) -> windows_core::HRESULT,
     pub FillContainsPoint: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_numerics::Vector2,
-        *const windows_numerics::Matrix3x2,
-        f32,
+        D2D1_POINT_2F,
+        *const D2D1_MATRIX_3X2_F,
+        FLOAT,
         *mut windows_core::BOOL,
     ) -> windows_core::HRESULT,
     CompareWithGeometry: usize,
@@ -1025,7 +1139,7 @@ windows_core::imp::interface_hierarchy!(
     ID2D1SimplifiedGeometrySink
 );
 impl ID2D1GeometrySink {
-    pub(crate) unsafe fn AddLine(&self, point: windows_numerics::Vector2) {
+    pub(crate) unsafe fn AddLine(&self, point: D2D1_POINT_2F) {
         unsafe {
             (windows_core::Interface::vtable(self).AddLine)(
                 windows_core::Interface::as_raw(self),
@@ -1045,7 +1159,7 @@ impl ID2D1GeometrySink {
 #[repr(C)]
 pub struct ID2D1GeometrySink_Vtbl {
     pub base__: ID2D1SimplifiedGeometrySink_Vtbl,
-    pub AddLine: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2),
+    pub AddLine: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_POINT_2F),
     pub AddBezier: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_BEZIER_SEGMENT),
     AddQuadraticBezier: usize,
     AddQuadraticBeziers: usize,
@@ -1254,7 +1368,7 @@ windows_core::imp::interface_hierarchy!(ID2D1RenderTarget, windows_core::IUnknow
 impl ID2D1RenderTarget {
     pub(crate) unsafe fn CreateSolidColorBrush(
         &self,
-        color: *const D2D_COLOR_F,
+        color: *const D2D1_COLOR_F,
         brushproperties: Option<*const D2D1_BRUSH_PROPERTIES>,
     ) -> windows_core::Result<ID2D1SolidColorBrush> {
         unsafe {
@@ -1331,10 +1445,10 @@ impl ID2D1RenderTarget {
     }
     pub(crate) unsafe fn DrawLine<P2, P4>(
         &self,
-        point0: windows_numerics::Vector2,
-        point1: windows_numerics::Vector2,
+        point0: D2D1_POINT_2F,
+        point1: D2D1_POINT_2F,
         brush: P2,
-        strokewidth: f32,
+        strokewidth: FLOAT,
         strokestyle: P4,
     ) where
         P2: windows_core::Param<ID2D1Brush>,
@@ -1353,9 +1467,9 @@ impl ID2D1RenderTarget {
     }
     pub(crate) unsafe fn DrawRectangle<P1, P3>(
         &self,
-        rect: *const D2D_RECT_F,
+        rect: *const D2D1_RECT_F,
         brush: P1,
-        strokewidth: f32,
+        strokewidth: FLOAT,
         strokestyle: P3,
     ) where
         P1: windows_core::Param<ID2D1Brush>,
@@ -1371,7 +1485,7 @@ impl ID2D1RenderTarget {
             );
         }
     }
-    pub(crate) unsafe fn FillRectangle<P1>(&self, rect: *const D2D_RECT_F, brush: P1)
+    pub(crate) unsafe fn FillRectangle<P1>(&self, rect: *const D2D1_RECT_F, brush: P1)
     where
         P1: windows_core::Param<ID2D1Brush>,
     {
@@ -1387,7 +1501,7 @@ impl ID2D1RenderTarget {
         &self,
         roundedrect: *const D2D1_ROUNDED_RECT,
         brush: P1,
-        strokewidth: f32,
+        strokewidth: FLOAT,
         strokestyle: P3,
     ) where
         P1: windows_core::Param<ID2D1Brush>,
@@ -1422,7 +1536,7 @@ impl ID2D1RenderTarget {
         &self,
         ellipse: *const D2D1_ELLIPSE,
         brush: P1,
-        strokewidth: f32,
+        strokewidth: FLOAT,
         strokestyle: P3,
     ) where
         P1: windows_core::Param<ID2D1Brush>,
@@ -1454,7 +1568,7 @@ impl ID2D1RenderTarget {
         &self,
         geometry: P0,
         brush: P1,
-        strokewidth: f32,
+        strokewidth: FLOAT,
         strokestyle: P3,
     ) where
         P0: windows_core::Param<ID2D1Geometry>,
@@ -1490,7 +1604,7 @@ impl ID2D1RenderTarget {
         &self,
         string: &[u16],
         textformat: P2,
-        layoutrect: *const D2D_RECT_F,
+        layoutrect: *const D2D1_RECT_F,
         defaultfillbrush: P4,
         options: D2D1_DRAW_TEXT_OPTIONS,
         measuringmode: DWRITE_MEASURING_MODE,
@@ -1513,7 +1627,7 @@ impl ID2D1RenderTarget {
     }
     pub(crate) unsafe fn DrawTextLayout<P1, P2>(
         &self,
-        origin: windows_numerics::Vector2,
+        origin: D2D1_POINT_2F,
         textlayout: P1,
         defaultfillbrush: P2,
         options: D2D1_DRAW_TEXT_OPTIONS,
@@ -1531,7 +1645,7 @@ impl ID2D1RenderTarget {
             );
         }
     }
-    pub(crate) unsafe fn SetTransform(&self, transform: *const windows_numerics::Matrix3x2) {
+    pub(crate) unsafe fn SetTransform(&self, transform: *const D2D1_MATRIX_3X2_F) {
         unsafe {
             (windows_core::Interface::vtable(self).SetTransform)(
                 windows_core::Interface::as_raw(self),
@@ -1539,7 +1653,7 @@ impl ID2D1RenderTarget {
             );
         }
     }
-    pub(crate) unsafe fn GetTransform(&self, transform: *mut windows_numerics::Matrix3x2) {
+    pub(crate) unsafe fn GetTransform(&self, transform: *mut D2D1_MATRIX_3X2_F) {
         unsafe {
             (windows_core::Interface::vtable(self).GetTransform)(
                 windows_core::Interface::as_raw(self),
@@ -1547,7 +1661,7 @@ impl ID2D1RenderTarget {
             );
         }
     }
-    pub(crate) unsafe fn Clear(&self, clearcolor: Option<*const D2D_COLOR_F>) {
+    pub(crate) unsafe fn Clear(&self, clearcolor: Option<*const D2D1_COLOR_F>) {
         unsafe {
             (windows_core::Interface::vtable(self).Clear)(
                 windows_core::Interface::as_raw(self),
@@ -1575,7 +1689,7 @@ impl ID2D1RenderTarget {
             )
         }
     }
-    pub(crate) unsafe fn SetDpi(&self, dpix: f32, dpiy: f32) {
+    pub(crate) unsafe fn SetDpi(&self, dpix: FLOAT, dpiy: FLOAT) {
         unsafe {
             (windows_core::Interface::vtable(self).SetDpi)(
                 windows_core::Interface::as_raw(self),
@@ -1584,7 +1698,7 @@ impl ID2D1RenderTarget {
             );
         }
     }
-    pub(crate) unsafe fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) {
+    pub(crate) unsafe fn GetDpi(&self, dpix: *mut FLOAT, dpiy: *mut FLOAT) {
         unsafe {
             (windows_core::Interface::vtable(self).GetDpi)(
                 windows_core::Interface::as_raw(self),
@@ -1593,7 +1707,7 @@ impl ID2D1RenderTarget {
             );
         }
     }
-    pub(crate) unsafe fn GetPixelSize(&self) -> D2D_SIZE_U {
+    pub(crate) unsafe fn GetPixelSize(&self) -> D2D1_SIZE_U {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPixelSize)(
@@ -1613,7 +1727,7 @@ pub struct ID2D1RenderTarget_Vtbl {
     CreateBitmapBrush: usize,
     pub CreateSolidColorBrush: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *const D2D_COLOR_F,
+        *const D2D1_COLOR_F,
         *const D2D1_BRUSH_PROPERTIES,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -1644,29 +1758,29 @@ pub struct ID2D1RenderTarget_Vtbl {
     CreateMesh: usize,
     pub DrawLine: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_numerics::Vector2,
-        windows_numerics::Vector2,
+        D2D1_POINT_2F,
+        D2D1_POINT_2F,
         *mut core::ffi::c_void,
-        f32,
+        FLOAT,
         *mut core::ffi::c_void,
     ),
     pub DrawRectangle: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *const D2D_RECT_F,
+        *const D2D1_RECT_F,
         *mut core::ffi::c_void,
-        f32,
+        FLOAT,
         *mut core::ffi::c_void,
     ),
     pub FillRectangle: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *const D2D_RECT_F,
+        *const D2D1_RECT_F,
         *mut core::ffi::c_void,
     ),
     pub DrawRoundedRectangle: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *const D2D1_ROUNDED_RECT,
         *mut core::ffi::c_void,
-        f32,
+        FLOAT,
         *mut core::ffi::c_void,
     ),
     pub FillRoundedRectangle: unsafe extern "system" fn(
@@ -1678,7 +1792,7 @@ pub struct ID2D1RenderTarget_Vtbl {
         *mut core::ffi::c_void,
         *const D2D1_ELLIPSE,
         *mut core::ffi::c_void,
-        f32,
+        FLOAT,
         *mut core::ffi::c_void,
     ),
     pub FillEllipse: unsafe extern "system" fn(
@@ -1690,7 +1804,7 @@ pub struct ID2D1RenderTarget_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-        f32,
+        FLOAT,
         *mut core::ffi::c_void,
     ),
     pub FillGeometry: unsafe extern "system" fn(
@@ -1707,23 +1821,21 @@ pub struct ID2D1RenderTarget_Vtbl {
         *const u16,
         u32,
         *mut core::ffi::c_void,
-        *const D2D_RECT_F,
+        *const D2D1_RECT_F,
         *mut core::ffi::c_void,
         D2D1_DRAW_TEXT_OPTIONS,
         DWRITE_MEASURING_MODE,
     ),
     pub DrawTextLayout: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_numerics::Vector2,
+        D2D1_POINT_2F,
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         D2D1_DRAW_TEXT_OPTIONS,
     ),
     DrawGlyphRun: usize,
-    pub SetTransform:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Matrix3x2),
-    pub GetTransform:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix3x2),
+    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_MATRIX_3X2_F),
+    pub GetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D1_MATRIX_3X2_F),
     SetAntialiasMode: usize,
     GetAntialiasMode: usize,
     SetTextAntialiasMode: usize,
@@ -1739,7 +1851,7 @@ pub struct ID2D1RenderTarget_Vtbl {
     RestoreDrawingState: usize,
     PushAxisAlignedClip: usize,
     PopAxisAlignedClip: usize,
-    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D_COLOR_F),
+    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_COLOR_F),
     pub BeginDraw: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub EndDraw: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -1747,10 +1859,10 @@ pub struct ID2D1RenderTarget_Vtbl {
         *mut D2D1_TAG,
     ) -> windows_core::HRESULT,
     GetPixelFormat: usize,
-    pub SetDpi: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32),
-    pub GetDpi: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, *mut f32),
+    pub SetDpi: unsafe extern "system" fn(*mut core::ffi::c_void, FLOAT, FLOAT),
+    pub GetDpi: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FLOAT, *mut FLOAT),
     GetSize: usize,
-    pub GetPixelSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D_SIZE_U),
+    pub GetPixelSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D2D1_SIZE_U),
     GetMaximumBitmapSize: usize,
     IsSupported: usize,
 }
@@ -1776,7 +1888,7 @@ windows_core::imp::interface_hierarchy!(ID2D1SimplifiedGeometrySink, windows_cor
 impl ID2D1SimplifiedGeometrySink {
     pub(crate) unsafe fn BeginFigure(
         &self,
-        startpoint: windows_numerics::Vector2,
+        startpoint: D2D1_POINT_2F,
         figurebegin: D2D1_FIGURE_BEGIN,
     ) {
         unsafe {
@@ -1806,11 +1918,8 @@ pub struct ID2D1SimplifiedGeometrySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     SetFillMode: usize,
     SetSegmentFlags: usize,
-    pub BeginFigure: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_numerics::Vector2,
-        D2D1_FIGURE_BEGIN,
-    ),
+    pub BeginFigure:
+        unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_POINT_2F, D2D1_FIGURE_BEGIN),
     AddLines: usize,
     AddBeziers: usize,
     pub EndFigure: unsafe extern "system" fn(*mut core::ffi::c_void, D2D1_FIGURE_END),
@@ -1835,7 +1944,7 @@ windows_core::imp::interface_hierarchy!(
     ID2D1Brush
 );
 impl ID2D1SolidColorBrush {
-    pub(crate) unsafe fn SetColor(&self, color: *const D2D_COLOR_F) {
+    pub(crate) unsafe fn SetColor(&self, color: *const D2D1_COLOR_F) {
         unsafe {
             (windows_core::Interface::vtable(self).SetColor)(
                 windows_core::Interface::as_raw(self),
@@ -1847,7 +1956,7 @@ impl ID2D1SolidColorBrush {
 #[repr(C)]
 pub struct ID2D1SolidColorBrush_Vtbl {
     pub base__: ID2D1Brush_Vtbl,
-    pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D_COLOR_F),
+    pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const D2D1_COLOR_F),
     GetColor: usize,
 }
 impl windows_core::RuntimeName for ID2D1SolidColorBrush {}
@@ -2102,32 +2211,30 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IDWriteFactory, windows_core::IUnknown);
 impl IDWriteFactory {
-    pub(crate) unsafe fn CreateTextFormat<P0, P1, P6>(
+    pub(crate) unsafe fn CreateTextFormat<P1>(
         &self,
-        fontfamilyname: P0,
+        fontfamilyname: *const u16,
         fontcollection: P1,
         fontweight: DWRITE_FONT_WEIGHT,
         fontstyle: DWRITE_FONT_STYLE,
         fontstretch: DWRITE_FONT_STRETCH,
-        fontsize: f32,
-        localename: P6,
+        fontsize: FLOAT,
+        localename: *const u16,
     ) -> windows_core::Result<IDWriteTextFormat>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IDWriteFontCollection>,
-        P6: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateTextFormat)(
                 windows_core::Interface::as_raw(self),
-                fontfamilyname.param().abi(),
+                fontfamilyname,
                 fontcollection.param().abi(),
                 fontweight,
                 fontstyle,
                 fontstretch,
                 fontsize,
-                localename.param().abi(),
+                localename,
                 &mut result__,
             )
             .and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -2137,8 +2244,8 @@ impl IDWriteFactory {
         &self,
         string: &[u16],
         textformat: P2,
-        maxwidth: f32,
-        maxheight: f32,
+        maxwidth: FLOAT,
+        maxheight: FLOAT,
     ) -> windows_core::Result<IDWriteTextLayout>
     where
         P2: windows_core::Param<IDWriteTextFormat>,
@@ -2175,13 +2282,13 @@ pub struct IDWriteFactory_Vtbl {
     UnregisterFontFileLoader: usize,
     pub CreateTextFormat: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_core::PCWSTR,
+        *const u16,
         *mut core::ffi::c_void,
         DWRITE_FONT_WEIGHT,
         DWRITE_FONT_STYLE,
         DWRITE_FONT_STRETCH,
-        f32,
-        windows_core::PCWSTR,
+        FLOAT,
+        *const u16,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     CreateTypography: usize,
@@ -2191,8 +2298,8 @@ pub struct IDWriteFactory_Vtbl {
         *const u16,
         u32,
         *mut core::ffi::c_void,
-        f32,
-        f32,
+        FLOAT,
+        FLOAT,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     CreateGdiCompatibleTextLayout: usize,
@@ -2314,7 +2421,7 @@ windows_core::imp::interface_hierarchy!(
     IDWriteTextFormat
 );
 impl IDWriteTextLayout {
-    pub(crate) unsafe fn SetMaxWidth(&self, maxwidth: f32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn SetMaxWidth(&self, maxwidth: FLOAT) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetMaxWidth)(
                 windows_core::Interface::as_raw(self),
@@ -2322,7 +2429,7 @@ impl IDWriteTextLayout {
             )
         }
     }
-    pub(crate) unsafe fn SetMaxHeight(&self, maxheight: f32) -> windows_core::HRESULT {
+    pub(crate) unsafe fn SetMaxHeight(&self, maxheight: FLOAT) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).SetMaxHeight)(
                 windows_core::Interface::as_raw(self),
@@ -2330,14 +2437,14 @@ impl IDWriteTextLayout {
             )
         }
     }
-    pub(crate) unsafe fn GetMaxWidth(&self) -> f32 {
+    pub(crate) unsafe fn GetMaxWidth(&self) -> FLOAT {
         unsafe {
             (windows_core::Interface::vtable(self).GetMaxWidth)(windows_core::Interface::as_raw(
                 self,
             ))
         }
     }
-    pub(crate) unsafe fn GetMaxHeight(&self) -> f32 {
+    pub(crate) unsafe fn GetMaxHeight(&self) -> FLOAT {
         unsafe {
             (windows_core::Interface::vtable(self).GetMaxHeight)(windows_core::Interface::as_raw(
                 self,
@@ -2357,8 +2464,8 @@ impl IDWriteTextLayout {
     }
     pub(crate) unsafe fn HitTestPoint(
         &self,
-        pointx: f32,
-        pointy: f32,
+        pointx: FLOAT,
+        pointy: FLOAT,
         istrailinghit: *mut windows_core::BOOL,
         isinside: *mut windows_core::BOOL,
         hittestmetrics: *mut DWRITE_HIT_TEST_METRICS,
@@ -2378,8 +2485,8 @@ impl IDWriteTextLayout {
         &self,
         textposition: u32,
         istrailinghit: bool,
-        pointx: *mut f32,
-        pointy: *mut f32,
+        pointx: *mut FLOAT,
+        pointy: *mut FLOAT,
         hittestmetrics: *mut DWRITE_HIT_TEST_METRICS,
     ) -> windows_core::HRESULT {
         unsafe {
@@ -2398,9 +2505,9 @@ impl IDWriteTextLayout {
 pub struct IDWriteTextLayout_Vtbl {
     pub base__: IDWriteTextFormat_Vtbl,
     pub SetMaxWidth:
-        unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, FLOAT) -> windows_core::HRESULT,
     pub SetMaxHeight:
-        unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+        unsafe extern "system" fn(*mut core::ffi::c_void, FLOAT) -> windows_core::HRESULT,
     SetFontCollection: usize,
     SetFontFamilyName: usize,
     SetFontWeight: usize,
@@ -2413,8 +2520,8 @@ pub struct IDWriteTextLayout_Vtbl {
     SetInlineObject: usize,
     SetTypography: usize,
     SetLocaleName: usize,
-    pub GetMaxWidth: unsafe extern "system" fn(*mut core::ffi::c_void) -> f32,
-    pub GetMaxHeight: unsafe extern "system" fn(*mut core::ffi::c_void) -> f32,
+    pub GetMaxWidth: unsafe extern "system" fn(*mut core::ffi::c_void) -> FLOAT,
+    pub GetMaxHeight: unsafe extern "system" fn(*mut core::ffi::c_void) -> FLOAT,
     GetFontCollection: usize,
     GetFontFamilyNameLength: usize,
     GetFontFamilyName: usize,
@@ -2440,8 +2547,8 @@ pub struct IDWriteTextLayout_Vtbl {
     DetermineMinWidth: usize,
     pub HitTestPoint: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        f32,
-        f32,
+        FLOAT,
+        FLOAT,
         *mut windows_core::BOOL,
         *mut windows_core::BOOL,
         *mut DWRITE_HIT_TEST_METRICS,
@@ -2450,8 +2557,8 @@ pub struct IDWriteTextLayout_Vtbl {
         *mut core::ffi::c_void,
         u32,
         windows_core::BOOL,
-        *mut f32,
-        *mut f32,
+        *mut FLOAT,
+        *mut FLOAT,
         *mut DWRITE_HIT_TEST_METRICS,
     ) -> windows_core::HRESULT,
     HitTestTextRange: usize,
