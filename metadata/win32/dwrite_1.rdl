@@ -42,9 +42,9 @@ mod Windows {
             DWRITE_GLYPH_ORIENTATION_ANGLE_270_DEGREES = 3,
         }
         struct DWRITE_JUSTIFICATION_OPPORTUNITY {
-            expansionMinimum: f32,
-            expansionMaximum: f32,
-            compressionMaximum: f32,
+            expansionMinimum: FLOAT,
+            expansionMaximum: FLOAT,
+            compressionMaximum: FLOAT,
             _bitfield: u32 {
                 expansionPriority: 8,
                 compressionPriority: 8,
@@ -510,7 +510,7 @@ mod Windows {
         #[guid(0x30572f99_dac6_41db_a16e_0486307e606a)]
         interface IDWriteFactory1: IDWriteFactory {
             fn GetEudcFontCollection(&self, fontCollection: *mut IDWriteFontCollection, checkForUpdates: BOOL) -> HRESULT;
-            fn CreateCustomRenderingParams(&self, gamma: f32, enhancedContrast: f32, enhancedContrastGrayscale: f32, clearTypeLevel: f32, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE, renderingParams: *mut IDWriteRenderingParams1) -> HRESULT;
+            fn CreateCustomRenderingParams(&self, gamma: FLOAT, enhancedContrast: FLOAT, enhancedContrastGrayscale: FLOAT, clearTypeLevel: FLOAT, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE, renderingParams: *mut IDWriteRenderingParams1) -> HRESULT;
         }
         #[guid(0xacd16696_8c14_4f5d_877e_fe3fc1d32738)]
         interface IDWriteFont1: IDWriteFont {
@@ -522,21 +522,21 @@ mod Windows {
         #[guid(0xa71efdb4_9fdb_4838_ad90_cfc3be8c3daf)]
         interface IDWriteFontFace1: IDWriteFontFace {
             fn GetMetrics(&self, fontMetrics: *mut DWRITE_FONT_METRICS1);
-            fn GetGdiCompatibleMetrics(&self, emSize: f32, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, fontMetrics: *mut DWRITE_FONT_METRICS1) -> HRESULT;
+            fn GetGdiCompatibleMetrics(&self, emSize: FLOAT, pixelsPerDip: FLOAT, #[opt] transform: *const DWRITE_MATRIX, fontMetrics: *mut DWRITE_FONT_METRICS1) -> HRESULT;
             fn GetCaretMetrics(&self, caretMetrics: *mut DWRITE_CARET_METRICS);
             fn GetUnicodeRanges(&self, maxRangeCount: u32, #[len_param(0)] #[opt] unicodeRanges: *mut DWRITE_UNICODE_RANGE, actualRangeCount: *mut u32) -> HRESULT;
             fn IsMonospacedFont(&self) -> BOOL;
             fn GetDesignGlyphAdvances(&self, glyphCount: u32, #[len_param(0)] glyphIndices: *const u16, #[len_param(0)] glyphAdvances: *mut i32, isSideways: BOOL) -> HRESULT;
-            fn GetGdiCompatibleGlyphAdvances(&self, emSize: f32, pixelsPerDip: f32, #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, isSideways: BOOL, glyphCount: u32, #[len_param(5)] glyphIndices: *const u16, #[len_param(5)] glyphAdvances: *mut i32) -> HRESULT;
+            fn GetGdiCompatibleGlyphAdvances(&self, emSize: FLOAT, pixelsPerDip: FLOAT, #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, isSideways: BOOL, glyphCount: u32, #[len_param(5)] glyphIndices: *const u16, #[len_param(5)] glyphAdvances: *mut i32) -> HRESULT;
             fn GetKerningPairAdjustments(&self, glyphCount: u32, #[len_param(0)] glyphIndices: *const u16, #[len_param(0)] glyphAdvanceAdjustments: *mut i32) -> HRESULT;
             fn HasKerningPairs(&self) -> BOOL;
-            fn GetRecommendedRenderingMode(&self, fontEmSize: f32, dpiX: f32, dpiY: f32, #[opt] transform: *const DWRITE_MATRIX, isSideways: BOOL, outlineThreshold: DWRITE_OUTLINE_THRESHOLD, measuringMode: DWRITE_MEASURING_MODE, renderingMode: *mut DWRITE_RENDERING_MODE) -> HRESULT;
+            fn GetRecommendedRenderingMode(&self, fontEmSize: FLOAT, dpiX: FLOAT, dpiY: FLOAT, #[opt] transform: *const DWRITE_MATRIX, isSideways: BOOL, outlineThreshold: DWRITE_OUTLINE_THRESHOLD, measuringMode: DWRITE_MEASURING_MODE, renderingMode: *mut DWRITE_RENDERING_MODE) -> HRESULT;
             fn GetVerticalGlyphVariants(&self, glyphCount: u32, #[len_param(0)] nominalGlyphIndices: *const u16, #[len_param(0)] verticalGlyphIndices: *mut u16) -> HRESULT;
             fn HasVerticalGlyphVariants(&self) -> BOOL;
         }
         #[guid(0x94413cf4_a6fc_4248_8b50_6674348fcad3)]
         interface IDWriteRenderingParams1: IDWriteRenderingParams {
-            fn GetGrayscaleEnhancedContrast(&self) -> f32;
+            fn GetGrayscaleEnhancedContrast(&self) -> FLOAT;
         }
         #[guid(0xb0d941a0_85e7_4d8b_9fd3_5ced9934482a)]
         interface IDWriteTextAnalysisSink1: IDWriteTextAnalysisSink {
@@ -548,22 +548,22 @@ mod Windows {
         }
         #[guid(0x80dad800_e21f_4e83_96ce_bfcce500db7c)]
         interface IDWriteTextAnalyzer1: IDWriteTextAnalyzer {
-            fn ApplyCharacterSpacing(&self, leadingSpacing: f32, trailingSpacing: f32, minimumAdvanceWidth: f32, textLength: u32, glyphCount: u32, #[len_param(3)] clusterMap: *const u16, #[len_param(4)] glyphAdvances: *const f32, #[len_param(4)] glyphOffsets: *const DWRITE_GLYPH_OFFSET, #[len_param(4)] glyphProperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, #[len_param(4)] modifiedGlyphAdvances: *mut f32, #[len_param(4)] modifiedGlyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
-            fn GetBaseline(&self, fontFace: IDWriteFontFace, baseline: DWRITE_BASELINE, isVertical: BOOL, isSimulationAllowed: BOOL, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: PCWSTR, baselineCoordinate: *mut i32, exists: *mut BOOL) -> HRESULT;
+            fn ApplyCharacterSpacing(&self, leadingSpacing: FLOAT, trailingSpacing: FLOAT, minimumAdvanceWidth: FLOAT, textLength: u32, glyphCount: u32, #[len_param(3)] clusterMap: *const u16, #[len_param(4)] glyphAdvances: *const FLOAT, #[len_param(4)] glyphOffsets: *const DWRITE_GLYPH_OFFSET, #[len_param(4)] glyphProperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, #[len_param(4)] modifiedGlyphAdvances: *mut FLOAT, #[len_param(4)] modifiedGlyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
+            fn GetBaseline(&self, fontFace: IDWriteFontFace, baseline: DWRITE_BASELINE, isVertical: BOOL, isSimulationAllowed: BOOL, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, #[opt] localeName: *const u16, baselineCoordinate: *mut i32, exists: *mut BOOL) -> HRESULT;
             fn AnalyzeVerticalGlyphOrientation(&self, analysisSource: IDWriteTextAnalysisSource1, textPosition: u32, textLength: u32, analysisSink: IDWriteTextAnalysisSink1) -> HRESULT;
             fn GetGlyphOrientationTransform(&self, glyphOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE, isSideways: BOOL, transform: *mut DWRITE_MATRIX) -> HRESULT;
             fn GetScriptProperties(&self, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, scriptProperties: *mut DWRITE_SCRIPT_PROPERTIES) -> HRESULT;
             fn GetTextComplexity(&self, #[len_param(1)] textString: *const u16, textLength: u32, fontFace: IDWriteFontFace, isTextSimple: *mut BOOL, textLengthRead: *mut u32, #[len_param(1)] #[opt] glyphIndices: *mut u16) -> HRESULT;
-            fn GetJustificationOpportunities(&self, #[opt] fontFace: IDWriteFontFace, fontEmSize: f32, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, textLength: u32, glyphCount: u32, #[len_param(3)] textString: *const u16, #[len_param(3)] clusterMap: *const u16, #[len_param(4)] glyphProperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, #[len_param(4)] justificationOpportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY) -> HRESULT;
-            fn JustifyGlyphAdvances(&self, lineWidth: f32, glyphCount: u32, #[len_param(1)] justificationOpportunities: *const DWRITE_JUSTIFICATION_OPPORTUNITY, #[len_param(1)] glyphAdvances: *const f32, #[len_param(1)] glyphOffsets: *const DWRITE_GLYPH_OFFSET, #[len_param(1)] justifiedGlyphAdvances: *mut f32, #[len_param(1)] #[opt] justifiedGlyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
-            fn GetJustifiedGlyphs(&self, #[opt] fontFace: IDWriteFontFace, fontEmSize: f32, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, textLength: u32, glyphCount: u32, maxGlyphCount: u32, #[len_param(3)] #[opt] clusterMap: *const u16, #[len_param(4)] glyphIndices: *const u16, #[len_param(4)] glyphAdvances: *const f32, #[len_param(4)] justifiedGlyphAdvances: *const f32, #[len_param(4)] justifiedGlyphOffsets: *const DWRITE_GLYPH_OFFSET, #[len_param(4)] glyphProperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, actualGlyphCount: *mut u32, #[len_param(3)] #[opt] modifiedClusterMap: *mut u16, #[len_param(5)] modifiedGlyphIndices: *mut u16, #[len_param(5)] modifiedGlyphAdvances: *mut f32, #[len_param(5)] modifiedGlyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
+            fn GetJustificationOpportunities(&self, #[opt] fontFace: IDWriteFontFace, fontEmSize: FLOAT, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, textLength: u32, glyphCount: u32, #[len_param(3)] textString: *const u16, #[len_param(3)] clusterMap: *const u16, #[len_param(4)] glyphProperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, #[len_param(4)] justificationOpportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY) -> HRESULT;
+            fn JustifyGlyphAdvances(&self, lineWidth: FLOAT, glyphCount: u32, #[len_param(1)] justificationOpportunities: *const DWRITE_JUSTIFICATION_OPPORTUNITY, #[len_param(1)] glyphAdvances: *const FLOAT, #[len_param(1)] glyphOffsets: *const DWRITE_GLYPH_OFFSET, #[len_param(1)] justifiedGlyphAdvances: *mut FLOAT, #[len_param(1)] #[opt] justifiedGlyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
+            fn GetJustifiedGlyphs(&self, #[opt] fontFace: IDWriteFontFace, fontEmSize: FLOAT, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, textLength: u32, glyphCount: u32, maxGlyphCount: u32, #[len_param(3)] #[opt] clusterMap: *const u16, #[len_param(4)] glyphIndices: *const u16, #[len_param(4)] glyphAdvances: *const FLOAT, #[len_param(4)] justifiedGlyphAdvances: *const FLOAT, #[len_param(4)] justifiedGlyphOffsets: *const DWRITE_GLYPH_OFFSET, #[len_param(4)] glyphProperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, actualGlyphCount: *mut u32, #[len_param(3)] #[opt] modifiedClusterMap: *mut u16, #[len_param(5)] modifiedGlyphIndices: *mut u16, #[len_param(5)] modifiedGlyphAdvances: *mut FLOAT, #[len_param(5)] modifiedGlyphOffsets: *mut DWRITE_GLYPH_OFFSET) -> HRESULT;
         }
         #[guid(0x9064d822_80a7_465c_a986_df65f78b8feb)]
         interface IDWriteTextLayout1: IDWriteTextLayout {
             fn SetPairKerning(&self, isPairKerningEnabled: BOOL, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn GetPairKerning(&self, currentPosition: u32, isPairKerningEnabled: *mut BOOL, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn SetCharacterSpacing(&self, leadingSpacing: f32, trailingSpacing: f32, minimumAdvanceWidth: f32, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetCharacterSpacing(&self, currentPosition: u32, leadingSpacing: *mut f32, trailingSpacing: *mut f32, minimumAdvanceWidth: *mut f32, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn SetCharacterSpacing(&self, leadingSpacing: FLOAT, trailingSpacing: FLOAT, minimumAdvanceWidth: FLOAT, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetCharacterSpacing(&self, currentPosition: u32, leadingSpacing: *mut FLOAT, trailingSpacing: *mut FLOAT, minimumAdvanceWidth: *mut FLOAT, #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
         }
     }
 }

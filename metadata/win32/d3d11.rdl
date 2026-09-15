@@ -14,7 +14,6 @@ mod Windows {
         struct CD3D11_COUNTER_DESC {
             Base: D3D11_COUNTER_DESC,
         }
-        #[align(1)]
         struct CD3D11_DEFAULT {}
         struct CD3D11_DEPTH_STENCIL_DESC {
             Base: D3D11_DEPTH_STENCIL_DESC,
@@ -52,7 +51,6 @@ mod Windows {
         struct CD3D11_UNORDERED_ACCESS_VIEW_DESC {
             Base: D3D11_UNORDERED_ACCESS_VIEW_DESC,
         }
-        #[align(1)]
         struct CD3D11_VIDEO_DEFAULT {}
         struct CD3D11_VIEWPORT {
             Base: D3D11_VIEWPORT,
@@ -135,15 +133,8 @@ mod Windows {
             D3D11_PROCESSIDTYPE_HANDLE = 2,
         }
         union D3D11_AUTHENTICATED_PROTECTION_FLAGS {
-            Flags: D3D11_AUTHENTICATED_PROTECTION_FLAGS_0,
+            Flags: __MIDL___MIDL_itf_d3d11_0000_0034_0001,
             Value: u32,
-        }
-        struct D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
-            _bitfield: u32 {
-                ProtectionEnabled: 1,
-                OverlayOrFullscreenRequired: 1,
-                Reserved: 30,
-            },
         }
         const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: GUID = 0x6214d9d2_432c_4abb_9fce_216eea269e3b;
         struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {
@@ -1000,6 +991,7 @@ mod Windows {
             D3D11_FORMAT_SUPPORT2_DISPLAYABLE = 65536,
         }
         const D3D11_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600.0;
+        const D3D11_FTOI_INSTRUCTION_MIN_INPUT: f32 = -2147483600.0;
         const D3D11_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300.0;
         const D3D11_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0.0;
         const D3D11_GS_INPUT_INSTANCE_ID_READS_PER_INST: i32 = 2;
@@ -1126,6 +1118,7 @@ mod Windows {
         const D3D11_MIN_MAXANISOTROPY: i32 = 0;
         const D3D11_MIP_FILTER_SHIFT: i32 = 0;
         const D3D11_MIP_LOD_BIAS_MAX: f32 = 15.99;
+        const D3D11_MIP_LOD_BIAS_MIN: f32 = -16.0;
         const D3D11_MIP_LOD_FRACTIONAL_BIT_COUNT: i32 = 8;
         const D3D11_MIP_LOD_RANGE_BIT_COUNT: i32 = 8;
         const D3D11_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4;
@@ -1217,8 +1210,8 @@ mod Windows {
             CullMode: D3D11_CULL_MODE,
             FrontCounterClockwise: BOOL,
             DepthBias: i32,
-            DepthBiasClamp: f32,
-            SlopeScaledDepthBias: f32,
+            DepthBiasClamp: FLOAT,
+            SlopeScaledDepthBias: FLOAT,
             DepthClipEnable: BOOL,
             ScissorEnable: BOOL,
             MultisampleEnable: BOOL,
@@ -1324,12 +1317,12 @@ mod Windows {
             AddressU: D3D11_TEXTURE_ADDRESS_MODE,
             AddressV: D3D11_TEXTURE_ADDRESS_MODE,
             AddressW: D3D11_TEXTURE_ADDRESS_MODE,
-            MipLODBias: f32,
+            MipLODBias: FLOAT,
             MaxAnisotropy: u32,
             ComparisonFunc: D3D11_COMPARISON_FUNC,
-            BorderColor: [f32; 4],
-            MinLOD: f32,
-            MaxLOD: f32,
+            BorderColor: [FLOAT; 4],
+            MinLOD: FLOAT,
+            MaxLOD: FLOAT,
         }
         const D3D11_SDK_VERSION: i32 = 7;
         #[repr(i32)]
@@ -1992,12 +1985,12 @@ mod Windows {
             D3D11_VIDEO_USAGE_OPTIMAL_QUALITY = 2,
         }
         struct D3D11_VIEWPORT {
-            TopLeftX: f32,
-            TopLeftY: f32,
-            Width: f32,
-            Height: f32,
-            MinDepth: f32,
-            MaxDepth: f32,
+            TopLeftX: FLOAT,
+            TopLeftY: FLOAT,
+            Width: FLOAT,
+            Height: FLOAT,
+            MinDepth: FLOAT,
+            MaxDepth: FLOAT,
         }
         const D3D11_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: i32 = 15;
         const D3D11_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: i32 = 16;
@@ -2161,7 +2154,7 @@ mod Windows {
             fn GSSetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *const ID3D11SamplerState);
             fn OMSetRenderTargets(&self, NumViews: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *const ID3D11RenderTargetView, #[opt] pDepthStencilView: ID3D11DepthStencilView);
             fn OMSetRenderTargetsAndUnorderedAccessViews(&self, NumRTVs: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *const ID3D11RenderTargetView, #[opt] pDepthStencilView: ID3D11DepthStencilView, UAVStartSlot: u32, NumUAVs: u32, #[len_param(4)] #[opt] ppUnorderedAccessViews: *const ID3D11UnorderedAccessView, #[len_param(4)] #[opt] pUAVInitialCounts: *const u32);
-            fn OMSetBlendState(&self, #[opt] pBlendState: ID3D11BlendState, #[len_const(4)] #[opt] BlendFactor: *const f32, SampleMask: u32);
+            fn OMSetBlendState(&self, #[opt] pBlendState: ID3D11BlendState, #[opt] BlendFactor: *const FLOAT, SampleMask: u32);
             fn OMSetDepthStencilState(&self, #[opt] pDepthStencilState: ID3D11DepthStencilState, StencilRef: u32);
             fn SOSetTargets(&self, NumBuffers: u32, #[len_param(0)] #[opt] ppSOTargets: *const ID3D11Buffer, #[len_param(0)] #[opt] pOffsets: *const u32);
             fn DrawAuto(&self);
@@ -2176,13 +2169,13 @@ mod Windows {
             fn CopyResource(&self, pDstResource: ID3D11Resource, pSrcResource: ID3D11Resource);
             fn UpdateSubresource(&self, pDstResource: ID3D11Resource, DstSubresource: u32, #[opt] pDstBox: *const D3D11_BOX, pSrcData: *const void, SrcRowPitch: u32, SrcDepthPitch: u32);
             fn CopyStructureCount(&self, pDstBuffer: ID3D11Buffer, DstAlignedByteOffset: u32, pSrcView: ID3D11UnorderedAccessView);
-            fn ClearRenderTargetView(&self, pRenderTargetView: ID3D11RenderTargetView, #[len_const(4)] ColorRGBA: *const f32);
-            fn ClearUnorderedAccessViewUint(&self, pUnorderedAccessView: ID3D11UnorderedAccessView, #[len_const(4)] Values: *const u32);
-            fn ClearUnorderedAccessViewFloat(&self, pUnorderedAccessView: ID3D11UnorderedAccessView, #[len_const(4)] Values: *const f32);
-            fn ClearDepthStencilView(&self, pDepthStencilView: ID3D11DepthStencilView, ClearFlags: u32, Depth: f32, Stencil: u8);
+            fn ClearRenderTargetView(&self, pRenderTargetView: ID3D11RenderTargetView, ColorRGBA: *const FLOAT);
+            fn ClearUnorderedAccessViewUint(&self, pUnorderedAccessView: ID3D11UnorderedAccessView, Values: *const u32);
+            fn ClearUnorderedAccessViewFloat(&self, pUnorderedAccessView: ID3D11UnorderedAccessView, Values: *const FLOAT);
+            fn ClearDepthStencilView(&self, pDepthStencilView: ID3D11DepthStencilView, ClearFlags: u32, Depth: FLOAT, Stencil: u8);
             fn GenerateMips(&self, pShaderResourceView: ID3D11ShaderResourceView);
-            fn SetResourceMinLOD(&self, pResource: ID3D11Resource, MinLOD: f32);
-            fn GetResourceMinLOD(&self, pResource: ID3D11Resource) -> f32;
+            fn SetResourceMinLOD(&self, pResource: ID3D11Resource, MinLOD: FLOAT);
+            fn GetResourceMinLOD(&self, pResource: ID3D11Resource) -> FLOAT;
             fn ResolveSubresource(&self, pDstResource: ID3D11Resource, DstSubresource: u32, pSrcResource: ID3D11Resource, SrcSubresource: u32, Format: DXGI_FORMAT);
             fn ExecuteCommandList(&self, pCommandList: ID3D11CommandList, RestoreContextState: BOOL);
             fn HSSetShaderResources(&self, StartSlot: u32, NumViews: u32, #[len_param(1)] #[opt] ppShaderResourceViews: *const ID3D11ShaderResourceView);
@@ -2217,7 +2210,7 @@ mod Windows {
             fn GSGetSamplers(&self, StartSlot: u32, NumSamplers: u32, #[len_param(1)] #[opt] ppSamplers: *mut ID3D11SamplerState);
             fn OMGetRenderTargets(&self, NumViews: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *mut ID3D11RenderTargetView, ppDepthStencilView: *mut ID3D11DepthStencilView);
             fn OMGetRenderTargetsAndUnorderedAccessViews(&self, NumRTVs: u32, #[len_param(0)] #[opt] ppRenderTargetViews: *mut ID3D11RenderTargetView, ppDepthStencilView: *mut ID3D11DepthStencilView, UAVStartSlot: u32, NumUAVs: u32, #[len_param(4)] #[opt] ppUnorderedAccessViews: *mut ID3D11UnorderedAccessView);
-            fn OMGetBlendState(&self, ppBlendState: *mut ID3D11BlendState, #[len_const(4)] #[opt] BlendFactor: *mut f32, #[opt] pSampleMask: *mut u32);
+            fn OMGetBlendState(&self, ppBlendState: *mut ID3D11BlendState, #[opt] BlendFactor: *mut FLOAT, #[opt] pSampleMask: *mut u32);
             fn OMGetDepthStencilState(&self, ppDepthStencilState: *mut ID3D11DepthStencilState, #[opt] pStencilRef: *mut u32);
             fn SOGetTargets(&self, NumBuffers: u32, #[len_param(0)] #[opt] ppSOTargets: *mut ID3D11Buffer);
             fn RSGetState(&self, ppRasterizerState: *mut ID3D11RasterizerState);
@@ -2312,7 +2305,7 @@ mod Windows {
             fn VideoProcessorSetOutputAlphaFillMode(&self, pVideoProcessor: ID3D11VideoProcessor, AlphaFillMode: D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, StreamIndex: u32);
             fn VideoProcessorSetOutputConstriction(&self, pVideoProcessor: ID3D11VideoProcessor, Enable: BOOL, Size: SIZE);
             fn VideoProcessorSetOutputStereoMode(&self, pVideoProcessor: ID3D11VideoProcessor, Enable: BOOL);
-            fn VideoProcessorSetOutputExtension(&self, pVideoProcessor: ID3D11VideoProcessor, pExtensionGuid: *const GUID, DataSize: u32, pData: *const void) -> APP_DEPRECATED_HRESULT;
+            fn VideoProcessorSetOutputExtension(&self, pVideoProcessor: ID3D11VideoProcessor, pExtensionGuid: *const GUID, DataSize: u32, #[in] pData: *mut void) -> APP_DEPRECATED_HRESULT;
             fn VideoProcessorGetOutputTargetRect(&self, pVideoProcessor: ID3D11VideoProcessor, Enabled: *mut BOOL, pRect: *mut RECT);
             fn VideoProcessorGetOutputBackgroundColor(&self, pVideoProcessor: ID3D11VideoProcessor, pYCbCr: *mut BOOL, pColor: *mut D3D11_VIDEO_COLOR);
             fn VideoProcessorGetOutputColorSpace(&self, pVideoProcessor: ID3D11VideoProcessor, pColorSpace: *mut D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
@@ -2325,23 +2318,23 @@ mod Windows {
             fn VideoProcessorSetStreamOutputRate(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, OutputRate: D3D11_VIDEO_PROCESSOR_OUTPUT_RATE, RepeatFrame: BOOL, #[opt] pCustomRate: *const DXGI_RATIONAL);
             fn VideoProcessorSetStreamSourceRect(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, #[opt] pRect: *const RECT);
             fn VideoProcessorSetStreamDestRect(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, #[opt] pRect: *const RECT);
-            fn VideoProcessorSetStreamAlpha(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, Alpha: f32);
+            fn VideoProcessorSetStreamAlpha(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, Alpha: FLOAT);
             fn VideoProcessorSetStreamPalette(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Count: u32, #[len_param(2)] #[opt] pEntries: *const u32);
             fn VideoProcessorSetStreamPixelAspectRatio(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, #[opt] pSourceAspectRatio: *const DXGI_RATIONAL, #[opt] pDestinationAspectRatio: *const DXGI_RATIONAL);
-            fn VideoProcessorSetStreamLumaKey(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, Lower: f32, Upper: f32);
+            fn VideoProcessorSetStreamLumaKey(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, Lower: FLOAT, Upper: FLOAT);
             fn VideoProcessorSetStreamStereoFormat(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL, Format: D3D11_VIDEO_PROCESSOR_STEREO_FORMAT, LeftViewFrame0: BOOL, BaseViewFrame0: BOOL, FlipMode: D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE, MonoOffset: i32);
             fn VideoProcessorSetStreamAutoProcessingMode(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Enable: BOOL);
             fn VideoProcessorSetStreamFilter(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Filter: D3D11_VIDEO_PROCESSOR_FILTER, Enable: BOOL, Level: i32);
-            fn VideoProcessorSetStreamExtension(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pExtensionGuid: *const GUID, DataSize: u32, pData: *const void) -> APP_DEPRECATED_HRESULT;
+            fn VideoProcessorSetStreamExtension(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pExtensionGuid: *const GUID, DataSize: u32, #[in] pData: *mut void) -> APP_DEPRECATED_HRESULT;
             fn VideoProcessorGetStreamFrameFormat(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pFrameFormat: *mut D3D11_VIDEO_FRAME_FORMAT);
             fn VideoProcessorGetStreamColorSpace(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pColorSpace: *mut D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
             fn VideoProcessorGetStreamOutputRate(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pOutputRate: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_RATE, pRepeatFrame: *mut BOOL, pCustomRate: *mut DXGI_RATIONAL);
             fn VideoProcessorGetStreamSourceRect(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnabled: *mut BOOL, pRect: *mut RECT);
             fn VideoProcessorGetStreamDestRect(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnabled: *mut BOOL, pRect: *mut RECT);
-            fn VideoProcessorGetStreamAlpha(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnabled: *mut BOOL, pAlpha: *mut f32);
+            fn VideoProcessorGetStreamAlpha(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnabled: *mut BOOL, pAlpha: *mut FLOAT);
             fn VideoProcessorGetStreamPalette(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Count: u32, #[len_param(2)] pEntries: *mut u32);
             fn VideoProcessorGetStreamPixelAspectRatio(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnabled: *mut BOOL, pSourceAspectRatio: *mut DXGI_RATIONAL, pDestinationAspectRatio: *mut DXGI_RATIONAL);
-            fn VideoProcessorGetStreamLumaKey(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnabled: *mut BOOL, pLower: *mut f32, pUpper: *mut f32);
+            fn VideoProcessorGetStreamLumaKey(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnabled: *mut BOOL, pLower: *mut FLOAT, pUpper: *mut FLOAT);
             fn VideoProcessorGetStreamStereoFormat(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnable: *mut BOOL, pFormat: *mut D3D11_VIDEO_PROCESSOR_STEREO_FORMAT, pLeftViewFrame0: *mut BOOL, pBaseViewFrame0: *mut BOOL, pFlipMode: *mut D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE, MonoOffset: *mut i32);
             fn VideoProcessorGetStreamAutoProcessingMode(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, pEnabled: *mut BOOL);
             fn VideoProcessorGetStreamFilter(&self, pVideoProcessor: ID3D11VideoProcessor, StreamIndex: u32, Filter: D3D11_VIDEO_PROCESSOR_FILTER, pEnabled: *mut BOOL, pLevel: *mut i32);
@@ -2349,7 +2342,7 @@ mod Windows {
             fn VideoProcessorBlt(&self, pVideoProcessor: ID3D11VideoProcessor, pView: ID3D11VideoProcessorOutputView, OutputFrame: u32, StreamCount: u32, #[len_param(3)] pStreams: *const D3D11_VIDEO_PROCESSOR_STREAM) -> HRESULT;
             fn NegotiateCryptoSessionKeyExchange(&self, pCryptoSession: ID3D11CryptoSession, DataSize: u32, #[size_param(1)] #[in] #[out] pData: *mut void) -> HRESULT;
             fn EncryptionBlt(&self, pCryptoSession: ID3D11CryptoSession, pSrcSurface: ID3D11Texture2D, pDstSurface: ID3D11Texture2D, IVSize: u32, pIV: *mut void);
-            fn DecryptionBlt(&self, pCryptoSession: ID3D11CryptoSession, pSrcSurface: ID3D11Texture2D, pDstSurface: ID3D11Texture2D, #[opt] pEncryptedBlockInfo: *const D3D11_ENCRYPTED_BLOCK_INFO, ContentKeySize: u32, #[size_param(4)] #[opt] pContentKey: *const void, IVSize: u32, pIV: *mut void);
+            fn DecryptionBlt(&self, pCryptoSession: ID3D11CryptoSession, pSrcSurface: ID3D11Texture2D, pDstSurface: ID3D11Texture2D, #[in] #[opt] pEncryptedBlockInfo: *mut D3D11_ENCRYPTED_BLOCK_INFO, ContentKeySize: u32, #[size_param(4)] #[opt] pContentKey: *const void, IVSize: u32, pIV: *mut void);
             fn StartSessionKeyRefresh(&self, pCryptoSession: ID3D11CryptoSession, RandomNumberSize: u32, #[size_param(1)] pRandomNumber: *mut void);
             fn FinishSessionKeyRefresh(&self, pCryptoSession: ID3D11CryptoSession);
             fn GetEncryptionBltKey(&self, pCryptoSession: ID3D11CryptoSession, KeySize: u32, #[size_param(1)] pReadbackKey: *mut void) -> HRESULT;
@@ -2416,5 +2409,14 @@ mod Windows {
         }
         extern fn PFN_D3D11_CREATE_DEVICE(#[opt] param0: IDXGIAdapter, param1: D3D_DRIVER_TYPE, param2: HMODULE, param3: u32, #[len_param(5)] #[opt] param4: *const D3D_FEATURE_LEVEL, FeatureLevels: u32, param6: u32, param7: *mut ID3D11Device, #[opt] param8: *mut D3D_FEATURE_LEVEL, param9: *mut ID3D11DeviceContext) -> HRESULT;
         extern fn PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(#[opt] param0: IDXGIAdapter, param1: D3D_DRIVER_TYPE, param2: HMODULE, param3: u32, #[len_param(5)] #[opt] param4: *const D3D_FEATURE_LEVEL, FeatureLevels: u32, param6: u32, #[opt] param7: *const DXGI_SWAP_CHAIN_DESC, param8: *mut IDXGISwapChain, param9: *mut ID3D11Device, #[opt] param10: *mut D3D_FEATURE_LEVEL, param11: *mut ID3D11DeviceContext) -> HRESULT;
+        const _FACD3D11: i32 = 2172;
+        const _FACD3D11DEBUG: i32 = 2173;
+        struct __MIDL___MIDL_itf_d3d11_0000_0034_0001 {
+            _bitfield: u32 {
+                ProtectionEnabled: 1,
+                OverlayOrFullscreenRequired: 1,
+                Reserved: 30,
+            },
+        }
     }
 }

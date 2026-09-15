@@ -6,7 +6,7 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn CreatePropertySheetPageW(constPropSheetPagePointer: LPCPROPSHEETPAGEW) -> HPROPSHEETPAGE;
         #[library("COMCTL32.dll")]
-        extern fn DestroyPropertySheetPage(param0: *mut _PSP) -> BOOL;
+        extern fn DestroyPropertySheetPage(param0: HPROPSHEETPAGE) -> BOOL;
         type HPROPSHEETPAGE = *mut _PSP;
         const ID_PSREBOOTSYSTEM: i32 = 3;
         const ID_PSRESTARTWINDOWS: i32 = 2;
@@ -28,7 +28,7 @@ mod Windows {
         type LPCPROPSHEETPAGEW_V2 = *const PROPSHEETPAGEW_V2;
         type LPCPROPSHEETPAGEW_V3 = *const PROPSHEETPAGEW_V3;
         type LPCPROPSHEETPAGEW_V4 = *const PROPSHEETPAGEW_V4;
-        extern fn LPFNADDPROPSHEETPAGE(param0: *mut _PSP, param1: LPARAM) -> BOOL;
+        extern fn LPFNADDPROPSHEETPAGE(param0: HPROPSHEETPAGE, param1: LPARAM) -> BOOL;
         extern fn LPFNADDPROPSHEETPAGES(param0: *mut void, param1: LPFNADDPROPSHEETPAGE, param2: LPARAM) -> BOOL;
         extern fn LPFNPSPCALLBACKA(hwnd: HWND, uMsg: u32, ppsp: *mut PROPSHEETPAGEA_V4) -> u32;
         extern fn LPFNPSPCALLBACKW(hwnd: HWND, uMsg: u32, ppsp: *mut PROPSHEETPAGEW_V4) -> u32;
@@ -75,6 +75,10 @@ mod Windows {
             },
             pfnCallback: PFNPROPSHEETCALLBACK,
         }
+        #[arch(X64 | Arm64)]
+        const PROPSHEETHEADERA_V1_SIZE: u64 = 72;
+        #[arch(X86)]
+        const PROPSHEETHEADERA_V1_SIZE: u32 = 40;
         struct PROPSHEETHEADERA_V2 {
             dwSize: u32,
             dwFlags: u32,
@@ -105,6 +109,10 @@ mod Windows {
                 pszbmHeader: PCSTR,
             },
         }
+        #[arch(X64 | Arm64)]
+        const PROPSHEETHEADERA_V2_SIZE: u64 = 96;
+        #[arch(X86)]
+        const PROPSHEETHEADERA_V2_SIZE: u32 = 52;
         type PROPSHEETHEADERW = PROPSHEETHEADERW_V2;
         struct PROPSHEETHEADERW_V1 {
             dwSize: u32,
@@ -127,6 +135,10 @@ mod Windows {
             },
             pfnCallback: PFNPROPSHEETCALLBACK,
         }
+        #[arch(X64 | Arm64)]
+        const PROPSHEETHEADERW_V1_SIZE: u64 = 72;
+        #[arch(X86)]
+        const PROPSHEETHEADERW_V1_SIZE: u32 = 40;
         struct PROPSHEETHEADERW_V2 {
             dwSize: u32,
             dwFlags: u32,
@@ -158,6 +170,10 @@ mod Windows {
             },
         }
         #[arch(X64 | Arm64)]
+        const PROPSHEETHEADERW_V2_SIZE: u64 = 96;
+        #[arch(X86)]
+        const PROPSHEETHEADERW_V2_SIZE: u32 = 52;
+        #[arch(X64 | Arm64)]
         const PROPSHEETHEADER_V1_SIZE: u64 = 72;
         #[arch(X86)]
         const PROPSHEETHEADER_V1_SIZE: u32 = 40;
@@ -185,6 +201,10 @@ mod Windows {
             pfnCallback: LPFNPSPCALLBACKA,
             pcRefParent: *mut u32,
         }
+        #[arch(X64 | Arm64)]
+        const PROPSHEETPAGEA_V1_SIZE: u64 = 72;
+        #[arch(X86)]
+        const PROPSHEETPAGEA_V1_SIZE: u32 = 40;
         struct PROPSHEETPAGEA_V2 {
             dwSize: u32,
             dwFlags: u32,
@@ -205,6 +225,10 @@ mod Windows {
             pszHeaderTitle: PCSTR,
             pszHeaderSubTitle: PCSTR,
         }
+        #[arch(X64 | Arm64)]
+        const PROPSHEETPAGEA_V2_SIZE: u64 = 88;
+        #[arch(X86)]
+        const PROPSHEETPAGEA_V2_SIZE: u32 = 48;
         struct PROPSHEETPAGEA_V3 {
             dwSize: u32,
             dwFlags: u32,
@@ -226,6 +250,10 @@ mod Windows {
             pszHeaderSubTitle: PCSTR,
             hActCtx: HANDLE,
         }
+        #[arch(X64 | Arm64)]
+        const PROPSHEETPAGEA_V3_SIZE: u64 = 96;
+        #[arch(X86)]
+        const PROPSHEETPAGEA_V3_SIZE: u32 = 52;
         struct PROPSHEETPAGEA_V4 {
             dwSize: u32,
             dwFlags: u32,
@@ -251,6 +279,10 @@ mod Windows {
                 pszbmHeader: PCSTR,
             },
         }
+        #[arch(X64 | Arm64)]
+        const PROPSHEETPAGEA_V4_SIZE: u64 = 104;
+        #[arch(X86)]
+        const PROPSHEETPAGEA_V4_SIZE: u32 = 56;
         type PROPSHEETPAGEW = PROPSHEETPAGEW_V4;
         type PROPSHEETPAGEW_LATEST = PROPSHEETPAGEW_V4;
         struct PROPSHEETPAGEW_V1 {
@@ -271,6 +303,10 @@ mod Windows {
             pfnCallback: LPFNPSPCALLBACKW,
             pcRefParent: *mut u32,
         }
+        #[arch(X64 | Arm64)]
+        const PROPSHEETPAGEW_V1_SIZE: u64 = 72;
+        #[arch(X86)]
+        const PROPSHEETPAGEW_V1_SIZE: u32 = 40;
         struct PROPSHEETPAGEW_V2 {
             dwSize: u32,
             dwFlags: u32,
@@ -291,6 +327,10 @@ mod Windows {
             pszHeaderTitle: PCWSTR,
             pszHeaderSubTitle: PCWSTR,
         }
+        #[arch(X64 | Arm64)]
+        const PROPSHEETPAGEW_V2_SIZE: u64 = 88;
+        #[arch(X86)]
+        const PROPSHEETPAGEW_V2_SIZE: u32 = 48;
         struct PROPSHEETPAGEW_V3 {
             dwSize: u32,
             dwFlags: u32,
@@ -312,6 +352,10 @@ mod Windows {
             pszHeaderSubTitle: PCWSTR,
             hActCtx: HANDLE,
         }
+        #[arch(X64 | Arm64)]
+        const PROPSHEETPAGEW_V3_SIZE: u64 = 96;
+        #[arch(X86)]
+        const PROPSHEETPAGEW_V3_SIZE: u32 = 52;
         struct PROPSHEETPAGEW_V4 {
             dwSize: u32,
             dwFlags: u32,
@@ -337,6 +381,10 @@ mod Windows {
                 pszbmHeader: PCWSTR,
             },
         }
+        #[arch(X64 | Arm64)]
+        const PROPSHEETPAGEW_V4_SIZE: u64 = 104;
+        #[arch(X86)]
+        const PROPSHEETPAGEW_V4_SIZE: u32 = 56;
         type PROPSHEETPAGE_RESOURCE = LPCDLGTEMPLATE;
         #[arch(X64 | Arm64)]
         const PROPSHEETPAGE_V1_SIZE: u64 = 72;

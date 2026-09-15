@@ -47,8 +47,8 @@ mod Windows {
             RequestQueueHandle: HANDLE,
         }
         struct HTTP_BYTE_RANGE {
-            StartingOffset: u64,
-            Length: u64,
+            StartingOffset: ULARGE_INTEGER,
+            Length: ULARGE_INTEGER,
         }
         const HTTP_BYTE_RANGE_TO_EOF: u64 = 18446744073709551615;
         struct HTTP_CACHE_POLICY {
@@ -181,7 +181,7 @@ mod Windows {
         }
         struct HTTP_FAST_FORWARD_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
-            EnableFastForwarding: bool,
+            EnableFastForwarding: BOOLEAN,
         }
         #[repr(i32)]
         enum HTTP_FEATURE_ID {
@@ -279,7 +279,7 @@ mod Windows {
         const HTTP_LIMIT_INFINITE: u32 = 4294967295;
         struct HTTP_LISTEN_ENDPOINT_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
-            EnableSharing: bool,
+            EnableSharing: BOOLEAN,
         }
         const HTTP_LOGGING_FLAG_LOCAL_TIME_ROLLOVER: i32 = 1;
         const HTTP_LOGGING_FLAG_LOG_ERRORS_ONLY: i32 = 4;
@@ -767,9 +767,9 @@ mod Windows {
         struct HTTP_SERVER_AUTHENTICATION_INFO {
             Flags: HTTP_PROPERTY_FLAGS,
             AuthSchemes: u32,
-            ReceiveMutualAuth: bool,
-            ReceiveContextHandle: bool,
-            DisableNTLMCredentialCaching: bool,
+            ReceiveMutualAuth: BOOLEAN,
+            ReceiveContextHandle: BOOLEAN,
+            DisableNTLMCredentialCaching: BOOLEAN,
             ExFlags: u8,
             DigestParams: HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS,
             BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
@@ -1005,7 +1005,7 @@ mod Windows {
             CertEncodedSize: u32,
             pCertEncoded: PUCHAR,
             Token: HANDLE,
-            CertDeniedByMapper: bool,
+            CertDeniedByMapper: BOOLEAN,
         }
         struct HTTP_SSL_INFO {
             ServerCertKeySize: u16,
@@ -1117,13 +1117,13 @@ mod Windows {
             ControlSocketSum: u64,
         }
         #[library("HTTPAPI.dll")]
-        extern fn HttpAddFragmentToCache(RequestQueueHandle: HANDLE, UrlPrefix: PCWSTR, DataChunk: *const HTTP_DATA_CHUNK, CachePolicy: *const HTTP_CACHE_POLICY, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpAddFragmentToCache(RequestQueueHandle: HANDLE, UrlPrefix: PCWSTR, DataChunk: PHTTP_DATA_CHUNK, CachePolicy: PHTTP_CACHE_POLICY, #[opt] Overlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpAddUrl(RequestQueueHandle: HANDLE, FullyQualifiedUrl: PCWSTR, #[reserved] Reserved: *const void) -> u32;
+        extern fn HttpAddUrl(RequestQueueHandle: HANDLE, FullyQualifiedUrl: PCWSTR, #[reserved] Reserved: *mut void) -> u32;
         #[library("HTTPAPI.dll")]
         extern fn HttpAddUrlToUrlGroup(UrlGroupId: HTTP_URL_GROUP_ID, pFullyQualifiedUrl: PCWSTR, #[opt] UrlContext: HTTP_URL_CONTEXT, #[reserved] Reserved: u32) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpCancelHttpRequest(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpCancelHttpRequest(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, #[opt] Overlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
         extern fn HttpCloseRequestQueue(RequestQueueHandle: HANDLE) -> u32;
         #[library("HTTPAPI.dll")]
@@ -1131,79 +1131,79 @@ mod Windows {
         #[library("HTTPAPI.dll")]
         extern fn HttpCloseUrlGroup(UrlGroupId: HTTP_URL_GROUP_ID) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpCreateHttpHandle(RequestQueueHandle: *mut HANDLE, #[reserved] Reserved: u32) -> u32;
+        extern fn HttpCreateHttpHandle(#[out] RequestQueueHandle: PHANDLE, #[reserved] Reserved: u32) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpCreateRequestQueue(Version: HTTPAPI_VERSION, #[opt] Name: PCWSTR, #[opt] SecurityAttributes: *const SECURITY_ATTRIBUTES, #[opt] Flags: u32, RequestQueueHandle: *mut HANDLE) -> u32;
+        extern fn HttpCreateRequestQueue(Version: HTTPAPI_VERSION, #[opt] Name: PCWSTR, #[opt] SecurityAttributes: PSECURITY_ATTRIBUTES, #[opt] Flags: u32, #[out] RequestQueueHandle: PHANDLE) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpCreateServerSession(Version: HTTPAPI_VERSION, ServerSessionId: *mut HTTP_OPAQUE_ID, #[reserved] Reserved: u32) -> u32;
+        extern fn HttpCreateServerSession(Version: HTTPAPI_VERSION, #[out] ServerSessionId: PHTTP_SERVER_SESSION_ID, #[reserved] Reserved: u32) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpCreateUrlGroup(ServerSessionId: HTTP_SERVER_SESSION_ID, pUrlGroupId: *mut HTTP_OPAQUE_ID, #[reserved] Reserved: u32) -> u32;
+        extern fn HttpCreateUrlGroup(ServerSessionId: HTTP_SERVER_SESSION_ID, #[out] pUrlGroupId: PHTTP_URL_GROUP_ID, #[reserved] Reserved: u32) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpDeclarePush(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Verb: HTTP_VERB, Path: PCWSTR, #[opt] Query: PCSTR, #[opt] Headers: *const HTTP_REQUEST_HEADERS) -> u32;
+        extern fn HttpDeclarePush(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Verb: HTTP_VERB, Path: PCWSTR, #[opt] Query: PCSTR, #[opt] Headers: PHTTP_REQUEST_HEADERS) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpDelegateRequestEx(RequestQueueHandle: HANDLE, DelegateQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, DelegateUrlGroupId: HTTP_URL_GROUP_ID, PropertyInfoSetSize: u32, PropertyInfoSet: *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32;
+        extern fn HttpDelegateRequestEx(RequestQueueHandle: HANDLE, DelegateQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, DelegateUrlGroupId: HTTP_URL_GROUP_ID, PropertyInfoSetSize: u32, PropertyInfoSet: PHTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpDeleteServiceConfiguration(#[reserved] ServiceHandle: HANDLE, ConfigId: HTTP_SERVICE_CONFIG_ID, #[size_param(3)] pConfigInformation: *const void, ConfigInformationLength: u32, #[reserved] pOverlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpDeleteServiceConfiguration(#[reserved] ServiceHandle: HANDLE, ConfigId: HTTP_SERVICE_CONFIG_ID, #[size_param(3)] #[in] pConfigInformation: *mut void, ConfigInformationLength: u32, #[reserved] pOverlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpFindUrlGroupId(FullyQualifiedUrl: PCWSTR, RequestQueueHandle: HANDLE, UrlGroupId: *mut HTTP_OPAQUE_ID) -> u32;
+        extern fn HttpFindUrlGroupId(FullyQualifiedUrl: PCWSTR, RequestQueueHandle: HANDLE, #[out] UrlGroupId: PHTTP_URL_GROUP_ID) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpFlushResponseCache(RequestQueueHandle: HANDLE, UrlPrefix: PCWSTR, Flags: u32, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpFlushResponseCache(RequestQueueHandle: HANDLE, UrlPrefix: PCWSTR, Flags: u32, #[opt] Overlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
         extern fn HttpGetExtension(Version: HTTPAPI_VERSION, Extension: u32, Buffer: *mut void, BufferSize: u32) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpInitialize(Version: HTTPAPI_VERSION, Flags: u32, #[reserved] pReserved: *const void) -> u32;
+        extern fn HttpInitialize(Version: HTTPAPI_VERSION, Flags: u32, #[reserved] #[in] #[out] pReserved: *mut void) -> u32;
         #[library("HTTPAPI.dll")]
         extern fn HttpIsFeatureSupported(FeatureId: HTTP_FEATURE_ID) -> BOOL;
         #[library("HTTPAPI.dll")]
-        extern fn HttpPrepareUrl(#[reserved] Reserved: *const void, #[reserved] Flags: u32, Url: PCWSTR, PreparedUrl: *mut PWSTR) -> u32;
+        extern fn HttpPrepareUrl(#[reserved] Reserved: *mut void, #[reserved] Flags: u32, Url: PCWSTR, PreparedUrl: *mut PWSTR) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpQueryRequestProperty(RequestQueueHandle: HANDLE, Id: HTTP_OPAQUE_ID, PropertyId: HTTP_REQUEST_PROPERTY, #[size_param(4)] #[opt] Qualifier: *const void, QualifierSize: u32, #[size_param(6)] #[opt] Output: *mut void, OutputBufferSize: u32, #[opt] BytesReturned: *mut u32, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpQueryRequestProperty(RequestQueueHandle: HANDLE, Id: HTTP_OPAQUE_ID, PropertyId: HTTP_REQUEST_PROPERTY, #[size_param(4)] #[opt] Qualifier: *const void, QualifierSize: u32, #[size_param(6)] #[opt] Output: *mut void, OutputBufferSize: u32, #[out] #[opt] BytesReturned: PULONG, #[opt] Overlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpQueryRequestQueueProperty(RequestQueueHandle: HANDLE, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[opt] PropertyInformation: *mut void, PropertyInformationLength: u32, #[reserved] Reserved1: u32, #[opt] ReturnLength: *mut u32, #[reserved] Reserved2: *const void) -> u32;
+        extern fn HttpQueryRequestQueueProperty(RequestQueueHandle: HANDLE, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[opt] PropertyInformation: *mut void, PropertyInformationLength: u32, #[reserved] Reserved1: u32, #[out] #[opt] ReturnLength: PULONG, #[reserved] Reserved2: *mut void) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpQueryServerSessionProperty(ServerSessionId: HTTP_SERVER_SESSION_ID, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[opt] PropertyInformation: *mut void, PropertyInformationLength: u32, #[opt] ReturnLength: *mut u32) -> u32;
+        extern fn HttpQueryServerSessionProperty(ServerSessionId: HTTP_SERVER_SESSION_ID, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[opt] PropertyInformation: *mut void, PropertyInformationLength: u32, #[out] #[opt] ReturnLength: PULONG) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpQueryServiceConfiguration(#[reserved] ServiceHandle: HANDLE, ConfigId: HTTP_SERVICE_CONFIG_ID, #[size_param(3)] #[opt] pInput: *const void, InputLength: u32, #[size_param(5)] #[opt] pOutput: *mut void, OutputLength: u32, #[opt] pReturnLength: *mut u32, #[reserved] pOverlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpQueryServiceConfiguration(#[reserved] ServiceHandle: HANDLE, ConfigId: HTTP_SERVICE_CONFIG_ID, #[size_param(3)] #[in] #[opt] pInput: *mut void, InputLength: u32, #[size_param(5)] #[opt] pOutput: *mut void, OutputLength: u32, #[out] #[opt] pReturnLength: PULONG, #[reserved] pOverlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpQueryUrlGroupProperty(UrlGroupId: HTTP_URL_GROUP_ID, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[opt] PropertyInformation: *mut void, PropertyInformationLength: u32, #[opt] ReturnLength: *mut u32) -> u32;
+        extern fn HttpQueryUrlGroupProperty(UrlGroupId: HTTP_URL_GROUP_ID, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[opt] PropertyInformation: *mut void, PropertyInformationLength: u32, #[out] #[opt] ReturnLength: PULONG) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpReadFragmentFromCache(RequestQueueHandle: HANDLE, UrlPrefix: PCWSTR, #[opt] ByteRange: *const HTTP_BYTE_RANGE, #[size_param(4)] Buffer: *mut void, BufferLength: u32, #[opt] BytesRead: *mut u32, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpReadFragmentFromCache(RequestQueueHandle: HANDLE, UrlPrefix: PCWSTR, #[opt] ByteRange: PHTTP_BYTE_RANGE, #[size_param(4)] Buffer: *mut void, BufferLength: u32, #[out] #[opt] BytesRead: PULONG, #[opt] Overlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpReceiveClientCertificate(RequestQueueHandle: HANDLE, ConnectionId: HTTP_CONNECTION_ID, Flags: u32, #[size_param(4)] SslClientCertInfo: *mut HTTP_SSL_CLIENT_CERT_INFO, SslClientCertInfoSize: u32, #[opt] BytesReceived: *mut u32, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpReceiveClientCertificate(RequestQueueHandle: HANDLE, ConnectionId: HTTP_CONNECTION_ID, Flags: u32, #[size_param(4)] #[out] SslClientCertInfo: PHTTP_SSL_CLIENT_CERT_INFO, SslClientCertInfoSize: u32, #[out] #[opt] BytesReceived: PULONG, #[opt] Overlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpReceiveHttpRequest(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: u32, #[size_param(4)] RequestBuffer: *mut HTTP_REQUEST, RequestBufferLength: u32, #[opt] BytesReturned: *mut u32, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpReceiveHttpRequest(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: u32, #[size_param(4)] #[out] RequestBuffer: PHTTP_REQUEST, RequestBufferLength: u32, #[out] #[opt] BytesReturned: PULONG, #[opt] Overlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpReceiveRequestEntityBody(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: u32, #[size_param(4)] EntityBuffer: *mut void, EntityBufferLength: u32, #[opt] BytesReturned: *mut u32, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpReceiveRequestEntityBody(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: u32, #[size_param(4)] EntityBuffer: *mut void, EntityBufferLength: u32, #[out] #[opt] BytesReturned: PULONG, #[opt] Overlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
         extern fn HttpRemoveUrl(RequestQueueHandle: HANDLE, FullyQualifiedUrl: PCWSTR) -> u32;
         #[library("HTTPAPI.dll")]
         extern fn HttpRemoveUrlFromUrlGroup(UrlGroupId: HTTP_URL_GROUP_ID, pFullyQualifiedUrl: PCWSTR, Flags: u32) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpSendHttpResponse(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: u32, HttpResponse: *const HTTP_RESPONSE, #[opt] CachePolicy: *const HTTP_CACHE_POLICY, #[opt] BytesSent: *mut u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32, #[opt] Overlapped: *const OVERLAPPED, #[opt] LogData: *const HTTP_LOG_DATA) -> u32;
+        extern fn HttpSendHttpResponse(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: u32, HttpResponse: PHTTP_RESPONSE, #[opt] CachePolicy: PHTTP_CACHE_POLICY, #[out] #[opt] BytesSent: PULONG, #[reserved] Reserved1: *mut void, #[reserved] Reserved2: u32, #[opt] Overlapped: LPOVERLAPPED, #[opt] LogData: PHTTP_LOG_DATA) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpSendResponseEntityBody(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: u32, #[opt] EntityChunkCount: u16, #[len_param(3)] #[opt] EntityChunks: *const HTTP_DATA_CHUNK, #[opt] BytesSent: *mut u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32, #[opt] Overlapped: *const OVERLAPPED, #[opt] LogData: *const HTTP_LOG_DATA) -> u32;
+        extern fn HttpSendResponseEntityBody(RequestQueueHandle: HANDLE, RequestId: HTTP_REQUEST_ID, Flags: u32, #[opt] EntityChunkCount: u16, #[len_param(3)] #[opt] EntityChunks: PHTTP_DATA_CHUNK, #[out] #[opt] BytesSent: PULONG, #[reserved] #[opt] Reserved1: *mut void, #[reserved] #[opt] Reserved2: u32, #[opt] Overlapped: LPOVERLAPPED, #[opt] LogData: PHTTP_LOG_DATA) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpSetRequestProperty(RequestQueueHandle: HANDLE, Id: HTTP_OPAQUE_ID, PropertyId: HTTP_REQUEST_PROPERTY, #[size_param(4)] #[opt] Input: *const void, InputPropertySize: u32, Overlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpSetRequestProperty(RequestQueueHandle: HANDLE, Id: HTTP_OPAQUE_ID, PropertyId: HTTP_REQUEST_PROPERTY, #[size_param(4)] #[in] #[opt] Input: *mut void, InputPropertySize: u32, Overlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpSetRequestQueueProperty(RequestQueueHandle: HANDLE, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] PropertyInformation: *const void, PropertyInformationLength: u32, #[reserved] Reserved1: u32, #[reserved] Reserved2: *const void) -> u32;
+        extern fn HttpSetRequestQueueProperty(RequestQueueHandle: HANDLE, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[in] PropertyInformation: *mut void, PropertyInformationLength: u32, #[reserved] Reserved1: u32, #[reserved] Reserved2: *mut void) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpSetServerSessionProperty(ServerSessionId: HTTP_SERVER_SESSION_ID, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] PropertyInformation: *const void, PropertyInformationLength: u32) -> u32;
+        extern fn HttpSetServerSessionProperty(ServerSessionId: HTTP_SERVER_SESSION_ID, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[in] PropertyInformation: *mut void, PropertyInformationLength: u32) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpSetServiceConfiguration(#[reserved] ServiceHandle: HANDLE, ConfigId: HTTP_SERVICE_CONFIG_ID, #[size_param(3)] pConfigInformation: *const void, ConfigInformationLength: u32, #[reserved] pOverlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpSetServiceConfiguration(#[reserved] ServiceHandle: HANDLE, ConfigId: HTTP_SERVICE_CONFIG_ID, #[size_param(3)] #[in] pConfigInformation: *mut void, ConfigInformationLength: u32, #[reserved] pOverlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpSetUrlGroupProperty(UrlGroupId: HTTP_URL_GROUP_ID, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] PropertyInformation: *const void, PropertyInformationLength: u32) -> u32;
+        extern fn HttpSetUrlGroupProperty(UrlGroupId: HTTP_URL_GROUP_ID, Property: HTTP_SERVER_PROPERTY, #[size_param(3)] #[in] PropertyInformation: *mut void, PropertyInformationLength: u32) -> u32;
         #[library("HTTPAPI.dll")]
         extern fn HttpShutdownRequestQueue(RequestQueueHandle: HANDLE) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpTerminate(Flags: u32, #[reserved] pReserved: *const void) -> u32;
+        extern fn HttpTerminate(Flags: u32, #[reserved] #[in] #[out] pReserved: *mut void) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpUpdateServiceConfiguration(#[reserved] Handle: HANDLE, ConfigId: HTTP_SERVICE_CONFIG_ID, #[size_param(3)] ConfigInfo: *const void, ConfigInfoLength: u32, #[reserved] Overlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpUpdateServiceConfiguration(#[reserved] Handle: HANDLE, ConfigId: HTTP_SERVICE_CONFIG_ID, #[size_param(3)] #[in] ConfigInfo: *mut void, ConfigInfoLength: u32, #[reserved] Overlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpWaitForDemandStart(RequestQueueHandle: HANDLE, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpWaitForDemandStart(RequestQueueHandle: HANDLE, #[opt] Overlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpWaitForDisconnect(RequestQueueHandle: HANDLE, ConnectionId: HTTP_CONNECTION_ID, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpWaitForDisconnect(RequestQueueHandle: HANDLE, ConnectionId: HTTP_CONNECTION_ID, #[opt] Overlapped: LPOVERLAPPED) -> u32;
         #[library("HTTPAPI.dll")]
-        extern fn HttpWaitForDisconnectEx(RequestQueueHandle: HANDLE, ConnectionId: HTTP_CONNECTION_ID, #[reserved] Reserved: u32, #[opt] Overlapped: *const OVERLAPPED) -> u32;
+        extern fn HttpWaitForDisconnectEx(RequestQueueHandle: HANDLE, ConnectionId: HTTP_CONNECTION_ID, #[reserved] #[opt] Reserved: u32, #[opt] Overlapped: LPOVERLAPPED) -> u32;
         type PHTTP2_SETTINGS_LIMITS_PARAM = *mut HTTP2_SETTINGS_LIMITS_PARAM;
         type PHTTP2_WINDOW_SIZE_PARAM = *mut HTTP2_WINDOW_SIZE_PARAM;
         type PHTTPAPI_VERSION = *mut HTTPAPI_VERSION;

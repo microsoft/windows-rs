@@ -217,9 +217,9 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiAdvertiseProductW(szPackagePath: PCWSTR, #[opt] szScriptfilePath: PCWSTR, #[opt] szTransforms: PCWSTR, lgidLanguage: LANGID) -> u32;
         #[library("msi.dll")]
-        extern fn MsiAdvertiseScriptA(szScriptFile: PCSTR, dwFlags: u32, #[opt] phRegData: *const HKEY, fRemoveItems: BOOL) -> u32;
+        extern fn MsiAdvertiseScriptA(szScriptFile: PCSTR, dwFlags: u32, #[opt] phRegData: PHKEY, fRemoveItems: BOOL) -> u32;
         #[library("msi.dll")]
-        extern fn MsiAdvertiseScriptW(szScriptFile: PCWSTR, dwFlags: u32, #[opt] phRegData: *const HKEY, fRemoveItems: BOOL) -> u32;
+        extern fn MsiAdvertiseScriptW(szScriptFile: PCWSTR, dwFlags: u32, #[opt] phRegData: PHKEY, fRemoveItems: BOOL) -> u32;
         #[library("msi.dll")]
         extern fn MsiApplyMultiplePatchesA(szPatchPackages: PCSTR, #[opt] szProductCode: PCSTR, #[opt] szPropertiesList: PCSTR) -> u32;
         #[library("msi.dll")]
@@ -253,13 +253,13 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiConfigureProductW(szProduct: PCWSTR, iInstallLevel: i32, eInstallState: INSTALLSTATE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiDetermineApplicablePatchesA(szProductPackagePath: PCSTR, cPatchInfo: u32, #[len_param(1)] #[in] #[out] pPatchInfo: *mut MSIPATCHSEQUENCEINFOA) -> u32;
+        extern fn MsiDetermineApplicablePatchesA(szProductPackagePath: PCSTR, cPatchInfo: u32, #[len_param(1)] #[in] #[out] pPatchInfo: PMSIPATCHSEQUENCEINFOA) -> u32;
         #[library("msi.dll")]
-        extern fn MsiDetermineApplicablePatchesW(szProductPackagePath: PCWSTR, cPatchInfo: u32, #[len_param(1)] #[in] #[out] pPatchInfo: *mut MSIPATCHSEQUENCEINFOW) -> u32;
+        extern fn MsiDetermineApplicablePatchesW(szProductPackagePath: PCWSTR, cPatchInfo: u32, #[len_param(1)] #[in] #[out] pPatchInfo: PMSIPATCHSEQUENCEINFOW) -> u32;
         #[library("msi.dll")]
-        extern fn MsiDeterminePatchSequenceA(szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, cPatchInfo: u32, #[len_param(3)] #[in] #[out] pPatchInfo: *mut MSIPATCHSEQUENCEINFOA) -> u32;
+        extern fn MsiDeterminePatchSequenceA(szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, cPatchInfo: u32, #[len_param(3)] #[in] #[out] pPatchInfo: PMSIPATCHSEQUENCEINFOA) -> u32;
         #[library("msi.dll")]
-        extern fn MsiDeterminePatchSequenceW(szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, cPatchInfo: u32, #[len_param(3)] #[in] #[out] pPatchInfo: *mut MSIPATCHSEQUENCEINFOW) -> u32;
+        extern fn MsiDeterminePatchSequenceW(szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, cPatchInfo: u32, #[len_param(3)] #[in] #[out] pPatchInfo: PMSIPATCHSEQUENCEINFOW) -> u32;
         #[library("msi.dll")]
         extern fn MsiEnableLogA(dwLogMode: u32, #[opt] szLogFile: PCSTR, dwLogAttributes: u32) -> u32;
         #[library("msi.dll")]
@@ -269,21 +269,21 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiEnumClientsA(szComponent: PCSTR, iProductIndex: u32, #[out] lpProductBuf: PSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumClientsExA(szComponent: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwProductIndex: u32, #[len_const(39)] #[opt] szProductBuf: *mut i8, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
+        extern fn MsiEnumClientsExA(szComponent: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwProductIndex: u32, #[opt] szProductBuf: *mut i8, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumClientsExW(szComponent: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwProductIndex: u32, #[len_const(39)] #[opt] szProductBuf: *mut u16, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
+        extern fn MsiEnumClientsExW(szComponent: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwProductIndex: u32, #[opt] szProductBuf: *mut u16, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> u32;
         #[library("msi.dll")]
         extern fn MsiEnumClientsW(szComponent: PCWSTR, iProductIndex: u32, #[out] lpProductBuf: PWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumComponentQualifiersA(szComponent: PCSTR, iIndex: u32, #[len_param(3)] #[out] lpQualifierBuf: PSTR, #[in] #[out] pcchQualifierBuf: *mut u32, #[len_param(5)] #[out] #[opt] lpApplicationDataBuf: PSTR, #[in] #[out] #[opt] pcchApplicationDataBuf: *mut u32) -> u32;
+        extern fn MsiEnumComponentQualifiersA(szComponent: PCSTR, iIndex: u32, #[len_param(3)] #[out] lpQualifierBuf: PSTR, #[in] #[out] pcchQualifierBuf: LPDWORD, #[len_param(5)] #[out] #[opt] lpApplicationDataBuf: PSTR, #[in] #[out] #[opt] pcchApplicationDataBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumComponentQualifiersW(szComponent: PCWSTR, iIndex: u32, #[len_param(3)] #[out] lpQualifierBuf: PWSTR, #[in] #[out] pcchQualifierBuf: *mut u32, #[len_param(5)] #[out] #[opt] lpApplicationDataBuf: PWSTR, #[in] #[out] #[opt] pcchApplicationDataBuf: *mut u32) -> u32;
+        extern fn MsiEnumComponentQualifiersW(szComponent: PCWSTR, iIndex: u32, #[len_param(3)] #[out] lpQualifierBuf: PWSTR, #[in] #[out] pcchQualifierBuf: LPDWORD, #[len_param(5)] #[out] #[opt] lpApplicationDataBuf: PWSTR, #[in] #[out] #[opt] pcchApplicationDataBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
         extern fn MsiEnumComponentsA(iComponentIndex: u32, #[out] lpComponentBuf: PSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumComponentsExA(#[opt] szUserSid: PCSTR, dwContext: u32, dwIndex: u32, #[len_const(39)] #[opt] szInstalledComponentCode: *mut i8, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(6)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
+        extern fn MsiEnumComponentsExA(#[opt] szUserSid: PCSTR, dwContext: u32, dwIndex: u32, #[opt] szInstalledComponentCode: *mut i8, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(6)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumComponentsExW(#[opt] szUserSid: PCWSTR, dwContext: u32, dwIndex: u32, #[len_const(39)] #[opt] szInstalledComponentCode: *mut u16, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(6)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
+        extern fn MsiEnumComponentsExW(#[opt] szUserSid: PCWSTR, dwContext: u32, dwIndex: u32, #[opt] szInstalledComponentCode: *mut u16, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(6)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> u32;
         #[library("msi.dll")]
         extern fn MsiEnumComponentsW(iComponentIndex: u32, #[out] lpComponentBuf: PWSTR) -> u32;
         #[library("msi.dll")]
@@ -291,19 +291,19 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiEnumFeaturesW(szProduct: PCWSTR, iFeatureIndex: u32, #[out] lpFeatureBuf: PWSTR, #[out] #[opt] lpParentBuf: PWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumPatchesA(szProduct: PCSTR, iPatchIndex: u32, #[out] lpPatchBuf: PSTR, #[len_param(4)] #[out] lpTransformsBuf: PSTR, #[in] #[out] pcchTransformsBuf: *mut u32) -> u32;
+        extern fn MsiEnumPatchesA(szProduct: PCSTR, iPatchIndex: u32, #[out] lpPatchBuf: PSTR, #[len_param(4)] #[out] lpTransformsBuf: PSTR, #[in] #[out] pcchTransformsBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumPatchesExA(#[opt] szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwFilter: u32, dwIndex: u32, #[len_const(39)] #[opt] szPatchCode: *mut i8, #[len_const(39)] #[opt] szTargetProductCode: *mut i8, #[opt] pdwTargetProductContext: *mut MSIINSTALLCONTEXT, #[len_param(9)] #[out] #[opt] szTargetUserSid: PSTR, #[in] #[out] #[opt] pcchTargetUserSid: *mut u32) -> u32;
+        extern fn MsiEnumPatchesExA(#[opt] szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwFilter: u32, dwIndex: u32, #[opt] szPatchCode: *mut i8, #[opt] szTargetProductCode: *mut i8, #[opt] pdwTargetProductContext: *mut MSIINSTALLCONTEXT, #[len_param(9)] #[out] #[opt] szTargetUserSid: PSTR, #[in] #[out] #[opt] pcchTargetUserSid: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumPatchesExW(#[opt] szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwFilter: u32, dwIndex: u32, #[len_const(39)] #[opt] szPatchCode: *mut u16, #[len_const(39)] #[opt] szTargetProductCode: *mut u16, #[opt] pdwTargetProductContext: *mut MSIINSTALLCONTEXT, #[len_param(9)] #[out] #[opt] szTargetUserSid: PWSTR, #[in] #[out] #[opt] pcchTargetUserSid: *mut u32) -> u32;
+        extern fn MsiEnumPatchesExW(#[opt] szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwFilter: u32, dwIndex: u32, #[opt] szPatchCode: *mut u16, #[opt] szTargetProductCode: *mut u16, #[opt] pdwTargetProductContext: *mut MSIINSTALLCONTEXT, #[len_param(9)] #[out] #[opt] szTargetUserSid: PWSTR, #[in] #[out] #[opt] pcchTargetUserSid: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumPatchesW(szProduct: PCWSTR, iPatchIndex: u32, #[out] lpPatchBuf: PWSTR, #[len_param(4)] #[out] lpTransformsBuf: PWSTR, #[in] #[out] pcchTransformsBuf: *mut u32) -> u32;
+        extern fn MsiEnumPatchesW(szProduct: PCWSTR, iPatchIndex: u32, #[out] lpPatchBuf: PWSTR, #[len_param(4)] #[out] lpTransformsBuf: PWSTR, #[in] #[out] pcchTransformsBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
         extern fn MsiEnumProductsA(iProductIndex: u32, #[out] lpProductBuf: PSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumProductsExA(#[opt] szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwIndex: u32, #[len_const(39)] #[opt] szInstalledProductCode: *mut i8, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
+        extern fn MsiEnumProductsExA(#[opt] szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: u32, dwIndex: u32, #[opt] szInstalledProductCode: *mut i8, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiEnumProductsExW(#[opt] szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwIndex: u32, #[len_const(39)] #[opt] szInstalledProductCode: *mut u16, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: *mut u32) -> u32;
+        extern fn MsiEnumProductsExW(#[opt] szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: u32, dwIndex: u32, #[opt] szInstalledProductCode: *mut u16, #[opt] pdwInstalledContext: *mut MSIINSTALLCONTEXT, #[len_param(7)] #[out] #[opt] szSid: PWSTR, #[in] #[out] #[opt] pcchSid: LPDWORD) -> u32;
         #[library("msi.dll")]
         extern fn MsiEnumProductsW(iProductIndex: u32, #[out] lpProductBuf: PWSTR) -> u32;
         #[library("msi.dll")]
@@ -311,77 +311,77 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiEnumRelatedProductsW(lpUpgradeCode: PCWSTR, #[reserved] dwReserved: u32, iProductIndex: u32, #[out] lpProductBuf: PWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiExtractPatchXMLDataA(szPatchPath: PCSTR, #[reserved] dwReserved: u32, #[len_param(3)] #[out] #[opt] szXMLData: PSTR, #[in] #[out] #[opt] pcchXMLData: *mut u32) -> u32;
+        extern fn MsiExtractPatchXMLDataA(szPatchPath: PCSTR, #[reserved] dwReserved: u32, #[len_param(3)] #[out] #[opt] szXMLData: PSTR, #[in] #[out] #[opt] pcchXMLData: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiExtractPatchXMLDataW(szPatchPath: PCWSTR, #[reserved] dwReserved: u32, #[len_param(3)] #[out] #[opt] szXMLData: PWSTR, #[in] #[out] #[opt] pcchXMLData: *mut u32) -> u32;
+        extern fn MsiExtractPatchXMLDataW(szPatchPath: PCWSTR, #[reserved] dwReserved: u32, #[len_param(3)] #[out] #[opt] szXMLData: PWSTR, #[in] #[out] #[opt] pcchXMLData: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetComponentPathA(szProduct: PCSTR, szComponent: PCSTR, #[len_param(3)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchBuf: *mut u32) -> INSTALLSTATE;
+        extern fn MsiGetComponentPathA(szProduct: PCSTR, szComponent: PCSTR, #[len_param(3)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiGetComponentPathExA(szProductCode: PCSTR, szComponentCode: PCSTR, #[opt] szUserSid: PCSTR, #[opt] dwContext: MSIINSTALLCONTEXT, #[len_param(5)] #[out] #[opt] lpOutPathBuffer: PSTR, #[in] #[out] #[opt] pcchOutPathBuffer: *mut u32) -> INSTALLSTATE;
+        extern fn MsiGetComponentPathExA(szProductCode: PCSTR, szComponentCode: PCSTR, #[opt] szUserSid: PCSTR, #[opt] dwContext: MSIINSTALLCONTEXT, #[len_param(5)] #[out] #[opt] lpOutPathBuffer: PSTR, #[in] #[out] #[opt] pcchOutPathBuffer: LPDWORD) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiGetComponentPathExW(szProductCode: PCWSTR, szComponentCode: PCWSTR, #[opt] szUserSid: PCWSTR, #[opt] dwContext: MSIINSTALLCONTEXT, #[len_param(5)] #[out] #[opt] lpOutPathBuffer: PWSTR, #[in] #[out] #[opt] pcchOutPathBuffer: *mut u32) -> INSTALLSTATE;
+        extern fn MsiGetComponentPathExW(szProductCode: PCWSTR, szComponentCode: PCWSTR, #[opt] szUserSid: PCWSTR, #[opt] dwContext: MSIINSTALLCONTEXT, #[len_param(5)] #[out] #[opt] lpOutPathBuffer: PWSTR, #[in] #[out] #[opt] pcchOutPathBuffer: LPDWORD) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiGetComponentPathW(szProduct: PCWSTR, szComponent: PCWSTR, #[len_param(3)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchBuf: *mut u32) -> INSTALLSTATE;
+        extern fn MsiGetComponentPathW(szProduct: PCWSTR, szComponent: PCWSTR, #[len_param(3)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiGetFeatureInfoA(hProduct: MSIHANDLE, szFeature: PCSTR, #[opt] lpAttributes: *mut u32, #[len_param(4)] #[out] #[opt] lpTitleBuf: PSTR, #[in] #[out] #[opt] pcchTitleBuf: *mut u32, #[len_param(6)] #[out] #[opt] lpHelpBuf: PSTR, #[in] #[out] #[opt] pcchHelpBuf: *mut u32) -> u32;
+        extern fn MsiGetFeatureInfoA(hProduct: MSIHANDLE, szFeature: PCSTR, #[out] #[opt] lpAttributes: LPDWORD, #[len_param(4)] #[out] #[opt] lpTitleBuf: PSTR, #[in] #[out] #[opt] pcchTitleBuf: LPDWORD, #[len_param(6)] #[out] #[opt] lpHelpBuf: PSTR, #[in] #[out] #[opt] pcchHelpBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetFeatureInfoW(hProduct: MSIHANDLE, szFeature: PCWSTR, #[opt] lpAttributes: *mut u32, #[len_param(4)] #[out] #[opt] lpTitleBuf: PWSTR, #[in] #[out] #[opt] pcchTitleBuf: *mut u32, #[len_param(6)] #[out] #[opt] lpHelpBuf: PWSTR, #[in] #[out] #[opt] pcchHelpBuf: *mut u32) -> u32;
+        extern fn MsiGetFeatureInfoW(hProduct: MSIHANDLE, szFeature: PCWSTR, #[out] #[opt] lpAttributes: LPDWORD, #[len_param(4)] #[out] #[opt] lpTitleBuf: PWSTR, #[in] #[out] #[opt] pcchTitleBuf: LPDWORD, #[len_param(6)] #[out] #[opt] lpHelpBuf: PWSTR, #[in] #[out] #[opt] pcchHelpBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetFeatureUsageA(szProduct: PCSTR, szFeature: PCSTR, #[opt] pdwUseCount: *mut u32, #[opt] pwDateUsed: *mut u16) -> u32;
+        extern fn MsiGetFeatureUsageA(szProduct: PCSTR, szFeature: PCSTR, #[out] #[opt] pdwUseCount: LPDWORD, #[out] #[opt] pwDateUsed: LPWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetFeatureUsageW(szProduct: PCWSTR, szFeature: PCWSTR, #[opt] pdwUseCount: *mut u32, #[opt] pwDateUsed: *mut u16) -> u32;
+        extern fn MsiGetFeatureUsageW(szProduct: PCWSTR, szFeature: PCWSTR, #[out] #[opt] pdwUseCount: LPDWORD, #[out] #[opt] pwDateUsed: LPWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetFileHashA(szFilePath: PCSTR, dwOptions: u32, #[in] #[out] pHash: *mut MSIFILEHASHINFO) -> u32;
+        extern fn MsiGetFileHashA(szFilePath: PCSTR, dwOptions: u32, #[in] #[out] pHash: PMSIFILEHASHINFO) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetFileHashW(szFilePath: PCWSTR, dwOptions: u32, #[in] #[out] pHash: *mut MSIFILEHASHINFO) -> u32;
+        extern fn MsiGetFileHashW(szFilePath: PCWSTR, dwOptions: u32, #[in] #[out] pHash: PMSIFILEHASHINFO) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetFileSignatureInformationA(szSignedObjectPath: PCSTR, dwFlags: u32, ppcCertContext: *mut PCCERT_CONTEXT, #[size_param(4)] #[opt] pbHashData: *mut u8, #[in] #[out] #[opt] pcbHashData: *mut u32) -> HRESULT;
+        extern fn MsiGetFileSignatureInformationA(szSignedObjectPath: PCSTR, dwFlags: u32, ppcCertContext: *mut PCCERT_CONTEXT, #[size_param(4)] #[out] #[opt] pbHashData: LPBYTE, #[in] #[out] #[opt] pcbHashData: LPDWORD) -> HRESULT;
         #[library("msi.dll")]
-        extern fn MsiGetFileSignatureInformationW(szSignedObjectPath: PCWSTR, dwFlags: u32, ppcCertContext: *mut PCCERT_CONTEXT, #[size_param(4)] #[opt] pbHashData: *mut u8, #[in] #[out] #[opt] pcbHashData: *mut u32) -> HRESULT;
+        extern fn MsiGetFileSignatureInformationW(szSignedObjectPath: PCWSTR, dwFlags: u32, ppcCertContext: *mut PCCERT_CONTEXT, #[size_param(4)] #[out] #[opt] pbHashData: LPBYTE, #[in] #[out] #[opt] pcbHashData: LPDWORD) -> HRESULT;
         #[library("msi.dll")]
-        extern fn MsiGetFileVersionA(szFilePath: PCSTR, #[len_param(2)] #[out] #[opt] lpVersionBuf: PSTR, #[in] #[out] #[opt] pcchVersionBuf: *mut u32, #[len_param(4)] #[out] #[opt] lpLangBuf: PSTR, #[in] #[out] #[opt] pcchLangBuf: *mut u32) -> u32;
+        extern fn MsiGetFileVersionA(szFilePath: PCSTR, #[len_param(2)] #[out] #[opt] lpVersionBuf: PSTR, #[in] #[out] #[opt] pcchVersionBuf: LPDWORD, #[len_param(4)] #[out] #[opt] lpLangBuf: PSTR, #[in] #[out] #[opt] pcchLangBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetFileVersionW(szFilePath: PCWSTR, #[len_param(2)] #[out] #[opt] lpVersionBuf: PWSTR, #[in] #[out] #[opt] pcchVersionBuf: *mut u32, #[len_param(4)] #[out] #[opt] lpLangBuf: PWSTR, #[in] #[out] #[opt] pcchLangBuf: *mut u32) -> u32;
+        extern fn MsiGetFileVersionW(szFilePath: PCWSTR, #[len_param(2)] #[out] #[opt] lpVersionBuf: PWSTR, #[in] #[out] #[opt] pcchVersionBuf: LPDWORD, #[len_param(4)] #[out] #[opt] lpLangBuf: PWSTR, #[in] #[out] #[opt] pcchLangBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetPatchFileListA(szProductCode: PCSTR, szPatchPackages: PCSTR, pcFiles: *mut u32, pphFileRecords: *mut *mut MSIHANDLE) -> u32;
+        extern fn MsiGetPatchFileListA(szProductCode: PCSTR, szPatchPackages: PCSTR, #[out] pcFiles: LPDWORD, pphFileRecords: *mut *mut MSIHANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetPatchFileListW(szProductCode: PCWSTR, szPatchPackages: PCWSTR, pcFiles: *mut u32, pphFileRecords: *mut *mut MSIHANDLE) -> u32;
+        extern fn MsiGetPatchFileListW(szProductCode: PCWSTR, szPatchPackages: PCWSTR, #[out] pcFiles: LPDWORD, pphFileRecords: *mut *mut MSIHANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetPatchInfoA(szPatch: PCSTR, szAttribute: PCSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PSTR, #[in] #[out] #[opt] pcchValueBuf: *mut u32) -> u32;
+        extern fn MsiGetPatchInfoA(szPatch: PCSTR, szAttribute: PCSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetPatchInfoExA(szPatchCode: PCSTR, szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, szProperty: PCSTR, #[len_param(6)] #[out] #[opt] lpValue: PSTR, #[in] #[out] #[opt] pcchValue: *mut u32) -> u32;
+        extern fn MsiGetPatchInfoExA(szPatchCode: PCSTR, szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, szProperty: PCSTR, #[len_param(6)] #[out] #[opt] lpValue: PSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetPatchInfoExW(szPatchCode: PCWSTR, szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, szProperty: PCWSTR, #[len_param(6)] #[out] #[opt] lpValue: PWSTR, #[in] #[out] #[opt] pcchValue: *mut u32) -> u32;
+        extern fn MsiGetPatchInfoExW(szPatchCode: PCWSTR, szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, szProperty: PCWSTR, #[len_param(6)] #[out] #[opt] lpValue: PWSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetPatchInfoW(szPatch: PCWSTR, szAttribute: PCWSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PWSTR, #[in] #[out] #[opt] pcchValueBuf: *mut u32) -> u32;
+        extern fn MsiGetPatchInfoW(szPatch: PCWSTR, szAttribute: PCWSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PWSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
         extern fn MsiGetProductCodeA(szComponent: PCSTR, #[out] lpBuf39: PSTR) -> u32;
         #[library("msi.dll")]
         extern fn MsiGetProductCodeW(szComponent: PCWSTR, #[out] lpBuf39: PWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductInfoA(szProduct: PCSTR, szAttribute: PCSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PSTR, #[in] #[out] #[opt] pcchValueBuf: *mut u32) -> u32;
+        extern fn MsiGetProductInfoA(szProduct: PCSTR, szAttribute: PCSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductInfoExA(szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, szProperty: PCSTR, #[len_param(5)] #[out] #[opt] szValue: PSTR, #[in] #[out] #[opt] pcchValue: *mut u32) -> u32;
+        extern fn MsiGetProductInfoExA(szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, szProperty: PCSTR, #[len_param(5)] #[out] #[opt] szValue: PSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductInfoExW(szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, szProperty: PCWSTR, #[len_param(5)] #[out] #[opt] szValue: PWSTR, #[in] #[out] #[opt] pcchValue: *mut u32) -> u32;
+        extern fn MsiGetProductInfoExW(szProductCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, szProperty: PCWSTR, #[len_param(5)] #[out] #[opt] szValue: PWSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductInfoFromScriptA(szScriptFile: PCSTR, #[out] #[opt] lpProductBuf39: PSTR, #[opt] plgidLanguage: *mut LANGID, #[opt] pdwVersion: *mut u32, #[len_param(5)] #[out] #[opt] lpNameBuf: PSTR, #[in] #[out] #[opt] pcchNameBuf: *mut u32, #[len_param(7)] #[out] #[opt] lpPackageBuf: PSTR, #[in] #[out] #[opt] pcchPackageBuf: *mut u32) -> u32;
+        extern fn MsiGetProductInfoFromScriptA(szScriptFile: PCSTR, #[out] #[opt] lpProductBuf39: PSTR, #[opt] plgidLanguage: *mut LANGID, #[out] #[opt] pdwVersion: LPDWORD, #[len_param(5)] #[out] #[opt] lpNameBuf: PSTR, #[in] #[out] #[opt] pcchNameBuf: LPDWORD, #[len_param(7)] #[out] #[opt] lpPackageBuf: PSTR, #[in] #[out] #[opt] pcchPackageBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductInfoFromScriptW(szScriptFile: PCWSTR, #[out] #[opt] lpProductBuf39: PWSTR, #[opt] plgidLanguage: *mut LANGID, #[opt] pdwVersion: *mut u32, #[len_param(5)] #[out] #[opt] lpNameBuf: PWSTR, #[in] #[out] #[opt] pcchNameBuf: *mut u32, #[len_param(7)] #[out] #[opt] lpPackageBuf: PWSTR, #[in] #[out] #[opt] pcchPackageBuf: *mut u32) -> u32;
+        extern fn MsiGetProductInfoFromScriptW(szScriptFile: PCWSTR, #[out] #[opt] lpProductBuf39: PWSTR, #[opt] plgidLanguage: *mut LANGID, #[out] #[opt] pdwVersion: LPDWORD, #[len_param(5)] #[out] #[opt] lpNameBuf: PWSTR, #[in] #[out] #[opt] pcchNameBuf: LPDWORD, #[len_param(7)] #[out] #[opt] lpPackageBuf: PWSTR, #[in] #[out] #[opt] pcchPackageBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductInfoW(szProduct: PCWSTR, szAttribute: PCWSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PWSTR, #[in] #[out] #[opt] pcchValueBuf: *mut u32) -> u32;
+        extern fn MsiGetProductInfoW(szProduct: PCWSTR, szAttribute: PCWSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PWSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductPropertyA(hProduct: MSIHANDLE, szProperty: PCSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PSTR, #[in] #[out] #[opt] pcchValueBuf: *mut u32) -> u32;
+        extern fn MsiGetProductPropertyA(hProduct: MSIHANDLE, szProperty: PCSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetProductPropertyW(hProduct: MSIHANDLE, szProperty: PCWSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PWSTR, #[in] #[out] #[opt] pcchValueBuf: *mut u32) -> u32;
+        extern fn MsiGetProductPropertyW(hProduct: MSIHANDLE, szProperty: PCWSTR, #[len_param(3)] #[out] #[opt] lpValueBuf: PWSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
         extern fn MsiGetShortcutTargetA(szShortcutPath: PCSTR, #[out] #[opt] szProductCode: PSTR, #[out] #[opt] szFeatureId: PSTR, #[out] #[opt] szComponentCode: PSTR) -> u32;
         #[library("msi.dll")]
         extern fn MsiGetShortcutTargetW(szShortcutPath: PCWSTR, #[out] #[opt] szProductCode: PWSTR, #[out] #[opt] szFeatureId: PWSTR, #[out] #[opt] szComponentCode: PWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiGetUserInfoA(szProduct: PCSTR, #[len_param(2)] #[out] #[opt] lpUserNameBuf: PSTR, #[in] #[out] #[opt] pcchUserNameBuf: *mut u32, #[len_param(4)] #[out] #[opt] lpOrgNameBuf: PSTR, #[in] #[out] #[opt] pcchOrgNameBuf: *mut u32, #[len_param(6)] #[out] #[opt] lpSerialBuf: PSTR, #[in] #[out] #[opt] pcchSerialBuf: *mut u32) -> USERINFOSTATE;
+        extern fn MsiGetUserInfoA(szProduct: PCSTR, #[len_param(2)] #[out] #[opt] lpUserNameBuf: PSTR, #[in] #[out] #[opt] pcchUserNameBuf: LPDWORD, #[len_param(4)] #[out] #[opt] lpOrgNameBuf: PSTR, #[in] #[out] #[opt] pcchOrgNameBuf: LPDWORD, #[len_param(6)] #[out] #[opt] lpSerialBuf: PSTR, #[in] #[out] #[opt] pcchSerialBuf: LPDWORD) -> USERINFOSTATE;
         #[library("msi.dll")]
-        extern fn MsiGetUserInfoW(szProduct: PCWSTR, #[len_param(2)] #[out] #[opt] lpUserNameBuf: PWSTR, #[in] #[out] #[opt] pcchUserNameBuf: *mut u32, #[len_param(4)] #[out] #[opt] lpOrgNameBuf: PWSTR, #[in] #[out] #[opt] pcchOrgNameBuf: *mut u32, #[len_param(6)] #[out] #[opt] lpSerialBuf: PWSTR, #[in] #[out] #[opt] pcchSerialBuf: *mut u32) -> USERINFOSTATE;
+        extern fn MsiGetUserInfoW(szProduct: PCWSTR, #[len_param(2)] #[out] #[opt] lpUserNameBuf: PWSTR, #[in] #[out] #[opt] pcchUserNameBuf: LPDWORD, #[len_param(4)] #[out] #[opt] lpOrgNameBuf: PWSTR, #[in] #[out] #[opt] pcchOrgNameBuf: LPDWORD, #[len_param(6)] #[out] #[opt] lpSerialBuf: PWSTR, #[in] #[out] #[opt] pcchSerialBuf: LPDWORD) -> USERINFOSTATE;
         #[library("msi.dll")]
         extern fn MsiInstallMissingComponentA(szProduct: PCSTR, szComponent: PCSTR, eInstallState: INSTALLSTATE) -> u32;
         #[library("msi.dll")]
@@ -401,9 +401,9 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiJoinTransaction(hTransactionHandle: MSIHANDLE, dwTransactionAttributes: u32, phChangeOfOwnerEvent: *mut HANDLE) -> u32;
         #[library("msi.dll")]
-        extern fn MsiLocateComponentA(szComponent: PCSTR, #[len_param(2)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchBuf: *mut u32) -> INSTALLSTATE;
+        extern fn MsiLocateComponentA(szComponent: PCSTR, #[len_param(2)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> INSTALLSTATE;
         #[library("msi.dll")]
-        extern fn MsiLocateComponentW(szComponent: PCWSTR, #[len_param(2)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchBuf: *mut u32) -> INSTALLSTATE;
+        extern fn MsiLocateComponentW(szComponent: PCWSTR, #[len_param(2)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> INSTALLSTATE;
         #[library("msi.dll")]
         extern fn MsiNotifySidChangeA(pOldSid: PCSTR, pNewSid: PCSTR) -> u32;
         #[library("msi.dll")]
@@ -425,21 +425,21 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiProcessAdvertiseScriptW(szScriptFile: PCWSTR, #[opt] szIconFolder: PCWSTR, #[opt] hRegData: HKEY, fShortcuts: BOOL, fRemoveItems: BOOL) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideAssemblyA(szAssemblyName: PCSTR, #[opt] szAppContext: PCSTR, dwInstallMode: u32, dwAssemblyInfo: u32, #[len_param(5)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchPathBuf: *mut u32) -> u32;
+        extern fn MsiProvideAssemblyA(szAssemblyName: PCSTR, #[opt] szAppContext: PCSTR, dwInstallMode: u32, dwAssemblyInfo: u32, #[len_param(5)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideAssemblyW(szAssemblyName: PCWSTR, #[opt] szAppContext: PCWSTR, dwInstallMode: u32, dwAssemblyInfo: u32, #[len_param(5)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchPathBuf: *mut u32) -> u32;
+        extern fn MsiProvideAssemblyW(szAssemblyName: PCWSTR, #[opt] szAppContext: PCWSTR, dwInstallMode: u32, dwAssemblyInfo: u32, #[len_param(5)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideComponentA(szProduct: PCSTR, szFeature: PCSTR, szComponent: PCSTR, dwInstallMode: u32, #[len_param(5)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchPathBuf: *mut u32) -> u32;
+        extern fn MsiProvideComponentA(szProduct: PCSTR, szFeature: PCSTR, szComponent: PCSTR, dwInstallMode: u32, #[len_param(5)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideComponentW(szProduct: PCWSTR, szFeature: PCWSTR, szComponent: PCWSTR, dwInstallMode: u32, #[len_param(5)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchPathBuf: *mut u32) -> u32;
+        extern fn MsiProvideComponentW(szProduct: PCWSTR, szFeature: PCWSTR, szComponent: PCWSTR, dwInstallMode: u32, #[len_param(5)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideQualifiedComponentA(szCategory: PCSTR, szQualifier: PCSTR, dwInstallMode: u32, #[len_param(4)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchPathBuf: *mut u32) -> u32;
+        extern fn MsiProvideQualifiedComponentA(szCategory: PCSTR, szQualifier: PCSTR, dwInstallMode: u32, #[len_param(4)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideQualifiedComponentExA(szCategory: PCSTR, szQualifier: PCSTR, dwInstallMode: u32, #[opt] szProduct: PCSTR, #[reserved] dwUnused1: u32, #[reserved] dwUnused2: u32, #[len_param(7)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchPathBuf: *mut u32) -> u32;
+        extern fn MsiProvideQualifiedComponentExA(szCategory: PCSTR, szQualifier: PCSTR, dwInstallMode: u32, #[opt] szProduct: PCSTR, #[reserved] dwUnused1: u32, #[reserved] dwUnused2: u32, #[len_param(7)] #[out] #[opt] lpPathBuf: PSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideQualifiedComponentExW(szCategory: PCWSTR, szQualifier: PCWSTR, dwInstallMode: u32, #[opt] szProduct: PCWSTR, #[reserved] dwUnused1: u32, #[reserved] dwUnused2: u32, #[len_param(7)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchPathBuf: *mut u32) -> u32;
+        extern fn MsiProvideQualifiedComponentExW(szCategory: PCWSTR, szQualifier: PCWSTR, dwInstallMode: u32, #[opt] szProduct: PCWSTR, #[reserved] dwUnused1: u32, #[reserved] dwUnused2: u32, #[len_param(7)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiProvideQualifiedComponentW(szCategory: PCWSTR, szQualifier: PCWSTR, dwInstallMode: u32, #[len_param(4)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchPathBuf: *mut u32) -> u32;
+        extern fn MsiProvideQualifiedComponentW(szCategory: PCWSTR, szQualifier: PCWSTR, dwInstallMode: u32, #[len_param(4)] #[out] #[opt] lpPathBuf: PWSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> u32;
         #[library("msi.dll")]
         extern fn MsiQueryComponentStateA(szProductCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, szComponentCode: PCSTR, #[opt] pdwState: *mut INSTALLSTATE) -> u32;
         #[library("msi.dll")]
@@ -469,11 +469,11 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiRemovePatchesW(szPatchList: PCWSTR, szProductCode: PCWSTR, eUninstallType: INSTALLTYPE, #[opt] szPropertyList: PCWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSetExternalUIA(#[opt] puiHandler: INSTALLUI_HANDLERA, dwMessageFilter: u32, #[opt] pvContext: *const void) -> INSTALLUI_HANDLERA;
+        extern fn MsiSetExternalUIA(#[opt] puiHandler: INSTALLUI_HANDLERA, dwMessageFilter: u32, #[in] #[opt] pvContext: *mut void) -> INSTALLUI_HANDLERA;
         #[library("msi.dll")]
-        extern fn MsiSetExternalUIRecord(#[opt] puiHandler: INSTALLUI_HANDLER_RECORD, dwMessageFilter: u32, #[opt] pvContext: *const void, #[opt] ppuiPrevHandler: *mut INSTALLUI_HANDLER_RECORD) -> u32;
+        extern fn MsiSetExternalUIRecord(#[opt] puiHandler: INSTALLUI_HANDLER_RECORD, dwMessageFilter: u32, #[in] #[opt] pvContext: *mut void, #[out] #[opt] ppuiPrevHandler: PINSTALLUI_HANDLER_RECORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSetExternalUIW(#[opt] puiHandler: INSTALLUI_HANDLERW, dwMessageFilter: u32, #[opt] pvContext: *const void) -> INSTALLUI_HANDLERW;
+        extern fn MsiSetExternalUIW(#[opt] puiHandler: INSTALLUI_HANDLERW, dwMessageFilter: u32, #[in] #[opt] pvContext: *mut void) -> INSTALLUI_HANDLERW;
         #[library("msi.dll")]
         extern fn MsiSetInternalUI(dwUILevel: INSTALLUILEVEL, #[in] #[out] #[opt] phWnd: *mut HWND) -> INSTALLUILEVEL;
         #[library("msi.dll")]
@@ -505,13 +505,13 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiSourceListClearSourceW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, szSource: PCWSTR) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListEnumMediaDisksA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwIndex: u32, #[opt] pdwDiskId: *mut u32, #[len_param(7)] #[out] #[opt] szVolumeLabel: PSTR, #[in] #[out] #[opt] pcchVolumeLabel: *mut u32, #[len_param(9)] #[out] #[opt] szDiskPrompt: PSTR, #[in] #[out] #[opt] pcchDiskPrompt: *mut u32) -> u32;
+        extern fn MsiSourceListEnumMediaDisksA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwIndex: u32, #[out] #[opt] pdwDiskId: LPDWORD, #[len_param(7)] #[out] #[opt] szVolumeLabel: PSTR, #[in] #[out] #[opt] pcchVolumeLabel: LPDWORD, #[len_param(9)] #[out] #[opt] szDiskPrompt: PSTR, #[in] #[out] #[opt] pcchDiskPrompt: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListEnumMediaDisksW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwIndex: u32, #[opt] pdwDiskId: *mut u32, #[len_param(7)] #[out] #[opt] szVolumeLabel: PWSTR, #[in] #[out] #[opt] pcchVolumeLabel: *mut u32, #[len_param(9)] #[out] #[opt] szDiskPrompt: PWSTR, #[in] #[out] #[opt] pcchDiskPrompt: *mut u32) -> u32;
+        extern fn MsiSourceListEnumMediaDisksW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwIndex: u32, #[out] #[opt] pdwDiskId: LPDWORD, #[len_param(7)] #[out] #[opt] szVolumeLabel: PWSTR, #[in] #[out] #[opt] pcchVolumeLabel: LPDWORD, #[len_param(9)] #[out] #[opt] szDiskPrompt: PWSTR, #[in] #[out] #[opt] pcchDiskPrompt: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListEnumSourcesA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwIndex: u32, #[len_param(6)] #[out] #[opt] szSource: PSTR, #[in] #[out] #[opt] pcchSource: *mut u32) -> u32;
+        extern fn MsiSourceListEnumSourcesA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwIndex: u32, #[len_param(6)] #[out] #[opt] szSource: PSTR, #[in] #[out] #[opt] pcchSource: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListEnumSourcesW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwIndex: u32, #[len_param(6)] #[out] #[opt] szSource: PWSTR, #[in] #[out] #[opt] pcchSource: *mut u32) -> u32;
+        extern fn MsiSourceListEnumSourcesW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, dwIndex: u32, #[len_param(6)] #[out] #[opt] szSource: PWSTR, #[in] #[out] #[opt] pcchSource: LPDWORD) -> u32;
         #[library("msi.dll")]
         extern fn MsiSourceListForceResolutionA(szProduct: PCSTR, #[opt] szUserName: PCSTR, #[reserved] dwReserved: u32) -> u32;
         #[library("msi.dll")]
@@ -521,9 +521,9 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiSourceListForceResolutionW(szProduct: PCWSTR, #[opt] szUserName: PCWSTR, #[reserved] dwReserved: u32) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListGetInfoA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, szProperty: PCSTR, #[len_param(6)] #[out] #[opt] szValue: PSTR, #[in] #[out] #[opt] pcchValue: *mut u32) -> u32;
+        extern fn MsiSourceListGetInfoA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, szProperty: PCSTR, #[len_param(6)] #[out] #[opt] szValue: PSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> u32;
         #[library("msi.dll")]
-        extern fn MsiSourceListGetInfoW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, szProperty: PCWSTR, #[len_param(6)] #[out] #[opt] szValue: PWSTR, #[in] #[out] #[opt] pcchValue: *mut u32) -> u32;
+        extern fn MsiSourceListGetInfoW(szProductCodeOrPatchCode: PCWSTR, #[opt] szUserSid: PCWSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, szProperty: PCWSTR, #[len_param(6)] #[out] #[opt] szValue: PWSTR, #[in] #[out] #[opt] pcchValue: LPDWORD) -> u32;
         #[library("msi.dll")]
         extern fn MsiSourceListSetInfoA(szProductCodeOrPatchCode: PCSTR, #[opt] szUserSid: PCSTR, dwContext: MSIINSTALLCONTEXT, dwOptions: u32, szProperty: PCSTR, szValue: PCSTR) -> u32;
         #[library("msi.dll")]
@@ -580,5 +580,6 @@ mod Windows {
             USERINFOSTATE_ABSENT = 0,
             USERINFOSTATE_PRESENT = 1,
         }
+        const _WIN32_MSI: i32 = 500;
     }
 }

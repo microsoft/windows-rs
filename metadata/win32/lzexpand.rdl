@@ -24,9 +24,9 @@ mod Windows {
         #[library("LZ32.dll")]
         extern fn LZInit(hfSource: i32) -> i32;
         #[library("LZ32.dll")]
-        extern fn LZOpenFileA(lpFileName: PCSTR, #[in] #[out] lpReOpenBuf: *mut OFSTRUCT, wStyle: u16) -> i32;
+        extern fn LZOpenFileA(lpFileName: PCSTR, #[in] #[out] lpReOpenBuf: LPOFSTRUCT, wStyle: u16) -> i32;
         #[library("LZ32.dll")]
-        extern fn LZOpenFileW(lpFileName: PCWSTR, #[in] #[out] lpReOpenBuf: *mut OFSTRUCT, wStyle: u16) -> i32;
+        extern fn LZOpenFileW(lpFileName: PCWSTR, #[in] #[out] lpReOpenBuf: LPOFSTRUCT, wStyle: u16) -> i32;
         #[library("LZ32.dll")]
         extern fn LZRead(hFile: i32, #[size_param(2)] lpBuffer: *mut i8, cbRead: i32) -> i32;
         #[library("LZ32.dll")]

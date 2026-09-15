@@ -2,6 +2,8 @@
 mod Windows {
     mod Win32 {
         #[encoding("ansi")]
+        const DEFAULT_TLS_SSP_NAME: String = "Default TLS SSP";
+        #[encoding("ansi")]
         const DEFAULT_TLS_SSP_NAME_A: String = "Default TLS SSP";
         #[encoding("utf-16")]
         const DEFAULT_TLS_SSP_NAME_W: String = "Default TLS SSP";
@@ -10,6 +12,8 @@ mod Windows {
         const LCRED_CRED_EXISTS: i32 = 1;
         const LCRED_STATUS_NOCRED: i32 = 0;
         const LCRED_STATUS_UNKNOWN_ISSUER: i32 = 2;
+        #[encoding("ansi")]
+        const PCT1SP_NAME: String = "Microsoft PCT 1.0";
         #[encoding("ansi")]
         const PCT1SP_NAME_A: String = "Microsoft PCT 1.0";
         #[encoding("utf-16")]
@@ -103,6 +107,8 @@ mod Windows {
             dwCredFormat: u32,
         }
         const SCHANNEL_CRED_VERSION: i32 = 4;
+        #[encoding("ansi")]
+        const SCHANNEL_NAME: String = "Schannel";
         #[encoding("ansi")]
         const SCHANNEL_NAME_A: String = "Schannel";
         #[encoding("utf-16")]
@@ -256,14 +262,18 @@ mod Windows {
         const SP_PROT_X_CLIENTS: u32 = 2148149930;
         const SP_PROT_X_SERVERS: i32 = 1074074965;
         #[encoding("ansi")]
+        const SSL2SP_NAME: String = "Microsoft SSL 2.0";
+        #[encoding("ansi")]
         const SSL2SP_NAME_A: String = "Microsoft SSL 2.0";
         #[encoding("utf-16")]
         const SSL2SP_NAME_W: String = "Microsoft SSL 2.0";
         #[encoding("ansi")]
+        const SSL3SP_NAME: String = "Microsoft SSL 3.0";
+        #[encoding("ansi")]
         const SSL3SP_NAME_A: String = "Microsoft SSL 3.0";
         #[encoding("utf-16")]
         const SSL3SP_NAME_W: String = "Microsoft SSL 3.0";
-        extern fn SSL_CRACK_CERTIFICATE_FN(pbCertificate: *mut u8, cbCertificate: u32, VerifySignature: BOOL, ppCertificate: *mut PX509Certificate) -> BOOL;
+        extern fn SSL_CRACK_CERTIFICATE_FN(pbCertificate: PUCHAR, cbCertificate: u32, VerifySignature: BOOL, ppCertificate: *mut PX509Certificate) -> BOOL;
         struct SSL_CREDENTIAL_CERTIFICATE {
             cbPrivateKey: u32,
             pPrivateKey: PBYTE,
@@ -273,7 +283,7 @@ mod Windows {
         }
         extern fn SSL_EMPTY_CACHE_FN_A(pszTargetName: PSTR, dwFlags: u32) -> BOOL;
         extern fn SSL_EMPTY_CACHE_FN_W(pszTargetName: PWSTR, dwFlags: u32) -> BOOL;
-        extern fn SSL_FREE_CERTIFICATE_FN(pCertificate: *mut X509Certificate);
+        extern fn SSL_FREE_CERTIFICATE_FN(pCertificate: PX509Certificate);
         const SSL_SESSION_DISABLE_RECONNECTS: i32 = 2;
         const SSL_SESSION_ENABLE_RECONNECTS: i32 = 1;
         const SSL_SESSION_RECONNECT: i32 = 1;
@@ -428,27 +438,29 @@ mod Windows {
         struct SecPkgContext_UiInfo {
             hParentWindow: HWND,
         }
-        #[library("SCHANNEL.dll")]
-        extern fn SslCrackCertificate(pbCertificate: *mut u8, cbCertificate: u32, dwFlags: u32, ppCertificate: *mut PX509Certificate) -> BOOL;
+        #[library("SCHANNEL.dll", import = "?SslCrackCertificate@@YAHPEAEKKPEAPEAU_X509Certificate@@@Z")]
+        extern fn SslCrackCertificate(pbCertificate: PUCHAR, cbCertificate: u32, dwFlags: u32, ppCertificate: *mut PX509Certificate) -> BOOL;
         #[library("SCHANNEL.dll")]
         extern fn SslDeserializeCertificateStore(SerializedCertificateStore: CERT_BLOB, ppCertContext: *mut PCCERT_CONTEXT) -> SECURITY_STATUS;
         extern fn SslDeserializeCertificateStoreFn(SerializedCertificateStore: CERT_BLOB, ppCertContext: *mut PCCERT_CONTEXT) -> SECURITY_STATUS;
-        #[library("SCHANNEL.dll")]
+        #[library("SCHANNEL.dll", import = "?SslEmptyCacheA@@YAHPEADK@Z")]
         extern fn SslEmptyCacheA(pszTargetName: PCSTR, dwFlags: u32) -> BOOL;
-        #[library("SCHANNEL.dll")]
+        #[library("SCHANNEL.dll", import = "?SslEmptyCacheW@@YAHPEA_WK@Z")]
         extern fn SslEmptyCacheW(pszTargetName: PCWSTR, dwFlags: u32) -> BOOL;
-        #[library("SCHANNEL.dll")]
-        extern fn SslFreeCertificate(pCertificate: *mut X509Certificate);
-        #[library("SCHANNEL.dll")]
-        extern fn SslGenerateRandomBits(pRandomData: *mut u8, cRandomData: i32);
+        #[library("SCHANNEL.dll", import = "?SslFreeCertificate@@YAXPEAU_X509Certificate@@@Z")]
+        extern fn SslFreeCertificate(pCertificate: PX509Certificate);
+        #[library("SCHANNEL.dll", import = "?SslGenerateRandomBits@@YAXPEAEJ@Z")]
+        extern fn SslGenerateRandomBits(pRandomData: PUCHAR, cRandomData: i32);
         #[library("SCHANNEL.dll")]
         extern fn SslGetExtensions(#[len_param(1)] clientHello: *const u8, clientHelloByteSize: u32, #[len_param(3)] #[in] #[out] genericExtensions: *mut SCH_EXTENSION_DATA, genericExtensionsCount: u8, bytesToRead: *mut u32, flags: SchGetExtensionsOptions) -> SECURITY_STATUS;
         extern fn SslGetExtensionsFn(#[len_param(1)] clientHello: *const u8, clientHelloByteSize: u32, #[len_param(3)] #[in] #[out] genericExtensions: *mut SCH_EXTENSION_DATA, genericExtensionsCount: u8, bytesToRead: *mut u32, flags: SchGetExtensionsOptions) -> SECURITY_STATUS;
-        #[library("SCHANNEL.dll")]
+        #[library("SCHANNEL.dll", import = "?SslGetMaximumKeySize@@YAKK@Z")]
         extern fn SslGetMaximumKeySize(Reserved: u32) -> u32;
         #[library("SCHANNEL.dll")]
-        extern fn SslGetServerIdentity(#[size_param(1)] ClientHello: *const u8, ClientHelloSize: u32, ServerIdentity: *mut PBYTE, ServerIdentitySize: *mut u32, Flags: u32) -> SECURITY_STATUS;
-        extern fn SslGetServerIdentityFn(#[size_param(1)] ClientHello: *const u8, ClientHelloSize: u32, ServerIdentity: *mut PBYTE, ServerIdentitySize: *mut u32, Flags: u32) -> SECURITY_STATUS;
+        extern fn SslGetServerIdentity(#[size_param(1)] ClientHello: PBYTE, ClientHelloSize: u32, ServerIdentity: *mut PBYTE, #[out] ServerIdentitySize: PDWORD, Flags: u32) -> SECURITY_STATUS;
+        extern fn SslGetServerIdentityFn(#[size_param(1)] ClientHello: PBYTE, ClientHelloSize: u32, ServerIdentity: *mut PBYTE, #[out] ServerIdentitySize: PDWORD, Flags: u32) -> SECURITY_STATUS;
+        #[encoding("ansi")]
+        const TLS1SP_NAME: String = "Microsoft TLS 1.0";
         #[encoding("ansi")]
         const TLS1SP_NAME_A: String = "Microsoft TLS 1.0";
         #[encoding("utf-16")]
@@ -485,6 +497,8 @@ mod Windows {
             ExtensionType: u16,
             HandshakeType: u16,
         }
+        #[encoding("ansi")]
+        const UNISP_NAME: String = "Microsoft Unified Security Protocol Provider";
         #[encoding("ansi")]
         const UNISP_NAME_A: String = "Microsoft Unified Security Protocol Provider";
         #[encoding("utf-16")]

@@ -26,11 +26,11 @@ mod Windows {
         const CRYPTPROTECT_UI_FORBIDDEN: i32 = 1;
         const CRYPTPROTECT_VERIFY_PROTECTION: i32 = 64;
         #[library("CRYPT32.dll")]
-        extern fn CryptProtectData(pDataIn: *const DATA_BLOB, #[opt] szDataDescr: PCWSTR, #[opt] pOptionalEntropy: *const DATA_BLOB, #[reserved] pvReserved: *const void, #[opt] pPromptStruct: *const CRYPTPROTECT_PROMPTSTRUCT, dwFlags: u32, pDataOut: *mut DATA_BLOB) -> BOOL;
+        extern fn CryptProtectData(#[in] pDataIn: *mut DATA_BLOB, #[opt] szDataDescr: PCWSTR, #[in] #[opt] pOptionalEntropy: *mut DATA_BLOB, #[reserved] pvReserved: *mut void, #[in] #[opt] pPromptStruct: *mut CRYPTPROTECT_PROMPTSTRUCT, dwFlags: u32, pDataOut: *mut DATA_BLOB) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptProtectMemory(#[in] #[out] pDataIn: *mut void, cbDataIn: u32, dwFlags: u32) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptUnprotectData(pDataIn: *const DATA_BLOB, ppszDataDescr: *mut PWSTR, #[opt] pOptionalEntropy: *const DATA_BLOB, #[reserved] pvReserved: *const void, #[opt] pPromptStruct: *const CRYPTPROTECT_PROMPTSTRUCT, dwFlags: u32, pDataOut: *mut DATA_BLOB) -> BOOL;
+        extern fn CryptUnprotectData(#[in] pDataIn: *mut DATA_BLOB, ppszDataDescr: *mut PWSTR, #[in] #[opt] pOptionalEntropy: *mut DATA_BLOB, #[reserved] pvReserved: *mut void, #[in] #[opt] pPromptStruct: *mut CRYPTPROTECT_PROMPTSTRUCT, dwFlags: u32, pDataOut: *mut DATA_BLOB) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptUnprotectMemory(#[in] #[out] pDataIn: *mut void, cbDataIn: u32, dwFlags: u32) -> BOOL;
         #[library("CRYPT32.dll")]

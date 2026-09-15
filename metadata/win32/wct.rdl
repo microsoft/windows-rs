@@ -4,13 +4,13 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn CloseThreadWaitChainSession(WctHandle: HWCT);
         #[library("ADVAPI32.dll")]
-        extern fn GetThreadWaitChain(WctHandle: HWCT, #[opt] Context: usize, Flags: u32, ThreadId: u32, #[in] #[out] NodeCount: *mut u32, #[len_param(4)] NodeInfoArray: *mut WAITCHAIN_NODE_INFO, IsCycle: *mut BOOL) -> BOOL;
+        extern fn GetThreadWaitChain(WctHandle: HWCT, #[opt] Context: usize, Flags: u32, ThreadId: u32, #[in] #[out] NodeCount: LPDWORD, #[len_param(4)] #[out] NodeInfoArray: PWAITCHAIN_NODE_INFO, #[out] IsCycle: LPBOOL) -> BOOL;
         type HWCT = *mut void;
         #[library("ADVAPI32.dll")]
         extern fn OpenThreadWaitChainSession(Flags: u32, #[opt] callback: PWAITCHAINCALLBACK) -> HWCT;
-        extern fn PCOGETACTIVATIONSTATE(param0: GUID, param1: u32, param2: *mut u32) -> HRESULT;
-        extern fn PCOGETCALLSTATE(param0: i32, param1: *mut u32) -> HRESULT;
-        extern fn PWAITCHAINCALLBACK(WctHandle: HWCT, Context: usize, CallbackStatus: u32, NodeCount: *mut u32, NodeInfoArray: *mut WAITCHAIN_NODE_INFO, IsCycle: *mut BOOL);
+        extern "C" fn PCOGETACTIVATIONSTATE(param0: GUID, param1: u32, param2: *mut u32) -> HRESULT;
+        extern "C" fn PCOGETCALLSTATE(param0: i32, param1: PULONG) -> HRESULT;
+        extern fn PWAITCHAINCALLBACK(WctHandle: HWCT, Context: usize, CallbackStatus: u32, NodeCount: LPDWORD, NodeInfoArray: PWAITCHAIN_NODE_INFO, IsCycle: LPBOOL);
         type PWAITCHAIN_NODE_INFO = *mut WAITCHAIN_NODE_INFO;
         #[library("ADVAPI32.dll")]
         extern fn RegisterWaitChainCOMCallback(CallStateCallback: PCOGETCALLSTATE, ActivationStateCallback: PCOGETACTIVATIONSTATE);
@@ -20,7 +20,7 @@ mod Windows {
             Anonymous: union {
                 LockObject: struct {
                     ObjectName: [u16; 128],
-                    Timeout: i64,
+                    Timeout: LARGE_INTEGER,
                     Alertable: BOOL,
                 },
                 ThreadObject: struct {

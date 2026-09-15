@@ -9,11 +9,11 @@ mod Windows {
         #[library("slcext.dll")]
         extern fn SLAcquireGenuineTicket(ppTicketBlob: *mut *mut void, pcbTicketBlob: *mut u32, pwszTemplateId: PCWSTR, pwszServerUrl: PCWSTR, #[opt] pwszClientToken: PCWSTR) -> HRESULT;
         #[library("slcext.dll")]
-        extern fn SLActivateProduct(hSLC: HSLC, pProductSkuId: *const SLID, #[opt] cbAppSpecificData: u32, #[opt] pvAppSpecificData: *const void, #[opt] pActivationInfo: *const SL_ACTIVATION_INFO_HEADER, #[opt] pwszProxyServer: PCWSTR, #[opt] wProxyPort: u16) -> HRESULT;
+        extern fn SLActivateProduct(hSLC: HSLC, pProductSkuId: *const SLID, #[opt] cbAppSpecificData: u32, #[in] #[opt] pvAppSpecificData: *mut void, #[opt] pActivationInfo: *const SL_ACTIVATION_INFO_HEADER, #[opt] pwszProxyServer: PCWSTR, #[opt] wProxyPort: u16) -> HRESULT;
         #[library("SLC.dll")]
         extern fn SLClose(hSLC: HSLC) -> HRESULT;
         #[library("SLC.dll")]
-        extern fn SLConsumeRight(hSLC: HSLC, pAppId: *const SLID, #[opt] pProductSkuId: *const SLID, #[opt] pwszRightName: PCWSTR, #[reserved] pvReserved: *const void) -> HRESULT;
+        extern fn SLConsumeRight(hSLC: HSLC, pAppId: *const SLID, #[opt] pProductSkuId: *const SLID, #[opt] pwszRightName: PCWSTR, #[reserved] pvReserved: *mut void) -> HRESULT;
         #[repr(i32)]
         enum SLDATATYPE {
             SL_DATA_NONE = 0,
@@ -85,7 +85,7 @@ mod Windows {
         #[library("SLC.dll")]
         extern fn SLInstallLicense(hSLC: HSLC, cbLicenseBlob: u32, #[size_param(1)] pbLicenseBlob: *const u8, pLicenseFileId: *mut SLID) -> HRESULT;
         #[library("SLC.dll")]
-        extern fn SLInstallProofOfPurchase(hSLC: HSLC, pwszPKeyAlgorithm: PCWSTR, pwszPKeyString: PCWSTR, cbPKeySpecificData: u32, #[size_param(3)] #[opt] pbPKeySpecificData: *const u8, pPkeyId: *mut SLID) -> HRESULT;
+        extern fn SLInstallProofOfPurchase(hSLC: HSLC, pwszPKeyAlgorithm: PCWSTR, pwszPKeyString: PCWSTR, cbPKeySpecificData: u32, #[size_param(3)] #[opt] pbPKeySpecificData: PBYTE, pPkeyId: *mut SLID) -> HRESULT;
         #[library("SLWGA.dll")]
         extern fn SLIsGenuineLocal(pAppId: *const SLID, pGenuineState: *mut SL_GENUINE_STATE, #[in] #[out] #[opt] pUIOptions: *mut SL_NONGENUINE_UI_OPTIONS) -> HRESULT;
         #[repr(i32)]

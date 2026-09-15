@@ -8,13 +8,13 @@ mod Windows {
             Value: i32,
         }
         struct CapturedMetadataISOGains {
-            AnalogGain: f32,
-            DigitalGain: f32,
+            AnalogGain: FLOAT,
+            DigitalGain: FLOAT,
         }
         struct CapturedMetadataWhiteBalanceGains {
-            R: f32,
-            G: f32,
-            B: f32,
+            R: FLOAT,
+            G: FLOAT,
+            B: FLOAT,
         }
         struct DIRTYRECT_INFO {
             FrameNumber: u32,
@@ -82,7 +82,6 @@ mod Windows {
             maxValue: i16,
             steps: u16,
         }
-        const LOCAL_D3DFMT_DEFINES: i32 = 1;
         struct MACROBLOCK_DATA {
             flags: u32,
             motionVectorX: i16,
@@ -167,11 +166,11 @@ mod Windows {
             CalibratedTransforms: [MFCameraExtrinsic_CalibratedTransform; 1],
         }
         struct MFCameraIntrinsic_DistortionModel {
-            Radial_k1: f32,
-            Radial_k2: f32,
-            Radial_k3: f32,
-            Tangential_p1: f32,
-            Tangential_p2: f32,
+            Radial_k1: FLOAT,
+            Radial_k2: FLOAT,
+            Radial_k3: FLOAT,
+            Tangential_p1: FLOAT,
+            Tangential_p2: FLOAT,
         }
         struct MFCameraIntrinsic_PinholeCameraModel {
             FocalLength: MF_FLOAT2,
@@ -234,11 +233,11 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFCreateMediaEvent(met: MediaEventType, guidExtendedType: *const GUID, hrStatus: HRESULT, #[opt] pvValue: *const PROPVARIANT, ppEvent: *mut IMFMediaEvent) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMediaExtensionActivate(szActivatableClassId: PCWSTR, #[opt] pConfiguration: IUnknown, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        extern fn MFCreateMediaExtensionActivate(szActivatableClassId: PCWSTR, #[opt] pConfiguration: IUnknown, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateMediaType(ppMFType: *mut IMFMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMediaTypeFromRepresentation(guidRepresentation: GUID, pvRepresentation: *const void, ppIMediaType: *mut IMFMediaType) -> HRESULT;
+        extern fn MFCreateMediaTypeFromRepresentation(guidRepresentation: GUID, #[in] pvRepresentation: *mut void, ppIMediaType: *mut IMFMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateMemoryBuffer(cbMaxLength: u32, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -260,7 +259,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFCreateVideoMediaTypeFromSubtype(pAMSubtype: *const GUID, ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateVideoSampleAllocatorEx(riid: *const GUID, #[iid_is] ppSampleAllocator: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoSampleAllocatorEx(riid: *const GUID, ppSampleAllocator: *mut *mut void) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateWICBitmapBuffer(riid: *const GUID, punkSurface: IUnknown, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -302,7 +301,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFGetDXGIDeviceManageMode(pDeviceManager: IUnknown, mode: *mut MF_DXGI_DEVICE_MANAGER_MODE) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetMFTMerit(pMFT: IUnknown, cbVerifier: u32, #[size_param(1)] verifier: *const u8, merit: *mut u32) -> HRESULT;
+        extern fn MFGetMFTMerit(#[in] #[out] pMFT: IUnknown, cbVerifier: u32, #[size_param(1)] verifier: *const u8, merit: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFGetPlaneSize(format: u32, dwWidth: u32, dwHeight: u32, pdwPlaneSize: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -318,9 +317,9 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFGetWorkQueueMMCSSPriority(dwWorkQueueId: u32, lPriority: *mut i32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFGetWorkQueueMMCSSTaskId(dwWorkQueueId: u32, pdwTaskId: *mut u32) -> HRESULT;
+        extern fn MFGetWorkQueueMMCSSTaskId(dwWorkQueueId: u32, #[out] pdwTaskId: LPDWORD) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFHeapAlloc(nSize: usize, dwFlags: u32, #[opt] pszFile: *const i8, line: i32, eat: EAllocationType) -> *mut void;
+        extern fn MFHeapAlloc(nSize: usize, dwFlags: u32, #[in] #[opt] pszFile: *mut i8, line: i32, eat: EAllocationType) -> *mut void;
         #[library("MFPlat.DLL")]
         extern fn MFHeapFree(pv: *mut void);
         const MFImageFormat_JPEG: GUID = 0x19e4a5aa_5662_4fc5_a0c0_1758028e1057;
@@ -344,9 +343,9 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFInitMediaTypeFromWaveFormatEx(pMFType: IMFMediaType, #[size_param(2)] pWaveFormat: *const WAVEFORMATEX, cbBufSize: u32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitVideoFormat(pVideoFormat: *const MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> HRESULT;
+        extern fn MFInitVideoFormat(#[in] pVideoFormat: *mut MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitVideoFormat_RGB(pVideoFormat: *const MFVIDEOFORMAT, dwWidth: u32, dwHeight: u32, D3Dfmt: u32) -> HRESULT;
+        extern fn MFInitVideoFormat_RGB(#[in] pVideoFormat: *mut MFVIDEOFORMAT, dwWidth: u32, dwHeight: u32, D3Dfmt: u32) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFInvokeCallback(pAsyncResult: IMFAsyncResult) -> HRESULT;
         #[library("EVR.dll")]
@@ -379,7 +378,7 @@ mod Windows {
         const MFMediaType_Stream: GUID = 0xe436eb83_524f_11ce_9f53_0020af0ba770;
         const MFMediaType_Subtitle: GUID = 0xa6d13581_ed50_4e65_ae08_26065576aacc;
         const MFMediaType_Video: GUID = 0x73646976_0000_0010_8000_00aa00389b71;
-        extern fn MFPERIODICCALLBACK(pContext: IUnknown);
+        extern "C" fn MFPERIODICCALLBACK(pContext: IUnknown);
         struct MFPinholeCameraIntrinsic_IntrinsicModel {
             Width: u32,
             Height: u32,
@@ -424,9 +423,9 @@ mod Windows {
             MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_AES_CBC = 2,
         }
         struct MFSampleExtensionPsnrYuv {
-            psnrY: f32,
-            psnrU: f32,
-            psnrV: f32,
+            psnrY: FLOAT,
+            psnrU: FLOAT,
+            psnrV: FLOAT,
         }
         const MFSampleExtension_3DVideo: GUID = 0xf86f97a4_dd54_4e2e_9a5e_55fc2d74a005;
         const MFSampleExtension_3DVideo_SampleFormat: GUID = 0x08671772_e36f_4cff_97b3_d72e20987a48;
@@ -528,7 +527,7 @@ mod Windows {
         const MFSubtitleFormat_WebVTT: GUID = 0xc886d215_f485_40bb_8db6_fadbc619a45d;
         const MFSubtitleFormat_XML: GUID = 0x2006f94f_29ca_4195_b8db_00ded8ff0c97;
         #[library("MFPlat.DLL")]
-        extern fn MFTEnum(guidCategory: GUID, Flags: u32, #[opt] pInputType: *const MFT_REGISTER_TYPE_INFO, #[opt] pOutputType: *const MFT_REGISTER_TYPE_INFO, #[opt] pAttributes: IMFAttributes, ppclsidMFT: *mut *mut GUID, pcMFTs: *mut u32) -> HRESULT;
+        extern fn MFTEnum(guidCategory: GUID, Flags: u32, #[in] #[opt] pInputType: *mut MFT_REGISTER_TYPE_INFO, #[in] #[opt] pOutputType: *mut MFT_REGISTER_TYPE_INFO, #[opt] pAttributes: IMFAttributes, ppclsidMFT: *mut *mut GUID, pcMFTs: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFTEnum2(guidCategory: GUID, Flags: u32, #[opt] pInputType: *const MFT_REGISTER_TYPE_INFO, #[opt] pOutputType: *const MFT_REGISTER_TYPE_INFO, #[opt] pAttributes: IMFAttributes, pppMFTActivate: *mut *mut IMFActivate, pnumMFTActivate: *mut u32) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -536,7 +535,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFTGetInfo(clsidMFT: GUID, #[opt] pszName: *mut PWSTR, ppInputTypes: *mut *mut MFT_REGISTER_TYPE_INFO, #[opt] pcInputTypes: *mut u32, ppOutputTypes: *mut *mut MFT_REGISTER_TYPE_INFO, #[opt] pcOutputTypes: *mut u32, ppAttributes: *mut IMFAttributes) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFTRegister(clsidMFT: GUID, guidCategory: GUID, pszName: PCWSTR, Flags: u32, cInputTypes: u32, #[len_param(4)] #[opt] pInputTypes: *const MFT_REGISTER_TYPE_INFO, cOutputTypes: u32, #[len_param(6)] #[opt] pOutputTypes: *const MFT_REGISTER_TYPE_INFO, #[opt] pAttributes: IMFAttributes) -> HRESULT;
+        extern fn MFTRegister(clsidMFT: GUID, guidCategory: GUID, pszName: PCWSTR, Flags: u32, cInputTypes: u32, #[len_param(4)] #[in] #[opt] pInputTypes: *mut MFT_REGISTER_TYPE_INFO, cOutputTypes: u32, #[len_param(6)] #[in] #[opt] pOutputTypes: *mut MFT_REGISTER_TYPE_INFO, #[opt] pAttributes: IMFAttributes) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFTRegisterLocal(pClassFactory: IClassFactory, guidCategory: *const GUID, pszName: PCWSTR, Flags: u32, cInputTypes: u32, #[len_param(4)] #[opt] pInputTypes: *const MFT_REGISTER_TYPE_INFO, cOutputTypes: u32, #[len_param(6)] #[opt] pOutputTypes: *const MFT_REGISTER_TYPE_INFO) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -575,7 +574,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFUnwrapMediaType(pWrap: IMFMediaType, ppOrig: *mut IMFMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFValidateMediaTypeSize(FormatType: GUID, #[size_param(2)] #[opt] pBlock: *const u8, cbSize: u32) -> HRESULT;
+        extern fn MFValidateMediaTypeSize(FormatType: GUID, #[size_param(2)] #[in] #[opt] pBlock: *mut u8, cbSize: u32) -> HRESULT;
         #[repr(i32)]
         enum MFVideo3DFormat {
             MFVideo3DSampleFormat_BaseView = 0,
@@ -705,13 +704,13 @@ mod Windows {
         const MF_E_DXGI_NEW_VIDEO_DEVICE: HRESULT = -2147217407;
         const MF_E_DXGI_VIDEO_DEVICE_LOCKED: HRESULT = -2147217406;
         struct MF_FLOAT2 {
-            x: f32,
-            y: f32,
+            x: FLOAT,
+            y: FLOAT,
         }
         struct MF_FLOAT3 {
-            x: f32,
-            y: f32,
-            z: f32,
+            x: FLOAT,
+            y: FLOAT,
+            z: FLOAT,
         }
         const MF_HISTOGRAM_CHANNEL_B: i32 = 8;
         const MF_HISTOGRAM_CHANNEL_Cb: i32 = 16;
@@ -850,10 +849,10 @@ mod Windows {
         const MF_MT_WRAPPED_TYPE: GUID = 0x4d3f7b23_d02f_4e6c_9bee_e4bf2c6c695d;
         const MF_MT_YUV_MATRIX: GUID = 0x3e23d450_2c75_4d25_a00e_b91670d12327;
         struct MF_QUATERNION {
-            x: f32,
-            y: f32,
-            z: f32,
-            w: f32,
+            x: FLOAT,
+            y: FLOAT,
+            z: FLOAT,
+            w: FLOAT,
         }
         const MF_SDK_VERSION: i32 = 2;
         const MF_SD_AMBISONICS_SAMPLE3D_DESCRIPTION: GUID = 0xf715cf3e_a964_4c3f_94ae_9d6ba7264641;
@@ -880,7 +879,7 @@ mod Windows {
             SourcePoint: POINT,
             DestRect: RECT,
         }
-        struct MPEG2VIDEOINFO {}
+        type MPEG2VIDEOINFO = tagMPEG2VIDEOINFO;
         struct MT_ARBITRARY_HEADER {
             majortype: GUID,
             subtype: GUID,
@@ -909,7 +908,7 @@ mod Windows {
             rect: RECT,
             QPDelta: i32,
         }
-        struct VIDEOINFOHEADER2 {}
+        type VIDEOINFOHEADER2 = tagVIDEOINFOHEADER2;
         #[repr(i32)]
         enum _MFT_ENUM_FLAG {
             MFT_ENUM_FLAG_SYNCMFT = 1,
@@ -934,5 +933,7 @@ mod Windows {
             CODEC_API_QP_MAP_UINT16 = -2147483647,
             CODEC_API_QP_MAP_UINT32 = -2147483646,
         }
+        struct tagMPEG2VIDEOINFO {}
+        struct tagVIDEOINFOHEADER2 {}
     }
 }

@@ -170,10 +170,10 @@ mod Windows {
             ulEncodedAssemblyIdentityLength: u32,
             ulManifestPathType: u32,
             ulManifestPathLength: u32,
-            liManifestLastWriteTime: i64,
+            liManifestLastWriteTime: LARGE_INTEGER,
             ulPolicyPathType: u32,
             ulPolicyPathLength: u32,
-            liPolicyLastWriteTime: i64,
+            liPolicyLastWriteTime: LARGE_INTEGER,
             ulMetadataSatelliteRosterIndex: u32,
             ulManifestVersionMajor: u32,
             ulManifestVersionMinor: u32,
@@ -292,7 +292,7 @@ mod Windows {
         const ANYSIZE_ARRAY: i32 = 1;
         extern fn APC_CALLBACK_FUNCTION(param0: u32, param1: *mut void, param2: *mut void);
         struct APPLICATIONLAUNCH_SETTING_VALUE {
-            ActivationTime: i64,
+            ActivationTime: LARGE_INTEGER,
             Flags: u32,
             ButtonInstanceID: u32,
         }
@@ -553,23 +553,7 @@ mod Windows {
         const ARM64_PREFETCH_PST: i32 = 16;
         #[arch(Arm64)]
         const ARM64_PREFETCH_STRM: i32 = 1;
-        struct ARM64_RUNTIME_FUNCTION {
-            BeginAddress: u32,
-            Anonymous: union {
-                UnwindData: u32,
-                Anonymous: struct {
-                    _bitfield: u32 {
-                        Flag: 2,
-                        FunctionLength: 11,
-                        RegF: 3,
-                        RegI: 4,
-                        H: 1,
-                        CR: 2,
-                        FrameSize: 9,
-                    },
-                },
-            },
-        }
+        type ARM64_RUNTIME_FUNCTION = IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
         #[arch(Arm64)]
         const ARM64_SVCR: i32 = 23058;
         #[arch(Arm64)]
@@ -617,6 +601,7 @@ mod Windows {
             Granularity: u32,
             Capacity: u32,
         }
+        type BOOLEAN = u8;
         struct CACHE_DESCRIPTOR {
             Level: u8,
             Associativity: u8,
@@ -978,7 +963,7 @@ mod Windows {
         }
         const DACL_SECURITY_INFORMATION: i32 = 4;
         const DEDICATED_MEMORY_CACHE_ELIGIBLE: i32 = 1;
-        const DEFAULT_IMPERSONATION_LEVEL: i32 = 2;
+        const DEFAULT_IMPERSONATION_LEVEL: SECURITY_IMPERSONATION_LEVEL = 2;
         const DELETE: i32 = 65536;
         const DEVICEFAMILYDEVICEFORM_ALLINONE: i32 = 7;
         const DEVICEFAMILYDEVICEFORM_BANKING: i32 = 14;
@@ -1097,7 +1082,7 @@ mod Windows {
             HandlerData: *mut void,
             HistoryTable: *mut UNWIND_HISTORY_TABLE,
             ScopeIndex: u32,
-            ControlPcIsUnwound: bool,
+            ControlPcIsUnwound: BOOLEAN,
             NonVolatileRegisters: PBYTE,
         }
         #[arch(X86)]
@@ -1112,7 +1097,7 @@ mod Windows {
             HandlerData: *mut void,
             HistoryTable: *mut _UNWIND_HISTORY_TABLE,
             ScopeIndex: u32,
-            ControlPcIsUnwound: bool,
+            ControlPcIsUnwound: BOOLEAN,
             NonVolatileRegisters: PBYTE,
         }
         union DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
@@ -1305,7 +1290,7 @@ mod Windows {
         }
         const ENCLAVE_LONG_ID_LENGTH: i32 = 32;
         const ENCLAVE_SHORT_ID_LENGTH: i32 = 16;
-        extern fn ENCLAVE_TARGET_FUNCTION(param0: *mut void) -> *mut void;
+        extern "C" fn ENCLAVE_TARGET_FUNCTION(param0: *mut void) -> *mut void;
         const ENCLAVE_TYPE_SGX: i32 = 1;
         const ENCLAVE_TYPE_SGX2: i32 = 2;
         const ENCLAVE_TYPE_VBS: i32 = 16;
@@ -1433,9 +1418,9 @@ mod Windows {
             Handler: PEXCEPTION_ROUTINE,
         }
         #[arch(Arm64)]
-        extern fn EXCEPTION_ROUTINE(#[in] #[out] ExceptionRecord: *mut EXCEPTION_RECORD, EstablisherFrame: *const void, #[in] #[out] ContextRecord: *mut ARM64_NT_CONTEXT, DispatcherContext: *const void) -> EXCEPTION_DISPOSITION;
+        extern fn EXCEPTION_ROUTINE(#[in] #[out] ExceptionRecord: *mut EXCEPTION_RECORD, #[in] EstablisherFrame: *mut void, #[in] #[out] ContextRecord: *mut ARM64_NT_CONTEXT, #[in] DispatcherContext: *mut void) -> EXCEPTION_DISPOSITION;
         #[arch(X86 | X64)]
-        extern fn EXCEPTION_ROUTINE(#[in] #[out] ExceptionRecord: *mut EXCEPTION_RECORD, EstablisherFrame: *const void, #[in] #[out] ContextRecord: *mut CONTEXT, DispatcherContext: *const void) -> EXCEPTION_DISPOSITION;
+        extern fn EXCEPTION_ROUTINE(#[in] #[out] ExceptionRecord: *mut EXCEPTION_RECORD, #[in] EstablisherFrame: *mut void, #[in] #[out] ContextRecord: *mut CONTEXT, #[in] DispatcherContext: *mut void) -> EXCEPTION_DISPOSITION;
         const EXCEPTION_SOFTWARE_ORIGINATE: i32 = 128;
         const EXCEPTION_STACK_INVALID: i32 = 8;
         const EXCEPTION_TARGET_UNWIND: i32 = 32;
@@ -1590,38 +1575,38 @@ mod Windows {
         struct FILE_NOTIFY_EXTENDED_INFORMATION {
             NextEntryOffset: u32,
             Action: u32,
-            CreationTime: i64,
-            LastModificationTime: i64,
-            LastChangeTime: i64,
-            LastAccessTime: i64,
-            AllocatedLength: i64,
-            FileSize: i64,
+            CreationTime: LARGE_INTEGER,
+            LastModificationTime: LARGE_INTEGER,
+            LastChangeTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            AllocatedLength: LARGE_INTEGER,
+            FileSize: LARGE_INTEGER,
             FileAttributes: u32,
             Anonymous: union {
                 ReparsePointTag: u32,
                 EaSize: u32,
             },
-            FileId: i64,
-            ParentFileId: i64,
+            FileId: LARGE_INTEGER,
+            ParentFileId: LARGE_INTEGER,
             FileNameLength: u32,
             FileName: [u16; 1],
         }
         struct FILE_NOTIFY_FULL_INFORMATION {
             NextEntryOffset: u32,
             Action: u32,
-            CreationTime: i64,
-            LastModificationTime: i64,
-            LastChangeTime: i64,
-            LastAccessTime: i64,
-            AllocatedLength: i64,
-            FileSize: i64,
+            CreationTime: LARGE_INTEGER,
+            LastModificationTime: LARGE_INTEGER,
+            LastChangeTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            AllocatedLength: LARGE_INTEGER,
+            FileSize: LARGE_INTEGER,
             FileAttributes: u32,
             Anonymous: union {
                 ReparsePointTag: u32,
                 EaSize: u32,
             },
-            FileId: i64,
-            ParentFileId: i64,
+            FileId: LARGE_INTEGER,
+            ParentFileId: LARGE_INTEGER,
             FileNameLength: u16,
             FileNameFlags: u8,
             Reserved: u8,
@@ -1648,43 +1633,43 @@ mod Windows {
         const FILE_SHARE_READ: i32 = 1;
         const FILE_SHARE_WRITE: i32 = 2;
         struct FILE_STAT_BASIC_INFORMATION {
-            FileId: i64,
-            CreationTime: i64,
-            LastAccessTime: i64,
-            LastWriteTime: i64,
-            ChangeTime: i64,
-            AllocationSize: i64,
-            EndOfFile: i64,
+            FileId: LARGE_INTEGER,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
             FileAttributes: u32,
             ReparseTag: u32,
             NumberOfLinks: u32,
             DeviceType: u32,
             DeviceCharacteristics: u32,
             Reserved: u32,
-            VolumeSerialNumber: i64,
+            VolumeSerialNumber: LARGE_INTEGER,
             FileId128: FILE_ID_128,
         }
         struct FILE_STAT_INFORMATION {
-            FileId: i64,
-            CreationTime: i64,
-            LastAccessTime: i64,
-            LastWriteTime: i64,
-            ChangeTime: i64,
-            AllocationSize: i64,
-            EndOfFile: i64,
+            FileId: LARGE_INTEGER,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
             FileAttributes: u32,
             ReparseTag: u32,
             NumberOfLinks: u32,
             EffectiveAccess: ACCESS_MASK,
         }
         struct FILE_STAT_LX_INFORMATION {
-            FileId: i64,
-            CreationTime: i64,
-            LastAccessTime: i64,
-            LastWriteTime: i64,
-            ChangeTime: i64,
-            AllocationSize: i64,
-            EndOfFile: i64,
+            FileId: LARGE_INTEGER,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
             FileAttributes: u32,
             ReparseTag: u32,
             NumberOfLinks: u32,
@@ -1754,7 +1739,10 @@ mod Windows {
         const FLUSH_FLAGS_FILE_DATA_SYNC_ONLY: i32 = 4;
         const FLUSH_FLAGS_FLUSH_AND_PURGE: i32 = 8;
         const FLUSH_FLAGS_NO_SYNC: i32 = 2;
-        const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = -1i32;
+        #[arch(X64 | Arm64)]
+        const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = 18446744073709551615;
+        #[arch(X86)]
+        const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = 4294967295;
         const FLUSH_NV_MEMORY_IN_FLAG_NO_DRAIN: i32 = 1;
         const FOREST_USER_RID_MAX: i32 = 499;
         struct FPO_DATA {
@@ -1787,9 +1775,9 @@ mod Windows {
         const GENERIC_READ: u32 = 2147483648;
         const GENERIC_WRITE: i32 = 1073741824;
         #[arch(Arm64)]
-        extern fn GET_RUNTIME_FUNCTION_CALLBACK(ControlPc: u64, #[opt] Context: *const void) -> PARM64_RUNTIME_FUNCTION;
+        extern "C" fn GET_RUNTIME_FUNCTION_CALLBACK(ControlPc: u64, #[in] #[opt] Context: *mut void) -> PARM64_RUNTIME_FUNCTION;
         #[arch(X64)]
-        extern fn GET_RUNTIME_FUNCTION_CALLBACK(ControlPc: u64, #[opt] Context: *const void) -> PRUNTIME_FUNCTION;
+        extern "C" fn GET_RUNTIME_FUNCTION_CALLBACK(ControlPc: u64, #[in] #[opt] Context: *mut void) -> PRUNTIME_FUNCTION;
         struct GROUP_AFFINITY {
             Mask: KAFFINITY,
             Group: u16,
@@ -2144,6 +2132,9 @@ mod Windows {
             HandlerData: u32,
             PrologEndAddress: u32,
         }
+        #[arch(X64)]
+        type IMAGE_AMD64_RUNTIME_FUNCTION_ENTRY = RUNTIME_FUNCTION;
+        #[arch(X86 | Arm64)]
         type IMAGE_AMD64_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
         struct IMAGE_ARCHITECTURE_ENTRY {
             FixupInstRVA: u32,
@@ -2179,7 +2170,23 @@ mod Windows {
         #[encoding("ansi")]
         const IMAGE_ARCHIVE_START: String = "!<arch>\n";
         const IMAGE_ARCHIVE_START_SIZE: i32 = 8;
-        type IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY = ARM64_RUNTIME_FUNCTION;
+        struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
+            BeginAddress: u32,
+            Anonymous: union {
+                UnwindData: u32,
+                Anonymous: struct {
+                    _bitfield: u32 {
+                        Flag: 2,
+                        FunctionLength: 11,
+                        RegF: 3,
+                        RegI: 4,
+                        H: 1,
+                        CR: 2,
+                        FrameSize: 9,
+                    },
+                },
+            },
+        }
         union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
             HeaderData: u32,
             Anonymous: struct {
@@ -2396,7 +2403,7 @@ mod Windows {
         struct IMAGE_DEBUG_MISC {
             DataType: u32,
             Length: u32,
-            Unicode: bool,
+            Unicode: BOOLEAN,
             Reserved: [u8; 3],
             Data: [u8; 1],
         }
@@ -2860,6 +2867,9 @@ mod Windows {
         const IMAGE_HOT_PATCH_NONE: i32 = 0;
         const IMAGE_HOT_PATCH_NO_CALL_TARGET: i32 = 409600;
         const IMAGE_HOT_PATCH_REL32: i32 = 245760;
+        #[arch(X64)]
+        type IMAGE_IA64_RUNTIME_FUNCTION_ENTRY = RUNTIME_FUNCTION;
+        #[arch(X86 | Arm64)]
         type IMAGE_IA64_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
         struct IMAGE_IMPORT_BY_NAME {
             Hint: u16,
@@ -3167,7 +3177,7 @@ mod Windows {
             PolicyId: IMAGE_POLICY_ID,
             u: union {
                 None: *const void,
-                BoolValue: bool,
+                BoolValue: BOOLEAN,
                 Int8Value: i8,
                 UInt8Value: u8,
                 Int16Value: i16,
@@ -3563,7 +3573,9 @@ mod Windows {
         }
         #[arch(Arm64)]
         type IMAGE_RUNTIME_FUNCTION_ENTRY = IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
-        #[arch(X86 | X64)]
+        #[arch(X64)]
+        type IMAGE_RUNTIME_FUNCTION_ENTRY = RUNTIME_FUNCTION;
+        #[arch(X86)]
         type IMAGE_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
         const IMAGE_SCN_ALIGN_1024BYTES: i32 = 11534336;
         const IMAGE_SCN_ALIGN_128BYTES: i32 = 8388608;
@@ -4049,10 +4061,10 @@ mod Windows {
             CompletionPort: HANDLE,
         }
         struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
-            TotalUserTime: i64,
-            TotalKernelTime: i64,
-            ThisPeriodTotalUserTime: i64,
-            ThisPeriodTotalKernelTime: i64,
+            TotalUserTime: LARGE_INTEGER,
+            TotalKernelTime: LARGE_INTEGER,
+            ThisPeriodTotalUserTime: LARGE_INTEGER,
+            ThisPeriodTotalKernelTime: LARGE_INTEGER,
             TotalPageFaultCount: u32,
             TotalProcesses: u32,
             ActiveProcesses: u32,
@@ -4063,8 +4075,8 @@ mod Windows {
             IoInfo: IO_COUNTERS,
         }
         struct JOBOBJECT_BASIC_LIMIT_INFORMATION {
-            PerProcessUserTimeLimit: i64,
-            PerJobUserTimeLimit: i64,
+            PerProcessUserTimeLimit: LARGE_INTEGER,
+            PerJobUserTimeLimit: LARGE_INTEGER,
             LimitFlags: u32,
             MinimumWorkingSetSize: usize,
             MaximumWorkingSetSize: usize,
@@ -4176,8 +4188,8 @@ mod Windows {
             IoReadBytesLimit: u64,
             IoWriteBytes: u64,
             IoWriteBytesLimit: u64,
-            PerJobUserTime: i64,
-            PerJobUserTimeLimit: i64,
+            PerJobUserTime: LARGE_INTEGER,
+            PerJobUserTimeLimit: LARGE_INTEGER,
             JobMemory: u64,
             JobMemoryLimit: u64,
             RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
@@ -4190,8 +4202,8 @@ mod Windows {
             IoReadBytesLimit: u64,
             IoWriteBytes: u64,
             IoWriteBytesLimit: u64,
-            PerJobUserTime: i64,
-            PerJobUserTimeLimit: i64,
+            PerJobUserTime: LARGE_INTEGER,
+            PerJobUserTimeLimit: LARGE_INTEGER,
             JobMemory: u64,
             Anonymous: union {
                 JobHighMemoryLimit: u64,
@@ -4223,7 +4235,7 @@ mod Windows {
         struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
             IoReadBytesLimit: u64,
             IoWriteBytesLimit: u64,
-            PerJobUserTimeLimit: i64,
+            PerJobUserTimeLimit: LARGE_INTEGER,
             JobMemoryLimit: u64,
             RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
             RateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
@@ -4232,7 +4244,7 @@ mod Windows {
         struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
             IoReadBytesLimit: u64,
             IoWriteBytesLimit: u64,
-            PerJobUserTimeLimit: i64,
+            PerJobUserTimeLimit: LARGE_INTEGER,
             Anonymous: union {
                 JobHighMemoryLimit: u64,
                 JobMemoryLimit: u64,
@@ -4630,6 +4642,17 @@ mod Windows {
         const LANG_YI: i32 = 120;
         const LANG_YORUBA: i32 = 106;
         const LANG_ZULU: i32 = 53;
+        union LARGE_INTEGER {
+            Anonymous: struct {
+                LowPart: u32,
+                HighPart: i32,
+            },
+            u: struct {
+                LowPart: u32,
+                HighPart: i32,
+            },
+            QuadPart: i64,
+        }
         #[repr(i32)]
         enum LATENCY_TIME {
             LT_DONT_CARE = 0,
@@ -4783,6 +4806,10 @@ mod Windows {
         const MAXWORD: i32 = 65535;
         const MAX_ACL_REVISION: i32 = 4;
         const MAX_HW_COUNTERS: i32 = 16;
+        #[arch(X64 | Arm64)]
+        const MAX_NATURAL_ALIGNMENT: u64 = 8;
+        #[arch(X86)]
+        const MAX_NATURAL_ALIGNMENT: u32 = 4;
         const MAX_UCSCHAR: i32 = 1114111;
         #[arch(X64 | Arm64)]
         const MEMORY_ALLOCATION_ALIGNMENT: i32 = 16;
@@ -4979,7 +5006,15 @@ mod Windows {
         }
         const NLS_VALID_LOCALE_MASK: i32 = 1048575;
         const NONVOL_FP_NUMREG_ARM64: i32 = 8;
+        #[arch(X64 | Arm64)]
+        const NONVOL_FP_SIZE_ARM64: u64 = 64;
+        #[arch(X86)]
+        const NONVOL_FP_SIZE_ARM64: u32 = 64;
         const NONVOL_INT_NUMREG_ARM64: i32 = 11;
+        #[arch(X64 | Arm64)]
+        const NONVOL_INT_SIZE_ARM64: u64 = 88;
+        #[arch(X86)]
+        const NONVOL_INT_SIZE_ARM64: u32 = 88;
         #[packed(4)]
         struct NON_PAGED_DEBUG_INFO {
             Signature: u16,
@@ -5117,9 +5152,9 @@ mod Windows {
             OS_DEPLOYMENT_COMPACT = 2,
         }
         #[arch(Arm64)]
-        extern fn OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(Process: HANDLE, TableAddress: *const void, Entries: *mut u32, Functions: *mut PARM64_RUNTIME_FUNCTION) -> u32;
+        extern "C" fn OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(Process: HANDLE, #[in] TableAddress: *mut void, #[out] Entries: PDWORD, Functions: *mut PARM64_RUNTIME_FUNCTION) -> u32;
         #[arch(X64)]
-        extern fn OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(Process: HANDLE, TableAddress: *const void, Entries: *mut u32, Functions: *mut PRUNTIME_FUNCTION) -> u32;
+        extern "C" fn OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(Process: HANDLE, #[in] TableAddress: *mut void, #[out] Entries: PDWORD, Functions: *mut PRUNTIME_FUNCTION) -> u32;
         #[arch(X64 | Arm64)]
         #[encoding("ansi")]
         const OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: String = "OutOfProcessFunctionTableCallback";
@@ -5190,13 +5225,13 @@ mod Windows {
         type PARM64EC_NT_CONTEXT = *mut ARM64EC_NT_CONTEXT;
         type PARM64_NT_CONTEXT = *mut ARM64_NT_CONTEXT;
         type PARM64_NT_NEON128 = *mut ARM64_NT_NEON128;
-        type PARM64_RUNTIME_FUNCTION = *mut ARM64_RUNTIME_FUNCTION;
+        type PARM64_RUNTIME_FUNCTION = *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
         type PARM64_TPIDR2_BLOCK = *mut ARM64_TPIDR2_BLOCK;
         type PASSEMBLY_FILE_DETAILED_INFORMATION = *mut ASSEMBLY_FILE_DETAILED_INFORMATION;
         type PATTRIBUTES_AND_SID = *mut ATTRIBUTES_AND_SID;
         type PAUDIT_EVENT_TYPE = *mut AUDIT_EVENT_TYPE;
         type PBATTERY_REPORTING_SCALE = *mut BATTERY_REPORTING_SCALE;
-        type PBOOLEAN = *mut bool;
+        type PBOOLEAN = *mut BOOLEAN;
         type PCACHE_DESCRIPTOR = *mut CACHE_DESCRIPTOR;
         type PCACHE_RELATIONSHIP = *mut CACHE_RELATIONSHIP;
         type PCACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION = *const ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION;
@@ -5282,7 +5317,7 @@ mod Windows {
         type PENCLAVE_INIT_INFO_VBS = *mut ENCLAVE_INIT_INFO_VBS;
         type PENCLAVE_INIT_INFO_VBS_BASIC = *mut ENCLAVE_INIT_INFO_VBS_BASIC;
         type PENCLAVE_LOAD_DATA_VBS_BASIC = *mut ENCLAVE_LOAD_DATA_VBS_BASIC;
-        type PENCLAVE_TARGET_FUNCTION = *mut ENCLAVE_TARGET_FUNCTION;
+        type PENCLAVE_TARGET_FUNCTION = *mut u8;
         type PENERGY_SAVER_STATUS = *mut ENERGY_SAVER_STATUS;
         type PENLISTMENT_BASIC_INFORMATION = *mut ENLISTMENT_BASIC_INFORMATION;
         type PENLISTMENT_CRM_INFORMATION = *mut ENLISTMENT_CRM_INFORMATION;
@@ -5307,18 +5342,18 @@ mod Windows {
         type PEVENTLOGRECORD = *mut EVENTLOGRECORD;
         type PEVENTSFORLOGFILE = *mut EVENTSFORLOGFILE;
         #[arch(Arm64)]
-        extern fn PEXCEPTION_FILTER(ExceptionPointers: *mut EXCEPTION_POINTERS, EstablisherFrame: u64) -> i32;
+        extern "C" fn PEXCEPTION_FILTER(ExceptionPointers: *mut EXCEPTION_POINTERS, EstablisherFrame: u64) -> i32;
         #[arch(X64)]
-        extern fn PEXCEPTION_FILTER(ExceptionPointers: *mut EXCEPTION_POINTERS, EstablisherFrame: *mut void) -> i32;
+        extern "C" fn PEXCEPTION_FILTER(ExceptionPointers: *mut EXCEPTION_POINTERS, EstablisherFrame: *mut void) -> i32;
         type PEXCEPTION_POINTERS = *mut EXCEPTION_POINTERS;
         type PEXCEPTION_RECORD = *mut EXCEPTION_RECORD;
         type PEXCEPTION_RECORD32 = *mut EXCEPTION_RECORD32;
         type PEXCEPTION_RECORD64 = *mut EXCEPTION_RECORD64;
         type PEXCEPTION_REGISTRATION_RECORD = *mut EXCEPTION_REGISTRATION_RECORD;
         #[arch(Arm64)]
-        extern fn PEXCEPTION_ROUTINE(#[in] #[out] ExceptionRecord: *mut EXCEPTION_RECORD, EstablisherFrame: *const void, #[in] #[out] ContextRecord: *mut ARM64_NT_CONTEXT, DispatcherContext: *const void) -> EXCEPTION_DISPOSITION;
+        extern fn PEXCEPTION_ROUTINE(#[in] #[out] ExceptionRecord: *mut EXCEPTION_RECORD, #[in] EstablisherFrame: *mut void, #[in] #[out] ContextRecord: *mut ARM64_NT_CONTEXT, #[in] DispatcherContext: *mut void) -> EXCEPTION_DISPOSITION;
         #[arch(X86 | X64)]
-        extern fn PEXCEPTION_ROUTINE(#[in] #[out] ExceptionRecord: *mut EXCEPTION_RECORD, EstablisherFrame: *const void, #[in] #[out] ContextRecord: *mut CONTEXT, DispatcherContext: *const void) -> EXCEPTION_DISPOSITION;
+        extern fn PEXCEPTION_ROUTINE(#[in] #[out] ExceptionRecord: *mut EXCEPTION_RECORD, #[in] EstablisherFrame: *mut void, #[in] #[out] ContextRecord: *mut CONTEXT, #[in] DispatcherContext: *mut void) -> EXCEPTION_DISPOSITION;
         type PEXECUTION_STATE = *mut u32;
         type PFILE_CASE_SENSITIVE_INFORMATION = *mut FILE_CASE_SENSITIVE_INFORMATION;
         type PFILE_ID_128 = *mut FILE_ID_128;
@@ -5333,7 +5368,7 @@ mod Windows {
         type PFLOAT128 = *mut FLOAT128;
         #[arch(X86)]
         type PFLOATING_SAVE_AREA = *mut FLOATING_SAVE_AREA;
-        extern fn PFLS_CALLBACK_FUNCTION(lpFlsData: *const void);
+        extern fn PFLS_CALLBACK_FUNCTION(#[in] lpFlsData: *mut void);
         type PFPO_DATA = *mut FPO_DATA;
         const PF_3DNOW_INSTRUCTIONS_AVAILABLE: i32 = 7;
         const PF_ALPHA_BYTE_INSTRUCTIONS: i32 = 5;
@@ -5443,7 +5478,7 @@ mod Windows {
         const PF_XSAVE_ENABLED: i32 = 17;
         type PGENERIC_MAPPING = *mut GENERIC_MAPPING;
         #[arch(X64 | Arm64)]
-        type PGET_RUNTIME_FUNCTION_CALLBACK = *mut GET_RUNTIME_FUNCTION_CALLBACK;
+        type PGET_RUNTIME_FUNCTION_CALLBACK = *mut u8;
         type PGROUP_AFFINITY = *mut GROUP_AFFINITY;
         type PGROUP_AFFINITY32 = *mut GROUP_AFFINITY32;
         type PGROUP_AFFINITY64 = *mut GROUP_AFFINITY64;
@@ -5462,7 +5497,7 @@ mod Windows {
         type PIMAGE_ARCHITECTURE_ENTRY = *mut IMAGE_ARCHITECTURE_ENTRY;
         type PIMAGE_ARCHITECTURE_HEADER = *mut IMAGE_ARCHITECTURE_HEADER;
         type PIMAGE_ARCHIVE_MEMBER_HEADER = *mut IMAGE_ARCHIVE_MEMBER_HEADER;
-        type PIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY = *mut ARM64_RUNTIME_FUNCTION;
+        type PIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY = *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
         type PIMAGE_ARM_RUNTIME_FUNCTION_ENTRY = *mut IMAGE_ARM_RUNTIME_FUNCTION_ENTRY;
         type PIMAGE_AUX_SYMBOL = *mut IMAGE_AUX_SYMBOL;
         type PIMAGE_AUX_SYMBOL_EX = *mut IMAGE_AUX_SYMBOL_EX;
@@ -5612,7 +5647,7 @@ mod Windows {
         type PKSPIN_LOCK = *mut KSPIN_LOCK;
         type PKTMOBJECT_CURSOR = *mut KTMOBJECT_CURSOR;
         type PKTMOBJECT_TYPE = *mut KTMOBJECT_TYPE;
-        type PLARGE_INTEGER = *mut i64;
+        type PLARGE_INTEGER = *mut LARGE_INTEGER;
         type PLCID = PDWORD;
         type PLDT_ENTRY = *mut LDT_ENTRY;
         type PLIST_ENTRY = *mut LIST_ENTRY;
@@ -5662,7 +5697,7 @@ mod Windows {
         type POSVERSIONINFOEXW = *mut OSVERSIONINFOEXW;
         type POSVERSIONINFOW = *mut OSVERSIONINFOW;
         #[arch(X64 | Arm64)]
-        type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = *mut OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK;
+        type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = *mut u8;
         const POWERBUTTON_ACTION_INDEX_HIBERNATE: i32 = 2;
         const POWERBUTTON_ACTION_INDEX_NOTHING: i32 = 0;
         const POWERBUTTON_ACTION_INDEX_SHUTDOWN: i32 = 3;
@@ -5862,7 +5897,7 @@ mod Windows {
         }
         const POWER_LIMIT_VALUE_NO_CONTROL: u32 = 4294967295;
         struct POWER_MONITOR_INVOCATION {
-            Console: bool,
+            Console: BOOLEAN,
             RequestReason: POWER_MONITOR_REQUEST_REASON,
         }
         #[repr(i32)]
@@ -5934,7 +5969,7 @@ mod Windows {
             MonitorRequestTypeToggleOn = 2,
         }
         struct POWER_PLATFORM_INFORMATION {
-            AoAc: bool,
+            AoAc: BOOLEAN,
         }
         #[repr(i32)]
         enum POWER_PLATFORM_ROLE {
@@ -5966,14 +6001,14 @@ mod Windows {
             PowerRequestExecutionRequired = 3,
         }
         struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
-            IsAllowed: bool,
+            IsAllowed: BOOLEAN,
         }
         struct POWER_SESSION_CONNECT {
-            Connected: bool,
-            Console: bool,
+            Connected: BOOLEAN,
+            Console: BOOLEAN,
         }
         struct POWER_SESSION_RIT_STATE {
-            Active: bool,
+            Active: BOOLEAN,
             LastInputTime: u64,
         }
         struct POWER_SESSION_TIMEOUTS {
@@ -5982,8 +6017,8 @@ mod Windows {
         }
         struct POWER_SESSION_WINLOGON {
             SessionId: u32,
-            Console: bool,
-            Locked: bool,
+            Console: BOOLEAN,
+            Locked: BOOLEAN,
         }
         #[repr(i32)]
         enum POWER_SETTING_ALTITUDE {
@@ -6558,7 +6593,7 @@ mod Windows {
                     },
                 },
             },
-            Permanent: bool,
+            Permanent: BOOLEAN,
         }
         struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
             Anonymous: union {
@@ -6973,11 +7008,11 @@ mod Windows {
         type PRTL_RUN_ONCE = *mut RTL_RUN_ONCE;
         type PRTL_SRWLOCK = *mut RTL_SRWLOCK;
         type PRTL_SYSTEM_GLOBAL_DATA_ID = *mut RTL_SYSTEM_GLOBAL_DATA_ID;
-        extern fn PRTL_UMS_SCHEDULER_ENTRY_POINT(Reason: RTL_UMS_SCHEDULER_REASON, ActivationPayload: usize, SchedulerParam: *const void);
+        extern fn PRTL_UMS_SCHEDULER_ENTRY_POINT(Reason: RTL_UMS_SCHEDULER_REASON, ActivationPayload: usize, #[in] SchedulerParam: *mut void);
         type PRTL_UMS_SCHEDULER_REASON = *mut RTL_UMS_SCHEDULER_REASON;
         type PRTL_UMS_THREAD_INFO_CLASS = *mut RTL_UMS_THREAD_INFO_CLASS;
         #[arch(Arm64)]
-        type PRUNTIME_FUNCTION = *mut ARM64_RUNTIME_FUNCTION;
+        type PRUNTIME_FUNCTION = *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
         #[arch(X64)]
         type PRUNTIME_FUNCTION = *mut RUNTIME_FUNCTION;
         type PRUNTIME_REPORT_DIGEST_HEADER = *mut RUNTIME_REPORT_DIGEST_HEADER;
@@ -6994,10 +7029,10 @@ mod Windows {
         type PSCRUB_DATA_OUTPUT = *mut SCRUB_DATA_OUTPUT;
         type PSCRUB_PARITY_EXTENT = *mut SCRUB_PARITY_EXTENT;
         type PSCRUB_PARITY_EXTENT_DATA = *mut SCRUB_PARITY_EXTENT_DATA;
-        extern fn PSECURE_MEMORY_CACHE_CALLBACK(#[size_param(1)] Addr: *const void, Range: usize) -> bool;
+        extern fn PSECURE_MEMORY_CACHE_CALLBACK(#[size_param(1)] #[in] Addr: *mut void, Range: usize) -> BOOLEAN;
         type PSECURITY_ATTRIBUTES_OPAQUE = *mut void;
         type PSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
-        type PSECURITY_CONTEXT_TRACKING_MODE = *mut bool;
+        type PSECURITY_CONTEXT_TRACKING_MODE = *mut BOOLEAN;
         type PSECURITY_DESCRIPTOR = *mut void;
         type PSECURITY_DESCRIPTOR_CONTROL = *mut u16;
         type PSECURITY_IMPERSONATION_LEVEL = *mut SECURITY_IMPERSONATION_LEVEL;
@@ -7015,7 +7050,7 @@ mod Windows {
         type PSE_SECURITY_DESCRIPTOR = *mut SE_SECURITY_DESCRIPTOR;
         type PSE_SID = *mut SE_SID;
         type PSE_SIGNING_LEVEL = *mut u8;
-        type PSE_TOKEN_USER = SE_TOKEN_USER;
+        type PSE_TOKEN_USER = _SE_TOKEN_USER;
         type PSHARED_COMPUTE_UNIT_RELATIONSHIP = *mut SHARED_COMPUTE_UNIT_RELATIONSHIP;
         type PSHARED_VIRTUAL_DISK_SUPPORT = *mut SHARED_VIRTUAL_DISK_SUPPORT;
         type PSHORT = *mut i16;
@@ -7075,9 +7110,9 @@ mod Windows {
         type PTCH = LPCH;
         type PTCHAR = *mut i8;
         #[arch(Arm64)]
-        extern fn PTERMINATION_HANDLER(_abnormal_termination: bool, EstablisherFrame: u64);
+        extern "C" fn PTERMINATION_HANDLER(_abnormal_termination: BOOLEAN, EstablisherFrame: u64);
         #[arch(X64)]
-        extern fn PTERMINATION_HANDLER(_abnormal_termination: bool, EstablisherFrame: *mut void);
+        extern "C" fn PTERMINATION_HANDLER(_abnormal_termination: BOOLEAN, EstablisherFrame: *mut void);
         type PTOKEN_ACCESS_INFORMATION = *mut TOKEN_ACCESS_INFORMATION;
         type PTOKEN_APPCONTAINER_INFORMATION = *mut TOKEN_APPCONTAINER_INFORMATION;
         type PTOKEN_AUDIT_POLICY = *mut TOKEN_AUDIT_POLICY;
@@ -7111,14 +7146,14 @@ mod Windows {
         type PTP_IO = *mut TP_IO;
         type PTP_POOL = *mut TP_POOL;
         type PTP_POOL_STACK_INFORMATION = *mut TP_POOL_STACK_INFORMATION;
-        extern fn PTP_SIMPLE_CALLBACK(#[in] #[out] Instance: *mut TP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void);
+        extern fn PTP_SIMPLE_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void);
         type PTP_TIMER = *mut TP_TIMER;
-        extern fn PTP_TIMER_CALLBACK(#[in] #[out] Instance: *mut TP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Timer: *mut TP_TIMER);
+        extern fn PTP_TIMER_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Timer: PTP_TIMER);
         type PTP_VERSION = *mut u32;
         type PTP_WAIT = *mut TP_WAIT;
-        extern fn PTP_WAIT_CALLBACK(#[in] #[out] Instance: *mut TP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Wait: *mut TP_WAIT, WaitResult: TP_WAIT_RESULT);
+        extern fn PTP_WAIT_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Wait: PTP_WAIT, WaitResult: TP_WAIT_RESULT);
         type PTP_WORK = *mut TP_WORK;
-        extern fn PTP_WORK_CALLBACK(#[in] #[out] Instance: *mut TP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Work: *mut TP_WORK);
+        extern fn PTP_WORK_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Work: PTP_WORK);
         type PTRANSACTIONMANAGER_BASIC_INFORMATION = *mut TRANSACTIONMANAGER_BASIC_INFORMATION;
         type PTRANSACTIONMANAGER_LOGPATH_INFORMATION = *mut TRANSACTIONMANAGER_LOGPATH_INFORMATION;
         type PTRANSACTIONMANAGER_LOG_INFORMATION = *mut TRANSACTIONMANAGER_LOG_INFORMATION;
@@ -7135,7 +7170,7 @@ mod Windows {
         type PTSTR = PSTR;
         type PUCSCHAR = *mut UCSCHAR;
         type PUCSSTR = *mut UCSCHAR;
-        type PULARGE_INTEGER = *mut u64;
+        type PULARGE_INTEGER = *mut ULARGE_INTEGER;
         type PULONGLONG = *mut u64;
         type PUMS_CREATE_THREAD_ATTRIBUTES = *mut UMS_CREATE_THREAD_ATTRIBUTES;
         #[arch(X64 | Arm64)]
@@ -7152,6 +7187,7 @@ mod Windows {
         type PUZZTSTR = PZZSTR;
         type PUZZWSTR = *mut u16;
         extern fn PVECTORED_EXCEPTION_HANDLER(ExceptionInfo: *mut EXCEPTION_POINTERS) -> i32;
+        type PVOID64 = *mut void;
         type PWCH = *mut u16;
         type PWCHAR = *mut u16;
         type PWOW64_CONTEXT = *mut WOW64_CONTEXT;
@@ -7188,7 +7224,7 @@ mod Windows {
             MinimumWorkingSetSize: usize,
             MaximumWorkingSetSize: usize,
             PagefileLimit: usize,
-            TimeLimit: i64,
+            TimeLimit: LARGE_INTEGER,
         }
         struct QUOTA_LIMITS_EX {
             PagedPoolLimit: usize,
@@ -7196,7 +7232,7 @@ mod Windows {
             MinimumWorkingSetSize: usize,
             MaximumWorkingSetSize: usize,
             PagefileLimit: usize,
-            TimeLimit: i64,
+            TimeLimit: LARGE_INTEGER,
             WorkingSetLimit: usize,
             Reserved2: usize,
             Reserved3: usize,
@@ -7347,7 +7383,7 @@ mod Windows {
         const RTL_CORRELATION_VECTOR_V2_PREFIX_LENGTH: i32 = 22;
         const RTL_CORRELATION_VECTOR_VERSION_1: i8 = 1;
         const RTL_CORRELATION_VECTOR_VERSION_2: i8 = 2;
-        const RTL_CORRELATION_VECTOR_VERSION_CURRENT: u32 = 2;
+        const RTL_CORRELATION_VECTOR_VERSION_CURRENT: i8 = 2;
         struct RTL_CRITICAL_SECTION {
             DebugInfo: PRTL_CRITICAL_SECTION_DEBUG,
             LockCount: i32,
@@ -7412,7 +7448,7 @@ mod Windows {
             GlobalDataIdQpcData = 17,
             GlobalDataIdQpcBias = 18,
         }
-        extern fn RTL_UMS_SCHEDULER_ENTRY_POINT(Reason: RTL_UMS_SCHEDULER_REASON, ActivationPayload: usize, SchedulerParam: *const void);
+        extern fn RTL_UMS_SCHEDULER_ENTRY_POINT(Reason: RTL_UMS_SCHEDULER_REASON, ActivationPayload: usize, #[in] SchedulerParam: *mut void);
         #[repr(i32)]
         enum RTL_UMS_SCHEDULER_REASON {
             UmsSchedulerStartup = 0,
@@ -7433,7 +7469,7 @@ mod Windows {
         const RTL_UMS_VERSION: i32 = 256;
         const RTL_VIRTUAL_UNWIND2_VALIDATE_PAC: u32 = 1;
         #[arch(Arm64)]
-        type RUNTIME_FUNCTION = ARM64_RUNTIME_FUNCTION;
+        type RUNTIME_FUNCTION = IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
         #[arch(X64)]
         struct RUNTIME_FUNCTION {
             BeginAddress: u32,
@@ -7510,75 +7546,61 @@ mod Windows {
         }
         #[arch(Arm64)]
         #[library("KERNEL32.dll")]
-        extern "C" fn RtlAddFunctionTable(#[len_param(1)] FunctionTable: *const ARM64_RUNTIME_FUNCTION, EntryCount: u32, BaseAddress: usize) -> bool;
+        extern "C" fn RtlAddFunctionTable(#[len_param(1)] FunctionTable: PRUNTIME_FUNCTION, EntryCount: u32, BaseAddress: usize) -> BOOLEAN;
         #[arch(X64)]
         #[library("KERNEL32.dll")]
-        extern "C" fn RtlAddFunctionTable(#[len_param(1)] FunctionTable: *const RUNTIME_FUNCTION, EntryCount: u32, BaseAddress: u64) -> bool;
-        #[arch(Arm64)]
+        extern "C" fn RtlAddFunctionTable(#[len_param(1)] FunctionTable: PRUNTIME_FUNCTION, EntryCount: u32, BaseAddress: u64) -> BOOLEAN;
+        #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern fn RtlAddGrowableFunctionTable(DynamicTable: *mut *mut void, #[len_param(3)] FunctionTable: *const ARM64_RUNTIME_FUNCTION, EntryCount: u32, MaximumEntryCount: u32, RangeBase: usize, RangeEnd: usize) -> u32;
-        #[arch(X64)]
-        #[library("ntdll.dll")]
-        extern fn RtlAddGrowableFunctionTable(DynamicTable: *mut *mut void, #[len_param(3)] FunctionTable: *const RUNTIME_FUNCTION, EntryCount: u32, MaximumEntryCount: u32, RangeBase: usize, RangeEnd: usize) -> u32;
-        #[arch(Arm64)]
+        extern fn RtlAddGrowableFunctionTable(DynamicTable: *mut *mut void, #[len_param(3)] FunctionTable: PRUNTIME_FUNCTION, EntryCount: u32, MaximumEntryCount: u32, RangeBase: usize, RangeEnd: usize) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn RtlCaptureContext(ContextRecord: *mut ARM64_NT_CONTEXT);
-        #[arch(X86 | X64)]
-        #[library("KERNEL32.dll")]
-        extern fn RtlCaptureContext(ContextRecord: *mut CONTEXT);
-        #[arch(Arm64)]
+        extern fn RtlCaptureContext(#[out] ContextRecord: PCONTEXT);
         #[library("ntdll.dll")]
-        extern fn RtlCaptureContext2(#[in] #[out] ContextRecord: *mut ARM64_NT_CONTEXT);
-        #[arch(X86 | X64)]
-        #[library("ntdll.dll")]
-        extern fn RtlCaptureContext2(#[in] #[out] ContextRecord: *mut CONTEXT);
+        extern fn RtlCaptureContext2(#[in] #[out] ContextRecord: PCONTEXT);
         #[library("KERNEL32.dll")]
-        extern fn RtlCaptureStackBackTrace(FramesToSkip: u32, FramesToCapture: u32, #[len_param(1)] BackTrace: *mut *mut void, #[opt] BackTraceHash: *mut u32) -> u16;
+        extern fn RtlCaptureStackBackTrace(FramesToSkip: u32, FramesToCapture: u32, #[len_param(1)] BackTrace: *mut *mut void, #[out] #[opt] BackTraceHash: PDWORD) -> u16;
         #[library("KERNEL32.dll")]
         extern fn RtlCompareMemory(Source1: *const void, Source2: *const void, Length: usize) -> usize;
         #[library("ntdll.dll")]
-        extern fn RtlConvertDeviceFamilyInfoToString(#[in] #[out] pulDeviceFamilyBufferSize: *mut u32, #[in] #[out] pulDeviceFormBufferSize: *mut u32, #[size_param(0)] #[out] DeviceFamily: PWSTR, #[size_param(1)] #[out] DeviceForm: PWSTR) -> u32;
+        extern fn RtlConvertDeviceFamilyInfoToString(#[in] #[out] pulDeviceFamilyBufferSize: PDWORD, #[in] #[out] pulDeviceFormBufferSize: PDWORD, #[size_param(0)] #[out] DeviceFamily: PWSTR, #[size_param(1)] #[out] DeviceForm: PWSTR) -> u32;
         #[library("ntdll.dll")]
         extern fn RtlCrc32(#[size_param(1)] Buffer: *const void, Size: usize, InitialCrc: u32) -> u32;
         #[library("ntdll.dll")]
         extern fn RtlCrc64(#[size_param(1)] Buffer: *const void, Size: usize, InitialCrc: u64) -> u64;
-        #[arch(Arm64)]
+        #[arch(X64 | Arm64)]
         #[library("KERNEL32.dll")]
-        extern "C" fn RtlDeleteFunctionTable(FunctionTable: *const ARM64_RUNTIME_FUNCTION) -> bool;
-        #[arch(X64)]
-        #[library("KERNEL32.dll")]
-        extern "C" fn RtlDeleteFunctionTable(FunctionTable: *const RUNTIME_FUNCTION) -> bool;
+        extern "C" fn RtlDeleteFunctionTable(FunctionTable: PRUNTIME_FUNCTION) -> BOOLEAN;
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern fn RtlDeleteGrowableFunctionTable(DynamicTable: *const void);
+        extern fn RtlDeleteGrowableFunctionTable(#[in] DynamicTable: *mut void);
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern fn RtlDrainNonVolatileFlush(NvToken: *const void) -> u32;
+        extern fn RtlDrainNonVolatileFlush(#[in] NvToken: *mut void) -> u32;
         #[library("ntdll.dll")]
-        extern fn RtlExtendCorrelationVector(#[in] #[out] CorrelationVector: *mut CORRELATION_VECTOR) -> u32;
+        extern fn RtlExtendCorrelationVector(#[in] #[out] CorrelationVector: PCORRELATION_VECTOR) -> u32;
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern fn RtlFillNonVolatileMemory(NvToken: *const void, #[size_param(2)] NvDestination: *mut void, Size: usize, Value: u8, Flags: u32) -> u32;
+        extern fn RtlFillNonVolatileMemory(#[in] NvToken: *mut void, #[size_param(2)] NvDestination: *mut void, Size: usize, Value: u8, Flags: u32) -> u32;
         #[library("ntdll.dll")]
         extern fn RtlFirstEntrySList(ListHead: *const SLIST_HEADER) -> PSLIST_ENTRY;
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern fn RtlFlushNonVolatileMemory(NvToken: *const void, #[size_param(2)] NvBuffer: *const void, Size: usize, Flags: u32) -> u32;
+        extern fn RtlFlushNonVolatileMemory(#[in] NvToken: *mut void, #[size_param(2)] #[in] NvBuffer: *mut void, Size: usize, Flags: u32) -> u32;
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern fn RtlFlushNonVolatileMemoryRanges(NvToken: *const void, #[len_param(2)] NvRanges: *const NV_MEMORY_RANGE, NumRanges: usize, Flags: u32) -> u32;
+        extern fn RtlFlushNonVolatileMemoryRanges(#[in] NvToken: *mut void, #[len_param(2)] NvRanges: PNV_MEMORY_RANGE, NumRanges: usize, Flags: u32) -> u32;
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern fn RtlFreeNonVolatileToken(NvToken: *const void) -> u32;
+        extern fn RtlFreeNonVolatileToken(#[in] NvToken: *mut void) -> u32;
         #[library("ntdll.dll")]
         extern fn RtlGetDeviceFamilyInfoEnum(#[opt] pullUAPInfo: *mut u64, #[opt] pulDeviceFamily: *mut u32, #[opt] pulDeviceForm: *mut u32);
         #[library("ntdll.dll")]
         extern "C" fn RtlGetImageFileMachines(DosFileName: PCWSTR, MachineTypeFlags: *mut IMAGE_FILE_MACHINES) -> u32;
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern fn RtlGetNonVolatileToken(#[size_param(1)] NvBuffer: *const void, Size: usize, NvToken: *mut *mut void) -> u32;
+        extern fn RtlGetNonVolatileToken(#[size_param(1)] #[in] NvBuffer: *mut void, Size: usize, NvToken: *mut *mut void) -> u32;
         #[library("ntdll.dll")]
-        extern fn RtlGetProductInfo(OSMajorVersion: u32, OSMinorVersion: u32, SpMajorVersion: u32, SpMinorVersion: u32, ReturnedProductType: *mut u32) -> bool;
+        extern fn RtlGetProductInfo(OSMajorVersion: u32, OSMinorVersion: u32, SpMajorVersion: u32, SpMinorVersion: u32, #[out] ReturnedProductType: PDWORD) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlGetReturnAddressHijackTarget() -> usize;
         #[library("ntdll.dll")]
@@ -7587,86 +7609,71 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlGrowFunctionTable(#[in] #[out] DynamicTable: *mut void, NewEntryCount: u32);
         #[library("ntdll.dll")]
-        extern fn RtlIncrementCorrelationVector(#[in] #[out] CorrelationVector: *mut CORRELATION_VECTOR) -> u32;
+        extern fn RtlIncrementCorrelationVector(#[in] #[out] CorrelationVector: PCORRELATION_VECTOR) -> u32;
         #[library("ntdll.dll")]
-        extern fn RtlInitializeCorrelationVector(CorrelationVector: *mut CORRELATION_VECTOR, Version: i32, #[opt] Guid: *const GUID) -> u32;
+        extern fn RtlInitializeCorrelationVector(#[out] CorrelationVector: PCORRELATION_VECTOR, Version: i32, #[opt] Guid: *const GUID) -> u32;
         #[library("ntdll.dll")]
-        extern fn RtlInitializeSListHead(ListHead: *mut SLIST_HEADER);
+        extern fn RtlInitializeSListHead(#[out] ListHead: PSLIST_HEADER);
         #[arch(Arm64)]
         #[library("KERNEL32.dll")]
-        extern "C" fn RtlInstallFunctionTableCallback(TableIdentifier: usize, BaseAddress: usize, Length: u32, Callback: PGET_RUNTIME_FUNCTION_CALLBACK, #[opt] Context: *const void, #[opt] OutOfProcessCallbackDll: PCWSTR) -> bool;
+        extern "C" fn RtlInstallFunctionTableCallback(TableIdentifier: usize, BaseAddress: usize, Length: u32, Callback: PGET_RUNTIME_FUNCTION_CALLBACK, #[in] #[opt] Context: *mut void, #[opt] OutOfProcessCallbackDll: PCWSTR) -> BOOLEAN;
         #[arch(X64)]
         #[library("KERNEL32.dll")]
-        extern "C" fn RtlInstallFunctionTableCallback(TableIdentifier: u64, BaseAddress: u64, Length: u32, Callback: PGET_RUNTIME_FUNCTION_CALLBACK, #[opt] Context: *const void, #[opt] OutOfProcessCallbackDll: PCWSTR) -> bool;
+        extern "C" fn RtlInstallFunctionTableCallback(TableIdentifier: u64, BaseAddress: u64, Length: u32, Callback: PGET_RUNTIME_FUNCTION_CALLBACK, #[in] #[opt] Context: *mut void, #[opt] OutOfProcessCallbackDll: PCWSTR) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern fn RtlInterlockedFlushSList(#[in] #[out] ListHead: *mut SLIST_HEADER) -> PSLIST_ENTRY;
+        extern fn RtlInterlockedFlushSList(#[in] #[out] ListHead: PSLIST_HEADER) -> PSLIST_ENTRY;
         #[library("ntdll.dll")]
-        extern fn RtlInterlockedPopEntrySList(#[in] #[out] ListHead: *mut SLIST_HEADER) -> PSLIST_ENTRY;
-        #[arch(X64 | Arm64)]
+        extern fn RtlInterlockedPopEntrySList(#[in] #[out] ListHead: PSLIST_HEADER) -> PSLIST_ENTRY;
         #[library("ntdll.dll")]
-        extern fn RtlInterlockedPushEntrySList(#[in] #[out] ListHead: *mut SLIST_HEADER, #[in] #[out] ListEntry: *mut SLIST_ENTRY) -> PSLIST_ENTRY;
-        #[arch(X86)]
+        extern fn RtlInterlockedPushEntrySList(#[in] #[out] ListHead: PSLIST_HEADER, #[in] #[out] ListEntry: PSLIST_ENTRY) -> PSLIST_ENTRY;
         #[library("ntdll.dll")]
-        extern fn RtlInterlockedPushEntrySList(#[in] #[out] ListHead: *mut SLIST_HEADER, #[in] #[out] ListEntry: *mut SINGLE_LIST_ENTRY) -> PSLIST_ENTRY;
-        #[arch(X64 | Arm64)]
+        extern fn RtlInterlockedPushListSListEx(#[in] #[out] ListHead: PSLIST_HEADER, #[in] #[out] List: PSLIST_ENTRY, #[in] #[out] ListEnd: PSLIST_ENTRY, Count: u32) -> PSLIST_ENTRY;
         #[library("ntdll.dll")]
-        extern fn RtlInterlockedPushListSListEx(#[in] #[out] ListHead: *mut SLIST_HEADER, #[in] #[out] List: *mut SLIST_ENTRY, #[in] #[out] ListEnd: *mut SLIST_ENTRY, Count: u32) -> PSLIST_ENTRY;
-        #[arch(X86)]
-        #[library("ntdll.dll")]
-        extern fn RtlInterlockedPushListSListEx(#[in] #[out] ListHead: *mut SLIST_HEADER, #[in] #[out] List: *mut SINGLE_LIST_ENTRY, #[in] #[out] ListEnd: *mut SINGLE_LIST_ENTRY, Count: u32) -> PSLIST_ENTRY;
-        #[library("ntdll.dll")]
-        extern fn RtlIsZeroMemory(Buffer: *const void, Length: usize) -> bool;
+        extern fn RtlIsZeroMemory(#[in] Buffer: *mut void, Length: usize) -> BOOLEAN;
         #[arch(Arm64)]
         #[library("KERNEL32.dll")]
-        extern fn RtlLookupFunctionEntry(ControlPc: usize, ImageBase: *mut u64, #[in] #[out] #[opt] HistoryTable: *mut UNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION;
+        extern fn RtlLookupFunctionEntry(ControlPc: usize, #[out] ImageBase: PULONG_PTR, #[in] #[out] #[opt] HistoryTable: PUNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION;
         #[arch(X64)]
         #[library("KERNEL32.dll")]
-        extern fn RtlLookupFunctionEntry(ControlPc: u64, ImageBase: *mut u64, #[in] #[out] #[opt] HistoryTable: *mut UNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION;
+        extern fn RtlLookupFunctionEntry(ControlPc: u64, #[out] ImageBase: PDWORD64, #[in] #[out] #[opt] HistoryTable: PUNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION;
         #[library("ntdll.dll")]
-        extern fn RtlNormalizeSecurityDescriptor(#[in] #[out] SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, SecurityDescriptorLength: u32, #[opt] NewSecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[opt] NewSecurityDescriptorLength: *mut u32, CheckOnly: bool) -> bool;
+        extern fn RtlNormalizeSecurityDescriptor(#[in] #[out] SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, SecurityDescriptorLength: u32, #[opt] NewSecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[out] #[opt] NewSecurityDescriptorLength: PDWORD, CheckOnly: BOOLEAN) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlOsDeploymentState(Flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES;
         #[library("KERNEL32.dll")]
-        extern fn RtlPcToFileHeader(PcValue: *const void, BaseOfImage: *mut *mut void) -> *mut void;
+        extern fn RtlPcToFileHeader(#[in] PcValue: *mut void, BaseOfImage: *mut *mut void) -> *mut void;
         #[library("ntdll.dll")]
-        extern fn RtlQueryDepthSList(ListHead: *const SLIST_HEADER) -> u16;
+        extern fn RtlQueryDepthSList(ListHead: PSLIST_HEADER) -> u16;
         #[library("ntdll.dll")]
-        extern fn RtlRaiseCustomSystemEventTrigger(TriggerConfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32;
+        extern fn RtlRaiseCustomSystemEventTrigger(TriggerConfig: PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32;
         #[library("KERNEL32.dll")]
-        extern fn RtlRaiseException(ExceptionRecord: *const EXCEPTION_RECORD);
+        extern fn RtlRaiseException(ExceptionRecord: PEXCEPTION_RECORD);
+        #[library("KERNEL32.dll")]
+        extern "C" fn RtlRestoreContext(ContextRecord: PCONTEXT, #[in] #[opt] ExceptionRecord: *mut EXCEPTION_RECORD);
+        #[library("ntdll.dll")]
+        extern fn RtlSwitchedVVI(VersionInfo: PRTL_OSVERSIONINFOEXW, TypeMask: u32, ConditionMask: u64) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn RtlUnwind(#[in] #[opt] TargetFrame: *mut void, #[in] #[opt] TargetIp: *mut void, #[opt] ExceptionRecord: PEXCEPTION_RECORD, #[in] ReturnValue: *mut void);
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn RtlUnwindEx(#[in] #[opt] TargetFrame: *mut void, #[in] #[opt] TargetIp: *mut void, #[opt] ExceptionRecord: PEXCEPTION_RECORD, #[in] ReturnValue: *mut void, ContextRecord: PCONTEXT, #[opt] HistoryTable: PUNWIND_HISTORY_TABLE);
+        #[library("ntdll.dll")]
+        extern fn RtlValidateCorrelationVector(Vector: PCORRELATION_VECTOR) -> u32;
         #[arch(Arm64)]
         #[library("KERNEL32.dll")]
-        extern "C" fn RtlRestoreContext(ContextRecord: *const ARM64_NT_CONTEXT, #[opt] ExceptionRecord: *const EXCEPTION_RECORD);
-        #[arch(X86 | X64)]
-        #[library("KERNEL32.dll")]
-        extern "C" fn RtlRestoreContext(ContextRecord: *const CONTEXT, #[opt] ExceptionRecord: *const EXCEPTION_RECORD);
-        #[library("ntdll.dll")]
-        extern fn RtlSwitchedVVI(VersionInfo: *const OSVERSIONINFOEXW, TypeMask: u32, ConditionMask: u64) -> u32;
-        #[library("KERNEL32.dll")]
-        extern fn RtlUnwind(#[opt] TargetFrame: *const void, #[opt] TargetIp: *const void, #[opt] ExceptionRecord: *const EXCEPTION_RECORD, ReturnValue: *const void);
-        #[arch(Arm64)]
-        #[library("KERNEL32.dll")]
-        extern fn RtlUnwindEx(#[opt] TargetFrame: *const void, #[opt] TargetIp: *const void, #[opt] ExceptionRecord: *const EXCEPTION_RECORD, ReturnValue: *const void, ContextRecord: *const ARM64_NT_CONTEXT, #[opt] HistoryTable: *const UNWIND_HISTORY_TABLE);
+        extern fn RtlVirtualUnwind(HandlerType: u32, ImageBase: usize, ControlPc: usize, FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, HandlerData: *mut *mut void, #[out] EstablisherFrame: PULONG_PTR, #[in] #[out] #[opt] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE;
         #[arch(X64)]
         #[library("KERNEL32.dll")]
-        extern fn RtlUnwindEx(#[opt] TargetFrame: *const void, #[opt] TargetIp: *const void, #[opt] ExceptionRecord: *const EXCEPTION_RECORD, ReturnValue: *const void, ContextRecord: *const CONTEXT, #[opt] HistoryTable: *const UNWIND_HISTORY_TABLE);
-        #[library("ntdll.dll")]
-        extern fn RtlValidateCorrelationVector(Vector: *const CORRELATION_VECTOR) -> u32;
+        extern fn RtlVirtualUnwind(HandlerType: u32, ImageBase: u64, ControlPc: u64, FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, HandlerData: *mut *mut void, #[out] EstablisherFrame: PDWORD64, #[in] #[out] #[opt] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE;
         #[arch(Arm64)]
         #[library("KERNEL32.dll")]
-        extern fn RtlVirtualUnwind(HandlerType: u32, ImageBase: usize, ControlPc: usize, FunctionEntry: *const ARM64_RUNTIME_FUNCTION, #[in] #[out] ContextRecord: *mut ARM64_NT_CONTEXT, HandlerData: *mut *mut void, EstablisherFrame: *mut u64, #[in] #[out] #[opt] ContextPointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> PEXCEPTION_ROUTINE;
+        extern fn RtlVirtualUnwind2(HandlerType: u32, ImageBase: usize, ControlPc: usize, #[opt] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[in] #[out] #[opt] MachineFrameUnwound: PBOOLEAN, HandlerData: *mut *mut void, #[out] EstablisherFrame: PULONG_PTR, #[in] #[out] #[opt] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS, #[opt] LowLimit: PULONG_PTR, #[opt] HighLimit: PULONG_PTR, HandlerRoutine: *mut PEXCEPTION_ROUTINE, UnwindFlags: u32) -> u32;
         #[arch(X64)]
         #[library("KERNEL32.dll")]
-        extern fn RtlVirtualUnwind(HandlerType: u32, ImageBase: u64, ControlPc: u64, FunctionEntry: *const RUNTIME_FUNCTION, #[in] #[out] ContextRecord: *mut CONTEXT, HandlerData: *mut *mut void, EstablisherFrame: *mut u64, #[in] #[out] #[opt] ContextPointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE;
-        #[arch(Arm64)]
-        #[library("KERNEL32.dll")]
-        extern fn RtlVirtualUnwind2(HandlerType: u32, ImageBase: usize, ControlPc: usize, #[opt] FunctionEntry: *const ARM64_RUNTIME_FUNCTION, #[in] #[out] ContextRecord: *mut ARM64_NT_CONTEXT, #[in] #[out] #[opt] MachineFrameUnwound: *mut bool, HandlerData: *mut *mut void, EstablisherFrame: *mut u64, #[in] #[out] #[opt] ContextPointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64, #[opt] LowLimit: *const u64, #[opt] HighLimit: *const u64, HandlerRoutine: *mut PEXCEPTION_ROUTINE, UnwindFlags: u32) -> u32;
-        #[arch(X64)]
-        #[library("KERNEL32.dll")]
-        extern fn RtlVirtualUnwind2(HandlerType: u32, ImageBase: u64, ControlPc: u64, #[opt] FunctionEntry: *const RUNTIME_FUNCTION, #[in] #[out] ContextRecord: *mut CONTEXT, #[in] #[out] #[opt] MachineFrameUnwound: *mut bool, HandlerData: *mut *mut void, EstablisherFrame: *mut u64, #[in] #[out] #[opt] ContextPointers: *mut KNONVOLATILE_CONTEXT_POINTERS, #[opt] LowLimit: *const u64, #[opt] HighLimit: *const u64, HandlerRoutine: *mut PEXCEPTION_ROUTINE, UnwindFlags: u32) -> u32;
+        extern fn RtlVirtualUnwind2(HandlerType: u32, ImageBase: u64, ControlPc: u64, #[opt] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[in] #[out] #[opt] MachineFrameUnwound: PBOOLEAN, HandlerData: *mut *mut void, #[out] EstablisherFrame: PDWORD64, #[in] #[out] #[opt] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS, #[opt] LowLimit: PDWORD64, #[opt] HighLimit: PDWORD64, HandlerRoutine: *mut PEXCEPTION_ROUTINE, UnwindFlags: u32) -> u32;
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern fn RtlWriteNonVolatileMemory(NvToken: *const void, #[size_param(3)] NvDestination: *mut void, #[size_param(3)] Source: *const void, Size: usize, Flags: u32) -> u32;
+        extern fn RtlWriteNonVolatileMemory(#[in] NvToken: *mut void, #[size_param(3)] NvDestination: *mut void, #[size_param(3)] Source: *const void, Size: usize, Flags: u32) -> u32;
         const SACL_SECURITY_INFORMATION: i32 = 8;
         const SANDBOX_INERT: i32 = 2;
         const SCOPE_SECURITY_INFORMATION: i32 = 64;
@@ -7819,7 +7826,7 @@ mod Windows {
         const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_BASE_RID: i32 = 85;
         const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_RID_COUNT: i32 = 6;
         const SECURITY_COM_ID_BASE_RID: i32 = 89;
-        type SECURITY_CONTEXT_TRACKING_MODE = bool;
+        type SECURITY_CONTEXT_TRACKING_MODE = BOOLEAN;
         const SECURITY_CREATOR_GROUP_RID: i32 = 1;
         const SECURITY_CREATOR_GROUP_SERVER_RID: i32 = 3;
         const SECURITY_CREATOR_OWNER_RID: i32 = 0;
@@ -7840,6 +7847,10 @@ mod Windows {
             Dacl: PACL,
         }
         type SECURITY_DESCRIPTOR_CONTROL = u16;
+        #[arch(X64 | Arm64)]
+        const SECURITY_DESCRIPTOR_MIN_LENGTH: u64 = 40;
+        #[arch(X86)]
+        const SECURITY_DESCRIPTOR_MIN_LENGTH: u32 = 20;
         struct SECURITY_DESCRIPTOR_RELATIVE {
             Revision: u8,
             Sbz1: u8,
@@ -7888,10 +7899,14 @@ mod Windows {
         const SECURITY_MANDATORY_UNTRUSTED_RID: i32 = 0;
         const SECURITY_MAX_ALWAYS_FILTERED: i32 = 999;
         const SECURITY_MAX_BASE_RID: i32 = 111;
-        const SECURITY_MAX_IMPERSONATION_LEVEL: i32 = 3;
+        const SECURITY_MAX_IMPERSONATION_LEVEL: SECURITY_IMPERSONATION_LEVEL = 3;
+        #[arch(X64 | Arm64)]
+        const SECURITY_MAX_SID_SIZE: u64 = 68;
+        #[arch(X86)]
+        const SECURITY_MAX_SID_SIZE: u32 = 68;
         const SECURITY_MAX_SID_STRING_CHARACTERS: i32 = 187;
         const SECURITY_MIN_BASE_RID: i32 = 80;
-        const SECURITY_MIN_IMPERSONATION_LEVEL: i32 = 0;
+        const SECURITY_MIN_IMPERSONATION_LEVEL: SECURITY_IMPERSONATION_LEVEL = 0;
         const SECURITY_MIN_NEVER_FILTERED: i32 = 1000;
         const SECURITY_NETWORK_RID: i32 = 2;
         const SECURITY_NETWORK_SERVICE_RID: i32 = 20;
@@ -7926,7 +7941,7 @@ mod Windows {
             Length: u32,
             ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
             ContextTrackingMode: SECURITY_CONTEXT_TRACKING_MODE,
-            EffectiveOnly: bool,
+            EffectiveOnly: BOOLEAN,
         }
         const SECURITY_RDV_GFX_BASE_RID: i32 = 91;
         const SECURITY_REMOTE_LOGON_RID: i32 = 14;
@@ -7998,7 +8013,7 @@ mod Windows {
             ServiceSessionId: u32,
             State: SERVERSILO_STATE,
             ExitStatus: u32,
-            Reserved: bool,
+            Reserved: BOOLEAN,
             ApiSetSchema: *mut void,
             HostApiSetSchema: *mut void,
             ContainerBuildNumber: u32,
@@ -8144,8 +8159,8 @@ mod Windows {
         }
         struct SE_IMPERSONATION_STATE {
             Token: PACCESS_TOKEN,
-            CopyOnOpen: bool,
-            EffectiveOnly: bool,
+            CopyOnOpen: BOOLEAN,
+            EffectiveOnly: BOOLEAN,
             Level: SECURITY_IMPERSONATION_LEVEL,
         }
         #[encoding("utf-16")]
@@ -8201,16 +8216,7 @@ mod Windows {
         const SE_SIGNING_LEVEL_UNSIGNED: i32 = 1;
         const SE_SIGNING_LEVEL_WINDOWS: i32 = 12;
         const SE_SIGNING_LEVEL_WINDOWS_TCB: i32 = 14;
-        struct SE_TOKEN_USER {
-            Anonymous: union {
-                TokenUser: TOKEN_USER,
-                User: SID_AND_ATTRIBUTES,
-            },
-            Anonymous2: union {
-                Sid: SID,
-                Buffer: [u8; 68],
-            },
-        }
+        type SE_TOKEN_USER = _SE_TOKEN_USER;
         struct SHARED_COMPUTE_UNIT_RELATIONSHIP {
             Type: u32,
             ComputeUnitCount: u32,
@@ -8270,7 +8276,7 @@ mod Windows {
             SiloId: u32,
             SiloParentId: u32,
             NumberOfProcesses: u32,
-            IsInServerSilo: bool,
+            IsInServerSilo: BOOLEAN,
             Reserved: [u8; 3],
         }
         struct SINGLE_LIST_ENTRY {
@@ -8680,11 +8686,11 @@ mod Windows {
         }
         const SYSTEM_AUDIT_OBJECT_ACE_TYPE: i32 = 7;
         struct SYSTEM_BATTERY_STATE {
-            AcOnLine: bool,
-            BatteryPresent: bool,
-            Charging: bool,
-            Discharging: bool,
-            Spare1: [bool; 3],
+            AcOnLine: BOOLEAN,
+            BatteryPresent: BOOLEAN,
+            Charging: BOOLEAN,
+            Discharging: BOOLEAN,
+            Spare1: [BOOLEAN; 3],
             Tag: u8,
             MaxCapacity: u32,
             RemainingCapacity: u32,
@@ -8769,36 +8775,36 @@ mod Windows {
         const SYSTEM_MANDATORY_LABEL_NO_WRITE_UP: i32 = 1;
         const SYSTEM_MANDATORY_LABEL_VALID_MASK: i32 = 7;
         struct SYSTEM_POOL_ZEROING_INFORMATION {
-            PoolZeroingSupportPresent: bool,
+            PoolZeroingSupportPresent: BOOLEAN,
         }
         struct SYSTEM_POWER_CAPABILITIES {
-            PowerButtonPresent: bool,
-            SleepButtonPresent: bool,
-            LidPresent: bool,
-            SystemS1: bool,
-            SystemS2: bool,
-            SystemS3: bool,
-            SystemS4: bool,
-            SystemS5: bool,
-            HiberFilePresent: bool,
-            FullWake: bool,
-            VideoDimPresent: bool,
-            ApmPresent: bool,
-            UpsPresent: bool,
-            ThermalControl: bool,
-            ProcessorThrottle: bool,
+            PowerButtonPresent: BOOLEAN,
+            SleepButtonPresent: BOOLEAN,
+            LidPresent: BOOLEAN,
+            SystemS1: BOOLEAN,
+            SystemS2: BOOLEAN,
+            SystemS3: BOOLEAN,
+            SystemS4: BOOLEAN,
+            SystemS5: BOOLEAN,
+            HiberFilePresent: BOOLEAN,
+            FullWake: BOOLEAN,
+            VideoDimPresent: BOOLEAN,
+            ApmPresent: BOOLEAN,
+            UpsPresent: BOOLEAN,
+            ThermalControl: BOOLEAN,
+            ProcessorThrottle: BOOLEAN,
             ProcessorMinThrottle: u8,
             ProcessorMaxThrottle: u8,
-            FastSystemS4: bool,
-            Hiberboot: bool,
-            WakeAlarmPresent: bool,
-            AoAc: bool,
-            DiskSpinDown: bool,
+            FastSystemS4: BOOLEAN,
+            Hiberboot: BOOLEAN,
+            WakeAlarmPresent: BOOLEAN,
+            AoAc: BOOLEAN,
+            DiskSpinDown: BOOLEAN,
             HiberFileType: u8,
-            AoAcConnectivitySupported: bool,
+            AoAcConnectivitySupported: BOOLEAN,
             spare3: [u8; 6],
-            SystemBatteriesPresent: bool,
-            BatteriesAreShortTerm: bool,
+            SystemBatteriesPresent: BOOLEAN,
+            BatteriesAreShortTerm: BOOLEAN,
             BatteryScale: [BATTERY_REPORTING_SCALE; 3],
             AcOnLineWake: SYSTEM_POWER_STATE,
             SoftLidWake: SYSTEM_POWER_STATE,
@@ -8814,7 +8820,7 @@ mod Windows {
             PoConditionMaximum = 3,
         }
         struct SYSTEM_POWER_LEVEL {
-            Enable: bool,
+            Enable: BOOLEAN,
             Spare: [u8; 3],
             BatteryLevel: u32,
             PowerPolicy: POWER_ACTION_POLICY,
@@ -8841,10 +8847,10 @@ mod Windows {
             BroadcastCapacityResolution: u32,
             DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
             VideoTimeout: u32,
-            VideoDimDisplay: bool,
+            VideoDimDisplay: BOOLEAN,
             VideoReserved: [u32; 3],
             SpindownTimeout: u32,
-            OptimizeForPower: bool,
+            OptimizeForPower: BOOLEAN,
             FanThrottleTolerance: u8,
             ForcedThrottle: u8,
             MinThrottle: u8,
@@ -9003,7 +9009,7 @@ mod Windows {
         const TAPE_DRIVE_WRITE_SHORT_FMKS: u32 = 2214592512;
         struct TAPE_ERASE {
             Type: u32,
-            Immediate: bool,
+            Immediate: BOOLEAN,
         }
         const TAPE_ERASE_LONG: i32 = 1;
         const TAPE_ERASE_SHORT: i32 = 0;
@@ -9011,10 +9017,10 @@ mod Windows {
         const TAPE_FIXED_PARTITIONS: i32 = 0;
         const TAPE_FORMAT: i32 = 5;
         struct TAPE_GET_DRIVE_PARAMETERS {
-            ECC: bool,
-            Compression: bool,
-            DataPadding: bool,
-            ReportSetmarks: bool,
+            ECC: BOOLEAN,
+            Compression: BOOLEAN,
+            DataPadding: BOOLEAN,
+            ReportSetmarks: BOOLEAN,
             DefaultBlockSize: u32,
             MaximumBlockSize: u32,
             MinimumBlockSize: u32,
@@ -9024,16 +9030,16 @@ mod Windows {
             EOTWarningZoneSize: u32,
         }
         struct TAPE_GET_MEDIA_PARAMETERS {
-            Capacity: i64,
-            Remaining: i64,
+            Capacity: LARGE_INTEGER,
+            Remaining: LARGE_INTEGER,
             BlockSize: u32,
             PartitionCount: u32,
-            WriteProtected: bool,
+            WriteProtected: BOOLEAN,
         }
         struct TAPE_GET_POSITION {
             Type: u32,
             Partition: u32,
-            Offset: i64,
+            Offset: LARGE_INTEGER,
         }
         const TAPE_INITIATOR_PARTITIONS: i32 = 2;
         const TAPE_LOAD: i32 = 0;
@@ -9043,7 +9049,7 @@ mod Windows {
         const TAPE_LONG_FILEMARKS: i32 = 3;
         struct TAPE_PREPARE {
             Operation: u32,
-            Immediate: bool,
+            Immediate: BOOLEAN,
         }
         const TAPE_PSEUDO_LOGICAL_BLOCK: i32 = 3;
         const TAPE_PSEUDO_LOGICAL_POSITION: i32 = 2;
@@ -9055,10 +9061,10 @@ mod Windows {
         const TAPE_SELECT_PARTITIONS: i32 = 1;
         const TAPE_SETMARKS: i32 = 0;
         struct TAPE_SET_DRIVE_PARAMETERS {
-            ECC: bool,
-            Compression: bool,
-            DataPadding: bool,
-            ReportSetmarks: bool,
+            ECC: BOOLEAN,
+            Compression: BOOLEAN,
+            DataPadding: BOOLEAN,
+            ReportSetmarks: BOOLEAN,
             EOTWarningZoneSize: u32,
         }
         struct TAPE_SET_MEDIA_PARAMETERS {
@@ -9067,8 +9073,8 @@ mod Windows {
         struct TAPE_SET_POSITION {
             Method: u32,
             Partition: u32,
-            Offset: i64,
-            Immediate: bool,
+            Offset: LARGE_INTEGER,
+            Immediate: BOOLEAN,
         }
         const TAPE_SHORT_FILEMARKS: i32 = 2;
         const TAPE_SPACE_END_OF_DATA: i32 = 4;
@@ -9088,7 +9094,7 @@ mod Windows {
         struct TAPE_WRITE_MARKS {
             Type: u32,
             Count: u32,
-            Immediate: bool,
+            Immediate: BOOLEAN,
         }
         type TBYTE = u8;
         type TCHAR = i8;
@@ -9144,13 +9150,17 @@ mod Windows {
         struct TOKEN_APPCONTAINER_INFORMATION {
             TokenAppContainer: PSID,
         }
+        #[arch(X64 | Arm64)]
+        const TOKEN_APPCONTAINER_SID_MAX_SIZE: u64 = 76;
+        #[arch(X86)]
+        const TOKEN_APPCONTAINER_SID_MAX_SIZE: u32 = 72;
         const TOKEN_ASSIGN_PRIMARY: i32 = 1;
         struct TOKEN_AUDIT_POLICY {
             PerUserPolicy: [u8; 31],
         }
         struct TOKEN_BNO_ISOLATION_INFORMATION {
             IsolationPrefix: PWSTR,
-            IsolationEnabled: bool,
+            IsolationEnabled: BOOLEAN,
         }
         struct TOKEN_CONTROL {
             TokenId: LUID,
@@ -9248,6 +9258,10 @@ mod Windows {
             TokenIsInstaller = 52,
             MaxTokenInfoClass = 53,
         }
+        #[arch(X64 | Arm64)]
+        const TOKEN_INTEGRITY_LEVEL_MAX_SIZE: u64 = 84;
+        #[arch(X86)]
+        const TOKEN_INTEGRITY_LEVEL_MAX_SIZE: u32 = 76;
         struct TOKEN_LINKED_TOKEN {
             LinkedToken: HANDLE,
         }
@@ -9282,6 +9296,10 @@ mod Windows {
         struct TOKEN_OWNER {
             Owner: PSID,
         }
+        #[arch(X64 | Arm64)]
+        const TOKEN_OWNER_MAX_SIZE: u64 = 76;
+        #[arch(X86)]
+        const TOKEN_OWNER_MAX_SIZE: u32 = 72;
         struct TOKEN_PRIMARY_GROUP {
             PrimaryGroup: PSID,
         }
@@ -9303,7 +9321,7 @@ mod Windows {
         struct TOKEN_STATISTICS {
             TokenId: LUID,
             AuthenticationId: LUID,
-            ExpirationTime: i64,
+            ExpirationTime: LARGE_INTEGER,
             TokenType: TOKEN_TYPE,
             ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
             DynamicCharged: u32,
@@ -9325,6 +9343,10 @@ mod Windows {
         struct TOKEN_USER_CLAIMS {
             UserClaims: PCLAIMS_BLOB,
         }
+        #[arch(X64 | Arm64)]
+        const TOKEN_USER_MAX_SIZE: u64 = 84;
+        #[arch(X86)]
+        const TOKEN_USER_MAX_SIZE: u32 = 76;
         const TOKEN_WRITE: i32 = 131296;
         type TP_CALLBACK_ENVIRON = TP_CALLBACK_ENVIRON_V3;
         struct TP_CALLBACK_ENVIRON_V3 {
@@ -9365,19 +9387,19 @@ mod Windows {
             StackReserve: usize,
             StackCommit: usize,
         }
-        extern fn TP_SIMPLE_CALLBACK(#[in] #[out] Instance: *mut TP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void);
+        extern fn TP_SIMPLE_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void);
         struct TP_TIMER {}
-        extern fn TP_TIMER_CALLBACK(#[in] #[out] Instance: *mut TP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Timer: *mut TP_TIMER);
+        extern fn TP_TIMER_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Timer: PTP_TIMER);
         type TP_VERSION = u32;
         struct TP_WAIT {}
-        extern fn TP_WAIT_CALLBACK(#[in] #[out] Instance: *mut TP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Wait: *mut TP_WAIT, WaitResult: TP_WAIT_RESULT);
+        extern fn TP_WAIT_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Wait: PTP_WAIT, WaitResult: TP_WAIT_RESULT);
         type TP_WAIT_RESULT = u32;
         struct TP_WORK {}
-        extern fn TP_WORK_CALLBACK(#[in] #[out] Instance: *mut TP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Work: *mut TP_WORK);
+        extern fn TP_WORK_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] Work: PTP_WORK);
         const TRANSACTIONMANAGER_ALL_ACCESS: i32 = 983103;
         struct TRANSACTIONMANAGER_BASIC_INFORMATION {
             TmIdentity: GUID,
-            VirtualClock: i64,
+            VirtualClock: LARGE_INTEGER,
         }
         const TRANSACTIONMANAGER_BIND_TRANSACTION: i32 = 32;
         const TRANSACTIONMANAGER_CREATE_RM: i32 = 16;
@@ -9458,7 +9480,7 @@ mod Windows {
         struct TRANSACTION_PROPERTIES_INFORMATION {
             IsolationLevel: u32,
             IsolationFlags: u32,
-            Timeout: i64,
+            Timeout: LARGE_INTEGER,
             Outcome: u32,
             DescriptionLength: u32,
             Description: [u16; 1],
@@ -9484,6 +9506,17 @@ mod Windows {
         const TRUST_PROTECTED_FILTER_ACE_FLAG: i32 = 64;
         type UCSCHAR = u32;
         const UCSCHAR_INVALID_CHARACTER: u32 = 4294967295;
+        union ULARGE_INTEGER {
+            Anonymous: struct {
+                LowPart: u32,
+                HighPart: u32,
+            },
+            u: struct {
+                LowPart: u32,
+                HighPart: u32,
+            },
+            QuadPart: u64,
+        }
         struct UMS_CREATE_THREAD_ATTRIBUTES {
             UmsVersion: u32,
             UmsContext: *mut void,
@@ -9588,10 +9621,8 @@ mod Windows {
         const VRL_CUSTOM_CLASS_BEGIN: i32 = 256;
         const VRL_ENABLE_KERNEL_BREAKS: i32 = -2147483648;
         const VRL_PREDEFINED_CLASS_BEGIN: i32 = 1;
-        #[library("KERNEL32.dll")]
-        extern fn VerSetConditionMask(ConditionMask: u64, TypeMask: u32, Condition: u8) -> u64;
         type WAITORTIMERCALLBACK = WAITORTIMERCALLBACKFUNC;
-        extern fn WAITORTIMERCALLBACKFUNC(param0: *mut void, param1: bool);
+        extern fn WAITORTIMERCALLBACKFUNC(param0: *mut void, param1: BOOLEAN);
         #[repr(i32)]
         enum WELL_KNOWN_SID_TYPE {
             WinNullSid = 0,
@@ -10094,10 +10125,9 @@ mod Windows {
         const XSTATE_XFD_BIT: i32 = 2;
         const XSTATE_XFD_MASK: u64 = 4;
         struct _ACTIVATION_CONTEXT {}
-        #[align(1)]
+        #[arch(Arm64)]
+        const _ARM64_MULT_INTRINS_SUPPORTED: i32 = 1;
         struct _ENUM_FLAG_INTEGER_FOR_SIZE {}
-        #[arch(X64)]
-        type _IMAGE_RUNTIME_FUNCTION_ENTRY = RUNTIME_FUNCTION;
         #[arch(X86 | Arm64)]
         struct _IMAGE_RUNTIME_FUNCTION_ENTRY {
             BeginAddress: u32,
@@ -10107,11 +10137,28 @@ mod Windows {
                 UnwindData: u32,
             },
         }
+        #[arch(X86 | X64)]
+        const _MM_HINT_NTA: i32 = 0;
+        #[arch(X86 | X64)]
+        const _MM_HINT_T0: i32 = 1;
+        #[arch(X86 | X64)]
+        const _MM_HINT_T1: i32 = 2;
+        #[arch(X86 | X64)]
+        const _MM_HINT_T2: i32 = 3;
         #[arch(X64)]
         type _PIMAGE_RUNTIME_FUNCTION_ENTRY = *mut RUNTIME_FUNCTION;
         #[arch(X86 | Arm64)]
         type _PIMAGE_RUNTIME_FUNCTION_ENTRY = *mut _IMAGE_RUNTIME_FUNCTION_ENTRY;
-        struct _TEB {}
+        struct _SE_TOKEN_USER {
+            Anonymous: union {
+                TokenUser: TOKEN_USER,
+                User: SID_AND_ATTRIBUTES,
+            },
+            Anonymous2: union {
+                Sid: SID,
+                Buffer: [u8; 68],
+            },
+        }
         #[arch(X86)]
         struct _UNWIND_HISTORY_TABLE {}
         type __C_ASSERT__ = [i8; 1];

@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        const IFI_UNSPECIFIED: u32 = 0;
+        const IFI_UNSPECIFIED: NET_IFINDEX = 0;
         #[repr(i32)]
         enum IF_ADMINISTRATIVE_STATE {
             IF_ADMINISTRATIVE_DISABLED = 0,
@@ -38,8 +38,8 @@ mod Windows {
             MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
             MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
             ifMtu: u32,
-            ifPromiscuousMode: bool,
-            ifDeviceWakeUpEnable: bool,
+            ifPromiscuousMode: BOOLEAN,
+            ifDeviceWakeUpEnable: BOOLEAN,
             XmitLinkSpeed: u64,
             RcvLinkSpeed: u64,
             ifLastChange: u64,
@@ -67,7 +67,7 @@ mod Windows {
             SupportedStatistics: u32,
         }
         type NET_IFINDEX = u32;
-        const NET_IFINDEX_UNSPECIFIED: u32 = 0;
+        const NET_IFINDEX_UNSPECIFIED: NET_IFINDEX = 0;
         const NET_IFLUID_UNSPECIFIED: i32 = 0;
         type NET_IFTYPE = u16;
         #[repr(i32)]

@@ -2,17 +2,17 @@
 mod Windows {
     mod Win32 {
         #[library("d3d10.dll")]
-        extern fn D3D10CompileEffectFromMemory(#[size_param(1)] pData: *const void, DataLength: usize, pSrcFileName: PCSTR, #[opt] pDefines: *const D3D10_SHADER_MACRO, #[opt] pInclude: ID3DInclude, HLSLFlags: u32, FXFlags: u32, ppCompiledEffect: *mut ID3D10Blob, #[opt] ppErrors: *mut ID3D10Blob) -> HRESULT;
+        extern fn D3D10CompileEffectFromMemory(#[size_param(1)] #[in] pData: *mut void, DataLength: usize, pSrcFileName: PCSTR, #[opt] pDefines: *const D3D10_SHADER_MACRO, #[opt] pInclude: ID3D10Include, HLSLFlags: u32, FXFlags: u32, ppCompiledEffect: *mut ID3D10Blob, #[opt] ppErrors: *mut ID3D10Blob) -> HRESULT;
         #[library("d3d10.dll")]
-        extern fn D3D10CreateEffectFromMemory(#[size_param(1)] pData: *const void, DataLength: usize, FXFlags: u32, pDevice: ID3D10Device, #[opt] pEffectPool: ID3D10EffectPool, ppEffect: *mut ID3D10Effect) -> HRESULT;
+        extern fn D3D10CreateEffectFromMemory(#[size_param(1)] #[in] pData: *mut void, DataLength: usize, FXFlags: u32, pDevice: ID3D10Device, #[opt] pEffectPool: ID3D10EffectPool, ppEffect: *mut ID3D10Effect) -> HRESULT;
         #[library("d3d10.dll")]
-        extern fn D3D10CreateEffectPoolFromMemory(#[size_param(1)] pData: *const void, DataLength: usize, FXFlags: u32, pDevice: ID3D10Device, ppEffectPool: *mut ID3D10EffectPool) -> HRESULT;
+        extern fn D3D10CreateEffectPoolFromMemory(#[size_param(1)] #[in] pData: *mut void, DataLength: usize, FXFlags: u32, pDevice: ID3D10Device, ppEffectPool: *mut ID3D10EffectPool) -> HRESULT;
         #[library("d3d10.dll")]
-        extern fn D3D10CreateStateBlock(pDevice: ID3D10Device, pStateBlockMask: *const D3D10_STATE_BLOCK_MASK, ppStateBlock: *mut ID3D10StateBlock) -> HRESULT;
+        extern fn D3D10CreateStateBlock(pDevice: ID3D10Device, #[in] pStateBlockMask: *mut D3D10_STATE_BLOCK_MASK, ppStateBlock: *mut ID3D10StateBlock) -> HRESULT;
         #[library("d3d10.dll")]
         extern fn D3D10DisassembleEffect(pEffect: ID3D10Effect, EnableColorCode: BOOL, ppDisassembly: *mut ID3D10Blob) -> HRESULT;
         #[library("d3d10.dll")]
-        extern fn D3D10StateBlockMaskDifference(pA: *const D3D10_STATE_BLOCK_MASK, pB: *const D3D10_STATE_BLOCK_MASK, pResult: *mut D3D10_STATE_BLOCK_MASK) -> HRESULT;
+        extern fn D3D10StateBlockMaskDifference(#[in] pA: *mut D3D10_STATE_BLOCK_MASK, #[in] pB: *mut D3D10_STATE_BLOCK_MASK, pResult: *mut D3D10_STATE_BLOCK_MASK) -> HRESULT;
         #[library("d3d10.dll")]
         extern fn D3D10StateBlockMaskDisableAll(pMask: *mut D3D10_STATE_BLOCK_MASK) -> HRESULT;
         #[library("d3d10.dll")]
@@ -22,11 +22,11 @@ mod Windows {
         #[library("d3d10.dll")]
         extern fn D3D10StateBlockMaskEnableCapture(#[in] #[out] pMask: *mut D3D10_STATE_BLOCK_MASK, StateType: D3D10_DEVICE_STATE_TYPES, RangeStart: u32, RangeLength: u32) -> HRESULT;
         #[library("d3d10.dll")]
-        extern fn D3D10StateBlockMaskGetSetting(pMask: *const D3D10_STATE_BLOCK_MASK, StateType: D3D10_DEVICE_STATE_TYPES, Entry: u32) -> BOOL;
+        extern fn D3D10StateBlockMaskGetSetting(#[in] pMask: *mut D3D10_STATE_BLOCK_MASK, StateType: D3D10_DEVICE_STATE_TYPES, Entry: u32) -> BOOL;
         #[library("d3d10.dll")]
-        extern fn D3D10StateBlockMaskIntersect(pA: *const D3D10_STATE_BLOCK_MASK, pB: *const D3D10_STATE_BLOCK_MASK, pResult: *mut D3D10_STATE_BLOCK_MASK) -> HRESULT;
+        extern fn D3D10StateBlockMaskIntersect(#[in] pA: *mut D3D10_STATE_BLOCK_MASK, #[in] pB: *mut D3D10_STATE_BLOCK_MASK, pResult: *mut D3D10_STATE_BLOCK_MASK) -> HRESULT;
         #[library("d3d10.dll")]
-        extern fn D3D10StateBlockMaskUnion(pA: *const D3D10_STATE_BLOCK_MASK, pB: *const D3D10_STATE_BLOCK_MASK, pResult: *mut D3D10_STATE_BLOCK_MASK) -> HRESULT;
+        extern fn D3D10StateBlockMaskUnion(#[in] pA: *mut D3D10_STATE_BLOCK_MASK, #[in] pB: *mut D3D10_STATE_BLOCK_MASK, pResult: *mut D3D10_STATE_BLOCK_MASK) -> HRESULT;
         #[repr(i32)]
         enum D3D10_DEVICE_STATE_TYPES {
             D3D10_DST_SO_BUFFERS = 1,
@@ -104,7 +104,7 @@ mod Windows {
             IAInputSignatureSize: usize,
             StencilRef: u32,
             SampleMask: u32,
-            BlendFactor: [f32; 4],
+            BlendFactor: [FLOAT; 4],
         }
         struct D3D10_PASS_SHADER_DESC {
             pShaderVariable: ID3D10EffectShaderVariable,
@@ -178,7 +178,7 @@ mod Windows {
         interface ID3D10EffectDepthStencilViewVariable: ID3D10EffectVariable {
             fn SetDepthStencil(&self, #[opt] pResource: ID3D10DepthStencilView) -> HRESULT;
             fn GetDepthStencil(&self, ppResource: *mut ID3D10DepthStencilView) -> HRESULT;
-            fn SetDepthStencilArray(&self, #[len_param(2)] ppResources: *const ID3D10DepthStencilView, Offset: u32, Count: u32) -> HRESULT;
+            fn SetDepthStencilArray(&self, #[len_param(2)] #[in] ppResources: *mut ID3D10DepthStencilView, Offset: u32, Count: u32) -> HRESULT;
             fn GetDepthStencilArray(&self, #[len_param(2)] ppResources: *mut ID3D10DepthStencilView, Offset: u32, Count: u32) -> HRESULT;
         }
         #[guid(0x50666c24_b82f_4eed_a172_5b6e7e8522e0)]
@@ -217,7 +217,7 @@ mod Windows {
         interface ID3D10EffectRenderTargetViewVariable: ID3D10EffectVariable {
             fn SetRenderTarget(&self, #[opt] pResource: ID3D10RenderTargetView) -> HRESULT;
             fn GetRenderTarget(&self, ppResource: *mut ID3D10RenderTargetView) -> HRESULT;
-            fn SetRenderTargetArray(&self, #[len_param(2)] ppResources: *const ID3D10RenderTargetView, Offset: u32, Count: u32) -> HRESULT;
+            fn SetRenderTargetArray(&self, #[len_param(2)] #[in] ppResources: *mut ID3D10RenderTargetView, Offset: u32, Count: u32) -> HRESULT;
             fn GetRenderTargetArray(&self, #[len_param(2)] ppResources: *mut ID3D10RenderTargetView, Offset: u32, Count: u32) -> HRESULT;
         }
         #[guid(0x6530d5c7_07e9_4271_a418_e7ce4bd1e480)]
@@ -229,22 +229,22 @@ mod Windows {
         interface ID3D10EffectScalarVariable: ID3D10EffectVariable {
             fn SetFloat(&self, Value: f32) -> HRESULT;
             fn GetFloat(&self, pValue: *mut f32) -> HRESULT;
-            fn SetFloatArray(&self, #[len_param(2)] pData: *const f32, Offset: u32, Count: u32) -> HRESULT;
+            fn SetFloatArray(&self, #[len_param(2)] #[in] pData: *mut f32, Offset: u32, Count: u32) -> HRESULT;
             fn GetFloatArray(&self, #[len_param(2)] pData: *mut f32, Offset: u32, Count: u32) -> HRESULT;
             fn SetInt(&self, Value: i32) -> HRESULT;
             fn GetInt(&self, pValue: *mut i32) -> HRESULT;
-            fn SetIntArray(&self, #[len_param(2)] pData: *const i32, Offset: u32, Count: u32) -> HRESULT;
+            fn SetIntArray(&self, #[len_param(2)] #[in] pData: *mut i32, Offset: u32, Count: u32) -> HRESULT;
             fn GetIntArray(&self, #[len_param(2)] pData: *mut i32, Offset: u32, Count: u32) -> HRESULT;
             fn SetBool(&self, Value: BOOL) -> HRESULT;
             fn GetBool(&self, pValue: *mut BOOL) -> HRESULT;
-            fn SetBoolArray(&self, #[len_param(2)] pData: *const BOOL, Offset: u32, Count: u32) -> HRESULT;
+            fn SetBoolArray(&self, #[len_param(2)] #[in] pData: *mut BOOL, Offset: u32, Count: u32) -> HRESULT;
             fn GetBoolArray(&self, #[len_param(2)] pData: *mut BOOL, Offset: u32, Count: u32) -> HRESULT;
         }
         #[guid(0xc0a7157b_d872_4b1d_8073_efc2acd4b1fc)]
         interface ID3D10EffectShaderResourceVariable: ID3D10EffectVariable {
             fn SetResource(&self, #[opt] pResource: ID3D10ShaderResourceView) -> HRESULT;
             fn GetResource(&self, ppResource: *mut ID3D10ShaderResourceView) -> HRESULT;
-            fn SetResourceArray(&self, #[len_param(2)] ppResources: *const ID3D10ShaderResourceView, Offset: u32, Count: u32) -> HRESULT;
+            fn SetResourceArray(&self, #[len_param(2)] #[in] ppResources: *mut ID3D10ShaderResourceView, Offset: u32, Count: u32) -> HRESULT;
             fn GetResourceArray(&self, #[len_param(2)] ppResources: *mut ID3D10ShaderResourceView, Offset: u32, Count: u32) -> HRESULT;
         }
         #[guid(0x80849279_c799_4797_8c33_0407a07d9e06)]
@@ -306,7 +306,7 @@ mod Windows {
             fn AsDepthStencil(&self) -> ID3D10EffectDepthStencilVariable;
             fn AsRasterizer(&self) -> ID3D10EffectRasterizerVariable;
             fn AsSampler(&self) -> ID3D10EffectSamplerVariable;
-            fn SetRawValue(&self, #[size_param(2)] pData: *const void, Offset: u32, ByteCount: u32) -> HRESULT;
+            fn SetRawValue(&self, #[size_param(2)] #[in] pData: *mut void, Offset: u32, ByteCount: u32) -> HRESULT;
             fn GetRawValue(&self, #[size_param(2)] pData: *mut void, Offset: u32, ByteCount: u32) -> HRESULT;
         }
         #[guid(0x62b98c44_1f82_4c67_bcd0_72cf8f217e81)]
@@ -331,5 +331,25 @@ mod Windows {
             fn ReleaseAllDeviceObjects(&self) -> HRESULT;
             fn GetDevice(&self, ppDevice: *mut ID3D10Device) -> HRESULT;
         }
+        type LPD3D10EFFECT = ID3D10Effect;
+        type LPD3D10EFFECTBLENDVARIABLE = ID3D10EffectBlendVariable;
+        type LPD3D10EFFECTCONSTANTBUFFER = ID3D10EffectConstantBuffer;
+        type LPD3D10EFFECTDEPTHSTENCILVARIABLE = ID3D10EffectDepthStencilVariable;
+        type LPD3D10EFFECTDEPTHSTENCILVIEWVARIABLE = ID3D10EffectDepthStencilViewVariable;
+        type LPD3D10EFFECTMATRIXVARIABLE = ID3D10EffectMatrixVariable;
+        type LPD3D10EFFECTPASS = ID3D10EffectPass;
+        type LPD3D10EFFECTPOOL = ID3D10EffectPool;
+        type LPD3D10EFFECTRASTERIZERVARIABLE = ID3D10EffectRasterizerVariable;
+        type LPD3D10EFFECTRENDERTARGETVIEWVARIABLE = ID3D10EffectRenderTargetViewVariable;
+        type LPD3D10EFFECTSAMPLERVARIABLE = ID3D10EffectSamplerVariable;
+        type LPD3D10EFFECTSCALARVARIABLE = ID3D10EffectScalarVariable;
+        type LPD3D10EFFECTSHADERRESOURCEVARIABLE = ID3D10EffectShaderResourceVariable;
+        type LPD3D10EFFECTSHADERVARIABLE = ID3D10EffectShaderVariable;
+        type LPD3D10EFFECTSTRINGVARIABLE = ID3D10EffectStringVariable;
+        type LPD3D10EFFECTTECHNIQUE = ID3D10EffectTechnique;
+        type LPD3D10EFFECTTYPE = ID3D10EffectType;
+        type LPD3D10EFFECTVARIABLE = ID3D10EffectVariable;
+        type LPD3D10EFFECTVECTORVARIABLE = ID3D10EffectVectorVariable;
+        type LPD3D10STATEBLOCK = ID3D10StateBlock;
     }
 }

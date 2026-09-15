@@ -26,7 +26,7 @@ mod Windows {
             nLogicalMin: i32,
             nLogicalMax: i32,
             Units: PROPERTY_UNITS,
-            fResolution: f32,
+            fResolution: FLOAT,
         }
         #[repr(i32)]
         enum PROPERTY_UNITS {

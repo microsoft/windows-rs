@@ -11,7 +11,7 @@ mod Windows {
         }
         struct CALPOLESTR {
             cElems: u32,
-            pElems: *mut PWSTR,
+            pElems: *mut LPOLESTR,
         }
         struct CAUUID {
             cElems: u32,
@@ -59,6 +59,22 @@ mod Windows {
         enum GUIDKIND {
             GUIDKIND_DEFAULT_SOURCE_DISP_IID = 1,
         }
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserFree(param0: *mut u32, param1: *mut HACCEL);
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserFree64(param0: *mut u32, param1: *mut HACCEL);
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut HACCEL) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HACCEL) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserSize(param0: *mut u32, param1: u32, param2: *mut HACCEL) -> u32;
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserSize64(param0: *mut u32, param1: u32, param2: *mut HACCEL) -> u32;
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut HACCEL) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HACCEL_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HACCEL) -> *mut u8;
         type HHANDLE = usize;
         #[repr(i32)]
         enum HITRESULT {
@@ -67,6 +83,38 @@ mod Windows {
             HITRESULT_CLOSE = 2,
             HITRESULT_HIT = 3,
         }
+        #[library("ole32.dll")]
+        extern fn HPALETTE_UserFree(param0: *mut u32, param1: *mut HPALETTE);
+        #[library("ole32.dll")]
+        extern fn HPALETTE_UserFree64(param0: *mut u32, param1: *mut HPALETTE);
+        #[library("ole32.dll")]
+        extern fn HPALETTE_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut HPALETTE) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HPALETTE_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HPALETTE) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HPALETTE_UserSize(param0: *mut u32, param1: u32, param2: *mut HPALETTE) -> u32;
+        #[library("ole32.dll")]
+        extern fn HPALETTE_UserSize64(param0: *mut u32, param1: u32, param2: *mut HPALETTE) -> u32;
+        #[library("ole32.dll")]
+        extern fn HPALETTE_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut HPALETTE) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HPALETTE_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HPALETTE) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HRGN_UserFree(param0: *mut u32, param1: *mut HRGN);
+        #[library("api-ms-win-core-marshal-l1-1-0.dll")]
+        extern fn HRGN_UserFree64(param0: *mut u32, param1: *mut HRGN);
+        #[library("ole32.dll")]
+        extern fn HRGN_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut HRGN) -> *mut u8;
+        #[library("api-ms-win-core-marshal-l1-1-0.dll")]
+        extern fn HRGN_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HRGN) -> *mut u8;
+        #[library("ole32.dll")]
+        extern fn HRGN_UserSize(param0: *mut u32, param1: u32, param2: *mut HRGN) -> u32;
+        #[library("api-ms-win-core-marshal-l1-1-0.dll")]
+        extern fn HRGN_UserSize64(param0: *mut u32, param1: u32, param2: *mut HRGN) -> u32;
+        #[library("ole32.dll")]
+        extern fn HRGN_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut HRGN) -> *mut u8;
+        #[library("api-ms-win-core-marshal-l1-1-0.dll")]
+        extern fn HRGN_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut HRGN) -> *mut u8;
         #[guid(0x3af24290_0c96_11ce_a0cf_00aa00600ab8)]
         interface IAdviseSinkEx: IAdviseSink {
             fn OnViewStatusChange(&self, dwViewStatus: u32);
@@ -92,14 +140,14 @@ mod Windows {
         }
         #[guid(0xb196b285_bab4_101a_b69c_00aa00341d07)]
         interface IEnumConnectionPoints: IUnknown {
-            fn Next(&self, cConnections: u32, ppCP: *mut IConnectionPoint, pcFetched: *mut u32) -> HRESULT;
+            fn Next(&self, cConnections: u32, ppCP: *mut LPCONNECTIONPOINT, pcFetched: *mut u32) -> HRESULT;
             fn Skip(&self, cConnections: u32) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, ppEnum: *mut IEnumConnectionPoints) -> HRESULT;
         }
         #[guid(0xb196b287_bab4_101a_b69c_00aa00341d07)]
         interface IEnumConnections: IUnknown {
-            fn Next(&self, cConnections: u32, rgcd: *mut CONNECTDATA, pcFetched: *mut u32) -> HRESULT;
+            fn Next(&self, cConnections: u32, #[out] rgcd: LPCONNECTDATA, pcFetched: *mut u32) -> HRESULT;
             fn Skip(&self, cConnections: u32) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, ppEnum: *mut IEnumConnections) -> HRESULT;
@@ -150,7 +198,7 @@ mod Windows {
         #[guid(0xb196b288_bab4_101a_b69c_00aa00341d07)]
         interface IOleControl: IUnknown {
             fn GetControlInfo(&self, #[in] #[out] pCI: *mut CONTROLINFO) -> HRESULT;
-            fn OnMnemonic(&self, pMsg: *const MSG) -> HRESULT;
+            fn OnMnemonic(&self, #[in] pMsg: *mut MSG) -> HRESULT;
             fn OnAmbientPropertyChange(&self, dispID: DISPID) -> HRESULT;
             fn FreezeEvents(&self, bFreeze: BOOL) -> HRESULT;
         }
@@ -160,7 +208,7 @@ mod Windows {
             fn LockInPlaceActive(&self, fLock: BOOL) -> HRESULT;
             fn GetExtendedControl(&self, ppDisp: *mut IDispatch) -> HRESULT;
             fn TransformCoords(&self, #[in] #[out] pPtlHimetric: *mut POINTL, #[in] #[out] pPtfContainer: *mut POINTF, dwFlags: u32) -> HRESULT;
-            fn TranslateAccelerator(&self, pMsg: *const MSG, grfModifiers: u32) -> HRESULT;
+            fn TranslateAccelerator(&self, #[in] pMsg: *mut MSG, grfModifiers: u32) -> HRESULT;
             fn OnFocus(&self, fGotFocus: BOOL) -> HRESULT;
             fn ShowPropertyFrame(&self) -> HRESULT;
         }
@@ -182,12 +230,12 @@ mod Windows {
             fn SetCapture(&self, fCapture: BOOL) -> HRESULT;
             fn GetFocus(&self) -> HRESULT;
             fn SetFocus(&self, fFocus: BOOL) -> HRESULT;
-            fn GetDC(&self, pRect: *const RECT, grfFlags: u32, phDC: *mut HDC) -> HRESULT;
+            fn GetDC(&self, pRect: LPCRECT, grfFlags: u32, phDC: *mut HDC) -> HRESULT;
             fn ReleaseDC(&self, hDC: HDC) -> HRESULT;
-            fn InvalidateRect(&self, pRect: *const RECT, fErase: BOOL) -> HRESULT;
+            fn InvalidateRect(&self, pRect: LPCRECT, fErase: BOOL) -> HRESULT;
             fn InvalidateRgn(&self, hRGN: HRGN, fErase: BOOL) -> HRESULT;
-            fn ScrollRect(&self, dx: i32, dy: i32, pRectScroll: *const RECT, pRectClip: *const RECT) -> HRESULT;
-            fn AdjustRect(&self, #[in] #[out] prc: *mut RECT) -> HRESULT;
+            fn ScrollRect(&self, dx: i32, dy: i32, pRectScroll: LPCRECT, pRectClip: LPCRECT) -> HRESULT;
+            fn AdjustRect(&self, #[in] #[out] prc: LPRECT) -> HRESULT;
             fn OnDefWindowMessage(&self, msg: u32, wParam: WPARAM, lParam: LPARAM, plResult: *mut LRESULT) -> HRESULT;
         }
         #[guid(0xa1faf330_ef97_11ce_9bc9_00aa00608e01)]
@@ -230,7 +278,7 @@ mod Windows {
         #[guid(0xbd1ae5e0_a6ae_11ce_bd37_504200c10000)]
         interface IPersistMemory: IPersist {
             fn IsDirty(&self) -> HRESULT;
-            fn Load(&self, pMem: *const void, cbSize: u32) -> HRESULT;
+            fn Load(&self, #[in] pMem: *mut void, cbSize: u32) -> HRESULT;
             fn Save(&self, pMem: *mut void, fClearDirty: BOOL, cbSize: u32) -> HRESULT;
             fn GetSizeMax(&self, pCbSize: *mut u32) -> HRESULT;
             fn InitNew(&self) -> HRESULT;
@@ -251,9 +299,9 @@ mod Windows {
         #[guid(0x7fd52380_4e07_101b_ae2d_08002b2ec713)]
         interface IPersistStreamInit: IPersist {
             fn IsDirty(&self) -> HRESULT;
-            fn Load(&self, pStm: IStream) -> HRESULT;
-            fn Save(&self, pStm: IStream, fClearDirty: BOOL) -> HRESULT;
-            fn GetSizeMax(&self, pCbSize: *mut u64) -> HRESULT;
+            fn Load(&self, pStm: LPSTREAM) -> HRESULT;
+            fn Save(&self, pStm: LPSTREAM, fClearDirty: BOOL) -> HRESULT;
+            fn GetSizeMax(&self, pCbSize: *mut ULARGE_INTEGER) -> HRESULT;
             fn InitNew(&self) -> HRESULT;
         }
         #[guid(0x7bf80980_bf32_101a_8bbb_00aa00300cab)]
@@ -263,14 +311,14 @@ mod Windows {
             fn get_Type(&self, pType: *mut i16) -> HRESULT;
             fn get_Width(&self, pWidth: *mut OLE_XSIZE_HIMETRIC) -> HRESULT;
             fn get_Height(&self, pHeight: *mut OLE_YSIZE_HIMETRIC) -> HRESULT;
-            fn Render(&self, hDC: HDC, x: i32, y: i32, cx: i32, cy: i32, xSrc: OLE_XPOS_HIMETRIC, ySrc: OLE_YPOS_HIMETRIC, cxSrc: OLE_XSIZE_HIMETRIC, cySrc: OLE_YSIZE_HIMETRIC, pRcWBounds: *const RECT) -> HRESULT;
+            fn Render(&self, hDC: HDC, x: i32, y: i32, cx: i32, cy: i32, xSrc: OLE_XPOS_HIMETRIC, ySrc: OLE_YPOS_HIMETRIC, cxSrc: OLE_XSIZE_HIMETRIC, cySrc: OLE_YSIZE_HIMETRIC, pRcWBounds: LPCRECT) -> HRESULT;
             fn set_hPal(&self, hPal: OLE_HANDLE) -> HRESULT;
             fn get_CurDC(&self, phDC: *mut HDC) -> HRESULT;
             fn SelectPicture(&self, hDCIn: HDC, phDCOut: *mut HDC, phBmpOut: *mut OLE_HANDLE) -> HRESULT;
             fn get_KeepOriginalFormat(&self, pKeep: *mut BOOL) -> HRESULT;
             fn put_KeepOriginalFormat(&self, keep: BOOL) -> HRESULT;
             fn PictureChanged(&self) -> HRESULT;
-            fn SaveAsFile(&self, pStream: IStream, fSaveMemCopy: BOOL, pCbSize: *mut i32) -> HRESULT;
+            fn SaveAsFile(&self, pStream: LPSTREAM, fSaveMemCopy: BOOL, pCbSize: *mut i32) -> HRESULT;
             fn get_Attributes(&self, pDwAttr: *mut u32) -> HRESULT;
         }
         #[guid(0xf5185dd8_2012_4b0b_aad9_f052c6bd482b)]
@@ -280,14 +328,14 @@ mod Windows {
             fn get_Type(&self, pType: *mut i16) -> HRESULT;
             fn get_Width(&self, pWidth: *mut OLE_XSIZE_HIMETRIC) -> HRESULT;
             fn get_Height(&self, pHeight: *mut OLE_YSIZE_HIMETRIC) -> HRESULT;
-            fn Render(&self, hDC: HDC, x: i32, y: i32, cx: i32, cy: i32, xSrc: OLE_XPOS_HIMETRIC, ySrc: OLE_YPOS_HIMETRIC, cxSrc: OLE_XSIZE_HIMETRIC, cySrc: OLE_YSIZE_HIMETRIC, pRcWBounds: *const RECT) -> HRESULT;
+            fn Render(&self, hDC: HDC, x: i32, y: i32, cx: i32, cy: i32, xSrc: OLE_XPOS_HIMETRIC, ySrc: OLE_YPOS_HIMETRIC, cxSrc: OLE_XSIZE_HIMETRIC, cySrc: OLE_YSIZE_HIMETRIC, pRcWBounds: LPCRECT) -> HRESULT;
             fn set_hPal(&self, hPal: HHANDLE) -> HRESULT;
             fn get_CurDC(&self, phDC: *mut HDC) -> HRESULT;
             fn SelectPicture(&self, hDCIn: HDC, phDCOut: *mut HDC, phBmpOut: *mut HHANDLE) -> HRESULT;
             fn get_KeepOriginalFormat(&self, pKeep: *mut BOOL) -> HRESULT;
             fn put_KeepOriginalFormat(&self, keep: BOOL) -> HRESULT;
             fn PictureChanged(&self) -> HRESULT;
-            fn SaveAsFile(&self, pStream: IStream, fSaveMemCopy: BOOL, pCbSize: *mut i32) -> HRESULT;
+            fn SaveAsFile(&self, pStream: LPSTREAM, fSaveMemCopy: BOOL, pCbSize: *mut i32) -> HRESULT;
             fn get_Attributes(&self, pDwAttr: *mut u32) -> HRESULT;
         }
         #[guid(0x7bf80981_bf32_101a_8bbb_00aa00300cab)]
@@ -295,16 +343,16 @@ mod Windows {
         #[guid(0x55980ba0_35aa_11cf_b671_00aa004cd6d8)]
         interface IPointerInactive: IUnknown {
             fn GetActivationPolicy(&self, pdwPolicy: *mut u32) -> HRESULT;
-            fn OnInactiveMouseMove(&self, pRectBounds: *const RECT, x: i32, y: i32, grfKeyState: u32) -> HRESULT;
-            fn OnInactiveSetCursor(&self, pRectBounds: *const RECT, x: i32, y: i32, dwMouseMsg: u32, fSetAlways: BOOL) -> HRESULT;
+            fn OnInactiveMouseMove(&self, pRectBounds: LPCRECT, x: i32, y: i32, grfKeyState: u32) -> HRESULT;
+            fn OnInactiveSetCursor(&self, pRectBounds: LPCRECT, x: i32, y: i32, dwMouseMsg: u32, fSetAlways: BOOL) -> HRESULT;
         }
         #[guid(0x22f55882_280b_11d0_a8a9_00a0c90c2004)]
         interface IPropertyBag2: IUnknown {
-            fn Read(&self, cProperties: u32, pPropBag: *const PROPBAG2, pErrLog: IErrorLog, pvarValue: *mut VARIANT, #[in] #[out] phrError: *mut HRESULT) -> HRESULT;
-            fn Write(&self, cProperties: u32, pPropBag: *const PROPBAG2, pvarValue: *const VARIANT) -> HRESULT;
+            fn Read(&self, cProperties: u32, #[in] pPropBag: *mut PROPBAG2, pErrLog: IErrorLog, pvarValue: *mut VARIANT, #[in] #[out] phrError: *mut HRESULT) -> HRESULT;
+            fn Write(&self, cProperties: u32, #[in] pPropBag: *mut PROPBAG2, #[in] pvarValue: *mut VARIANT) -> HRESULT;
             fn CountProperties(&self, pcProperties: *mut u32) -> HRESULT;
             fn GetPropertyInfo(&self, iProperty: u32, cProperties: u32, pPropBag: *mut PROPBAG2, pcProperties: *mut u32) -> HRESULT;
-            fn LoadObject(&self, pstrName: PCWSTR, dwHint: u32, pUnkObject: IUnknown, pErrLog: IErrorLog) -> HRESULT;
+            fn LoadObject(&self, pstrName: LPCOLESTR, dwHint: u32, pUnkObject: IUnknown, pErrLog: IErrorLog) -> HRESULT;
         }
         #[guid(0x9bfbbc02_eff1_101a_84ed_00aa00341d07)]
         interface IPropertyNotifySink: IUnknown {
@@ -314,16 +362,16 @@ mod Windows {
         #[guid(0xb196b28d_bab4_101a_b69c_00aa00341d07)]
         interface IPropertyPage: IUnknown {
             fn SetPageSite(&self, pPageSite: IPropertyPageSite) -> HRESULT;
-            fn Activate(&self, hWndParent: HWND, pRect: *const RECT, bModal: BOOL) -> HRESULT;
+            fn Activate(&self, hWndParent: HWND, pRect: LPCRECT, bModal: BOOL) -> HRESULT;
             fn Deactivate(&self) -> HRESULT;
             fn GetPageInfo(&self, pPageInfo: *mut PROPPAGEINFO) -> HRESULT;
-            fn SetObjects(&self, cObjects: u32, ppUnk: *const IUnknown) -> HRESULT;
+            fn SetObjects(&self, cObjects: u32, #[in] ppUnk: *mut IUnknown) -> HRESULT;
             fn Show(&self, nCmdShow: u32) -> HRESULT;
-            fn Move(&self, pRect: *const RECT) -> HRESULT;
+            fn Move(&self, pRect: LPCRECT) -> HRESULT;
             fn IsPageDirty(&self) -> HRESULT;
             fn Apply(&self) -> HRESULT;
-            fn Help(&self, pszHelpDir: PCWSTR) -> HRESULT;
-            fn TranslateAccelerator(&self, pMsg: *const MSG) -> HRESULT;
+            fn Help(&self, pszHelpDir: LPCOLESTR) -> HRESULT;
+            fn TranslateAccelerator(&self, #[in] pMsg: *mut MSG) -> HRESULT;
         }
         #[guid(0x01e44665_24ac_101b_84ed_08002b2ec713)]
         interface IPropertyPage2: IPropertyPage {
@@ -334,7 +382,7 @@ mod Windows {
             fn OnStatusChange(&self, dwFlags: u32) -> HRESULT;
             fn GetLocaleID(&self, pLocaleID: *mut LCID) -> HRESULT;
             fn GetPageContainer(&self, ppUnk: *mut IUnknown) -> HRESULT;
-            fn TranslateAccelerator(&self, pMsg: *const MSG) -> HRESULT;
+            fn TranslateAccelerator(&self, #[in] pMsg: *mut MSG) -> HRESULT;
         }
         #[guid(0xb196b283_bab4_101a_b69c_00aa00341d07)]
         interface IProvideClassInfo: IUnknown {
@@ -351,9 +399,9 @@ mod Windows {
         }
         #[guid(0xcf51ed10_62fe_11cf_bf86_00a0c9034836)]
         interface IQuickActivate: IUnknown {
-            fn QuickActivate(&self, pQaContainer: *const QACONTAINER, #[in] #[out] pQaControl: *mut QACONTROL) -> HRESULT;
-            fn SetContentExtent(&self, pSizel: *const SIZE) -> HRESULT;
-            fn GetContentExtent(&self, pSizel: *mut SIZE) -> HRESULT;
+            fn QuickActivate(&self, #[in] pQaContainer: *mut QACONTAINER, #[in] #[out] pQaControl: *mut QACONTROL) -> HRESULT;
+            fn SetContentExtent(&self, pSizel: LPSIZEL) -> HRESULT;
+            fn GetContentExtent(&self, #[out] pSizel: LPSIZEL) -> HRESULT;
         }
         #[guid(0x742b0e01_14e6_101b_914e_00aa00300cab)]
         interface ISimpleFrameSite: IUnknown {
@@ -366,26 +414,66 @@ mod Windows {
         }
         #[guid(0x3af24292_0c96_11ce_a0cf_00aa00600ab8)]
         interface IViewObjectEx: IViewObject2 {
-            fn GetRect(&self, dwAspect: u32, pRect: *mut RECTL) -> HRESULT;
+            fn GetRect(&self, dwAspect: u32, #[out] pRect: LPRECTL) -> HRESULT;
             fn GetViewStatus(&self, pdwStatus: *mut u32) -> HRESULT;
-            fn QueryHitPoint(&self, dwAspect: u32, pRectBounds: *const RECT, ptlLoc: POINT, lCloseHint: i32, pHitResult: *mut u32) -> HRESULT;
-            fn QueryHitRect(&self, dwAspect: u32, pRectBounds: *const RECT, pRectLoc: *const RECT, lCloseHint: i32, pHitResult: *mut u32) -> HRESULT;
-            fn GetNaturalExtent(&self, dwAspect: u32, lindex: i32, ptd: *const DVTARGETDEVICE, hicTargetDev: HDC, pExtentInfo: *const DVEXTENTINFO, pSizel: *mut SIZE) -> HRESULT;
+            fn QueryHitPoint(&self, dwAspect: u32, pRectBounds: LPCRECT, ptlLoc: POINT, lCloseHint: i32, pHitResult: *mut u32) -> HRESULT;
+            fn QueryHitRect(&self, dwAspect: u32, pRectBounds: LPCRECT, pRectLoc: LPCRECT, lCloseHint: i32, pHitResult: *mut u32) -> HRESULT;
+            fn GetNaturalExtent(&self, dwAspect: u32, lindex: i32, #[in] ptd: *mut DVTARGETDEVICE, hicTargetDev: HDC, #[in] pExtentInfo: *mut DVEXTENTINFO, #[out] pSizel: LPSIZEL) -> HRESULT;
         }
         struct LICINFO {
             cbLicInfo: i32,
             fRuntimeKeyAvail: BOOL,
             fLicVerified: BOOL,
         }
+        type LPADVISESINKEX = IAdviseSinkEx;
         type LPCADWORD = *mut CADWORD;
         type LPCALPOLESTR = *mut CALPOLESTR;
         type LPCAUUID = *mut CAUUID;
+        type LPCLASSFACTORY2 = IClassFactory2;
         type LPCONNECTDATA = *mut CONNECTDATA;
+        type LPCONNECTIONPOINT = IConnectionPoint;
+        type LPCONNECTIONPOINTCONTAINER = IConnectionPointContainer;
         type LPCONTROLINFO = *mut CONTROLINFO;
+        type LPENUMCONNECTIONPOINTS = IEnumConnectionPoints;
+        type LPENUMCONNECTIONS = IEnumConnections;
+        type LPENUMOLEUNDOUNITS = IEnumOleUndoUnits;
+        type LPFONT = IFont;
+        type LPFONTDISP = IFontDisp;
+        type LPFONTEVENTS = IFontEventsDisp;
         type LPLICINFO = *mut LICINFO;
+        type LPOBJECTWITHSITE = IObjectWithSite;
+        type LPOLECONTROL = IOleControl;
+        type LPOLECONTROLSITE = IOleControlSite;
+        type LPOLEINPLACEOBJECTWINDOWLESS = IOleInPlaceObjectWindowless;
+        type LPOLEINPLACESITEEX = IOleInPlaceSiteEx;
+        type LPOLEINPLACESITEWINDOWLESS = IOleInPlaceSiteWindowless;
+        type LPOLEPARENTUNDOUNIT = IOleParentUndoUnit;
+        type LPOLEUNDOMANAGER = IOleUndoManager;
+        type LPOLEUNDOUNIT = IOleUndoUnit;
+        type LPPERPROPERTYBROWSING = IPerPropertyBrowsing;
+        type LPPERSISTMEMORY = IPersistMemory;
+        type LPPERSISTPROPERTYBAG = IPersistPropertyBag;
+        type LPPERSISTPROPERTYBAG2 = IPersistPropertyBag2;
+        type LPPERSISTSTREAMINIT = IPersistStreamInit;
+        type LPPICTURE = IPicture;
+        type LPPICTURE2 = IPicture2;
+        type LPPICTUREDISP = IPictureDisp;
+        type LPPOINTERINACTIVE = IPointerInactive;
         type LPPOINTF = *mut POINTF;
+        type LPPROPERTYBAG2 = IPropertyBag2;
+        type LPPROPERTYNOTIFYSINK = IPropertyNotifySink;
+        type LPPROPERTYPAGE = IPropertyPage;
+        type LPPROPERTYPAGE2 = IPropertyPage2;
+        type LPPROPERTYPAGESITE = IPropertyPageSite;
         type LPPROPPAGEINFO = *mut PROPPAGEINFO;
+        type LPPROVIDECLASSINFO = IProvideClassInfo;
+        type LPPROVIDECLASSINFO2 = IProvideClassInfo2;
+        type LPPROVIDEMULTIPLECLASSINFO = IProvideMultipleClassInfo;
+        type LPQUICKACTIVATE = IQuickActivate;
+        type LPSIMPLEFRAMESITE = ISimpleFrameSite;
+        type LPSPECIFYPROPERTYPAGES = ISpecifyPropertyPages;
         type LPTEXTMETRICOLE = *mut TEXTMETRICOLE;
+        type LPVIEWOBJECTEX = IViewObjectEx;
         const MULTICLASSINFO_GETIIDPRIMARY: i32 = 4;
         const MULTICLASSINFO_GETIIDSOURCE: i32 = 8;
         const MULTICLASSINFO_GETNUMRESERVEDDISPIDS: i32 = 2;
@@ -403,6 +491,10 @@ mod Windows {
         type OLE_YPOS_HIMETRIC = i32;
         type OLE_YSIZE_HIMETRIC = i32;
         type PCONNECTDATA = *mut CONNECTDATA;
+        type PCONNECTIONPOINT = IConnectionPoint;
+        type PCONNECTIONPOINTCONTAINER = IConnectionPointContainer;
+        type PENUMCONNECTIONPOINTS = IEnumConnectionPoints;
+        type PENUMCONNECTIONS = IEnumConnections;
         #[repr(i32)]
         enum PICTUREATTRIBUTES {
             PICTURE_SCALABLE = 1,
@@ -415,15 +507,15 @@ mod Windows {
             POINTERINACTIVE_ACTIVATEONDRAG = 4,
         }
         struct POINTF {
-            x: f32,
-            y: f32,
+            x: FLOAT,
+            y: FLOAT,
         }
         struct PROPBAG2 {
             dwType: u32,
             vt: VARTYPE,
             cfType: CLIPFORMAT,
             dwHint: u32,
-            pstrName: PWSTR,
+            pstrName: LPOLESTR,
             clsid: GUID,
         }
         #[repr(i32)]
@@ -438,10 +530,10 @@ mod Windows {
         }
         struct PROPPAGEINFO {
             cb: u32,
-            pszTitle: PWSTR,
+            pszTitle: LPOLESTR,
             size: SIZE,
-            pszDocString: PWSTR,
-            pszHelpFile: PWSTR,
+            pszDocString: LPOLESTR,
+            pszHelpFile: LPOLESTR,
             dwHelpContext: u32,
         }
         #[repr(i32)]

@@ -198,7 +198,7 @@ mod Windows {
         type HCATADMIN = HANDLE;
         struct INTENT_TO_SEAL_ATTRIBUTE {
             version: u32,
-            seal: bool,
+            seal: BOOLEAN,
         }
         const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: PCSTR = 2010;
         type LPWIN_CERTIFICATE = *mut WIN_CERTIFICATE;
@@ -226,23 +226,23 @@ mod Windows {
         type PCRYPT_PROVUI_FUNCS = *mut CRYPT_PROVUI_FUNCS;
         type PCRYPT_REGISTER_ACTIONID = *mut CRYPT_REGISTER_ACTIONID;
         type PCRYPT_TRUST_REG_ENTRY = *mut CRYPT_TRUST_REG_ENTRY;
-        extern fn PFN_ALLOCANDFILLDEFUSAGE(pszUsageOID: *const i8, psDefUsage: *const CRYPT_PROVIDER_DEFUSAGE) -> BOOL;
-        extern fn PFN_CPD_ADD_CERT(pProvData: *const CRYPT_PROVIDER_DATA, idxSigner: u32, fCounterSigner: BOOL, #[opt] idxCounterSigner: u32, pCert2Add: *const CERT_CONTEXT) -> BOOL;
-        extern fn PFN_CPD_ADD_PRIVDATA(pProvData: *const CRYPT_PROVIDER_DATA, pPrivData2Add: *const CRYPT_PROVIDER_PRIVDATA) -> BOOL;
-        extern fn PFN_CPD_ADD_SGNR(pProvData: *const CRYPT_PROVIDER_DATA, fCounterSigner: BOOL, #[opt] idxSigner: u32, pSgnr2Add: *const CRYPT_PROVIDER_SGNR) -> BOOL;
-        extern fn PFN_CPD_ADD_STORE(pProvData: *const CRYPT_PROVIDER_DATA, hStore2Add: HCERTSTORE) -> BOOL;
-        extern fn PFN_CPD_MEM_ALLOC(cbSize: u32) -> *mut void;
-        extern fn PFN_CPD_MEM_FREE(pvMem2Free: *const void);
-        extern fn PFN_FREEDEFUSAGE(pszUsageOID: *const i8, psDefUsage: *const CRYPT_PROVIDER_DEFUSAGE) -> BOOL;
-        extern fn PFN_PROVIDER_CERTCHKPOLICY_CALL(pProvData: *const CRYPT_PROVIDER_DATA, idxSigner: u32, fCounterSignerChain: BOOL, #[opt] idxCounterSigner: u32) -> BOOL;
-        extern fn PFN_PROVIDER_CERTTRUST_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
-        extern fn PFN_PROVIDER_CLEANUP_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
-        extern fn PFN_PROVIDER_FINALPOLICY_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
-        extern fn PFN_PROVIDER_INIT_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
-        extern fn PFN_PROVIDER_OBJTRUST_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
-        extern fn PFN_PROVIDER_SIGTRUST_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
-        extern fn PFN_PROVIDER_TESTFINALPOLICY_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
-        extern fn PFN_PROVUI_CALL(hWndSecurityDialog: HWND, pProvData: *const CRYPT_PROVIDER_DATA) -> BOOL;
+        extern "C" fn PFN_ALLOCANDFILLDEFUSAGE(pszUsageOID: *const i8, #[in] psDefUsage: *mut CRYPT_PROVIDER_DEFUSAGE) -> BOOL;
+        extern "C" fn PFN_CPD_ADD_CERT(#[in] pProvData: *mut CRYPT_PROVIDER_DATA, idxSigner: u32, fCounterSigner: BOOL, #[opt] idxCounterSigner: u32, pCert2Add: PCCERT_CONTEXT) -> BOOL;
+        extern "C" fn PFN_CPD_ADD_PRIVDATA(#[in] pProvData: *mut CRYPT_PROVIDER_DATA, #[in] pPrivData2Add: *mut CRYPT_PROVIDER_PRIVDATA) -> BOOL;
+        extern "C" fn PFN_CPD_ADD_SGNR(#[in] pProvData: *mut CRYPT_PROVIDER_DATA, fCounterSigner: BOOL, #[opt] idxSigner: u32, #[in] pSgnr2Add: *mut CRYPT_PROVIDER_SGNR) -> BOOL;
+        extern "C" fn PFN_CPD_ADD_STORE(#[in] pProvData: *mut CRYPT_PROVIDER_DATA, hStore2Add: HCERTSTORE) -> BOOL;
+        extern "C" fn PFN_CPD_MEM_ALLOC(cbSize: u32) -> *mut void;
+        extern "C" fn PFN_CPD_MEM_FREE(#[in] pvMem2Free: *mut void);
+        extern "C" fn PFN_FREEDEFUSAGE(pszUsageOID: *const i8, #[in] psDefUsage: *mut CRYPT_PROVIDER_DEFUSAGE) -> BOOL;
+        extern "C" fn PFN_PROVIDER_CERTCHKPOLICY_CALL(#[in] pProvData: *mut CRYPT_PROVIDER_DATA, idxSigner: u32, fCounterSignerChain: BOOL, #[opt] idxCounterSigner: u32) -> BOOL;
+        extern "C" fn PFN_PROVIDER_CERTTRUST_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
+        extern "C" fn PFN_PROVIDER_CLEANUP_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
+        extern "C" fn PFN_PROVIDER_FINALPOLICY_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
+        extern "C" fn PFN_PROVIDER_INIT_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
+        extern "C" fn PFN_PROVIDER_OBJTRUST_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
+        extern "C" fn PFN_PROVIDER_SIGTRUST_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
+        extern "C" fn PFN_PROVIDER_TESTFINALPOLICY_CALL(#[in] #[out] pProvData: *mut CRYPT_PROVIDER_DATA) -> HRESULT;
+        extern "C" fn PFN_PROVUI_CALL(hWndSecurityDialog: HWND, #[in] pProvData: *mut CRYPT_PROVIDER_DATA) -> BOOL;
         type PINTENT_TO_SEAL_ATTRIBUTE = *mut INTENT_TO_SEAL_ATTRIBUTE;
         type PPROVDATA_SIP = *mut PROVDATA_SIP;
         struct PROVDATA_SIP {
@@ -297,6 +297,8 @@ mod Windows {
         const SPC_CERT_EXTENSIONS_OBJID: String = "1.3.6.1.4.1.311.2.1.14";
         #[encoding("ansi")]
         const SPC_COMMERCIAL_SP_KEY_PURPOSE_OBJID: String = "1.3.6.1.4.1.311.2.1.22";
+        #[encoding("ansi")]
+        const SPC_COMMON_NAME_OBJID: String = "2.5.4.3";
         #[encoding("ansi")]
         const SPC_ENCRYPTED_DIGEST_RETRY_COUNT_OBJID: String = "1.3.6.1.4.1.311.2.6.2";
         const SPC_FILE_LINK_CHOICE: i32 = 3;
@@ -492,7 +494,7 @@ mod Windows {
             pSignatureSettings: *mut WINTRUST_SIGNATURE_SETTINGS,
         }
         struct WINTRUST_DETACHED_SIG_BLOBS {
-            cbContentObject: i64,
+            cbContentObject: LARGE_INTEGER,
             pbContentObject: *mut u8,
             cbSignatureObject: u32,
             pbSignatureObject: *mut u8,
@@ -661,9 +663,9 @@ mod Windows {
         #[library("WINTRUST.dll")]
         extern fn WinVerifyTrustEx(hwnd: HWND, pgActionID: *mut GUID, pWinTrustData: *mut WINTRUST_DATA) -> i32;
         #[library("WINTRUST.dll")]
-        extern fn WintrustAddActionID(pgActionID: *const GUID, fdwFlags: u32, psProvInfo: *const CRYPT_REGISTER_ACTIONID) -> BOOL;
+        extern fn WintrustAddActionID(#[in] pgActionID: *mut GUID, fdwFlags: u32, #[in] psProvInfo: *mut CRYPT_REGISTER_ACTIONID) -> BOOL;
         #[library("WINTRUST.dll")]
-        extern fn WintrustAddDefaultForUsage(pszUsageOID: *const i8, psDefUsage: *const CRYPT_PROVIDER_REGDEFUSAGE) -> BOOL;
+        extern fn WintrustAddDefaultForUsage(pszUsageOID: *const i8, #[in] psDefUsage: *mut CRYPT_PROVIDER_REGDEFUSAGE) -> BOOL;
         #[library("WINTRUST.dll")]
         extern fn WintrustGetDefaultForUsage(dwAction: u32, pszUsageOID: *const i8, #[in] #[out] psUsage: *mut CRYPT_PROVIDER_DEFUSAGE) -> BOOL;
         #[library("WINTRUST.dll")]
@@ -671,7 +673,7 @@ mod Windows {
         #[library("WINTRUST.dll")]
         extern fn WintrustLoadFunctionPointers(pgActionID: *mut GUID, pPfns: *mut CRYPT_PROVIDER_FUNCTIONS) -> BOOL;
         #[library("WINTRUST.dll")]
-        extern fn WintrustRemoveActionID(pgActionID: *const GUID) -> BOOL;
+        extern fn WintrustRemoveActionID(#[in] pgActionID: *mut GUID) -> BOOL;
         #[library("WINTRUST.dll")]
         extern fn WintrustSetDefaultIncludePEPageHashes(fIncludePEPageHashes: BOOL);
         #[library("WINTRUST.dll")]

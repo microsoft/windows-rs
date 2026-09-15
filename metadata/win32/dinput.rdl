@@ -1392,38 +1392,38 @@ mod Windows {
         const DIEP_TRIGGERBUTTON: i32 = 8;
         const DIEP_TRIGGERREPEATINTERVAL: i32 = 16;
         const DIEP_TYPESPECIFICPARAMS: i32 = 256;
-        const DIERR_ACQUIRED: i32 = -2147024726;
-        const DIERR_ALREADYINITIALIZED: i32 = -2147023649;
-        const DIERR_BADDRIVERVER: i32 = -2147024777;
-        const DIERR_BETADIRECTINPUTVERSION: i32 = -2147023743;
+        const DIERR_ACQUIRED: HRESULT = -2147024726;
+        const DIERR_ALREADYINITIALIZED: HRESULT = -2147023649;
+        const DIERR_BADDRIVERVER: HRESULT = -2147024777;
+        const DIERR_BETADIRECTINPUTVERSION: HRESULT = -2147023743;
         const DIERR_DEVICEFULL: u32 = 2147746305;
-        const DIERR_DEVICENOTREG: i32 = -2147221164;
+        const DIERR_DEVICENOTREG: HRESULT = -2147221164;
         const DIERR_EFFECTPLAYING: u32 = 2147746312;
-        const DIERR_GENERIC: i32 = -2147467259;
-        const DIERR_HANDLEEXISTS: i32 = -2147024891;
+        const DIERR_GENERIC: HRESULT = -2147467259;
+        const DIERR_HANDLEEXISTS: HRESULT = -2147024891;
         const DIERR_HASEFFECTS: u32 = 2147746308;
         const DIERR_INCOMPLETEEFFECT: u32 = 2147746310;
-        const DIERR_INPUTLOST: i32 = -2147024866;
+        const DIERR_INPUTLOST: HRESULT = -2147024866;
         const DIERR_INSUFFICIENTPRIVS: u32 = 2147746304;
-        const DIERR_INVALIDPARAM: i32 = -2147024809;
+        const DIERR_INVALIDPARAM: HRESULT = -2147024809;
         const DIERR_MAPFILEFAIL: u32 = 2147746315;
         const DIERR_MOREDATA: u32 = 2147746306;
-        const DIERR_NOAGGREGATION: i32 = -2147221232;
-        const DIERR_NOINTERFACE: i32 = -2147467262;
-        const DIERR_NOTACQUIRED: i32 = -2147024884;
+        const DIERR_NOAGGREGATION: HRESULT = -2147221232;
+        const DIERR_NOINTERFACE: HRESULT = -2147467262;
+        const DIERR_NOTACQUIRED: HRESULT = -2147024884;
         const DIERR_NOTBUFFERED: u32 = 2147746311;
         const DIERR_NOTDOWNLOADED: u32 = 2147746307;
         const DIERR_NOTEXCLUSIVEACQUIRED: u32 = 2147746309;
-        const DIERR_NOTFOUND: i32 = -2147024894;
-        const DIERR_NOTINITIALIZED: i32 = -2147024875;
-        const DIERR_OBJECTNOTFOUND: i32 = -2147024894;
-        const DIERR_OLDDIRECTINPUTVERSION: i32 = -2147023746;
-        const DIERR_OTHERAPPHASPRIO: i32 = -2147024891;
-        const DIERR_OUTOFMEMORY: i32 = -2147024882;
-        const DIERR_READONLY: i32 = -2147024891;
+        const DIERR_NOTFOUND: HRESULT = -2147024894;
+        const DIERR_NOTINITIALIZED: HRESULT = -2147024875;
+        const DIERR_OBJECTNOTFOUND: HRESULT = -2147024894;
+        const DIERR_OLDDIRECTINPUTVERSION: HRESULT = -2147023746;
+        const DIERR_OTHERAPPHASPRIO: HRESULT = -2147024891;
+        const DIERR_OUTOFMEMORY: HRESULT = -2147024882;
+        const DIERR_READONLY: HRESULT = -2147024891;
         const DIERR_REPORTFULL: u32 = 2147746314;
         const DIERR_UNPLUGGED: u32 = 2147746313;
-        const DIERR_UNSUPPORTED: i32 = -2147467263;
+        const DIERR_UNSUPPORTED: HRESULT = -2147467263;
         const DIES_NODOWNLOAD: u32 = 2147483648;
         const DIES_SOLO: i32 = 1;
         const DIFEF_DEFAULT: i32 = 0;
@@ -2045,23 +2045,23 @@ mod Windows {
         const DIVOICE_TEAM: u32 = 2197816329;
         const DIVOICE_TRANSMIT: u32 = 2197816333;
         const DIVOICE_VOICECOMMAND: u32 = 2197816336;
-        const DI_BUFFEROVERFLOW: i32 = 1;
+        const DI_BUFFEROVERFLOW: HRESULT = 1;
         const DI_DEGREES: i32 = 100;
         const DI_DOWNLOADSKIPPED: HRESULT = 3;
         const DI_EFFECTRESTARTED: HRESULT = 4;
         const DI_FFNOMINALMAX: i32 = 10000;
-        const DI_NOEFFECT: i32 = 1;
-        const DI_NOTATTACHED: i32 = 1;
-        const DI_OK: i32 = 0;
+        const DI_NOEFFECT: HRESULT = 1;
+        const DI_NOTATTACHED: HRESULT = 1;
+        const DI_OK: HRESULT = 0;
         const DI_POLLEDDEVICE: HRESULT = 2;
-        const DI_PROPNOEFFECT: i32 = 1;
+        const DI_PROPNOEFFECT: HRESULT = 1;
         const DI_SECONDS: i32 = 1000000;
         const DI_SETTINGSNOTSAVED: HRESULT = 11;
         const DI_TRUNCATED: HRESULT = 8;
         const DI_TRUNCATEDANDRESTARTED: HRESULT = 12;
         const DI_WRITEPROTECT: HRESULT = 19;
         #[library("DINPUT8.dll")]
-        extern fn DirectInput8Create(hinst: HINSTANCE, dwVersion: u32, riidltf: *const GUID, #[iid_is] ppvOut: *mut *mut void, punkOuter: IUnknown) -> HRESULT;
+        extern fn DirectInput8Create(hinst: HINSTANCE, dwVersion: u32, riidltf: *const GUID, ppvOut: *mut *mut void, punkOuter: IUnknown) -> HRESULT;
         const GUID_Button: GUID = 0xa36d02f0_c9f3_11cf_bfc7_444553540000;
         const GUID_ConstantForce: GUID = 0x13541c20_8e33_11d0_9ad0_00a0c9a06e35;
         const GUID_CustomForce: GUID = 0x13541c2b_8e33_11d0_9ad0_00a0c9a06e35;
@@ -2094,11 +2094,11 @@ mod Windows {
         const GUID_ZAxis: GUID = 0xa36d02e2_c9f3_11cf_bfc7_444553540000;
         #[guid(0x5944e662_aa8a_11cf_bfc7_444553540000)]
         interface IDirectInput2A: IDirectInputA {
-            fn FindDevice(&self, param0: *const GUID, param1: PCSTR, param2: *mut GUID) -> HRESULT;
+            fn FindDevice(&self, param0: *const GUID, param1: PCSTR, param2: LPGUID) -> HRESULT;
         }
         #[guid(0x5944e663_aa8a_11cf_bfc7_444553540000)]
         interface IDirectInput2W: IDirectInputW {
-            fn FindDevice(&self, param0: *const GUID, param1: PCWSTR, param2: *mut GUID) -> HRESULT;
+            fn FindDevice(&self, param0: *const GUID, param1: PCWSTR, param2: LPGUID) -> HRESULT;
         }
         #[guid(0x9a4cb684_236d_11d3_8e9d_00c04f6844ae)]
         interface IDirectInput7A: IDirectInput2A {
@@ -2110,29 +2110,29 @@ mod Windows {
         }
         #[guid(0xbf798030_483a_4da2_aa99_5d64ed369700)]
         interface IDirectInput8A: IUnknown {
-            fn CreateDevice(&self, param0: *const GUID, param1: *mut IDirectInputDevice8A, param2: IUnknown) -> HRESULT;
+            fn CreateDevice(&self, param0: *const GUID, param1: *mut LPDIRECTINPUTDEVICE8A, param2: IUnknown) -> HRESULT;
             fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut void, param3: u32) -> HRESULT;
             fn GetDeviceStatus(&self, param0: *const GUID) -> HRESULT;
             fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
             fn Initialize(&self, param0: HINSTANCE, param1: u32) -> HRESULT;
-            fn FindDevice(&self, param0: *const GUID, param1: PCSTR, param2: *mut GUID) -> HRESULT;
-            fn EnumDevicesBySemantics(&self, param0: PCSTR, param1: *mut DIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: *mut void, param4: u32) -> HRESULT;
-            fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut void) -> HRESULT;
+            fn FindDevice(&self, param0: *const GUID, param1: PCSTR, param2: LPGUID) -> HRESULT;
+            fn EnumDevicesBySemantics(&self, param0: PCSTR, param1: LPDIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: *mut void, param4: u32) -> HRESULT;
+            fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: LPDICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut void) -> HRESULT;
         }
         #[guid(0xbf798031_483a_4da2_aa99_5d64ed369700)]
         interface IDirectInput8W: IUnknown {
-            fn CreateDevice(&self, param0: *const GUID, param1: *mut IDirectInputDevice8W, param2: IUnknown) -> HRESULT;
+            fn CreateDevice(&self, param0: *const GUID, param1: *mut LPDIRECTINPUTDEVICE8W, param2: IUnknown) -> HRESULT;
             fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut void, param3: u32) -> HRESULT;
             fn GetDeviceStatus(&self, param0: *const GUID) -> HRESULT;
             fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
             fn Initialize(&self, param0: HINSTANCE, param1: u32) -> HRESULT;
-            fn FindDevice(&self, param0: *const GUID, param1: PCWSTR, param2: *mut GUID) -> HRESULT;
-            fn EnumDevicesBySemantics(&self, param0: PCWSTR, param1: *mut DIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: *mut void, param4: u32) -> HRESULT;
-            fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut void) -> HRESULT;
+            fn FindDevice(&self, param0: *const GUID, param1: PCWSTR, param2: LPGUID) -> HRESULT;
+            fn EnumDevicesBySemantics(&self, param0: PCWSTR, param1: LPDIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: *mut void, param4: u32) -> HRESULT;
+            fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: LPDICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut void) -> HRESULT;
         }
         #[guid(0x89521360_aa8a_11cf_bfc7_444553540000)]
         interface IDirectInputA: IUnknown {
-            fn CreateDevice(&self, param0: *const GUID, param1: *mut IDirectInputDeviceA, param2: IUnknown) -> HRESULT;
+            fn CreateDevice(&self, param0: *const GUID, param1: *mut LPDIRECTINPUTDEVICEA, param2: IUnknown) -> HRESULT;
             fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut void, param3: u32) -> HRESULT;
             fn GetDeviceStatus(&self, param0: *const GUID) -> HRESULT;
             fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
@@ -2140,154 +2140,154 @@ mod Windows {
         }
         #[guid(0x5944e682_c92e_11cf_bfc7_444553540000)]
         interface IDirectInputDevice2A: IDirectInputDeviceA {
-            fn CreateEffect(&self, param0: *const GUID, param1: *const DIEFFECT, param2: *mut IDirectInputEffect, param3: IUnknown) -> HRESULT;
+            fn CreateEffect(&self, param0: *const GUID, param1: LPCDIEFFECT, param2: *mut LPDIRECTINPUTEFFECT, param3: IUnknown) -> HRESULT;
             fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut void, param2: u32) -> HRESULT;
-            fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const GUID) -> HRESULT;
-            fn GetForceFeedbackState(&self, param0: *mut u32) -> HRESULT;
+            fn GetEffectInfo(&self, param0: LPDIEFFECTINFOA, param1: *const GUID) -> HRESULT;
+            fn GetForceFeedbackState(&self, param0: LPDWORD) -> HRESULT;
             fn SendForceFeedbackCommand(&self, param0: u32) -> HRESULT;
             fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut void, param2: u32) -> HRESULT;
-            fn Escape(&self, param0: *mut DIEFFESCAPE) -> HRESULT;
+            fn Escape(&self, param0: LPDIEFFESCAPE) -> HRESULT;
             fn Poll(&self) -> HRESULT;
-            fn SendDeviceData(&self, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> HRESULT;
+            fn SendDeviceData(&self, param0: u32, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
         }
         #[guid(0x5944e683_c92e_11cf_bfc7_444553540000)]
         interface IDirectInputDevice2W: IDirectInputDeviceW {
-            fn CreateEffect(&self, param0: *const GUID, param1: *const DIEFFECT, param2: *mut IDirectInputEffect, param3: IUnknown) -> HRESULT;
+            fn CreateEffect(&self, param0: *const GUID, param1: LPCDIEFFECT, param2: *mut LPDIRECTINPUTEFFECT, param3: IUnknown) -> HRESULT;
             fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut void, param2: u32) -> HRESULT;
-            fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const GUID) -> HRESULT;
-            fn GetForceFeedbackState(&self, param0: *mut u32) -> HRESULT;
+            fn GetEffectInfo(&self, param0: LPDIEFFECTINFOW, param1: *const GUID) -> HRESULT;
+            fn GetForceFeedbackState(&self, param0: LPDWORD) -> HRESULT;
             fn SendForceFeedbackCommand(&self, param0: u32) -> HRESULT;
             fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut void, param2: u32) -> HRESULT;
-            fn Escape(&self, param0: *mut DIEFFESCAPE) -> HRESULT;
+            fn Escape(&self, param0: LPDIEFFESCAPE) -> HRESULT;
             fn Poll(&self) -> HRESULT;
-            fn SendDeviceData(&self, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> HRESULT;
+            fn SendDeviceData(&self, param0: u32, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
         }
         #[guid(0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae)]
         interface IDirectInputDevice7A: IDirectInputDevice2A {
             fn EnumEffectsInFile(&self, param0: PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut void, param3: u32) -> HRESULT;
-            fn WriteEffectToFile(&self, param0: PCSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> HRESULT;
+            fn WriteEffectToFile(&self, param0: PCSTR, param1: u32, param2: LPDIFILEEFFECT, param3: u32) -> HRESULT;
         }
         #[guid(0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae)]
         interface IDirectInputDevice7W: IDirectInputDevice2W {
             fn EnumEffectsInFile(&self, param0: PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut void, param3: u32) -> HRESULT;
-            fn WriteEffectToFile(&self, param0: PCWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> HRESULT;
+            fn WriteEffectToFile(&self, param0: PCWSTR, param1: u32, param2: LPDIFILEEFFECT, param3: u32) -> HRESULT;
         }
         #[guid(0x54d41080_dc15_4833_a41b_748f73a38179)]
         interface IDirectInputDevice8A: IUnknown {
-            fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> HRESULT;
+            fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> HRESULT;
             fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut void, param2: u32) -> HRESULT;
-            fn GetProperty(&self, param0: *const GUID, param1: *mut DIPROPHEADER) -> HRESULT;
-            fn SetProperty(&self, param0: *const GUID, param1: *const DIPROPHEADER) -> HRESULT;
+            fn GetProperty(&self, param0: *const GUID, param1: LPDIPROPHEADER) -> HRESULT;
+            fn SetProperty(&self, param0: *const GUID, param1: LPCDIPROPHEADER) -> HRESULT;
             fn Acquire(&self) -> HRESULT;
             fn Unacquire(&self) -> HRESULT;
             fn GetDeviceState(&self, param0: u32, param1: *mut void) -> HRESULT;
-            fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> HRESULT;
-            fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> HRESULT;
+            fn GetDeviceData(&self, param0: u32, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
+            fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> HRESULT;
             fn SetEventNotification(&self, param0: HANDLE) -> HRESULT;
             fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
-            fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> HRESULT;
-            fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> HRESULT;
+            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> HRESULT;
+            fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEA) -> HRESULT;
             fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
             fn Initialize(&self, param0: HINSTANCE, param1: u32, param2: *const GUID) -> HRESULT;
-            fn CreateEffect(&self, param0: *const GUID, param1: *const DIEFFECT, param2: *mut IDirectInputEffect, param3: IUnknown) -> HRESULT;
+            fn CreateEffect(&self, param0: *const GUID, param1: LPCDIEFFECT, param2: *mut LPDIRECTINPUTEFFECT, param3: IUnknown) -> HRESULT;
             fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut void, param2: u32) -> HRESULT;
-            fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const GUID) -> HRESULT;
-            fn GetForceFeedbackState(&self, param0: *mut u32) -> HRESULT;
+            fn GetEffectInfo(&self, param0: LPDIEFFECTINFOA, param1: *const GUID) -> HRESULT;
+            fn GetForceFeedbackState(&self, param0: LPDWORD) -> HRESULT;
             fn SendForceFeedbackCommand(&self, param0: u32) -> HRESULT;
             fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut void, param2: u32) -> HRESULT;
-            fn Escape(&self, param0: *mut DIEFFESCAPE) -> HRESULT;
+            fn Escape(&self, param0: LPDIEFFESCAPE) -> HRESULT;
             fn Poll(&self) -> HRESULT;
-            fn SendDeviceData(&self, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> HRESULT;
+            fn SendDeviceData(&self, param0: u32, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
             fn EnumEffectsInFile(&self, param0: PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut void, param3: u32) -> HRESULT;
-            fn WriteEffectToFile(&self, param0: PCSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> HRESULT;
-            fn BuildActionMap(&self, param0: *mut DIACTIONFORMATA, param1: PCSTR, param2: u32) -> HRESULT;
-            fn SetActionMap(&self, param0: *mut DIACTIONFORMATA, param1: PCSTR, param2: u32) -> HRESULT;
-            fn GetImageInfo(&self, param0: *mut DIDEVICEIMAGEINFOHEADERA) -> HRESULT;
+            fn WriteEffectToFile(&self, param0: PCSTR, param1: u32, param2: LPDIFILEEFFECT, param3: u32) -> HRESULT;
+            fn BuildActionMap(&self, param0: LPDIACTIONFORMATA, param1: PCSTR, param2: u32) -> HRESULT;
+            fn SetActionMap(&self, param0: LPDIACTIONFORMATA, param1: PCSTR, param2: u32) -> HRESULT;
+            fn GetImageInfo(&self, param0: LPDIDEVICEIMAGEINFOHEADERA) -> HRESULT;
         }
         #[guid(0x54d41081_dc15_4833_a41b_748f73a38179)]
         interface IDirectInputDevice8W: IUnknown {
-            fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> HRESULT;
+            fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> HRESULT;
             fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut void, param2: u32) -> HRESULT;
-            fn GetProperty(&self, param0: *const GUID, param1: *mut DIPROPHEADER) -> HRESULT;
-            fn SetProperty(&self, param0: *const GUID, param1: *const DIPROPHEADER) -> HRESULT;
+            fn GetProperty(&self, param0: *const GUID, param1: LPDIPROPHEADER) -> HRESULT;
+            fn SetProperty(&self, param0: *const GUID, param1: LPCDIPROPHEADER) -> HRESULT;
             fn Acquire(&self) -> HRESULT;
             fn Unacquire(&self) -> HRESULT;
             fn GetDeviceState(&self, param0: u32, param1: *mut void) -> HRESULT;
-            fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> HRESULT;
-            fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> HRESULT;
+            fn GetDeviceData(&self, param0: u32, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
+            fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> HRESULT;
             fn SetEventNotification(&self, param0: HANDLE) -> HRESULT;
             fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
-            fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> HRESULT;
-            fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> HRESULT;
+            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> HRESULT;
+            fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEW) -> HRESULT;
             fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
             fn Initialize(&self, param0: HINSTANCE, param1: u32, param2: *const GUID) -> HRESULT;
-            fn CreateEffect(&self, param0: *const GUID, param1: *const DIEFFECT, param2: *mut IDirectInputEffect, param3: IUnknown) -> HRESULT;
+            fn CreateEffect(&self, param0: *const GUID, param1: LPCDIEFFECT, param2: *mut LPDIRECTINPUTEFFECT, param3: IUnknown) -> HRESULT;
             fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut void, param2: u32) -> HRESULT;
-            fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const GUID) -> HRESULT;
-            fn GetForceFeedbackState(&self, param0: *mut u32) -> HRESULT;
+            fn GetEffectInfo(&self, param0: LPDIEFFECTINFOW, param1: *const GUID) -> HRESULT;
+            fn GetForceFeedbackState(&self, param0: LPDWORD) -> HRESULT;
             fn SendForceFeedbackCommand(&self, param0: u32) -> HRESULT;
             fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut void, param2: u32) -> HRESULT;
-            fn Escape(&self, param0: *mut DIEFFESCAPE) -> HRESULT;
+            fn Escape(&self, param0: LPDIEFFESCAPE) -> HRESULT;
             fn Poll(&self) -> HRESULT;
-            fn SendDeviceData(&self, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> HRESULT;
+            fn SendDeviceData(&self, param0: u32, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
             fn EnumEffectsInFile(&self, param0: PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut void, param3: u32) -> HRESULT;
-            fn WriteEffectToFile(&self, param0: PCWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> HRESULT;
-            fn BuildActionMap(&self, param0: *mut DIACTIONFORMATW, param1: PCWSTR, param2: u32) -> HRESULT;
-            fn SetActionMap(&self, param0: *mut DIACTIONFORMATW, param1: PCWSTR, param2: u32) -> HRESULT;
-            fn GetImageInfo(&self, param0: *mut DIDEVICEIMAGEINFOHEADERW) -> HRESULT;
+            fn WriteEffectToFile(&self, param0: PCWSTR, param1: u32, param2: LPDIFILEEFFECT, param3: u32) -> HRESULT;
+            fn BuildActionMap(&self, param0: LPDIACTIONFORMATW, param1: PCWSTR, param2: u32) -> HRESULT;
+            fn SetActionMap(&self, param0: LPDIACTIONFORMATW, param1: PCWSTR, param2: u32) -> HRESULT;
+            fn GetImageInfo(&self, param0: LPDIDEVICEIMAGEINFOHEADERW) -> HRESULT;
         }
         #[guid(0x5944e680_c92e_11cf_bfc7_444553540000)]
         interface IDirectInputDeviceA: IUnknown {
-            fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> HRESULT;
+            fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> HRESULT;
             fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut void, param2: u32) -> HRESULT;
-            fn GetProperty(&self, param0: *const GUID, param1: *mut DIPROPHEADER) -> HRESULT;
-            fn SetProperty(&self, param0: *const GUID, param1: *const DIPROPHEADER) -> HRESULT;
+            fn GetProperty(&self, param0: *const GUID, param1: LPDIPROPHEADER) -> HRESULT;
+            fn SetProperty(&self, param0: *const GUID, param1: LPCDIPROPHEADER) -> HRESULT;
             fn Acquire(&self) -> HRESULT;
             fn Unacquire(&self) -> HRESULT;
             fn GetDeviceState(&self, param0: u32, param1: *mut void) -> HRESULT;
-            fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> HRESULT;
-            fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> HRESULT;
+            fn GetDeviceData(&self, param0: u32, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
+            fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> HRESULT;
             fn SetEventNotification(&self, param0: HANDLE) -> HRESULT;
             fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
-            fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> HRESULT;
-            fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> HRESULT;
+            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> HRESULT;
+            fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEA) -> HRESULT;
             fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
             fn Initialize(&self, param0: HINSTANCE, param1: u32, param2: *const GUID) -> HRESULT;
         }
         #[guid(0x5944e681_c92e_11cf_bfc7_444553540000)]
         interface IDirectInputDeviceW: IUnknown {
-            fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> HRESULT;
+            fn GetCapabilities(&self, param0: LPDIDEVCAPS) -> HRESULT;
             fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut void, param2: u32) -> HRESULT;
-            fn GetProperty(&self, param0: *const GUID, param1: *mut DIPROPHEADER) -> HRESULT;
-            fn SetProperty(&self, param0: *const GUID, param1: *const DIPROPHEADER) -> HRESULT;
+            fn GetProperty(&self, param0: *const GUID, param1: LPDIPROPHEADER) -> HRESULT;
+            fn SetProperty(&self, param0: *const GUID, param1: LPCDIPROPHEADER) -> HRESULT;
             fn Acquire(&self) -> HRESULT;
             fn Unacquire(&self) -> HRESULT;
             fn GetDeviceState(&self, param0: u32, param1: *mut void) -> HRESULT;
-            fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> HRESULT;
-            fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> HRESULT;
+            fn GetDeviceData(&self, param0: u32, param1: LPDIDEVICEOBJECTDATA, param2: LPDWORD, param3: u32) -> HRESULT;
+            fn SetDataFormat(&self, param0: LPCDIDATAFORMAT) -> HRESULT;
             fn SetEventNotification(&self, param0: HANDLE) -> HRESULT;
             fn SetCooperativeLevel(&self, param0: HWND, param1: u32) -> HRESULT;
-            fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> HRESULT;
-            fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> HRESULT;
+            fn GetObjectInfo(&self, param0: LPDIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> HRESULT;
+            fn GetDeviceInfo(&self, param0: LPDIDEVICEINSTANCEW) -> HRESULT;
             fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
             fn Initialize(&self, param0: HINSTANCE, param1: u32, param2: *const GUID) -> HRESULT;
         }
         #[guid(0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35)]
         interface IDirectInputEffect: IUnknown {
             fn Initialize(&self, param0: HINSTANCE, param1: u32, param2: *const GUID) -> HRESULT;
-            fn GetEffectGuid(&self, param0: *mut GUID) -> HRESULT;
-            fn GetParameters(&self, param0: *mut DIEFFECT, param1: u32) -> HRESULT;
-            fn SetParameters(&self, param0: *const DIEFFECT, param1: u32) -> HRESULT;
+            fn GetEffectGuid(&self, param0: LPGUID) -> HRESULT;
+            fn GetParameters(&self, param0: LPDIEFFECT, param1: u32) -> HRESULT;
+            fn SetParameters(&self, param0: LPCDIEFFECT, param1: u32) -> HRESULT;
             fn Start(&self, param0: u32, param1: u32) -> HRESULT;
             fn Stop(&self) -> HRESULT;
-            fn GetEffectStatus(&self, param0: *mut u32) -> HRESULT;
+            fn GetEffectStatus(&self, param0: LPDWORD) -> HRESULT;
             fn Download(&self) -> HRESULT;
             fn Unload(&self) -> HRESULT;
-            fn Escape(&self, param0: *mut DIEFFESCAPE) -> HRESULT;
+            fn Escape(&self, param0: LPDIEFFESCAPE) -> HRESULT;
         }
         #[guid(0x89521361_aa8a_11cf_bfc7_444553540000)]
         interface IDirectInputW: IUnknown {
-            fn CreateDevice(&self, param0: *const GUID, param1: *mut IDirectInputDeviceW, param2: IUnknown) -> HRESULT;
+            fn CreateDevice(&self, param0: *const GUID, param1: *mut LPDIRECTINPUTDEVICEW, param2: IUnknown) -> HRESULT;
             fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut void, param3: u32) -> HRESULT;
             fn GetDeviceStatus(&self, param0: *const GUID) -> HRESULT;
             fn RunControlPanel(&self, param0: HWND, param1: u32) -> HRESULT;
@@ -2399,16 +2399,16 @@ mod Windows {
         type LPDIEFFECT_DX5 = *mut DIEFFECT_DX5;
         type LPDIEFFECT_DX6 = LPDIEFFECT;
         type LPDIEFFESCAPE = *mut DIEFFESCAPE;
-        extern fn LPDIENUMCREATEDEFFECTOBJECTSCALLBACK(param0: IDirectInputEffect, param1: *mut void) -> BOOL;
-        extern fn LPDIENUMDEVICEOBJECTSCALLBACKA(param0: *const DIDEVICEOBJECTINSTANCEA, param1: *mut void) -> BOOL;
-        extern fn LPDIENUMDEVICEOBJECTSCALLBACKW(param0: *const DIDEVICEOBJECTINSTANCEW, param1: *mut void) -> BOOL;
-        extern fn LPDIENUMDEVICESBYSEMANTICSCBA(param0: *const DIDEVICEINSTANCEA, param1: IDirectInputDevice8A, param2: u32, param3: u32, param4: *mut void) -> BOOL;
-        extern fn LPDIENUMDEVICESBYSEMANTICSCBW(param0: *const DIDEVICEINSTANCEW, param1: IDirectInputDevice8W, param2: u32, param3: u32, param4: *mut void) -> BOOL;
-        extern fn LPDIENUMDEVICESCALLBACKA(param0: *const DIDEVICEINSTANCEA, param1: *mut void) -> BOOL;
-        extern fn LPDIENUMDEVICESCALLBACKW(param0: *const DIDEVICEINSTANCEW, param1: *mut void) -> BOOL;
-        extern fn LPDIENUMEFFECTSCALLBACKA(param0: *const DIEFFECTINFOA, param1: *mut void) -> BOOL;
-        extern fn LPDIENUMEFFECTSCALLBACKW(param0: *const DIEFFECTINFOW, param1: *mut void) -> BOOL;
-        extern fn LPDIENUMEFFECTSINFILECALLBACK(param0: *const DIFILEEFFECT, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMCREATEDEFFECTOBJECTSCALLBACK(param0: LPDIRECTINPUTEFFECT, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMDEVICEOBJECTSCALLBACKA(param0: LPCDIDEVICEOBJECTINSTANCEA, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMDEVICEOBJECTSCALLBACKW(param0: LPCDIDEVICEOBJECTINSTANCEW, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMDEVICESBYSEMANTICSCBA(param0: LPCDIDEVICEINSTANCEA, param1: LPDIRECTINPUTDEVICE8A, param2: u32, param3: u32, param4: *mut void) -> BOOL;
+        extern fn LPDIENUMDEVICESBYSEMANTICSCBW(param0: LPCDIDEVICEINSTANCEW, param1: LPDIRECTINPUTDEVICE8W, param2: u32, param3: u32, param4: *mut void) -> BOOL;
+        extern fn LPDIENUMDEVICESCALLBACKA(param0: LPCDIDEVICEINSTANCEA, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMDEVICESCALLBACKW(param0: LPCDIDEVICEINSTANCEW, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMEFFECTSCALLBACKA(param0: LPCDIEFFECTINFOA, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMEFFECTSCALLBACKW(param0: LPCDIEFFECTINFOW, param1: *mut void) -> BOOL;
+        extern fn LPDIENUMEFFECTSINFILECALLBACK(param0: LPCDIFILEEFFECT, param1: *mut void) -> BOOL;
         type LPDIENVELOPE = *mut DIENVELOPE;
         type LPDIFILEEFFECT = *mut DIFILEEFFECT;
         type LPDIJOYSTATE = *mut DIJOYSTATE;
@@ -2427,8 +2427,35 @@ mod Windows {
         type LPDIPROPRANGE = *mut DIPROPRANGE;
         type LPDIPROPSTRING = *mut DIPROPSTRING;
         type LPDIRAMPFORCE = *mut DIRAMPFORCE;
+        type LPDIRECTINPUT = IDirectInputA;
+        type LPDIRECTINPUT2 = IDirectInput2A;
+        type LPDIRECTINPUT2A = IDirectInput2A;
+        type LPDIRECTINPUT2W = IDirectInput2W;
+        type LPDIRECTINPUT7 = IDirectInput7A;
+        type LPDIRECTINPUT7A = IDirectInput7A;
+        type LPDIRECTINPUT7W = IDirectInput7W;
+        type LPDIRECTINPUT8 = IDirectInput8A;
+        type LPDIRECTINPUT8A = IDirectInput8A;
+        type LPDIRECTINPUT8W = IDirectInput8W;
+        type LPDIRECTINPUTA = IDirectInputA;
+        type LPDIRECTINPUTDEVICE = IDirectInputDeviceA;
+        type LPDIRECTINPUTDEVICE2 = IDirectInputDevice2A;
+        type LPDIRECTINPUTDEVICE2A = IDirectInputDevice2A;
+        type LPDIRECTINPUTDEVICE2W = IDirectInputDevice2W;
+        type LPDIRECTINPUTDEVICE7 = IDirectInputDevice7A;
+        type LPDIRECTINPUTDEVICE7A = IDirectInputDevice7A;
+        type LPDIRECTINPUTDEVICE7W = IDirectInputDevice7W;
+        type LPDIRECTINPUTDEVICE8 = IDirectInputDevice8A;
+        type LPDIRECTINPUTDEVICE8A = IDirectInputDevice8A;
+        type LPDIRECTINPUTDEVICE8W = IDirectInputDevice8W;
+        type LPDIRECTINPUTDEVICEA = IDirectInputDeviceA;
+        type LPDIRECTINPUTDEVICEW = IDirectInputDeviceW;
+        type LPDIRECTINPUTEFFECT = IDirectInputEffect;
+        type LPDIRECTINPUTW = IDirectInputW;
         extern fn LPFNSHOWJOYCPL(hWnd: HWND);
         const MAXCPOINTSNUM: i32 = 8;
         type PCPOINT = *mut CPOINT;
+        #[library("WINMM.dll")]
+        extern fn joyConfigChanged(dwFlags: u32) -> MMRESULT;
     }
 }

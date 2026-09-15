@@ -239,7 +239,7 @@ mod Windows {
             Amount: u32,
         }
         type ADS_INTEGER = u32;
-        type ADS_LARGE_INTEGER = i64;
+        type ADS_LARGE_INTEGER = LARGE_INTEGER;
         #[repr(i32)]
         enum ADS_NAME_INITTYPE_ENUM {
             ADS_NAME_INITTYPE_DOMAIN = 1,
@@ -462,7 +462,7 @@ mod Windows {
         struct ADS_SORTKEY {
             pszAttrType: PWSTR,
             pszReserved: PWSTR,
-            fReverseorder: bool,
+            fReverseorder: BOOLEAN,
         }
         type ADS_STATUS = ADS_STATUSENUM;
         #[repr(i32)]
@@ -919,8 +919,8 @@ mod Windows {
         #[guid(0x3d35553c_d2b0_11d1_b17b_0000f87593a0)]
         interface IADsExtension: IUnknown {
             fn Operate(&self, dwCode: u32, varData1: VARIANT, varData2: VARIANT, varData3: VARIANT) -> HRESULT;
-            fn PrivateGetIDsOfNames(&self, riid: *const GUID, rgszNames: *const *const OLECHAR, cNames: u32, lcid: LCID, rgDispid: *mut DISPID) -> HRESULT;
-            fn PrivateInvoke(&self, dispidMember: DISPID, riid: *const GUID, lcid: LCID, wFlags: u16, pdispparams: *const DISPPARAMS, pvarResult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puArgErr: *mut u32) -> HRESULT;
+            fn PrivateGetIDsOfNames(&self, riid: *const GUID, #[in] rgszNames: *mut *mut OLECHAR, cNames: u32, lcid: LCID, rgDispid: *mut DISPID) -> HRESULT;
+            fn PrivateInvoke(&self, dispidMember: DISPID, riid: *const GUID, lcid: LCID, wFlags: u16, #[in] pdispparams: *mut DISPPARAMS, pvarResult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puArgErr: *mut u32) -> HRESULT;
         }
         #[guid(0xa910dea9_4680_11d1_a3b4_00c04fb950dc)]
         interface IADsFaxNumber: IDispatch {
@@ -1183,7 +1183,7 @@ mod Windows {
             #[special]
             fn get_UserPath(&self, #[retval] retval: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_TimeSubmitted(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_TimeSubmitted(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
             fn get_TotalPages(&self, #[retval] retval: *mut i32) -> HRESULT;
             #[special]
@@ -1197,13 +1197,13 @@ mod Windows {
             #[special]
             fn put_Priority(&self, lnPriority: i32) -> HRESULT;
             #[special]
-            fn get_StartTime(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_StartTime(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
-            fn put_StartTime(&self, daStartTime: f64) -> HRESULT;
+            fn put_StartTime(&self, daStartTime: DATE) -> HRESULT;
             #[special]
-            fn get_UntilTime(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_UntilTime(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
-            fn put_UntilTime(&self, daUntilTime: f64) -> HRESULT;
+            fn put_UntilTime(&self, daUntilTime: DATE) -> HRESULT;
             #[special]
             fn get_Notify(&self, #[retval] retval: *mut BSTR) -> HRESULT;
             #[special]
@@ -1255,13 +1255,13 @@ mod Windows {
             #[special]
             fn put_Location(&self, bstrLocation: BSTR) -> HRESULT;
             #[special]
-            fn get_StartTime(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_StartTime(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
-            fn put_StartTime(&self, daStartTime: f64) -> HRESULT;
+            fn put_StartTime(&self, daStartTime: DATE) -> HRESULT;
             #[special]
-            fn get_UntilTime(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_UntilTime(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
-            fn put_UntilTime(&self, daUntilTime: f64) -> HRESULT;
+            fn put_UntilTime(&self, daUntilTime: DATE) -> HRESULT;
             #[special]
             fn get_DefaultJobPriority(&self, #[retval] retval: *mut i32) -> HRESULT;
             #[special]
@@ -1397,9 +1397,9 @@ mod Windows {
             #[special]
             fn put_LargeInteger(&self, pLargeInteger: IDispatch) -> HRESULT;
             #[special]
-            fn get_UTCTime(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_UTCTime(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
-            fn put_UTCTime(&self, daUTCTime: f64) -> HRESULT;
+            fn put_UTCTime(&self, daUTCTime: DATE) -> HRESULT;
         }
         #[guid(0x306e831c_5bc7_11d1_a3b8_00c04fb950dc)]
         interface IADsPropertyValue2: IDispatch {
@@ -1610,13 +1610,13 @@ mod Windows {
             #[special]
             fn get_BadLoginCount(&self, #[retval] retval: *mut i32) -> HRESULT;
             #[special]
-            fn get_LastLogin(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_LastLogin(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
-            fn get_LastLogoff(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_LastLogoff(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
-            fn get_LastFailedLogin(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_LastFailedLogin(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
-            fn get_PasswordLastChanged(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_PasswordLastChanged(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
             fn get_Description(&self, #[retval] retval: *mut BSTR) -> HRESULT;
             #[special]
@@ -1706,9 +1706,9 @@ mod Windows {
             #[special]
             fn put_AccountDisabled(&self, fAccountDisabled: VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_AccountExpirationDate(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_AccountExpirationDate(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
-            fn put_AccountExpirationDate(&self, daAccountExpirationDate: f64) -> HRESULT;
+            fn put_AccountExpirationDate(&self, daAccountExpirationDate: DATE) -> HRESULT;
             #[special]
             fn get_GraceLoginsAllowed(&self, #[retval] retval: *mut i32) -> HRESULT;
             #[special]
@@ -1738,9 +1738,9 @@ mod Windows {
             #[special]
             fn put_MaxStorage(&self, lnMaxStorage: i32) -> HRESULT;
             #[special]
-            fn get_PasswordExpirationDate(&self, #[retval] retval: *mut f64) -> HRESULT;
+            fn get_PasswordExpirationDate(&self, #[retval] retval: *mut DATE) -> HRESULT;
             #[special]
-            fn put_PasswordExpirationDate(&self, daPasswordExpirationDate: f64) -> HRESULT;
+            fn put_PasswordExpirationDate(&self, daPasswordExpirationDate: DATE) -> HRESULT;
             #[special]
             fn get_PasswordMinimumLength(&self, #[retval] retval: *mut i32) -> HRESULT;
             #[special]
@@ -1799,33 +1799,33 @@ mod Windows {
         #[guid(0xe798de2c_22e4_11d0_84fe_00c04fd8d503)]
         interface IDirectoryObject: IUnknown {
             fn GetObjectInformation(&self, ppObjInfo: *mut PADS_OBJECT_INFO) -> HRESULT;
-            fn GetObjectAttributes(&self, pAttributeNames: *const PWSTR, dwNumberAttributes: u32, ppAttributeEntries: *mut PADS_ATTR_INFO, pdwNumAttributesReturned: *mut u32) -> HRESULT;
-            fn SetObjectAttributes(&self, pAttributeEntries: *const ADS_ATTR_INFO, dwNumAttributes: u32, pdwNumAttributesModified: *mut u32) -> HRESULT;
-            fn CreateDSObject(&self, pszRDNName: PCWSTR, pAttributeEntries: *const ADS_ATTR_INFO, dwNumAttributes: u32, ppObject: *mut IDispatch) -> HRESULT;
+            fn GetObjectAttributes(&self, #[in] pAttributeNames: *mut PWSTR, dwNumberAttributes: u32, ppAttributeEntries: *mut PADS_ATTR_INFO, pdwNumAttributesReturned: *mut u32) -> HRESULT;
+            fn SetObjectAttributes(&self, pAttributeEntries: PADS_ATTR_INFO, dwNumAttributes: u32, pdwNumAttributesModified: *mut u32) -> HRESULT;
+            fn CreateDSObject(&self, pszRDNName: PCWSTR, pAttributeEntries: PADS_ATTR_INFO, dwNumAttributes: u32, ppObject: *mut IDispatch) -> HRESULT;
             fn DeleteDSObject(&self, pszRDNName: PCWSTR) -> HRESULT;
         }
         #[guid(0x75db3b9c_a4d8_11d0_a79c_00c04fd8d5a8)]
         interface IDirectorySchemaMgmt: IUnknown {
             fn EnumAttributes(&self, ppszAttrNames: *mut PWSTR, dwNumAttributes: u32, ppAttrDefinition: *mut PADS_ATTR_DEF, pdwNumAttributes: *mut u32) -> HRESULT;
-            fn CreateAttributeDefinition(&self, pszAttributeName: PWSTR, pAttributeDefinition: *mut ADS_ATTR_DEF) -> HRESULT;
-            fn WriteAttributeDefinition(&self, pszAttributeName: PWSTR, pAttributeDefinition: *mut ADS_ATTR_DEF) -> HRESULT;
+            fn CreateAttributeDefinition(&self, pszAttributeName: PWSTR, pAttributeDefinition: PADS_ATTR_DEF) -> HRESULT;
+            fn WriteAttributeDefinition(&self, pszAttributeName: PWSTR, pAttributeDefinition: PADS_ATTR_DEF) -> HRESULT;
             fn DeleteAttributeDefinition(&self, pszAttributeName: PWSTR) -> HRESULT;
             fn EnumClasses(&self, ppszClassNames: *mut PWSTR, dwNumClasses: u32, ppClassDefinition: *mut PADS_CLASS_DEF, pdwNumClasses: *mut u32) -> HRESULT;
-            fn WriteClassDefinition(&self, pszClassName: PWSTR, pClassDefinition: *mut ADS_CLASS_DEF) -> HRESULT;
-            fn CreateClassDefinition(&self, pszClassName: PWSTR, pClassDefinition: *mut ADS_CLASS_DEF) -> HRESULT;
+            fn WriteClassDefinition(&self, pszClassName: PWSTR, pClassDefinition: PADS_CLASS_DEF) -> HRESULT;
+            fn CreateClassDefinition(&self, pszClassName: PWSTR, pClassDefinition: PADS_CLASS_DEF) -> HRESULT;
             fn DeleteClassDefinition(&self, pszClassName: PWSTR) -> HRESULT;
         }
         #[guid(0x109ba8ec_92f0_11d0_a790_00c04fd8d5a8)]
         interface IDirectorySearch: IUnknown {
-            fn SetSearchPreference(&self, pSearchPrefs: *const ADS_SEARCHPREF_INFO, dwNumPrefs: u32) -> HRESULT;
-            fn ExecuteSearch(&self, pszSearchFilter: PCWSTR, pAttributeNames: *const PWSTR, dwNumberAttributes: u32, phSearchResult: *mut HANDLE) -> HRESULT;
+            fn SetSearchPreference(&self, pSearchPrefs: PADS_SEARCHPREF_INFO, dwNumPrefs: u32) -> HRESULT;
+            fn ExecuteSearch(&self, pszSearchFilter: PCWSTR, #[in] pAttributeNames: *mut PWSTR, dwNumberAttributes: u32, #[out] phSearchResult: PADS_SEARCH_HANDLE) -> HRESULT;
             fn AbandonSearch(&self, phSearchResult: ADS_SEARCH_HANDLE) -> HRESULT;
             fn GetFirstRow(&self, hSearchResult: ADS_SEARCH_HANDLE) -> HRESULT;
             fn GetNextRow(&self, hSearchResult: ADS_SEARCH_HANDLE) -> HRESULT;
             fn GetPreviousRow(&self, hSearchResult: ADS_SEARCH_HANDLE) -> HRESULT;
             fn GetNextColumnName(&self, hSearchHandle: ADS_SEARCH_HANDLE, ppszColumnName: *mut PWSTR) -> HRESULT;
-            fn GetColumn(&self, hSearchResult: ADS_SEARCH_HANDLE, szColumnName: PCWSTR, pSearchColumn: *mut ADS_SEARCH_COLUMN) -> HRESULT;
-            fn FreeColumn(&self, pSearchColumn: *const ADS_SEARCH_COLUMN) -> HRESULT;
+            fn GetColumn(&self, hSearchResult: ADS_SEARCH_HANDLE, szColumnName: PCWSTR, #[out] pSearchColumn: PADS_SEARCH_COLUMN) -> HRESULT;
+            fn FreeColumn(&self, pSearchColumn: PADS_SEARCH_COLUMN) -> HRESULT;
             fn CloseSearchHandle(&self, hSearchResult: ADS_SEARCH_HANDLE) -> HRESULT;
         }
         #[guid(0x86ab4bbe_65f6_11d1_8c13_00c04fd8d503)]
@@ -1833,8 +1833,8 @@ mod Windows {
             fn ADSIInitializeDispatchManager(&self, dwExtensionId: i32) -> HRESULT;
             fn ADSIGetTypeInfoCount(&self, pctinfo: *mut u32) -> HRESULT;
             fn ADSIGetTypeInfo(&self, itinfo: u32, lcid: LCID, pptinfo: *mut ITypeInfo) -> HRESULT;
-            fn ADSIGetIDsOfNames(&self, riid: *const GUID, rgszNames: *const *const OLECHAR, cNames: u32, lcid: LCID, rgdispid: *mut DISPID) -> HRESULT;
-            fn ADSIInvoke(&self, dispidMember: DISPID, riid: *const GUID, lcid: LCID, wFlags: u16, pdispparams: *const DISPPARAMS, pvarResult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puArgErr: *mut u32) -> HRESULT;
+            fn ADSIGetIDsOfNames(&self, riid: *const GUID, #[in] rgszNames: *mut *mut OLECHAR, cNames: u32, lcid: LCID, rgdispid: *mut DISPID) -> HRESULT;
+            fn ADSIInvoke(&self, dispidMember: DISPID, riid: *const GUID, lcid: LCID, wFlags: u16, #[in] pdispparams: *mut DISPPARAMS, pvarResult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puArgErr: *mut u32) -> HRESULT;
         }
         #[guid(0x89126bab_6ead_11d1_8c18_00c04fd8d503)]
         interface IPrivateUnknown: IUnknown {
@@ -1863,7 +1863,7 @@ mod Windows {
         type PADS_FAXNUMBER = *mut ADS_FAXNUMBER;
         type PADS_HOLD = *mut ADS_HOLD;
         type PADS_INTEGER = *mut u32;
-        type PADS_LARGE_INTEGER = *mut i64;
+        type PADS_LARGE_INTEGER = *mut LARGE_INTEGER;
         type PADS_NETADDRESS = *mut ADS_NETADDRESS;
         type PADS_NT_SECURITY_DESCRIPTOR = *mut ADS_NT_SECURITY_DESCRIPTOR;
         type PADS_NUMERIC_STRING = *mut PWSTR;

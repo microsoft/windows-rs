@@ -20,7 +20,7 @@ mod Windows {
         struct NL_BANDWIDTH_INFORMATION {
             Bandwidth: u64,
             Instability: u64,
-            BandwidthPeaked: bool,
+            BandwidthPeaked: BOOLEAN,
         }
         #[repr(i32)]
         enum NL_DAD_STATE {
@@ -44,7 +44,7 @@ mod Windows {
             NlincCategoryStateMax = 4,
         }
         struct NL_INTERFACE_OFFLOAD_ROD {
-            _bitfield: bool {
+            _bitfield: BOOLEAN {
                 NlChecksumSupported: 1,
                 NlOptionsSupported: 1,
                 TlDatagramChecksumSupported: 1,
@@ -92,9 +92,9 @@ mod Windows {
         struct NL_NETWORK_CONNECTIVITY_HINT {
             ConnectivityLevel: NL_NETWORK_CONNECTIVITY_LEVEL_HINT,
             ConnectivityCost: NL_NETWORK_CONNECTIVITY_COST_HINT,
-            ApproachingDataLimit: bool,
-            OverDataLimit: bool,
-            Roaming: bool,
+            ApproachingDataLimit: BOOLEAN,
+            OverDataLimit: BOOLEAN,
+            Roaming: BOOLEAN,
         }
         #[repr(i32)]
         enum NL_NETWORK_CONNECTIVITY_LEVEL_HINT {
@@ -108,7 +108,7 @@ mod Windows {
         struct NL_PATH_BANDWIDTH_ROD {
             Bandwidth: u64,
             Instability: u64,
-            BandwidthPeaked: bool,
+            BandwidthPeaked: BOOLEAN,
         }
         #[repr(i32)]
         enum NL_PREFIX_ORIGIN {
@@ -216,11 +216,11 @@ mod Windows {
             IpSuffixOriginRandom = 5,
             IpSuffixOriginUnchanged = 16,
         }
-        const NlpoDhcp: i32 = 3;
-        const NlpoManual: i32 = 1;
-        const NlpoOther: i32 = 0;
-        const NlpoRouterAdvertisement: i32 = 4;
-        const NlpoWellKnown: i32 = 2;
+        const NlpoDhcp: NL_PREFIX_ORIGIN = 3;
+        const NlpoManual: NL_PREFIX_ORIGIN = 1;
+        const NlpoOther: NL_PREFIX_ORIGIN = 0;
+        const NlpoRouterAdvertisement: NL_PREFIX_ORIGIN = 4;
+        const NlpoWellKnown: NL_PREFIX_ORIGIN = 2;
         type PNL_ADDRESS_TYPE = *mut NL_ADDRESS_TYPE;
         type PNL_BANDWIDTH_FLAG = *mut NL_BANDWIDTH_FLAG;
         type PNL_BANDWIDTH_INFORMATION = *mut NL_BANDWIDTH_INFORMATION;

@@ -2355,7 +2355,7 @@ mod Windows {
         }
         struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
             Enable: BOOL,
-            Alpha: f32,
+            Alpha: FLOAT,
         }
         #[repr(i32)]
         enum D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
@@ -2425,7 +2425,7 @@ mod Windows {
             Minimum: i32,
             Maximum: i32,
             Default: i32,
-            Multiplier: f32,
+            Multiplier: FLOAT,
         }
         struct D3D12_VIDEO_PROCESS_INPUT_STREAM {
             pTexture2D: ID3D12Resource,
@@ -2481,8 +2481,8 @@ mod Windows {
         }
         struct D3D12_VIDEO_PROCESS_LUMA_KEY {
             Enable: BOOL,
-            Lower: f32,
-            Upper: f32,
+            Lower: FLOAT,
+            Upper: FLOAT,
         }
         #[repr(i32)]
         enum D3D12_VIDEO_PROCESS_ORIENTATION {
@@ -2508,7 +2508,7 @@ mod Windows {
             ColorSpace: DXGI_COLOR_SPACE_TYPE,
             AlphaFillMode: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE,
             AlphaFillModeSourceStreamIndex: u32,
-            BackgroundColor: [f32; 4],
+            BackgroundColor: [FLOAT; 4],
             FrameRate: DXGI_RATIONAL,
             EnableStereo: BOOL,
         }

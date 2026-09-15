@@ -274,6 +274,10 @@ mod Windows {
             MIB_IPNET_TYPE_STATIC = 4,
         }
         const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295;
+        const MIB_IPROUTE_TYPE_DIRECT: i32 = 3;
+        const MIB_IPROUTE_TYPE_INDIRECT: i32 = 4;
+        const MIB_IPROUTE_TYPE_INVALID: i32 = 2;
+        const MIB_IPROUTE_TYPE_OTHER: i32 = 1;
         type MIB_IPSTATS = MIB_IPSTATS_LH;
         #[repr(i32)]
         enum MIB_IPSTATS_FORWARDING {

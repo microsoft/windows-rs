@@ -58,6 +58,10 @@ mod Windows {
             ReplyLength: u32,
             MessageId: u64,
         }
+        #[arch(X64 | Arm64)]
+        const FILTER_NAME_MAX_BYTES: u64 = 510;
+        #[arch(X86)]
+        const FILTER_NAME_MAX_BYTES: u32 = 510;
         const FILTER_NAME_MAX_CHARS: i32 = 255;
         struct FILTER_REPLY_HEADER {
             Status: NTSTATUS,
@@ -179,6 +183,10 @@ mod Windows {
             InstanceFullInformation = 2,
             InstanceAggregateStandardInformation = 3,
         }
+        #[arch(X64 | Arm64)]
+        const INSTANCE_NAME_MAX_BYTES: u64 = 510;
+        #[arch(X86)]
+        const INSTANCE_NAME_MAX_BYTES: u32 = 510;
         const INSTANCE_NAME_MAX_CHARS: i32 = 255;
         struct INSTANCE_PARTIAL_INFORMATION {
             NextEntryOffset: u32,
@@ -202,6 +210,10 @@ mod Windows {
         type PINSTANCE_FULL_INFORMATION = *mut INSTANCE_FULL_INFORMATION;
         type PINSTANCE_INFORMATION_CLASS = *mut INSTANCE_INFORMATION_CLASS;
         type PINSTANCE_PARTIAL_INFORMATION = *mut INSTANCE_PARTIAL_INFORMATION;
+        #[arch(X64 | Arm64)]
+        const VOLUME_NAME_MAX_BYTES: u64 = 2048;
+        #[arch(X86)]
+        const VOLUME_NAME_MAX_BYTES: u32 = 2048;
         const VOLUME_NAME_MAX_CHARS: i32 = 1024;
     }
 }

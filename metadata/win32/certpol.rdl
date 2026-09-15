@@ -17,8 +17,8 @@ mod Windows {
             fn Initialize(&self) -> HRESULT;
             fn Uninitialize(&self) -> HRESULT;
             fn GenerateChallenge(&self, pwszTemplate: PCWSTR, pwszParams: PCWSTR, #[retval] ppwszResponse: *mut PWSTR) -> HRESULT;
-            fn VerifyRequest(&self, pctbRequest: *const CERTTRANSBLOB, pctbSigningCertEncoded: *const CERTTRANSBLOB, pwszTemplate: PCWSTR, pwszTransactionId: PCWSTR, #[retval] pfVerified: *mut BOOL) -> HRESULT;
-            fn Notify(&self, pwszChallenge: PCWSTR, pwszTransactionId: PCWSTR, disposition: X509SCEPDisposition, lastHResult: i32, pctbIssuedCertEncoded: *const CERTTRANSBLOB) -> HRESULT;
+            fn VerifyRequest(&self, #[in] pctbRequest: *mut CERTTRANSBLOB, #[in] pctbSigningCertEncoded: *mut CERTTRANSBLOB, pwszTemplate: PCWSTR, pwszTransactionId: PCWSTR, #[retval] pfVerified: *mut BOOL) -> HRESULT;
+            fn Notify(&self, pwszChallenge: PCWSTR, pwszTransactionId: PCWSTR, disposition: X509SCEPDisposition, lastHResult: i32, #[in] pctbIssuedCertEncoded: *mut CERTTRANSBLOB) -> HRESULT;
         }
         #[repr(i32)]
         enum X509SCEPDisposition {

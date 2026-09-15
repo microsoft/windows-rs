@@ -804,8 +804,8 @@ mod Windows {
             TemplatePropValidityPeriod = 30,
             TemplatePropRenewalPeriod = 31,
         }
-        extern fn FNIMPORTPFXTOPROVIDER(hWndParent: HWND, #[size_param(2)] pbPFX: *const u8, cbPFX: u32, ImportFlags: ImportPFXFlags, #[opt] pwszPassword: PCWSTR, #[opt] pwszProviderName: PCWSTR, #[opt] pwszReaderName: PCWSTR, #[opt] pwszContainerNamePrefix: PCWSTR, #[opt] pwszPin: PCWSTR, #[opt] pwszFriendlyName: PCWSTR, #[opt] pcCertOut: *mut u32, prgpCertOut: *mut *mut PCCERT_CONTEXT) -> HRESULT;
-        extern fn FNIMPORTPFXTOPROVIDERFREEDATA(cCert: u32, #[len_param(0)] #[opt] rgpCert: *const PCCERT_CONTEXT);
+        extern "C" fn FNIMPORTPFXTOPROVIDER(hWndParent: HWND, #[size_param(2)] pbPFX: *const u8, cbPFX: u32, ImportFlags: ImportPFXFlags, #[opt] pwszPassword: PCWSTR, #[opt] pwszProviderName: PCWSTR, #[opt] pwszReaderName: PCWSTR, #[opt] pwszContainerNamePrefix: PCWSTR, #[opt] pwszPin: PCWSTR, #[opt] pwszFriendlyName: PCWSTR, #[opt] pcCertOut: *mut u32, prgpCertOut: *mut *mut PCCERT_CONTEXT) -> HRESULT;
+        extern "C" fn FNIMPORTPFXTOPROVIDERFREEDATA(cCert: u32, #[len_param(0)] #[in] #[opt] rgpCert: *mut PCCERT_CONTEXT);
         #[guid(0x728ab313_217d_11da_b2a4_000e7bbb2b09)]
         interface IAlternativeName: IDispatch {
             fn InitializeFromString(&self, Type: AlternativeNameType, strValue: BSTR) -> HRESULT;
@@ -835,13 +835,13 @@ mod Windows {
         #[guid(0x728ab302_217d_11da_b2a4_000e7bbb2b09)]
         interface IBinaryConverter: IDispatch {
             fn StringToString(&self, strEncodedIn: BSTR, EncodingIn: EncodingType, Encoding: EncodingType, #[retval] pstrEncoded: *mut BSTR) -> HRESULT;
-            fn VariantByteArrayToString(&self, pvarByteArray: *const VARIANT, Encoding: EncodingType, #[retval] pstrEncoded: *mut BSTR) -> HRESULT;
+            fn VariantByteArrayToString(&self, #[in] pvarByteArray: *mut VARIANT, Encoding: EncodingType, #[retval] pstrEncoded: *mut BSTR) -> HRESULT;
             fn StringToVariantByteArray(&self, strEncoded: BSTR, Encoding: EncodingType, #[retval] pvarByteArray: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x8d7928b4_4e17_428d_9a17_728df00d1b2b)]
         interface IBinaryConverter2: IBinaryConverter {
-            fn StringArrayToVariantArray(&self, pvarStringArray: *const VARIANT, #[retval] pvarVariantArray: *mut VARIANT) -> HRESULT;
-            fn VariantArrayToStringArray(&self, pvarVariantArray: *const VARIANT, #[retval] pvarStringArray: *mut VARIANT) -> HRESULT;
+            fn StringArrayToVariantArray(&self, #[in] pvarStringArray: *mut VARIANT, #[retval] pvarVariantArray: *mut VARIANT) -> HRESULT;
+            fn VariantArrayToStringArray(&self, #[in] pvarVariantArray: *mut VARIANT, #[retval] pvarStringArray: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x728ab32f_217d_11da_b2a4_000e7bbb2b09)]
         interface ICertProperties: IDispatch {
@@ -890,11 +890,11 @@ mod Windows {
         #[guid(0x728ab338_217d_11da_b2a4_000e7bbb2b09)]
         interface ICertPropertyBackedUp: ICertProperty {
             fn InitializeFromCurrentTime(&self, BackedUpValue: VARIANT_BOOL) -> HRESULT;
-            fn Initialize(&self, BackedUpValue: VARIANT_BOOL, Date: f64) -> HRESULT;
+            fn Initialize(&self, BackedUpValue: VARIANT_BOOL, Date: DATE) -> HRESULT;
             #[special]
             fn get_BackedUpValue(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
-            fn get_BackedUpTime(&self, #[retval] pDate: *mut f64) -> HRESULT;
+            fn get_BackedUpTime(&self, #[retval] pDate: *mut DATE) -> HRESULT;
         }
         #[guid(0x728ab331_217d_11da_b2a4_000e7bbb2b09)]
         interface ICertPropertyDescription: ICertProperty {
@@ -1422,13 +1422,13 @@ mod Windows {
             #[special]
             fn put_Issuer(&self, pValue: IX500DistinguishedName) -> HRESULT;
             #[special]
-            fn get_NotBefore(&self, #[retval] pValue: *mut f64) -> HRESULT;
+            fn get_NotBefore(&self, #[retval] pValue: *mut DATE) -> HRESULT;
             #[special]
-            fn put_NotBefore(&self, Value: f64) -> HRESULT;
+            fn put_NotBefore(&self, Value: DATE) -> HRESULT;
             #[special]
-            fn get_NotAfter(&self, #[retval] pValue: *mut f64) -> HRESULT;
+            fn get_NotAfter(&self, #[retval] pValue: *mut DATE) -> HRESULT;
             #[special]
-            fn put_NotAfter(&self, Value: f64) -> HRESULT;
+            fn put_NotAfter(&self, Value: DATE) -> HRESULT;
             #[special]
             fn get_SerialNumber(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
@@ -1640,13 +1640,13 @@ mod Windows {
             #[special]
             fn put_Issuer(&self, pValue: IX500DistinguishedName) -> HRESULT;
             #[special]
-            fn get_ThisUpdate(&self, #[retval] pValue: *mut f64) -> HRESULT;
+            fn get_ThisUpdate(&self, #[retval] pValue: *mut DATE) -> HRESULT;
             #[special]
-            fn put_ThisUpdate(&self, Value: f64) -> HRESULT;
+            fn put_ThisUpdate(&self, Value: DATE) -> HRESULT;
             #[special]
-            fn get_NextUpdate(&self, #[retval] pValue: *mut f64) -> HRESULT;
+            fn get_NextUpdate(&self, #[retval] pValue: *mut DATE) -> HRESULT;
             #[special]
-            fn put_NextUpdate(&self, Value: f64) -> HRESULT;
+            fn put_NextUpdate(&self, Value: DATE) -> HRESULT;
             #[special]
             fn get_X509CRLEntries(&self, #[retval] ppValue: *mut IX509CertificateRevocationListEntries) -> HRESULT;
             #[special]
@@ -1703,11 +1703,11 @@ mod Windows {
         }
         #[guid(0x728ab35e_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509CertificateRevocationListEntry: IDispatch {
-            fn Initialize(&self, Encoding: EncodingType, SerialNumber: BSTR, RevocationDate: f64) -> HRESULT;
+            fn Initialize(&self, Encoding: EncodingType, SerialNumber: BSTR, RevocationDate: DATE) -> HRESULT;
             #[special]
             fn get_SerialNumber(&self, Encoding: EncodingType, #[retval] pValue: *mut BSTR) -> HRESULT;
             #[special]
-            fn get_RevocationDate(&self, #[retval] pValue: *mut f64) -> HRESULT;
+            fn get_RevocationDate(&self, #[retval] pValue: *mut DATE) -> HRESULT;
             #[special]
             fn get_RevocationReason(&self, #[retval] pValue: *mut CRLRevocationReason) -> HRESULT;
             #[special]
@@ -1836,8 +1836,8 @@ mod Windows {
             fn GetCAs(&self, #[retval] ppCAs: *mut ICertificationAuthorities) -> HRESULT;
             fn Validate(&self) -> HRESULT;
             fn GetCustomOids(&self, #[retval] ppObjectIds: *mut IObjectIds) -> HRESULT;
-            fn GetNextUpdateTime(&self, #[retval] pDate: *mut f64) -> HRESULT;
-            fn GetLastUpdateTime(&self, #[retval] pDate: *mut f64) -> HRESULT;
+            fn GetNextUpdateTime(&self, #[retval] pDate: *mut DATE) -> HRESULT;
+            fn GetLastUpdateTime(&self, #[retval] pDate: *mut DATE) -> HRESULT;
             fn GetPolicyServerUrl(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
             fn GetPolicyServerId(&self, #[retval] pValue: *mut BSTR) -> HRESULT;
             fn GetFriendlyName(&self, #[retval] pValue: *mut BSTR) -> HRESULT;

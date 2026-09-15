@@ -60,7 +60,7 @@ mod Windows {
         #[encoding("utf-16")]
         const MO_QUEUE_TOKEN: String = "QUEUE";
         #[library("mqrt.dll")]
-        extern fn MQADsPathToFormatName(lpwcsADsPath: PCWSTR, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: *mut u32) -> HRESULT;
+        extern fn MQADsPathToFormatName(lpwcsADsPath: PCWSTR, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
         extern fn MQBeginTransaction(ppTransaction: *mut ITransaction) -> HRESULT;
         const MQCERT_REGISTER_ALWAYS: i32 = 1;
@@ -94,35 +94,35 @@ mod Windows {
             MQCONN_OUT_OF_MEMORY = -2147483635,
         }
         #[library("mqrt.dll")]
-        extern fn MQCreateCursor(hQueue: QUEUEHANDLE, phCursor: *mut HANDLE) -> HRESULT;
+        extern fn MQCreateCursor(hQueue: QUEUEHANDLE, #[out] phCursor: PHANDLE) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQCreateQueue(#[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS, #[len_param(3)] #[out] #[opt] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: *mut u32) -> HRESULT;
+        extern fn MQCreateQueue(#[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS, #[len_param(3)] #[out] #[opt] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
         extern fn MQDeleteQueue(lpwcsFormatName: PCWSTR) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQFreeMemory(pvMemory: *const void);
+        extern fn MQFreeMemory(#[in] pvMemory: *mut void);
         #[library("mqrt.dll")]
         extern fn MQFreeSecurityContext(hSecurityContext: HANDLE);
         #[library("mqrt.dll")]
         extern fn MQGetMachineProperties(#[opt] lpwcsMachineName: PCWSTR, #[opt] pguidMachineId: *const GUID, #[in] #[out] pQMProps: *mut MQQMPROPS) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQGetOverlappedResult(lpOverlapped: *const OVERLAPPED) -> HRESULT;
+        extern fn MQGetOverlappedResult(lpOverlapped: LPOVERLAPPED) -> HRESULT;
         #[library("mqrt.dll")]
         extern fn MQGetPrivateComputerInformation(#[opt] lpwcsComputerName: PCWSTR, #[in] #[out] pPrivateProps: *mut MQPRIVATEPROPS) -> HRESULT;
         #[library("mqrt.dll")]
         extern fn MQGetQueueProperties(lpwcsFormatName: PCWSTR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQGetQueueSecurity(lpwcsFormatName: PCWSTR, RequestedInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] pSecurityDescriptor: PSECURITY_DESCRIPTOR, nLength: u32, lpnLengthNeeded: *mut u32) -> HRESULT;
+        extern fn MQGetQueueSecurity(lpwcsFormatName: PCWSTR, RequestedInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] pSecurityDescriptor: PSECURITY_DESCRIPTOR, nLength: u32, #[out] lpnLengthNeeded: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQGetSecurityContext(#[size_param(1)] #[opt] lpCertBuffer: *const void, dwCertBufferLength: u32, phSecurityContext: *mut HANDLE) -> HRESULT;
+        extern fn MQGetSecurityContext(#[size_param(1)] #[in] #[opt] lpCertBuffer: *mut void, dwCertBufferLength: u32, phSecurityContext: *mut HANDLE) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQGetSecurityContextEx(#[size_param(1)] #[opt] lpCertBuffer: *const void, dwCertBufferLength: u32, phSecurityContext: *mut HANDLE) -> HRESULT;
+        extern fn MQGetSecurityContextEx(#[size_param(1)] #[in] #[opt] lpCertBuffer: *mut void, dwCertBufferLength: u32, phSecurityContext: *mut HANDLE) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQHandleToFormatName(hQueue: QUEUEHANDLE, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: *mut u32) -> HRESULT;
+        extern fn MQHandleToFormatName(hQueue: QUEUEHANDLE, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQInstanceToFormatName(pGuid: *const GUID, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: *mut u32) -> HRESULT;
+        extern fn MQInstanceToFormatName(#[in] pGuid: *mut GUID, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQLocateBegin(#[opt] lpwcsContext: PCWSTR, #[opt] pRestriction: *const MQRESTRICTION, pColumns: *const MQCOLUMNSET, pSort: *const MQSORTSET, phEnum: *mut HANDLE) -> HRESULT;
+        extern fn MQLocateBegin(#[opt] lpwcsContext: PCWSTR, #[in] #[opt] pRestriction: *mut MQRESTRICTION, #[in] pColumns: *mut MQCOLUMNSET, #[in] pSort: *mut MQSORTSET, #[out] phEnum: PHANDLE) -> HRESULT;
         #[library("mqrt.dll")]
         extern fn MQLocateEnd(hEnum: HANDLE) -> HRESULT;
         #[library("mqrt.dll")]
@@ -139,10 +139,10 @@ mod Windows {
             aPropVar: *mut MQPROPVARIANT,
             aStatus: *mut HRESULT,
         }
-        const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: u32 = 5;
-        const MQMSG_ACKNOWLEDGMENT_FULL_RECEIVE: u32 = 14;
-        const MQMSG_ACKNOWLEDGMENT_NACK_REACH_QUEUE: u32 = 4;
-        const MQMSG_ACKNOWLEDGMENT_NACK_RECEIVE: u32 = 12;
+        const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: u8 = 5;
+        const MQMSG_ACKNOWLEDGMENT_FULL_RECEIVE: u8 = 14;
+        const MQMSG_ACKNOWLEDGMENT_NACK_REACH_QUEUE: u8 = 4;
+        const MQMSG_ACKNOWLEDGMENT_NACK_RECEIVE: u8 = 12;
         const MQMSG_ACKNOWLEDGMENT_NEG_ARRIVAL: i32 = 4;
         const MQMSG_ACKNOWLEDGMENT_NEG_RECEIVE: i32 = 8;
         const MQMSG_ACKNOWLEDGMENT_NONE: i32 = 0;
@@ -163,29 +163,29 @@ mod Windows {
         const MQMSG_AUTH_LEVEL_SIG10: i32 = 2;
         const MQMSG_AUTH_LEVEL_SIG20: i32 = 4;
         const MQMSG_AUTH_LEVEL_SIG30: i32 = 8;
-        const MQMSG_CLASS_ACK_REACH_QUEUE: u32 = 2;
-        const MQMSG_CLASS_ACK_RECEIVE: u32 = 16384;
-        const MQMSG_CLASS_NACK_ACCESS_DENIED: u32 = 32772;
-        const MQMSG_CLASS_NACK_BAD_DST_Q: u32 = 32768;
-        const MQMSG_CLASS_NACK_BAD_ENCRYPTION: u32 = 32775;
-        const MQMSG_CLASS_NACK_BAD_SIGNATURE: u32 = 32774;
-        const MQMSG_CLASS_NACK_COULD_NOT_ENCRYPT: u32 = 32776;
-        const MQMSG_CLASS_NACK_HOP_COUNT_EXCEEDED: u32 = 32773;
-        const MQMSG_CLASS_NACK_MESSAGE_TOO_LARGE: u32 = 32781;
-        const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_MSG: u32 = 32778;
-        const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_Q: u32 = 32777;
-        const MQMSG_CLASS_NACK_PURGED: u32 = 32769;
-        const MQMSG_CLASS_NACK_Q_DELETED: u32 = 49152;
-        const MQMSG_CLASS_NACK_Q_EXCEED_QUOTA: u32 = 32771;
-        const MQMSG_CLASS_NACK_Q_PURGED: u32 = 49153;
-        const MQMSG_CLASS_NACK_REACH_QUEUE_TIMEOUT: u32 = 32770;
-        const MQMSG_CLASS_NACK_RECEIVE_REJECTED: u32 = 49156;
-        const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT: u32 = 49154;
-        const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT_AT_SENDER: u32 = 49155;
-        const MQMSG_CLASS_NACK_SOURCE_COMPUTER_GUID_CHANGED: u32 = 32780;
-        const MQMSG_CLASS_NACK_UNSUPPORTED_CRYPTO_PROVIDER: u32 = 32779;
-        const MQMSG_CLASS_NORMAL: u32 = 0;
-        const MQMSG_CLASS_REPORT: u32 = 1;
+        const MQMSG_CLASS_ACK_REACH_QUEUE: u16 = 2;
+        const MQMSG_CLASS_ACK_RECEIVE: u16 = 16384;
+        const MQMSG_CLASS_NACK_ACCESS_DENIED: u16 = 32772;
+        const MQMSG_CLASS_NACK_BAD_DST_Q: u16 = 32768;
+        const MQMSG_CLASS_NACK_BAD_ENCRYPTION: u16 = 32775;
+        const MQMSG_CLASS_NACK_BAD_SIGNATURE: u16 = 32774;
+        const MQMSG_CLASS_NACK_COULD_NOT_ENCRYPT: u16 = 32776;
+        const MQMSG_CLASS_NACK_HOP_COUNT_EXCEEDED: u16 = 32773;
+        const MQMSG_CLASS_NACK_MESSAGE_TOO_LARGE: u16 = 32781;
+        const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_MSG: u16 = 32778;
+        const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_Q: u16 = 32777;
+        const MQMSG_CLASS_NACK_PURGED: u16 = 32769;
+        const MQMSG_CLASS_NACK_Q_DELETED: u16 = 49152;
+        const MQMSG_CLASS_NACK_Q_EXCEED_QUOTA: u16 = 32771;
+        const MQMSG_CLASS_NACK_Q_PURGED: u16 = 49153;
+        const MQMSG_CLASS_NACK_REACH_QUEUE_TIMEOUT: u16 = 32770;
+        const MQMSG_CLASS_NACK_RECEIVE_REJECTED: u16 = 49156;
+        const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT: u16 = 49154;
+        const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT_AT_SENDER: u16 = 49155;
+        const MQMSG_CLASS_NACK_SOURCE_COMPUTER_GUID_CHANGED: u16 = 32780;
+        const MQMSG_CLASS_NACK_UNSUPPORTED_CRYPTO_PROVIDER: u16 = 32779;
+        const MQMSG_CLASS_NORMAL: u16 = 0;
+        const MQMSG_CLASS_REPORT: u16 = 1;
         const MQMSG_DEADLETTER: i32 = 1;
         const MQMSG_DELIVERY_EXPRESS: i32 = 0;
         const MQMSG_DELIVERY_RECOVERABLE: i32 = 1;
@@ -226,7 +226,7 @@ mod Windows {
         }
         type MQPROPVARIANT = tagMQPROPVARIANT;
         #[library("mqrt.dll")]
-        extern fn MQPathNameToFormatName(lpwcsPathName: PCWSTR, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: *mut u32) -> HRESULT;
+        extern fn MQPathNameToFormatName(lpwcsPathName: PCWSTR, #[len_param(2)] #[out] lpwcsFormatName: PWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
         extern fn MQPurgeQueue(hQueue: QUEUEHANDLE) -> HRESULT;
         struct MQQMPROPS {
@@ -246,11 +246,11 @@ mod Windows {
             paPropRes: *mut MQPROPERTYRESTRICTION,
         }
         #[library("mqrt.dll")]
-        extern fn MQReceiveMessage(hSource: QUEUEHANDLE, dwTimeout: u32, dwAction: u32, #[in] #[out] #[opt] pMessageProps: *mut MQMSGPROPS, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] fnReceiveCallback: PMQRECEIVECALLBACK, #[opt] hCursor: HANDLE, #[opt] pTransaction: ITransaction) -> HRESULT;
+        extern fn MQReceiveMessage(hSource: QUEUEHANDLE, dwTimeout: u32, dwAction: u32, #[in] #[out] #[opt] pMessageProps: *mut MQMSGPROPS, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[opt] fnReceiveCallback: PMQRECEIVECALLBACK, #[opt] hCursor: HANDLE, #[opt] pTransaction: ITransaction) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQReceiveMessageByLookupId(hSource: QUEUEHANDLE, ullLookupId: u64, dwLookupAction: u32, #[in] #[out] #[opt] pMessageProps: *mut MQMSGPROPS, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] fnReceiveCallback: PMQRECEIVECALLBACK, #[opt] pTransaction: ITransaction) -> HRESULT;
+        extern fn MQReceiveMessageByLookupId(hSource: QUEUEHANDLE, ullLookupId: u64, dwLookupAction: u32, #[in] #[out] #[opt] pMessageProps: *mut MQMSGPROPS, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[opt] fnReceiveCallback: PMQRECEIVECALLBACK, #[opt] pTransaction: ITransaction) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQRegisterCertificate(dwFlags: u32, lpCertBuffer: *const void, dwCertBufferLength: u32) -> HRESULT;
+        extern fn MQRegisterCertificate(dwFlags: u32, #[in] lpCertBuffer: *mut void, dwCertBufferLength: u32) -> HRESULT;
         const MQSEC_CHANGE_QUEUE_PERMISSIONS: i32 = 262144;
         const MQSEC_DELETE_JOURNAL_MESSAGE: i32 = 8;
         const MQSEC_DELETE_MESSAGE: i32 = 1;
@@ -276,7 +276,7 @@ mod Windows {
             aCol: *mut MQSORTKEY,
         }
         #[library("mqrt.dll")]
-        extern fn MQSendMessage(hDestinationQueue: QUEUEHANDLE, pMessageProps: *const MQMSGPROPS, #[opt] pTransaction: ITransaction) -> HRESULT;
+        extern fn MQSendMessage(hDestinationQueue: QUEUEHANDLE, #[in] pMessageProps: *mut MQMSGPROPS, #[opt] pTransaction: ITransaction) -> HRESULT;
         #[library("mqrt.dll")]
         extern fn MQSetQueueProperties(lpwcsFormatName: PCWSTR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS) -> HRESULT;
         #[library("mqrt.dll")]
@@ -285,8 +285,8 @@ mod Windows {
         const MQ_ACTION_PEEK_NEXT: u32 = 2147483649;
         const MQ_ACTION_RECEIVE: i32 = 0;
         const MQ_ADMIN_ACCESS: i32 = 128;
-        const MQ_AUTHENTICATE: u32 = 1;
-        const MQ_AUTHENTICATE_NONE: u32 = 0;
+        const MQ_AUTHENTICATE: u8 = 1;
+        const MQ_AUTHENTICATE_NONE: u8 = 0;
         const MQ_CORRUPTED_QUEUE_WAS_DELETED: HRESULT = -1072824216;
         const MQ_DENY_NONE: i32 = 0;
         const MQ_DENY_RECEIVE_SHARE: i32 = 1;
@@ -433,8 +433,8 @@ mod Windows {
         const MQ_INFORMATION_PROPERTY: HRESULT = 1074659329;
         const MQ_INFORMATION_PROPERTY_IGNORED: HRESULT = 1074659331;
         const MQ_INFORMATION_UNSUPPORTED_PROPERTY: HRESULT = 1074659332;
-        const MQ_JOURNAL: u32 = 1;
-        const MQ_JOURNAL_NONE: u32 = 0;
+        const MQ_JOURNAL: u8 = 1;
+        const MQ_JOURNAL_NONE: u8 = 0;
         const MQ_LOOKUP_PEEK_CURRENT: i32 = 1073741840;
         const MQ_LOOKUP_PEEK_FIRST: i32 = 1073741844;
         const MQ_LOOKUP_PEEK_LAST: i32 = 1073741848;
@@ -452,6 +452,7 @@ mod Windows {
         const MQ_MAX_Q_NAME_LEN: i32 = 124;
         const MQ_MIN_PRIORITY: i32 = 0;
         const MQ_MOVE_ACCESS: i32 = 4;
+        const MQ_MTS_TRANSACTION: *mut ITransaction = 1;
         const MQ_NO_TRANSACTION: i32 = 0;
         const MQ_OK: HRESULT = 0;
         const MQ_PEEK_ACCESS: i32 = 32;
@@ -460,14 +461,16 @@ mod Windows {
         const MQ_PRIV_LEVEL_OPTIONAL: u32 = 1;
         const MQ_RECEIVE_ACCESS: i32 = 1;
         const MQ_SEND_ACCESS: i32 = 2;
-        const MQ_TRANSACTIONAL: u32 = 1;
-        const MQ_TRANSACTIONAL_NONE: u32 = 0;
+        const MQ_SINGLE_MESSAGE: *mut ITransaction = 3;
+        const MQ_TRANSACTIONAL: u8 = 1;
+        const MQ_TRANSACTIONAL_NONE: u8 = 0;
+        const MQ_XA_TRANSACTION: *mut ITransaction = 2;
         type MSGPROPID = PROPID;
         #[encoding("utf-16")]
         const MSMQ_CONNECTED: String = "CONNECTED";
         #[encoding("utf-16")]
         const MSMQ_DISCONNECTED: String = "DISCONNECTED";
-        extern fn PMQRECEIVECALLBACK(hrStatus: HRESULT, hSource: QUEUEHANDLE, dwTimeout: u32, dwAction: u32, pMessageProps: *mut MQMSGPROPS, lpOverlapped: *mut OVERLAPPED, hCursor: HANDLE);
+        extern fn PMQRECEIVECALLBACK(hrStatus: HRESULT, hSource: QUEUEHANDLE, dwTimeout: u32, dwAction: u32, pMessageProps: *mut MQMSGPROPS, lpOverlapped: LPOVERLAPPED, hCursor: HANDLE);
         const PREQ: i32 = 4;
         const PRGE: i32 = 3;
         const PRGT: i32 = 2;

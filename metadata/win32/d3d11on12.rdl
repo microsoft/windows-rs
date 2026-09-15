@@ -22,7 +22,7 @@ mod Windows {
         #[guid(0xdc90f331_4740_43fa_866e_67f12cb58223)]
         interface ID3D11On12Device2: ID3D11On12Device1 {
             fn UnwrapUnderlyingResource(&self, pResource11: ID3D11Resource, pCommandQueue: ID3D12CommandQueue, riid: *const GUID, #[iid_is] ppvResource12: *mut *mut void) -> HRESULT;
-            fn ReturnUnderlyingResource(&self, pResource11: ID3D11Resource, NumSync: u32, #[len_param(1)] pSignalValues: *const u64, #[len_param(1)] ppFences: *const ID3D12Fence) -> HRESULT;
+            fn ReturnUnderlyingResource(&self, pResource11: ID3D11Resource, NumSync: u32, #[len_param(1)] #[in] pSignalValues: *mut u64, #[len_param(1)] #[in] ppFences: *mut ID3D12Fence) -> HRESULT;
         }
         extern fn PFN_D3D11ON12_CREATE_DEVICE(param0: IUnknown, param1: u32, #[len_param(3)] #[opt] param2: *const D3D_FEATURE_LEVEL, FeatureLevels: u32, #[len_param(5)] #[opt] param4: *const IUnknown, NumQueues: u32, param6: u32, param7: *mut ID3D11Device, param8: *mut ID3D11DeviceContext, #[opt] param9: *mut D3D_FEATURE_LEVEL) -> HRESULT;
     }

@@ -8,7 +8,7 @@ mod Windows {
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
         extern fn IsErrorPropagationEnabled() -> BOOL;
         const MAX_ERROR_MESSAGE_CHARS: i32 = 512;
-        extern fn PINSPECT_MEMORY_CALLBACK(#[opt] context: *const void, readAddress: usize, length: u32, #[len_param(2)] buffer: *mut u8) -> HRESULT;
+        extern fn PINSPECT_MEMORY_CALLBACK(#[in] #[opt] context: *mut void, readAddress: usize, length: u32, #[len_param(2)] buffer: *mut u8) -> HRESULT;
         #[repr(u32)]
         #[flags]
         enum RO_ERROR_REPORTING_FLAGS {
@@ -38,9 +38,9 @@ mod Windows {
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
         extern fn RoGetMatchingRestrictedErrorInfo(hrIn: HRESULT, ppRestrictedErrorInfo: *mut IRestrictedErrorInfo) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
-        extern fn RoInspectCapturedStackBackTrace(targetErrorInfoAddress: usize, machine: u16, readMemoryCallback: PINSPECT_MEMORY_CALLBACK, #[opt] context: *const void, frameCount: *mut u32, targetBackTraceAddress: *mut usize) -> HRESULT;
+        extern fn RoInspectCapturedStackBackTrace(targetErrorInfoAddress: usize, machine: u16, readMemoryCallback: PINSPECT_MEMORY_CALLBACK, #[in] #[opt] context: *mut void, frameCount: *mut u32, targetBackTraceAddress: *mut usize) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-1.dll")]
-        extern fn RoInspectThreadErrorInfo(targetTebAddress: usize, machine: u16, readMemoryCallback: PINSPECT_MEMORY_CALLBACK, #[opt] context: *const void, targetErrorInfoAddress: *mut usize) -> HRESULT;
+        extern fn RoInspectThreadErrorInfo(targetTebAddress: usize, machine: u16, readMemoryCallback: PINSPECT_MEMORY_CALLBACK, #[in] #[opt] context: *mut void, targetErrorInfoAddress: *mut usize) -> HRESULT;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]
         extern fn RoOriginateError(error: HRESULT, #[opt] message: HSTRING) -> BOOL;
         #[library("api-ms-win-core-winrt-error-l1-1-0.dll")]

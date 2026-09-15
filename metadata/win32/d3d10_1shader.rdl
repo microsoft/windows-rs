@@ -65,8 +65,8 @@ mod Windows {
             uValueMax: u32,
             iValueMin: i32,
             iValueMax: i32,
-            fValueMin: f32,
-            fValueMax: f32,
+            fValueMin: FLOAT,
+            fValueMax: FLOAT,
             bNaNPossible: BOOL,
             bInfPossible: BOOL,
         }
@@ -158,5 +158,6 @@ mod Windows {
             fn IsLevel9Shader(&self, pbLevel9Shader: *mut BOOL) -> HRESULT;
             fn IsSampleFrequencyShader(&self, pbSampleFrequency: *mut BOOL) -> HRESULT;
         }
+        type LPD3D10SHADERREFLECTION1 = ID3D10ShaderReflection1;
     }
 }

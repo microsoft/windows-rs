@@ -11,7 +11,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn FlsGetValue2(dwTlsIndex: u32) -> *mut void;
         #[library("KERNEL32.dll")]
-        extern fn FlsSetValue(dwFlsIndex: u32, #[opt] lpFlsData: *const void) -> BOOL;
+        extern fn FlsSetValue(dwFlsIndex: u32, #[in] #[opt] lpFlsData: *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn IsThreadAFiber() -> BOOL;
     }

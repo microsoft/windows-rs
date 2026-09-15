@@ -79,6 +79,7 @@ mod Windows {
         const VS_FF_PRERELEASE: i32 = 2;
         const VS_FF_PRIVATEBUILD: i32 = 8;
         const VS_FF_SPECIALBUILD: i32 = 32;
+        const VS_FILE_INFO: PSTR = 16;
         struct VS_FIXEDFILEINFO {
             dwSignature: u32,
             dwStrucVersion: u32,

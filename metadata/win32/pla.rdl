@@ -78,7 +78,7 @@ mod Windows {
             #[special]
             fn get_AlertThresholds(&self, #[retval] alerts: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_AlertThresholds(&self, alerts: *const SAFEARRAY) -> HRESULT;
+            fn put_AlertThresholds(&self, #[in] alerts: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_EventLog(&self, #[retval] log: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
@@ -129,15 +129,15 @@ mod Windows {
             #[special]
             fn get_IncludeModules(&self, #[retval] includemodules: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_IncludeModules(&self, includemodules: *const SAFEARRAY) -> HRESULT;
+            fn put_IncludeModules(&self, #[in] includemodules: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_IncludeApis(&self, #[retval] includeapis: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_IncludeApis(&self, includeapis: *const SAFEARRAY) -> HRESULT;
+            fn put_IncludeApis(&self, #[in] includeapis: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_ExcludeApis(&self, #[retval] excludeapis: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_ExcludeApis(&self, excludeapis: *const SAFEARRAY) -> HRESULT;
+            fn put_ExcludeApis(&self, #[in] excludeapis: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x03837514_098b_11d8_9414_505054503030)]
         interface IConfigurationDataCollector: IDataCollector {
@@ -156,11 +156,11 @@ mod Windows {
             #[special]
             fn get_Files(&self, #[retval] Files: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_Files(&self, Files: *const SAFEARRAY) -> HRESULT;
+            fn put_Files(&self, #[in] Files: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_ManagementQueries(&self, #[retval] Queries: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_ManagementQueries(&self, Queries: *const SAFEARRAY) -> HRESULT;
+            fn put_ManagementQueries(&self, #[in] Queries: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_QueryNetworkAdapters(&self, #[retval] network: *mut VARIANT_BOOL) -> HRESULT;
             #[special]
@@ -168,7 +168,7 @@ mod Windows {
             #[special]
             fn get_RegistryKeys(&self, #[retval] query: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_RegistryKeys(&self, query: *const SAFEARRAY) -> HRESULT;
+            fn put_RegistryKeys(&self, #[in] query: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_RegistryMaxRecursiveDepth(&self, #[retval] depth: *mut u32) -> HRESULT;
             #[special]
@@ -267,7 +267,7 @@ mod Windows {
             #[special]
             fn get_Keywords(&self, #[retval] keywords: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_Keywords(&self, keywords: *const SAFEARRAY) -> HRESULT;
+            fn put_Keywords(&self, #[in] keywords: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_LatestOutputLocation(&self, #[retval] path: *mut BSTR) -> HRESULT;
             #[special]
@@ -465,7 +465,7 @@ mod Windows {
             #[special]
             fn get_PerformanceCounters(&self, #[retval] counters: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_PerformanceCounters(&self, counters: *const SAFEARRAY) -> HRESULT;
+            fn put_PerformanceCounters(&self, #[in] counters: *mut SAFEARRAY) -> HRESULT;
             #[special]
             fn get_LogFileFormat(&self, #[retval] format: *mut FileFormat) -> HRESULT;
             #[special]
@@ -624,7 +624,7 @@ mod Windows {
             #[special]
             fn get_FilterData(&self, #[retval] ppData: *mut *mut SAFEARRAY) -> HRESULT;
             #[special]
-            fn put_FilterData(&self, pData: *const SAFEARRAY) -> HRESULT;
+            fn put_FilterData(&self, #[in] pData: *mut SAFEARRAY) -> HRESULT;
             fn Query(&self, bstrName: BSTR, bstrServer: BSTR) -> HRESULT;
             fn Resolve(&self, pFrom: IDispatch) -> HRESULT;
             fn SetSecurity(&self, Sddl: BSTR) -> HRESULT;
@@ -708,7 +708,7 @@ mod Windows {
         const PLAL_ALERT_CMD_LINE_M_VAL: u32 = 8192;
         const PLAL_ALERT_CMD_LINE_SINGLE: u32 = 256;
         const PLAL_ALERT_CMD_LINE_U_TEXT: u32 = 16384;
-        extern fn PLA_CABEXTRACT_CALLBACK(FileName: PCWSTR, Context: *mut void);
+        extern "C" fn PLA_CABEXTRACT_CALLBACK(FileName: PCWSTR, Context: *mut void);
         const PLA_CAPABILITY_AUTOLOGGER: i32 = 32;
         const PLA_CAPABILITY_LEGACY_SESSION: i32 = 8;
         const PLA_CAPABILITY_LEGACY_SVC: i32 = 16;

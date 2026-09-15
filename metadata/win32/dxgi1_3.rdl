@@ -20,18 +20,18 @@ mod Windows {
             PresentCount: u32,
             PresentRefreshCount: u32,
             SyncRefreshCount: u32,
-            SyncQPCTime: i64,
-            SyncGPUTime: i64,
+            SyncQPCTime: LARGE_INTEGER,
+            SyncGPUTime: LARGE_INTEGER,
             CompositionMode: DXGI_FRAME_PRESENTATION_MODE,
             ApprovedPresentDuration: u32,
         }
         struct DXGI_MATRIX_3X2_F {
-            _11: f32,
-            _12: f32,
-            _21: f32,
-            _22: f32,
-            _31: f32,
-            _32: f32,
+            _11: FLOAT,
+            _12: FLOAT,
+            _21: FLOAT,
+            _22: FLOAT,
+            _31: FLOAT,
+            _32: FLOAT,
         }
         #[repr(i32)]
         enum DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
@@ -67,7 +67,7 @@ mod Windows {
         #[guid(0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12)]
         interface IDXGIFactoryMedia: IUnknown {
             fn CreateSwapChainForCompositionSurfaceHandle(&self, pDevice: IUnknown, #[opt] hSurface: HANDLE, pDesc: *const DXGI_SWAP_CHAIN_DESC1, #[opt] pRestrictToOutput: IDXGIOutput, ppSwapChain: *mut IDXGISwapChain1) -> HRESULT;
-            fn CreateDecodeSwapChainForCompositionSurfaceHandle(&self, pDevice: IUnknown, #[opt] hSurface: HANDLE, pDesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pYuvDecodeBuffers: IDXGIResource, #[opt] pRestrictToOutput: IDXGIOutput, ppSwapChain: *mut IDXGIDecodeSwapChain) -> HRESULT;
+            fn CreateDecodeSwapChainForCompositionSurfaceHandle(&self, pDevice: IUnknown, #[opt] hSurface: HANDLE, #[in] pDesc: *mut DXGI_DECODE_SWAP_CHAIN_DESC, pYuvDecodeBuffers: IDXGIResource, #[opt] pRestrictToOutput: IDXGIOutput, ppSwapChain: *mut IDXGIDecodeSwapChain) -> HRESULT;
         }
         #[guid(0x595e39d1_2724_4663_99b1_da969de28364)]
         interface IDXGIOutput2: IDXGIOutput1 {
@@ -75,7 +75,7 @@ mod Windows {
         }
         #[guid(0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18)]
         interface IDXGIOutput3: IDXGIOutput2 {
-            fn CheckOverlaySupport(&self, EnumFormat: DXGI_FORMAT, pConcernedDevice: IUnknown, pFlags: *mut u32) -> HRESULT;
+            fn CheckOverlaySupport(&self, EnumFormat: DXGI_FORMAT, #[in] #[out] pConcernedDevice: IUnknown, pFlags: *mut u32) -> HRESULT;
         }
         #[guid(0xa8be2ac4_199f_4946_b331_79599fb98de7)]
         interface IDXGISwapChain2: IDXGISwapChain1 {

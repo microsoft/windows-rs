@@ -157,21 +157,21 @@ mod Windows {
             Invocation: u64,
         }
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DDisassemble11Trace(#[size_param(1)] pSrcData: *const void, SrcDataSize: usize, pTrace: ID3D11ShaderTrace, StartStep: u32, NumSteps: u32, Flags: u32, ppDisassembly: *mut ID3D10Blob) -> HRESULT;
+        extern fn D3DDisassemble11Trace(#[size_param(1)] pSrcData: LPCVOID, SrcDataSize: usize, pTrace: ID3D11ShaderTrace, StartStep: u32, NumSteps: u32, Flags: u32, ppDisassembly: *mut ID3D10Blob) -> HRESULT;
         #[guid(0x36b013e6_2811_4845_baa7_d623fe0df104)]
         interface ID3D11ShaderTrace: IUnknown {
             fn TraceReady(&self, #[opt] pTestCount: *mut u64) -> HRESULT;
             fn ResetTrace(&self);
             fn GetTraceStats(&self, pTraceStats: *mut D3D11_TRACE_STATS) -> HRESULT;
             fn PSSelectStamp(&self, stampIndex: u32) -> HRESULT;
-            fn GetInitialRegisterContents(&self, pRegister: *const D3D11_TRACE_REGISTER, pValue: *mut D3D11_TRACE_VALUE) -> HRESULT;
+            fn GetInitialRegisterContents(&self, #[in] pRegister: *mut D3D11_TRACE_REGISTER, pValue: *mut D3D11_TRACE_VALUE) -> HRESULT;
             fn GetStep(&self, stepIndex: u32, pTraceStep: *mut D3D11_TRACE_STEP) -> HRESULT;
             fn GetWrittenRegister(&self, stepIndex: u32, writtenRegisterIndex: u32, pRegister: *mut D3D11_TRACE_REGISTER, pValue: *mut D3D11_TRACE_VALUE) -> HRESULT;
             fn GetReadRegister(&self, stepIndex: u32, readRegisterIndex: u32, pRegister: *mut D3D11_TRACE_REGISTER, pValue: *mut D3D11_TRACE_VALUE) -> HRESULT;
         }
         #[guid(0x1fbad429_66ab_41cc_9617_667ac10e4459)]
         interface ID3D11ShaderTraceFactory: IUnknown {
-            fn CreateShaderTrace(&self, pShader: IUnknown, pTraceDesc: *const D3D11_SHADER_TRACE_DESC, ppShaderTrace: *mut ID3D11ShaderTrace) -> HRESULT;
+            fn CreateShaderTrace(&self, pShader: IUnknown, #[in] pTraceDesc: *mut D3D11_SHADER_TRACE_DESC, ppShaderTrace: *mut ID3D11ShaderTrace) -> HRESULT;
         }
     }
 }

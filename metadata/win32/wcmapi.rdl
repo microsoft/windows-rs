@@ -99,12 +99,12 @@ mod Windows {
         #[library("wcmapi.dll")]
         extern fn WcmFreeMemory(pMemory: *mut void);
         #[library("wcmapi.dll")]
-        extern fn WcmGetProfileList(#[reserved] pReserved: *const void, ppProfileList: *mut *mut WCM_PROFILE_INFO_LIST) -> u32;
+        extern fn WcmGetProfileList(#[reserved] pReserved: *mut void, ppProfileList: *mut *mut WCM_PROFILE_INFO_LIST) -> u32;
         #[library("wcmapi.dll")]
-        extern fn WcmQueryProperty(#[opt] pInterface: *const GUID, #[opt] strProfileName: PCWSTR, Property: WCM_PROPERTY, #[reserved] pReserved: *const void, pdwDataSize: *mut u32, ppData: *mut PBYTE) -> u32;
+        extern fn WcmQueryProperty(#[opt] pInterface: *const GUID, #[opt] strProfileName: PCWSTR, Property: WCM_PROPERTY, #[reserved] pReserved: *mut void, #[out] pdwDataSize: PDWORD, ppData: *mut PBYTE) -> u32;
         #[library("wcmapi.dll")]
-        extern fn WcmSetProfileList(pProfileList: *const WCM_PROFILE_INFO_LIST, dwPosition: u32, fIgnoreUnknownProfiles: BOOL, #[reserved] pReserved: *const void) -> u32;
+        extern fn WcmSetProfileList(#[in] pProfileList: *mut WCM_PROFILE_INFO_LIST, dwPosition: u32, fIgnoreUnknownProfiles: BOOL, #[reserved] pReserved: *mut void) -> u32;
         #[library("wcmapi.dll")]
-        extern fn WcmSetProperty(#[opt] pInterface: *const GUID, #[opt] strProfileName: PCWSTR, Property: WCM_PROPERTY, #[reserved] pReserved: *const void, dwDataSize: u32, #[len_param(4)] #[opt] pbData: *const u8) -> u32;
+        extern fn WcmSetProperty(#[opt] pInterface: *const GUID, #[opt] strProfileName: PCWSTR, Property: WCM_PROPERTY, #[reserved] pReserved: *mut void, dwDataSize: u32, #[len_param(4)] #[opt] pbData: *const u8) -> u32;
     }
 }

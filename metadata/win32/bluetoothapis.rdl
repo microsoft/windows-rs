@@ -137,9 +137,9 @@ mod Windows {
         const BLUETOOTH_SERVICE_ENABLE: i32 = 1;
         const BLUETOOTH_SERVICE_MASK: i32 = 1;
         #[library("bthprops.cpl")]
-        extern fn BluetoothAuthenticateDevice(#[opt] hwndParent: HWND, #[opt] hRadio: HANDLE, #[in] #[out] pbtbi: *mut BLUETOOTH_DEVICE_INFO_STRUCT, #[len_param(4)] #[opt] pszPasskey: PCWSTR, ulPasskeyLength: u32) -> u32;
+        extern fn BluetoothAuthenticateDevice(#[opt] hwndParent: HWND, #[opt] hRadio: HANDLE, #[in] #[out] pbtbi: *mut BLUETOOTH_DEVICE_INFO_STRUCT, #[len_param(4)] #[opt] pszPasskey: PWSTR, ulPasskeyLength: u32) -> u32;
         #[library("bthprops.cpl")]
-        extern fn BluetoothAuthenticateDeviceEx(#[opt] hwndParentIn: HWND, #[opt] hRadioIn: HANDLE, #[in] #[out] pbtdiInout: *mut BLUETOOTH_DEVICE_INFO_STRUCT, #[opt] pbtOobData: *const BLUETOOTH_OOB_DATA_INFO, authenticationRequirement: AUTHENTICATION_REQUIREMENTS) -> u32;
+        extern fn BluetoothAuthenticateDeviceEx(#[opt] hwndParentIn: HWND, #[opt] hRadioIn: HANDLE, #[in] #[out] pbtdiInout: *mut BLUETOOTH_DEVICE_INFO_STRUCT, #[opt] pbtOobData: PBLUETOOTH_OOB_DATA_INFO, authenticationRequirement: AUTHENTICATION_REQUIREMENTS) -> u32;
         #[library("bthprops.cpl")]
         extern fn BluetoothAuthenticateMultipleDevices(#[opt] hwndParent: HWND, #[opt] hRadio: HANDLE, cDevices: u32, #[len_param(2)] #[in] #[out] rgbtdi: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> u32;
         #[library("bthprops.cpl")]
@@ -165,7 +165,7 @@ mod Windows {
         #[library("bthprops.cpl")]
         extern fn BluetoothGetDeviceInfo(#[opt] hRadio: HANDLE, #[in] #[out] pbtdi: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> u32;
         #[library("bthprops.cpl")]
-        extern fn BluetoothGetRadioInfo(hRadio: HANDLE, #[in] #[out] pRadioInfo: *mut BLUETOOTH_RADIO_INFO) -> u32;
+        extern fn BluetoothGetRadioInfo(hRadio: HANDLE, #[in] #[out] pRadioInfo: PBLUETOOTH_RADIO_INFO) -> u32;
         #[library("bthprops.cpl")]
         extern fn BluetoothIsConnectable(#[opt] hRadio: HANDLE) -> BOOL;
         #[library("bthprops.cpl")]
@@ -173,21 +173,21 @@ mod Windows {
         #[library("bthprops.cpl")]
         extern fn BluetoothIsVersionAvailable(MajorVersion: u8, MinorVersion: u8) -> BOOL;
         #[library("bthprops.cpl")]
-        extern fn BluetoothRegisterForAuthentication(#[opt] pbtdi: *const BLUETOOTH_DEVICE_INFO_STRUCT, phRegHandle: *mut HBLUETOOTH_AUTHENTICATION_REGISTRATION, #[opt] pfnCallback: PFN_AUTHENTICATION_CALLBACK, #[opt] pvParam: *const void) -> u32;
+        extern fn BluetoothRegisterForAuthentication(#[opt] pbtdi: *const BLUETOOTH_DEVICE_INFO_STRUCT, phRegHandle: *mut HBLUETOOTH_AUTHENTICATION_REGISTRATION, #[opt] pfnCallback: PFN_AUTHENTICATION_CALLBACK, #[in] #[opt] pvParam: *mut void) -> u32;
         #[library("bthprops.cpl")]
-        extern fn BluetoothRegisterForAuthenticationEx(#[opt] pbtdiIn: *const BLUETOOTH_DEVICE_INFO_STRUCT, phRegHandleOut: *mut HBLUETOOTH_AUTHENTICATION_REGISTRATION, #[opt] pfnCallbackIn: PFN_AUTHENTICATION_CALLBACK_EX, #[opt] pvParam: *const void) -> u32;
+        extern fn BluetoothRegisterForAuthenticationEx(#[opt] pbtdiIn: *const BLUETOOTH_DEVICE_INFO_STRUCT, phRegHandleOut: *mut HBLUETOOTH_AUTHENTICATION_REGISTRATION, #[opt] pfnCallbackIn: PFN_AUTHENTICATION_CALLBACK_EX, #[in] #[opt] pvParam: *mut void) -> u32;
         #[library("bthprops.cpl")]
         extern fn BluetoothRemoveDevice(pAddress: *const BLUETOOTH_ADDRESS_STRUCT) -> u32;
         #[library("bthprops.cpl")]
-        extern fn BluetoothSdpEnumAttributes(#[size_param(1)] pSDPStream: *const u8, cbStreamSize: u32, pfnCallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvParam: *const void) -> BOOL;
+        extern fn BluetoothSdpEnumAttributes(#[size_param(1)] pSDPStream: LPBYTE, cbStreamSize: u32, pfnCallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, #[in] pvParam: *mut void) -> BOOL;
         #[library("bthprops.cpl")]
-        extern fn BluetoothSdpGetAttributeValue(#[size_param(1)] pRecordStream: *const u8, cbRecordLength: u32, usAttributeId: u16, pAttributeData: *mut SDP_ELEMENT_DATA) -> u32;
+        extern fn BluetoothSdpGetAttributeValue(#[size_param(1)] pRecordStream: LPBYTE, cbRecordLength: u32, usAttributeId: u16, #[out] pAttributeData: PSDP_ELEMENT_DATA) -> u32;
         #[library("bthprops.cpl")]
-        extern fn BluetoothSdpGetContainerElementData(#[size_param(1)] pContainerStream: *const u8, cbContainerLength: u32, #[in] #[out] pElement: *mut HBLUETOOTH_CONTAINER_ELEMENT, pData: *mut SDP_ELEMENT_DATA) -> u32;
+        extern fn BluetoothSdpGetContainerElementData(#[size_param(1)] pContainerStream: LPBYTE, cbContainerLength: u32, #[in] #[out] pElement: *mut HBLUETOOTH_CONTAINER_ELEMENT, #[out] pData: PSDP_ELEMENT_DATA) -> u32;
         #[library("bthprops.cpl")]
-        extern fn BluetoothSdpGetElementData(#[size_param(1)] pSdpStream: *const u8, cbSdpStreamLength: u32, pData: *mut SDP_ELEMENT_DATA) -> u32;
+        extern fn BluetoothSdpGetElementData(#[size_param(1)] pSdpStream: LPBYTE, cbSdpStreamLength: u32, #[out] pData: PSDP_ELEMENT_DATA) -> u32;
         #[library("bthprops.cpl")]
-        extern fn BluetoothSdpGetString(#[size_param(1)] pRecordStream: *const u8, cbRecordLength: u32, #[opt] pStringData: *const SDP_STRING_TYPE_DATA, usStringOffset: u16, #[len_param(5)] #[out] pszString: PWSTR, #[in] #[out] pcchStringLength: *mut u32) -> u32;
+        extern fn BluetoothSdpGetString(#[size_param(1)] pRecordStream: LPBYTE, cbRecordLength: u32, #[opt] pStringData: PSDP_STRING_TYPE_DATA, usStringOffset: u16, #[len_param(5)] #[out] pszString: PWSTR, #[in] #[out] pcchStringLength: PULONG) -> u32;
         #[library("bthprops.cpl")]
         extern fn BluetoothSelectDevices(#[in] #[out] pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> BOOL;
         #[library("bthprops.cpl")]
@@ -195,7 +195,7 @@ mod Windows {
         #[library("bthprops.cpl")]
         extern fn BluetoothSendAuthenticationResponse(#[opt] hRadio: HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO_STRUCT, pszPasskey: PCWSTR) -> u32;
         #[library("bthprops.cpl")]
-        extern fn BluetoothSendAuthenticationResponseEx(#[opt] hRadioIn: HANDLE, pauthResponse: *const BLUETOOTH_AUTHENTICATE_RESPONSE) -> u32;
+        extern fn BluetoothSendAuthenticationResponseEx(#[opt] hRadioIn: HANDLE, pauthResponse: PBLUETOOTH_AUTHENTICATE_RESPONSE) -> u32;
         #[library("bthprops.cpl")]
         extern fn BluetoothSetLocalServiceInfo(#[opt] hRadioIn: HANDLE, pClassGuid: *const GUID, ulInstance: u32, pServiceInfoIn: *const BLUETOOTH_LOCAL_SERVICE_INFO_STRUCT) -> u32;
         #[library("bthprops.cpl")]
@@ -218,9 +218,9 @@ mod Windows {
         type PBLUETOOTH_PASSKEY_INFO = *mut BLUETOOTH_PASSKEY_INFO;
         type PBLUETOOTH_PIN_INFO = *mut BLUETOOTH_PIN_INFO;
         type PBLUETOOTH_RADIO_INFO = *mut BLUETOOTH_RADIO_INFO;
-        extern fn PFN_AUTHENTICATION_CALLBACK(pvParam: *mut void, pDevice: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> BOOL;
-        extern fn PFN_AUTHENTICATION_CALLBACK_EX(#[opt] pvParam: *const void, pAuthCallbackParams: *const BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> BOOL;
-        extern fn PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK(uAttribId: u32, #[size_param(2)] pValueStream: *const u8, cbStreamSize: u32, #[opt] pvParam: *const void) -> BOOL;
+        extern fn PFN_AUTHENTICATION_CALLBACK(pvParam: *mut void, pDevice: PBLUETOOTH_DEVICE_INFO) -> BOOL;
+        extern fn PFN_AUTHENTICATION_CALLBACK_EX(#[in] #[opt] pvParam: *mut void, pAuthCallbackParams: PBLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> BOOL;
+        extern fn PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK(uAttribId: u32, #[size_param(2)] pValueStream: LPBYTE, cbStreamSize: u32, #[in] #[opt] pvParam: *mut void) -> BOOL;
         extern fn PFN_DEVICE_CALLBACK(pvParam: *mut void, pDevice: *const BLUETOOTH_DEVICE_INFO_STRUCT) -> BOOL;
         type PSDP_ELEMENT_DATA = *mut SDP_ELEMENT_DATA;
         type PSDP_STRING_TYPE_DATA = *mut SDP_STRING_TYPE_DATA;

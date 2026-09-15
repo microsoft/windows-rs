@@ -61,8 +61,8 @@ mod Windows {
         }
         #[guid(0x497c3418_23cb_44ba_bb62_769f506fcea7)]
         interface IBDA_ConditionalAccessEx: IUnknown {
-            fn CheckEntitlementToken(&self, ulDialogRequest: u32, bstrLanguage: BSTR, RequestType: BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbEntitlementTokenLen: u32, pbEntitlementToken: *const u8, pulDescrambleStatus: *mut u32) -> HRESULT;
-            fn SetCaptureToken(&self, ulcbCaptureTokenLen: u32, pbCaptureToken: *const u8) -> HRESULT;
+            fn CheckEntitlementToken(&self, ulDialogRequest: u32, bstrLanguage: BSTR, RequestType: BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbEntitlementTokenLen: u32, #[in] pbEntitlementToken: *mut u8, pulDescrambleStatus: *mut u32) -> HRESULT;
+            fn SetCaptureToken(&self, ulcbCaptureTokenLen: u32, #[in] pbCaptureToken: *mut u8) -> HRESULT;
             fn OpenBroadcastMmi(&self, ulDialogRequest: u32, bstrLanguage: BSTR, EventId: u32) -> HRESULT;
             fn CloseMmiDialog(&self, ulDialogRequest: u32, bstrLanguage: BSTR, ulDialogNumber: u32, ReasonCode: BDA_CONDITIONALACCESS_MMICLOSEREASON, pulSessionResult: *mut u32) -> HRESULT;
             fn CreateDialogRequestNumber(&self, pulDialogRequestNumber: *mut u32) -> HRESULT;
@@ -76,10 +76,10 @@ mod Windows {
         #[guid(0x05c690f8_56db_4bb2_b053_79c12098bb26)]
         interface IBDA_DRIWMDRMSession: IUnknown {
             fn AcknowledgeLicense(&self, hrLicenseAck: HRESULT) -> HRESULT;
-            fn ProcessLicenseChallenge(&self, dwcbLicenseMessage: u32, pbLicenseMessage: *const u8, #[in] #[out] pdwcbLicenseResponse: *mut u32, #[in] #[out] ppbLicenseResponse: *mut *mut u8) -> HRESULT;
-            fn ProcessRegistrationChallenge(&self, dwcbRegistrationMessage: u32, pbRegistrationMessage: *const u8, #[in] #[out] pdwcbRegistrationResponse: *mut u32, #[in] #[out] ppbRegistrationResponse: *mut *mut u8) -> HRESULT;
-            fn SetRevInfo(&self, dwRevInfoLen: u32, pbRevInfo: *const u8, #[in] #[out] pdwResponse: *mut u32) -> HRESULT;
-            fn SetCrl(&self, dwCrlLen: u32, pbCrlLen: *const u8, #[in] #[out] pdwResponse: *mut u32) -> HRESULT;
+            fn ProcessLicenseChallenge(&self, dwcbLicenseMessage: u32, #[in] pbLicenseMessage: *mut u8, #[in] #[out] pdwcbLicenseResponse: *mut u32, #[in] #[out] ppbLicenseResponse: *mut *mut u8) -> HRESULT;
+            fn ProcessRegistrationChallenge(&self, dwcbRegistrationMessage: u32, #[in] pbRegistrationMessage: *mut u8, #[in] #[out] pdwcbRegistrationResponse: *mut u32, #[in] #[out] ppbRegistrationResponse: *mut *mut u8) -> HRESULT;
+            fn SetRevInfo(&self, dwRevInfoLen: u32, #[in] pbRevInfo: *mut u8, #[in] #[out] pdwResponse: *mut u32) -> HRESULT;
+            fn SetCrl(&self, dwCrlLen: u32, #[in] pbCrlLen: *mut u8, #[in] #[out] pdwResponse: *mut u32) -> HRESULT;
             fn GetHMSAssociationData(&self) -> HRESULT;
             fn GetLastCardeaError(&self, #[in] #[out] pdwError: *mut u32) -> HRESULT;
         }
@@ -90,7 +90,7 @@ mod Windows {
         }
         #[guid(0xbff6b5bb_b0ae_484c_9dca_73528fb0b46e)]
         interface IBDA_DRMService: IUnknown {
-            fn SetDRM(&self, puuidNewDrm: *const GUID) -> HRESULT;
+            fn SetDRM(&self, #[in] puuidNewDrm: *mut GUID) -> HRESULT;
             fn GetDRMStatus(&self, pbstrDrmUuidList: *mut BSTR, DrmUuid: *mut GUID) -> HRESULT;
         }
         #[guid(0xfd0a5af3_b41d_11d2_9c95_00c04f7971e0)]
@@ -104,46 +104,46 @@ mod Windows {
         interface IBDA_DiagnosticProperties: IPropertyBag {}
         #[guid(0xef30f379_985b_4d10_b640_a79d5e04e1e0)]
         interface IBDA_DigitalDemodulator: IUnknown {
-            fn put_ModulationType(&self, pModulationType: *const ModulationType) -> HRESULT;
+            fn put_ModulationType(&self, #[in] pModulationType: *mut ModulationType) -> HRESULT;
             fn get_ModulationType(&self, #[in] #[out] pModulationType: *mut ModulationType) -> HRESULT;
-            fn put_InnerFECMethod(&self, pFECMethod: *const FECMethod) -> HRESULT;
+            fn put_InnerFECMethod(&self, #[in] pFECMethod: *mut FECMethod) -> HRESULT;
             fn get_InnerFECMethod(&self, #[in] #[out] pFECMethod: *mut FECMethod) -> HRESULT;
-            fn put_InnerFECRate(&self, pFECRate: *const BinaryConvolutionCodeRate) -> HRESULT;
+            fn put_InnerFECRate(&self, #[in] pFECRate: *mut BinaryConvolutionCodeRate) -> HRESULT;
             fn get_InnerFECRate(&self, #[in] #[out] pFECRate: *mut BinaryConvolutionCodeRate) -> HRESULT;
-            fn put_OuterFECMethod(&self, pFECMethod: *const FECMethod) -> HRESULT;
+            fn put_OuterFECMethod(&self, #[in] pFECMethod: *mut FECMethod) -> HRESULT;
             fn get_OuterFECMethod(&self, #[in] #[out] pFECMethod: *mut FECMethod) -> HRESULT;
-            fn put_OuterFECRate(&self, pFECRate: *const BinaryConvolutionCodeRate) -> HRESULT;
+            fn put_OuterFECRate(&self, #[in] pFECRate: *mut BinaryConvolutionCodeRate) -> HRESULT;
             fn get_OuterFECRate(&self, #[in] #[out] pFECRate: *mut BinaryConvolutionCodeRate) -> HRESULT;
-            fn put_SymbolRate(&self, pSymbolRate: *const u32) -> HRESULT;
+            fn put_SymbolRate(&self, #[in] pSymbolRate: *mut u32) -> HRESULT;
             fn get_SymbolRate(&self, #[in] #[out] pSymbolRate: *mut u32) -> HRESULT;
-            fn put_SpectralInversion(&self, pSpectralInversion: *const SpectralInversion) -> HRESULT;
+            fn put_SpectralInversion(&self, #[in] pSpectralInversion: *mut SpectralInversion) -> HRESULT;
             fn get_SpectralInversion(&self, #[in] #[out] pSpectralInversion: *mut SpectralInversion) -> HRESULT;
         }
         #[guid(0x525ed3ee_5cf3_4e1e_9a06_5368a84f9a6e)]
         interface IBDA_DigitalDemodulator2: IBDA_DigitalDemodulator {
-            fn put_GuardInterval(&self, pGuardInterval: *const GuardInterval) -> HRESULT;
+            fn put_GuardInterval(&self, #[in] pGuardInterval: *mut GuardInterval) -> HRESULT;
             fn get_GuardInterval(&self, #[in] #[out] pGuardInterval: *mut GuardInterval) -> HRESULT;
-            fn put_TransmissionMode(&self, pTransmissionMode: *const TransmissionMode) -> HRESULT;
+            fn put_TransmissionMode(&self, #[in] pTransmissionMode: *mut TransmissionMode) -> HRESULT;
             fn get_TransmissionMode(&self, #[in] #[out] pTransmissionMode: *mut TransmissionMode) -> HRESULT;
-            fn put_RollOff(&self, pRollOff: *const RollOff) -> HRESULT;
+            fn put_RollOff(&self, #[in] pRollOff: *mut RollOff) -> HRESULT;
             fn get_RollOff(&self, #[in] #[out] pRollOff: *mut RollOff) -> HRESULT;
-            fn put_Pilot(&self, pPilot: *const Pilot) -> HRESULT;
+            fn put_Pilot(&self, #[in] pPilot: *mut Pilot) -> HRESULT;
             fn get_Pilot(&self, #[in] #[out] pPilot: *mut Pilot) -> HRESULT;
         }
         #[guid(0x13f19604_7d32_4359_93a2_a05205d90ac9)]
         interface IBDA_DigitalDemodulator3: IBDA_DigitalDemodulator2 {
-            fn put_SignalTimeouts(&self, pSignalTimeouts: *const BDA_SIGNAL_TIMEOUTS) -> HRESULT;
+            fn put_SignalTimeouts(&self, #[in] pSignalTimeouts: *mut BDA_SIGNAL_TIMEOUTS) -> HRESULT;
             fn get_SignalTimeouts(&self, #[in] #[out] pSignalTimeouts: *mut BDA_SIGNAL_TIMEOUTS) -> HRESULT;
-            fn put_PLPNumber(&self, pPLPNumber: *const u32) -> HRESULT;
+            fn put_PLPNumber(&self, #[in] pPLPNumber: *mut u32) -> HRESULT;
             fn get_PLPNumber(&self, #[in] #[out] pPLPNumber: *mut u32) -> HRESULT;
         }
         #[guid(0xf84e2ab0_3c6b_45e3_a0fc_8669d4b81f11)]
         interface IBDA_DiseqCommand: IUnknown {
-            fn put_EnableDiseqCommands(&self, bEnable: bool) -> HRESULT;
+            fn put_EnableDiseqCommands(&self, bEnable: BOOLEAN) -> HRESULT;
             fn put_DiseqLNBSource(&self, ulLNBSource: u32) -> HRESULT;
-            fn put_DiseqUseToneBurst(&self, bUseToneBurst: bool) -> HRESULT;
+            fn put_DiseqUseToneBurst(&self, bUseToneBurst: BOOLEAN) -> HRESULT;
             fn put_DiseqRepeats(&self, ulRepeats: u32) -> HRESULT;
-            fn put_DiseqSendCommand(&self, ulRequestId: u32, ulcbCommandLen: u32, pbCommand: *const u8) -> HRESULT;
+            fn put_DiseqSendCommand(&self, ulRequestId: u32, ulcbCommandLen: u32, #[in] pbCommand: *mut u8) -> HRESULT;
             fn get_DiseqResponse(&self, ulRequestId: u32, #[in] #[out] pulcbResponseLen: *mut u32, #[in] #[out] pbResponse: *mut u8) -> HRESULT;
         }
         #[guid(0xd806973d_3ebe_46de_8fbb_6358fe784208)]
@@ -161,7 +161,7 @@ mod Windows {
         #[guid(0x71985f43_1ca1_11d3_9cc8_00c04f7971e0)]
         interface IBDA_EthernetFilter: IUnknown {
             fn GetMulticastListSize(&self, #[in] #[out] pulcbAddresses: *mut u32) -> HRESULT;
-            fn PutMulticastList(&self, ulcbAddresses: u32, pAddressList: *const u8) -> HRESULT;
+            fn PutMulticastList(&self, ulcbAddresses: u32, #[in] pAddressList: *mut u8) -> HRESULT;
             fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut u32, #[in] #[out] pAddressList: *mut u8) -> HRESULT;
             fn PutMulticastMode(&self, ulModeMask: u32) -> HRESULT;
             fn GetMulticastMode(&self, pulModeMask: *mut u32) -> HRESULT;
@@ -218,7 +218,7 @@ mod Windows {
         #[guid(0x71985f44_1ca1_11d3_9cc8_00c04f7971e0)]
         interface IBDA_IPV4Filter: IUnknown {
             fn GetMulticastListSize(&self, #[in] #[out] pulcbAddresses: *mut u32) -> HRESULT;
-            fn PutMulticastList(&self, ulcbAddresses: u32, pAddressList: *const u8) -> HRESULT;
+            fn PutMulticastList(&self, ulcbAddresses: u32, #[in] pAddressList: *mut u8) -> HRESULT;
             fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut u32, pAddressList: *mut u8) -> HRESULT;
             fn PutMulticastMode(&self, ulModeMask: u32) -> HRESULT;
             fn GetMulticastMode(&self, pulModeMask: *mut u32) -> HRESULT;
@@ -226,14 +226,14 @@ mod Windows {
         #[guid(0xe1785a74_2a23_4fb3_9245_a8f88017ef33)]
         interface IBDA_IPV6Filter: IUnknown {
             fn GetMulticastListSize(&self, #[in] #[out] pulcbAddresses: *mut u32) -> HRESULT;
-            fn PutMulticastList(&self, ulcbAddresses: u32, pAddressList: *const u8) -> HRESULT;
+            fn PutMulticastList(&self, ulcbAddresses: u32, #[in] pAddressList: *mut u8) -> HRESULT;
             fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut u32, pAddressList: *mut u8) -> HRESULT;
             fn PutMulticastMode(&self, ulModeMask: u32) -> HRESULT;
             fn GetMulticastMode(&self, pulModeMask: *mut u32) -> HRESULT;
         }
         #[guid(0x5e68c627_16c2_4e6c_b1e2_d00170cdaa0f)]
         interface IBDA_ISDBConditionalAccess: IUnknown {
-            fn SetIsdbCasRequest(&self, ulRequestId: u32, ulcbRequestBufferLen: u32, pbRequestBuffer: *const u8) -> HRESULT;
+            fn SetIsdbCasRequest(&self, ulRequestId: u32, ulcbRequestBufferLen: u32, #[in] pbRequestBuffer: *mut u8) -> HRESULT;
         }
         #[guid(0x992cf102_49f9_4719_a664_c4f23e2408f4)]
         interface IBDA_LNBInfo: IUnknown {
@@ -246,7 +246,7 @@ mod Windows {
         }
         #[guid(0x942aafec_4c05_4c74_b8eb_8706c2a4943f)]
         interface IBDA_MUX: IUnknown {
-            fn SetPidList(&self, ulPidListCount: u32, pbPidListBuffer: *const BDA_MUX_PIDLISTITEM) -> HRESULT;
+            fn SetPidList(&self, ulPidListCount: u32, #[in] pbPidListBuffer: *mut BDA_MUX_PIDLISTITEM) -> HRESULT;
             fn GetPidList(&self, #[in] #[out] pulPidListCount: *mut u32, #[in] #[out] pbPidListBuffer: *mut BDA_MUX_PIDLISTITEM) -> HRESULT;
         }
         #[guid(0x7f0b3150_7b81_4ad4_98e3_7e9097094301)]
@@ -291,10 +291,10 @@ mod Windows {
             fn get_SignalStrength(&self, #[in] #[out] plDbStrength: *mut i32) -> HRESULT;
             fn put_SignalQuality(&self, lPercentQuality: i32) -> HRESULT;
             fn get_SignalQuality(&self, #[in] #[out] plPercentQuality: *mut i32) -> HRESULT;
-            fn put_SignalPresent(&self, fPresent: bool) -> HRESULT;
-            fn get_SignalPresent(&self, #[in] #[out] pfPresent: *mut bool) -> HRESULT;
-            fn put_SignalLocked(&self, fLocked: bool) -> HRESULT;
-            fn get_SignalLocked(&self, #[in] #[out] pfLocked: *mut bool) -> HRESULT;
+            fn put_SignalPresent(&self, fPresent: BOOLEAN) -> HRESULT;
+            fn get_SignalPresent(&self, #[in] #[out] pfPresent: *mut BOOLEAN) -> HRESULT;
+            fn put_SignalLocked(&self, fLocked: BOOLEAN) -> HRESULT;
+            fn get_SignalLocked(&self, #[in] #[out] pfLocked: *mut BOOLEAN) -> HRESULT;
             fn put_SampleTime(&self, lmsSampleTime: i32) -> HRESULT;
             fn get_SampleTime(&self, #[in] #[out] plmsSampleTime: *mut i32) -> HRESULT;
         }
@@ -307,8 +307,8 @@ mod Windows {
             fn GetTemplateConnections(&self, #[in] #[out] pulcConnections: *mut u32, ulcConnectionsMax: u32, #[in] #[out] rgConnections: *mut BDA_TEMPLATE_CONNECTION) -> HRESULT;
             fn CreatePin(&self, ulPinType: u32, #[in] #[out] pulPinId: *mut u32) -> HRESULT;
             fn DeletePin(&self, ulPinId: u32) -> HRESULT;
-            fn SetMediaType(&self, ulPinId: u32, pMediaType: *const AM_MEDIA_TYPE) -> HRESULT;
-            fn SetMedium(&self, ulPinId: u32, pMedium: *const REGPINMEDIUM) -> HRESULT;
+            fn SetMediaType(&self, ulPinId: u32, #[in] pMediaType: *mut AM_MEDIA_TYPE) -> HRESULT;
+            fn SetMedium(&self, ulPinId: u32, #[in] pMedium: *mut REGPINMEDIUM) -> HRESULT;
             fn CreateTopology(&self, ulInputPinId: u32, ulOutputPinId: u32) -> HRESULT;
             fn GetControlNode(&self, ulInputPinId: u32, ulOutputPinId: u32, ulNodeType: u32, #[in] #[out] ppControlNode: *mut IUnknown) -> HRESULT;
         }
@@ -335,19 +335,19 @@ mod Windows {
         #[guid(0x4be6fa3d_07cd_4139_8b80_8c18ba3aec88)]
         interface IBDA_WMDRMSession: IUnknown {
             fn GetStatus(&self, MaxCaptureToken: *mut u32, MaxStreamingPid: *mut u32, MaxLicense: *mut u32, MinSecurityLevel: *mut u32, RevInfoSequenceNumber: *mut u32, RevInfoIssuedTime: *mut u64, RevInfoTTL: *mut u32, RevListVersion: *mut u32, ulState: *mut u32) -> HRESULT;
-            fn SetRevInfo(&self, ulRevInfoLen: u32, pbRevInfo: *const u8) -> HRESULT;
-            fn SetCrl(&self, ulCrlLen: u32, pbCrlLen: *const u8) -> HRESULT;
-            fn TransactMessage(&self, ulcbRequest: u32, pbRequest: *const u8, #[in] #[out] pulcbResponse: *mut u32, #[in] #[out] pbResponse: *mut u8) -> HRESULT;
-            fn GetLicense(&self, uuidKey: *const GUID, #[in] #[out] pulPackageLen: *mut u32, #[in] #[out] pbPackage: *mut u8) -> HRESULT;
-            fn ReissueLicense(&self, uuidKey: *const GUID) -> HRESULT;
-            fn RenewLicense(&self, ulInXmrLicenseLen: u32, pbInXmrLicense: *const u8, ulEntitlementTokenLen: u32, pbEntitlementToken: *const u8, pulDescrambleStatus: *mut u32, #[in] #[out] pulOutXmrLicenseLen: *mut u32, #[in] #[out] pbOutXmrLicense: *mut u8) -> HRESULT;
+            fn SetRevInfo(&self, ulRevInfoLen: u32, #[in] pbRevInfo: *mut u8) -> HRESULT;
+            fn SetCrl(&self, ulCrlLen: u32, #[in] pbCrlLen: *mut u8) -> HRESULT;
+            fn TransactMessage(&self, ulcbRequest: u32, #[in] pbRequest: *mut u8, #[in] #[out] pulcbResponse: *mut u32, #[in] #[out] pbResponse: *mut u8) -> HRESULT;
+            fn GetLicense(&self, #[in] uuidKey: *mut GUID, #[in] #[out] pulPackageLen: *mut u32, #[in] #[out] pbPackage: *mut u8) -> HRESULT;
+            fn ReissueLicense(&self, #[in] uuidKey: *mut GUID) -> HRESULT;
+            fn RenewLicense(&self, ulInXmrLicenseLen: u32, #[in] pbInXmrLicense: *mut u8, ulEntitlementTokenLen: u32, #[in] pbEntitlementToken: *mut u8, pulDescrambleStatus: *mut u32, #[in] #[out] pulOutXmrLicenseLen: *mut u32, #[in] #[out] pbOutXmrLicense: *mut u8) -> HRESULT;
             fn GetKeyInfo(&self, #[in] #[out] pulKeyInfoLen: *mut u32, #[in] #[out] pbKeyInfo: *mut u8) -> HRESULT;
         }
         #[guid(0x86d979cf_a8a7_4f94_b5fb_14c0aca68fe6)]
         interface IBDA_WMDRMTuner: IUnknown {
-            fn PurchaseEntitlement(&self, ulDialogRequest: u32, bstrLanguage: BSTR, ulPurchaseTokenLen: u32, pbPurchaseToken: *const u8, pulDescrambleStatus: *mut u32, #[in] #[out] pulCaptureTokenLen: *mut u32, #[in] #[out] pbCaptureToken: *mut u8) -> HRESULT;
-            fn CancelCaptureToken(&self, ulCaptureTokenLen: u32, pbCaptureToken: *const u8) -> HRESULT;
-            fn SetPidProtection(&self, ulPid: u32, uuidKey: *const GUID) -> HRESULT;
+            fn PurchaseEntitlement(&self, ulDialogRequest: u32, bstrLanguage: BSTR, ulPurchaseTokenLen: u32, #[in] pbPurchaseToken: *mut u8, pulDescrambleStatus: *mut u32, #[in] #[out] pulCaptureTokenLen: *mut u32, #[in] #[out] pbCaptureToken: *mut u8) -> HRESULT;
+            fn CancelCaptureToken(&self, ulCaptureTokenLen: u32, #[in] pbCaptureToken: *mut u8) -> HRESULT;
+            fn SetPidProtection(&self, ulPid: u32, #[in] uuidKey: *mut GUID) -> HRESULT;
             fn GetPidProtection(&self, pulPid: u32, uuidKey: *mut GUID) -> HRESULT;
             fn SetSyncValue(&self, ulSyncValue: u32) -> HRESULT;
             fn GetStartCodeProfile(&self, #[in] #[out] pulStartCodeProfileLen: *mut u32, #[in] #[out] pbStartCodeProfile: *mut u8) -> HRESULT;
@@ -389,7 +389,7 @@ mod Windows {
         #[guid(0x06fb45c1_693c_4ea7_b79f_7a6a54d8def2)]
         interface IFrequencyMap: IUnknown {
             fn get_FrequencyMapping(&self, ulCount: *mut u32, ppulList: *mut *mut u32) -> HRESULT;
-            fn put_FrequencyMapping(&self, ulCount: u32, pList: *const u32) -> HRESULT;
+            fn put_FrequencyMapping(&self, ulCount: u32, #[in] pList: *mut u32) -> HRESULT;
             fn get_CountryCode(&self, pulCountryCode: *mut u32) -> HRESULT;
             fn put_CountryCode(&self, ulCountryCode: u32) -> HRESULT;
             fn get_DefaultFrequencyMapping(&self, ulCountryCode: u32, pulCount: *mut u32, ppulList: *mut *mut u32) -> HRESULT;
@@ -397,8 +397,8 @@ mod Windows {
         }
         #[guid(0xafb6c2a1_2c41_11d3_8a60_0000f81e0e4a)]
         interface IMPEG2PIDMap: IUnknown {
-            fn MapPID(&self, culPID: u32, pulPID: *const u32, MediaSampleContent: MEDIA_SAMPLE_CONTENT) -> HRESULT;
-            fn UnmapPID(&self, culPID: u32, pulPID: *const u32) -> HRESULT;
+            fn MapPID(&self, culPID: u32, #[in] pulPID: *mut u32, MediaSampleContent: MEDIA_SAMPLE_CONTENT) -> HRESULT;
+            fn UnmapPID(&self, culPID: u32, #[in] pulPID: *mut u32) -> HRESULT;
             fn EnumPIDMap(&self, pIEnumPIDMap: *mut IEnumPIDMap) -> HRESULT;
         }
         #[repr(i32)]

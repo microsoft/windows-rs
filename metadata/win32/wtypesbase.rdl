@@ -63,7 +63,7 @@ mod Windows {
             CLSCTX_DO_NOT_ELEVATE_SERVER = 268435456,
             CLSCTX_PS_DLL = 2147483648,
         }
-        const CLSCTX_VALID_MASK: i32 = -1612712929;
+        const CLSCTX_VALID_MASK: CLSCTX = 2682254367;
         struct COAUTHIDENTITY {
             User: *mut u16,
             UserLength: u32,
@@ -88,6 +88,7 @@ mod Windows {
         const DCOMSCM_PING_USE_MID_AUTHNSERVICE: i32 = 16;
         const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: i32 = 8;
         const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: i32 = 4;
+        type DOUBLE = f64;
         struct DWORD_BLOB {
             clSize: u32,
             alData: [u32; 1],
@@ -111,6 +112,8 @@ mod Windows {
             pData: *mut i64,
         }
         type LPBLOB = *mut BLOB;
+        type LPCOLESTR = *const OLECHAR;
+        type LPOLESTR = *mut OLECHAR;
         #[repr(i32)]
         enum MEMCTX {
             MEMCTX_TASK = 1,

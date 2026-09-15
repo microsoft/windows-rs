@@ -21,9 +21,9 @@ mod Windows {
             eeptBinary = 7,
         }
         #[library("RPCRT4.dll")]
-        extern fn I_RpcAsyncAbortCall(pAsync: *const RPC_ASYNC_STATE, ExceptionCode: u32) -> RPC_STATUS;
+        extern fn I_RpcAsyncAbortCall(pAsync: PRPC_ASYNC_STATE, ExceptionCode: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcAsyncSetHandle(Message: *const RPC_MESSAGE, pAsync: *const RPC_ASYNC_STATE) -> RPC_STATUS;
+        extern fn I_RpcAsyncSetHandle(Message: PRPC_MESSAGE, pAsync: PRPC_ASYNC_STATE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn I_RpcBindingInqClientTokenAttributes(Binding: RPC_BINDING_HANDLE, #[opt] TokenId: *mut LUID, #[opt] AuthenticationId: *mut LUID, #[opt] ModifiedId: *mut LUID) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
@@ -73,6 +73,10 @@ mod Windows {
             u: RPC_ASYNC_NOTIFICATION_INFO,
             Reserved: [isize; 4],
         }
+        #[arch(X64 | Arm64)]
+        const RPC_ASYNC_VERSION_1_0: u64 = 112;
+        #[arch(X86)]
+        const RPC_ASYNC_VERSION_1_0: u32 = 68;
         type RPC_CALL_ATTRIBUTES = RPC_CALL_ATTRIBUTES_V3_A;
         struct RPC_CALL_ATTRIBUTES_V1_A {
             Version: u32,
@@ -246,19 +250,19 @@ mod Windows {
         const RPC_QUERY_NO_AUTH_REQUIRED: i32 = 64;
         const RPC_QUERY_SERVER_PRINCIPAL_NAME: i32 = 2;
         #[library("RPCRT4.dll")]
-        extern fn RpcAsyncAbortCall(#[in] #[out] pAsync: *mut RPC_ASYNC_STATE, ExceptionCode: u32) -> RPC_STATUS;
+        extern fn RpcAsyncAbortCall(#[in] #[out] pAsync: PRPC_ASYNC_STATE, ExceptionCode: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcAsyncCancelCall(#[in] #[out] pAsync: *mut RPC_ASYNC_STATE, fAbort: BOOL) -> RPC_STATUS;
+        extern fn RpcAsyncCancelCall(#[in] #[out] pAsync: PRPC_ASYNC_STATE, fAbort: BOOL) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcAsyncCompleteCall(#[in] #[out] pAsync: *mut RPC_ASYNC_STATE, #[opt] Reply: *mut void) -> RPC_STATUS;
+        extern fn RpcAsyncCompleteCall(#[in] #[out] pAsync: PRPC_ASYNC_STATE, #[opt] Reply: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcAsyncGetCallStatus(pAsync: *const RPC_ASYNC_STATE) -> RPC_STATUS;
+        extern fn RpcAsyncGetCallStatus(pAsync: PRPC_ASYNC_STATE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcAsyncInitializeHandle(#[size_param(1)] pAsync: *mut RPC_ASYNC_STATE, Size: u32) -> RPC_STATUS;
+        extern fn RpcAsyncInitializeHandle(#[size_param(1)] #[out] pAsync: PRPC_ASYNC_STATE, Size: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcAsyncRegisterInfo(pAsync: *const RPC_ASYNC_STATE) -> RPC_STATUS;
+        extern fn RpcAsyncRegisterInfo(pAsync: PRPC_ASYNC_STATE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingBind(#[opt] pAsync: *const RPC_ASYNC_STATE, Binding: RPC_BINDING_HANDLE, IfSpec: RPC_IF_HANDLE) -> RPC_STATUS;
+        extern fn RpcBindingBind(#[opt] pAsync: PRPC_ASYNC_STATE, Binding: RPC_BINDING_HANDLE, IfSpec: RPC_IF_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcBindingUnbind(Binding: RPC_BINDING_HANDLE) -> RPC_STATUS;
         #[repr(i32)]
@@ -276,45 +280,45 @@ mod Windows {
             rctGuaranteed = 3,
         }
         #[library("RPCRT4.dll")]
-        extern fn RpcErrorAddRecord(ErrorInfo: *const RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS;
+        extern fn RpcErrorAddRecord(#[in] ErrorInfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcErrorClearInformation();
         #[library("RPCRT4.dll")]
         extern fn RpcErrorEndEnumeration(#[in] #[out] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcErrorGetNextRecord(EnumHandle: *const RPC_ERROR_ENUM_HANDLE, CopyStrings: BOOL, ErrorInfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS;
+        extern fn RpcErrorGetNextRecord(#[in] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE, CopyStrings: BOOL, ErrorInfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcErrorGetNumberOfRecords(EnumHandle: *const RPC_ERROR_ENUM_HANDLE, Records: *mut i32) -> RPC_STATUS;
+        extern fn RpcErrorGetNumberOfRecords(#[in] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE, Records: *mut i32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcErrorLoadErrorInfo(#[size_param(1)] ErrorBlob: *const void, BlobSize: usize, EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
+        extern fn RpcErrorLoadErrorInfo(#[size_param(1)] #[in] ErrorBlob: *mut void, BlobSize: usize, EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcErrorResetEnumeration(#[in] #[out] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcErrorSaveErrorInfo(EnumHandle: *const RPC_ERROR_ENUM_HANDLE, ErrorBlob: *mut *mut void, BlobSize: *mut usize) -> RPC_STATUS;
+        extern fn RpcErrorSaveErrorInfo(#[in] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE, ErrorBlob: *mut *mut void, BlobSize: *mut usize) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcErrorStartEnumeration(EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcFreeAuthorizationContext(#[in] #[out] pAuthzClientContext: *mut *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcGetAuthorizationContextForClient(#[opt] ClientBinding: RPC_BINDING_HANDLE, ImpersonateOnReturn: BOOL, #[opt] Reserved1: *const void, #[opt] pExpirationTime: *const i64, Reserved2: LUID, Reserved3: u32, #[opt] Reserved4: *const void, pAuthzClientContext: *mut *mut void) -> RPC_STATUS;
+        extern fn RpcGetAuthorizationContextForClient(#[opt] ClientBinding: RPC_BINDING_HANDLE, ImpersonateOnReturn: BOOL, #[in] #[opt] Reserved1: *mut void, #[opt] pExpirationTime: PLARGE_INTEGER, Reserved2: LUID, Reserved3: u32, #[in] #[opt] Reserved4: *mut void, pAuthzClientContext: *mut *mut void) -> RPC_STATUS;
         #[repr(i32)]
         enum RpcLocalAddressFormat {
             rlafInvalid = 0,
             rlafIPv4 = 1,
             rlafIPv6 = 2,
         }
-        const RpcNotificationCallStatusChange: i32 = 1;
+        const RpcNotificationCallStatusChange: RPC_NOTIFICATIONS = 1;
         #[library("RPCRT4.dll")]
         extern fn RpcServerInqCallAttributesA(#[opt] ClientBinding: RPC_BINDING_HANDLE, #[in] #[out] RpcCallAttributes: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcServerInqCallAttributesW(#[opt] ClientBinding: RPC_BINDING_HANDLE, #[in] #[out] RpcCallAttributes: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcServerSubscribeForNotification(#[opt] Binding: RPC_BINDING_HANDLE, Notification: RPC_NOTIFICATIONS, NotificationType: RPC_NOTIFICATION_TYPES, NotificationInfo: *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS;
+        extern fn RpcServerSubscribeForNotification(#[opt] Binding: RPC_BINDING_HANDLE, Notification: RPC_NOTIFICATIONS, NotificationType: RPC_NOTIFICATION_TYPES, #[in] NotificationInfo: *mut RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcServerUnsubscribeForNotification(#[opt] Binding: RPC_BINDING_HANDLE, Notification: RPC_NOTIFICATIONS, NotificationsQueued: *mut u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcSsContextLockExclusive(#[opt] ServerBindingHandle: RPC_BINDING_HANDLE, UserContext: *const void) -> RPC_STATUS;
+        extern fn RpcSsContextLockExclusive(#[opt] ServerBindingHandle: RPC_BINDING_HANDLE, #[in] UserContext: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcSsContextLockShared(ServerBindingHandle: RPC_BINDING_HANDLE, UserContext: *const void) -> RPC_STATUS;
+        extern fn RpcSsContextLockShared(ServerBindingHandle: RPC_BINDING_HANDLE, #[in] UserContext: *mut void) -> RPC_STATUS;
     }
 }

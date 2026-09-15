@@ -2,37 +2,37 @@
 mod Windows {
     mod Win32 {
         #[library("CLUSAPI.dll")]
-        extern fn AddClusterGroupDependency(hDependentGroup: *const _HGROUP, hProviderGroup: *const _HGROUP) -> u32;
+        extern fn AddClusterGroupDependency(hDependentGroup: HGROUP, hProviderGroup: HGROUP) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn AddClusterGroupDependencyEx(hDependentGroup: *const _HGROUP, hProviderGroup: *const _HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn AddClusterGroupDependencyEx(hDependentGroup: HGROUP, hProviderGroup: HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn AddClusterGroupSetDependency(hDependentGroupSet: *const _HGROUPSET, hProviderGroupSet: *const _HGROUPSET) -> u32;
+        extern fn AddClusterGroupSetDependency(hDependentGroupSet: HGROUPSET, hProviderGroupSet: HGROUPSET) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn AddClusterGroupSetDependencyEx(hDependentGroupSet: *const _HGROUPSET, hProviderGroupSet: *const _HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn AddClusterGroupSetDependencyEx(hDependentGroupSet: HGROUPSET, hProviderGroupSet: HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn AddClusterGroupToGroupSetDependency(hDependentGroup: *const _HGROUP, hProviderGroupSet: *const _HGROUPSET) -> u32;
+        extern fn AddClusterGroupToGroupSetDependency(hDependentGroup: HGROUP, hProviderGroupSet: HGROUPSET) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn AddClusterGroupToGroupSetDependencyEx(hDependentGroup: *const _HGROUP, hProviderGroupSet: *const _HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn AddClusterGroupToGroupSetDependencyEx(hDependentGroup: HGROUP, hProviderGroupSet: HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn AddClusterNode(hCluster: *const _HCLUSTER, lpszNodeName: PCWSTR, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void) -> HNODE;
+        extern fn AddClusterNode(hCluster: HCLUSTER, lpszNodeName: PCWSTR, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void) -> HNODE;
         #[library("CLUSAPI.dll")]
-        extern fn AddClusterNodeEx(hCluster: *const _HCLUSTER, lpszNodeName: PCWSTR, dwFlags: u32, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void) -> HNODE;
+        extern fn AddClusterNodeEx(hCluster: HCLUSTER, lpszNodeName: PCWSTR, dwFlags: u32, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void) -> HNODE;
         #[library("CLUSAPI.dll")]
-        extern fn AddClusterResourceDependency(hResource: *const _HRESOURCE, hDependsOn: *const _HRESOURCE) -> u32;
+        extern fn AddClusterResourceDependency(hResource: HRESOURCE, hDependsOn: HRESOURCE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn AddClusterResourceDependencyEx(hResource: *const _HRESOURCE, hDependsOn: *const _HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn AddClusterResourceDependencyEx(hResource: HRESOURCE, hDependsOn: HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn AddClusterResourceNode(hResource: *const _HRESOURCE, hNode: *const _HNODE) -> u32;
+        extern fn AddClusterResourceNode(hResource: HRESOURCE, hNode: HNODE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn AddClusterResourceNodeEx(hResource: *const _HRESOURCE, hNode: *const _HNODE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn AddClusterResourceNodeEx(hResource: HRESOURCE, hNode: HNODE, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn AddClusterStorageNode(hCluster: *const _HCLUSTER, lpszNodeName: PCWSTR, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void, #[opt] lpszClusterStorageNodeDescription: PCWSTR, #[opt] lpszClusterStorageNodeLocation: PCWSTR) -> u32;
+        extern fn AddClusterStorageNode(hCluster: HCLUSTER, lpszNodeName: PCWSTR, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void, #[opt] lpszClusterStorageNodeDescription: PCWSTR, #[opt] lpszClusterStorageNodeLocation: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn AddCrossClusterGroupSetDependency(hDependentGroupSet: *const _HGROUPSET, lpRemoteClusterName: PCWSTR, lpRemoteGroupSetName: PCWSTR) -> u32;
+        extern fn AddCrossClusterGroupSetDependency(hDependentGroupSet: HGROUPSET, lpRemoteClusterName: PCWSTR, lpRemoteGroupSetName: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn AddResourceToClusterSharedVolumes(hResource: *const _HRESOURCE) -> u32;
+        extern fn AddResourceToClusterSharedVolumes(hResource: HRESOURCE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn BackupClusterDatabase(hCluster: *const _HCLUSTER, lpszPathName: PCWSTR) -> u32;
+        extern fn BackupClusterDatabase(hCluster: HCLUSTER, lpszPathName: PCWSTR) -> u32;
         const BitLockerDecrypted: i32 = 4;
         const BitLockerDecrypting: i32 = 16;
         const BitLockerEnabled: i32 = 1;
@@ -789,7 +789,7 @@ mod Windows {
         }
         struct CLUSPROP_LARGE_INTEGER {
             Base: CLUSPROP_VALUE,
-            li: i64,
+            li: LARGE_INTEGER,
         }
         struct CLUSPROP_LIST {
             nPropertyCount: u32,
@@ -861,7 +861,7 @@ mod Windows {
         }
         struct CLUSPROP_ULARGE_INTEGER {
             Base: CLUSPROP_VALUE,
-            li: u64,
+            li: ULARGE_INTEGER,
         }
         struct CLUSPROP_VALUE {
             Syntax: CLUSPROP_SYNTAX,
@@ -1332,6 +1332,8 @@ mod Windows {
         #[encoding("utf-16")]
         const CLUSREG_NAME_RESTYPE_ADMIN_EXTENSIONS: String = "AdminExtensions";
         #[encoding("utf-16")]
+        const CLUSREG_NAME_RESTYPE_DEADLOCK_TIMEOUT: String = "DeadlockTimeout";
+        #[encoding("utf-16")]
         const CLUSREG_NAME_RESTYPE_DESC: String = "Description";
         #[encoding("utf-16")]
         const CLUSREG_NAME_RESTYPE_DLL_NAME: String = "DllName";
@@ -1344,9 +1346,15 @@ mod Windows {
         #[encoding("utf-16")]
         const CLUSREG_NAME_RESTYPE_ENABLED_EVENT_LOGS: String = "EnabledEventLogs";
         #[encoding("utf-16")]
+        const CLUSREG_NAME_RESTYPE_IS_ALIVE: String = "IsAlivePollInterval";
+        #[encoding("utf-16")]
+        const CLUSREG_NAME_RESTYPE_LOOKS_ALIVE: String = "LooksAlivePollInterval";
+        #[encoding("utf-16")]
         const CLUSREG_NAME_RESTYPE_MAX_MONITORS: String = "MaximumMonitors";
         #[encoding("utf-16")]
         const CLUSREG_NAME_RESTYPE_NAME: String = "Name";
+        #[encoding("utf-16")]
+        const CLUSREG_NAME_RESTYPE_PENDING_TIMEOUT: String = "PendingTimeout";
         #[encoding("utf-16")]
         const CLUSREG_NAME_RESTYPE_WPR_PROFILES: String = "WprProfiles";
         #[encoding("utf-16")]
@@ -1762,7 +1770,6 @@ mod Windows {
         }
         const CLUSTER_ENUM_ITEM_VERSION: i32 = 1;
         const CLUSTER_ENUM_ITEM_VERSION_1: i32 = 1;
-        type CLUSTER_GROUP_AUTOFAILBACK_TYPE = CGAFT;
         #[repr(i32)]
         enum CLUSTER_GROUP_ENUM {
             CLUSTER_GROUP_ENUM_CONTAINS = 1,
@@ -2092,7 +2099,6 @@ mod Windows {
         }
         const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: i32 = 1;
         const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: i32 = 1;
-        type CLUSTER_RESOURCE_RESTART_ACTION = CRRA;
         #[repr(i32)]
         enum CLUSTER_RESOURCE_STATE {
             ClusterResourceStateUnknown = -1,
@@ -2190,7 +2196,7 @@ mod Windows {
         const CLUSTER_SET_ACCESS_TYPE_DENIED: i32 = 1;
         struct CLUSTER_SET_PASSWORD_STATUS {
             NodeId: u32,
-            SetAttempted: bool,
+            SetAttempted: BOOLEAN,
             ReturnStatus: u32,
         }
         #[encoding("utf-16")]
@@ -2357,7 +2363,7 @@ mod Windows {
             VolumeName: [u16; 260],
         }
         struct CLUS_CSV_VOLUME_INFO {
-            VolumeOffset: u64,
+            VolumeOffset: ULARGE_INTEGER,
             PartitionNumber: u32,
             FaultState: CLUSTER_CSV_VOLUME_FAULT_STATE,
             BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE,
@@ -2365,7 +2371,7 @@ mod Windows {
             szVolumeName: [u16; 50],
         }
         struct CLUS_CSV_VOLUME_NAME {
-            VolumeOffset: i64,
+            VolumeOffset: LARGE_INTEGER,
             szVolumeName: [u16; 260],
             szRootPath: [u16; 263],
         }
@@ -2452,9 +2458,6 @@ mod Windows {
             NumEntries: u32,
             IpInfo: [CLUS_NETNAME_IP_INFO_ENTRY; 1],
         }
-        type CLUS_NETNAME_PWD_INFO = CLUS_RLUA_PWD_INFO;
-        type CLUS_NETNAME_PWD_INFOEX = CLUS_RLUA_PWD_INFOEX;
-        type CLUS_NETNAME_VS_TOKEN_INFO = CLUS_VS_TOKEN_INFO;
         const CLUS_NODE_MAJORITY_QUORUM: i32 = 0;
         const CLUS_NOT_GLOBAL: i32 = 0;
         const CLUS_NO_MODIFY: i32 = 0;
@@ -2475,8 +2478,8 @@ mod Windows {
             rgdwMaximumComponentLength: u32,
             dwFileSystemFlags: u32,
             szFileSystem: [u16; 32],
-            TotalSizeInBytes: u64,
-            FreeSizeInBytes: u64,
+            TotalSizeInBytes: ULARGE_INTEGER,
+            FreeSizeInBytes: ULARGE_INTEGER,
             DeviceNumber: u32,
             PartitionNumber: u32,
             VolumeGuid: GUID,
@@ -2500,7 +2503,7 @@ mod Windows {
                     },
                     SubClass: u32,
                 },
-                li: u64,
+                li: ULARGE_INTEGER,
             },
         }
         #[repr(i32)]
@@ -2585,6 +2588,8 @@ mod Windows {
         const CLUS_RESTYPE_NAME_NFS_V2: String = "Network File System";
         #[encoding("utf-16")]
         const CLUS_RESTYPE_NAME_NV_PROVIDER_ADDRESS: String = "Provider Address";
+        #[encoding("utf-16")]
+        const CLUS_RESTYPE_NAME_PHYS_DISK: String = "Physical Disk";
         #[encoding("utf-16")]
         const CLUS_RESTYPE_NAME_PRTSPLR: String = "Print Spooler";
         #[encoding("utf-16")]
@@ -2689,7 +2694,7 @@ mod Windows {
             ppszNodeNames: *mut PCWSTR,
             cIpEntries: u32,
             pIpEntries: PCLUSTER_IP_ENTRY,
-            fEmptyCluster: bool,
+            fEmptyCluster: BOOLEAN,
             managementPointType: CLUSTER_MGMT_POINT_TYPE,
             managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
             pszUserName: PCWSTR,
@@ -2706,7 +2711,7 @@ mod Windows {
             pszDomain: PCWSTR,
             managementPointType: CLUSTER_MGMT_POINT_TYPE,
             managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
-            bUpgradeVCOs: bool,
+            bUpgradeVCOs: BOOLEAN,
         }
         const CREATE_CLUSTER_VERSION: i32 = 1536;
         #[repr(i32)]
@@ -2718,169 +2723,169 @@ mod Windows {
         }
         const CU_UPGRADE_VERSION: i32 = 3;
         #[library("CLUSAPI.dll")]
-        extern fn CanResourceBeDependent(hResource: *const _HRESOURCE, hResourceDependent: *const _HRESOURCE) -> BOOL;
+        extern fn CanResourceBeDependent(hResource: HRESOURCE, hResourceDependent: HRESOURCE) -> BOOL;
         #[library("CLUSAPI.dll")]
-        extern fn CancelClusterGroupOperation(hGroup: *const _HGROUP, dwCancelFlags_RESERVED: u32) -> u32;
+        extern fn CancelClusterGroupOperation(hGroup: HGROUP, dwCancelFlags_RESERVED: u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ChangeClusterResourceGroup(hResource: *const _HRESOURCE, hGroup: *const _HGROUP) -> u32;
+        extern fn ChangeClusterResourceGroup(hResource: HRESOURCE, hGroup: HGROUP) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ChangeClusterResourceGroupEx(hResource: *const _HRESOURCE, hGroup: *const _HGROUP, Flags: u64) -> u32;
+        extern fn ChangeClusterResourceGroupEx(hResource: HRESOURCE, hGroup: HGROUP, Flags: u64) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ChangeClusterResourceGroupEx2(hResource: *const _HRESOURCE, hGroup: *const _HGROUP, Flags: u64, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn ChangeClusterResourceGroupEx2(hResource: HRESOURCE, hGroup: HGROUP, Flags: u64, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn CloseCluster(hCluster: *const _HCLUSTER) -> BOOL;
+        extern fn CloseCluster(hCluster: HCLUSTER) -> BOOL;
         #[library("CLUSAPI.dll")]
-        extern fn CloseClusterGroup(hGroup: *const _HGROUP) -> BOOL;
+        extern fn CloseClusterGroup(hGroup: HGROUP) -> BOOL;
         #[library("CLUSAPI.dll")]
-        extern fn CloseClusterGroupSet(hGroupSet: *const _HGROUPSET) -> BOOL;
+        extern fn CloseClusterGroupSet(hGroupSet: HGROUPSET) -> BOOL;
         #[library("CLUSAPI.dll")]
-        extern fn CloseClusterNetInterface(hNetInterface: *const _HNETINTERFACE) -> BOOL;
+        extern fn CloseClusterNetInterface(hNetInterface: HNETINTERFACE) -> BOOL;
         #[library("CLUSAPI.dll")]
-        extern fn CloseClusterNetwork(hNetwork: *const _HNETWORK) -> BOOL;
+        extern fn CloseClusterNetwork(hNetwork: HNETWORK) -> BOOL;
         #[library("CLUSAPI.dll")]
-        extern fn CloseClusterNode(hNode: *const _HNODE) -> BOOL;
+        extern fn CloseClusterNode(hNode: HNODE) -> BOOL;
         #[library("CLUSAPI.dll")]
-        extern fn CloseClusterNotifyPort(hChange: *const _HCHANGE) -> BOOL;
+        extern fn CloseClusterNotifyPort(hChange: HCHANGE) -> BOOL;
         #[library("CLUSAPI.dll")]
-        extern fn CloseClusterResource(hResource: *const _HRESOURCE) -> BOOL;
+        extern fn CloseClusterResource(hResource: HRESOURCE) -> BOOL;
         #[library("CLUSAPI.dll")]
-        extern fn ClusapiSetReasonHandler(lpHandler: *const CLUSAPI_REASON_HANDLER) -> PCLUSAPI_REASON_HANDLER;
+        extern fn ClusapiSetReasonHandler(lpHandler: PCLUSAPI_REASON_HANDLER) -> PCLUSAPI_REASON_HANDLER;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterAddGroupToAffinityRule(hCluster: *mut _HCLUSTER, ruleName: PCWSTR, hGroup: *mut _HGROUP) -> u32;
+        extern fn ClusterAddGroupToAffinityRule(hCluster: HCLUSTER, ruleName: PCWSTR, hGroup: HGROUP) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterAddGroupToGroupSet(hGroupSet: *const _HGROUPSET, hGroup: *const _HGROUP) -> u32;
+        extern fn ClusterAddGroupToGroupSet(hGroupSet: HGROUPSET, hGroup: HGROUP) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterAddGroupToGroupSetWithDomains(hGroupSet: *const _HGROUPSET, hGroup: *const _HGROUP, faultDomain: u32, updateDomain: u32) -> u32;
+        extern fn ClusterAddGroupToGroupSetWithDomains(hGroupSet: HGROUPSET, hGroup: HGROUP, faultDomain: u32, updateDomain: u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterAddGroupToGroupSetWithDomainsEx(hGroupSet: *const _HGROUPSET, hGroup: *const _HGROUP, faultDomain: u32, updateDomain: u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn ClusterAddGroupToGroupSetWithDomainsEx(hGroupSet: HGROUPSET, hGroup: HGROUP, faultDomain: u32, updateDomain: u32, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterAffinityRuleControl(hCluster: *const _HCLUSTER, affinityRuleName: PCWSTR, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(5)] #[opt] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
+        extern fn ClusterAffinityRuleControl(hCluster: HCLUSTER, affinityRuleName: PCWSTR, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(5)] #[in] #[opt] lpInBuffer: *mut void, cbInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterCloseEnum(hEnum: *const _HCLUSENUM) -> u32;
+        extern fn ClusterCloseEnum(hEnum: HCLUSENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterCloseEnumEx(hClusterEnum: *const _HCLUSENUMEX) -> u32;
+        extern fn ClusterCloseEnumEx(hClusterEnum: HCLUSENUMEX) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterControl(hCluster: *const _HCLUSTER, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
+        extern fn ClusterControl(hCluster: HCLUSTER, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterControlEx(hCluster: *const _HCLUSTER, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn ClusterControlEx(hCluster: HCLUSTER, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterCreateAffinityRule(hCluster: *mut _HCLUSTER, ruleName: PCWSTR, ruleType: CLUS_AFFINITY_RULE_TYPE) -> u32;
+        extern fn ClusterCreateAffinityRule(hCluster: HCLUSTER, ruleName: PCWSTR, ruleType: CLUS_AFFINITY_RULE_TYPE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterEnum(hEnum: *const _HCLUSENUM, dwIndex: u32, lpdwType: *mut u32, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
+        extern fn ClusterEnum(hEnum: HCLUSENUM, dwIndex: u32, #[out] lpdwType: LPDWORD, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterEnumEx(hClusterEnum: *const _HCLUSENUMEX, dwIndex: u32, #[in] #[out] pItem: *mut CLUSTER_ENUM_ITEM, #[in] #[out] cbItem: *mut u32) -> u32;
+        extern fn ClusterEnumEx(hClusterEnum: HCLUSENUMEX, dwIndex: u32, #[in] #[out] pItem: PCLUSTER_ENUM_ITEM, #[in] #[out] cbItem: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGetEnumCount(hEnum: *const _HCLUSENUM) -> u32;
+        extern fn ClusterGetEnumCount(hEnum: HCLUSENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGetEnumCountEx(hClusterEnum: *const _HCLUSENUMEX) -> u32;
+        extern fn ClusterGetEnumCountEx(hClusterEnum: HCLUSENUMEX) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupCloseEnum(hGroupEnum: *const _HGROUPENUM) -> u32;
+        extern fn ClusterGroupCloseEnum(hGroupEnum: HGROUPENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupCloseEnumEx(hGroupEnumEx: *const _HGROUPENUMEX) -> u32;
+        extern fn ClusterGroupCloseEnumEx(hGroupEnumEx: HGROUPENUMEX) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupControl(hGroup: *const _HGROUP, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
+        extern fn ClusterGroupControl(hGroup: HGROUP, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupControlEx(hGroup: *const _HGROUP, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn ClusterGroupControlEx(hGroup: HGROUP, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupEnum(hGroupEnum: *const _HGROUPENUM, dwIndex: u32, lpdwType: *mut u32, #[len_param(4)] #[out] lpszResourceName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
+        extern fn ClusterGroupEnum(hGroupEnum: HGROUPENUM, dwIndex: u32, #[out] lpdwType: LPDWORD, #[len_param(4)] #[out] lpszResourceName: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupEnumEx(hGroupEnumEx: *const _HGROUPENUMEX, dwIndex: u32, #[in] #[out] pItem: *mut CLUSTER_GROUP_ENUM_ITEM, #[in] #[out] cbItem: *mut u32) -> u32;
+        extern fn ClusterGroupEnumEx(hGroupEnumEx: HGROUPENUMEX, dwIndex: u32, #[in] #[out] pItem: PCLUSTER_GROUP_ENUM_ITEM, #[in] #[out] cbItem: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupGetEnumCount(hGroupEnum: *const _HGROUPENUM) -> u32;
+        extern fn ClusterGroupGetEnumCount(hGroupEnum: HGROUPENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupGetEnumCountEx(hGroupEnumEx: *const _HGROUPENUMEX) -> u32;
+        extern fn ClusterGroupGetEnumCountEx(hGroupEnumEx: HGROUPENUMEX) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupOpenEnum(hGroup: *const _HGROUP, dwType: u32) -> HGROUPENUM;
+        extern fn ClusterGroupOpenEnum(hGroup: HGROUP, dwType: u32) -> HGROUPENUM;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupOpenEnumEx(hCluster: *const _HCLUSTER, #[size_param(2)] #[opt] lpszProperties: PCWSTR, cbProperties: u32, #[size_param(4)] #[opt] lpszRoProperties: PCWSTR, cbRoProperties: u32, dwFlags: u32) -> HGROUPENUMEX;
+        extern fn ClusterGroupOpenEnumEx(hCluster: HCLUSTER, #[size_param(2)] #[opt] lpszProperties: PCWSTR, cbProperties: u32, #[size_param(4)] #[opt] lpszRoProperties: PCWSTR, cbRoProperties: u32, dwFlags: u32) -> HGROUPENUMEX;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupSetCloseEnum(hGroupSetEnum: *const _HGROUPSETENUM) -> u32;
+        extern fn ClusterGroupSetCloseEnum(hGroupSetEnum: HGROUPSETENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupSetControl(hGroupSet: *const _HGROUPSET, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
+        extern fn ClusterGroupSetControl(hGroupSet: HGROUPSET, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupSetControlEx(hGroupSet: *const _HGROUPSET, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn ClusterGroupSetControlEx(hGroupSet: HGROUPSET, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupSetEnum(hGroupSetEnum: *const _HGROUPSETENUM, dwIndex: u32, #[len_param(3)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
+        extern fn ClusterGroupSetEnum(hGroupSetEnum: HGROUPSETENUM, dwIndex: u32, #[len_param(3)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupSetGetEnumCount(hGroupSetEnum: *const _HGROUPSETENUM) -> u32;
+        extern fn ClusterGroupSetGetEnumCount(hGroupSetEnum: HGROUPSETENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterGroupSetOpenEnum(hCluster: *const _HCLUSTER) -> HGROUPSETENUM;
+        extern fn ClusterGroupSetOpenEnum(hCluster: HCLUSTER) -> HGROUPSETENUM;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNetInterfaceCloseEnum(hNetInterfaceEnum: *const _HNETINTERFACEENUM) -> u32;
+        extern fn ClusterNetInterfaceCloseEnum(hNetInterfaceEnum: HNETINTERFACEENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNetInterfaceControl(hNetInterface: *const _HNETINTERFACE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
+        extern fn ClusterNetInterfaceControl(hNetInterface: HNETINTERFACE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNetInterfaceControlEx(hNetInterface: *const _HNETINTERFACE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn ClusterNetInterfaceControlEx(hNetInterface: HNETINTERFACE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNetInterfaceEnum(hNetInterfaceEnum: *const _HNETINTERFACEENUM, dwIndex: u32, #[len_param(3)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
+        extern fn ClusterNetInterfaceEnum(hNetInterfaceEnum: HNETINTERFACEENUM, dwIndex: u32, #[len_param(3)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNetInterfaceOpenEnum(hCluster: *const _HCLUSTER, #[opt] lpszNodeName: PCWSTR, #[opt] lpszNetworkName: PCWSTR) -> HNETINTERFACEENUM;
+        extern fn ClusterNetInterfaceOpenEnum(hCluster: HCLUSTER, #[opt] lpszNodeName: PCWSTR, #[opt] lpszNetworkName: PCWSTR) -> HNETINTERFACEENUM;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNetworkCloseEnum(hNetworkEnum: *const _HNETWORKENUM) -> u32;
+        extern fn ClusterNetworkCloseEnum(hNetworkEnum: HNETWORKENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNetworkControl(hNetwork: *const _HNETWORK, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
+        extern fn ClusterNetworkControl(hNetwork: HNETWORK, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNetworkControlEx(hNetwork: *const _HNETWORK, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn ClusterNetworkControlEx(hNetwork: HNETWORK, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNetworkEnum(hNetworkEnum: *const _HNETWORKENUM, dwIndex: u32, lpdwType: *mut u32, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
+        extern fn ClusterNetworkEnum(hNetworkEnum: HNETWORKENUM, dwIndex: u32, #[out] lpdwType: LPDWORD, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNetworkGetEnumCount(hNetworkEnum: *const _HNETWORKENUM) -> u32;
+        extern fn ClusterNetworkGetEnumCount(hNetworkEnum: HNETWORKENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNetworkOpenEnum(hNetwork: *const _HNETWORK, dwType: u32) -> HNETWORKENUM;
+        extern fn ClusterNetworkOpenEnum(hNetwork: HNETWORK, dwType: u32) -> HNETWORKENUM;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNodeCloseEnum(hNodeEnum: *const _HNODEENUM) -> u32;
+        extern fn ClusterNodeCloseEnum(hNodeEnum: HNODEENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNodeCloseEnumEx(hNodeEnum: *const _HNODEENUMEX) -> u32;
+        extern fn ClusterNodeCloseEnumEx(hNodeEnum: HNODEENUMEX) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNodeControl(hNode: *const _HNODE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
+        extern fn ClusterNodeControl(hNode: HNODE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNodeControlEx(hNode: *const _HNODE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn ClusterNodeControlEx(hNode: HNODE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNodeEnum(hNodeEnum: *const _HNODEENUM, dwIndex: u32, lpdwType: *mut u32, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
+        extern fn ClusterNodeEnum(hNodeEnum: HNODEENUM, dwIndex: u32, #[out] lpdwType: LPDWORD, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNodeEnumEx(hNodeEnum: *const _HNODEENUMEX, dwIndex: u32, #[in] #[out] pItem: *mut CLUSTER_ENUM_ITEM, #[in] #[out] cbItem: *mut u32) -> u32;
+        extern fn ClusterNodeEnumEx(hNodeEnum: HNODEENUMEX, dwIndex: u32, #[in] #[out] pItem: PCLUSTER_ENUM_ITEM, #[in] #[out] cbItem: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNodeGetEnumCount(hNodeEnum: *const _HNODEENUM) -> u32;
+        extern fn ClusterNodeGetEnumCount(hNodeEnum: HNODEENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNodeGetEnumCountEx(hNodeEnum: *const _HNODEENUMEX) -> u32;
+        extern fn ClusterNodeGetEnumCountEx(hNodeEnum: HNODEENUMEX) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNodeOpenEnum(hNode: *const _HNODE, dwType: u32) -> HNODEENUM;
+        extern fn ClusterNodeOpenEnum(hNode: HNODE, dwType: u32) -> HNODEENUM;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNodeOpenEnumEx(hNode: *const _HNODE, dwType: u32, #[opt] pOptions: *const void) -> HNODEENUMEX;
+        extern fn ClusterNodeOpenEnumEx(hNode: HNODE, dwType: u32, #[in] #[opt] pOptions: *mut void) -> HNODEENUMEX;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterNodeReplacement(hCluster: *mut _HCLUSTER, lpszNodeNameCurrent: PCWSTR, lpszNodeNameNew: PCWSTR) -> u32;
+        extern fn ClusterNodeReplacement(hCluster: HCLUSTER, lpszNodeNameCurrent: PCWSTR, lpszNodeNameNew: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterOpenEnum(hCluster: *const _HCLUSTER, dwType: u32) -> HCLUSENUM;
+        extern fn ClusterOpenEnum(hCluster: HCLUSTER, dwType: u32) -> HCLUSENUM;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterOpenEnumEx(hCluster: *const _HCLUSTER, dwType: u32, #[opt] pOptions: *const void) -> HCLUSENUMEX;
+        extern fn ClusterOpenEnumEx(hCluster: HCLUSTER, dwType: u32, #[in] #[opt] pOptions: *mut void) -> HCLUSENUMEX;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegBatchAddCommand(hRegBatch: *const _HREGBATCH, dwCommand: CLUSTER_REG_COMMAND, #[opt] wzName: PCWSTR, dwOptions: u32, #[size_param(5)] #[opt] lpData: *const void, cbData: u32) -> i32;
+        extern fn ClusterRegBatchAddCommand(hRegBatch: HREGBATCH, dwCommand: CLUSTER_REG_COMMAND, #[opt] wzName: PCWSTR, dwOptions: u32, #[size_param(5)] #[opt] lpData: *const void, cbData: u32) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegBatchCloseNotification(hBatchNotification: *const _HREGBATCHNOTIFICATION) -> i32;
+        extern fn ClusterRegBatchCloseNotification(hBatchNotification: HREGBATCHNOTIFICATION) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegBatchReadCommand(hBatchNotification: *const _HREGBATCHNOTIFICATION, pBatchCommand: *mut CLUSTER_BATCH_COMMAND) -> i32;
+        extern fn ClusterRegBatchReadCommand(hBatchNotification: HREGBATCHNOTIFICATION, pBatchCommand: *mut CLUSTER_BATCH_COMMAND) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegCloseBatch(hRegBatch: *const _HREGBATCH, bCommit: BOOL, #[opt] failedCommandNumber: *mut i32) -> i32;
+        extern fn ClusterRegCloseBatch(hRegBatch: HREGBATCH, bCommit: BOOL, #[opt] failedCommandNumber: *mut i32) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegCloseBatchEx(hRegBatch: *const _HREGBATCH, flags: u32, #[opt] failedCommandNumber: *mut i32) -> i32;
+        extern fn ClusterRegCloseBatchEx(hRegBatch: HREGBATCH, flags: u32, #[opt] failedCommandNumber: *mut i32) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegCloseBatchNotifyPort(hBatchNotifyPort: *const _HREGBATCHPORT) -> i32;
+        extern fn ClusterRegCloseBatchNotifyPort(hBatchNotifyPort: HREGBATCHPORT) -> i32;
         #[library("CLUSAPI.dll")]
         extern fn ClusterRegCloseKey(hKey: HKEY) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegCloseReadBatch(hRegReadBatch: *const _HREGREADBATCH, phRegReadBatchReply: *mut HREGREADBATCHREPLY) -> i32;
+        extern fn ClusterRegCloseReadBatch(hRegReadBatch: HREGREADBATCH, phRegReadBatchReply: *mut HREGREADBATCHREPLY) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegCloseReadBatchEx(hRegReadBatch: *const _HREGREADBATCH, flags: u32, phRegReadBatchReply: *mut HREGREADBATCHREPLY) -> i32;
+        extern fn ClusterRegCloseReadBatchEx(hRegReadBatch: HREGREADBATCH, flags: u32, phRegReadBatchReply: *mut HREGREADBATCHREPLY) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegCloseReadBatchReply(hRegReadBatchReply: *const _HREGREADBATCHREPLY) -> i32;
+        extern fn ClusterRegCloseReadBatchReply(hRegReadBatchReply: HREGREADBATCHREPLY) -> i32;
         #[library("CLUSAPI.dll")]
         extern fn ClusterRegCreateBatch(#[opt] hKey: HKEY, pHREGBATCH: *mut HREGBATCH) -> i32;
         #[library("CLUSAPI.dll")]
         extern fn ClusterRegCreateBatchNotifyPort(hKey: HKEY, phBatchNotifyPort: *mut HREGBATCHPORT) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegCreateKey(hKey: HKEY, lpszSubKey: PCWSTR, dwOptions: u32, samDesired: REGSAM, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, phkResult: *mut HKEY, #[opt] lpdwDisposition: *mut u32) -> i32;
+        extern fn ClusterRegCreateKey(hKey: HKEY, lpszSubKey: PCWSTR, dwOptions: u32, samDesired: REGSAM, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[out] phkResult: PHKEY, #[out] #[opt] lpdwDisposition: LPDWORD) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegCreateKeyEx(hKey: HKEY, lpSubKey: PCWSTR, dwOptions: u32, samDesired: REGSAM, lpSecurityAttributes: *mut SECURITY_ATTRIBUTES, phkResult: *mut HKEY, lpdwDisposition: *mut u32, #[opt] lpszReason: PCWSTR) -> i32;
+        extern fn ClusterRegCreateKeyEx(hKey: HKEY, lpSubKey: PCWSTR, dwOptions: u32, samDesired: REGSAM, lpSecurityAttributes: LPSECURITY_ATTRIBUTES, phkResult: PHKEY, lpdwDisposition: LPDWORD, #[opt] lpszReason: PCWSTR) -> i32;
         #[library("CLUSAPI.dll")]
         extern fn ClusterRegCreateReadBatch(hKey: HKEY, phRegReadBatch: *mut HREGREADBATCH) -> i32;
         #[library("CLUSAPI.dll")]
@@ -2892,23 +2897,23 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn ClusterRegDeleteValueEx(hKey: HKEY, lpszValueName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegEnumKey(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32, #[opt] lpftLastWriteTime: *mut FILETIME) -> i32;
+        extern fn ClusterRegEnumKey(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD, #[out] #[opt] lpftLastWriteTime: PFILETIME) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegEnumValue(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] lpszValueName: PWSTR, #[in] #[out] lpcchValueName: *mut u32, #[opt] lpdwType: *mut u32, #[size_param(6)] #[opt] lpData: *mut u8, #[in] #[out] #[opt] lpcbData: *mut u32) -> u32;
+        extern fn ClusterRegEnumValue(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] lpszValueName: PWSTR, #[in] #[out] lpcchValueName: LPDWORD, #[out] #[opt] lpdwType: LPDWORD, #[size_param(6)] #[out] #[opt] lpData: LPBYTE, #[in] #[out] #[opt] lpcbData: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegGetBatchNotification(hBatchNotify: *const _HREGBATCHPORT, phBatchNotification: *mut HREGBATCHNOTIFICATION) -> i32;
+        extern fn ClusterRegGetBatchNotification(hBatchNotify: HREGBATCHPORT, phBatchNotification: *mut HREGBATCHNOTIFICATION) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegGetKeySecurity(hKey: HKEY, RequestedInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] lpcbSecurityDescriptor: *mut u32) -> i32;
+        extern fn ClusterRegGetKeySecurity(hKey: HKEY, RequestedInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] lpcbSecurityDescriptor: LPDWORD) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegOpenKey(hKey: HKEY, lpszSubKey: PCWSTR, samDesired: REGSAM, phkResult: *mut HKEY) -> i32;
+        extern fn ClusterRegOpenKey(hKey: HKEY, lpszSubKey: PCWSTR, samDesired: REGSAM, #[out] phkResult: PHKEY) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegQueryInfoKey(hKey: HKEY, lpcSubKeys: *const u32, lpcchMaxSubKeyLen: *const u32, lpcValues: *const u32, lpcchMaxValueNameLen: *const u32, lpcbMaxValueLen: *const u32, lpcbSecurityDescriptor: *const u32, lpftLastWriteTime: *const FILETIME) -> i32;
+        extern fn ClusterRegQueryInfoKey(hKey: HKEY, lpcSubKeys: LPDWORD, lpcchMaxSubKeyLen: LPDWORD, lpcValues: LPDWORD, lpcchMaxValueNameLen: LPDWORD, lpcbMaxValueLen: LPDWORD, lpcbSecurityDescriptor: LPDWORD, lpftLastWriteTime: PFILETIME) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegQueryValue(hKey: HKEY, lpszValueName: PCWSTR, #[opt] lpdwValueType: *mut u32, #[size_param(4)] #[opt] lpData: *mut u8, #[in] #[out] #[opt] lpcbData: *mut u32) -> i32;
+        extern fn ClusterRegQueryValue(hKey: HKEY, lpszValueName: PCWSTR, #[out] #[opt] lpdwValueType: LPDWORD, #[size_param(4)] #[out] #[opt] lpData: LPBYTE, #[in] #[out] #[opt] lpcbData: LPDWORD) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegReadBatchAddCommand(hRegReadBatch: *const _HREGREADBATCH, wzSubkeyName: PCWSTR, wzValueName: PCWSTR) -> i32;
+        extern fn ClusterRegReadBatchAddCommand(hRegReadBatch: HREGREADBATCH, wzSubkeyName: PCWSTR, wzValueName: PCWSTR) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegReadBatchReplyNextCommand(hRegReadBatchReply: *const _HREGREADBATCHREPLY, pBatchCommand: *mut CLUSTER_READ_BATCH_COMMAND) -> i32;
+        extern fn ClusterRegReadBatchReplyNextCommand(hRegReadBatchReply: HREGREADBATCHREPLY, pBatchCommand: *mut CLUSTER_READ_BATCH_COMMAND) -> i32;
         #[library("CLUSAPI.dll")]
         extern fn ClusterRegSetKeySecurity(hKey: HKEY, SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> i32;
         #[library("CLUSAPI.dll")]
@@ -2918,125 +2923,125 @@ mod Windows {
         #[library("CLUSAPI.dll")]
         extern fn ClusterRegSetValueEx(hKey: HKEY, lpszValueName: PCWSTR, dwType: u32, lpData: *const u8, cbData: u32, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRegSyncDatabase(hCluster: *const _HCLUSTER, flags: u32) -> i32;
+        extern fn ClusterRegSyncDatabase(hCluster: HCLUSTER, flags: u32) -> i32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRemoveAffinityRule(hCluster: *mut _HCLUSTER, ruleName: PCWSTR) -> u32;
+        extern fn ClusterRemoveAffinityRule(hCluster: HCLUSTER, ruleName: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRemoveGroupFromAffinityRule(hCluster: *mut _HCLUSTER, ruleName: PCWSTR, hGroup: *mut _HGROUP) -> u32;
+        extern fn ClusterRemoveGroupFromAffinityRule(hCluster: HCLUSTER, ruleName: PCWSTR, hGroup: HGROUP) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRemoveGroupFromGroupSet(hGroup: *const _HGROUP) -> u32;
+        extern fn ClusterRemoveGroupFromGroupSet(hGroup: HGROUP) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterRemoveGroupFromGroupSetEx(hGroup: *const _HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn ClusterRemoveGroupFromGroupSetEx(hGroup: HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceCloseEnum(hResEnum: *const _HRESENUM) -> u32;
+        extern fn ClusterResourceCloseEnum(hResEnum: HRESENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceCloseEnumEx(hResourceEnumEx: *const _HRESENUMEX) -> u32;
+        extern fn ClusterResourceCloseEnumEx(hResourceEnumEx: HRESENUMEX) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceControl(hResource: *const _HRESOURCE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
+        extern fn ClusterResourceControl(hResource: HRESOURCE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceControlAsUser(hResource: *const _HRESOURCE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
+        extern fn ClusterResourceControlAsUser(hResource: HRESOURCE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceControlAsUserEx(hResource: *const _HRESOURCE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn ClusterResourceControlAsUserEx(hResource: HRESOURCE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceControlEx(hResource: *const _HRESOURCE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn ClusterResourceControlEx(hResource: HRESOURCE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceEnum(hResEnum: *const _HRESENUM, dwIndex: u32, lpdwType: *mut u32, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
+        extern fn ClusterResourceEnum(hResEnum: HRESENUM, dwIndex: u32, #[out] lpdwType: LPDWORD, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceEnumEx(hResourceEnumEx: *const _HRESENUMEX, dwIndex: u32, #[in] #[out] pItem: *mut CLUSTER_RESOURCE_ENUM_ITEM, #[in] #[out] cbItem: *mut u32) -> u32;
+        extern fn ClusterResourceEnumEx(hResourceEnumEx: HRESENUMEX, dwIndex: u32, #[in] #[out] pItem: PCLUSTER_RESOURCE_ENUM_ITEM, #[in] #[out] cbItem: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceGetEnumCount(hResEnum: *const _HRESENUM) -> u32;
+        extern fn ClusterResourceGetEnumCount(hResEnum: HRESENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceGetEnumCountEx(hResourceEnumEx: *const _HRESENUMEX) -> u32;
+        extern fn ClusterResourceGetEnumCountEx(hResourceEnumEx: HRESENUMEX) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceOpenEnum(hResource: *const _HRESOURCE, dwType: u32) -> HRESENUM;
+        extern fn ClusterResourceOpenEnum(hResource: HRESOURCE, dwType: u32) -> HRESENUM;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceOpenEnumEx(hCluster: *const _HCLUSTER, #[size_param(2)] #[opt] lpszProperties: PCWSTR, cbProperties: u32, #[size_param(4)] #[opt] lpszRoProperties: PCWSTR, cbRoProperties: u32, dwFlags: u32) -> HRESENUMEX;
+        extern fn ClusterResourceOpenEnumEx(hCluster: HCLUSTER, #[size_param(2)] #[opt] lpszProperties: PCWSTR, cbProperties: u32, #[size_param(4)] #[opt] lpszRoProperties: PCWSTR, cbRoProperties: u32, dwFlags: u32) -> HRESENUMEX;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceTypeCloseEnum(hResTypeEnum: *const _HRESTYPEENUM) -> u32;
+        extern fn ClusterResourceTypeCloseEnum(hResTypeEnum: HRESTYPEENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceTypeControl(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(5)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
+        extern fn ClusterResourceTypeControl(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(5)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceTypeControlAsUser(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(5)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
+        extern fn ClusterResourceTypeControlAsUser(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(5)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceTypeControlAsUserEx(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(5)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn ClusterResourceTypeControlAsUserEx(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(5)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceTypeControlEx(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(5)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn ClusterResourceTypeControlEx(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(5)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceTypeEnum(hResTypeEnum: *const _HRESTYPEENUM, dwIndex: u32, lpdwType: *mut u32, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
+        extern fn ClusterResourceTypeEnum(hResTypeEnum: HRESTYPEENUM, dwIndex: u32, #[out] lpdwType: LPDWORD, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceTypeGetEnumCount(hResTypeEnum: *const _HRESTYPEENUM) -> u32;
+        extern fn ClusterResourceTypeGetEnumCount(hResTypeEnum: HRESTYPEENUM) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterResourceTypeOpenEnum(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, dwType: u32) -> HRESTYPEENUM;
+        extern fn ClusterResourceTypeOpenEnum(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR, dwType: u32) -> HRESTYPEENUM;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterSetAccountAccess(hCluster: *const _HCLUSTER, szAccountSID: PCWSTR, dwAccess: u32, dwControlType: u32) -> u32;
+        extern fn ClusterSetAccountAccess(hCluster: HCLUSTER, szAccountSID: PCWSTR, dwAccess: u32, dwControlType: u32) -> u32;
         #[library("CLUSAPI.dll")]
         extern fn ClusterSharedVolumeSetSnapshotState(guidSnapshotSet: GUID, lpszVolumeName: PCWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ClusterUpgradeFunctionalLevel(hCluster: *const _HCLUSTER, perform: BOOL, #[opt] pfnProgressCallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void) -> u32;
+        extern fn ClusterUpgradeFunctionalLevel(hCluster: HCLUSTER, perform: BOOL, #[opt] pfnProgressCallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn CreateCluster(pConfig: *const CREATE_CLUSTER_CONFIG, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void) -> HCLUSTER;
+        extern fn CreateCluster(pConfig: PCREATE_CLUSTER_CONFIG, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void) -> HCLUSTER;
         #[library("CLUSAPI.dll")]
-        extern fn CreateClusterAvailabilitySet(hCluster: *const _HCLUSTER, lpAvailabilitySetName: PCWSTR, pAvailabilitySetConfig: *const CLUSTER_AVAILABILITY_SET_CONFIG) -> HGROUPSET;
+        extern fn CreateClusterAvailabilitySet(hCluster: HCLUSTER, lpAvailabilitySetName: PCWSTR, pAvailabilitySetConfig: PCLUSTER_AVAILABILITY_SET_CONFIG) -> HGROUPSET;
         #[library("CLUSAPI.dll")]
-        extern fn CreateClusterGroup(hCluster: *const _HCLUSTER, lpszGroupName: PCWSTR) -> HGROUP;
+        extern fn CreateClusterGroup(hCluster: HCLUSTER, lpszGroupName: PCWSTR) -> HGROUP;
         #[library("CLUSAPI.dll")]
-        extern fn CreateClusterGroupEx(hCluster: *const _HCLUSTER, lpszGroupName: PCWSTR, #[opt] pGroupInfo: *const CLUSTER_CREATE_GROUP_INFO) -> HGROUP;
+        extern fn CreateClusterGroupEx(hCluster: HCLUSTER, lpszGroupName: PCWSTR, #[opt] pGroupInfo: PCLUSTER_CREATE_GROUP_INFO) -> HGROUP;
         #[library("CLUSAPI.dll")]
-        extern fn CreateClusterGroupSet(hCluster: *const _HCLUSTER, groupSetName: PCWSTR) -> HGROUPSET;
+        extern fn CreateClusterGroupSet(hCluster: HCLUSTER, groupSetName: PCWSTR) -> HGROUPSET;
         #[library("CLUSAPI.dll")]
-        extern fn CreateClusterNameAccount(hCluster: *const _HCLUSTER, pConfig: *const CREATE_CLUSTER_NAME_ACCOUNT, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void) -> u32;
+        extern fn CreateClusterNameAccount(hCluster: HCLUSTER, pConfig: PCREATE_CLUSTER_NAME_ACCOUNT, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn CreateClusterNotifyPort(hChange: *const _HCHANGE, hCluster: *const _HCLUSTER, dwFilter: u32, dwNotifyKey: usize) -> HCHANGE;
+        extern fn CreateClusterNotifyPort(hChange: HCHANGE, hCluster: HCLUSTER, dwFilter: u32, dwNotifyKey: usize) -> HCHANGE;
         #[library("CLUSAPI.dll")]
-        extern fn CreateClusterNotifyPortV2(hChange: *const _HCHANGE, hCluster: *const _HCLUSTER, Filters: *const NOTIFY_FILTER_AND_TYPE, dwFilterCount: u32, dwNotifyKey: usize) -> HCHANGE;
+        extern fn CreateClusterNotifyPortV2(hChange: HCHANGE, hCluster: HCLUSTER, #[in] Filters: *mut NOTIFY_FILTER_AND_TYPE, dwFilterCount: u32, dwNotifyKey: usize) -> HCHANGE;
         #[library("CLUSAPI.dll")]
-        extern fn CreateClusterResource(hGroup: *const _HGROUP, lpszResourceName: PCWSTR, lpszResourceType: PCWSTR, dwFlags: u32) -> HRESOURCE;
+        extern fn CreateClusterResource(hGroup: HGROUP, lpszResourceName: PCWSTR, lpszResourceType: PCWSTR, dwFlags: u32) -> HRESOURCE;
         #[library("CLUSAPI.dll")]
-        extern fn CreateClusterResourceEx(hGroup: *const _HGROUP, lpszResourceName: PCWSTR, lpszResourceType: PCWSTR, dwFlags: u32, #[opt] lpszReason: PCWSTR) -> HRESOURCE;
+        extern fn CreateClusterResourceEx(hGroup: HGROUP, lpszResourceName: PCWSTR, lpszResourceType: PCWSTR, dwFlags: u32, #[opt] lpszReason: PCWSTR) -> HRESOURCE;
         #[library("CLUSAPI.dll")]
-        extern fn CreateClusterResourceType(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, lpszDisplayName: PCWSTR, lpszResourceTypeDll: PCWSTR, dwLooksAlivePollInterval: u32, dwIsAlivePollInterval: u32) -> u32;
+        extern fn CreateClusterResourceType(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR, lpszDisplayName: PCWSTR, lpszResourceTypeDll: PCWSTR, dwLooksAlivePollInterval: u32, dwIsAlivePollInterval: u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn CreateClusterResourceTypeEx(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, lpszDisplayName: PCWSTR, lpszResourceTypeDll: PCWSTR, dwLooksAlivePollInterval: u32, dwIsAlivePollInterval: u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn CreateClusterResourceTypeEx(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR, lpszDisplayName: PCWSTR, lpszResourceTypeDll: PCWSTR, dwLooksAlivePollInterval: u32, dwIsAlivePollInterval: u32, #[opt] lpszReason: PCWSTR) -> u32;
         const DNS_LENGTH: i32 = 64;
         const DT_UPGRADE_VERSION: i32 = 1;
         #[library("CLUSAPI.dll")]
-        extern fn DeleteClusterGroup(hGroup: *const _HGROUP) -> u32;
+        extern fn DeleteClusterGroup(hGroup: HGROUP) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn DeleteClusterGroupEx(hGroup: *const _HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn DeleteClusterGroupEx(hGroup: HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn DeleteClusterGroupSet(hGroupSet: *const _HGROUPSET) -> u32;
+        extern fn DeleteClusterGroupSet(hGroupSet: HGROUPSET) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn DeleteClusterGroupSetEx(hGroupSet: *const _HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn DeleteClusterGroupSetEx(hGroupSet: HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn DeleteClusterResource(hResource: *const _HRESOURCE) -> u32;
+        extern fn DeleteClusterResource(hResource: HRESOURCE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn DeleteClusterResourceEx(hResource: *const _HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn DeleteClusterResourceEx(hResource: HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn DeleteClusterResourceType(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR) -> u32;
+        extern fn DeleteClusterResourceType(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn DeleteClusterResourceTypeEx(hCluster: *const _HCLUSTER, lpszTypeName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn DeleteClusterResourceTypeEx(hCluster: HCLUSTER, lpszTypeName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn DestroyCluster(hCluster: *const _HCLUSTER, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void, fdeleteVirtualComputerObjects: BOOL) -> u32;
+        extern fn DestroyCluster(hCluster: HCLUSTER, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void, fdeleteVirtualComputerObjects: BOOL) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn DestroyClusterGroup(hGroup: *const _HGROUP) -> u32;
+        extern fn DestroyClusterGroup(hGroup: HGROUP) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn DestroyClusterGroupEx(hGroup: *const _HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn DestroyClusterGroupEx(hGroup: HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn DetermineCNOResTypeFromCluster(hCluster: *const _HCLUSTER, pCNOResType: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32;
+        extern fn DetermineCNOResTypeFromCluster(hCluster: HCLUSTER, pCNOResType: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn DetermineCNOResTypeFromNodelist(cNodes: u32, ppszNodeNames: *const PCWSTR, pCNOResType: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32;
+        extern fn DetermineCNOResTypeFromNodelist(cNodes: u32, #[in] ppszNodeNames: *mut PCWSTR, pCNOResType: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn DetermineClusterCloudTypeFromCluster(hCluster: *const _HCLUSTER, pCloudType: *mut CLUSTER_CLOUD_TYPE) -> u32;
+        extern fn DetermineClusterCloudTypeFromCluster(hCluster: HCLUSTER, #[out] pCloudType: PCLUSTER_CLOUD_TYPE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn DetermineClusterCloudTypeFromNodelist(cNodes: u32, ppszNodeNames: *const PCWSTR, pCloudType: *mut CLUSTER_CLOUD_TYPE) -> u32;
+        extern fn DetermineClusterCloudTypeFromNodelist(cNodes: u32, #[in] ppszNodeNames: *mut PCWSTR, #[out] pCloudType: PCLUSTER_CLOUD_TYPE) -> u32;
         #[encoding("utf-16")]
         const ENABLE_CLUSTER_SHARED_VOLUMES: String = "EnableSharedVolumes";
         #[library("CLUSAPI.dll")]
-        extern fn EvictClusterNode(hNode: *const _HNODE) -> u32;
+        extern fn EvictClusterNode(hNode: HNODE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn EvictClusterNodeEx(hNode: *const _HNODE, dwTimeOut: u32, phrCleanupStatus: *mut HRESULT) -> u32;
+        extern fn EvictClusterNodeEx(hNode: HNODE, dwTimeOut: u32, phrCleanupStatus: *mut HRESULT) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn EvictClusterNodeEx2(hNode: *const _HNODE, dwTimeout: u32, phrCleanupStatus: *mut HRESULT, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn EvictClusterNodeEx2(hNode: HNODE, dwTimeout: u32, phrCleanupStatus: *mut HRESULT, #[opt] lpszReason: PCWSTR) -> u32;
         const FE_22H2_UPGRADE_VERSION: i32 = 5;
         const FE_UPGRADE_VERSION: i32 = 4;
         struct FILESHARE_CHANGE {
@@ -3055,9 +3060,9 @@ mod Windows {
             ChangeEntry: [FILESHARE_CHANGE; 0],
         }
         #[library("CLUSAPI.dll")]
-        extern fn FailClusterResource(hResource: *const _HRESOURCE) -> u32;
+        extern fn FailClusterResource(hResource: HRESOURCE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn FailClusterResourceEx(hResource: *const _HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn FailClusterResourceEx(hResource: HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
         const GA_UPGRADE_VERSION: i32 = 5;
         const GE_UPGRADE_VERSION: i32 = 6;
         const GROUPSET_READY_SETTING_APPLICATION_READY: i32 = 4;
@@ -3082,63 +3087,63 @@ mod Windows {
         }
         const GUID_PRESENT: i32 = 1;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterFromGroup(hGroup: *const _HGROUP) -> HCLUSTER;
+        extern fn GetClusterFromGroup(hGroup: HGROUP) -> HCLUSTER;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterFromNetInterface(hNetInterface: *const _HNETINTERFACE) -> HCLUSTER;
+        extern fn GetClusterFromNetInterface(hNetInterface: HNETINTERFACE) -> HCLUSTER;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterFromNetwork(hNetwork: *const _HNETWORK) -> HCLUSTER;
+        extern fn GetClusterFromNetwork(hNetwork: HNETWORK) -> HCLUSTER;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterFromNode(hNode: *const _HNODE) -> HCLUSTER;
+        extern fn GetClusterFromNode(hNode: HNODE) -> HCLUSTER;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterFromResource(hResource: *const _HRESOURCE) -> HCLUSTER;
+        extern fn GetClusterFromResource(hResource: HRESOURCE) -> HCLUSTER;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterGroupKey(hGroup: *const _HGROUP, samDesired: REGSAM) -> HKEY;
+        extern fn GetClusterGroupKey(hGroup: HGROUP, samDesired: REGSAM) -> HKEY;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterGroupState(hGroup: *const _HGROUP, #[len_param(2)] #[out] #[opt] lpszNodeName: PWSTR, #[in] #[out] #[opt] lpcchNodeName: *mut u32) -> CLUSTER_GROUP_STATE;
+        extern fn GetClusterGroupState(hGroup: HGROUP, #[len_param(2)] #[out] #[opt] lpszNodeName: PWSTR, #[in] #[out] #[opt] lpcchNodeName: LPDWORD) -> CLUSTER_GROUP_STATE;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterInformation(hCluster: *const _HCLUSTER, #[len_param(2)] #[out] lpszClusterName: PWSTR, #[in] #[out] lpcchClusterName: *mut u32, #[opt] lpClusterInfo: *mut CLUSTERVERSIONINFO) -> u32;
+        extern fn GetClusterInformation(hCluster: HCLUSTER, #[len_param(2)] #[out] lpszClusterName: PWSTR, #[in] #[out] lpcchClusterName: LPDWORD, #[out] #[opt] lpClusterInfo: LPCLUSTERVERSIONINFO) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterKey(hCluster: *const _HCLUSTER, samDesired: REGSAM) -> HKEY;
+        extern fn GetClusterKey(hCluster: HCLUSTER, samDesired: REGSAM) -> HKEY;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterNetInterface(hCluster: *const _HCLUSTER, lpszNodeName: PCWSTR, lpszNetworkName: PCWSTR, #[len_param(4)] #[out] lpszInterfaceName: PWSTR, #[in] #[out] lpcchInterfaceName: *mut u32) -> u32;
+        extern fn GetClusterNetInterface(hCluster: HCLUSTER, lpszNodeName: PCWSTR, lpszNetworkName: PCWSTR, #[len_param(4)] #[out] lpszInterfaceName: PWSTR, #[in] #[out] lpcchInterfaceName: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterNetInterfaceKey(hNetInterface: *const _HNETINTERFACE, samDesired: REGSAM) -> HKEY;
+        extern fn GetClusterNetInterfaceKey(hNetInterface: HNETINTERFACE, samDesired: REGSAM) -> HKEY;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterNetInterfaceState(hNetInterface: *const _HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE;
+        extern fn GetClusterNetInterfaceState(hNetInterface: HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterNetworkId(hNetwork: *const _HNETWORK, #[len_param(2)] #[out] lpszNetworkId: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
+        extern fn GetClusterNetworkId(hNetwork: HNETWORK, #[len_param(2)] #[out] lpszNetworkId: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterNetworkKey(hNetwork: *const _HNETWORK, samDesired: REGSAM) -> HKEY;
+        extern fn GetClusterNetworkKey(hNetwork: HNETWORK, samDesired: REGSAM) -> HKEY;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterNetworkState(hNetwork: *const _HNETWORK) -> CLUSTER_NETWORK_STATE;
+        extern fn GetClusterNetworkState(hNetwork: HNETWORK) -> CLUSTER_NETWORK_STATE;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterNodeId(#[opt] hNode: *const _HNODE, #[len_param(2)] #[out] lpszNodeId: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
+        extern fn GetClusterNodeId(#[opt] hNode: HNODE, #[len_param(2)] #[out] lpszNodeId: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterNodeKey(hNode: *const _HNODE, samDesired: REGSAM) -> HKEY;
+        extern fn GetClusterNodeKey(hNode: HNODE, samDesired: REGSAM) -> HKEY;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterNodeState(hNode: *const _HNODE) -> CLUSTER_NODE_STATE;
+        extern fn GetClusterNodeState(hNode: HNODE) -> CLUSTER_NODE_STATE;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterNotify(hChange: *const _HCHANGE, lpdwNotifyKey: *mut usize, lpdwFilterType: *mut u32, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32, dwMilliseconds: u32) -> u32;
+        extern fn GetClusterNotify(hChange: HCHANGE, lpdwNotifyKey: *mut usize, #[out] lpdwFilterType: LPDWORD, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD, dwMilliseconds: u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterNotifyV2(hChange: *const _HCHANGE, lpdwNotifyKey: *mut usize, #[in] #[out] #[opt] pFilterAndType: *mut NOTIFY_FILTER_AND_TYPE, #[size_param(4)] #[in] #[out] #[opt] buffer: *mut u8, #[in] #[out] #[opt] lpbBufferSize: *mut u32, #[len_param(6)] #[in] #[out] #[opt] lpszObjectId: PWSTR, #[in] #[out] #[opt] lpcchObjectId: *mut u32, #[len_param(8)] #[in] #[out] #[opt] lpszParentId: PWSTR, #[in] #[out] #[opt] lpcchParentId: *mut u32, #[len_param(10)] #[in] #[out] #[opt] lpszName: PWSTR, #[in] #[out] #[opt] lpcchName: *mut u32, #[len_param(12)] #[in] #[out] #[opt] lpszType: PWSTR, #[in] #[out] #[opt] lpcchType: *mut u32, #[opt] dwMilliseconds: u32) -> u32;
+        extern fn GetClusterNotifyV2(hChange: HCHANGE, lpdwNotifyKey: *mut usize, #[in] #[out] #[opt] pFilterAndType: PNOTIFY_FILTER_AND_TYPE, #[size_param(4)] #[in] #[out] #[opt] buffer: *mut u8, #[in] #[out] #[opt] lpbBufferSize: LPDWORD, #[len_param(6)] #[in] #[out] #[opt] lpszObjectId: PWSTR, #[in] #[out] #[opt] lpcchObjectId: LPDWORD, #[len_param(8)] #[in] #[out] #[opt] lpszParentId: PWSTR, #[in] #[out] #[opt] lpcchParentId: LPDWORD, #[len_param(10)] #[in] #[out] #[opt] lpszName: PWSTR, #[in] #[out] #[opt] lpcchName: LPDWORD, #[len_param(12)] #[in] #[out] #[opt] lpszType: PWSTR, #[in] #[out] #[opt] lpcchType: LPDWORD, #[opt] dwMilliseconds: u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterQuorumResource(hCluster: *const _HCLUSTER, #[len_param(2)] #[out] lpszResourceName: PWSTR, #[in] #[out] lpcchResourceName: *mut u32, #[len_param(4)] #[out] lpszDeviceName: PWSTR, #[in] #[out] lpcchDeviceName: *mut u32, lpdwMaxQuorumLogSize: *mut u32) -> u32;
+        extern fn GetClusterQuorumResource(hCluster: HCLUSTER, #[len_param(2)] #[out] lpszResourceName: PWSTR, #[in] #[out] lpcchResourceName: LPDWORD, #[len_param(4)] #[out] lpszDeviceName: PWSTR, #[in] #[out] lpcchDeviceName: LPDWORD, #[out] lpdwMaxQuorumLogSize: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterResourceDependencyExpression(hResource: *const _HRESOURCE, #[len_param(2)] #[out] #[opt] lpszDependencyExpression: PWSTR, #[in] #[out] lpcchDependencyExpression: *mut u32) -> u32;
+        extern fn GetClusterResourceDependencyExpression(hResource: HRESOURCE, #[len_param(2)] #[out] #[opt] lpszDependencyExpression: PWSTR, #[in] #[out] lpcchDependencyExpression: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterResourceKey(hResource: *const _HRESOURCE, samDesired: REGSAM) -> HKEY;
+        extern fn GetClusterResourceKey(hResource: HRESOURCE, samDesired: REGSAM) -> HKEY;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterResourceNetworkName(hResource: *const _HRESOURCE, #[len_param(2)] #[out] lpBuffer: PWSTR, #[in] #[out] nSize: *mut u32) -> BOOL;
+        extern fn GetClusterResourceNetworkName(hResource: HRESOURCE, #[len_param(2)] #[out] lpBuffer: PWSTR, #[in] #[out] nSize: LPDWORD) -> BOOL;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterResourceState(hResource: *const _HRESOURCE, #[len_param(2)] #[out] #[opt] lpszNodeName: PWSTR, #[in] #[out] #[opt] lpcchNodeName: *mut u32, #[len_param(4)] #[out] #[opt] lpszGroupName: PWSTR, #[in] #[out] #[opt] lpcchGroupName: *mut u32) -> CLUSTER_RESOURCE_STATE;
+        extern fn GetClusterResourceState(hResource: HRESOURCE, #[len_param(2)] #[out] #[opt] lpszNodeName: PWSTR, #[in] #[out] #[opt] lpcchNodeName: LPDWORD, #[len_param(4)] #[out] #[opt] lpszGroupName: PWSTR, #[in] #[out] #[opt] lpcchGroupName: LPDWORD) -> CLUSTER_RESOURCE_STATE;
         #[library("CLUSAPI.dll")]
-        extern fn GetClusterResourceTypeKey(hCluster: *const _HCLUSTER, lpszTypeName: PCWSTR, samDesired: REGSAM) -> HKEY;
+        extern fn GetClusterResourceTypeKey(hCluster: HCLUSTER, lpszTypeName: PCWSTR, samDesired: REGSAM) -> HKEY;
         #[library("CLUSAPI.dll")]
         extern fn GetNodeCloudTypeDW(ppszNodeName: PCWSTR, NodeCloudType: *mut u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn GetNodeClusterState(#[opt] lpszNodeName: PCWSTR, pdwClusterState: *mut u32) -> u32;
+        extern fn GetNodeClusterState(#[opt] lpszNodeName: PCWSTR, #[out] pdwClusterState: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn GetNotifyEventHandle(hChange: *const _HCHANGE, lphTargetEvent: *mut HANDLE) -> u32;
+        extern fn GetNotifyEventHandle(hChange: HCHANGE, #[out] lphTargetEvent: LPHANDLE) -> u32;
         type HCHANGE = *mut _HCHANGE;
         const HCI_UPGRADE_BIT: i32 = 32768;
         type HCLUSENUM = *mut _HCLUSENUM;
@@ -3171,7 +3176,7 @@ mod Windows {
         type HRESOURCE = *mut _HRESOURCE;
         type HRESTYPEENUM = *mut _HRESTYPEENUM;
         #[library("CLUSAPI.dll")]
-        extern fn IsFileOnClusterSharedVolume(lpszPathName: PCWSTR, pbFileIsOnSharedVolume: *mut BOOL) -> u32;
+        extern fn IsFileOnClusterSharedVolume(lpszPathName: PCWSTR, #[out] pbFileIsOnSharedVolume: PBOOL) -> u32;
         type LPCLUSTERVERSIONINFO = *mut CLUSTERVERSIONINFO;
         #[repr(i32)]
         enum MAINTENANCE_MODE_TYPE_ENUM {
@@ -3192,11 +3197,11 @@ mod Windows {
         const MINIMUM_PREEMPTOR_PRIORITY: String = "MinimumPreemptorPriority";
         const MN_UPGRADE_VERSION: i32 = 3;
         #[library("CLUSAPI.dll")]
-        extern fn MoveClusterGroup(hGroup: *const _HGROUP, #[opt] hDestinationNode: *const _HNODE) -> u32;
+        extern fn MoveClusterGroup(hGroup: HGROUP, #[opt] hDestinationNode: HNODE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn MoveClusterGroupEx(hGroup: *const _HGROUP, #[opt] hDestinationNode: *const _HNODE, dwMoveFlags: u32, #[size_param(4)] #[opt] lpInBuffer: *const u8, cbInBufferSize: u32) -> u32;
+        extern fn MoveClusterGroupEx(hGroup: HGROUP, #[opt] hDestinationNode: HNODE, dwMoveFlags: u32, #[size_param(4)] #[opt] lpInBuffer: PBYTE, cbInBufferSize: u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn MoveClusterGroupEx2(hGroup: *const _HGROUP, #[opt] hDestinationNode: *const _HNODE, dwMoveFlags: u32, #[size_param(4)] #[opt] lpInBuffer: *const u8, cbInBufferSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn MoveClusterGroupEx2(hGroup: HGROUP, #[opt] hDestinationNode: HNODE, dwMoveFlags: u32, #[size_param(4)] #[opt] lpInBuffer: PBYTE, cbInBufferSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
         const NINETEEN_H1_UPGRADE_VERSION: i32 = 1;
         const NINETEEN_H2_UPGRADE_VERSION: i32 = 2;
         const NI_UPGRADE_VERSION: i32 = 2;
@@ -3231,297 +3236,297 @@ mod Windows {
             QPUsed: u32,
         }
         #[library("CLUSAPI.dll")]
-        extern fn OfflineClusterGroup(hGroup: *const _HGROUP) -> u32;
+        extern fn OfflineClusterGroup(hGroup: HGROUP) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn OfflineClusterGroupEx(hGroup: *const _HGROUP, dwOfflineFlags: u32, #[size_param(3)] #[opt] lpInBuffer: *const u8, cbInBufferSize: u32) -> u32;
+        extern fn OfflineClusterGroupEx(hGroup: HGROUP, dwOfflineFlags: u32, #[size_param(3)] #[opt] lpInBuffer: PBYTE, cbInBufferSize: u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn OfflineClusterGroupEx2(hGroup: *mut _HGROUP, dwOfflineFlags: u32, lpInBuffer: *mut u8, cbInBufferSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn OfflineClusterGroupEx2(hGroup: HGROUP, dwOfflineFlags: u32, lpInBuffer: PBYTE, cbInBufferSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn OfflineClusterResource(hResource: *const _HRESOURCE) -> u32;
+        extern fn OfflineClusterResource(hResource: HRESOURCE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn OfflineClusterResourceEx(hResource: *const _HRESOURCE, dwOfflineFlags: u32, #[size_param(3)] #[opt] lpInBuffer: *const u8, cbInBufferSize: u32) -> u32;
+        extern fn OfflineClusterResourceEx(hResource: HRESOURCE, dwOfflineFlags: u32, #[size_param(3)] #[opt] lpInBuffer: PBYTE, cbInBufferSize: u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn OfflineClusterResourceEx2(hResource: *const _HRESOURCE, dwOfflineFlags: u32, #[size_param(3)] #[opt] lpInBuffer: *const u8, cbInBufferSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn OfflineClusterResourceEx2(hResource: HRESOURCE, dwOfflineFlags: u32, #[size_param(3)] #[opt] lpInBuffer: PBYTE, cbInBufferSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn OnlineClusterGroup(hGroup: *const _HGROUP, #[opt] hDestinationNode: *const _HNODE) -> u32;
+        extern fn OnlineClusterGroup(hGroup: HGROUP, #[opt] hDestinationNode: HNODE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn OnlineClusterGroupEx(hGroup: *const _HGROUP, #[opt] hDestinationNode: *const _HNODE, dwOnlineFlags: u32, #[size_param(4)] #[opt] lpInBuffer: *const u8, cbInBufferSize: u32) -> u32;
+        extern fn OnlineClusterGroupEx(hGroup: HGROUP, #[opt] hDestinationNode: HNODE, dwOnlineFlags: u32, #[size_param(4)] #[opt] lpInBuffer: PBYTE, cbInBufferSize: u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn OnlineClusterGroupEx2(hGroup: *const _HGROUP, #[opt] hDestinationNode: *const _HNODE, dwOnlineFlags: u32, #[size_param(4)] #[opt] lpInBuffer: *const u8, cbInBufferSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn OnlineClusterGroupEx2(hGroup: HGROUP, #[opt] hDestinationNode: HNODE, dwOnlineFlags: u32, #[size_param(4)] #[opt] lpInBuffer: PBYTE, cbInBufferSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn OnlineClusterResource(hResource: *const _HRESOURCE) -> u32;
+        extern fn OnlineClusterResource(hResource: HRESOURCE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn OnlineClusterResourceEx(hResource: *const _HRESOURCE, dwOnlineFlags: u32, #[size_param(3)] #[opt] lpInBuffer: *const u8, cbInBufferSize: u32) -> u32;
+        extern fn OnlineClusterResourceEx(hResource: HRESOURCE, dwOnlineFlags: u32, #[size_param(3)] #[opt] lpInBuffer: PBYTE, cbInBufferSize: u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn OnlineClusterResourceEx2(hResource: *const _HRESOURCE, dwOnlineFlags: u32, #[size_param(3)] #[opt] lpInBuffer: *const u8, cbInBufferSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn OnlineClusterResourceEx2(hResource: HRESOURCE, dwOnlineFlags: u32, #[size_param(3)] #[opt] lpInBuffer: PBYTE, cbInBufferSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
         extern fn OpenCluster(#[opt] lpszClusterName: PCWSTR) -> HCLUSTER;
         #[library("CLUSAPI.dll")]
         extern fn OpenClusterEx(#[opt] lpszClusterName: PCWSTR, DesiredAccess: u32, #[opt] GrantedAccess: *mut u32) -> HCLUSTER;
         #[library("CLUSAPI.dll")]
-        extern fn OpenClusterGroup(hCluster: *const _HCLUSTER, lpszGroupName: PCWSTR) -> HGROUP;
+        extern fn OpenClusterGroup(hCluster: HCLUSTER, lpszGroupName: PCWSTR) -> HGROUP;
         #[library("CLUSAPI.dll")]
-        extern fn OpenClusterGroupEx(hCluster: *const _HCLUSTER, #[opt] lpszGroupName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HGROUP;
+        extern fn OpenClusterGroupEx(hCluster: HCLUSTER, #[opt] lpszGroupName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HGROUP;
         #[library("CLUSAPI.dll")]
-        extern fn OpenClusterGroupSet(hCluster: *const _HCLUSTER, lpszGroupSetName: PCWSTR) -> HGROUPSET;
+        extern fn OpenClusterGroupSet(hCluster: HCLUSTER, lpszGroupSetName: PCWSTR) -> HGROUPSET;
         #[library("CLUSAPI.dll")]
-        extern fn OpenClusterNetInterface(hCluster: *const _HCLUSTER, lpszInterfaceName: PCWSTR) -> HNETINTERFACE;
+        extern fn OpenClusterNetInterface(hCluster: HCLUSTER, lpszInterfaceName: PCWSTR) -> HNETINTERFACE;
         #[library("CLUSAPI.dll")]
-        extern fn OpenClusterNetInterfaceEx(hCluster: *const _HCLUSTER, #[opt] lpszInterfaceName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HNETINTERFACE;
+        extern fn OpenClusterNetInterfaceEx(hCluster: HCLUSTER, #[opt] lpszInterfaceName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HNETINTERFACE;
         #[library("CLUSAPI.dll")]
-        extern fn OpenClusterNetwork(hCluster: *const _HCLUSTER, lpszNetworkName: PCWSTR) -> HNETWORK;
+        extern fn OpenClusterNetwork(hCluster: HCLUSTER, lpszNetworkName: PCWSTR) -> HNETWORK;
         #[library("CLUSAPI.dll")]
-        extern fn OpenClusterNetworkEx(hCluster: *const _HCLUSTER, #[opt] lpszNetworkName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HNETWORK;
+        extern fn OpenClusterNetworkEx(hCluster: HCLUSTER, #[opt] lpszNetworkName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HNETWORK;
         #[library("CLUSAPI.dll")]
-        extern fn OpenClusterNode(hCluster: *const _HCLUSTER, lpszNodeName: PCWSTR) -> HNODE;
+        extern fn OpenClusterNode(hCluster: HCLUSTER, lpszNodeName: PCWSTR) -> HNODE;
         #[library("CLUSAPI.dll")]
-        extern fn OpenClusterNodeById(hCluster: *mut _HCLUSTER, nodeId: u32) -> HNODE;
+        extern fn OpenClusterNodeById(hCluster: HCLUSTER, nodeId: u32) -> HNODE;
         #[library("CLUSAPI.dll")]
-        extern fn OpenClusterNodeEx(hCluster: *const _HCLUSTER, #[opt] lpszNodeName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HNODE;
+        extern fn OpenClusterNodeEx(hCluster: HCLUSTER, #[opt] lpszNodeName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HNODE;
         #[library("CLUSAPI.dll")]
-        extern fn OpenClusterResource(hCluster: *const _HCLUSTER, lpszResourceName: PCWSTR) -> HRESOURCE;
+        extern fn OpenClusterResource(hCluster: HCLUSTER, lpszResourceName: PCWSTR) -> HRESOURCE;
         #[library("CLUSAPI.dll")]
-        extern fn OpenClusterResourceEx(hCluster: *const _HCLUSTER, #[opt] lpszResourceName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HRESOURCE;
-        extern fn PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY(hDependentGroup: *const _HGROUP, hProviderGroup: *const _HGROUP) -> u32;
-        extern fn PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY_EX(hDependentGroup: *const _HGROUP, hProviderGroup: *const _HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY(hDependentGroupSet: *const _HGROUPSET, hProviderGroupSet: *const _HGROUPSET) -> u32;
-        extern fn PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EX(hDependentGroupSet: *const _HGROUPSET, hProviderGroupSet: *const _HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY(hDependentGroup: *const _HGROUP, hProviderGroupSet: *const _HGROUPSET) -> u32;
-        extern fn PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY_EX(hDependentGroup: *const _HGROUP, hProviderGroupSet: *const _HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_ADD_CLUSTER_NODE(hCluster: *const _HCLUSTER, lpszNodeName: PCWSTR, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void) -> HNODE;
-        extern fn PCLUSAPI_ADD_CLUSTER_NODE_EX(hCluster: *const _HCLUSTER, lpszNodeName: PCWSTR, dwFlags: u32, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void) -> HNODE;
-        extern fn PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY(hResource: *mut _HRESOURCE, hDependsOn: *mut _HRESOURCE) -> u32;
-        extern fn PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY_EX(hResource: *const _HRESOURCE, hDependsOn: *const _HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE(hResource: *mut _HRESOURCE, hNode: *mut _HNODE) -> u32;
-        extern fn PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE_EX(hResource: *const _HRESOURCE, hNode: *const _HNODE, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_ADD_CROSS_CLUSTER_GROUPSET_DEPENDENCY(hDependentGroupSet: *const _HGROUPSET, lpRemoteClusterName: PCWSTR, lpRemoteGroupSetName: PCWSTR) -> u32;
-        extern fn PCLUSAPI_ADD_RESOURCE_TO_CLUSTER_SHARED_VOLUMES(hResource: *const _HRESOURCE) -> u32;
-        extern fn PCLUSAPI_BACKUP_CLUSTER_DATABASE(hCluster: *const _HCLUSTER, lpszPathName: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CAN_RESOURCE_BE_DEPENDENT(hResource: *mut _HRESOURCE, hResourceDependent: *mut _HRESOURCE) -> BOOL;
-        extern fn PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP(hResource: *mut _HRESOURCE, hGroup: *mut _HGROUP) -> u32;
-        extern fn PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX(hResource: *mut _HRESOURCE, hGroup: *mut _HGROUP, Flags: u64) -> u32;
-        extern fn PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX2(hResource: *const _HRESOURCE, hGroup: *const _HGROUP, Flags: u64, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLOSE_CLUSTER(hCluster: *const _HCLUSTER) -> BOOL;
-        extern fn PCLUSAPI_CLOSE_CLUSTER_GROUP(hGroup: *const _HGROUP) -> BOOL;
-        extern fn PCLUSAPI_CLOSE_CLUSTER_GROUP_GROUPSET(hGroupSet: *const _HGROUPSET) -> BOOL;
-        extern fn PCLUSAPI_CLOSE_CLUSTER_NETWORK(hNetwork: *const _HNETWORK) -> BOOL;
-        extern fn PCLUSAPI_CLOSE_CLUSTER_NET_INTERFACE(hNetInterface: *const _HNETINTERFACE) -> BOOL;
-        extern fn PCLUSAPI_CLOSE_CLUSTER_NODE(hNode: *const _HNODE) -> BOOL;
-        extern fn PCLUSAPI_CLOSE_CLUSTER_NOTIFY_PORT(hChange: *const _HCHANGE) -> BOOL;
-        extern fn PCLUSAPI_CLOSE_CLUSTER_RESOURCE(hResource: *mut _HRESOURCE) -> BOOL;
-        extern fn PCLUSAPI_CLUSTER_ADD_GROUP_TO_AFFINITY_RULE(hCluster: *mut _HCLUSTER, ruleName: PCWSTR, hGroup: *mut _HGROUP) -> u32;
-        extern fn PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUPSET_WITH_DOMAINS_EX(hGroupSet: *const _HGROUPSET, hGroup: *const _HGROUP, faultDomain: u32, updateDomain: u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUP_GROUPSET(hGroupSet: *const _HGROUPSET, hGroup: *const _HGROUP) -> u32;
-        extern fn PCLUSAPI_CLUSTER_AFFINITY_RULE_CONTROL(hCluster: *const _HCLUSTER, affinityRuleName: PCWSTR, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(5)] #[opt] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_CLOSE_ENUM(hEnum: *const _HCLUSENUM) -> u32;
-        extern fn PCLUSAPI_CLUSTER_CLOSE_ENUM_EX(hClusterEnum: *const _HCLUSENUMEX) -> u32;
-        extern fn PCLUSAPI_CLUSTER_CONTROL(hCluster: *const _HCLUSTER, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_CONTROL_EX(hCluster: *const _HCLUSTER, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_CREATE_AFFINITY_RULE(hCluster: *mut _HCLUSTER, ruleName: PCWSTR, ruleType: CLUS_AFFINITY_RULE_TYPE) -> u32;
-        extern fn PCLUSAPI_CLUSTER_ENUM(hEnum: *const _HCLUSENUM, dwIndex: u32, lpdwType: *mut u32, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_ENUM_EX(hClusterEnum: *const _HCLUSENUMEX, dwIndex: u32, #[in] #[out] pItem: *mut CLUSTER_ENUM_ITEM, #[in] #[out] cbItem: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_GET_ENUM_COUNT(hEnum: *const _HCLUSENUM) -> u32;
-        extern fn PCLUSAPI_CLUSTER_GET_ENUM_COUNT_EX(hClusterEnum: *const _HCLUSENUMEX) -> u32;
-        extern fn PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM(hGroupEnum: *mut _HGROUPENUM) -> u32;
-        extern fn PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM_EX(hGroupEnumEx: *const _HGROUPENUMEX) -> u32;
-        extern fn PCLUSAPI_CLUSTER_GROUP_CONTROL(hGroup: *const _HGROUP, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_GROUP_CONTROL_EX(hGroup: *const _HGROUP, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_GROUP_ENUM(hGroupEnum: *const _HGROUPENUM, dwIndex: u32, lpdwType: *mut u32, #[len_param(4)] #[out] lpszResourceName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_GROUP_ENUM_EX(hGroupEnumEx: *const _HGROUPENUMEX, dwIndex: u32, #[in] #[out] pItem: *mut CLUSTER_GROUP_ENUM_ITEM, #[in] #[out] cbItem: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT(hGroupEnum: *const _HGROUPENUM) -> u32;
-        extern fn PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT_EX(hGroupEnumEx: *const _HGROUPENUMEX) -> u32;
-        extern fn PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL(hGroupSet: *const _HGROUPSET, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL_EX(hGroupSet: *const _HGROUPSET, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM(hGroup: *mut _HGROUP, dwType: u32) -> HGROUPENUM;
-        extern fn PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM_EX(hCluster: *const _HCLUSTER, #[size_param(2)] #[opt] lpszProperties: PCWSTR, cbProperties: u32, #[size_param(4)] #[opt] lpszRoProperties: PCWSTR, cbRoProperties: u32, dwFlags: u32) -> HGROUPENUMEX;
-        extern fn PCLUSAPI_CLUSTER_NETWORK_CLOSE_ENUM(hNetworkEnum: *const _HNETWORKENUM) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NETWORK_CONTROL(hNetwork: *const _HNETWORK, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NETWORK_CONTROL_EX(hNetwork: *const _HNETWORK, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NETWORK_ENUM(hNetworkEnum: *const _HNETWORKENUM, dwIndex: u32, lpdwType: *mut u32, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NETWORK_GET_ENUM_COUNT(hNetworkEnum: *const _HNETWORKENUM) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NETWORK_OPEN_ENUM(hNetwork: *const _HNETWORK, dwType: u32) -> HNETWORKENUM;
-        extern fn PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL(hNetInterface: *const _HNETINTERFACE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL_EX(hNetInterface: *const _HNETINTERFACE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM(hNodeEnum: *const _HNODEENUM) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM_EX(hNodeEnum: *const _HNODEENUMEX) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NODE_CONTROL(hNode: *const _HNODE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NODE_CONTROL_EX(hNode: *const _HNODE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NODE_ENUM(hNodeEnum: *const _HNODEENUM, dwIndex: u32, lpdwType: *mut u32, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NODE_ENUM_EX(hNodeEnum: *const _HNODEENUMEX, dwIndex: u32, #[in] #[out] pItem: *mut CLUSTER_ENUM_ITEM, #[in] #[out] cbItem: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT(hNodeEnum: *const _HNODEENUM) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT_EX(hNodeEnum: *const _HNODEENUMEX) -> u32;
-        extern fn PCLUSAPI_CLUSTER_NODE_OPEN_ENUM(hNode: *const _HNODE, dwType: u32) -> HNODEENUM;
-        extern fn PCLUSAPI_CLUSTER_NODE_OPEN_ENUM_EX(hNode: *const _HNODE, dwType: u32, #[opt] pOptions: *const void) -> HNODEENUMEX;
-        extern fn PCLUSAPI_CLUSTER_OPEN_ENUM(hCluster: *const _HCLUSTER, dwType: u32) -> HCLUSENUM;
-        extern fn PCLUSAPI_CLUSTER_OPEN_ENUM_EX(hCluster: *const _HCLUSTER, dwType: u32, #[opt] pOptions: *const void) -> HCLUSENUMEX;
+        extern fn OpenClusterResourceEx(hCluster: HCLUSTER, #[opt] lpszResourceName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HRESOURCE;
+        extern fn PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY(hDependentGroup: HGROUP, hProviderGroup: HGROUP) -> u32;
+        extern fn PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY_EX(hDependentGroup: HGROUP, hProviderGroup: HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY(hDependentGroupSet: HGROUPSET, hProviderGroupSet: HGROUPSET) -> u32;
+        extern fn PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EX(hDependentGroupSet: HGROUPSET, hProviderGroupSet: HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY(hDependentGroup: HGROUP, hProviderGroupSet: HGROUPSET) -> u32;
+        extern fn PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY_EX(hDependentGroup: HGROUP, hProviderGroupSet: HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_ADD_CLUSTER_NODE(hCluster: HCLUSTER, lpszNodeName: PCWSTR, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void) -> HNODE;
+        extern fn PCLUSAPI_ADD_CLUSTER_NODE_EX(hCluster: HCLUSTER, lpszNodeName: PCWSTR, dwFlags: u32, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void) -> HNODE;
+        extern fn PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY(hResource: HRESOURCE, hDependsOn: HRESOURCE) -> u32;
+        extern fn PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY_EX(hResource: HRESOURCE, hDependsOn: HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE(hResource: HRESOURCE, hNode: HNODE) -> u32;
+        extern fn PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE_EX(hResource: HRESOURCE, hNode: HNODE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_ADD_CROSS_CLUSTER_GROUPSET_DEPENDENCY(hDependentGroupSet: HGROUPSET, lpRemoteClusterName: PCWSTR, lpRemoteGroupSetName: PCWSTR) -> u32;
+        extern fn PCLUSAPI_ADD_RESOURCE_TO_CLUSTER_SHARED_VOLUMES(hResource: HRESOURCE) -> u32;
+        extern fn PCLUSAPI_BACKUP_CLUSTER_DATABASE(hCluster: HCLUSTER, lpszPathName: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CAN_RESOURCE_BE_DEPENDENT(hResource: HRESOURCE, hResourceDependent: HRESOURCE) -> BOOL;
+        extern fn PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP(hResource: HRESOURCE, hGroup: HGROUP) -> u32;
+        extern fn PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX(hResource: HRESOURCE, hGroup: HGROUP, Flags: u64) -> u32;
+        extern fn PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX2(hResource: HRESOURCE, hGroup: HGROUP, Flags: u64, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CLOSE_CLUSTER(hCluster: HCLUSTER) -> BOOL;
+        extern fn PCLUSAPI_CLOSE_CLUSTER_GROUP(hGroup: HGROUP) -> BOOL;
+        extern fn PCLUSAPI_CLOSE_CLUSTER_GROUP_GROUPSET(hGroupSet: HGROUPSET) -> BOOL;
+        extern fn PCLUSAPI_CLOSE_CLUSTER_NETWORK(hNetwork: HNETWORK) -> BOOL;
+        extern fn PCLUSAPI_CLOSE_CLUSTER_NET_INTERFACE(hNetInterface: HNETINTERFACE) -> BOOL;
+        extern fn PCLUSAPI_CLOSE_CLUSTER_NODE(hNode: HNODE) -> BOOL;
+        extern fn PCLUSAPI_CLOSE_CLUSTER_NOTIFY_PORT(hChange: HCHANGE) -> BOOL;
+        extern fn PCLUSAPI_CLOSE_CLUSTER_RESOURCE(hResource: HRESOURCE) -> BOOL;
+        extern fn PCLUSAPI_CLUSTER_ADD_GROUP_TO_AFFINITY_RULE(hCluster: HCLUSTER, ruleName: PCWSTR, hGroup: HGROUP) -> u32;
+        extern fn PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUPSET_WITH_DOMAINS_EX(hGroupSet: HGROUPSET, hGroup: HGROUP, faultDomain: u32, updateDomain: u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUP_GROUPSET(hGroupSet: HGROUPSET, hGroup: HGROUP) -> u32;
+        extern fn PCLUSAPI_CLUSTER_AFFINITY_RULE_CONTROL(hCluster: HCLUSTER, affinityRuleName: PCWSTR, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(5)] #[in] #[opt] lpInBuffer: *mut void, cbInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_CLOSE_ENUM(hEnum: HCLUSENUM) -> u32;
+        extern fn PCLUSAPI_CLUSTER_CLOSE_ENUM_EX(hClusterEnum: HCLUSENUMEX) -> u32;
+        extern fn PCLUSAPI_CLUSTER_CONTROL(hCluster: HCLUSTER, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_CONTROL_EX(hCluster: HCLUSTER, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CLUSTER_CREATE_AFFINITY_RULE(hCluster: HCLUSTER, ruleName: PCWSTR, ruleType: CLUS_AFFINITY_RULE_TYPE) -> u32;
+        extern fn PCLUSAPI_CLUSTER_ENUM(hEnum: HCLUSENUM, dwIndex: u32, #[out] lpdwType: LPDWORD, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_ENUM_EX(hClusterEnum: HCLUSENUMEX, dwIndex: u32, #[in] #[out] pItem: PCLUSTER_ENUM_ITEM, #[in] #[out] cbItem: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_GET_ENUM_COUNT(hEnum: HCLUSENUM) -> u32;
+        extern fn PCLUSAPI_CLUSTER_GET_ENUM_COUNT_EX(hClusterEnum: HCLUSENUMEX) -> u32;
+        extern fn PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM(hGroupEnum: HGROUPENUM) -> u32;
+        extern fn PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM_EX(hGroupEnumEx: HGROUPENUMEX) -> u32;
+        extern fn PCLUSAPI_CLUSTER_GROUP_CONTROL(hGroup: HGROUP, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_GROUP_CONTROL_EX(hGroup: HGROUP, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CLUSTER_GROUP_ENUM(hGroupEnum: HGROUPENUM, dwIndex: u32, #[out] lpdwType: LPDWORD, #[len_param(4)] #[out] lpszResourceName: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_GROUP_ENUM_EX(hGroupEnumEx: HGROUPENUMEX, dwIndex: u32, #[in] #[out] pItem: PCLUSTER_GROUP_ENUM_ITEM, #[in] #[out] cbItem: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT(hGroupEnum: HGROUPENUM) -> u32;
+        extern fn PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT_EX(hGroupEnumEx: HGROUPENUMEX) -> u32;
+        extern fn PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL(hGroupSet: HGROUPSET, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL_EX(hGroupSet: HGROUPSET, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM(hGroup: HGROUP, dwType: u32) -> HGROUPENUM;
+        extern fn PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM_EX(hCluster: HCLUSTER, #[size_param(2)] #[opt] lpszProperties: PCWSTR, cbProperties: u32, #[size_param(4)] #[opt] lpszRoProperties: PCWSTR, cbRoProperties: u32, dwFlags: u32) -> HGROUPENUMEX;
+        extern fn PCLUSAPI_CLUSTER_NETWORK_CLOSE_ENUM(hNetworkEnum: HNETWORKENUM) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NETWORK_CONTROL(hNetwork: HNETWORK, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NETWORK_CONTROL_EX(hNetwork: HNETWORK, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NETWORK_ENUM(hNetworkEnum: HNETWORKENUM, dwIndex: u32, #[out] lpdwType: LPDWORD, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NETWORK_GET_ENUM_COUNT(hNetworkEnum: HNETWORKENUM) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NETWORK_OPEN_ENUM(hNetwork: HNETWORK, dwType: u32) -> HNETWORKENUM;
+        extern fn PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL(hNetInterface: HNETINTERFACE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL_EX(hNetInterface: HNETINTERFACE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM(hNodeEnum: HNODEENUM) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM_EX(hNodeEnum: HNODEENUMEX) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NODE_CONTROL(hNode: HNODE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NODE_CONTROL_EX(hNode: HNODE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NODE_ENUM(hNodeEnum: HNODEENUM, dwIndex: u32, #[out] lpdwType: LPDWORD, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NODE_ENUM_EX(hNodeEnum: HNODEENUMEX, dwIndex: u32, #[in] #[out] pItem: PCLUSTER_ENUM_ITEM, #[in] #[out] cbItem: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT(hNodeEnum: HNODEENUM) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT_EX(hNodeEnum: HNODEENUMEX) -> u32;
+        extern fn PCLUSAPI_CLUSTER_NODE_OPEN_ENUM(hNode: HNODE, dwType: u32) -> HNODEENUM;
+        extern fn PCLUSAPI_CLUSTER_NODE_OPEN_ENUM_EX(hNode: HNODE, dwType: u32, #[in] #[opt] pOptions: *mut void) -> HNODEENUMEX;
+        extern fn PCLUSAPI_CLUSTER_OPEN_ENUM(hCluster: HCLUSTER, dwType: u32) -> HCLUSENUM;
+        extern fn PCLUSAPI_CLUSTER_OPEN_ENUM_EX(hCluster: HCLUSTER, dwType: u32, #[in] #[opt] pOptions: *mut void) -> HCLUSENUMEX;
         extern fn PCLUSAPI_CLUSTER_REG_CLOSE_KEY(hKey: HKEY) -> i32;
         extern fn PCLUSAPI_CLUSTER_REG_CREATE_BATCH(#[opt] hKey: HKEY, pHREGBATCH: *mut HREGBATCH) -> i32;
-        extern fn PCLUSAPI_CLUSTER_REG_CREATE_KEY(hKey: HKEY, lpszSubKey: PCWSTR, dwOptions: u32, samDesired: REGSAM, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, phkResult: *mut HKEY, #[opt] lpdwDisposition: *mut u32) -> i32;
-        extern fn PCLUSAPI_CLUSTER_REG_CREATE_KEY_EX(hKey: HKEY, lpszSubKey: PCWSTR, dwOptions: u32, samDesired: REGSAM, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, phkResult: *mut HKEY, #[opt] lpdwDisposition: *mut u32, #[opt] lpszReason: PCWSTR) -> i32;
+        extern fn PCLUSAPI_CLUSTER_REG_CREATE_KEY(hKey: HKEY, lpszSubKey: PCWSTR, dwOptions: u32, samDesired: REGSAM, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[out] phkResult: PHKEY, #[out] #[opt] lpdwDisposition: LPDWORD) -> i32;
+        extern fn PCLUSAPI_CLUSTER_REG_CREATE_KEY_EX(hKey: HKEY, lpszSubKey: PCWSTR, dwOptions: u32, samDesired: REGSAM, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[out] phkResult: PHKEY, #[out] #[opt] lpdwDisposition: LPDWORD, #[opt] lpszReason: PCWSTR) -> i32;
         extern fn PCLUSAPI_CLUSTER_REG_DELETE_KEY(hKey: HKEY, lpszSubKey: PCWSTR) -> i32;
         extern fn PCLUSAPI_CLUSTER_REG_DELETE_KEY_EX(hKey: HKEY, lpSubKey: PCWSTR, #[opt] lpszReason: PCWSTR) -> i32;
         extern fn PCLUSAPI_CLUSTER_REG_DELETE_VALUE(hKey: HKEY, lpszValueName: PCWSTR) -> u32;
         extern fn PCLUSAPI_CLUSTER_REG_DELETE_VALUE_EX(hKey: HKEY, lpszValueName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_REG_ENUM_KEY(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32, lpftLastWriteTime: *mut FILETIME) -> i32;
-        extern fn PCLUSAPI_CLUSTER_REG_ENUM_VALUE(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] lpszValueName: PWSTR, #[in] #[out] lpcchValueName: *mut u32, lpdwType: *mut u32, #[size_param(6)] #[opt] lpData: *mut u8, #[in] #[out] #[opt] lpcbData: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY(hKey: HKEY, RequestedInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] lpcbSecurityDescriptor: *mut u32) -> i32;
-        extern fn PCLUSAPI_CLUSTER_REG_OPEN_KEY(hKey: HKEY, lpszSubKey: PCWSTR, samDesired: REGSAM, phkResult: *mut HKEY) -> i32;
-        extern fn PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY(hKey: HKEY, lpcSubKeys: *mut u32, lpcbMaxSubKeyLen: *mut u32, lpcValues: *mut u32, lpcbMaxValueNameLen: *mut u32, lpcbMaxValueLen: *mut u32, lpcbSecurityDescriptor: *mut u32, lpftLastWriteTime: *mut FILETIME) -> i32;
-        extern fn PCLUSAPI_CLUSTER_REG_QUERY_VALUE(hKey: HKEY, lpszValueName: PCWSTR, #[opt] lpdwValueType: *mut u32, #[size_param(4)] #[opt] lpData: *mut u8, #[in] #[out] #[opt] lpcbData: *mut u32) -> i32;
+        extern fn PCLUSAPI_CLUSTER_REG_ENUM_KEY(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD, #[out] lpftLastWriteTime: PFILETIME) -> i32;
+        extern fn PCLUSAPI_CLUSTER_REG_ENUM_VALUE(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] lpszValueName: PWSTR, #[in] #[out] lpcchValueName: LPDWORD, #[out] lpdwType: LPDWORD, #[size_param(6)] #[out] #[opt] lpData: LPBYTE, #[in] #[out] #[opt] lpcbData: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY(hKey: HKEY, RequestedInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] lpcbSecurityDescriptor: LPDWORD) -> i32;
+        extern fn PCLUSAPI_CLUSTER_REG_OPEN_KEY(hKey: HKEY, lpszSubKey: PCWSTR, samDesired: REGSAM, phkResult: PHKEY) -> i32;
+        extern fn PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY(hKey: HKEY, lpcSubKeys: LPDWORD, lpcbMaxSubKeyLen: LPDWORD, lpcValues: LPDWORD, lpcbMaxValueNameLen: LPDWORD, lpcbMaxValueLen: LPDWORD, lpcbSecurityDescriptor: LPDWORD, lpftLastWriteTime: PFILETIME) -> i32;
+        extern fn PCLUSAPI_CLUSTER_REG_QUERY_VALUE(hKey: HKEY, lpszValueName: PCWSTR, #[out] #[opt] lpdwValueType: LPDWORD, #[size_param(4)] #[out] #[opt] lpData: LPBYTE, #[in] #[out] #[opt] lpcbData: LPDWORD) -> i32;
         extern fn PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY(hKey: HKEY, SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> i32;
         extern fn PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY_EX(hKey: HKEY, SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] lpszReason: PCWSTR) -> i32;
         extern fn PCLUSAPI_CLUSTER_REG_SET_VALUE(hKey: HKEY, lpszValueName: PCWSTR, dwType: u32, lpData: *const u8, cbData: u32) -> u32;
         extern fn PCLUSAPI_CLUSTER_REG_SET_VALUE_EX(hKey: HKEY, lpszValueName: PCWSTR, dwType: u32, lpData: *const u8, cbData: u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_REG_SYNC_DATABASE(hCluster: *mut _HCLUSTER, flags: u32) -> i32;
-        extern fn PCLUSAPI_CLUSTER_REMOVE_AFFINITY_RULE(hCluster: *mut _HCLUSTER, ruleName: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_AFFINITY_RULE(hCluster: *mut _HCLUSTER, ruleName: PCWSTR, hGroup: *mut _HGROUP) -> u32;
-        extern fn PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUPSET(hGroupSet: *const _HGROUPSET) -> u32;
-        extern fn PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUPSET_EX(hGroupSet: *const _HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM(hResEnum: *mut _HRESENUM) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM_EX(hResourceEnumEx: *const _HRESENUMEX) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_CONTROL(hResource: *const _HRESOURCE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_CONTROL_AS_USER_EX(hResource: *const _HRESOURCE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_CONTROL_EX(hResource: *const _HRESOURCE, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(4)] #[opt] lpInBuffer: *const void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_ENUM(hResEnum: *const _HRESENUM, dwIndex: u32, lpdwType: *mut u32, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_ENUM_EX(hResourceEnumEx: *const _HRESENUMEX, dwIndex: u32, #[in] #[out] pItem: *mut CLUSTER_RESOURCE_ENUM_ITEM, #[in] #[out] cbItem: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT(hResEnum: *const _HRESENUM) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT_EX(hResourceEnumEx: *const _HRESENUMEX) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM(hResource: *mut _HRESOURCE, dwType: u32) -> HRESENUM;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM_EX(hCluster: *const _HCLUSTER, #[size_param(2)] #[opt] lpszProperties: PCWSTR, cbProperties: u32, #[size_param(4)] #[opt] lpszRoProperties: PCWSTR, cbRoProperties: u32, dwFlags: u32) -> HRESENUMEX;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_TYPE_CLOSE_ENUM(hResTypeEnum: *const _HRESTYPEENUM) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(5)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL_AS_USER_EX(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(5)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL_EX(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, #[opt] hHostNode: *const _HNODE, dwControlCode: u32, #[size_param(5)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM(hResTypeEnum: *const _HRESTYPEENUM, dwIndex: u32, lpdwType: *mut u32, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_TYPE_GET_ENUM_COUNT(hResTypeEnum: *const _HRESTYPEENUM) -> u32;
-        extern fn PCLUSAPI_CLUSTER_RESOURCE_TYPE_OPEN_ENUM(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, dwType: u32) -> HRESTYPEENUM;
-        extern fn PCLUSAPI_CLUSTER_UPGRADE(hCluster: *const _HCLUSTER, perform: BOOL, #[opt] pfnProgressCallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void) -> u32;
-        extern fn PCLUSAPI_CREATE_CLUSTER(pConfig: *const CREATE_CLUSTER_CONFIG, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void) -> HCLUSTER;
-        extern fn PCLUSAPI_CREATE_CLUSTER_AVAILABILITY_SET(hCluster: *const _HCLUSTER, lpAvailabilitySetName: PCWSTR, pAvailabilitySetConfig: *const CLUSTER_AVAILABILITY_SET_CONFIG) -> HGROUPSET;
-        extern fn PCLUSAPI_CREATE_CLUSTER_CNOLESS(pConfig: *const CREATE_CLUSTER_CONFIG, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void) -> HCLUSTER;
-        extern fn PCLUSAPI_CREATE_CLUSTER_GROUP(hCluster: *const _HCLUSTER, lpszGroupName: PCWSTR) -> HGROUP;
-        extern fn PCLUSAPI_CREATE_CLUSTER_GROUPEX(hCluster: *const _HCLUSTER, lpszGroupName: PCWSTR, #[opt] pGroupInfo: *const CLUSTER_CREATE_GROUP_INFO) -> HGROUP;
-        extern fn PCLUSAPI_CREATE_CLUSTER_GROUP_GROUPSET(hCluster: *const _HCLUSTER, lpszGroupSetName: PCWSTR) -> HGROUPSET;
-        extern fn PCLUSAPI_CREATE_CLUSTER_NAME_ACCOUNT(hCluster: *const _HCLUSTER, pConfig: *const CREATE_CLUSTER_NAME_ACCOUNT, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void) -> u32;
-        extern fn PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT(hChange: *const _HCHANGE, hCluster: *const _HCLUSTER, dwFilter: u32, dwNotifyKey: usize) -> HCHANGE;
-        extern fn PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT_V2(hChange: *const _HCHANGE, hCluster: *const _HCLUSTER, Filters: *const NOTIFY_FILTER_AND_TYPE, dwFilterCount: u32, dwNotifyKey: usize) -> HCHANGE;
-        extern fn PCLUSAPI_CREATE_CLUSTER_RESOURCE(hGroup: *mut _HGROUP, lpszResourceName: PCWSTR, lpszResourceType: PCWSTR, dwFlags: u32) -> HRESOURCE;
-        extern fn PCLUSAPI_CREATE_CLUSTER_RESOURCE_EX(hGroup: *const _HGROUP, lpszResourceName: PCWSTR, lpszResourceType: PCWSTR, dwFlags: u32, #[opt] lpszReason: PCWSTR) -> HRESOURCE;
-        extern fn PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, lpszDisplayName: PCWSTR, lpszResourceTypeDll: PCWSTR, dwLooksAlivePollInterval: u32, dwIsAlivePollInterval: u32) -> u32;
-        extern fn PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE_EX(hCluster: *const _HCLUSTER, lpszResourceTypeName: PCWSTR, lpszDisplayName: PCWSTR, lpszResourceTypeDll: PCWSTR, dwLooksAlivePollInterval: u32, dwIsAlivePollInterval: u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_DELETE_CLUSTER_GROUP(hGroup: *mut _HGROUP) -> u32;
-        extern fn PCLUSAPI_DELETE_CLUSTER_GROUP_EX(hGroup: *const _HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET(hGroupSet: *const _HGROUPSET) -> u32;
-        extern fn PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET_EX(hGroupSet: *const _HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_DELETE_CLUSTER_RESOURCE(hResource: *mut _HRESOURCE) -> u32;
-        extern fn PCLUSAPI_DELETE_CLUSTER_RESOURCE_EX(hResource: *const _HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE(hCluster: *mut _HCLUSTER, lpszResourceTypeName: PCWSTR) -> u32;
-        extern fn PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE_EX(hCluster: *const _HCLUSTER, lpszTypeName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_DESTROY_CLUSTER(hCluster: *const _HCLUSTER, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void, fdeleteVirtualComputerObjects: BOOL) -> u32;
-        extern fn PCLUSAPI_DESTROY_CLUSTER_GROUP(hGroup: *mut _HGROUP) -> u32;
-        extern fn PCLUSAPI_DESTROY_CLUSTER_GROUP_EX(hGroup: *const _HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_EVICT_CLUSTER_NODE(hNode: *const _HNODE) -> u32;
-        extern fn PCLUSAPI_EVICT_CLUSTER_NODE_EX(hNode: *const _HNODE, dwTimeOut: u32, phrCleanupStatus: *mut HRESULT) -> u32;
-        extern fn PCLUSAPI_EVICT_CLUSTER_NODE_EX2(hNode: *const _HNODE, dwTimeout: u32, phrCleanupStatus: *mut HRESULT, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_FAIL_CLUSTER_RESOURCE(hResource: *mut _HRESOURCE) -> u32;
-        extern fn PCLUSAPI_FAIL_CLUSTER_RESOURCE_EX(hResource: *const _HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_GET_CLUSTER_FROM_GROUP(hGroup: *const _HGROUP) -> HCLUSTER;
-        extern fn PCLUSAPI_GET_CLUSTER_FROM_GROUP_GROUPSET(hGroupSet: *const _HGROUPSET) -> HCLUSTER;
-        extern fn PCLUSAPI_GET_CLUSTER_FROM_NETWORK(hNetwork: *const _HNETWORK) -> HCLUSTER;
-        extern fn PCLUSAPI_GET_CLUSTER_FROM_NET_INTERFACE(hNetInterface: *const _HNETINTERFACE) -> HCLUSTER;
-        extern fn PCLUSAPI_GET_CLUSTER_FROM_NODE(hNode: *const _HNODE) -> HCLUSTER;
-        extern fn PCLUSAPI_GET_CLUSTER_FROM_RESOURCE(hResource: *const _HRESOURCE) -> HCLUSTER;
-        extern fn PCLUSAPI_GET_CLUSTER_GROUP_KEY(hGroup: *mut _HGROUP, samDesired: REGSAM) -> HKEY;
-        extern fn PCLUSAPI_GET_CLUSTER_GROUP_STATE(hGroup: *const _HGROUP, #[len_param(2)] #[out] #[opt] lpszNodeName: PWSTR, #[in] #[out] #[opt] lpcchNodeName: *mut u32) -> CLUSTER_GROUP_STATE;
-        extern fn PCLUSAPI_GET_CLUSTER_INFORMATION(hCluster: *const _HCLUSTER, #[len_param(2)] #[out] lpszClusterName: PWSTR, #[in] #[out] lpcchClusterName: *mut u32, #[opt] lpClusterInfo: *mut CLUSTERVERSIONINFO) -> u32;
-        extern fn PCLUSAPI_GET_CLUSTER_KEY(hCluster: *mut _HCLUSTER, samDesired: REGSAM) -> HKEY;
-        extern fn PCLUSAPI_GET_CLUSTER_NETWORK_ID(hNetwork: *const _HNETWORK, #[len_param(2)] #[out] lpszNetworkId: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
-        extern fn PCLUSAPI_GET_CLUSTER_NETWORK_KEY(hNetwork: *const _HNETWORK, samDesired: REGSAM) -> HKEY;
-        extern fn PCLUSAPI_GET_CLUSTER_NETWORK_STATE(hNetwork: *const _HNETWORK) -> CLUSTER_NETWORK_STATE;
-        extern fn PCLUSAPI_GET_CLUSTER_NET_INTERFACE(hCluster: *const _HCLUSTER, lpszNodeName: PCWSTR, lpszNetworkName: PCWSTR, #[len_param(4)] #[out] #[opt] lpszInterfaceName: PWSTR, #[in] #[out] lpcchInterfaceName: *mut u32) -> u32;
-        extern fn PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEY(hNetInterface: *const _HNETINTERFACE, samDesired: REGSAM) -> HKEY;
-        extern fn PCLUSAPI_GET_CLUSTER_NET_INTERFACE_STATE(hNetInterface: *const _HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE;
-        extern fn PCLUSAPI_GET_CLUSTER_NODE_ID(#[opt] hNode: *const _HNODE, #[len_param(2)] #[out] lpszNodeId: PWSTR, #[in] #[out] lpcchName: *mut u32) -> u32;
-        extern fn PCLUSAPI_GET_CLUSTER_NODE_KEY(hNode: *mut _HNODE, samDesired: REGSAM) -> HKEY;
-        extern fn PCLUSAPI_GET_CLUSTER_NODE_STATE(hNode: *const _HNODE) -> CLUSTER_NODE_STATE;
-        extern fn PCLUSAPI_GET_CLUSTER_NOTIFY(hChange: *const _HCHANGE, lpdwNotifyKey: *mut usize, lpdwFilterType: *mut u32, #[len_param(4)] #[out] #[opt] lpszName: PWSTR, #[in] #[out] lpcchName: *mut u32, dwMilliseconds: u32) -> u32;
-        extern fn PCLUSAPI_GET_CLUSTER_NOTIFY_V2(hChange: *const _HCHANGE, lpdwNotifyKey: *mut usize, #[in] #[out] #[opt] pFilterAndType: *mut NOTIFY_FILTER_AND_TYPE, #[in] #[out] #[opt] buffer: *mut u8, #[in] #[out] #[opt] lpcchBufferSize: *mut u32, #[in] #[out] #[opt] lpszObjectId: PWSTR, #[in] #[out] #[opt] lpcchObjectId: *mut u32, #[in] #[out] #[opt] lpszParentId: PWSTR, #[in] #[out] #[opt] lpcchParentId: *mut u32, #[in] #[out] #[opt] lpszName: PWSTR, #[in] #[out] #[opt] lpcchName: *mut u32, #[in] #[out] #[opt] lpszType: PWSTR, #[in] #[out] #[opt] lpcchType: *mut u32, #[opt] dwMilliseconds: u32) -> u32;
-        extern fn PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE(hCluster: *const _HCLUSTER, #[len_param(2)] #[out] lpszResourceName: PWSTR, #[in] #[out] lpcchResourceName: *mut u32, #[len_param(4)] #[out] lpszDeviceName: PWSTR, #[in] #[out] lpcchDeviceName: *mut u32, lpdwMaxQuorumLogSize: *mut u32) -> u32;
-        extern fn PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(hResource: *const _HRESOURCE, #[len_param(2)] #[out] #[opt] lpszDependencyExpression: PWSTR, #[in] #[out] lpcchDependencyExpression: *mut u32) -> u32;
-        extern fn PCLUSAPI_GET_CLUSTER_RESOURCE_KEY(hResource: *mut _HRESOURCE, samDesired: REGSAM) -> HKEY;
-        extern fn PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME(hResource: *const _HRESOURCE, #[len_param(2)] #[out] lpBuffer: PWSTR, #[in] #[out] nSize: *mut u32) -> BOOL;
-        extern fn PCLUSAPI_GET_CLUSTER_RESOURCE_STATE(hResource: *const _HRESOURCE, #[len_param(2)] #[out] #[opt] lpszNodeName: PWSTR, #[in] #[out] #[opt] lpcchNodeName: *mut u32, #[len_param(4)] #[out] #[opt] lpszGroupName: PWSTR, #[in] #[out] #[opt] lpcchGroupName: *mut u32) -> CLUSTER_RESOURCE_STATE;
-        extern fn PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEY(hCluster: *const _HCLUSTER, lpszTypeName: PCWSTR, samDesired: REGSAM) -> HKEY;
-        extern fn PCLUSAPI_GET_NODE_CLUSTER_STATE(#[opt] lpszNodeName: PCWSTR, pdwClusterState: *mut u32) -> u32;
-        extern fn PCLUSAPI_GET_NOTIFY_EVENT_HANDLE_V2(hChange: *const _HCHANGE, lphTargetEvent: *mut HANDLE) -> u32;
-        extern fn PCLUSAPI_IS_FILE_ON_CLUSTER_SHARED_VOLUME(lpszPathName: PCWSTR, pbFileIsOnSharedVolume: *mut BOOL) -> u32;
-        extern fn PCLUSAPI_MOVE_CLUSTER_GROUP(hGroup: *const _HGROUP, #[opt] hDestinationNode: *const _HNODE) -> u32;
-        extern fn PCLUSAPI_OFFLINE_CLUSTER_GROUP(hGroup: *mut _HGROUP) -> u32;
-        extern fn PCLUSAPI_OFFLINE_CLUSTER_RESOURCE(hResource: *mut _HRESOURCE) -> u32;
-        extern fn PCLUSAPI_ONLINE_CLUSTER_GROUP(hGroup: *const _HGROUP, #[opt] hDestinationNode: *const _HNODE) -> u32;
-        extern fn PCLUSAPI_ONLINE_CLUSTER_RESOURCE(hResource: *mut _HRESOURCE) -> u32;
+        extern fn PCLUSAPI_CLUSTER_REG_SYNC_DATABASE(hCluster: HCLUSTER, flags: u32) -> i32;
+        extern fn PCLUSAPI_CLUSTER_REMOVE_AFFINITY_RULE(hCluster: HCLUSTER, ruleName: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_AFFINITY_RULE(hCluster: HCLUSTER, ruleName: PCWSTR, hGroup: HGROUP) -> u32;
+        extern fn PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUPSET(hGroupSet: HGROUPSET) -> u32;
+        extern fn PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUPSET_EX(hGroupSet: HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM(hResEnum: HRESENUM) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM_EX(hResourceEnumEx: HRESENUMEX) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_CONTROL(hResource: HRESOURCE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_CONTROL_AS_USER_EX(hResource: HRESOURCE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_CONTROL_EX(hResource: HRESOURCE, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(4)] #[in] #[opt] lpInBuffer: *mut void, cbInBufferSize: u32, #[size_param(6)] #[opt] lpOutBuffer: *mut void, cbOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_ENUM(hResEnum: HRESENUM, dwIndex: u32, #[out] lpdwType: LPDWORD, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_ENUM_EX(hResourceEnumEx: HRESENUMEX, dwIndex: u32, #[in] #[out] pItem: PCLUSTER_RESOURCE_ENUM_ITEM, #[in] #[out] cbItem: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT(hResEnum: HRESENUM) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT_EX(hResourceEnumEx: HRESENUMEX) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM(hResource: HRESOURCE, dwType: u32) -> HRESENUM;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM_EX(hCluster: HCLUSTER, #[size_param(2)] #[opt] lpszProperties: PCWSTR, cbProperties: u32, #[size_param(4)] #[opt] lpszRoProperties: PCWSTR, cbRoProperties: u32, dwFlags: u32) -> HRESENUMEX;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_TYPE_CLOSE_ENUM(hResTypeEnum: HRESTYPEENUM) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(5)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL_AS_USER_EX(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(5)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL_EX(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR, #[opt] hHostNode: HNODE, dwControlCode: u32, #[size_param(5)] #[in] #[opt] lpInBuffer: *mut void, nInBufferSize: u32, #[size_param(7)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[out] #[opt] lpBytesReturned: LPDWORD, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM(hResTypeEnum: HRESTYPEENUM, dwIndex: u32, #[out] lpdwType: LPDWORD, #[len_param(4)] #[out] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_TYPE_GET_ENUM_COUNT(hResTypeEnum: HRESTYPEENUM) -> u32;
+        extern fn PCLUSAPI_CLUSTER_RESOURCE_TYPE_OPEN_ENUM(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR, dwType: u32) -> HRESTYPEENUM;
+        extern fn PCLUSAPI_CLUSTER_UPGRADE(hCluster: HCLUSTER, perform: BOOL, #[opt] pfnProgressCallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void) -> u32;
+        extern fn PCLUSAPI_CREATE_CLUSTER(pConfig: PCREATE_CLUSTER_CONFIG, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void) -> HCLUSTER;
+        extern fn PCLUSAPI_CREATE_CLUSTER_AVAILABILITY_SET(hCluster: HCLUSTER, lpAvailabilitySetName: PCWSTR, pAvailabilitySetConfig: PCLUSTER_AVAILABILITY_SET_CONFIG) -> HGROUPSET;
+        extern fn PCLUSAPI_CREATE_CLUSTER_CNOLESS(pConfig: PCREATE_CLUSTER_CONFIG, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void) -> HCLUSTER;
+        extern fn PCLUSAPI_CREATE_CLUSTER_GROUP(hCluster: HCLUSTER, lpszGroupName: PCWSTR) -> HGROUP;
+        extern fn PCLUSAPI_CREATE_CLUSTER_GROUPEX(hCluster: HCLUSTER, lpszGroupName: PCWSTR, #[opt] pGroupInfo: PCLUSTER_CREATE_GROUP_INFO) -> HGROUP;
+        extern fn PCLUSAPI_CREATE_CLUSTER_GROUP_GROUPSET(hCluster: HCLUSTER, lpszGroupSetName: PCWSTR) -> HGROUPSET;
+        extern fn PCLUSAPI_CREATE_CLUSTER_NAME_ACCOUNT(hCluster: HCLUSTER, pConfig: PCREATE_CLUSTER_NAME_ACCOUNT, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void) -> u32;
+        extern fn PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT(hChange: HCHANGE, hCluster: HCLUSTER, dwFilter: u32, dwNotifyKey: usize) -> HCHANGE;
+        extern fn PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT_V2(hChange: HCHANGE, hCluster: HCLUSTER, #[in] Filters: *mut NOTIFY_FILTER_AND_TYPE, dwFilterCount: u32, dwNotifyKey: usize) -> HCHANGE;
+        extern fn PCLUSAPI_CREATE_CLUSTER_RESOURCE(hGroup: HGROUP, lpszResourceName: PCWSTR, lpszResourceType: PCWSTR, dwFlags: u32) -> HRESOURCE;
+        extern fn PCLUSAPI_CREATE_CLUSTER_RESOURCE_EX(hGroup: HGROUP, lpszResourceName: PCWSTR, lpszResourceType: PCWSTR, dwFlags: u32, #[opt] lpszReason: PCWSTR) -> HRESOURCE;
+        extern fn PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR, lpszDisplayName: PCWSTR, lpszResourceTypeDll: PCWSTR, dwLooksAlivePollInterval: u32, dwIsAlivePollInterval: u32) -> u32;
+        extern fn PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE_EX(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR, lpszDisplayName: PCWSTR, lpszResourceTypeDll: PCWSTR, dwLooksAlivePollInterval: u32, dwIsAlivePollInterval: u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_DELETE_CLUSTER_GROUP(hGroup: HGROUP) -> u32;
+        extern fn PCLUSAPI_DELETE_CLUSTER_GROUP_EX(hGroup: HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET(hGroupSet: HGROUPSET) -> u32;
+        extern fn PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET_EX(hGroupSet: HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_DELETE_CLUSTER_RESOURCE(hResource: HRESOURCE) -> u32;
+        extern fn PCLUSAPI_DELETE_CLUSTER_RESOURCE_EX(hResource: HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE(hCluster: HCLUSTER, lpszResourceTypeName: PCWSTR) -> u32;
+        extern fn PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE_EX(hCluster: HCLUSTER, lpszTypeName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_DESTROY_CLUSTER(hCluster: HCLUSTER, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void, fdeleteVirtualComputerObjects: BOOL) -> u32;
+        extern fn PCLUSAPI_DESTROY_CLUSTER_GROUP(hGroup: HGROUP) -> u32;
+        extern fn PCLUSAPI_DESTROY_CLUSTER_GROUP_EX(hGroup: HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_EVICT_CLUSTER_NODE(hNode: HNODE) -> u32;
+        extern fn PCLUSAPI_EVICT_CLUSTER_NODE_EX(hNode: HNODE, dwTimeOut: u32, phrCleanupStatus: *mut HRESULT) -> u32;
+        extern fn PCLUSAPI_EVICT_CLUSTER_NODE_EX2(hNode: HNODE, dwTimeout: u32, phrCleanupStatus: *mut HRESULT, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_FAIL_CLUSTER_RESOURCE(hResource: HRESOURCE) -> u32;
+        extern fn PCLUSAPI_FAIL_CLUSTER_RESOURCE_EX(hResource: HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_GET_CLUSTER_FROM_GROUP(hGroup: HGROUP) -> HCLUSTER;
+        extern fn PCLUSAPI_GET_CLUSTER_FROM_GROUP_GROUPSET(hGroupSet: HGROUPSET) -> HCLUSTER;
+        extern fn PCLUSAPI_GET_CLUSTER_FROM_NETWORK(hNetwork: HNETWORK) -> HCLUSTER;
+        extern fn PCLUSAPI_GET_CLUSTER_FROM_NET_INTERFACE(hNetInterface: HNETINTERFACE) -> HCLUSTER;
+        extern fn PCLUSAPI_GET_CLUSTER_FROM_NODE(hNode: HNODE) -> HCLUSTER;
+        extern fn PCLUSAPI_GET_CLUSTER_FROM_RESOURCE(hResource: HRESOURCE) -> HCLUSTER;
+        extern fn PCLUSAPI_GET_CLUSTER_GROUP_KEY(hGroup: HGROUP, samDesired: REGSAM) -> HKEY;
+        extern fn PCLUSAPI_GET_CLUSTER_GROUP_STATE(hGroup: HGROUP, #[len_param(2)] #[out] #[opt] lpszNodeName: PWSTR, #[in] #[out] #[opt] lpcchNodeName: LPDWORD) -> CLUSTER_GROUP_STATE;
+        extern fn PCLUSAPI_GET_CLUSTER_INFORMATION(hCluster: HCLUSTER, #[len_param(2)] #[out] lpszClusterName: PWSTR, #[in] #[out] lpcchClusterName: LPDWORD, #[out] #[opt] lpClusterInfo: LPCLUSTERVERSIONINFO) -> u32;
+        extern fn PCLUSAPI_GET_CLUSTER_KEY(hCluster: HCLUSTER, samDesired: REGSAM) -> HKEY;
+        extern fn PCLUSAPI_GET_CLUSTER_NETWORK_ID(hNetwork: HNETWORK, #[len_param(2)] #[out] lpszNetworkId: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
+        extern fn PCLUSAPI_GET_CLUSTER_NETWORK_KEY(hNetwork: HNETWORK, samDesired: REGSAM) -> HKEY;
+        extern fn PCLUSAPI_GET_CLUSTER_NETWORK_STATE(hNetwork: HNETWORK) -> CLUSTER_NETWORK_STATE;
+        extern fn PCLUSAPI_GET_CLUSTER_NET_INTERFACE(hCluster: HCLUSTER, lpszNodeName: PCWSTR, lpszNetworkName: PCWSTR, #[len_param(4)] #[out] #[opt] lpszInterfaceName: PWSTR, #[in] #[out] lpcchInterfaceName: LPDWORD) -> u32;
+        extern fn PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEY(hNetInterface: HNETINTERFACE, samDesired: REGSAM) -> HKEY;
+        extern fn PCLUSAPI_GET_CLUSTER_NET_INTERFACE_STATE(hNetInterface: HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE;
+        extern fn PCLUSAPI_GET_CLUSTER_NODE_ID(#[opt] hNode: HNODE, #[len_param(2)] #[out] lpszNodeId: PWSTR, #[in] #[out] lpcchName: LPDWORD) -> u32;
+        extern fn PCLUSAPI_GET_CLUSTER_NODE_KEY(hNode: HNODE, samDesired: REGSAM) -> HKEY;
+        extern fn PCLUSAPI_GET_CLUSTER_NODE_STATE(hNode: HNODE) -> CLUSTER_NODE_STATE;
+        extern fn PCLUSAPI_GET_CLUSTER_NOTIFY(hChange: HCHANGE, lpdwNotifyKey: *mut usize, #[out] lpdwFilterType: LPDWORD, #[len_param(4)] #[out] #[opt] lpszName: PWSTR, #[in] #[out] lpcchName: LPDWORD, dwMilliseconds: u32) -> u32;
+        extern fn PCLUSAPI_GET_CLUSTER_NOTIFY_V2(hChange: HCHANGE, lpdwNotifyKey: *mut usize, #[in] #[out] #[opt] pFilterAndType: PNOTIFY_FILTER_AND_TYPE, #[in] #[out] #[opt] buffer: *mut u8, #[in] #[out] #[opt] lpcchBufferSize: LPDWORD, #[in] #[out] #[opt] lpszObjectId: PWSTR, #[in] #[out] #[opt] lpcchObjectId: LPDWORD, #[in] #[out] #[opt] lpszParentId: PWSTR, #[in] #[out] #[opt] lpcchParentId: LPDWORD, #[in] #[out] #[opt] lpszName: PWSTR, #[in] #[out] #[opt] lpcchName: LPDWORD, #[in] #[out] #[opt] lpszType: PWSTR, #[in] #[out] #[opt] lpcchType: LPDWORD, #[opt] dwMilliseconds: u32) -> u32;
+        extern fn PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE(hCluster: HCLUSTER, #[len_param(2)] #[out] lpszResourceName: PWSTR, #[in] #[out] lpcchResourceName: LPDWORD, #[len_param(4)] #[out] lpszDeviceName: PWSTR, #[in] #[out] lpcchDeviceName: LPDWORD, #[out] lpdwMaxQuorumLogSize: LPDWORD) -> u32;
+        extern fn PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(hResource: HRESOURCE, #[len_param(2)] #[out] #[opt] lpszDependencyExpression: PWSTR, #[in] #[out] lpcchDependencyExpression: LPDWORD) -> u32;
+        extern fn PCLUSAPI_GET_CLUSTER_RESOURCE_KEY(hResource: HRESOURCE, samDesired: REGSAM) -> HKEY;
+        extern fn PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME(hResource: HRESOURCE, #[len_param(2)] #[out] lpBuffer: PWSTR, #[in] #[out] nSize: LPDWORD) -> BOOL;
+        extern fn PCLUSAPI_GET_CLUSTER_RESOURCE_STATE(hResource: HRESOURCE, #[len_param(2)] #[out] #[opt] lpszNodeName: PWSTR, #[in] #[out] #[opt] lpcchNodeName: LPDWORD, #[len_param(4)] #[out] #[opt] lpszGroupName: PWSTR, #[in] #[out] #[opt] lpcchGroupName: LPDWORD) -> CLUSTER_RESOURCE_STATE;
+        extern fn PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEY(hCluster: HCLUSTER, lpszTypeName: PCWSTR, samDesired: REGSAM) -> HKEY;
+        extern fn PCLUSAPI_GET_NODE_CLUSTER_STATE(#[opt] lpszNodeName: PCWSTR, #[out] pdwClusterState: LPDWORD) -> u32;
+        extern fn PCLUSAPI_GET_NOTIFY_EVENT_HANDLE_V2(hChange: HCHANGE, #[out] lphTargetEvent: LPHANDLE) -> u32;
+        extern fn PCLUSAPI_IS_FILE_ON_CLUSTER_SHARED_VOLUME(lpszPathName: PCWSTR, #[out] pbFileIsOnSharedVolume: PBOOL) -> u32;
+        extern fn PCLUSAPI_MOVE_CLUSTER_GROUP(hGroup: HGROUP, #[opt] hDestinationNode: HNODE) -> u32;
+        extern fn PCLUSAPI_OFFLINE_CLUSTER_GROUP(hGroup: HGROUP) -> u32;
+        extern fn PCLUSAPI_OFFLINE_CLUSTER_RESOURCE(hResource: HRESOURCE) -> u32;
+        extern fn PCLUSAPI_ONLINE_CLUSTER_GROUP(hGroup: HGROUP, #[opt] hDestinationNode: HNODE) -> u32;
+        extern fn PCLUSAPI_ONLINE_CLUSTER_RESOURCE(hResource: HRESOURCE) -> u32;
         extern fn PCLUSAPI_OPEN_CLUSTER(#[opt] lpszClusterName: PCWSTR) -> HCLUSTER;
-        extern fn PCLUSAPI_OPEN_CLUSTER_EX(#[opt] lpszClusterName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HCLUSTER;
-        extern fn PCLUSAPI_OPEN_CLUSTER_GROUP(hCluster: *const _HCLUSTER, lpszGroupName: PCWSTR) -> HGROUP;
-        extern fn PCLUSAPI_OPEN_CLUSTER_GROUP_EX(hCluster: *const _HCLUSTER, #[opt] lpszGroupName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HGROUP;
-        extern fn PCLUSAPI_OPEN_CLUSTER_GROUP_GROUPSET(hCluster: *const _HCLUSTER, lpszGroupSetName: PCWSTR) -> HGROUPSET;
-        extern fn PCLUSAPI_OPEN_CLUSTER_NETINTERFACE_EX(hCluster: *const _HCLUSTER, #[opt] lpszNetInterfaceName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HNETINTERFACE;
-        extern fn PCLUSAPI_OPEN_CLUSTER_NETWORK(hCluster: *const _HCLUSTER, lpszNetworkName: PCWSTR) -> HNETWORK;
-        extern fn PCLUSAPI_OPEN_CLUSTER_NETWORK_EX(hCluster: *const _HCLUSTER, #[opt] lpszNetworkName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HNETWORK;
-        extern fn PCLUSAPI_OPEN_CLUSTER_NET_INTERFACE(hCluster: *const _HCLUSTER, lpszInterfaceName: PCWSTR) -> HNETINTERFACE;
-        extern fn PCLUSAPI_OPEN_CLUSTER_NODE(hCluster: *const _HCLUSTER, lpszNodeName: PCWSTR) -> HNODE;
-        extern fn PCLUSAPI_OPEN_CLUSTER_NODE_EX(hCluster: *const _HCLUSTER, #[opt] lpszNodeName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HNODE;
-        extern fn PCLUSAPI_OPEN_CLUSTER_RESOURCE(hCluster: *mut _HCLUSTER, lpszResourceName: PCWSTR) -> HRESOURCE;
-        extern fn PCLUSAPI_OPEN_CLUSTER_RESOURCE_EX(hCluster: *const _HCLUSTER, #[opt] lpszResourceName: PCWSTR, dwDesiredAccess: u32, #[opt] lpdwGrantedAccess: *mut u32) -> HRESOURCE;
-        extern fn PCLUSAPI_OPEN_NODE_BY_ID(hCluster: *mut _HCLUSTER, nodeId: u32) -> HNODE;
-        extern fn PCLUSAPI_PAUSE_CLUSTER_NODE(hNode: *const _HNODE) -> u32;
-        extern fn PCLUSAPI_PAUSE_CLUSTER_NODE_EX(hNode: *const _HNODE, bDrainNode: BOOL, dwPauseFlags: u32, #[opt] hNodeDrainTarget: *const _HNODE) -> u32;
-        extern fn PCLUSAPI_PAUSE_CLUSTER_NODE_EX2(hNode: *const _HNODE, bDrainNode: BOOL, dwPauseFlags: u32, #[opt] hNodeDrainTarget: *const _HNODE, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_PFN_REASON_HANDLER(lpParameter: *const void, hCluster: *const _HCLUSTER, #[out] szReason: PWSTR, #[in] #[out] lpSize: *mut u32) -> BOOL;
+        extern fn PCLUSAPI_OPEN_CLUSTER_EX(#[opt] lpszClusterName: PCWSTR, dwDesiredAccess: u32, #[out] #[opt] lpdwGrantedAccess: LPDWORD) -> HCLUSTER;
+        extern fn PCLUSAPI_OPEN_CLUSTER_GROUP(hCluster: HCLUSTER, lpszGroupName: PCWSTR) -> HGROUP;
+        extern fn PCLUSAPI_OPEN_CLUSTER_GROUP_EX(hCluster: HCLUSTER, #[opt] lpszGroupName: PCWSTR, dwDesiredAccess: u32, #[out] #[opt] lpdwGrantedAccess: LPDWORD) -> HGROUP;
+        extern fn PCLUSAPI_OPEN_CLUSTER_GROUP_GROUPSET(hCluster: HCLUSTER, lpszGroupSetName: PCWSTR) -> HGROUPSET;
+        extern fn PCLUSAPI_OPEN_CLUSTER_NETINTERFACE_EX(hCluster: HCLUSTER, #[opt] lpszNetInterfaceName: PCWSTR, dwDesiredAccess: u32, #[out] #[opt] lpdwGrantedAccess: LPDWORD) -> HNETINTERFACE;
+        extern fn PCLUSAPI_OPEN_CLUSTER_NETWORK(hCluster: HCLUSTER, lpszNetworkName: PCWSTR) -> HNETWORK;
+        extern fn PCLUSAPI_OPEN_CLUSTER_NETWORK_EX(hCluster: HCLUSTER, #[opt] lpszNetworkName: PCWSTR, dwDesiredAccess: u32, #[out] #[opt] lpdwGrantedAccess: LPDWORD) -> HNETWORK;
+        extern fn PCLUSAPI_OPEN_CLUSTER_NET_INTERFACE(hCluster: HCLUSTER, lpszInterfaceName: PCWSTR) -> HNETINTERFACE;
+        extern fn PCLUSAPI_OPEN_CLUSTER_NODE(hCluster: HCLUSTER, lpszNodeName: PCWSTR) -> HNODE;
+        extern fn PCLUSAPI_OPEN_CLUSTER_NODE_EX(hCluster: HCLUSTER, #[opt] lpszNodeName: PCWSTR, dwDesiredAccess: u32, #[out] #[opt] lpdwGrantedAccess: LPDWORD) -> HNODE;
+        extern fn PCLUSAPI_OPEN_CLUSTER_RESOURCE(hCluster: HCLUSTER, lpszResourceName: PCWSTR) -> HRESOURCE;
+        extern fn PCLUSAPI_OPEN_CLUSTER_RESOURCE_EX(hCluster: HCLUSTER, #[opt] lpszResourceName: PCWSTR, dwDesiredAccess: u32, #[out] #[opt] lpdwGrantedAccess: LPDWORD) -> HRESOURCE;
+        extern fn PCLUSAPI_OPEN_NODE_BY_ID(hCluster: HCLUSTER, nodeId: u32) -> HNODE;
+        extern fn PCLUSAPI_PAUSE_CLUSTER_NODE(hNode: HNODE) -> u32;
+        extern fn PCLUSAPI_PAUSE_CLUSTER_NODE_EX(hNode: HNODE, bDrainNode: BOOL, dwPauseFlags: u32, #[opt] hNodeDrainTarget: HNODE) -> u32;
+        extern fn PCLUSAPI_PAUSE_CLUSTER_NODE_EX2(hNode: HNODE, bDrainNode: BOOL, dwPauseFlags: u32, #[opt] hNodeDrainTarget: HNODE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_PFN_REASON_HANDLER(#[in] lpParameter: *mut void, hCluster: HCLUSTER, #[out] szReason: PWSTR, #[in] #[out] lpSize: LPDWORD) -> BOOL;
         type PCLUSAPI_REASON_HANDLER = *mut CLUSAPI_REASON_HANDLER;
-        extern fn PCLUSAPI_REGISTER_CLUSTER_NOTIFY(hChange: *const _HCHANGE, dwFilterType: u32, hObject: HANDLE, dwNotifyKey: usize) -> u32;
-        extern fn PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2(hChange: *const _HCHANGE, Filter: NOTIFY_FILTER_AND_TYPE, hObject: HANDLE, dwNotifyKey: usize) -> u32;
-        extern fn PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY(hGroup: *const _HGROUP, hDependsOn: *const _HGROUP) -> u32;
-        extern fn PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY_EX(hGroup: *const _HGROUP, hDependsOn: *const _HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY(hGroupSet: *const _HGROUPSET, hDependsOn: *const _HGROUPSET) -> u32;
-        extern fn PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EX(hGroupSet: *const _HGROUPSET, hDependsOn: *const _HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY(hGroup: *const _HGROUP, hDependsOn: *const _HGROUPSET) -> u32;
-        extern fn PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY_EX(hGroup: *const _HGROUP, hDependsOn: *const _HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_REMOVE_CLUSTER_NAME_ACCOUNT(hCluster: *const _HCLUSTER) -> u32;
-        extern fn PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY(hResource: *mut _HRESOURCE, hDependsOn: *mut _HRESOURCE) -> u32;
-        extern fn PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY_EX(hResource: *const _HRESOURCE, hDependsOn: *const _HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE(hResource: *mut _HRESOURCE, hNode: *mut _HNODE) -> u32;
-        extern fn PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE_EX(hResource: *const _HRESOURCE, hNode: *const _HNODE, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_REMOVE_CROSS_CLUSTER_GROUPSET_DEPENDENCY(hDependentGroupSet: *const _HGROUPSET, lpRemoteClusterName: PCWSTR, lpRemoteGroupSetName: PCWSTR) -> u32;
-        extern fn PCLUSAPI_REMOVE_RESOURCE_FROM_CLUSTER_SHARED_VOLUMES(hResource: *const _HRESOURCE) -> u32;
-        extern fn PCLUSAPI_REPAIR_CLUSTER_NAME_ACCOUNT(hCluster: *const _HCLUSTER) -> u32;
-        extern fn PCLUSAPI_RESTART_CLUSTER_RESOURCE(hResource: *mut _HRESOURCE, dwFlags: u32) -> u32;
-        extern fn PCLUSAPI_RESTART_CLUSTER_RESOURCE_EX(hResource: *mut _HRESOURCE, dwFlags: u32) -> u32;
+        extern fn PCLUSAPI_REGISTER_CLUSTER_NOTIFY(hChange: HCHANGE, dwFilterType: u32, hObject: HANDLE, dwNotifyKey: usize) -> u32;
+        extern fn PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2(hChange: HCHANGE, Filter: NOTIFY_FILTER_AND_TYPE, hObject: HANDLE, dwNotifyKey: usize) -> u32;
+        extern fn PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY(hGroup: HGROUP, hDependsOn: HGROUP) -> u32;
+        extern fn PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY_EX(hGroup: HGROUP, hDependsOn: HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY(hGroupSet: HGROUPSET, hDependsOn: HGROUPSET) -> u32;
+        extern fn PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EX(hGroupSet: HGROUPSET, hDependsOn: HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY(hGroup: HGROUP, hDependsOn: HGROUPSET) -> u32;
+        extern fn PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY_EX(hGroup: HGROUP, hDependsOn: HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_REMOVE_CLUSTER_NAME_ACCOUNT(hCluster: HCLUSTER) -> u32;
+        extern fn PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY(hResource: HRESOURCE, hDependsOn: HRESOURCE) -> u32;
+        extern fn PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY_EX(hResource: HRESOURCE, hDependsOn: HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE(hResource: HRESOURCE, hNode: HNODE) -> u32;
+        extern fn PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE_EX(hResource: HRESOURCE, hNode: HNODE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_REMOVE_CROSS_CLUSTER_GROUPSET_DEPENDENCY(hDependentGroupSet: HGROUPSET, lpRemoteClusterName: PCWSTR, lpRemoteGroupSetName: PCWSTR) -> u32;
+        extern fn PCLUSAPI_REMOVE_RESOURCE_FROM_CLUSTER_SHARED_VOLUMES(hResource: HRESOURCE) -> u32;
+        extern fn PCLUSAPI_REPAIR_CLUSTER_NAME_ACCOUNT(hCluster: HCLUSTER) -> u32;
+        extern fn PCLUSAPI_RESTART_CLUSTER_RESOURCE(hResource: HRESOURCE, dwFlags: u32) -> u32;
+        extern fn PCLUSAPI_RESTART_CLUSTER_RESOURCE_EX(hResource: HRESOURCE, dwFlags: u32) -> u32;
         extern fn PCLUSAPI_RESTORE_CLUSTER_DATABASE(lpszPathName: PCWSTR, bForce: BOOL, #[opt] lpszQuorumDriveLetter: PCWSTR) -> u32;
-        extern fn PCLUSAPI_RESUME_CLUSTER_NODE(hNode: *const _HNODE) -> u32;
-        extern fn PCLUSAPI_RESUME_CLUSTER_NODE_EX(hNode: *const _HNODE, eResumeFailbackType: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwResumeFlagsReserved: u32) -> u32;
-        extern fn PCLUSAPI_RESUME_CLUSTER_NODE_EX2(hNode: *const _HNODE, eResumeFailbackType: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwResumeFlagsReserved: u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION(hGroupSet: *const _HGROUPSET, lpszDependencyExpression: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION_EX(hGroupSet: *const _HGROUPSET, lpszDependencyExpression: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_GROUP_NAME(hGroup: *mut _HGROUP, lpszGroupName: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_GROUP_NAME_EX(hGroup: *const _HGROUP, lpszGroupName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST(hGroup: *const _HGROUP, NodeCount: u32, #[len_param(1)] #[opt] NodeList: *const HNODE) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST_EX(hGroup: *const _HGROUP, NodeCount: u32, #[len_param(1)] #[opt] NodeList: *const HNODE, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_NAME_EX(hCluster: *const _HCLUSTER, lpszNewClusterName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_NETWORK_NAME(hNetwork: *const _HNETWORK, lpszName: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_NETWORK_NAME_EX(hNetwork: *const _HNETWORK, lpszName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER(hCluster: *const _HCLUSTER, NetworkCount: u32, #[len_param(1)] NetworkList: *const HNETWORK) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE(hResource: *const _HRESOURCE, #[opt] lpszDeviceName: PCWSTR, dwMaxQuoLogSize: u32) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE_EX(hResource: *const _HRESOURCE, #[opt] lpszDeviceName: PCWSTR, dwMaxQuorumLogSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(hResource: *const _HRESOURCE, lpszDependencyExpression: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_RESOURCE_NAME(hResource: *mut _HRESOURCE, lpszResourceName: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_RESOURCE_NAME_EX(hResource: *const _HRESOURCE, lpszResourceName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_CLUSTER_SERVICE_ACCOUNT_PASSWORD(lpszClusterName: PCWSTR, lpszNewPassword: PCWSTR, dwFlags: u32, #[size_param(4)] #[opt] lpReturnStatusBuffer: *mut CLUSTER_SET_PASSWORD_STATUS, #[in] #[out] lpcbReturnStatusBufferSize: *mut u32) -> u32;
-        extern fn PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION(hGroupSet: *const _HGROUP, lpszDependencyExpression: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION_EX(hGroup: *const _HGROUP, lpszDependencyExpression: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
-        extern fn PCLUSAPI_SET_REASON_HANDLER(lpHandler: *const CLUSAPI_REASON_HANDLER) -> PCLUSAPI_REASON_HANDLER;
+        extern fn PCLUSAPI_RESUME_CLUSTER_NODE(hNode: HNODE) -> u32;
+        extern fn PCLUSAPI_RESUME_CLUSTER_NODE_EX(hNode: HNODE, eResumeFailbackType: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwResumeFlagsReserved: u32) -> u32;
+        extern fn PCLUSAPI_RESUME_CLUSTER_NODE_EX2(hNode: HNODE, eResumeFailbackType: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwResumeFlagsReserved: u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION(hGroupSet: HGROUPSET, lpszDependencyExpression: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION_EX(hGroupSet: HGROUPSET, lpszDependencyExpression: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_GROUP_NAME(hGroup: HGROUP, lpszGroupName: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_GROUP_NAME_EX(hGroup: HGROUP, lpszGroupName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST(hGroup: HGROUP, NodeCount: u32, #[len_param(1)] #[in] #[opt] NodeList: *mut HNODE) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST_EX(hGroup: HGROUP, NodeCount: u32, #[len_param(1)] #[in] #[opt] NodeList: *mut HNODE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_NAME_EX(hCluster: HCLUSTER, lpszNewClusterName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_NETWORK_NAME(hNetwork: HNETWORK, lpszName: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_NETWORK_NAME_EX(hNetwork: HNETWORK, lpszName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER(hCluster: HCLUSTER, NetworkCount: u32, #[len_param(1)] #[in] NetworkList: *mut HNETWORK) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE(hResource: HRESOURCE, #[opt] lpszDeviceName: PCWSTR, dwMaxQuoLogSize: u32) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE_EX(hResource: HRESOURCE, #[opt] lpszDeviceName: PCWSTR, dwMaxQuorumLogSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(hResource: HRESOURCE, lpszDependencyExpression: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_RESOURCE_NAME(hResource: HRESOURCE, lpszResourceName: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_RESOURCE_NAME_EX(hResource: HRESOURCE, lpszResourceName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_CLUSTER_SERVICE_ACCOUNT_PASSWORD(lpszClusterName: PCWSTR, lpszNewPassword: PCWSTR, dwFlags: u32, #[size_param(4)] #[out] #[opt] lpReturnStatusBuffer: PCLUSTER_SET_PASSWORD_STATUS, #[in] #[out] lpcbReturnStatusBufferSize: LPDWORD) -> u32;
+        extern fn PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION(hGroupSet: HGROUP, lpszDependencyExpression: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION_EX(hGroup: HGROUP, lpszDependencyExpression: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SET_REASON_HANDLER(lpHandler: PCLUSAPI_REASON_HANDLER) -> PCLUSAPI_REASON_HANDLER;
         extern fn PCLUSAPI_SHARED_VOLUME_SET_SNAPSHOT_STATE(guidSnapshotSet: GUID, lpszVolumeName: PCWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32;
-        extern fn PCLUSAPI_SetClusterName(hCluster: *const _HCLUSTER, lpszNewClusterName: PCWSTR) -> u32;
+        extern fn PCLUSAPI_SetClusterName(hCluster: HCLUSTER, lpszNewClusterName: PCWSTR) -> u32;
         type PCLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT = *mut CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT;
         type PCLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT = *mut CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT;
         type PCLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT = *mut CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT;
@@ -3562,22 +3567,22 @@ mod Windows {
         type PCLUSTER_IP_ENTRY = *mut CLUSTER_IP_ENTRY;
         type PCLUSTER_MEMBERSHIP_INFO = *mut CLUSTER_MEMBERSHIP_INFO;
         type PCLUSTER_MGMT_POINT_RESTYPE = *mut CLUSTER_MGMT_POINT_RESTYPE;
-        extern fn PCLUSTER_REG_BATCH_ADD_COMMAND(hRegBatch: *const _HREGBATCH, dwCommand: CLUSTER_REG_COMMAND, #[opt] wzName: PCWSTR, dwOptions: u32, #[size_param(5)] #[opt] lpData: *const void, cbData: u32) -> i32;
-        extern fn PCLUSTER_REG_BATCH_CLOSE_NOTIFICATION(hBatchNotification: *const _HREGBATCHNOTIFICATION) -> i32;
-        extern fn PCLUSTER_REG_BATCH_READ_COMMAND(hBatchNotification: *const _HREGBATCHNOTIFICATION, pBatchCommand: *mut CLUSTER_BATCH_COMMAND) -> i32;
-        extern fn PCLUSTER_REG_CLOSE_BATCH(hRegBatch: *const _HREGBATCH, bCommit: BOOL, #[opt] failedCommandNumber: *mut i32) -> i32;
-        extern fn PCLUSTER_REG_CLOSE_BATCH_NOTIFY_PORT(hBatchNotifyPort: *const _HREGBATCHPORT) -> i32;
-        extern fn PCLUSTER_REG_CLOSE_READ_BATCH(hRegReadBatch: *const _HREGREADBATCH, phRegReadBatchReply: *mut HREGREADBATCHREPLY) -> i32;
-        extern fn PCLUSTER_REG_CLOSE_READ_BATCH_EX(hRegReadBatch: *const _HREGREADBATCH, flags: u32, phRegReadBatchReply: *mut HREGREADBATCHREPLY) -> i32;
-        extern fn PCLUSTER_REG_CLOSE_READ_BATCH_REPLY(hRegReadBatchReply: *const _HREGREADBATCHREPLY) -> i32;
+        extern fn PCLUSTER_REG_BATCH_ADD_COMMAND(hRegBatch: HREGBATCH, dwCommand: CLUSTER_REG_COMMAND, #[opt] wzName: PCWSTR, dwOptions: u32, #[size_param(5)] #[opt] lpData: *const void, cbData: u32) -> i32;
+        extern fn PCLUSTER_REG_BATCH_CLOSE_NOTIFICATION(hBatchNotification: HREGBATCHNOTIFICATION) -> i32;
+        extern fn PCLUSTER_REG_BATCH_READ_COMMAND(hBatchNotification: HREGBATCHNOTIFICATION, pBatchCommand: *mut CLUSTER_BATCH_COMMAND) -> i32;
+        extern fn PCLUSTER_REG_CLOSE_BATCH(hRegBatch: HREGBATCH, bCommit: BOOL, #[opt] failedCommandNumber: *mut i32) -> i32;
+        extern fn PCLUSTER_REG_CLOSE_BATCH_NOTIFY_PORT(hBatchNotifyPort: HREGBATCHPORT) -> i32;
+        extern fn PCLUSTER_REG_CLOSE_READ_BATCH(hRegReadBatch: HREGREADBATCH, phRegReadBatchReply: *mut HREGREADBATCHREPLY) -> i32;
+        extern fn PCLUSTER_REG_CLOSE_READ_BATCH_EX(hRegReadBatch: HREGREADBATCH, flags: u32, phRegReadBatchReply: *mut HREGREADBATCHREPLY) -> i32;
+        extern fn PCLUSTER_REG_CLOSE_READ_BATCH_REPLY(hRegReadBatchReply: HREGREADBATCHREPLY) -> i32;
         extern fn PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT(hKey: HKEY, phBatchNotifyPort: *mut HREGBATCHPORT) -> i32;
         extern fn PCLUSTER_REG_CREATE_READ_BATCH(hKey: HKEY, phRegReadBatch: *mut HREGREADBATCH) -> i32;
-        extern fn PCLUSTER_REG_GET_BATCH_NOTIFICATION(hBatchNotify: *const _HREGBATCHPORT, phBatchNotification: *mut HREGBATCHNOTIFICATION) -> i32;
-        extern fn PCLUSTER_REG_READ_BATCH_ADD_COMMAND(hRegReadBatch: *const _HREGREADBATCH, wzSubkeyName: PCWSTR, wzValueName: PCWSTR) -> i32;
-        extern fn PCLUSTER_REG_READ_BATCH_REPLY_NEXT_COMMAND(hRegReadBatchReply: *const _HREGREADBATCHREPLY, pBatchCommand: *mut CLUSTER_READ_BATCH_COMMAND) -> i32;
+        extern fn PCLUSTER_REG_GET_BATCH_NOTIFICATION(hBatchNotify: HREGBATCHPORT, phBatchNotification: *mut HREGBATCHNOTIFICATION) -> i32;
+        extern fn PCLUSTER_REG_READ_BATCH_ADD_COMMAND(hRegReadBatch: HREGREADBATCH, wzSubkeyName: PCWSTR, wzValueName: PCWSTR) -> i32;
+        extern fn PCLUSTER_REG_READ_BATCH_REPLY_NEXT_COMMAND(hRegReadBatchReply: HREGREADBATCHREPLY, pBatchCommand: *mut CLUSTER_READ_BATCH_COMMAND) -> i32;
         type PCLUSTER_RESOURCE_ENUM_ITEM = *mut CLUSTER_RESOURCE_ENUM_ITEM;
         extern fn PCLUSTER_SETUP_PROGRESS_CALLBACK(pvCallbackArg: *mut void, eSetupPhase: CLUSTER_SETUP_PHASE, ePhaseType: CLUSTER_SETUP_PHASE_TYPE, ePhaseSeverity: CLUSTER_SETUP_PHASE_SEVERITY, dwPercentComplete: u32, #[opt] lpszObjectName: PCWSTR, dwStatus: u32) -> BOOL;
-        extern fn PCLUSTER_SET_ACCOUNT_ACCESS(hCluster: *const _HCLUSTER, szAccountSID: PCWSTR, dwAccess: u32, dwControlType: u32) -> u32;
+        extern fn PCLUSTER_SET_ACCOUNT_ACCESS(hCluster: HCLUSTER, szAccountSID: PCWSTR, dwAccess: u32, dwControlType: u32) -> u32;
         type PCLUSTER_SET_PASSWORD_STATUS = *mut CLUSTER_SET_PASSWORD_STATUS;
         type PCLUSTER_SHARED_VOLUME_BACKUP_STATE = *mut CLUSTER_SHARED_VOLUME_BACKUP_STATE;
         type PCLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT = *mut CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT;
@@ -3670,11 +3675,11 @@ mod Windows {
         type PSR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY = *mut SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY;
         type PSR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO = *mut SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO;
         #[library("CLUSAPI.dll")]
-        extern fn PauseClusterNode(hNode: *const _HNODE) -> u32;
+        extern fn PauseClusterNode(hNode: HNODE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn PauseClusterNodeEx(hNode: *const _HNODE, bDrainNode: BOOL, dwPauseFlags: u32, #[opt] hNodeDrainTarget: *const _HNODE) -> u32;
+        extern fn PauseClusterNodeEx(hNode: HNODE, bDrainNode: BOOL, dwPauseFlags: u32, #[opt] hNodeDrainTarget: HNODE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn PauseClusterNodeEx2(hNode: *const _HNODE, bDrainNode: BOOL, dwPauseFlags: u32, #[opt] hNodeDrainTarget: *const _HNODE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn PauseClusterNodeEx2(hNode: HNODE, bDrainNode: BOOL, dwPauseFlags: u32, #[opt] hNodeDrainTarget: HNODE, #[opt] lpszReason: PCWSTR) -> u32;
         struct REPAIR_CLUSTER_NAME_ACCOUNT_CONFIG {
             dwVersion: u32,
             dwFlags: u32,
@@ -3706,53 +3711,53 @@ mod Windows {
         const RedirectedIOReasonUnsafeVolumeFilter: i32 = 4;
         const RedirectedIOReasonUserRequest: i32 = 1;
         #[library("CLUSAPI.dll")]
-        extern fn RegisterClusterNotify(hChange: *const _HCHANGE, dwFilterType: u32, hObject: HANDLE, dwNotifyKey: usize) -> u32;
+        extern fn RegisterClusterNotify(hChange: HCHANGE, dwFilterType: u32, hObject: HANDLE, dwNotifyKey: usize) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RegisterClusterNotifyV2(hChange: *const _HCHANGE, Filter: NOTIFY_FILTER_AND_TYPE, hObject: HANDLE, dwNotifyKey: usize) -> u32;
+        extern fn RegisterClusterNotifyV2(hChange: HCHANGE, Filter: NOTIFY_FILTER_AND_TYPE, hObject: HANDLE, dwNotifyKey: usize) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RegisterClusterResourceTypeNotifyV2(hChange: *mut _HCHANGE, hCluster: *mut _HCLUSTER, Flags: i64, resTypeName: PCWSTR, dwNotifyKey: usize) -> u32;
+        extern fn RegisterClusterResourceTypeNotifyV2(hChange: HCHANGE, hCluster: HCLUSTER, Flags: i64, resTypeName: PCWSTR, dwNotifyKey: usize) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RemoveClusterGroupDependency(hGroup: *const _HGROUP, hDependsOn: *const _HGROUP) -> u32;
+        extern fn RemoveClusterGroupDependency(hGroup: HGROUP, hDependsOn: HGROUP) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RemoveClusterGroupDependencyEx(hGroup: *const _HGROUP, hDependsOn: *const _HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn RemoveClusterGroupDependencyEx(hGroup: HGROUP, hDependsOn: HGROUP, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RemoveClusterGroupSetDependency(hGroupSet: *const _HGROUPSET, hDependsOn: *const _HGROUPSET) -> u32;
+        extern fn RemoveClusterGroupSetDependency(hGroupSet: HGROUPSET, hDependsOn: HGROUPSET) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RemoveClusterGroupSetDependencyEx(hGroupSet: *const _HGROUPSET, hDependsOn: *const _HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn RemoveClusterGroupSetDependencyEx(hGroupSet: HGROUPSET, hDependsOn: HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RemoveClusterGroupToGroupSetDependency(hGroup: *const _HGROUP, hDependsOn: *const _HGROUPSET) -> u32;
+        extern fn RemoveClusterGroupToGroupSetDependency(hGroup: HGROUP, hDependsOn: HGROUPSET) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RemoveClusterGroupToGroupSetDependencyEx(hGroup: *const _HGROUP, hDependsOn: *const _HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn RemoveClusterGroupToGroupSetDependencyEx(hGroup: HGROUP, hDependsOn: HGROUPSET, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RemoveClusterNameAccount(hCluster: *const _HCLUSTER, bDeleteComputerObjects: BOOL) -> u32;
+        extern fn RemoveClusterNameAccount(hCluster: HCLUSTER, bDeleteComputerObjects: BOOL) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RemoveClusterResourceDependency(hResource: *const _HRESOURCE, hDependsOn: *const _HRESOURCE) -> u32;
+        extern fn RemoveClusterResourceDependency(hResource: HRESOURCE, hDependsOn: HRESOURCE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RemoveClusterResourceDependencyEx(hResource: *const _HRESOURCE, hDependsOn: *const _HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn RemoveClusterResourceDependencyEx(hResource: HRESOURCE, hDependsOn: HRESOURCE, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RemoveClusterResourceNode(hResource: *const _HRESOURCE, hNode: *const _HNODE) -> u32;
+        extern fn RemoveClusterResourceNode(hResource: HRESOURCE, hNode: HNODE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RemoveClusterResourceNodeEx(hResource: *const _HRESOURCE, hNode: *const _HNODE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn RemoveClusterResourceNodeEx(hResource: HRESOURCE, hNode: HNODE, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RemoveClusterStorageNode(hCluster: *mut _HCLUSTER, lpszClusterStorageEnclosureName: PCWSTR, dwTimeout: u32, dwFlags: u32) -> u32;
+        extern fn RemoveClusterStorageNode(hCluster: HCLUSTER, lpszClusterStorageEnclosureName: PCWSTR, dwTimeout: u32, dwFlags: u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RemoveCrossClusterGroupSetDependency(hDependentGroupSet: *const _HGROUPSET, lpRemoteClusterName: PCWSTR, lpRemoteGroupSetName: PCWSTR) -> u32;
+        extern fn RemoveCrossClusterGroupSetDependency(hDependentGroupSet: HGROUPSET, lpRemoteClusterName: PCWSTR, lpRemoteGroupSetName: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RemoveResourceFromClusterSharedVolumes(hResource: *const _HRESOURCE) -> u32;
+        extern fn RemoveResourceFromClusterSharedVolumes(hResource: HRESOURCE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RepairClusterNameAccount(hCluster: *const _HCLUSTER, pConfig: *const REPAIR_CLUSTER_NAME_ACCOUNT_CONFIG, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[opt] pvCallbackArg: *const void) -> u32;
+        extern fn RepairClusterNameAccount(hCluster: HCLUSTER, pConfig: PREPAIR_CLUSTER_NAME_ACCOUNT_CONFIG, #[opt] pfnProgressCallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, #[in] #[opt] pvCallbackArg: *mut void) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RestartClusterResource(hResource: *const _HRESOURCE, dwFlags: u32) -> u32;
+        extern fn RestartClusterResource(hResource: HRESOURCE, dwFlags: u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn RestartClusterResourceEx(hResource: *const _HRESOURCE, dwFlags: u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn RestartClusterResourceEx(hResource: HRESOURCE, dwFlags: u32, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
         extern fn RestoreClusterDatabase(lpszPathName: PCWSTR, bForce: BOOL, #[opt] lpszQuorumDriveLetter: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ResumeClusterNode(hNode: *const _HNODE) -> u32;
+        extern fn ResumeClusterNode(hNode: HNODE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ResumeClusterNodeEx(hNode: *const _HNODE, eResumeFailbackType: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwResumeFlagsReserved: u32) -> u32;
+        extern fn ResumeClusterNodeEx(hNode: HNODE, eResumeFailbackType: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwResumeFlagsReserved: u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn ResumeClusterNodeEx2(hNode: *const _HNODE, eResumeFailbackType: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwResumeFlagsReserved: u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn ResumeClusterNodeEx2(hNode: HNODE, eResumeFailbackType: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwResumeFlagsReserved: u32, #[opt] lpszReason: PCWSTR) -> u32;
         const SE_UPGRADE_VERSION: i32 = 2;
         #[repr(i32)]
         enum SR_DISK_REPLICATION_ELIGIBLE {
@@ -3789,9 +3794,9 @@ mod Windows {
             LogType: u16,
             ReplicationMode: u32,
             MinimumPartnersInSync: u32,
-            EnableWriteConsistency: bool,
-            EnableEncryption: bool,
-            EnableCompression: bool,
+            EnableWriteConsistency: BOOLEAN,
+            EnableEncryption: BOOLEAN,
+            EnableCompression: BOOLEAN,
             CertificateThumbprint: [u16; 260],
             VolumeNameCount: u32,
             VolumeNames: [[u16; 260]; 1],
@@ -3810,17 +3815,17 @@ mod Windows {
         }
         struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
             DataDiskGuid: GUID,
-            IncludeOfflineDisks: bool,
+            IncludeOfflineDisks: BOOLEAN,
         }
         struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
             DataDiskGuid: GUID,
-            IncludeAvailableStoargeDisks: bool,
+            IncludeAvailableStoargeDisks: BOOLEAN,
         }
         struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
             SourceDataDiskGuid: GUID,
             TargetReplicationGroupGuid: GUID,
-            SkipConnectivityCheck: bool,
-            IncludeOfflineDisks: bool,
+            SkipConnectivityCheck: BOOLEAN,
+            IncludeOfflineDisks: BOOLEAN,
         }
         struct SR_RESOURCE_TYPE_REPLICATED_DISK {
             Type: SR_REPLICATED_DISK_TYPE,
@@ -3841,43 +3846,43 @@ mod Windows {
             Capabilities: u32,
         }
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterGroupName(hGroup: *const _HGROUP, lpszGroupName: PCWSTR) -> u32;
+        extern fn SetClusterGroupName(hGroup: HGROUP, lpszGroupName: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterGroupNameEx(hGroup: *const _HGROUP, lpszGroupName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn SetClusterGroupNameEx(hGroup: HGROUP, lpszGroupName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterGroupNodeList(hGroup: *const _HGROUP, NodeCount: u32, #[len_param(1)] #[opt] NodeList: *const HNODE) -> u32;
+        extern fn SetClusterGroupNodeList(hGroup: HGROUP, NodeCount: u32, #[len_param(1)] #[in] #[opt] NodeList: *mut HNODE) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterGroupNodeListEx(hGroup: *mut _HGROUP, NodeCount: u32, NodeList: *mut HNODE, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn SetClusterGroupNodeListEx(hGroup: HGROUP, NodeCount: u32, NodeList: *mut HNODE, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterGroupSetDependencyExpression(hGroupSet: *const _HGROUPSET, lpszDependencyExprssion: PCWSTR) -> u32;
+        extern fn SetClusterGroupSetDependencyExpression(hGroupSet: HGROUPSET, lpszDependencyExprssion: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterGroupSetDependencyExpressionEx(hGroupSet: *const _HGROUPSET, lpszDependencyExpression: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn SetClusterGroupSetDependencyExpressionEx(hGroupSet: HGROUPSET, lpszDependencyExpression: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterName(hCluster: *const _HCLUSTER, lpszNewClusterName: PCWSTR) -> u32;
+        extern fn SetClusterName(hCluster: HCLUSTER, lpszNewClusterName: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterNameEx(hCluster: *const _HCLUSTER, lpszNewClusterName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn SetClusterNameEx(hCluster: HCLUSTER, lpszNewClusterName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterNetworkName(hNetwork: *const _HNETWORK, lpszName: PCWSTR) -> u32;
+        extern fn SetClusterNetworkName(hNetwork: HNETWORK, lpszName: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterNetworkNameEx(hNetwork: *const _HNETWORK, lpszName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn SetClusterNetworkNameEx(hNetwork: HNETWORK, lpszName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterNetworkPriorityOrder(hCluster: *const _HCLUSTER, NetworkCount: u32, #[len_param(1)] NetworkList: *const HNETWORK) -> u32;
+        extern fn SetClusterNetworkPriorityOrder(hCluster: HCLUSTER, NetworkCount: u32, #[len_param(1)] #[in] NetworkList: *mut HNETWORK) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterQuorumResource(hResource: *const _HRESOURCE, #[opt] lpszDeviceName: PCWSTR, dwMaxQuoLogSize: u32) -> u32;
+        extern fn SetClusterQuorumResource(hResource: HRESOURCE, #[opt] lpszDeviceName: PCWSTR, dwMaxQuoLogSize: u32) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterQuorumResourceEx(hResource: *const _HRESOURCE, #[opt] lpszDeviceName: PCWSTR, dwMaxQuorumLogSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn SetClusterQuorumResourceEx(hResource: HRESOURCE, #[opt] lpszDeviceName: PCWSTR, dwMaxQuorumLogSize: u32, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterResourceDependencyExpression(hResource: *const _HRESOURCE, lpszDependencyExpression: PCWSTR) -> u32;
+        extern fn SetClusterResourceDependencyExpression(hResource: HRESOURCE, lpszDependencyExpression: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterResourceName(hResource: *const _HRESOURCE, lpszResourceName: PCWSTR) -> u32;
+        extern fn SetClusterResourceName(hResource: HRESOURCE, lpszResourceName: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterResourceNameEx(hResource: *const _HRESOURCE, lpszResourceName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn SetClusterResourceNameEx(hResource: HRESOURCE, lpszResourceName: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetClusterServiceAccountPassword(lpszClusterName: PCWSTR, lpszNewPassword: PCWSTR, dwFlags: u32, #[size_param(4)] #[opt] lpReturnStatusBuffer: *mut CLUSTER_SET_PASSWORD_STATUS, #[in] #[out] lpcbReturnStatusBufferSize: *mut u32) -> u32;
+        extern fn SetClusterServiceAccountPassword(lpszClusterName: PCWSTR, lpszNewPassword: PCWSTR, dwFlags: u32, #[size_param(4)] #[out] #[opt] lpReturnStatusBuffer: PCLUSTER_SET_PASSWORD_STATUS, #[in] #[out] lpcbReturnStatusBufferSize: LPDWORD) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetGroupDependencyExpression(hGroup: *const _HGROUP, lpszDependencyExpression: PCWSTR) -> u32;
+        extern fn SetGroupDependencyExpression(hGroup: HGROUP, lpszDependencyExpression: PCWSTR) -> u32;
         #[library("CLUSAPI.dll")]
-        extern fn SetGroupDependencyExpressionEx(hGroup: *const _HGROUP, lpszDependencyExpression: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
+        extern fn SetGroupDependencyExpressionEx(hGroup: HGROUP, lpszDependencyExpression: PCWSTR, #[opt] lpszReason: PCWSTR) -> u32;
         #[encoding("utf-16")]
         const USE_CLIENT_ACCESS_NETWORKS_FOR_CSV: String = "UseClientAccessNetworksForSharedVolumes";
         const VolumeRedirectedIOReasonMax: u64 = 9223372036854775808;

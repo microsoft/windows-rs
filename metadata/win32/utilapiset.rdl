@@ -4,16 +4,16 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn Beep(dwFreq: u32, dwDuration: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn DecodePointer(#[opt] Ptr: *const void) -> *mut void;
+        extern fn DecodePointer(#[in] #[opt] Ptr: *mut void) -> *mut void;
         #[library("KernelBase.dll")]
-        extern fn DecodeRemotePointer(ProcessHandle: HANDLE, #[opt] Ptr: *const void, DecodedPtr: *mut *mut void) -> HRESULT;
+        extern fn DecodeRemotePointer(ProcessHandle: HANDLE, #[in] #[opt] Ptr: *mut void, DecodedPtr: *mut *mut void) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn DecodeSystemPointer(#[opt] Ptr: *const void) -> *mut void;
+        extern fn DecodeSystemPointer(#[in] #[opt] Ptr: *mut void) -> *mut void;
         #[library("KERNEL32.dll")]
-        extern fn EncodePointer(#[opt] Ptr: *const void) -> *mut void;
+        extern fn EncodePointer(#[in] #[opt] Ptr: *mut void) -> *mut void;
         #[library("KernelBase.dll")]
-        extern fn EncodeRemotePointer(ProcessHandle: HANDLE, #[opt] Ptr: *const void, EncodedPtr: *mut *mut void) -> HRESULT;
+        extern fn EncodeRemotePointer(ProcessHandle: HANDLE, #[in] #[opt] Ptr: *mut void, EncodedPtr: *mut *mut void) -> HRESULT;
         #[library("KERNEL32.dll")]
-        extern fn EncodeSystemPointer(#[opt] Ptr: *const void) -> *mut void;
+        extern fn EncodeSystemPointer(#[in] #[opt] Ptr: *mut void) -> *mut void;
     }
 }

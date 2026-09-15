@@ -8,12 +8,12 @@ mod Windows {
         struct DML_ACTIVATION_CELU_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
+            Alpha: FLOAT,
         }
         struct DML_ACTIVATION_ELU_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
+            Alpha: FLOAT,
         }
         struct DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -22,8 +22,8 @@ mod Windows {
         struct DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
-            Beta: f32,
+            Alpha: FLOAT,
+            Beta: FLOAT,
         }
         struct DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -32,13 +32,13 @@ mod Windows {
         struct DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
+            Alpha: FLOAT,
         }
         struct DML_ACTIVATION_LINEAR_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
-            Beta: f32,
+            Alpha: FLOAT,
+            Beta: FLOAT,
         }
         struct DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -52,8 +52,8 @@ mod Windows {
         struct DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
-            Beta: f32,
+            Alpha: FLOAT,
+            Beta: FLOAT,
         }
         struct DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -67,20 +67,20 @@ mod Windows {
         struct DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
-            Gamma: f32,
+            Alpha: FLOAT,
+            Gamma: FLOAT,
         }
         struct DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
-            Beta: f32,
+            Alpha: FLOAT,
+            Beta: FLOAT,
         }
         struct DML_ACTIVATION_SHRINK_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Bias: f32,
-            Threshold: f32,
+            Bias: FLOAT,
+            Threshold: FLOAT,
         }
         struct DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -93,7 +93,7 @@ mod Windows {
         struct DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Steepness: f32,
+            Steepness: FLOAT,
         }
         struct DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -106,7 +106,7 @@ mod Windows {
         struct DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Alpha: f32,
+            Alpha: FLOAT,
         }
         struct DML_ADAM_OPTIMIZER_OPERATOR_DESC {
             InputParametersTensor: *const DML_TENSOR_DESC,
@@ -117,10 +117,10 @@ mod Windows {
             OutputParametersTensor: *const DML_TENSOR_DESC,
             OutputFirstMomentTensor: *const DML_TENSOR_DESC,
             OutputSecondMomentTensor: *const DML_TENSOR_DESC,
-            LearningRate: f32,
-            Beta1: f32,
-            Beta2: f32,
-            Epsilon: f32,
+            LearningRate: FLOAT,
+            Beta1: FLOAT,
+            Beta2: FLOAT,
+            Epsilon: FLOAT,
         }
         struct DML_ARGMAX_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -170,7 +170,7 @@ mod Windows {
             OutputGradientTensor: *const DML_TENSOR_DESC,
             OutputScaleGradientTensor: *const DML_TENSOR_DESC,
             OutputBiasGradientTensor: *const DML_TENSOR_DESC,
-            Epsilon: f32,
+            Epsilon: FLOAT,
         }
         struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -180,7 +180,7 @@ mod Windows {
             BiasTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             Spatial: BOOL,
-            Epsilon: f32,
+            Epsilon: FLOAT,
             FusedActivation: *const DML_OPERATOR_DESC,
         }
         struct DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC {
@@ -192,7 +192,7 @@ mod Windows {
             OutputGradientTensor: *const DML_TENSOR_DESC,
             OutputScaleGradientTensor: *const DML_TENSOR_DESC,
             OutputBiasGradientTensor: *const DML_TENSOR_DESC,
-            Epsilon: f32,
+            Epsilon: FLOAT,
         }
         struct DML_BATCH_NORMALIZATION_TRAINING_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -202,7 +202,7 @@ mod Windows {
             OutputTensor: *const DML_TENSOR_DESC,
             OutputMeanTensor: *const DML_TENSOR_DESC,
             OutputVarianceTensor: *const DML_TENSOR_DESC,
-            Epsilon: f32,
+            Epsilon: FLOAT,
             FusedActivation: *const DML_OPERATOR_DESC,
         }
         struct DML_BINDING_DESC {
@@ -326,7 +326,7 @@ mod Windows {
         struct DML_DIAGONAL_MATRIX_OPERATOR_DESC {
             OutputTensor: *const DML_TENSOR_DESC,
             Offset: i32,
-            Value: f32,
+            Value: FLOAT,
         }
         struct DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -443,21 +443,21 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             InputGradientTensor: *const DML_TENSOR_DESC,
             OutputGradientTensor: *const DML_TENSOR_DESC,
-            Min: f32,
-            Max: f32,
+            Min: FLOAT,
+            Max: FLOAT,
         }
         struct DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             ScaleBias: *const DML_SCALE_BIAS,
-            Min: f32,
-            Max: f32,
+            Min: FLOAT,
+            Max: FLOAT,
         }
         struct DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             ScaleBias: *const DML_SCALE_BIAS,
-            Exponent: f32,
+            Exponent: FLOAT,
         }
         struct DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -674,7 +674,7 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             ScaleBias: *const DML_SCALE_BIAS,
-            Min: f32,
+            Min: FLOAT,
         }
         #[repr(u32)]
         #[flags]
@@ -766,8 +766,8 @@ mod Windows {
             OutputTensor: *const DML_TENSOR_DESC,
             TransA: DML_MATRIX_TRANSFORM,
             TransB: DML_MATRIX_TRANSFORM,
-            Alpha: f32,
-            Beta: f32,
+            Alpha: FLOAT,
+            Beta: FLOAT,
             FusedActivation: *const DML_OPERATOR_DESC,
         }
         struct DML_GRAPH_DESC {
@@ -852,24 +852,24 @@ mod Windows {
             OutputGradientTensor: *const DML_TENSOR_DESC,
             CrossChannel: BOOL,
             LocalSize: u32,
-            Alpha: f32,
-            Beta: f32,
-            Bias: f32,
+            Alpha: FLOAT,
+            Beta: FLOAT,
+            Bias: FLOAT,
         }
         struct DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             CrossChannel: BOOL,
             LocalSize: u32,
-            Alpha: f32,
-            Beta: f32,
-            Bias: f32,
+            Alpha: FLOAT,
+            Beta: FLOAT,
+            Bias: FLOAT,
         }
         struct DML_LP_NORMALIZATION_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             Axis: u32,
-            Epsilon: f32,
+            Epsilon: FLOAT,
             P: u32,
         }
         struct DML_LP_POOLING_OPERATOR_DESC {
@@ -967,7 +967,7 @@ mod Windows {
             AxisCount: u32,
             Axes: *const u32,
             NormalizeVariance: BOOL,
-            Epsilon: f32,
+            Epsilon: FLOAT,
             FusedActivation: *const DML_OPERATOR_DESC,
         }
         struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
@@ -977,7 +977,7 @@ mod Windows {
             OutputTensor: *const DML_TENSOR_DESC,
             CrossChannel: BOOL,
             NormalizeVariance: BOOL,
-            Epsilon: f32,
+            Epsilon: FLOAT,
             FusedActivation: *const DML_OPERATOR_DESC,
         }
         struct DML_NONZERO_COORDINATES_OPERATOR_DESC {
@@ -1187,7 +1187,7 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             PaddingMode: DML_PADDING_MODE,
-            PaddingValue: f32,
+            PaddingValue: FLOAT,
             DimensionCount: u32,
             StartPadding: *const u32,
             EndPadding: *const u32,
@@ -1264,25 +1264,25 @@ mod Windows {
             OutputTensor: *const DML_TENSOR_DESC,
             InterpolationMode: DML_INTERPOLATION_MODE,
             DimensionCount: u32,
-            Scales: *const f32,
-            InputPixelOffsets: *const f32,
-            OutputPixelOffsets: *const f32,
+            Scales: *const FLOAT,
+            InputPixelOffsets: *const FLOAT,
+            OutputPixelOffsets: *const FLOAT,
         }
         struct DML_RESAMPLE_GRAD_OPERATOR_DESC {
             InputGradientTensor: *const DML_TENSOR_DESC,
             OutputGradientTensor: *const DML_TENSOR_DESC,
             InterpolationMode: DML_INTERPOLATION_MODE,
             DimensionCount: u32,
-            Scales: *const f32,
-            InputPixelOffsets: *const f32,
-            OutputPixelOffsets: *const f32,
+            Scales: *const FLOAT,
+            InputPixelOffsets: *const FLOAT,
+            OutputPixelOffsets: *const FLOAT,
         }
         struct DML_RESAMPLE_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
             InterpolationMode: DML_INTERPOLATION_MODE,
             ScaleCount: u32,
-            Scales: *const f32,
+            Scales: *const FLOAT,
         }
         struct DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -1310,11 +1310,11 @@ mod Windows {
             OutputTensor: *const DML_TENSOR_DESC,
             ReductionFunction: DML_REDUCE_FUNCTION,
             InterpolationMode: DML_INTERPOLATION_MODE,
-            SpatialScaleX: f32,
-            SpatialScaleY: f32,
-            InputPixelOffset: f32,
-            OutputPixelOffset: f32,
-            OutOfBoundsInputValue: f32,
+            SpatialScaleX: FLOAT,
+            SpatialScaleY: FLOAT,
+            InputPixelOffset: FLOAT,
+            OutputPixelOffset: FLOAT,
+            OutOfBoundsInputValue: FLOAT,
             MinimumSamplesPerOutput: u32,
             MaximumSamplesPerOutput: u32,
             AlignRegionsToCorners: BOOL,
@@ -1328,10 +1328,10 @@ mod Windows {
             OutputROIGradientTensor: *const DML_TENSOR_DESC,
             ReductionFunction: DML_REDUCE_FUNCTION,
             InterpolationMode: DML_INTERPOLATION_MODE,
-            SpatialScaleX: f32,
-            SpatialScaleY: f32,
-            InputPixelOffset: f32,
-            OutputPixelOffset: f32,
+            SpatialScaleX: FLOAT,
+            SpatialScaleY: FLOAT,
+            InputPixelOffset: FLOAT,
+            OutputPixelOffset: FLOAT,
             MinimumSamplesPerOutput: u32,
             MaximumSamplesPerOutput: u32,
             AlignRegionsToCorners: BOOL,
@@ -1343,9 +1343,9 @@ mod Windows {
             OutputTensor: *const DML_TENSOR_DESC,
             ReductionFunction: DML_REDUCE_FUNCTION,
             InterpolationMode: DML_INTERPOLATION_MODE,
-            SpatialScaleX: f32,
-            SpatialScaleY: f32,
-            OutOfBoundsInputValue: f32,
+            SpatialScaleX: FLOAT,
+            SpatialScaleY: FLOAT,
+            OutOfBoundsInputValue: FLOAT,
             MinimumSamplesPerOutput: u32,
             MaximumSamplesPerOutput: u32,
         }
@@ -1353,7 +1353,7 @@ mod Windows {
             InputTensor: *const DML_TENSOR_DESC,
             ROITensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            SpatialScale: f32,
+            SpatialScale: FLOAT,
             PooledSize: DML_SIZE_2D,
         }
         #[repr(i32)]
@@ -1372,12 +1372,12 @@ mod Windows {
             UInt32: u32,
             Int64: i64,
             UInt64: u64,
-            Float32: f32,
-            Float64: f64,
+            Float32: FLOAT,
+            Float64: DOUBLE,
         }
         struct DML_SCALE_BIAS {
-            Scale: f32,
-            Bias: f32,
+            Scale: FLOAT,
+            Bias: FLOAT,
         }
         struct DML_SCATTER_ND_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
@@ -1500,9 +1500,9 @@ mod Windows {
         struct DML_VALUE_SCALE_2D_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
-            Scale: f32,
+            Scale: FLOAT,
             ChannelCount: u32,
-            Bias: *const f32,
+            Bias: *const FLOAT,
         }
         #[guid(0x29c687dc_de74_4e3b_ab00_1168f2fc3cfc)]
         interface IDMLBindingTable: IDMLDeviceChild {

@@ -167,6 +167,10 @@ mod Windows {
             bPitchAndFamily: u8,
             szFaceName: [i8; 32],
         }
+        #[arch(X64 | Arm64)]
+        const CHARFORMATDELTA: u64 = 24;
+        #[arch(X86)]
+        const CHARFORMATDELTA: u32 = 24;
         struct CHARFORMATW {
             cbSize: u32,
             dwMask: u32,
@@ -239,8 +243,8 @@ mod Windows {
             dwError: u32,
             pfnCallback: EDITSTREAMCALLBACK,
         }
-        extern fn EDITSTREAMCALLBACK(dwCookie: usize, pbBuff: *mut u8, cb: i32, pcb: *mut i32) -> u32;
-        extern fn EDITWORDBREAKPROCEX(pchText: *mut i8, cchText: i32, bCharSet: u8, action: i32) -> i32;
+        extern fn EDITSTREAMCALLBACK(dwCookie: usize, pbBuff: LPBYTE, cb: i32, pcb: *mut i32) -> u32;
+        extern "C" fn EDITWORDBREAKPROCEX(pchText: *mut i8, cchText: i32, bCharSet: u8, action: i32) -> i32;
         const ELLIPSIS_END: i32 = 1;
         const ELLIPSIS_MASK: i32 = 3;
         const ELLIPSIS_NONE: i32 = 0;
@@ -901,6 +905,8 @@ mod Windows {
         #[encoding("utf-16")]
         const RICHEDIT60_CLASS: String = "RICHEDIT60W";
         #[encoding("ansi")]
+        const RICHEDIT_CLASS: String = "RichEdit20A";
+        #[encoding("ansi")]
         const RICHEDIT_CLASS10A: String = "RICHEDIT";
         #[encoding("ansi")]
         const RICHEDIT_CLASSA: String = "RichEdit20A";
@@ -1134,6 +1140,7 @@ mod Windows {
         const WB_PREVBREAK: i32 = 6;
         const WB_RIGHTBREAK: i32 = 7;
         const WCH_EMBEDDING: u16 = 65532;
+        const _RICHEDIT_VER: i32 = 2064;
         const cchTextLimitDefault: i32 = 32767;
         const lDefaultTab: i32 = 720;
         const yHeightCharPtsMost: i32 = 1638;

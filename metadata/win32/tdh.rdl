@@ -39,9 +39,9 @@ mod Windows {
             Flags: PROPERTY_FLAGS,
             NameOffset: u32,
             Anonymous: union {
-                nonStructType: EVENT_PROPERTY_INFO_0_0,
-                structType: EVENT_PROPERTY_INFO_0_1,
-                customSchemaType: EVENT_PROPERTY_INFO_0_2,
+                nonStructType: _nonStructType,
+                structType: _structType,
+                customSchemaType: _customSchemaType,
             },
             Anonymous2: union {
                 count: u16,
@@ -59,21 +59,6 @@ mod Windows {
                     },
                 },
             },
-        }
-        struct EVENT_PROPERTY_INFO_0_0 {
-            InType: u16,
-            OutType: u16,
-            MapNameOffset: u32,
-        }
-        struct EVENT_PROPERTY_INFO_0_1 {
-            StructStartIndex: u16,
-            NumOfStructMembers: u16,
-            padding: u32,
-        }
-        struct EVENT_PROPERTY_INFO_0_2 {
-            InType: u16,
-            OutType: u16,
-            CustomSchemaOffset: u32,
         }
         #[repr(i32)]
         enum MAP_FLAGS {
@@ -187,7 +172,7 @@ mod Windows {
             TDH_CONTEXT_MAXIMUM = 5,
         }
         type TDH_HANDLE = HANDLE;
-        const TDH_OUTYTPE_ERRORCODE: i32 = 29;
+        const TDH_OUTYTPE_ERRORCODE: _TDH_OUT_TYPE = 29;
         #[repr(i32)]
         enum TEMPLATE_FLAGS {
             TEMPLATE_EVENT_DATA = 1,
@@ -236,59 +221,59 @@ mod Windows {
             ProviderNameOffset: u32,
         }
         #[library("tdh.dll")]
-        extern fn TdhAggregatePayloadFilters(PayloadFilterCount: u32, #[len_param(0)] PayloadFilterPtrs: *const *const void, #[len_param(0)] #[opt] EventMatchALLFlags: *const bool, EventFilterDescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> TDHSTATUS;
+        extern fn TdhAggregatePayloadFilters(PayloadFilterCount: u32, #[len_param(0)] #[in] PayloadFilterPtrs: *mut *mut void, #[len_param(0)] #[opt] EventMatchALLFlags: PBOOLEAN, #[out] EventFilterDescriptor: PEVENT_FILTER_DESCRIPTOR) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhCleanupPayloadEventFilterDescriptor(#[in] #[out] EventFilterDescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> TDHSTATUS;
+        extern fn TdhCleanupPayloadEventFilterDescriptor(#[in] #[out] EventFilterDescriptor: PEVENT_FILTER_DESCRIPTOR) -> TDHSTATUS;
         #[library("tdh.dll")]
         extern fn TdhCloseDecodingHandle(Handle: TDH_HANDLE) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhCreatePayloadFilter(ProviderGuid: *const GUID, EventDescriptor: *const EVENT_DESCRIPTOR, EventMatchANY: bool, PayloadPredicateCount: u32, #[len_param(3)] PayloadPredicates: *const PAYLOAD_FILTER_PREDICATE, PayloadFilter: *mut *mut void) -> TDHSTATUS;
+        extern fn TdhCreatePayloadFilter(ProviderGuid: LPCGUID, EventDescriptor: PCEVENT_DESCRIPTOR, EventMatchANY: BOOLEAN, PayloadPredicateCount: u32, #[len_param(3)] PayloadPredicates: PPAYLOAD_FILTER_PREDICATE, PayloadFilter: *mut *mut void) -> TDHSTATUS;
         #[library("tdh.dll")]
         extern fn TdhDeletePayloadFilter(#[in] #[out] PayloadFilter: *mut *mut void) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhEnumerateManifestProviderEvents(ProviderGuid: *const GUID, #[size_param(2)] #[opt] Buffer: *mut PROVIDER_EVENT_INFO, #[in] #[out] BufferSize: *mut u32) -> TDHSTATUS;
+        extern fn TdhEnumerateManifestProviderEvents(ProviderGuid: LPGUID, #[size_param(2)] #[out] #[opt] Buffer: PPROVIDER_EVENT_INFO, #[in] #[out] BufferSize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhEnumerateProviderFieldInformation(pGuid: *const GUID, EventFieldType: EVENT_FIELD_TYPE, #[size_param(3)] #[opt] pBuffer: *mut PROVIDER_FIELD_INFOARRAY, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
+        extern fn TdhEnumerateProviderFieldInformation(pGuid: LPGUID, EventFieldType: EVENT_FIELD_TYPE, #[size_param(3)] #[out] #[opt] pBuffer: PPROVIDER_FIELD_INFOARRAY, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhEnumerateProviderFilters(Guid: *const GUID, TdhContextCount: u32, #[len_param(1)] #[opt] TdhContext: *const TDH_CONTEXT, FilterCount: *mut u32, #[size_param(5)] #[opt] Buffer: *mut PPROVIDER_FILTER_INFO, #[in] #[out] BufferSize: *mut u32) -> TDHSTATUS;
+        extern fn TdhEnumerateProviderFilters(Guid: LPGUID, TdhContextCount: u32, #[len_param(1)] #[opt] TdhContext: PTDH_CONTEXT, FilterCount: *mut u32, #[size_param(5)] #[opt] Buffer: *mut PPROVIDER_FILTER_INFO, #[in] #[out] BufferSize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhEnumerateProviders(#[size_param(1)] #[opt] pBuffer: *mut PROVIDER_ENUMERATION_INFO, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
+        extern fn TdhEnumerateProviders(#[size_param(1)] #[out] #[opt] pBuffer: PPROVIDER_ENUMERATION_INFO, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
         extern fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, #[size_param(2)] #[opt] buffer: *mut PROVIDER_ENUMERATION_INFO, bufferSize: u32, bufferRequired: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhFormatProperty(EventInfo: *const TRACE_EVENT_INFO, #[opt] MapInfo: *const EVENT_MAP_INFO, PointerSize: u32, PropertyInType: u16, PropertyOutType: u16, PropertyLength: u16, UserDataLength: u16, #[size_param(6)] UserData: *const u8, #[in] #[out] BufferSize: *mut u32, #[size_param(8)] #[opt] Buffer: *mut u16, UserDataConsumed: *mut u16) -> TDHSTATUS;
+        extern fn TdhFormatProperty(EventInfo: PTRACE_EVENT_INFO, #[opt] MapInfo: PEVENT_MAP_INFO, PointerSize: u32, PropertyInType: u16, PropertyOutType: u16, PropertyLength: u16, UserDataLength: u16, #[size_param(6)] UserData: PBYTE, #[in] #[out] BufferSize: PULONG, #[size_param(8)] #[out] #[opt] Buffer: PWCHAR, #[out] UserDataConsumed: PUSHORT) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetDecodingParameter(Handle: TDH_HANDLE, #[in] #[out] TdhContext: *mut TDH_CONTEXT) -> TDHSTATUS;
+        extern fn TdhGetDecodingParameter(Handle: TDH_HANDLE, #[in] #[out] TdhContext: PTDH_CONTEXT) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetEventInformation(Event: *const EVENT_RECORD, TdhContextCount: u32, #[len_param(1)] #[opt] TdhContext: *const TDH_CONTEXT, #[size_param(4)] #[opt] Buffer: *mut TRACE_EVENT_INFO, #[in] #[out] BufferSize: *mut u32) -> TDHSTATUS;
+        extern fn TdhGetEventInformation(Event: PEVENT_RECORD, TdhContextCount: u32, #[len_param(1)] #[opt] TdhContext: PTDH_CONTEXT, #[size_param(4)] #[out] #[opt] Buffer: PTRACE_EVENT_INFO, #[in] #[out] BufferSize: PULONG) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetEventMapInformation(pEvent: *const EVENT_RECORD, pMapName: PCWSTR, #[size_param(3)] #[opt] pBuffer: *mut EVENT_MAP_INFO, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
+        extern fn TdhGetEventMapInformation(pEvent: PEVENT_RECORD, pMapName: PWSTR, #[size_param(3)] #[out] #[opt] pBuffer: PEVENT_MAP_INFO, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetManifestEventInformation(ProviderGuid: *const GUID, EventDescriptor: *const EVENT_DESCRIPTOR, #[size_param(3)] #[opt] Buffer: *mut TRACE_EVENT_INFO, #[in] #[out] BufferSize: *mut u32) -> TDHSTATUS;
+        extern fn TdhGetManifestEventInformation(ProviderGuid: LPGUID, EventDescriptor: PEVENT_DESCRIPTOR, #[size_param(3)] #[out] #[opt] Buffer: PTRACE_EVENT_INFO, #[in] #[out] BufferSize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetProperty(pEvent: *const EVENT_RECORD, TdhContextCount: u32, #[len_param(1)] #[opt] pTdhContext: *const TDH_CONTEXT, PropertyDataCount: u32, #[len_param(3)] pPropertyData: *const PROPERTY_DATA_DESCRIPTOR, BufferSize: u32, #[size_param(5)] pBuffer: *mut u8) -> TDHSTATUS;
+        extern fn TdhGetProperty(pEvent: PEVENT_RECORD, TdhContextCount: u32, #[len_param(1)] #[opt] pTdhContext: PTDH_CONTEXT, PropertyDataCount: u32, #[len_param(3)] pPropertyData: PPROPERTY_DATA_DESCRIPTOR, BufferSize: u32, #[size_param(5)] #[out] pBuffer: PBYTE) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetPropertySize(pEvent: *const EVENT_RECORD, TdhContextCount: u32, #[len_param(1)] #[opt] pTdhContext: *const TDH_CONTEXT, PropertyDataCount: u32, #[len_param(3)] pPropertyData: *const PROPERTY_DATA_DESCRIPTOR, pPropertySize: *mut u32) -> TDHSTATUS;
+        extern fn TdhGetPropertySize(pEvent: PEVENT_RECORD, TdhContextCount: u32, #[len_param(1)] #[opt] pTdhContext: PTDH_CONTEXT, PropertyDataCount: u32, #[len_param(3)] pPropertyData: PPROPERTY_DATA_DESCRIPTOR, pPropertySize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetWppMessage(Handle: TDH_HANDLE, EventRecord: *const EVENT_RECORD, #[in] #[out] BufferSize: *mut u32, #[size_param(2)] Buffer: *mut u8) -> TDHSTATUS;
+        extern fn TdhGetWppMessage(Handle: TDH_HANDLE, EventRecord: PEVENT_RECORD, #[in] #[out] BufferSize: PULONG, #[size_param(2)] #[out] Buffer: PBYTE) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhGetWppProperty(Handle: TDH_HANDLE, EventRecord: *const EVENT_RECORD, PropertyName: PCWSTR, #[in] #[out] BufferSize: *mut u32, #[size_param(3)] Buffer: *mut u8) -> TDHSTATUS;
+        extern fn TdhGetWppProperty(Handle: TDH_HANDLE, EventRecord: PEVENT_RECORD, PropertyName: PWSTR, #[in] #[out] BufferSize: PULONG, #[size_param(3)] #[out] Buffer: PBYTE) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhLoadManifest(Manifest: PCWSTR) -> TDHSTATUS;
+        extern fn TdhLoadManifest(Manifest: PWSTR) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhLoadManifestFromBinary(BinaryPath: PCWSTR) -> TDHSTATUS;
+        extern fn TdhLoadManifestFromBinary(BinaryPath: PWSTR) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhLoadManifestFromMemory(#[size_param(1)] pData: *const void, cbData: u32) -> TDHSTATUS;
+        extern fn TdhLoadManifestFromMemory(#[size_param(1)] pData: LPCVOID, cbData: u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhOpenDecodingHandle(Handle: *mut HANDLE) -> TDHSTATUS;
+        extern fn TdhOpenDecodingHandle(#[out] Handle: PTDH_HANDLE) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhQueryProviderFieldInformation(pGuid: *const GUID, EventFieldValue: u64, EventFieldType: EVENT_FIELD_TYPE, #[size_param(4)] #[opt] pBuffer: *mut PROVIDER_FIELD_INFOARRAY, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
+        extern fn TdhQueryProviderFieldInformation(pGuid: LPGUID, EventFieldValue: u64, EventFieldType: EVENT_FIELD_TYPE, #[size_param(4)] #[out] #[opt] pBuffer: PPROVIDER_FIELD_INFOARRAY, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhSetDecodingParameter(Handle: TDH_HANDLE, TdhContext: *const TDH_CONTEXT) -> TDHSTATUS;
+        extern fn TdhSetDecodingParameter(Handle: TDH_HANDLE, TdhContext: PTDH_CONTEXT) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhUnloadManifest(Manifest: PCWSTR) -> TDHSTATUS;
+        extern fn TdhUnloadManifest(Manifest: PWSTR) -> TDHSTATUS;
         #[library("tdh.dll")]
-        extern fn TdhUnloadManifestFromMemory(#[size_param(1)] pData: *const void, cbData: u32) -> TDHSTATUS;
+        extern fn TdhUnloadManifestFromMemory(#[size_param(1)] pData: LPCVOID, cbData: u32) -> TDHSTATUS;
         #[repr(i32)]
         enum _TDH_IN_TYPE {
             TDH_INTYPE_NULL = 0,
@@ -372,6 +357,21 @@ mod Windows {
             TDH_OUTTYPE_DATETIME_UTC = 38,
             TDH_OUTTYPE_REDUCEDSTRING = 300,
             TDH_OUTTYPE_NOPRINT = 301,
+        }
+        struct _customSchemaType {
+            InType: u16,
+            OutType: u16,
+            CustomSchemaOffset: u32,
+        }
+        struct _nonStructType {
+            InType: u16,
+            OutType: u16,
+            MapNameOffset: u32,
+        }
+        struct _structType {
+            StructStartIndex: u16,
+            NumOfStructMembers: u16,
+            padding: u32,
         }
     }
 }

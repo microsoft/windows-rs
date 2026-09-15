@@ -210,7 +210,7 @@ mod Windows {
         const HSE_VERSION_MAJOR: i32 = 8;
         const HSE_VERSION_MINOR: i32 = 0;
         #[library("RpcProxy.dll")]
-        extern fn HttpExtensionProc(pECB: *const EXTENSION_CONTROL_BLOCK) -> u32;
+        extern fn HttpExtensionProc(#[in] pECB: *mut EXTENSION_CONTROL_BLOCK) -> u32;
         type LPEXTENSION_CONTROL_BLOCK = *mut EXTENSION_CONTROL_BLOCK;
         type LPHSE_CUSTOM_ERROR_INFO = *mut HSE_CUSTOM_ERROR_INFO;
         type LPHSE_EXEC_UNICODE_URL_INFO = *mut HSE_EXEC_UNICODE_URL_INFO;

@@ -6,7 +6,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CreateTimerQueue() -> HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateTimerQueueTimer(phNewTimer: *mut HANDLE, #[opt] TimerQueue: HANDLE, Callback: WAITORTIMERCALLBACK, #[opt] Parameter: *const void, DueTime: u32, Period: u32, Flags: u32) -> BOOL;
+        extern fn CreateTimerQueueTimer(phNewTimer: PHANDLE, #[opt] TimerQueue: HANDLE, Callback: WAITORTIMERCALLBACK, #[in] #[opt] Parameter: *mut void, DueTime: u32, Period: u32, Flags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn DeleteTimerQueue(TimerQueue: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -14,7 +14,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn DeleteTimerQueueTimer(#[opt] TimerQueue: HANDLE, Timer: HANDLE, #[opt] CompletionEvent: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn QueueUserWorkItem(Function: LPTHREAD_START_ROUTINE, #[opt] Context: *const void, Flags: u32) -> BOOL;
+        extern fn QueueUserWorkItem(Function: LPTHREAD_START_ROUTINE, #[in] #[opt] Context: *mut void, Flags: u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn UnregisterWaitEx(WaitHandle: HANDLE, #[opt] CompletionEvent: HANDLE) -> BOOL;
     }

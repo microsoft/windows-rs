@@ -22,7 +22,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn AllocConsole() -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn AllocConsoleWithOptions(#[opt] options: *const ALLOC_CONSOLE_OPTIONS, #[opt] result: *mut ALLOC_CONSOLE_RESULT) -> HRESULT;
+        extern fn AllocConsoleWithOptions(#[opt] options: PALLOC_CONSOLE_OPTIONS, #[out] #[opt] result: PALLOC_CONSOLE_RESULT) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn AttachConsole(dwProcessId: u32) -> BOOL;
         struct CONSOLE_READCONSOLE_CONTROL {
@@ -60,28 +60,28 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetConsoleCP() -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetConsoleMode(hConsoleHandle: HANDLE, lpMode: *mut u32) -> BOOL;
+        extern fn GetConsoleMode(hConsoleHandle: HANDLE, #[out] lpMode: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetConsoleOutputCP() -> u32;
         #[library("KERNEL32.dll")]
-        extern fn GetNumberOfConsoleInputEvents(hConsoleInput: HANDLE, lpNumberOfEvents: *mut u32) -> BOOL;
+        extern fn GetNumberOfConsoleInputEvents(hConsoleInput: HANDLE, #[out] lpNumberOfEvents: LPDWORD) -> BOOL;
         type PALLOC_CONSOLE_OPTIONS = *mut ALLOC_CONSOLE_OPTIONS;
         type PALLOC_CONSOLE_RESULT = *mut ALLOC_CONSOLE_RESULT;
         type PCONSOLE_READCONSOLE_CONTROL = *mut CONSOLE_READCONSOLE_CONTROL;
         extern fn PHANDLER_ROUTINE(CtrlType: u32) -> BOOL;
         const PSEUDOCONSOLE_INHERIT_CURSOR: i32 = 1;
         #[library("KERNEL32.dll")]
-        extern fn PeekConsoleInputA(hConsoleInput: HANDLE, #[len_param(2)] lpBuffer: *mut INPUT_RECORD, nLength: u32, lpNumberOfEventsRead: *mut u32) -> BOOL;
+        extern fn PeekConsoleInputA(hConsoleInput: HANDLE, #[len_param(2)] #[out] lpBuffer: PINPUT_RECORD, nLength: u32, #[out] lpNumberOfEventsRead: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn PeekConsoleInputW(hConsoleInput: HANDLE, #[len_param(2)] lpBuffer: *mut INPUT_RECORD, nLength: u32, lpNumberOfEventsRead: *mut u32) -> BOOL;
+        extern fn PeekConsoleInputW(hConsoleInput: HANDLE, #[len_param(2)] #[out] lpBuffer: PINPUT_RECORD, nLength: u32, #[out] lpNumberOfEventsRead: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ReadConsoleA(hConsoleInput: HANDLE, lpBuffer: *mut void, nNumberOfCharsToRead: u32, lpNumberOfCharsRead: *mut u32, #[opt] pInputControl: *const CONSOLE_READCONSOLE_CONTROL) -> BOOL;
+        extern fn ReadConsoleA(hConsoleInput: HANDLE, lpBuffer: *mut void, nNumberOfCharsToRead: u32, #[out] lpNumberOfCharsRead: LPDWORD, #[opt] pInputControl: PCONSOLE_READCONSOLE_CONTROL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ReadConsoleInputA(hConsoleInput: HANDLE, #[len_param(2)] lpBuffer: *mut INPUT_RECORD, nLength: u32, lpNumberOfEventsRead: *mut u32) -> BOOL;
+        extern fn ReadConsoleInputA(hConsoleInput: HANDLE, #[len_param(2)] #[out] lpBuffer: PINPUT_RECORD, nLength: u32, #[out] lpNumberOfEventsRead: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ReadConsoleInputW(hConsoleInput: HANDLE, #[len_param(2)] lpBuffer: *mut INPUT_RECORD, nLength: u32, lpNumberOfEventsRead: *mut u32) -> BOOL;
+        extern fn ReadConsoleInputW(hConsoleInput: HANDLE, #[len_param(2)] #[out] lpBuffer: PINPUT_RECORD, nLength: u32, #[out] lpNumberOfEventsRead: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ReadConsoleW(hConsoleInput: HANDLE, lpBuffer: *mut void, nNumberOfCharsToRead: u32, lpNumberOfCharsRead: *mut u32, #[opt] pInputControl: *const CONSOLE_READCONSOLE_CONTROL) -> BOOL;
+        extern fn ReadConsoleW(hConsoleInput: HANDLE, lpBuffer: *mut void, nNumberOfCharsToRead: u32, #[out] lpNumberOfCharsRead: LPDWORD, #[opt] pInputControl: PCONSOLE_READCONSOLE_CONTROL) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn ReleasePseudoConsole(hPC: HPCON) -> HRESULT;
         #[library("KERNEL32.dll")]
@@ -91,8 +91,8 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn SetConsoleMode(hConsoleHandle: HANDLE, dwMode: u32) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WriteConsoleA(hConsoleOutput: HANDLE, #[len_param(2)] lpBuffer: *const void, nNumberOfCharsToWrite: u32, #[opt] lpNumberOfCharsWritten: *mut u32, #[reserved] lpReserved: *const void) -> BOOL;
+        extern fn WriteConsoleA(hConsoleOutput: HANDLE, #[len_param(2)] lpBuffer: *const void, nNumberOfCharsToWrite: u32, #[out] #[opt] lpNumberOfCharsWritten: LPDWORD, #[reserved] lpReserved: *mut void) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WriteConsoleW(hConsoleOutput: HANDLE, #[len_param(2)] lpBuffer: *const void, nNumberOfCharsToWrite: u32, #[opt] lpNumberOfCharsWritten: *mut u32, #[reserved] lpReserved: *const void) -> BOOL;
+        extern fn WriteConsoleW(hConsoleOutput: HANDLE, #[len_param(2)] lpBuffer: *const void, nNumberOfCharsToWrite: u32, #[out] #[opt] lpNumberOfCharsWritten: LPDWORD, #[reserved] lpReserved: *mut void) -> BOOL;
     }
 }

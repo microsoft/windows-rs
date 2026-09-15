@@ -11,7 +11,7 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetConfigGetAll(#[opt] server: PCWSTR, component: PCWSTR, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetConfigSet(#[opt] server: PCWSTR, #[opt] reserved1: PCWSTR, component: PCWSTR, level: u32, reserved2: u32, buf: *const u8, reserved3: u32) -> u32;
+        extern fn NetConfigSet(#[opt] server: PCWSTR, #[opt] reserved1: PCWSTR, component: PCWSTR, level: u32, reserved2: u32, buf: LPBYTE, reserved3: u32) -> u32;
         type PCONFIG_INFO_0 = *mut CONFIG_INFO_0;
     }
 }

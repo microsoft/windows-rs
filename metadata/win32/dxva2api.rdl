@@ -4,7 +4,7 @@ mod Windows {
         #[library("dxva2.dll")]
         extern fn DXVA2CreateDirect3DDeviceManager9(pResetToken: *mut u32, ppDeviceManager: *mut IDirect3DDeviceManager9) -> HRESULT;
         #[library("dxva2.dll")]
-        extern fn DXVA2CreateVideoService(pDD: IDirect3DDevice9, riid: *const GUID, #[iid_is] ppService: *mut *mut void) -> HRESULT;
+        extern fn DXVA2CreateVideoService(pDD: IDirect3DDevice9, riid: *const GUID, ppService: *mut *mut void) -> HRESULT;
         struct DXVA2_AES_CTR_IV {
             IV: u64,
             Count: u64,
@@ -21,7 +21,6 @@ mod Windows {
             Y: u8,
             Alpha: u8,
         }
-        const DXVA2_BitStreamDateBufferType: i32 = 6;
         struct DXVA2_ConfigPictureDecode {
             guidConfigBitstreamEncryption: GUID,
             guidConfigMBcontrolEncryption: GUID,
@@ -43,7 +42,6 @@ mod Windows {
         }
         const DXVA2_DECODE_GET_DRIVER_HANDLE: i32 = 1829;
         const DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS: i32 = 1828;
-        const DXVA2_DeblockingControlBufferType: i32 = 3;
         struct DXVA2_DecodeBufferDesc {
             CompressedBufferType: u32,
             BufferIndex: u32,
@@ -69,32 +67,6 @@ mod Windows {
             pPrivateOutputData: *mut void,
             PrivateOutputDataSize: u32,
         }
-        const DXVA2_DeinterlaceTech_BOBLineReplicate: i32 = 1;
-        const DXVA2_DeinterlaceTech_BOBVerticalStretch: i32 = 2;
-        const DXVA2_DeinterlaceTech_BOBVerticalStretch4Tap: i32 = 4;
-        const DXVA2_DeinterlaceTech_EdgeFiltering: i32 = 16;
-        const DXVA2_DeinterlaceTech_FieldAdaptive: i32 = 32;
-        const DXVA2_DeinterlaceTech_InverseTelecine: i32 = 256;
-        const DXVA2_DeinterlaceTech_Mask: i32 = 511;
-        const DXVA2_DeinterlaceTech_MedianFiltering: i32 = 8;
-        const DXVA2_DeinterlaceTech_MotionVectorSteered: i32 = 128;
-        const DXVA2_DeinterlaceTech_PixelAdaptive: i32 = 64;
-        const DXVA2_DeinterlaceTech_Unknown: i32 = 0;
-        const DXVA2_DestData_Mask: i32 = 65535;
-        const DXVA2_DestData_RFF: i32 = 1;
-        const DXVA2_DestData_RFF_TFF_Present: i32 = 4;
-        const DXVA2_DestData_TFF: i32 = 2;
-        const DXVA2_DetailFilterChromaLevel: i32 = 10;
-        const DXVA2_DetailFilterChromaRadius: i32 = 12;
-        const DXVA2_DetailFilterChromaThreshold: i32 = 11;
-        const DXVA2_DetailFilterLumaLevel: i32 = 7;
-        const DXVA2_DetailFilterLumaRadius: i32 = 9;
-        const DXVA2_DetailFilterLumaThreshold: i32 = 8;
-        const DXVA2_DetailFilterTech_Edge: i32 = 2;
-        const DXVA2_DetailFilterTech_Mask: i32 = 7;
-        const DXVA2_DetailFilterTech_Sharpening: i32 = 4;
-        const DXVA2_DetailFilterTech_Unknown: i32 = 1;
-        const DXVA2_DetailFilterTech_Unsupported: i32 = 0;
         const DXVA2_E_NEW_VIDEO_DEVICE: HRESULT = -2147217407;
         const DXVA2_E_NOT_AVAILABLE: HRESULT = -2147217405;
         const DXVA2_E_NOT_INITIALIZED: HRESULT = -2147217408;
@@ -115,7 +87,6 @@ mod Windows {
                 value: u32,
             },
         }
-        const DXVA2_FilmGrainBuffer: i32 = 8;
         struct DXVA2_FilterValues {
             Level: DXVA2_Fixed32,
             Threshold: DXVA2_Fixed32,
@@ -134,8 +105,6 @@ mod Windows {
             Numerator: u32,
             Denominator: u32,
         }
-        const DXVA2_InverseQuantizationMatrixBufferType: i32 = 4;
-        const DXVA2_MacroBlockControlBufferType: i32 = 1;
         const DXVA2_ModeH264_A: GUID = 0x1b81be64_a0c7_11d3_b984_00c04f2e73c5;
         const DXVA2_ModeH264_B: GUID = 0x1b81be65_a0c7_11d3_b984_00c04f2e73c5;
         const DXVA2_ModeH264_C: GUID = 0x1b81be66_a0c7_11d3_b984_00c04f2e73c5;
@@ -169,21 +138,7 @@ mod Windows {
         const DXVA2_ModeWMV9_A: GUID = 0x1b81be90_a0c7_11d3_b984_00c04f2e73c5;
         const DXVA2_ModeWMV9_B: GUID = 0x1b81be91_a0c7_11d3_b984_00c04f2e73c5;
         const DXVA2_ModeWMV9_C: GUID = 0x1b81be94_a0c7_11d3_b984_00c04f2e73c5;
-        const DXVA2_MotionVectorBuffer: i32 = 7;
         const DXVA2_NoEncrypt: GUID = 0x1b81bed0_a0c7_11d3_b984_00c04f2e73c5;
-        const DXVA2_NoiseFilterChromaLevel: i32 = 4;
-        const DXVA2_NoiseFilterChromaRadius: i32 = 6;
-        const DXVA2_NoiseFilterChromaThreshold: i32 = 5;
-        const DXVA2_NoiseFilterLumaLevel: i32 = 1;
-        const DXVA2_NoiseFilterLumaRadius: i32 = 3;
-        const DXVA2_NoiseFilterLumaThreshold: i32 = 2;
-        const DXVA2_NoiseFilterTech_BlockNoise: i32 = 8;
-        const DXVA2_NoiseFilterTech_Mask: i32 = 31;
-        const DXVA2_NoiseFilterTech_Median: i32 = 2;
-        const DXVA2_NoiseFilterTech_MosquitoNoise: i32 = 16;
-        const DXVA2_NoiseFilterTech_Temporal: i32 = 4;
-        const DXVA2_NoiseFilterTech_Unknown: i32 = 1;
-        const DXVA2_NoiseFilterTech_Unsupported: i32 = 0;
         #[repr(i32)]
         enum DXVA2_NominalRange {
             DXVA2_NominalRangeMask = 7,
@@ -194,24 +149,12 @@ mod Windows {
             DXVA2_NominalRange_16_235 = 2,
             DXVA2_NominalRange_48_208 = 3,
         }
-        const DXVA2_PictureParametersBufferType: i32 = 0;
         struct DXVA2_ProcAmpValues {
             Brightness: DXVA2_Fixed32,
             Contrast: DXVA2_Fixed32,
             Hue: DXVA2_Fixed32,
             Saturation: DXVA2_Fixed32,
         }
-        const DXVA2_ProcAmp_Brightness: i32 = 1;
-        const DXVA2_ProcAmp_Contrast: i32 = 2;
-        const DXVA2_ProcAmp_Hue: i32 = 4;
-        const DXVA2_ProcAmp_Mask: i32 = 15;
-        const DXVA2_ProcAmp_None: i32 = 0;
-        const DXVA2_ProcAmp_Saturation: i32 = 8;
-        const DXVA2_ResidualDifferenceBufferType: i32 = 2;
-        const DXVA2_SampleData_Mask: i32 = 65535;
-        const DXVA2_SampleData_RFF: i32 = 1;
-        const DXVA2_SampleData_RFF_TFF_Present: i32 = 4;
-        const DXVA2_SampleData_TFF: i32 = 2;
         #[repr(i32)]
         enum DXVA2_SampleFormat {
             DXVA2_SampleFormatMask = 255,
@@ -223,17 +166,12 @@ mod Windows {
             DXVA2_SampleFieldSingleOdd = 6,
             DXVA2_SampleSubStream = 7,
         }
-        const DXVA2_SliceControlBufferType: i32 = 5;
         #[repr(i32)]
         enum DXVA2_SurfaceType {
             DXVA2_SurfaceType_DecoderRenderTarget = 0,
             DXVA2_SurfaceType_ProcessorRenderTarget = 1,
             DXVA2_SurfaceType_D3DRenderTargetTexture = 2,
         }
-        const DXVA2_VPDev_EmulatedDXVA1: i32 = 2;
-        const DXVA2_VPDev_HardwareDevice: i32 = 1;
-        const DXVA2_VPDev_Mask: i32 = 7;
-        const DXVA2_VPDev_SoftwareDevice: i32 = 4;
         struct DXVA2_ValueRange {
             MinValue: DXVA2_Fixed32,
             MaxValue: DXVA2_Fixed32,
@@ -253,7 +191,6 @@ mod Windows {
             DXVA2_VideoChromaSubsampling_DV_PAL = 6,
             DXVA2_VideoChromaSubsampling_Cosited = 7,
         }
-        const DXVA2_VideoDecoderRenderTarget: i32 = 0;
         struct DXVA2_VideoDesc {
             SampleWidth: u32,
             SampleHeight: u32,
@@ -304,24 +241,6 @@ mod Windows {
             DetailFilterChroma: DXVA2_FilterValues,
             DestData: u32,
         }
-        const DXVA2_VideoProcess_AlphaBlend: i32 = 8;
-        const DXVA2_VideoProcess_AlphaBlendExtended: i32 = 256;
-        const DXVA2_VideoProcess_Constriction: i32 = 512;
-        const DXVA2_VideoProcess_DetailFilter: i32 = 2048;
-        const DXVA2_VideoProcess_GammaCompensated: i32 = 16384;
-        const DXVA2_VideoProcess_LinearScaling: i32 = 8192;
-        const DXVA2_VideoProcess_MaintainsOriginalFieldData: i32 = 32768;
-        const DXVA2_VideoProcess_Mask: i32 = 65535;
-        const DXVA2_VideoProcess_NoiseFilter: i32 = 1024;
-        const DXVA2_VideoProcess_None: i32 = 0;
-        const DXVA2_VideoProcess_PlanarAlpha: i32 = 4096;
-        const DXVA2_VideoProcess_StretchX: i32 = 2;
-        const DXVA2_VideoProcess_StretchY: i32 = 4;
-        const DXVA2_VideoProcess_SubRects: i32 = 16;
-        const DXVA2_VideoProcess_SubStreams: i32 = 32;
-        const DXVA2_VideoProcess_SubStreamsExtended: i32 = 64;
-        const DXVA2_VideoProcess_YUV2RGB: i32 = 1;
-        const DXVA2_VideoProcess_YUV2RGBExtended: i32 = 128;
         struct DXVA2_VideoProcessorCaps {
             DeviceCaps: u32,
             InputPool: D3DPOOL,
@@ -334,7 +253,6 @@ mod Windows {
             NoiseFilterTechnology: u32,
             DetailFilterTechnology: u32,
         }
-        const DXVA2_VideoProcessorRenderTarget: i32 = 1;
         struct DXVA2_VideoSample {
             Start: REFERENCE_TIME,
             End: REFERENCE_TIME,
@@ -346,10 +264,9 @@ mod Windows {
             PlanarAlpha: DXVA2_Fixed32,
             SampleData: u32,
         }
-        const DXVA2_VideoSoftwareRenderTarget: i32 = 2;
-        const DXVA2_VideoTransFunc_22_240M: i32 = 6;
-        const DXVA2_VideoTransFunc_22_709: i32 = 5;
-        const DXVA2_VideoTransFunc_22_8bit_sRGB: i32 = 7;
+        const DXVA2_VideoTransFunc_22_240M: DXVA2_VideoTransferFunction = 6;
+        const DXVA2_VideoTransFunc_22_709: DXVA2_VideoTransferFunction = 5;
+        const DXVA2_VideoTransFunc_22_8bit_sRGB: DXVA2_VideoTransferFunction = 7;
         #[repr(i32)]
         enum DXVA2_VideoTransferFunction {
             DXVA2_VideoTransFuncMask = 31,
@@ -379,7 +296,7 @@ mod Windows {
             fn TestDevice(&self, hDevice: HANDLE) -> HRESULT;
             fn LockDevice(&self, hDevice: HANDLE, ppDevice: *mut IDirect3DDevice9, fBlock: BOOL) -> HRESULT;
             fn UnlockDevice(&self, hDevice: HANDLE, fSaveState: BOOL) -> HRESULT;
-            fn GetVideoService(&self, hDevice: HANDLE, riid: *const GUID, #[iid_is] ppService: *mut *mut void) -> HRESULT;
+            fn GetVideoService(&self, hDevice: HANDLE, riid: *const GUID, ppService: *mut *mut void) -> HRESULT;
         }
         #[guid(0xfc51a550_d5e7_11d9_af55_00054e43ff02)]
         interface IDirectXVideoAccelerationService: IUnknown {
@@ -391,7 +308,7 @@ mod Windows {
             fn GetCreationParameters(&self, #[opt] pDeviceGuid: *mut GUID, #[opt] pVideoDesc: *mut DXVA2_VideoDesc, #[opt] pConfig: *mut DXVA2_ConfigPictureDecode, #[len_param(4)] pDecoderRenderTargets: *mut *mut IDirect3DSurface9, #[opt] pNumSurfaces: *mut u32) -> HRESULT;
             fn GetBuffer(&self, BufferType: u32, ppBuffer: *mut *mut void, pBufferSize: *mut u32) -> HRESULT;
             fn ReleaseBuffer(&self, BufferType: u32) -> HRESULT;
-            fn BeginFrame(&self, pRenderTarget: IDirect3DSurface9, #[opt] pvPVPData: *const void) -> HRESULT;
+            fn BeginFrame(&self, pRenderTarget: IDirect3DSurface9, #[in] #[opt] pvPVPData: *mut void) -> HRESULT;
             fn EndFrame(&self, #[in] #[out] #[opt] pHandleComplete: *mut HANDLE) -> HRESULT;
             fn Execute(&self, pExecuteParams: *const DXVA2_DecodeExecuteParams) -> HRESULT;
         }
@@ -399,8 +316,8 @@ mod Windows {
         interface IDirectXVideoDecoderService: IDirectXVideoAccelerationService {
             fn GetDecoderDeviceGuids(&self, pCount: *mut u32, pGuids: *mut *mut GUID) -> HRESULT;
             fn GetDecoderRenderTargets(&self, Guid: *const GUID, pCount: *mut u32, pFormats: *mut *mut D3DFORMAT) -> HRESULT;
-            fn GetDecoderConfigurations(&self, Guid: *const GUID, pVideoDesc: *const DXVA2_VideoDesc, #[reserved] pReserved: *const void, pCount: *mut u32, ppConfigs: *mut *mut DXVA2_ConfigPictureDecode) -> HRESULT;
-            fn CreateVideoDecoder(&self, Guid: *const GUID, pVideoDesc: *const DXVA2_VideoDesc, pConfig: *const DXVA2_ConfigPictureDecode, #[len_param(4)] ppDecoderRenderTargets: *const IDirect3DSurface9, NumRenderTargets: u32, ppDecode: *mut IDirectXVideoDecoder) -> HRESULT;
+            fn GetDecoderConfigurations(&self, Guid: *const GUID, pVideoDesc: *const DXVA2_VideoDesc, #[reserved] #[in] pReserved: *mut void, pCount: *mut u32, ppConfigs: *mut *mut DXVA2_ConfigPictureDecode) -> HRESULT;
+            fn CreateVideoDecoder(&self, Guid: *const GUID, pVideoDesc: *const DXVA2_VideoDesc, pConfig: *const DXVA2_ConfigPictureDecode, #[len_param(4)] #[in] ppDecoderRenderTargets: *mut IDirect3DSurface9, NumRenderTargets: u32, ppDecode: *mut IDirectXVideoDecoder) -> HRESULT;
         }
         #[guid(0xb7f916dd_db3b_49c1_84d7_e45ef99ec726)]
         interface IDirectXVideoMemoryConfiguration: IUnknown {
@@ -418,7 +335,7 @@ mod Windows {
         }
         #[guid(0xfc51a552_d5e7_11d9_af55_00054e43ff02)]
         interface IDirectXVideoProcessorService: IDirectXVideoAccelerationService {
-            fn RegisterVideoProcessorSoftwareDevice(&self, pCallbacks: *const void) -> HRESULT;
+            fn RegisterVideoProcessorSoftwareDevice(&self, #[in] pCallbacks: *mut void) -> HRESULT;
             fn GetVideoProcessorDeviceGuids(&self, pVideoDesc: *const DXVA2_VideoDesc, pCount: *mut u32, pGuids: *mut *mut GUID) -> HRESULT;
             fn GetVideoProcessorRenderTargets(&self, VideoProcDeviceGuid: *const GUID, pVideoDesc: *const DXVA2_VideoDesc, pCount: *mut u32, pFormats: *mut *mut D3DFORMAT) -> HRESULT;
             fn GetVideoProcessorSubStreamFormats(&self, VideoProcDeviceGuid: *const GUID, pVideoDesc: *const DXVA2_VideoDesc, RenderTargetFormat: D3DFORMAT, pCount: *mut u32, pFormats: *mut *mut D3DFORMAT) -> HRESULT;
@@ -429,5 +346,121 @@ mod Windows {
         }
         const MAX_DEINTERLACE_SURFACES: i32 = 32;
         const MAX_SUBSTREAMS: i32 = 15;
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_dxva2api_0000_0000_0003 {
+            DXVA2_DeinterlaceTech_Unknown = 0,
+            DXVA2_DeinterlaceTech_BOBLineReplicate = 1,
+            DXVA2_DeinterlaceTech_BOBVerticalStretch = 2,
+            DXVA2_DeinterlaceTech_BOBVerticalStretch4Tap = 4,
+            DXVA2_DeinterlaceTech_MedianFiltering = 8,
+            DXVA2_DeinterlaceTech_EdgeFiltering = 16,
+            DXVA2_DeinterlaceTech_FieldAdaptive = 32,
+            DXVA2_DeinterlaceTech_PixelAdaptive = 64,
+            DXVA2_DeinterlaceTech_MotionVectorSteered = 128,
+            DXVA2_DeinterlaceTech_InverseTelecine = 256,
+            DXVA2_DeinterlaceTech_Mask = 511,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_dxva2api_0000_0000_0004 {
+            DXVA2_NoiseFilterLumaLevel = 1,
+            DXVA2_NoiseFilterLumaThreshold = 2,
+            DXVA2_NoiseFilterLumaRadius = 3,
+            DXVA2_NoiseFilterChromaLevel = 4,
+            DXVA2_NoiseFilterChromaThreshold = 5,
+            DXVA2_NoiseFilterChromaRadius = 6,
+            DXVA2_DetailFilterLumaLevel = 7,
+            DXVA2_DetailFilterLumaThreshold = 8,
+            DXVA2_DetailFilterLumaRadius = 9,
+            DXVA2_DetailFilterChromaLevel = 10,
+            DXVA2_DetailFilterChromaThreshold = 11,
+            DXVA2_DetailFilterChromaRadius = 12,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_dxva2api_0000_0000_0005 {
+            DXVA2_NoiseFilterTech_Unsupported = 0,
+            DXVA2_NoiseFilterTech_Unknown = 1,
+            DXVA2_NoiseFilterTech_Median = 2,
+            DXVA2_NoiseFilterTech_Temporal = 4,
+            DXVA2_NoiseFilterTech_BlockNoise = 8,
+            DXVA2_NoiseFilterTech_MosquitoNoise = 16,
+            DXVA2_NoiseFilterTech_Mask = 31,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_dxva2api_0000_0000_0006 {
+            DXVA2_DetailFilterTech_Unsupported = 0,
+            DXVA2_DetailFilterTech_Unknown = 1,
+            DXVA2_DetailFilterTech_Edge = 2,
+            DXVA2_DetailFilterTech_Sharpening = 4,
+            DXVA2_DetailFilterTech_Mask = 7,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_dxva2api_0000_0000_0007 {
+            DXVA2_ProcAmp_None = 0,
+            DXVA2_ProcAmp_Brightness = 1,
+            DXVA2_ProcAmp_Contrast = 2,
+            DXVA2_ProcAmp_Hue = 4,
+            DXVA2_ProcAmp_Saturation = 8,
+            DXVA2_ProcAmp_Mask = 15,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_dxva2api_0000_0000_0008 {
+            DXVA2_VideoProcess_None = 0,
+            DXVA2_VideoProcess_YUV2RGB = 1,
+            DXVA2_VideoProcess_StretchX = 2,
+            DXVA2_VideoProcess_StretchY = 4,
+            DXVA2_VideoProcess_AlphaBlend = 8,
+            DXVA2_VideoProcess_SubRects = 16,
+            DXVA2_VideoProcess_SubStreams = 32,
+            DXVA2_VideoProcess_SubStreamsExtended = 64,
+            DXVA2_VideoProcess_YUV2RGBExtended = 128,
+            DXVA2_VideoProcess_AlphaBlendExtended = 256,
+            DXVA2_VideoProcess_Constriction = 512,
+            DXVA2_VideoProcess_NoiseFilter = 1024,
+            DXVA2_VideoProcess_DetailFilter = 2048,
+            DXVA2_VideoProcess_PlanarAlpha = 4096,
+            DXVA2_VideoProcess_LinearScaling = 8192,
+            DXVA2_VideoProcess_GammaCompensated = 16384,
+            DXVA2_VideoProcess_MaintainsOriginalFieldData = 32768,
+            DXVA2_VideoProcess_Mask = 65535,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_dxva2api_0000_0000_0009 {
+            DXVA2_VPDev_HardwareDevice = 1,
+            DXVA2_VPDev_EmulatedDXVA1 = 2,
+            DXVA2_VPDev_SoftwareDevice = 4,
+            DXVA2_VPDev_Mask = 7,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_dxva2api_0000_0000_0010 {
+            DXVA2_SampleData_RFF = 1,
+            DXVA2_SampleData_TFF = 2,
+            DXVA2_SampleData_RFF_TFF_Present = 4,
+            DXVA2_SampleData_Mask = 65535,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_dxva2api_0000_0000_0011 {
+            DXVA2_DestData_RFF = 1,
+            DXVA2_DestData_TFF = 2,
+            DXVA2_DestData_RFF_TFF_Present = 4,
+            DXVA2_DestData_Mask = 65535,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_dxva2api_0000_0000_0012 {
+            DXVA2_PictureParametersBufferType = 0,
+            DXVA2_MacroBlockControlBufferType = 1,
+            DXVA2_ResidualDifferenceBufferType = 2,
+            DXVA2_DeblockingControlBufferType = 3,
+            DXVA2_InverseQuantizationMatrixBufferType = 4,
+            DXVA2_SliceControlBufferType = 5,
+            DXVA2_BitStreamDateBufferType = 6,
+            DXVA2_MotionVectorBuffer = 7,
+            DXVA2_FilmGrainBuffer = 8,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_dxva2api_0000_0000_0013 {
+            DXVA2_VideoDecoderRenderTarget = 0,
+            DXVA2_VideoProcessorRenderTarget = 1,
+            DXVA2_VideoSoftwareRenderTarget = 2,
+        }
     }
 }

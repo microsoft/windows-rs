@@ -8,53 +8,6 @@ mod Windows {
             fn SetNamespaces(&self, #[len_param(1)] pNamespaces: *const PCWSDXML_NAMESPACE, wNamespacesCount: u16, bLayerNumber: u8) -> HRESULT;
             fn SetTypes(&self, #[len_param(1)] pTypes: *const PCWSDXML_TYPE, dwTypesCount: u32, bLayerNumber: u8) -> HRESULT;
         }
-        const OpAnyElement: i32 = 6;
-        const OpAnyElements: i32 = 7;
-        const OpAnyNumber: i32 = 17;
-        const OpAnyText: i32 = 8;
-        const OpAnything: i32 = 16;
-        const OpAttribute_: i32 = 9;
-        const OpBeginAll: i32 = 14;
-        const OpBeginAnyElement: i32 = 3;
-        const OpBeginChoice: i32 = 10;
-        const OpBeginElement_: i32 = 2;
-        const OpBeginSequence: i32 = 12;
-        const OpElement_: i32 = 5;
-        const OpEndAll: i32 = 15;
-        const OpEndChoice: i32 = 11;
-        const OpEndElement: i32 = 4;
-        const OpEndOfTable: i32 = 1;
-        const OpEndSequence: i32 = 13;
-        const OpFormatBool_: i32 = 20;
-        const OpFormatDateTime_: i32 = 40;
-        const OpFormatDom_: i32 = 30;
-        const OpFormatDouble_: i32 = 42;
-        const OpFormatDuration_: i32 = 39;
-        const OpFormatDynamicType_: i32 = 37;
-        const OpFormatFloat_: i32 = 41;
-        const OpFormatInt16_: i32 = 22;
-        const OpFormatInt32_: i32 = 23;
-        const OpFormatInt64_: i32 = 24;
-        const OpFormatInt8_: i32 = 21;
-        const OpFormatListInsertTail_: i32 = 35;
-        const OpFormatLookupType_: i32 = 38;
-        const OpFormatMax: i32 = 46;
-        const OpFormatName_: i32 = 34;
-        const OpFormatStruct_: i32 = 31;
-        const OpFormatType_: i32 = 36;
-        const OpFormatUInt16_: i32 = 26;
-        const OpFormatUInt32_: i32 = 27;
-        const OpFormatUInt64_: i32 = 28;
-        const OpFormatUInt8_: i32 = 25;
-        const OpFormatUnicodeString_: i32 = 29;
-        const OpFormatUri_: i32 = 32;
-        const OpFormatUuidUri_: i32 = 33;
-        const OpFormatXMLDeclaration_: i32 = 45;
-        const OpNone: i32 = 0;
-        const OpOneOrMore: i32 = 18;
-        const OpOptional: i32 = 19;
-        const OpProcess_: i32 = 43;
-        const OpQualifiedAttribute_: i32 = 44;
         type PCWSDXML_NAMESPACE = *const WSDXML_NAMESPACE;
         type PCWSDXML_TYPE = *const WSDXML_TYPE;
         #[library("wsdapi.dll")]
@@ -84,6 +37,56 @@ mod Windows {
             minute: u32,
             second: u32,
             millisecond: u32,
+        }
+        #[repr(i32)]
+        enum __MIDL___MIDL_itf_wsdxml_0000_0000_0001 {
+            OpNone = 0,
+            OpEndOfTable = 1,
+            OpBeginElement_ = 2,
+            OpBeginAnyElement = 3,
+            OpEndElement = 4,
+            OpElement_ = 5,
+            OpAnyElement = 6,
+            OpAnyElements = 7,
+            OpAnyText = 8,
+            OpAttribute_ = 9,
+            OpBeginChoice = 10,
+            OpEndChoice = 11,
+            OpBeginSequence = 12,
+            OpEndSequence = 13,
+            OpBeginAll = 14,
+            OpEndAll = 15,
+            OpAnything = 16,
+            OpAnyNumber = 17,
+            OpOneOrMore = 18,
+            OpOptional = 19,
+            OpFormatBool_ = 20,
+            OpFormatInt8_ = 21,
+            OpFormatInt16_ = 22,
+            OpFormatInt32_ = 23,
+            OpFormatInt64_ = 24,
+            OpFormatUInt8_ = 25,
+            OpFormatUInt16_ = 26,
+            OpFormatUInt32_ = 27,
+            OpFormatUInt64_ = 28,
+            OpFormatUnicodeString_ = 29,
+            OpFormatDom_ = 30,
+            OpFormatStruct_ = 31,
+            OpFormatUri_ = 32,
+            OpFormatUuidUri_ = 33,
+            OpFormatName_ = 34,
+            OpFormatListInsertTail_ = 35,
+            OpFormatType_ = 36,
+            OpFormatDynamicType_ = 37,
+            OpFormatLookupType_ = 38,
+            OpFormatDuration_ = 39,
+            OpFormatDateTime_ = 40,
+            OpFormatFloat_ = 41,
+            OpFormatDouble_ = 42,
+            OpProcess_ = 43,
+            OpQualifiedAttribute_ = 44,
+            OpFormatXMLDeclaration_ = 45,
+            OpFormatMax = 46,
         }
     }
 }

@@ -1,23 +1,12 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        #[no_guid]
-        interface CVssWriter {
-            fn OnPrepareSnapshot(&self) -> bool;
-            fn OnFreeze(&self) -> bool;
-            fn OnThaw(&self) -> bool;
-            fn OnAbort(&self) -> bool;
-        }
-        #[no_guid]
-        interface CVssWriterEx: CVssWriter {}
-        #[no_guid]
-        interface CVssWriterEx2: CVssWriterEx {}
         #[library("VSSAPI.DLL")]
         extern fn CreateVssExpressWriterInternal(ppWriter: *mut IVssExpressWriter) -> HRESULT;
         #[library("VSSAPI.DLL")]
-        extern fn CreateWriter(pWriter: CVssWriter, pWriterImpl: *mut IVssWriterImpl) -> HRESULT;
+        extern fn CreateWriter(#[in] pWriter: *mut void, pWriterImpl: *mut IVssWriterImpl) -> HRESULT;
         #[library("VSSAPI.DLL")]
-        extern fn CreateWriterEx(pWriter: CVssWriterEx, pWriterImpl: *mut IVssWriterImpl) -> HRESULT;
+        extern fn CreateWriterEx(#[in] pWriter: *mut void, pWriterImpl: *mut IVssWriterImpl) -> HRESULT;
         #[guid(0xd2c72c96_c121_4518_b627_e5a93d010ead)]
         interface IVssComponent: IUnknown {
             fn GetLogicalPath(&self, pbstrPath: *mut BSTR) -> HRESULT;

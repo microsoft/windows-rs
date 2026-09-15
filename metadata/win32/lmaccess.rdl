@@ -115,7 +115,7 @@ mod Windows {
             grui1_attributes: u32,
         }
         #[library("NETAPI32.dll")]
-        extern fn I_NetLogonControl2(#[opt] ServerName: PCWSTR, FunctionCode: u32, QueryLevel: u32, Data: *const u8, Buffer: *mut LPBYTE) -> u32;
+        extern fn I_NetLogonControl2(#[opt] ServerName: PCWSTR, FunctionCode: u32, QueryLevel: u32, Data: LPBYTE, Buffer: *mut LPBYTE) -> u32;
         const LG_INCLUDE_INDIRECT: i32 = 1;
         const LOCALGROUP_COMMENT_PARMNUM: i32 = 2;
         struct LOCALGROUP_INFO_0 {
@@ -335,7 +335,7 @@ mod Windows {
         }
         struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
             InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
-            PasswordMatched: bool,
+            PasswordMatched: BOOLEAN,
         }
         const NET_VALIDATE_BAD_PASSWORD_COUNT: i32 = 8;
         const NET_VALIDATE_BAD_PASSWORD_TIME: i32 = 2;
@@ -349,7 +349,7 @@ mod Windows {
             ClearPassword: PWSTR,
             UserAccountName: PWSTR,
             HashedPassword: NET_VALIDATE_PASSWORD_HASH,
-            PasswordMatch: bool,
+            PasswordMatch: BOOLEAN,
         }
         struct NET_VALIDATE_PASSWORD_HASH {
             Length: u32,
@@ -363,8 +363,8 @@ mod Windows {
             ClearPassword: PWSTR,
             UserAccountName: PWSTR,
             HashedPassword: NET_VALIDATE_PASSWORD_HASH,
-            PasswordMustChangeAtNextLogon: bool,
-            ClearLockout: bool,
+            PasswordMustChangeAtNextLogon: BOOLEAN,
+            ClearLockout: BOOLEAN,
         }
         #[repr(i32)]
         enum NET_VALIDATE_PASSWORD_TYPE {
@@ -385,17 +385,17 @@ mod Windows {
         #[encoding("ansi")]
         const NULL_USERSETINFO_PASSWD: String = "              ";
         #[library("NETAPI32.dll")]
-        extern fn NetAccessAdd(#[opt] servername: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetAccessAdd(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetAccessDel(#[opt] servername: PCWSTR, resource: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetAccessEnum(#[opt] servername: PCWSTR, BasePath: PCWSTR, Recursive: u32, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        extern fn NetAccessEnum(#[opt] servername: PCWSTR, BasePath: PCWSTR, Recursive: u32, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetAccessGetInfo(#[opt] servername: PCWSTR, resource: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetAccessGetUserPerms(#[opt] servername: PCWSTR, UGname: PCWSTR, resource: PCWSTR, Perms: *mut u32) -> u32;
+        extern fn NetAccessGetUserPerms(#[opt] servername: PCWSTR, UGname: PCWSTR, resource: PCWSTR, #[out] Perms: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetAccessSetInfo(#[opt] servername: PCWSTR, resource: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetAccessSetInfo(#[opt] servername: PCWSTR, resource: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern "C" fn NetAddServiceAccount(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, Password: PCWSTR, Flags: u32) -> NTSTATUS;
         #[library("NETAPI32.dll")]
@@ -405,9 +405,9 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetGetDCName(#[opt] ServerName: PCWSTR, #[opt] DomainName: PCWSTR, Buffer: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetGetDisplayInformationIndex(#[opt] ServerName: PCWSTR, Level: u32, Prefix: PCWSTR, Index: *mut u32) -> u32;
+        extern fn NetGetDisplayInformationIndex(#[opt] ServerName: PCWSTR, Level: u32, Prefix: PCWSTR, #[out] Index: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupAdd(#[opt] servername: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetGroupAdd(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetGroupAddUser(#[opt] servername: PCWSTR, GroupName: PCWSTR, username: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
@@ -415,73 +415,73 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetGroupDelUser(#[opt] servername: PCWSTR, GroupName: PCWSTR, Username: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut usize) -> u32;
+        extern fn NetGroupEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: PDWORD_PTR) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetGroupGetInfo(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupGetUsers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] ResumeHandle: *mut usize) -> u32;
+        extern fn NetGroupGetUsers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] ResumeHandle: PDWORD_PTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupSetInfo(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetGroupSetInfo(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetGroupSetUsers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+        extern fn NetGroupSetUsers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: LPBYTE, totalentries: u32) -> u32;
         #[library("NETAPI32.dll")]
         extern "C" fn NetIsServiceAccount(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, IsService: *mut BOOL) -> NTSTATUS;
         #[library("NETAPI32.dll")]
         extern "C" fn NetIsServiceAccount2(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, IsService: *mut BOOL, AccountType: *mut MSA_INFO_ACCOUNT_TYPE) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupAdd(#[opt] servername: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetLocalGroupAdd(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetLocalGroupAddMember(#[opt] servername: PCWSTR, groupname: PCWSTR, membersid: PSID) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupAddMembers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+        extern fn NetLocalGroupAddMembers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: LPBYTE, totalentries: u32) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetLocalGroupDel(#[opt] servername: PCWSTR, groupname: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetLocalGroupDelMember(#[opt] servername: PCWSTR, groupname: PCWSTR, membersid: PSID) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupDelMembers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+        extern fn NetLocalGroupDelMembers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: LPBYTE, totalentries: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resumehandle: *mut usize) -> u32;
+        extern fn NetLocalGroupEnum(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resumehandle: PDWORD_PTR) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetLocalGroupGetInfo(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupGetMembers(#[opt] servername: PCWSTR, localgroupname: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resumehandle: *mut usize) -> u32;
+        extern fn NetLocalGroupGetMembers(#[opt] servername: PCWSTR, localgroupname: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resumehandle: PDWORD_PTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupSetInfo(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetLocalGroupSetInfo(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetLocalGroupSetMembers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+        extern fn NetLocalGroupSetMembers(#[opt] servername: PCWSTR, groupname: PCWSTR, level: u32, buf: LPBYTE, totalentries: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetQueryDisplayInformation(#[opt] ServerName: PCWSTR, Level: u32, Index: u32, EntriesRequested: u32, PreferredMaximumLength: u32, ReturnedEntryCount: *mut u32, SortedBuffer: *mut *mut void) -> u32;
+        extern fn NetQueryDisplayInformation(#[opt] ServerName: PCWSTR, Level: u32, Index: u32, EntriesRequested: u32, PreferredMaximumLength: u32, #[out] ReturnedEntryCount: LPDWORD, SortedBuffer: *mut *mut void) -> u32;
         #[library("NETAPI32.dll")]
         extern "C" fn NetQueryServiceAccount(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, InfoLevel: u32, Buffer: *mut PBYTE) -> NTSTATUS;
         #[library("NETAPI32.dll")]
         extern "C" fn NetRemoveServiceAccount(#[opt] ServerName: PCWSTR, AccountName: PCWSTR, Flags: u32) -> NTSTATUS;
         #[library("NETAPI32.dll")]
-        extern fn NetUserAdd(#[opt] servername: PCWSTR, level: u32, buf: *mut u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetUserAdd(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetUserChangePassword(#[opt] domainname: PCWSTR, #[opt] username: PCWSTR, oldpassword: PCWSTR, newpassword: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetUserDel(#[opt] servername: PCWSTR, username: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetUserEnum(#[opt] servername: PCWSTR, level: u32, filter: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, #[in] #[out] #[opt] resume_handle: *mut u32) -> u32;
+        extern fn NetUserEnum(#[opt] servername: PCWSTR, level: u32, filter: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: PDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetUserGetGroups(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
+        extern fn NetUserGetGroups(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetUserGetInfo(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetUserGetLocalGroups(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, flags: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
+        extern fn NetUserGetLocalGroups(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, flags: u32, bufptr: *mut LPBYTE, prefmaxlen: u32, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetUserModalsGet(#[opt] servername: PCWSTR, level: u32, bufptr: *mut LPBYTE) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetUserModalsSet(#[opt] servername: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetUserModalsSet(#[opt] servername: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetUserSetGroups(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, buf: *const u8, num_entries: u32) -> u32;
+        extern fn NetUserSetGroups(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, buf: LPBYTE, num_entries: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetUserSetInfo(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, buf: *const u8, #[opt] parm_err: *mut u32) -> u32;
+        extern fn NetUserSetInfo(#[opt] servername: PCWSTR, username: PCWSTR, level: u32, buf: LPBYTE, #[out] #[opt] parm_err: LPDWORD) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetValidatePasswordPolicy(ServerName: PCWSTR, Qualifier: *const void, ValidationType: NET_VALIDATE_PASSWORD_TYPE, InputArg: *const void, OutputArg: *mut *mut void) -> u32;
+        extern fn NetValidatePasswordPolicy(ServerName: PCWSTR, #[in] Qualifier: *mut void, ValidationType: NET_VALIDATE_PASSWORD_TYPE, #[in] InputArg: *mut void, OutputArg: *mut *mut void) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetValidatePasswordPolicyFree(OutputArg: *const *const void) -> u32;
+        extern fn NetValidatePasswordPolicyFree(#[in] OutputArg: *mut *mut void) -> u32;
         const ONE_DAY: u32 = 86400;
         type PACCESS_INFO_0 = *mut ACCESS_INFO_0;
         type PACCESS_INFO_1 = *mut ACCESS_INFO_1;

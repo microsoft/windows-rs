@@ -518,23 +518,23 @@ mod Windows {
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
         extern fn NetworkIsolationEnumAppContainers(Flags: u32, pdwNumPublicAppCs: *mut u32, ppPublicAppCs: *mut PINET_FIREWALL_APP_CONTAINER) -> u32;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
-        extern fn NetworkIsolationFreeAppContainers(pPublicAppCs: *const INET_FIREWALL_APP_CONTAINER) -> u32;
+        extern fn NetworkIsolationFreeAppContainers(pPublicAppCs: PINET_FIREWALL_APP_CONTAINER) -> u32;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
         extern fn NetworkIsolationGetAppContainerConfig(pdwNumPublicAppCs: *mut u32, appContainerSids: *mut PSID_AND_ATTRIBUTES) -> u32;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
-        extern fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, #[opt] context: *const void, registrationObject: *mut HANDLE) -> u32;
+        extern fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, #[in] #[opt] context: *mut void, registrationObject: *mut HANDLE) -> u32;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
-        extern fn NetworkIsolationSetAppContainerConfig(dwNumPublicAppCs: u32, #[len_param(0)] appContainerSids: *const SID_AND_ATTRIBUTES) -> u32;
+        extern fn NetworkIsolationSetAppContainerConfig(dwNumPublicAppCs: u32, #[len_param(0)] appContainerSids: PSID_AND_ATTRIBUTES) -> u32;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
-        extern fn NetworkIsolationSetupAppContainerBinaries(applicationContainerSid: PSID, packageFullName: PCWSTR, packageFolder: PCWSTR, displayName: PCWSTR, bBinariesFullyComputed: BOOL, #[len_param(6)] binaries: *const PCWSTR, binariesCount: u32) -> HRESULT;
+        extern fn NetworkIsolationSetupAppContainerBinaries(applicationContainerSid: PSID, packageFullName: PCWSTR, packageFolder: PCWSTR, displayName: PCWSTR, bBinariesFullyComputed: BOOL, #[len_param(6)] #[in] binaries: *mut PCWSTR, binariesCount: u32) -> HRESULT;
         #[library("api-ms-win-net-isolation-l1-1-0.dll")]
         extern fn NetworkIsolationUnregisterForAppContainerChanges(registrationObject: HANDLE) -> u32;
-        extern fn PAC_CHANGES_CALLBACK_FN(#[opt] context: *const void, pChange: *const INET_FIREWALL_AC_CHANGE);
-        extern fn PFN_FWADDDYNAMICKEYWORDADDRESS0(dynamicKeywordAddress: *const FW_DYNAMIC_KEYWORD_ADDRESS0) -> u32;
+        extern fn PAC_CHANGES_CALLBACK_FN(#[in] #[opt] context: *mut void, pChange: *const INET_FIREWALL_AC_CHANGE);
+        extern fn PFN_FWADDDYNAMICKEYWORDADDRESS0(dynamicKeywordAddress: PFW_DYNAMIC_KEYWORD_ADDRESS0) -> u32;
         extern fn PFN_FWDELETEDYNAMICKEYWORDADDRESS0(dynamicKeywordAddressId: GUID) -> u32;
         extern fn PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0(dynamicKeywordAddressId: GUID, dynamicKeywordAddressData: *mut PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32;
         extern fn PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0(flags: u32, dynamicKeywordAddressData: *mut PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32;
-        extern fn PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0(dynamicKeywordAddressData: *const FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32;
+        extern fn PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0(dynamicKeywordAddressData: PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32;
         extern fn PFN_FWUPDATEDYNAMICKEYWORDADDRESS0(dynamicKeywordAddressId: GUID, updatedAddresses: PCWSTR, append: BOOL) -> u32;
         type PFW_DYNAMIC_KEYWORD_ADDRESS0 = *mut FW_DYNAMIC_KEYWORD_ADDRESS0;
         type PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0 = *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0;

@@ -15,11 +15,11 @@ mod Windows {
         #[library("wsdapi.dll")]
         extern fn WSDGenerateFault(pszCode: PCWSTR, #[opt] pszSubCode: PCWSTR, pszReason: PCWSTR, #[opt] pszDetail: PCWSTR, pContext: IWSDXMLContext, ppFault: *mut *mut WSD_SOAP_FAULT) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDGenerateFaultEx(pCode: *const WSDXML_NAME, #[opt] pSubCode: *const WSDXML_NAME, pReasons: *const WSD_LOCALIZED_STRING_LIST, #[opt] pszDetail: PCWSTR, ppFault: *mut *mut WSD_SOAP_FAULT) -> HRESULT;
+        extern fn WSDGenerateFaultEx(#[in] pCode: *mut WSDXML_NAME, #[in] #[opt] pSubCode: *mut WSDXML_NAME, #[in] pReasons: *mut WSD_LOCALIZED_STRING_LIST, #[opt] pszDetail: PCWSTR, ppFault: *mut *mut WSD_SOAP_FAULT) -> HRESULT;
         #[library("wsdapi.dll")]
         extern fn WSDGetConfigurationOption(dwOption: u32, #[size_param(2)] pVoid: *mut void, cbOutBuffer: u32) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDSetConfigurationOption(dwOption: u32, #[size_param(2)] pVoid: *const void, cbInBuffer: u32) -> HRESULT;
+        extern fn WSDSetConfigurationOption(dwOption: u32, #[size_param(2)] #[in] pVoid: *mut void, cbInBuffer: u32) -> HRESULT;
         #[library("wsdapi.dll")]
         extern fn WSDUriDecode(#[len_param(1)] source: PCWSTR, cchSource: u32, #[len_param(3)] destOut: *mut PWSTR, #[opt] cchDestOut: *mut u32) -> HRESULT;
         #[library("wsdapi.dll")]

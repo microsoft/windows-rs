@@ -60,6 +60,14 @@ mod Windows {
         const NCRYPTBUFFER_VBS_ATTESTATION_STATEMENT_ROOT_DETAILS: i32 = 94;
         const NCRYPTBUFFER_VERSION: i32 = 0;
         #[encoding("utf-16")]
+        const NCRYPT_3DES_112_ALGORITHM: String = "3DES_112";
+        #[encoding("utf-16")]
+        const NCRYPT_3DES_ALGORITHM: String = "3DES";
+        #[encoding("utf-16")]
+        const NCRYPT_AES_ALGORITHM: String = "AES";
+        #[encoding("utf-16")]
+        const NCRYPT_AES_ALGORITHM_GROUP: String = "AES";
+        #[encoding("utf-16")]
         const NCRYPT_ALGORITHM_GROUP_PROPERTY: String = "Algorithm Group";
         #[encoding("utf-16")]
         const NCRYPT_ALGORITHM_PROPERTY: String = "Algorithm Name";
@@ -83,6 +91,8 @@ mod Windows {
         const NCRYPT_ALLOW_SIGNING_FLAG: i32 = 2;
         const NCRYPT_ALLOW_SILENT_KEY_ACCESS: i32 = 1;
         #[encoding("utf-16")]
+        const NCRYPT_ALTERNATE_KEY_STORAGE_LOCATION_PROPERTY: String = "PCP_ALTERNATE_KEY_STORAGE_LOCATION";
+        #[encoding("utf-16")]
         const NCRYPT_ASSOCIATED_ECDH_KEY: String = "SmartCardAssociatedECDHKey";
         const NCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: i32 = 3;
         const NCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: i32 = 4;
@@ -93,11 +103,15 @@ mod Windows {
         #[encoding("utf-16")]
         const NCRYPT_BLOCK_LENGTH_PROPERTY: String = "Block Length";
         #[encoding("utf-16")]
+        const NCRYPT_CAPI_KDF_ALGORITHM: String = "CAPI_KDF";
+        #[encoding("utf-16")]
         const NCRYPT_CERTIFICATE_FROM_NVRAM_PROPERTY: String = "KeyCertificateFromTpmNvram";
         #[encoding("utf-16")]
         const NCRYPT_CERTIFICATE_PROPERTY: String = "SmartCardKeyCertificate";
         #[encoding("utf-16")]
         const NCRYPT_CHAINING_MODE_PROPERTY: String = "Chaining Mode";
+        #[encoding("utf-16")]
+        const NCRYPT_CHANGEPASSWORD_PROPERTY: String = "PCP_CHANGEPASSWORD";
         const NCRYPT_CIPHER_BLOCK_PADDING_FLAG: i32 = 1;
         const NCRYPT_CIPHER_INTERFACE: i32 = 1;
         #[encoding("utf-16")]
@@ -125,14 +139,50 @@ mod Windows {
         const NCRYPT_CLAIM_WEB_AUTH_SUBJECT_ONLY: i32 = 258;
         const NCRYPT_CLAIM_WEB_AUTH_SUBJECT_ONLY_V2: i32 = 259;
         #[encoding("utf-16")]
+        const NCRYPT_DESX_ALGORITHM: String = "DESX";
+        #[encoding("utf-16")]
+        const NCRYPT_DES_ALGORITHM: String = "DES";
+        #[encoding("utf-16")]
         const NCRYPT_DES_ALGORITHM_GROUP: String = "DES";
+        #[encoding("utf-16")]
+        const NCRYPT_DH_ALGORITHM: String = "DH";
+        #[encoding("utf-16")]
+        const NCRYPT_DH_ALGORITHM_GROUP: String = "DH";
+        #[encoding("utf-16")]
+        const NCRYPT_DH_PARAMETERS_PROPERTY: String = "DHParameters";
         #[encoding("utf-16")]
         const NCRYPT_DISMISS_UI_TIMEOUT_SEC_PROPERTY: String = "SmartCardDismissUITimeoutSeconds";
         const NCRYPT_DO_NOT_FINALIZE_FLAG: i32 = 1024;
         #[encoding("utf-16")]
+        const NCRYPT_DSA_ALGORITHM: String = "DSA";
+        #[encoding("utf-16")]
+        const NCRYPT_DSA_ALGORITHM_GROUP: String = "DSA";
+        #[encoding("utf-16")]
+        const NCRYPT_ECC_CURVE_NAME_LIST_PROPERTY: String = "ECCCurveNameList";
+        #[encoding("utf-16")]
+        const NCRYPT_ECC_CURVE_NAME_PROPERTY: String = "ECCCurveName";
+        #[encoding("utf-16")]
+        const NCRYPT_ECC_PARAMETERS_PROPERTY: String = "ECCParameters";
+        #[encoding("utf-16")]
+        const NCRYPT_ECDH_ALGORITHM: String = "ECDH";
+        #[encoding("utf-16")]
         const NCRYPT_ECDH_ALGORITHM_GROUP: String = "ECDH";
         #[encoding("utf-16")]
+        const NCRYPT_ECDH_P256_ALGORITHM: String = "ECDH_P256";
+        #[encoding("utf-16")]
+        const NCRYPT_ECDH_P384_ALGORITHM: String = "ECDH_P384";
+        #[encoding("utf-16")]
+        const NCRYPT_ECDH_P521_ALGORITHM: String = "ECDH_P521";
+        #[encoding("utf-16")]
+        const NCRYPT_ECDSA_ALGORITHM: String = "ECDSA";
+        #[encoding("utf-16")]
         const NCRYPT_ECDSA_ALGORITHM_GROUP: String = "ECDSA";
+        #[encoding("utf-16")]
+        const NCRYPT_ECDSA_P256_ALGORITHM: String = "ECDSA_P256";
+        #[encoding("utf-16")]
+        const NCRYPT_ECDSA_P384_ALGORITHM: String = "ECDSA_P384";
+        #[encoding("utf-16")]
+        const NCRYPT_ECDSA_P521_ALGORITHM: String = "ECDSA_P521";
         #[encoding("utf-16")]
         const NCRYPT_EPHEMERAL_NAME_PROPERTY: String = "Ephemeral Name";
         struct NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
@@ -171,6 +221,8 @@ mod Windows {
         #[encoding("utf-16")]
         const NCRYPT_IMPL_TYPE_PROPERTY: String = "Impl Type";
         const NCRYPT_IMPL_VIRTUAL_ISOLATION_FLAG: i32 = 32;
+        #[encoding("utf-16")]
+        const NCRYPT_INITIALIZATION_VECTOR: String = "IV";
         struct NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
             Version: u32,
             Flags: u32,
@@ -188,6 +240,10 @@ mod Windows {
         const NCRYPT_KDF_KEY_BLOB_MAGIC: i32 = 826688587;
         #[encoding("utf-16")]
         const NCRYPT_KDF_SECRET_VALUE: String = "KDFKeySecret";
+        #[encoding("utf-16")]
+        const NCRYPT_KEM_CIPHERTEXT_LENGTH_PROPERTY: String = "KEMCiphertextLength";
+        #[encoding("utf-16")]
+        const NCRYPT_KEM_SHARED_SECRET_LENGTH_PROPERTY: String = "KEMSharedSecretLength";
         struct NCRYPT_KEY_ACCESS_POLICY_BLOB {
             dwVersion: u32,
             dwPolicyFlags: u32,
@@ -232,6 +288,10 @@ mod Windows {
         const NCRYPT_LENGTHS_PROPERTY: String = "Lengths";
         #[encoding("utf-16")]
         const NCRYPT_LENGTH_PROPERTY: String = "Length";
+        #[encoding("utf-16")]
+        const NCRYPT_LMS_ALGORITHM: String = "LMS";
+        #[encoding("utf-16")]
+        const NCRYPT_LMS_ALGORITHM_GROUP: String = "LMS";
         const NCRYPT_MACHINE_KEY_FLAG: i32 = 32;
         const NCRYPT_MAX_ALG_ID_LENGTH: i32 = 512;
         const NCRYPT_MAX_KEY_NAME_LENGTH: i32 = 512;
@@ -240,7 +300,17 @@ mod Windows {
         const NCRYPT_MAX_PROPERTY_DATA: i32 = 1048576;
         const NCRYPT_MAX_PROPERTY_NAME: i32 = 64;
         #[encoding("utf-16")]
+        const NCRYPT_MD2_ALGORITHM: String = "MD2";
+        #[encoding("utf-16")]
+        const NCRYPT_MD4_ALGORITHM: String = "MD4";
+        #[encoding("utf-16")]
+        const NCRYPT_MD5_ALGORITHM: String = "MD5";
+        #[encoding("utf-16")]
+        const NCRYPT_MLDSA_ALGORITHM: String = "ML-DSA";
+        #[encoding("utf-16")]
         const NCRYPT_MLDSA_ALGORITHM_GROUP: String = "MLDSA";
+        #[encoding("utf-16")]
+        const NCRYPT_MLKEM_ALGORITHM: String = "ML-KEM";
         #[encoding("utf-16")]
         const NCRYPT_MLKEM_ALGORITHM_GROUP: String = "MLKEM";
         #[encoding("utf-16")]
@@ -256,6 +326,10 @@ mod Windows {
         const NCRYPT_PAD_PKCS1_FLAG: i32 = 2;
         const NCRYPT_PAD_PQDSA_FLAG: i32 = 32;
         const NCRYPT_PAD_PSS_FLAG: i32 = 8;
+        #[encoding("utf-16")]
+        const NCRYPT_PARAMETER_SET_NAME_PROPERTY: String = "ParameterSetName";
+        #[encoding("utf-16")]
+        const NCRYPT_PBKDF2_ALGORITHM: String = "PBKDF2";
         #[encoding("utf-16")]
         const NCRYPT_PCP_AIKSTORE_PROPERTY: String = "PCP_AIKSTORE";
         #[encoding("utf-16")]
@@ -463,6 +537,8 @@ mod Windows {
         const NCRYPT_PQ_PRIVATE_BLOB_MAGIC: i32 = 1380995408;
         #[encoding("utf-16")]
         const NCRYPT_PQ_PRIVATE_KEY_BLOB: String = "PQPrivateKeyBlob";
+        #[encoding("utf-16")]
+        const NCRYPT_PQ_PUBLIC_KEY_BLOB: String = "PUBLICBLOB";
         const NCRYPT_PREFER_VBS_FLAG: i32 = 65536;
         const NCRYPT_PREFER_VIRTUAL_ISOLATION_FLAG: i32 = 65536;
         #[encoding("utf-16")]
@@ -473,6 +549,12 @@ mod Windows {
         const NCRYPT_PROVIDER_HANDLE_PROPERTY: String = "Provider Handle";
         type NCRYPT_PROV_HANDLE = usize;
         #[encoding("utf-16")]
+        const NCRYPT_PUBLIC_LENGTH_PROPERTY: String = "PublicKeyLength";
+        #[encoding("utf-16")]
+        const NCRYPT_RC2_ALGORITHM: String = "RC2";
+        #[encoding("utf-16")]
+        const NCRYPT_RC2_ALGORITHM_GROUP: String = "RC2";
+        #[encoding("utf-16")]
         const NCRYPT_READER_ICON_PROPERTY: String = "SmartCardReaderIcon";
         #[encoding("utf-16")]
         const NCRYPT_READER_PROPERTY: String = "SmartCardReader";
@@ -482,6 +564,12 @@ mod Windows {
         const NCRYPT_RNG_OPERATION: i32 = 32;
         #[encoding("utf-16")]
         const NCRYPT_ROOT_CERTSTORE_PROPERTY: String = "SmartcardRootCertStore";
+        #[encoding("utf-16")]
+        const NCRYPT_RSA_ALGORITHM: String = "RSA";
+        #[encoding("utf-16")]
+        const NCRYPT_RSA_ALGORITHM_GROUP: String = "RSA";
+        #[encoding("utf-16")]
+        const NCRYPT_RSA_SIGN_ALGORITHM: String = "RSA_SIGN";
         #[encoding("utf-16")]
         const NCRYPT_SCARD_NGC_KEY_NAME: String = "SmartCardNgcKeyName";
         #[encoding("utf-16")]
@@ -500,13 +588,29 @@ mod Windows {
         const NCRYPT_SECURITY_DESCR_PROPERTY: String = "Security Descr";
         #[encoding("utf-16")]
         const NCRYPT_SECURITY_DESCR_SUPPORT_PROPERTY: String = "Security Descr Support";
+        #[encoding("utf-16")]
+        const NCRYPT_SHA1_ALGORITHM: String = "SHA1";
+        #[encoding("utf-16")]
+        const NCRYPT_SHA256_ALGORITHM: String = "SHA256";
+        #[encoding("utf-16")]
+        const NCRYPT_SHA384_ALGORITHM: String = "SHA384";
+        #[encoding("utf-16")]
+        const NCRYPT_SHA512_ALGORITHM: String = "SHA512";
         const NCRYPT_SIGNATURE_INTERFACE: i32 = 5;
+        #[encoding("utf-16")]
+        const NCRYPT_SIGNATURE_LENGTH_PROPERTY: String = "SignatureLength";
         const NCRYPT_SIGNATURE_OPERATION: i32 = 16;
         const NCRYPT_SILENT_FLAG: i32 = 64;
+        #[encoding("utf-16")]
+        const NCRYPT_SLHDSA_ALGORITHM: String = "SLH-DSA";
         #[encoding("utf-16")]
         const NCRYPT_SLHDSA_ALGORITHM_GROUP: String = "SLHDSA";
         #[encoding("utf-16")]
         const NCRYPT_SMARTCARD_GUID_PROPERTY: String = "SmartCardGuid";
+        #[encoding("utf-16")]
+        const NCRYPT_SP800108_CTR_HMAC_ALGORITHM: String = "SP800_108_CTR_HMAC";
+        #[encoding("utf-16")]
+        const NCRYPT_SP80056A_CONCAT_ALGORITHM: String = "SP800_56A_CONCAT";
         struct NCRYPT_SUPPORTED_LENGTHS {
             dwMinLength: u32,
             dwMaxLength: u32,
@@ -524,6 +628,10 @@ mod Windows {
             cbName: u32,
         }
         const NCRYPT_TPM_LOADABLE_KEY_BLOB_MAGIC: i32 = 1297371211;
+        #[arch(X64 | Arm64)]
+        const NCRYPT_TPM_LOADABLE_KEY_BLOB_MIN_SIZE: u64 = 20;
+        #[arch(X86)]
+        const NCRYPT_TPM_LOADABLE_KEY_BLOB_MIN_SIZE: u32 = 20;
         const NCRYPT_TPM_PAD_PSS_IGNORE_SALT: i32 = 32;
         #[encoding("utf-16")]
         const NCRYPT_TPM_PERSISTENT_KEY_BLOB: String = "PcpTpmPersistentKeyBlob";
@@ -533,6 +641,10 @@ mod Windows {
             tpmHandle: u32,
         }
         const NCRYPT_TPM_PERSISTENT_KEY_BLOB_MAGIC: i32 = 1297371211;
+        #[arch(X64 | Arm64)]
+        const NCRYPT_TPM_PERSISTENT_KEY_BLOB_MIN_SIZE: u64 = 12;
+        #[arch(X86)]
+        const NCRYPT_TPM_PERSISTENT_KEY_BLOB_MIN_SIZE: u32 = 12;
         struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
             Magic: u32,
             Version: u32,
@@ -643,6 +755,10 @@ mod Windows {
         #[encoding("utf-16")]
         const NCRYPT_WINDOW_HANDLE_PROPERTY: String = "HWND Handle";
         const NCRYPT_WRITE_KEY_TO_LEGACY_STORE_FLAG: i32 = 512;
+        #[encoding("utf-16")]
+        const NCRYPT_XMSS_ALGORITHM: String = "XMSS";
+        #[encoding("utf-16")]
+        const NCRYPT_XMSS_ALGORITHM_GROUP: String = "XMSS";
         struct NCryptAlgorithmName {
             pszName: PWSTR,
             dwClass: u32,
@@ -652,21 +768,21 @@ mod Windows {
         type NCryptBuffer = BCryptBuffer;
         type NCryptBufferDesc = BCryptBufferDesc;
         #[library("ncrypt.dll")]
-        extern fn NCryptCreateClaim(#[opt] hSubjectKey: NCRYPT_KEY_HANDLE, #[opt] hAuthorityKey: NCRYPT_KEY_HANDLE, dwClaimType: u32, #[opt] pParameterList: *const NCryptBufferDesc, #[size_param(5)] #[opt] pbClaimBlob: *mut u8, cbClaimBlob: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn NCryptCreateClaim(#[opt] hSubjectKey: NCRYPT_KEY_HANDLE, #[opt] hAuthorityKey: NCRYPT_KEY_HANDLE, dwClaimType: u32, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[size_param(5)] #[out] #[opt] pbClaimBlob: PBYTE, cbClaimBlob: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         extern fn NCryptCreatePersistedKey(hProvider: NCRYPT_PROV_HANDLE, phKey: *mut NCRYPT_KEY_HANDLE, pszAlgId: PCWSTR, #[opt] pszKeyName: PCWSTR, dwLegacyKeySpec: u32, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptDecapsulate(hKey: NCRYPT_KEY_HANDLE, #[size_param(2)] pbCipherText: *const u8, cbCipherText: u32, #[size_param(4)] #[opt] pbSecretKey: *mut u8, cbSecretKey: u32, pcbSecretKey: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn NCryptDecapsulate(hKey: NCRYPT_KEY_HANDLE, #[size_param(2)] pbCipherText: PBYTE, cbCipherText: u32, #[size_param(4)] #[out] #[opt] pbSecretKey: PBYTE, cbSecretKey: u32, pcbSecretKey: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptDecrypt(hKey: NCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbInput: *const u8, cbInput: u32, #[opt] pPaddingInfo: *const void, #[size_param(5)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn NCryptDecrypt(hKey: NCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbInput: PBYTE, cbInput: u32, #[in] #[opt] pPaddingInfo: *mut void, #[size_param(5)] #[out] #[opt] pbOutput: PBYTE, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         extern fn NCryptDeleteKey(hKey: NCRYPT_KEY_HANDLE, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptDeriveKey(hSharedSecret: NCRYPT_SECRET_HANDLE, pwszKDF: PCWSTR, #[opt] pParameterList: *const NCryptBufferDesc, #[size_param(4)] #[opt] pbDerivedKey: *mut u8, cbDerivedKey: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn NCryptDeriveKey(hSharedSecret: NCRYPT_SECRET_HANDLE, pwszKDF: PCWSTR, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[size_param(4)] #[out] #[opt] pbDerivedKey: PBYTE, cbDerivedKey: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptEncapsulate(hKey: NCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbSecretKey: *mut u8, cbSecretKey: u32, pcbSecretKey: *mut u32, #[size_param(5)] #[opt] pbCipherText: *mut u8, cbCipherText: u32, pcbCipherText: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn NCryptEncapsulate(hKey: NCRYPT_KEY_HANDLE, #[size_param(2)] #[out] #[opt] pbSecretKey: PBYTE, cbSecretKey: u32, pcbSecretKey: *mut u32, #[size_param(5)] #[out] #[opt] pbCipherText: PBYTE, cbCipherText: u32, pcbCipherText: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptEncrypt(hKey: NCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbInput: *const u8, cbInput: u32, #[opt] pPaddingInfo: *const void, #[size_param(5)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn NCryptEncrypt(hKey: NCRYPT_KEY_HANDLE, #[size_param(2)] #[opt] pbInput: PBYTE, cbInput: u32, #[in] #[opt] pPaddingInfo: *mut void, #[size_param(5)] #[out] #[opt] pbOutput: PBYTE, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         extern fn NCryptEnumAlgorithms(hProvider: NCRYPT_PROV_HANDLE, dwAlgOperations: u32, pdwAlgCount: *mut u32, ppAlgList: *mut *mut NCryptAlgorithmName, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
@@ -674,7 +790,7 @@ mod Windows {
         #[library("ncrypt.dll")]
         extern fn NCryptEnumStorageProviders(pdwProviderCount: *mut u32, ppProviderList: *mut *mut NCryptProviderName, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptExportKey(hKey: NCRYPT_KEY_HANDLE, #[opt] hExportKey: NCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, #[opt] pParameterList: *const NCryptBufferDesc, #[size_param(5)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn NCryptExportKey(hKey: NCRYPT_KEY_HANDLE, #[opt] hExportKey: NCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[size_param(5)] #[out] #[opt] pbOutput: PBYTE, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         extern fn NCryptFinalizeKey(hKey: NCRYPT_KEY_HANDLE, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
@@ -682,15 +798,15 @@ mod Windows {
         #[library("ncrypt.dll")]
         extern fn NCryptFreeObject(hObject: NCRYPT_HANDLE) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptGetProperty(hObject: NCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] #[opt] pbOutput: *mut u8, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn NCryptGetProperty(hObject: NCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] #[out] #[opt] pbOutput: PBYTE, cbOutput: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptImportKey(hProvider: NCRYPT_PROV_HANDLE, #[opt] hImportKey: NCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, #[opt] pParameterList: *const NCryptBufferDesc, phKey: *mut NCRYPT_KEY_HANDLE, #[size_param(6)] pbData: *const u8, cbData: u32, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn NCryptImportKey(hProvider: NCRYPT_PROV_HANDLE, #[opt] hImportKey: NCRYPT_KEY_HANDLE, pszBlobType: PCWSTR, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, phKey: *mut NCRYPT_KEY_HANDLE, #[size_param(6)] pbData: PBYTE, cbData: u32, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         extern fn NCryptIsAlgSupported(hProvider: NCRYPT_PROV_HANDLE, pszAlgId: PCWSTR, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         extern fn NCryptIsKeyHandle(hKey: NCRYPT_KEY_HANDLE) -> BOOL;
         #[library("ncrypt.dll")]
-        extern fn NCryptKeyDerivation(hKey: NCRYPT_KEY_HANDLE, #[opt] pParameterList: *const NCryptBufferDesc, #[size_param(3)] pbDerivedKey: *mut u8, cbDerivedKey: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn NCryptKeyDerivation(hKey: NCRYPT_KEY_HANDLE, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[size_param(3)] #[out] pbDerivedKey: PUCHAR, cbDerivedKey: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
         struct NCryptKeyName {
             pszName: PWSTR,
             pszAlgid: PWSTR,
@@ -710,17 +826,17 @@ mod Windows {
         #[library("ncrypt.dll")]
         extern fn NCryptSecretAgreement(hPrivKey: NCRYPT_KEY_HANDLE, hPubKey: NCRYPT_KEY_HANDLE, phAgreedSecret: *mut NCRYPT_SECRET_HANDLE, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptSetProperty(hObject: NCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] pbInput: *const u8, cbInput: u32, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn NCryptSetProperty(hObject: NCRYPT_HANDLE, pszProperty: PCWSTR, #[size_param(3)] pbInput: PBYTE, cbInput: u32, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptSignHash(hKey: NCRYPT_KEY_HANDLE, #[opt] pPaddingInfo: *const void, #[size_param(3)] pbHashValue: *const u8, cbHashValue: u32, #[size_param(5)] #[opt] pbSignature: *mut u8, cbSignature: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn NCryptSignHash(hKey: NCRYPT_KEY_HANDLE, #[in] #[opt] pPaddingInfo: *mut void, #[size_param(3)] pbHashValue: PBYTE, cbHashValue: u32, #[size_param(5)] #[out] #[opt] pbSignature: PBYTE, cbSignature: u32, pcbResult: *mut u32, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         extern fn NCryptTranslateHandle(#[opt] phProvider: *mut NCRYPT_PROV_HANDLE, phKey: *mut NCRYPT_KEY_HANDLE, hLegacyProv: HCRYPTPROV, #[opt] hLegacyKey: HCRYPTKEY, #[opt] dwLegacyKeySpec: u32, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptVerifyClaim(hSubjectKey: NCRYPT_KEY_HANDLE, #[opt] hAuthorityKey: NCRYPT_KEY_HANDLE, dwClaimType: u32, #[opt] pParameterList: *const NCryptBufferDesc, #[size_param(5)] pbClaimBlob: *const u8, cbClaimBlob: u32, pOutput: *mut NCryptBufferDesc, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn NCryptVerifyClaim(hSubjectKey: NCRYPT_KEY_HANDLE, #[opt] hAuthorityKey: NCRYPT_KEY_HANDLE, dwClaimType: u32, #[in] #[opt] pParameterList: *mut NCryptBufferDesc, #[size_param(5)] pbClaimBlob: PBYTE, cbClaimBlob: u32, pOutput: *mut NCryptBufferDesc, dwFlags: u32) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptVerifySignature(hKey: NCRYPT_KEY_HANDLE, #[opt] pPaddingInfo: *const void, #[size_param(3)] pbHashValue: *const u8, cbHashValue: u32, #[size_param(5)] pbSignature: *const u8, cbSignature: u32, dwFlags: u32) -> SECURITY_STATUS;
+        extern fn NCryptVerifySignature(hKey: NCRYPT_KEY_HANDLE, #[in] #[opt] pPaddingInfo: *mut void, #[size_param(3)] pbHashValue: PBYTE, cbHashValue: u32, #[size_param(5)] pbSignature: PBYTE, cbSignature: u32, dwFlags: u32) -> SECURITY_STATUS;
         extern fn PFN_NCRYPT_ALLOC(cbSize: usize) -> *mut void;
-        extern fn PFN_NCRYPT_FREE(pv: *const void);
+        extern fn PFN_NCRYPT_FREE(#[in] pv: *mut void);
         type PNCRYPT_CIPHER_PADDING_INFO = *mut NCRYPT_CIPHER_PADDING_INFO;
         type PNCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE = *mut NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE;
         type PNCRYPT_EXPORTED_ISOLATED_KEY_HEADER = *mut NCRYPT_EXPORTED_ISOLATED_KEY_HEADER;

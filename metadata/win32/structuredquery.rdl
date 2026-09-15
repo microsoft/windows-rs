@@ -28,14 +28,14 @@ mod Windows {
             fn MakeNot(&self, pcSub: ICondition, fSimplify: BOOL, #[retval] ppcResult: *mut ICondition) -> HRESULT;
             fn MakeAndOr(&self, ct: CONDITION_TYPE, peuSubs: IEnumUnknown, fSimplify: BOOL, #[retval] ppcResult: *mut ICondition) -> HRESULT;
             fn MakeLeaf(&self, pszPropertyName: PCWSTR, cop: CONDITION_OPERATION, pszValueType: PCWSTR, ppropvar: *const PROPVARIANT, pPropertyNameTerm: IRichChunk, pOperationTerm: IRichChunk, pValueTerm: IRichChunk, fExpand: BOOL, #[retval] ppcResult: *mut ICondition) -> HRESULT;
-            fn Resolve(&self, pc: ICondition, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, #[opt] pstReferenceTime: *const SYSTEMTIME, ppcResolved: *mut ICondition) -> HRESULT;
+            fn Resolve(&self, pc: ICondition, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, #[opt] pstReferenceTime: *const SYSTEMTIME, #[retval] ppcResolved: *mut ICondition) -> HRESULT;
         }
         #[guid(0x71d222e1_432f_429e_8c13_b6dafde5077a)]
         interface IConditionFactory2: IConditionFactory {
             fn CreateTrueFalse(&self, fVal: BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
             fn CreateNegation(&self, pcSub: ICondition, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
             fn CreateCompoundFromObjectArray(&self, ct: CONDITION_TYPE, #[opt] poaSubs: IObjectArray, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CreateCompoundFromArray(&self, ct: CONDITION_TYPE, ppcondSubs: *const ICondition, cSubs: u32, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateCompoundFromArray(&self, ct: CONDITION_TYPE, #[in] ppcondSubs: *mut ICondition, cSubs: u32, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
             fn CreateStringLeaf(&self, propkey: *const PROPERTYKEY, cop: CONDITION_OPERATION, pszValue: PCWSTR, #[opt] pszLocaleName: PCWSTR, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
             fn CreateIntegerLeaf(&self, propkey: *const PROPERTYKEY, cop: CONDITION_OPERATION, lValue: i32, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
             fn CreateBooleanLeaf(&self, propkey: *const PROPERTYKEY, cop: CONDITION_OPERATION, fValue: BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
@@ -45,7 +45,7 @@ mod Windows {
         #[guid(0x92d2cc58_4386_45a3_b98c_7e0ce64a4117)]
         interface IConditionGenerator: IUnknown {
             fn Initialize(&self, pSchemaProvider: ISchemaProvider) -> HRESULT;
-            fn RecognizeNamedEntities(&self, pszInputString: PCWSTR, lcidUserLocale: LCID, pTokenCollection: ITokenCollection, pNamedEntities: INamedEntityCollector) -> HRESULT;
+            fn RecognizeNamedEntities(&self, pszInputString: PCWSTR, lcidUserLocale: LCID, pTokenCollection: ITokenCollection, #[in] #[out] pNamedEntities: INamedEntityCollector) -> HRESULT;
             fn GenerateForLeaf(&self, pConditionFactory: IConditionFactory, pszPropertyName: PCWSTR, cop: CONDITION_OPERATION, pszValueType: PCWSTR, pszValue: PCWSTR, pszValue2: PCWSTR, pPropertyNameTerm: IRichChunk, pOperationTerm: IRichChunk, pValueTerm: IRichChunk, automaticWildcard: BOOL, pNoStringQuery: *mut BOOL, #[retval] ppQueryExpression: *mut ICondition) -> HRESULT;
             fn DefaultPhrase(&self, pszValueType: PCWSTR, ppropvar: *const PROPVARIANT, fUseEnglish: BOOL, #[retval] ppszPhrase: *mut PWSTR) -> HRESULT;
         }

@@ -78,8 +78,6 @@ mod Windows {
             },
             InterruptState: WHV_ARM64_INTERRUPT_STATE,
         }
-        #[arch(Arm64)]
-        type WHV_ARM64_HYPERCALL_CONTEXT = WHV_HYPERCALL_CONTEXT;
         #[repr(i32)]
         #[arch(Arm64)]
         enum WHV_ARM64_IC_EMULATION_MODE {
@@ -193,10 +191,6 @@ mod Windows {
                 Context: u64,
             },
         }
-        #[arch(Arm64)]
-        type WHV_ARM64_PROCESSOR_FEATURES = WHV_PROCESSOR_FEATURES;
-        #[arch(Arm64)]
-        type WHV_ARM64_PROCESSOR_FEATURES1 = WHV_PROCESSOR_FEATURES1;
         #[arch(Arm64)]
         struct WHV_ARM64_RESET_CONTEXT {
             Header: WHV_INTERCEPT_MESSAGE_HEADER,
@@ -397,8 +391,6 @@ mod Windows {
             WHvCreateVpciDeviceFlagPhysicallyBacked = 1,
             WHvCreateVpciDeviceFlagUseLogicalInterrupts = 2,
         }
-        #[arch(X64 | Arm64)]
-        type WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER = WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER;
         #[arch(X64 | Arm64)]
         union WHV_DISABLE_PARTITION_VTL_FLAGS {
             AsUINT8: u8,
@@ -1942,7 +1934,7 @@ mod Windows {
             Reg16: u16,
             Reg8: u8,
             InternalActivity: WHV_INTERNAL_ACTIVITY_REGISTER,
-            DeliverabilityNotifications: WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER,
+            DeliverabilityNotifications: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER,
         }
         #[arch(X64)]
         union WHV_REGISTER_VALUE {
@@ -1952,7 +1944,7 @@ mod Windows {
             Reg16: u16,
             Reg8: u8,
             InternalActivity: WHV_INTERNAL_ACTIVITY_REGISTER,
-            DeliverabilityNotifications: WHV_DELIVERABILITY_NOTIFICATIONS_REGISTER,
+            DeliverabilityNotifications: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER,
             Fp: WHV_X64_FP_REGISTER,
             FpControlStatus: WHV_X64_FP_CONTROL_STATUS_REGISTER,
             XmmControlStatus: WHV_X64_XMM_CONTROL_STATUS_REGISTER,
@@ -2612,8 +2604,6 @@ mod Windows {
             AsUINT128: WHV_UINT128,
         }
         #[arch(X64)]
-        type WHV_X64_HYPERCALL_CONTEXT = WHV_HYPERCALL_CONTEXT;
-        #[arch(X64)]
         struct WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
             DeliverableType: WHV_X64_PENDING_INTERRUPTION_TYPE,
         }
@@ -2885,10 +2875,6 @@ mod Windows {
             AsUINT128: WHV_UINT128,
         }
         #[arch(X64)]
-        type WHV_X64_PROCESSOR_FEATURES = WHV_PROCESSOR_FEATURES;
-        #[arch(X64)]
-        type WHV_X64_PROCESSOR_FEATURES1 = WHV_PROCESSOR_FEATURES1;
-        #[arch(X64)]
         struct WHV_X64_RDTSC_CONTEXT {
             TscAux: u64,
             VirtualOffset: u64,
@@ -3017,8 +3003,6 @@ mod Windows {
             AsUINT16: u16,
         }
         #[arch(X64)]
-        type WHV_X64_VP_EXIT_CONTEXT = WHV_VP_EXIT_CONTEXT;
-        #[arch(X64)]
         union WHV_X64_XMM_CONTROL_STATUS_REGISTER {
             Anonymous: struct {
                 Anonymous: union {
@@ -3035,12 +3019,12 @@ mod Windows {
             AsUINT128: WHV_UINT128,
         }
         #[arch(Arm64)]
-        const WHvRegisterPendingEvent: i32 = 65540;
+        const WHvRegisterPendingEvent: WHV_REGISTER_NAME = 65540;
         #[arch(Arm64)]
-        const WHvRegisterSiefp: i32 = 655378;
+        const WHvRegisterSiefp: WHV_REGISTER_NAME = 655378;
         #[arch(Arm64)]
-        const WHvRegisterSimp: i32 = 655379;
+        const WHvRegisterSimp: WHV_REGISTER_NAME = 655379;
         #[arch(X64 | Arm64)]
-        const WhvRunVpCancelReasonUser: i32 = 0;
+        const WhvRunVpCancelReasonUser: WHV_RUN_VP_CANCEL_REASON = 0;
     }
 }

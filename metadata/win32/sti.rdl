@@ -13,20 +13,20 @@ mod Windows {
         #[guid(0x6cfa5a80_2dc8_11d0_90ea_00aa0060f86c)]
         interface IStiDevice: IUnknown {
             fn Initialize(&self, hinst: HINSTANCE, pwszDeviceName: PCWSTR, dwVersion: u32, dwMode: u32) -> HRESULT;
-            fn GetCapabilities(&self, #[in] #[out] pDevCaps: *mut STI_DEV_CAPS) -> HRESULT;
-            fn GetStatus(&self, #[in] #[out] pDevStatus: *mut STI_DEVICE_STATUS) -> HRESULT;
+            fn GetCapabilities(&self, #[in] #[out] pDevCaps: PSTI_DEV_CAPS) -> HRESULT;
+            fn GetStatus(&self, #[in] #[out] pDevStatus: PSTI_DEVICE_STATUS) -> HRESULT;
             fn DeviceReset(&self) -> HRESULT;
-            fn Diagnostic(&self, #[in] #[out] pBuffer: *mut STI_DIAG) -> HRESULT;
-            fn Escape(&self, EscapeFunction: STI_RAW_CONTROL_CODE, #[size_param(2)] lpInData: *const void, cbInDataSize: u32, #[size_param(4)] #[in] #[out] pOutData: *mut void, dwOutDataSize: u32, pdwActualData: *mut u32) -> HRESULT;
-            fn GetLastError(&self, pdwLastDeviceError: *mut u32) -> HRESULT;
+            fn Diagnostic(&self, #[in] #[out] pBuffer: LPSTI_DIAG) -> HRESULT;
+            fn Escape(&self, EscapeFunction: STI_RAW_CONTROL_CODE, #[size_param(2)] #[in] lpInData: *mut void, cbInDataSize: u32, #[size_param(4)] #[in] #[out] pOutData: *mut void, dwOutDataSize: u32, #[out] pdwActualData: LPDWORD) -> HRESULT;
+            fn GetLastError(&self, #[out] pdwLastDeviceError: LPDWORD) -> HRESULT;
             fn LockDevice(&self, dwTimeOut: u32) -> HRESULT;
             fn UnLockDevice(&self) -> HRESULT;
-            fn RawReadData(&self, #[size_param(1)] #[in] #[out] lpBuffer: *mut void, #[in] #[out] lpdwNumberOfBytes: *mut u32, #[opt] lpOverlapped: *const OVERLAPPED) -> HRESULT;
-            fn RawWriteData(&self, #[size_param(1)] lpBuffer: *const void, nNumberOfBytes: u32, #[opt] lpOverlapped: *const OVERLAPPED) -> HRESULT;
-            fn RawReadCommand(&self, #[size_param(1)] #[in] #[out] lpBuffer: *mut void, #[in] #[out] lpdwNumberOfBytes: *mut u32, #[opt] lpOverlapped: *const OVERLAPPED) -> HRESULT;
-            fn RawWriteCommand(&self, #[size_param(1)] lpBuffer: *const void, nNumberOfBytes: u32, #[opt] lpOverlapped: *const OVERLAPPED) -> HRESULT;
-            fn Subscribe(&self, #[in] #[out] lpSubsribe: *mut STISUBSCRIBE) -> HRESULT;
-            fn GetLastNotificationData(&self, lpNotify: *mut STINOTIFY) -> HRESULT;
+            fn RawReadData(&self, #[size_param(1)] #[in] #[out] lpBuffer: *mut void, #[in] #[out] lpdwNumberOfBytes: LPDWORD, #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+            fn RawWriteData(&self, #[size_param(1)] #[in] lpBuffer: *mut void, nNumberOfBytes: u32, #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+            fn RawReadCommand(&self, #[size_param(1)] #[in] #[out] lpBuffer: *mut void, #[in] #[out] lpdwNumberOfBytes: LPDWORD, #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+            fn RawWriteCommand(&self, #[size_param(1)] #[in] lpBuffer: *mut void, nNumberOfBytes: u32, #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+            fn Subscribe(&self, #[in] #[out] lpSubsribe: LPSTISUBSCRIBE) -> HRESULT;
+            fn GetLastNotificationData(&self, #[out] lpNotify: LPSTINOTIFY) -> HRESULT;
             fn UnSubscribe(&self) -> HRESULT;
             fn GetLastErrorInfo(&self, pLastErrorInfo: *mut STI_ERROR_INFO) -> HRESULT;
         }
@@ -36,21 +36,31 @@ mod Windows {
             fn Initialize(&self, hinst: HINSTANCE, dwVersion: u32) -> HRESULT;
             fn GetDeviceList(&self, dwType: u32, dwFlags: u32, pdwItemsReturned: *mut u32, ppBuffer: *mut *mut void) -> HRESULT;
             fn GetDeviceInfo(&self, pwszDeviceName: PCWSTR, ppBuffer: *mut *mut void) -> HRESULT;
-            fn CreateDevice(&self, pwszDeviceName: PCWSTR, dwMode: u32, pDevice: *mut IStiDevice, #[opt] punkOuter: IUnknown) -> HRESULT;
+            fn CreateDevice(&self, pwszDeviceName: PCWSTR, dwMode: u32, pDevice: *mut PSTIDEVICE, #[opt] punkOuter: IUnknown) -> HRESULT;
+            fn GetDeviceValue(&self, pwszDeviceName: PCWSTR, pValueName: PCWSTR, #[out] pType: LPDWORD, #[size_param(4)] #[out] pData: LPBYTE, #[in] #[out] cbData: LPDWORD) -> HRESULT;
+            fn SetDeviceValue(&self, pwszDeviceName: PCWSTR, pValueName: PCWSTR, Type: u32, #[size_param(4)] pData: LPBYTE, cbData: u32) -> HRESULT;
             fn GetSTILaunchInformation(&self, #[out] pwszDeviceName: PWSTR, #[opt] pdwEventCode: *mut u32, #[out] pwszEventName: PWSTR) -> HRESULT;
             fn RegisterLaunchApplication(&self, pwszAppName: PCWSTR, pwszCommandLine: PCWSTR) -> HRESULT;
             fn UnregisterLaunchApplication(&self, pwszAppName: PCWSTR) -> HRESULT;
             fn EnableHwNotifications(&self, pwszDeviceName: PCWSTR, bNewState: BOOL) -> HRESULT;
             fn GetHwNotificationState(&self, pwszDeviceName: PCWSTR, pbCurrentState: *mut BOOL) -> HRESULT;
             fn RefreshDeviceBus(&self, pwszDeviceName: PCWSTR) -> HRESULT;
+            fn LaunchApplicationForDevice(&self, pwszDeviceName: PCWSTR, pwszAppName: PCWSTR, pStiNotify: LPSTINOTIFY) -> HRESULT;
+            fn SetupDeviceParameters(&self, #[in] #[out] param0: PSTI_DEVICE_INFORMATIONW) -> HRESULT;
             fn WriteToErrorLog(&self, dwMessageType: u32, pszMessage: PCWSTR) -> HRESULT;
         }
         type LPDIAG = LPSTI_DIAG;
+        type LPSTILLIMAGE = IStillImageW;
+        type LPSTILLIMAGEDEVICE = IStiDevice;
+        type LPSTILLIMAGEW = IStillImageW;
         type LPSTINOTIFY = *mut STINOTIFY;
         type LPSTISUBSCRIBE = *mut STISUBSCRIBE;
         type LPSTI_DIAG = *mut STI_DIAG;
         const MAX_NOTIFICATION_DATA: i32 = 64;
+        type PSTI = IStillImageW;
+        type PSTIDEVICE = IStiDevice;
         type PSTIDEVICEW = *mut IStiDeviceW;
+        type PSTIW = IStillImageW;
         type PSTI_DEVICE_INFORMATION = PSTI_DEVICE_INFORMATIONW;
         type PSTI_DEVICE_INFORMATIONW = *mut STI_DEVICE_INFORMATIONW;
         type PSTI_DEVICE_STATUS = *mut STI_DEVICE_STATUS;
@@ -85,7 +95,7 @@ mod Windows {
             dwSize: u32,
             DeviceType: STI_DEVICE_TYPE,
             szDeviceInternalName: [u16; 128],
-            DeviceCapabilities: STI_DEV_CAPS,
+            DeviceCapabilitiesA: STI_DEV_CAPS,
             dwHardwareConfiguration: u32,
             pszVendorDescription: PWSTR,
             pszDeviceDescription: PWSTR,
@@ -180,7 +190,7 @@ mod Windows {
             dwSize: u32,
             DeviceType: STI_DEVICE_TYPE,
             szDeviceInternalName: [u16; 128],
-            DeviceCapabilities: STI_DEV_CAPS,
+            DeviceCapabilitiesA: STI_DEV_CAPS,
             dwHardwareConfiguration: u32,
             pszVendorDescription: PWSTR,
             pszDeviceDescription: PWSTR,

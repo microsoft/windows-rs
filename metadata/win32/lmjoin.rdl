@@ -103,15 +103,15 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetAddAlternateComputerName(#[opt] Server: PCWSTR, AlternateName: PCWSTR, #[opt] DomainAccount: PCWSTR, #[opt] DomainAccountPassword: PCWSTR, Reserved: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetCreateProvisioningPackage(pProvisioningParams: *const NETSETUP_PROVISIONING_PARAMS, ppPackageBinData: *mut PBYTE, #[opt] pdwPackageBinDataSize: *mut u32, ppPackageTextData: *mut PWSTR) -> u32;
+        extern fn NetCreateProvisioningPackage(pProvisioningParams: PNETSETUP_PROVISIONING_PARAMS, ppPackageBinData: *mut PBYTE, #[opt] pdwPackageBinDataSize: *mut u32, ppPackageTextData: *mut PWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetEnumerateComputerNames(#[opt] Server: PCWSTR, NameType: NET_COMPUTER_NAME_TYPE, Reserved: u32, EntryCount: *mut u32, ComputerNames: *mut *mut PWSTR) -> u32;
+        extern fn NetEnumerateComputerNames(#[opt] Server: PCWSTR, NameType: NET_COMPUTER_NAME_TYPE, Reserved: u32, #[out] EntryCount: PDWORD, ComputerNames: *mut *mut PWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetFreeAadJoinInformation(#[opt] pJoinInfo: *const DSREG_JOIN_INFO);
+        extern fn NetFreeAadJoinInformation(#[opt] pJoinInfo: PDSREG_JOIN_INFO);
         #[library("NETAPI32.dll")]
         extern fn NetGetAadJoinInformation(#[opt] pcszTenantId: PCWSTR, ppJoinInfo: *mut PDSREG_JOIN_INFO) -> HRESULT;
         #[library("NETAPI32.dll")]
-        extern fn NetGetJoinInformation(#[opt] lpServer: PCWSTR, lpNameBuffer: *mut PWSTR, BufferType: *mut NETSETUP_JOIN_STATUS) -> u32;
+        extern fn NetGetJoinInformation(#[opt] lpServer: PCWSTR, lpNameBuffer: *mut PWSTR, #[out] BufferType: PNETSETUP_JOIN_STATUS) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetGetJoinableOUs(lpServer: PCWSTR, lpDomain: PCWSTR, #[opt] lpAccount: PCWSTR, #[opt] lpPassword: PCWSTR, OUCount: *mut u32, OUs: *mut *mut PWSTR) -> u32;
         #[library("NETAPI32.dll")]
@@ -123,9 +123,9 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetRenameMachineInDomain(#[opt] lpServer: PCWSTR, #[opt] lpNewMachineName: PCWSTR, #[opt] lpAccount: PCWSTR, #[opt] lpPassword: PCWSTR, fRenameOptions: u32) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetRequestOfflineDomainJoin(#[size_param(1)] pProvisionBinData: *const u8, cbProvisionBinDataSize: u32, dwOptions: u32, lpWindowsPath: PCWSTR) -> u32;
+        extern fn NetRequestOfflineDomainJoin(#[size_param(1)] #[in] pProvisionBinData: *mut u8, cbProvisionBinDataSize: u32, dwOptions: u32, lpWindowsPath: PCWSTR) -> u32;
         #[library("NETAPI32.dll")]
-        extern fn NetRequestProvisioningPackageInstall(#[size_param(1)] pPackageBinData: *const u8, dwPackageBinDataSize: u32, dwProvisionOptions: u32, lpWindowsPath: PCWSTR, #[reserved] pvReserved: *const void) -> u32;
+        extern fn NetRequestProvisioningPackageInstall(#[size_param(1)] #[in] pPackageBinData: *mut u8, dwPackageBinDataSize: u32, dwProvisionOptions: u32, lpWindowsPath: PCWSTR, #[reserved] pvReserved: *mut void) -> u32;
         #[library("NETAPI32.dll")]
         extern fn NetSetPrimaryComputerName(#[opt] Server: PCWSTR, PrimaryName: PCWSTR, #[opt] DomainAccount: PCWSTR, #[opt] DomainAccountPassword: PCWSTR, Reserved: u32) -> u32;
         #[library("NETAPI32.dll")]

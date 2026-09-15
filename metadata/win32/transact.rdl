@@ -43,7 +43,7 @@ mod Windows {
         #[guid(0x0fb15084_af41_11ce_bd2b_204c4f4f5020)]
         interface ITransaction: IUnknown {
             fn Commit(&self, fRetaining: BOOL, grfTC: u32, grfRM: u32) -> HRESULT;
-            fn Abort(&self, pboidReason: *const BOID, fRetaining: BOOL, fAsync: BOOL) -> HRESULT;
+            fn Abort(&self, #[in] pboidReason: *mut BOID, fRetaining: BOOL, fAsync: BOOL) -> HRESULT;
             fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> HRESULT;
         }
         #[guid(0x34021548_0065_11d3_bac1_00c04f797be2)]
@@ -61,14 +61,14 @@ mod Windows {
         }
         #[guid(0x3a6ad9e0_23b9_11cf_ad60_00aa00a74ccd)]
         interface ITransactionOptions: IUnknown {
-            fn SetOptions(&self, pOptions: *const XACTOPT) -> HRESULT;
+            fn SetOptions(&self, #[in] pOptions: *mut XACTOPT) -> HRESULT;
             fn GetOptions(&self, #[in] #[out] pOptions: *mut XACTOPT) -> HRESULT;
         }
         #[guid(0x3a6ad9e2_23b9_11cf_ad60_00aa00a74ccd)]
         interface ITransactionOutcomeEvents: IUnknown {
-            fn Committed(&self, fRetaining: BOOL, pNewUOW: *const XACTUOW, hr: HRESULT) -> HRESULT;
-            fn Aborted(&self, pboidReason: *const BOID, fRetaining: BOOL, pNewUOW: *const XACTUOW, hr: HRESULT) -> HRESULT;
-            fn HeuristicDecision(&self, dwDecision: u32, pboidReason: *const BOID, hr: HRESULT) -> HRESULT;
+            fn Committed(&self, fRetaining: BOOL, #[in] pNewUOW: *mut XACTUOW, hr: HRESULT) -> HRESULT;
+            fn Aborted(&self, #[in] pboidReason: *mut BOID, fRetaining: BOOL, #[in] pNewUOW: *mut XACTUOW, hr: HRESULT) -> HRESULT;
+            fn HeuristicDecision(&self, dwDecision: u32, #[in] pboidReason: *mut BOID, hr: HRESULT) -> HRESULT;
             fn Indoubt(&self) -> HRESULT;
         }
         #[repr(i32)]

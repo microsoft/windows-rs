@@ -48,15 +48,15 @@ mod Windows {
         }
         #[guid(0xa558a866_a5b0_11d2_a08f_00c04f72dc3c)]
         interface IWiaDataCallback: IUnknown {
-            fn BandedDataCallback(&self, lMessage: i32, lStatus: i32, lPercentComplete: i32, lOffset: i32, lLength: i32, lReserved: i32, lResLength: i32, pbBuffer: *const u8) -> HRESULT;
+            fn BandedDataCallback(&self, lMessage: i32, lStatus: i32, lPercentComplete: i32, lOffset: i32, lLength: i32, lReserved: i32, lResLength: i32, #[in] pbBuffer: *mut u8) -> HRESULT;
         }
         #[guid(0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c)]
         interface IWiaDataTransfer: IUnknown {
-            fn idtGetData(&self, #[in] #[out] pMedium: *mut STGMEDIUM, pIWiaDataCallback: IWiaDataCallback) -> HRESULT;
-            fn idtGetBandedData(&self, pWiaDataTransInfo: *const WIA_DATA_TRANSFER_INFO, pIWiaDataCallback: IWiaDataCallback) -> HRESULT;
-            fn idtQueryGetData(&self, pfe: *const WIA_FORMAT_INFO) -> HRESULT;
+            fn idtGetData(&self, #[in] #[out] pMedium: LPSTGMEDIUM, pIWiaDataCallback: IWiaDataCallback) -> HRESULT;
+            fn idtGetBandedData(&self, pWiaDataTransInfo: PWIA_DATA_TRANSFER_INFO, pIWiaDataCallback: IWiaDataCallback) -> HRESULT;
+            fn idtQueryGetData(&self, #[in] pfe: *mut WIA_FORMAT_INFO) -> HRESULT;
             fn idtEnumWIA_FORMAT_INFO(&self, ppEnum: *mut IEnumWIA_FORMAT_INFO) -> HRESULT;
-            fn idtGetExtendedTransferInfo(&self, pExtendedTransferInfo: *mut WIA_EXTENDED_TRANSFER_INFO) -> HRESULT;
+            fn idtGetExtendedTransferInfo(&self, #[out] pExtendedTransferInfo: PWIA_EXTENDED_TRANSFER_INFO) -> HRESULT;
         }
         #[guid(0x5eb2502a_8cf1_11d1_bf92_0060081ed811)]
         interface IWiaDevMgr: IUnknown {
@@ -113,7 +113,7 @@ mod Windows {
             fn DumpItemData(&self, bstrData: *mut BSTR) -> HRESULT;
             fn DumpDrvItemData(&self, bstrData: *mut BSTR) -> HRESULT;
             fn DumpTreeItemData(&self, bstrData: *mut BSTR) -> HRESULT;
-            fn Diagnostic(&self, ulSize: u32, pBuffer: *const u8) -> HRESULT;
+            fn Diagnostic(&self, ulSize: u32, #[in] pBuffer: *mut u8) -> HRESULT;
         }
         #[guid(0x6cba0075_1287_407d_9b77_cf0e030435cc)]
         interface IWiaItem2: IUnknown {
@@ -123,7 +123,7 @@ mod Windows {
             fn FindItemByName(&self, lFlags: i32, bstrFullItemName: BSTR, ppIWiaItem2: *mut IWiaItem2) -> HRESULT;
             fn GetItemCategory(&self, pItemCategoryGUID: *mut GUID) -> HRESULT;
             fn GetItemType(&self, pItemType: *mut i32) -> HRESULT;
-            fn DeviceDlg(&self, lFlags: i32, hwndParent: HWND, bstrFolderName: BSTR, bstrFilename: BSTR, plNumFiles: *mut i32, ppbstrFilePaths: *mut *mut BSTR, #[opt] ppItem: *mut IWiaItem2) -> HRESULT;
+            fn DeviceDlg(&self, lFlags: i32, hwndParent: HWND, bstrFolderName: BSTR, bstrFilename: BSTR, plNumFiles: *mut i32, ppbstrFilePaths: *mut *mut BSTR, #[in] #[out] #[opt] ppItem: *mut IWiaItem2) -> HRESULT;
             fn DeviceCommand(&self, lFlags: i32, pCmdGUID: *const GUID, #[in] #[out] ppIWiaItem2: *mut IWiaItem2) -> HRESULT;
             fn EnumDeviceCapabilities(&self, lFlags: i32, ppIEnumWIA_DEV_CAPS: *mut IEnumWIA_DEV_CAPS) -> HRESULT;
             fn CheckExtension(&self, lFlags: i32, bstrName: BSTR, riidExtensionInterface: *const GUID, pbExtensionExists: *mut BOOL) -> HRESULT;
@@ -132,12 +132,12 @@ mod Windows {
             fn GetRootItem(&self, ppIWiaItem2: *mut IWiaItem2) -> HRESULT;
             fn GetPreviewComponent(&self, lFlags: i32, ppWiaPreview: *mut IWiaPreview) -> HRESULT;
             fn EnumRegisterEventInfo(&self, lFlags: i32, pEventGUID: *const GUID, ppIEnum: *mut IEnumWIA_DEV_CAPS) -> HRESULT;
-            fn Diagnostic(&self, ulSize: u32, pBuffer: *const u8) -> HRESULT;
+            fn Diagnostic(&self, ulSize: u32, #[in] pBuffer: *mut u8) -> HRESULT;
         }
         #[guid(0x6291ef2c_36ef_4532_876a_8e132593778d)]
         interface IWiaItemExtras: IUnknown {
             fn GetExtendedErrorInfo(&self, bstrErrorText: *mut BSTR) -> HRESULT;
-            fn Escape(&self, dwEscapeCode: u32, lpInData: *const u8, cbInDataSize: u32, pOutData: *mut u8, dwOutDataSize: u32, pdwActualDataSize: *mut u32) -> HRESULT;
+            fn Escape(&self, dwEscapeCode: u32, #[in] lpInData: *mut u8, cbInDataSize: u32, pOutData: *mut u8, dwOutDataSize: u32, pdwActualDataSize: *mut u32) -> HRESULT;
             fn CancelPendingIO(&self) -> HRESULT;
         }
         #[guid(0xa00c10b6_82a1_452f_8b6c_86062aad6890)]
@@ -148,7 +148,7 @@ mod Windows {
         }
         #[guid(0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b)]
         interface IWiaLogEx: IUnknown {
-            fn InitializeLogEx(&self, hInstance: *const u8) -> HRESULT;
+            fn InitializeLogEx(&self, #[in] hInstance: *mut u8) -> HRESULT;
             fn hResult(&self, hResult: HRESULT) -> HRESULT;
             fn Log(&self, lFlags: i32, lResID: i32, lDetail: i32, bstrText: BSTR) -> HRESULT;
             fn hResultEx(&self, lMethodId: i32, hResult: HRESULT) -> HRESULT;
@@ -170,8 +170,8 @@ mod Windows {
             fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> HRESULT;
             fn WriteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidNameFirst: PROPID) -> HRESULT;
             fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC) -> HRESULT;
-            fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const PROPID, rglpwstrName: *mut PWSTR) -> HRESULT;
-            fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const PROPID, rglpwstrName: *const PWSTR) -> HRESULT;
+            fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const PROPID, rglpwstrName: *mut LPOLESTR) -> HRESULT;
+            fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const PROPID, rglpwstrName: *const LPOLESTR) -> HRESULT;
             fn DeletePropertyNames(&self, cpropid: u32, rgpropid: *const PROPID) -> HRESULT;
             fn Commit(&self, grfCommitFlags: u32) -> HRESULT;
             fn Revert(&self) -> HRESULT;
@@ -179,10 +179,10 @@ mod Windows {
             fn SetTimes(&self, pctime: *const FILETIME, patime: *const FILETIME, pmtime: *const FILETIME) -> HRESULT;
             fn SetClass(&self, clsid: *const GUID) -> HRESULT;
             fn Stat(&self, pstatpsstg: *mut STATPROPSETSTG) -> HRESULT;
-            fn GetPropertyAttributes(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgflags: *mut u32, rgpropvar: *mut PROPVARIANT) -> HRESULT;
+            fn GetPropertyAttributes(&self, cpspec: u32, #[in] rgpspec: *mut PROPSPEC, rgflags: *mut u32, rgpropvar: *mut PROPVARIANT) -> HRESULT;
             fn GetCount(&self, pulNumProps: *mut u32) -> HRESULT;
             fn GetPropertyStream(&self, pCompatibilityId: *mut GUID, ppIStream: *mut IStream) -> HRESULT;
-            fn SetPropertyStream(&self, pCompatibilityId: *const GUID, pIStream: IStream) -> HRESULT;
+            fn SetPropertyStream(&self, #[in] pCompatibilityId: *mut GUID, pIStream: IStream) -> HRESULT;
         }
         #[guid(0xec46a697_ac04_4447_8f65_ff63d5154b21)]
         interface IWiaSegmentationFilter: IUnknown {
@@ -197,7 +197,7 @@ mod Windows {
         }
         #[guid(0x27d4eaaf_28a6_4ca5_9aab_e678168b9527)]
         interface IWiaTransferCallback: IUnknown {
-            fn TransferCallback(&self, lFlags: i32, pWiaTransferParams: *const WiaTransferParams) -> HRESULT;
+            fn TransferCallback(&self, lFlags: i32, #[in] pWiaTransferParams: *mut WiaTransferParams) -> HRESULT;
             fn GetNextStream(&self, lFlags: i32, bstrItemName: BSTR, bstrFullItemName: BSTR, ppDestination: *mut IStream) -> HRESULT;
         }
         type PWIA_DATA_CALLBACK_HEADER = *mut WIA_DATA_CALLBACK_HEADER;
@@ -253,7 +253,7 @@ mod Windows {
         }
         struct WIA_PROPID_TO_NAME {
             propid: PROPID,
-            pszName: PWSTR,
+            pszName: LPOLESTR,
         }
         const WiaDevMgr: GUID = 0xa1f4e726_8cf1_11d1_bf92_0060081ed811;
         const WiaDevMgr2: GUID = 0xb6c292bc_7c88_41ee_8b54_8ec92617e599;

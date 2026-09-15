@@ -424,7 +424,7 @@ mod Windows {
         const UCNV_LOCALE_OPTION_STRING: String = ",locale=";
         const UCNV_MAX_CONVERTER_NAME_LENGTH: i32 = 60;
         const UCNV_MAX_FULL_FILE_NAME_LENGTH: i32 = 660;
-        const UCNV_OPTION_SEP_CHAR: u32 = 44;
+        const UCNV_OPTION_SEP_CHAR: i8 = 44;
         #[encoding("ansi")]
         const UCNV_OPTION_SEP_STRING: String = ",";
         const UCNV_SI: i32 = 15;
@@ -443,7 +443,7 @@ mod Windows {
         extern "C" fn UCNV_TO_U_CALLBACK_STOP(context: *const void, toUArgs: *mut UConverterToUnicodeArgs, codeUnits: *const i8, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         #[library("icuuc.dll")]
         extern "C" fn UCNV_TO_U_CALLBACK_SUBSTITUTE(context: *const void, toUArgs: *mut UConverterToUnicodeArgs, codeUnits: *const i8, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
-        const UCNV_VALUE_SEP_CHAR: u32 = 61;
+        const UCNV_VALUE_SEP_CHAR: i8 = 61;
         #[encoding("ansi")]
         const UCNV_VALUE_SEP_STRING: String = "=";
         #[encoding("ansi")]
@@ -981,6 +981,7 @@ mod Windows {
         const UDAT_YEAR_NUM_MONTH_WEEKDAY_DAY: String = "yMEd";
         #[encoding("ansi")]
         const UDAT_YEAR_QUARTER: String = "yQQQQ";
+        type UDate = f64;
         type UDateFormat = *mut void;
         #[repr(i32)]
         enum UDateFormatBooleanAttribute {
@@ -1668,11 +1669,11 @@ mod Windows {
         const ULOC_JAPANESE: String = "ja";
         const ULOC_KEYWORDS_CAPACITY: i32 = 96;
         const ULOC_KEYWORD_AND_VALUES_CAPACITY: i32 = 100;
-        const ULOC_KEYWORD_ASSIGN: u32 = 61;
+        const ULOC_KEYWORD_ASSIGN: i8 = 61;
         const ULOC_KEYWORD_ASSIGN_UNICODE: i32 = 61;
-        const ULOC_KEYWORD_ITEM_SEPARATOR: u32 = 59;
+        const ULOC_KEYWORD_ITEM_SEPARATOR: i8 = 59;
         const ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE: i32 = 59;
-        const ULOC_KEYWORD_SEPARATOR: u32 = 64;
+        const ULOC_KEYWORD_SEPARATOR: i8 = 64;
         const ULOC_KEYWORD_SEPARATOR_UNICODE: i32 = 64;
         #[encoding("ansi")]
         const ULOC_KOREA: String = "ko_KR";
@@ -2673,14 +2674,8 @@ mod Windows {
             UCAL_TZ_TRANSITION_PREVIOUS = 2,
             UCAL_TZ_TRANSITION_PREVIOUS_INCLUSIVE = 3,
         }
-        #[arch(X64)]
-        extern "C" fn UTraceData(context: *const void, fnNumber: i32, level: i32, fmt: *const i8, args: *mut i8);
-        #[arch(X86 | Arm64)]
         extern "C" fn UTraceData(context: *const void, fnNumber: i32, level: i32, fmt: *const i8, args: va_list);
         extern "C" fn UTraceEntry(context: *const void, fnNumber: i32);
-        #[arch(X64)]
-        extern "C" fn UTraceExit(context: *const void, fnNumber: i32, fmt: *const i8, args: *mut i8);
-        #[arch(X86 | Arm64)]
         extern "C" fn UTraceExit(context: *const void, fnNumber: i32, fmt: *const i8, args: va_list);
         #[repr(i32)]
         enum UTraceFunctionNumber {
@@ -2789,6 +2784,8 @@ mod Windows {
         const U_COMPARE_IGNORE_CASE: i32 = 65536;
         const U_COPYRIGHT_STRING_LENGTH: i32 = 128;
         const U_CPLUSPLUS_VERSION: i32 = 14;
+        const U_DATE_MAX: f64 = 179769313486231570000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0;
+        const U_DATE_MIN: f64 = -179769313486231570000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0;
         const U_DEBUG: i32 = 0;
         const U_DEFAULT_SHOW_DRAFT: i32 = 0;
         const U_DEFINE_FALSE_AND_TRUE: i32 = 0;
@@ -2866,6 +2863,7 @@ mod Windows {
         const U_MILLIS_PER_MINUTE: i32 = 60000;
         const U_MILLIS_PER_SECOND: i32 = 1000;
         const U_NO_DEFAULT_INCLUDE_UTF_HEADERS: i32 = 1;
+        const U_NO_NUMERIC_VALUE: f64 = -123456789.0;
         const U_OMIT_UNCHANGED_TEXT: i32 = 16384;
         const U_OVERRIDE_CXX_ALLOCATION: i32 = 1;
         const U_PARSE_CONTEXT_LEN: i32 = 16;
@@ -2954,7 +2952,7 @@ mod Windows {
         const U_TITLECASE_SENTENCES: i32 = 64;
         const U_TITLECASE_WHOLE_STRING: i32 = 32;
         const U_UINT64_MAX: u64 = 18446744073709551615;
-        const U_VERSION_DELIMITER: u32 = 46;
+        const U_VERSION_DELIMITER: i8 = 46;
         #[library("icuuc.dll")]
         extern "C" fn u_UCharsToChars(us: *const UChar, cs: *mut i8, length: i32);
         #[library("icuuc.dll")]
@@ -2962,9 +2960,9 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn u_austrncpy(dst: *mut i8, src: *const UChar, n: i32) -> *mut i8;
         #[library("icuuc.dll")]
-        extern "C" fn u_catclose(catd: *mut UResourceBundle);
+        extern "C" fn u_catclose(catd: u_nl_catd);
         #[library("icuuc.dll")]
-        extern "C" fn u_catgets(catd: *mut UResourceBundle, set_num: i32, msg_num: i32, s: *const UChar, len: *mut i32, ec: *mut UErrorCode) -> *const UChar;
+        extern "C" fn u_catgets(catd: u_nl_catd, set_num: i32, msg_num: i32, s: *const UChar, len: *mut i32, ec: *mut UErrorCode) -> *const UChar;
         #[library("icuuc.dll")]
         extern "C" fn u_catopen(name: *const i8, locale: *const i8, ec: *mut UErrorCode) -> u_nl_catd;
         #[library("icuuc.dll")]
@@ -3233,29 +3231,13 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn u_versionFromUString(versionArray: *mut u8, versionString: *const UChar);
         #[library("icuuc.dll")]
-        extern "C" fn u_versionToString(versionArray: *mut u8, versionString: *mut i8);
-        #[arch(X64)]
-        #[library("icuin.dll")]
-        extern "C" fn u_vformatMessage(locale: *const i8, pattern: *const UChar, patternLength: i32, result: *mut UChar, resultLength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32;
-        #[arch(X86 | Arm64)]
+        extern "C" fn u_versionToString(versionArray: *const u8, versionString: *mut i8);
         #[library("icuin.dll")]
         extern "C" fn u_vformatMessage(locale: *const i8, pattern: *const UChar, patternLength: i32, result: *mut UChar, resultLength: i32, ap: va_list, status: *mut UErrorCode) -> i32;
-        #[arch(X64)]
-        #[library("icuin.dll")]
-        extern "C" fn u_vformatMessageWithError(locale: *const i8, pattern: *const UChar, patternLength: i32, result: *mut UChar, resultLength: i32, parseError: *mut UParseError, ap: *mut i8, status: *mut UErrorCode) -> i32;
-        #[arch(X86 | Arm64)]
         #[library("icuin.dll")]
         extern "C" fn u_vformatMessageWithError(locale: *const i8, pattern: *const UChar, patternLength: i32, result: *mut UChar, resultLength: i32, parseError: *mut UParseError, ap: va_list, status: *mut UErrorCode) -> i32;
-        #[arch(X64)]
-        #[library("icuin.dll")]
-        extern "C" fn u_vparseMessage(locale: *const i8, pattern: *const UChar, patternLength: i32, source: *const UChar, sourceLength: i32, ap: *mut i8, status: *mut UErrorCode);
-        #[arch(X86 | Arm64)]
         #[library("icuin.dll")]
         extern "C" fn u_vparseMessage(locale: *const i8, pattern: *const UChar, patternLength: i32, source: *const UChar, sourceLength: i32, ap: va_list, status: *mut UErrorCode);
-        #[arch(X64)]
-        #[library("icuin.dll")]
-        extern "C" fn u_vparseMessageWithError(locale: *const i8, pattern: *const UChar, patternLength: i32, source: *const UChar, sourceLength: i32, ap: *mut i8, parseError: *mut UParseError, status: *mut UErrorCode);
-        #[arch(X86 | Arm64)]
         #[library("icuin.dll")]
         extern "C" fn u_vparseMessageWithError(locale: *const i8, pattern: *const UChar, patternLength: i32, source: *const UChar, sourceLength: i32, ap: va_list, parseError: *mut UParseError, status: *mut UErrorCode);
         #[library("icuuc.dll")]
@@ -3267,7 +3249,7 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn ubidi_getBaseDirection(text: *const UChar, length: i32) -> UBiDiDirection;
         #[library("icuuc.dll")]
-        extern "C" fn ubidi_getClassCallback(pBiDi: *mut UBiDi, r#fn: *mut UBiDiClassCallback, context: *mut *mut void);
+        extern "C" fn ubidi_getClassCallback(pBiDi: *mut UBiDi, r#fn: *mut UBiDiClassCallback, context: *const *const void);
         #[library("icuuc.dll")]
         extern "C" fn ubidi_getCustomizedClass(pBiDi: *mut UBiDi, c: UChar32) -> UCharDirection;
         #[library("icuuc.dll")]
@@ -3323,7 +3305,7 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn ubidi_reorderVisual(levels: *const UBiDiLevel, length: i32, indexMap: *mut i32);
         #[library("icuuc.dll")]
-        extern "C" fn ubidi_setClassCallback(pBiDi: *mut UBiDi, newFn: UBiDiClassCallback, newContext: *const void, oldFn: *mut UBiDiClassCallback, oldContext: *mut *mut void, pErrorCode: *mut UErrorCode);
+        extern "C" fn ubidi_setClassCallback(pBiDi: *mut UBiDi, newFn: UBiDiClassCallback, newContext: *const void, oldFn: *mut UBiDiClassCallback, oldContext: *const *const void, pErrorCode: *mut UErrorCode);
         #[library("icuuc.dll")]
         extern "C" fn ubidi_setContext(pBiDi: *mut UBiDi, prologue: *const UChar, proLength: i32, epilogue: *const UChar, epiLength: i32, pErrorCode: *mut UErrorCode);
         #[library("icuuc.dll")]
@@ -3423,9 +3405,9 @@ mod Windows {
         #[library("icuin.dll")]
         extern "C" fn ucal_getDefaultTimeZone(result: *mut UChar, resultCapacity: i32, ec: *mut UErrorCode) -> i32;
         #[library("icuin.dll")]
-        extern "C" fn ucal_getFieldDifference(cal: *mut UCalendar, target: f64, field: UCalendarDateFields, status: *mut UErrorCode) -> i32;
+        extern "C" fn ucal_getFieldDifference(cal: *mut UCalendar, target: UDate, field: UCalendarDateFields, status: *mut UErrorCode) -> i32;
         #[library("icuin.dll")]
-        extern "C" fn ucal_getGregorianChange(cal: *const UCalendar, pErrorCode: *mut UErrorCode) -> f64;
+        extern "C" fn ucal_getGregorianChange(cal: *const UCalendar, pErrorCode: *mut UErrorCode) -> UDate;
         #[library("icu.dll")]
         extern "C" fn ucal_getHostTimeZone(result: *mut UChar, resultCapacity: i32, ec: *mut UErrorCode) -> i32;
         #[library("icuin.dll")]
@@ -3435,9 +3417,9 @@ mod Windows {
         #[library("icuin.dll")]
         extern "C" fn ucal_getLocaleByType(cal: *const UCalendar, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> *const i8;
         #[library("icuin.dll")]
-        extern "C" fn ucal_getMillis(cal: *const UCalendar, status: *mut UErrorCode) -> f64;
+        extern "C" fn ucal_getMillis(cal: *const UCalendar, status: *mut UErrorCode) -> UDate;
         #[library("icuin.dll")]
-        extern "C" fn ucal_getNow() -> f64;
+        extern "C" fn ucal_getNow() -> UDate;
         #[library("icuin.dll")]
         extern "C" fn ucal_getTZDataVersion(status: *mut UErrorCode) -> *const i8;
         #[library("icuin.dll")]
@@ -3449,7 +3431,7 @@ mod Windows {
         #[library("icu.dll")]
         extern "C" fn ucal_getTimeZoneOffsetFromLocal(cal: *const UCalendar, nonExistingTimeOpt: UTimeZoneLocalOption, duplicatedTimeOpt: UTimeZoneLocalOption, rawOffset: *mut i32, dstOffset: *mut i32, status: *mut UErrorCode);
         #[library("icuin.dll")]
-        extern "C" fn ucal_getTimeZoneTransitionDate(cal: *const UCalendar, r#type: UTimeZoneTransitionType, transition: *mut f64, status: *mut UErrorCode) -> UBool;
+        extern "C" fn ucal_getTimeZoneTransitionDate(cal: *const UCalendar, r#type: UTimeZoneTransitionType, transition: *mut UDate, status: *mut UErrorCode) -> UBool;
         #[library("icuin.dll")]
         extern "C" fn ucal_getType(cal: *const UCalendar, status: *mut UErrorCode) -> *const i8;
         #[library("icuin.dll")]
@@ -3461,7 +3443,7 @@ mod Windows {
         #[library("icuin.dll")]
         extern "C" fn ucal_isSet(cal: *const UCalendar, field: UCalendarDateFields) -> UBool;
         #[library("icuin.dll")]
-        extern "C" fn ucal_isWeekend(cal: *const UCalendar, date: f64, status: *mut UErrorCode) -> UBool;
+        extern "C" fn ucal_isWeekend(cal: *const UCalendar, date: UDate, status: *mut UErrorCode) -> UBool;
         #[library("icuin.dll")]
         extern "C" fn ucal_open(zoneID: *const UChar, len: i32, locale: *const i8, r#type: UCalendarType, status: *mut UErrorCode) -> *mut UCalendar;
         #[library("icuin.dll")]
@@ -3483,9 +3465,9 @@ mod Windows {
         #[library("icuin.dll")]
         extern "C" fn ucal_setDefaultTimeZone(zoneID: *const UChar, ec: *mut UErrorCode);
         #[library("icuin.dll")]
-        extern "C" fn ucal_setGregorianChange(cal: *mut UCalendar, date: f64, pErrorCode: *mut UErrorCode);
+        extern "C" fn ucal_setGregorianChange(cal: *mut UCalendar, date: UDate, pErrorCode: *mut UErrorCode);
         #[library("icuin.dll")]
-        extern "C" fn ucal_setMillis(cal: *mut UCalendar, dateTime: f64, status: *mut UErrorCode);
+        extern "C" fn ucal_setMillis(cal: *mut UCalendar, dateTime: UDate, status: *mut UErrorCode);
         #[library("icuin.dll")]
         extern "C" fn ucal_setTimeZone(cal: *mut UCalendar, zoneID: *const UChar, len: i32, status: *mut UErrorCode);
         #[library("icuuc.dll")]
@@ -3543,7 +3525,7 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn ucnv_cbFromUWriteSub(args: *mut UConverterFromUnicodeArgs, offsetIndex: i32, err: *mut UErrorCode);
         #[library("icuuc.dll")]
-        extern "C" fn ucnv_cbFromUWriteUChars(args: *mut UConverterFromUnicodeArgs, source: *mut *mut UChar, sourceLimit: *const UChar, offsetIndex: i32, err: *mut UErrorCode);
+        extern "C" fn ucnv_cbFromUWriteUChars(args: *mut UConverterFromUnicodeArgs, source: *const *const UChar, sourceLimit: *const UChar, offsetIndex: i32, err: *mut UErrorCode);
         #[library("icuuc.dll")]
         extern "C" fn ucnv_cbToUWriteSub(args: *mut UConverterToUnicodeArgs, offsetIndex: i32, err: *mut UErrorCode);
         #[library("icuuc.dll")]
@@ -3557,7 +3539,7 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn ucnv_convert(toConverterName: *const i8, fromConverterName: *const i8, target: *mut i8, targetCapacity: i32, source: *const i8, sourceLength: i32, pErrorCode: *mut UErrorCode) -> i32;
         #[library("icuuc.dll")]
-        extern "C" fn ucnv_convertEx(targetCnv: *mut UConverter, sourceCnv: *mut UConverter, target: *mut *mut i8, targetLimit: *const i8, source: *mut *mut i8, sourceLimit: *const i8, pivotStart: *mut UChar, pivotSource: *mut *mut UChar, pivotTarget: *mut *mut UChar, pivotLimit: *const UChar, reset: UBool, flush: UBool, pErrorCode: *mut UErrorCode);
+        extern "C" fn ucnv_convertEx(targetCnv: *mut UConverter, sourceCnv: *mut UConverter, target: *mut *mut i8, targetLimit: *const i8, source: *const *const i8, sourceLimit: *const i8, pivotStart: *mut UChar, pivotSource: *mut *mut UChar, pivotTarget: *mut *mut UChar, pivotLimit: *const UChar, reset: UBool, flush: UBool, pErrorCode: *mut UErrorCode);
         #[library("icuuc.dll")]
         extern "C" fn ucnv_countAliases(alias: *const i8, pErrorCode: *mut UErrorCode) -> u16;
         #[library("icuuc.dll")]
@@ -3577,11 +3559,11 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn ucnv_fromUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32;
         #[library("icuuc.dll")]
-        extern "C" fn ucnv_fromUnicode(converter: *mut UConverter, target: *mut *mut i8, targetLimit: *const i8, source: *mut *mut UChar, sourceLimit: *const UChar, offsets: *mut i32, flush: UBool, err: *mut UErrorCode);
+        extern "C" fn ucnv_fromUnicode(converter: *mut UConverter, target: *mut *mut i8, targetLimit: *const i8, source: *const *const UChar, sourceLimit: *const UChar, offsets: *mut i32, flush: UBool, err: *mut UErrorCode);
         #[library("icuuc.dll")]
         extern "C" fn ucnv_getAlias(alias: *const i8, n: u16, pErrorCode: *mut UErrorCode) -> *const i8;
         #[library("icuuc.dll")]
-        extern "C" fn ucnv_getAliases(alias: *const i8, aliases: *mut *mut i8, pErrorCode: *mut UErrorCode);
+        extern "C" fn ucnv_getAliases(alias: *const i8, aliases: *const *const i8, pErrorCode: *mut UErrorCode);
         #[library("icuuc.dll")]
         extern "C" fn ucnv_getAvailableName(n: i32) -> *const i8;
         #[library("icuuc.dll")]
@@ -3593,7 +3575,7 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn ucnv_getDisplayName(converter: *const UConverter, displayLocale: *const i8, displayName: *mut UChar, displayNameCapacity: i32, err: *mut UErrorCode) -> i32;
         #[library("icuuc.dll")]
-        extern "C" fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut UConverterFromUCallback, context: *mut *mut void);
+        extern "C" fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut UConverterFromUCallback, context: *const *const void);
         #[library("icuuc.dll")]
         extern "C" fn ucnv_getInvalidChars(converter: *const UConverter, errBytes: *mut i8, len: *mut i8, err: *mut UErrorCode);
         #[library("icuuc.dll")]
@@ -3605,7 +3587,7 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn ucnv_getName(converter: *const UConverter, err: *mut UErrorCode) -> *const i8;
         #[library("icuuc.dll")]
-        extern "C" fn ucnv_getNextUChar(converter: *mut UConverter, source: *mut *mut i8, sourceLimit: *const i8, err: *mut UErrorCode) -> UChar32;
+        extern "C" fn ucnv_getNextUChar(converter: *mut UConverter, source: *const *const i8, sourceLimit: *const i8, err: *mut UErrorCode) -> UChar32;
         #[library("icuuc.dll")]
         extern "C" fn ucnv_getPlatform(converter: *const UConverter, err: *mut UErrorCode) -> UConverterPlatform;
         #[library("icuuc.dll")]
@@ -3617,7 +3599,7 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn ucnv_getSubstChars(converter: *const UConverter, subChars: *mut i8, len: *mut i8, err: *mut UErrorCode);
         #[library("icuuc.dll")]
-        extern "C" fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut UConverterToUCallback, context: *mut *mut void);
+        extern "C" fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut UConverterToUCallback, context: *const *const void);
         #[library("icuuc.dll")]
         extern "C" fn ucnv_getType(converter: *const UConverter) -> UConverterType;
         #[library("icuuc.dll")]
@@ -3651,13 +3633,13 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn ucnv_setFallback(cnv: *mut UConverter, usesFallback: UBool);
         #[library("icuuc.dll")]
-        extern "C" fn ucnv_setFromUCallBack(converter: *mut UConverter, newAction: UConverterFromUCallback, newContext: *const void, oldAction: *mut UConverterFromUCallback, oldContext: *mut *mut void, err: *mut UErrorCode);
+        extern "C" fn ucnv_setFromUCallBack(converter: *mut UConverter, newAction: UConverterFromUCallback, newContext: *const void, oldAction: *mut UConverterFromUCallback, oldContext: *const *const void, err: *mut UErrorCode);
         #[library("icuuc.dll")]
         extern "C" fn ucnv_setSubstChars(converter: *mut UConverter, subChars: *const i8, len: i8, err: *mut UErrorCode);
         #[library("icuuc.dll")]
         extern "C" fn ucnv_setSubstString(cnv: *mut UConverter, s: *const UChar, length: i32, err: *mut UErrorCode);
         #[library("icuuc.dll")]
-        extern "C" fn ucnv_setToUCallBack(converter: *mut UConverter, newAction: UConverterToUCallback, newContext: *const void, oldAction: *mut UConverterToUCallback, oldContext: *mut *mut void, err: *mut UErrorCode);
+        extern "C" fn ucnv_setToUCallBack(converter: *mut UConverter, newAction: UConverterToUCallback, newContext: *const void, oldAction: *mut UConverterToUCallback, oldContext: *const *const void, err: *mut UErrorCode);
         #[library("icuuc.dll")]
         extern "C" fn ucnv_toAlgorithmic(algorithmicType: UConverterType, cnv: *mut UConverter, target: *mut i8, targetCapacity: i32, source: *const i8, sourceLength: i32, pErrorCode: *mut UErrorCode) -> i32;
         #[library("icuuc.dll")]
@@ -3665,7 +3647,7 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn ucnv_toUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32;
         #[library("icuuc.dll")]
-        extern "C" fn ucnv_toUnicode(converter: *mut UConverter, target: *mut *mut UChar, targetLimit: *const UChar, source: *mut *mut i8, sourceLimit: *const i8, offsets: *mut i32, flush: UBool, err: *mut UErrorCode);
+        extern "C" fn ucnv_toUnicode(converter: *mut UConverter, target: *mut *mut UChar, targetLimit: *const UChar, source: *const *const i8, sourceLimit: *const i8, offsets: *mut i32, flush: UBool, err: *mut UErrorCode);
         #[library("icuuc.dll")]
         extern "C" fn ucnv_usesFallback(cnv: *const UConverter) -> UBool;
         #[library("icuuc.dll")]
@@ -3841,11 +3823,11 @@ mod Windows {
         #[library("icuin.dll")]
         extern "C" fn ucsdet_setText(ucsd: *mut UCharsetDetector, textIn: *const i8, len: i32, status: *mut UErrorCode);
         #[library("icuuc.dll")]
-        extern "C" fn ucurr_countCurrencies(locale: *const i8, date: f64, ec: *mut UErrorCode) -> i32;
+        extern "C" fn ucurr_countCurrencies(locale: *const i8, date: UDate, ec: *mut UErrorCode) -> i32;
         #[library("icuuc.dll")]
         extern "C" fn ucurr_forLocale(locale: *const i8, buff: *mut UChar, buffCapacity: i32, ec: *mut UErrorCode) -> i32;
         #[library("icuuc.dll")]
-        extern "C" fn ucurr_forLocaleAndDate(locale: *const i8, date: f64, index: i32, buff: *mut UChar, buffCapacity: i32, ec: *mut UErrorCode) -> i32;
+        extern "C" fn ucurr_forLocaleAndDate(locale: *const i8, date: UDate, index: i32, buff: *mut UChar, buffCapacity: i32, ec: *mut UErrorCode) -> i32;
         #[library("icuuc.dll")]
         extern "C" fn ucurr_getDefaultFractionDigits(currency: *const UChar, ec: *mut UErrorCode) -> i32;
         #[library("icuuc.dll")]
@@ -3863,7 +3845,7 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn ucurr_getRoundingIncrementForUsage(currency: *const UChar, usage: UCurrencyUsage, ec: *mut UErrorCode) -> f64;
         #[library("icuuc.dll")]
-        extern "C" fn ucurr_isAvailable(isoCode: *const UChar, from: f64, to: f64, errorCode: *mut UErrorCode) -> UBool;
+        extern "C" fn ucurr_isAvailable(isoCode: *const UChar, from: UDate, to: UDate, errorCode: *mut UErrorCode) -> UBool;
         #[library("icuuc.dll")]
         extern "C" fn ucurr_openISOCurrencies(currType: u32, pErrorCode: *mut UErrorCode) -> *mut UEnumeration;
         #[library("icuuc.dll")]
@@ -3885,15 +3867,15 @@ mod Windows {
         #[library("icuin.dll")]
         extern "C" fn udat_countSymbols(fmt: *const UDateFormat, r#type: UDateFormatSymbolType) -> i32;
         #[library("icuin.dll")]
-        extern "C" fn udat_format(format: *const UDateFormat, dateToFormat: f64, result: *mut UChar, resultLength: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
+        extern "C" fn udat_format(format: *const UDateFormat, dateToFormat: UDate, result: *mut UChar, resultLength: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
         #[library("icuin.dll")]
         extern "C" fn udat_formatCalendar(format: *const UDateFormat, calendar: *mut UCalendar, result: *mut UChar, capacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
         #[library("icuin.dll")]
         extern "C" fn udat_formatCalendarForFields(format: *const UDateFormat, calendar: *mut UCalendar, result: *mut UChar, capacity: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32;
         #[library("icuin.dll")]
-        extern "C" fn udat_formatForFields(format: *const UDateFormat, dateToFormat: f64, result: *mut UChar, resultLength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32;
+        extern "C" fn udat_formatForFields(format: *const UDateFormat, dateToFormat: UDate, result: *mut UChar, resultLength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32;
         #[library("icuin.dll")]
-        extern "C" fn udat_get2DigitYearStart(fmt: *const UDateFormat, status: *mut UErrorCode) -> f64;
+        extern "C" fn udat_get2DigitYearStart(fmt: *const UDateFormat, status: *mut UErrorCode) -> UDate;
         #[library("icuin.dll")]
         extern "C" fn udat_getAvailable(localeIndex: i32) -> *const i8;
         #[library("icuin.dll")]
@@ -3915,11 +3897,11 @@ mod Windows {
         #[library("icuin.dll")]
         extern "C" fn udat_open(timeStyle: UDateFormatStyle, dateStyle: UDateFormatStyle, locale: *const i8, tzID: *const UChar, tzIDLength: i32, pattern: *const UChar, patternLength: i32, status: *mut UErrorCode) -> *mut UDateFormat;
         #[library("icuin.dll")]
-        extern "C" fn udat_parse(format: *const UDateFormat, text: *const UChar, textLength: i32, parsePos: *mut i32, status: *mut UErrorCode) -> f64;
+        extern "C" fn udat_parse(format: *const UDateFormat, text: *const UChar, textLength: i32, parsePos: *mut i32, status: *mut UErrorCode) -> UDate;
         #[library("icuin.dll")]
         extern "C" fn udat_parseCalendar(format: *const UDateFormat, calendar: *mut UCalendar, text: *const UChar, textLength: i32, parsePos: *mut i32, status: *mut UErrorCode);
         #[library("icuin.dll")]
-        extern "C" fn udat_set2DigitYearStart(fmt: *mut UDateFormat, d: f64, status: *mut UErrorCode);
+        extern "C" fn udat_set2DigitYearStart(fmt: *mut UDateFormat, d: UDate, status: *mut UErrorCode);
         #[library("icuin.dll")]
         extern "C" fn udat_setBooleanAttribute(fmt: *mut UDateFormat, attr: UDateFormatBooleanAttribute, newValue: UBool, status: *mut UErrorCode);
         #[library("icuin.dll")]
@@ -3989,9 +3971,9 @@ mod Windows {
         #[library("icu.dll")]
         extern "C" fn udtitvfmt_closeResult(uresult: *mut UFormattedDateInterval);
         #[library("icuin.dll")]
-        extern "C" fn udtitvfmt_format(formatter: *const UDateIntervalFormat, fromDate: f64, toDate: f64, result: *mut UChar, resultCapacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
+        extern "C" fn udtitvfmt_format(formatter: *const UDateIntervalFormat, fromDate: UDate, toDate: UDate, result: *mut UChar, resultCapacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
         #[library("icu.dll")]
-        extern "C" fn udtitvfmt_formatToResult(formatter: *const UDateIntervalFormat, fromDate: f64, toDate: f64, result: *mut UFormattedDateInterval, status: *mut UErrorCode);
+        extern "C" fn udtitvfmt_formatToResult(formatter: *const UDateIntervalFormat, fromDate: UDate, toDate: UDate, result: *mut UFormattedDateInterval, status: *mut UErrorCode);
         #[library("icu.dll")]
         extern "C" fn udtitvfmt_getContext(formatter: *const UDateIntervalFormat, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext;
         #[library("icuin.dll")]
@@ -4009,9 +3991,9 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn uenum_next(en: *mut UEnumeration, resultLength: *mut i32, status: *mut UErrorCode) -> *const i8;
         #[library("icuuc.dll")]
-        extern "C" fn uenum_openCharStringsEnumeration(strings: *mut *mut i8, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration;
+        extern "C" fn uenum_openCharStringsEnumeration(strings: *const *const i8, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration;
         #[library("icuuc.dll")]
-        extern "C" fn uenum_openUCharStringsEnumeration(strings: *mut *mut UChar, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration;
+        extern "C" fn uenum_openUCharStringsEnumeration(strings: *const *const UChar, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration;
         #[library("icuuc.dll")]
         extern "C" fn uenum_reset(en: *mut UEnumeration, status: *mut UErrorCode);
         #[library("icuuc.dll")]
@@ -4029,7 +4011,7 @@ mod Windows {
         #[library("icuin.dll")]
         extern "C" fn ufmt_getArrayLength(fmt: *const UFormattable, status: *mut UErrorCode) -> i32;
         #[library("icuin.dll")]
-        extern "C" fn ufmt_getDate(fmt: *const UFormattable, status: *mut UErrorCode) -> f64;
+        extern "C" fn ufmt_getDate(fmt: *const UFormattable, status: *mut UErrorCode) -> UDate;
         #[library("icuin.dll")]
         extern "C" fn ufmt_getDecNumChars(fmt: *mut UFormattable, len: *mut i32, status: *mut UErrorCode) -> *const i8;
         #[library("icuin.dll")]
@@ -4125,9 +4107,9 @@ mod Windows {
         #[library("icu.dll")]
         extern "C" fn ulistfmt_closeResult(uresult: *mut UFormattedList);
         #[library("icuuc.dll")]
-        extern "C" fn ulistfmt_format(listfmt: *const UListFormatter, strings: *mut *mut UChar, stringLengths: *const i32, stringCount: i32, result: *mut UChar, resultCapacity: i32, status: *mut UErrorCode) -> i32;
+        extern "C" fn ulistfmt_format(listfmt: *const UListFormatter, strings: *const *const UChar, stringLengths: *const i32, stringCount: i32, result: *mut UChar, resultCapacity: i32, status: *mut UErrorCode) -> i32;
         #[library("icu.dll")]
-        extern "C" fn ulistfmt_formatStringsToResult(listfmt: *const UListFormatter, strings: *mut *mut UChar, stringLengths: *const i32, stringCount: i32, uresult: *mut UFormattedList, status: *mut UErrorCode);
+        extern "C" fn ulistfmt_formatStringsToResult(listfmt: *const UListFormatter, strings: *const *const UChar, stringLengths: *const i32, stringCount: i32, uresult: *mut UFormattedList, status: *mut UErrorCode);
         #[library("icuuc.dll")]
         extern "C" fn ulistfmt_open(locale: *const i8, status: *mut UErrorCode) -> *mut UListFormatter;
         #[library("icu.dll")]
@@ -4137,7 +4119,7 @@ mod Windows {
         #[library("icu.dll")]
         extern "C" fn ulistfmt_resultAsValue(uresult: *const UFormattedList, ec: *mut UErrorCode) -> *const UFormattedValue;
         #[library("icuuc.dll")]
-        extern "C" fn uloc_acceptLanguage(result: *mut i8, resultAvailable: i32, outResult: *mut UAcceptResult, acceptList: *mut *mut i8, acceptListCount: i32, availableLocales: *mut UEnumeration, status: *mut UErrorCode) -> i32;
+        extern "C" fn uloc_acceptLanguage(result: *mut i8, resultAvailable: i32, outResult: *mut UAcceptResult, acceptList: *const *const i8, acceptListCount: i32, availableLocales: *mut UEnumeration, status: *mut UErrorCode) -> i32;
         #[library("icuuc.dll")]
         extern "C" fn uloc_acceptLanguageFromHTTP(result: *mut i8, resultAvailable: i32, outResult: *mut UAcceptResult, httpAcceptLanguage: *const i8, availableLocales: *mut UEnumeration, status: *mut UErrorCode) -> i32;
         #[library("icuuc.dll")]
@@ -4262,16 +4244,8 @@ mod Windows {
         extern "C" fn umsg_setLocale(fmt: *mut UMessageFormat, locale: *const i8);
         #[library("icuin.dll")]
         extern "C" fn umsg_toPattern(fmt: *const UMessageFormat, result: *mut UChar, resultLength: i32, status: *mut UErrorCode) -> i32;
-        #[arch(X64)]
-        #[library("icuin.dll")]
-        extern "C" fn umsg_vformat(fmt: *const UMessageFormat, result: *mut UChar, resultLength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32;
-        #[arch(X86 | Arm64)]
         #[library("icuin.dll")]
         extern "C" fn umsg_vformat(fmt: *const UMessageFormat, result: *mut UChar, resultLength: i32, ap: va_list, status: *mut UErrorCode) -> i32;
-        #[arch(X64)]
-        #[library("icuin.dll")]
-        extern "C" fn umsg_vparse(fmt: *const UMessageFormat, source: *const UChar, sourceLength: i32, count: *mut i32, ap: *mut i8, status: *mut UErrorCode);
-        #[arch(X86 | Arm64)]
         #[library("icuin.dll")]
         extern "C" fn umsg_vparse(fmt: *const UMessageFormat, source: *const UChar, sourceLength: i32, count: *mut i32, ap: va_list, status: *mut UErrorCode);
         #[library("icu.dll")]
@@ -4499,9 +4473,9 @@ mod Windows {
         #[library("icuin.dll")]
         extern "C" fn uregex_flags(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
         #[library("icuin.dll")]
-        extern "C" fn uregex_getFindProgressCallback(regexp: *const URegularExpression, callback: *mut URegexFindProgressCallback, context: *mut *mut void, status: *mut UErrorCode);
+        extern "C" fn uregex_getFindProgressCallback(regexp: *const URegularExpression, callback: *mut URegexFindProgressCallback, context: *const *const void, status: *mut UErrorCode);
         #[library("icuin.dll")]
-        extern "C" fn uregex_getMatchCallback(regexp: *const URegularExpression, callback: *mut URegexMatchCallback, context: *mut *mut void, status: *mut UErrorCode);
+        extern "C" fn uregex_getMatchCallback(regexp: *const URegularExpression, callback: *mut URegexMatchCallback, context: *const *const void, status: *mut UErrorCode);
         #[library("icuin.dll")]
         extern "C" fn uregex_getStackLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
         #[library("icuin.dll")]
@@ -4663,7 +4637,7 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn ures_getNextResource(resourceBundle: *mut UResourceBundle, fillIn: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle;
         #[library("icuuc.dll")]
-        extern "C" fn ures_getNextString(resourceBundle: *mut UResourceBundle, len: *mut i32, key: *mut *mut i8, status: *mut UErrorCode) -> *const UChar;
+        extern "C" fn ures_getNextString(resourceBundle: *mut UResourceBundle, len: *mut i32, key: *const *const i8, status: *mut UErrorCode) -> *const UChar;
         #[library("icuuc.dll")]
         extern "C" fn ures_getSize(resourceBundle: *const UResourceBundle) -> i32;
         #[library("icuuc.dll")]
@@ -5029,17 +5003,13 @@ mod Windows {
         #[library("icuuc.dll")]
         extern "C" fn utrace_functionName(fnNumber: i32) -> *const i8;
         #[library("icuuc.dll")]
-        extern "C" fn utrace_getFunctions(context: *mut *mut void, e: *mut UTraceEntry, x: *mut UTraceExit, d: *mut UTraceData);
+        extern "C" fn utrace_getFunctions(context: *const *const void, e: *mut UTraceEntry, x: *mut UTraceExit, d: *mut UTraceData);
         #[library("icuuc.dll")]
         extern "C" fn utrace_getLevel() -> i32;
         #[library("icuuc.dll")]
         extern "C" fn utrace_setFunctions(context: *const void, e: UTraceEntry, x: UTraceExit, d: UTraceData);
         #[library("icuuc.dll")]
         extern "C" fn utrace_setLevel(traceLevel: i32);
-        #[arch(X64)]
-        #[library("icuuc.dll")]
-        extern "C" fn utrace_vformat(outBuf: *mut i8, capacity: i32, indent: i32, fmt: *const i8, args: *mut i8) -> i32;
-        #[arch(X86 | Arm64)]
         #[library("icuuc.dll")]
         extern "C" fn utrace_vformat(outBuf: *mut i8, capacity: i32, indent: i32, fmt: *const i8, args: va_list) -> i32;
         #[library("icuin.dll")]

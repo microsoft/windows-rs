@@ -120,15 +120,42 @@ mod Windows {
             D3DKMDT_GTF_COMPLIANT = 1,
             D3DKMDT_GTF_NOTCOMPLIANT = 2,
         }
-        type D3DKMDT_HMONITORDESCRIPTORSET = *mut void;
-        type D3DKMDT_HMONITORFREQUENCYRANGESET = *mut void;
-        type D3DKMDT_HMONITORSOURCEMODESET = *mut void;
-        type D3DKMDT_HVIDEOPRESENTSOURCESET = *mut void;
-        type D3DKMDT_HVIDEOPRESENTTARGETSET = *mut void;
-        type D3DKMDT_HVIDPN = *mut void;
-        type D3DKMDT_HVIDPNSOURCEMODESET = *mut void;
-        type D3DKMDT_HVIDPNTARGETMODESET = *mut void;
-        type D3DKMDT_HVIDPNTOPOLOGY = *mut void;
+        type D3DKMDT_HMONITORDESCRIPTORSET = *mut D3DKMDT_HMONITORDESCRIPTORSET__;
+        struct D3DKMDT_HMONITORDESCRIPTORSET__ {
+            unused: i32,
+        }
+        type D3DKMDT_HMONITORFREQUENCYRANGESET = *mut D3DKMDT_HMONITORFREQUENCYRANGESET__;
+        struct D3DKMDT_HMONITORFREQUENCYRANGESET__ {
+            unused: i32,
+        }
+        type D3DKMDT_HMONITORSOURCEMODESET = *mut D3DKMDT_HMONITORSOURCEMODESET__;
+        struct D3DKMDT_HMONITORSOURCEMODESET__ {
+            unused: i32,
+        }
+        type D3DKMDT_HVIDEOPRESENTSOURCESET = *mut D3DKMDT_HVIDEOPRESENTSOURCESET__;
+        struct D3DKMDT_HVIDEOPRESENTSOURCESET__ {
+            unused: i32,
+        }
+        type D3DKMDT_HVIDEOPRESENTTARGETSET = *mut D3DKMDT_HVIDEOPRESENTTARGETSET__;
+        struct D3DKMDT_HVIDEOPRESENTTARGETSET__ {
+            unused: i32,
+        }
+        type D3DKMDT_HVIDPN = *mut D3DKMDT_HVIDPN__;
+        type D3DKMDT_HVIDPNSOURCEMODESET = *mut D3DKMDT_HVIDPNSOURCEMODESET__;
+        struct D3DKMDT_HVIDPNSOURCEMODESET__ {
+            unused: i32,
+        }
+        type D3DKMDT_HVIDPNTARGETMODESET = *mut D3DKMDT_HVIDPNTARGETMODESET__;
+        struct D3DKMDT_HVIDPNTARGETMODESET__ {
+            unused: i32,
+        }
+        type D3DKMDT_HVIDPNTOPOLOGY = *mut D3DKMDT_HVIDPNTOPOLOGY__;
+        struct D3DKMDT_HVIDPNTOPOLOGY__ {
+            unused: i32,
+        }
+        struct D3DKMDT_HVIDPN__ {
+            unused: i32,
+        }
         const D3DKMDT_MACROVISION_OEMCOPYPROTECTION_SIZE: i32 = 256;
         const D3DKMDT_MAX_OVERLAYS: i32 = 4;
         const D3DKMDT_MAX_OVERLAYS_BITCOUNT: i32 = 2;
@@ -304,7 +331,7 @@ mod Windows {
             VideoOutputTechnology: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY,
             VideoOutputHpdAwareness: DXGK_CHILD_DEVICE_HPD_AWARENESS,
             MonitorOrientationAwareness: D3DKMDT_MONITOR_ORIENTATION_AWARENESS,
-            SupportsSdtvModes: bool,
+            SupportsSdtvModes: BOOLEAN,
         }
         type D3DKMDT_VIDEO_PRESENT_TARGET_MODE_ID = u32;
         struct D3DKMDT_VIDEO_SIGNAL_INFO {
@@ -1171,7 +1198,7 @@ mod Windows {
             DXGK_DISPLAYMUX_RUNTIME_STATUS_CRITICAL_SYSTEM_INFO_MISSING = 4,
         }
         struct DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO {
-            Brightness3Supported: bool,
+            Brightness3Supported: BOOLEAN,
             Brightness3Caps: DXGK_BRIGHTNESS_CAPS,
             Bridgtness3Ranges: DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT,
         }
@@ -1183,7 +1210,7 @@ mod Windows {
             DXGK_DISPLAYMUX_DRIVER_SUPPORT_LEVEL_EXPERIMENTAL = 3,
             DXGK_DISPLAYMUX_DRIVER_SUPPORT_LEVEL_FULL = 4,
         }
-        #[repr(i32)]
+        #[repr(u8)]
         enum DXGK_DISPLAY_DESCRIPTOR_TYPE {
             DXGK_DDT_INVALID = 0,
             DXGK_DDT_EDID = 1,
@@ -1198,7 +1225,7 @@ mod Windows {
             TargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
             AcpiId: u32,
         }
-        #[repr(i32)]
+        #[repr(u8)]
         enum DXGK_DISPLAY_TECHNOLOGY {
             DXGK_DT_INVALID = 0,
             DXGK_DT_OTHER = 1,
@@ -1207,7 +1234,7 @@ mod Windows {
             DXGK_DT_PROJECTOR = 4,
             DXGK_DT_MAX = 5,
         }
-        #[repr(i32)]
+        #[repr(u8)]
         enum DXGK_DISPLAY_USAGE {
             DXGK_DU_INVALID = 0,
             DXGK_DU_GENERIC = 1,
@@ -1318,8 +1345,8 @@ mod Windows {
             EngineType: DXGK_ENGINE_TYPE,
             FriendlyName: [u16; 32],
             Flags: DXGK_NODEMETADATA_FLAGS,
-            GpuMmuSupported: bool,
-            IoMmuSupported: bool,
+            GpuMmuSupported: BOOLEAN,
+            IoMmuSupported: BOOLEAN,
         }
         struct DXGK_NODEMETADATA_FLAGS {
             Anonymous: #[packed(1)] union {

@@ -709,7 +709,7 @@ mod Windows {
             WINHTTP_PROTOCOL_SEND_OPERATION = 0,
             WINHTTP_PROTOCOL_RECEIVE_OPERATION = 1,
         }
-        extern fn WINHTTP_PROXY_CHANGE_CALLBACK(ullFlags: u64, pvContext: *const void);
+        extern fn WINHTTP_PROXY_CHANGE_CALLBACK(ullFlags: u64, #[in] pvContext: *mut void);
         type WINHTTP_PROXY_CHANGE_REGISTRATION_HANDLE = *mut void;
         const WINHTTP_PROXY_DISABLE_AUTH_LOCAL_SERVICE: i32 = 256;
         const WINHTTP_PROXY_DISABLE_SCHEME_BASIC: i32 = 1;
@@ -1082,7 +1082,7 @@ mod Windows {
         #[library("WINHTTP.dll")]
         extern fn WinHttpAddRequestHeaders(hRequest: HINTERNET, lpszHeaders: PCWSTR, dwHeadersLength: u32, dwModifiers: u32) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpAddRequestHeadersEx(hRequest: HINTERNET, dwModifiers: u32, ullFlags: u64, ullExtra: u64, cHeaders: u32, #[len_param(4)] pHeaders: *const WINHTTP_EXTENDED_HEADER) -> u32;
+        extern fn WinHttpAddRequestHeadersEx(hRequest: HINTERNET, dwModifiers: u32, ullFlags: u64, ullExtra: u64, cHeaders: u32, #[len_param(4)] #[in] pHeaders: *mut WINHTTP_EXTENDED_HEADER) -> u32;
         #[library("WINHTTP.dll")]
         extern fn WinHttpCheckPlatform() -> BOOL;
         #[library("WINHTTP.dll")]
@@ -1090,11 +1090,11 @@ mod Windows {
         #[library("WINHTTP.dll")]
         extern fn WinHttpConnect(hSession: HINTERNET, pswzServerName: PCWSTR, nServerPort: INTERNET_PORT, dwReserved: u32) -> HINTERNET;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpCrackUrl(#[len_param(1)] pwszUrl: PCWSTR, dwUrlLength: u32, dwFlags: u32, #[in] #[out] lpUrlComponents: *mut URL_COMPONENTS) -> BOOL;
+        extern fn WinHttpCrackUrl(#[len_param(1)] pwszUrl: PCWSTR, dwUrlLength: u32, dwFlags: u32, #[in] #[out] lpUrlComponents: LPURL_COMPONENTS) -> BOOL;
         #[library("WINHTTP.dll")]
         extern fn WinHttpCreateProxyResolver(hSession: HINTERNET, phResolver: *mut HINTERNET) -> u32;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpCreateUrl(lpUrlComponents: *const URL_COMPONENTS, dwFlags: u32, #[len_param(3)] #[out] #[opt] pwszUrl: PWSTR, #[in] #[out] pdwUrlLength: *mut u32) -> BOOL;
+        extern fn WinHttpCreateUrl(lpUrlComponents: LPURL_COMPONENTS, dwFlags: u32, #[len_param(3)] #[out] #[opt] pwszUrl: PWSTR, #[in] #[out] pdwUrlLength: LPDWORD) -> BOOL;
         #[library("WINHTTP.dll")]
         extern fn WinHttpDetectAutoProxyConfigUrl(dwAutoDetectFlags: u32, ppwstrAutoConfigUrl: *mut PWSTR) -> BOOL;
         #[library("WINHTTP.dll")]
@@ -1102,9 +1102,9 @@ mod Windows {
         #[library("WINHTTP.dll")]
         extern fn WinHttpFreeProxyResultEx(#[in] #[out] pProxyResultEx: *mut WINHTTP_PROXY_RESULT_EX);
         #[library("WINHTTP.dll")]
-        extern fn WinHttpFreeProxySettings(pWinHttpProxySettings: *const WINHTTP_PROXY_SETTINGS);
+        extern fn WinHttpFreeProxySettings(#[in] pWinHttpProxySettings: *mut WINHTTP_PROXY_SETTINGS);
         #[library("WINHTTP.dll")]
-        extern fn WinHttpFreeProxySettingsEx(ProxySettingsType: WINHTTP_PROXY_SETTINGS_TYPE, pProxySettingsEx: *const void) -> u32;
+        extern fn WinHttpFreeProxySettingsEx(ProxySettingsType: WINHTTP_PROXY_SETTINGS_TYPE, #[in] pProxySettingsEx: *mut void) -> u32;
         #[library("WINHTTP.dll")]
         extern fn WinHttpFreeQueryConnectionGroupResult(#[in] #[out] pResult: *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT);
         #[library("WINHTTP.dll")]
@@ -1112,17 +1112,17 @@ mod Windows {
         #[library("WINHTTP.dll")]
         extern fn WinHttpGetIEProxyConfigForCurrentUser(#[in] #[out] pProxyConfig: *mut WINHTTP_CURRENT_USER_IE_PROXY_CONFIG) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpGetProxyForUrl(hSession: HINTERNET, lpcwszUrl: PCWSTR, pAutoProxyOptions: *const WINHTTP_AUTOPROXY_OPTIONS, pProxyInfo: *mut WINHTTP_PROXY_INFO) -> BOOL;
+        extern fn WinHttpGetProxyForUrl(hSession: HINTERNET, lpcwszUrl: PCWSTR, #[in] pAutoProxyOptions: *mut WINHTTP_AUTOPROXY_OPTIONS, pProxyInfo: *mut WINHTTP_PROXY_INFO) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpGetProxyForUrlEx(hResolver: HINTERNET, pcwszUrl: PCWSTR, pAutoProxyOptions: *const WINHTTP_AUTOPROXY_OPTIONS, #[opt] pContext: usize) -> u32;
+        extern fn WinHttpGetProxyForUrlEx(hResolver: HINTERNET, pcwszUrl: PCWSTR, #[in] pAutoProxyOptions: *mut WINHTTP_AUTOPROXY_OPTIONS, #[opt] pContext: usize) -> u32;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpGetProxyForUrlEx2(hResolver: HINTERNET, pcwszUrl: PCWSTR, pAutoProxyOptions: *const WINHTTP_AUTOPROXY_OPTIONS, cbInterfaceSelectionContext: u32, #[size_param(3)] #[opt] pInterfaceSelectionContext: *const u8, #[opt] pContext: usize) -> u32;
+        extern fn WinHttpGetProxyForUrlEx2(hResolver: HINTERNET, pcwszUrl: PCWSTR, #[in] pAutoProxyOptions: *mut WINHTTP_AUTOPROXY_OPTIONS, cbInterfaceSelectionContext: u32, #[size_param(3)] #[in] #[opt] pInterfaceSelectionContext: *mut u8, #[opt] pContext: usize) -> u32;
         #[library("WINHTTP.dll")]
         extern fn WinHttpGetProxyResult(hResolver: HINTERNET, pProxyResult: *mut WINHTTP_PROXY_RESULT) -> u32;
         #[library("WINHTTP.dll")]
         extern fn WinHttpGetProxyResultEx(hResolver: HINTERNET, pProxyResultEx: *mut WINHTTP_PROXY_RESULT_EX) -> u32;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpGetProxySettingsEx(hResolver: HINTERNET, ProxySettingsType: WINHTTP_PROXY_SETTINGS_TYPE, #[opt] pProxySettingsParam: *const WINHTTP_PROXY_SETTINGS_PARAM, #[opt] pContext: usize) -> u32;
+        extern fn WinHttpGetProxySettingsEx(hResolver: HINTERNET, ProxySettingsType: WINHTTP_PROXY_SETTINGS_TYPE, #[opt] pProxySettingsParam: PWINHTTP_PROXY_SETTINGS_PARAM, #[opt] pContext: usize) -> u32;
         #[library("WINHTTP.dll")]
         extern fn WinHttpGetProxySettingsResultEx(hResolver: HINTERNET, pProxySettingsEx: *mut void) -> u32;
         #[library("WINHTTP.dll")]
@@ -1130,43 +1130,43 @@ mod Windows {
         #[library("WINHTTP.dll")]
         extern fn WinHttpOpen(#[opt] pszAgentW: PCWSTR, dwAccessType: u32, #[opt] pszProxyW: PCWSTR, #[opt] pszProxyBypassW: PCWSTR, dwFlags: u32) -> HINTERNET;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpOpenRequest(hConnect: HINTERNET, pwszVerb: PCWSTR, pwszObjectName: PCWSTR, pwszVersion: PCWSTR, #[opt] pwszReferrer: PCWSTR, #[opt] ppwszAcceptTypes: *const PCWSTR, dwFlags: u32) -> HINTERNET;
+        extern fn WinHttpOpenRequest(hConnect: HINTERNET, pwszVerb: PCWSTR, pwszObjectName: PCWSTR, pwszVersion: PCWSTR, #[opt] pwszReferrer: PCWSTR, #[in] #[opt] ppwszAcceptTypes: *mut PCWSTR, dwFlags: u32) -> HINTERNET;
         #[library("WINHTTP.dll")]
         extern fn WinHttpProtocolCompleteUpgrade(hRequest: HINTERNET, #[opt] dwContext: usize) -> HINTERNET;
         #[library("WINHTTP.dll")]
         extern fn WinHttpProtocolReceive(ProtocolHandle: HINTERNET, Flags: u64, #[size_param(3)] pvBuffer: *mut void, dwBufferLength: u32, pdwBytesRead: *mut u32) -> u32;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpProtocolSend(ProtocolHandle: HINTERNET, Flags: u64, #[len_param(3)] #[opt] pvBuffer: *const void, dwBufferLength: u32) -> u32;
+        extern fn WinHttpProtocolSend(ProtocolHandle: HINTERNET, Flags: u64, #[len_param(3)] #[in] #[opt] pvBuffer: *mut void, dwBufferLength: u32) -> u32;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpQueryAuthSchemes(hRequest: HINTERNET, lpdwSupportedSchemes: *mut u32, lpdwFirstScheme: *mut u32, pdwAuthTarget: *mut u32) -> BOOL;
+        extern fn WinHttpQueryAuthSchemes(hRequest: HINTERNET, #[out] lpdwSupportedSchemes: LPDWORD, #[out] lpdwFirstScheme: LPDWORD, #[out] pdwAuthTarget: LPDWORD) -> BOOL;
         #[library("WINHTTP.dll")]
         extern fn WinHttpQueryConnectionGroup(hInternet: HINTERNET, #[opt] pGuidConnection: *const GUID, ullFlags: u64, #[in] #[out] ppResult: *mut PWINHTTP_QUERY_CONNECTION_GROUP_RESULT) -> u32;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpQueryDataAvailable(hRequest: HINTERNET, lpdwNumberOfBytesAvailable: *mut u32) -> BOOL;
+        extern fn WinHttpQueryDataAvailable(hRequest: HINTERNET, lpdwNumberOfBytesAvailable: LPDWORD) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpQueryHeaders(hRequest: HINTERNET, dwInfoLevel: u32, #[opt] pwszName: PCWSTR, #[size_param(4)] #[opt] lpBuffer: *mut void, #[in] #[out] lpdwBufferLength: *mut u32, #[in] #[out] #[opt] lpdwIndex: *mut u32) -> BOOL;
+        extern fn WinHttpQueryHeaders(hRequest: HINTERNET, dwInfoLevel: u32, #[opt] pwszName: PCWSTR, #[size_param(4)] #[opt] lpBuffer: *mut void, #[in] #[out] lpdwBufferLength: LPDWORD, #[in] #[out] #[opt] lpdwIndex: LPDWORD) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpQueryHeadersEx(hRequest: HINTERNET, dwInfoLevel: u32, ullFlags: u64, uiCodePage: u32, #[in] #[out] #[opt] pdwIndex: *mut u32, #[opt] pHeaderName: *const WINHTTP_HEADER_NAME, #[size_param(7)] #[opt] pBuffer: *mut void, #[in] #[out] pdwBufferLength: *mut u32, #[len_param(9)] #[opt] ppHeaders: *mut PWINHTTP_EXTENDED_HEADER, pdwHeadersCount: *mut u32) -> u32;
+        extern fn WinHttpQueryHeadersEx(hRequest: HINTERNET, dwInfoLevel: u32, ullFlags: u64, uiCodePage: u32, #[in] #[out] #[opt] pdwIndex: PDWORD, #[opt] pHeaderName: PWINHTTP_HEADER_NAME, #[size_param(7)] #[opt] pBuffer: *mut void, #[in] #[out] pdwBufferLength: PDWORD, #[len_param(9)] #[opt] ppHeaders: *mut PWINHTTP_EXTENDED_HEADER, #[out] pdwHeadersCount: PDWORD) -> u32;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpQueryOption(hInternet: HINTERNET, dwOption: u32, #[size_param(3)] #[opt] lpBuffer: *mut void, #[in] #[out] lpdwBufferLength: *mut u32) -> BOOL;
+        extern fn WinHttpQueryOption(hInternet: HINTERNET, dwOption: u32, #[size_param(3)] #[opt] lpBuffer: *mut void, #[in] #[out] lpdwBufferLength: LPDWORD) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpReadData(hRequest: HINTERNET, #[size_param(2)] lpBuffer: *mut void, dwNumberOfBytesToRead: u32, lpdwNumberOfBytesRead: *mut u32) -> BOOL;
+        extern fn WinHttpReadData(hRequest: HINTERNET, #[size_param(2)] lpBuffer: *mut void, dwNumberOfBytesToRead: u32, #[out] lpdwNumberOfBytesRead: LPDWORD) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpReadDataEx(hRequest: HINTERNET, #[size_param(2)] lpBuffer: *mut void, dwNumberOfBytesToRead: u32, lpdwNumberOfBytesRead: *mut u32, ullFlags: u64, cbProperty: u32, #[size_param(5)] #[opt] pvProperty: *const void) -> u32;
+        extern fn WinHttpReadDataEx(hRequest: HINTERNET, #[size_param(2)] lpBuffer: *mut void, dwNumberOfBytesToRead: u32, #[out] lpdwNumberOfBytesRead: LPDWORD, ullFlags: u64, cbProperty: u32, #[size_param(5)] #[in] #[opt] pvProperty: *mut void) -> u32;
         #[library("WINHTTP.dll")]
         extern fn WinHttpReadProxySettings(hSession: HINTERNET, #[opt] pcwszConnectionName: PCWSTR, fFallBackToDefaultSettings: BOOL, fSetAutoDiscoverForDefaultSettings: BOOL, pdwSettingsVersion: *mut u32, pfDefaultSettingsAreReturned: *mut BOOL, pWinHttpProxySettings: *mut WINHTTP_PROXY_SETTINGS) -> u32;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpReceiveResponse(hRequest: HINTERNET, lpReserved: *const void) -> BOOL;
+        extern fn WinHttpReceiveResponse(hRequest: HINTERNET, #[in] lpReserved: *mut void) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpRegisterProxyChangeNotification(ullFlags: u64, pfnCallback: WINHTTP_PROXY_CHANGE_CALLBACK, pvContext: *const void, hRegistration: *mut WINHTTP_PROXY_CHANGE_REGISTRATION_HANDLE) -> u32;
+        extern fn WinHttpRegisterProxyChangeNotification(ullFlags: u64, pfnCallback: WINHTTP_PROXY_CHANGE_CALLBACK, #[in] pvContext: *mut void, hRegistration: *mut WINHTTP_PROXY_CHANGE_REGISTRATION_HANDLE) -> u32;
         #[library("WINHTTP.dll")]
         extern fn WinHttpResetAutoProxy(hSession: HINTERNET, dwFlags: u32) -> u32;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpSendRequest(hRequest: HINTERNET, #[len_param(2)] #[opt] lpszHeaders: PCWSTR, dwHeadersLength: u32, #[size_param(4)] #[opt] lpOptional: *const void, dwOptionalLength: u32, dwTotalLength: u32, dwContext: usize) -> BOOL;
+        extern fn WinHttpSendRequest(hRequest: HINTERNET, #[len_param(2)] #[opt] lpszHeaders: PCWSTR, dwHeadersLength: u32, #[size_param(4)] #[in] #[opt] lpOptional: *mut void, dwOptionalLength: u32, dwTotalLength: u32, dwContext: usize) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpSetCredentials(hRequest: HINTERNET, AuthTargets: u32, AuthScheme: u32, pwszUserName: PCWSTR, pwszPassword: PCWSTR, pAuthParams: *const void) -> BOOL;
+        extern fn WinHttpSetCredentials(hRequest: HINTERNET, AuthTargets: u32, AuthScheme: u32, pwszUserName: PCWSTR, pwszPassword: PCWSTR, #[in] pAuthParams: *mut void) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpSetDefaultProxyConfiguration(pProxyInfo: *const WINHTTP_PROXY_INFO) -> BOOL;
+        extern fn WinHttpSetDefaultProxyConfiguration(#[in] pProxyInfo: *mut WINHTTP_PROXY_INFO) -> BOOL;
         #[library("WINHTTP.dll")]
         extern fn WinHttpSetOption(#[opt] hInternet: HINTERNET, dwOption: u32, lpBuffer: *mut void, dwBufferLength: u32) -> BOOL;
         #[library("WINHTTP.dll")]
@@ -1182,7 +1182,7 @@ mod Windows {
         #[library("WINHTTP.dll")]
         extern fn WinHttpUnregisterProxyChangeNotification(hRegistration: WINHTTP_PROXY_CHANGE_REGISTRATION_HANDLE) -> u32;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpWebSocketClose(hWebSocket: HINTERNET, usStatus: u16, #[size_param(3)] #[opt] pvReason: *const void, dwReasonLength: u32) -> u32;
+        extern fn WinHttpWebSocketClose(hWebSocket: HINTERNET, usStatus: u16, #[size_param(3)] #[in] #[opt] pvReason: *mut void, dwReasonLength: u32) -> u32;
         #[library("WINHTTP.dll")]
         extern fn WinHttpWebSocketCompleteUpgrade(hRequest: HINTERNET, #[opt] pContext: usize) -> HINTERNET;
         #[library("WINHTTP.dll")]
@@ -1190,12 +1190,12 @@ mod Windows {
         #[library("WINHTTP.dll")]
         extern fn WinHttpWebSocketReceive(hWebSocket: HINTERNET, #[size_param(2)] pvBuffer: *mut void, dwBufferLength: u32, pdwBytesRead: *mut u32, peBufferType: *mut WINHTTP_WEB_SOCKET_BUFFER_TYPE) -> u32;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpWebSocketSend(hWebSocket: HINTERNET, eBufferType: WINHTTP_WEB_SOCKET_BUFFER_TYPE, #[len_param(3)] #[opt] pvBuffer: *const void, dwBufferLength: u32) -> u32;
+        extern fn WinHttpWebSocketSend(hWebSocket: HINTERNET, eBufferType: WINHTTP_WEB_SOCKET_BUFFER_TYPE, #[len_param(3)] #[in] #[opt] pvBuffer: *mut void, dwBufferLength: u32) -> u32;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpWebSocketShutdown(hWebSocket: HINTERNET, usStatus: u16, #[size_param(3)] #[opt] pvReason: *const void, dwReasonLength: u32) -> u32;
+        extern fn WinHttpWebSocketShutdown(hWebSocket: HINTERNET, usStatus: u16, #[size_param(3)] #[in] #[opt] pvReason: *mut void, dwReasonLength: u32) -> u32;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpWriteData(hRequest: HINTERNET, #[size_param(2)] #[opt] lpBuffer: *const void, dwNumberOfBytesToWrite: u32, lpdwNumberOfBytesWritten: *mut u32) -> BOOL;
+        extern fn WinHttpWriteData(hRequest: HINTERNET, #[size_param(2)] #[opt] lpBuffer: LPCVOID, dwNumberOfBytesToWrite: u32, #[out] lpdwNumberOfBytesWritten: LPDWORD) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpWriteProxySettings(hSession: HINTERNET, fForceUpdate: BOOL, pWinHttpProxySettings: *const WINHTTP_PROXY_SETTINGS) -> u32;
+        extern fn WinHttpWriteProxySettings(hSession: HINTERNET, fForceUpdate: BOOL, #[in] pWinHttpProxySettings: *mut WINHTTP_PROXY_SETTINGS) -> u32;
     }
 }

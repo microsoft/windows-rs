@@ -5,8 +5,8 @@ mod Windows {
         type CLFS_ARCHIVE_DESCRIPTOR = CLS_ARCHIVE_DESCRIPTOR;
         #[encoding("utf-16")]
         const CLFS_BASELOG_EXTENSION: String = ".blf";
-        extern fn CLFS_BLOCK_ALLOCATION(cbBufferLength: u32, pvUserContext: *mut void) -> *mut void;
-        extern fn CLFS_BLOCK_DEALLOCATION(pvBuffer: *mut void, pvUserContext: *mut void);
+        extern "C" fn CLFS_BLOCK_ALLOCATION(cbBufferLength: u32, pvUserContext: *mut void) -> *mut void;
+        extern "C" fn CLFS_BLOCK_DEALLOCATION(pvBuffer: *mut void, pvUserContext: *mut void);
         type CLFS_CONTAINER_ID = u32;
         type CLFS_CONTAINER_INFORMATION = CLS_CONTAINER_INFORMATION;
         #[encoding("utf-16")]
@@ -181,17 +181,17 @@ mod Windows {
         #[library("clfsw32.dll", import = "LsnCreate")]
         extern fn ClfsLsnCreate(cidContainer: CLFS_CONTAINER_ID, offBlock: u32, cRecord: u32) -> CLFS_LSN;
         #[library("clfsw32.dll", import = "LsnEqual")]
-        extern fn ClfsLsnEqual(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool;
+        extern fn ClfsLsnEqual(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
         #[library("clfsw32.dll", import = "LsnGreater")]
-        extern fn ClfsLsnGreater(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool;
+        extern fn ClfsLsnGreater(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
         #[library("clfsw32.dll", import = "LsnIncrement")]
-        extern fn ClfsLsnIncrement(plsn: *const CLFS_LSN) -> CLFS_LSN;
+        extern fn ClfsLsnIncrement(plsn: PCLFS_LSN) -> CLFS_LSN;
         #[library("clfsw32.dll", import = "LsnInvalid")]
-        extern fn ClfsLsnInvalid(plsn: *const CLFS_LSN) -> bool;
+        extern fn ClfsLsnInvalid(plsn: *const CLFS_LSN) -> BOOLEAN;
         #[library("clfsw32.dll", import = "LsnLess")]
-        extern fn ClfsLsnLess(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool;
+        extern fn ClfsLsnLess(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
         #[library("clfsw32.dll", import = "LsnNull")]
-        extern fn ClfsLsnNull(plsn: *const CLFS_LSN) -> bool;
+        extern fn ClfsLsnNull(plsn: *const CLFS_LSN) -> BOOLEAN;
         #[library("clfsw32.dll", import = "LsnRecordSequence")]
         extern fn ClfsLsnRecordSequence(plsn: *const CLFS_LSN) -> u32;
         #[encoding("ansi")]

@@ -3,23 +3,23 @@ mod Windows {
     mod Win32 {
         #[guid(0x7815cbba_ddf7_478c_a46c_7b6c738b7978)]
         interface IUIAnimationInterpolator: IUnknown {
-            fn SetInitialValueAndVelocity(&self, initialValue: f64, initialVelocity: f64) -> HRESULT;
-            fn SetDuration(&self, duration: f64) -> HRESULT;
-            fn GetDuration(&self, duration: *mut f64) -> HRESULT;
-            fn GetFinalValue(&self, value: *mut f64) -> HRESULT;
-            fn InterpolateValue(&self, offset: f64, value: *mut f64) -> HRESULT;
-            fn InterpolateVelocity(&self, offset: f64, velocity: *mut f64) -> HRESULT;
+            fn SetInitialValueAndVelocity(&self, initialValue: DOUBLE, initialVelocity: DOUBLE) -> HRESULT;
+            fn SetDuration(&self, duration: UI_ANIMATION_SECONDS) -> HRESULT;
+            fn GetDuration(&self, #[retval] duration: *mut UI_ANIMATION_SECONDS) -> HRESULT;
+            fn GetFinalValue(&self, #[retval] value: *mut DOUBLE) -> HRESULT;
+            fn InterpolateValue(&self, offset: UI_ANIMATION_SECONDS, #[retval] value: *mut DOUBLE) -> HRESULT;
+            fn InterpolateVelocity(&self, offset: UI_ANIMATION_SECONDS, #[retval] velocity: *mut DOUBLE) -> HRESULT;
             fn GetDependencies(&self, initialValueDependencies: *mut UI_ANIMATION_DEPENDENCIES, initialVelocityDependencies: *mut UI_ANIMATION_DEPENDENCIES, durationDependencies: *mut UI_ANIMATION_DEPENDENCIES) -> HRESULT;
         }
         #[guid(0xea76aff8_ea22_4a23_a0ef_a6a966703518)]
         interface IUIAnimationInterpolator2: IUnknown {
-            fn GetDimension(&self, dimension: *mut u32) -> HRESULT;
-            fn SetInitialValueAndVelocity(&self, #[len_param(2)] initialValue: *const f64, #[len_param(2)] initialVelocity: *const f64, cDimension: u32) -> HRESULT;
-            fn SetDuration(&self, duration: f64) -> HRESULT;
-            fn GetDuration(&self, duration: *mut f64) -> HRESULT;
-            fn GetFinalValue(&self, #[len_param(1)] value: *mut f64, cDimension: u32) -> HRESULT;
-            fn InterpolateValue(&self, offset: f64, #[len_param(2)] value: *mut f64, cDimension: u32) -> HRESULT;
-            fn InterpolateVelocity(&self, offset: f64, #[len_param(2)] velocity: *mut f64, cDimension: u32) -> HRESULT;
+            fn GetDimension(&self, #[retval] dimension: *mut u32) -> HRESULT;
+            fn SetInitialValueAndVelocity(&self, #[len_param(2)] #[in] initialValue: *mut DOUBLE, #[len_param(2)] #[in] initialVelocity: *mut DOUBLE, cDimension: u32) -> HRESULT;
+            fn SetDuration(&self, duration: UI_ANIMATION_SECONDS) -> HRESULT;
+            fn GetDuration(&self, #[retval] duration: *mut UI_ANIMATION_SECONDS) -> HRESULT;
+            fn GetFinalValue(&self, #[len_param(1)] value: *mut DOUBLE, cDimension: u32) -> HRESULT;
+            fn InterpolateValue(&self, offset: UI_ANIMATION_SECONDS, #[len_param(2)] value: *mut DOUBLE, cDimension: u32) -> HRESULT;
+            fn InterpolateVelocity(&self, offset: UI_ANIMATION_SECONDS, #[len_param(2)] velocity: *mut DOUBLE, cDimension: u32) -> HRESULT;
             fn GetPrimitiveInterpolation(&self, interpolation: IUIAnimationPrimitiveInterpolation, cDimension: u32) -> HRESULT;
             fn GetDependencies(&self, initialValueDependencies: *mut UI_ANIMATION_DEPENDENCIES, initialVelocityDependencies: *mut UI_ANIMATION_DEPENDENCIES, durationDependencies: *mut UI_ANIMATION_DEPENDENCIES) -> HRESULT;
         }
@@ -29,15 +29,15 @@ mod Windows {
         }
         #[guid(0x9169896c_ac8d_4e7d_94e5_67fa4dc2f2e8)]
         interface IUIAnimationManager: IUnknown {
-            fn CreateAnimationVariable(&self, initialValue: f64, #[retval] variable: *mut IUIAnimationVariable) -> HRESULT;
-            fn ScheduleTransition(&self, variable: IUIAnimationVariable, transition: IUIAnimationTransition, timeNow: f64) -> HRESULT;
+            fn CreateAnimationVariable(&self, initialValue: DOUBLE, #[retval] variable: *mut IUIAnimationVariable) -> HRESULT;
+            fn ScheduleTransition(&self, variable: IUIAnimationVariable, transition: IUIAnimationTransition, timeNow: UI_ANIMATION_SECONDS) -> HRESULT;
             fn CreateStoryboard(&self, #[retval] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
-            fn FinishAllStoryboards(&self, completionDeadline: f64) -> HRESULT;
+            fn FinishAllStoryboards(&self, completionDeadline: UI_ANIMATION_SECONDS) -> HRESULT;
             fn AbandonAllStoryboards(&self) -> HRESULT;
-            fn Update(&self, timeNow: f64, #[opt] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
+            fn Update(&self, timeNow: UI_ANIMATION_SECONDS, #[opt] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
             fn GetVariableFromTag(&self, #[opt] object: IUnknown, id: u32, #[retval] variable: *mut IUIAnimationVariable) -> HRESULT;
             fn GetStoryboardFromTag(&self, #[opt] object: IUnknown, id: u32, #[retval] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
-            fn GetStatus(&self, status: *mut UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
+            fn GetStatus(&self, #[retval] status: *mut UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
             fn SetAnimationMode(&self, mode: UI_ANIMATION_MODE) -> HRESULT;
             fn Pause(&self) -> HRESULT;
             fn Resume(&self) -> HRESULT;
@@ -46,22 +46,22 @@ mod Windows {
             fn SetTrimPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison) -> HRESULT;
             fn SetCompressPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison) -> HRESULT;
             fn SetConcludePriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison) -> HRESULT;
-            fn SetDefaultLongestAcceptableDelay(&self, delay: f64) -> HRESULT;
+            fn SetDefaultLongestAcceptableDelay(&self, delay: UI_ANIMATION_SECONDS) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
         }
         #[guid(0xd8b6f7d4_4109_4d3f_acee_879926968cb1)]
         interface IUIAnimationManager2: IUnknown {
-            fn CreateAnimationVectorVariable(&self, #[len_param(1)] initialValue: *const f64, cDimension: u32, #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
-            fn CreateAnimationVariable(&self, initialValue: f64, #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
-            fn ScheduleTransition(&self, variable: IUIAnimationVariable2, transition: IUIAnimationTransition2, timeNow: f64) -> HRESULT;
+            fn CreateAnimationVectorVariable(&self, #[len_param(1)] initialValue: *const DOUBLE, cDimension: u32, #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
+            fn CreateAnimationVariable(&self, initialValue: DOUBLE, #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
+            fn ScheduleTransition(&self, variable: IUIAnimationVariable2, transition: IUIAnimationTransition2, timeNow: UI_ANIMATION_SECONDS) -> HRESULT;
             fn CreateStoryboard(&self, #[retval] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
-            fn FinishAllStoryboards(&self, completionDeadline: f64) -> HRESULT;
+            fn FinishAllStoryboards(&self, completionDeadline: UI_ANIMATION_SECONDS) -> HRESULT;
             fn AbandonAllStoryboards(&self) -> HRESULT;
-            fn Update(&self, timeNow: f64, #[opt] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
+            fn Update(&self, timeNow: UI_ANIMATION_SECONDS, #[opt] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
             fn GetVariableFromTag(&self, #[opt] object: IUnknown, id: u32, #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
             fn GetStoryboardFromTag(&self, #[opt] object: IUnknown, id: u32, #[retval] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
-            fn EstimateNextEventTime(&self, seconds: *mut f64) -> HRESULT;
-            fn GetStatus(&self, status: *mut UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
+            fn EstimateNextEventTime(&self, #[retval] seconds: *mut UI_ANIMATION_SECONDS) -> HRESULT;
+            fn GetStatus(&self, #[retval] status: *mut UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
             fn SetAnimationMode(&self, mode: UI_ANIMATION_MODE) -> HRESULT;
             fn Pause(&self) -> HRESULT;
             fn Resume(&self) -> HRESULT;
@@ -70,7 +70,7 @@ mod Windows {
             fn SetTrimPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
             fn SetCompressPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
             fn SetConcludePriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
-            fn SetDefaultLongestAcceptableDelay(&self, delay: f64) -> HRESULT;
+            fn SetDefaultLongestAcceptableDelay(&self, delay: UI_ANIMATION_SECONDS) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
         }
         #[guid(0x783321ed_78a3_4366_b574_6af607a64788)]
@@ -83,8 +83,8 @@ mod Windows {
         }
         #[guid(0xbab20d63_4361_45da_a24f_ab8508846b5b)]
         interface IUIAnimationPrimitiveInterpolation: IUnknown {
-            fn AddCubic(&self, dimension: u32, beginOffset: f64, constantCoefficient: f32, linearCoefficient: f32, quadraticCoefficient: f32, cubicCoefficient: f32) -> HRESULT;
-            fn AddSinusoidal(&self, dimension: u32, beginOffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> HRESULT;
+            fn AddCubic(&self, dimension: u32, beginOffset: UI_ANIMATION_SECONDS, constantCoefficient: FLOAT, linearCoefficient: FLOAT, quadraticCoefficient: FLOAT, cubicCoefficient: FLOAT) -> HRESULT;
+            fn AddSinusoidal(&self, dimension: u32, beginOffset: UI_ANIMATION_SECONDS, bias: FLOAT, amplitude: FLOAT, frequency: FLOAT, phase: FLOAT) -> HRESULT;
         }
         #[guid(0x83fa9b74_5f86_4618_bc6a_a2fac19b3f44)]
         interface IUIAnimationPriorityComparison: IUnknown {
@@ -97,42 +97,42 @@ mod Windows {
         #[guid(0xa8ff128f_9bf9_4af1_9e67_e5e410defb84)]
         interface IUIAnimationStoryboard: IUnknown {
             fn AddTransition(&self, variable: IUIAnimationVariable, transition: IUIAnimationTransition) -> HRESULT;
-            fn AddKeyframeAtOffset(&self, existingKeyframe: UI_ANIMATION_KEYFRAME, offset: f64, keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
-            fn AddKeyframeAfterTransition(&self, transition: IUIAnimationTransition, keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
+            fn AddKeyframeAtOffset(&self, existingKeyframe: UI_ANIMATION_KEYFRAME, offset: UI_ANIMATION_SECONDS, #[retval] keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
+            fn AddKeyframeAfterTransition(&self, transition: IUIAnimationTransition, #[retval] keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
             fn AddTransitionAtKeyframe(&self, variable: IUIAnimationVariable, transition: IUIAnimationTransition, startKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
             fn AddTransitionBetweenKeyframes(&self, variable: IUIAnimationVariable, transition: IUIAnimationTransition, startKeyframe: UI_ANIMATION_KEYFRAME, endKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
             fn RepeatBetweenKeyframes(&self, startKeyframe: UI_ANIMATION_KEYFRAME, endKeyframe: UI_ANIMATION_KEYFRAME, repetitionCount: i32) -> HRESULT;
             fn HoldVariable(&self, variable: IUIAnimationVariable) -> HRESULT;
-            fn SetLongestAcceptableDelay(&self, delay: f64) -> HRESULT;
-            fn Schedule(&self, timeNow: f64, #[opt] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
+            fn SetLongestAcceptableDelay(&self, delay: UI_ANIMATION_SECONDS) -> HRESULT;
+            fn Schedule(&self, timeNow: UI_ANIMATION_SECONDS, #[opt] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
             fn Conclude(&self) -> HRESULT;
-            fn Finish(&self, completionDeadline: f64) -> HRESULT;
+            fn Finish(&self, completionDeadline: UI_ANIMATION_SECONDS) -> HRESULT;
             fn Abandon(&self) -> HRESULT;
             fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
             fn GetTag(&self, object: *mut IUnknown, #[opt] id: *mut u32) -> HRESULT;
-            fn GetStatus(&self, status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
-            fn GetElapsedTime(&self, elapsedTime: *mut f64) -> HRESULT;
+            fn GetStatus(&self, #[retval] status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
+            fn GetElapsedTime(&self, elapsedTime: *mut UI_ANIMATION_SECONDS) -> HRESULT;
             fn SetStoryboardEventHandler(&self, #[opt] handler: IUIAnimationStoryboardEventHandler) -> HRESULT;
         }
         #[guid(0xae289cd2_12d4_4945_9419_9e41be034df2)]
         interface IUIAnimationStoryboard2: IUnknown {
             fn AddTransition(&self, variable: IUIAnimationVariable2, transition: IUIAnimationTransition2) -> HRESULT;
-            fn AddKeyframeAtOffset(&self, existingKeyframe: UI_ANIMATION_KEYFRAME, offset: f64, keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
-            fn AddKeyframeAfterTransition(&self, transition: IUIAnimationTransition2, keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
+            fn AddKeyframeAtOffset(&self, existingKeyframe: UI_ANIMATION_KEYFRAME, offset: UI_ANIMATION_SECONDS, #[retval] keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
+            fn AddKeyframeAfterTransition(&self, transition: IUIAnimationTransition2, #[retval] keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
             fn AddTransitionAtKeyframe(&self, variable: IUIAnimationVariable2, transition: IUIAnimationTransition2, startKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
             fn AddTransitionBetweenKeyframes(&self, variable: IUIAnimationVariable2, transition: IUIAnimationTransition2, startKeyframe: UI_ANIMATION_KEYFRAME, endKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
-            fn RepeatBetweenKeyframes(&self, startKeyframe: UI_ANIMATION_KEYFRAME, endKeyframe: UI_ANIMATION_KEYFRAME, cRepetition: f64, repeatMode: UI_ANIMATION_REPEAT_MODE, #[opt] pIterationChangeHandler: IUIAnimationLoopIterationChangeHandler2, id: usize, fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
+            fn RepeatBetweenKeyframes(&self, startKeyframe: UI_ANIMATION_KEYFRAME, endKeyframe: UI_ANIMATION_KEYFRAME, cRepetition: DOUBLE, repeatMode: UI_ANIMATION_REPEAT_MODE, #[opt] pIterationChangeHandler: IUIAnimationLoopIterationChangeHandler2, id: usize, fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
             fn HoldVariable(&self, variable: IUIAnimationVariable2) -> HRESULT;
-            fn SetLongestAcceptableDelay(&self, delay: f64) -> HRESULT;
-            fn SetSkipDuration(&self, secondsDuration: f64) -> HRESULT;
-            fn Schedule(&self, timeNow: f64, #[opt] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
+            fn SetLongestAcceptableDelay(&self, delay: UI_ANIMATION_SECONDS) -> HRESULT;
+            fn SetSkipDuration(&self, secondsDuration: UI_ANIMATION_SECONDS) -> HRESULT;
+            fn Schedule(&self, timeNow: UI_ANIMATION_SECONDS, #[opt] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
             fn Conclude(&self) -> HRESULT;
-            fn Finish(&self, completionDeadline: f64) -> HRESULT;
+            fn Finish(&self, completionDeadline: UI_ANIMATION_SECONDS) -> HRESULT;
             fn Abandon(&self) -> HRESULT;
             fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
             fn GetTag(&self, object: *mut IUnknown, #[opt] id: *mut u32) -> HRESULT;
-            fn GetStatus(&self, status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
-            fn GetElapsedTime(&self, elapsedTime: *mut f64) -> HRESULT;
+            fn GetStatus(&self, #[retval] status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
+            fn GetElapsedTime(&self, elapsedTime: *mut UI_ANIMATION_SECONDS) -> HRESULT;
             fn SetStoryboardEventHandler(&self, #[opt] handler: IUIAnimationStoryboardEventHandler2, fRegisterStatusChangeForNextAnimationEvent: BOOL, fRegisterUpdateForNextAnimationEvent: BOOL) -> HRESULT;
         }
         #[guid(0x3d5c9008_ec7c_4364_9f8a_9af3c58cbae6)]
@@ -152,7 +152,7 @@ mod Windows {
             fn Enable(&self) -> HRESULT;
             fn Disable(&self) -> HRESULT;
             fn IsEnabled(&self) -> HRESULT;
-            fn GetTime(&self, seconds: *mut f64) -> HRESULT;
+            fn GetTime(&self, seconds: *mut UI_ANIMATION_SECONDS) -> HRESULT;
             fn SetFrameRateThreshold(&self, framesPerSecond: u32) -> HRESULT;
         }
         #[guid(0xbedb4db6_94fa_4bfb_a47f_ef2d9e408c25)]
@@ -167,26 +167,26 @@ mod Windows {
         }
         #[guid(0x195509b7_5d5e_4e3e_b278_ee3759b367ad)]
         interface IUIAnimationTimerUpdateHandler: IUnknown {
-            fn OnUpdate(&self, timeNow: f64, result: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
+            fn OnUpdate(&self, timeNow: UI_ANIMATION_SECONDS, #[retval] result: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
             fn SetTimerClientEventHandler(&self, handler: IUIAnimationTimerClientEventHandler) -> HRESULT;
             fn ClearTimerClientEventHandler(&self) -> HRESULT;
         }
         #[guid(0xdc6ce252_f731_41cf_b610_614b6ca049ad)]
         interface IUIAnimationTransition: IUnknown {
-            fn SetInitialValue(&self, value: f64) -> HRESULT;
-            fn SetInitialVelocity(&self, velocity: f64) -> HRESULT;
+            fn SetInitialValue(&self, value: DOUBLE) -> HRESULT;
+            fn SetInitialVelocity(&self, velocity: DOUBLE) -> HRESULT;
             fn IsDurationKnown(&self) -> HRESULT;
-            fn GetDuration(&self, duration: *mut f64) -> HRESULT;
+            fn GetDuration(&self, #[retval] duration: *mut UI_ANIMATION_SECONDS) -> HRESULT;
         }
         #[guid(0x62ff9123_a85a_4e9b_a218_435a93e268fd)]
         interface IUIAnimationTransition2: IUnknown {
-            fn GetDimension(&self, dimension: *mut u32) -> HRESULT;
-            fn SetInitialValue(&self, value: f64) -> HRESULT;
-            fn SetInitialVectorValue(&self, #[len_param(1)] value: *const f64, cDimension: u32) -> HRESULT;
-            fn SetInitialVelocity(&self, velocity: f64) -> HRESULT;
-            fn SetInitialVectorVelocity(&self, #[len_param(1)] velocity: *const f64, cDimension: u32) -> HRESULT;
+            fn GetDimension(&self, #[retval] dimension: *mut u32) -> HRESULT;
+            fn SetInitialValue(&self, value: DOUBLE) -> HRESULT;
+            fn SetInitialVectorValue(&self, #[len_param(1)] value: *const DOUBLE, cDimension: u32) -> HRESULT;
+            fn SetInitialVelocity(&self, velocity: DOUBLE) -> HRESULT;
+            fn SetInitialVectorVelocity(&self, #[len_param(1)] velocity: *const DOUBLE, cDimension: u32) -> HRESULT;
             fn IsDurationKnown(&self) -> HRESULT;
-            fn GetDuration(&self, duration: *mut f64) -> HRESULT;
+            fn GetDuration(&self, #[retval] duration: *mut UI_ANIMATION_SECONDS) -> HRESULT;
         }
         #[guid(0xfcd91e03_3e3b_45ad_bbb1_6dfc8153743d)]
         interface IUIAnimationTransitionFactory: IUnknown {
@@ -198,52 +198,52 @@ mod Windows {
         }
         #[guid(0xca5a14b1_d24f_48b8_8fe4_c78169ba954e)]
         interface IUIAnimationTransitionLibrary: IUnknown {
-            fn CreateInstantaneousTransition(&self, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateConstantTransition(&self, duration: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateDiscreteTransition(&self, delay: f64, finalValue: f64, hold: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateLinearTransition(&self, duration: f64, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateLinearTransitionFromSpeed(&self, speed: f64, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateSinusoidalTransitionFromVelocity(&self, duration: f64, period: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateSinusoidalTransitionFromRange(&self, duration: f64, minimumValue: f64, maximumValue: f64, period: f64, slope: UI_ANIMATION_SLOPE, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateAccelerateDecelerateTransition(&self, duration: f64, finalValue: f64, accelerationRatio: f64, decelerationRatio: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateReversalTransition(&self, duration: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateCubicTransition(&self, duration: f64, finalValue: f64, finalVelocity: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateSmoothStopTransition(&self, maximumDuration: f64, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
-            fn CreateParabolicTransitionFromAcceleration(&self, finalValue: f64, finalVelocity: f64, acceleration: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateInstantaneousTransition(&self, finalValue: DOUBLE, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateConstantTransition(&self, duration: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateDiscreteTransition(&self, delay: UI_ANIMATION_SECONDS, finalValue: DOUBLE, hold: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateLinearTransition(&self, duration: UI_ANIMATION_SECONDS, finalValue: DOUBLE, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateLinearTransitionFromSpeed(&self, speed: DOUBLE, finalValue: DOUBLE, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateSinusoidalTransitionFromVelocity(&self, duration: UI_ANIMATION_SECONDS, period: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateSinusoidalTransitionFromRange(&self, duration: UI_ANIMATION_SECONDS, minimumValue: DOUBLE, maximumValue: DOUBLE, period: UI_ANIMATION_SECONDS, slope: UI_ANIMATION_SLOPE, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateAccelerateDecelerateTransition(&self, duration: UI_ANIMATION_SECONDS, finalValue: DOUBLE, accelerationRatio: DOUBLE, decelerationRatio: DOUBLE, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateReversalTransition(&self, duration: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateCubicTransition(&self, duration: UI_ANIMATION_SECONDS, finalValue: DOUBLE, finalVelocity: DOUBLE, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateSmoothStopTransition(&self, maximumDuration: UI_ANIMATION_SECONDS, finalValue: DOUBLE, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateParabolicTransitionFromAcceleration(&self, finalValue: DOUBLE, finalVelocity: DOUBLE, acceleration: DOUBLE, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
         }
         #[guid(0x03cfae53_9580_4ee3_b363_2ece51b4af6a)]
         interface IUIAnimationTransitionLibrary2: IUnknown {
-            fn CreateInstantaneousTransition(&self, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateInstantaneousVectorTransition(&self, #[len_param(1)] finalValue: *const f64, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateConstantTransition(&self, duration: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateDiscreteTransition(&self, delay: f64, finalValue: f64, hold: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateDiscreteVectorTransition(&self, delay: f64, #[len_param(2)] finalValue: *const f64, cDimension: u32, hold: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateLinearTransition(&self, duration: f64, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateLinearVectorTransition(&self, duration: f64, #[len_param(2)] finalValue: *const f64, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateLinearTransitionFromSpeed(&self, speed: f64, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateLinearVectorTransitionFromSpeed(&self, speed: f64, #[len_param(2)] finalValue: *const f64, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateSinusoidalTransitionFromVelocity(&self, duration: f64, period: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateSinusoidalTransitionFromRange(&self, duration: f64, minimumValue: f64, maximumValue: f64, period: f64, slope: UI_ANIMATION_SLOPE, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateAccelerateDecelerateTransition(&self, duration: f64, finalValue: f64, accelerationRatio: f64, decelerationRatio: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateReversalTransition(&self, duration: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateCubicTransition(&self, duration: f64, finalValue: f64, finalVelocity: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateCubicVectorTransition(&self, duration: f64, #[len_param(3)] finalValue: *const f64, #[len_param(3)] finalVelocity: *const f64, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateSmoothStopTransition(&self, maximumDuration: f64, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateParabolicTransitionFromAcceleration(&self, finalValue: f64, finalVelocity: f64, acceleration: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateCubicBezierLinearTransition(&self, duration: f64, finalValue: f64, x1: f64, y1: f64, x2: f64, y2: f64, ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
-            fn CreateCubicBezierLinearVectorTransition(&self, duration: f64, #[len_param(2)] finalValue: *const f64, cDimension: u32, x1: f64, y1: f64, x2: f64, y2: f64, ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateInstantaneousTransition(&self, finalValue: DOUBLE, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateInstantaneousVectorTransition(&self, #[len_param(1)] finalValue: *const DOUBLE, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateConstantTransition(&self, duration: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateDiscreteTransition(&self, delay: UI_ANIMATION_SECONDS, finalValue: DOUBLE, hold: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateDiscreteVectorTransition(&self, delay: UI_ANIMATION_SECONDS, #[len_param(2)] finalValue: *const DOUBLE, cDimension: u32, hold: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateLinearTransition(&self, duration: UI_ANIMATION_SECONDS, finalValue: DOUBLE, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateLinearVectorTransition(&self, duration: UI_ANIMATION_SECONDS, #[len_param(2)] finalValue: *const DOUBLE, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateLinearTransitionFromSpeed(&self, speed: DOUBLE, finalValue: DOUBLE, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateLinearVectorTransitionFromSpeed(&self, speed: DOUBLE, #[len_param(2)] finalValue: *const DOUBLE, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateSinusoidalTransitionFromVelocity(&self, duration: UI_ANIMATION_SECONDS, period: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateSinusoidalTransitionFromRange(&self, duration: UI_ANIMATION_SECONDS, minimumValue: DOUBLE, maximumValue: DOUBLE, period: UI_ANIMATION_SECONDS, slope: UI_ANIMATION_SLOPE, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateAccelerateDecelerateTransition(&self, duration: UI_ANIMATION_SECONDS, finalValue: DOUBLE, accelerationRatio: DOUBLE, decelerationRatio: DOUBLE, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateReversalTransition(&self, duration: UI_ANIMATION_SECONDS, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateCubicTransition(&self, duration: UI_ANIMATION_SECONDS, finalValue: DOUBLE, finalVelocity: DOUBLE, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateCubicVectorTransition(&self, duration: UI_ANIMATION_SECONDS, #[len_param(3)] finalValue: *const DOUBLE, #[len_param(3)] finalVelocity: *const DOUBLE, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateSmoothStopTransition(&self, maximumDuration: UI_ANIMATION_SECONDS, finalValue: DOUBLE, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateParabolicTransitionFromAcceleration(&self, finalValue: DOUBLE, finalVelocity: DOUBLE, acceleration: DOUBLE, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateCubicBezierLinearTransition(&self, duration: UI_ANIMATION_SECONDS, finalValue: DOUBLE, x1: DOUBLE, y1: DOUBLE, x2: DOUBLE, y2: DOUBLE, ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateCubicBezierLinearVectorTransition(&self, duration: UI_ANIMATION_SECONDS, #[len_param(2)] finalValue: *const DOUBLE, cDimension: u32, x1: DOUBLE, y1: DOUBLE, x2: DOUBLE, y2: DOUBLE, ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
         }
         #[guid(0x8ceeb155_2849_4ce5_9448_91ff70e1e4d9)]
         interface IUIAnimationVariable: IUnknown {
-            fn GetValue(&self, value: *mut f64) -> HRESULT;
-            fn GetFinalValue(&self, finalValue: *mut f64) -> HRESULT;
-            fn GetPreviousValue(&self, previousValue: *mut f64) -> HRESULT;
-            fn GetIntegerValue(&self, value: *mut i32) -> HRESULT;
-            fn GetFinalIntegerValue(&self, finalValue: *mut i32) -> HRESULT;
-            fn GetPreviousIntegerValue(&self, previousValue: *mut i32) -> HRESULT;
+            fn GetValue(&self, #[retval] value: *mut DOUBLE) -> HRESULT;
+            fn GetFinalValue(&self, #[retval] finalValue: *mut DOUBLE) -> HRESULT;
+            fn GetPreviousValue(&self, #[retval] previousValue: *mut DOUBLE) -> HRESULT;
+            fn GetIntegerValue(&self, #[retval] value: *mut i32) -> HRESULT;
+            fn GetFinalIntegerValue(&self, #[retval] finalValue: *mut i32) -> HRESULT;
+            fn GetPreviousIntegerValue(&self, #[retval] previousValue: *mut i32) -> HRESULT;
             fn GetCurrentStoryboard(&self, #[retval] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
-            fn SetLowerBound(&self, bound: f64) -> HRESULT;
-            fn SetUpperBound(&self, bound: f64) -> HRESULT;
+            fn SetLowerBound(&self, bound: DOUBLE) -> HRESULT;
+            fn SetUpperBound(&self, bound: DOUBLE) -> HRESULT;
             fn SetRoundingMode(&self, mode: UI_ANIMATION_ROUNDING_MODE) -> HRESULT;
             fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
             fn GetTag(&self, object: *mut IUnknown, #[opt] id: *mut u32) -> HRESULT;
@@ -252,26 +252,26 @@ mod Windows {
         }
         #[guid(0x4914b304_96ab_44d9_9e77_d5109b7e7466)]
         interface IUIAnimationVariable2: IUnknown {
-            fn GetDimension(&self, dimension: *mut u32) -> HRESULT;
-            fn GetValue(&self, value: *mut f64) -> HRESULT;
-            fn GetVectorValue(&self, #[len_param(1)] value: *mut f64, cDimension: u32) -> HRESULT;
+            fn GetDimension(&self, #[retval] dimension: *mut u32) -> HRESULT;
+            fn GetValue(&self, #[retval] value: *mut DOUBLE) -> HRESULT;
+            fn GetVectorValue(&self, #[len_param(1)] value: *mut DOUBLE, cDimension: u32) -> HRESULT;
             fn GetCurve(&self, animation: IDCompositionAnimation) -> HRESULT;
-            fn GetVectorCurve(&self, #[len_param(1)] animation: *const IDCompositionAnimation, cDimension: u32) -> HRESULT;
-            fn GetFinalValue(&self, finalValue: *mut f64) -> HRESULT;
-            fn GetFinalVectorValue(&self, #[len_param(1)] finalValue: *mut f64, cDimension: u32) -> HRESULT;
-            fn GetPreviousValue(&self, previousValue: *mut f64) -> HRESULT;
-            fn GetPreviousVectorValue(&self, #[len_param(1)] previousValue: *mut f64, cDimension: u32) -> HRESULT;
-            fn GetIntegerValue(&self, value: *mut i32) -> HRESULT;
+            fn GetVectorCurve(&self, #[len_param(1)] #[in] animation: *mut IDCompositionAnimation, cDimension: u32) -> HRESULT;
+            fn GetFinalValue(&self, #[retval] finalValue: *mut DOUBLE) -> HRESULT;
+            fn GetFinalVectorValue(&self, #[len_param(1)] finalValue: *mut DOUBLE, cDimension: u32) -> HRESULT;
+            fn GetPreviousValue(&self, #[retval] previousValue: *mut DOUBLE) -> HRESULT;
+            fn GetPreviousVectorValue(&self, #[len_param(1)] previousValue: *mut DOUBLE, cDimension: u32) -> HRESULT;
+            fn GetIntegerValue(&self, #[retval] value: *mut i32) -> HRESULT;
             fn GetIntegerVectorValue(&self, #[len_param(1)] value: *mut i32, cDimension: u32) -> HRESULT;
-            fn GetFinalIntegerValue(&self, finalValue: *mut i32) -> HRESULT;
+            fn GetFinalIntegerValue(&self, #[retval] finalValue: *mut i32) -> HRESULT;
             fn GetFinalIntegerVectorValue(&self, #[len_param(1)] finalValue: *mut i32, cDimension: u32) -> HRESULT;
-            fn GetPreviousIntegerValue(&self, previousValue: *mut i32) -> HRESULT;
+            fn GetPreviousIntegerValue(&self, #[retval] previousValue: *mut i32) -> HRESULT;
             fn GetPreviousIntegerVectorValue(&self, #[len_param(1)] previousValue: *mut i32, cDimension: u32) -> HRESULT;
             fn GetCurrentStoryboard(&self, #[retval] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
-            fn SetLowerBound(&self, bound: f64) -> HRESULT;
-            fn SetLowerBoundVector(&self, #[len_param(1)] bound: *const f64, cDimension: u32) -> HRESULT;
-            fn SetUpperBound(&self, bound: f64) -> HRESULT;
-            fn SetUpperBoundVector(&self, #[len_param(1)] bound: *const f64, cDimension: u32) -> HRESULT;
+            fn SetLowerBound(&self, bound: DOUBLE) -> HRESULT;
+            fn SetLowerBoundVector(&self, #[len_param(1)] #[in] #[out] bound: *const DOUBLE, cDimension: u32) -> HRESULT;
+            fn SetUpperBound(&self, bound: DOUBLE) -> HRESULT;
+            fn SetUpperBoundVector(&self, #[len_param(1)] #[in] #[out] bound: *const DOUBLE, cDimension: u32) -> HRESULT;
             fn SetRoundingMode(&self, mode: UI_ANIMATION_ROUNDING_MODE) -> HRESULT;
             fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
             fn GetTag(&self, object: *mut IUnknown, #[opt] id: *mut u32) -> HRESULT;
@@ -281,11 +281,11 @@ mod Windows {
         }
         #[guid(0x6358b7ba_87d2_42d5_bf71_82e919dd5862)]
         interface IUIAnimationVariableChangeHandler: IUnknown {
-            fn OnValueChanged(&self, storyboard: IUIAnimationStoryboard, variable: IUIAnimationVariable, newValue: f64, previousValue: f64) -> HRESULT;
+            fn OnValueChanged(&self, storyboard: IUIAnimationStoryboard, variable: IUIAnimationVariable, newValue: DOUBLE, previousValue: DOUBLE) -> HRESULT;
         }
         #[guid(0x63acc8d2_6eae_4bb0_b879_586dd8cfbe42)]
         interface IUIAnimationVariableChangeHandler2: IUnknown {
-            fn OnValueChanged(&self, storyboard: IUIAnimationStoryboard2, variable: IUIAnimationVariable2, #[len_param(4)] newValue: *const f64, #[len_param(4)] previousValue: *const f64, cDimension: u32) -> HRESULT;
+            fn OnValueChanged(&self, storyboard: IUIAnimationStoryboard2, variable: IUIAnimationVariable2, #[len_param(4)] #[in] newValue: *mut DOUBLE, #[len_param(4)] #[in] previousValue: *mut DOUBLE, cDimension: u32) -> HRESULT;
         }
         #[guid(0x72895e91_0145_4c21_9192_5aab40eddf80)]
         interface IUIAnimationVariableCurveChangeHandler2: IUnknown {
@@ -297,7 +297,7 @@ mod Windows {
         }
         #[guid(0x829b6cf1_4f3a_4412_ae09_b243eb4c6b58)]
         interface IUIAnimationVariableIntegerChangeHandler2: IUnknown {
-            fn OnIntegerValueChanged(&self, storyboard: IUIAnimationStoryboard2, variable: IUIAnimationVariable2, #[len_param(4)] newValue: *const i32, #[len_param(4)] previousValue: *const i32, cDimension: u32) -> HRESULT;
+            fn OnIntegerValueChanged(&self, storyboard: IUIAnimationStoryboard2, variable: IUIAnimationVariable2, #[len_param(4)] #[in] newValue: *mut i32, #[len_param(4)] #[in] previousValue: *mut i32, cDimension: u32) -> HRESULT;
         }
         const UIAnimationManager: GUID = 0x4c1fc63a_695c_47e8_a339_1a194be3d0b8;
         const UIAnimationManager2: GUID = 0xd25d8842_8884_4a4a_b321_091314379bdd;
@@ -322,7 +322,7 @@ mod Windows {
             UI_ANIMATION_IDLE_BEHAVIOR_DISABLE = 1,
         }
         const UI_ANIMATION_ITERATION_NONE: u32 = 4294967295;
-        type UI_ANIMATION_KEYFRAME = *mut void;
+        type UI_ANIMATION_KEYFRAME = *mut __MIDL___MIDL_itf_UIAnimation_0000_0002_0003;
         const UI_ANIMATION_KEYFRAME_STORYBOARD_START: UI_ANIMATION_KEYFRAME = -1;
         #[repr(i32)]
         enum UI_ANIMATION_MANAGER_STATUS {
@@ -362,6 +362,7 @@ mod Windows {
             UI_ANIMATION_SCHEDULING_SUCCEEDED = 3,
             UI_ANIMATION_SCHEDULING_DEFERRED = 4,
         }
+        type UI_ANIMATION_SECONDS = DOUBLE;
         const UI_ANIMATION_SECONDS_EVENTUALLY: i32 = -1;
         const UI_ANIMATION_SECONDS_INFINITE: i32 = -1;
         #[repr(i32)]
@@ -389,6 +390,9 @@ mod Windows {
         enum UI_ANIMATION_UPDATE_RESULT {
             UI_ANIMATION_UPDATE_NO_CHANGE = 0,
             UI_ANIMATION_UPDATE_VARIABLES_CHANGED = 1,
+        }
+        struct __MIDL___MIDL_itf_UIAnimation_0000_0002_0003 {
+            __: i32,
         }
     }
 }

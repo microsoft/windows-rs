@@ -27,5 +27,6 @@ mod Windows {
         extern fn IUnknown_QueryInterface_Proxy(This: IUnknown, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         #[library("RPCRT4.dll")]
         extern fn IUnknown_Release_Proxy(This: IUnknown) -> u32;
+        type LPCLASSFACTORY = IClassFactory;
     }
 }

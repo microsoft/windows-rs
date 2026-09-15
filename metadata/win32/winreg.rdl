@@ -6,7 +6,7 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn AbortSystemShutdownW(#[opt] lpMachineName: PCWSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CheckForHiberboot(#[in] #[out] pHiberboot: *mut bool, bClearFlag: bool) -> u32;
+        extern fn CheckForHiberboot(#[in] #[out] pHiberboot: PBOOLEAN, bClearFlag: BOOLEAN) -> u32;
         const HKEY_CLASSES_ROOT: HKEY = -2147483648;
         const HKEY_CURRENT_CONFIG: HKEY = -2147483643;
         const HKEY_CURRENT_USER: HKEY = -2147483647;
@@ -35,7 +35,7 @@ mod Windows {
         type PPVALUE = PPVALUEA;
         type PPVALUEA = *mut PVALUEA;
         type PPVALUEW = *mut PVALUEW;
-        extern "C" fn PQUERYHANDLER(keycontext: *mut void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut void, total_outlen: *mut u32, input_blen: u32) -> u32;
+        extern "C" fn PQUERYHANDLER(keycontext: *mut void, val_list: PVALCONTEXT, num_vals: u32, outputbuffer: *mut void, total_outlen: *mut u32, input_blen: u32) -> u32;
         const PROVIDER_KEEPS_VALUE_LENGTH: i32 = 1;
         type PVALCONTEXT = *mut val_context;
         type PVALENT = PVALENTA;
@@ -54,7 +54,7 @@ mod Windows {
             pv_value_context: *mut void,
             pv_type: u32,
         }
-        extern "C" fn QUERYHANDLER(keycontext: *mut void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut void, total_outlen: *mut u32, input_blen: u32) -> u32;
+        extern "C" fn QUERYHANDLER(keycontext: *mut void, val_list: PVALCONTEXT, num_vals: u32, outputbuffer: *mut void, total_outlen: *mut u32, input_blen: u32) -> u32;
         const REASON_HWINSTALL: i32 = 65538;
         const REASON_LEGACY_API: u32 = 2147942400;
         const REASON_OTHER: i32 = 0;
@@ -97,29 +97,29 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn RegCloseKey(hKey: HKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegConnectRegistryA(#[opt] lpMachineName: PCSTR, hKey: HKEY, phkResult: *mut HKEY) -> LSTATUS;
+        extern fn RegConnectRegistryA(#[opt] lpMachineName: PCSTR, hKey: HKEY, #[out] phkResult: PHKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegConnectRegistryExA(#[opt] lpMachineName: PCSTR, hKey: HKEY, Flags: u32, phkResult: *mut HKEY) -> LSTATUS;
+        extern fn RegConnectRegistryExA(#[opt] lpMachineName: PCSTR, hKey: HKEY, Flags: u32, #[out] phkResult: PHKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegConnectRegistryExW(#[opt] lpMachineName: PCWSTR, hKey: HKEY, Flags: u32, phkResult: *mut HKEY) -> LSTATUS;
+        extern fn RegConnectRegistryExW(#[opt] lpMachineName: PCWSTR, hKey: HKEY, Flags: u32, #[out] phkResult: PHKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegConnectRegistryW(#[opt] lpMachineName: PCWSTR, hKey: HKEY, phkResult: *mut HKEY) -> LSTATUS;
+        extern fn RegConnectRegistryW(#[opt] lpMachineName: PCWSTR, hKey: HKEY, #[out] phkResult: PHKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegCopyTreeA(hKeySrc: HKEY, #[opt] lpSubKey: PCSTR, hKeyDest: HKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegCopyTreeW(hKeySrc: HKEY, #[opt] lpSubKey: PCWSTR, hKeyDest: HKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegCreateKeyA(hKey: HKEY, #[opt] lpSubKey: PCSTR, phkResult: *mut HKEY) -> LSTATUS;
+        extern fn RegCreateKeyA(hKey: HKEY, #[opt] lpSubKey: PCSTR, #[out] phkResult: PHKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegCreateKeyExA(hKey: HKEY, lpSubKey: PCSTR, #[reserved] Reserved: u32, #[opt] lpClass: PCSTR, dwOptions: u32, samDesired: REGSAM, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, phkResult: *mut HKEY, #[opt] lpdwDisposition: *mut u32) -> LSTATUS;
+        extern fn RegCreateKeyExA(hKey: HKEY, lpSubKey: PCSTR, #[reserved] Reserved: u32, #[opt] lpClass: PCSTR, dwOptions: u32, samDesired: REGSAM, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[out] phkResult: PHKEY, #[out] #[opt] lpdwDisposition: LPDWORD) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegCreateKeyExW(hKey: HKEY, lpSubKey: PCWSTR, #[reserved] Reserved: u32, #[opt] lpClass: PCWSTR, dwOptions: u32, samDesired: REGSAM, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, phkResult: *mut HKEY, #[opt] lpdwDisposition: *mut u32) -> LSTATUS;
+        extern fn RegCreateKeyExW(hKey: HKEY, lpSubKey: PCWSTR, #[reserved] Reserved: u32, #[opt] lpClass: PCWSTR, dwOptions: u32, samDesired: REGSAM, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[out] phkResult: PHKEY, #[out] #[opt] lpdwDisposition: LPDWORD) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegCreateKeyTransactedA(hKey: HKEY, lpSubKey: PCSTR, #[reserved] Reserved: u32, #[opt] lpClass: PCSTR, dwOptions: u32, samDesired: REGSAM, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, phkResult: *mut HKEY, #[opt] lpdwDisposition: *mut u32, hTransaction: HANDLE, #[reserved] pExtendedParemeter: *const void) -> LSTATUS;
+        extern fn RegCreateKeyTransactedA(hKey: HKEY, lpSubKey: PCSTR, #[reserved] Reserved: u32, #[opt] lpClass: PCSTR, dwOptions: u32, samDesired: REGSAM, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[out] phkResult: PHKEY, #[out] #[opt] lpdwDisposition: LPDWORD, hTransaction: HANDLE, #[reserved] pExtendedParemeter: *mut void) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegCreateKeyTransactedW(hKey: HKEY, lpSubKey: PCWSTR, #[reserved] Reserved: u32, #[opt] lpClass: PCWSTR, dwOptions: u32, samDesired: REGSAM, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, phkResult: *mut HKEY, #[opt] lpdwDisposition: *mut u32, hTransaction: HANDLE, #[reserved] pExtendedParemeter: *const void) -> LSTATUS;
+        extern fn RegCreateKeyTransactedW(hKey: HKEY, lpSubKey: PCWSTR, #[reserved] Reserved: u32, #[opt] lpClass: PCWSTR, dwOptions: u32, samDesired: REGSAM, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[out] phkResult: PHKEY, #[out] #[opt] lpdwDisposition: LPDWORD, hTransaction: HANDLE, #[reserved] pExtendedParemeter: *mut void) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegCreateKeyW(hKey: HKEY, #[opt] lpSubKey: PCWSTR, phkResult: *mut HKEY) -> LSTATUS;
+        extern fn RegCreateKeyW(hKey: HKEY, #[opt] lpSubKey: PCWSTR, #[out] phkResult: PHKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegDeleteKeyA(hKey: HKEY, lpSubKey: PCSTR) -> LSTATUS;
         #[library("ADVAPI32.dll")]
@@ -127,9 +127,9 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn RegDeleteKeyExW(hKey: HKEY, lpSubKey: PCWSTR, samDesired: REGSAM, #[reserved] Reserved: u32) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegDeleteKeyTransactedA(hKey: HKEY, lpSubKey: PCSTR, samDesired: REGSAM, #[reserved] Reserved: u32, hTransaction: HANDLE, #[reserved] pExtendedParameter: *const void) -> LSTATUS;
+        extern fn RegDeleteKeyTransactedA(hKey: HKEY, lpSubKey: PCSTR, samDesired: REGSAM, #[reserved] Reserved: u32, hTransaction: HANDLE, #[reserved] pExtendedParameter: *mut void) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegDeleteKeyTransactedW(hKey: HKEY, lpSubKey: PCWSTR, samDesired: REGSAM, #[reserved] Reserved: u32, hTransaction: HANDLE, #[reserved] pExtendedParameter: *const void) -> LSTATUS;
+        extern fn RegDeleteKeyTransactedW(hKey: HKEY, lpSubKey: PCWSTR, samDesired: REGSAM, #[reserved] Reserved: u32, hTransaction: HANDLE, #[reserved] pExtendedParameter: *mut void) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegDeleteKeyValueA(hKey: HKEY, #[opt] lpSubKey: PCSTR, #[opt] lpValueName: PCSTR) -> LSTATUS;
         #[library("ADVAPI32.dll")]
@@ -155,73 +155,73 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn RegEnumKeyA(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] lpName: PSTR, cchName: u32) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegEnumKeyExA(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] lpName: PSTR, #[in] #[out] lpcchName: *mut u32, #[reserved] lpReserved: *const u32, #[len_param(6)] #[out] #[opt] lpClass: PSTR, #[in] #[out] #[opt] lpcchClass: *mut u32, #[opt] lpftLastWriteTime: *mut FILETIME) -> LSTATUS;
+        extern fn RegEnumKeyExA(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] lpName: PSTR, #[in] #[out] lpcchName: LPDWORD, #[reserved] lpReserved: LPDWORD, #[len_param(6)] #[out] #[opt] lpClass: PSTR, #[in] #[out] #[opt] lpcchClass: LPDWORD, #[out] #[opt] lpftLastWriteTime: PFILETIME) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegEnumKeyExW(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] lpName: PWSTR, #[in] #[out] lpcchName: *mut u32, #[reserved] lpReserved: *const u32, #[len_param(6)] #[out] #[opt] lpClass: PWSTR, #[in] #[out] #[opt] lpcchClass: *mut u32, #[opt] lpftLastWriteTime: *mut FILETIME) -> LSTATUS;
+        extern fn RegEnumKeyExW(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] lpName: PWSTR, #[in] #[out] lpcchName: LPDWORD, #[reserved] lpReserved: LPDWORD, #[len_param(6)] #[out] #[opt] lpClass: PWSTR, #[in] #[out] #[opt] lpcchClass: LPDWORD, #[out] #[opt] lpftLastWriteTime: PFILETIME) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegEnumKeyW(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] lpName: PWSTR, cchName: u32) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegEnumValueA(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] lpValueName: PSTR, #[in] #[out] lpcchValueName: *mut u32, #[reserved] lpReserved: *const u32, #[opt] lpType: *mut u32, #[size_param(7)] #[opt] lpData: *mut u8, #[in] #[out] #[opt] lpcbData: *mut u32) -> LSTATUS;
+        extern fn RegEnumValueA(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] lpValueName: PSTR, #[in] #[out] lpcchValueName: LPDWORD, #[reserved] lpReserved: LPDWORD, #[out] #[opt] lpType: LPDWORD, #[size_param(7)] #[out] #[opt] lpData: LPBYTE, #[in] #[out] #[opt] lpcbData: LPDWORD) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegEnumValueW(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] lpValueName: PWSTR, #[in] #[out] lpcchValueName: *mut u32, #[reserved] lpReserved: *const u32, #[opt] lpType: *mut u32, #[size_param(7)] #[opt] lpData: *mut u8, #[in] #[out] #[opt] lpcbData: *mut u32) -> LSTATUS;
+        extern fn RegEnumValueW(hKey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] lpValueName: PWSTR, #[in] #[out] lpcchValueName: LPDWORD, #[reserved] lpReserved: LPDWORD, #[out] #[opt] lpType: LPDWORD, #[size_param(7)] #[out] #[opt] lpData: LPBYTE, #[in] #[out] #[opt] lpcbData: LPDWORD) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegFlushKey(hKey: HKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegGetKeySecurity(hKey: HKEY, SecurityInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] lpcbSecurityDescriptor: *mut u32) -> LSTATUS;
+        extern fn RegGetKeySecurity(hKey: HKEY, SecurityInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] lpcbSecurityDescriptor: LPDWORD) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegGetValueA(hkey: HKEY, #[opt] lpSubKey: PCSTR, #[opt] lpValue: PCSTR, dwFlags: u32, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
+        extern fn RegGetValueA(hkey: HKEY, #[opt] lpSubKey: PCSTR, #[opt] lpValue: PCSTR, dwFlags: u32, #[out] #[opt] pdwType: LPDWORD, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: LPDWORD) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegGetValueW(hkey: HKEY, #[opt] lpSubKey: PCWSTR, #[opt] lpValue: PCWSTR, dwFlags: u32, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
+        extern fn RegGetValueW(hkey: HKEY, #[opt] lpSubKey: PCWSTR, #[opt] lpValue: PCWSTR, dwFlags: u32, #[out] #[opt] pdwType: LPDWORD, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: LPDWORD) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegLoadAppKeyA(lpFile: PCSTR, phkResult: *mut HKEY, samDesired: REGSAM, dwOptions: u32, #[reserved] Reserved: u32) -> LSTATUS;
+        extern fn RegLoadAppKeyA(lpFile: PCSTR, #[out] phkResult: PHKEY, samDesired: REGSAM, dwOptions: u32, #[reserved] Reserved: u32) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegLoadAppKeyW(lpFile: PCWSTR, phkResult: *mut HKEY, samDesired: REGSAM, dwOptions: u32, #[reserved] Reserved: u32) -> LSTATUS;
+        extern fn RegLoadAppKeyW(lpFile: PCWSTR, #[out] phkResult: PHKEY, samDesired: REGSAM, dwOptions: u32, #[reserved] Reserved: u32) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegLoadKeyA(hKey: HKEY, #[opt] lpSubKey: PCSTR, lpFile: PCSTR) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegLoadKeyW(hKey: HKEY, #[opt] lpSubKey: PCWSTR, lpFile: PCWSTR) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegLoadMUIStringA(hKey: HKEY, #[opt] pszValue: PCSTR, #[size_param(3)] #[out] #[opt] pszOutBuf: PSTR, cbOutBuf: u32, #[opt] pcbData: *mut u32, Flags: u32, #[opt] pszDirectory: PCSTR) -> LSTATUS;
+        extern fn RegLoadMUIStringA(hKey: HKEY, #[opt] pszValue: PCSTR, #[size_param(3)] #[out] #[opt] pszOutBuf: PSTR, cbOutBuf: u32, #[out] #[opt] pcbData: LPDWORD, Flags: u32, #[opt] pszDirectory: PCSTR) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegLoadMUIStringW(hKey: HKEY, #[opt] pszValue: PCWSTR, #[size_param(3)] #[out] #[opt] pszOutBuf: PWSTR, cbOutBuf: u32, #[opt] pcbData: *mut u32, Flags: u32, #[opt] pszDirectory: PCWSTR) -> LSTATUS;
+        extern fn RegLoadMUIStringW(hKey: HKEY, #[opt] pszValue: PCWSTR, #[size_param(3)] #[out] #[opt] pszOutBuf: PWSTR, cbOutBuf: u32, #[out] #[opt] pcbData: LPDWORD, Flags: u32, #[opt] pszDirectory: PCWSTR) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegNotifyChangeKeyValue(hKey: HKEY, bWatchSubtree: BOOL, dwNotifyFilter: u32, #[opt] hEvent: HANDLE, fAsynchronous: BOOL) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegOpenCurrentUser(samDesired: REGSAM, phkResult: *mut HKEY) -> LSTATUS;
+        extern fn RegOpenCurrentUser(samDesired: REGSAM, #[out] phkResult: PHKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegOpenKeyA(hKey: HKEY, #[opt] lpSubKey: PCSTR, phkResult: *mut HKEY) -> LSTATUS;
+        extern fn RegOpenKeyA(hKey: HKEY, #[opt] lpSubKey: PCSTR, #[out] phkResult: PHKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegOpenKeyExA(hKey: HKEY, #[opt] lpSubKey: PCSTR, #[opt] ulOptions: u32, samDesired: REGSAM, phkResult: *mut HKEY) -> LSTATUS;
+        extern fn RegOpenKeyExA(hKey: HKEY, #[opt] lpSubKey: PCSTR, #[opt] ulOptions: u32, samDesired: REGSAM, #[out] phkResult: PHKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegOpenKeyExW(hKey: HKEY, #[opt] lpSubKey: PCWSTR, #[opt] ulOptions: u32, samDesired: REGSAM, phkResult: *mut HKEY) -> LSTATUS;
+        extern fn RegOpenKeyExW(hKey: HKEY, #[opt] lpSubKey: PCWSTR, #[opt] ulOptions: u32, samDesired: REGSAM, #[out] phkResult: PHKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegOpenKeyTransactedA(hKey: HKEY, #[opt] lpSubKey: PCSTR, #[opt] ulOptions: u32, samDesired: REGSAM, phkResult: *mut HKEY, hTransaction: HANDLE, #[reserved] pExtendedParemeter: *const void) -> LSTATUS;
+        extern fn RegOpenKeyTransactedA(hKey: HKEY, #[opt] lpSubKey: PCSTR, #[opt] ulOptions: u32, samDesired: REGSAM, #[out] phkResult: PHKEY, hTransaction: HANDLE, #[reserved] pExtendedParemeter: *mut void) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegOpenKeyTransactedW(hKey: HKEY, #[opt] lpSubKey: PCWSTR, #[opt] ulOptions: u32, samDesired: REGSAM, phkResult: *mut HKEY, hTransaction: HANDLE, #[reserved] pExtendedParemeter: *const void) -> LSTATUS;
+        extern fn RegOpenKeyTransactedW(hKey: HKEY, #[opt] lpSubKey: PCWSTR, #[opt] ulOptions: u32, samDesired: REGSAM, #[out] phkResult: PHKEY, hTransaction: HANDLE, #[reserved] pExtendedParemeter: *mut void) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegOpenKeyW(hKey: HKEY, #[opt] lpSubKey: PCWSTR, phkResult: *mut HKEY) -> LSTATUS;
+        extern fn RegOpenKeyW(hKey: HKEY, #[opt] lpSubKey: PCWSTR, #[out] phkResult: PHKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegOpenUserClassesRoot(hToken: HANDLE, #[reserved] dwOptions: u32, samDesired: REGSAM, phkResult: *mut HKEY) -> LSTATUS;
+        extern fn RegOpenUserClassesRoot(hToken: HANDLE, #[reserved] dwOptions: u32, samDesired: REGSAM, #[out] phkResult: PHKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegOverridePredefKey(hKey: HKEY, #[opt] hNewHKey: HKEY) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegQueryInfoKeyA(hKey: HKEY, #[len_param(2)] #[out] #[opt] lpClass: PSTR, #[in] #[out] #[opt] lpcchClass: *mut u32, #[reserved] lpReserved: *const u32, #[opt] lpcSubKeys: *mut u32, #[opt] lpcbMaxSubKeyLen: *mut u32, #[opt] lpcbMaxClassLen: *mut u32, #[opt] lpcValues: *mut u32, #[opt] lpcbMaxValueNameLen: *mut u32, #[opt] lpcbMaxValueLen: *mut u32, #[opt] lpcbSecurityDescriptor: *mut u32, #[opt] lpftLastWriteTime: *mut FILETIME) -> LSTATUS;
+        extern fn RegQueryInfoKeyA(hKey: HKEY, #[len_param(2)] #[out] #[opt] lpClass: PSTR, #[in] #[out] #[opt] lpcchClass: LPDWORD, #[reserved] lpReserved: LPDWORD, #[out] #[opt] lpcSubKeys: LPDWORD, #[out] #[opt] lpcbMaxSubKeyLen: LPDWORD, #[out] #[opt] lpcbMaxClassLen: LPDWORD, #[out] #[opt] lpcValues: LPDWORD, #[out] #[opt] lpcbMaxValueNameLen: LPDWORD, #[out] #[opt] lpcbMaxValueLen: LPDWORD, #[out] #[opt] lpcbSecurityDescriptor: LPDWORD, #[out] #[opt] lpftLastWriteTime: PFILETIME) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegQueryInfoKeyW(hKey: HKEY, #[len_param(2)] #[out] #[opt] lpClass: PWSTR, #[in] #[out] #[opt] lpcchClass: *mut u32, #[reserved] lpReserved: *const u32, #[opt] lpcSubKeys: *mut u32, #[opt] lpcbMaxSubKeyLen: *mut u32, #[opt] lpcbMaxClassLen: *mut u32, #[opt] lpcValues: *mut u32, #[opt] lpcbMaxValueNameLen: *mut u32, #[opt] lpcbMaxValueLen: *mut u32, #[opt] lpcbSecurityDescriptor: *mut u32, #[opt] lpftLastWriteTime: *mut FILETIME) -> LSTATUS;
+        extern fn RegQueryInfoKeyW(hKey: HKEY, #[len_param(2)] #[out] #[opt] lpClass: PWSTR, #[in] #[out] #[opt] lpcchClass: LPDWORD, #[reserved] lpReserved: LPDWORD, #[out] #[opt] lpcSubKeys: LPDWORD, #[out] #[opt] lpcbMaxSubKeyLen: LPDWORD, #[out] #[opt] lpcbMaxClassLen: LPDWORD, #[out] #[opt] lpcValues: LPDWORD, #[out] #[opt] lpcbMaxValueNameLen: LPDWORD, #[out] #[opt] lpcbMaxValueLen: LPDWORD, #[out] #[opt] lpcbSecurityDescriptor: LPDWORD, #[out] #[opt] lpftLastWriteTime: PFILETIME) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegQueryMultipleValuesA(hKey: HKEY, #[len_param(2)] val_list: *mut VALENTA, num_vals: u32, #[size_param(4)] #[out] #[opt] lpValueBuf: PSTR, #[in] #[out] #[opt] ldwTotsize: *mut u32) -> LSTATUS;
+        extern fn RegQueryMultipleValuesA(hKey: HKEY, #[len_param(2)] #[out] val_list: PVALENTA, num_vals: u32, #[size_param(4)] #[out] #[opt] lpValueBuf: PSTR, #[in] #[out] #[opt] ldwTotsize: LPDWORD) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegQueryMultipleValuesW(hKey: HKEY, #[len_param(2)] val_list: *mut VALENTW, num_vals: u32, #[size_param(4)] #[out] #[opt] lpValueBuf: PWSTR, #[in] #[out] #[opt] ldwTotsize: *mut u32) -> LSTATUS;
+        extern fn RegQueryMultipleValuesW(hKey: HKEY, #[len_param(2)] #[out] val_list: PVALENTW, num_vals: u32, #[size_param(4)] #[out] #[opt] lpValueBuf: PWSTR, #[in] #[out] #[opt] ldwTotsize: LPDWORD) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegQueryReflectionKey(hBase: HKEY, bIsReflectionDisabled: *mut BOOL) -> i32;
         #[library("ADVAPI32.dll")]
-        extern fn RegQueryValueA(hKey: HKEY, #[opt] lpSubKey: PCSTR, #[size_param(3)] #[out] #[opt] lpData: PSTR, #[in] #[out] #[opt] lpcbData: *mut i32) -> LSTATUS;
+        extern fn RegQueryValueA(hKey: HKEY, #[opt] lpSubKey: PCSTR, #[size_param(3)] #[out] #[opt] lpData: PSTR, #[in] #[out] #[opt] lpcbData: PLONG) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegQueryValueExA(hKey: HKEY, #[opt] lpValueName: PCSTR, #[reserved] lpReserved: *const u32, #[opt] lpType: *mut u32, #[size_param(5)] #[opt] lpData: *mut u8, lpcbData: *mut u32) -> LSTATUS;
+        extern fn RegQueryValueExA(hKey: HKEY, #[opt] lpValueName: PCSTR, #[reserved] lpReserved: LPDWORD, #[out] #[opt] lpType: LPDWORD, #[size_param(5)] #[out] #[opt] lpData: LPBYTE, lpcbData: LPDWORD) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegQueryValueExW(hKey: HKEY, #[opt] lpValueName: PCWSTR, #[reserved] lpReserved: *const u32, #[opt] lpType: *mut u32, #[size_param(5)] #[opt] lpData: *mut u8, lpcbData: *mut u32) -> LSTATUS;
+        extern fn RegQueryValueExW(hKey: HKEY, #[opt] lpValueName: PCWSTR, #[reserved] lpReserved: LPDWORD, #[out] #[opt] lpType: LPDWORD, #[size_param(5)] #[out] #[opt] lpData: LPBYTE, lpcbData: LPDWORD) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegQueryValueW(hKey: HKEY, #[opt] lpSubKey: PCWSTR, #[size_param(3)] #[out] #[opt] lpData: PWSTR, #[in] #[out] #[opt] lpcbData: *mut i32) -> LSTATUS;
+        extern fn RegQueryValueW(hKey: HKEY, #[opt] lpSubKey: PCWSTR, #[size_param(3)] #[out] #[opt] lpData: PWSTR, #[in] #[out] #[opt] lpcbData: PLONG) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegRenameKey(hKey: HKEY, #[opt] lpSubKeyName: PCWSTR, lpNewKeyName: PCWSTR) -> LSTATUS;
         #[library("ADVAPI32.dll")]
@@ -233,19 +233,19 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn RegRestoreKeyW(hKey: HKEY, lpFile: PCWSTR, dwFlags: u32) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegSaveKeyA(hKey: HKEY, lpFile: PCSTR, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES) -> LSTATUS;
+        extern fn RegSaveKeyA(hKey: HKEY, lpFile: PCSTR, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegSaveKeyExA(hKey: HKEY, lpFile: PCSTR, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, Flags: u32) -> LSTATUS;
+        extern fn RegSaveKeyExA(hKey: HKEY, lpFile: PCSTR, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, Flags: u32) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegSaveKeyExW(hKey: HKEY, lpFile: PCWSTR, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, Flags: u32) -> LSTATUS;
+        extern fn RegSaveKeyExW(hKey: HKEY, lpFile: PCWSTR, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, Flags: u32) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegSaveKeyW(hKey: HKEY, lpFile: PCWSTR, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES) -> LSTATUS;
+        extern fn RegSaveKeyW(hKey: HKEY, lpFile: PCWSTR, #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegSetKeySecurity(hKey: HKEY, SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegSetKeyValueA(hKey: HKEY, #[opt] lpSubKey: PCSTR, #[opt] lpValueName: PCSTR, dwType: u32, #[size_param(5)] #[opt] lpData: *const void, cbData: u32) -> LSTATUS;
+        extern fn RegSetKeyValueA(hKey: HKEY, #[opt] lpSubKey: PCSTR, #[opt] lpValueName: PCSTR, dwType: u32, #[size_param(5)] #[opt] lpData: LPCVOID, cbData: u32) -> LSTATUS;
         #[library("ADVAPI32.dll")]
-        extern fn RegSetKeyValueW(hKey: HKEY, #[opt] lpSubKey: PCWSTR, #[opt] lpValueName: PCWSTR, dwType: u32, #[size_param(5)] #[opt] lpData: *const void, cbData: u32) -> LSTATUS;
+        extern fn RegSetKeyValueW(hKey: HKEY, #[opt] lpSubKey: PCWSTR, #[opt] lpValueName: PCWSTR, dwType: u32, #[size_param(5)] #[opt] lpData: LPCVOID, cbData: u32) -> LSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn RegSetValueA(hKey: HKEY, #[opt] lpSubKey: PCSTR, dwType: u32, #[size_param(4)] #[opt] lpData: PCSTR, cbData: u32) -> LSTATUS;
         #[library("ADVAPI32.dll")]
