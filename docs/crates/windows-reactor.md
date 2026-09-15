@@ -153,7 +153,7 @@ another thread.
 
 The [`reactor-notifyicon`](../../crates/samples/reactor/notifyicon) sample demonstrates this
 lifetime model. It uses `AppContext::show_menu_at` to show a WinUI `MenuFlyout` at the physical
-screen coordinates supplied by the notification icon. Reactor creates the required Xaml host
+screen coordinates supplied by the notification icon. Reactor creates the required WinUI host
 lazily, keeps it outside the Reactor window count, and hides it when the menu closes. Only one
 application menu may be open at a time.
 
