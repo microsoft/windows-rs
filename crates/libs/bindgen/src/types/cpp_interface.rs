@@ -244,7 +244,7 @@ impl CppInterface {
                 MethodOrName::Method(method) => {
                     let name = names.add(method.def);
                     let signature = method.write_abi(config, true);
-                    let upcall = method.write_upcall(&impl_name, &name, config.reader);
+                    let upcall = method.write_upcall(&impl_name, &name, config);
 
                     if has_unknown_base {
                     quote! {

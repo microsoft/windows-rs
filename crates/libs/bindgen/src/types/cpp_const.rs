@@ -99,6 +99,14 @@ impl CppConst {
 
         if let Some(constant) = self.field.constant() {
             let constant_ty = constant.constant_type(config.reader);
+            if field_ty.is_pointer() {
+                let ty = field_ty.write_name(config);
+                let value = pointer_const_value(&field_ty, &constant.value(), config);
+                return quote! {
+                    #cfg
+                    pub const #name: #ty = #value;
+                };
+            }
 
             if field_ty == constant_ty {
                 if field_ty == Type::String {
@@ -193,7 +201,12 @@ impl CppConst {
                     let value = if unscoped_enum_const {
                         value
                     } else {
-                        write_newtype_wrap(&field_ty, &value, config)
+                        write_newtype_wrap_for_arches(
+                            &field_ty,
+                            &value,
+                            config,
+                            self.effective_arches(),
+                        )
                     };
                     quote! {
                         #cfg
@@ -212,7 +225,12 @@ impl CppConst {
                     // Full-mode handle constants must wrap through each nested newtype layer.
                     let arg = match &field_ty {
                         Type::CppStruct(s) if s.is_handle(config.reader) => {
-                            write_newtype_wrap(&underlying_ty, &value, config)
+                            write_newtype_wrap_for_arches(
+                                &underlying_ty,
+                                &value,
+                                config,
+                                self.effective_arches(),
+                            )
                         }
                         _ => value,
                     };
@@ -225,6 +243,61 @@ impl CppConst {
         } else {
             panic!()
         }
+    }
+}
+
+fn pointer_const_value(field_ty: &Type, value: &Value, config: &Config) -> TokenStream {
+    let address = match value {
+        Value::I8(value) => signed_pointer_address(i64::from(*value), "i8"),
+        Value::I16(value) => signed_pointer_address(i64::from(*value), "i16"),
+        Value::I32(value) => signed_pointer_address(i64::from(*value), "i32"),
+        Value::I64(value) | Value::ISize(value) => signed_pointer_address(*value, "i64"),
+        Value::U8(value) => {
+            let value = Literal::usize_suffixed((*value).into());
+            quote! { #value }
+        }
+        Value::U16(value) => {
+            let value = Literal::usize_suffixed((*value).into());
+            quote! { #value }
+        }
+        Value::U32(value) => {
+            let value = Literal::u32_suffixed(*value);
+            quote! { #value as usize }
+        }
+        Value::U64(value) | Value::USize(value) => {
+            let value = Literal::u64_suffixed(*value);
+            quote! { #value as usize }
+        }
+        rest => panic!("pointer constant has unsupported value {rest:?}"),
+    };
+    match field_ty {
+        Type::PtrMut(inner, pointers) => {
+            let pointee = if *pointers == 1 {
+                inner.write_default(config)
+            } else {
+                Type::PtrMut(inner.clone(), pointers - 1).write_name(config)
+            };
+            quote! { core::ptr::without_provenance_mut::<#pointee>(#address) }
+        }
+        Type::PtrConst(inner, pointers) => {
+            let pointee = if *pointers == 1 {
+                inner.write_default(config)
+            } else {
+                Type::PtrConst(inner.clone(), pointers - 1).write_name(config)
+            };
+            quote! { core::ptr::without_provenance::<#pointee>(#address) }
+        }
+        _ => unreachable!(),
+    }
+}
+
+fn signed_pointer_address(value: i64, suffix: &str) -> TokenStream {
+    if value >= 0 {
+        let value = Literal::usize_suffixed(value.try_into().unwrap());
+        quote! { #value }
+    } else {
+        let value: TokenStream = format!("{value}{suffix}").parse().unwrap();
+        quote! { (#value) as usize }
     }
 }
 

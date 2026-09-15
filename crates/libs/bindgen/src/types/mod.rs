@@ -455,7 +455,29 @@ impl Type {
         )
     }
 
+    pub fn is_interface_with_reader(&self, reader: &Reader) -> bool {
+        self.projection_type(reader).is_interface()
+    }
+
+    fn aliases_type(&self, name: TypeName, reader: &Reader) -> bool {
+        match self {
+            Self::CppInterface(ty) => ty.type_name() == name,
+            Self::CppStruct(ty) if ty.is_native_typedef() => ty
+                .def
+                .underlying_type_ext(reader)
+                .aliases_type(name, reader),
+            _ => false,
+        }
+    }
+
     pub fn write_name(&self, config: &Config) -> TokenStream {
+        if let Some(self_ty) = config.self_ty
+            && config.self_generics.is_empty()
+            && self.aliases_type(self_ty, config.reader)
+        {
+            return quote! { Self };
+        }
+
         if config.bindgen.style.is_sys() && self.is_interface() {
             return quote! { *mut core::ffi::c_void };
         }
@@ -571,7 +593,7 @@ impl Type {
 
             if matches!(self, Self::Generic(_)) {
                 quote! { <#tokens as windows_core::imp::Type<#tokens>>::Default }
-            } else if self.is_interface() {
+            } else if self.is_interface_with_reader(config.reader) {
                 quote! { Option<#tokens> }
             } else {
                 tokens
@@ -594,6 +616,9 @@ impl Type {
     pub fn write_abi(&self, config: &Config) -> TokenStream {
         if config.bindgen.style.is_sys() {
             return self.write_name(config);
+        }
+        if self.is_interface_with_reader(config.reader) {
+            return quote! { *mut core::ffi::c_void };
         }
 
         match self {
@@ -921,6 +946,47 @@ impl Type {
         }
     }
 
+    /// Resolves native C typedefs for projection decisions without changing their public spelling.
+    pub fn projection_type(&self, reader: &Reader) -> Self {
+        match self {
+            Self::CppStruct(ty) if ty.is_native_typedef() => ty
+                .def
+                .fields()
+                .next()
+                .unwrap()
+                .field_type(Some(ty), reader)
+                .projection_type(reader),
+            Self::PtrMut(ty, pointers) => {
+                Self::PtrMut(Box::new(ty.projection_type(reader)), *pointers)
+            }
+            Self::PtrConst(ty, pointers) => {
+                Self::PtrConst(Box::new(ty.projection_type(reader)), *pointers)
+            }
+            Self::ArrayFixed(ty, len) => {
+                Self::ArrayFixed(Box::new(ty.projection_type(reader)), *len)
+            }
+            Self::Array(ty) => Self::Array(Box::new(ty.projection_type(reader))),
+            Self::ArrayRef(ty) => Self::ArrayRef(Box::new(ty.projection_type(reader))),
+            Self::ConstRef(ty) => Self::ConstRef(Box::new(ty.projection_type(reader))),
+            _ => self.clone(),
+        }
+    }
+
+    /// Dereferences the outer pointer represented by a native C typedef while retaining aliases
+    /// on the pointee.
+    pub fn projection_pointee(&self, reader: &Reader) -> Self {
+        match self {
+            Self::CppStruct(ty) if ty.is_native_typedef() => ty
+                .def
+                .fields()
+                .next()
+                .unwrap()
+                .field_type(Some(ty), reader)
+                .projection_pointee(reader),
+            _ => self.deref(),
+        }
+    }
+
     fn write_no_deps(&self, config: &Config) -> TokenStream {
         if !config.bindgen.uses_inline_core_types() {
             return quote! {};
@@ -1212,17 +1278,47 @@ pub fn write_arch_bits(value: i32) -> TokenStream {
 
 /// Wraps a primitive value through full-mode handle/scalar typedef newtype layers.
 pub(crate) fn write_newtype_wrap(ty: &Type, value: &TokenStream, config: &Config) -> TokenStream {
-    if let Type::CppStruct(s) = ty
-        && s.is_handle(config.reader)
+    write_newtype_wrap_for_arches(ty, value, config, 0)
+}
+
+pub(crate) fn write_newtype_wrap_for_arches(
+    ty: &Type,
+    value: &TokenStream,
+    config: &Config,
+    arches: i32,
+) -> TokenStream {
+    let ty = if arches != 0 {
+        if let Type::CppStruct(s) = ty {
+            config
+                .reader
+                .with_full_name(s.def.namespace(), s.def.name())
+                .find(|candidate| {
+                    matches!(candidate, Type::CppStruct(candidate) if candidate.def.arches() & arches != 0)
+                })
+                .unwrap_or_else(|| ty.clone())
+        } else {
+            ty.clone()
+        }
+    } else {
+        ty.clone()
+    };
+    if let Type::CppStruct(s) = &ty
+        && (s.is_handle(config.reader) || s.is_native_typedef())
     {
         let inner = ty.underlying_type(config.reader);
-        let arg = write_newtype_wrap(&inner, value, config);
+        let arg = write_newtype_wrap_for_arches(&inner, value, config, arches);
         // Transparent handle aliases do not contribute a `Name(..)` constructor layer.
         if config.typedef_emits_bare(s.def) {
             return arg;
         }
         let name = ty.write_name(config);
         return quote! { #name(#arg) };
+    }
+    if !config.bindgen.style.is_sys()
+        && matches!(ty, Type::PCSTR | Type::PCWSTR | Type::PSTR | Type::PWSTR)
+    {
+        let name = ty.write_name(config);
+        return quote! { #name(#value) };
     }
     value.clone()
 }

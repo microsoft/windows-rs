@@ -53,8 +53,8 @@ fn param_hint(
         Some(BufferRelationship::ElementsConst(fixed)) => usize::try_from(fixed)
             .ok()
             .filter(|fixed| {
-                param
-                    .deref()
+                buffer_element(param, reader)
+                    .projection_type(reader)
                     .size(reader)
                     .checked_mul(*fixed)
                     .is_some_and(|size| size <= i32::MAX as usize)
@@ -62,6 +62,10 @@ fn param_hint(
             .map_or(ParamHint::None, ParamHint::ArrayFixed),
         None => ParamHint::None,
     }
+}
+
+fn buffer_element(param: &Param, reader: &Reader) -> Type {
+    param.projection_pointee(reader)
 }
 
 impl ParamHint {
@@ -100,9 +104,9 @@ impl CppMethod {
                     // slice cannot represent. Required SAL-counted buffers use slices regardless
                     // of the count's signedness.
                     if relative_param.is_input_only()
-                        && (relative_param.ty.is_unsigned()
+                        && (relative_param.projection_type(reader).is_unsigned()
                             || !signature.params[position].is_optional_or_reserved())
-                        && !relative_param.is_pointer()
+                        && !relative_param.projection_type(reader).is_pointer()
                     {
                         param_hints[relative] = ParamHint::ArrayRelativePtr(position);
                     } else {
@@ -156,7 +160,9 @@ impl CppMethod {
         // Remove any byte arrays that aren't byte-sized types.
         for position in 0..param_hints.len() {
             if let ParamHint::ArrayRelativeByteLen(relative) = param_hints[position]
-                && !signature.params[position].is_byte_size()
+                && !signature.params[position]
+                    .projection_type(reader)
+                    .is_byte_size()
             {
                 param_hints[position] = ParamHint::None;
                 param_hints[relative] = ParamHint::None;
@@ -167,17 +173,19 @@ impl CppMethod {
             if *hint == ParamHint::None {
                 let param = &signature.params[position];
 
-                if param.is_convertible() && !hint.is_array() {
+                let ty = param.projection_type(reader);
+
+                if param.is_convertible_with_reader(reader) && !hint.is_array() {
                     *hint = ParamHint::IntoParam;
-                } else if param.is_copyable(reader) && param.is_optional_or_reserved() {
+                } else if ty.is_copyable(reader) && param.is_optional_or_reserved() {
                     *hint = ParamHint::Optional;
-                } else if param.is_input_only() && param.ty == Type::BOOL {
+                } else if param.is_input_only() && ty == Type::BOOL {
                     *hint = ParamHint::Bool;
-                } else if param.is_primitive(reader)
-                    && (!param.is_pointer() || param.deref().is_copyable(reader))
+                } else if ty.is_primitive(reader)
+                    && (!ty.is_pointer() || ty.deref().is_copyable(reader))
                 {
                     *hint = ParamHint::ValueType;
-                } else if param.is_copyable(reader) {
+                } else if ty.is_copyable(reader) {
                     *hint = ParamHint::Blittable;
                 }
             }
@@ -186,7 +194,7 @@ impl CppMethod {
         let is_retval = signature.is_retval(reader);
         let mut return_hint = ReturnHint::None;
 
-        match &signature.return_type {
+        match signature.return_type.projection_type(reader) {
             Type::Void if is_retval => return_hint = ReturnHint::ReturnValue,
             Type::HRESULT => {
                 if is_retval {
@@ -198,7 +206,8 @@ impl CppMethod {
                 }
 
                 if signature.params.len() >= 2
-                    && let Some((guid, object)) = signature_param_is_query(&signature.params)
+                    && let Some((guid, object)) =
+                        signature_param_is_query(&signature.params, reader)
                 {
                     if signature.params[object].is_optional_or_reserved() {
                         return_hint = ReturnHint::QueryOptional(object, guid);
@@ -302,9 +311,11 @@ impl CppMethod {
             ReturnHint::ResultValue => {
                 let where_clause = self.write_where(config, false);
 
-                let return_type = self.signature.params[self.signature.params.len() - 1].deref();
-
-                let map = return_type.write_result_map(config.reader);
+                let return_type = self.signature.params[self.signature.params.len() - 1]
+                    .projection_pointee(config.reader);
+                let map = return_type
+                    .projection_type(config.reader)
+                    .write_result_map(config.reader);
                 let return_type = return_type.write_name(config);
 
                 quote! {
@@ -319,9 +330,11 @@ impl CppMethod {
             ReturnHint::ReturnValue => {
                 let where_clause = self.write_where(config, false);
 
-                let return_type = self.signature.params[self.signature.params.len() - 1].deref();
+                let return_type = self.signature.params[self.signature.params.len() - 1]
+                    .projection_pointee(config.reader);
+                let projection_type = return_type.projection_type(config.reader);
 
-                if return_type.is_interface() {
+                if projection_type.is_interface_with_reader(config.reader) {
                     let return_type = return_type.write_name(config);
 
                     quote! {
@@ -334,7 +347,7 @@ impl CppMethod {
                         }
                     }
                 } else {
-                    let map = if return_type.is_copyable(config.reader) {
+                    let map = if projection_type.is_copyable(config.reader) {
                         quote! { result__ }
                     } else {
                         quote! { core::mem::transmute(result__) }
@@ -392,8 +405,9 @@ impl CppMethod {
         &self,
         parent_impl: &TokenStream,
         name: &TokenStream,
-        reader: &Reader,
+        config: &Config,
     ) -> TokenStream {
+        let reader = config.reader;
         match self.return_hint {
             ReturnHint::ResultValue => {
                 let invoke_args = self.signature.params[..self.signature.params.len() - 1]
@@ -402,11 +416,21 @@ impl CppMethod {
 
                 let last_param = &self.signature.params[self.signature.params.len() - 1];
                 let result = last_param.write_ident();
+                let result = if matches!(last_param.projection_type(reader), Type::PtrConst(..)) {
+                    let target = last_param.projection_pointee(reader).write_abi(config);
+                    quote! { (#result as *mut #target) }
+                } else {
+                    result
+                };
 
                 // For copyable types the Rust and ABI types are identical, so
                 // the transmute would be from a type to itself and tripping
                 // `clippy::useless_transmute`.
-                let write_result = if last_param.deref().is_copyable(reader) {
+                let write_result = if last_param
+                    .projection_pointee(reader)
+                    .projection_type(reader)
+                    .is_copyable(reader)
+                {
                     quote! { #result.write(ok__); }
                 } else {
                     quote! { #result.write(core::mem::transmute(ok__)); }
@@ -496,7 +520,8 @@ impl CppMethod {
                 quote! { -> #result Result<()> }
             }
             ReturnHint::ResultValue => {
-                let return_type = self.signature.params[self.signature.params.len() - 1].deref();
+                let return_type = self.signature.params[self.signature.params.len() - 1]
+                    .projection_pointee(config.reader);
                 let return_type = return_type.write_name(config);
 
                 quote! { -> #result Result<#return_type> }
@@ -580,7 +605,7 @@ impl CppMethod {
                     }
                 }
                 ParamHint::ArrayFixed(fixed) => {
-                    let ty = param.deref();
+                    let ty = buffer_element(param, config.reader);
                     let ty = ty.write_default(config);
                     let len = Literal::u32_unsuffixed(fixed as u32);
                     let ty = if param.is_input_only() {
@@ -595,7 +620,7 @@ impl CppMethod {
                     }
                 }
                 ParamHint::ArrayRelativeLen(_) => {
-                    let ty = param.deref();
+                    let ty = buffer_element(param, config.reader);
                     let ty = ty.write_default(config);
                     let ty = if param.is_input_only() {
                         quote! { &[#ty] }
@@ -678,8 +703,13 @@ impl CppMethod {
                         ParamHint::ArrayRaw => {
                             if param.is_optional_or_reserved() {
                                 quote! { #name.unwrap_or(core::mem::zeroed()) as _, }
-                            } else if param.is_primitive(config.reader)
-                                && param.deref().is_copyable(config.reader)
+                            } else if param
+                                .projection_type(config.reader)
+                                .is_primitive(config.reader)
+                                && param
+                                    .projection_type(config.reader)
+                                    .deref()
+                                    .is_copyable(config.reader)
                             {
                                 if param.is_input_only() {
                                     quote! { #name, }
@@ -715,7 +745,7 @@ impl CppMethod {
                             ) {
                                 quote! { u8 }
                             } else {
-                                param.deref().write_default(config)
+                                buffer_element(param, config.reader).write_default(config)
                             };
                             let ptr = if param.is_input_only() {
                                 quote! { *const #elem }
@@ -814,14 +844,19 @@ fn write_produce_type(config: &Config, param: &Param, hint: ParamHint) -> TokenS
     let name = param.write_ident();
     let kind = param.write_default(config);
 
-    if param.is_input_only() && param.is_interface() {
+    let ty = param.projection_type(config.reader);
+
+    if param.is_input_only() && ty.is_interface_with_reader(config.reader) {
         let type_name = param.write_name(config);
         quote! { #name: windows_core::Ref<#type_name>, }
-    } else if !param.is_input_only() && param.deref().is_interface() && !hint.is_array() {
-        let type_name = param.deref().write_name(config);
+    } else if !param.is_input_only()
+        && ty.deref().is_interface_with_reader(config.reader)
+        && !hint.is_array()
+    {
+        let type_name = param.projection_pointee(config.reader).write_name(config);
         quote! { #name: windows_core::OutRef<#type_name>, }
     } else if param.is_input_only() {
-        if param.is_primitive(config.reader) {
+        if ty.is_primitive(config.reader) {
             quote! { #name: #kind, }
         } else {
             quote! { #name: &#kind, }
@@ -834,10 +869,12 @@ fn write_produce_type(config: &Config, param: &Param, hint: ParamHint) -> TokenS
 fn write_invoke_arg(param: &Param, reader: &Reader) -> TokenStream {
     let name = param.write_ident();
 
-    if param.is_input_only() && param.is_interface() {
+    let ty = param.projection_type(reader);
+
+    if param.is_input_only() && ty.is_interface_with_reader(reader) {
         quote! { core::mem::transmute_copy(&#name) }
-    } else if (!param.is_pointer() && param.is_interface())
-        || (param.is_input_only() && !param.is_primitive(reader))
+    } else if (!ty.is_pointer() && ty.is_interface_with_reader(reader))
+        || (param.is_input_only() && !ty.is_primitive(reader))
     {
         quote! { core::mem::transmute(&#name) }
     } else {
@@ -845,11 +882,12 @@ fn write_invoke_arg(param: &Param, reader: &Reader) -> TokenStream {
     }
 }
 
-fn signature_param_is_query(params: &[Param]) -> Option<(usize, usize)> {
+fn signature_param_is_query(params: &[Param], reader: &Reader) -> Option<(usize, usize)> {
     if let Some(guid) = params.iter().rposition(|param| {
-        param.ty == Type::PtrConst(Box::new(Type::GUID), 1) && param.is_input_only()
+        param.projection_type(reader) == Type::PtrConst(Box::new(Type::GUID), 1)
+            && param.is_input_only()
     }) && let Some(object) = params.iter().rposition(|param| {
-        param.ty == Type::PtrMut(Box::new(Type::Void), 2)
+        param.projection_type(reader) == Type::PtrMut(Box::new(Type::Void), 2)
             && param.has_attribute("ComOutPtrAttribute")
     }) {
         return Some((guid, object));
