@@ -46,20 +46,20 @@ pub const ADSTYPE_TYPEDNAME: ADSTYPEENUM = 19;
 pub const ADSTYPE_UNKNOWN: ADSTYPEENUM = 26;
 pub const ADSTYPE_UTC_TIME: ADSTYPEENUM = 9;
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ADSVALUE {
     pub dwType: ADSTYPE,
     pub Anonymous: ADSVALUE_0,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 impl Default for ADSVALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union ADSVALUE_0 {
     pub DNString: ADS_DN_STRING,
@@ -90,7 +90,7 @@ pub union ADSVALUE_0 {
     pub pDNWithBinary: PADS_DN_WITH_BINARY,
     pub pDNWithString: PADS_DN_WITH_STRING,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 impl Default for ADSVALUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -133,7 +133,7 @@ pub struct ADS_ATTR_DEF {
 }
 pub const ADS_ATTR_DELETE: i32 = 4;
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_ATTR_INFO {
     pub pszAttrName: windows_sys::core::PWSTR,
@@ -255,7 +255,8 @@ pub struct ADS_HOLD {
     pub Amount: u32,
 }
 pub type ADS_INTEGER = u32;
-pub type ADS_LARGE_INTEGER = i64;
+#[cfg(feature = "winnt")]
+pub type ADS_LARGE_INTEGER = super::LARGE_INTEGER;
 pub const ADS_NAME_INITTYPE_DOMAIN: ADS_NAME_INITTYPE_ENUM = 1;
 pub type ADS_NAME_INITTYPE_ENUM = i32;
 pub const ADS_NAME_INITTYPE_GC: ADS_NAME_INITTYPE_ENUM = 3;
@@ -430,14 +431,14 @@ pub const ADS_SEARCHPREF_DIRSYNC_FLAG: ADS_SEARCHPREF_ENUM = 17;
 pub type ADS_SEARCHPREF_ENUM = i32;
 pub const ADS_SEARCHPREF_EXTENDED_DN: ADS_SEARCHPREF_ENUM = 18;
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ADS_SEARCHPREF_INFO {
     pub dwSearchPref: ADS_SEARCHPREF,
     pub vValue: ADSVALUE,
     pub dwStatus: ADS_STATUS,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 impl Default for ADS_SEARCHPREF_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -478,11 +479,12 @@ pub const ADS_SETTYPE_FULL: ADS_SETTYPE_ENUM = 1;
 pub const ADS_SETTYPE_PROVIDER: ADS_SETTYPE_ENUM = 2;
 pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = 3;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_SORTKEY {
     pub pszAttrType: windows_sys::core::PWSTR,
     pub pszReserved: windows_sys::core::PWSTR,
-    pub fReverseorder: bool,
+    pub fReverseorder: super::BOOLEAN,
 }
 pub type ADS_STATUS = ADS_STATUSENUM;
 pub type ADS_STATUSENUM = i32;
@@ -566,19 +568,19 @@ pub const DNWithString: windows_sys::core::GUID = windows_sys::core::GUID::from_
 pub const Email: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8f92a857_478e_11d1_a3b4_00c04fb950dc);
 pub const FaxNumber: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa5062215_4681_11d1_a3b4_00c04fb950dc);
 pub const Hold: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb3ad3e13_4080_11d1_a3ac_00c04fb950dc);
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 pub type LPADSVALUE = *mut ADSVALUE;
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 pub type LPADS_SEARCHPREF_INFO = *mut ADS_SEARCHPREF_INFO;
 pub type LPNDS_BOOLEAN = *mut u32;
 pub const LargeInteger: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x927971f5_0939_11d1_8be1_00c04fd8d503);
 pub const NameTranslate: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x274fae1f_3626_11d1_a3a4_00c04fb950dc);
 pub const NetAddress: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
 pub const OctetList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1241400f_4680_11d1_a3b4_00c04fb950dc);
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 pub type PADSVALUE = *mut ADSVALUE;
 pub type PADS_ATTR_DEF = *mut ADS_ATTR_DEF;
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 pub type PADS_ATTR_INFO = *mut ADS_ATTR_INFO;
 pub type PADS_BACKLINK = *mut ADS_BACKLINK;
 pub type PADS_CASEIGNORE_LIST = *mut ADS_CASEIGNORE_LIST;
@@ -594,7 +596,8 @@ pub type PADS_EMAIL = *mut ADS_EMAIL;
 pub type PADS_FAXNUMBER = *mut ADS_FAXNUMBER;
 pub type PADS_HOLD = *mut ADS_HOLD;
 pub type PADS_INTEGER = *mut u32;
-pub type PADS_LARGE_INTEGER = *mut i64;
+#[cfg(feature = "winnt")]
+pub type PADS_LARGE_INTEGER = *mut super::LARGE_INTEGER;
 pub type PADS_NETADDRESS = *mut ADS_NETADDRESS;
 #[cfg(feature = "minwindef")]
 pub type PADS_NT_SECURITY_DESCRIPTOR = *mut ADS_NT_SECURITY_DESCRIPTOR;
@@ -610,12 +613,13 @@ pub type PADS_PRINTABLE_STRING = *mut windows_sys::core::PWSTR;
 #[cfg(feature = "minwindef")]
 pub type PADS_PROV_SPECIFIC = *mut ADS_PROV_SPECIFIC;
 pub type PADS_REPLICAPOINTER = *mut ADS_REPLICAPOINTER;
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 pub type PADS_SEARCHPREF_INFO = *mut ADS_SEARCHPREF_INFO;
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 pub type PADS_SEARCH_COLUMN = *mut ADS_SEARCH_COLUMN;
 #[cfg(feature = "winnt")]
 pub type PADS_SEARCH_HANDLE = *mut super::HANDLE;
+#[cfg(feature = "winnt")]
 pub type PADS_SORTKEY = *mut ADS_SORTKEY;
 pub type PADS_STATUS = *mut ADS_STATUSENUM;
 pub type PADS_TIMESTAMP = *mut ADS_TIMESTAMP;

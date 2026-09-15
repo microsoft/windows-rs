@@ -1,8 +1,10 @@
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("netapi32.dll" "system" fn NetStatisticsGet(servername : super::LPTSTR, service : super::LPTSTR, level : u32, options : u32, buffer : *mut super::LPBYTE) -> u32);
 pub type LPSTAT_SERVER_0 = *mut STAT_SERVER_0;
+#[cfg(feature = "winnt")]
 pub type LPSTAT_WORKSTATION_0 = *mut STAT_WORKSTATION_0;
 pub type PSTAT_SERVER_0 = *mut STAT_SERVER_0;
+#[cfg(feature = "winnt")]
 pub type PSTAT_WORKSTATION_0 = *mut STAT_WORKSTATION_0;
 pub const STATSOPT_CLR: i32 = 1;
 pub const STATS_NO_VALUE: u32 = 4294967295;
@@ -29,21 +31,22 @@ pub struct STAT_SERVER_0 {
     pub sts0_bigbufneed: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct STAT_WORKSTATION_0 {
-    pub StatisticsStartTime: i64,
-    pub BytesReceived: i64,
-    pub SmbsReceived: i64,
-    pub PagingReadBytesRequested: i64,
-    pub NonPagingReadBytesRequested: i64,
-    pub CacheReadBytesRequested: i64,
-    pub NetworkReadBytesRequested: i64,
-    pub BytesTransmitted: i64,
-    pub SmbsTransmitted: i64,
-    pub PagingWriteBytesRequested: i64,
-    pub NonPagingWriteBytesRequested: i64,
-    pub CacheWriteBytesRequested: i64,
-    pub NetworkWriteBytesRequested: i64,
+    pub StatisticsStartTime: super::LARGE_INTEGER,
+    pub BytesReceived: super::LARGE_INTEGER,
+    pub SmbsReceived: super::LARGE_INTEGER,
+    pub PagingReadBytesRequested: super::LARGE_INTEGER,
+    pub NonPagingReadBytesRequested: super::LARGE_INTEGER,
+    pub CacheReadBytesRequested: super::LARGE_INTEGER,
+    pub NetworkReadBytesRequested: super::LARGE_INTEGER,
+    pub BytesTransmitted: super::LARGE_INTEGER,
+    pub SmbsTransmitted: super::LARGE_INTEGER,
+    pub PagingWriteBytesRequested: super::LARGE_INTEGER,
+    pub NonPagingWriteBytesRequested: super::LARGE_INTEGER,
+    pub CacheWriteBytesRequested: super::LARGE_INTEGER,
+    pub NetworkWriteBytesRequested: super::LARGE_INTEGER,
     pub InitiallyFailedOperations: u32,
     pub FailedCompletionOperations: u32,
     pub ReadOperations: u32,
@@ -71,4 +74,10 @@ pub struct STAT_WORKSTATION_0 {
     pub UseCount: u32,
     pub FailedUseCount: u32,
     pub CurrentCommands: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for STAT_WORKSTATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

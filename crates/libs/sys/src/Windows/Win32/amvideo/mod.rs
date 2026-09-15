@@ -23,7 +23,7 @@ pub const AM_PROPERTY_FRAMESTEP_CANSTEP: AM_PROPERTY_FRAMESTEP = 3;
 pub const AM_PROPERTY_FRAMESTEP_CANSTEPMULTIPLE: AM_PROPERTY_FRAMESTEP = 4;
 pub const AM_PROPERTY_FRAMESTEP_STEP: AM_PROPERTY_FRAMESTEP = 1;
 #[repr(C)]
-#[cfg(all(feature = "ksmedia", feature = "windef"))]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct ANALOGVIDEOINFO {
     pub rcSource: super::RECT,
@@ -34,7 +34,7 @@ pub struct ANALOGVIDEOINFO {
 }
 pub const MAX_SIZE_MPEG1_SEQUENCE_INFO: i32 = 140;
 #[repr(C)]
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub struct MPEG1VIDEOINFO {
     pub hdr: VIDEOINFOHEADER,
@@ -42,13 +42,29 @@ pub struct MPEG1VIDEOINFO {
     pub cbSequenceHeader: u32,
     pub bSequenceHeader: [u8; 1],
 }
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 impl Default for MPEG1VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const SIZE_EGA_PALETTE: u32 = 64;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SIZE_EGA_PALETTE: u64 = 64;
+#[cfg(target_arch = "x86")]
+pub const SIZE_MASKS: u32 = 12;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SIZE_MASKS: u64 = 12;
+#[cfg(target_arch = "x86")]
+pub const SIZE_PALETTE: u32 = 1024;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SIZE_PALETTE: u64 = 1024;
 pub const SIZE_PREHEADER: i32 = 48;
+#[cfg(target_arch = "x86")]
+pub const SIZE_VIDEOHEADER: u32 = 88;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SIZE_VIDEOHEADER: u64 = 88;
 #[repr(C)]
 #[cfg(feature = "wingdi")]
 #[derive(Clone, Copy)]
@@ -63,7 +79,7 @@ impl Default for TRUECOLORINFO {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub struct VIDEOINFO {
     pub rcSource: super::RECT,
@@ -74,28 +90,28 @@ pub struct VIDEOINFO {
     pub bmiHeader: super::BITMAPINFOHEADER,
     pub Anonymous: VIDEOINFO_0,
 }
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 impl Default for VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub union VIDEOINFO_0 {
     pub bmiColors: [super::RGBQUAD; 256],
     pub dwBitMasks: [u32; 3],
     pub TrueColorInfo: TRUECOLORINFO,
 }
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 impl Default for VIDEOINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Default)]
 pub struct VIDEOINFOHEADER {
     pub rcSource: super::RECT,

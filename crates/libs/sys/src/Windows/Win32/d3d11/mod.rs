@@ -4,8 +4,8 @@ windows_link::link!("d3d11.dll" "system" fn D3D11CreateDevice(padapter : *mut co
 windows_link::link!("d3d11.dll" "system" fn D3D11CreateDeviceAndSwapChain(padapter : *mut core::ffi::c_void, drivertype : super::D3D_DRIVER_TYPE, software : super::HMODULE, flags : u32, pfeaturelevels : *const super::D3D_FEATURE_LEVEL, featurelevels : u32, sdkversion : u32, pswapchaindesc : *const super::DXGI_SWAP_CHAIN_DESC, ppswapchain : *mut *mut core::ffi::c_void, ppdevice : *mut *mut core::ffi::c_void, pfeaturelevel : *mut super::D3D_FEATURE_LEVEL, ppimmediatecontext : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "d3dcommon")]
 windows_link::link!("d3d11.dll" "system" fn D3D11On12CreateDevice(pdevice : *mut core::ffi::c_void, flags : u32, pfeaturelevels : *const super::D3D_FEATURE_LEVEL, featurelevels : u32, ppcommandqueues : *const *mut core::ffi::c_void, numqueues : u32, nodemask : u32, ppdevice : *mut *mut core::ffi::c_void, ppimmediatecontext : *mut *mut core::ffi::c_void, pchosenfeaturelevel : *mut super::D3D_FEATURE_LEVEL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "d3dcommon")]
-windows_link::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble11Trace(psrcdata : *const core::ffi::c_void, srcdatasize : usize, ptrace : *mut core::ffi::c_void, startstep : u32, numsteps : u32, flags : u32, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "d3dcommon", feature = "minwindef"))]
+windows_link::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble11Trace(psrcdata : super::LPCVOID, srcdatasize : usize, ptrace : *mut core::ffi::c_void, startstep : u32, numsteps : u32, flags : u32, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type APP_DEPRECATED_HRESULT = windows_sys::core::HRESULT;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -32,7 +32,7 @@ pub struct CD3D11_BUFFER_DESC {
 pub struct CD3D11_COUNTER_DESC {
     pub Base: D3D11_COUNTER_DESC,
 }
-#[repr(C, align(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CD3D11_DEFAULT(pub u8);
 #[repr(C)]
@@ -63,16 +63,19 @@ pub struct CD3D11_QUERY_DESC1 {
     pub Base: D3D11_QUERY_DESC1,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct CD3D11_RASTERIZER_DESC {
     pub Base: D3D11_RASTERIZER_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct CD3D11_RASTERIZER_DESC1 {
     pub Base: D3D11_RASTERIZER_DESC1,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct CD3D11_RASTERIZER_DESC2 {
     pub Base: D3D11_RASTERIZER_DESC2,
@@ -108,6 +111,7 @@ impl Default for CD3D11_RENDER_TARGET_VIEW_DESC1 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct CD3D11_SAMPLER_DESC {
     pub Base: D3D11_SAMPLER_DESC,
@@ -190,10 +194,11 @@ impl Default for CD3D11_UNORDERED_ACCESS_VIEW_DESC1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, align(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CD3D11_VIDEO_DEFAULT(pub u8);
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct CD3D11_VIEWPORT {
     pub Base: D3D11_VIEWPORT,
@@ -296,18 +301,13 @@ pub type D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3D11_AUTHENTICATED_PROTECTION_FLAGS {
-    pub Flags: D3D11_AUTHENTICATED_PROTECTION_FLAGS_0,
+    pub Flags: __MIDL___MIDL_itf_d3d11_0000_0034_0001,
     pub Value: u32,
 }
 impl Default for D3D11_AUTHENTICATED_PROTECTION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
-    pub _bitfield: u32,
 }
 pub const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6214d9d2_432c_4abb_9fce_216eea269e3b);
 #[repr(C)]
@@ -1398,6 +1398,7 @@ pub const D3D11_FORMAT_SUPPORT_VIDEO_ENCODER: D3D11_FORMAT_SUPPORT = 1073741824;
 pub const D3D11_FORMAT_SUPPORT_VIDEO_PROCESSOR_INPUT: D3D11_FORMAT_SUPPORT = 536870912;
 pub const D3D11_FORMAT_SUPPORT_VIDEO_PROCESSOR_OUTPUT: D3D11_FORMAT_SUPPORT = 268435456;
 pub const D3D11_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600.0;
+pub const D3D11_FTOI_INSTRUCTION_MIN_INPUT: f32 = -2147483600.0;
 pub const D3D11_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300.0;
 pub const D3D11_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0.0;
 #[repr(C)]
@@ -3015,6 +3016,7 @@ pub const D3D11_MIN_FILTER_SHIFT: i32 = 4;
 pub const D3D11_MIN_MAXANISOTROPY: i32 = 0;
 pub const D3D11_MIP_FILTER_SHIFT: i32 = 0;
 pub const D3D11_MIP_LOD_BIAS_MAX: f32 = 15.99;
+pub const D3D11_MIP_LOD_BIAS_MIN: f32 = -16.0;
 pub const D3D11_MIP_LOD_FRACTIONAL_BIT_COUNT: i32 = 8;
 pub const D3D11_MIP_LOD_RANGE_BIT_COUNT: i32 = 8;
 pub const D3D11_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4;
@@ -3158,28 +3160,30 @@ pub const D3D11_QUERY_TIMESTAMP_DISJOINT: D3D11_QUERY = 3;
 pub type D3D11_RAISE_FLAG = i32;
 pub const D3D11_RAISE_FLAG_DRIVER_INTERNAL_ERROR: D3D11_RAISE_FLAG = 1;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_RASTERIZER_DESC {
     pub FillMode: D3D11_FILL_MODE,
     pub CullMode: D3D11_CULL_MODE,
     pub FrontCounterClockwise: windows_sys::core::BOOL,
     pub DepthBias: i32,
-    pub DepthBiasClamp: f32,
-    pub SlopeScaledDepthBias: f32,
+    pub DepthBiasClamp: super::FLOAT,
+    pub SlopeScaledDepthBias: super::FLOAT,
     pub DepthClipEnable: windows_sys::core::BOOL,
     pub ScissorEnable: windows_sys::core::BOOL,
     pub MultisampleEnable: windows_sys::core::BOOL,
     pub AntialiasedLineEnable: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_RASTERIZER_DESC1 {
     pub FillMode: D3D11_FILL_MODE,
     pub CullMode: D3D11_CULL_MODE,
     pub FrontCounterClockwise: windows_sys::core::BOOL,
     pub DepthBias: i32,
-    pub DepthBiasClamp: f32,
-    pub SlopeScaledDepthBias: f32,
+    pub DepthBiasClamp: super::FLOAT,
+    pub SlopeScaledDepthBias: super::FLOAT,
     pub DepthClipEnable: windows_sys::core::BOOL,
     pub ScissorEnable: windows_sys::core::BOOL,
     pub MultisampleEnable: windows_sys::core::BOOL,
@@ -3187,14 +3191,15 @@ pub struct D3D11_RASTERIZER_DESC1 {
     pub ForcedSampleCount: u32,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_RASTERIZER_DESC2 {
     pub FillMode: D3D11_FILL_MODE,
     pub CullMode: D3D11_CULL_MODE,
     pub FrontCounterClockwise: windows_sys::core::BOOL,
     pub DepthBias: i32,
-    pub DepthBiasClamp: f32,
-    pub SlopeScaledDepthBias: f32,
+    pub DepthBiasClamp: super::FLOAT,
+    pub SlopeScaledDepthBias: super::FLOAT,
     pub DepthClipEnable: windows_sys::core::BOOL,
     pub ScissorEnable: windows_sys::core::BOOL,
     pub MultisampleEnable: windows_sys::core::BOOL,
@@ -3375,19 +3380,21 @@ pub const D3D11_RTV_DIMENSION_TEXTURE2DMSARRAY: D3D11_RTV_DIMENSION = 7;
 pub const D3D11_RTV_DIMENSION_TEXTURE3D: D3D11_RTV_DIMENSION = 8;
 pub const D3D11_RTV_DIMENSION_UNKNOWN: D3D11_RTV_DIMENSION = 0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct D3D11_SAMPLER_DESC {
     pub Filter: D3D11_FILTER,
     pub AddressU: D3D11_TEXTURE_ADDRESS_MODE,
     pub AddressV: D3D11_TEXTURE_ADDRESS_MODE,
     pub AddressW: D3D11_TEXTURE_ADDRESS_MODE,
-    pub MipLODBias: f32,
+    pub MipLODBias: super::FLOAT,
     pub MaxAnisotropy: u32,
     pub ComparisonFunc: D3D11_COMPARISON_FUNC,
-    pub BorderColor: [f32; 4],
-    pub MinLOD: f32,
-    pub MaxLOD: f32,
+    pub BorderColor: [super::FLOAT; 4],
+    pub MinLOD: super::FLOAT,
+    pub MaxLOD: super::FLOAT,
 }
+#[cfg(feature = "minwindef")]
 impl Default for D3D11_SAMPLER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4781,14 +4788,15 @@ pub const D3D11_VIDEO_USAGE_OPTIMAL_QUALITY: D3D11_VIDEO_USAGE = 2;
 pub const D3D11_VIDEO_USAGE_OPTIMAL_SPEED: D3D11_VIDEO_USAGE = 1;
 pub const D3D11_VIDEO_USAGE_PLAYBACK_NORMAL: D3D11_VIDEO_USAGE = 0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_VIEWPORT {
-    pub TopLeftX: f32,
-    pub TopLeftY: f32,
-    pub Width: f32,
-    pub Height: f32,
-    pub MinDepth: f32,
-    pub MaxDepth: f32,
+    pub TopLeftX: super::FLOAT,
+    pub TopLeftY: super::FLOAT,
+    pub Width: super::FLOAT,
+    pub Height: super::FLOAT,
+    pub MinDepth: super::FLOAT,
+    pub MaxDepth: super::FLOAT,
 }
 pub const D3D11_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: i32 = 15;
 pub const D3D11_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: i32 = 16;
@@ -4823,9 +4831,23 @@ pub const D3D_SHADER_REQUIRES_MINIMUM_PRECISION: i32 = 16;
 pub const D3D_SHADER_REQUIRES_TILED_RESOURCES: i32 = 256;
 pub const D3D_SHADER_REQUIRES_UAVS_AT_EVERY_STAGE: i32 = 4;
 pub const DXGI_DEBUG_D3D11: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4b99317b_ac39_4aa6_bb0b_baa04784798f);
+pub type LPD3D11FUNCTIONPARAMETERREFLECTION = *mut core::ffi::c_void;
+pub type LPD3D11FUNCTIONREFLECTION = *mut core::ffi::c_void;
+pub type LPD3D11LIBRARYREFLECTION = *mut core::ffi::c_void;
+pub type LPD3D11SHADERREFLECTION = *mut core::ffi::c_void;
+pub type LPD3D11SHADERREFLECTIONCONSTANTBUFFER = *mut core::ffi::c_void;
+pub type LPD3D11SHADERREFLECTIONTYPE = *mut core::ffi::c_void;
+pub type LPD3D11SHADERREFLECTIONVARIABLE = *mut core::ffi::c_void;
 #[cfg(feature = "d3dcommon")]
 pub type PFN_D3D11ON12_CREATE_DEVICE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: u32, param2: *const super::D3D_FEATURE_LEVEL, featurelevels: u32, param4: *const *mut core::ffi::c_void, numqueues: u32, param6: u32, param7: *mut *mut core::ffi::c_void, param8: *mut *mut core::ffi::c_void, param9: *mut super::D3D_FEATURE_LEVEL) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef"))]
 pub type PFN_D3D11_CREATE_DEVICE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::D3D_DRIVER_TYPE, param2: super::HMODULE, param3: u32, param4: *const super::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *mut *mut core::ffi::c_void, param8: *mut super::D3D_FEATURE_LEVEL, param9: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "d3dcommon", feature = "dxgi", feature = "minwindef", feature = "windef"))]
 pub type PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::D3D_DRIVER_TYPE, param2: super::HMODULE, param3: u32, param4: *const super::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *const super::DXGI_SWAP_CHAIN_DESC, param8: *mut *mut core::ffi::c_void, param9: *mut *mut core::ffi::c_void, param10: *mut super::D3D_FEATURE_LEVEL, param11: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub const _FACD3D11: i32 = 2172;
+pub const _FACD3D11DEBUG: i32 = 2173;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct __MIDL___MIDL_itf_d3d11_0000_0034_0001 {
+    pub _bitfield: u32,
+}

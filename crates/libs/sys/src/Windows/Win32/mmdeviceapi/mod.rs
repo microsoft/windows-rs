@@ -1,4 +1,4 @@
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("mmdevapi.dll" "system" fn ActivateAudioInterfaceAsync(deviceinterfacepath : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, activationparams : *const super::PROPVARIANT, completionhandler : *mut core::ffi::c_void, activationoperation : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = i32;
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = 0;
@@ -37,11 +37,10 @@ pub const ENDPOINT_SYSFX_DISABLED: i32 = 1;
 pub const ENDPOINT_SYSFX_ENABLED: i32 = 0;
 pub type ERole = i32;
 pub const ERole_enum_count: ERole = 3;
-pub const E_NOTFOUND: i32 = -2147023728;
-pub const E_UNSUPPORTED_TYPE: i32 = -2147023266;
+pub const E_UNSUPPORTED_TYPE: windows_sys::core::HRESULT = 0x8007065E_u32 as _;
 pub type EndpointFormFactor = i32;
 pub const EndpointFormFactor_enum_count: EndpointFormFactor = 11;
-pub const HDMI: i32 = 9;
+pub const HDMI: EndpointFormFactor = 9;
 pub const Handset: EndpointFormFactor = 6;
 pub const Headphones: EndpointFormFactor = 3;
 pub const Headset: EndpointFormFactor = 5;

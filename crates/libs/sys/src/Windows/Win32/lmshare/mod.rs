@@ -1,31 +1,37 @@
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetConnectionEnum(servername : windows_sys::core::PCWSTR, qualifier : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetConnectionEnum(servername : windows_sys::core::PCWSTR, qualifier : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetFileClose(servername : windows_sys::core::PCWSTR, fileid : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetFileEnum(servername : windows_sys::core::PCWSTR, basepath : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut usize) -> u32);
+#[cfg(all(feature = "basetsd", feature = "minwindef"))]
+windows_link::link!("netapi32.dll" "system" fn NetFileEnum(servername : windows_sys::core::PCWSTR, basepath : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::PDWORD_PTR) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetFileGetInfo(servername : windows_sys::core::PCWSTR, fileid : u32, level : u32, bufptr : *mut super::LPBYTE) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetServerAliasAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetServerAliasDel(servername : windows_sys::core::PCWSTR, level : u32, buf : *mut u8) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetServerAliasEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetServerAliasAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetServerAliasDel(servername : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetServerAliasEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::LPDWORD) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetSessionDel(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetSessionEnum(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetSessionEnum(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetSessionGetInfo(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetShareAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetShareCheck(servername : windows_sys::core::PCWSTR, device : windows_sys::core::PCWSTR, r#type : *mut u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetShareAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetShareCheck(servername : windows_sys::core::PCWSTR, device : windows_sys::core::PCWSTR, r#type : super::LPDWORD) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetShareDel(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, reserved : u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetShareDelEx(servername : windows_sys::core::PCWSTR, level : u32, buf : *mut u8) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetShareDelEx(servername : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetShareDelSticky(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, reserved : u32) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetShareEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetShareEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn NetShareEnumSticky(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetShareEnumSticky(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetShareGetInfo(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetShareSetInfo(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, level : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetShareSetInfo(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, level : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CONNECTION_INFO_0 {
@@ -66,6 +72,7 @@ pub type LPCONNECTION_INFO_0 = *mut CONNECTION_INFO_0;
 pub type LPCONNECTION_INFO_1 = *mut CONNECTION_INFO_1;
 pub type LPFILE_INFO_2 = *mut FILE_INFO_2;
 pub type LPFILE_INFO_3 = *mut FILE_INFO_3;
+#[cfg(feature = "winnt")]
 pub type LPSERVER_ALIAS_INFO_0 = *mut SERVER_ALIAS_INFO_0;
 pub type LPSESSION_INFO_0 = *mut SESSION_INFO_0;
 pub type LPSESSION_INFO_1 = *mut SESSION_INFO_1;
@@ -93,6 +100,7 @@ pub const PERM_FILE_READ: i32 = 1;
 pub const PERM_FILE_WRITE: i32 = 2;
 pub type PFILE_INFO_2 = *mut FILE_INFO_2;
 pub type PFILE_INFO_3 = *mut FILE_INFO_3;
+#[cfg(feature = "winnt")]
 pub type PSERVER_ALIAS_INFO_0 = *mut SERVER_ALIAS_INFO_0;
 pub type PSESSION_INFO_0 = *mut SESSION_INFO_0;
 pub type PSESSION_INFO_1 = *mut SESSION_INFO_1;
@@ -114,11 +122,12 @@ pub type PSHARE_INFO_502 = *mut SHARE_INFO_502;
 #[cfg(feature = "winnt")]
 pub type PSHARE_INFO_503 = *mut SHARE_INFO_503;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SERVER_ALIAS_INFO_0 {
     pub srvai0_alias: windows_sys::core::PWSTR,
     pub srvai0_target: windows_sys::core::PWSTR,
-    pub srvai0_default: bool,
+    pub srvai0_default: super::BOOLEAN,
     pub srvai0_reserved: u32,
 }
 pub const SESI1_NUM_ELEMENTS: i32 = 8;

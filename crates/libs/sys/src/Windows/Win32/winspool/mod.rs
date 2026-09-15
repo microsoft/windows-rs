@@ -1,41 +1,49 @@
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn AbortPrinter(hprinter : super::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn AddFormA(hprinter : super::HANDLE, level : u32, pform : *mut u8) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn AddFormW(hprinter : super::HANDLE, level : u32, pform : *mut u8) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn AddJobA(hprinter : super::HANDLE, level : u32, pdata : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn AddJobW(hprinter : super::HANDLE, level : u32, pdata : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn AddMonitorA(pname : windows_sys::core::PCSTR, level : u32, pmonitors : *const u8) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn AddMonitorW(pname : windows_sys::core::PCWSTR, level : u32, pmonitors : *const u8) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn AddFormA(hprinter : super::HANDLE, level : u32, pform : super::LPBYTE) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn AddFormW(hprinter : super::HANDLE, level : u32, pform : super::LPBYTE) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn AddJobA(hprinter : super::HANDLE, level : u32, pdata : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn AddJobW(hprinter : super::HANDLE, level : u32, pdata : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn AddMonitorA(pname : windows_sys::core::PCSTR, level : u32, pmonitors : super::LPBYTE) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn AddMonitorW(pname : windows_sys::core::PCWSTR, level : u32, pmonitors : super::LPBYTE) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("winspool.drv" "system" fn AddPortA(pname : windows_sys::core::PCSTR, hwnd : super::HWND, pmonitorname : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("winspool.drv" "system" fn AddPortW(pname : windows_sys::core::PCWSTR, hwnd : super::HWND, pmonitorname : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn AddPrintProcessorA(pname : windows_sys::core::PCSTR, penvironment : windows_sys::core::PCSTR, ppathname : windows_sys::core::PCSTR, pprintprocessorname : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn AddPrintProcessorW(pname : windows_sys::core::PCWSTR, penvironment : windows_sys::core::PCWSTR, ppathname : windows_sys::core::PCWSTR, pprintprocessorname : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn AddPrintProvidorA(pname : windows_sys::core::PCSTR, level : u32, pprovidorinfo : *const u8) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn AddPrintProvidorW(pname : windows_sys::core::PCWSTR, level : u32, pprovidorinfo : *const u8) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn AddPrinterA(pname : windows_sys::core::PCSTR, level : u32, pprinter : *mut u8) -> super::HANDLE);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn AddPrintProvidorA(pname : windows_sys::core::PCSTR, level : u32, pprovidorinfo : super::LPBYTE) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn AddPrintProvidorW(pname : windows_sys::core::PCWSTR, level : u32, pprovidorinfo : super::LPBYTE) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn AddPrinterA(pname : windows_sys::core::PCSTR, level : u32, pprinter : super::LPBYTE) -> super::HANDLE);
 #[cfg(feature = "windef")]
 windows_link::link!("winspool.drv" "system" fn AddPrinterConnection2A(hwnd : super::HWND, pszname : windows_sys::core::PCSTR, dwlevel : u32, pconnectioninfo : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("winspool.drv" "system" fn AddPrinterConnection2W(hwnd : super::HWND, pszname : windows_sys::core::PCWSTR, dwlevel : u32, pconnectioninfo : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn AddPrinterConnectionA(pname : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn AddPrinterConnectionW(pname : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn AddPrinterDriverA(pname : windows_sys::core::PCSTR, level : u32, pdriverinfo : *const u8) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn AddPrinterDriverExA(pname : windows_sys::core::PCSTR, level : u32, lpbdriverinfo : *mut u8, dwfilecopyflags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn AddPrinterDriverExW(pname : windows_sys::core::PCWSTR, level : u32, lpbdriverinfo : *mut u8, dwfilecopyflags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn AddPrinterDriverW(pname : windows_sys::core::PCWSTR, level : u32, pdriverinfo : *const u8) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn AddPrinterW(pname : windows_sys::core::PCWSTR, level : u32, pprinter : *mut u8) -> super::HANDLE);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn AddPrinterDriverA(pname : windows_sys::core::PCSTR, level : u32, pdriverinfo : super::LPBYTE) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn AddPrinterDriverExA(pname : windows_sys::core::PCSTR, level : u32, lpbdriverinfo : super::PBYTE, dwfilecopyflags : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn AddPrinterDriverExW(pname : windows_sys::core::PCWSTR, level : u32, lpbdriverinfo : super::PBYTE, dwfilecopyflags : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn AddPrinterDriverW(pname : windows_sys::core::PCWSTR, level : u32, pdriverinfo : super::LPBYTE) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn AddPrinterW(pname : windows_sys::core::PCWSTR, level : u32, pprinter : super::LPBYTE) -> super::HANDLE);
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("winspool.drv" "system" fn AdvancedDocumentPropertiesA(hwnd : super::HWND, hprinter : super::HANDLE, pdevicename : windows_sys::core::PCSTR, pdevmodeoutput : *mut super::DEVMODEA, pdevmodeinput : *const super::DEVMODEA) -> i32);
+windows_link::link!("winspool.drv" "system" fn AdvancedDocumentPropertiesA(hwnd : super::HWND, hprinter : super::HANDLE, pdevicename : windows_sys::core::PCSTR, pdevmodeoutput : super::PDEVMODEA, pdevmodeinput : super::PDEVMODEA) -> i32);
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("winspool.drv" "system" fn AdvancedDocumentPropertiesW(hwnd : super::HWND, hprinter : super::HANDLE, pdevicename : windows_sys::core::PCWSTR, pdevmodeoutput : *mut super::DEVMODEW, pdevmodeinput : *const super::DEVMODEW) -> i32);
+windows_link::link!("winspool.drv" "system" fn AdvancedDocumentPropertiesW(hwnd : super::HWND, hprinter : super::HANDLE, pdevicename : windows_sys::core::PCWSTR, pdevmodeoutput : super::PDEVMODEW, pdevmodeinput : super::PDEVMODEW) -> i32);
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn ClosePrinter(hprinter : super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
@@ -91,179 +99,201 @@ windows_link::link!("winspool.drv" "system" fn DeletePrinterKeyA(hprinter : supe
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn DeletePrinterKeyW(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCWSTR) -> u32);
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("winspool.drv" "system" fn DocumentPropertiesA(hwnd : super::HWND, hprinter : super::HANDLE, pdevicename : windows_sys::core::PCSTR, pdevmodeoutput : *mut super::DEVMODEA, pdevmodeinput : *const super::DEVMODEA, fmode : u32) -> i32);
+windows_link::link!("winspool.drv" "system" fn DocumentPropertiesA(hwnd : super::HWND, hprinter : super::HANDLE, pdevicename : windows_sys::core::PCSTR, pdevmodeoutput : super::PDEVMODEA, pdevmodeinput : super::PDEVMODEA, fmode : u32) -> i32);
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("winspool.drv" "system" fn DocumentPropertiesW(hwnd : super::HWND, hprinter : super::HANDLE, pdevicename : windows_sys::core::PCWSTR, pdevmodeoutput : *mut super::DEVMODEW, pdevmodeinput : *const super::DEVMODEW, fmode : u32) -> i32);
+windows_link::link!("winspool.drv" "system" fn DocumentPropertiesW(hwnd : super::HWND, hprinter : super::HANDLE, pdevicename : windows_sys::core::PCWSTR, pdevmodeoutput : super::PDEVMODEW, pdevmodeinput : super::PDEVMODEW, fmode : u32) -> i32);
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn EndDocPrinter(hprinter : super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn EndPagePrinter(hprinter : super::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn EnumFormsA(hprinter : super::HANDLE, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn EnumFormsW(hprinter : super::HANDLE, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn EnumFormsA(hprinter : super::HANDLE, level : u32, pform : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn EnumFormsW(hprinter : super::HANDLE, level : u32, pform : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn EnumJobNamedProperties(hprinter : super::HANDLE, jobid : u32, pcproperties : *mut u32, ppproperties : *mut *mut PrintNamedProperty) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn EnumJobsA(hprinter : super::HANDLE, firstjob : u32, nojobs : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn EnumJobsW(hprinter : super::HANDLE, firstjob : u32, nojobs : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn EnumMonitorsA(pname : windows_sys::core::PCSTR, level : u32, pmonitor : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn EnumMonitorsW(pname : windows_sys::core::PCWSTR, level : u32, pmonitor : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn EnumPortsA(pname : windows_sys::core::PCSTR, level : u32, pport : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn EnumPortsW(pname : windows_sys::core::PCWSTR, level : u32, pport : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn EnumPrintProcessorDatatypesA(pname : windows_sys::core::PCSTR, pprintprocessorname : windows_sys::core::PCSTR, level : u32, pdatatypes : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn EnumPrintProcessorDatatypesW(pname : windows_sys::core::PCWSTR, pprintprocessorname : windows_sys::core::PCWSTR, level : u32, pdatatypes : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn EnumPrintProcessorsA(pname : windows_sys::core::PCSTR, penvironment : windows_sys::core::PCSTR, level : u32, pprintprocessorinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn EnumPrintProcessorsW(pname : windows_sys::core::PCWSTR, penvironment : windows_sys::core::PCWSTR, level : u32, pprintprocessorinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn EnumPrinterDataA(hprinter : super::HANDLE, dwindex : u32, pvaluename : windows_sys::core::PSTR, cbvaluename : u32, pcbvaluename : *mut u32, ptype : *mut u32, pdata : *mut u8, cbdata : u32, pcbdata : *mut u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn EnumPrinterDataExA(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCSTR, penumvalues : *mut u8, cbenumvalues : u32, pcbenumvalues : *mut u32, pnenumvalues : *mut u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn EnumPrinterDataExW(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCWSTR, penumvalues : *mut u8, cbenumvalues : u32, pcbenumvalues : *mut u32, pnenumvalues : *mut u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn EnumPrinterDataW(hprinter : super::HANDLE, dwindex : u32, pvaluename : windows_sys::core::PWSTR, cbvaluename : u32, pcbvaluename : *mut u32, ptype : *mut u32, pdata : *mut u8, cbdata : u32, pcbdata : *mut u32) -> u32);
-windows_link::link!("winspool.drv" "system" fn EnumPrinterDriversA(pname : windows_sys::core::PCSTR, penvironment : windows_sys::core::PCSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn EnumPrinterDriversW(pname : windows_sys::core::PCWSTR, penvironment : windows_sys::core::PCWSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn EnumPrinterKeyA(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCSTR, psubkey : windows_sys::core::PSTR, cbsubkey : u32, pcbsubkey : *mut u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn EnumPrinterKeyW(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCWSTR, psubkey : windows_sys::core::PWSTR, cbsubkey : u32, pcbsubkey : *mut u32) -> u32);
-windows_link::link!("winspool.drv" "system" fn EnumPrintersA(flags : u32, name : windows_sys::core::PCSTR, level : u32, pprinterenum : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn EnumPrintersW(flags : u32, name : windows_sys::core::PCWSTR, level : u32, pprinterenum : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn EnumJobsA(hprinter : super::HANDLE, firstjob : u32, nojobs : u32, level : u32, pjob : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn EnumJobsW(hprinter : super::HANDLE, firstjob : u32, nojobs : u32, level : u32, pjob : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn EnumMonitorsA(pname : windows_sys::core::PCSTR, level : u32, pmonitor : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn EnumMonitorsW(pname : windows_sys::core::PCWSTR, level : u32, pmonitor : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn EnumPortsA(pname : windows_sys::core::PCSTR, level : u32, pport : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn EnumPortsW(pname : windows_sys::core::PCWSTR, level : u32, pport : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn EnumPrintProcessorDatatypesA(pname : windows_sys::core::PCSTR, pprintprocessorname : windows_sys::core::PCSTR, level : u32, pdatatypes : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn EnumPrintProcessorDatatypesW(pname : windows_sys::core::PCWSTR, pprintprocessorname : windows_sys::core::PCWSTR, level : u32, pdatatypes : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn EnumPrintProcessorsA(pname : windows_sys::core::PCSTR, penvironment : windows_sys::core::PCSTR, level : u32, pprintprocessorinfo : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn EnumPrintProcessorsW(pname : windows_sys::core::PCWSTR, penvironment : windows_sys::core::PCWSTR, level : u32, pprintprocessorinfo : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn EnumPrinterDataA(hprinter : super::HANDLE, dwindex : u32, pvaluename : windows_sys::core::PSTR, cbvaluename : u32, pcbvaluename : super::LPDWORD, ptype : super::LPDWORD, pdata : super::LPBYTE, cbdata : u32, pcbdata : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn EnumPrinterDataExA(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCSTR, penumvalues : super::LPBYTE, cbenumvalues : u32, pcbenumvalues : super::LPDWORD, pnenumvalues : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn EnumPrinterDataExW(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCWSTR, penumvalues : super::LPBYTE, cbenumvalues : u32, pcbenumvalues : super::LPDWORD, pnenumvalues : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn EnumPrinterDataW(hprinter : super::HANDLE, dwindex : u32, pvaluename : windows_sys::core::PWSTR, cbvaluename : u32, pcbvaluename : super::LPDWORD, ptype : super::LPDWORD, pdata : super::LPBYTE, cbdata : u32, pcbdata : super::LPDWORD) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn EnumPrinterDriversA(pname : windows_sys::core::PCSTR, penvironment : windows_sys::core::PCSTR, level : u32, pdriverinfo : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn EnumPrinterDriversW(pname : windows_sys::core::PCWSTR, penvironment : windows_sys::core::PCWSTR, level : u32, pdriverinfo : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn EnumPrinterKeyA(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCSTR, psubkey : windows_sys::core::PSTR, cbsubkey : u32, pcbsubkey : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn EnumPrinterKeyW(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCWSTR, psubkey : windows_sys::core::PWSTR, cbsubkey : u32, pcbsubkey : super::LPDWORD) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn EnumPrintersA(flags : u32, name : windows_sys::core::PCSTR, level : u32, pprinterenum : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn EnumPrintersW(flags : u32, name : windows_sys::core::PCWSTR, level : u32, pprinterenum : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD, pcreturned : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("winspool.drv" "C" fn ExtDeviceMode(hwnd : super::HWND, hinst : super::HANDLE, pdevmodeoutput : *mut super::DEVMODEA, pdevicename : windows_sys::core::PCSTR, pport : windows_sys::core::PCSTR, pdevmodeinput : *const super::DEVMODEA, pprofile : windows_sys::core::PCSTR, fmode : u32) -> i32);
+windows_link::link!("winspool.drv" "C" fn ExtDeviceMode(hwnd : super::HWND, hinst : super::HANDLE, pdevmodeoutput : super::LPDEVMODEA, pdevicename : windows_sys::core::PCSTR, pport : windows_sys::core::PCSTR, pdevmodeinput : super::LPDEVMODEA, pprofile : windows_sys::core::PCSTR, fmode : u32) -> i32);
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn FindClosePrinterChangeNotification(hchange : super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn FindFirstPrinterChangeNotification(hprinter : super::HANDLE, fdwfilter : u32, fdwoptions : u32, pprinternotifyoptions : *const core::ffi::c_void) -> super::HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn FindNextPrinterChangeNotification(hchange : super::HANDLE, pdwchange : *mut u32, pvreserved : *const core::ffi::c_void, ppprinternotifyinfo : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn FlushPrinter(hprinter : super::HANDLE, pbuf : *const core::ffi::c_void, cbbuf : u32, pcwritten : *mut u32, csleep : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn FindNextPrinterChangeNotification(hchange : super::HANDLE, pdwchange : super::PDWORD, pvreserved : *const core::ffi::c_void, ppprinternotifyinfo : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn FlushPrinter(hprinter : super::HANDLE, pbuf : *const core::ffi::c_void, cbbuf : u32, pcwritten : super::LPDWORD, csleep : u32) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn FreePrintNamedPropertyArray(cproperties : u32, ppproperties : *mut *mut PrintNamedProperty));
 windows_link::link!("winspool.drv" "system" fn FreePrintPropertyValue(pvalue : *mut PrintPropertyValue));
-windows_link::link!("winspool.drv" "system" fn FreePrinterNotifyInfo(pprinternotifyinfo : *const PRINTER_NOTIFY_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("winspool.drv" "system" fn FreePrinterNotifyInfo(pprinternotifyinfo : PPRINTER_NOTIFY_INFO) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("winspool.drv" "system" fn GetCorePrinterDriversA(pszserver : windows_sys::core::PCSTR, pszenvironment : windows_sys::core::PCSTR, pszzcoredriverdependencies : windows_sys::core::PCSTR, ccoreprinterdrivers : u32, pcoreprinterdrivers : *mut CORE_PRINTER_DRIVERA) -> windows_sys::core::HRESULT);
+windows_link::link!("winspool.drv" "system" fn GetCorePrinterDriversA(pszserver : windows_sys::core::PCSTR, pszenvironment : windows_sys::core::PCSTR, pszzcoredriverdependencies : windows_sys::core::PCSTR, ccoreprinterdrivers : u32, pcoreprinterdrivers : PCORE_PRINTER_DRIVERA) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("winspool.drv" "system" fn GetCorePrinterDriversW(pszserver : windows_sys::core::PCWSTR, pszenvironment : windows_sys::core::PCWSTR, pszzcoredriverdependencies : windows_sys::core::PCWSTR, ccoreprinterdrivers : u32, pcoreprinterdrivers : *mut CORE_PRINTER_DRIVERW) -> windows_sys::core::HRESULT);
-windows_link::link!("winspool.drv" "system" fn GetDefaultPrinterA(pszbuffer : windows_sys::core::PSTR, pcchbuffer : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn GetDefaultPrinterW(pszbuffer : windows_sys::core::PWSTR, pcchbuffer : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn GetFormA(hprinter : super::HANDLE, pformname : windows_sys::core::PCSTR, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn GetFormW(hprinter : super::HANDLE, pformname : windows_sys::core::PCWSTR, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn GetJobA(hprinter : super::HANDLE, jobid : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("winspool.drv" "system" fn GetCorePrinterDriversW(pszserver : windows_sys::core::PCWSTR, pszenvironment : windows_sys::core::PCWSTR, pszzcoredriverdependencies : windows_sys::core::PCWSTR, ccoreprinterdrivers : u32, pcoreprinterdrivers : PCORE_PRINTER_DRIVERW) -> windows_sys::core::HRESULT);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn GetDefaultPrinterA(pszbuffer : windows_sys::core::PSTR, pcchbuffer : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn GetDefaultPrinterW(pszbuffer : windows_sys::core::PWSTR, pcchbuffer : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn GetFormA(hprinter : super::HANDLE, pformname : windows_sys::core::PCSTR, level : u32, pform : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn GetFormW(hprinter : super::HANDLE, pformname : windows_sys::core::PCWSTR, level : u32, pform : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn GetJobA(hprinter : super::HANDLE, jobid : u32, level : u32, pjob : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn GetJobNamedPropertyValue(hprinter : super::HANDLE, jobid : u32, pszname : windows_sys::core::PCWSTR, pvalue : *mut PrintPropertyValue) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn GetJobW(hprinter : super::HANDLE, jobid : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn GetJobW(hprinter : super::HANDLE, jobid : u32, level : u32, pjob : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn GetPrintExecutionData(pdata : *mut PRINT_EXECUTION_DATA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("winspool.drv" "system" fn GetPrintOutputInfo(hwnd : super::HWND, pszprinter : windows_sys::core::PCWSTR, phfile : *mut super::HANDLE, ppszoutputfile : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("winspool.drv" "system" fn GetPrintProcessorDirectoryA(pname : windows_sys::core::PCSTR, penvironment : windows_sys::core::PCSTR, level : u32, pprintprocessorinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn GetPrintProcessorDirectoryW(pname : windows_sys::core::PCWSTR, penvironment : windows_sys::core::PCWSTR, level : u32, pprintprocessorinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn GetPrinterA(hprinter : super::HANDLE, level : u32, pprinter : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn GetPrinterDataA(hprinter : super::HANDLE, pvaluename : windows_sys::core::PCSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn GetPrinterDataExA(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCSTR, pvaluename : windows_sys::core::PCSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn GetPrinterDataExW(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCWSTR, pvaluename : windows_sys::core::PCWSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn GetPrinterDataW(hprinter : super::HANDLE, pvaluename : windows_sys::core::PCWSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("winspool.drv" "system" fn GetPrinterDriver2A(hwnd : super::HWND, hprinter : super::HANDLE, penvironment : windows_sys::core::PCSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("winspool.drv" "system" fn GetPrinterDriver2W(hwnd : super::HWND, hprinter : super::HANDLE, penvironment : windows_sys::core::PCWSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn GetPrinterDriverA(hprinter : super::HANDLE, penvironment : windows_sys::core::PCSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn GetPrinterDriverDirectoryA(pname : windows_sys::core::PCSTR, penvironment : windows_sys::core::PCSTR, level : u32, pdriverdirectory : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn GetPrinterDriverDirectoryW(pname : windows_sys::core::PCWSTR, penvironment : windows_sys::core::PCWSTR, level : u32, pdriverdirectory : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn GetPrinterDriverPackagePathA(pszserver : windows_sys::core::PCSTR, pszenvironment : windows_sys::core::PCSTR, pszlanguage : windows_sys::core::PCSTR, pszpackageid : windows_sys::core::PCSTR, pszdriverpackagecab : windows_sys::core::PSTR, cchdriverpackagecab : u32, pcchrequiredsize : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("winspool.drv" "system" fn GetPrinterDriverPackagePathW(pszserver : windows_sys::core::PCWSTR, pszenvironment : windows_sys::core::PCWSTR, pszlanguage : windows_sys::core::PCWSTR, pszpackageid : windows_sys::core::PCWSTR, pszdriverpackagecab : windows_sys::core::PWSTR, cchdriverpackagecab : u32, pcchrequiredsize : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn GetPrinterDriverW(hprinter : super::HANDLE, penvironment : windows_sys::core::PCWSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn GetPrinterW(hprinter : super::HANDLE, level : u32, pprinter : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn GetPrintProcessorDirectoryA(pname : windows_sys::core::PCSTR, penvironment : windows_sys::core::PCSTR, level : u32, pprintprocessorinfo : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn GetPrintProcessorDirectoryW(pname : windows_sys::core::PCWSTR, penvironment : windows_sys::core::PCWSTR, level : u32, pprintprocessorinfo : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn GetPrinterA(hprinter : super::HANDLE, level : u32, pprinter : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn GetPrinterDataA(hprinter : super::HANDLE, pvaluename : windows_sys::core::PCSTR, ptype : super::LPDWORD, pdata : super::LPBYTE, nsize : u32, pcbneeded : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn GetPrinterDataExA(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCSTR, pvaluename : windows_sys::core::PCSTR, ptype : super::LPDWORD, pdata : super::LPBYTE, nsize : u32, pcbneeded : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn GetPrinterDataExW(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCWSTR, pvaluename : windows_sys::core::PCWSTR, ptype : super::LPDWORD, pdata : super::LPBYTE, nsize : u32, pcbneeded : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn GetPrinterDataW(hprinter : super::HANDLE, pvaluename : windows_sys::core::PCWSTR, ptype : super::LPDWORD, pdata : super::LPBYTE, nsize : u32, pcbneeded : super::LPDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn GetPrinterDriver2A(hwnd : super::HWND, hprinter : super::HANDLE, penvironment : windows_sys::core::PCSTR, level : u32, pdriverinfo : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn GetPrinterDriver2W(hwnd : super::HWND, hprinter : super::HANDLE, penvironment : windows_sys::core::PCWSTR, level : u32, pdriverinfo : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn GetPrinterDriverA(hprinter : super::HANDLE, penvironment : windows_sys::core::PCSTR, level : u32, pdriverinfo : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn GetPrinterDriverDirectoryA(pname : windows_sys::core::PCSTR, penvironment : windows_sys::core::PCSTR, level : u32, pdriverdirectory : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn GetPrinterDriverDirectoryW(pname : windows_sys::core::PCWSTR, penvironment : windows_sys::core::PCWSTR, level : u32, pdriverdirectory : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn GetPrinterDriverPackagePathA(pszserver : windows_sys::core::PCSTR, pszenvironment : windows_sys::core::PCSTR, pszlanguage : windows_sys::core::PCSTR, pszpackageid : windows_sys::core::PCSTR, pszdriverpackagecab : windows_sys::core::PSTR, cchdriverpackagecab : u32, pcchrequiredsize : super::LPDWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn GetPrinterDriverPackagePathW(pszserver : windows_sys::core::PCWSTR, pszenvironment : windows_sys::core::PCWSTR, pszlanguage : windows_sys::core::PCWSTR, pszpackageid : windows_sys::core::PCWSTR, pszdriverpackagecab : windows_sys::core::PWSTR, cchdriverpackagecab : u32, pcchrequiredsize : super::LPDWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn GetPrinterDriverW(hprinter : super::HANDLE, penvironment : windows_sys::core::PCWSTR, level : u32, pdriverinfo : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn GetPrinterW(hprinter : super::HANDLE, level : u32, pprinter : super::LPBYTE, cbbuf : u32, pcbneeded : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn GetSpoolFileHandle(hprinter : super::HANDLE) -> super::HANDLE);
 windows_link::link!("winspool.drv" "system" fn InstallPrinterDriverFromPackageA(pszserver : windows_sys::core::PCSTR, pszinfpath : windows_sys::core::PCSTR, pszdrivername : windows_sys::core::PCSTR, pszenvironment : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("winspool.drv" "system" fn InstallPrinterDriverFromPackageW(pszserver : windows_sys::core::PCWSTR, pszinfpath : windows_sys::core::PCWSTR, pszdrivername : windows_sys::core::PCWSTR, pszenvironment : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("winspool.drv" "system" fn IsValidDevmodeA(pdevmode : *const super::DEVMODEA, devmodesize : usize) -> windows_sys::core::BOOL);
+windows_link::link!("winspool.drv" "system" fn IsValidDevmodeA(pdevmode : super::PDEVMODEA, devmodesize : usize) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("winspool.drv" "system" fn IsValidDevmodeW(pdevmode : *const super::DEVMODEW, devmodesize : usize) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("winspool.drv" "system" fn OpenPrinter2A(pprintername : windows_sys::core::PCSTR, phprinter : *mut super::HANDLE, pdefault : *const PRINTER_DEFAULTSA, poptions : *const PRINTER_OPTIONSA) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("winspool.drv" "system" fn OpenPrinter2W(pprintername : windows_sys::core::PCWSTR, phprinter : *mut super::HANDLE, pdefault : *const PRINTER_DEFAULTSW, poptions : *const PRINTER_OPTIONSW) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("winspool.drv" "system" fn OpenPrinterA(pprintername : windows_sys::core::PCSTR, phprinter : *mut super::HANDLE, pdefault : *const PRINTER_DEFAULTSA) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("winspool.drv" "system" fn OpenPrinterW(pprintername : windows_sys::core::PCWSTR, phprinter : *mut super::HANDLE, pdefault : *const PRINTER_DEFAULTSW) -> windows_sys::core::BOOL);
+windows_link::link!("winspool.drv" "system" fn IsValidDevmodeW(pdevmode : super::PDEVMODEW, devmodesize : usize) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn OpenPrinter2A(pprintername : windows_sys::core::PCSTR, phprinter : super::LPHANDLE, pdefault : PPRINTER_DEFAULTSA, poptions : PPRINTER_OPTIONSA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn OpenPrinter2W(pprintername : windows_sys::core::PCWSTR, phprinter : super::LPHANDLE, pdefault : PPRINTER_DEFAULTSW, poptions : PPRINTER_OPTIONSW) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn OpenPrinterA(pprintername : windows_sys::core::PCSTR, phprinter : super::LPHANDLE, pdefault : LPPRINTER_DEFAULTSA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn OpenPrinterW(pprintername : windows_sys::core::PCWSTR, phprinter : super::LPHANDLE, pdefault : LPPRINTER_DEFAULTSW) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("winspool.drv" "system" fn PrinterMessageBoxA(hprinter : super::HANDLE, error : u32, hwnd : super::HWND, ptext : windows_sys::core::PCSTR, pcaption : windows_sys::core::PCSTR, dwtype : u32) -> u32);
 #[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("winspool.drv" "system" fn PrinterMessageBoxW(hprinter : super::HANDLE, error : u32, hwnd : super::HWND, ptext : windows_sys::core::PCWSTR, pcaption : windows_sys::core::PCWSTR, dwtype : u32) -> u32);
 #[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("winspool.drv" "system" fn PrinterProperties(hwnd : super::HWND, hprinter : super::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn ReadPrinter(hprinter : super::HANDLE, pbuf : *mut core::ffi::c_void, cbbuf : u32, pnobytesread : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn ReadPrinter(hprinter : super::HANDLE, pbuf : *mut core::ffi::c_void, cbbuf : u32, pnobytesread : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn ReportJobProcessingProgress(printerhandle : super::HANDLE, jobid : u32, joboperation : EPrintXPSJobOperation, jobprogress : EPrintXPSJobProgress) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("winspool.drv" "system" fn ResetPrinterA(hprinter : super::HANDLE, pdefault : *const PRINTER_DEFAULTSA) -> windows_sys::core::BOOL);
+windows_link::link!("winspool.drv" "system" fn ResetPrinterA(hprinter : super::HANDLE, pdefault : LPPRINTER_DEFAULTSA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("winspool.drv" "system" fn ResetPrinterW(hprinter : super::HANDLE, pdefault : *const PRINTER_DEFAULTSW) -> windows_sys::core::BOOL);
+windows_link::link!("winspool.drv" "system" fn ResetPrinterW(hprinter : super::HANDLE, pdefault : LPPRINTER_DEFAULTSW) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn ScheduleJob(hprinter : super::HANDLE, jobid : u32) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn SetDefaultPrinterA(pszprinter : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn SetDefaultPrinterW(pszprinter : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn SetFormA(hprinter : super::HANDLE, pformname : windows_sys::core::PCSTR, level : u32, pform : *mut u8) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn SetFormW(hprinter : super::HANDLE, pformname : windows_sys::core::PCWSTR, level : u32, pform : *mut u8) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn SetJobA(hprinter : super::HANDLE, jobid : u32, level : u32, pjob : *mut u8, command : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn SetFormA(hprinter : super::HANDLE, pformname : windows_sys::core::PCSTR, level : u32, pform : super::LPBYTE) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn SetFormW(hprinter : super::HANDLE, pformname : windows_sys::core::PCWSTR, level : u32, pform : super::LPBYTE) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn SetJobA(hprinter : super::HANDLE, jobid : u32, level : u32, pjob : super::LPBYTE, command : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn SetJobNamedProperty(hprinter : super::HANDLE, jobid : u32, pproperty : *const PrintNamedProperty) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn SetJobW(hprinter : super::HANDLE, jobid : u32, level : u32, pjob : *mut u8, command : u32) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn SetPortA(pname : windows_sys::core::PCSTR, pportname : windows_sys::core::PCSTR, dwlevel : u32, pportinfo : *const u8) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn SetPortW(pname : windows_sys::core::PCWSTR, pportname : windows_sys::core::PCWSTR, dwlevel : u32, pportinfo : *const u8) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn SetPrinterA(hprinter : super::HANDLE, level : u32, pprinter : *mut u8, command : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn SetPrinterDataA(hprinter : super::HANDLE, pvaluename : windows_sys::core::PCSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn SetPrinterDataExA(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCSTR, pvaluename : windows_sys::core::PCSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn SetPrinterDataExW(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCWSTR, pvaluename : windows_sys::core::PCWSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn SetPrinterDataW(hprinter : super::HANDLE, pvaluename : windows_sys::core::PCWSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn SetPrinterW(hprinter : super::HANDLE, level : u32, pprinter : *mut u8, command : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn StartDocPrinterA(hprinter : super::HANDLE, level : u32, pdocinfo : *mut u8) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn StartDocPrinterW(hprinter : super::HANDLE, level : u32, pdocinfo : *mut u8) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn SetJobW(hprinter : super::HANDLE, jobid : u32, level : u32, pjob : super::LPBYTE, command : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn SetPortA(pname : windows_sys::core::PCSTR, pportname : windows_sys::core::PCSTR, dwlevel : u32, pportinfo : super::LPBYTE) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("winspool.drv" "system" fn SetPortW(pname : windows_sys::core::PCWSTR, pportname : windows_sys::core::PCWSTR, dwlevel : u32, pportinfo : super::LPBYTE) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn SetPrinterA(hprinter : super::HANDLE, level : u32, pprinter : super::LPBYTE, command : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn SetPrinterDataA(hprinter : super::HANDLE, pvaluename : windows_sys::core::PCSTR, r#type : u32, pdata : super::LPBYTE, cbdata : u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn SetPrinterDataExA(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCSTR, pvaluename : windows_sys::core::PCSTR, r#type : u32, pdata : super::LPBYTE, cbdata : u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn SetPrinterDataExW(hprinter : super::HANDLE, pkeyname : windows_sys::core::PCWSTR, pvaluename : windows_sys::core::PCWSTR, r#type : u32, pdata : super::LPBYTE, cbdata : u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn SetPrinterDataW(hprinter : super::HANDLE, pvaluename : windows_sys::core::PCWSTR, r#type : u32, pdata : super::LPBYTE, cbdata : u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn SetPrinterW(hprinter : super::HANDLE, level : u32, pprinter : super::LPBYTE, command : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn StartDocPrinterA(hprinter : super::HANDLE, level : u32, pdocinfo : super::LPBYTE) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn StartDocPrinterW(hprinter : super::HANDLE, level : u32, pdocinfo : super::LPBYTE) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn StartPagePrinter(hprinter : super::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("winspool.drv" "system" fn UploadPrinterDriverPackageA(pszserver : windows_sys::core::PCSTR, pszinfpath : windows_sys::core::PCSTR, pszenvironment : windows_sys::core::PCSTR, dwflags : u32, hwnd : super::HWND, pszdestinfpath : windows_sys::core::PSTR, pcchdestinfpath : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("winspool.drv" "system" fn UploadPrinterDriverPackageW(pszserver : windows_sys::core::PCWSTR, pszinfpath : windows_sys::core::PCWSTR, pszenvironment : windows_sys::core::PCWSTR, dwflags : u32, hwnd : super::HWND, pszdestinfpath : windows_sys::core::PWSTR, pcchdestinfpath : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("winspool.drv" "system" fn UploadPrinterDriverPackageA(pszserver : windows_sys::core::PCSTR, pszinfpath : windows_sys::core::PCSTR, pszenvironment : windows_sys::core::PCSTR, dwflags : u32, hwnd : super::HWND, pszdestinfpath : windows_sys::core::PSTR, pcchdestinfpath : super::PULONG) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+windows_link::link!("winspool.drv" "system" fn UploadPrinterDriverPackageW(pszserver : windows_sys::core::PCWSTR, pszinfpath : windows_sys::core::PCWSTR, pszenvironment : windows_sys::core::PCWSTR, dwflags : u32, hwnd : super::HWND, pszdestinfpath : windows_sys::core::PWSTR, pcchdestinfpath : super::PULONG) -> windows_sys::core::HRESULT);
 #[cfg(feature = "winnt")]
 windows_link::link!("winspool.drv" "system" fn WaitForPrinterChange(hprinter : super::HANDLE, flags : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn WritePrinter(hprinter : super::HANDLE, pbuf : *const core::ffi::c_void, cbbuf : u32, pcwritten : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("winspool.drv" "system" fn XcvDataW(hxcv : super::HANDLE, pszdataname : windows_sys::core::PCWSTR, pinputdata : *const u8, cbinputdata : u32, poutputdata : *mut u8, cboutputdata : u32, pcboutputneeded : *mut u32, pdwstatus : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn WritePrinter(hprinter : super::HANDLE, pbuf : *const core::ffi::c_void, cbbuf : u32, pcwritten : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("winspool.drv" "system" fn XcvDataW(hxcv : super::HANDLE, pszdataname : windows_sys::core::PCWSTR, pinputdata : super::PBYTE, cbinputdata : u32, poutputdata : super::PBYTE, cboutputdata : u32, pcboutputneeded : super::PDWORD, pdwstatus : super::PDWORD) -> windows_sys::core::BOOL);
 pub type ADDJOB_INFO_1 = ADDJOB_INFO_1A;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -311,7 +341,7 @@ pub union BIDI_DATA_0 {
     pub bData: windows_sys::core::BOOL,
     pub iData: i32,
     pub sData: windows_sys::core::PWSTR,
-    pub fData: f32,
+    pub fData: super::FLOAT,
     pub biData: BINARY_CONTAINER,
 }
 #[cfg(feature = "minwindef")]
@@ -2056,7 +2086,7 @@ pub const SERVER_NOTIFY_FIELD_PRINT_DRIVER_ISOLATION_GROUP: i32 = 0;
 pub const SERVER_NOTIFY_TYPE: i32 = 2;
 pub const SERVER_READ: i32 = 131074;
 pub const SERVER_WRITE: i32 = 131075;
-pub const SPLREG_PRINT_DRIVER_ISOLATION_GROUPS_SEPARATOR: u32 = 92;
+pub const SPLREG_PRINT_DRIVER_ISOLATION_GROUPS_SEPARATOR: u16 = 92;
 pub const SPOOL_FILE_PERSISTENT: i32 = 1;
 pub const SPOOL_FILE_TEMPORARY: i32 = 2;
 pub const STRING_LANGPAIR: i32 = 4;

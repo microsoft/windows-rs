@@ -7,7 +7,7 @@ windows_link::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoClear
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoFailFastWithErrorContext(hrerror : windows_sys::core::HRESULT));
 windows_link::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoFreeParameterizedTypeExtra(extra : ROPARAMIIDHANDLE));
 #[cfg(feature = "activationregistration")]
-windows_link::link!("api-ms-win-core-winrt-registration-l1-1-0.dll" "system" fn RoGetActivatableClassRegistration(activatableclassid : windows_sys::core::HSTRING, activatableclassregistration : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("api-ms-win-core-winrt-registration-l1-1-0.dll" "system" fn RoGetActivatableClassRegistration(activatableclassid : windows_sys::core::HSTRING, activatableclassregistration : *mut PActivatableClassRegistration) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetActivationFactory(activatableclassid : windows_sys::core::HSTRING, iid : *const windows_sys::core::GUID, factory : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetApartmentIdentifier(apartmentidentifier : *mut u64) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
@@ -23,28 +23,42 @@ windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOrigi
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOriginateErrorW(error : windows_sys::core::HRESULT, cchmax : u32, message : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoOriginateLanguageException(error : windows_sys::core::HRESULT, message : windows_sys::core::HSTRING, languageexception : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoParameterizedTypeExtraGetTypeSignature(extra : ROPARAMIIDHANDLE) -> windows_sys::core::PCSTR);
+#[cfg(feature = "activation")]
 windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRegisterActivationFactories(activatableclassids : *const windows_sys::core::HSTRING, activationfactorycallbacks : *const PFNGETACTIVATIONFACTORY, count : u32, cookie : *mut RO_REGISTRATION_COOKIE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidl")]
 windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRegisterForApartmentShutdown(callbackobject : *mut core::ffi::c_void, apartmentidentifier : *mut u64, regcookie : *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoReportFailedDelegate(punkdelegate : *mut core::ffi::c_void, prestrictederrorinfo : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoReportUnhandledError(prestrictederrorinfo : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoResolveRestrictedErrorInfoReference(reference : windows_sys::core::PCWSTR, pprestrictederrorinfo : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRevokeActivationFactories(cookie : *const _RO_REGISTRATION_COOKIE));
+windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRevokeActivationFactories(cookie : RO_REGISTRATION_COOKIE));
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoSetErrorReportingFlags(flags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoTransformError(olderror : windows_sys::core::HRESULT, newerror : windows_sys::core::HRESULT, message : windows_sys::core::HSTRING) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoTransformErrorW(olderror : windows_sys::core::HRESULT, newerror : windows_sys::core::HRESULT, cchmax : u32, message : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoUninitialize());
 windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoUnregisterForApartmentShutdown(regcookie : APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn SetRestrictedErrorInfo(prestrictederrorinfo : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type APARTMENT_SHUTDOWN_REGISTRATION_COOKIE = *mut core::ffi::c_void;
+pub type APARTMENT_SHUTDOWN_REGISTRATION_COOKIE = *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE__ {
+    pub unused: i32,
+}
 pub const EXCEPTION_RO_ORIGINATEERROR: u32 = 1074266625;
 pub const EXCEPTION_RO_TRANSFORMERROR: u32 = 1074266626;
 pub const ForceExceptions: RoErrorReportingFlags = 2;
 pub const MAX_ERROR_MESSAGE_CHARS: i32 = 512;
 pub const None: RoErrorReportingFlags = 0;
+#[cfg(feature = "activationregistration")]
+pub type PActivatableClassRegistration = *mut core::ffi::c_void;
+#[cfg(feature = "activation")]
 pub type PFNGETACTIVATIONFACTORY = Option<unsafe extern "system" fn(param0: windows_sys::core::HSTRING, param1: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type PINSPECT_MEMORY_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> windows_sys::core::HRESULT>;
-pub type ROPARAMIIDHANDLE = *mut core::ffi::c_void;
+pub type ROPARAMIIDHANDLE = *mut ROPARAMIIDHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct ROPARAMIIDHANDLE__ {
+    pub unused: i32,
+}
 pub type RO_ERROR_REPORTING_FLAGS = u32;
 pub const RO_ERROR_REPORTING_FORCEEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = 2;
 pub const RO_ERROR_REPORTING_NONE: RO_ERROR_REPORTING_FLAGS = 0;
@@ -59,6 +73,6 @@ pub type RoErrorReportingFlags = u32;
 pub const SuppressExceptions: RoErrorReportingFlags = 1;
 pub const SuppressSetErrorInfo: RoErrorReportingFlags = 8;
 pub const UseSetErrorInfo: RoErrorReportingFlags = 4;
-#[repr(C, align(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct _RO_REGISTRATION_COOKIE(pub u8);

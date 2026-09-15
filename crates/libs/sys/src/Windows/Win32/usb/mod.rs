@@ -37,7 +37,8 @@ impl Default for OS_STRING_0 {
     }
 }
 pub const OS_STRING_DESCRIPTOR_INDEX: i32 = 238;
-pub type PHYSICAL_ADDRESS = i64;
+#[cfg(feature = "winnt")]
+pub type PHYSICAL_ADDRESS = super::LARGE_INTEGER;
 pub type PIRP = *mut core::ffi::c_void;
 pub type PMDL = *mut core::ffi::c_void;
 pub type POS_STRING = *mut OS_STRING;
@@ -45,8 +46,11 @@ pub type POS_STRING = *mut OS_STRING;
 pub type PURB = *mut URB;
 #[cfg(feature = "usbspec")]
 pub type PUSBD_DEVICE_INFORMATION = *mut USBD_DEVICE_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PUSBD_ENDPOINT_OFFLOAD_INFORMATION = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION;
+#[cfg(feature = "winnt")]
 pub type PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V1 = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION_V1;
+#[cfg(feature = "winnt")]
 pub type PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION;
 pub type PUSBD_INTERFACE_INFORMATION = *mut USBD_INTERFACE_INFORMATION;
 pub type PUSBD_ISO_PACKET_DESCRIPTOR = *mut USBD_ISO_PACKET_DESCRIPTOR;
@@ -187,7 +191,8 @@ pub struct USBD_DEVICE_INFORMATION {
     pub DeviceDescriptor: super::USB_DEVICE_DESCRIPTOR,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
     pub Size: u32,
     pub EndpointAddress: u16,
@@ -211,8 +216,15 @@ pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
     pub ClientDataBufferLAOut: PHYSICAL_ADDRESS,
     pub ClientDataBufferVAOut: *mut core::ffi::c_void,
 }
+#[cfg(feature = "winnt")]
+impl Default for USBD_ENDPOINT_OFFLOAD_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
     pub Size: u32,
     pub EndpointAddress: u16,
@@ -230,6 +242,13 @@ pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
     pub EventRingSize: usize,
     pub EventRingInitialCycleBit: u32,
 }
+#[cfg(feature = "winnt")]
+impl Default for USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "winnt")]
 pub type USBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = USBD_ENDPOINT_OFFLOAD_INFORMATION;
 pub type USBD_ENDPOINT_OFFLOAD_MODE = i32;
 pub type USBD_INTERFACE_HANDLE = *mut core::ffi::c_void;

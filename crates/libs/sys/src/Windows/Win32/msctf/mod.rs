@@ -1,3 +1,19 @@
+#[cfg(feature = "wtypes")]
+windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserFree(param0 : *mut u32, param1 : *mut super::CLIPFORMAT));
+#[cfg(feature = "wtypes")]
+windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserFree64(param0 : *mut u32, param1 : *mut super::CLIPFORMAT));
+#[cfg(feature = "wtypes")]
+windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::CLIPFORMAT) -> *mut u8);
+#[cfg(feature = "wtypes")]
+windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::CLIPFORMAT) -> *mut u8);
+#[cfg(feature = "wtypes")]
+windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::CLIPFORMAT) -> u32);
+#[cfg(feature = "wtypes")]
+windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::CLIPFORMAT) -> u32);
+#[cfg(feature = "wtypes")]
+windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::CLIPFORMAT) -> *mut u8);
+#[cfg(feature = "wtypes")]
+windows_link::link!("ole32.dll" "system" fn CLIPFORMAT_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::CLIPFORMAT) -> *mut u8);
 pub const TF_AE_END: TfActiveSelEnd = 2;
 pub const TF_AE_NONE: TfActiveSelEnd = 0;
 pub const TF_AE_START: TfActiveSelEnd = 1;
@@ -87,27 +103,27 @@ pub const TF_ES_ASYNCDONTCARE: i32 = 0;
 pub const TF_ES_READ: i32 = 2;
 pub const TF_ES_READWRITE: i32 = 6;
 pub const TF_ES_SYNC: i32 = 1;
-pub const TF_E_ALREADY_EXISTS: i32 = -2147220218;
-pub const TF_E_COMPOSITION_REJECTED: i32 = -2147220216;
-pub const TF_E_DISCONNECTED: i32 = -2147220220;
-pub const TF_E_EMPTYCONTEXT: i32 = -2147220215;
-pub const TF_E_FORMAT: i32 = -2147220982;
-pub const TF_E_INVALIDPOINT: i32 = -2147220985;
-pub const TF_E_INVALIDPOS: i32 = -2147220992;
-pub const TF_E_INVALIDVIEW: i32 = -2147220219;
-pub const TF_E_LOCKED: i32 = -2147220224;
-pub const TF_E_NOINTERFACE: i32 = -2147220988;
-pub const TF_E_NOLAYOUT: i32 = -2147220986;
-pub const TF_E_NOLOCK: i32 = -2147220991;
-pub const TF_E_NOOBJECT: i32 = -2147220990;
-pub const TF_E_NOPROVIDER: i32 = -2147220221;
-pub const TF_E_NOSELECTION: i32 = -2147220987;
-pub const TF_E_NOSERVICE: i32 = -2147220989;
-pub const TF_E_NOTOWNEDRANGE: i32 = -2147220222;
-pub const TF_E_RANGE_NOT_COVERED: i32 = -2147220217;
-pub const TF_E_READONLY: i32 = -2147220983;
-pub const TF_E_STACKFULL: i32 = -2147220223;
-pub const TF_E_SYNCHRONOUS: i32 = -2147220984;
+pub const TF_E_ALREADY_EXISTS: windows_sys::core::HRESULT = 0x80040506_u32 as _;
+pub const TF_E_COMPOSITION_REJECTED: windows_sys::core::HRESULT = 0x80040508_u32 as _;
+pub const TF_E_DISCONNECTED: windows_sys::core::HRESULT = 0x80040504_u32 as _;
+pub const TF_E_EMPTYCONTEXT: windows_sys::core::HRESULT = 0x80040509_u32 as _;
+pub const TF_E_FORMAT: windows_sys::core::HRESULT = 0x8004020A_u32 as _;
+pub const TF_E_INVALIDPOINT: windows_sys::core::HRESULT = 0x80040207_u32 as _;
+pub const TF_E_INVALIDPOS: windows_sys::core::HRESULT = 0x80040200_u32 as _;
+pub const TF_E_INVALIDVIEW: windows_sys::core::HRESULT = 0x80040505_u32 as _;
+pub const TF_E_LOCKED: windows_sys::core::HRESULT = 0x80040500_u32 as _;
+pub const TF_E_NOINTERFACE: windows_sys::core::HRESULT = 0x80040204_u32 as _;
+pub const TF_E_NOLAYOUT: windows_sys::core::HRESULT = 0x80040206_u32 as _;
+pub const TF_E_NOLOCK: windows_sys::core::HRESULT = 0x80040201_u32 as _;
+pub const TF_E_NOOBJECT: windows_sys::core::HRESULT = 0x80040202_u32 as _;
+pub const TF_E_NOPROVIDER: windows_sys::core::HRESULT = 0x80040503_u32 as _;
+pub const TF_E_NOSELECTION: windows_sys::core::HRESULT = 0x80040205_u32 as _;
+pub const TF_E_NOSERVICE: windows_sys::core::HRESULT = 0x80040203_u32 as _;
+pub const TF_E_NOTOWNEDRANGE: windows_sys::core::HRESULT = 0x80040502_u32 as _;
+pub const TF_E_RANGE_NOT_COVERED: windows_sys::core::HRESULT = 0x80040507_u32 as _;
+pub const TF_E_READONLY: windows_sys::core::HRESULT = 0x80040209_u32 as _;
+pub const TF_E_STACKFULL: windows_sys::core::HRESULT = 0x80040501_u32 as _;
+pub const TF_E_SYNCHRONOUS: windows_sys::core::HRESULT = 0x80040208_u32 as _;
 pub const TF_GRAVITY_BACKWARD: TfGravity = 0;
 pub const TF_GRAVITY_FORWARD: TfGravity = 1;
 pub const TF_GTP_INCL_TEXT: i32 = 1;
@@ -221,13 +237,13 @@ pub const TF_PROFILE_TIGRINYA: windows_sys::core::GUID = windows_sys::core::GUID
 pub const TF_PROFILE_WUBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x82590c13_f4dd_44f4_ba1d_8667246fdf8e);
 pub const TF_PROFILE_YI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x409c8376_007b_4357_ae8e_26316ee3fb0d);
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct TF_PROPERTYVAL {
     pub guidId: windows_sys::core::GUID,
     pub varValue: super::VARIANT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for TF_PROPERTYVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -277,7 +293,7 @@ pub const TF_SS_TRANSITORY: i32 = 4;
 #[cfg(feature = "textstor")]
 pub type TF_STATUS = super::TS_STATUS;
 pub const TF_ST_CORRECTION: i32 = 1;
-pub const TF_S_ASYNC: i32 = 262912;
+pub const TF_S_ASYNC: windows_sys::core::HRESULT = 0x40300_u32 as _;
 pub const TF_TF_IGNOREEND: i32 = 2;
 pub const TF_TF_MOVESTART: i32 = 1;
 pub const TF_TMAE_COMLESS: i32 = 8;

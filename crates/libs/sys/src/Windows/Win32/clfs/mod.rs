@@ -1,18 +1,23 @@
 windows_link::link!("clfsw32.dll" "system" "LsnBlockOffset" fn ClfsLsnBlockOffset(plsn : *const CLFS_LSN) -> u32);
 windows_link::link!("clfsw32.dll" "system" "LsnContainer" fn ClfsLsnContainer(plsn : *const CLFS_LSN) -> CLFS_CONTAINER_ID);
 windows_link::link!("clfsw32.dll" "system" "LsnCreate" fn ClfsLsnCreate(cidcontainer : CLFS_CONTAINER_ID, offblock : u32, crecord : u32) -> CLFS_LSN);
-windows_link::link!("clfsw32.dll" "system" "LsnEqual" fn ClfsLsnEqual(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> bool);
-windows_link::link!("clfsw32.dll" "system" "LsnGreater" fn ClfsLsnGreater(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> bool);
-windows_link::link!("clfsw32.dll" "system" "LsnIncrement" fn ClfsLsnIncrement(plsn : *const CLFS_LSN) -> CLFS_LSN);
-windows_link::link!("clfsw32.dll" "system" "LsnInvalid" fn ClfsLsnInvalid(plsn : *const CLFS_LSN) -> bool);
-windows_link::link!("clfsw32.dll" "system" "LsnLess" fn ClfsLsnLess(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> bool);
-windows_link::link!("clfsw32.dll" "system" "LsnNull" fn ClfsLsnNull(plsn : *const CLFS_LSN) -> bool);
+#[cfg(feature = "winnt")]
+windows_link::link!("clfsw32.dll" "system" "LsnEqual" fn ClfsLsnEqual(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> super::BOOLEAN);
+#[cfg(feature = "winnt")]
+windows_link::link!("clfsw32.dll" "system" "LsnGreater" fn ClfsLsnGreater(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> super::BOOLEAN);
+windows_link::link!("clfsw32.dll" "system" "LsnIncrement" fn ClfsLsnIncrement(plsn : PCLFS_LSN) -> CLFS_LSN);
+#[cfg(feature = "winnt")]
+windows_link::link!("clfsw32.dll" "system" "LsnInvalid" fn ClfsLsnInvalid(plsn : *const CLFS_LSN) -> super::BOOLEAN);
+#[cfg(feature = "winnt")]
+windows_link::link!("clfsw32.dll" "system" "LsnLess" fn ClfsLsnLess(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> super::BOOLEAN);
+#[cfg(feature = "winnt")]
+windows_link::link!("clfsw32.dll" "system" "LsnNull" fn ClfsLsnNull(plsn : *const CLFS_LSN) -> super::BOOLEAN);
 windows_link::link!("clfsw32.dll" "system" "LsnRecordSequence" fn ClfsLsnRecordSequence(plsn : *const CLFS_LSN) -> u32);
 pub type CLFSSTATUS = u32;
 pub type CLFS_ARCHIVE_DESCRIPTOR = CLS_ARCHIVE_DESCRIPTOR;
 pub const CLFS_BASELOG_EXTENSION: windows_sys::core::PCWSTR = windows_sys::core::w!(".blf");
-pub type CLFS_BLOCK_ALLOCATION = Option<unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
-pub type CLFS_BLOCK_DEALLOCATION = Option<unsafe extern "system" fn(pvbuffer: *mut core::ffi::c_void, pvusercontext: *mut core::ffi::c_void)>;
+pub type CLFS_BLOCK_ALLOCATION = Option<unsafe extern "C" fn(cbbufferlength: u32, pvusercontext: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
+pub type CLFS_BLOCK_DEALLOCATION = Option<unsafe extern "C" fn(pvbuffer: *mut core::ffi::c_void, pvusercontext: *mut core::ffi::c_void)>;
 pub type CLFS_CONTAINER_ID = u32;
 pub type CLFS_CONTAINER_INFORMATION = CLS_CONTAINER_INFORMATION;
 pub const CLFS_CONTAINER_RELATIVE_PREFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("%BLF%\\");

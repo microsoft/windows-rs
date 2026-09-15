@@ -5,7 +5,7 @@ pub type PWIA_DITHER_PATTERN_DATA = *mut WIA_DITHER_PATTERN_DATA;
 pub type PWIA_EVENT_HANDLER = *mut WIA_DEV_CAP;
 pub type PWIA_EXTENDED_TRANSFER_INFO = *mut WIA_EXTENDED_TRANSFER_INFO;
 pub type PWIA_FORMAT_INFO = *mut WIA_FORMAT_INFO;
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type PWIA_PROPID_TO_NAME = *mut WIA_PROPID_TO_NAME;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -63,11 +63,11 @@ pub struct WIA_FORMAT_INFO {
     pub lTymed: i32,
 }
 #[repr(C)]
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct WIA_PROPID_TO_NAME {
     pub propid: super::PROPID,
-    pub pszName: windows_sys::core::PWSTR,
+    pub pszName: super::LPOLESTR,
 }
 pub const WiaDevMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa1f4e726_8cf1_11d1_bf92_0060081ed811);
 pub const WiaDevMgr2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb6c292bc_7c88_41ee_8b54_8ec92617e599);

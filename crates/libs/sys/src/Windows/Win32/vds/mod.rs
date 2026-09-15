@@ -1,33 +1,39 @@
 pub const BeepAlarm: VDS_MAINTENANCE_OPERATION = 2;
 pub const BlinkLight: VDS_MAINTENANCE_OPERATION = 1;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS {
     pub style: VDS_PARTITION_STYLE,
     pub Anonymous: CHANGE_ATTRIBUTES_PARAMETERS_0,
 }
+#[cfg(feature = "winnt")]
 impl Default for CHANGE_ATTRIBUTES_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union CHANGE_ATTRIBUTES_PARAMETERS_0 {
     pub MbrPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_0,
     pub GptPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_1,
 }
+#[cfg(feature = "winnt")]
 impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
-    pub bootIndicator: bool,
+    pub bootIndicator: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
     pub attributes: u64,
@@ -67,34 +73,40 @@ pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
 pub const CLSID_VdsLoader: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9c38ed61_d565_4728_aeee_c80952f0ecde);
 pub const CLSID_VdsService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7d1933cb_86f6_4a98_8628_01be94c9a575);
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct CREATE_PARTITION_PARAMETERS {
     pub style: VDS_PARTITION_STYLE,
     pub Anonymous: CREATE_PARTITION_PARAMETERS_0,
 }
+#[cfg(feature = "winnt")]
 impl Default for CREATE_PARTITION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union CREATE_PARTITION_PARAMETERS_0 {
     pub MbrPartInfo: CREATE_PARTITION_PARAMETERS_0_0,
     pub GptPartInfo: CREATE_PARTITION_PARAMETERS_0_1,
 }
+#[cfg(feature = "winnt")]
 impl Default for CREATE_PARTITION_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct CREATE_PARTITION_PARAMETERS_0_0 {
     pub partitionType: u8,
-    pub bootIndicator: bool,
+    pub bootIndicator: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct CREATE_PARTITION_PARAMETERS_0_1 {
     pub partitionType: windows_sys::core::GUID,
@@ -102,6 +114,7 @@ pub struct CREATE_PARTITION_PARAMETERS_0_1 {
     pub attributes: u64,
     pub name: [u16; 36],
 }
+#[cfg(feature = "winnt")]
 impl Default for CREATE_PARTITION_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -269,60 +282,19 @@ impl Default for VDS_ASYNC_OUTPUT {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VDS_ASYNC_OUTPUT_0 {
-    pub cp: VDS_ASYNC_OUTPUT_0_0,
-    pub cv: VDS_ASYNC_OUTPUT_0_1,
-    pub bvp: VDS_ASYNC_OUTPUT_0_2,
-    pub sv: VDS_ASYNC_OUTPUT_0_3,
-    pub cl: VDS_ASYNC_OUTPUT_0_4,
-    pub ct: VDS_ASYNC_OUTPUT_0_5,
-    pub cpg: VDS_ASYNC_OUTPUT_0_6,
-    pub cvd: VDS_ASYNC_OUTPUT_0_7,
+    pub cp: _cp,
+    pub cv: _cv,
+    pub bvp: _bvp,
+    pub sv: _sv,
+    pub cl: _cl,
+    pub ct: _ct,
+    pub cpg: _cpg,
+    pub cvd: _cvd,
 }
 impl Default for VDS_ASYNC_OUTPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct VDS_ASYNC_OUTPUT_0_0 {
-    pub ullOffset: u64,
-    pub volumeId: VDS_OBJECT_ID,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct VDS_ASYNC_OUTPUT_0_1 {
-    pub pVolumeUnk: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct VDS_ASYNC_OUTPUT_0_2 {
-    pub pVolumeUnk: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct VDS_ASYNC_OUTPUT_0_3 {
-    pub ullReclaimedBytes: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct VDS_ASYNC_OUTPUT_0_4 {
-    pub pLunUnk: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct VDS_ASYNC_OUTPUT_0_5 {
-    pub pTargetUnk: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct VDS_ASYNC_OUTPUT_0_6 {
-    pub pPortalGroupUnk: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct VDS_ASYNC_OUTPUT_0_7 {
-    pub pVDiskUnk: *mut core::ffi::c_void,
 }
 pub type VDS_ASYNC_OUTPUT_TYPE = i32;
 pub const VDS_ATTACH_VIRTUAL_DISK_FLAG_USE_FILE_ACL: i32 = 1;
@@ -1189,26 +1161,30 @@ pub struct VDS_PACK_PROP {
 pub type VDS_PACK_STATUS = i32;
 pub type VDS_PARTITION_FLAG = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct VDS_PARTITION_INFORMATION_EX {
     pub dwPartitionStyle: __VDS_PARTITION_STYLE,
     pub ullStartingOffset: u64,
     pub ullPartitionLength: u64,
     pub dwPartitionNumber: u32,
-    pub bRewritePartition: bool,
+    pub bRewritePartition: super::BOOLEAN,
     pub Anonymous: VDS_PARTITION_INFORMATION_EX_0,
 }
+#[cfg(feature = "winnt")]
 impl Default for VDS_PARTITION_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union VDS_PARTITION_INFORMATION_EX_0 {
     pub Mbr: VDS_PARTITION_INFO_MBR,
     pub Gpt: VDS_PARTITION_INFO_GPT,
 }
+#[cfg(feature = "winnt")]
 impl Default for VDS_PARTITION_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1228,11 +1204,12 @@ impl Default for VDS_PARTITION_INFO_GPT {
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct VDS_PARTITION_INFO_MBR {
     pub partitionType: u8,
-    pub bootIndicator: bool,
-    pub recognizedPartition: bool,
+    pub bootIndicator: super::BOOLEAN,
+    pub recognizedPartition: super::BOOLEAN,
     pub hiddenSectors: u32,
 }
 #[repr(C)]
@@ -1243,6 +1220,7 @@ pub struct VDS_PARTITION_NOTIFICATION {
     pub ullOffset: u64,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct VDS_PARTITION_PROP {
     pub PartitionStyle: VDS_PARTITION_STYLE,
@@ -1252,17 +1230,20 @@ pub struct VDS_PARTITION_PROP {
     pub ullSize: u64,
     pub Anonymous: VDS_PARTITION_PROP_0,
 }
+#[cfg(feature = "winnt")]
 impl Default for VDS_PARTITION_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union VDS_PARTITION_PROP_0 {
     pub Mbr: VDS_PARTITION_INFO_MBR,
     pub Gpt: VDS_PARTITION_INFO_GPT,
 }
+#[cfg(feature = "winnt")]
 impl Default for VDS_PARTITION_PROP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1826,3 +1807,44 @@ impl Default for VDS_WWN {
     }
 }
 pub type __VDS_PARTITION_STYLE = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _bvp {
+    pub pVolumeUnk: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _cl {
+    pub pLunUnk: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _cp {
+    pub ullOffset: u64,
+    pub volumeId: VDS_OBJECT_ID,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _cpg {
+    pub pPortalGroupUnk: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _ct {
+    pub pTargetUnk: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _cv {
+    pub pVolumeUnk: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _cvd {
+    pub pVDiskUnk: *mut core::ffi::c_void,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _sv {
+    pub ullReclaimedBytes: u64,
+}

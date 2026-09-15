@@ -1,7 +1,9 @@
 pub const EVEN_PARITY: i32 = 2;
-pub const GUID_DEVINTERFACE_COMPORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86e0d1e0_8089_11d0_9ce4_08003e301f73);
-pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d36e978_e325_11ce_bfc1_08002be10318);
 pub const IOCTL_INTERNAL_SERENUM_REMOVE_SELF: i32 = 3604999;
+pub const IOCTL_SERENUM_EXPOSE_HARDWARE: i32 = 3604992;
+pub const IOCTL_SERENUM_GET_PORT_NAME: i32 = 3605004;
+pub const IOCTL_SERENUM_PORT_DESC: i32 = 3605000;
+pub const IOCTL_SERENUM_REMOVE_HARDWARE: i32 = 3604996;
 pub const IOCTL_SERIAL_APPLY_DEFAULT_CONFIGURATION: i32 = 1769632;
 pub const IOCTL_SERIAL_CLEAR_STATS: i32 = 1769616;
 pub const IOCTL_SERIAL_CLR_DTR: i32 = 1769512;
@@ -25,6 +27,7 @@ pub const IOCTL_SERIAL_INTERNAL_BASIC_SETTINGS: i32 = 1769484;
 pub const IOCTL_SERIAL_INTERNAL_CANCEL_WAIT_WAKE: i32 = 1769480;
 pub const IOCTL_SERIAL_INTERNAL_DO_WAIT_WAKE: i32 = 1769476;
 pub const IOCTL_SERIAL_INTERNAL_RESTORE_SETTINGS: i32 = 1769488;
+pub const IOCTL_SERIAL_LSRMST_INSERT: i32 = 1769596;
 pub const IOCTL_SERIAL_PURGE: i32 = 1769548;
 pub const IOCTL_SERIAL_RESET_DEVICE: i32 = 1769516;
 pub const IOCTL_SERIAL_SET_BAUD_RATE: i32 = 1769476;
@@ -49,10 +52,11 @@ pub const IOCTL_SERIAL_XOFF_COUNTER: i32 = 1769584;
 pub const MARK_PARITY: i32 = 3;
 pub const NO_PARITY: i32 = 0;
 pub const ODD_PARITY: i32 = 1;
+#[cfg(feature = "winnt")]
 pub type PSERENUM_PORT_DESC = *mut SERENUM_PORT_DESC;
 pub type PSERENUM_PORT_PARAMETERS = *mut SERENUM_PORT_PARAMETERS;
-pub type PSERENUM_READPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void) -> u8>;
-pub type PSERENUM_WRITEPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void, value: u8)>;
+pub type PSERENUM_READPORT = Option<unsafe extern "C" fn(serportaddress: *const core::ffi::c_void) -> u8>;
+pub type PSERENUM_WRITEPORT = Option<unsafe extern "C" fn(serportaddress: *const core::ffi::c_void, value: u8)>;
 pub type PSERIALCONFIG = *mut SERIALCONFIG;
 pub type PSERIALPERF_STATS = *mut SERIALPERF_STATS;
 pub type PSERIAL_BASIC_SETTINGS = *mut SERIAL_BASIC_SETTINGS;
@@ -62,18 +66,21 @@ pub type PSERIAL_COMMPROP = *mut SERIAL_COMMPROP;
 pub type PSERIAL_HANDFLOW = *mut SERIAL_HANDFLOW;
 pub type PSERIAL_LINE_CONTROL = *mut SERIAL_LINE_CONTROL;
 pub type PSERIAL_QUEUE_SIZE = *mut SERIAL_QUEUE_SIZE;
+#[cfg(feature = "winnt")]
 pub type PSERIAL_STATUS = *mut SERIAL_STATUS;
 pub type PSERIAL_TIMEOUTS = *mut SERIAL_TIMEOUTS;
 pub type PSERIAL_XOFF_COUNTER = *mut SERIAL_XOFF_COUNTER;
 pub type SERENUM_PORTION = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct SERENUM_PORT_DESC {
     pub Size: u32,
     pub PortHandle: *mut core::ffi::c_void,
-    pub PortAddress: i64,
+    pub PortAddress: super::LARGE_INTEGER,
     pub Reserved: [u16; 1],
 }
+#[cfg(feature = "winnt")]
 impl Default for SERENUM_PORT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -241,6 +248,19 @@ pub struct SERIAL_HANDFLOW {
     pub XonLimit: i32,
     pub XoffLimit: i32,
 }
+pub const SERIAL_IOC_FCR_DMA_MODE: u32 = 8;
+pub const SERIAL_IOC_FCR_FIFO_ENABLE: u32 = 1;
+pub const SERIAL_IOC_FCR_RCVR_RESET: u32 = 2;
+pub const SERIAL_IOC_FCR_RCVR_TRIGGER_LSB: u32 = 64;
+pub const SERIAL_IOC_FCR_RCVR_TRIGGER_MSB: u32 = 128;
+pub const SERIAL_IOC_FCR_RES1: u32 = 16;
+pub const SERIAL_IOC_FCR_RES2: u32 = 32;
+pub const SERIAL_IOC_FCR_XMIT_RESET: u32 = 4;
+pub const SERIAL_IOC_MCR_DTR: u32 = 1;
+pub const SERIAL_IOC_MCR_LOOP: u32 = 16;
+pub const SERIAL_IOC_MCR_OUT1: u32 = 4;
+pub const SERIAL_IOC_MCR_OUT2: u32 = 8;
+pub const SERIAL_IOC_MCR_RTS: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SERIAL_LINE_CONTROL {
@@ -248,6 +268,10 @@ pub struct SERIAL_LINE_CONTROL {
     pub Parity: u8,
     pub WordLength: u8,
 }
+pub const SERIAL_LSRMST_ESCAPE: u8 = 0;
+pub const SERIAL_LSRMST_LSR_DATA: u8 = 1;
+pub const SERIAL_LSRMST_LSR_NODATA: u8 = 2;
+pub const SERIAL_LSRMST_MST: u8 = 3;
 pub const SERIAL_NULL_STRIPPING: u32 = 8;
 pub const SERIAL_OUT_HANDSHAKEMASK: u32 = 56;
 pub const SERIAL_PARITY_EVEN: u16 = 1024;
@@ -303,14 +327,15 @@ pub const SERIAL_SP_TELNET: u32 = 258;
 pub const SERIAL_SP_UNSPECIFIED: u32 = 0;
 pub const SERIAL_SP_X25: u32 = 259;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct SERIAL_STATUS {
     pub Errors: u32,
     pub HoldReasons: u32,
     pub AmountInInQueue: u32,
     pub AmountInOutQueue: u32,
-    pub EofReceived: bool,
-    pub WaitForImmediate: bool,
+    pub EofReceived: super::BOOLEAN,
+    pub WaitForImmediate: super::BOOLEAN,
 }
 pub const SERIAL_STOPBITS_10: u16 = 1;
 pub const SERIAL_STOPBITS_15: u16 = 2;

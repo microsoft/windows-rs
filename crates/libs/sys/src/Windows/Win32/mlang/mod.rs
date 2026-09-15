@@ -11,6 +11,13 @@ pub struct DetectEncodingInfo {
     pub nDocPercent: i32,
     pub nConfidence: i32,
 }
+pub type LPENUMCODEPAGE = *mut core::ffi::c_void;
+pub type LPENUMRFC1766 = *mut core::ffi::c_void;
+pub type LPENUMScript = *mut core::ffi::c_void;
+pub type LPMLANGCONVERTCHARSET = *mut core::ffi::c_void;
+pub type LPMULTILANGUAGE = *mut core::ffi::c_void;
+pub type LPMULTILANGUAGE2 = *mut core::ffi::c_void;
+pub type LPMULTILANGUAGE3 = *mut core::ffi::c_void;
 pub const MAX_LOCALE_NAME: i32 = 32;
 pub const MAX_MIMECP_NAME: i32 = 64;
 pub const MAX_MIMECSET_NAME: i32 = 50;
@@ -91,6 +98,9 @@ pub const MLSTR_READ: MLSTR_FLAGS = 1;
 pub const MLSTR_WRITE: MLSTR_FLAGS = 2;
 pub type PMIMECPINFO = *mut MIMECPINFO;
 pub type PMIMECSETINFO = *mut MIMECSETINFO;
+pub type PMLANGCODEPAGES = *mut core::ffi::c_void;
+pub type PMLANGFONTLINK = *mut core::ffi::c_void;
+pub type PMLANGFONTLINK2 = *mut core::ffi::c_void;
 #[cfg(feature = "winnt")]
 pub type PRFC1766INFO = *mut RFC1766INFO;
 pub type PSCRIPTFONTINFO = *mut SCRIPTFONTINFO;

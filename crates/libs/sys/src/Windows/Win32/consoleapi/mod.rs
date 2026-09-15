@@ -1,5 +1,5 @@
 windows_link::link!("kernel32.dll" "system" fn AllocConsole() -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn AllocConsoleWithOptions(options : *const ALLOC_CONSOLE_OPTIONS, result : *mut ALLOC_CONSOLE_RESULT) -> windows_sys::core::HRESULT);
+windows_link::link!("kernel32.dll" "system" fn AllocConsoleWithOptions(options : PALLOC_CONSOLE_OPTIONS, result : PALLOC_CONSOLE_RESULT) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn AttachConsole(dwprocessid : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "wincontypes")]
 windows_link::link!("kernel32.dll" "system" fn ClosePseudoConsole(hpc : super::HPCON));
@@ -7,23 +7,23 @@ windows_link::link!("kernel32.dll" "system" fn ClosePseudoConsole(hpc : super::H
 windows_link::link!("kernel32.dll" "system" fn CreatePseudoConsole(size : super::COORD, hinput : super::HANDLE, houtput : super::HANDLE, dwflags : u32, phpc : *mut super::HPCON) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn FreeConsole() -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleCP() -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn GetConsoleMode(hconsolehandle : super::HANDLE, lpmode : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetConsoleMode(hconsolehandle : super::HANDLE, lpmode : super::LPDWORD) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleOutputCP() -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn GetNumberOfConsoleInputEvents(hconsoleinput : super::HANDLE, lpnumberofevents : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn PeekConsoleInputA(hconsoleinput : super::HANDLE, lpbuffer : *mut super::INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn PeekConsoleInputW(hconsoleinput : super::HANDLE, lpbuffer : *mut super::INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn ReadConsoleA(hconsoleinput : super::HANDLE, lpbuffer : *mut core::ffi::c_void, nnumberofcharstoread : u32, lpnumberofcharsread : *mut u32, pinputcontrol : *const CONSOLE_READCONSOLE_CONTROL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn ReadConsoleInputA(hconsoleinput : super::HANDLE, lpbuffer : *mut super::INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn ReadConsoleInputW(hconsoleinput : super::HANDLE, lpbuffer : *mut super::INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn ReadConsoleW(hconsoleinput : super::HANDLE, lpbuffer : *mut core::ffi::c_void, nnumberofcharstoread : u32, lpnumberofcharsread : *mut u32, pinputcontrol : *const CONSOLE_READCONSOLE_CONTROL) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetNumberOfConsoleInputEvents(hconsoleinput : super::HANDLE, lpnumberofevents : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn PeekConsoleInputA(hconsoleinput : super::HANDLE, lpbuffer : super::PINPUT_RECORD, nlength : u32, lpnumberofeventsread : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn PeekConsoleInputW(hconsoleinput : super::HANDLE, lpbuffer : super::PINPUT_RECORD, nlength : u32, lpnumberofeventsread : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn ReadConsoleA(hconsoleinput : super::HANDLE, lpbuffer : *mut core::ffi::c_void, nnumberofcharstoread : u32, lpnumberofcharsread : super::LPDWORD, pinputcontrol : PCONSOLE_READCONSOLE_CONTROL) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn ReadConsoleInputA(hconsoleinput : super::HANDLE, lpbuffer : super::PINPUT_RECORD, nlength : u32, lpnumberofeventsread : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn ReadConsoleInputW(hconsoleinput : super::HANDLE, lpbuffer : super::PINPUT_RECORD, nlength : u32, lpnumberofeventsread : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn ReadConsoleW(hconsoleinput : super::HANDLE, lpbuffer : *mut core::ffi::c_void, nnumberofcharstoread : u32, lpnumberofcharsread : super::LPDWORD, pinputcontrol : PCONSOLE_READCONSOLE_CONTROL) -> windows_sys::core::BOOL);
 #[cfg(feature = "wincontypes")]
 windows_link::link!("kernel32.dll" "system" fn ReleasePseudoConsole(hpc : super::HPCON) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wincontypes")]
@@ -31,10 +31,10 @@ windows_link::link!("kernel32.dll" "system" fn ResizePseudoConsole(hpc : super::
 windows_link::link!("kernel32.dll" "system" fn SetConsoleCtrlHandler(handlerroutine : PHANDLER_ROUTINE, add : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn SetConsoleMode(hconsolehandle : super::HANDLE, dwmode : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn WriteConsoleA(hconsoleoutput : super::HANDLE, lpbuffer : *const core::ffi::c_void, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn WriteConsoleW(hconsoleoutput : super::HANDLE, lpbuffer : *const core::ffi::c_void, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn WriteConsoleA(hconsoleoutput : super::HANDLE, lpbuffer : *const core::ffi::c_void, nnumberofcharstowrite : u32, lpnumberofcharswritten : super::LPDWORD, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn WriteConsoleW(hconsoleoutput : super::HANDLE, lpbuffer : *const core::ffi::c_void, nnumberofcharstowrite : u32, lpnumberofcharswritten : super::LPDWORD, lpreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 pub type ALLOC_CONSOLE_MODE = i32;
 pub const ALLOC_CONSOLE_MODE_DEFAULT: ALLOC_CONSOLE_MODE = 0;
 pub const ALLOC_CONSOLE_MODE_NEW_WINDOW: ALLOC_CONSOLE_MODE = 1;

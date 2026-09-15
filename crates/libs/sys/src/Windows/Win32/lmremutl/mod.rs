@@ -1,4 +1,5 @@
-windows_link::link!("netapi32.dll" "system" fn NetRemoteComputerSupports(uncservername : windows_sys::core::PCWSTR, optionswanted : u32, optionssupported : *mut u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("netapi32.dll" "system" fn NetRemoteComputerSupports(uncservername : windows_sys::core::PCWSTR, optionswanted : u32, optionssupported : super::LPDWORD) -> u32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("netapi32.dll" "system" fn NetRemoteTOD(uncservername : windows_sys::core::PCWSTR, bufferptr : *mut super::LPBYTE) -> u32);
 pub const ALLOCATE_RESPONSE: i32 = 2;

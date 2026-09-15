@@ -1,6 +1,7 @@
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCompareStringOrdinal(string1 : windows_sys::core::HSTRING, string2 : windows_sys::core::HSTRING, result : *mut i32) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsConcatString(string1 : windows_sys::core::HSTRING, string2 : windows_sys::core::HSTRING, newstring : *mut windows_sys::core::HSTRING) -> windows_sys::core::HRESULT);
-windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateString(sourcestring : *const u16, length : u32, string : *mut windows_sys::core::HSTRING) -> windows_sys::core::HRESULT);
+#[cfg(feature = "winnt")]
+windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateString(sourcestring : super::PCNZWCH, length : u32, string : *mut windows_sys::core::HSTRING) -> windows_sys::core::HRESULT);
 #[cfg(feature = "hstring")]
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateStringReference(sourcestring : windows_sys::core::PCWSTR, length : u32, hstringheader : *mut super::HSTRING_HEADER, string : *mut windows_sys::core::HSTRING) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteString(string : windows_sys::core::HSTRING) -> windows_sys::core::HRESULT);

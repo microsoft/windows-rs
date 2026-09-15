@@ -68,7 +68,7 @@ windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateSensorProfile(profil
 windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateSensorProfileCollection(ppsensorprofile : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "mfobjects")]
 windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateSensorStream(streamid : u32, pattributes : *mut core::ffi::c_void, pmediatypecollection : *mut core::ffi::c_void, ppstream : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("mf.dll" "system" fn MFCreateSequencerSegmentOffset(dwid : MFSequencerElementId, hnsoffset : MFTIME, pvarsegmentoffset : *mut super::PROPVARIANT) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFCreateSequencerSource(preserved : *mut core::ffi::c_void, ppsequencersource : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFCreateSimpleTypeHandler(pphandler : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -104,9 +104,9 @@ windows_link::link!("mfplat.dll" "system" fn MFDeserializePresentationDescriptor
 windows_link::link!("mf.dll" "system" fn MFEnumDeviceSources(pattributes : *mut core::ffi::c_void, pppsourceactivate : *mut *mut *mut core::ffi::c_void, pcsourceactivate : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFGetLocalId(verifier : *const u8, size : u32, id : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFGetService(punkobject : *mut core::ffi::c_void, guidservice : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("mfplat.dll" "system" fn MFGetSupportedMimeTypes(ppropvarmimetypearray : *mut super::PROPVARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("mfplat.dll" "system" fn MFGetSupportedSchemes(ppropvarschemearray : *mut super::PROPVARIANT) -> windows_sys::core::HRESULT);
 windows_link::link!("mf.dll" "system" fn MFGetSystemId(ppid : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("mfplat.dll" "system" fn MFGetSystemTime() -> MFTIME);
@@ -236,33 +236,36 @@ impl Default for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
 }
 pub const MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA_FUNCTIONID: i32 = 67108864;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct MFCameraIntrinsic_CameraModel {
-    pub FocalLength_x: f32,
-    pub FocalLength_y: f32,
-    pub PrincipalPoint_x: f32,
-    pub PrincipalPoint_y: f32,
+    pub FocalLength_x: super::FLOAT,
+    pub FocalLength_y: super::FLOAT,
+    pub PrincipalPoint_x: super::FLOAT,
+    pub PrincipalPoint_y: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct MFCameraIntrinsic_DistortionModel6KT {
-    pub Radial_k1: f32,
-    pub Radial_k2: f32,
-    pub Radial_k3: f32,
-    pub Radial_k4: f32,
-    pub Radial_k5: f32,
-    pub Radial_k6: f32,
-    pub Tangential_p1: f32,
-    pub Tangential_p2: f32,
+    pub Radial_k1: super::FLOAT,
+    pub Radial_k2: super::FLOAT,
+    pub Radial_k3: super::FLOAT,
+    pub Radial_k4: super::FLOAT,
+    pub Radial_k5: super::FLOAT,
+    pub Radial_k6: super::FLOAT,
+    pub Tangential_p1: super::FLOAT,
+    pub Tangential_p2: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct MFCameraIntrinsic_DistortionModelArcTan {
-    pub Radial_k0: f32,
-    pub DistortionCenter_x: f32,
-    pub DistortionCenter_y: f32,
-    pub Tangential_x: f32,
-    pub Tangential_y: f32,
+    pub Radial_k0: super::FLOAT,
+    pub DistortionCenter_x: super::FLOAT,
+    pub DistortionCenter_y: super::FLOAT,
+    pub Tangential_x: super::FLOAT,
+    pub Tangential_y: super::FLOAT,
 }
 pub type MFCameraIntrinsic_DistortionModelType = i32;
 pub const MFCameraIntrinsic_DistortionModelType_6KT: MFCameraIntrinsic_DistortionModelType = 0;
@@ -272,6 +275,7 @@ pub const MFCameraOcclusionState_OccludedByCameraHardware: MFCameraOcclusionStat
 pub const MFCameraOcclusionState_OccludedByLid: MFCameraOcclusionState = 1;
 pub const MFCameraOcclusionState_Open: MFCameraOcclusionState = 0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct MFExtendedCameraIntrinsic_IntrinsicModel {
     pub Width: u32,
@@ -529,8 +533,8 @@ pub const MFVideoSphericalFormat_Unsupported: MFVideoSphericalFormat = 0;
 pub type MFVideoSphericalProjectionMode = i32;
 pub const MFVideoSphericalProjectionMode_Flat: MFVideoSphericalProjectionMode = 1;
 pub const MFVideoSphericalProjectionMode_Spherical: MFVideoSphericalProjectionMode = 0;
-pub const MF_ACTIVATE_CUSTOM_MIXER_ALLOWFAIL: i32 = 1;
-pub const MF_ACTIVATE_CUSTOM_PRESENTER_ALLOWFAIL: i32 = 1;
+pub const MF_ACTIVATE_CUSTOM_MIXER_ALLOWFAIL: __MIDL___MIDL_itf_mfidl_0000_0029_0001 = 1;
+pub const MF_ACTIVATE_CUSTOM_PRESENTER_ALLOWFAIL: __MIDL___MIDL_itf_mfidl_0000_0029_0002 = 1;
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_CROSSPROCESS: i32 = 1;
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_DONT_ALLOW_FORMAT_CHANGES: i32 = 4;
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_NOPERSIST: i32 = 2;
@@ -643,17 +647,17 @@ pub const MF_QUALITY_NORMAL_MINUS_2: MF_QUALITY_LEVEL = 2;
 pub const MF_QUALITY_NORMAL_MINUS_3: MF_QUALITY_LEVEL = 3;
 pub const MF_QUALITY_NORMAL_MINUS_4: MF_QUALITY_LEVEL = 4;
 pub const MF_QUALITY_NORMAL_MINUS_5: MF_QUALITY_LEVEL = 5;
-pub const MF_RESOLUTION_BYTESTREAM: i32 = 2;
-pub const MF_RESOLUTION_CONTENT_DOES_NOT_HAVE_TO_MATCH_EXTENSION_OR_MIME_TYPE: i32 = 16;
-pub const MF_RESOLUTION_DISABLE_LOCAL_PLUGINS: i32 = 64;
-pub const MF_RESOLUTION_ENABLE_STORE_PLUGINS: i32 = 1024;
-pub const MF_RESOLUTION_KEEP_BYTE_STREAM_ALIVE_ON_FAIL: i32 = 32;
-pub const MF_RESOLUTION_MEDIASOURCE: i32 = 1;
-pub const MF_RESOLUTION_PLUGIN_CONTROL_POLICY_APPROVED_ONLY: i32 = 128;
-pub const MF_RESOLUTION_PLUGIN_CONTROL_POLICY_WEB_ONLY: i32 = 256;
-pub const MF_RESOLUTION_PLUGIN_CONTROL_POLICY_WEB_ONLY_EDGEMODE: i32 = 512;
-pub const MF_RESOLUTION_READ: i32 = 65536;
-pub const MF_RESOLUTION_WRITE: i32 = 131072;
+pub const MF_RESOLUTION_BYTESTREAM: __MIDL___MIDL_itf_mfidl_0000_0001_0001 = 2;
+pub const MF_RESOLUTION_CONTENT_DOES_NOT_HAVE_TO_MATCH_EXTENSION_OR_MIME_TYPE: __MIDL___MIDL_itf_mfidl_0000_0001_0001 = 16;
+pub const MF_RESOLUTION_DISABLE_LOCAL_PLUGINS: __MIDL___MIDL_itf_mfidl_0000_0001_0001 = 64;
+pub const MF_RESOLUTION_ENABLE_STORE_PLUGINS: __MIDL___MIDL_itf_mfidl_0000_0001_0001 = 1024;
+pub const MF_RESOLUTION_KEEP_BYTE_STREAM_ALIVE_ON_FAIL: __MIDL___MIDL_itf_mfidl_0000_0001_0001 = 32;
+pub const MF_RESOLUTION_MEDIASOURCE: __MIDL___MIDL_itf_mfidl_0000_0001_0001 = 1;
+pub const MF_RESOLUTION_PLUGIN_CONTROL_POLICY_APPROVED_ONLY: __MIDL___MIDL_itf_mfidl_0000_0001_0001 = 128;
+pub const MF_RESOLUTION_PLUGIN_CONTROL_POLICY_WEB_ONLY: __MIDL___MIDL_itf_mfidl_0000_0001_0001 = 256;
+pub const MF_RESOLUTION_PLUGIN_CONTROL_POLICY_WEB_ONLY_EDGEMODE: __MIDL___MIDL_itf_mfidl_0000_0001_0001 = 512;
+pub const MF_RESOLUTION_READ: __MIDL___MIDL_itf_mfidl_0000_0001_0001 = 65536;
+pub const MF_RESOLUTION_WRITE: __MIDL___MIDL_itf_mfidl_0000_0001_0001 = 131072;
 pub const MF_SD_SUPPORTS_PROTECTED_CODEC_SWITCH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fb6b117_862e_4b31_8dab_5e0a434caef0);
 pub const MF_TEST_SIGNED_COMPONENT_LOADING: i32 = 16777216;
 pub const MF_TOPOLOGY_MAX: MF_TOPOLOGY_TYPE = -1;
@@ -748,3 +752,6 @@ pub const SHA_HASH_LEN: i32 = 20;
 pub const STR_HASH_LEN: i32 = 43;
 pub const SequencerTopologyFlags_Last: MFSequencerTopologyFlags = 1;
 pub type TOPOID = u64;
+pub type __MIDL___MIDL_itf_mfidl_0000_0001_0001 = i32;
+pub type __MIDL___MIDL_itf_mfidl_0000_0029_0001 = i32;
+pub type __MIDL___MIDL_itf_mfidl_0000_0029_0002 = i32;

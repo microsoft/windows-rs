@@ -5,6 +5,7 @@ pub const IP_MARGIN: i32 = 4;
 pub const MAX_PACKET_BUTTON_COUNT: i32 = 32;
 pub const MAX_PACKET_PROPERTY_COUNT: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct PACKET_DESCRIPTION {
     pub cbPacketSize: u32,
@@ -14,22 +15,27 @@ pub struct PACKET_DESCRIPTION {
     pub pguidButtons: *mut windows_sys::core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct PACKET_PROPERTY {
     pub guid: windows_sys::core::GUID,
     pub PropertyMetrics: PROPERTY_METRICS,
 }
+#[cfg(feature = "minwindef")]
 pub type PPACKET_DESCRIPTION = *mut PACKET_DESCRIPTION;
+#[cfg(feature = "minwindef")]
 pub type PPACKET_PROPERTY = *mut PACKET_PROPERTY;
+#[cfg(feature = "minwindef")]
 pub type PPROPERTY_METRICS = *mut PROPERTY_METRICS;
 pub type PPROPERTY_UNITS = *mut PROPERTY_UNITS;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct PROPERTY_METRICS {
     pub nLogicalMin: i32,
     pub nLogicalMax: i32,
     pub Units: PROPERTY_UNITS,
-    pub fResolution: f32,
+    pub fResolution: super::FLOAT,
 }
 pub type PROPERTY_UNITS = i32;
 pub const PROPERTY_UNITS_AMPERE: PROPERTY_UNITS = 15;

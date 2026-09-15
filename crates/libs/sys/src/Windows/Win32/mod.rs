@@ -7,6 +7,10 @@ pub use accctrl::*;
 pub mod aclapi;
 #[cfg(feature = "aclapi")]
 pub use aclapi::*;
+#[cfg(feature = "activation")]
+pub mod activation;
+#[cfg(feature = "activation")]
+pub use activation::*;
 #[cfg(feature = "activationregistration")]
 pub mod activationregistration;
 #[cfg(feature = "activationregistration")]
@@ -35,6 +39,10 @@ pub use amvideo::*;
 pub mod appmodel;
 #[cfg(feature = "appmodel")]
 pub use appmodel::*;
+#[cfg(feature = "appserviceinterop")]
+pub mod appserviceinterop;
+#[cfg(feature = "appserviceinterop")]
+pub use appserviceinterop::*;
 #[cfg(feature = "appxpackaging")]
 pub mod appxpackaging;
 #[cfg(feature = "appxpackaging")]
@@ -635,6 +643,10 @@ pub use hidusage::*;
 pub mod hlink;
 #[cfg(feature = "hlink")]
 pub use hlink::*;
+#[cfg(feature = "holographicspaceinterop")]
+pub mod holographicspaceinterop;
+#[cfg(feature = "holographicspaceinterop")]
+pub use holographicspaceinterop::*;
 #[cfg(feature = "hstring")]
 pub mod hstring;
 #[cfg(feature = "hstring")]
@@ -1491,6 +1503,10 @@ pub use sensapi::*;
 pub mod sensorsapi;
 #[cfg(feature = "sensorsapi")]
 pub use sensorsapi::*;
+#[cfg(feature = "servprov")]
+pub mod servprov;
+#[cfg(feature = "servprov")]
+pub use servprov::*;
 #[cfg(feature = "setupapi")]
 pub mod setupapi;
 #[cfg(feature = "setupapi")]

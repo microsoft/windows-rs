@@ -4,119 +4,120 @@ windows_link::link!("wlanapi.dll" "system" fn WFDCancelOpenSession(hsessionhandl
 windows_link::link!("wlanapi.dll" "system" fn WFDCloseHandle(hclienthandle : super::HANDLE) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("wlanapi.dll" "system" fn WFDCloseSession(hsessionhandle : super::HANDLE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WFDOpenHandle(dwclientversion : u32, pdwnegotiatedversion : *mut u32, phclienthandle : *mut super::HANDLE) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wlanapi.dll" "system" fn WFDOpenHandle(dwclientversion : u32, pdwnegotiatedversion : super::PDWORD, phclienthandle : super::PHANDLE) -> u32);
 #[cfg(all(feature = "windot11", feature = "winnt"))]
-windows_link::link!("wlanapi.dll" "system" fn WFDOpenLegacySession(hclienthandle : super::HANDLE, plegacymacaddress : *const super::DOT11_MAC_ADDRESS, phsessionhandle : *mut super::HANDLE, pguidsessioninterface : *mut windows_sys::core::GUID) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WFDOpenLegacySession(hclienthandle : super::HANDLE, plegacymacaddress : super::PDOT11_MAC_ADDRESS, phsessionhandle : *mut super::HANDLE, pguidsessioninterface : *mut windows_sys::core::GUID) -> u32);
 #[cfg(all(feature = "windot11", feature = "winnt"))]
-windows_link::link!("wlanapi.dll" "system" fn WFDStartOpenSession(hclienthandle : super::HANDLE, pdeviceaddress : *const super::DOT11_MAC_ADDRESS, pvcontext : *const core::ffi::c_void, pfncallback : WFD_OPEN_SESSION_COMPLETE_CALLBACK, phsessionhandle : *mut super::HANDLE) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WFDStartOpenSession(hclienthandle : super::HANDLE, pdeviceaddress : super::PDOT11_MAC_ADDRESS, pvcontext : *const core::ffi::c_void, pfncallback : WFD_OPEN_SESSION_COMPLETE_CALLBACK, phsessionhandle : super::PHANDLE) -> u32);
 #[cfg(feature = "windot11")]
-windows_link::link!("wlanapi.dll" "system" fn WFDUpdateDeviceVisibility(pdeviceaddress : *const super::DOT11_MAC_ADDRESS) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WFDUpdateDeviceVisibility(pdeviceaddress : super::PDOT11_MAC_ADDRESS) -> u32);
 windows_link::link!("wlanapi.dll" "system" fn WlanAllocateMemory(dwmemorysize : u32) -> *mut core::ffi::c_void);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanCloseHandle(hclienthandle : super::HANDLE, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanCloseHandle(hclienthandle : super::HANDLE, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(all(feature = "objectheader", feature = "windot11", feature = "winnt"))]
-windows_link::link!("wlanapi.dll" "system" fn WlanConnect(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pconnectionparameters : *const WLAN_CONNECTION_PARAMETERS, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanConnect(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pconnectionparameters : PWLAN_CONNECTION_PARAMETERS, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(all(feature = "objectheader", feature = "windot11", feature = "winnt"))]
-windows_link::link!("wlanapi.dll" "system" fn WlanConnect2(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pconnectionparameters : *const WLAN_CONNECTION_PARAMETERS_V2, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanConnect2(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pconnectionparameters : PWLAN_CONNECTION_PARAMETERS_V2, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanDeleteProfile(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanDeleteProfile(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, preserved : *mut core::ffi::c_void) -> u32);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wlanapi.dll" "system" fn WlanDeviceServiceCommand(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pdeviceserviceguid : super::LPGUID, dwopcode : u32, dwinbuffersize : u32, pinbuffer : *const core::ffi::c_void, dwoutbuffersize : u32, poutbuffer : *mut core::ffi::c_void, pdwbytesreturned : super::PDWORD) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanDeviceServiceCommand(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pdeviceserviceguid : *const windows_sys::core::GUID, dwopcode : u32, dwinbuffersize : u32, pinbuffer : *const core::ffi::c_void, dwoutbuffersize : u32, poutbuffer : *mut core::ffi::c_void, pdwbytesreturned : *mut u32) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanDisconnect(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanDisconnect(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, preserved : *const core::ffi::c_void) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanEnumInterfaces(hclienthandle : super::HANDLE, preserved : *const core::ffi::c_void, ppinterfacelist : *mut PWLAN_INTERFACE_INFO_LIST) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanExtractPsdIEDataList(hclienthandle : super::HANDLE, dwiedatasize : u32, prawiedata : *const u8, strformat : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void, pppsdiedatalist : *mut PWLAN_RAW_DATA_LIST) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanEnumInterfaces(hclienthandle : super::HANDLE, preserved : *mut core::ffi::c_void, ppinterfacelist : *mut PWLAN_INTERFACE_INFO_LIST) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wlanapi.dll" "system" fn WlanExtractPsdIEDataList(hclienthandle : super::HANDLE, dwiedatasize : u32, prawiedata : super::PBYTE, strformat : windows_sys::core::PCWSTR, preserved : *mut core::ffi::c_void, pppsdiedatalist : *mut PWLAN_RAW_DATA_LIST) -> u32);
 windows_link::link!("wlanapi.dll" "system" fn WlanFreeMemory(pmemory : *const core::ffi::c_void));
 #[cfg(all(feature = "windot11", feature = "winnt"))]
-windows_link::link!("wlanapi.dll" "system" fn WlanGetAvailableNetworkList(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, dwflags : u32, preserved : *const core::ffi::c_void, ppavailablenetworklist : *mut PWLAN_AVAILABLE_NETWORK_LIST) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanGetAvailableNetworkList(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, dwflags : u32, preserved : *mut core::ffi::c_void, ppavailablenetworklist : *mut PWLAN_AVAILABLE_NETWORK_LIST) -> u32);
 #[cfg(all(feature = "windot11", feature = "winnt"))]
-windows_link::link!("wlanapi.dll" "system" fn WlanGetAvailableNetworkList2(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, dwflags : u32, preserved : *const core::ffi::c_void, ppavailablenetworklist : *mut PWLAN_AVAILABLE_NETWORK_LIST_V2) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanGetAvailableNetworkList2(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, dwflags : u32, preserved : *mut core::ffi::c_void, ppavailablenetworklist : *mut PWLAN_AVAILABLE_NETWORK_LIST_V2) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanGetFilterList(hclienthandle : super::HANDLE, wlanfilterlisttype : WLAN_FILTER_LIST_TYPE, preserved : *const core::ffi::c_void, ppnetworklist : *mut PDOT11_NETWORK_LIST) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanGetFilterList(hclienthandle : super::HANDLE, wlanfilterlisttype : WLAN_FILTER_LIST_TYPE, preserved : *mut core::ffi::c_void, ppnetworklist : *mut PDOT11_NETWORK_LIST) -> u32);
 #[cfg(all(feature = "windot11", feature = "winnt"))]
-windows_link::link!("wlanapi.dll" "system" fn WlanGetInterfaceCapability(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, preserved : *const core::ffi::c_void, ppcapability : *mut PWLAN_INTERFACE_CAPABILITY) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanGetInterfaceCapability(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, preserved : *mut core::ffi::c_void, ppcapability : *mut PWLAN_INTERFACE_CAPABILITY) -> u32);
 #[cfg(all(feature = "windot11", feature = "winnt"))]
-windows_link::link!("wlanapi.dll" "system" fn WlanGetNetworkBssList(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pdot11ssid : *const DOT11_SSID, dot11bsstype : DOT11_BSS_TYPE, bsecurityenabled : windows_sys::core::BOOL, preserved : *const core::ffi::c_void, ppwlanbsslist : *mut PWLAN_BSS_LIST) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanGetNetworkBssList(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pdot11ssid : PDOT11_SSID, dot11bsstype : DOT11_BSS_TYPE, bsecurityenabled : windows_sys::core::BOOL, preserved : *mut core::ffi::c_void, ppwlanbsslist : *mut PWLAN_BSS_LIST) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanGetProfile(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void, pstrprofilexml : *mut windows_sys::core::PWSTR, pdwflags : *mut u32, pdwgrantedaccess : *mut u32) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanGetProfile(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, preserved : *mut core::ffi::c_void, pstrprofilexml : *mut windows_sys::core::PWSTR, pdwflags : *mut u32, pdwgrantedaccess : *mut u32) -> u32);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wlanapi.dll" "system" fn WlanGetProfileCustomUserData(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut super::PBYTE) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanGetProfileCustomUserData(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, preserved : *mut core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut super::PBYTE) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanGetProfileList(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, preserved : *const core::ffi::c_void, ppprofilelist : *mut PWLAN_PROFILE_INFO_LIST) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanGetSecuritySettings(hclienthandle : super::HANDLE, securableobject : WLAN_SECURABLE_OBJECT, pvaluetype : *mut WLAN_OPCODE_VALUE_TYPE, pstrcurrentsddl : *mut windows_sys::core::PWSTR, pdwgrantedaccess : *mut u32) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanGetProfileList(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, preserved : *mut core::ffi::c_void, ppprofilelist : *mut PWLAN_PROFILE_INFO_LIST) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wlanapi.dll" "system" fn WlanGetSecuritySettings(hclienthandle : super::HANDLE, securableobject : WLAN_SECURABLE_OBJECT, pvaluetype : PWLAN_OPCODE_VALUE_TYPE, pstrcurrentsddl : *mut windows_sys::core::PWSTR, pdwgrantedaccess : super::PDWORD) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("wlanapi.dll" "system" fn WlanGetSupportedDeviceServices(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, ppdevsvcguidlist : *mut PWLAN_DEVICE_SERVICE_GUID_LIST) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkForceStart(hclienthandle : super::HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkForceStart(hclienthandle : super::HANDLE, pfailreason : PWLAN_HOSTED_NETWORK_REASON, pvreserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkForceStop(hclienthandle : super::HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkForceStop(hclienthandle : super::HANDLE, pfailreason : PWLAN_HOSTED_NETWORK_REASON, pvreserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkInitSettings(hclienthandle : super::HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkQueryProperty(hclienthandle : super::HANDLE, opcode : WLAN_HOSTED_NETWORK_OPCODE, pdwdatasize : *mut u32, ppvdata : *mut *mut core::ffi::c_void, pwlanopcodevaluetype : *mut WLAN_OPCODE_VALUE_TYPE, pvreserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkInitSettings(hclienthandle : super::HANDLE, pfailreason : PWLAN_HOSTED_NETWORK_REASON, pvreserved : *mut core::ffi::c_void) -> u32);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkQuerySecondaryKey(hclienthandle : super::HANDLE, pdwkeylength : *mut u32, ppuckeydata : *mut super::PUCHAR, pbispassphrase : *mut windows_sys::core::BOOL, pbpersistent : *mut windows_sys::core::BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkQueryProperty(hclienthandle : super::HANDLE, opcode : WLAN_HOSTED_NETWORK_OPCODE, pdwdatasize : super::PDWORD, ppvdata : *mut *mut core::ffi::c_void, pwlanopcodevaluetype : PWLAN_OPCODE_VALUE_TYPE, pvreserved : *mut core::ffi::c_void) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkQuerySecondaryKey(hclienthandle : super::HANDLE, pdwkeylength : super::PDWORD, ppuckeydata : *mut super::PUCHAR, pbispassphrase : super::PBOOL, pbpersistent : super::PBOOL, pfailreason : PWLAN_HOSTED_NETWORK_REASON, pvreserved : *mut core::ffi::c_void) -> u32);
 #[cfg(all(feature = "windot11", feature = "winnt"))]
-windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkQueryStatus(hclienthandle : super::HANDLE, ppwlanhostednetworkstatus : *mut PWLAN_HOSTED_NETWORK_STATUS, pvreserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkQueryStatus(hclienthandle : super::HANDLE, ppwlanhostednetworkstatus : *mut PWLAN_HOSTED_NETWORK_STATUS, pvreserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkRefreshSecuritySettings(hclienthandle : super::HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkRefreshSecuritySettings(hclienthandle : super::HANDLE, pfailreason : PWLAN_HOSTED_NETWORK_REASON, pvreserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetProperty(hclienthandle : super::HANDLE, opcode : WLAN_HOSTED_NETWORK_OPCODE, dwdatasize : u32, pvdata : *const core::ffi::c_void, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetProperty(hclienthandle : super::HANDLE, opcode : WLAN_HOSTED_NETWORK_OPCODE, dwdatasize : u32, pvdata : *const core::ffi::c_void, pfailreason : PWLAN_HOSTED_NETWORK_REASON, pvreserved : *mut core::ffi::c_void) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetSecondaryKey(hclienthandle : super::HANDLE, dwkeylength : u32, puckeydata : super::PUCHAR, bispassphrase : windows_sys::core::BOOL, bpersistent : windows_sys::core::BOOL, pfailreason : PWLAN_HOSTED_NETWORK_REASON, pvreserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetSecondaryKey(hclienthandle : super::HANDLE, dwkeylength : u32, puckeydata : *const u8, bispassphrase : windows_sys::core::BOOL, bpersistent : windows_sys::core::BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkStartUsing(hclienthandle : super::HANDLE, pfailreason : PWLAN_HOSTED_NETWORK_REASON, pvreserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkStartUsing(hclienthandle : super::HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkStopUsing(hclienthandle : super::HANDLE, pfailreason : PWLAN_HOSTED_NETWORK_REASON, pvreserved : *mut core::ffi::c_void) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wlanapi.dll" "system" fn WlanIhvControl(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, r#type : WLAN_IHV_CONTROL_TYPE, dwinbuffersize : u32, pinbuffer : *const core::ffi::c_void, dwoutbuffersize : u32, poutbuffer : *mut core::ffi::c_void, pdwbytesreturned : super::PDWORD) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wlanapi.dll" "system" fn WlanOpenHandle(dwclientversion : u32, preserved : *mut core::ffi::c_void, pdwnegotiatedversion : super::PDWORD, phclienthandle : super::PHANDLE) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wlanapi.dll" "system" fn WlanQueryAutoConfigParameter(hclienthandle : super::HANDLE, opcode : WLAN_AUTOCONF_OPCODE, preserved : *mut core::ffi::c_void, pdwdatasize : super::PDWORD, ppdata : *mut *mut core::ffi::c_void, pwlanopcodevaluetype : PWLAN_OPCODE_VALUE_TYPE) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wlanapi.dll" "system" fn WlanQueryInterface(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, opcode : WLAN_INTF_OPCODE, preserved : *mut core::ffi::c_void, pdwdatasize : super::PDWORD, ppdata : *mut *mut core::ffi::c_void, pwlanopcodevaluetype : PWLAN_OPCODE_VALUE_TYPE) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanHostedNetworkStopUsing(hclienthandle : super::HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanReasonCodeToString(dwreasoncode : u32, dwbuffersize : u32, pstringbuffer : super::PWCHAR, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanIhvControl(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, r#type : WLAN_IHV_CONTROL_TYPE, dwinbuffersize : u32, pinbuffer : *const core::ffi::c_void, dwoutbuffersize : u32, poutbuffer : *mut core::ffi::c_void, pdwbytesreturned : *mut u32) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanRegisterDeviceServiceNotification(hclienthandle : super::HANDLE, pdevsvcguidlist : PWLAN_DEVICE_SERVICE_GUID_LIST) -> u32);
+#[cfg(all(feature = "l2cmn", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wlanapi.dll" "system" fn WlanRegisterNotification(hclienthandle : super::HANDLE, dwnotifsource : u32, bignoreduplicate : windows_sys::core::BOOL, funccallback : WLAN_NOTIFICATION_CALLBACK, pcallbackcontext : *const core::ffi::c_void, preserved : *mut core::ffi::c_void, pdwprevnotifsource : super::PDWORD) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanOpenHandle(dwclientversion : u32, preserved : *const core::ffi::c_void, pdwnegotiatedversion : *mut u32, phclienthandle : *mut super::HANDLE) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanRegisterVirtualStationNotification(hclienthandle : super::HANDLE, bregister : windows_sys::core::BOOL, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanQueryAutoConfigParameter(hclienthandle : super::HANDLE, opcode : WLAN_AUTOCONF_OPCODE, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut core::ffi::c_void, pwlanopcodevaluetype : *mut WLAN_OPCODE_VALUE_TYPE) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanRenameProfile(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, stroldprofilename : windows_sys::core::PCWSTR, strnewprofilename : windows_sys::core::PCWSTR, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanQueryInterface(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, opcode : WLAN_INTF_OPCODE, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut core::ffi::c_void, pwlanopcodevaluetype : *mut WLAN_OPCODE_VALUE_TYPE) -> u32);
-windows_link::link!("wlanapi.dll" "system" fn WlanReasonCodeToString(dwreasoncode : u32, dwbuffersize : u32, pstringbuffer : *const u16, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanSaveTemporaryProfile(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, stralluserprofilesecurity : windows_sys::core::PCWSTR, dwflags : u32, boverwrite : windows_sys::core::BOOL, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanRegisterDeviceServiceNotification(hclienthandle : super::HANDLE, pdevsvcguidlist : *const WLAN_DEVICE_SERVICE_GUID_LIST) -> u32);
-#[cfg(all(feature = "l2cmn", feature = "winnt"))]
-windows_link::link!("wlanapi.dll" "system" fn WlanRegisterNotification(hclienthandle : super::HANDLE, dwnotifsource : u32, bignoreduplicate : windows_sys::core::BOOL, funccallback : WLAN_NOTIFICATION_CALLBACK, pcallbackcontext : *const core::ffi::c_void, preserved : *const core::ffi::c_void, pdwprevnotifsource : *mut u32) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanScan(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pdot11ssid : PDOT11_SSID, piedata : PWLAN_RAW_DATA, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanRegisterVirtualStationNotification(hclienthandle : super::HANDLE, bregister : windows_sys::core::BOOL, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanSetAutoConfigParameter(hclienthandle : super::HANDLE, opcode : WLAN_AUTOCONF_OPCODE, dwdatasize : u32, pdata : *const core::ffi::c_void, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanRenameProfile(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, stroldprofilename : windows_sys::core::PCWSTR, strnewprofilename : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanSetFilterList(hclienthandle : super::HANDLE, wlanfilterlisttype : WLAN_FILTER_LIST_TYPE, pnetworklist : PDOT11_NETWORK_LIST, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanSaveTemporaryProfile(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, stralluserprofilesecurity : windows_sys::core::PCWSTR, dwflags : u32, boverwrite : windows_sys::core::BOOL, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanSetInterface(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, opcode : WLAN_INTF_OPCODE, dwdatasize : u32, pdata : *const core::ffi::c_void, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanScan(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, pdot11ssid : *const DOT11_SSID, piedata : *const WLAN_RAW_DATA, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanSetProfile(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, dwflags : u32, strprofilexml : windows_sys::core::PCWSTR, stralluserprofilesecurity : windows_sys::core::PCWSTR, boverwrite : windows_sys::core::BOOL, preserved : *mut core::ffi::c_void, pdwreasoncode : *mut u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wlanapi.dll" "system" fn WlanSetProfileCustomUserData(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, dwdatasize : u32, pdata : super::PBYTE, preserved : *mut core::ffi::c_void) -> u32);
+#[cfg(all(feature = "eaptypes", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("wlanapi.dll" "system" fn WlanSetProfileEapUserData(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, eaptype : super::EAP_METHOD_TYPE, dwflags : u32, dweapuserdatasize : u32, pbeapuserdata : super::LPBYTE, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanSetAutoConfigParameter(hclienthandle : super::HANDLE, opcode : WLAN_AUTOCONF_OPCODE, dwdatasize : u32, pdata : *const core::ffi::c_void, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanSetProfileEapXmlUserData(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, dwflags : u32, streapxmluserdata : windows_sys::core::PCWSTR, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanSetFilterList(hclienthandle : super::HANDLE, wlanfilterlisttype : WLAN_FILTER_LIST_TYPE, pnetworklist : *const DOT11_NETWORK_LIST, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanSetProfileList(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, dwitems : u32, strprofilenames : *const windows_sys::core::PCWSTR, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanSetInterface(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, opcode : WLAN_INTF_OPCODE, dwdatasize : u32, pdata : *const core::ffi::c_void, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanSetProfilePosition(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, dwposition : u32, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanSetProfile(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, dwflags : u32, strprofilexml : windows_sys::core::PCWSTR, stralluserprofilesecurity : windows_sys::core::PCWSTR, boverwrite : windows_sys::core::BOOL, preserved : *const core::ffi::c_void, pdwreasoncode : *mut u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanSetProfileCustomUserData(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, dwdatasize : u32, pdata : *const u8, preserved : *const core::ffi::c_void) -> u32);
-#[cfg(all(feature = "eaptypes", feature = "winnt"))]
-windows_link::link!("wlanapi.dll" "system" fn WlanSetProfileEapUserData(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, eaptype : super::EAP_METHOD_TYPE, dwflags : u32, dweapuserdatasize : u32, pbeapuserdata : *const u8, preserved : *const core::ffi::c_void) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanSetProfileEapXmlUserData(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, dwflags : u32, streapxmluserdata : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanSetProfileList(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, dwitems : u32, strprofilenames : *const windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanSetProfilePosition(hclienthandle : super::HANDLE, pinterfaceguid : *const windows_sys::core::GUID, strprofilename : windows_sys::core::PCWSTR, dwposition : u32, preserved : *const core::ffi::c_void) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("wlanapi.dll" "system" fn WlanSetPsdIEDataList(hclienthandle : super::HANDLE, strformat : windows_sys::core::PCWSTR, ppsdiedatalist : *const WLAN_RAW_DATA_LIST, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("wlanapi.dll" "system" fn WlanSetPsdIEDataList(hclienthandle : super::HANDLE, strformat : windows_sys::core::PCWSTR, ppsdiedatalist : PWLAN_RAW_DATA_LIST, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("wlanapi.dll" "system" fn WlanSetSecuritySettings(hclienthandle : super::HANDLE, securableobject : WLAN_SECURABLE_OBJECT, strmodifiedsddl : windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "windef")]
-windows_link::link!("wlanui.dll" "system" fn WlanUIEditProfile(dwclientversion : u32, wstrprofilename : windows_sys::core::PCWSTR, pinterfaceguid : *const windows_sys::core::GUID, hwnd : super::HWND, wlstartpage : WL_DISPLAY_PAGES, preserved : *const core::ffi::c_void, pwlanreasoncode : *mut u32) -> u32);
+windows_link::link!("wlanui.dll" "system" fn WlanUIEditProfile(dwclientversion : u32, wstrprofilename : windows_sys::core::PCWSTR, pinterfaceguid : *const windows_sys::core::GUID, hwnd : super::HWND, wlstartpage : WL_DISPLAY_PAGES, preserved : *mut core::ffi::c_void, pwlanreasoncode : PWLAN_REASON_CODE) -> u32);
 #[cfg(feature = "devpropdef")]
 pub const DEVPKEY_InfraCast_AccessPointBssid: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 19 };
 #[cfg(feature = "devpropdef")]
@@ -205,18 +206,18 @@ pub struct DOT11_ACCESSNETWORKOPTIONS {
     pub UESA: u8,
 }
 pub type DOT11_AUTH_ALGORITHM = i32;
-pub const DOT11_AUTH_ALGORITHM_OPEN_SYSTEM: i32 = 1;
-pub const DOT11_AUTH_ALGORITHM_OWE: i32 = 10;
-pub const DOT11_AUTH_ALGORITHM_RSNA: i32 = 6;
-pub const DOT11_AUTH_ALGORITHM_RSNA_PSK: i32 = 7;
-pub const DOT11_AUTH_ALGORITHM_SHARED_KEY: i32 = 2;
-pub const DOT11_AUTH_ALGORITHM_WPA: i32 = 3;
-pub const DOT11_AUTH_ALGORITHM_WPA3: i32 = 8;
-pub const DOT11_AUTH_ALGORITHM_WPA3_ENT: i32 = 11;
-pub const DOT11_AUTH_ALGORITHM_WPA3_ENT_192: i32 = 8;
-pub const DOT11_AUTH_ALGORITHM_WPA3_SAE: i32 = 9;
-pub const DOT11_AUTH_ALGORITHM_WPA_NONE: i32 = 5;
-pub const DOT11_AUTH_ALGORITHM_WPA_PSK: i32 = 4;
+pub const DOT11_AUTH_ALGORITHM_OPEN_SYSTEM: DOT11_AUTH_ALGORITHM = 1;
+pub const DOT11_AUTH_ALGORITHM_OWE: DOT11_AUTH_ALGORITHM = 10;
+pub const DOT11_AUTH_ALGORITHM_RSNA: DOT11_AUTH_ALGORITHM = 6;
+pub const DOT11_AUTH_ALGORITHM_RSNA_PSK: DOT11_AUTH_ALGORITHM = 7;
+pub const DOT11_AUTH_ALGORITHM_SHARED_KEY: DOT11_AUTH_ALGORITHM = 2;
+pub const DOT11_AUTH_ALGORITHM_WPA: DOT11_AUTH_ALGORITHM = 3;
+pub const DOT11_AUTH_ALGORITHM_WPA3: DOT11_AUTH_ALGORITHM = 8;
+pub const DOT11_AUTH_ALGORITHM_WPA3_ENT: DOT11_AUTH_ALGORITHM = 11;
+pub const DOT11_AUTH_ALGORITHM_WPA3_ENT_192: DOT11_AUTH_ALGORITHM = 8;
+pub const DOT11_AUTH_ALGORITHM_WPA3_SAE: DOT11_AUTH_ALGORITHM = 9;
+pub const DOT11_AUTH_ALGORITHM_WPA_NONE: DOT11_AUTH_ALGORITHM = 5;
+pub const DOT11_AUTH_ALGORITHM_WPA_PSK: DOT11_AUTH_ALGORITHM = 4;
 pub const DOT11_AUTH_ALGO_80211_OPEN: DOT11_AUTH_ALGORITHM = 1;
 pub const DOT11_AUTH_ALGO_80211_SHARED_KEY: DOT11_AUTH_ALGORITHM = 2;
 pub const DOT11_AUTH_ALGO_IHV_END: DOT11_AUTH_ALGORITHM = -1;
@@ -338,9 +339,9 @@ pub type PWLAN_AVAILABLE_NETWORK_LIST = *mut WLAN_AVAILABLE_NETWORK_LIST;
 pub type PWLAN_AVAILABLE_NETWORK_LIST_V2 = *mut WLAN_AVAILABLE_NETWORK_LIST_V2;
 #[cfg(feature = "windot11")]
 pub type PWLAN_AVAILABLE_NETWORK_V2 = *mut WLAN_AVAILABLE_NETWORK_V2;
-#[cfg(feature = "windot11")]
+#[cfg(all(feature = "windot11", feature = "winnt"))]
 pub type PWLAN_BSS_ENTRY = *mut WLAN_BSS_ENTRY;
-#[cfg(feature = "windot11")]
+#[cfg(all(feature = "windot11", feature = "winnt"))]
 pub type PWLAN_BSS_LIST = *mut WLAN_BSS_LIST;
 #[cfg(feature = "windot11")]
 pub type PWLAN_CONNECTION_ATTRIBUTES = *mut WLAN_CONNECTION_ATTRIBUTES;
@@ -562,7 +563,7 @@ impl Default for WLAN_AVAILABLE_NETWORK_V2 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "windot11")]
+#[cfg(all(feature = "windot11", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WLAN_BSS_ENTRY {
     pub dot11Ssid: DOT11_SSID,
@@ -572,7 +573,7 @@ pub struct WLAN_BSS_ENTRY {
     pub dot11BssPhyType: super::DOT11_PHY_TYPE,
     pub lRssi: i32,
     pub uLinkQuality: u32,
-    pub bInRegDomain: bool,
+    pub bInRegDomain: super::BOOLEAN,
     pub usBeaconPeriod: u16,
     pub ullTimestamp: u64,
     pub ullHostTimestamp: u64,
@@ -582,21 +583,21 @@ pub struct WLAN_BSS_ENTRY {
     pub ulIeOffset: u32,
     pub ulIeSize: u32,
 }
-#[cfg(feature = "windot11")]
+#[cfg(all(feature = "windot11", feature = "winnt"))]
 impl Default for WLAN_BSS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windot11")]
+#[cfg(all(feature = "windot11", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WLAN_BSS_LIST {
     pub dwTotalSize: u32,
     pub dwNumberOfItems: u32,
     pub wlanBssEntries: [WLAN_BSS_ENTRY; 1],
 }
-#[cfg(feature = "windot11")]
+#[cfg(all(feature = "windot11", feature = "winnt"))]
 impl Default for WLAN_BSS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -873,7 +874,7 @@ impl Default for WLAN_MSM_NOTIFICATION_DATA {
 }
 pub type WLAN_NOTIFICATION_ACM = i32;
 #[cfg(feature = "l2cmn")]
-pub type WLAN_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(param0: *mut super::L2_NOTIFICATION_DATA, param1: *mut core::ffi::c_void)>;
+pub type WLAN_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(param0: PWLAN_NOTIFICATION_DATA, param1: *mut core::ffi::c_void)>;
 #[cfg(feature = "l2cmn")]
 pub type WLAN_NOTIFICATION_DATA = super::L2_NOTIFICATION_DATA;
 pub type WLAN_NOTIFICATION_MSM = i32;

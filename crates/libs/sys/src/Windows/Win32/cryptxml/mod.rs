@@ -1,5 +1,5 @@
 #[cfg(feature = "wincrypt")]
-windows_link::link!("cryptxml.dll" "system" fn CryptXmlAddObject(hsignatureorobject : HCRYPTXML, dwflags : u32, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, ppobject : *mut *mut CRYPT_XML_OBJECT) -> windows_sys::core::HRESULT);
+windows_link::link!("cryptxml.dll" "system" fn CryptXmlAddObject(hsignatureorobject : HCRYPTXML, dwflags : u32, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, ppobject : *const *const CRYPT_XML_OBJECT) -> windows_sys::core::HRESULT);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlClose(hcryptxml : HCRYPTXML) -> windows_sys::core::HRESULT);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlCreateReference(hcryptxml : HCRYPTXML, dwflags : u32, wszid : windows_sys::core::PCWSTR, wszuri : windows_sys::core::PCWSTR, wsztype : windows_sys::core::PCWSTR, pdigestmethod : *const CRYPT_XML_ALGORITHM, ctransform : u32, rgtransform : *const CRYPT_XML_ALGORITHM, phreference : *mut HCRYPTXML) -> windows_sys::core::HRESULT);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlDigestReference(hreference : HCRYPTXML, dwflags : u32, pdataproviderin : *const CRYPT_XML_DATA_PROVIDER) -> windows_sys::core::HRESULT);
@@ -8,13 +8,13 @@ windows_link::link!("cryptxml.dll" "system" fn CryptXmlEnumAlgorithmInfo(dwgroup
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlFindAlgorithmInfo(dwfindbytype : u32, pvfindby : *const core::ffi::c_void, dwgroupid : u32, dwflags : u32) -> *const CRYPT_XML_ALGORITHM_INFO);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetAlgorithmInfo(pxmlalgorithm : *const CRYPT_XML_ALGORITHM, dwflags : u32, ppalginfo : *mut *mut CRYPT_XML_ALGORITHM_INFO) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetDocContext(hcryptxml : HCRYPTXML, ppstruct : *mut *mut CRYPT_XML_DOC_CTXT) -> windows_sys::core::HRESULT);
+windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetDocContext(hcryptxml : HCRYPTXML, ppstruct : *const *const CRYPT_XML_DOC_CTXT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wincrypt")]
-windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetReference(hcryptxml : HCRYPTXML, ppstruct : *mut *mut CRYPT_XML_REFERENCE) -> windows_sys::core::HRESULT);
+windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetReference(hcryptxml : HCRYPTXML, ppstruct : *const *const CRYPT_XML_REFERENCE) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetSignature(hcryptxml : HCRYPTXML, ppstruct : *mut *mut CRYPT_XML_SIGNATURE) -> windows_sys::core::HRESULT);
+windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetSignature(hcryptxml : HCRYPTXML, ppstruct : *const *const CRYPT_XML_SIGNATURE) -> windows_sys::core::HRESULT);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetStatus(hcryptxml : HCRYPTXML, pstatus : *mut CRYPT_XML_STATUS) -> windows_sys::core::HRESULT);
-windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetTransforms(ppconfig : *mut *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> windows_sys::core::HRESULT);
+windows_link::link!("cryptxml.dll" "system" fn CryptXmlGetTransforms(ppconfig : *const *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> windows_sys::core::HRESULT);
 #[cfg(feature = "bcrypt")]
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlImportPublicKey(dwflags : u32, pkeyvalue : *const CRYPT_XML_KEY_VALUE, phkey : *mut super::BCRYPT_KEY_HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("cryptxml.dll" "system" fn CryptXmlOpenToDecode(pconfig : *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwflags : u32, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, phcryptxml : *mut HCRYPTXML) -> windows_sys::core::HRESULT);

@@ -1,34 +1,44 @@
 pub type PTCP_BOOLEAN_OPTIONAL = *mut TCP_BOOLEAN_OPTIONAL;
+#[cfg(feature = "winnt")]
 pub type PTCP_ESTATS_BANDWIDTH_ROD_v0 = *mut TCP_ESTATS_BANDWIDTH_ROD_v0;
 pub type PTCP_ESTATS_BANDWIDTH_RW_v0 = *mut TCP_ESTATS_BANDWIDTH_RW_v0;
 pub type PTCP_ESTATS_DATA_ROD_v0 = *mut TCP_ESTATS_DATA_ROD_v0;
+#[cfg(feature = "winnt")]
 pub type PTCP_ESTATS_DATA_RW_v0 = *mut TCP_ESTATS_DATA_RW_v0;
 pub type PTCP_ESTATS_FINE_RTT_ROD_v0 = *mut TCP_ESTATS_FINE_RTT_ROD_v0;
+#[cfg(feature = "winnt")]
 pub type PTCP_ESTATS_FINE_RTT_RW_v0 = *mut TCP_ESTATS_FINE_RTT_RW_v0;
 pub type PTCP_ESTATS_OBS_REC_ROD_v0 = *mut TCP_ESTATS_OBS_REC_ROD_v0;
+#[cfg(feature = "winnt")]
 pub type PTCP_ESTATS_OBS_REC_RW_v0 = *mut TCP_ESTATS_OBS_REC_RW_v0;
 pub type PTCP_ESTATS_PATH_ROD_v0 = *mut TCP_ESTATS_PATH_ROD_v0;
+#[cfg(feature = "winnt")]
 pub type PTCP_ESTATS_PATH_RW_v0 = *mut TCP_ESTATS_PATH_RW_v0;
 pub type PTCP_ESTATS_REC_ROD_v0 = *mut TCP_ESTATS_REC_ROD_v0;
+#[cfg(feature = "winnt")]
 pub type PTCP_ESTATS_REC_RW_v0 = *mut TCP_ESTATS_REC_RW_v0;
 pub type PTCP_ESTATS_SEND_BUFF_ROD_v0 = *mut TCP_ESTATS_SEND_BUFF_ROD_v0;
+#[cfg(feature = "winnt")]
 pub type PTCP_ESTATS_SEND_BUFF_RW_v0 = *mut TCP_ESTATS_SEND_BUFF_RW_v0;
 pub type PTCP_ESTATS_SND_CONG_ROD_v0 = *mut TCP_ESTATS_SND_CONG_ROD_v0;
 pub type PTCP_ESTATS_SND_CONG_ROS_v0 = *mut TCP_ESTATS_SND_CONG_ROS_v0;
+#[cfg(feature = "winnt")]
 pub type PTCP_ESTATS_SND_CONG_RW_v0 = *mut TCP_ESTATS_SND_CONG_RW_v0;
+#[cfg(feature = "winnt")]
 pub type PTCP_ESTATS_SYN_OPTS_ROS_v0 = *mut TCP_ESTATS_SYN_OPTS_ROS_v0;
 pub type PTCP_ESTATS_TYPE = *mut TCP_ESTATS_TYPE;
 pub type PTCP_SOFT_ERROR = *mut TCP_SOFT_ERROR;
 pub type TCP_BOOLEAN_OPTIONAL = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_BANDWIDTH_ROD_v0 {
     pub OutboundBandwidth: u64,
     pub InboundBandwidth: u64,
     pub OutboundInstability: u64,
     pub InboundInstability: u64,
-    pub OutboundBandwidthPeaked: bool,
-    pub InboundBandwidthPeaked: bool,
+    pub OutboundBandwidthPeaked: super::BOOLEAN,
+    pub InboundBandwidthPeaked: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -55,9 +65,10 @@ pub struct TCP_ESTATS_DATA_ROD_v0 {
     pub ThruBytesReceived: u64,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_DATA_RW_v0 {
-    pub EnableCollection: bool,
+    pub EnableCollection: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -68,9 +79,10 @@ pub struct TCP_ESTATS_FINE_RTT_ROD_v0 {
     pub SumRtt: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_FINE_RTT_RW_v0 {
-    pub EnableCollection: bool,
+    pub EnableCollection: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -81,9 +93,10 @@ pub struct TCP_ESTATS_OBS_REC_ROD_v0 {
     pub WinScaleRcvd: u8,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_OBS_REC_RW_v0 {
-    pub EnableCollection: bool,
+    pub EnableCollection: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -130,9 +143,10 @@ pub struct TCP_ESTATS_PATH_ROD_v0 {
     pub SpuriousRtoDetections: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_PATH_RW_v0 {
-    pub EnableCollection: bool,
+    pub EnableCollection: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -153,9 +167,10 @@ pub struct TCP_ESTATS_REC_ROD_v0 {
     pub WinScaleSent: u8,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_REC_RW_v0 {
-    pub EnableCollection: bool,
+    pub EnableCollection: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -166,9 +181,10 @@ pub struct TCP_ESTATS_SEND_BUFF_ROD_v0 {
     pub MaxAppWQueue: usize,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_SEND_BUFF_RW_v0 {
-    pub EnableCollection: bool,
+    pub EnableCollection: super::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -198,14 +214,16 @@ pub struct TCP_ESTATS_SND_CONG_ROS_v0 {
     pub LimCwnd: u32,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_SND_CONG_RW_v0 {
-    pub EnableCollection: bool,
+    pub EnableCollection: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_ESTATS_SYN_OPTS_ROS_v0 {
-    pub ActiveOpen: bool,
+    pub ActiveOpen: super::BOOLEAN,
     pub MssRcvd: u32,
     pub MssSent: u32,
 }

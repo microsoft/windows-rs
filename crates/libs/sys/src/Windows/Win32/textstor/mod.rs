@@ -14,14 +14,14 @@ pub const TS_AS_STATUS_CHANGE: i32 = 16;
 pub const TS_AS_TEXT_CHANGE: i32 = 1;
 pub type TS_ATTRID = windows_sys::core::GUID;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct TS_ATTRVAL {
     pub idAttr: TS_ATTRID,
     pub dwOverlapId: u32,
     pub varValue: super::VARIANT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for TS_ATTRVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -39,17 +39,17 @@ pub const TS_CHAR_REPLACEMENT: i32 = 65533;
 pub const TS_CH_FOLLOWING_DEL: i32 = 2;
 pub const TS_CH_PRECEDING_DEL: i32 = 1;
 pub const TS_DEFAULT_SELECTION: u32 = 4294967295;
-pub const TS_E_FORMAT: i32 = -2147220982;
-pub const TS_E_INVALIDPOINT: i32 = -2147220985;
-pub const TS_E_INVALIDPOS: i32 = -2147220992;
-pub const TS_E_NOINTERFACE: i32 = -2147220988;
-pub const TS_E_NOLAYOUT: i32 = -2147220986;
-pub const TS_E_NOLOCK: i32 = -2147220991;
-pub const TS_E_NOOBJECT: i32 = -2147220990;
-pub const TS_E_NOSELECTION: i32 = -2147220987;
-pub const TS_E_NOSERVICE: i32 = -2147220989;
-pub const TS_E_READONLY: i32 = -2147220983;
-pub const TS_E_SYNCHRONOUS: i32 = -2147220984;
+pub const TS_E_FORMAT: windows_sys::core::HRESULT = 0x8004020A_u32 as _;
+pub const TS_E_INVALIDPOINT: windows_sys::core::HRESULT = 0x80040207_u32 as _;
+pub const TS_E_INVALIDPOS: windows_sys::core::HRESULT = 0x80040200_u32 as _;
+pub const TS_E_NOINTERFACE: windows_sys::core::HRESULT = 0x80040204_u32 as _;
+pub const TS_E_NOLAYOUT: windows_sys::core::HRESULT = 0x80040206_u32 as _;
+pub const TS_E_NOLOCK: windows_sys::core::HRESULT = 0x80040201_u32 as _;
+pub const TS_E_NOOBJECT: windows_sys::core::HRESULT = 0x80040202_u32 as _;
+pub const TS_E_NOSELECTION: windows_sys::core::HRESULT = 0x80040205_u32 as _;
+pub const TS_E_NOSERVICE: windows_sys::core::HRESULT = 0x80040203_u32 as _;
+pub const TS_E_READONLY: windows_sys::core::HRESULT = 0x80040209_u32 as _;
+pub const TS_E_SYNCHRONOUS: windows_sys::core::HRESULT = 0x80040208_u32 as _;
 pub const TS_GEA_HIDDEN: i32 = 1;
 pub const TS_GR_BACKWARD: TsGravity = 0;
 pub const TS_GR_FORWARD: TsGravity = 1;
@@ -125,7 +125,7 @@ pub struct TS_STATUS {
     pub dwStaticFlags: u32,
 }
 pub const TS_ST_CORRECTION: i32 = 1;
-pub const TS_S_ASYNC: i32 = 262912;
+pub const TS_S_ASYNC: windows_sys::core::HRESULT = 0x40300_u32 as _;
 pub const TS_TC_CORRECTION: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

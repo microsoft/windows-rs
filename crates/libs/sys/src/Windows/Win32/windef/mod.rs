@@ -37,12 +37,17 @@ pub const DM_OUT_DEFAULT: i32 = 1;
 pub const DM_PROMPT: i32 = 4;
 pub const DM_UPDATE: i32 = 1;
 pub type DPI_AWARENESS = i32;
-pub type DPI_AWARENESS_CONTEXT = *mut core::ffi::c_void;
+pub type DPI_AWARENESS_CONTEXT = *mut DPI_AWARENESS_CONTEXT__;
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = -3 as _;
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4 as _;
 pub const DPI_AWARENESS_CONTEXT_SYSTEM_AWARE: DPI_AWARENESS_CONTEXT = -2 as _;
 pub const DPI_AWARENESS_CONTEXT_UNAWARE: DPI_AWARENESS_CONTEXT = -1 as _;
 pub const DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED: DPI_AWARENESS_CONTEXT = -5 as _;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct DPI_AWARENESS_CONTEXT__ {
+    pub unused: i32,
+}
 pub const DPI_AWARENESS_INVALID: DPI_AWARENESS = -1;
 pub const DPI_AWARENESS_PER_MONITOR_AWARE: DPI_AWARENESS = 2;
 pub const DPI_AWARENESS_SYSTEM_AWARE: DPI_AWARENESS = 1;
@@ -51,28 +56,118 @@ pub type DPI_HOSTING_BEHAVIOR = i32;
 pub const DPI_HOSTING_BEHAVIOR_DEFAULT: DPI_HOSTING_BEHAVIOR = 0;
 pub const DPI_HOSTING_BEHAVIOR_INVALID: DPI_HOSTING_BEHAVIOR = -1;
 pub const DPI_HOSTING_BEHAVIOR_MIXED: DPI_HOSTING_BEHAVIOR = 1;
-pub type HACCEL = *mut core::ffi::c_void;
-pub type HBITMAP = *mut core::ffi::c_void;
-pub type HBRUSH = *mut core::ffi::c_void;
-pub type HCOLORSPACE = *mut core::ffi::c_void;
+pub type HACCEL = *mut HACCEL__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HACCEL__ {
+    pub unused: i32,
+}
+pub type HBITMAP = *mut HBITMAP__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HBITMAP__ {
+    pub unused: i32,
+}
+pub type HBRUSH = *mut HBRUSH__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HBRUSH__ {
+    pub unused: i32,
+}
+pub type HCOLORSPACE = *mut HCOLORSPACE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HCOLORSPACE__ {
+    pub unused: i32,
+}
 pub type HCURSOR = HICON;
-pub type HDC = *mut core::ffi::c_void;
-pub type HDESK = *mut core::ffi::c_void;
-pub type HENHMETAFILE = *mut core::ffi::c_void;
+pub type HDC = *mut HDC__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HDC__ {
+    pub unused: i32,
+}
+pub type HDESK = *mut HDESK__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HDESK__ {
+    pub unused: i32,
+}
+pub type HENHMETAFILE = *mut HENHMETAFILE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HENHMETAFILE__ {
+    pub unused: i32,
+}
 #[cfg(feature = "minwindef")]
 pub const HFILE_ERROR: super::HFILE = 0xFFFFFFFF_u32 as _;
-pub type HFONT = *mut core::ffi::c_void;
+pub type HFONT = *mut HFONT__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HFONT__ {
+    pub unused: i32,
+}
 pub type HGDIOBJ = *mut core::ffi::c_void;
-pub type HGLRC = *mut core::ffi::c_void;
-pub type HHOOK = *mut core::ffi::c_void;
-pub type HICON = *mut core::ffi::c_void;
-pub type HMENU = *mut core::ffi::c_void;
-pub type HMONITOR = *mut core::ffi::c_void;
-pub type HPALETTE = *mut core::ffi::c_void;
-pub type HPEN = *mut core::ffi::c_void;
-pub type HUMPD = *mut core::ffi::c_void;
-pub type HWINEVENTHOOK = *mut core::ffi::c_void;
-pub type HWND = *mut core::ffi::c_void;
+pub type HGLRC = *mut HGLRC__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HGLRC__ {
+    pub unused: i32,
+}
+pub type HHOOK = *mut HHOOK__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HHOOK__ {
+    pub unused: i32,
+}
+pub type HICON = *mut HICON__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HICON__ {
+    pub unused: i32,
+}
+pub type HMENU = *mut HMENU__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HMENU__ {
+    pub unused: i32,
+}
+pub type HMONITOR = *mut HMONITOR__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HMONITOR__ {
+    pub unused: i32,
+}
+pub type HPALETTE = *mut HPALETTE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HPALETTE__ {
+    pub unused: i32,
+}
+pub type HPEN = *mut HPEN__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HPEN__ {
+    pub unused: i32,
+}
+pub type HUMPD = *mut HUMPD__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HUMPD__ {
+    pub unused: i32,
+}
+pub type HWINEVENTHOOK = *mut HWINEVENTHOOK__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HWINEVENTHOOK__ {
+    pub unused: i32,
+}
+pub type HWND = *mut HWND__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HWND__ {
+    pub unused: i32,
+}
 pub type LPCOLORREF = *mut u32;
 pub type LPCRECT = *const RECT;
 pub type LPCRECTL = *const RECTL;

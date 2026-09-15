@@ -1,5 +1,8 @@
 #[cfg(feature = "windef")]
 windows_link::link!("shdocvw.dll" "system" fn DoPrivacyDlg(hwndowner : super::HWND, pszurl : windows_sys::core::PCWSTR, pprivacyenum : *const IEnumPrivacyRecords, freportallsites : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
+windows_link::link!("shell32.dll" "system" fn DriveType(idrive : i32) -> i32);
+#[cfg(feature = "windef")]
+windows_link::link!("shell32.dll" "system" fn GetFileNameFromBrowse(hwnd : super::HWND, pszfilepath : windows_sys::core::PWSTR, cchfilepath : u32, pszworkingdir : windows_sys::core::PCWSTR, pszdefext : windows_sys::core::PCWSTR, pszfilters : windows_sys::core::PCWSTR, psztitle : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("shdocvw.dll" "system" fn ImportPrivacySettings(pszfilename : windows_sys::core::PCWSTR, pfparseprivacypreferences : *mut windows_sys::core::BOOL, pfparsepersiterules : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn PathIsSlowA(pszfile : windows_sys::core::PCSTR, dwattr : u32) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn PathIsSlowW(pszfile : windows_sys::core::PCWSTR, dwattr : u32) -> windows_sys::core::BOOL);
@@ -15,7 +18,7 @@ windows_link::link!("shell32.dll" "system" fn SHMultiFileProperties(pdtobj : *mu
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "shobjidl_core"))]
 windows_link::link!("shell32.dll" "system" fn SHOpenPropSheetW(pszcaption : windows_sys::core::PCWSTR, ahkeys : *const super::HKEY, ckeys : u32, pclsiddefault : *const windows_sys::core::GUID, pdtobj : *mut core::ffi::c_void, psb : *mut core::ffi::c_void, pstartpage : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "urlmon", feature = "windef"))]
-windows_link::link!("shdocvw.dll" "system" fn SoftwareUpdateMessageBox(hwnd : super::HWND, pszdistunit : windows_sys::core::PCWSTR, dwflags : u32, psdi : *mut super::SOFTDISTINFO) -> u32);
+windows_link::link!("shdocvw.dll" "system" fn SoftwareUpdateMessageBox(hwnd : super::HWND, pszdistunit : windows_sys::core::PCWSTR, dwflags : u32, psdi : super::LPSOFTDISTINFO) -> u32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AASHELLMENUFILENAME {
@@ -102,6 +105,10 @@ pub const ISFB_STATE_NOSHOWTEXT: i32 = 4;
 pub const ISFB_STATE_QLINKSMODE: i32 = 32;
 pub type LPAASHELLMENUFILENAME = *mut AASHELLMENUFILENAME;
 pub type LPAASHELLMENUITEM = *mut AASHELLMENUITEM;
+pub type LPACTIVEDESKTOPP = *mut core::ffi::c_void;
+pub type LPADESKTOPP2 = *mut core::ffi::c_void;
+pub type LPCOPYHOOKA = *mut core::ffi::c_void;
+pub type LPCOPYHOOKW = *mut core::ffi::c_void;
 pub type LPCSHCOLUMNDATA = *const SHCOLUMNDATA;
 #[cfg(all(feature = "shtypes", feature = "wtypes"))]
 pub type LPCSHCOLUMNINFO = *const SHCOLUMNINFO;
@@ -114,6 +121,7 @@ pub type LPSHCOLUMNINFO = *mut SHCOLUMNINFO;
 pub type LPSHCOLUMNINIT = *mut SHCOLUMNINIT;
 pub type LPSHChangeProductKeyAsIDList = *mut SHChangeProductKeyAsIDList;
 pub type LPTBINFO = *mut TBINFO;
+pub type LPTHUMBNAILCAPTURE = *mut core::ffi::c_void;
 pub const OPENPROPS_INHIBITPIF: i32 = 32768;
 pub const OPENPROPS_NONE: i32 = 0;
 pub const PANE_NAVIGATION: i32 = 5;

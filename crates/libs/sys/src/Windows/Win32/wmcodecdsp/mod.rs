@@ -134,6 +134,7 @@ pub const CWVC1DecMediaObject: windows_sys::core::GUID = windows_sys::core::GUID
 pub const CWVC1EncMediaObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x44653d0d_8cca_41e7_baca_884337b747ac);
 pub const CZuneAACCCDecMediaObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa74e98f2_52d6_4b4e_885b_e0a6ca4f187a);
 pub const CZuneM4S2DecMediaObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc56fc25c_0fc6_404a_9503_b10bf51a8ab9);
+pub type ChMtxType = f32;
 pub const E_TOCPARSER_INVALIDASFFILE: windows_sys::core::HRESULT = 0x99000001_u32 as _;
 pub const E_TOCPARSER_INVALIDRIFFFILE: windows_sys::core::HRESULT = 0x99000002_u32 as _;
 pub type FILE_ACCESSMODE = i32;

@@ -1,6 +1,8 @@
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 pub type CMC_EXCEPTION = MCA_EXCEPTION;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 pub type CPE_EXCEPTION = MCA_EXCEPTION;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type ERROR_SEVERITY = u8;
@@ -18,11 +20,12 @@ pub const HAL_MCA_RECORD: MCA_EXCEPTION_TYPE = 1;
 pub const HAL_MCE_RECORD: MCA_EXCEPTION_TYPE = 0;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MCA_EXCEPTION {
     pub VersionNumber: u32,
     pub ExceptionType: MCA_EXCEPTION_TYPE,
-    pub TimeStamp: i64,
+    pub TimeStamp: super::LARGE_INTEGER,
     pub ProcessorNumber: u32,
     pub Reserved1: u32,
     pub u: MCA_EXCEPTION_0,
@@ -31,6 +34,7 @@ pub struct MCA_EXCEPTION {
     pub ExtReg: [u64; 24],
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 impl Default for MCA_EXCEPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -38,12 +42,14 @@ impl Default for MCA_EXCEPTION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union MCA_EXCEPTION_0 {
     pub Mca: MCA_EXCEPTION_0_0,
     pub Mce: MCA_EXCEPTION_0_1,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 impl Default for MCA_EXCEPTION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -51,6 +57,7 @@ impl Default for MCA_EXCEPTION_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct MCA_EXCEPTION_0_0 {
     pub BankNumber: u8,
@@ -60,6 +67,7 @@ pub struct MCA_EXCEPTION_0_0 {
     pub Misc: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 impl Default for MCA_EXCEPTION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -67,6 +75,7 @@ impl Default for MCA_EXCEPTION_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct MCA_EXCEPTION_0_1 {
     pub Address: u64,
@@ -81,6 +90,10 @@ pub struct MCA_EXCEPTION {
 pub type MCA_EXCEPTION_TYPE = i32;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub const MCA_EXCEPTION_V1_SIZE: i32 = 56;
+#[cfg(target_arch = "x86")]
+pub const MCA_EXCEPTION_V2_SIZE: u32 = 256;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const MCA_EXCEPTION_V2_SIZE: u64 = 256;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub const MCA_EXTREG_V2MAX: i32 = 24;
 #[repr(C)]
@@ -146,15 +159,18 @@ pub struct MCI_STATS_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 pub type PCMC_EXCEPTION = *mut MCA_EXCEPTION;
 #[cfg(target_arch = "aarch64")]
 pub type PCMC_EXCEPTION = *mut core::ffi::c_void;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
 pub type PCPE_EXCEPTION = *mut MCA_EXCEPTION;
 #[cfg(target_arch = "aarch64")]
 pub type PCPE_EXCEPTION = *mut core::ffi::c_void;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PERROR_SEVERITY = *mut u8;
+#[cfg(feature = "winnt")]
 pub type PMCA_EXCEPTION = *mut MCA_EXCEPTION;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub type PMCI_ADDR = *mut MCI_ADDR;

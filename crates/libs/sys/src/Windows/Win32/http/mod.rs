@@ -1,76 +1,78 @@
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpAddFragmentToCache(requestqueuehandle : super::HANDLE, urlprefix : windows_sys::core::PCWSTR, datachunk : *const HTTP_DATA_CHUNK, cachepolicy : *const HTTP_CACHE_POLICY, overlapped : *const super::OVERLAPPED) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpAddFragmentToCache(requestqueuehandle : super::HANDLE, urlprefix : windows_sys::core::PCWSTR, datachunk : PHTTP_DATA_CHUNK, cachepolicy : PHTTP_CACHE_POLICY, overlapped : super::LPOVERLAPPED) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("httpapi.dll" "system" fn HttpAddUrl(requestqueuehandle : super::HANDLE, fullyqualifiedurl : windows_sys::core::PCWSTR, reserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpAddUrl(requestqueuehandle : super::HANDLE, fullyqualifiedurl : windows_sys::core::PCWSTR, reserved : *mut core::ffi::c_void) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpAddUrlToUrlGroup(urlgroupid : HTTP_URL_GROUP_ID, pfullyqualifiedurl : windows_sys::core::PCWSTR, urlcontext : HTTP_URL_CONTEXT, reserved : u32) -> u32);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpCancelHttpRequest(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, overlapped : *const super::OVERLAPPED) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpCancelHttpRequest(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, overlapped : super::LPOVERLAPPED) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("httpapi.dll" "system" fn HttpCloseRequestQueue(requestqueuehandle : super::HANDLE) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpCloseServerSession(serversessionid : HTTP_SERVER_SESSION_ID) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpCloseUrlGroup(urlgroupid : HTTP_URL_GROUP_ID) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("httpapi.dll" "system" fn HttpCreateHttpHandle(requestqueuehandle : *mut super::HANDLE, reserved : u32) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpCreateHttpHandle(requestqueuehandle : super::PHANDLE, reserved : u32) -> u32);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpCreateRequestQueue(version : HTTPAPI_VERSION, name : windows_sys::core::PCWSTR, securityattributes : *const super::SECURITY_ATTRIBUTES, flags : u32, requestqueuehandle : *mut super::HANDLE) -> u32);
-windows_link::link!("httpapi.dll" "system" fn HttpCreateServerSession(version : HTTPAPI_VERSION, serversessionid : *mut HTTP_OPAQUE_ID, reserved : u32) -> u32);
-windows_link::link!("httpapi.dll" "system" fn HttpCreateUrlGroup(serversessionid : HTTP_SERVER_SESSION_ID, purlgroupid : *mut HTTP_OPAQUE_ID, reserved : u32) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpCreateRequestQueue(version : HTTPAPI_VERSION, name : windows_sys::core::PCWSTR, securityattributes : super::PSECURITY_ATTRIBUTES, flags : u32, requestqueuehandle : super::PHANDLE) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpCreateServerSession(version : HTTPAPI_VERSION, serversessionid : PHTTP_SERVER_SESSION_ID, reserved : u32) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpCreateUrlGroup(serversessionid : HTTP_SERVER_SESSION_ID, purlgroupid : PHTTP_URL_GROUP_ID, reserved : u32) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("httpapi.dll" "system" fn HttpDeclarePush(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, verb : HTTP_VERB, path : windows_sys::core::PCWSTR, query : windows_sys::core::PCSTR, headers : *const HTTP_REQUEST_HEADERS) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpDeclarePush(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, verb : HTTP_VERB, path : windows_sys::core::PCWSTR, query : windows_sys::core::PCSTR, headers : PHTTP_REQUEST_HEADERS) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("httpapi.dll" "system" fn HttpDelegateRequestEx(requestqueuehandle : super::HANDLE, delegatequeuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, delegateurlgroupid : HTTP_URL_GROUP_ID, propertyinfosetsize : u32, propertyinfoset : *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpDelegateRequestEx(requestqueuehandle : super::HANDLE, delegatequeuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, delegateurlgroupid : HTTP_URL_GROUP_ID, propertyinfosetsize : u32, propertyinfoset : PHTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpDeleteServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : *const core::ffi::c_void, configinformationlength : u32, poverlapped : *const super::OVERLAPPED) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpDeleteServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : *const core::ffi::c_void, configinformationlength : u32, poverlapped : super::LPOVERLAPPED) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("httpapi.dll" "system" fn HttpFindUrlGroupId(fullyqualifiedurl : windows_sys::core::PCWSTR, requestqueuehandle : super::HANDLE, urlgroupid : *mut HTTP_OPAQUE_ID) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpFindUrlGroupId(fullyqualifiedurl : windows_sys::core::PCWSTR, requestqueuehandle : super::HANDLE, urlgroupid : PHTTP_URL_GROUP_ID) -> u32);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpFlushResponseCache(requestqueuehandle : super::HANDLE, urlprefix : windows_sys::core::PCWSTR, flags : u32, overlapped : *const super::OVERLAPPED) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpFlushResponseCache(requestqueuehandle : super::HANDLE, urlprefix : windows_sys::core::PCWSTR, flags : u32, overlapped : super::LPOVERLAPPED) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpGetExtension(version : HTTPAPI_VERSION, extension : u32, buffer : *mut core::ffi::c_void, buffersize : u32) -> u32);
-windows_link::link!("httpapi.dll" "system" fn HttpInitialize(version : HTTPAPI_VERSION, flags : u32, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpInitialize(version : HTTPAPI_VERSION, flags : u32, preserved : *mut core::ffi::c_void) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpIsFeatureSupported(featureid : HTTP_FEATURE_ID) -> windows_sys::core::BOOL);
-windows_link::link!("httpapi.dll" "system" fn HttpPrepareUrl(reserved : *const core::ffi::c_void, flags : u32, url : windows_sys::core::PCWSTR, preparedurl : *mut windows_sys::core::PWSTR) -> u32);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpQueryRequestProperty(requestqueuehandle : super::HANDLE, id : HTTP_OPAQUE_ID, propertyid : HTTP_REQUEST_PROPERTY, qualifier : *const core::ffi::c_void, qualifiersize : u32, output : *mut core::ffi::c_void, outputbuffersize : u32, bytesreturned : *mut u32, overlapped : *const super::OVERLAPPED) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("httpapi.dll" "system" fn HttpQueryRequestQueueProperty(requestqueuehandle : super::HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, reserved1 : u32, returnlength : *mut u32, reserved2 : *const core::ffi::c_void) -> u32);
-windows_link::link!("httpapi.dll" "system" fn HttpQueryServerSessionProperty(serversessionid : HTTP_SERVER_SESSION_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, returnlength : *mut u32) -> u32);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpQueryServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pinput : *const core::ffi::c_void, inputlength : u32, poutput : *mut core::ffi::c_void, outputlength : u32, preturnlength : *mut u32, poverlapped : *const super::OVERLAPPED) -> u32);
-windows_link::link!("httpapi.dll" "system" fn HttpQueryUrlGroupProperty(urlgroupid : HTTP_URL_GROUP_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, returnlength : *mut u32) -> u32);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpReadFragmentFromCache(requestqueuehandle : super::HANDLE, urlprefix : windows_sys::core::PCWSTR, byterange : *const HTTP_BYTE_RANGE, buffer : *mut core::ffi::c_void, bufferlength : u32, bytesread : *mut u32, overlapped : *const super::OVERLAPPED) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpPrepareUrl(reserved : *mut core::ffi::c_void, flags : u32, url : windows_sys::core::PCWSTR, preparedurl : *mut windows_sys::core::PWSTR) -> u32);
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpReceiveClientCertificate(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, flags : u32, sslclientcertinfo : *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize : u32, bytesreceived : *mut u32, overlapped : *const super::OVERLAPPED) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpQueryRequestProperty(requestqueuehandle : super::HANDLE, id : HTTP_OPAQUE_ID, propertyid : HTTP_REQUEST_PROPERTY, qualifier : *const core::ffi::c_void, qualifiersize : u32, output : *mut core::ffi::c_void, outputbuffersize : u32, bytesreturned : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("httpapi.dll" "system" fn HttpQueryRequestQueueProperty(requestqueuehandle : super::HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, reserved1 : u32, returnlength : super::PULONG, reserved2 : *mut core::ffi::c_void) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("httpapi.dll" "system" fn HttpQueryServerSessionProperty(serversessionid : HTTP_SERVER_SESSION_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, returnlength : super::PULONG) -> u32);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("httpapi.dll" "system" fn HttpQueryServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pinput : *const core::ffi::c_void, inputlength : u32, poutput : *mut core::ffi::c_void, outputlength : u32, preturnlength : super::PULONG, poverlapped : super::LPOVERLAPPED) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("httpapi.dll" "system" fn HttpQueryUrlGroupProperty(urlgroupid : HTTP_URL_GROUP_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, returnlength : super::PULONG) -> u32);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("httpapi.dll" "system" fn HttpReadFragmentFromCache(requestqueuehandle : super::HANDLE, urlprefix : windows_sys::core::PCWSTR, byterange : PHTTP_BYTE_RANGE, buffer : *mut core::ffi::c_void, bufferlength : u32, bytesread : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("httpapi.dll" "system" fn HttpReceiveClientCertificate(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, flags : u32, sslclientcertinfo : PHTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize : u32, bytesreceived : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "ws2"))]
-windows_link::link!("httpapi.dll" "system" fn HttpReceiveHttpRequest(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, requestbuffer : *mut HTTP_REQUEST, requestbufferlength : u32, bytesreturned : *mut u32, overlapped : *const super::OVERLAPPED) -> u32);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpReceiveRequestEntityBody(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, entitybuffer : *mut core::ffi::c_void, entitybufferlength : u32, bytesreturned : *mut u32, overlapped : *const super::OVERLAPPED) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpReceiveHttpRequest(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, requestbuffer : PHTTP_REQUEST, requestbufferlength : u32, bytesreturned : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("httpapi.dll" "system" fn HttpReceiveRequestEntityBody(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, entitybuffer : *mut core::ffi::c_void, entitybufferlength : u32, bytesreturned : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("httpapi.dll" "system" fn HttpRemoveUrl(requestqueuehandle : super::HANDLE, fullyqualifiedurl : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpRemoveUrlFromUrlGroup(urlgroupid : HTTP_URL_GROUP_ID, pfullyqualifiedurl : windows_sys::core::PCWSTR, flags : u32) -> u32);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("httpapi.dll" "system" fn HttpSendHttpResponse(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, httpresponse : PHTTP_RESPONSE, cachepolicy : PHTTP_CACHE_POLICY, bytessent : super::PULONG, reserved1 : *mut core::ffi::c_void, reserved2 : u32, overlapped : super::LPOVERLAPPED, logdata : PHTTP_LOG_DATA) -> u32);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("httpapi.dll" "system" fn HttpSendResponseEntityBody(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, entitychunkcount : u16, entitychunks : PHTTP_DATA_CHUNK, bytessent : super::PULONG, reserved1 : *mut core::ffi::c_void, reserved2 : u32, overlapped : super::LPOVERLAPPED, logdata : PHTTP_LOG_DATA) -> u32);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpSendHttpResponse(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, httpresponse : *const HTTP_RESPONSE, cachepolicy : *const HTTP_CACHE_POLICY, bytessent : *mut u32, reserved1 : *const core::ffi::c_void, reserved2 : u32, overlapped : *const super::OVERLAPPED, logdata : *const HTTP_LOG_DATA) -> u32);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpSendResponseEntityBody(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, entitychunkcount : u16, entitychunks : *const HTTP_DATA_CHUNK, bytessent : *mut u32, reserved1 : *const core::ffi::c_void, reserved2 : u32, overlapped : *const super::OVERLAPPED, logdata : *const HTTP_LOG_DATA) -> u32);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpSetRequestProperty(requestqueuehandle : super::HANDLE, id : HTTP_OPAQUE_ID, propertyid : HTTP_REQUEST_PROPERTY, input : *const core::ffi::c_void, inputpropertysize : u32, overlapped : *const super::OVERLAPPED) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpSetRequestProperty(requestqueuehandle : super::HANDLE, id : HTTP_OPAQUE_ID, propertyid : HTTP_REQUEST_PROPERTY, input : *const core::ffi::c_void, inputpropertysize : u32, overlapped : super::LPOVERLAPPED) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("httpapi.dll" "system" fn HttpSetRequestQueueProperty(requestqueuehandle : super::HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : *const core::ffi::c_void, propertyinformationlength : u32, reserved1 : u32, reserved2 : *const core::ffi::c_void) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpSetRequestQueueProperty(requestqueuehandle : super::HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : *const core::ffi::c_void, propertyinformationlength : u32, reserved1 : u32, reserved2 : *mut core::ffi::c_void) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpSetServerSessionProperty(serversessionid : HTTP_SERVER_SESSION_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *const core::ffi::c_void, propertyinformationlength : u32) -> u32);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpSetServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : *const core::ffi::c_void, configinformationlength : u32, poverlapped : *const super::OVERLAPPED) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpSetServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : *const core::ffi::c_void, configinformationlength : u32, poverlapped : super::LPOVERLAPPED) -> u32);
 windows_link::link!("httpapi.dll" "system" fn HttpSetUrlGroupProperty(urlgroupid : HTTP_URL_GROUP_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *const core::ffi::c_void, propertyinformationlength : u32) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("httpapi.dll" "system" fn HttpShutdownRequestQueue(requestqueuehandle : super::HANDLE) -> u32);
-windows_link::link!("httpapi.dll" "system" fn HttpTerminate(flags : u32, preserved : *const core::ffi::c_void) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpTerminate(flags : u32, preserved : *mut core::ffi::c_void) -> u32);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpUpdateServiceConfiguration(handle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, configinfo : *const core::ffi::c_void, configinfolength : u32, overlapped : *const super::OVERLAPPED) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpUpdateServiceConfiguration(handle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, configinfo : *const core::ffi::c_void, configinfolength : u32, overlapped : super::LPOVERLAPPED) -> u32);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpWaitForDemandStart(requestqueuehandle : super::HANDLE, overlapped : *const super::OVERLAPPED) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpWaitForDemandStart(requestqueuehandle : super::HANDLE, overlapped : super::LPOVERLAPPED) -> u32);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpWaitForDisconnect(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, overlapped : *const super::OVERLAPPED) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpWaitForDisconnect(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, overlapped : super::LPOVERLAPPED) -> u32);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("httpapi.dll" "system" fn HttpWaitForDisconnectEx(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, reserved : u32, overlapped : *const super::OVERLAPPED) -> u32);
+windows_link::link!("httpapi.dll" "system" fn HttpWaitForDisconnectEx(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, reserved : u32, overlapped : super::LPOVERLAPPED) -> u32);
 pub const CacheRangeChunkSize: HTTP_SERVICE_CONFIG_CACHE_KEY = 1;
 pub const CreateRequestQueueExternalIdProperty: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = 1;
 pub const CreateRequestQueueMax: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = 2;
@@ -126,10 +128,17 @@ pub struct HTTP_BINDING_INFO {
     pub RequestQueueHandle: super::HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct HTTP_BYTE_RANGE {
-    pub StartingOffset: u64,
-    pub Length: u64,
+    pub StartingOffset: super::ULARGE_INTEGER,
+    pub Length: super::ULARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for HTTP_BYTE_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HTTP_BYTE_RANGE_TO_EOF: u64 = 18446744073709551615;
 #[repr(C)]
@@ -249,10 +258,16 @@ pub struct HTTP_DATA_CHUNK_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_1 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub FileHandle: super::HANDLE,
+}
+#[cfg(feature = "winnt")]
+impl Default for HTTP_DATA_CHUNK_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -263,10 +278,16 @@ pub struct HTTP_DATA_CHUNK_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_3 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub pFragmentName: windows_sys::core::PCWSTR,
+}
+#[cfg(feature = "winnt")]
+impl Default for HTTP_DATA_CHUNK_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -300,10 +321,11 @@ pub struct HTTP_ERROR_HEADERS_PARAM {
     pub Headers: PHTTP_UNKNOWN_HEADER,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_FAST_FORWARD_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
-    pub EnableFastForwarding: bool,
+    pub EnableFastForwarding: super::BOOLEAN,
 }
 pub type HTTP_FEATURE_ID = i32;
 #[repr(C)]
@@ -326,10 +348,11 @@ pub struct HTTP_KNOWN_HEADER {
 }
 pub const HTTP_LIMIT_INFINITE: u32 = 4294967295;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_LISTEN_ENDPOINT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
-    pub EnableSharing: bool,
+    pub EnableSharing: super::BOOLEAN,
 }
 pub const HTTP_LOGGING_FLAG_LOCAL_TIME_ROLLOVER: i32 = 1;
 pub const HTTP_LOGGING_FLAG_LOG_ERRORS_ONLY: i32 = 4;
@@ -790,13 +813,14 @@ pub struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     pub Realm: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct HTTP_SERVER_AUTHENTICATION_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub AuthSchemes: u32,
-    pub ReceiveMutualAuth: bool,
-    pub ReceiveContextHandle: bool,
-    pub DisableNTLMCredentialCaching: bool,
+    pub ReceiveMutualAuth: super::BOOLEAN,
+    pub ReceiveContextHandle: super::BOOLEAN,
+    pub DisableNTLMCredentialCaching: super::BOOLEAN,
     pub ExFlags: u8,
     pub DigestParams: HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS,
     pub BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
@@ -1097,7 +1121,7 @@ pub struct HTTP_SSL_CLIENT_CERT_INFO {
     pub CertEncodedSize: u32,
     pub pCertEncoded: super::PUCHAR,
     pub Token: super::HANDLE,
-    pub CertDeniedByMapper: bool,
+    pub CertDeniedByMapper: super::BOOLEAN,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -1465,6 +1489,7 @@ pub type PHTTP_AUTH_STATUS = *mut HTTP_AUTH_STATUS;
 pub type PHTTP_BANDWIDTH_LIMIT_INFO = *mut HTTP_BANDWIDTH_LIMIT_INFO;
 #[cfg(feature = "winnt")]
 pub type PHTTP_BINDING_INFO = *mut HTTP_BINDING_INFO;
+#[cfg(feature = "winnt")]
 pub type PHTTP_BYTE_RANGE = *mut HTTP_BYTE_RANGE;
 pub type PHTTP_CACHE_POLICY = *mut HTTP_CACHE_POLICY;
 pub type PHTTP_CACHE_POLICY_TYPE = *mut HTTP_CACHE_POLICY_TYPE;
@@ -1487,11 +1512,13 @@ pub type PHTTP_DELEGATE_REQUEST_PROPERTY_ID = *mut HTTP_DELEGATE_REQUEST_PROPERT
 pub type PHTTP_DELEGATE_REQUEST_PROPERTY_INFO = *mut HTTP_DELEGATE_REQUEST_PROPERTY_INFO;
 pub type PHTTP_ENABLED_STATE = *mut HTTP_ENABLED_STATE;
 pub type PHTTP_ERROR_HEADERS_PARAM = *mut HTTP_ERROR_HEADERS_PARAM;
+#[cfg(feature = "winnt")]
 pub type PHTTP_FAST_FORWARD_INFO = *mut HTTP_FAST_FORWARD_INFO;
 pub type PHTTP_FEATURE_ID = *mut HTTP_FEATURE_ID;
 pub type PHTTP_FLOWRATE_INFO = *mut HTTP_FLOWRATE_INFO;
 pub type PHTTP_HEADER_ID = *mut HTTP_HEADER_ID;
 pub type PHTTP_KNOWN_HEADER = *mut HTTP_KNOWN_HEADER;
+#[cfg(feature = "winnt")]
 pub type PHTTP_LISTEN_ENDPOINT_INFO = *mut HTTP_LISTEN_ENDPOINT_INFO;
 #[cfg(feature = "winnt")]
 pub type PHTTP_LOGGING_INFO = *mut HTTP_LOGGING_INFO;
@@ -1556,6 +1583,7 @@ pub type PHTTP_RESPONSE_V1 = *mut HTTP_RESPONSE_V1;
 pub type PHTTP_RESPONSE_V2 = *mut HTTP_RESPONSE_V2;
 pub type PHTTP_SERVER_AUTHENTICATION_BASIC_PARAMS = *mut HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS;
 pub type PHTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS = *mut HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS;
+#[cfg(feature = "winnt")]
 pub type PHTTP_SERVER_AUTHENTICATION_INFO = *mut HTTP_SERVER_AUTHENTICATION_INFO;
 pub type PHTTP_SERVER_PROPERTY = *mut HTTP_SERVER_PROPERTY;
 pub type PHTTP_SERVER_SESSION_ID = *mut HTTP_OPAQUE_ID;

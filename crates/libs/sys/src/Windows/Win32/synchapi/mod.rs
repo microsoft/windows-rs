@@ -1,33 +1,33 @@
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn AcquireSRWLockExclusive(srwlock : *mut super::RTL_SRWLOCK));
+windows_link::link!("kernel32.dll" "system" fn AcquireSRWLockExclusive(srwlock : PSRWLOCK));
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn AcquireSRWLockShared(srwlock : *mut super::RTL_SRWLOCK));
+windows_link::link!("kernel32.dll" "system" fn AcquireSRWLockShared(srwlock : PSRWLOCK));
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn CancelWaitableTimer(htimer : super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateEventA(lpeventattributes : *const super::SECURITY_ATTRIBUTES, bmanualreset : windows_sys::core::BOOL, binitialstate : windows_sys::core::BOOL, lpname : windows_sys::core::PCSTR) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateEventA(lpeventattributes : super::LPSECURITY_ATTRIBUTES, bmanualreset : windows_sys::core::BOOL, binitialstate : windows_sys::core::BOOL, lpname : windows_sys::core::PCSTR) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateEventExA(lpeventattributes : *const super::SECURITY_ATTRIBUTES, lpname : windows_sys::core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateEventExA(lpeventattributes : super::LPSECURITY_ATTRIBUTES, lpname : windows_sys::core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateEventExW(lpeventattributes : *const super::SECURITY_ATTRIBUTES, lpname : windows_sys::core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateEventExW(lpeventattributes : super::LPSECURITY_ATTRIBUTES, lpname : windows_sys::core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const super::SECURITY_ATTRIBUTES, bmanualreset : windows_sys::core::BOOL, binitialstate : windows_sys::core::BOOL, lpname : windows_sys::core::PCWSTR) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : super::LPSECURITY_ATTRIBUTES, bmanualreset : windows_sys::core::BOOL, binitialstate : windows_sys::core::BOOL, lpname : windows_sys::core::PCWSTR) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateMutexA(lpmutexattributes : *const super::SECURITY_ATTRIBUTES, binitialowner : windows_sys::core::BOOL, lpname : windows_sys::core::PCSTR) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateMutexA(lpmutexattributes : super::LPSECURITY_ATTRIBUTES, binitialowner : windows_sys::core::BOOL, lpname : windows_sys::core::PCSTR) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateMutexExA(lpmutexattributes : *const super::SECURITY_ATTRIBUTES, lpname : windows_sys::core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateMutexExA(lpmutexattributes : super::LPSECURITY_ATTRIBUTES, lpname : windows_sys::core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateMutexExW(lpmutexattributes : *const super::SECURITY_ATTRIBUTES, lpname : windows_sys::core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateMutexExW(lpmutexattributes : super::LPSECURITY_ATTRIBUTES, lpname : windows_sys::core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateMutexW(lpmutexattributes : *const super::SECURITY_ATTRIBUTES, binitialowner : windows_sys::core::BOOL, lpname : windows_sys::core::PCWSTR) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateMutexW(lpmutexattributes : super::LPSECURITY_ATTRIBUTES, binitialowner : windows_sys::core::BOOL, lpname : windows_sys::core::PCWSTR) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateSemaphoreExW(lpsemaphoreattributes : *const super::SECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_sys::core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateSemaphoreExW(lpsemaphoreattributes : super::LPSECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_sys::core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateSemaphoreW(lpsemaphoreattributes : *const super::SECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_sys::core::PCWSTR) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateSemaphoreW(lpsemaphoreattributes : super::LPSECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_sys::core::PCWSTR) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateWaitableTimerExW(lptimerattributes : *const super::SECURITY_ATTRIBUTES, lptimername : windows_sys::core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateWaitableTimerExW(lptimerattributes : super::LPSECURITY_ATTRIBUTES, lptimername : windows_sys::core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateWaitableTimerW(lptimerattributes : *const super::SECURITY_ATTRIBUTES, bmanualreset : windows_sys::core::BOOL, lptimername : windows_sys::core::PCWSTR) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateWaitableTimerW(lptimerattributes : super::LPSECURITY_ATTRIBUTES, bmanualreset : windows_sys::core::BOOL, lptimername : windows_sys::core::PCWSTR) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("kernel32.dll" "system" fn DeleteCriticalSection(lpcriticalsection : super::LPCRITICAL_SECTION));
 #[cfg(feature = "winnt")]
@@ -36,8 +36,8 @@ windows_link::link!("kernel32.dll" "system" fn DeleteSynchronizationBarrier(lpba
 windows_link::link!("kernel32.dll" "system" fn EnterCriticalSection(lpcriticalsection : super::LPCRITICAL_SECTION));
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn EnterSynchronizationBarrier(lpbarrier : LPSYNCHRONIZATION_BARRIER, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn InitOnceBeginInitialize(lpinitonce : LPINIT_ONCE, dwflags : u32, fpending : *mut windows_sys::core::BOOL, lpcontext : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn InitOnceBeginInitialize(lpinitonce : LPINIT_ONCE, dwflags : u32, fpending : super::PBOOL, lpcontext : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn InitOnceComplete(lpinitonce : LPINIT_ONCE, dwflags : u32, lpcontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
@@ -45,7 +45,7 @@ windows_link::link!("kernel32.dll" "system" fn InitOnceExecuteOnce(initonce : PI
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn InitOnceInitialize(initonce : PINIT_ONCE));
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn InitializeConditionVariable(conditionvariable : *mut super::RTL_CONDITION_VARIABLE));
+windows_link::link!("kernel32.dll" "system" fn InitializeConditionVariable(conditionvariable : PCONDITION_VARIABLE));
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("kernel32.dll" "system" fn InitializeCriticalSection(lpcriticalsection : super::LPCRITICAL_SECTION));
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
@@ -53,7 +53,7 @@ windows_link::link!("kernel32.dll" "system" fn InitializeCriticalSectionAndSpinC
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("kernel32.dll" "system" fn InitializeCriticalSectionEx(lpcriticalsection : super::LPCRITICAL_SECTION, dwspincount : u32, flags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn InitializeSRWLock(srwlock : *mut super::RTL_SRWLOCK));
+windows_link::link!("kernel32.dll" "system" fn InitializeSRWLock(srwlock : PSRWLOCK));
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn InitializeSynchronizationBarrier(lpbarrier : LPSYNCHRONIZATION_BARRIER, ltotalthreads : i32, lspincount : i32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
@@ -71,11 +71,11 @@ windows_link::link!("kernel32.dll" "system" fn OpenWaitableTimerW(dwdesiredacces
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn ReleaseMutex(hmutex : super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn ReleaseSRWLockExclusive(srwlock : *mut super::RTL_SRWLOCK));
+windows_link::link!("kernel32.dll" "system" fn ReleaseSRWLockExclusive(srwlock : PSRWLOCK));
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn ReleaseSRWLockShared(srwlock : *mut super::RTL_SRWLOCK));
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn ReleaseSemaphore(hsemaphore : super::HANDLE, lreleasecount : i32, lppreviouscount : *mut i32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn ReleaseSRWLockShared(srwlock : PSRWLOCK));
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn ReleaseSemaphore(hsemaphore : super::HANDLE, lreleasecount : i32, lppreviouscount : super::LPLONG) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn ResetEvent(hevent : super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
@@ -83,21 +83,21 @@ windows_link::link!("kernel32.dll" "system" fn SetCriticalSectionSpinCount(lpcri
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn SetEvent(hevent : super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn SetWaitableTimer(htimer : super::HANDLE, lpduetime : *const i64, lperiod : i32, pfncompletionroutine : PTIMERAPCROUTINE, lpargtocompletionroutine : *const core::ffi::c_void, fresume : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetWaitableTimer(htimer : super::HANDLE, lpduetime : *const super::LARGE_INTEGER, lperiod : i32, pfncompletionroutine : PTIMERAPCROUTINE, lpargtocompletionroutine : *const core::ffi::c_void, fresume : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn SetWaitableTimerEx(htimer : super::HANDLE, lpduetime : *const i64, lperiod : i32, pfncompletionroutine : PTIMERAPCROUTINE, lpargtocompletionroutine : *const core::ffi::c_void, wakecontext : *const super::REASON_CONTEXT, tolerabledelay : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetWaitableTimerEx(htimer : super::HANDLE, lpduetime : *const super::LARGE_INTEGER, lperiod : i32, pfncompletionroutine : PTIMERAPCROUTINE, lpargtocompletionroutine : *const core::ffi::c_void, wakecontext : super::PREASON_CONTEXT, tolerabledelay : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn SignalObjectAndWait(hobjecttosignal : super::HANDLE, hobjecttowaiton : super::HANDLE, dwmilliseconds : u32, balertable : windows_sys::core::BOOL) -> u32);
 windows_link::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : u32));
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn SleepConditionVariableCS(conditionvariable : *mut super::RTL_CONDITION_VARIABLE, criticalsection : super::PCRITICAL_SECTION, dwmilliseconds : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SleepConditionVariableCS(conditionvariable : PCONDITION_VARIABLE, criticalsection : super::PCRITICAL_SECTION, dwmilliseconds : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn SleepConditionVariableSRW(conditionvariable : *mut super::RTL_CONDITION_VARIABLE, srwlock : *mut super::RTL_SRWLOCK, dwmilliseconds : u32, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SleepConditionVariableSRW(conditionvariable : PCONDITION_VARIABLE, srwlock : PSRWLOCK, dwmilliseconds : u32, flags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SleepEx(dwmilliseconds : u32, balertable : windows_sys::core::BOOL) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn TryAcquireSRWLockExclusive(srwlock : *mut super::RTL_SRWLOCK) -> bool);
+windows_link::link!("kernel32.dll" "system" fn TryAcquireSRWLockExclusive(srwlock : PSRWLOCK) -> super::BOOLEAN);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn TryAcquireSRWLockShared(srwlock : *mut super::RTL_SRWLOCK) -> bool);
+windows_link::link!("kernel32.dll" "system" fn TryAcquireSRWLockShared(srwlock : PSRWLOCK) -> super::BOOLEAN);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("kernel32.dll" "system" fn TryEnterCriticalSection(lpcriticalsection : super::LPCRITICAL_SECTION) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
@@ -110,11 +110,11 @@ windows_link::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : sup
 windows_link::link!("kernel32.dll" "system" fn WaitForSingleObjectEx(hhandle : super::HANDLE, dwmilliseconds : u32, balertable : windows_sys::core::BOOL) -> u32);
 windows_link::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WaitOnAddress(address : *const core::ffi::c_void, compareaddress : *const core::ffi::c_void, addresssize : usize, dwmilliseconds : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn WakeAllConditionVariable(conditionvariable : *mut super::RTL_CONDITION_VARIABLE));
+windows_link::link!("kernel32.dll" "system" fn WakeAllConditionVariable(conditionvariable : PCONDITION_VARIABLE));
 windows_link::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WakeByAddressAll(address : *const core::ffi::c_void));
 windows_link::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WakeByAddressSingle(address : *const core::ffi::c_void));
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn WakeConditionVariable(conditionvariable : *mut super::RTL_CONDITION_VARIABLE));
+windows_link::link!("kernel32.dll" "system" fn WakeConditionVariable(conditionvariable : PCONDITION_VARIABLE));
 #[cfg(feature = "winnt")]
 pub type CONDITION_VARIABLE = super::RTL_CONDITION_VARIABLE;
 pub const CONDITION_VARIABLE_LOCKMODE_SHARED: i32 = 1;

@@ -33,9 +33,10 @@ pub struct DWRITE_CARET_METRICS {
     pub offset: i16,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_CLUSTER_METRICS {
-    pub width: f32,
+    pub width: super::FLOAT,
     pub length: u16,
     pub _bitfield: u16,
 }
@@ -71,18 +72,18 @@ pub const DWRITE_COLOR_COMPOSITE_XOR: DWRITE_COLOR_COMPOSITE_MODE = 11;
 #[cfg(feature = "dxgi")]
 pub type DWRITE_COLOR_F = super::D3DCOLORVALUE;
 #[repr(C)]
-#[cfg(feature = "dxgi")]
+#[cfg(all(feature = "dxgi", feature = "minwindef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_COLOR_GLYPH_RUN {
     pub glyphRun: DWRITE_GLYPH_RUN,
     pub glyphRunDescription: *mut DWRITE_GLYPH_RUN_DESCRIPTION,
-    pub baselineOriginX: f32,
-    pub baselineOriginY: f32,
+    pub baselineOriginX: super::FLOAT,
+    pub baselineOriginY: super::FLOAT,
     pub runColor: DWRITE_COLOR_F,
     pub paletteIndex: u16,
 }
 #[repr(C)]
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_COLOR_GLYPH_RUN1 {
     pub Base: DWRITE_COLOR_GLYPH_RUN,
@@ -113,23 +114,25 @@ pub const DWRITE_FONT_AXIS_ATTRIBUTES_HIDDEN: DWRITE_FONT_AXIS_ATTRIBUTES = 2;
 pub const DWRITE_FONT_AXIS_ATTRIBUTES_NONE: DWRITE_FONT_AXIS_ATTRIBUTES = 0;
 pub const DWRITE_FONT_AXIS_ATTRIBUTES_VARIABLE: DWRITE_FONT_AXIS_ATTRIBUTES = 1;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_FONT_AXIS_RANGE {
     pub axisTag: DWRITE_FONT_AXIS_TAG,
-    pub minValue: f32,
-    pub maxValue: f32,
+    pub minValue: super::FLOAT,
+    pub maxValue: super::FLOAT,
 }
-pub type DWRITE_FONT_AXIS_TAG = i32;
+pub type DWRITE_FONT_AXIS_TAG = u32;
 pub const DWRITE_FONT_AXIS_TAG_ITALIC: DWRITE_FONT_AXIS_TAG = 1818326121;
 pub const DWRITE_FONT_AXIS_TAG_OPTICAL_SIZE: DWRITE_FONT_AXIS_TAG = 2054385775;
 pub const DWRITE_FONT_AXIS_TAG_SLANT: DWRITE_FONT_AXIS_TAG = 1953393779;
 pub const DWRITE_FONT_AXIS_TAG_WEIGHT: DWRITE_FONT_AXIS_TAG = 1952999287;
 pub const DWRITE_FONT_AXIS_TAG_WIDTH: DWRITE_FONT_AXIS_TAG = 1752458359;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_FONT_AXIS_VALUE {
     pub axisTag: DWRITE_FONT_AXIS_TAG,
-    pub value: f32,
+    pub value: super::FLOAT,
 }
 pub type DWRITE_FONT_FACE_TYPE = i32;
 pub const DWRITE_FONT_FACE_TYPE_BITMAP: DWRITE_FONT_FACE_TYPE = 5;
@@ -357,11 +360,11 @@ pub struct DWRITE_GLYPH_IMAGE_DATA {
     pub imageDataSize: u32,
     pub uniqueDataId: u32,
     pub pixelsPerEm: u32,
-    pub pixelSize: super::D2D_SIZE_U,
-    pub horizontalLeftOrigin: super::D2D_POINT_2L,
-    pub horizontalRightOrigin: super::D2D_POINT_2L,
-    pub verticalTopOrigin: super::D2D_POINT_2L,
-    pub verticalBottomOrigin: super::D2D_POINT_2L,
+    pub pixelSize: super::D2D1_SIZE_U,
+    pub horizontalLeftOrigin: super::D2D1_POINT_2L,
+    pub horizontalRightOrigin: super::D2D1_POINT_2L,
+    pub verticalTopOrigin: super::D2D1_POINT_2L,
+    pub verticalBottomOrigin: super::D2D1_POINT_2L,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -375,10 +378,11 @@ pub struct DWRITE_GLYPH_METRICS {
     pub verticalOriginY: i32,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_GLYPH_OFFSET {
-    pub advanceOffset: f32,
-    pub ascenderOffset: f32,
+    pub advanceOffset: super::FLOAT,
+    pub ascenderOffset: super::FLOAT,
 }
 pub type DWRITE_GLYPH_ORIENTATION_ANGLE = i32;
 pub const DWRITE_GLYPH_ORIENTATION_ANGLE_0_DEGREES: DWRITE_GLYPH_ORIENTATION_ANGLE = 0;
@@ -386,13 +390,14 @@ pub const DWRITE_GLYPH_ORIENTATION_ANGLE_180_DEGREES: DWRITE_GLYPH_ORIENTATION_A
 pub const DWRITE_GLYPH_ORIENTATION_ANGLE_270_DEGREES: DWRITE_GLYPH_ORIENTATION_ANGLE = 3;
 pub const DWRITE_GLYPH_ORIENTATION_ANGLE_90_DEGREES: DWRITE_GLYPH_ORIENTATION_ANGLE = 1;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_GLYPH_RUN {
     pub fontFace: *mut core::ffi::c_void,
-    pub fontEmSize: f32,
+    pub fontEmSize: super::FLOAT,
     pub glyphCount: u32,
     pub glyphIndices: *const u16,
-    pub glyphAdvances: *const f32,
+    pub glyphAdvances: *const super::FLOAT,
     pub glyphOffsets: *const DWRITE_GLYPH_OFFSET,
     pub isSideways: windows_sys::core::BOOL,
     pub bidiLevel: u32,
@@ -411,14 +416,15 @@ pub const DWRITE_GRID_FIT_MODE_DEFAULT: DWRITE_GRID_FIT_MODE = 0;
 pub const DWRITE_GRID_FIT_MODE_DISABLED: DWRITE_GRID_FIT_MODE = 1;
 pub const DWRITE_GRID_FIT_MODE_ENABLED: DWRITE_GRID_FIT_MODE = 2;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_HIT_TEST_METRICS {
     pub textPosition: u32,
     pub length: u32,
-    pub left: f32,
-    pub top: f32,
-    pub width: f32,
-    pub height: f32,
+    pub left: super::FLOAT,
+    pub top: super::FLOAT,
+    pub width: super::FLOAT,
+    pub height: super::FLOAT,
     pub bidiLevel: u32,
     pub isText: windows_sys::core::BOOL,
     pub isTrimmed: windows_sys::core::BOOL,
@@ -450,19 +456,21 @@ pub const DWRITE_INFORMATIONAL_STRING_WIN32_FAMILY_NAMES: DWRITE_INFORMATIONAL_S
 pub const DWRITE_INFORMATIONAL_STRING_WIN32_SUBFAMILY_NAMES: DWRITE_INFORMATIONAL_STRING_ID = 12;
 pub const DWRITE_INFORMATIONAL_STRING_WWS_FAMILY_NAME: DWRITE_INFORMATIONAL_STRING_ID = 19;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_INLINE_OBJECT_METRICS {
-    pub width: f32,
-    pub height: f32,
-    pub baseline: f32,
+    pub width: super::FLOAT,
+    pub height: super::FLOAT,
+    pub baseline: super::FLOAT,
     pub supportsSideways: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_JUSTIFICATION_OPPORTUNITY {
-    pub expansionMinimum: f32,
-    pub expansionMaximum: f32,
-    pub compressionMaximum: f32,
+    pub expansionMinimum: super::FLOAT,
+    pub expansionMaximum: super::FLOAT,
+    pub compressionMaximum: super::FLOAT,
     pub _bitfield: u32,
 }
 #[repr(C)]
@@ -471,29 +479,32 @@ pub struct DWRITE_LINE_BREAKPOINT {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_LINE_METRICS {
     pub length: u32,
     pub trailingWhitespaceLength: u32,
     pub newlineLength: u32,
-    pub height: f32,
-    pub baseline: f32,
+    pub height: super::FLOAT,
+    pub baseline: super::FLOAT,
     pub isTrimmed: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_LINE_METRICS1 {
     pub Base: DWRITE_LINE_METRICS,
-    pub leadingBefore: f32,
-    pub leadingAfter: f32,
+    pub leadingBefore: super::FLOAT,
+    pub leadingAfter: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_LINE_SPACING {
     pub method: DWRITE_LINE_SPACING_METHOD,
-    pub height: f32,
-    pub baseline: f32,
-    pub leadingBefore: f32,
+    pub height: super::FLOAT,
+    pub baseline: super::FLOAT,
+    pub leadingBefore: super::FLOAT,
     pub fontLineGapUsage: DWRITE_FONT_LINE_GAP_USAGE,
 }
 pub type DWRITE_LINE_SPACING_METHOD = i32;
@@ -505,14 +516,15 @@ pub const DWRITE_LOCALITY_LOCAL: DWRITE_LOCALITY = 2;
 pub const DWRITE_LOCALITY_PARTIAL: DWRITE_LOCALITY = 1;
 pub const DWRITE_LOCALITY_REMOTE: DWRITE_LOCALITY = 0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_MATRIX {
-    pub m11: f32,
-    pub m12: f32,
-    pub m21: f32,
-    pub m22: f32,
-    pub dx: f32,
-    pub dy: f32,
+    pub m11: super::FLOAT,
+    pub m12: super::FLOAT,
+    pub m21: super::FLOAT,
+    pub m22: super::FLOAT,
+    pub dx: super::FLOAT,
+    pub dy: super::FLOAT,
 }
 pub const DWRITE_NO_PALETTE_INDEX: i32 = 65535;
 pub type DWRITE_NUMBER_SUBSTITUTION_METHOD = i32;
@@ -528,12 +540,13 @@ pub type DWRITE_OUTLINE_THRESHOLD = i32;
 pub const DWRITE_OUTLINE_THRESHOLD_ALIASED: DWRITE_OUTLINE_THRESHOLD = 1;
 pub const DWRITE_OUTLINE_THRESHOLD_ANTIALIASED: DWRITE_OUTLINE_THRESHOLD = 0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_OVERHANG_METRICS {
-    pub left: f32,
-    pub top: f32,
-    pub right: f32,
-    pub bottom: f32,
+    pub left: super::FLOAT,
+    pub top: super::FLOAT,
+    pub right: super::FLOAT,
+    pub bottom: super::FLOAT,
 }
 pub type DWRITE_PAINT_ATTRIBUTES = u32;
 pub const DWRITE_PAINT_ATTRIBUTES_NONE: DWRITE_PAINT_ATTRIBUTES = 0;
@@ -549,101 +562,17 @@ pub struct DWRITE_PAINT_COLOR {
     pub colorAttributes: DWRITE_PAINT_ATTRIBUTES,
 }
 #[repr(C)]
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef"))]
 #[derive(Clone, Copy)]
 pub struct DWRITE_PAINT_ELEMENT {
     pub paintType: DWRITE_PAINT_TYPE,
-    pub paint: DWRITE_PAINT_ELEMENT_0,
+    pub paint: PAINT_UNION,
 }
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef"))]
 impl Default for DWRITE_PAINT_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
-#[derive(Clone, Copy)]
-pub union DWRITE_PAINT_ELEMENT_0 {
-    pub layers: DWRITE_PAINT_ELEMENT_0_0,
-    pub solidGlyph: DWRITE_PAINT_ELEMENT_0_1,
-    pub solid: DWRITE_PAINT_COLOR,
-    pub linearGradient: DWRITE_PAINT_ELEMENT_0_2,
-    pub radialGradient: DWRITE_PAINT_ELEMENT_0_3,
-    pub sweepGradient: DWRITE_PAINT_ELEMENT_0_4,
-    pub glyph: DWRITE_PAINT_ELEMENT_0_5,
-    pub colorGlyph: DWRITE_PAINT_ELEMENT_0_6,
-    pub transform: DWRITE_MATRIX,
-    pub composite: DWRITE_PAINT_ELEMENT_0_7,
-}
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
-impl Default for DWRITE_PAINT_ELEMENT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_0 {
-    pub childCount: u32,
-}
-#[repr(C)]
-#[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_1 {
-    pub glyphIndex: u32,
-    pub color: DWRITE_PAINT_COLOR,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_2 {
-    pub extendMode: u32,
-    pub gradientStopCount: u32,
-    pub x0: f32,
-    pub y0: f32,
-    pub x1: f32,
-    pub y1: f32,
-    pub x2: f32,
-    pub y2: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_3 {
-    pub extendMode: u32,
-    pub gradientStopCount: u32,
-    pub x0: f32,
-    pub y0: f32,
-    pub radius0: f32,
-    pub x1: f32,
-    pub y1: f32,
-    pub radius1: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_4 {
-    pub extendMode: u32,
-    pub gradientStopCount: u32,
-    pub centerX: f32,
-    pub centerY: f32,
-    pub startAngle: f32,
-    pub endAngle: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_5 {
-    pub glyphIndex: u32,
-}
-#[repr(C)]
-#[cfg(feature = "dcommon")]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_6 {
-    pub glyphIndex: u32,
-    pub clipBox: super::D2D_RECT_F,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DWRITE_PAINT_ELEMENT_0_7 {
-    pub mode: DWRITE_COLOR_COMPOSITE_MODE,
 }
 pub type DWRITE_PAINT_FEATURE_LEVEL = i32;
 pub const DWRITE_PAINT_FEATURE_LEVEL_COLR_V0: DWRITE_PAINT_FEATURE_LEVEL = 1;
@@ -1106,12 +1035,12 @@ pub struct DWRITE_SHAPING_TEXT_PROPERTIES {
 }
 pub const DWRITE_STANDARD_FONT_AXIS_COUNT: i32 = 5;
 #[repr(C)]
-#[cfg(feature = "dcommon")]
+#[cfg(all(feature = "dcommon", feature = "minwindef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_STRIKETHROUGH {
-    pub width: f32,
-    pub thickness: f32,
-    pub offset: f32,
+    pub width: super::FLOAT,
+    pub thickness: super::FLOAT,
+    pub offset: super::FLOAT,
     pub readingDirection: DWRITE_READING_DIRECTION,
     pub flowDirection: DWRITE_FLOW_DIRECTION,
     pub localeName: *const u16,
@@ -1129,23 +1058,25 @@ pub type DWRITE_TEXT_ANTIALIAS_MODE = i32;
 pub const DWRITE_TEXT_ANTIALIAS_MODE_CLEARTYPE: DWRITE_TEXT_ANTIALIAS_MODE = 0;
 pub const DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE: DWRITE_TEXT_ANTIALIAS_MODE = 1;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_TEXT_METRICS {
-    pub left: f32,
-    pub top: f32,
-    pub width: f32,
-    pub widthIncludingTrailingWhitespace: f32,
-    pub height: f32,
-    pub layoutWidth: f32,
-    pub layoutHeight: f32,
+    pub left: super::FLOAT,
+    pub top: super::FLOAT,
+    pub width: super::FLOAT,
+    pub widthIncludingTrailingWhitespace: super::FLOAT,
+    pub height: super::FLOAT,
+    pub layoutWidth: super::FLOAT,
+    pub layoutHeight: super::FLOAT,
     pub maxBidiReorderingDepth: u32,
     pub lineCount: u32,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_TEXT_METRICS1 {
     pub Base: DWRITE_TEXT_METRICS,
-    pub heightIncludingTrailingWhitespace: f32,
+    pub heightIncludingTrailingWhitespace: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1171,13 +1102,13 @@ pub struct DWRITE_TYPOGRAPHIC_FEATURES {
     pub featureCount: u32,
 }
 #[repr(C)]
-#[cfg(feature = "dcommon")]
+#[cfg(all(feature = "dcommon", feature = "minwindef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DWRITE_UNDERLINE {
-    pub width: f32,
-    pub thickness: f32,
-    pub offset: f32,
-    pub runHeight: f32,
+    pub width: super::FLOAT,
+    pub thickness: super::FLOAT,
+    pub offset: super::FLOAT,
+    pub runHeight: super::FLOAT,
     pub readingDirection: DWRITE_READING_DIRECTION,
     pub flowDirection: DWRITE_FLOW_DIRECTION,
     pub localeName: *const u16,
@@ -1199,3 +1130,89 @@ pub const DWRITE_WORD_WRAPPING_NO_WRAP: DWRITE_WORD_WRAPPING = 1;
 pub const DWRITE_WORD_WRAPPING_WHOLE_WORD: DWRITE_WORD_WRAPPING = 3;
 pub const DWRITE_WORD_WRAPPING_WRAP: DWRITE_WORD_WRAPPING = 0;
 pub const FACILITY_DWRITE: i32 = 2200;
+#[cfg(feature = "d2d")]
+pub type IDWriteGeometrySink = *mut core::ffi::c_void;
+#[repr(C)]
+#[cfg(all(feature = "dcommon", feature = "minwindef"))]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_COLOR_GLYPH {
+    pub glyphIndex: u32,
+    pub clipBox: super::D2D_RECT_F,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_COMPOSITE {
+    pub mode: DWRITE_COLOR_COMPOSITE_MODE,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_GLYPH {
+    pub glyphIndex: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_LAYERS {
+    pub childCount: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_LINEAR_GRADIENT {
+    pub extendMode: u32,
+    pub gradientStopCount: u32,
+    pub x0: f32,
+    pub y0: f32,
+    pub x1: f32,
+    pub y1: f32,
+    pub x2: f32,
+    pub y2: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_RADIAL_GRADIENT {
+    pub extendMode: u32,
+    pub gradientStopCount: u32,
+    pub x0: f32,
+    pub y0: f32,
+    pub radius0: f32,
+    pub x1: f32,
+    pub y1: f32,
+    pub radius1: f32,
+}
+#[repr(C)]
+#[cfg(feature = "dxgi")]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_SOLID_GLYPH {
+    pub glyphIndex: u32,
+    pub color: DWRITE_PAINT_COLOR,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PAINT_SWEEP_GRADIENT {
+    pub extendMode: u32,
+    pub gradientStopCount: u32,
+    pub centerX: f32,
+    pub centerY: f32,
+    pub startAngle: f32,
+    pub endAngle: f32,
+}
+#[repr(C)]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef"))]
+#[derive(Clone, Copy)]
+pub union PAINT_UNION {
+    pub layers: PAINT_LAYERS,
+    pub solidGlyph: PAINT_SOLID_GLYPH,
+    pub solid: DWRITE_PAINT_COLOR,
+    pub linearGradient: PAINT_LINEAR_GRADIENT,
+    pub radialGradient: PAINT_RADIAL_GRADIENT,
+    pub sweepGradient: PAINT_SWEEP_GRADIENT,
+    pub glyph: PAINT_GLYPH,
+    pub colorGlyph: PAINT_COLOR_GLYPH,
+    pub transform: DWRITE_MATRIX,
+    pub composite: PAINT_COMPOSITE,
+}
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef"))]
+impl Default for PAINT_UNION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}

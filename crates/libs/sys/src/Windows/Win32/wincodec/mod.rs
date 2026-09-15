@@ -249,13 +249,20 @@ pub const WICBitmapPaletteTypeFixedHalftone8: WICBitmapPaletteType = 3;
 pub const WICBitmapPaletteTypeFixedWebPalette: WICBitmapPaletteType = 7;
 pub const WICBitmapPaletteTypeMedianCut: WICBitmapPaletteType = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct WICBitmapPattern {
-    pub Position: u64,
+    pub Position: super::ULARGE_INTEGER,
     pub Length: u32,
     pub Pattern: *mut u8,
     pub Mask: *mut u8,
     pub EndOfStream: windows_sys::core::BOOL,
+}
+#[cfg(feature = "winnt")]
+impl Default for WICBitmapPattern {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -406,14 +413,14 @@ pub const WICHeifOrientation: WICHeifProperties = 1;
 pub type WICHeifProperties = i32;
 pub const WICHeifProperties_FORCE_DWORD: WICHeifProperties = 2147483647;
 #[repr(C)]
-#[cfg(all(feature = "dcommon", feature = "dxgi"))]
+#[cfg(all(feature = "dcommon", feature = "dxgi", feature = "minwindef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WICImageParameters {
     pub PixelFormat: super::D2D1_PIXEL_FORMAT,
-    pub DpiX: f32,
-    pub DpiY: f32,
-    pub Top: f32,
-    pub Left: f32,
+    pub DpiX: super::FLOAT,
+    pub DpiY: super::FLOAT,
+    pub Top: super::FLOAT,
+    pub Left: super::FLOAT,
     pub PixelWidth: u32,
     pub PixelHeight: u32,
 }
@@ -683,14 +690,14 @@ pub const WIC_JPEG_SAMPLE_FACTORS_THREE_420: i32 = 1118498;
 pub const WIC_JPEG_SAMPLE_FACTORS_THREE_422: i32 = 1118497;
 pub const WIC_JPEG_SAMPLE_FACTORS_THREE_440: i32 = 1118482;
 pub const WIC_JPEG_SAMPLE_FACTORS_THREE_444: i32 = 1118481;
-pub const WINCODEC_ERR_ABORTED: i32 = -2147467260;
-pub const WINCODEC_ERR_ACCESSDENIED: i32 = -2147024891;
+pub const WINCODEC_ERR_ABORTED: windows_sys::core::HRESULT = 0x80004004_u32 as _;
+pub const WINCODEC_ERR_ACCESSDENIED: windows_sys::core::HRESULT = 0x80070005_u32 as _;
 pub const WINCODEC_ERR_BASE: i32 = 8192;
-pub const WINCODEC_ERR_GENERIC_ERROR: i32 = -2147467259;
-pub const WINCODEC_ERR_INVALIDPARAMETER: i32 = -2147024809;
-pub const WINCODEC_ERR_NOTIMPLEMENTED: i32 = -2147467263;
-pub const WINCODEC_ERR_OUTOFMEMORY: i32 = -2147024882;
-pub const WINCODEC_ERR_VALUEOVERFLOW: i32 = -2147024362;
+pub const WINCODEC_ERR_GENERIC_ERROR: windows_sys::core::HRESULT = 0x80004005_u32 as _;
+pub const WINCODEC_ERR_INVALIDPARAMETER: windows_sys::core::HRESULT = 0x80070057_u32 as _;
+pub const WINCODEC_ERR_NOTIMPLEMENTED: windows_sys::core::HRESULT = 0x80004001_u32 as _;
+pub const WINCODEC_ERR_OUTOFMEMORY: windows_sys::core::HRESULT = 0x8007000E_u32 as _;
+pub const WINCODEC_ERR_VALUEOVERFLOW: windows_sys::core::HRESULT = 0x80070216_u32 as _;
 pub const WINCODEC_SDK_VERSION: i32 = 567;
 pub const WINCODEC_SDK_VERSION1: i32 = 566;
 pub const WINCODEC_SDK_VERSION2: i32 = 567;

@@ -4,6 +4,7 @@ pub const DEVTOPO_HARDWARE_INITIATED_EVENTCONTEXT: i32 = 1685217608;
 pub type DataFlow = i32;
 pub const DeviceTopology: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1df639d0_5ec1_47aa_9379_828dc1aa8c59);
 pub const EVENTCONTEXT_VOLUMESLIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2c2e9de_09b1_4b04_84e5_07931225ee04);
+pub const E_NOTFOUND: windows_sys::core::HRESULT = 0x80070490_u32 as _;
 pub const In: DataFlow = 0;
 pub const Network: ConnectorType = 5;
 pub const Out: DataFlow = 1;

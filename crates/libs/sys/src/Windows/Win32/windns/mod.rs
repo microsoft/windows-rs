@@ -1,8 +1,8 @@
 #[cfg(feature = "winnt")]
-windows_link::link!("dnsapi.dll" "system" fn DnsAcquireContextHandle_A(credentialflags : u32, credentials : *const core::ffi::c_void, pcontext : *mut super::HANDLE) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsAcquireContextHandle_A(credentialflags : u32, credentials : *const core::ffi::c_void, pcontext : super::PHANDLE) -> DNS_STATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("dnsapi.dll" "system" fn DnsAcquireContextHandle_W(credentialflags : u32, credentials : *const core::ffi::c_void, pcontext : *mut super::HANDLE) -> DNS_STATUS);
-windows_link::link!("dnsapi.dll" "system" fn DnsCancelQuery(pcancelhandle : *const DNS_QUERY_CANCEL) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsAcquireContextHandle_W(credentialflags : u32, credentials : *const core::ffi::c_void, pcontext : super::PHANDLE) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsCancelQuery(pcancelhandle : PDNS_QUERY_CANCEL) -> DNS_STATUS);
 windows_link::link!("dnsapi.dll" "system" fn DnsCancelQueryRaw(cancelhandle : *const DNS_QUERY_RAW_CANCEL) -> DNS_STATUS);
 windows_link::link!("dnsapi.dll" "C" fn DnsConnectionDeletePolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG) -> u32);
 windows_link::link!("dnsapi.dll" "C" fn DnsConnectionDeleteProxyInfo(pwszconnectionname : windows_sys::core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE) -> u32);
@@ -23,9 +23,9 @@ windows_link::link!("dnsapi.dll" "C" fn DnsConnectionSetPolicyEntries(policyentr
 windows_link::link!("dnsapi.dll" "C" fn DnsConnectionSetProxyInfo(pwszconnectionname : windows_sys::core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE, pproxyinfo : *const DNS_CONNECTION_PROXY_INFO) -> u32);
 windows_link::link!("dnsapi.dll" "C" fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries : *const DNS_CONNECTION_IFINDEX_LIST) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("dnsapi.dll" "system" fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer : *const DNS_MESSAGE_BUFFER, wmessagelength : u16, pprecord : *mut PDNS_RECORD) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer : PDNS_MESSAGE_BUFFER, wmessagelength : u16, pprecord : *mut PDNS_RECORD) -> DNS_STATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("dnsapi.dll" "system" fn DnsExtractRecordsFromMessage_W(pdnsbuffer : *const DNS_MESSAGE_BUFFER, wmessagelength : u16, pprecord : *mut PDNS_RECORD) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsExtractRecordsFromMessage_W(pdnsbuffer : PDNS_MESSAGE_BUFFER, wmessagelength : u16, pprecord : *mut PDNS_RECORD) -> DNS_STATUS);
 windows_link::link!("dnsapi.dll" "system" fn DnsFree(pdata : *mut core::ffi::c_void, freetype : DNS_FREE_TYPE));
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 windows_link::link!("dnsapi.dll" "C" fn DnsFreeCustomServers(pcservers : *mut u32, ppservers : *mut *mut DNS_CUSTOM_SERVER));
@@ -34,18 +34,19 @@ windows_link::link!("dnsapi.dll" "system" fn DnsFreeProxyName(proxyname : window
 windows_link::link!("dnsapi.dll" "C" fn DnsGetApplicationSettings(pcservers : *mut u32, ppdefaultservers : *mut *mut DNS_CUSTOM_SERVER, psettings : *mut DNS_APPLICATION_SETTINGS) -> u32);
 windows_link::link!("dnsapi.dll" "system" fn DnsGetProxyInformation(hostname : windows_sys::core::PCWSTR, proxyinformation : *mut DNS_PROXY_INFORMATION, defaultproxyinformation : *mut DNS_PROXY_INFORMATION, completionroutine : DNS_PROXY_COMPLETION_ROUTINE, completioncontext : *const core::ffi::c_void) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("dnsapi.dll" "system" fn DnsIsFlatRecord(precord : *const DNS_RECORDA, ullflags : u64, pfflat : *mut windows_sys::core::BOOL) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsIsFlatRecord(precord : PDNS_RECORD, ullflags : u64, pfflat : *mut windows_sys::core::BOOL) -> DNS_STATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_A(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_A(paddrecords : PDNS_RECORD, pdeleterecords : PDNS_RECORD, options : u32, hcredentials : super::HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_UTF8(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_UTF8(paddrecords : PDNS_RECORD, pdeleterecords : PDNS_RECORD, options : u32, hcredentials : super::HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_W(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_W(paddrecords : PDNS_RECORD, pdeleterecords : PDNS_RECORD, options : u32, hcredentials : super::HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
 windows_link::link!("dnsapi.dll" "system" fn DnsNameCompare_A(pname1 : windows_sys::core::PCSTR, pname2 : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("dnsapi.dll" "system" fn DnsNameCompare_W(pname1 : windows_sys::core::PCWSTR, pname2 : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("dnsapi.dll" "system" fn DnsQueryConfig(config : DNS_CONFIG_TYPE, flag : u32, pwsadaptername : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void, pbuffer : *mut core::ffi::c_void, pbuflen : *mut u32) -> DNS_STATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("dnsapi.dll" "system" fn DnsQueryEx(pqueryrequest : *const DNS_QUERY_REQUEST, pqueryresults : *mut DNS_QUERY_RESULT, pcancelhandle : *mut DNS_QUERY_CANCEL) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsQueryConfig(config : DNS_CONFIG_TYPE, flag : u32, pwsadaptername : windows_sys::core::PCWSTR, preserved : *const core::ffi::c_void, pbuffer : *mut core::ffi::c_void, pbuflen : super::PDWORD) -> DNS_STATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("dnsapi.dll" "system" fn DnsQueryEx(pqueryrequest : PDNS_QUERY_REQUEST, pqueryresults : PDNS_QUERY_RESULT, pcancelhandle : PDNS_QUERY_CANCEL) -> DNS_STATUS);
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
 windows_link::link!("dnsapi.dll" "system" fn DnsQueryRaw(queryrequest : *const DNS_QUERY_RAW_REQUEST, cancelhandle : *mut DNS_QUERY_RAW_CANCEL) -> DNS_STATUS);
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
@@ -57,48 +58,50 @@ windows_link::link!("dnsapi.dll" "system" fn DnsQuery_UTF8(pszname : windows_sys
 #[cfg(feature = "minwindef")]
 windows_link::link!("dnsapi.dll" "system" fn DnsQuery_W(pszname : windows_sys::core::PCWSTR, wtype : u16, options : u32, pextra : *mut core::ffi::c_void, ppqueryresults : *mut PDNS_RECORD, preserved : *mut *mut core::ffi::c_void) -> DNS_STATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("dnsapi.dll" "system" fn DnsRecordCompare(precord1 : *const DNS_RECORDA, precord2 : *const DNS_RECORDA) -> windows_sys::core::BOOL);
+windows_link::link!("dnsapi.dll" "system" fn DnsRecordCompare(precord1 : PDNS_RECORD, precord2 : PDNS_RECORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("dnsapi.dll" "system" fn DnsRecordCopyEx(precord : *const DNS_RECORDA, charsetin : DNS_CHARSET, charsetout : DNS_CHARSET) -> PDNS_RECORD);
+windows_link::link!("dnsapi.dll" "system" fn DnsRecordCopyEx(precord : PDNS_RECORD, charsetin : DNS_CHARSET, charsetout : DNS_CHARSET) -> PDNS_RECORD);
 #[cfg(feature = "minwindef")]
-windows_link::link!("dnsapi.dll" "system" fn DnsRecordSetCompare(prr1 : *mut DNS_RECORDA, prr2 : *mut DNS_RECORDA, ppdiff1 : *mut PDNS_RECORD, ppdiff2 : *mut PDNS_RECORD) -> windows_sys::core::BOOL);
+windows_link::link!("dnsapi.dll" "system" fn DnsRecordSetCompare(prr1 : PDNS_RECORD, prr2 : PDNS_RECORD, ppdiff1 : *mut PDNS_RECORD, ppdiff2 : *mut PDNS_RECORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
-windows_link::link!("dnsapi.dll" "system" fn DnsRecordSetCopyEx(precordset : *const DNS_RECORDA, charsetin : DNS_CHARSET, charsetout : DNS_CHARSET) -> PDNS_RECORD);
+windows_link::link!("dnsapi.dll" "system" fn DnsRecordSetCopyEx(precordset : PDNS_RECORD, charsetin : DNS_CHARSET, charsetout : DNS_CHARSET) -> PDNS_RECORD);
 #[cfg(feature = "minwindef")]
-windows_link::link!("dnsapi.dll" "C" fn DnsRecordSetDetach(precordlist : *mut DNS_RECORDA) -> PDNS_RECORD);
+windows_link::link!("dnsapi.dll" "C" fn DnsRecordSetDetach(precordlist : PDNS_RECORD) -> PDNS_RECORD);
 #[cfg(feature = "winnt")]
 windows_link::link!("dnsapi.dll" "system" fn DnsReleaseContextHandle(hcontext : super::HANDLE));
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetA(preplaceset : *const DNS_RECORDA, options : u32, hcontext : super::HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetA(preplaceset : PDNS_RECORD, options : u32, hcontext : super::HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetUTF8(preplaceset : *const DNS_RECORDA, options : u32, hcontext : super::HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetUTF8(preplaceset : PDNS_RECORD, options : u32, hcontext : super::HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetW(preplaceset : *const DNS_RECORDA, options : u32, hcontext : super::HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetW(preplaceset : PDNS_RECORD, options : u32, hcontext : super::HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> DNS_STATUS);
 #[cfg(feature = "minwindef")]
-windows_link::link!("dnsapi.dll" "system" fn DnsServiceBrowse(prequest : *const DNS_SERVICE_BROWSE_REQUEST, pcancel : *mut DNS_SERVICE_CANCEL) -> DNS_STATUS);
-windows_link::link!("dnsapi.dll" "system" fn DnsServiceBrowseCancel(pcancelhandle : *const DNS_SERVICE_CANCEL) -> DNS_STATUS);
-windows_link::link!("dnsapi.dll" "system" fn DnsServiceConstructInstance(pservicename : windows_sys::core::PCWSTR, phostname : windows_sys::core::PCWSTR, pip4 : *const u32, pip6 : *const IP6_ADDRESS, wport : u16, wpriority : u16, wweight : u16, dwpropertiescount : u32, keys : *const windows_sys::core::PCWSTR, values : *const windows_sys::core::PCWSTR) -> PDNS_SERVICE_INSTANCE);
-windows_link::link!("dnsapi.dll" "system" fn DnsServiceCopyInstance(porig : *const DNS_SERVICE_INSTANCE) -> PDNS_SERVICE_INSTANCE);
+windows_link::link!("dnsapi.dll" "system" fn DnsServiceBrowse(prequest : PDNS_SERVICE_BROWSE_REQUEST, pcancel : PDNS_SERVICE_CANCEL) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsServiceBrowseCancel(pcancelhandle : PDNS_SERVICE_CANCEL) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsServiceConstructInstance(pservicename : windows_sys::core::PCWSTR, phostname : windows_sys::core::PCWSTR, pip4 : PIP4_ADDRESS, pip6 : PIP6_ADDRESS, wport : u16, wpriority : u16, wweight : u16, dwpropertiescount : u32, keys : *const windows_sys::core::PCWSTR, values : *const windows_sys::core::PCWSTR) -> PDNS_SERVICE_INSTANCE);
+windows_link::link!("dnsapi.dll" "system" fn DnsServiceCopyInstance(porig : PDNS_SERVICE_INSTANCE) -> PDNS_SERVICE_INSTANCE);
 #[cfg(feature = "winnt")]
-windows_link::link!("dnsapi.dll" "system" fn DnsServiceDeRegister(prequest : *const DNS_SERVICE_REGISTER_REQUEST, pcancel : *mut DNS_SERVICE_CANCEL) -> u32);
-windows_link::link!("dnsapi.dll" "system" fn DnsServiceFreeInstance(pinstance : *const DNS_SERVICE_INSTANCE));
+windows_link::link!("dnsapi.dll" "system" fn DnsServiceDeRegister(prequest : PDNS_SERVICE_REGISTER_REQUEST, pcancel : PDNS_SERVICE_CANCEL) -> u32);
+windows_link::link!("dnsapi.dll" "system" fn DnsServiceFreeInstance(pinstance : PDNS_SERVICE_INSTANCE));
 #[cfg(feature = "winnt")]
-windows_link::link!("dnsapi.dll" "system" fn DnsServiceRegister(prequest : *const DNS_SERVICE_REGISTER_REQUEST, pcancel : *mut DNS_SERVICE_CANCEL) -> u32);
-windows_link::link!("dnsapi.dll" "system" fn DnsServiceRegisterCancel(pcancelhandle : *const DNS_SERVICE_CANCEL) -> u32);
-windows_link::link!("dnsapi.dll" "system" fn DnsServiceResolve(prequest : *const DNS_SERVICE_RESOLVE_REQUEST, pcancel : *mut DNS_SERVICE_CANCEL) -> DNS_STATUS);
-windows_link::link!("dnsapi.dll" "system" fn DnsServiceResolveCancel(pcancelhandle : *const DNS_SERVICE_CANCEL) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsServiceRegister(prequest : PDNS_SERVICE_REGISTER_REQUEST, pcancel : PDNS_SERVICE_CANCEL) -> u32);
+windows_link::link!("dnsapi.dll" "system" fn DnsServiceRegisterCancel(pcancelhandle : PDNS_SERVICE_CANCEL) -> u32);
+windows_link::link!("dnsapi.dll" "system" fn DnsServiceResolve(prequest : PDNS_SERVICE_RESOLVE_REQUEST, pcancel : PDNS_SERVICE_CANCEL) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsServiceResolveCancel(pcancelhandle : PDNS_SERVICE_CANCEL) -> DNS_STATUS);
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 windows_link::link!("dnsapi.dll" "C" fn DnsSetApplicationSettings(cservers : u32, pservers : *const DNS_CUSTOM_SERVER, psettings : *const DNS_APPLICATION_SETTINGS) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("dnsapi.dll" "system" fn DnsStartMulticastQuery(pqueryrequest : *const MDNS_QUERY_REQUEST, phandle : *mut MDNS_QUERY_HANDLE) -> DNS_STATUS);
-windows_link::link!("dnsapi.dll" "system" fn DnsStopMulticastQuery(phandle : *mut MDNS_QUERY_HANDLE) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsStartMulticastQuery(pqueryrequest : PMDNS_QUERY_REQUEST, phandle : PMDNS_QUERY_HANDLE) -> DNS_STATUS);
+windows_link::link!("dnsapi.dll" "system" fn DnsStopMulticastQuery(phandle : PMDNS_QUERY_HANDLE) -> DNS_STATUS);
 windows_link::link!("dnsapi.dll" "C" fn DnsValidateName_A(pszname : windows_sys::core::PCSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
 windows_link::link!("dnsapi.dll" "C" fn DnsValidateName_UTF8(pszname : windows_sys::core::PCSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
 windows_link::link!("dnsapi.dll" "C" fn DnsValidateName_W(pszname : windows_sys::core::PCWSTR, format : DNS_NAME_FORMAT) -> DNS_STATUS);
-#[cfg(feature = "ws2")]
-windows_link::link!("dnsapi.dll" "C" fn DnsValidateServerStatus(server : *const super::SOCKADDR, queryname : windows_sys::core::PCWSTR, serverstatus : *mut u32) -> DNS_STATUS);
-windows_link::link!("dnsapi.dll" "system" fn DnsWriteQuestionToBuffer_UTF8(pdnsbuffer : *mut DNS_MESSAGE_BUFFER, pdwbuffersize : *mut u32, pszname : windows_sys::core::PCSTR, wtype : u16, xid : u16, frecursiondesired : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_link::link!("dnsapi.dll" "system" fn DnsWriteQuestionToBuffer_W(pdnsbuffer : *mut DNS_MESSAGE_BUFFER, pdwbuffersize : *mut u32, pszname : windows_sys::core::PCWSTR, wtype : u16, xid : u16, frecursiondesired : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "ws2"))]
+windows_link::link!("dnsapi.dll" "C" fn DnsValidateServerStatus(server : super::PSOCKADDR, queryname : windows_sys::core::PCWSTR, serverstatus : super::PDWORD) -> DNS_STATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("dnsapi.dll" "system" fn DnsWriteQuestionToBuffer_UTF8(pdnsbuffer : PDNS_MESSAGE_BUFFER, pdwbuffersize : super::PDWORD, pszname : windows_sys::core::PCSTR, wtype : u16, xid : u16, frecursiondesired : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("dnsapi.dll" "system" fn DnsWriteQuestionToBuffer_W(pdnsbuffer : PDNS_MESSAGE_BUFFER, pdwbuffersize : super::PDWORD, pszname : windows_sys::core::PCWSTR, wtype : u16, xid : u16, frecursiondesired : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 pub const DDR_MAX_IP_HINTS: i32 = 4;
 pub const DNSREC_ADDITIONAL: i32 = 3;
 pub const DNSREC_ANSWER: i32 = 1;
@@ -328,30 +331,13 @@ impl Default for DNS_CONNECTION_PROXY_INFO {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DNS_CONNECTION_PROXY_INFO_0 {
-    pub Config: DNS_CONNECTION_PROXY_INFO_0_0,
-    pub Script: DNS_CONNECTION_PROXY_INFO_0_1,
+    pub Config: _DNS_CONNECTION_PROXY_INFO_CONFIG,
+    pub Script: _DNS_CONNECTION_PROXY_INFO_SCRIPT,
 }
 impl Default for DNS_CONNECTION_PROXY_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DNS_CONNECTION_PROXY_INFO_0_0 {
-    pub pwszServer: *mut u16,
-    pub pwszUsername: *mut u16,
-    pub pwszPassword: *mut u16,
-    pub pwszException: *mut u16,
-    pub pwszExtraInfo: *mut u16,
-    pub Port: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DNS_CONNECTION_PROXY_INFO_0_1 {
-    pub pwszScript: *mut u16,
-    pub pwszUsername: *mut u16,
-    pub pwszPassword: *mut u16,
 }
 pub const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
@@ -500,11 +486,12 @@ pub struct DNS_HEADER_EXT {
     pub chRcode: u8,
     pub chVersion: u8,
 }
+pub const DNS_IP4_REVERSE_DOMAIN_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("in-addr.arpa.");
 pub const DNS_IP4_REVERSE_DOMAIN_STRING_A: windows_sys::core::PCSTR = windows_sys::core::s!("in-addr.arpa.");
 pub const DNS_IP4_REVERSE_DOMAIN_STRING_W: windows_sys::core::PCWSTR = windows_sys::core::w!("in-addr.arpa.");
+pub const DNS_IP6_REVERSE_DOMAIN_STRING: windows_sys::core::PCSTR = windows_sys::core::s!("ip6.arpa.");
 pub const DNS_IP6_REVERSE_DOMAIN_STRING_A: windows_sys::core::PCSTR = windows_sys::core::s!("ip6.arpa.");
 pub const DNS_IP6_REVERSE_DOMAIN_STRING_W: windows_sys::core::PCWSTR = windows_sys::core::w!("ip6.arpa.");
-pub type DNS_KEY_DATA = DNS_DNSKEY_DATA;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DNS_LOC_DATA {
@@ -682,6 +669,10 @@ impl Default for DNS_NXT_DATAW {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const DNS_OFFSET_TO_QUESTION_NAME: u32 = 12;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const DNS_OFFSET_TO_QUESTION_NAME: u64 = 12;
 pub const DNS_OPCODE_IQUERY: i32 = 1;
 pub const DNS_OPCODE_NOTIFY: i32 = 4;
 pub const DNS_OPCODE_QUERY: i32 = 0;
@@ -748,7 +739,7 @@ impl Default for DNS_QUERY_CANCEL {
     }
 }
 #[cfg(feature = "minwindef")]
-pub type DNS_QUERY_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT)>;
+pub type DNS_QUERY_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryresults: PDNS_QUERY_RESULT)>;
 pub const DNS_QUERY_DISABLE_IDN_ENCODING: i32 = 2097152;
 pub const DNS_QUERY_DNSSEC_CHECKING_DISABLED: i32 = 33554432;
 pub const DNS_QUERY_DNSSEC_OK: i32 = 16777216;
@@ -1011,10 +1002,10 @@ pub union DNS_RECORDA_1 {
     pub WKS: DNS_WKS_DATA,
     pub Wks: DNS_WKS_DATA,
     pub AAAA: DNS_AAAA_DATA,
-    pub KEY: DNS_KEY_DATA,
-    pub Key: DNS_KEY_DATA,
-    pub SIG: DNS_SIG_DATAA,
-    pub Sig: DNS_SIG_DATAA,
+    pub KEY: DNS_DNSKEY_DATA,
+    pub Key: DNS_DNSKEY_DATA,
+    pub SIG: DNS_RRSIG_DATAA,
+    pub Sig: DNS_RRSIG_DATAA,
     pub ATMA: DNS_ATMA_DATA,
     pub Atma: DNS_ATMA_DATA,
     pub NXT: DNS_NXT_DATAA,
@@ -1140,10 +1131,10 @@ pub union DNS_RECORDW_1 {
     pub WKS: DNS_WKS_DATA,
     pub Wks: DNS_WKS_DATA,
     pub AAAA: DNS_AAAA_DATA,
-    pub KEY: DNS_KEY_DATA,
-    pub Key: DNS_KEY_DATA,
-    pub SIG: DNS_SIG_DATAW,
-    pub Sig: DNS_SIG_DATAW,
+    pub KEY: DNS_DNSKEY_DATA,
+    pub Key: DNS_DNSKEY_DATA,
+    pub SIG: DNS_RRSIG_DATAW,
+    pub Sig: DNS_RRSIG_DATAW,
     pub ATMA: DNS_ATMA_DATA,
     pub Atma: DNS_ATMA_DATA,
     pub NXT: DNS_NXT_DATAW,
@@ -1406,7 +1397,7 @@ pub const DNS_RTYPE_WKS: i32 = 2816;
 pub const DNS_RTYPE_X25: i32 = 4864;
 pub type DNS_SECTION = i32;
 #[cfg(feature = "minwindef")]
-pub type DNS_SERVICE_BROWSE_CALLBACK = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pdnsrecord: *const DNS_RECORDA)>;
+pub type DNS_SERVICE_BROWSE_CALLBACK = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pdnsrecord: PDNS_RECORD)>;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
@@ -1456,7 +1447,7 @@ pub struct DNS_SERVICE_INSTANCE {
     pub values: *mut windows_sys::core::PWSTR,
     pub dwInterfaceIndex: u32,
 }
-pub type DNS_SERVICE_REGISTER_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
+pub type DNS_SERVICE_REGISTER_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pinstance: PDNS_SERVICE_INSTANCE)>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
@@ -1469,7 +1460,7 @@ pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub hCredentials: super::HANDLE,
     pub unicastEnabled: windows_sys::core::BOOL,
 }
-pub type DNS_SERVICE_RESOLVE_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
+pub type DNS_SERVICE_RESOLVE_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pinstance: PDNS_SERVICE_INSTANCE)>;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DNS_SERVICE_RESOLVE_REQUEST {
@@ -1479,9 +1470,7 @@ pub struct DNS_SERVICE_RESOLVE_REQUEST {
     pub pResolveCompletionCallback: PDNS_SERVICE_RESOLVE_COMPLETE,
     pub pQueryContext: *mut core::ffi::c_void,
 }
-pub type DNS_SIG_DATA = DNS_SIG_DATAA;
-pub type DNS_SIG_DATAA = DNS_RRSIG_DATAA;
-pub type DNS_SIG_DATAW = DNS_RRSIG_DATAW;
+pub type DNS_SIG_DATA = DNS_RRSIG_DATAA;
 pub type DNS_SOA_DATA = DNS_SOA_DATAA;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1920,7 +1909,7 @@ pub const DnsConfigSearchList: DNS_CONFIG_TYPE = 7;
 pub const DnsFreeFlat: DNS_FREE_TYPE = 0;
 pub const DnsFreeParsedMessageFields: DNS_FREE_TYPE = 2;
 pub const DnsFreeRecordList: DNS_FREE_TYPE = 1;
-pub const DnsFreeRecordListDeep: i32 = 1;
+pub const DnsFreeRecordListDeep: DNS_FREE_TYPE = 1;
 pub const DnsNameDomain: DNS_NAME_FORMAT = 0;
 pub const DnsNameDomainLabel: DNS_NAME_FORMAT = 1;
 pub const DnsNameHostnameFull: DNS_NAME_FORMAT = 2;
@@ -1931,10 +1920,10 @@ pub const DnsNameWildcard: DNS_NAME_FORMAT = 4;
 pub const DnsSectionAddtional: DNS_SECTION = 3;
 pub const DnsSectionAnswer: DNS_SECTION = 1;
 pub const DnsSectionAuthority: DNS_SECTION = 2;
-pub const DnsSectionPrereq: i32 = 1;
+pub const DnsSectionPrereq: DNS_SECTION = 1;
 pub const DnsSectionQuestion: DNS_SECTION = 0;
-pub const DnsSectionUpdate: i32 = 2;
-pub const DnsSectionZone: i32 = 0;
+pub const DnsSectionUpdate: DNS_SECTION = 2;
+pub const DnsSectionZone: DNS_SECTION = 0;
 pub const DnsSvcbParamAlpn: DNS_SVCB_PARAM_TYPE = 1;
 pub const DnsSvcbParamDohPath: DNS_SVCB_PARAM_TYPE = 7;
 pub const DnsSvcbParamDohPathOpenDns: DNS_SVCB_PARAM_TYPE = 65432;
@@ -1992,7 +1981,7 @@ impl Default for IP6_ADDRESS {
 pub const IP6_ADDRESS_STRING_BUFFER_LENGTH: i32 = 65;
 pub const IP6_ADDRESS_STRING_LENGTH: i32 = 65;
 #[cfg(feature = "minwindef")]
-pub type MDNS_QUERY_CALLBACK = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT)>;
+pub type MDNS_QUERY_CALLBACK = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryhandle: PMDNS_QUERY_HANDLE, pqueryresults: PDNS_QUERY_RESULT)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MDNS_QUERY_HANDLE {
@@ -2064,7 +2053,7 @@ pub type PDNS_PTR_DATAA = *mut DNS_PTR_DATAA;
 pub type PDNS_PTR_DATAW = *mut DNS_PTR_DATAW;
 pub type PDNS_QUERY_CANCEL = *mut DNS_QUERY_CANCEL;
 #[cfg(feature = "minwindef")]
-pub type PDNS_QUERY_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT)>;
+pub type PDNS_QUERY_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryresults: PDNS_QUERY_RESULT)>;
 #[cfg(feature = "minwindef")]
 pub type PDNS_QUERY_REQUEST = *mut DNS_QUERY_REQUEST;
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "minwindef", feature = "ws2"))]
@@ -2089,17 +2078,17 @@ pub type PDNS_RRSIG_DATA = *mut DNS_RRSIG_DATAA;
 pub type PDNS_RRSIG_DATAA = *mut DNS_RRSIG_DATAA;
 pub type PDNS_RRSIG_DATAW = *mut DNS_RRSIG_DATAW;
 #[cfg(feature = "minwindef")]
-pub type PDNS_SERVICE_BROWSE_CALLBACK = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pdnsrecord: *const DNS_RECORDA)>;
+pub type PDNS_SERVICE_BROWSE_CALLBACK = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pdnsrecord: PDNS_RECORD)>;
 #[cfg(feature = "minwindef")]
 pub type PDNS_SERVICE_BROWSE_REQUEST = *mut DNS_SERVICE_BROWSE_REQUEST;
 pub type PDNS_SERVICE_CANCEL = *mut DNS_SERVICE_CANCEL;
 pub type PDNS_SERVICE_INSTANCE = *mut DNS_SERVICE_INSTANCE;
-pub type PDNS_SERVICE_REGISTER_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
+pub type PDNS_SERVICE_REGISTER_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pinstance: PDNS_SERVICE_INSTANCE)>;
 #[cfg(feature = "winnt")]
 pub type PDNS_SERVICE_REGISTER_REQUEST = *mut DNS_SERVICE_REGISTER_REQUEST;
-pub type PDNS_SERVICE_RESOLVE_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
+pub type PDNS_SERVICE_RESOLVE_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pinstance: PDNS_SERVICE_INSTANCE)>;
 pub type PDNS_SERVICE_RESOLVE_REQUEST = *mut DNS_SERVICE_RESOLVE_REQUEST;
-pub type PDNS_SIG_DATA = *mut DNS_SIG_DATAA;
+pub type PDNS_SIG_DATA = *mut DNS_RRSIG_DATAA;
 pub type PDNS_SIG_DATAA = *mut DNS_RRSIG_DATAA;
 pub type PDNS_SIG_DATAW = *mut DNS_RRSIG_DATAW;
 pub type PDNS_SOA_DATA = *mut DNS_SOA_DATAA;
@@ -2137,7 +2126,7 @@ pub type PIP4_ADDRESS = *mut u32;
 pub type PIP4_ARRAY = *mut IP4_ARRAY;
 pub type PIP6_ADDRESS = *mut IP6_ADDRESS;
 #[cfg(feature = "minwindef")]
-pub type PMDNS_QUERY_CALLBACK = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT)>;
+pub type PMDNS_QUERY_CALLBACK = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryhandle: PMDNS_QUERY_HANDLE, pqueryresults: PDNS_QUERY_RESULT)>;
 pub type PMDNS_QUERY_HANDLE = *mut MDNS_QUERY_HANDLE;
 #[cfg(feature = "minwindef")]
 pub type PMDNS_QUERY_REQUEST = *mut MDNS_QUERY_REQUEST;
@@ -2150,3 +2139,20 @@ pub const SIZEOF_IP4_ADDRESS: i32 = 4;
 pub const TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLICY_TAG = 1;
 pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = 0;
 pub const TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG = 2;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _DNS_CONNECTION_PROXY_INFO_CONFIG {
+    pub pwszServer: *mut u16,
+    pub pwszUsername: *mut u16,
+    pub pwszPassword: *mut u16,
+    pub pwszException: *mut u16,
+    pub pwszExtraInfo: *mut u16,
+    pub Port: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct _DNS_CONNECTION_PROXY_INFO_SCRIPT {
+    pub pwszScript: *mut u16,
+    pub pwszUsername: *mut u16,
+    pub pwszPassword: *mut u16,
+}

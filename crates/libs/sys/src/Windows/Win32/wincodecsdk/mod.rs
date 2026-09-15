@@ -1,4 +1,5 @@
-windows_link::link!("windowscodecs.dll" "system" fn WICGetMetadataContentSize(guidcontainerformat : *const windows_sys::core::GUID, piwriter : *mut core::ffi::c_void, pcbsize : *mut u64) -> windows_sys::core::HRESULT);
+#[cfg(feature = "winnt")]
+windows_link::link!("windowscodecs.dll" "system" fn WICGetMetadataContentSize(guidcontainerformat : *const windows_sys::core::GUID, piwriter : *mut core::ffi::c_void, pcbsize : *mut super::ULARGE_INTEGER) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("windowscodecs.dll" "system" fn WICMatchMetadataContent(guidcontainerformat : *const windows_sys::core::GUID, pguidvendor : *const windows_sys::core::GUID, pistream : *mut core::ffi::c_void, pguidmetadataformat : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
@@ -142,21 +143,35 @@ pub const WICMetadataCreationFailUnknown: WICMetadataCreationOptions = 65536;
 pub const WICMetadataCreationMask: WICMetadataCreationOptions = -65536;
 pub type WICMetadataCreationOptions = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct WICMetadataHeader {
-    pub Position: u64,
+    pub Position: super::ULARGE_INTEGER,
     pub Length: u32,
     pub Header: *mut u8,
-    pub DataOffset: u64,
+    pub DataOffset: super::ULARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for WICMetadataHeader {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct WICMetadataPattern {
-    pub Position: u64,
+    pub Position: super::ULARGE_INTEGER,
     pub Length: u32,
     pub Pattern: *mut u8,
     pub Mask: *mut u8,
-    pub DataOffset: u64,
+    pub DataOffset: super::ULARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for WICMetadataPattern {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WICPersistOptionBigEndian: WICPersistOptions = 1;
 pub const WICPersistOptionDefault: WICPersistOptions = 0;

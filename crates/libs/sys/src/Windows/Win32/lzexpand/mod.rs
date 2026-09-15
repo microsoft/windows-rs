@@ -6,9 +6,9 @@ windows_link::link!("lz32.dll" "system" fn LZCopy(hfsource : i32, hfdest : i32) 
 windows_link::link!("lz32.dll" "system" fn LZDone());
 windows_link::link!("lz32.dll" "system" fn LZInit(hfsource : i32) -> i32);
 #[cfg(feature = "winbase")]
-windows_link::link!("lz32.dll" "system" fn LZOpenFileA(lpfilename : windows_sys::core::PCSTR, lpreopenbuf : *mut super::OFSTRUCT, wstyle : u16) -> i32);
+windows_link::link!("lz32.dll" "system" fn LZOpenFileA(lpfilename : windows_sys::core::PCSTR, lpreopenbuf : super::LPOFSTRUCT, wstyle : u16) -> i32);
 #[cfg(feature = "winbase")]
-windows_link::link!("lz32.dll" "system" fn LZOpenFileW(lpfilename : windows_sys::core::PCWSTR, lpreopenbuf : *mut super::OFSTRUCT, wstyle : u16) -> i32);
+windows_link::link!("lz32.dll" "system" fn LZOpenFileW(lpfilename : windows_sys::core::PCWSTR, lpreopenbuf : super::LPOFSTRUCT, wstyle : u16) -> i32);
 windows_link::link!("lz32.dll" "system" fn LZRead(hfile : i32, lpbuffer : *mut i8, cbread : i32) -> i32);
 windows_link::link!("lz32.dll" "system" fn LZSeek(hfile : i32, loffset : i32, iorigin : i32) -> i32);
 windows_link::link!("lz32.dll" "system" fn LZStart() -> i32);

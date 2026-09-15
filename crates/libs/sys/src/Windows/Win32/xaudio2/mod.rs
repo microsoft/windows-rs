@@ -1,3 +1,4 @@
+windows_link::link!("xaudio2_9.dll" "system" "?XAudio2Create@@YAJPEAPEAUIXAudio2@@II@Z" fn XAudio2Create(ppxaudio2 : *mut *mut core::ffi::c_void, flags : u32, xaudio2processor : XAUDIO2_PROCESSOR) -> windows_sys::core::HRESULT);
 windows_link::link!("xaudio2_9.dll" "system" fn XAudio2CreateWithVersionInfo(ppxaudio2 : *mut *mut core::ffi::c_void, flags : u32, xaudio2processor : XAUDIO2_PROCESSOR, ntddiversion : u32) -> windows_sys::core::HRESULT);
 pub const BandPassFilter: XAUDIO2_FILTER_TYPE = 1;
 pub const FACILITY_XAUDIO2: i32 = 2198;
@@ -38,6 +39,7 @@ pub const Processor6: i32 = 32;
 pub const Processor7: i32 = 64;
 pub const Processor8: i32 = 128;
 pub const Processor9: i32 = 256;
+pub const XAUDIO2D_DLL: windows_sys::core::PCSTR = windows_sys::core::s!("xaudio2_9d.dll");
 pub const XAUDIO2D_DLL_A: windows_sys::core::PCSTR = windows_sys::core::s!("xaudio2_9d.dll");
 pub const XAUDIO2D_DLL_W: windows_sys::core::PCWSTR = windows_sys::core::w!("xaudio2_9d.dll");
 pub const XAUDIO2_1024_QUANTUM: i32 = 32768;
@@ -75,11 +77,13 @@ pub struct XAUDIO2_DEBUG_CONFIGURATION {
 }
 pub const XAUDIO2_DEBUG_ENGINE: i32 = 1;
 pub const XAUDIO2_DEFAULT_CHANNELS: i32 = 0;
+pub const XAUDIO2_DEFAULT_FILTER_FREQUENCY: f32 = 1.0;
 pub const XAUDIO2_DEFAULT_FILTER_ONEOVERQ: f32 = 1.0;
-pub const XAUDIO2_DEFAULT_FILTER_TYPE: i32 = 0;
+pub const XAUDIO2_DEFAULT_FILTER_TYPE: XAUDIO2_FILTER_TYPE = 0;
 pub const XAUDIO2_DEFAULT_FREQ_RATIO: f32 = 2.0;
 pub const XAUDIO2_DEFAULT_PROCESSOR: i32 = 1;
 pub const XAUDIO2_DEFAULT_SAMPLERATE: i32 = 0;
+pub const XAUDIO2_DLL: windows_sys::core::PCSTR = windows_sys::core::s!("xaudio2_9.dll");
 pub const XAUDIO2_DLL_A: windows_sys::core::PCSTR = windows_sys::core::s!("xaudio2_9.dll");
 pub const XAUDIO2_DLL_W: windows_sys::core::PCWSTR = windows_sys::core::w!("xaudio2_9.dll");
 #[repr(C, packed(1))]
@@ -133,6 +137,7 @@ pub const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MONO: i32 = 600000;
 pub const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MULTICHANNEL: i32 = 300000;
 pub const XAUDIO2_MAX_SAMPLE_RATE: i32 = 384000;
 pub const XAUDIO2_MAX_VOLUME_LEVEL: f32 = 16777216.0;
+pub const XAUDIO2_MIN_FREQ_RATIO: f32 = 0.0009765625;
 pub const XAUDIO2_MIN_SAMPLE_RATE: i32 = 1000;
 pub const XAUDIO2_NO_LOOP_REGION: i32 = 0;
 pub const XAUDIO2_NO_VIRTUAL_AUDIO_CLIENT: i32 = 65536;
@@ -157,6 +162,7 @@ pub struct XAUDIO2_PERFORMANCE_DATA {
 pub const XAUDIO2_PLAY_TAILS: i32 = 32;
 pub type XAUDIO2_PROCESSOR = u32;
 pub const XAUDIO2_QUANTUM_DENOMINATOR: i32 = 100;
+pub const XAUDIO2_QUANTUM_MS: f32 = 10.0;
 pub const XAUDIO2_QUANTUM_NUMERATOR: i32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]

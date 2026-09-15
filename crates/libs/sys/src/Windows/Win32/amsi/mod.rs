@@ -117,8 +117,18 @@ pub const AMSI_UAC_TRUST_STATE_MAX: AMSI_UAC_TRUST_STATE = 3;
 pub const AMSI_UAC_TRUST_STATE_TRUSTED: AMSI_UAC_TRUST_STATE = 0;
 pub const AMSI_UAC_TRUST_STATE_UNTRUSTED: AMSI_UAC_TRUST_STATE = 1;
 pub const CAntimalware: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfdb00e52_a214_4aa1_8fba_4357bb0072ec);
-pub type HAMSICONTEXT = *mut core::ffi::c_void;
-pub type HAMSISESSION = *mut core::ffi::c_void;
+pub type HAMSICONTEXT = *mut HAMSICONTEXT__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HAMSICONTEXT__ {
+    pub unused: i32,
+}
+pub type HAMSISESSION = *mut HAMSISESSION__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HAMSISESSION__ {
+    pub unused: i32,
+}
 pub type LPAMSI_UAC_REQUEST_AX_INFO = *mut AMSI_UAC_REQUEST_AX_INFO;
 pub type LPAMSI_UAC_REQUEST_COM_INFO = *mut AMSI_UAC_REQUEST_COM_INFO;
 pub type LPAMSI_UAC_REQUEST_CONTEXT = *mut AMSI_UAC_REQUEST_CONTEXT;

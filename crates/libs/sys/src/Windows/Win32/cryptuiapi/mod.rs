@@ -1,22 +1,22 @@
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-windows_link::link!("cryptui.dll" "system" fn CertSelectionGetSerializedBlob(pcsi : *const CERT_SELECTUI_INPUT, ppoutbuffer : *mut *mut core::ffi::c_void, puloutbuffersize : *mut u32) -> windows_sys::core::HRESULT);
+windows_link::link!("cryptui.dll" "system" fn CertSelectionGetSerializedBlob(pcsi : PCERT_SELECTUI_INPUT, ppoutbuffer : *mut *mut core::ffi::c_void, puloutbuffersize : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
-windows_link::link!("cryptui.dll" "system" fn CryptUIDlgCertMgr(pcryptuicertmgr : *const CRYPTUI_CERT_MGR_STRUCT) -> windows_sys::core::BOOL);
+windows_link::link!("cryptui.dll" "system" fn CryptUIDlgCertMgr(pcryptuicertmgr : PCCRYPTUI_CERT_MGR_STRUCT) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef"))]
 windows_link::link!("cryptui.dll" "system" fn CryptUIDlgSelectCertificateFromStore(hcertstore : super::HCERTSTORE, hwnd : super::HWND, pwsztitle : windows_sys::core::PCWSTR, pwszdisplaystring : windows_sys::core::PCWSTR, dwdontusecolumn : u32, dwflags : u32, pvreserved : *const core::ffi::c_void) -> super::PCCERT_CONTEXT);
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
-windows_link::link!("cryptui.dll" "system" fn CryptUIDlgViewCertificateA(pcertviewinfo : *const CRYPTUI_VIEWCERTIFICATE_STRUCTA, pfpropertieschanged : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("cryptui.dll" "system" fn CryptUIDlgViewCertificateA(pcertviewinfo : PCCRYPTUI_VIEWCERTIFICATE_STRUCTA, pfpropertieschanged : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
-windows_link::link!("cryptui.dll" "system" fn CryptUIDlgViewCertificateW(pcertviewinfo : *const CRYPTUI_VIEWCERTIFICATE_STRUCTW, pfpropertieschanged : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("cryptui.dll" "system" fn CryptUIDlgViewCertificateW(pcertviewinfo : PCCRYPTUI_VIEWCERTIFICATE_STRUCTW, pfpropertieschanged : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("cryptui.dll" "system" fn CryptUIDlgViewContext(dwcontexttype : u32, pvcontext : *const core::ffi::c_void, hwnd : super::HWND, pwsztitle : windows_sys::core::PCWSTR, dwflags : u32, pvreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef"))]
-windows_link::link!("cryptui.dll" "system" fn CryptUIWizDigitalSign(dwflags : u32, hwndparent : super::HWND, pwszwizardtitle : windows_sys::core::PCWSTR, pdigitalsigninfo : *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext : *mut PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> windows_sys::core::BOOL);
+windows_link::link!("cryptui.dll" "system" fn CryptUIWizDigitalSign(dwflags : u32, hwndparent : super::HWND, pwszwizardtitle : windows_sys::core::PCWSTR, pdigitalsigninfo : PCCRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext : *mut PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef"))]
-windows_link::link!("cryptui.dll" "system" fn CryptUIWizExport(dwflags : u32, hwndparent : super::HWND, pwszwizardtitle : windows_sys::core::PCWSTR, pexportinfo : *const CRYPTUI_WIZ_EXPORT_INFO, pvoid : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("cryptui.dll" "system" fn CryptUIWizFreeDigitalSignContext(psigncontext : *const CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> windows_sys::core::BOOL);
+windows_link::link!("cryptui.dll" "system" fn CryptUIWizExport(dwflags : u32, hwndparent : super::HWND, pwszwizardtitle : windows_sys::core::PCWSTR, pexportinfo : PCCRYPTUI_WIZ_EXPORT_INFO, pvoid : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("cryptui.dll" "system" fn CryptUIWizFreeDigitalSignContext(psigncontext : PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef"))]
-windows_link::link!("cryptui.dll" "system" fn CryptUIWizImport(dwflags : u32, hwndparent : super::HWND, pwszwizardtitle : windows_sys::core::PCWSTR, pimportsrc : *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore : super::HCERTSTORE) -> windows_sys::core::BOOL);
+windows_link::link!("cryptui.dll" "system" fn CryptUIWizImport(dwflags : u32, hwndparent : super::HWND, pwszwizardtitle : windows_sys::core::PCWSTR, pimportsrc : PCCRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore : super::HCERTSTORE) -> windows_sys::core::BOOL);
 pub const CERT_CREDENTIAL_PROVIDER_ID: i32 = -509;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
@@ -439,4 +439,4 @@ pub type PCRYPTUI_WIZ_EXPORT_INFO = *mut CRYPTUI_WIZ_EXPORT_INFO;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 pub type PCRYPTUI_WIZ_IMPORT_SRC_INFO = *mut CRYPTUI_WIZ_IMPORT_SRC_INFO;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-pub type PFNCFILTERPROC = Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, pfinitialselectedcert: *mut windows_sys::core::BOOL, pvcallbackdata: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
+pub type PFNCFILTERPROC = Option<unsafe extern "system" fn(pcertcontext: super::PCCERT_CONTEXT, pfinitialselectedcert: *mut windows_sys::core::BOOL, pvcallbackdata: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;

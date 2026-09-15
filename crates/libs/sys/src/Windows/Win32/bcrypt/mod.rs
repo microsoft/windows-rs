@@ -1,43 +1,65 @@
 windows_link::link!("bcrypt.dll" "system" fn BCryptAddContextFunction(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, dwposition : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptCloseAlgorithmProvider(halgorithm : BCRYPT_ALG_HANDLE, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptConfigureContext(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, pconfig : *const CRYPT_CONTEXT_CONFIG) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptConfigureContextFunction(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pconfig : *const CRYPT_CONTEXT_FUNCTION_CONFIG) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptCreateContext(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, pconfig : *const CRYPT_CONTEXT_CONFIG) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptCreateHash(halgorithm : BCRYPT_ALG_HANDLE, phhash : *mut BCRYPT_HASH_HANDLE, pbhashobject : *mut u8, cbhashobject : u32, pbsecret : *const u8, cbsecret : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptCreateMultiHash(halgorithm : BCRYPT_ALG_HANDLE, phhash : *mut BCRYPT_HASH_HANDLE, nhashes : u32, pbhashobject : *mut u8, cbhashobject : u32, pbsecret : *const u8, cbsecret : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptDecapsulate(hkey : BCRYPT_KEY_HANDLE, pbciphertext : *const u8, cbciphertext : u32, pbsecretkey : *mut u8, cbsecretkey : u32, pcbsecretkey : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptDecrypt(hkey : BCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pbiv : *mut u8, cbiv : u32, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("bcrypt.dll" "system" fn BCryptConfigureContext(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, pconfig : PCRYPT_CONTEXT_CONFIG) -> windows_sys::core::NTSTATUS);
+windows_link::link!("bcrypt.dll" "system" fn BCryptConfigureContextFunction(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pconfig : PCRYPT_CONTEXT_FUNCTION_CONFIG) -> windows_sys::core::NTSTATUS);
+windows_link::link!("bcrypt.dll" "system" fn BCryptCreateContext(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, pconfig : PCRYPT_CONTEXT_CONFIG) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptCreateHash(halgorithm : BCRYPT_ALG_HANDLE, phhash : *mut BCRYPT_HASH_HANDLE, pbhashobject : super::PUCHAR, cbhashobject : u32, pbsecret : super::PUCHAR, cbsecret : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptCreateMultiHash(halgorithm : BCRYPT_ALG_HANDLE, phhash : *mut BCRYPT_HASH_HANDLE, nhashes : u32, pbhashobject : super::PUCHAR, cbhashobject : u32, pbsecret : super::PUCHAR, cbsecret : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDecapsulate(hkey : BCRYPT_KEY_HANDLE, pbciphertext : super::PUCHAR, cbciphertext : u32, pbsecretkey : super::PUCHAR, cbsecretkey : u32, pcbsecretkey : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDecrypt(hkey : BCRYPT_KEY_HANDLE, pbinput : super::PUCHAR, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pbiv : super::PUCHAR, cbiv : u32, pboutput : super::PUCHAR, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptDeleteContext(dwtable : u32, pszcontext : windows_sys::core::PCWSTR) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptDeriveKey(hsharedsecret : BCRYPT_SECRET_HANDLE, pwszkdf : windows_sys::core::PCWSTR, pparameterlist : *const BCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptDeriveKeyCapi(hhash : BCRYPT_HASH_HANDLE, htargetalg : BCRYPT_ALG_HANDLE, pbderivedkey : *mut u8, cbderivedkey : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptDeriveKeyPBKDF2(hprf : BCRYPT_ALG_HANDLE, pbpassword : *const u8, cbpassword : u32, pbsalt : *const u8, cbsalt : u32, citerations : u64, pbderivedkey : *mut u8, cbderivedkey : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDeriveKey(hsharedsecret : BCRYPT_SECRET_HANDLE, pwszkdf : windows_sys::core::PCWSTR, pparameterlist : *const BCryptBufferDesc, pbderivedkey : super::PUCHAR, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDeriveKeyCapi(hhash : BCRYPT_HASH_HANDLE, htargetalg : BCRYPT_ALG_HANDLE, pbderivedkey : super::PUCHAR, cbderivedkey : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDeriveKeyPBKDF2(hprf : BCRYPT_ALG_HANDLE, pbpassword : super::PUCHAR, cbpassword : u32, pbsalt : super::PUCHAR, cbsalt : u32, citerations : u64, pbderivedkey : super::PUCHAR, cbderivedkey : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptDestroyHash(hhash : BCRYPT_HASH_HANDLE) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptDestroyKey(hkey : BCRYPT_KEY_HANDLE) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptDestroySecret(hsecret : BCRYPT_SECRET_HANDLE) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptDuplicateHash(hhash : BCRYPT_HASH_HANDLE, phnewhash : *mut BCRYPT_HASH_HANDLE, pbhashobject : *mut u8, cbhashobject : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptDuplicateKey(hkey : BCRYPT_KEY_HANDLE, phnewkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : *mut u8, cbkeyobject : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptEncapsulate(hkey : BCRYPT_KEY_HANDLE, pbsecretkey : *mut u8, cbsecretkey : u32, pcbsecretkey : *mut u32, pbciphertext : *mut u8, cbciphertext : u32, pcbciphertext : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptEncrypt(hkey : BCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pbiv : *mut u8, cbiv : u32, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDuplicateHash(hhash : BCRYPT_HASH_HANDLE, phnewhash : *mut BCRYPT_HASH_HANDLE, pbhashobject : super::PUCHAR, cbhashobject : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptDuplicateKey(hkey : BCRYPT_KEY_HANDLE, phnewkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : super::PUCHAR, cbkeyobject : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptEncapsulate(hkey : BCRYPT_KEY_HANDLE, pbsecretkey : super::PUCHAR, cbsecretkey : u32, pcbsecretkey : *mut u32, pbciphertext : super::PUCHAR, cbciphertext : u32, pcbciphertext : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptEncrypt(hkey : BCRYPT_KEY_HANDLE, pbinput : super::PUCHAR, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pbiv : super::PUCHAR, cbiv : u32, pboutput : super::PUCHAR, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptEnumAlgorithms(dwalgoperations : u32, palgcount : *mut u32, ppalglist : *mut *mut BCRYPT_ALGORITHM_IDENTIFIER, dwflags : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptEnumContextFunctionProviders(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_CONTEXT_FUNCTION_PROVIDERS) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptEnumContextFunctions(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_CONTEXT_FUNCTIONS) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptEnumContexts(dwtable : u32, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_CONTEXTS) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptEnumProviders(pszalgid : windows_sys::core::PCWSTR, pimplcount : *mut u32, ppimpllist : *mut *mut BCRYPT_PROVIDER_NAME, dwflags : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptEnumRegisteredProviders(pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_PROVIDERS) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptExportKey(hkey : BCRYPT_KEY_HANDLE, hexportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptExportKey(hkey : BCRYPT_KEY_HANDLE, hexportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, pboutput : super::PUCHAR, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptFinalizeKeyPair(hkey : BCRYPT_KEY_HANDLE, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptFinishHash(hhash : BCRYPT_HASH_HANDLE, pboutput : *mut u8, cboutput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptFinishHash(hhash : BCRYPT_HASH_HANDLE, pboutput : super::PUCHAR, cboutput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptFreeBuffer(pvbuffer : *const core::ffi::c_void));
-windows_link::link!("bcrypt.dll" "system" fn BCryptGenRandom(halgorithm : BCRYPT_ALG_HANDLE, pbbuffer : *mut u8, cbbuffer : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptGenRandom(halgorithm : BCRYPT_ALG_HANDLE, pbbuffer : super::PUCHAR, cbbuffer : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptGenerateKeyPair(halgorithm : BCRYPT_ALG_HANDLE, phkey : *mut BCRYPT_KEY_HANDLE, dwlength : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptGenerateSymmetricKey(halgorithm : BCRYPT_ALG_HANDLE, phkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : *mut u8, cbkeyobject : u32, pbsecret : *const u8, cbsecret : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptGetFipsAlgorithmMode(pfenabled : *mut bool) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptGetProperty(hobject : BCRYPT_HANDLE, pszproperty : windows_sys::core::PCWSTR, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptHash(halgorithm : BCRYPT_ALG_HANDLE, pbsecret : *const u8, cbsecret : u32, pbinput : *const u8, cbinput : u32, pboutput : *mut u8, cboutput : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptHashData(hhash : BCRYPT_HASH_HANDLE, pbinput : *const u8, cbinput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptImportKey(halgorithm : BCRYPT_ALG_HANDLE, himportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, phkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : *mut u8, cbkeyobject : u32, pbinput : *const u8, cbinput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptImportKeyPair(halgorithm : BCRYPT_ALG_HANDLE, himportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, phkey : *mut BCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptKeyDerivation(hkey : BCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptGenerateSymmetricKey(halgorithm : BCRYPT_ALG_HANDLE, phkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : super::PUCHAR, cbkeyobject : u32, pbsecret : super::PUCHAR, cbsecret : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptGetFipsAlgorithmMode(pfenabled : *mut super::BOOLEAN) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptGetProperty(hobject : BCRYPT_HANDLE, pszproperty : windows_sys::core::PCWSTR, pboutput : super::PUCHAR, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptHash(halgorithm : BCRYPT_ALG_HANDLE, pbsecret : super::PUCHAR, cbsecret : u32, pbinput : super::PUCHAR, cbinput : u32, pboutput : super::PUCHAR, cboutput : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptHashData(hhash : BCRYPT_HASH_HANDLE, pbinput : super::PUCHAR, cbinput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptImportKey(halgorithm : BCRYPT_ALG_HANDLE, himportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, phkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : super::PUCHAR, cbkeyobject : u32, pbinput : super::PUCHAR, cbinput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptImportKeyPair(halgorithm : BCRYPT_ALG_HANDLE, himportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_sys::core::PCWSTR, phkey : *mut BCRYPT_KEY_HANDLE, pbinput : super::PUCHAR, cbinput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptKeyDerivation(hkey : BCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, pbderivedkey : super::PUCHAR, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptOpenAlgorithmProvider(phalgorithm : *mut BCRYPT_ALG_HANDLE, pszalgid : windows_sys::core::PCWSTR, pszimplementation : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptProcessMultiOperations(hobject : BCRYPT_HANDLE, operationtype : BCRYPT_MULTI_OPERATION_TYPE, poperations : *const core::ffi::c_void, cboperations : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptQueryContextConfiguration(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_CONTEXT_CONFIG) -> windows_sys::core::NTSTATUS);
@@ -51,12 +73,16 @@ windows_link::link!("bcrypt.dll" "system" fn BCryptRemoveContextFunction(dwtable
 #[cfg(feature = "minwindef")]
 windows_link::link!("bcrypt.dll" "system" fn BCryptResolveProviders(pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pszprovider : windows_sys::core::PCWSTR, dwmode : u32, dwflags : u32, pcbbuffer : *mut u32, ppbuffer : *mut PCRYPT_PROVIDER_REFS) -> windows_sys::core::NTSTATUS);
 windows_link::link!("bcrypt.dll" "system" fn BCryptSecretAgreement(hprivkey : BCRYPT_KEY_HANDLE, hpubkey : BCRYPT_KEY_HANDLE, phagreedsecret : *mut BCRYPT_SECRET_HANDLE, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptSetContextFunctionProperty(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pszproperty : windows_sys::core::PCWSTR, cbvalue : u32, pbvalue : *const u8) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptSetProperty(hobject : BCRYPT_HANDLE, pszproperty : windows_sys::core::PCWSTR, pbinput : *const u8, cbinput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptSignHash(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbinput : *const u8, cbinput : u32, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptSetContextFunctionProperty(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pszproperty : windows_sys::core::PCWSTR, cbvalue : u32, pbvalue : super::PUCHAR) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptSetProperty(hobject : BCRYPT_HANDLE, pszproperty : windows_sys::core::PCWSTR, pbinput : super::PUCHAR, cbinput : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptSignHash(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbinput : super::PUCHAR, cbinput : u32, pboutput : super::PUCHAR, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("bcrypt.dll" "system" fn BCryptUnregisterConfigChangeNotify(hevent : super::HANDLE) -> windows_sys::core::NTSTATUS);
-windows_link::link!("bcrypt.dll" "system" fn BCryptVerifySignature(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhash : *const u8, cbhash : u32, pbsignature : *const u8, cbsignature : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "minwindef")]
+windows_link::link!("bcrypt.dll" "system" fn BCryptVerifySignature(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhash : super::PUCHAR, cbhash : u32, pbsignature : super::PUCHAR, cbsignature : u32, dwflags : u32) -> windows_sys::core::NTSTATUS);
 pub const BCRYPTBUFFER_VERSION: i32 = 0;
 pub const BCRYPT_3DES_112_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("3DES_112");
 pub const BCRYPT_3DES_112_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 369 as _;
@@ -460,6 +486,8 @@ pub const BCRYPT_MLDSA_PRIVATE_SEED_MAGIC: i32 = 1397969732;
 pub const BCRYPT_MLDSA_PUBLIC_MAGIC: i32 = 1263555396;
 pub const BCRYPT_MLKEM_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("ML-KEM");
 pub const BCRYPT_MLKEM_ALG_HANDLE: BCRYPT_ALG_HANDLE = 1153 as _;
+pub const BCRYPT_MLKEM_DECAPSULATION_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("MLKEMPRIVATEBLOB");
+pub const BCRYPT_MLKEM_ENCAPSULATION_BLOB: windows_sys::core::PCWSTR = windows_sys::core::w!("MLKEMPUBLICBLOB");
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct BCRYPT_MLKEM_KEY_BLOB {

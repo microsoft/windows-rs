@@ -13,12 +13,18 @@ pub const GUID_ScanPrintImage: windows_sys::core::GUID = windows_sys::core::GUID
 #[derive(Clone, Copy, Default)]
 pub struct IStiDeviceW(pub u8);
 pub type LPDIAG = LPSTI_DIAG;
+pub type LPSTILLIMAGE = *mut core::ffi::c_void;
+pub type LPSTILLIMAGEDEVICE = *mut core::ffi::c_void;
+pub type LPSTILLIMAGEW = *mut core::ffi::c_void;
 pub type LPSTINOTIFY = *mut STINOTIFY;
 #[cfg(all(feature = "windef", feature = "winnt"))]
 pub type LPSTISUBSCRIBE = *mut STISUBSCRIBE;
 pub type LPSTI_DIAG = *mut STI_DIAG;
 pub const MAX_NOTIFICATION_DATA: i32 = 64;
+pub type PSTI = *mut core::ffi::c_void;
+pub type PSTIDEVICE = *mut core::ffi::c_void;
 pub type PSTIDEVICEW = *mut IStiDeviceW;
+pub type PSTIW = *mut core::ffi::c_void;
 pub type PSTI_DEVICE_INFORMATION = PSTI_DEVICE_INFORMATIONW;
 pub type PSTI_DEVICE_INFORMATIONW = *mut STI_DEVICE_INFORMATIONW;
 pub type PSTI_DEVICE_STATUS = *mut STI_DEVICE_STATUS;
@@ -64,7 +70,7 @@ pub struct STI_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: STI_DEVICE_TYPE,
     pub szDeviceInternalName: [u16; 128],
-    pub DeviceCapabilities: STI_DEV_CAPS,
+    pub DeviceCapabilitiesA: STI_DEV_CAPS,
     pub dwHardwareConfiguration: u32,
     pub pszVendorDescription: windows_sys::core::PWSTR,
     pub pszDeviceDescription: windows_sys::core::PWSTR,
@@ -172,7 +178,7 @@ pub struct STI_WIA_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: STI_DEVICE_TYPE,
     pub szDeviceInternalName: [u16; 128],
-    pub DeviceCapabilities: STI_DEV_CAPS,
+    pub DeviceCapabilitiesA: STI_DEV_CAPS,
     pub dwHardwareConfiguration: u32,
     pub pszVendorDescription: windows_sys::core::PWSTR,
     pub pszDeviceDescription: windows_sys::core::PWSTR,

@@ -808,7 +808,7 @@ pub type SPNOTIFYCALLBACK = Option<unsafe extern "system" fn(wparam: super::WPAR
 pub type SPPARTOFSPEECH = i32;
 pub type SPPHONEID = u16;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASE {
     pub Base: SPPHRASE_53,
@@ -833,7 +833,7 @@ pub struct SPPHRASEELEMENT {
     pub SREngineConfidence: f32,
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SPPHRASEPROPERTY {
     pub pszName: windows_sys::core::PCWSTR,
@@ -847,27 +847,27 @@ pub struct SPPHRASEPROPERTY {
     pub SREngineConfidence: f32,
     pub Confidence: i8,
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPPHRASEPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union SPPHRASEPROPERTY_0 {
     pub ulId: u32,
     pub Anonymous: SPPHRASEPROPERTY_0_0,
 }
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPPHRASEPROPERTY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASEPROPERTY_0_0 {
     pub bType: super::byte,
@@ -897,7 +897,7 @@ pub struct SPPHRASERULE {
     pub Confidence: i8,
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASE_50 {
     pub cbSize: u32,
@@ -919,7 +919,7 @@ pub struct SPPHRASE_50 {
     pub pSREnginePrivateData: *const u8,
 }
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASE_53 {
     pub Base: SPPHRASE_50,
@@ -930,7 +930,7 @@ pub const SPPPUT_ARRAY_INDEX: SPPHRASEPROPERTYUNIONTYPE = 1;
 pub const SPPPUT_UNUSED: SPPHRASEPROPERTYUNIONTYPE = 0;
 pub type SPPRONUNCIATIONFLAGS = i32;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SPPROPERTYINFO {
     pub pszName: windows_sys::core::PCWSTR,
@@ -938,7 +938,7 @@ pub struct SPPROPERTYINFO {
     pub pszValue: windows_sys::core::PCWSTR,
     pub vValue: super::VARIANT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SPPROPERTYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1030,7 +1030,7 @@ pub const SPREG_LOCAL_MACHINE_ROOT: windows_sys::core::PCWSTR = windows_sys::cor
 pub const SPREG_SAFE_USER_TOKENS: windows_sys::core::PCWSTR = windows_sys::core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\UserTokens");
 pub const SPREG_USER_ROOT: windows_sys::core::PCWSTR = windows_sys::core::w!("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech");
 pub const SPRP_NORMAL: i32 = 0;
-pub const SPRR_ALL_ELEMENTS: i32 = -1;
+pub const SPRR_ALL_ELEMENTS: SPPHRASERNG = -1;
 pub const SPRST_ACTIVE: SPRECOSTATE = 1;
 pub const SPRST_ACTIVE_ALWAYS: SPRECOSTATE = 2;
 pub const SPRST_INACTIVE: SPRECOSTATE = 0;
@@ -1050,6 +1050,9 @@ pub struct SPRULE {
     pub dwAttributes: u32,
 }
 pub type SPRULESTATE = i32;
+pub const SPRULETRANS_DICTATION: SPSTATEHANDLE = -3 as _;
+pub const SPRULETRANS_TEXTBUFFER: SPSTATEHANDLE = -1 as _;
+pub const SPRULETRANS_WILDCARD: SPSTATEHANDLE = -2 as _;
 pub type SPRUNSTATE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1193,7 +1196,12 @@ pub const SPSModifier: SpeechPartOfSpeech = 12288;
 pub const SPSNotOverriden: SpeechPartOfSpeech = -1;
 pub const SPSNoun: SpeechPartOfSpeech = 4096;
 pub const SPSSuppressWord: SpeechPartOfSpeech = 61440;
-pub type SPSTATEHANDLE = *mut core::ffi::c_void;
+pub type SPSTATEHANDLE = *mut SPSTATEHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct SPSTATEHANDLE__ {
+    pub unused: i32,
+}
 pub type SPSTREAMFORMAT = i32;
 pub type SPSTREAMFORMATTYPE = i32;
 pub const SPSUnknown: SpeechPartOfSpeech = 0;
@@ -1334,13 +1342,21 @@ pub type SPXMLRESULTOPTIONS = i32;
 pub const SPXRO_Alternates_SML: SPXMLRESULTOPTIONS = 1;
 pub const SPXRO_SML: SPXMLRESULTOPTIONS = 0;
 pub const SP_EMULATE_RESULT: i32 = 1073741824;
-pub const SP_GETWHOLEPHRASE: i32 = -1;
+pub const SP_GETWHOLEPHRASE: SPPHRASERNG = -1;
 pub const SP_HIGH_CONFIDENCE: i32 = 1;
 pub const SP_LOW_CONFIDENCE: i32 = -1;
 pub const SP_MAX_LANGIDS: i32 = 20;
 pub const SP_MAX_PRON_LENGTH: i32 = 384;
 pub const SP_MAX_WORD_LENGTH: i32 = 128;
 pub const SP_NORMAL_CONFIDENCE: i32 = 0;
+#[cfg(target_arch = "x86")]
+pub const SP_SPPHRASESIZE_500: u32 = 120;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SP_SPPHRASESIZE_500: u64 = 160;
+#[cfg(target_arch = "x86")]
+pub const SP_SPPHRASESIZE_530: u32 = 128;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SP_SPPHRASESIZE_530: u64 = 176;
 pub const SP_STREAMPOS_ASAP: i32 = 0;
 pub const SP_STREAMPOS_REALTIME: i32 = -1;
 pub const SP_VISEME_0: SPVISEMES = 0;
@@ -1553,6 +1569,7 @@ pub type SpeechWordType = i32;
 pub const Speech_Default_Weight: f32 = 1.0;
 pub const Subsequence: SPMATCHINGMODE = 1;
 pub const SubsequenceContentRequired: SPMATCHINGMODE = 5;
+pub const _SAPI_VER: i32 = 84;
 pub const eLEXTYPE_APP: SPLEXICONTYPE = 2;
 pub const eLEXTYPE_LETTERTOSOUND: SPLEXICONTYPE = 8;
 pub const eLEXTYPE_MORPHOLOGY: SPLEXICONTYPE = 16;

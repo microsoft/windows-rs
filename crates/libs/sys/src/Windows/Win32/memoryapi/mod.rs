@@ -1,56 +1,42 @@
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn AllocateUserPhysicalPages(hprocess : super::HANDLE, numberofpages : *mut u32, pagearray : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn AllocateUserPhysicalPages(hprocess : super::HANDLE, numberofpages : *mut u64, pagearray : *mut u64) -> windows_sys::core::BOOL);
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn AllocateUserPhysicalPages2(objecthandle : super::HANDLE, numberofpages : *mut u32, pagearray : *mut u32, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_sys::core::BOOL);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-windows_link::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn AllocateUserPhysicalPages2(objecthandle : super::HANDLE, numberofpages : *mut u64, pagearray : *mut u64, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_sys::core::BOOL);
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn AllocateUserPhysicalPagesNuma(hprocess : super::HANDLE, numberofpages : *mut u32, pagearray : *mut u32, nndpreferred : u32) -> windows_sys::core::BOOL);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn AllocateUserPhysicalPagesNuma(hprocess : super::HANDLE, numberofpages : *mut u64, pagearray : *mut u64, nndpreferred : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn AllocateUserPhysicalPages(hprocess : super::HANDLE, numberofpages : super::PULONG_PTR, pagearray : super::PULONG_PTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
+windows_link::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn AllocateUserPhysicalPages2(objecthandle : super::HANDLE, numberofpages : super::PULONG_PTR, pagearray : super::PULONG_PTR, extendedparameters : super::PMEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn AllocateUserPhysicalPagesNuma(hprocess : super::HANDLE, numberofpages : super::PULONG_PTR, pagearray : super::PULONG_PTR, nndpreferred : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("api-ms-win-core-memory-l1-1-7.dll" "system" fn CreateFileMapping2(file : super::HANDLE, securityattributes : *const super::SECURITY_ATTRIBUTES, desiredaccess : u32, pageprotection : u32, allocationattributes : u32, maximumsize : u64, name : windows_sys::core::PCWSTR, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, parametercount : u32) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateFileMappingFromApp(hfile : super::HANDLE, securityattributes : *const super::SECURITY_ATTRIBUTES, pageprotection : u32, maximumsize : u64, name : windows_sys::core::PCWSTR) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateFileMappingFromApp(hfile : super::HANDLE, securityattributes : super::PSECURITY_ATTRIBUTES, pageprotection : u32, maximumsize : u64, name : windows_sys::core::PCWSTR) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateFileMappingNumaW(hfile : super::HANDLE, lpfilemappingattributes : *const super::SECURITY_ATTRIBUTES, flprotect : u32, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : windows_sys::core::PCWSTR, nndpreferred : u32) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateFileMappingNumaW(hfile : super::HANDLE, lpfilemappingattributes : super::LPSECURITY_ATTRIBUTES, flprotect : u32, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : windows_sys::core::PCWSTR, nndpreferred : u32) -> super::HANDLE);
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn CreateFileMappingW(hfile : super::HANDLE, lpfilemappingattributes : *const super::SECURITY_ATTRIBUTES, flprotect : u32, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : windows_sys::core::PCWSTR) -> super::HANDLE);
+windows_link::link!("kernel32.dll" "system" fn CreateFileMappingW(hfile : super::HANDLE, lpfilemappingattributes : super::LPSECURITY_ATTRIBUTES, flprotect : u32, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : windows_sys::core::PCWSTR) -> super::HANDLE);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn CreateMemoryResourceNotification(notificationtype : MEMORY_RESOURCE_NOTIFICATION_TYPE) -> super::HANDLE);
 windows_link::link!("kernel32.dll" "system" fn DiscardVirtualMemory(virtualaddress : *mut core::ffi::c_void, size : usize) -> u32);
-windows_link::link!("kernel32.dll" "system" fn FlushViewOfFile(lpbaseaddress : *const core::ffi::c_void, dwnumberofbytestoflush : usize) -> windows_sys::core::BOOL);
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn FreeUserPhysicalPages(hprocess : super::HANDLE, numberofpages : *mut u32, pagearray : *const u32) -> windows_sys::core::BOOL);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn FreeUserPhysicalPages(hprocess : super::HANDLE, numberofpages : *mut u64, pagearray : *const u64) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn FlushViewOfFile(lpbaseaddress : super::LPCVOID, dwnumberofbytestoflush : usize) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn FreeUserPhysicalPages(hprocess : super::HANDLE, numberofpages : super::PULONG_PTR, pagearray : super::PULONG_PTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetLargePageMinimum() -> usize);
-windows_link::link!("kernel32.dll" "system" fn GetMemoryErrorHandlingCapabilities(capabilities : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn GetMemoryErrorHandlingCapabilities(capabilities : super::PULONG) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-core-memory-l1-1-9.dll" "system" fn GetNumaNodeMemoryClosestInitiatorNode(targetnodenumber : u16, initiatornodenumber : *mut u16) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-core-memory-l1-1-9.dll" "system" fn GetNumaNodeMemoryReadBandwidth(targetnodenumber : u16, initiatornodenumber : u16, bandwidth : *mut NUMA_NODE_MEMORY_PERFORMANCE_BANDWIDTH) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-core-memory-l1-1-9.dll" "system" fn GetNumaNodeMemoryReadLatency(targetnodenumber : u16, initiatornodenumber : u16, latency : *mut NUMA_NODE_MEMORY_PERFORMANCE_LATENCY) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-core-memory-l1-1-9.dll" "system" fn GetNumaNodeMemoryWriteBandwidth(targetnodenumber : u16, initiatornodenumber : u16, bandwidth : *mut NUMA_NODE_MEMORY_PERFORMANCE_BANDWIDTH) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-core-memory-l1-1-9.dll" "system" fn GetNumaNodeMemoryWriteLatency(targetnodenumber : u16, initiatornodenumber : u16, latency : *mut NUMA_NODE_MEMORY_PERFORMANCE_LATENCY) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn GetProcessWorkingSetSize(hprocess : super::HANDLE, lpminimumworkingsetsize : *mut usize, lpmaximumworkingsetsize : *mut usize) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn GetProcessWorkingSetSizeEx(hprocess : super::HANDLE, lpminimumworkingsetsize : *mut usize, lpmaximumworkingsetsize : *mut usize, flags : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetSystemFileCacheSize(lpminimumfilecachesize : *mut usize, lpmaximumfilecachesize : *mut usize, lpflags : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetWriteWatch(dwflags : u32, lpbaseaddress : *const core::ffi::c_void, dwregionsize : usize, lpaddresses : *mut *mut core::ffi::c_void, lpdwcount : *mut usize, lpdwgranularity : *mut u32) -> u32);
-#[cfg(target_arch = "x86")]
-windows_link::link!("kernel32.dll" "system" fn MapUserPhysicalPages(virtualaddress : *const core::ffi::c_void, numberofpages : usize, pagearray : *const u32) -> windows_sys::core::BOOL);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("kernel32.dll" "system" fn MapUserPhysicalPages(virtualaddress : *const core::ffi::c_void, numberofpages : usize, pagearray : *const u64) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetProcessWorkingSetSize(hprocess : super::HANDLE, lpminimumworkingsetsize : super::PSIZE_T, lpmaximumworkingsetsize : super::PSIZE_T) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetProcessWorkingSetSizeEx(hprocess : super::HANDLE, lpminimumworkingsetsize : super::PSIZE_T, lpmaximumworkingsetsize : super::PSIZE_T, flags : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "minwindef"))]
+windows_link::link!("kernel32.dll" "system" fn GetSystemFileCacheSize(lpminimumfilecachesize : super::PSIZE_T, lpmaximumfilecachesize : super::PSIZE_T, lpflags : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn GetWriteWatch(dwflags : u32, lpbaseaddress : *const core::ffi::c_void, dwregionsize : usize, lpaddresses : *mut *mut core::ffi::c_void, lpdwcount : *mut usize, lpdwgranularity : super::LPDWORD) -> u32);
+#[cfg(feature = "basetsd")]
+windows_link::link!("kernel32.dll" "system" fn MapUserPhysicalPages(virtualaddress : *const core::ffi::c_void, numberofpages : usize, pagearray : super::PULONG_PTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn MapViewOfFile(hfilemappingobject : super::HANDLE, dwdesiredaccess : u32, dwfileoffsethigh : u32, dwfileoffsetlow : u32, dwnumberofbytestomap : usize) -> *mut core::ffi::c_void);
 #[cfg(feature = "winnt")]
@@ -71,28 +57,29 @@ windows_link::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn OpenFileMapp
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn OpenFileMappingW(dwdesiredaccess : u32, binherithandle : windows_sys::core::BOOL, lpname : windows_sys::core::PCWSTR) -> super::HANDLE);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn PrefetchVirtualMemory(hprocess : super::HANDLE, numberofentries : usize, virtualaddresses : *const WIN32_MEMORY_RANGE_ENTRY, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn QueryMemoryResourceNotification(resourcenotificationhandle : super::HANDLE, resourcestate : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn PrefetchVirtualMemory(hprocess : super::HANDLE, numberofentries : usize, virtualaddresses : PWIN32_MEMORY_RANGE_ENTRY, flags : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn QueryMemoryResourceNotification(resourcenotificationhandle : super::HANDLE, resourcestate : super::PBOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn QueryPartitionInformation(partition : super::HANDLE, partitioninformationclass : WIN32_MEMORY_PARTITION_INFORMATION_CLASS, partitioninformation : *mut core::ffi::c_void, partitioninformationlength : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("api-ms-win-core-memory-l1-1-4.dll" "system" fn QueryVirtualMemoryInformation(process : super::HANDLE, virtualaddress : *const core::ffi::c_void, memoryinformationclass : WIN32_MEMORY_INFORMATION_CLASS, memoryinformation : *mut core::ffi::c_void, memoryinformationsize : usize, returnsize : *mut usize) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn ReadProcessMemory(hprocess : super::HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *mut core::ffi::c_void, nsize : usize, lpnumberofbytesread : *mut usize) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
+windows_link::link!("api-ms-win-core-memory-l1-1-4.dll" "system" fn QueryVirtualMemoryInformation(process : super::HANDLE, virtualaddress : *const core::ffi::c_void, memoryinformationclass : WIN32_MEMORY_INFORMATION_CLASS, memoryinformation : *mut core::ffi::c_void, memoryinformationsize : usize, returnsize : super::PSIZE_T) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn ReadProcessMemory(hprocess : super::HANDLE, lpbaseaddress : super::LPCVOID, lpbuffer : *mut core::ffi::c_void, nsize : usize, lpnumberofbytesread : *mut usize) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn ReclaimVirtualMemory(virtualaddress : *const core::ffi::c_void, size : usize) -> u32);
 windows_link::link!("kernel32.dll" "system" fn RegisterBadMemoryNotification(callback : PBAD_MEMORY_CALLBACK_ROUTINE) -> *mut core::ffi::c_void);
 windows_link::link!("kernel32.dll" "system" fn ResetWriteWatch(lpbaseaddress : *const core::ffi::c_void, dwregionsize : usize) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn SetProcessValidCallTargets(hprocess : super::HANDLE, virtualaddress : *const core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : *mut super::CFG_CALL_TARGET_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn SetProcessValidCallTargets(hprocess : super::HANDLE, virtualaddress : *const core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : super::PCFG_CALL_TARGET_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("api-ms-win-core-memory-l1-1-7.dll" "system" fn SetProcessValidCallTargetsForMappedView(process : super::HANDLE, virtualaddress : *const core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : *mut super::CFG_CALL_TARGET_INFO, section : super::HANDLE, expectedfileoffset : u64) -> windows_sys::core::BOOL);
+windows_link::link!("api-ms-win-core-memory-l1-1-7.dll" "system" fn SetProcessValidCallTargetsForMappedView(process : super::HANDLE, virtualaddress : *const core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : super::PCFG_CALL_TARGET_INFO, section : super::HANDLE, expectedfileoffset : u64) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn SetProcessWorkingSetSize(hprocess : super::HANDLE, dwminimumworkingsetsize : usize, dwmaximumworkingsetsize : usize) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn SetProcessWorkingSetSizeEx(hprocess : super::HANDLE, dwminimumworkingsetsize : usize, dwmaximumworkingsetsize : usize, flags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetSystemFileCacheSize(minimumfilecachesize : usize, maximumfilecachesize : usize, flags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn UnmapViewOfFile(lpbaseaddress : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn UnmapViewOfFile(lpbaseaddress : super::LPCVOID) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("api-ms-win-core-memory-l1-1-5.dll" "system" fn UnmapViewOfFile2(process : super::HANDLE, baseaddress : *const core::ffi::c_void, unmapflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn UnmapViewOfFileEx(baseaddress : *const core::ffi::c_void, unmapflags : u32) -> windows_sys::core::BOOL);
@@ -111,19 +98,21 @@ windows_link::link!("kernel32.dll" "system" fn VirtualFree(lpaddress : *mut core
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn VirtualFreeEx(hprocess : super::HANDLE, lpaddress : *mut core::ffi::c_void, dwsize : usize, dwfreetype : u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn VirtualLock(lpaddress : *const core::ffi::c_void, dwsize : usize) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn VirtualProtect(lpaddress : *const core::ffi::c_void, dwsize : usize, flnewprotect : u32, lpfloldprotect : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn VirtualProtectEx(hprocess : super::HANDLE, lpaddress : *const core::ffi::c_void, dwsize : usize, flnewprotect : u32, lpfloldprotect : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn VirtualProtectFromApp(address : *const core::ffi::c_void, size : usize, newprotection : u32, oldprotection : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn VirtualQuery(lpaddress : *const core::ffi::c_void, lpbuffer : *mut super::MEMORY_BASIC_INFORMATION, dwlength : usize) -> usize);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn VirtualQueryEx(hprocess : super::HANDLE, lpaddress : *const core::ffi::c_void, lpbuffer : *mut super::MEMORY_BASIC_INFORMATION, dwlength : usize) -> usize);
+#[cfg(feature = "minwindef")]
+windows_link::link!("kernel32.dll" "system" fn VirtualProtect(lpaddress : *const core::ffi::c_void, dwsize : usize, flnewprotect : u32, lpfloldprotect : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn VirtualProtectEx(hprocess : super::HANDLE, lpaddress : *const core::ffi::c_void, dwsize : usize, flnewprotect : u32, lpfloldprotect : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "minwindef")]
+windows_link::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn VirtualProtectFromApp(address : *const core::ffi::c_void, size : usize, newprotection : u32, oldprotection : super::PULONG) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn VirtualQuery(lpaddress : super::LPCVOID, lpbuffer : super::PMEMORY_BASIC_INFORMATION, dwlength : usize) -> usize);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn VirtualQueryEx(hprocess : super::HANDLE, lpaddress : super::LPCVOID, lpbuffer : super::PMEMORY_BASIC_INFORMATION, dwlength : usize) -> usize);
 windows_link::link!("kernel32.dll" "system" fn VirtualUnlock(lpaddress : *const core::ffi::c_void, dwsize : usize) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("api-ms-win-core-memory-l1-1-5.dll" "system" fn VirtualUnlockEx(process : super::HANDLE, address : *const core::ffi::c_void, size : usize) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn WriteProcessMemory(hprocess : super::HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *const core::ffi::c_void, nsize : usize, lpnumberofbyteswritten : *mut usize) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn WriteProcessMemory(hprocess : super::HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : super::LPCVOID, nsize : usize, lpnumberofbyteswritten : *mut usize) -> windows_sys::core::BOOL);
 pub type BAD_MEMORY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn()>;
 pub const FILE_CACHE_MAX_HARD_DISABLE: i32 = 2;
 pub const FILE_CACHE_MAX_HARD_ENABLE: i32 = 1;

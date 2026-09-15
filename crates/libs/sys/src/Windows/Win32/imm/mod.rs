@@ -21,27 +21,30 @@ windows_link::link!("imm32.dll" "system" fn ImmEnumRegisterWordW(param0 : super:
 windows_link::link!("imm32.dll" "system" fn ImmEscapeA(param0 : super::HKL, param1 : HIMC, param2 : u32, param3 : *const core::ffi::c_void) -> super::LRESULT);
 #[cfg(feature = "minwindef")]
 windows_link::link!("imm32.dll" "system" fn ImmEscapeW(param0 : super::HKL, param1 : HIMC, param2 : u32, param3 : *const core::ffi::c_void) -> super::LRESULT);
-windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListA(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
-windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListCountA(param0 : HIMC, lpdwlistcount : *mut u32) -> u32);
-windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListCountW(param0 : HIMC, lpdwlistcount : *mut u32) -> u32);
-windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListW(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
+windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListA(param0 : HIMC, deindex : u32, lpcandlist : LPCANDIDATELIST, dwbuflen : u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListCountA(param0 : HIMC, lpdwlistcount : super::LPDWORD) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListCountW(param0 : HIMC, lpdwlistcount : super::LPDWORD) -> u32);
+windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListW(param0 : HIMC, deindex : u32, lpcandlist : LPCANDIDATELIST, dwbuflen : u32) -> u32);
 #[cfg(feature = "windef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetCandidateWindow(param0 : HIMC, param1 : u32, lpcandidate : *mut CANDIDATEFORM) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmGetCandidateWindow(param0 : HIMC, param1 : u32, lpcandidate : LPCANDIDATEFORM) -> windows_sys::core::BOOL);
 #[cfg(feature = "wingdi")]
-windows_link::link!("imm32.dll" "system" fn ImmGetCompositionFontA(param0 : HIMC, lplf : *mut super::LOGFONTA) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmGetCompositionFontA(param0 : HIMC, lplf : super::LPLOGFONTA) -> windows_sys::core::BOOL);
 #[cfg(feature = "wingdi")]
-windows_link::link!("imm32.dll" "system" fn ImmGetCompositionFontW(param0 : HIMC, lplf : *mut super::LOGFONTW) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmGetCompositionFontW(param0 : HIMC, lplf : super::LPLOGFONTW) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmGetCompositionStringA(param0 : HIMC, param1 : u32, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
 windows_link::link!("imm32.dll" "system" fn ImmGetCompositionStringW(param0 : HIMC, param1 : u32, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
 #[cfg(feature = "windef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetCompositionWindow(param0 : HIMC, lpcompform : *mut COMPOSITIONFORM) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmGetCompositionWindow(param0 : HIMC, lpcompform : LPCOMPOSITIONFORM) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("imm32.dll" "system" fn ImmGetContext(param0 : super::HWND) -> HIMC);
 #[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetConversionListA(param0 : super::HKL, param1 : HIMC, lpsrc : windows_sys::core::PCSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : u32) -> u32);
+windows_link::link!("imm32.dll" "system" fn ImmGetConversionListA(param0 : super::HKL, param1 : HIMC, lpsrc : windows_sys::core::PCSTR, lpdst : LPCANDIDATELIST, dwbuflen : u32, uflag : u32) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetConversionListW(param0 : super::HKL, param1 : HIMC, lpsrc : windows_sys::core::PCWSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : u32) -> u32);
-windows_link::link!("imm32.dll" "system" fn ImmGetConversionStatus(param0 : HIMC, lpfdwconversion : *mut u32, lpfdwsentence : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmGetConversionListW(param0 : super::HKL, param1 : HIMC, lpsrc : windows_sys::core::PCWSTR, lpdst : LPCANDIDATELIST, dwbuflen : u32, uflag : u32) -> u32);
+#[cfg(feature = "minwindef")]
+windows_link::link!("imm32.dll" "system" fn ImmGetConversionStatus(param0 : HIMC, lpfdwconversion : super::LPDWORD, lpfdwsentence : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("imm32.dll" "system" fn ImmGetDefaultIMEWnd(param0 : super::HWND) -> super::HWND);
 #[cfg(feature = "minwindef")]
@@ -55,18 +58,18 @@ windows_link::link!("imm32.dll" "system" fn ImmGetIMEFileNameA(param0 : super::H
 #[cfg(feature = "minwindef")]
 windows_link::link!("imm32.dll" "system" fn ImmGetIMEFileNameW(param0 : super::HKL, lpszfilename : windows_sys::core::PWSTR, ubuflen : u32) -> u32);
 #[cfg(feature = "windef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOA, lpimemenu : *mut IMEMENUITEMINFOA, dwsize : u32) -> u32);
+windows_link::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : LPIMEMENUITEMINFOA, lpimemenu : LPIMEMENUITEMINFOA, dwsize : u32) -> u32);
 #[cfg(feature = "windef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetImeMenuItemsW(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOW, lpimemenu : *mut IMEMENUITEMINFOW, dwsize : u32) -> u32);
+windows_link::link!("imm32.dll" "system" fn ImmGetImeMenuItemsW(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : LPIMEMENUITEMINFOW, lpimemenu : LPIMEMENUITEMINFOW, dwsize : u32) -> u32);
 windows_link::link!("imm32.dll" "system" fn ImmGetOpenStatus(param0 : HIMC) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("imm32.dll" "system" fn ImmGetProperty(param0 : super::HKL, param1 : u32) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::HKL, nitem : u32, lpstylebuf : *mut STYLEBUFA) -> u32);
+windows_link::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::HKL, nitem : u32, lpstylebuf : LPSTYLEBUFA) -> u32);
 #[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::HKL, nitem : u32, lpstylebuf : *mut STYLEBUFW) -> u32);
+windows_link::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::HKL, nitem : u32, lpstylebuf : LPSTYLEBUFW) -> u32);
 #[cfg(feature = "windef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetStatusWindowPos(param0 : HIMC, lpptpos : *mut super::POINT) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmGetStatusWindowPos(param0 : HIMC, lpptpos : super::LPPOINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("imm32.dll" "system" fn ImmGetVirtualKey(param0 : super::HWND) -> u32);
 #[cfg(feature = "minwindef")]
@@ -87,19 +90,19 @@ windows_link::link!("imm32.dll" "system" fn ImmRegisterWordW(param0 : super::HKL
 #[cfg(feature = "windef")]
 windows_link::link!("imm32.dll" "system" fn ImmReleaseContext(param0 : super::HWND, param1 : HIMC) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : HIMC, lpcandidate : *const CANDIDATEFORM) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : HIMC, lpcandidate : LPCANDIDATEFORM) -> windows_sys::core::BOOL);
 #[cfg(feature = "wingdi")]
-windows_link::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : HIMC, lplf : *const super::LOGFONTA) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : HIMC, lplf : super::LPLOGFONTA) -> windows_sys::core::BOOL);
 #[cfg(feature = "wingdi")]
-windows_link::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : HIMC, lplf : *const super::LOGFONTW) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : HIMC, lplf : super::LPLOGFONTW) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmSetCompositionStringA(param0 : HIMC, dwindex : u32, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmSetCompositionStringW(param0 : HIMC, dwindex : u32, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : HIMC, lpcompform : *const COMPOSITIONFORM) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : HIMC, lpcompform : LPCOMPOSITIONFORM) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmSetConversionStatus(param0 : HIMC, param1 : u32, param2 : u32) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmSetOpenStatus(param0 : HIMC, param1 : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
-windows_link::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : HIMC, lpptpos : *const super::POINT) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : HIMC, lpptpos : super::LPPOINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("imm32.dll" "system" fn ImmSimulateHotKey(param0 : super::HWND, param1 : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
@@ -197,8 +200,18 @@ pub const GL_LEVEL_FATAL: i32 = 1;
 pub const GL_LEVEL_INFORMATION: i32 = 4;
 pub const GL_LEVEL_NOGUIDELINE: i32 = 0;
 pub const GL_LEVEL_WARNING: i32 = 3;
-pub type HIMC = *mut core::ffi::c_void;
-pub type HIMCC = *mut core::ffi::c_void;
+pub type HIMC = *mut HIMC__;
+pub type HIMCC = *mut HIMCC__;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HIMCC__ {
+    pub unused: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HIMC__ {
+    pub unused: i32,
+}
 pub const IACE_CHILDREN: i32 = 1;
 pub const IACE_DEFAULT: i32 = 16;
 pub const IACE_IGNORENOCONTEXT: i32 = 32;
