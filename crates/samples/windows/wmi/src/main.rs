@@ -4,7 +4,7 @@ fn main() -> windows::core::Result<()> {
     unsafe fn variant_to_string(value: &VARIANT) -> String {
         let inner = unsafe { &value.Anonymous.Anonymous };
 
-        if inner.vt == VARTYPE(VT_BSTR as u16) {
+        if inner.vt == VT_BSTR as VARTYPE {
             unsafe { inner.Anonymous.bstrVal.display().to_string() }
         } else {
             unsafe { inner.Anonymous.lVal.to_string() }

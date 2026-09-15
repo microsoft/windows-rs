@@ -67,7 +67,7 @@ fn main() -> windows::core::Result<()> {
                 Width: WIDTH as u32,
                 Height: HEIGHT as u32,
                 Format: DXGI_FORMAT_R8G8B8A8_UNORM,
-                BufferUsage: DXGI_USAGE(DXGI_USAGE_RENDER_TARGET_OUTPUT),
+                BufferUsage: DXGI_USAGE_RENDER_TARGET_OUTPUT,
                 SwapEffect: DXGI_SWAP_EFFECT_FLIP_DISCARD,
                 SampleDesc: DXGI_SAMPLE_DESC {
                     Count: 1,
@@ -170,7 +170,7 @@ fn main() -> windows::core::Result<()> {
             let fence_value = 1;
 
             let fence_event = unsafe { CreateEventA(None, false, false, None) };
-            if fence_event.0.is_null() {
+            if fence_event.is_null() {
                 return Err(Error::from_thread());
             }
             self.resources = Some(Resources {
@@ -519,12 +519,12 @@ fn main() -> windows::core::Result<()> {
         unsafe {
             command_list.ClearRenderTargetView(
                 rtv_handle,
-                &[0.0_f32, 0.2_f32, 0.4_f32, 1.0_f32],
+                [0.0_f32, 0.2_f32, 0.4_f32, 1.0_f32].as_ptr(),
                 &[],
             );
-            command_list.IASetPrimitiveTopology(D3D12_PRIMITIVE_TOPOLOGY(
-                D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST,
-            ));
+            command_list.IASetPrimitiveTopology(
+                D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST as D3D12_PRIMITIVE_TOPOLOGY,
+            );
             command_list.IASetVertexBuffers(0, Some(&[resources.vbv]));
             command_list.DrawInstanced(3, 1, 0, 0);
 
@@ -616,7 +616,7 @@ fn main() -> windows::core::Result<()> {
         })
         .create()?;
 
-    sample.borrow_mut().bind_to_window(HWND(window.hwnd()))?;
+    sample.borrow_mut().bind_to_window(window.hwnd() as HWND)?;
 
     run();
     Ok(())
