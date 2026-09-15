@@ -37,7 +37,7 @@ impl Environment {
     ) -> Result<()> {
         validate_parent(parent)?;
         let handler = handler::ControllerCompleted::create(handler);
-        unsafe { self.0.CreateCoreWebView2Controller(parent, &handler) }.ok()
+        unsafe { self.0.CreateCoreWebView2Controller(parent.cast(), &handler) }.ok()
     }
 
     /// Starts creating an option-configured [`Controller`] hosted in a raw window handle.
@@ -51,7 +51,7 @@ impl Environment {
         handler: F,
     ) -> Result<()> {
         validate_parent(parent)?;
-        options.create_controller(&self.0, parent, handler)
+        options.create_controller(&self.0, parent.cast(), handler)
     }
 }
 
@@ -60,7 +60,7 @@ fn create_environment<F: FnOnce(Result<Environment>) + 'static>(handler: F) -> R
     unsafe { CreateCoreWebView2Environment(Interface::as_raw(&handler)).ok() }
 }
 
-pub(crate) fn validate_parent(parent: HWND) -> Result<()> {
+pub(crate) fn validate_parent(parent: *mut core::ffi::c_void) -> Result<()> {
     if parent.is_null() {
         Err(Error::new(
             E_INVALIDARG,
