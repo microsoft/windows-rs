@@ -5,6 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
+clang-sys = { version = "1.8.1", features = ["runtime", "clang_18_0"] }
 windows-link = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 toml = "1.0"
