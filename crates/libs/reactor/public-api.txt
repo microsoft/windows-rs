@@ -550,11 +550,6 @@ pub struct windows_reactor::AppProxy
 impl windows_reactor::AppProxy
 pub fn windows_reactor::AppProxy::dispatch(&self, impl core::ops::function::FnOnce(&windows_reactor::AppContext) + core::marker::Send + 'static) -> windows_result::Result<()>
 pub fn windows_reactor::AppProxy::exit(&self) -> windows_result::Result<()>
-pub struct windows_reactor::ScreenPoint
-pub windows_reactor::ScreenPoint::x: i32
-pub windows_reactor::ScreenPoint::y: i32
-impl windows_reactor::ScreenPoint
-pub const fn windows_reactor::ScreenPoint::new(i32, i32) -> Self
 pub struct windows_reactor::AutoSuggestBox
 impl windows_reactor::AutoSuggestBox
 pub fn windows_reactor::AutoSuggestBox::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
@@ -2148,6 +2143,11 @@ pub fn windows_reactor::RoutedMessage<M>::bubble(M) -> Self
 pub fn windows_reactor::RoutedMessage<M>::bubble_without_message() -> Self
 pub fn windows_reactor::RoutedMessage<M>::handled(M) -> Self
 pub fn windows_reactor::RoutedMessage<M>::handled_without_message() -> Self
+pub struct windows_reactor::ScreenPoint
+pub windows_reactor::ScreenPoint::x: i32
+pub windows_reactor::ScreenPoint::y: i32
+impl windows_reactor::ScreenPoint
+pub const fn windows_reactor::ScreenPoint::new(i32, i32) -> Self
 pub struct windows_reactor::ScrollView
 impl windows_reactor::ScrollView
 pub fn windows_reactor::ScrollView::horizontal_scroll_bar_visibility(self, impl core::convert::Into<core::option::Option<windows_reactor::ScrollingScrollBarVisibility>>) -> Self
