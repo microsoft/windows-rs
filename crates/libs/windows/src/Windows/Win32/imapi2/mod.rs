@@ -26,11 +26,11 @@ pub struct DDiscFormat2DataEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait DDiscFormat2DataEvents_Impl: super::IDispatch_Impl {
     fn Update(&self, object: windows_core::Ref<super::IDispatch>, progress: windows_core::Ref<super::IDispatch>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl DDiscFormat2DataEvents_Vtbl {
     pub const fn new<Identity: DDiscFormat2DataEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Update<Identity: DDiscFormat2DataEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, progress: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -45,7 +45,7 @@ impl DDiscFormat2DataEvents_Vtbl {
         iid == &<DDiscFormat2DataEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for DDiscFormat2DataEvents {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(DDiscFormat2EraseEvents, DDiscFormat2EraseEvents_Vtbl, 0x2735413a_7f64_5b0f_8f00_5d77afbe261e);
@@ -74,11 +74,11 @@ pub struct DDiscFormat2EraseEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait DDiscFormat2EraseEvents_Impl: super::IDispatch_Impl {
     fn Update(&self, object: windows_core::Ref<super::IDispatch>, elapsedseconds: i32, estimatedtotalseconds: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl DDiscFormat2EraseEvents_Vtbl {
     pub const fn new<Identity: DDiscFormat2EraseEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Update<Identity: DDiscFormat2EraseEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, elapsedseconds: i32, estimatedtotalseconds: i32) -> windows_core::HRESULT {
@@ -93,7 +93,7 @@ impl DDiscFormat2EraseEvents_Vtbl {
         iid == &<DDiscFormat2EraseEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for DDiscFormat2EraseEvents {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(DDiscFormat2RawCDEvents, DDiscFormat2RawCDEvents_Vtbl, 0x27354142_7f64_5b0f_8f00_5d77afbe261e);
@@ -123,11 +123,11 @@ pub struct DDiscFormat2RawCDEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait DDiscFormat2RawCDEvents_Impl: super::IDispatch_Impl {
     fn Update(&self, object: windows_core::Ref<super::IDispatch>, progress: windows_core::Ref<super::IDispatch>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl DDiscFormat2RawCDEvents_Vtbl {
     pub const fn new<Identity: DDiscFormat2RawCDEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Update<Identity: DDiscFormat2RawCDEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, progress: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -142,7 +142,7 @@ impl DDiscFormat2RawCDEvents_Vtbl {
         iid == &<DDiscFormat2RawCDEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for DDiscFormat2RawCDEvents {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(DDiscFormat2TrackAtOnceEvents, DDiscFormat2TrackAtOnceEvents_Vtbl, 0x2735413f_7f64_5b0f_8f00_5d77afbe261e);
@@ -172,11 +172,11 @@ pub struct DDiscFormat2TrackAtOnceEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait DDiscFormat2TrackAtOnceEvents_Impl: super::IDispatch_Impl {
     fn Update(&self, object: windows_core::Ref<super::IDispatch>, progress: windows_core::Ref<super::IDispatch>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl DDiscFormat2TrackAtOnceEvents_Vtbl {
     pub const fn new<Identity: DDiscFormat2TrackAtOnceEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Update<Identity: DDiscFormat2TrackAtOnceEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, progress: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -191,7 +191,7 @@ impl DDiscFormat2TrackAtOnceEvents_Vtbl {
         iid == &<DDiscFormat2TrackAtOnceEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for DDiscFormat2TrackAtOnceEvents {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(DDiscMaster2Events, DDiscMaster2Events_Vtbl, 0x27354131_7f64_5b0f_8f00_5d77afbe261e);
@@ -227,12 +227,12 @@ pub struct DDiscMaster2Events_Vtbl {
     pub NotifyDeviceAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NotifyDeviceRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait DDiscMaster2Events_Impl: super::IDispatch_Impl {
     fn NotifyDeviceAdded(&self, object: windows_core::Ref<super::IDispatch>, uniqueid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn NotifyDeviceRemoved(&self, object: windows_core::Ref<super::IDispatch>, uniqueid: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl DDiscMaster2Events_Vtbl {
     pub const fn new<Identity: DDiscMaster2Events_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn NotifyDeviceAdded<Identity: DDiscMaster2Events_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, uniqueid: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -257,7 +257,7 @@ impl DDiscMaster2Events_Vtbl {
         iid == &<DDiscMaster2Events as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for DDiscMaster2Events {}
 pub const DISPID_DDISCFORMAT2DATAEVENTS_UPDATE: i32 = 512;
 pub const DISPID_DDISCFORMAT2RAWCDEVENTS_UPDATE: i32 = 512;
@@ -457,11 +457,11 @@ pub struct DWriteEngine2Events_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait DWriteEngine2Events_Impl: super::IDispatch_Impl {
     fn Update(&self, object: windows_core::Ref<super::IDispatch>, progress: windows_core::Ref<super::IDispatch>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl DWriteEngine2Events_Vtbl {
     pub const fn new<Identity: DWriteEngine2Events_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Update<Identity: DWriteEngine2Events_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, progress: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -476,7 +476,7 @@ impl DWriteEngine2Events_Vtbl {
         iid == &<DWriteEngine2Events as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for DWriteEngine2Events {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IBlockRange, IBlockRange_Vtbl, 0xb507ca25_2204_11dd_966a_001aa01bbc58);
@@ -512,12 +512,12 @@ pub struct IBlockRange_Vtbl {
     pub StartLba: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub EndLba: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBlockRange_Impl: super::IDispatch_Impl {
     fn StartLba(&self) -> windows_core::Result<i32>;
     fn EndLba(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IBlockRange_Vtbl {
     pub const fn new<Identity: IBlockRange_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartLba<Identity: IBlockRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
@@ -550,7 +550,7 @@ impl IBlockRange_Vtbl {
         iid == &<IBlockRange as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IBlockRange {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IBlockRangeList, IBlockRangeList_Vtbl, 0xb507ca26_2204_11dd_966a_001aa01bbc58);
@@ -579,11 +579,11 @@ pub struct IBlockRangeList_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub BlockRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBlockRangeList_Impl: super::IDispatch_Impl {
     fn BlockRanges(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IBlockRangeList_Vtbl {
     pub const fn new<Identity: IBlockRangeList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BlockRanges<Identity: IBlockRangeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
@@ -604,7 +604,7 @@ impl IBlockRangeList_Vtbl {
         iid == &<IBlockRangeList as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IBlockRangeList {}
 windows_core::imp::define_interface!(IBurnVerification, IBurnVerification_Vtbl, 0xd2ffd834_958b_426d_8470_2a13879c6a91);
 windows_core::imp::interface_hierarchy!(IBurnVerification, windows_core::IUnknown);
@@ -738,7 +738,7 @@ pub struct IDiscFormat2_Vtbl {
     MediaHeuristicallyBlank: usize,
     pub SupportedMediaTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDiscFormat2_Impl: super::IDispatch_Impl {
     fn IsRecorderSupported(&self, recorder: windows_core::Ref<IDiscRecorder2>) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsCurrentMediaSupported(&self, recorder: windows_core::Ref<IDiscRecorder2>) -> windows_core::Result<super::VARIANT_BOOL>;
@@ -746,7 +746,7 @@ pub trait IDiscFormat2_Impl: super::IDispatch_Impl {
     fn MediaHeuristicallyBlank(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SupportedMediaTypes(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDiscFormat2_Vtbl {
     pub const fn new<Identity: IDiscFormat2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsRecorderSupported<Identity: IDiscFormat2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recorder: *mut core::ffi::c_void, value: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -822,7 +822,7 @@ impl IDiscFormat2_Vtbl {
         iid == &<IDiscFormat2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDiscFormat2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDiscFormat2Data, IDiscFormat2Data_Vtbl, 0x27354153_9f64_5b0f_8f00_5d77afbe261e);
@@ -1100,7 +1100,7 @@ pub struct IDiscFormat2Data_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     SetWriteSpeed: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDiscFormat2Data_Impl: IDiscFormat2_Impl {
     fn SetRecorder(&self, value: windows_core::Ref<IDiscRecorder2>) -> windows_core::Result<()>;
     fn Recorder(&self) -> windows_core::Result<IDiscRecorder2>;
@@ -1135,7 +1135,7 @@ pub trait IDiscFormat2Data_Impl: IDiscFormat2_Impl {
     fn CancelWrite(&self) -> windows_core::Result<()>;
     fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDiscFormat2Data_Vtbl {
     pub const fn new<Identity: IDiscFormat2Data_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetRecorder<Identity: IDiscFormat2Data_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1502,7 +1502,7 @@ impl IDiscFormat2Data_Vtbl {
         iid == &<IDiscFormat2Data as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IDiscFormat2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDiscFormat2Data {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDiscFormat2DataEventArgs, IDiscFormat2DataEventArgs_Vtbl, 0x2735413d_7f64_5b0f_8f00_5d77afbe261e);
@@ -1552,14 +1552,14 @@ pub struct IDiscFormat2DataEventArgs_Vtbl {
     pub TotalTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub CurrentAction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IMAPI_FORMAT2_DATA_WRITE_ACTION) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDiscFormat2DataEventArgs_Impl: IWriteEngine2EventArgs_Impl {
     fn ElapsedTime(&self) -> windows_core::Result<i32>;
     fn RemainingTime(&self) -> windows_core::Result<i32>;
     fn TotalTime(&self) -> windows_core::Result<i32>;
     fn CurrentAction(&self) -> windows_core::Result<IMAPI_FORMAT2_DATA_WRITE_ACTION>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDiscFormat2DataEventArgs_Vtbl {
     pub const fn new<Identity: IDiscFormat2DataEventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ElapsedTime<Identity: IDiscFormat2DataEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
@@ -1622,7 +1622,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
         iid == &<IDiscFormat2DataEventArgs as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IWriteEngine2EventArgs as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDiscFormat2DataEventArgs {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDiscFormat2Erase, IDiscFormat2Erase_Vtbl, 0x27354156_8f64_5b0f_8f00_5d77afbe261e);
@@ -1699,7 +1699,7 @@ pub struct IDiscFormat2Erase_Vtbl {
     pub ClientName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EraseMedia: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDiscFormat2Erase_Impl: IDiscFormat2_Impl {
     fn SetRecorder(&self, value: windows_core::Ref<IDiscRecorder2>) -> windows_core::Result<()>;
     fn Recorder(&self) -> windows_core::Result<IDiscRecorder2>;
@@ -1710,7 +1710,7 @@ pub trait IDiscFormat2Erase_Impl: IDiscFormat2_Impl {
     fn ClientName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn EraseMedia(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDiscFormat2Erase_Vtbl {
     pub const fn new<Identity: IDiscFormat2Erase_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetRecorder<Identity: IDiscFormat2Erase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1801,7 +1801,7 @@ impl IDiscFormat2Erase_Vtbl {
         iid == &<IDiscFormat2Erase as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IDiscFormat2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDiscFormat2Erase {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDiscFormat2RawCD, IDiscFormat2RawCD_Vtbl, 0x27354155_8f64_5b0f_8f00_5d77afbe261e);
@@ -1998,7 +1998,7 @@ pub struct IDiscFormat2RawCD_Vtbl {
     pub SupportedWriteSpeeds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
     pub SupportedWriteSpeedDescriptors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDiscFormat2RawCD_Impl: IDiscFormat2_Impl {
     fn PrepareMedia(&self) -> windows_core::Result<()>;
     fn WriteMedia(&self, data: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
@@ -2025,7 +2025,7 @@ pub trait IDiscFormat2RawCD_Impl: IDiscFormat2_Impl {
     fn SupportedWriteSpeeds(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn SupportedWriteSpeedDescriptors(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDiscFormat2RawCD_Vtbl {
     pub const fn new<Identity: IDiscFormat2RawCD_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PrepareMedia<Identity: IDiscFormat2RawCD_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2288,7 +2288,7 @@ impl IDiscFormat2RawCD_Vtbl {
         iid == &<IDiscFormat2RawCD as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IDiscFormat2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDiscFormat2RawCD {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDiscFormat2RawCDEventArgs, IDiscFormat2RawCDEventArgs_Vtbl, 0x27354143_7f64_5b0f_8f00_5d77afbe261e);
@@ -2331,13 +2331,13 @@ pub struct IDiscFormat2RawCDEventArgs_Vtbl {
     pub ElapsedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub RemainingTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDiscFormat2RawCDEventArgs_Impl: IWriteEngine2EventArgs_Impl {
     fn CurrentAction(&self) -> windows_core::Result<IMAPI_FORMAT2_RAW_CD_WRITE_ACTION>;
     fn ElapsedTime(&self) -> windows_core::Result<i32>;
     fn RemainingTime(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDiscFormat2RawCDEventArgs_Vtbl {
     pub const fn new<Identity: IDiscFormat2RawCDEventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CurrentAction<Identity: IDiscFormat2RawCDEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut IMAPI_FORMAT2_RAW_CD_WRITE_ACTION) -> windows_core::HRESULT {
@@ -2387,7 +2387,7 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
         iid == &<IDiscFormat2RawCDEventArgs as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IWriteEngine2EventArgs as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDiscFormat2RawCDEventArgs {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDiscFormat2TrackAtOnce, IDiscFormat2TrackAtOnce_Vtbl, 0x27354154_8f64_5b0f_8f00_5d77afbe261e);
@@ -2595,7 +2595,7 @@ pub struct IDiscFormat2TrackAtOnce_Vtbl {
     pub SupportedWriteSpeeds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
     pub SupportedWriteSpeedDescriptors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDiscFormat2TrackAtOnce_Impl: IDiscFormat2_Impl {
     fn PrepareMedia(&self) -> windows_core::Result<()>;
     fn AddAudioTrack(&self, data: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
@@ -2623,7 +2623,7 @@ pub trait IDiscFormat2TrackAtOnce_Impl: IDiscFormat2_Impl {
     fn SupportedWriteSpeeds(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn SupportedWriteSpeedDescriptors(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDiscFormat2TrackAtOnce_Vtbl {
     pub const fn new<Identity: IDiscFormat2TrackAtOnce_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PrepareMedia<Identity: IDiscFormat2TrackAtOnce_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2905,7 +2905,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
         iid == &<IDiscFormat2TrackAtOnce as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IDiscFormat2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDiscFormat2TrackAtOnce {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDiscFormat2TrackAtOnceEventArgs, IDiscFormat2TrackAtOnceEventArgs_Vtbl, 0x27354140_7f64_5b0f_8f00_5d77afbe261e);
@@ -2955,14 +2955,14 @@ pub struct IDiscFormat2TrackAtOnceEventArgs_Vtbl {
     pub ElapsedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub RemainingTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDiscFormat2TrackAtOnceEventArgs_Impl: IWriteEngine2EventArgs_Impl {
     fn CurrentTrackNumber(&self) -> windows_core::Result<i32>;
     fn CurrentAction(&self) -> windows_core::Result<IMAPI_FORMAT2_TAO_WRITE_ACTION>;
     fn ElapsedTime(&self) -> windows_core::Result<i32>;
     fn RemainingTime(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
     pub const fn new<Identity: IDiscFormat2TrackAtOnceEventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CurrentTrackNumber<Identity: IDiscFormat2TrackAtOnceEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
@@ -3025,7 +3025,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
         iid == &<IDiscFormat2TrackAtOnceEventArgs as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IWriteEngine2EventArgs as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDiscFormat2TrackAtOnceEventArgs {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDiscMaster2, IDiscMaster2_Vtbl, 0x27354130_7f64_5b0f_8f00_5d77afbe261e);
@@ -3079,14 +3079,14 @@ pub struct IDiscMaster2_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     IsSupportedEnvironment: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDiscMaster2_Impl: super::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
     fn Item(&self, index: i32) -> windows_core::Result<windows_core::BSTR>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn IsSupportedEnvironment(&self) -> windows_core::Result<super::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDiscMaster2_Vtbl {
     pub const fn new<Identity: IDiscMaster2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn _NewEnum<Identity: IDiscMaster2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3149,7 +3149,7 @@ impl IDiscMaster2_Vtbl {
         iid == &<IDiscMaster2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDiscMaster2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDiscRecorder2, IDiscRecorder2_Vtbl, 0x27354133_7f64_5b0f_8f00_5d77afbe261e);
@@ -3171,8 +3171,8 @@ impl IDiscRecorder2 {
         unsafe { (windows_core::Interface::vtable(self).CloseTray)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn AcquireExclusiveAccess(&self, force: super::VARIANT_BOOL, param1: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AcquireExclusiveAccess)(windows_core::Interface::as_raw(self), force, core::mem::transmute_copy(param1)) }
+    pub unsafe fn AcquireExclusiveAccess(&self, force: super::VARIANT_BOOL, __midl__idiscrecorder20000: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AcquireExclusiveAccess)(windows_core::Interface::as_raw(self), force, core::mem::transmute_copy(__midl__idiscrecorder20000)) }
     }
     pub unsafe fn ReleaseExclusiveAccess(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseExclusiveAccess)(windows_core::Interface::as_raw(self)) }
@@ -3305,11 +3305,11 @@ pub struct IDiscRecorder2_Vtbl {
     pub SupportedModePages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
     pub ExclusiveAccessOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDiscRecorder2_Impl: super::IDispatch_Impl {
     fn EjectMedia(&self) -> windows_core::Result<()>;
     fn CloseTray(&self) -> windows_core::Result<()>;
-    fn AcquireExclusiveAccess(&self, force: super::VARIANT_BOOL, param1: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn AcquireExclusiveAccess(&self, force: super::VARIANT_BOOL, __midl__idiscrecorder20000: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ReleaseExclusiveAccess(&self) -> windows_core::Result<()>;
     fn DisableMcn(&self) -> windows_core::Result<()>;
     fn EnableMcn(&self) -> windows_core::Result<()>;
@@ -3329,7 +3329,7 @@ pub trait IDiscRecorder2_Impl: super::IDispatch_Impl {
     fn SupportedModePages(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
     fn ExclusiveAccessOwner(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDiscRecorder2_Vtbl {
     pub const fn new<Identity: IDiscRecorder2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EjectMedia<Identity: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3344,10 +3344,10 @@ impl IDiscRecorder2_Vtbl {
                 IDiscRecorder2_Impl::CloseTray(this).into()
             }
         }
-        unsafe extern "system" fn AcquireExclusiveAccess<Identity: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, force: super::VARIANT_BOOL, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AcquireExclusiveAccess<Identity: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, force: super::VARIANT_BOOL, __midl__idiscrecorder20000: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDiscRecorder2_Impl::AcquireExclusiveAccess(this, core::mem::transmute_copy(&force), core::mem::transmute(&param1)).into()
+                IDiscRecorder2_Impl::AcquireExclusiveAccess(this, core::mem::transmute_copy(&force), core::mem::transmute(&__midl__idiscrecorder20000)).into()
             }
         }
         unsafe extern "system" fn ReleaseExclusiveAccess<Identity: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3571,7 +3571,7 @@ impl IDiscRecorder2_Vtbl {
         iid == &<IDiscRecorder2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDiscRecorder2 {}
 windows_core::imp::define_interface!(IDiscRecorder2Ex, IDiscRecorder2Ex_Vtbl, 0x27354132_7f64_5b0f_8f00_5d77afbe261e);
 windows_core::imp::interface_hierarchy!(IDiscRecorder2Ex, windows_core::IUnknown);
@@ -3603,7 +3603,8 @@ impl IDiscRecorder2Ex {
     pub unsafe fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_TRACK_INFORMATION) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTrackInformation)(windows_core::Interface::as_raw(self), address, addresstype, trackinformation as _, bytesize as _) }
     }
-    pub unsafe fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: bool, featuredata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: super::BOOLEAN, featuredata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFeaturePage)(windows_core::Interface::as_raw(self), requestedfeature, currentfeatureonly, featuredata as _, bytesize as _) }
     }
     pub unsafe fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_MODE_PAGE) -> windows_core::HRESULT {
@@ -3612,10 +3613,12 @@ impl IDiscRecorder2Ex {
     pub unsafe fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *const u8, bytesize: ULONG_IMAPI2_MODE_PAGE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetModePage)(windows_core::Interface::as_raw(self), requesttype, data, bytesize) }
     }
-    pub unsafe fn GetSupportedFeaturePages(&self, currentfeatureonly: bool, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn GetSupportedFeaturePages(&self, currentfeatureonly: super::BOOLEAN, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSupportedFeaturePages)(windows_core::Interface::as_raw(self), currentfeatureonly, featuredata as _, bytesize as _) }
     }
-    pub unsafe fn GetSupportedProfiles(&self, currentonly: bool, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn GetSupportedProfiles(&self, currentonly: super::BOOLEAN, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSupportedProfiles)(windows_core::Interface::as_raw(self), currentonly, profiletypes as _, validprofiles as _) }
     }
     pub unsafe fn GetSupportedModePages(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> windows_core::HRESULT {
@@ -3653,16 +3656,26 @@ pub struct IDiscRecorder2Ex_Vtbl {
     pub GetDeviceDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut ULONG_IMAPI2_DEVICE_DESCRIPTOR) -> windows_core::HRESULT,
     pub GetDiscInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut ULONG_IMAPI2_DISC_INFORMATION) -> windows_core::HRESULT,
     pub GetTrackInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, IMAPI_READ_TRACK_ADDRESS_TYPE, *mut *mut u8, *mut ULONG_IMAPI2_TRACK_INFORMATION) -> windows_core::HRESULT,
-    pub GetFeaturePage: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_FEATURE_PAGE_TYPE, bool, *mut *mut u8, *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::HRESULT,
+    #[cfg(feature = "winnt")]
+    pub GetFeaturePage: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_FEATURE_PAGE_TYPE, super::BOOLEAN, *mut *mut u8, *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    GetFeaturePage: usize,
     pub GetModePage: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_MODE_PAGE_TYPE, IMAPI_MODE_PAGE_REQUEST_TYPE, *mut *mut u8, *mut ULONG_IMAPI2_MODE_PAGE) -> windows_core::HRESULT,
     pub SetModePage: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_MODE_PAGE_REQUEST_TYPE, *const u8, ULONG_IMAPI2_MODE_PAGE) -> windows_core::HRESULT,
-    pub GetSupportedFeaturePages: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut IMAPI_FEATURE_PAGE_TYPE, *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::HRESULT,
-    pub GetSupportedProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut IMAPI_PROFILE_TYPE, *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::HRESULT,
+    #[cfg(feature = "winnt")]
+    pub GetSupportedFeaturePages: unsafe extern "system" fn(*mut core::ffi::c_void, super::BOOLEAN, *mut *mut IMAPI_FEATURE_PAGE_TYPE, *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    GetSupportedFeaturePages: usize,
+    #[cfg(feature = "winnt")]
+    pub GetSupportedProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, super::BOOLEAN, *mut *mut IMAPI_PROFILE_TYPE, *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    GetSupportedProfiles: usize,
     pub GetSupportedModePages: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_MODE_PAGE_REQUEST_TYPE, *mut *mut IMAPI_MODE_PAGE_TYPE, *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> windows_core::HRESULT,
     pub GetByteAlignmentMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetMaximumNonPageAlignedTransferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetMaximumPageAlignedTransferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "winnt")]
 pub trait IDiscRecorder2Ex_Impl: windows_core::IUnknownImpl {
     fn SendCommandNoData(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> windows_core::Result<()>;
     fn SendCommandSendDataToDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *const u8, buffersize: ULONG_IMAPI2_NONZERO) -> windows_core::Result<()>;
@@ -3673,16 +3686,17 @@ pub trait IDiscRecorder2Ex_Impl: windows_core::IUnknownImpl {
     fn GetDeviceDescriptor(&self, data: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_DEVICE_DESCRIPTOR) -> windows_core::Result<()>;
     fn GetDiscInformation(&self, discinformation: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_DISC_INFORMATION) -> windows_core::Result<()>;
     fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_TRACK_INFORMATION) -> windows_core::Result<()>;
-    fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: bool, featuredata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::Result<()>;
+    fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: super::BOOLEAN, featuredata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::Result<()>;
     fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_MODE_PAGE) -> windows_core::Result<()>;
     fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *const u8, bytesize: ULONG_IMAPI2_MODE_PAGE) -> windows_core::Result<()>;
-    fn GetSupportedFeaturePages(&self, currentfeatureonly: bool, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::Result<()>;
-    fn GetSupportedProfiles(&self, currentonly: bool, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::Result<()>;
+    fn GetSupportedFeaturePages(&self, currentfeatureonly: super::BOOLEAN, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::Result<()>;
+    fn GetSupportedProfiles(&self, currentonly: super::BOOLEAN, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::Result<()>;
     fn GetSupportedModePages(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> windows_core::Result<()>;
     fn GetByteAlignmentMask(&self) -> windows_core::Result<u32>;
     fn GetMaximumNonPageAlignedTransferSize(&self) -> windows_core::Result<u32>;
     fn GetMaximumPageAlignedTransferSize(&self) -> windows_core::Result<u32>;
 }
+#[cfg(feature = "winnt")]
 impl IDiscRecorder2Ex_Vtbl {
     pub const fn new<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SendCommandNoData<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> windows_core::HRESULT {
@@ -3739,7 +3753,7 @@ impl IDiscRecorder2Ex_Vtbl {
                 IDiscRecorder2Ex_Impl::GetTrackInformation(this, core::mem::transmute_copy(&address), core::mem::transmute_copy(&addresstype), core::mem::transmute_copy(&trackinformation), core::mem::transmute_copy(&bytesize)).into()
             }
         }
-        unsafe extern "system" fn GetFeaturePage<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: bool, featuredata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFeaturePage<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: super::BOOLEAN, featuredata: *mut *mut u8, bytesize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDiscRecorder2Ex_Impl::GetFeaturePage(this, core::mem::transmute_copy(&requestedfeature), core::mem::transmute_copy(&currentfeatureonly), core::mem::transmute_copy(&featuredata), core::mem::transmute_copy(&bytesize)).into()
@@ -3757,13 +3771,13 @@ impl IDiscRecorder2Ex_Vtbl {
                 IDiscRecorder2Ex_Impl::SetModePage(this, core::mem::transmute_copy(&requesttype), core::mem::transmute_copy(&data), core::mem::transmute_copy(&bytesize)).into()
             }
         }
-        unsafe extern "system" fn GetSupportedFeaturePages<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentfeatureonly: bool, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSupportedFeaturePages<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentfeatureonly: super::BOOLEAN, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDiscRecorder2Ex_Impl::GetSupportedFeaturePages(this, core::mem::transmute_copy(&currentfeatureonly), core::mem::transmute_copy(&featuredata), core::mem::transmute_copy(&bytesize)).into()
             }
         }
-        unsafe extern "system" fn GetSupportedProfiles<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentonly: bool, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSupportedProfiles<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentonly: super::BOOLEAN, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDiscRecorder2Ex_Impl::GetSupportedProfiles(this, core::mem::transmute_copy(&currentonly), core::mem::transmute_copy(&profiletypes), core::mem::transmute_copy(&validprofiles)).into()
@@ -3837,6 +3851,7 @@ impl IDiscRecorder2Ex_Vtbl {
         iid == &<IDiscRecorder2Ex as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "winnt")]
 impl windows_core::RuntimeName for IDiscRecorder2Ex {}
 pub const IMAPI2_DEFAULT_COMMAND_TIMEOUT: i32 = 10;
 pub const IMAPILib2_MajorVersion: i32 = 1;
@@ -4092,14 +4107,14 @@ pub struct IMultisession_Vtbl {
     InUse: usize,
     pub ImportRecorder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMultisession_Impl: super::IDispatch_Impl {
     fn IsSupportedOnCurrentMediaState(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetInUse(&self, value: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn InUse(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn ImportRecorder(&self) -> windows_core::Result<IDiscRecorder2>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMultisession_Vtbl {
     pub const fn new<Identity: IMultisession_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsSupportedOnCurrentMediaState<Identity: IMultisession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -4156,7 +4171,7 @@ impl IMultisession_Vtbl {
         iid == &<IMultisession as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMultisession {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IMultisessionRandomWrite, IMultisessionRandomWrite_Vtbl, 0xb507ca23_2204_11dd_966a_001aa01bbc58);
@@ -4199,13 +4214,13 @@ pub struct IMultisessionRandomWrite_Vtbl {
     pub LastWrittenAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub TotalSectorsOnMedia: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMultisessionRandomWrite_Impl: IMultisession_Impl {
     fn WriteUnitSize(&self) -> windows_core::Result<i32>;
     fn LastWrittenAddress(&self) -> windows_core::Result<i32>;
     fn TotalSectorsOnMedia(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMultisessionRandomWrite_Vtbl {
     pub const fn new<Identity: IMultisessionRandomWrite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn WriteUnitSize<Identity: IMultisessionRandomWrite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
@@ -4255,7 +4270,7 @@ impl IMultisessionRandomWrite_Vtbl {
         iid == &<IMultisessionRandomWrite as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IMultisession as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMultisessionRandomWrite {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IMultisessionSequential, IMultisessionSequential_Vtbl, 0x27354151_7f64_5b0f_8f00_5d77afbe261e);
@@ -4316,7 +4331,7 @@ pub struct IMultisessionSequential_Vtbl {
     pub NextWritableAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub FreeSectorsOnMedia: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMultisessionSequential_Impl: IMultisession_Impl {
     fn IsFirstDataSession(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn StartAddressOfPreviousSession(&self) -> windows_core::Result<i32>;
@@ -4324,7 +4339,7 @@ pub trait IMultisessionSequential_Impl: IMultisession_Impl {
     fn NextWritableAddress(&self) -> windows_core::Result<i32>;
     fn FreeSectorsOnMedia(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMultisessionSequential_Vtbl {
     pub const fn new<Identity: IMultisessionSequential_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsFirstDataSession<Identity: IMultisessionSequential_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -4400,7 +4415,7 @@ impl IMultisessionSequential_Vtbl {
         iid == &<IMultisessionSequential as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IMultisession as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMultisessionSequential {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IMultisessionSequential2, IMultisessionSequential2_Vtbl, 0xb507ca22_2204_11dd_966a_001aa01bbc58);
@@ -4429,11 +4444,11 @@ pub struct IMultisessionSequential2_Vtbl {
     pub base__: IMultisessionSequential_Vtbl,
     pub WriteUnitSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMultisessionSequential2_Impl: IMultisessionSequential_Impl {
     fn WriteUnitSize(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMultisessionSequential2_Vtbl {
     pub const fn new<Identity: IMultisessionSequential2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn WriteUnitSize<Identity: IMultisessionSequential2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
@@ -4454,7 +4469,7 @@ impl IMultisessionSequential2_Vtbl {
         iid == &<IMultisessionSequential2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IMultisession as windows_core::Interface>::IID || iid == &<IMultisessionSequential as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMultisessionSequential2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IRawCDImageCreator, IRawCDImageCreator_Vtbl, 0x25983550_9d65_49ce_b335_40630d901227);
@@ -4621,7 +4636,7 @@ pub struct IRawCDImageCreator_Vtbl {
     pub LastUsedUserSectorInImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ExpectedTableOfContents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRawCDImageCreator_Impl: super::IDispatch_Impl {
     fn CreateResultImage(&self) -> windows_core::Result<super::IStream>;
     fn AddTrack(&self, datatype: IMAPI_CD_SECTOR_TYPE, data: windows_core::Ref<super::IStream>) -> windows_core::Result<i32>;
@@ -4643,7 +4658,7 @@ pub trait IRawCDImageCreator_Impl: super::IDispatch_Impl {
     fn LastUsedUserSectorInImage(&self) -> windows_core::Result<i32>;
     fn ExpectedTableOfContents(&self) -> windows_core::Result<*mut super::SAFEARRAY>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRawCDImageCreator_Vtbl {
     pub const fn new<Identity: IRawCDImageCreator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateResultImage<Identity: IRawCDImageCreator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resultstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4859,7 +4874,7 @@ impl IRawCDImageCreator_Vtbl {
         iid == &<IRawCDImageCreator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRawCDImageCreator {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IRawCDImageTrackInfo, IRawCDImageTrackInfo_Vtbl, 0x25983551_9d65_49ce_b335_40630d901227);
@@ -4965,7 +4980,7 @@ pub struct IRawCDImageTrackInfo_Vtbl {
     pub AddTrackIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ClearTrackIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRawCDImageTrackInfo_Impl: super::IDispatch_Impl {
     fn StartingLba(&self) -> windows_core::Result<i32>;
     fn SectorCount(&self) -> windows_core::Result<i32>;
@@ -4981,7 +4996,7 @@ pub trait IRawCDImageTrackInfo_Impl: super::IDispatch_Impl {
     fn AddTrackIndex(&self, lbaoffset: i32) -> windows_core::Result<()>;
     fn ClearTrackIndex(&self, lbaoffset: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRawCDImageTrackInfo_Vtbl {
     pub const fn new<Identity: IRawCDImageTrackInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartingLba<Identity: IRawCDImageTrackInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
@@ -5131,7 +5146,7 @@ impl IRawCDImageTrackInfo_Vtbl {
         iid == &<IRawCDImageTrackInfo as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRawCDImageTrackInfo {}
 #[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(IStreamConcatenate, IStreamConcatenate_Vtbl, 0x27354146_7f64_5b0f_8f00_5d77afbe261e);
@@ -5176,14 +5191,14 @@ pub struct IStreamConcatenate_Vtbl {
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Append2: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 pub trait IStreamConcatenate_Impl: super::IStream_Impl {
     fn Initialize(&self, stream1: windows_core::Ref<super::IStream>, stream2: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
     fn Initialize2(&self, streams: *const Option<super::IStream>, streamcount: u32) -> windows_core::Result<()>;
     fn Append(&self, stream: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
     fn Append2(&self, streams: *const Option<super::IStream>, streamcount: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl IStreamConcatenate_Vtbl {
     pub const fn new<Identity: IStreamConcatenate_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IStreamConcatenate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream1: *mut core::ffi::c_void, stream2: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5222,7 +5237,7 @@ impl IStreamConcatenate_Vtbl {
         iid == &<IStreamConcatenate as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IStreamConcatenate {}
 #[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(IStreamInterleave, IStreamInterleave_Vtbl, 0x27354147_7f64_5b0f_8f00_5d77afbe261e);
@@ -5248,11 +5263,11 @@ pub struct IStreamInterleave_Vtbl {
     pub base__: super::IStream_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, *const u32, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 pub trait IStreamInterleave_Impl: super::IStream_Impl {
     fn Initialize(&self, streams: *const Option<super::IStream>, interleavesizes: *const u32, streamcount: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl IStreamInterleave_Vtbl {
     pub const fn new<Identity: IStreamInterleave_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IStreamInterleave_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streams: *const *mut core::ffi::c_void, interleavesizes: *const u32, streamcount: u32) -> windows_core::HRESULT {
@@ -5267,7 +5282,7 @@ impl IStreamInterleave_Vtbl {
         iid == &<IStreamInterleave as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IStreamInterleave {}
 #[cfg(feature = "objidlbase")]
 windows_core::imp::define_interface!(IStreamPseudoRandomBased, IStreamPseudoRandomBased_Vtbl, 0x27354145_7f64_5b0f_8f00_5d77afbe261e);
@@ -5308,14 +5323,14 @@ pub struct IStreamPseudoRandomBased_Vtbl {
     pub put_ExtendedSeed: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32, u32) -> windows_core::HRESULT,
     pub get_ExtendedSeed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 pub trait IStreamPseudoRandomBased_Impl: super::IStream_Impl {
     fn put_Seed(&self, value: u32) -> windows_core::Result<()>;
     fn get_Seed(&self) -> windows_core::Result<u32>;
     fn put_ExtendedSeed(&self, values: *const u32, ecount: u32) -> windows_core::Result<()>;
     fn get_ExtendedSeed(&self, values: *mut *mut u32, ecount: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl IStreamPseudoRandomBased_Vtbl {
     pub const fn new<Identity: IStreamPseudoRandomBased_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn put_Seed<Identity: IStreamPseudoRandomBased_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32) -> windows_core::HRESULT {
@@ -5360,7 +5375,7 @@ impl IStreamPseudoRandomBased_Vtbl {
         iid == &<IStreamPseudoRandomBased as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IStreamPseudoRandomBased {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWriteEngine2, IWriteEngine2_Vtbl, 0x27354135_7f64_5b0f_8f00_5d77afbe261e);
@@ -5474,7 +5489,7 @@ pub struct IWriteEngine2_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     WriteInProgress: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWriteEngine2_Impl: super::IDispatch_Impl {
     fn WriteSection(&self, data: windows_core::Ref<super::IStream>, startingblockaddress: i32, numberofblocks: i32) -> windows_core::Result<()>;
     fn CancelWrite(&self) -> windows_core::Result<()>;
@@ -5490,7 +5505,7 @@ pub trait IWriteEngine2_Impl: super::IDispatch_Impl {
     fn BytesPerSector(&self) -> windows_core::Result<i32>;
     fn WriteInProgress(&self) -> windows_core::Result<super::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWriteEngine2_Vtbl {
     pub const fn new<Identity: IWriteEngine2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn WriteSection<Identity: IWriteEngine2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, startingblockaddress: i32, numberofblocks: i32) -> windows_core::HRESULT {
@@ -5628,7 +5643,7 @@ impl IWriteEngine2_Vtbl {
         iid == &<IWriteEngine2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWriteEngine2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWriteEngine2EventArgs, IWriteEngine2EventArgs_Vtbl, 0x27354136_7f64_5b0f_8f00_5d77afbe261e);
@@ -5699,7 +5714,7 @@ pub struct IWriteEngine2EventArgs_Vtbl {
     pub UsedSystemBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub FreeSystemBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWriteEngine2EventArgs_Impl: super::IDispatch_Impl {
     fn StartLba(&self) -> windows_core::Result<i32>;
     fn SectorCount(&self) -> windows_core::Result<i32>;
@@ -5709,7 +5724,7 @@ pub trait IWriteEngine2EventArgs_Impl: super::IDispatch_Impl {
     fn UsedSystemBuffer(&self) -> windows_core::Result<i32>;
     fn FreeSystemBuffer(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWriteEngine2EventArgs_Vtbl {
     pub const fn new<Identity: IWriteEngine2EventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartLba<Identity: IWriteEngine2EventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
@@ -5811,7 +5826,7 @@ impl IWriteEngine2EventArgs_Vtbl {
         iid == &<IWriteEngine2EventArgs as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWriteEngine2EventArgs {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IWriteSpeedDescriptor, IWriteSpeedDescriptor_Vtbl, 0x27354144_7f64_5b0f_8f00_5d77afbe261e);
@@ -5858,13 +5873,13 @@ pub struct IWriteSpeedDescriptor_Vtbl {
     RotationTypeIsPureCAV: usize,
     pub WriteSpeed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWriteSpeedDescriptor_Impl: super::IDispatch_Impl {
     fn MediaType(&self) -> windows_core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
     fn RotationTypeIsPureCAV(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn WriteSpeed(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWriteSpeedDescriptor_Vtbl {
     pub const fn new<Identity: IWriteSpeedDescriptor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MediaType<Identity: IWriteSpeedDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> windows_core::HRESULT {
@@ -5914,7 +5929,7 @@ impl IWriteSpeedDescriptor_Vtbl {
         iid == &<IWriteSpeedDescriptor as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWriteSpeedDescriptor {}
 pub const MsftDiscFormat2Data: windows_core::GUID = windows_core::GUID::from_u128(0x2735412a_7f64_5b0f_8f00_5d77afbe261e);
 pub const MsftDiscFormat2Erase: windows_core::GUID = windows_core::GUID::from_u128(0x2735412b_7f64_5b0f_8f00_5d77afbe261e);
@@ -5946,39 +5961,15 @@ pub type PIMAPI_MODE_PAGE_REQUEST_TYPE = *mut IMAPI_MODE_PAGE_REQUEST_TYPE;
 pub type PIMAPI_MODE_PAGE_TYPE = *mut IMAPI_MODE_PAGE_TYPE;
 pub type PIMAPI_PROFILE_TYPE = *mut IMAPI_PROFILE_TYPE;
 pub type PIMAPI_READ_TRACK_ADDRESS_TYPE = *mut IMAPI_READ_TRACK_ADDRESS_TYPE;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_ADAPTER_DESCRIPTOR(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_ALL_FEATURE_PAGES(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_ALL_MODE_PAGES(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_ALL_PROFILES(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_DEVICE_DESCRIPTOR(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_DISC_INFORMATION(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_DVD_STRUCTURE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_FEATURE_PAGE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_MODE_PAGE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_NONZERO(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_NOT_NEGATIVE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ULONG_IMAPI2_TRACK_INFORMATION(pub u32);
+pub type ULONG_IMAPI2_ADAPTER_DESCRIPTOR = u32;
+pub type ULONG_IMAPI2_ALL_FEATURE_PAGES = u32;
+pub type ULONG_IMAPI2_ALL_MODE_PAGES = u32;
+pub type ULONG_IMAPI2_ALL_PROFILES = u32;
+pub type ULONG_IMAPI2_DEVICE_DESCRIPTOR = u32;
+pub type ULONG_IMAPI2_DISC_INFORMATION = u32;
+pub type ULONG_IMAPI2_DVD_STRUCTURE = u32;
+pub type ULONG_IMAPI2_FEATURE_PAGE = u32;
+pub type ULONG_IMAPI2_MODE_PAGE = u32;
+pub type ULONG_IMAPI2_NONZERO = u32;
+pub type ULONG_IMAPI2_NOT_NEGATIVE = u32;
+pub type ULONG_IMAPI2_TRACK_INFORMATION = u32;

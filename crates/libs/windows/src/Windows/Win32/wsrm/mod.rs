@@ -8,12 +8,13 @@ pub const MAX_WINDOW_INCREMENT_PERCENTAGE: i32 = 25;
 pub const RM_ADD_RECEIVE_IF: i32 = 1008;
 pub const RM_DEL_RECEIVE_IF: i32 = 1009;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_FEC_INFO {
     pub FECBlockSize: u16,
     pub FECProActivePackets: u16,
     pub FECGroupSize: u8,
-    pub fFECOnDemandParityEnabled: bool,
+    pub fFECOnDemandParityEnabled: super::BOOLEAN,
 }
 pub const RM_FLUSHCACHE: i32 = 1003;
 pub const RM_HIGH_SPEED_INTRANET_OPT: i32 = 1014;

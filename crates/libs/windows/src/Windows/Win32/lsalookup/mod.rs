@@ -3,9 +3,7 @@ pub const DnsDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = 12;
 pub const LOOKUP_TRANSLATE_NAMES: i32 = 2048;
 pub const LOOKUP_VIEW_LOCAL_INFORMATION: i32 = 1;
 pub type LSA_LOOKUP_DOMAIN_INFO_CLASS = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LSA_LOOKUP_HANDLE(pub *mut core::ffi::c_void);
+pub type LSA_LOOKUP_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -64,9 +62,7 @@ pub struct LSA_UNICODE_STRING {
     pub Buffer: windows_core::PWSTR,
 }
 pub type PLSA_LOOKUP_DOMAIN_INFO_CLASS = *mut LSA_LOOKUP_DOMAIN_INFO_CLASS;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PLSA_LOOKUP_HANDLE(pub *mut *mut core::ffi::c_void);
+pub type PLSA_LOOKUP_HANDLE = *mut *mut core::ffi::c_void;
 #[cfg(feature = "winnt")]
 pub type PLSA_OBJECT_ATTRIBUTES = *mut LSA_OBJECT_ATTRIBUTES;
 #[cfg(feature = "winnt")]

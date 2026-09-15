@@ -17,74 +17,74 @@ pub unsafe fn CompareFileTime(lpfiletime1: *const super::FILETIME, lpfiletime2: 
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateDirectory2A<P0>(lppathname: P0, dwdesiredaccess: u32, dwsharemode: u32, directoryflags: DIRECTORY_FLAGS, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>) -> super::HANDLE
+pub unsafe fn CreateDirectory2A<P0>(lppathname: P0, dwdesiredaccess: u32, dwsharemode: u32, directoryflags: DIRECTORY_FLAGS, lpsecurityattributes: Option<super::LPSECURITY_ATTRIBUTES>) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateDirectory2A(lppathname : windows_core::PCSTR, dwdesiredaccess : u32, dwsharemode : u32, directoryflags : DIRECTORY_FLAGS, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn CreateDirectory2A(lppathname : windows_core::PCSTR, dwdesiredaccess : u32, dwsharemode : u32, directoryflags : DIRECTORY_FLAGS, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES) -> super::HANDLE);
     unsafe { CreateDirectory2A(lppathname.param().abi(), dwdesiredaccess, dwsharemode, directoryflags, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateDirectory2W<P0>(lppathname: P0, dwdesiredaccess: u32, dwsharemode: u32, directoryflags: DIRECTORY_FLAGS, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>) -> super::HANDLE
+pub unsafe fn CreateDirectory2W<P0>(lppathname: P0, dwdesiredaccess: u32, dwsharemode: u32, directoryflags: DIRECTORY_FLAGS, lpsecurityattributes: Option<super::LPSECURITY_ATTRIBUTES>) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateDirectory2W(lppathname : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, directoryflags : DIRECTORY_FLAGS, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn CreateDirectory2W(lppathname : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, directoryflags : DIRECTORY_FLAGS, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES) -> super::HANDLE);
     unsafe { CreateDirectory2W(lppathname.param().abi(), dwdesiredaccess, dwsharemode, directoryflags, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwinbase")]
 #[inline]
-pub unsafe fn CreateDirectoryA<P0>(lppathname: P0, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>) -> windows_core::BOOL
+pub unsafe fn CreateDirectoryA<P0>(lppathname: P0, lpsecurityattributes: Option<super::LPSECURITY_ATTRIBUTES>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateDirectoryA(lppathname : windows_core::PCSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn CreateDirectoryA(lppathname : windows_core::PCSTR, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES) -> windows_core::BOOL);
     unsafe { CreateDirectoryA(lppathname.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwinbase")]
 #[inline]
-pub unsafe fn CreateDirectoryW<P0>(lppathname: P0, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>) -> windows_core::BOOL
+pub unsafe fn CreateDirectoryW<P0>(lppathname: P0, lpsecurityattributes: Option<super::LPSECURITY_ATTRIBUTES>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateDirectoryW(lppathname : windows_core::PCWSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn CreateDirectoryW(lppathname : windows_core::PCWSTR, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES) -> windows_core::BOOL);
     unsafe { CreateDirectoryW(lppathname.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateFile2<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: Option<*const CREATEFILE2_EXTENDED_PARAMETERS>) -> super::HANDLE
+pub unsafe fn CreateFile2<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: Option<LPCREATEFILE2_EXTENDED_PARAMETERS>) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateFile2(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, dwcreationdisposition : u32, pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn CreateFile2(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, dwcreationdisposition : u32, pcreateexparams : LPCREATEFILE2_EXTENDED_PARAMETERS) -> super::HANDLE);
     unsafe { CreateFile2(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, dwcreationdisposition, pcreateexparams.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateFile3<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: Option<*const CREATEFILE3_EXTENDED_PARAMETERS>) -> super::HANDLE
+pub unsafe fn CreateFile3<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: Option<LPCREATEFILE3_EXTENDED_PARAMETERS>) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateFile3(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, dwcreationdisposition : u32, pcreateexparams : *const CREATEFILE3_EXTENDED_PARAMETERS) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn CreateFile3(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, dwcreationdisposition : u32, pcreateexparams : LPCREATEFILE3_EXTENDED_PARAMETERS) -> super::HANDLE);
     unsafe { CreateFile3(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, dwcreationdisposition, pcreateexparams.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateFileA<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: Option<super::HANDLE>) -> super::HANDLE
+pub unsafe fn CreateFileA<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: Option<super::LPSECURITY_ATTRIBUTES>, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: Option<super::HANDLE>) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateFileA(lpfilename : windows_core::PCSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::HANDLE) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn CreateFileA(lpfilename : windows_core::PCSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::HANDLE) -> super::HANDLE);
     unsafe { CreateFileA(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwcreationdisposition, dwflagsandattributes, htemplatefile.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateFileW<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: Option<super::HANDLE>) -> super::HANDLE
+pub unsafe fn CreateFileW<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: Option<super::LPSECURITY_ATTRIBUTES>, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: Option<super::HANDLE>) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateFileW(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::HANDLE) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn CreateFileW(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : super::LPSECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::HANDLE) -> super::HANDLE);
     unsafe { CreateFileW(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwcreationdisposition, dwflagsandattributes, htemplatefile.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -138,8 +138,8 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::FILETIME, lplocalfiletime: *mut super::FILETIME) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FileTimeToLocalFileTime(lpfiletime : *const super::FILETIME, lplocalfiletime : *mut super::FILETIME) -> windows_core::BOOL);
+pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::FILETIME, lplocalfiletime: super::LPFILETIME) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FileTimeToLocalFileTime(lpfiletime : *const super::FILETIME, lplocalfiletime : super::LPFILETIME) -> windows_core::BOOL);
     unsafe { FileTimeToLocalFileTime(lpfiletime, lplocalfiletime as _) }
 }
 #[cfg(feature = "winnt")]
@@ -174,47 +174,47 @@ where
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindFirstFileA<P0>(lpfilename: P0, lpfindfiledata: *mut super::WIN32_FIND_DATAA) -> super::HANDLE
+pub unsafe fn FindFirstFileA<P0>(lpfilename: P0, lpfindfiledata: super::LPWIN32_FIND_DATAA) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn FindFirstFileA(lpfilename : windows_core::PCSTR, lpfindfiledata : *mut super::WIN32_FIND_DATAA) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn FindFirstFileA(lpfilename : windows_core::PCSTR, lpfindfiledata : super::LPWIN32_FIND_DATAA) -> super::HANDLE);
     unsafe { FindFirstFileA(lpfilename.param().abi(), lpfindfiledata as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindFirstFileExA<P0>(lpfilename: P0, finfolevelid: super::FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: super::FINDEX_SEARCH_OPS, lpsearchfilter: Option<*const core::ffi::c_void>, dwadditionalflags: u32) -> super::HANDLE
+pub unsafe fn FindFirstFileExA<P0>(lpfilename: P0, finfolevelid: super::FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: super::FINDEX_SEARCH_OPS, lpsearchfilter: Option<*mut core::ffi::c_void>, dwadditionalflags: u32) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn FindFirstFileExA(lpfilename : windows_core::PCSTR, finfolevelid : super::FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : super::FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : u32) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn FindFirstFileExA(lpfilename : windows_core::PCSTR, finfolevelid : super::FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : super::FINDEX_SEARCH_OPS, lpsearchfilter : *mut core::ffi::c_void, dwadditionalflags : u32) -> super::HANDLE);
     unsafe { FindFirstFileExA(lpfilename.param().abi(), finfolevelid, lpfindfiledata as _, fsearchop, lpsearchfilter.unwrap_or(core::mem::zeroed()) as _, dwadditionalflags) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindFirstFileExW<P0>(lpfilename: P0, finfolevelid: super::FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: super::FINDEX_SEARCH_OPS, lpsearchfilter: Option<*const core::ffi::c_void>, dwadditionalflags: u32) -> super::HANDLE
+pub unsafe fn FindFirstFileExW<P0>(lpfilename: P0, finfolevelid: super::FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: super::FINDEX_SEARCH_OPS, lpsearchfilter: Option<*mut core::ffi::c_void>, dwadditionalflags: u32) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn FindFirstFileExW(lpfilename : windows_core::PCWSTR, finfolevelid : super::FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : super::FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : u32) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn FindFirstFileExW(lpfilename : windows_core::PCWSTR, finfolevelid : super::FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : super::FINDEX_SEARCH_OPS, lpsearchfilter : *mut core::ffi::c_void, dwadditionalflags : u32) -> super::HANDLE);
     unsafe { FindFirstFileExW(lpfilename.param().abi(), finfolevelid, lpfindfiledata as _, fsearchop, lpsearchfilter.unwrap_or(core::mem::zeroed()) as _, dwadditionalflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindFirstFileNameW<P0>(lpfilename: P0, dwflags: u32, stringlength: *mut u32, linkname: windows_core::PWSTR) -> super::HANDLE
+pub unsafe fn FindFirstFileNameW<P0>(lpfilename: P0, dwflags: u32, stringlength: super::LPDWORD, linkname: windows_core::PWSTR) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn FindFirstFileNameW(lpfilename : windows_core::PCWSTR, dwflags : u32, stringlength : *mut u32, linkname : windows_core::PWSTR) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn FindFirstFileNameW(lpfilename : windows_core::PCWSTR, dwflags : u32, stringlength : super::LPDWORD, linkname : windows_core::PWSTR) -> super::HANDLE);
     unsafe { FindFirstFileNameW(lpfilename.param().abi(), dwflags, stringlength as _, linkname) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindFirstFileW<P0>(lpfilename: P0, lpfindfiledata: *mut super::WIN32_FIND_DATAW) -> super::HANDLE
+pub unsafe fn FindFirstFileW<P0>(lpfilename: P0, lpfindfiledata: super::LPWIN32_FIND_DATAW) -> super::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn FindFirstFileW(lpfilename : windows_core::PCWSTR, lpfindfiledata : *mut super::WIN32_FIND_DATAW) -> super::HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn FindFirstFileW(lpfilename : windows_core::PCWSTR, lpfindfiledata : super::LPWIN32_FIND_DATAW) -> super::HANDLE);
     unsafe { FindFirstFileW(lpfilename.param().abi(), lpfindfiledata as _) }
 }
 #[cfg(feature = "winnt")]
@@ -240,20 +240,20 @@ pub unsafe fn FindNextChangeNotification(hchangehandle: super::HANDLE) -> window
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindNextFileA(hfindfile: super::HANDLE, lpfindfiledata: *mut super::WIN32_FIND_DATAA) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FindNextFileA(hfindfile : super::HANDLE, lpfindfiledata : *mut super::WIN32_FIND_DATAA) -> windows_core::BOOL);
+pub unsafe fn FindNextFileA(hfindfile: super::HANDLE, lpfindfiledata: super::LPWIN32_FIND_DATAA) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FindNextFileA(hfindfile : super::HANDLE, lpfindfiledata : super::LPWIN32_FIND_DATAA) -> windows_core::BOOL);
     unsafe { FindNextFileA(hfindfile, lpfindfiledata as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindNextFileNameW(hfindstream: super::HANDLE, stringlength: *mut u32, linkname: windows_core::PWSTR) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FindNextFileNameW(hfindstream : super::HANDLE, stringlength : *mut u32, linkname : windows_core::PWSTR) -> windows_core::BOOL);
+pub unsafe fn FindNextFileNameW(hfindstream: super::HANDLE, stringlength: super::LPDWORD, linkname: windows_core::PWSTR) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FindNextFileNameW(hfindstream : super::HANDLE, stringlength : super::LPDWORD, linkname : windows_core::PWSTR) -> windows_core::BOOL);
     unsafe { FindNextFileNameW(hfindstream, stringlength as _, linkname) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn FindNextFileW(hfindfile: super::HANDLE, lpfindfiledata: *mut super::WIN32_FIND_DATAW) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FindNextFileW(hfindfile : super::HANDLE, lpfindfiledata : *mut super::WIN32_FIND_DATAW) -> windows_core::BOOL);
+pub unsafe fn FindNextFileW(hfindfile: super::HANDLE, lpfindfiledata: super::LPWIN32_FIND_DATAW) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FindNextFileW(hfindfile : super::HANDLE, lpfindfiledata : super::LPWIN32_FIND_DATAW) -> windows_core::BOOL);
     unsafe { FindNextFileW(hfindfile, lpfindfiledata as _) }
 }
 #[cfg(feature = "winnt")]
@@ -280,52 +280,58 @@ pub unsafe fn FlushFileBuffers(hfile: super::HANDLE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn FlushFileBuffers(hfile : super::HANDLE) -> windows_core::BOOL);
     unsafe { FlushFileBuffers(hfile) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn GetCompressedFileSizeA<P0>(lpfilename: P0, lpfilesizehigh: Option<*mut u32>) -> u32
+pub unsafe fn GetCompressedFileSizeA<P0>(lpfilename: P0, lpfilesizehigh: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetCompressedFileSizeA(lpfilename : windows_core::PCSTR, lpfilesizehigh : *mut u32) -> u32);
+    windows_core::link!("kernel32.dll" "system" fn GetCompressedFileSizeA(lpfilename : windows_core::PCSTR, lpfilesizehigh : super::LPDWORD) -> u32);
     unsafe { GetCompressedFileSizeA(lpfilename.param().abi(), lpfilesizehigh.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn GetCompressedFileSizeW<P0>(lpfilename: P0, lpfilesizehigh: Option<*mut u32>) -> u32
+pub unsafe fn GetCompressedFileSizeW<P0>(lpfilename: P0, lpfilesizehigh: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetCompressedFileSizeW(lpfilename : windows_core::PCWSTR, lpfilesizehigh : *mut u32) -> u32);
+    windows_core::link!("kernel32.dll" "system" fn GetCompressedFileSizeW(lpfilename : windows_core::PCWSTR, lpfilesizehigh : super::LPDWORD) -> u32);
     unsafe { GetCompressedFileSizeW(lpfilename.param().abi(), lpfilesizehigh.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn GetDiskFreeSpaceA<P0>(lprootpathname: P0, lpsectorspercluster: Option<*mut u32>, lpbytespersector: Option<*mut u32>, lpnumberoffreeclusters: Option<*mut u32>, lptotalnumberofclusters: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn GetDiskFreeSpaceA<P0>(lprootpathname: P0, lpsectorspercluster: Option<super::LPDWORD>, lpbytespersector: Option<super::LPDWORD>, lpnumberoffreeclusters: Option<super::LPDWORD>, lptotalnumberofclusters: Option<super::LPDWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetDiskFreeSpaceA(lprootpathname : windows_core::PCSTR, lpsectorspercluster : *mut u32, lpbytespersector : *mut u32, lpnumberoffreeclusters : *mut u32, lptotalnumberofclusters : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn GetDiskFreeSpaceA(lprootpathname : windows_core::PCSTR, lpsectorspercluster : super::LPDWORD, lpbytespersector : super::LPDWORD, lpnumberoffreeclusters : super::LPDWORD, lptotalnumberofclusters : super::LPDWORD) -> windows_core::BOOL);
     unsafe { GetDiskFreeSpaceA(lprootpathname.param().abi(), lpsectorspercluster.unwrap_or(core::mem::zeroed()) as _, lpbytespersector.unwrap_or(core::mem::zeroed()) as _, lpnumberoffreeclusters.unwrap_or(core::mem::zeroed()) as _, lptotalnumberofclusters.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetDiskFreeSpaceExA<P0>(lpdirectoryname: P0, lpfreebytesavailabletocaller: Option<*mut u64>, lptotalnumberofbytes: Option<*mut u64>, lptotalnumberoffreebytes: Option<*mut u64>) -> windows_core::BOOL
+pub unsafe fn GetDiskFreeSpaceExA<P0>(lpdirectoryname: P0, lpfreebytesavailabletocaller: Option<super::PULARGE_INTEGER>, lptotalnumberofbytes: Option<super::PULARGE_INTEGER>, lptotalnumberoffreebytes: Option<super::PULARGE_INTEGER>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetDiskFreeSpaceExA(lpdirectoryname : windows_core::PCSTR, lpfreebytesavailabletocaller : *mut u64, lptotalnumberofbytes : *mut u64, lptotalnumberoffreebytes : *mut u64) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn GetDiskFreeSpaceExA(lpdirectoryname : windows_core::PCSTR, lpfreebytesavailabletocaller : super::PULARGE_INTEGER, lptotalnumberofbytes : super::PULARGE_INTEGER, lptotalnumberoffreebytes : super::PULARGE_INTEGER) -> windows_core::BOOL);
     unsafe { GetDiskFreeSpaceExA(lpdirectoryname.param().abi(), lpfreebytesavailabletocaller.unwrap_or(core::mem::zeroed()) as _, lptotalnumberofbytes.unwrap_or(core::mem::zeroed()) as _, lptotalnumberoffreebytes.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetDiskFreeSpaceExW<P0>(lpdirectoryname: P0, lpfreebytesavailabletocaller: Option<*mut u64>, lptotalnumberofbytes: Option<*mut u64>, lptotalnumberoffreebytes: Option<*mut u64>) -> windows_core::BOOL
+pub unsafe fn GetDiskFreeSpaceExW<P0>(lpdirectoryname: P0, lpfreebytesavailabletocaller: Option<super::PULARGE_INTEGER>, lptotalnumberofbytes: Option<super::PULARGE_INTEGER>, lptotalnumberoffreebytes: Option<super::PULARGE_INTEGER>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetDiskFreeSpaceExW(lpdirectoryname : windows_core::PCWSTR, lpfreebytesavailabletocaller : *mut u64, lptotalnumberofbytes : *mut u64, lptotalnumberoffreebytes : *mut u64) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn GetDiskFreeSpaceExW(lpdirectoryname : windows_core::PCWSTR, lpfreebytesavailabletocaller : super::PULARGE_INTEGER, lptotalnumberofbytes : super::PULARGE_INTEGER, lptotalnumberoffreebytes : super::PULARGE_INTEGER) -> windows_core::BOOL);
     unsafe { GetDiskFreeSpaceExW(lpdirectoryname.param().abi(), lpfreebytesavailabletocaller.unwrap_or(core::mem::zeroed()) as _, lptotalnumberofbytes.unwrap_or(core::mem::zeroed()) as _, lptotalnumberoffreebytes.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn GetDiskFreeSpaceW<P0>(lprootpathname: P0, lpsectorspercluster: Option<*mut u32>, lpbytespersector: Option<*mut u32>, lpnumberoffreeclusters: Option<*mut u32>, lptotalnumberofclusters: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn GetDiskFreeSpaceW<P0>(lprootpathname: P0, lpsectorspercluster: Option<super::LPDWORD>, lpbytespersector: Option<super::LPDWORD>, lpnumberoffreeclusters: Option<super::LPDWORD>, lptotalnumberofclusters: Option<super::LPDWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetDiskFreeSpaceW(lprootpathname : windows_core::PCWSTR, lpsectorspercluster : *mut u32, lpbytespersector : *mut u32, lpnumberoffreeclusters : *mut u32, lptotalnumberofclusters : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn GetDiskFreeSpaceW(lprootpathname : windows_core::PCWSTR, lpsectorspercluster : super::LPDWORD, lpbytespersector : super::LPDWORD, lpnumberoffreeclusters : super::LPDWORD, lptotalnumberofclusters : super::LPDWORD) -> windows_core::BOOL);
     unsafe { GetDiskFreeSpaceW(lprootpathname.param().abi(), lpsectorspercluster.unwrap_or(core::mem::zeroed()) as _, lpbytespersector.unwrap_or(core::mem::zeroed()) as _, lpnumberoffreeclusters.unwrap_or(core::mem::zeroed()) as _, lptotalnumberofclusters.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -396,26 +402,26 @@ where
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetFileInformationByHandle(hfile: super::HANDLE, lpfileinformation: *mut BY_HANDLE_FILE_INFORMATION) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn GetFileInformationByHandle(hfile : super::HANDLE, lpfileinformation : *mut BY_HANDLE_FILE_INFORMATION) -> windows_core::BOOL);
+pub unsafe fn GetFileInformationByHandle(hfile: super::HANDLE, lpfileinformation: LPBY_HANDLE_FILE_INFORMATION) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetFileInformationByHandle(hfile : super::HANDLE, lpfileinformation : LPBY_HANDLE_FILE_INFORMATION) -> windows_core::BOOL);
     unsafe { GetFileInformationByHandle(hfile, lpfileinformation as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetFileSize(hfile: super::HANDLE, lpfilesizehigh: Option<*mut u32>) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn GetFileSize(hfile : super::HANDLE, lpfilesizehigh : *mut u32) -> u32);
+pub unsafe fn GetFileSize(hfile: super::HANDLE, lpfilesizehigh: Option<super::LPDWORD>) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetFileSize(hfile : super::HANDLE, lpfilesizehigh : super::LPDWORD) -> u32);
     unsafe { GetFileSize(hfile, lpfilesizehigh.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetFileSizeEx(hfile: super::HANDLE, lpfilesize: *mut i64) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn GetFileSizeEx(hfile : super::HANDLE, lpfilesize : *mut i64) -> windows_core::BOOL);
+pub unsafe fn GetFileSizeEx(hfile: super::HANDLE, lpfilesize: super::PLARGE_INTEGER) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetFileSizeEx(hfile : super::HANDLE, lpfilesize : super::PLARGE_INTEGER) -> windows_core::BOOL);
     unsafe { GetFileSizeEx(hfile, lpfilesize as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetFileTime(hfile: super::HANDLE, lpcreationtime: Option<*mut super::FILETIME>, lplastaccesstime: Option<*mut super::FILETIME>, lplastwritetime: Option<*mut super::FILETIME>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn GetFileTime(hfile : super::HANDLE, lpcreationtime : *mut super::FILETIME, lplastaccesstime : *mut super::FILETIME, lplastwritetime : *mut super::FILETIME) -> windows_core::BOOL);
+pub unsafe fn GetFileTime(hfile: super::HANDLE, lpcreationtime: Option<super::LPFILETIME>, lplastaccesstime: Option<super::LPFILETIME>, lplastwritetime: Option<super::LPFILETIME>) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetFileTime(hfile : super::HANDLE, lpcreationtime : super::LPFILETIME, lplastaccesstime : super::LPFILETIME, lplastwritetime : super::LPFILETIME) -> windows_core::BOOL);
     unsafe { GetFileTime(hfile, lpcreationtime.unwrap_or(core::mem::zeroed()) as _, lplastaccesstime.unwrap_or(core::mem::zeroed()) as _, lplastwritetime.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -524,26 +530,28 @@ pub unsafe fn GetTempPathW(nbufferlength: u32, lpbuffer: Option<windows_core::PW
     windows_core::link!("kernel32.dll" "system" fn GetTempPathW(nbufferlength : u32, lpbuffer : windows_core::PWSTR) -> u32);
     unsafe { GetTempPathW(nbufferlength, lpbuffer.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn GetVolumeInformationA<P0>(lprootpathname: P0, lpvolumenamebuffer: Option<windows_core::PSTR>, nvolumenamesize: u32, lpvolumeserialnumber: Option<*mut u32>, lpmaximumcomponentlength: Option<*mut u32>, lpfilesystemflags: Option<*mut u32>, lpfilesystemnamebuffer: Option<windows_core::PSTR>, nfilesystemnamesize: u32) -> windows_core::BOOL
+pub unsafe fn GetVolumeInformationA<P0>(lprootpathname: P0, lpvolumenamebuffer: Option<windows_core::PSTR>, nvolumenamesize: u32, lpvolumeserialnumber: Option<super::LPDWORD>, lpmaximumcomponentlength: Option<super::LPDWORD>, lpfilesystemflags: Option<super::LPDWORD>, lpfilesystemnamebuffer: Option<windows_core::PSTR>, nfilesystemnamesize: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetVolumeInformationA(lprootpathname : windows_core::PCSTR, lpvolumenamebuffer : windows_core::PSTR, nvolumenamesize : u32, lpvolumeserialnumber : *mut u32, lpmaximumcomponentlength : *mut u32, lpfilesystemflags : *mut u32, lpfilesystemnamebuffer : windows_core::PSTR, nfilesystemnamesize : u32) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn GetVolumeInformationA(lprootpathname : windows_core::PCSTR, lpvolumenamebuffer : windows_core::PSTR, nvolumenamesize : u32, lpvolumeserialnumber : super::LPDWORD, lpmaximumcomponentlength : super::LPDWORD, lpfilesystemflags : super::LPDWORD, lpfilesystemnamebuffer : windows_core::PSTR, nfilesystemnamesize : u32) -> windows_core::BOOL);
     unsafe { GetVolumeInformationA(lprootpathname.param().abi(), lpvolumenamebuffer.unwrap_or(core::mem::zeroed()) as _, nvolumenamesize, lpvolumeserialnumber.unwrap_or(core::mem::zeroed()) as _, lpmaximumcomponentlength.unwrap_or(core::mem::zeroed()) as _, lpfilesystemflags.unwrap_or(core::mem::zeroed()) as _, lpfilesystemnamebuffer.unwrap_or(core::mem::zeroed()) as _, nfilesystemnamesize) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetVolumeInformationByHandleW(hfile: super::HANDLE, lpvolumenamebuffer: Option<windows_core::PWSTR>, nvolumenamesize: u32, lpvolumeserialnumber: Option<*mut u32>, lpmaximumcomponentlength: Option<*mut u32>, lpfilesystemflags: Option<*mut u32>, lpfilesystemnamebuffer: Option<windows_core::PWSTR>, nfilesystemnamesize: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn GetVolumeInformationByHandleW(hfile : super::HANDLE, lpvolumenamebuffer : windows_core::PWSTR, nvolumenamesize : u32, lpvolumeserialnumber : *mut u32, lpmaximumcomponentlength : *mut u32, lpfilesystemflags : *mut u32, lpfilesystemnamebuffer : windows_core::PWSTR, nfilesystemnamesize : u32) -> windows_core::BOOL);
+pub unsafe fn GetVolumeInformationByHandleW(hfile: super::HANDLE, lpvolumenamebuffer: Option<windows_core::PWSTR>, nvolumenamesize: u32, lpvolumeserialnumber: Option<super::LPDWORD>, lpmaximumcomponentlength: Option<super::LPDWORD>, lpfilesystemflags: Option<super::LPDWORD>, lpfilesystemnamebuffer: Option<windows_core::PWSTR>, nfilesystemnamesize: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetVolumeInformationByHandleW(hfile : super::HANDLE, lpvolumenamebuffer : windows_core::PWSTR, nvolumenamesize : u32, lpvolumeserialnumber : super::LPDWORD, lpmaximumcomponentlength : super::LPDWORD, lpfilesystemflags : super::LPDWORD, lpfilesystemnamebuffer : windows_core::PWSTR, nfilesystemnamesize : u32) -> windows_core::BOOL);
     unsafe { GetVolumeInformationByHandleW(hfile, lpvolumenamebuffer.unwrap_or(core::mem::zeroed()) as _, nvolumenamesize, lpvolumeserialnumber.unwrap_or(core::mem::zeroed()) as _, lpmaximumcomponentlength.unwrap_or(core::mem::zeroed()) as _, lpfilesystemflags.unwrap_or(core::mem::zeroed()) as _, lpfilesystemnamebuffer.unwrap_or(core::mem::zeroed()) as _, nfilesystemnamesize) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn GetVolumeInformationW<P0>(lprootpathname: P0, lpvolumenamebuffer: Option<windows_core::PWSTR>, nvolumenamesize: u32, lpvolumeserialnumber: Option<*mut u32>, lpmaximumcomponentlength: Option<*mut u32>, lpfilesystemflags: Option<*mut u32>, lpfilesystemnamebuffer: Option<windows_core::PWSTR>, nfilesystemnamesize: u32) -> windows_core::BOOL
+pub unsafe fn GetVolumeInformationW<P0>(lprootpathname: P0, lpvolumenamebuffer: Option<windows_core::PWSTR>, nvolumenamesize: u32, lpvolumeserialnumber: Option<super::LPDWORD>, lpmaximumcomponentlength: Option<super::LPDWORD>, lpfilesystemflags: Option<super::LPDWORD>, lpfilesystemnamebuffer: Option<windows_core::PWSTR>, nfilesystemnamesize: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetVolumeInformationW(lprootpathname : windows_core::PCWSTR, lpvolumenamebuffer : windows_core::PWSTR, nvolumenamesize : u32, lpvolumeserialnumber : *mut u32, lpmaximumcomponentlength : *mut u32, lpfilesystemflags : *mut u32, lpfilesystemnamebuffer : windows_core::PWSTR, nfilesystemnamesize : u32) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn GetVolumeInformationW(lprootpathname : windows_core::PCWSTR, lpvolumenamebuffer : windows_core::PWSTR, nvolumenamesize : u32, lpvolumeserialnumber : super::LPDWORD, lpmaximumcomponentlength : super::LPDWORD, lpfilesystemflags : super::LPDWORD, lpfilesystemnamebuffer : windows_core::PWSTR, nfilesystemnamesize : u32) -> windows_core::BOOL);
     unsafe { GetVolumeInformationW(lprootpathname.param().abi(), lpvolumenamebuffer.unwrap_or(core::mem::zeroed()) as _, nvolumenamesize, lpvolumeserialnumber.unwrap_or(core::mem::zeroed()) as _, lpmaximumcomponentlength.unwrap_or(core::mem::zeroed()) as _, lpfilesystemflags.unwrap_or(core::mem::zeroed()) as _, lpfilesystemnamebuffer.unwrap_or(core::mem::zeroed()) as _, nfilesystemnamesize) }
 }
 #[inline]
@@ -562,18 +570,19 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetVolumePathNameW(lpszfilename : windows_core::PCWSTR, lpszvolumepathname : windows_core::PWSTR, cchbufferlength : u32) -> windows_core::BOOL);
     unsafe { GetVolumePathNameW(lpszfilename.param().abi(), lpszvolumepathname, cchbufferlength) }
 }
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetVolumePathNamesForVolumeNameW<P0>(lpszvolumename: P0, lpszvolumepathnames: Option<*mut u16>, cchbufferlength: u32, lpcchreturnlength: *mut u32) -> windows_core::BOOL
+pub unsafe fn GetVolumePathNamesForVolumeNameW<P0>(lpszvolumename: P0, lpszvolumepathnames: Option<super::LPWCH>, cchbufferlength: u32, lpcchreturnlength: super::PDWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetVolumePathNamesForVolumeNameW(lpszvolumename : windows_core::PCWSTR, lpszvolumepathnames : *mut u16, cchbufferlength : u32, lpcchreturnlength : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn GetVolumePathNamesForVolumeNameW(lpszvolumename : windows_core::PCWSTR, lpszvolumepathnames : super::LPWCH, cchbufferlength : u32, lpcchreturnlength : super::PDWORD) -> windows_core::BOOL);
     unsafe { GetVolumePathNamesForVolumeNameW(lpszvolumename.param().abi(), lpszvolumepathnames.unwrap_or(core::mem::zeroed()) as _, cchbufferlength, lpcchreturnlength as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn LocalFileTimeToFileTime(lplocalfiletime: *const super::FILETIME, lpfiletime: *mut super::FILETIME) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn LocalFileTimeToFileTime(lplocalfiletime : *const super::FILETIME, lpfiletime : *mut super::FILETIME) -> windows_core::BOOL);
+pub unsafe fn LocalFileTimeToFileTime(lplocalfiletime: *const super::FILETIME, lpfiletime: super::LPFILETIME) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn LocalFileTimeToFileTime(lplocalfiletime : *const super::FILETIME, lpfiletime : super::LPFILETIME) -> windows_core::BOOL);
     unsafe { LocalFileTimeToFileTime(lplocalfiletime, lpfiletime as _) }
 }
 #[cfg(feature = "winnt")]
@@ -584,8 +593,8 @@ pub unsafe fn LockFile(hfile: super::HANDLE, dwfileoffsetlow: u32, dwfileoffseth
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn LockFileEx(hfile: super::HANDLE, dwflags: u32, dwreserved: Option<u32>, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32, lpoverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn LockFileEx(hfile : super::HANDLE, dwflags : u32, dwreserved : u32, nnumberofbytestolocklow : u32, nnumberofbytestolockhigh : u32, lpoverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+pub unsafe fn LockFileEx(hfile: super::HANDLE, dwflags: u32, dwreserved: Option<u32>, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32, lpoverlapped: super::LPOVERLAPPED) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn LockFileEx(hfile : super::HANDLE, dwflags : u32, dwreserved : u32, nnumberofbytestolocklow : u32, nnumberofbytestolockhigh : u32, lpoverlapped : super::LPOVERLAPPED) -> windows_core::BOOL);
     unsafe { LockFileEx(hfile, dwflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, nnumberofbytestolocklow, nnumberofbytestolockhigh, lpoverlapped as _) }
 }
 #[inline]
@@ -596,22 +605,22 @@ where
     windows_core::link!("kernel32.dll" "system" fn QueryDosDeviceW(lpdevicename : windows_core::PCWSTR, lptargetpath : windows_core::PWSTR, ucchmax : u32) -> u32);
     unsafe { QueryDosDeviceW(lpdevicename.param().abi(), lptargetpath.unwrap_or(core::mem::zeroed()) as _, ucchmax) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadFile(hfile: super::HANDLE, lpbuffer: Option<*mut core::ffi::c_void>, nnumberofbytestoread: u32, lpnumberofbytesread: Option<*mut u32>, lpoverlapped: Option<*mut super::OVERLAPPED>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn ReadFile(hfile : super::HANDLE, lpbuffer : *mut core::ffi::c_void, nnumberofbytestoread : u32, lpnumberofbytesread : *mut u32, lpoverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+pub unsafe fn ReadFile(hfile: super::HANDLE, lpbuffer: Option<*mut core::ffi::c_void>, nnumberofbytestoread: u32, lpnumberofbytesread: Option<super::LPDWORD>, lpoverlapped: Option<super::LPOVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn ReadFile(hfile : super::HANDLE, lpbuffer : *mut core::ffi::c_void, nnumberofbytestoread : u32, lpnumberofbytesread : super::LPDWORD, lpoverlapped : super::LPOVERLAPPED) -> windows_core::BOOL);
     unsafe { ReadFile(hfile, lpbuffer.unwrap_or(core::mem::zeroed()) as _, nnumberofbytestoread, lpnumberofbytesread.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadFileEx(hfile: super::HANDLE, lpbuffer: Option<*mut core::ffi::c_void>, nnumberofbytestoread: u32, lpoverlapped: *mut super::OVERLAPPED, lpcompletionroutine: super::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn ReadFileEx(hfile : super::HANDLE, lpbuffer : *mut core::ffi::c_void, nnumberofbytestoread : u32, lpoverlapped : *mut super::OVERLAPPED, lpcompletionroutine : super::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::BOOL);
+pub unsafe fn ReadFileEx(hfile: super::HANDLE, lpbuffer: Option<*mut core::ffi::c_void>, nnumberofbytestoread: u32, lpoverlapped: super::LPOVERLAPPED, lpcompletionroutine: super::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn ReadFileEx(hfile : super::HANDLE, lpbuffer : *mut core::ffi::c_void, nnumberofbytestoread : u32, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : super::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::BOOL);
     unsafe { ReadFileEx(hfile, lpbuffer.unwrap_or(core::mem::zeroed()) as _, nnumberofbytestoread, lpoverlapped as _, lpcompletionroutine) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadFileScatter(hfile: super::HANDLE, asegmentarray: *const super::FILE_SEGMENT_ELEMENT, nnumberofbytestoread: u32, lpreserved: Option<*const u32>, lpoverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn ReadFileScatter(hfile : super::HANDLE, asegmentarray : *const super::FILE_SEGMENT_ELEMENT, nnumberofbytestoread : u32, lpreserved : *const u32, lpoverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+pub unsafe fn ReadFileScatter(hfile: super::HANDLE, asegmentarray: *const super::FILE_SEGMENT_ELEMENT, nnumberofbytestoread: u32, lpreserved: Option<super::LPDWORD>, lpoverlapped: super::LPOVERLAPPED) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn ReadFileScatter(hfile : super::HANDLE, asegmentarray : *const super::FILE_SEGMENT_ELEMENT, nnumberofbytestoread : u32, lpreserved : super::LPDWORD, lpoverlapped : super::LPOVERLAPPED) -> windows_core::BOOL);
     unsafe { ReadFileScatter(hfile, asegmentarray, nnumberofbytestoread, lpreserved.unwrap_or(core::mem::zeroed()) as _, lpoverlapped as _) }
 }
 #[inline]
@@ -684,22 +693,22 @@ pub unsafe fn SetFileInformationByHandle(hfile: super::HANDLE, fileinformationcl
     windows_core::link!("kernel32.dll" "system" fn SetFileInformationByHandle(hfile : super::HANDLE, fileinformationclass : super::FILE_INFO_BY_HANDLE_CLASS, lpfileinformation : *const core::ffi::c_void, dwbuffersize : u32) -> windows_core::BOOL);
     unsafe { SetFileInformationByHandle(hfile, fileinformationclass, lpfileinformation, dwbuffersize) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetFileIoOverlappedRange(filehandle: super::HANDLE, overlappedrangestart: *const u8, length: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetFileIoOverlappedRange(filehandle : super::HANDLE, overlappedrangestart : *const u8, length : u32) -> windows_core::BOOL);
+pub unsafe fn SetFileIoOverlappedRange(filehandle: super::HANDLE, overlappedrangestart: super::PUCHAR, length: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SetFileIoOverlappedRange(filehandle : super::HANDLE, overlappedrangestart : super::PUCHAR, length : u32) -> windows_core::BOOL);
     unsafe { SetFileIoOverlappedRange(filehandle, overlappedrangestart, length) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn SetFilePointer(hfile: super::HANDLE, ldistancetomove: i32, lpdistancetomovehigh: Option<*mut i32>, dwmovemethod: u32) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn SetFilePointer(hfile : super::HANDLE, ldistancetomove : i32, lpdistancetomovehigh : *mut i32, dwmovemethod : u32) -> u32);
+pub unsafe fn SetFilePointer(hfile: super::HANDLE, ldistancetomove: i32, lpdistancetomovehigh: Option<super::PLONG>, dwmovemethod: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn SetFilePointer(hfile : super::HANDLE, ldistancetomove : i32, lpdistancetomovehigh : super::PLONG, dwmovemethod : u32) -> u32);
     unsafe { SetFilePointer(hfile, ldistancetomove, lpdistancetomovehigh.unwrap_or(core::mem::zeroed()) as _, dwmovemethod) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn SetFilePointerEx(hfile: super::HANDLE, lidistancetomove: i64, lpnewfilepointer: Option<*mut i64>, dwmovemethod: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetFilePointerEx(hfile : super::HANDLE, lidistancetomove : i64, lpnewfilepointer : *mut i64, dwmovemethod : u32) -> windows_core::BOOL);
+pub unsafe fn SetFilePointerEx(hfile: super::HANDLE, lidistancetomove: super::LARGE_INTEGER, lpnewfilepointer: Option<super::PLARGE_INTEGER>, dwmovemethod: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SetFilePointerEx(hfile : super::HANDLE, lidistancetomove : super::LARGE_INTEGER, lpnewfilepointer : super::PLARGE_INTEGER, dwmovemethod : u32) -> windows_core::BOOL);
     unsafe { SetFilePointerEx(hfile, lidistancetomove, lpnewfilepointer.unwrap_or(core::mem::zeroed()) as _, dwmovemethod) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -722,26 +731,26 @@ pub unsafe fn UnlockFile(hfile: super::HANDLE, dwfileoffsetlow: u32, dwfileoffse
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn UnlockFileEx(hfile: super::HANDLE, dwreserved: Option<u32>, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32, lpoverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn UnlockFileEx(hfile : super::HANDLE, dwreserved : u32, nnumberofbytestounlocklow : u32, nnumberofbytestounlockhigh : u32, lpoverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+pub unsafe fn UnlockFileEx(hfile: super::HANDLE, dwreserved: Option<u32>, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32, lpoverlapped: super::LPOVERLAPPED) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn UnlockFileEx(hfile : super::HANDLE, dwreserved : u32, nnumberofbytestounlocklow : u32, nnumberofbytestounlockhigh : u32, lpoverlapped : super::LPOVERLAPPED) -> windows_core::BOOL);
     unsafe { UnlockFileEx(hfile, dwreserved.unwrap_or(core::mem::zeroed()) as _, nnumberofbytestounlocklow, nnumberofbytestounlockhigh, lpoverlapped as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn WriteFile(hfile: super::HANDLE, lpbuffer: Option<*const core::ffi::c_void>, nnumberofbytestowrite: u32, lpnumberofbyteswritten: Option<*mut u32>, lpoverlapped: Option<*mut super::OVERLAPPED>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn WriteFile(hfile : super::HANDLE, lpbuffer : *const core::ffi::c_void, nnumberofbytestowrite : u32, lpnumberofbyteswritten : *mut u32, lpoverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+pub unsafe fn WriteFile(hfile: super::HANDLE, lpbuffer: Option<super::LPCVOID>, nnumberofbytestowrite: u32, lpnumberofbyteswritten: Option<super::LPDWORD>, lpoverlapped: Option<super::LPOVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn WriteFile(hfile : super::HANDLE, lpbuffer : super::LPCVOID, nnumberofbytestowrite : u32, lpnumberofbyteswritten : super::LPDWORD, lpoverlapped : super::LPOVERLAPPED) -> windows_core::BOOL);
     unsafe { WriteFile(hfile, lpbuffer.unwrap_or(core::mem::zeroed()) as _, nnumberofbytestowrite, lpnumberofbyteswritten.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn WriteFileEx(hfile: super::HANDLE, lpbuffer: Option<*const core::ffi::c_void>, nnumberofbytestowrite: u32, lpoverlapped: *mut super::OVERLAPPED, lpcompletionroutine: super::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn WriteFileEx(hfile : super::HANDLE, lpbuffer : *const core::ffi::c_void, nnumberofbytestowrite : u32, lpoverlapped : *mut super::OVERLAPPED, lpcompletionroutine : super::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::BOOL);
+pub unsafe fn WriteFileEx(hfile: super::HANDLE, lpbuffer: Option<super::LPCVOID>, nnumberofbytestowrite: u32, lpoverlapped: super::LPOVERLAPPED, lpcompletionroutine: super::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn WriteFileEx(hfile : super::HANDLE, lpbuffer : super::LPCVOID, nnumberofbytestowrite : u32, lpoverlapped : super::LPOVERLAPPED, lpcompletionroutine : super::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::BOOL);
     unsafe { WriteFileEx(hfile, lpbuffer.unwrap_or(core::mem::zeroed()) as _, nnumberofbytestowrite, lpoverlapped as _, lpcompletionroutine) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn WriteFileGather(hfile: super::HANDLE, asegmentarray: *const super::FILE_SEGMENT_ELEMENT, nnumberofbytestowrite: u32, lpreserved: Option<*const u32>, lpoverlapped: *mut super::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn WriteFileGather(hfile : super::HANDLE, asegmentarray : *const super::FILE_SEGMENT_ELEMENT, nnumberofbytestowrite : u32, lpreserved : *const u32, lpoverlapped : *mut super::OVERLAPPED) -> windows_core::BOOL);
+pub unsafe fn WriteFileGather(hfile: super::HANDLE, asegmentarray: *const super::FILE_SEGMENT_ELEMENT, nnumberofbytestowrite: u32, lpreserved: Option<super::LPDWORD>, lpoverlapped: super::LPOVERLAPPED) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn WriteFileGather(hfile : super::HANDLE, asegmentarray : *const super::FILE_SEGMENT_ELEMENT, nnumberofbytestowrite : u32, lpreserved : super::LPDWORD, lpoverlapped : super::LPOVERLAPPED) -> windows_core::BOOL);
     unsafe { WriteFileGather(hfile, asegmentarray, nnumberofbytestowrite, lpreserved.unwrap_or(core::mem::zeroed()) as _, lpoverlapped as _) }
 }
 #[repr(C)]
@@ -824,6 +833,7 @@ pub type PBY_HANDLE_FILE_INFORMATION = *mut BY_HANDLE_FILE_INFORMATION;
 pub type PCREATEFILE2_EXTENDED_PARAMETERS = *mut CREATEFILE2_EXTENDED_PARAMETERS;
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 pub type PCREATEFILE3_EXTENDED_PARAMETERS = *mut CREATEFILE3_EXTENDED_PARAMETERS;
+#[cfg(feature = "winnt")]
 pub type PWIN32_FIND_STREAM_DATA = *mut WIN32_FIND_STREAM_DATA;
 pub type STREAM_INFO_LEVELS = i32;
 pub const TRUNCATE_EXISTING: i32 = 5;
@@ -839,11 +849,13 @@ pub struct WIN32_FILE_ATTRIBUTE_DATA {
     pub nFileSizeLow: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct WIN32_FIND_STREAM_DATA {
-    pub StreamSize: i64,
+    pub StreamSize: super::LARGE_INTEGER,
     pub cStreamName: [u16; 296],
 }
+#[cfg(feature = "winnt")]
 impl Default for WIN32_FIND_STREAM_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

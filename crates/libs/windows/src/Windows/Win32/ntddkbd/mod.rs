@@ -85,6 +85,7 @@ pub struct KEYBOARD_INPUT_DATA {
 pub const KEYBOARD_KANA_LOCK_ON: i32 = 8;
 pub const KEYBOARD_LED_INJECTED: i32 = 32768;
 pub const KEYBOARD_NUM_LOCK_ON: i32 = 2;
+pub const KEYBOARD_OVERRUN_MAKE_CODE: i32 = 255;
 pub const KEYBOARD_SCROLL_LOCK_ON: i32 = 1;
 pub const KEYBOARD_SHADOW: i32 = 16384;
 #[repr(C)]

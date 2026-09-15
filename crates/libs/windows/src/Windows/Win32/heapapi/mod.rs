@@ -6,8 +6,8 @@ pub unsafe fn GetProcessHeap() -> super::HANDLE {
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetProcessHeaps(numberofheaps: u32, processheaps: *mut super::HANDLE) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn GetProcessHeaps(numberofheaps : u32, processheaps : *mut super::HANDLE) -> u32);
+pub unsafe fn GetProcessHeaps(numberofheaps: u32, processheaps: super::PHANDLE) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetProcessHeaps(numberofheaps : u32, processheaps : super::PHANDLE) -> u32);
     unsafe { GetProcessHeaps(numberofheaps, processheaps as _) }
 }
 #[cfg(feature = "winnt")]
@@ -46,10 +46,10 @@ pub unsafe fn HeapLock(hheap: super::HANDLE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn HeapLock(hheap : super::HANDLE) -> windows_core::BOOL);
     unsafe { HeapLock(hheap) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
-pub unsafe fn HeapQueryInformation(heaphandle: Option<super::HANDLE>, heapinformationclass: super::HEAP_INFORMATION_CLASS, heapinformation: Option<*mut core::ffi::c_void>, heapinformationlength: usize, returnlength: Option<*mut usize>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn HeapQueryInformation(heaphandle : super::HANDLE, heapinformationclass : super::HEAP_INFORMATION_CLASS, heapinformation : *mut core::ffi::c_void, heapinformationlength : usize, returnlength : *mut usize) -> windows_core::BOOL);
+pub unsafe fn HeapQueryInformation(heaphandle: Option<super::HANDLE>, heapinformationclass: super::HEAP_INFORMATION_CLASS, heapinformation: Option<*mut core::ffi::c_void>, heapinformationlength: usize, returnlength: Option<super::PSIZE_T>) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn HeapQueryInformation(heaphandle : super::HANDLE, heapinformationclass : super::HEAP_INFORMATION_CLASS, heapinformation : *mut core::ffi::c_void, heapinformationlength : usize, returnlength : super::PSIZE_T) -> windows_core::BOOL);
     unsafe { HeapQueryInformation(heaphandle.unwrap_or(core::mem::zeroed()) as _, heapinformationclass, heapinformation.unwrap_or(core::mem::zeroed()) as _, heapinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -64,10 +64,10 @@ pub unsafe fn HeapSetInformation(heaphandle: Option<super::HANDLE>, heapinformat
     windows_core::link!("kernel32.dll" "system" fn HeapSetInformation(heaphandle : super::HANDLE, heapinformationclass : super::HEAP_INFORMATION_CLASS, heapinformation : *const core::ffi::c_void, heapinformationlength : usize) -> windows_core::BOOL);
     unsafe { HeapSetInformation(heaphandle.unwrap_or(core::mem::zeroed()) as _, heapinformationclass, heapinformation.unwrap_or(core::mem::zeroed()) as _, heapinformationlength) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn HeapSize(hheap: super::HANDLE, dwflags: u32, lpmem: *const core::ffi::c_void) -> usize {
-    windows_core::link!("kernel32.dll" "system" fn HeapSize(hheap : super::HANDLE, dwflags : u32, lpmem : *const core::ffi::c_void) -> usize);
+pub unsafe fn HeapSize(hheap: super::HANDLE, dwflags: u32, lpmem: super::LPCVOID) -> usize {
+    windows_core::link!("kernel32.dll" "system" fn HeapSize(hheap : super::HANDLE, dwflags : u32, lpmem : super::LPCVOID) -> usize);
     unsafe { HeapSize(hheap, dwflags, lpmem) }
 }
 #[cfg(feature = "winnt")]
@@ -82,16 +82,16 @@ pub unsafe fn HeapUnlock(hheap: super::HANDLE) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn HeapUnlock(hheap : super::HANDLE) -> windows_core::BOOL);
     unsafe { HeapUnlock(hheap) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn HeapValidate(hheap: super::HANDLE, dwflags: u32, lpmem: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn HeapValidate(hheap : super::HANDLE, dwflags : u32, lpmem : *const core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn HeapValidate(hheap: super::HANDLE, dwflags: u32, lpmem: Option<super::LPCVOID>) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn HeapValidate(hheap : super::HANDLE, dwflags : u32, lpmem : super::LPCVOID) -> windows_core::BOOL);
     unsafe { HeapValidate(hheap, dwflags, lpmem.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn HeapWalk(hheap: super::HANDLE, lpentry: *mut super::PROCESS_HEAP_ENTRY) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn HeapWalk(hheap : super::HANDLE, lpentry : *mut super::PROCESS_HEAP_ENTRY) -> windows_core::BOOL);
+pub unsafe fn HeapWalk(hheap: super::HANDLE, lpentry: super::LPPROCESS_HEAP_ENTRY) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn HeapWalk(hheap : super::HANDLE, lpentry : super::LPPROCESS_HEAP_ENTRY) -> windows_core::BOOL);
     unsafe { HeapWalk(hheap, lpentry as _) }
 }
 #[repr(C)]

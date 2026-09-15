@@ -1,11 +1,11 @@
 pub const ADVISE_ALL: i32 = 15;
 pub const ADVISE_ALL2: i32 = 31;
-pub const ADVISE_CLIPPING: i32 = 1;
-pub const ADVISE_COLORKEY: i32 = 4;
-pub const ADVISE_DISPLAY_CHANGE: i32 = 16;
-pub const ADVISE_NONE: i32 = 0;
-pub const ADVISE_PALETTE: i32 = 2;
-pub const ADVISE_POSITION: i32 = 8;
+pub const ADVISE_CLIPPING: __MIDL___MIDL_itf_strmif_0000_0026_0002 = 1;
+pub const ADVISE_COLORKEY: __MIDL___MIDL_itf_strmif_0000_0026_0002 = 4;
+pub const ADVISE_DISPLAY_CHANGE: __MIDL___MIDL_itf_strmif_0000_0026_0002 = 16;
+pub const ADVISE_NONE: __MIDL___MIDL_itf_strmif_0000_0026_0002 = 0;
+pub const ADVISE_PALETTE: __MIDL___MIDL_itf_strmif_0000_0026_0002 = 2;
+pub const ADVISE_POSITION: __MIDL___MIDL_itf_strmif_0000_0026_0002 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ALLOCATOR_PROPERTIES {
@@ -201,7 +201,7 @@ pub const AM_QUERY_DECODER_DXVA_1_SUPPORT: i32 = 2;
 pub const AM_QUERY_DECODER_VMR_SUPPORT: i32 = 1;
 pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_SAMPLE2_PROPERTIES {
     pub cbData: u32,
@@ -246,7 +246,7 @@ pub const AM_SEEKING_Segment: AM_SEEKING_SEEKING_FLAGS = 16;
 pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = 256;
 pub const AM_STREAM_CONTROL: tagAM_SAMPLE_PROPERTY_FLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_STREAM_INFO {
     pub tStart: super::REFERENCE_TIME,
@@ -312,9 +312,9 @@ pub const CDEF_DEVMON_PNP_DEVICE: i32 = 64;
 pub const CDEF_DEVMON_SELECTIVE_MASK: i32 = 240;
 pub const CDEF_MERIT_ABOVE_DO_NOT_USE: i32 = 8;
 pub const CHARS_IN_GUID: i32 = 39;
-pub const CK_INDEX: i32 = 1;
-pub const CK_NOCOLORKEY: i32 = 0;
-pub const CK_RGB: i32 = 2;
+pub const CK_INDEX: __MIDL___MIDL_itf_strmif_0000_0026_0001 = 1;
+pub const CK_NOCOLORKEY: __MIDL___MIDL_itf_strmif_0000_0026_0001 = 0;
+pub const CK_RGB: __MIDL___MIDL_itf_strmif_0000_0026_0001 = 2;
 #[repr(C)]
 #[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -628,9 +628,7 @@ pub struct DVD_PLAYBACK_LOCATION2 {
     pub TimeCodeFlags: u32,
 }
 pub type DVD_PREFERRED_DISPLAY_MODE = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DVD_REGISTER(pub u16);
+pub type DVD_REGISTER = u16;
 pub type DVD_RELATIVE_BUTTON = i32;
 pub const DVD_ReadBurstPeriodInMS: DVD_OPTION_FLAG = 17;
 pub const DVD_Relative_Left: DVD_RELATIVE_BUTTON = 3;
@@ -879,12 +877,8 @@ pub type FILTER_STATE = i32;
 pub const Famine: QualityMessageType = 0;
 pub const Flood: QualityMessageType = 1;
 pub type GPRMARRAY = [DVD_REGISTER; 16];
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HEVENT(pub usize);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HSEMAPHORE(pub usize);
+pub type HEVENT = usize;
+pub type HSEMAPHORE = usize;
 windows_core::imp::define_interface!(IAMAnalogVideoDecoder, IAMAnalogVideoDecoder_Vtbl, 0xc6e13350_30ac_11d0_a18c_00a0c9118956);
 windows_core::imp::interface_hierarchy!(IAMAnalogVideoDecoder, windows_core::IUnknown);
 impl IAMAnalogVideoDecoder {
@@ -1778,7 +1772,7 @@ impl windows_core::RuntimeName for IAMCertifiedOutputProtection {}
 windows_core::imp::define_interface!(IAMClockAdjust, IAMClockAdjust_Vtbl, 0x4d5466b0_a49c_11d1_abe8_00a0c905f375);
 windows_core::imp::interface_hierarchy!(IAMClockAdjust, windows_core::IUnknown);
 impl IAMClockAdjust {
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn SetClockDelta(&self, rtdelta: super::REFERENCE_TIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClockDelta)(windows_core::Interface::as_raw(self), rtdelta) }
     }
@@ -1787,16 +1781,16 @@ impl IAMClockAdjust {
 #[doc(hidden)]
 pub struct IAMClockAdjust_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub SetClockDelta: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     SetClockDelta: usize,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub trait IAMClockAdjust_Impl: windows_core::IUnknownImpl {
     fn SetClockDelta(&self, rtdelta: super::REFERENCE_TIME) -> windows_core::Result<()>;
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl IAMClockAdjust_Vtbl {
     pub const fn new<Identity: IAMClockAdjust_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetClockDelta<Identity: IAMClockAdjust_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rtdelta: super::REFERENCE_TIME) -> windows_core::HRESULT {
@@ -1811,7 +1805,7 @@ impl IAMClockAdjust_Vtbl {
         iid == &<IAMClockAdjust as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IAMClockAdjust {}
 windows_core::imp::define_interface!(IAMClockSlave, IAMClockSlave_Vtbl, 0x9fd52741_176d_4b36_8f51_ca8f933223be);
 windows_core::imp::interface_hierarchy!(IAMClockSlave, windows_core::IUnknown);
@@ -2343,13 +2337,15 @@ impl IAMExtDevice {
     pub unsafe fn GetCapability(&self, capability: i32, pvalue: *mut i32, pdblvalue: *mut f64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCapability)(windows_core::Interface::as_raw(self), capability, pvalue as _, pdblvalue as _) }
     }
-    pub unsafe fn get_ExternalDeviceID(&self) -> windows_core::Result<windows_core::PWSTR> {
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn get_ExternalDeviceID(&self) -> windows_core::Result<super::LPOLESTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ExternalDeviceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn get_ExternalDeviceVersion(&self) -> windows_core::Result<windows_core::PWSTR> {
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn get_ExternalDeviceVersion(&self) -> windows_core::Result<super::LPOLESTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ExternalDeviceVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2385,24 +2381,32 @@ impl IAMExtDevice {
 pub struct IAMExtDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCapability: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32, *mut f64) -> windows_core::HRESULT,
-    pub get_ExternalDeviceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub get_ExternalDeviceVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub get_ExternalDeviceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    get_ExternalDeviceID: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub get_ExternalDeviceVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    get_ExternalDeviceVersion: usize,
     pub put_DevicePower: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub get_DevicePower: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Calibrate: unsafe extern "system" fn(*mut core::ffi::c_void, HEVENT, i32, *mut i32) -> windows_core::HRESULT,
     pub put_DevicePort: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub get_DevicePort: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "wtypesbase")]
 pub trait IAMExtDevice_Impl: windows_core::IUnknownImpl {
     fn GetCapability(&self, capability: i32, pvalue: *mut i32, pdblvalue: *mut f64) -> windows_core::Result<()>;
-    fn get_ExternalDeviceID(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn get_ExternalDeviceVersion(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn get_ExternalDeviceID(&self) -> windows_core::Result<super::LPOLESTR>;
+    fn get_ExternalDeviceVersion(&self) -> windows_core::Result<super::LPOLESTR>;
     fn put_DevicePower(&self, powermode: i32) -> windows_core::Result<()>;
     fn get_DevicePower(&self) -> windows_core::Result<i32>;
     fn Calibrate(&self, hevent: HEVENT, mode: i32) -> windows_core::Result<i32>;
     fn put_DevicePort(&self, deviceport: i32) -> windows_core::Result<()>;
     fn get_DevicePort(&self) -> windows_core::Result<i32>;
 }
+#[cfg(feature = "wtypesbase")]
 impl IAMExtDevice_Vtbl {
     pub const fn new<Identity: IAMExtDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCapability<Identity: IAMExtDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capability: i32, pvalue: *mut i32, pdblvalue: *mut f64) -> windows_core::HRESULT {
@@ -2411,7 +2415,7 @@ impl IAMExtDevice_Vtbl {
                 IAMExtDevice_Impl::GetCapability(this, core::mem::transmute_copy(&capability), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdblvalue)).into()
             }
         }
-        unsafe extern "system" fn get_ExternalDeviceID<Identity: IAMExtDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszdata: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_ExternalDeviceID<Identity: IAMExtDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszdata: *mut super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAMExtDevice_Impl::get_ExternalDeviceID(this) {
@@ -2423,7 +2427,7 @@ impl IAMExtDevice_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn get_ExternalDeviceVersion<Identity: IAMExtDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszdata: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_ExternalDeviceVersion<Identity: IAMExtDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszdata: *mut super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAMExtDevice_Impl::get_ExternalDeviceVersion(this) {
@@ -2499,6 +2503,7 @@ impl IAMExtDevice_Vtbl {
         iid == &<IAMExtDevice as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for IAMExtDevice {}
 windows_core::imp::define_interface!(IAMExtTransport, IAMExtTransport_Vtbl, 0xa03cd5f0_3045_11cf_8c44_00aa006b6814);
 windows_core::imp::interface_hierarchy!(IAMExtTransport, windows_core::IUnknown);
@@ -2530,14 +2535,13 @@ impl IAMExtTransport {
             (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), statusitem, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetTransportBasicParameters(&self, param: i32, pvalue: *mut i32, ppszdata: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn GetTransportBasicParameters(&self, param: i32, pvalue: *mut i32, ppszdata: *mut super::LPOLESTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTransportBasicParameters)(windows_core::Interface::as_raw(self), param, pvalue as _, ppszdata as _) }
     }
-    pub unsafe fn SetTransportBasicParameters<P2>(&self, param: i32, value: i32, pszdata: P2) -> windows_core::HRESULT
-    where
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetTransportBasicParameters)(windows_core::Interface::as_raw(self), param, value, pszdata.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetTransportBasicParameters(&self, param: i32, value: i32, pszdata: super::LPCOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetTransportBasicParameters)(windows_core::Interface::as_raw(self), param, value, pszdata) }
     }
     pub unsafe fn GetTransportVideoParameters(&self, param: i32) -> windows_core::Result<i32> {
         unsafe {
@@ -2634,8 +2638,14 @@ pub struct IAMExtTransport_Vtbl {
     pub put_LocalControl: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub get_LocalControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
-    pub GetTransportBasicParameters: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub SetTransportBasicParameters: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub GetTransportBasicParameters: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32, *mut super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    GetTransportBasicParameters: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub SetTransportBasicParameters: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, super::LPCOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetTransportBasicParameters: usize,
     pub GetTransportVideoParameters: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
     pub SetTransportVideoParameters: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub GetTransportAudioParameters: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
@@ -2657,6 +2667,7 @@ pub struct IAMExtTransport_Vtbl {
     pub get_EditStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub put_EditStart: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "wtypesbase")]
 pub trait IAMExtTransport_Impl: windows_core::IUnknownImpl {
     fn GetCapability(&self, capability: i32, pvalue: *mut i32, pdblvalue: *mut f64) -> windows_core::Result<()>;
     fn put_MediaState(&self, state: i32) -> windows_core::Result<()>;
@@ -2664,8 +2675,8 @@ pub trait IAMExtTransport_Impl: windows_core::IUnknownImpl {
     fn put_LocalControl(&self, state: i32) -> windows_core::Result<()>;
     fn get_LocalControl(&self) -> windows_core::Result<i32>;
     fn GetStatus(&self, statusitem: i32) -> windows_core::Result<i32>;
-    fn GetTransportBasicParameters(&self, param: i32, pvalue: *mut i32, ppszdata: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn SetTransportBasicParameters(&self, param: i32, value: i32, pszdata: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetTransportBasicParameters(&self, param: i32, pvalue: *mut i32, ppszdata: *mut super::LPOLESTR) -> windows_core::Result<()>;
+    fn SetTransportBasicParameters(&self, param: i32, value: i32, pszdata: super::LPCOLESTR) -> windows_core::Result<()>;
     fn GetTransportVideoParameters(&self, param: i32) -> windows_core::Result<i32>;
     fn SetTransportVideoParameters(&self, param: i32, value: i32) -> windows_core::Result<()>;
     fn GetTransportAudioParameters(&self, param: i32) -> windows_core::Result<i32>;
@@ -2687,6 +2698,7 @@ pub trait IAMExtTransport_Impl: windows_core::IUnknownImpl {
     fn get_EditStart(&self) -> windows_core::Result<i32>;
     fn put_EditStart(&self, value: i32) -> windows_core::Result<()>;
 }
+#[cfg(feature = "wtypesbase")]
 impl IAMExtTransport_Vtbl {
     pub const fn new<Identity: IAMExtTransport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCapability<Identity: IAMExtTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capability: i32, pvalue: *mut i32, pdblvalue: *mut f64) -> windows_core::HRESULT {
@@ -2743,16 +2755,16 @@ impl IAMExtTransport_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetTransportBasicParameters<Identity: IAMExtTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param: i32, pvalue: *mut i32, ppszdata: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTransportBasicParameters<Identity: IAMExtTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param: i32, pvalue: *mut i32, ppszdata: *mut super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAMExtTransport_Impl::GetTransportBasicParameters(this, core::mem::transmute_copy(&param), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&ppszdata)).into()
             }
         }
-        unsafe extern "system" fn SetTransportBasicParameters<Identity: IAMExtTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param: i32, value: i32, pszdata: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransportBasicParameters<Identity: IAMExtTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param: i32, value: i32, pszdata: super::LPCOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAMExtTransport_Impl::SetTransportBasicParameters(this, core::mem::transmute_copy(&param), core::mem::transmute_copy(&value), core::mem::transmute(&pszdata)).into()
+                IAMExtTransport_Impl::SetTransportBasicParameters(this, core::mem::transmute_copy(&param), core::mem::transmute_copy(&value), core::mem::transmute_copy(&pszdata)).into()
             }
         }
         unsafe extern "system" fn GetTransportVideoParameters<Identity: IAMExtTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param: i32, pvalue: *mut i32) -> windows_core::HRESULT {
@@ -2959,8 +2971,9 @@ impl IAMExtTransport_Vtbl {
         iid == &<IAMExtTransport as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for IAMExtTransport {}
-windows_core::imp::define_interface!(IAMFilterGraphCallback, IAMFilterGraphCallback_Vtbl, 0x56a868fd_0ad4_11ce_b0a3_0020af0ba770);
+windows_core::imp::define_interface!(IAMFilterGraphCallback, IAMFilterGraphCallback_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(IAMFilterGraphCallback, windows_core::IUnknown);
 impl IAMFilterGraphCallback {
     pub unsafe fn UnableToRender<P0>(&self, ppin: P0) -> windows_core::HRESULT
@@ -3102,7 +3115,7 @@ impl IAMGraphStreams {
     pub unsafe fn SyncUsingStreamOffset(&self, busestreamoffset: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SyncUsingStreamOffset)(windows_core::Interface::as_raw(self), busestreamoffset.into()) }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn SetMaxGraphLatency(&self, rtmaxgraphlatency: super::REFERENCE_TIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMaxGraphLatency)(windows_core::Interface::as_raw(self), rtmaxgraphlatency) }
     }
@@ -3113,18 +3126,18 @@ pub struct IAMGraphStreams_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindUpstreamInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SyncUsingStreamOffset: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub SetMaxGraphLatency: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     SetMaxGraphLatency: usize,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub trait IAMGraphStreams_Impl: windows_core::IUnknownImpl {
     fn FindUpstreamInterface(&self, ppin: windows_core::Ref<IPin>, riid: *const windows_core::GUID, ppvinterface: *mut *mut core::ffi::c_void, dwflags: u32) -> windows_core::Result<()>;
     fn SyncUsingStreamOffset(&self, busestreamoffset: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetMaxGraphLatency(&self, rtmaxgraphlatency: super::REFERENCE_TIME) -> windows_core::Result<()>;
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl IAMGraphStreams_Vtbl {
     pub const fn new<Identity: IAMGraphStreams_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FindUpstreamInterface<Identity: IAMGraphStreams_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppin: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvinterface: *mut *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
@@ -3156,45 +3169,36 @@ impl IAMGraphStreams_Vtbl {
         iid == &<IAMGraphStreams as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IAMGraphStreams {}
 windows_core::imp::define_interface!(IAMLatency, IAMLatency_Vtbl, 0x62ea93ba_ec62_11d2_b770_00c04fb6bd3d);
 windows_core::imp::interface_hierarchy!(IAMLatency, windows_core::IUnknown);
 impl IAMLatency {
-    #[cfg(feature = "ksmedia")]
-    pub unsafe fn GetLatency(&self) -> windows_core::Result<super::REFERENCE_TIME> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetLatency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    #[cfg(feature = "mediaobj")]
+    pub unsafe fn GetLatency(&self, prtlatency: *mut super::REFERENCE_TIME) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetLatency)(windows_core::Interface::as_raw(self), prtlatency as _) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAMLatency_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub GetLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetLatency: usize,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub trait IAMLatency_Impl: windows_core::IUnknownImpl {
-    fn GetLatency(&self) -> windows_core::Result<super::REFERENCE_TIME>;
+    fn GetLatency(&self, prtlatency: *mut super::REFERENCE_TIME) -> windows_core::Result<()>;
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl IAMLatency_Vtbl {
     pub const fn new<Identity: IAMLatency_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetLatency<Identity: IAMLatency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prtlatency: *mut super::REFERENCE_TIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAMLatency_Impl::GetLatency(this) {
-                    Ok(ok__) => {
-                        prtlatency.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAMLatency_Impl::GetLatency(this, core::mem::transmute_copy(&prtlatency)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetLatency: GetLatency::<Identity, OFFSET> }
@@ -3203,7 +3207,7 @@ impl IAMLatency_Vtbl {
         iid == &<IAMLatency as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IAMLatency {}
 windows_core::imp::define_interface!(IAMOpenProgress, IAMOpenProgress_Vtbl, 0x8e1c39a1_de53_11cf_aa63_0080c744528d);
 windows_core::imp::interface_hierarchy!(IAMOpenProgress, windows_core::IUnknown);
@@ -3330,7 +3334,8 @@ impl windows_core::RuntimeName for IAMOverlayFX {}
 windows_core::imp::define_interface!(IAMPhysicalPinInfo, IAMPhysicalPinInfo_Vtbl, 0xf938c991_3029_11cf_8c44_00aa006b6814);
 windows_core::imp::interface_hierarchy!(IAMPhysicalPinInfo, windows_core::IUnknown);
 impl IAMPhysicalPinInfo {
-    pub unsafe fn GetPhysicalType(&self, ptype: *mut i32, ppsztype: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn GetPhysicalType(&self, ptype: *mut i32, ppsztype: *mut super::LPOLESTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPhysicalType)(windows_core::Interface::as_raw(self), ptype as _, ppsztype as _) }
     }
 }
@@ -3338,14 +3343,19 @@ impl IAMPhysicalPinInfo {
 #[doc(hidden)]
 pub struct IAMPhysicalPinInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetPhysicalType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub GetPhysicalType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    GetPhysicalType: usize,
 }
+#[cfg(feature = "wtypesbase")]
 pub trait IAMPhysicalPinInfo_Impl: windows_core::IUnknownImpl {
-    fn GetPhysicalType(&self, ptype: *mut i32, ppsztype: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetPhysicalType(&self, ptype: *mut i32, ppsztype: *mut super::LPOLESTR) -> windows_core::Result<()>;
 }
+#[cfg(feature = "wtypesbase")]
 impl IAMPhysicalPinInfo_Vtbl {
     pub const fn new<Identity: IAMPhysicalPinInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetPhysicalType<Identity: IAMPhysicalPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *mut i32, ppsztype: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPhysicalType<Identity: IAMPhysicalPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *mut i32, ppsztype: *mut super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAMPhysicalPinInfo_Impl::GetPhysicalType(this, core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&ppsztype)).into()
@@ -3357,6 +3367,7 @@ impl IAMPhysicalPinInfo_Vtbl {
         iid == &<IAMPhysicalPinInfo as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for IAMPhysicalPinInfo {}
 windows_core::imp::define_interface!(IAMPluginControl, IAMPluginControl_Vtbl, 0x0e26a181_f40c_4635_8786_976284b52981);
 windows_core::imp::interface_hierarchy!(IAMPluginControl, windows_core::IUnknown);
@@ -3503,25 +3514,25 @@ impl IAMPushSource {
     pub unsafe fn SetPushSourceFlags(&self, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPushSourceFlags)(windows_core::Interface::as_raw(self), flags) }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn SetStreamOffset(&self, rtoffset: super::REFERENCE_TIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStreamOffset)(windows_core::Interface::as_raw(self), rtoffset) }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetStreamOffset(&self) -> windows_core::Result<super::REFERENCE_TIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStreamOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetMaxStreamOffset(&self) -> windows_core::Result<super::REFERENCE_TIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaxStreamOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn SetMaxStreamOffset(&self, rtmaxoffset: super::REFERENCE_TIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMaxStreamOffset)(windows_core::Interface::as_raw(self), rtmaxoffset) }
     }
@@ -3532,24 +3543,24 @@ pub struct IAMPushSource_Vtbl {
     pub base__: IAMLatency_Vtbl,
     pub GetPushSourceFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetPushSourceFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub SetStreamOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     SetStreamOffset: usize,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub GetStreamOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetStreamOffset: usize,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub GetMaxStreamOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetMaxStreamOffset: usize,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub SetMaxStreamOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     SetMaxStreamOffset: usize,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub trait IAMPushSource_Impl: IAMLatency_Impl {
     fn GetPushSourceFlags(&self) -> windows_core::Result<u32>;
     fn SetPushSourceFlags(&self, flags: u32) -> windows_core::Result<()>;
@@ -3558,7 +3569,7 @@ pub trait IAMPushSource_Impl: IAMLatency_Impl {
     fn GetMaxStreamOffset(&self) -> windows_core::Result<super::REFERENCE_TIME>;
     fn SetMaxStreamOffset(&self, rtmaxoffset: super::REFERENCE_TIME) -> windows_core::Result<()>;
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl IAMPushSource_Vtbl {
     pub const fn new<Identity: IAMPushSource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPushSourceFlags<Identity: IAMPushSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut u32) -> windows_core::HRESULT {
@@ -3629,7 +3640,7 @@ impl IAMPushSource_Vtbl {
         iid == &<IAMPushSource as windows_core::Interface>::IID || iid == &<IAMLatency as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IAMPushSource {}
 windows_core::imp::define_interface!(IAMResourceControl, IAMResourceControl_Vtbl, 0x8389d2d0_77d7_11d1_abe6_00a0c905f375);
 windows_core::imp::interface_hierarchy!(IAMResourceControl, windows_core::IUnknown);
@@ -3744,15 +3755,15 @@ impl windows_core::RuntimeName for IAMStreamConfig {}
 windows_core::imp::define_interface!(IAMStreamControl, IAMStreamControl_Vtbl, 0x36b73881_c2c8_11cf_8b46_00805f6cef60);
 windows_core::imp::interface_hierarchy!(IAMStreamControl, windows_core::IUnknown);
 impl IAMStreamControl {
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn StartAt(&self, ptstart: Option<*const super::REFERENCE_TIME>, dwcookie: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).StartAt)(windows_core::Interface::as_raw(self), ptstart.unwrap_or(core::mem::zeroed()) as _, dwcookie) }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn StopAt(&self, ptstop: Option<*const super::REFERENCE_TIME>, bsendextra: bool, dwcookie: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).StopAt)(windows_core::Interface::as_raw(self), ptstop.unwrap_or(core::mem::zeroed()) as _, bsendextra.into(), dwcookie) }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetInfo(&self, pinfo: *mut AM_STREAM_INFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetInfo)(windows_core::Interface::as_raw(self), pinfo as _) }
     }
@@ -3761,26 +3772,26 @@ impl IAMStreamControl {
 #[doc(hidden)]
 pub struct IAMStreamControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub StartAt: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::REFERENCE_TIME, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     StartAt: usize,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub StopAt: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::REFERENCE_TIME, windows_core::BOOL, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     StopAt: usize,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub GetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AM_STREAM_INFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetInfo: usize,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub trait IAMStreamControl_Impl: windows_core::IUnknownImpl {
     fn StartAt(&self, ptstart: *const super::REFERENCE_TIME, dwcookie: u32) -> windows_core::Result<()>;
     fn StopAt(&self, ptstop: *const super::REFERENCE_TIME, bsendextra: windows_core::BOOL, dwcookie: u32) -> windows_core::Result<()>;
     fn GetInfo(&self, pinfo: *mut AM_STREAM_INFO) -> windows_core::Result<()>;
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl IAMStreamControl_Vtbl {
     pub const fn new<Identity: IAMStreamControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartAt<Identity: IAMStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptstart: *const super::REFERENCE_TIME, dwcookie: u32) -> windows_core::HRESULT {
@@ -3812,7 +3823,7 @@ impl IAMStreamControl_Vtbl {
         iid == &<IAMStreamControl as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IAMStreamControl {}
 windows_core::imp::define_interface!(IAMStreamSelect, IAMStreamSelect_Vtbl, 0xc1960960_17f5_11d1_abe1_00a0c905f375);
 windows_core::imp::interface_hierarchy!(IAMStreamSelect, windows_core::IUnknown);
@@ -4391,11 +4402,11 @@ impl IAMTimecodeGenerator {
         }
     }
     #[cfg(all(feature = "ksmedia", feature = "winnt"))]
-    pub unsafe fn SetTimecode(&self, ptimecodesample: *const super::TIMECODE_SAMPLE) -> windows_core::HRESULT {
+    pub unsafe fn SetTimecode(&self, ptimecodesample: super::PTIMECODE_SAMPLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTimecode)(windows_core::Interface::as_raw(self), ptimecodesample) }
     }
     #[cfg(all(feature = "ksmedia", feature = "winnt"))]
-    pub unsafe fn GetTimecode(&self, ptimecodesample: *mut super::TIMECODE_SAMPLE) -> windows_core::HRESULT {
+    pub unsafe fn GetTimecode(&self, ptimecodesample: super::PTIMECODE_SAMPLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTimecode)(windows_core::Interface::as_raw(self), ptimecodesample as _) }
     }
 }
@@ -4408,11 +4419,11 @@ pub struct IAMTimecodeGenerator_Vtbl {
     pub put_VITCLine: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub get_VITCLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "ksmedia", feature = "winnt"))]
-    pub SetTimecode: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::TIMECODE_SAMPLE) -> windows_core::HRESULT,
+    pub SetTimecode: unsafe extern "system" fn(*mut core::ffi::c_void, super::PTIMECODE_SAMPLE) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "ksmedia", feature = "winnt")))]
     SetTimecode: usize,
     #[cfg(all(feature = "ksmedia", feature = "winnt"))]
-    pub GetTimecode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::TIMECODE_SAMPLE) -> windows_core::HRESULT,
+    pub GetTimecode: unsafe extern "system" fn(*mut core::ffi::c_void, super::PTIMECODE_SAMPLE) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "ksmedia", feature = "winnt")))]
     GetTimecode: usize,
 }
@@ -4422,8 +4433,8 @@ pub trait IAMTimecodeGenerator_Impl: windows_core::IUnknownImpl {
     fn SetTCGMode(&self, param: i32, value: i32) -> windows_core::Result<()>;
     fn put_VITCLine(&self, line: i32) -> windows_core::Result<()>;
     fn get_VITCLine(&self) -> windows_core::Result<i32>;
-    fn SetTimecode(&self, ptimecodesample: *const super::TIMECODE_SAMPLE) -> windows_core::Result<()>;
-    fn GetTimecode(&self, ptimecodesample: *mut super::TIMECODE_SAMPLE) -> windows_core::Result<()>;
+    fn SetTimecode(&self, ptimecodesample: super::PTIMECODE_SAMPLE) -> windows_core::Result<()>;
+    fn GetTimecode(&self, ptimecodesample: super::PTIMECODE_SAMPLE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "ksmedia", feature = "winnt"))]
 impl IAMTimecodeGenerator_Vtbl {
@@ -4464,13 +4475,13 @@ impl IAMTimecodeGenerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetTimecode<Identity: IAMTimecodeGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimecodesample: *const super::TIMECODE_SAMPLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTimecode<Identity: IAMTimecodeGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimecodesample: super::PTIMECODE_SAMPLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAMTimecodeGenerator_Impl::SetTimecode(this, core::mem::transmute_copy(&ptimecodesample)).into()
             }
         }
-        unsafe extern "system" fn GetTimecode<Identity: IAMTimecodeGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimecodesample: *mut super::TIMECODE_SAMPLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTimecode<Identity: IAMTimecodeGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimecodesample: super::PTIMECODE_SAMPLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAMTimecodeGenerator_Impl::GetTimecode(this, core::mem::transmute_copy(&ptimecodesample)).into()
@@ -4514,7 +4525,7 @@ impl IAMTimecodeReader {
         }
     }
     #[cfg(all(feature = "ksmedia", feature = "winnt"))]
-    pub unsafe fn GetTimecode(&self, ptimecodesample: *mut super::TIMECODE_SAMPLE) -> windows_core::HRESULT {
+    pub unsafe fn GetTimecode(&self, ptimecodesample: super::PTIMECODE_SAMPLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTimecode)(windows_core::Interface::as_raw(self), ptimecodesample as _) }
     }
 }
@@ -4527,7 +4538,7 @@ pub struct IAMTimecodeReader_Vtbl {
     pub put_VITCLine: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub get_VITCLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "ksmedia", feature = "winnt"))]
-    pub GetTimecode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::TIMECODE_SAMPLE) -> windows_core::HRESULT,
+    pub GetTimecode: unsafe extern "system" fn(*mut core::ffi::c_void, super::PTIMECODE_SAMPLE) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "ksmedia", feature = "winnt")))]
     GetTimecode: usize,
 }
@@ -4537,7 +4548,7 @@ pub trait IAMTimecodeReader_Impl: windows_core::IUnknownImpl {
     fn SetTCRMode(&self, param: i32, value: i32) -> windows_core::Result<()>;
     fn put_VITCLine(&self, line: i32) -> windows_core::Result<()>;
     fn get_VITCLine(&self) -> windows_core::Result<i32>;
-    fn GetTimecode(&self, ptimecodesample: *mut super::TIMECODE_SAMPLE) -> windows_core::Result<()>;
+    fn GetTimecode(&self, ptimecodesample: super::PTIMECODE_SAMPLE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "ksmedia", feature = "winnt"))]
 impl IAMTimecodeReader_Vtbl {
@@ -4578,7 +4589,7 @@ impl IAMTimecodeReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetTimecode<Identity: IAMTimecodeReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimecodesample: *mut super::TIMECODE_SAMPLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTimecode<Identity: IAMTimecodeReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimecodesample: super::PTIMECODE_SAMPLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAMTimecodeReader_Impl::GetTimecode(this, core::mem::transmute_copy(&ptimecodesample)).into()
@@ -5810,7 +5821,7 @@ pub struct IBaseFilter_Vtbl {
     pub JoinFilterGraph: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub QueryVendorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "dsound", feature = "ksmedia", feature = "objidl"))]
+#[cfg(all(feature = "dsound", feature = "mediaobj", feature = "objidl"))]
 pub trait IBaseFilter_Impl: IMediaFilter_Impl {
     fn EnumPins(&self) -> windows_core::Result<IEnumPins>;
     fn FindPin(&self, id: &windows_core::PCWSTR) -> windows_core::Result<IPin>;
@@ -5818,7 +5829,7 @@ pub trait IBaseFilter_Impl: IMediaFilter_Impl {
     fn JoinFilterGraph(&self, pgraph: windows_core::Ref<IFilterGraph>, pname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn QueryVendorInfo(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
-#[cfg(all(feature = "dsound", feature = "ksmedia", feature = "objidl"))]
+#[cfg(all(feature = "dsound", feature = "mediaobj", feature = "objidl"))]
 impl IBaseFilter_Vtbl {
     pub const fn new<Identity: IBaseFilter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumPins<Identity: IBaseFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5882,7 +5893,7 @@ impl IBaseFilter_Vtbl {
         iid == &<IBaseFilter as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID || iid == &<IMediaFilter as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "dsound", feature = "ksmedia", feature = "objidl"))]
+#[cfg(all(feature = "dsound", feature = "mediaobj", feature = "objidl"))]
 impl windows_core::RuntimeName for IBaseFilter {}
 windows_core::imp::define_interface!(ICaptureGraphBuilder, ICaptureGraphBuilder_Vtbl, 0xbf87b6e0_8c27_11d0_b3f0_00aa003761c5);
 windows_core::imp::interface_hierarchy!(ICaptureGraphBuilder, windows_core::IUnknown);
@@ -5899,21 +5910,16 @@ impl ICaptureGraphBuilder {
             (windows_core::Interface::vtable(self).GetFiltergraph)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "objidl")]
-    pub unsafe fn SetOutputFileName<P1>(&self, ptype: *const windows_core::GUID, lpstrfile: P1, ppf: *mut Option<IBaseFilter>, ppsink: *mut Option<IFileSinkFilter>) -> windows_core::HRESULT
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetOutputFileName)(windows_core::Interface::as_raw(self), ptype, lpstrfile.param().abi(), core::mem::transmute(ppf), core::mem::transmute(ppsink)) }
+    #[cfg(all(feature = "objidl", feature = "wtypesbase"))]
+    pub unsafe fn SetOutputFileName(&self, ptype: *const windows_core::GUID, lpstrfile: super::LPCOLESTR, ppf: *mut Option<IBaseFilter>, ppsink: *mut Option<IFileSinkFilter>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOutputFileName)(windows_core::Interface::as_raw(self), ptype, lpstrfile, core::mem::transmute(ppf), core::mem::transmute(ppsink)) }
     }
     #[cfg(feature = "objidl")]
-    pub unsafe fn FindInterface<P1, T>(&self, pcategory: Option<*const windows_core::GUID>, pf: P1) -> windows_core::Result<T>
+    pub unsafe fn FindInterface<P1>(&self, pcategory: Option<*const windows_core::GUID>, pf: P1, riid: *const windows_core::GUID, ppint: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IBaseFilter>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).FindInterface)(windows_core::Interface::as_raw(self), pcategory.unwrap_or(core::mem::zeroed()) as _, pf.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).FindInterface)(windows_core::Interface::as_raw(self), pcategory.unwrap_or(core::mem::zeroed()) as _, pf.param().abi(), riid, ppint as _) }
     }
     #[cfg(feature = "objidl")]
     pub unsafe fn RenderStream<P1, P2, P3>(&self, pcategory: Option<*const windows_core::GUID>, psource: P1, pfcompressor: P2, pfrenderer: P3) -> windows_core::HRESULT
@@ -5924,27 +5930,23 @@ impl ICaptureGraphBuilder {
     {
         unsafe { (windows_core::Interface::vtable(self).RenderStream)(windows_core::Interface::as_raw(self), pcategory.unwrap_or(core::mem::zeroed()) as _, psource.param().abi(), pfcompressor.param().abi(), pfrenderer.param().abi()) }
     }
-    #[cfg(all(feature = "ksmedia", feature = "objidl"))]
+    #[cfg(all(feature = "mediaobj", feature = "objidl"))]
     pub unsafe fn ControlStream<P1>(&self, pcategory: Option<*const windows_core::GUID>, pfilter: P1, pstart: *const super::REFERENCE_TIME, pstop: *const super::REFERENCE_TIME, wstartcookie: u16, wstopcookie: u16) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IBaseFilter>,
     {
         unsafe { (windows_core::Interface::vtable(self).ControlStream)(windows_core::Interface::as_raw(self), pcategory.unwrap_or(core::mem::zeroed()) as _, pfilter.param().abi(), pstart, pstop, wstartcookie, wstopcookie) }
     }
-    #[cfg(feature = "winnt")]
-    pub unsafe fn AllocCapFile<P0>(&self, lpstr: P0, dwlsize: super::DWORDLONG) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).AllocCapFile)(windows_core::Interface::as_raw(self), lpstr.param().abi(), dwlsize) }
+    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+    pub unsafe fn AllocCapFile(&self, lpstr: super::LPCOLESTR, dwlsize: super::DWORDLONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AllocCapFile)(windows_core::Interface::as_raw(self), lpstr, dwlsize) }
     }
-    pub unsafe fn CopyCaptureFile<P0, P1, P3>(&self, lpwstrold: P0, lpwstrnew: P1, fallowescabort: i32, pcallback: P3) -> windows_core::HRESULT
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn CopyCaptureFile<P3>(&self, lpwstrold: super::LPOLESTR, lpwstrnew: super::LPOLESTR, fallowescabort: i32, pcallback: P3) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<IAMCopyCaptureFileProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyCaptureFile)(windows_core::Interface::as_raw(self), lpwstrold.param().abi(), lpwstrnew.param().abi(), fallowescabort, pcallback.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).CopyCaptureFile)(windows_core::Interface::as_raw(self), lpwstrold, lpwstrnew, fallowescabort, pcallback.param().abi()) }
     }
 }
 #[repr(C)]
@@ -5953,9 +5955,9 @@ pub struct ICaptureGraphBuilder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFiltergraph: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFiltergraph: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "objidl")]
-    pub SetOutputFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidl"))]
+    #[cfg(all(feature = "objidl", feature = "wtypesbase"))]
+    pub SetOutputFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::LPCOLESTR, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "objidl", feature = "wtypesbase")))]
     SetOutputFileName: usize,
     #[cfg(feature = "objidl")]
     pub FindInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5965,28 +5967,31 @@ pub struct ICaptureGraphBuilder_Vtbl {
     pub RenderStream: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "objidl"))]
     RenderStream: usize,
-    #[cfg(all(feature = "ksmedia", feature = "objidl"))]
+    #[cfg(all(feature = "mediaobj", feature = "objidl"))]
     pub ControlStream: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *const super::REFERENCE_TIME, *const super::REFERENCE_TIME, u16, u16) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ksmedia", feature = "objidl")))]
+    #[cfg(not(all(feature = "mediaobj", feature = "objidl")))]
     ControlStream: usize,
-    #[cfg(feature = "winnt")]
-    pub AllocCapFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::DWORDLONG) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+    pub AllocCapFile: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, super::DWORDLONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "winnt", feature = "wtypesbase")))]
     AllocCapFile: usize,
-    pub CopyCaptureFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub CopyCaptureFile: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR, super::LPOLESTR, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    CopyCaptureFile: usize,
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl", feature = "winnt"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl", feature = "winnt", feature = "wtypesbase"))]
 pub trait ICaptureGraphBuilder_Impl: windows_core::IUnknownImpl {
     fn SetFiltergraph(&self, pfg: windows_core::Ref<IGraphBuilder>) -> windows_core::Result<()>;
     fn GetFiltergraph(&self) -> windows_core::Result<IGraphBuilder>;
-    fn SetOutputFileName(&self, ptype: *const windows_core::GUID, lpstrfile: &windows_core::PCWSTR, ppf: windows_core::OutRef<IBaseFilter>, ppsink: windows_core::OutRef<IFileSinkFilter>) -> windows_core::Result<()>;
+    fn SetOutputFileName(&self, ptype: *const windows_core::GUID, lpstrfile: super::LPCOLESTR, ppf: windows_core::OutRef<IBaseFilter>, ppsink: windows_core::OutRef<IFileSinkFilter>) -> windows_core::Result<()>;
     fn FindInterface(&self, pcategory: *const windows_core::GUID, pf: windows_core::Ref<IBaseFilter>, riid: *const windows_core::GUID, ppint: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn RenderStream(&self, pcategory: *const windows_core::GUID, psource: windows_core::Ref<windows_core::IUnknown>, pfcompressor: windows_core::Ref<IBaseFilter>, pfrenderer: windows_core::Ref<IBaseFilter>) -> windows_core::Result<()>;
     fn ControlStream(&self, pcategory: *const windows_core::GUID, pfilter: windows_core::Ref<IBaseFilter>, pstart: *const super::REFERENCE_TIME, pstop: *const super::REFERENCE_TIME, wstartcookie: u16, wstopcookie: u16) -> windows_core::Result<()>;
-    fn AllocCapFile(&self, lpstr: &windows_core::PCWSTR, dwlsize: super::DWORDLONG) -> windows_core::Result<()>;
-    fn CopyCaptureFile(&self, lpwstrold: &windows_core::PCWSTR, lpwstrnew: &windows_core::PCWSTR, fallowescabort: i32, pcallback: windows_core::Ref<IAMCopyCaptureFileProgress>) -> windows_core::Result<()>;
+    fn AllocCapFile(&self, lpstr: super::LPCOLESTR, dwlsize: super::DWORDLONG) -> windows_core::Result<()>;
+    fn CopyCaptureFile(&self, lpwstrold: super::LPOLESTR, lpwstrnew: super::LPOLESTR, fallowescabort: i32, pcallback: windows_core::Ref<IAMCopyCaptureFileProgress>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl", feature = "winnt"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl", feature = "winnt", feature = "wtypesbase"))]
 impl ICaptureGraphBuilder_Vtbl {
     pub const fn new<Identity: ICaptureGraphBuilder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetFiltergraph<Identity: ICaptureGraphBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfg: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6007,10 +6012,10 @@ impl ICaptureGraphBuilder_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetOutputFileName<Identity: ICaptureGraphBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *const windows_core::GUID, lpstrfile: windows_core::PCWSTR, ppf: *mut *mut core::ffi::c_void, ppsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOutputFileName<Identity: ICaptureGraphBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *const windows_core::GUID, lpstrfile: super::LPCOLESTR, ppf: *mut *mut core::ffi::c_void, ppsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICaptureGraphBuilder_Impl::SetOutputFileName(this, core::mem::transmute_copy(&ptype), core::mem::transmute(&lpstrfile), core::mem::transmute_copy(&ppf), core::mem::transmute_copy(&ppsink)).into()
+                ICaptureGraphBuilder_Impl::SetOutputFileName(this, core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&lpstrfile), core::mem::transmute_copy(&ppf), core::mem::transmute_copy(&ppsink)).into()
             }
         }
         unsafe extern "system" fn FindInterface<Identity: ICaptureGraphBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcategory: *const windows_core::GUID, pf: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppint: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6031,16 +6036,16 @@ impl ICaptureGraphBuilder_Vtbl {
                 ICaptureGraphBuilder_Impl::ControlStream(this, core::mem::transmute_copy(&pcategory), core::mem::transmute_copy(&pfilter), core::mem::transmute_copy(&pstart), core::mem::transmute_copy(&pstop), core::mem::transmute_copy(&wstartcookie), core::mem::transmute_copy(&wstopcookie)).into()
             }
         }
-        unsafe extern "system" fn AllocCapFile<Identity: ICaptureGraphBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpstr: windows_core::PCWSTR, dwlsize: super::DWORDLONG) -> windows_core::HRESULT {
+        unsafe extern "system" fn AllocCapFile<Identity: ICaptureGraphBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpstr: super::LPCOLESTR, dwlsize: super::DWORDLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICaptureGraphBuilder_Impl::AllocCapFile(this, core::mem::transmute(&lpstr), core::mem::transmute_copy(&dwlsize)).into()
+                ICaptureGraphBuilder_Impl::AllocCapFile(this, core::mem::transmute_copy(&lpstr), core::mem::transmute_copy(&dwlsize)).into()
             }
         }
-        unsafe extern "system" fn CopyCaptureFile<Identity: ICaptureGraphBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpwstrold: windows_core::PCWSTR, lpwstrnew: windows_core::PCWSTR, fallowescabort: i32, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyCaptureFile<Identity: ICaptureGraphBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpwstrold: super::LPOLESTR, lpwstrnew: super::LPOLESTR, fallowescabort: i32, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICaptureGraphBuilder_Impl::CopyCaptureFile(this, core::mem::transmute(&lpwstrold), core::mem::transmute(&lpwstrnew), core::mem::transmute_copy(&fallowescabort), core::mem::transmute_copy(&pcallback)).into()
+                ICaptureGraphBuilder_Impl::CopyCaptureFile(this, core::mem::transmute_copy(&lpwstrold), core::mem::transmute_copy(&lpwstrnew), core::mem::transmute_copy(&fallowescabort), core::mem::transmute_copy(&pcallback)).into()
             }
         }
         Self {
@@ -6059,7 +6064,7 @@ impl ICaptureGraphBuilder_Vtbl {
         iid == &<ICaptureGraphBuilder as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl", feature = "winnt"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICaptureGraphBuilder {}
 windows_core::imp::define_interface!(ICaptureGraphBuilder2, ICaptureGraphBuilder2_Vtbl, 0x93e5a4e0_2d50_11d2_abfa_00a0c9c6e38d);
 windows_core::imp::interface_hierarchy!(ICaptureGraphBuilder2, windows_core::IUnknown);
@@ -6076,21 +6081,16 @@ impl ICaptureGraphBuilder2 {
             (windows_core::Interface::vtable(self).GetFiltergraph)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "objidl")]
-    pub unsafe fn SetOutputFileName<P1>(&self, ptype: *const windows_core::GUID, lpstrfile: P1, ppf: *mut Option<IBaseFilter>, ppsink: *mut Option<IFileSinkFilter>) -> windows_core::HRESULT
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetOutputFileName)(windows_core::Interface::as_raw(self), ptype, lpstrfile.param().abi(), core::mem::transmute(ppf), core::mem::transmute(ppsink)) }
+    #[cfg(all(feature = "objidl", feature = "wtypesbase"))]
+    pub unsafe fn SetOutputFileName(&self, ptype: *const windows_core::GUID, lpstrfile: super::LPCOLESTR, ppf: *mut Option<IBaseFilter>, ppsink: *mut Option<IFileSinkFilter>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetOutputFileName)(windows_core::Interface::as_raw(self), ptype, lpstrfile, core::mem::transmute(ppf), core::mem::transmute(ppsink)) }
     }
     #[cfg(feature = "objidl")]
-    pub unsafe fn FindInterface<P2, T>(&self, pcategory: Option<*const windows_core::GUID>, ptype: Option<*const windows_core::GUID>, pf: P2) -> windows_core::Result<T>
+    pub unsafe fn FindInterface<P2>(&self, pcategory: Option<*const windows_core::GUID>, ptype: Option<*const windows_core::GUID>, pf: P2, riid: *const windows_core::GUID, ppint: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IBaseFilter>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).FindInterface)(windows_core::Interface::as_raw(self), pcategory.unwrap_or(core::mem::zeroed()) as _, ptype.unwrap_or(core::mem::zeroed()) as _, pf.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).FindInterface)(windows_core::Interface::as_raw(self), pcategory.unwrap_or(core::mem::zeroed()) as _, ptype.unwrap_or(core::mem::zeroed()) as _, pf.param().abi(), riid, ppint as _) }
     }
     #[cfg(feature = "objidl")]
     pub unsafe fn RenderStream<P2, P3, P4>(&self, pcategory: Option<*const windows_core::GUID>, ptype: *const windows_core::GUID, psource: P2, pfcompressor: P3, pfrenderer: P4) -> windows_core::HRESULT
@@ -6101,27 +6101,23 @@ impl ICaptureGraphBuilder2 {
     {
         unsafe { (windows_core::Interface::vtable(self).RenderStream)(windows_core::Interface::as_raw(self), pcategory.unwrap_or(core::mem::zeroed()) as _, ptype, psource.param().abi(), pfcompressor.param().abi(), pfrenderer.param().abi()) }
     }
-    #[cfg(all(feature = "ksmedia", feature = "objidl"))]
+    #[cfg(all(feature = "mediaobj", feature = "objidl"))]
     pub unsafe fn ControlStream<P2>(&self, pcategory: *const windows_core::GUID, ptype: *const windows_core::GUID, pfilter: P2, pstart: Option<*const super::REFERENCE_TIME>, pstop: Option<*const super::REFERENCE_TIME>, wstartcookie: u16, wstopcookie: u16) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IBaseFilter>,
     {
         unsafe { (windows_core::Interface::vtable(self).ControlStream)(windows_core::Interface::as_raw(self), pcategory, ptype, pfilter.param().abi(), pstart.unwrap_or(core::mem::zeroed()) as _, pstop.unwrap_or(core::mem::zeroed()) as _, wstartcookie, wstopcookie) }
     }
-    #[cfg(feature = "winnt")]
-    pub unsafe fn AllocCapFile<P0>(&self, lpstr: P0, dwlsize: super::DWORDLONG) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).AllocCapFile)(windows_core::Interface::as_raw(self), lpstr.param().abi(), dwlsize) }
+    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+    pub unsafe fn AllocCapFile(&self, lpstr: super::LPCOLESTR, dwlsize: super::DWORDLONG) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AllocCapFile)(windows_core::Interface::as_raw(self), lpstr, dwlsize) }
     }
-    pub unsafe fn CopyCaptureFile<P0, P1, P3>(&self, lpwstrold: P0, lpwstrnew: P1, fallowescabort: i32, pcallback: P3) -> windows_core::HRESULT
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn CopyCaptureFile<P3>(&self, lpwstrold: super::LPOLESTR, lpwstrnew: super::LPOLESTR, fallowescabort: i32, pcallback: P3) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<IAMCopyCaptureFileProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyCaptureFile)(windows_core::Interface::as_raw(self), lpwstrold.param().abi(), lpwstrnew.param().abi(), fallowescabort, pcallback.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).CopyCaptureFile)(windows_core::Interface::as_raw(self), lpwstrold, lpwstrnew, fallowescabort, pcallback.param().abi()) }
     }
     pub unsafe fn FindPin<P0>(&self, psource: P0, pindir: PIN_DIRECTION, pcategory: Option<*const windows_core::GUID>, ptype: Option<*const windows_core::GUID>, funconnected: bool, num: i32) -> windows_core::Result<IPin>
     where
@@ -6139,9 +6135,9 @@ pub struct ICaptureGraphBuilder2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFiltergraph: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFiltergraph: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "objidl")]
-    pub SetOutputFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidl"))]
+    #[cfg(all(feature = "objidl", feature = "wtypesbase"))]
+    pub SetOutputFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::LPCOLESTR, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "objidl", feature = "wtypesbase")))]
     SetOutputFileName: usize,
     #[cfg(feature = "objidl")]
     pub FindInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6151,30 +6147,33 @@ pub struct ICaptureGraphBuilder2_Vtbl {
     pub RenderStream: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "objidl"))]
     RenderStream: usize,
-    #[cfg(all(feature = "ksmedia", feature = "objidl"))]
+    #[cfg(all(feature = "mediaobj", feature = "objidl"))]
     pub ControlStream: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut core::ffi::c_void, *const super::REFERENCE_TIME, *const super::REFERENCE_TIME, u16, u16) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ksmedia", feature = "objidl")))]
+    #[cfg(not(all(feature = "mediaobj", feature = "objidl")))]
     ControlStream: usize,
-    #[cfg(feature = "winnt")]
-    pub AllocCapFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::DWORDLONG) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+    pub AllocCapFile: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, super::DWORDLONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "winnt", feature = "wtypesbase")))]
     AllocCapFile: usize,
-    pub CopyCaptureFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub CopyCaptureFile: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR, super::LPOLESTR, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    CopyCaptureFile: usize,
     pub FindPin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PIN_DIRECTION, *const windows_core::GUID, *const windows_core::GUID, windows_core::BOOL, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl", feature = "winnt"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl", feature = "winnt", feature = "wtypesbase"))]
 pub trait ICaptureGraphBuilder2_Impl: windows_core::IUnknownImpl {
     fn SetFiltergraph(&self, pfg: windows_core::Ref<IGraphBuilder>) -> windows_core::Result<()>;
     fn GetFiltergraph(&self) -> windows_core::Result<IGraphBuilder>;
-    fn SetOutputFileName(&self, ptype: *const windows_core::GUID, lpstrfile: &windows_core::PCWSTR, ppf: windows_core::OutRef<IBaseFilter>, ppsink: windows_core::OutRef<IFileSinkFilter>) -> windows_core::Result<()>;
+    fn SetOutputFileName(&self, ptype: *const windows_core::GUID, lpstrfile: super::LPCOLESTR, ppf: windows_core::OutRef<IBaseFilter>, ppsink: windows_core::OutRef<IFileSinkFilter>) -> windows_core::Result<()>;
     fn FindInterface(&self, pcategory: *const windows_core::GUID, ptype: *const windows_core::GUID, pf: windows_core::Ref<IBaseFilter>, riid: *const windows_core::GUID, ppint: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn RenderStream(&self, pcategory: *const windows_core::GUID, ptype: *const windows_core::GUID, psource: windows_core::Ref<windows_core::IUnknown>, pfcompressor: windows_core::Ref<IBaseFilter>, pfrenderer: windows_core::Ref<IBaseFilter>) -> windows_core::Result<()>;
     fn ControlStream(&self, pcategory: *const windows_core::GUID, ptype: *const windows_core::GUID, pfilter: windows_core::Ref<IBaseFilter>, pstart: *const super::REFERENCE_TIME, pstop: *const super::REFERENCE_TIME, wstartcookie: u16, wstopcookie: u16) -> windows_core::Result<()>;
-    fn AllocCapFile(&self, lpstr: &windows_core::PCWSTR, dwlsize: super::DWORDLONG) -> windows_core::Result<()>;
-    fn CopyCaptureFile(&self, lpwstrold: &windows_core::PCWSTR, lpwstrnew: &windows_core::PCWSTR, fallowescabort: i32, pcallback: windows_core::Ref<IAMCopyCaptureFileProgress>) -> windows_core::Result<()>;
+    fn AllocCapFile(&self, lpstr: super::LPCOLESTR, dwlsize: super::DWORDLONG) -> windows_core::Result<()>;
+    fn CopyCaptureFile(&self, lpwstrold: super::LPOLESTR, lpwstrnew: super::LPOLESTR, fallowescabort: i32, pcallback: windows_core::Ref<IAMCopyCaptureFileProgress>) -> windows_core::Result<()>;
     fn FindPin(&self, psource: windows_core::Ref<windows_core::IUnknown>, pindir: PIN_DIRECTION, pcategory: *const windows_core::GUID, ptype: *const windows_core::GUID, funconnected: windows_core::BOOL, num: i32) -> windows_core::Result<IPin>;
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl", feature = "winnt"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl", feature = "winnt", feature = "wtypesbase"))]
 impl ICaptureGraphBuilder2_Vtbl {
     pub const fn new<Identity: ICaptureGraphBuilder2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetFiltergraph<Identity: ICaptureGraphBuilder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfg: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6195,10 +6194,10 @@ impl ICaptureGraphBuilder2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetOutputFileName<Identity: ICaptureGraphBuilder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *const windows_core::GUID, lpstrfile: windows_core::PCWSTR, ppf: *mut *mut core::ffi::c_void, ppsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOutputFileName<Identity: ICaptureGraphBuilder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *const windows_core::GUID, lpstrfile: super::LPCOLESTR, ppf: *mut *mut core::ffi::c_void, ppsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICaptureGraphBuilder2_Impl::SetOutputFileName(this, core::mem::transmute_copy(&ptype), core::mem::transmute(&lpstrfile), core::mem::transmute_copy(&ppf), core::mem::transmute_copy(&ppsink)).into()
+                ICaptureGraphBuilder2_Impl::SetOutputFileName(this, core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&lpstrfile), core::mem::transmute_copy(&ppf), core::mem::transmute_copy(&ppsink)).into()
             }
         }
         unsafe extern "system" fn FindInterface<Identity: ICaptureGraphBuilder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcategory: *const windows_core::GUID, ptype: *const windows_core::GUID, pf: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppint: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6219,16 +6218,16 @@ impl ICaptureGraphBuilder2_Vtbl {
                 ICaptureGraphBuilder2_Impl::ControlStream(this, core::mem::transmute_copy(&pcategory), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pfilter), core::mem::transmute_copy(&pstart), core::mem::transmute_copy(&pstop), core::mem::transmute_copy(&wstartcookie), core::mem::transmute_copy(&wstopcookie)).into()
             }
         }
-        unsafe extern "system" fn AllocCapFile<Identity: ICaptureGraphBuilder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpstr: windows_core::PCWSTR, dwlsize: super::DWORDLONG) -> windows_core::HRESULT {
+        unsafe extern "system" fn AllocCapFile<Identity: ICaptureGraphBuilder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpstr: super::LPCOLESTR, dwlsize: super::DWORDLONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICaptureGraphBuilder2_Impl::AllocCapFile(this, core::mem::transmute(&lpstr), core::mem::transmute_copy(&dwlsize)).into()
+                ICaptureGraphBuilder2_Impl::AllocCapFile(this, core::mem::transmute_copy(&lpstr), core::mem::transmute_copy(&dwlsize)).into()
             }
         }
-        unsafe extern "system" fn CopyCaptureFile<Identity: ICaptureGraphBuilder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpwstrold: windows_core::PCWSTR, lpwstrnew: windows_core::PCWSTR, fallowescabort: i32, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyCaptureFile<Identity: ICaptureGraphBuilder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpwstrold: super::LPOLESTR, lpwstrnew: super::LPOLESTR, fallowescabort: i32, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICaptureGraphBuilder2_Impl::CopyCaptureFile(this, core::mem::transmute(&lpwstrold), core::mem::transmute(&lpwstrnew), core::mem::transmute_copy(&fallowescabort), core::mem::transmute_copy(&pcallback)).into()
+                ICaptureGraphBuilder2_Impl::CopyCaptureFile(this, core::mem::transmute_copy(&lpwstrold), core::mem::transmute_copy(&lpwstrnew), core::mem::transmute_copy(&fallowescabort), core::mem::transmute_copy(&pcallback)).into()
             }
         }
         unsafe extern "system" fn FindPin<Identity: ICaptureGraphBuilder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psource: *mut core::ffi::c_void, pindir: PIN_DIRECTION, pcategory: *const windows_core::GUID, ptype: *const windows_core::GUID, funconnected: windows_core::BOOL, num: i32, pppin: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6260,7 +6259,7 @@ impl ICaptureGraphBuilder2_Vtbl {
         iid == &<ICaptureGraphBuilder2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl", feature = "winnt"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICaptureGraphBuilder2 {}
 windows_core::imp::define_interface!(ICodecAPI, ICodecAPI_Vtbl, 0x901db4c7_31ce_41a2_85dc_8fa0bf41b8da);
 windows_core::imp::interface_hierarchy!(ICodecAPI, windows_core::IUnknown);
@@ -6271,29 +6270,29 @@ impl ICodecAPI {
     pub unsafe fn IsModifiable(&self, api: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsModifiable)(windows_core::Interface::as_raw(self), api) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetParameterRange(&self, api: *const windows_core::GUID, valuemin: *mut super::VARIANT, valuemax: *mut super::VARIANT, steppingdelta: *mut super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetParameterRange)(windows_core::Interface::as_raw(self), api, valuemin, valuemax, steppingdelta) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetParameterValues(&self, api: *const windows_core::GUID, values: *mut *mut super::VARIANT, valuescount: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetParameterValues)(windows_core::Interface::as_raw(self), api, values as _, valuescount as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetDefaultValue(&self, api: *const windows_core::GUID) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDefaultValue)(windows_core::Interface::as_raw(self), api, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self, api: *const windows_core::GUID) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), api, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, api: *const windows_core::GUID, value: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), api, value) }
     }
@@ -6306,7 +6305,7 @@ impl ICodecAPI {
     pub unsafe fn SetAllDefaults(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAllDefaults)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValueWithNotify(&self, api: *const windows_core::GUID, value: *const super::VARIANT, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValueWithNotify)(windows_core::Interface::as_raw(self), api, value, changedparam as _, changedparamcount as _) }
     }
@@ -6314,25 +6313,25 @@ impl ICodecAPI {
         unsafe { (windows_core::Interface::vtable(self).SetAllDefaultsWithNotify)(windows_core::Interface::as_raw(self), changedparam as _, changedparamcount as _) }
     }
     #[cfg(feature = "objidlbase")]
-    pub unsafe fn GetAllSettings<P0>(&self, param0: P0) -> windows_core::HRESULT
+    pub unsafe fn GetAllSettings<P0>(&self, __midl__icodecapi0000: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetAllSettings)(windows_core::Interface::as_raw(self), param0.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetAllSettings)(windows_core::Interface::as_raw(self), __midl__icodecapi0000.param().abi()) }
     }
     #[cfg(feature = "objidlbase")]
-    pub unsafe fn SetAllSettings<P0>(&self, param0: P0) -> windows_core::HRESULT
+    pub unsafe fn SetAllSettings<P0>(&self, __midl__icodecapi0001: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAllSettings)(windows_core::Interface::as_raw(self), param0.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetAllSettings)(windows_core::Interface::as_raw(self), __midl__icodecapi0001.param().abi()) }
     }
     #[cfg(feature = "objidlbase")]
-    pub unsafe fn SetAllSettingsWithNotify<P0>(&self, param0: P0, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::HRESULT
+    pub unsafe fn SetAllSettingsWithNotify<P0>(&self, __midl__icodecapi0002: P0, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAllSettingsWithNotify)(windows_core::Interface::as_raw(self), param0.param().abi(), changedparam as _, changedparamcount as _) }
+        unsafe { (windows_core::Interface::vtable(self).SetAllSettingsWithNotify)(windows_core::Interface::as_raw(self), __midl__icodecapi0002.param().abi(), changedparam as _, changedparamcount as _) }
     }
 }
 #[repr(C)]
@@ -6341,32 +6340,32 @@ pub struct ICodecAPI_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub IsModifiable: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetParameterRange: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::VARIANT, *mut super::VARIANT, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetParameterRange: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetParameterValues: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut super::VARIANT, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetParameterValues: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetDefaultValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetDefaultValue: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     SetValue: usize,
     pub RegisterForEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, isize) -> windows_core::HRESULT,
     pub UnregisterForEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub SetAllDefaults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub SetValueWithNotify: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::VARIANT, *mut *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     SetValueWithNotify: usize,
     pub SetAllDefaultsWithNotify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "objidlbase")]
@@ -6382,7 +6381,7 @@ pub struct ICodecAPI_Vtbl {
     #[cfg(not(feature = "objidlbase"))]
     SetAllSettingsWithNotify: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICodecAPI_Impl: windows_core::IUnknownImpl {
     fn IsSupported(&self, api: *const windows_core::GUID) -> windows_core::Result<()>;
     fn IsModifiable(&self, api: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -6396,11 +6395,11 @@ pub trait ICodecAPI_Impl: windows_core::IUnknownImpl {
     fn SetAllDefaults(&self) -> windows_core::Result<()>;
     fn SetValueWithNotify(&self, api: *const windows_core::GUID, value: *const super::VARIANT, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::Result<()>;
     fn SetAllDefaultsWithNotify(&self, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::Result<()>;
-    fn GetAllSettings(&self, param0: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
-    fn SetAllSettings(&self, param0: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
-    fn SetAllSettingsWithNotify(&self, param0: windows_core::Ref<super::IStream>, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::Result<()>;
+    fn GetAllSettings(&self, __midl__icodecapi0000: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
+    fn SetAllSettings(&self, __midl__icodecapi0001: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
+    fn SetAllSettingsWithNotify(&self, __midl__icodecapi0002: windows_core::Ref<super::IStream>, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl ICodecAPI_Vtbl {
     pub const fn new<Identity: ICodecAPI_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsSupported<Identity: ICodecAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -6487,22 +6486,22 @@ impl ICodecAPI_Vtbl {
                 ICodecAPI_Impl::SetAllDefaultsWithNotify(this, core::mem::transmute_copy(&changedparam), core::mem::transmute_copy(&changedparamcount)).into()
             }
         }
-        unsafe extern "system" fn GetAllSettings<Identity: ICodecAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAllSettings<Identity: ICodecAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__icodecapi0000: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICodecAPI_Impl::GetAllSettings(this, core::mem::transmute_copy(&param0)).into()
+                ICodecAPI_Impl::GetAllSettings(this, core::mem::transmute_copy(&__midl__icodecapi0000)).into()
             }
         }
-        unsafe extern "system" fn SetAllSettings<Identity: ICodecAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAllSettings<Identity: ICodecAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__icodecapi0001: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICodecAPI_Impl::SetAllSettings(this, core::mem::transmute_copy(&param0)).into()
+                ICodecAPI_Impl::SetAllSettings(this, core::mem::transmute_copy(&__midl__icodecapi0001)).into()
             }
         }
-        unsafe extern "system" fn SetAllSettingsWithNotify<Identity: ICodecAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAllSettingsWithNotify<Identity: ICodecAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__icodecapi0002: *mut core::ffi::c_void, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICodecAPI_Impl::SetAllSettingsWithNotify(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&changedparam), core::mem::transmute_copy(&changedparamcount)).into()
+                ICodecAPI_Impl::SetAllSettingsWithNotify(this, core::mem::transmute_copy(&__midl__icodecapi0002), core::mem::transmute_copy(&changedparam), core::mem::transmute_copy(&changedparamcount)).into()
             }
         }
         Self {
@@ -6528,7 +6527,7 @@ impl ICodecAPI_Vtbl {
         iid == &<ICodecAPI as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICodecAPI {}
 windows_core::imp::define_interface!(IConfigAviMux, IConfigAviMux_Vtbl, 0x5acd6aa0_f482_11ce_8b67_00aa00a3f1a6);
 windows_core::imp::interface_hierarchy!(IConfigAviMux, windows_core::IUnknown);
@@ -6630,11 +6629,11 @@ impl IConfigInterleaving {
             (windows_core::Interface::vtable(self).get_Mode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn put_Interleaving(&self, prtinterleave: *const super::REFERENCE_TIME, prtpreroll: *const super::REFERENCE_TIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).put_Interleaving)(windows_core::Interface::as_raw(self), prtinterleave, prtpreroll) }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn get_Interleaving(&self, prtinterleave: *mut super::REFERENCE_TIME, prtpreroll: *mut super::REFERENCE_TIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).get_Interleaving)(windows_core::Interface::as_raw(self), prtinterleave as _, prtpreroll as _) }
     }
@@ -6645,23 +6644,23 @@ pub struct IConfigInterleaving_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub put_Mode: unsafe extern "system" fn(*mut core::ffi::c_void, InterleavingMode) -> windows_core::HRESULT,
     pub get_Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InterleavingMode) -> windows_core::HRESULT,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub put_Interleaving: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::REFERENCE_TIME, *const super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     put_Interleaving: usize,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub get_Interleaving: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFERENCE_TIME, *mut super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     get_Interleaving: usize,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub trait IConfigInterleaving_Impl: windows_core::IUnknownImpl {
     fn put_Mode(&self, mode: InterleavingMode) -> windows_core::Result<()>;
     fn get_Mode(&self) -> windows_core::Result<InterleavingMode>;
     fn put_Interleaving(&self, prtinterleave: *const super::REFERENCE_TIME, prtpreroll: *const super::REFERENCE_TIME) -> windows_core::Result<()>;
     fn get_Interleaving(&self, prtinterleave: *mut super::REFERENCE_TIME, prtpreroll: *mut super::REFERENCE_TIME) -> windows_core::Result<()>;
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl IConfigInterleaving_Vtbl {
     pub const fn new<Identity: IConfigInterleaving_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn put_Mode<Identity: IConfigInterleaving_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: InterleavingMode) -> windows_core::HRESULT {
@@ -6706,7 +6705,7 @@ impl IConfigInterleaving_Vtbl {
         iid == &<IConfigInterleaving as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IConfigInterleaving {}
 windows_core::imp::define_interface!(ICreateDevEnum, ICreateDevEnum_Vtbl, 0x29840822_5b84_11d0_bd3b_00a0c911ce86);
 windows_core::imp::interface_hierarchy!(ICreateDevEnum, windows_core::IUnknown);
@@ -7116,7 +7115,7 @@ impl IDistributorNotify {
     pub unsafe fn Pause(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn Run(&self, tstart: super::REFERENCE_TIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Run)(windows_core::Interface::as_raw(self), tstart) }
     }
@@ -7137,9 +7136,9 @@ pub struct IDistributorNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub Run: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     Run: usize,
     #[cfg(feature = "dsound")]
     pub SetSyncSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7147,7 +7146,7 @@ pub struct IDistributorNotify_Vtbl {
     SetSyncSource: usize,
     pub NotifyGraphChange: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "dsound", feature = "ksmedia"))]
+#[cfg(all(feature = "dsound", feature = "mediaobj"))]
 pub trait IDistributorNotify_Impl: windows_core::IUnknownImpl {
     fn Stop(&self) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
@@ -7155,7 +7154,7 @@ pub trait IDistributorNotify_Impl: windows_core::IUnknownImpl {
     fn SetSyncSource(&self, pclock: windows_core::Ref<super::IReferenceClock>) -> windows_core::Result<()>;
     fn NotifyGraphChange(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "dsound", feature = "ksmedia"))]
+#[cfg(all(feature = "dsound", feature = "mediaobj"))]
 impl IDistributorNotify_Vtbl {
     pub const fn new<Identity: IDistributorNotify_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Stop<Identity: IDistributorNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7201,7 +7200,7 @@ impl IDistributorNotify_Vtbl {
         iid == &<IDistributorNotify as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "dsound", feature = "ksmedia"))]
+#[cfg(all(feature = "dsound", feature = "mediaobj"))]
 impl windows_core::RuntimeName for IDistributorNotify {}
 windows_core::imp::define_interface!(IDrawVideoImage, IDrawVideoImage_Vtbl, 0x48efb120_ab49_11d2_aed2_00a0c995e8d5);
 windows_core::imp::interface_hierarchy!(IDrawVideoImage, windows_core::IUnknown);
@@ -7213,7 +7212,7 @@ impl IDrawVideoImage {
         unsafe { (windows_core::Interface::vtable(self).DrawVideoImageEnd)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn DrawVideoImageDraw(&self, hdc: super::HDC, lprcsrc: *const super::RECT, lprcdst: *const super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn DrawVideoImageDraw(&self, hdc: super::HDC, lprcsrc: super::LPRECT, lprcdst: super::LPRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawVideoImageDraw)(windows_core::Interface::as_raw(self), hdc, lprcsrc, lprcdst) }
     }
 }
@@ -7224,7 +7223,7 @@ pub struct IDrawVideoImage_Vtbl {
     pub DrawVideoImageBegin: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DrawVideoImageEnd: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub DrawVideoImageDraw: unsafe extern "system" fn(*mut core::ffi::c_void, super::HDC, *const super::RECT, *const super::RECT) -> windows_core::HRESULT,
+    pub DrawVideoImageDraw: unsafe extern "system" fn(*mut core::ffi::c_void, super::HDC, super::LPRECT, super::LPRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     DrawVideoImageDraw: usize,
 }
@@ -7232,7 +7231,7 @@ pub struct IDrawVideoImage_Vtbl {
 pub trait IDrawVideoImage_Impl: windows_core::IUnknownImpl {
     fn DrawVideoImageBegin(&self) -> windows_core::Result<()>;
     fn DrawVideoImageEnd(&self) -> windows_core::Result<()>;
-    fn DrawVideoImageDraw(&self, hdc: super::HDC, lprcsrc: *const super::RECT, lprcdst: *const super::RECT) -> windows_core::Result<()>;
+    fn DrawVideoImageDraw(&self, hdc: super::HDC, lprcsrc: super::LPRECT, lprcdst: super::LPRECT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "windef")]
 impl IDrawVideoImage_Vtbl {
@@ -7249,7 +7248,7 @@ impl IDrawVideoImage_Vtbl {
                 IDrawVideoImage_Impl::DrawVideoImageEnd(this).into()
             }
         }
-        unsafe extern "system" fn DrawVideoImageDraw<Identity: IDrawVideoImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::HDC, lprcsrc: *const super::RECT, lprcdst: *const super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawVideoImageDraw<Identity: IDrawVideoImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::HDC, lprcsrc: super::LPRECT, lprcdst: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDrawVideoImage_Impl::DrawVideoImageDraw(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&lprcsrc), core::mem::transmute_copy(&lprcdst)).into()
@@ -7903,8 +7902,8 @@ impl IDvdControl2 {
     pub unsafe fn SelectParentalLevel(&self, ulparentallevel: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SelectParentalLevel)(windows_core::Interface::as_raw(self), ulparentallevel) }
     }
-    pub unsafe fn SelectParentalCountry(&self, bcountry: &[u8; 2]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SelectParentalCountry)(windows_core::Interface::as_raw(self), bcountry.as_ptr()) }
+    pub unsafe fn SelectParentalCountry(&self, bcountry: *const u8) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SelectParentalCountry)(windows_core::Interface::as_raw(self), bcountry) }
     }
     pub unsafe fn SelectKaraokeAudioPresentationMode(&self, ulmode: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SelectKaraokeAudioPresentationMode)(windows_core::Interface::as_raw(self), ulmode) }
@@ -8503,12 +8502,8 @@ impl IDvdGraphBuilder {
             (windows_core::Interface::vtable(self).GetFiltergraph)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetDvdInterface<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetDvdInterface)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    pub unsafe fn GetDvdInterface(&self, riid: *const windows_core::GUID, ppvif: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDvdInterface)(windows_core::Interface::as_raw(self), riid, ppvif as _) }
     }
     pub unsafe fn RenderDvdVideoVolume<P0>(&self, lpcwszpathname: P0, dwflags: u32, pstatus: *mut AM_DVD_RENDERSTATUS) -> windows_core::HRESULT
     where
@@ -9750,29 +9745,29 @@ impl IEncoderAPI {
     pub unsafe fn IsAvailable(&self, api: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsAvailable)(windows_core::Interface::as_raw(self), api) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetParameterRange(&self, api: *const windows_core::GUID, valuemin: *mut super::VARIANT, valuemax: *mut super::VARIANT, steppingdelta: *mut super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetParameterRange)(windows_core::Interface::as_raw(self), api, valuemin, valuemax, steppingdelta) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetParameterValues(&self, api: *const windows_core::GUID, values: *mut *mut super::VARIANT, valuescount: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetParameterValues)(windows_core::Interface::as_raw(self), api, values as _, valuescount as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetDefaultValue(&self, api: *const windows_core::GUID) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDefaultValue)(windows_core::Interface::as_raw(self), api, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self, api: *const windows_core::GUID) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), api, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, api: *const windows_core::GUID, value: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), api, value) }
     }
@@ -9783,28 +9778,28 @@ pub struct IEncoderAPI_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub IsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetParameterRange: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::VARIANT, *mut super::VARIANT, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetParameterRange: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetParameterValues: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut super::VARIANT, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetParameterValues: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetDefaultValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetDefaultValue: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     SetValue: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEncoderAPI_Impl: windows_core::IUnknownImpl {
     fn IsSupported(&self, api: *const windows_core::GUID) -> windows_core::Result<()>;
     fn IsAvailable(&self, api: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -9814,7 +9809,7 @@ pub trait IEncoderAPI_Impl: windows_core::IUnknownImpl {
     fn GetValue(&self, api: *const windows_core::GUID) -> windows_core::Result<super::VARIANT>;
     fn SetValue(&self, api: *const windows_core::GUID, value: *const super::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IEncoderAPI_Vtbl {
     pub const fn new<Identity: IEncoderAPI_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsSupported<Identity: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -9886,7 +9881,7 @@ impl IEncoderAPI_Vtbl {
         iid == &<IEncoderAPI as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IEncoderAPI {}
 windows_core::imp::define_interface!(IEnumFilters, IEnumFilters_Vtbl, 0x56a86893_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IEnumFilters, windows_core::IUnknown);
@@ -10214,8 +10209,8 @@ impl windows_core::RuntimeName for IEnumRegFilters {}
 windows_core::imp::define_interface!(IEnumStreamIdMap, IEnumStreamIdMap_Vtbl, 0x945c1566_6202_46fc_96c7_d87f289c6534);
 windows_core::imp::interface_hierarchy!(IEnumStreamIdMap, windows_core::IUnknown);
 impl IEnumStreamIdMap {
-    pub unsafe fn Next(&self, crequest: u32, pstreamidmap: *mut STREAM_ID_MAP, pcreceived: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), crequest, pstreamidmap as _, pcreceived.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, pstreamidmap: &mut [STREAM_ID_MAP], pcreceived: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pstreamidmap.len().try_into().unwrap(), pstreamidmap.as_mut_ptr(), pcreceived.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, crecords: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), crecords) }
@@ -10293,13 +10288,12 @@ impl windows_core::RuntimeName for IEnumStreamIdMap {}
 windows_core::imp::define_interface!(IFileSinkFilter, IFileSinkFilter_Vtbl, 0xa2104830_7c70_11cf_8bce_00aa00a3f1a6);
 windows_core::imp::interface_hierarchy!(IFileSinkFilter, windows_core::IUnknown);
 impl IFileSinkFilter {
-    pub unsafe fn SetFileName<P0>(&self, pszfilename: P0, pmt: Option<*const AM_MEDIA_TYPE>) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetFileName)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), pmt.unwrap_or(core::mem::zeroed()) as _) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetFileName(&self, pszfilename: super::LPCOLESTR, pmt: Option<*const AM_MEDIA_TYPE>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFileName)(windows_core::Interface::as_raw(self), pszfilename, pmt.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetCurFile(&self, ppszfilename: *mut windows_core::PWSTR, pmt: *mut AM_MEDIA_TYPE) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn GetCurFile(&self, ppszfilename: *mut super::LPOLESTR, pmt: *mut AM_MEDIA_TYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCurFile)(windows_core::Interface::as_raw(self), ppszfilename as _, pmt) }
     }
 }
@@ -10307,22 +10301,30 @@ impl IFileSinkFilter {
 #[doc(hidden)]
 pub struct IFileSinkFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetFileName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const AM_MEDIA_TYPE) -> windows_core::HRESULT,
-    pub GetCurFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut AM_MEDIA_TYPE) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub SetFileName: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, *const AM_MEDIA_TYPE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetFileName: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub GetCurFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LPOLESTR, *mut AM_MEDIA_TYPE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    GetCurFile: usize,
 }
+#[cfg(feature = "wtypesbase")]
 pub trait IFileSinkFilter_Impl: windows_core::IUnknownImpl {
-    fn SetFileName(&self, pszfilename: &windows_core::PCWSTR, pmt: *const AM_MEDIA_TYPE) -> windows_core::Result<()>;
-    fn GetCurFile(&self, ppszfilename: *mut windows_core::PWSTR, pmt: *mut AM_MEDIA_TYPE) -> windows_core::Result<()>;
+    fn SetFileName(&self, pszfilename: super::LPCOLESTR, pmt: *const AM_MEDIA_TYPE) -> windows_core::Result<()>;
+    fn GetCurFile(&self, ppszfilename: *mut super::LPOLESTR, pmt: *mut AM_MEDIA_TYPE) -> windows_core::Result<()>;
 }
+#[cfg(feature = "wtypesbase")]
 impl IFileSinkFilter_Vtbl {
     pub const fn new<Identity: IFileSinkFilter_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetFileName<Identity: IFileSinkFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfilename: windows_core::PCWSTR, pmt: *const AM_MEDIA_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFileName<Identity: IFileSinkFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfilename: super::LPCOLESTR, pmt: *const AM_MEDIA_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSinkFilter_Impl::SetFileName(this, core::mem::transmute(&pszfilename), core::mem::transmute_copy(&pmt)).into()
+                IFileSinkFilter_Impl::SetFileName(this, core::mem::transmute_copy(&pszfilename), core::mem::transmute_copy(&pmt)).into()
             }
         }
-        unsafe extern "system" fn GetCurFile<Identity: IFileSinkFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszfilename: *mut windows_core::PWSTR, pmt: *mut AM_MEDIA_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCurFile<Identity: IFileSinkFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszfilename: *mut super::LPOLESTR, pmt: *mut AM_MEDIA_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFileSinkFilter_Impl::GetCurFile(this, core::mem::transmute_copy(&ppszfilename), core::mem::transmute_copy(&pmt)).into()
@@ -10338,6 +10340,7 @@ impl IFileSinkFilter_Vtbl {
         iid == &<IFileSinkFilter as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for IFileSinkFilter {}
 windows_core::imp::define_interface!(IFileSinkFilter2, IFileSinkFilter2_Vtbl, 0x00855b90_ce1b_11d0_bd4f_00a0c911ce86);
 impl core::ops::Deref for IFileSinkFilter2 {
@@ -10365,10 +10368,12 @@ pub struct IFileSinkFilter2_Vtbl {
     pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "wtypesbase")]
 pub trait IFileSinkFilter2_Impl: IFileSinkFilter_Impl {
     fn SetMode(&self, dwflags: u32) -> windows_core::Result<()>;
     fn GetMode(&self) -> windows_core::Result<u32>;
 }
+#[cfg(feature = "wtypesbase")]
 impl IFileSinkFilter2_Vtbl {
     pub const fn new<Identity: IFileSinkFilter2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetMode<Identity: IFileSinkFilter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
@@ -10395,17 +10400,17 @@ impl IFileSinkFilter2_Vtbl {
         iid == &<IFileSinkFilter2 as windows_core::Interface>::IID || iid == &<IFileSinkFilter as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for IFileSinkFilter2 {}
 windows_core::imp::define_interface!(IFileSourceFilter, IFileSourceFilter_Vtbl, 0x56a868a6_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IFileSourceFilter, windows_core::IUnknown);
 impl IFileSourceFilter {
-    pub unsafe fn Load<P0>(&self, pszfilename: P0, pmt: Option<*const AM_MEDIA_TYPE>) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), pmt.unwrap_or(core::mem::zeroed()) as _) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn Load(&self, pszfilename: super::LPCOLESTR, pmt: Option<*const AM_MEDIA_TYPE>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), pszfilename, pmt.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetCurFile(&self, ppszfilename: *mut windows_core::PWSTR, pmt: Option<*mut AM_MEDIA_TYPE>) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn GetCurFile(&self, ppszfilename: *mut super::LPOLESTR, pmt: Option<*mut AM_MEDIA_TYPE>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCurFile)(windows_core::Interface::as_raw(self), ppszfilename as _, pmt.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
@@ -10413,22 +10418,30 @@ impl IFileSourceFilter {
 #[doc(hidden)]
 pub struct IFileSourceFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const AM_MEDIA_TYPE) -> windows_core::HRESULT,
-    pub GetCurFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut AM_MEDIA_TYPE) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, *const AM_MEDIA_TYPE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    Load: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub GetCurFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LPOLESTR, *mut AM_MEDIA_TYPE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    GetCurFile: usize,
 }
+#[cfg(feature = "wtypesbase")]
 pub trait IFileSourceFilter_Impl: windows_core::IUnknownImpl {
-    fn Load(&self, pszfilename: &windows_core::PCWSTR, pmt: *const AM_MEDIA_TYPE) -> windows_core::Result<()>;
-    fn GetCurFile(&self, ppszfilename: *mut windows_core::PWSTR, pmt: *mut AM_MEDIA_TYPE) -> windows_core::Result<()>;
+    fn Load(&self, pszfilename: super::LPCOLESTR, pmt: *const AM_MEDIA_TYPE) -> windows_core::Result<()>;
+    fn GetCurFile(&self, ppszfilename: *mut super::LPOLESTR, pmt: *mut AM_MEDIA_TYPE) -> windows_core::Result<()>;
 }
+#[cfg(feature = "wtypesbase")]
 impl IFileSourceFilter_Vtbl {
     pub const fn new<Identity: IFileSourceFilter_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Load<Identity: IFileSourceFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfilename: windows_core::PCWSTR, pmt: *const AM_MEDIA_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn Load<Identity: IFileSourceFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfilename: super::LPCOLESTR, pmt: *const AM_MEDIA_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFileSourceFilter_Impl::Load(this, core::mem::transmute(&pszfilename), core::mem::transmute_copy(&pmt)).into()
+                IFileSourceFilter_Impl::Load(this, core::mem::transmute_copy(&pszfilename), core::mem::transmute_copy(&pmt)).into()
             }
         }
-        unsafe extern "system" fn GetCurFile<Identity: IFileSourceFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszfilename: *mut windows_core::PWSTR, pmt: *mut AM_MEDIA_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCurFile<Identity: IFileSourceFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszfilename: *mut super::LPOLESTR, pmt: *mut AM_MEDIA_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFileSourceFilter_Impl::GetCurFile(this, core::mem::transmute_copy(&ppszfilename), core::mem::transmute_copy(&pmt)).into()
@@ -10440,6 +10453,7 @@ impl IFileSourceFilter_Vtbl {
         iid == &<IFileSourceFilter as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for IFileSourceFilter {}
 windows_core::imp::define_interface!(IFilterChain, IFilterChain_Vtbl, 0xdcfbdcf6_0dc2_45f5_9ab2_7c330ea09c29);
 windows_core::imp::interface_hierarchy!(IFilterChain, windows_core::IUnknown);
@@ -10744,7 +10758,7 @@ impl IFilterGraph2 {
     {
         unsafe { (windows_core::Interface::vtable(self).ReconnectEx)(windows_core::Interface::as_raw(self), ppin.param().abi(), pmt.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn RenderEx<P0>(&self, ppinout: P0, dwflags: u32, pvcontext: Option<*const u32>) -> windows_core::HRESULT
+    pub unsafe fn RenderEx<P0>(&self, ppinout: P0, dwflags: u32, pvcontext: Option<*mut u32>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IPin>,
     {
@@ -10760,13 +10774,13 @@ pub struct IFilterGraph2_Vtbl {
     #[cfg(not(feature = "objidl"))]
     AddSourceFilterForMoniker: usize,
     pub ReconnectEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const AM_MEDIA_TYPE) -> windows_core::HRESULT,
-    pub RenderEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u32) -> windows_core::HRESULT,
+    pub RenderEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "objidl")]
 pub trait IFilterGraph2_Impl: IGraphBuilder_Impl {
     fn AddSourceFilterForMoniker(&self, pmoniker: windows_core::Ref<super::IMoniker>, pctx: windows_core::Ref<super::IBindCtx>, lpcwstrfiltername: &windows_core::PCWSTR) -> windows_core::Result<IBaseFilter>;
     fn ReconnectEx(&self, ppin: windows_core::Ref<IPin>, pmt: *const AM_MEDIA_TYPE) -> windows_core::Result<()>;
-    fn RenderEx(&self, ppinout: windows_core::Ref<IPin>, dwflags: u32, pvcontext: *const u32) -> windows_core::Result<()>;
+    fn RenderEx(&self, ppinout: windows_core::Ref<IPin>, dwflags: u32, pvcontext: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "objidl")]
 impl IFilterGraph2_Vtbl {
@@ -10789,7 +10803,7 @@ impl IFilterGraph2_Vtbl {
                 IFilterGraph2_Impl::ReconnectEx(this, core::mem::transmute_copy(&ppin), core::mem::transmute_copy(&pmt)).into()
             }
         }
-        unsafe extern "system" fn RenderEx<Identity: IFilterGraph2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppinout: *mut core::ffi::c_void, dwflags: u32, pvcontext: *const u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RenderEx<Identity: IFilterGraph2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppinout: *mut core::ffi::c_void, dwflags: u32, pvcontext: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFilterGraph2_Impl::RenderEx(this, core::mem::transmute_copy(&ppinout), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pvcontext)).into()
@@ -11009,19 +11023,16 @@ impl IFilterMapper2 {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateCategory)(windows_core::Interface::as_raw(self), clsidcategory, dwcategorymerit, description.param().abi()) }
     }
-    pub unsafe fn UnregisterFilter<P1>(&self, pclsidcategory: *const windows_core::GUID, szinstance: P1, filter: *const windows_core::GUID) -> windows_core::HRESULT
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterFilter)(windows_core::Interface::as_raw(self), pclsidcategory, szinstance.param().abi(), filter) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn UnregisterFilter(&self, pclsidcategory: *const windows_core::GUID, szinstance: super::LPCOLESTR, filter: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnregisterFilter)(windows_core::Interface::as_raw(self), pclsidcategory, szinstance, filter) }
     }
-    #[cfg(feature = "objidl")]
-    pub unsafe fn RegisterFilter<P1, P4>(&self, clsidfilter: *const windows_core::GUID, name: P1, ppmoniker: Option<*mut Option<super::IMoniker>>, pclsidcategory: *const windows_core::GUID, szinstance: P4, prf2: *const REGFILTER2) -> windows_core::HRESULT
+    #[cfg(all(feature = "objidl", feature = "wtypesbase"))]
+    pub unsafe fn RegisterFilter<P1>(&self, clsidfilter: *const windows_core::GUID, name: P1, ppmoniker: Option<*mut Option<super::IMoniker>>, pclsidcategory: *const windows_core::GUID, szinstance: super::LPCOLESTR, prf2: *const REGFILTER2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterFilter)(windows_core::Interface::as_raw(self), clsidfilter, name.param().abi(), ppmoniker.unwrap_or(core::mem::zeroed()) as _, pclsidcategory, szinstance.param().abi(), prf2) }
+        unsafe { (windows_core::Interface::vtable(self).RegisterFilter)(windows_core::Interface::as_raw(self), clsidfilter, name.param().abi(), ppmoniker.unwrap_or(core::mem::zeroed()) as _, pclsidcategory, szinstance, prf2) }
     }
     #[cfg(feature = "objidl")]
     pub unsafe fn EnumMatchingFilters(&self, ppenum: *mut Option<super::IEnumMoniker>, dwflags: u32, bexactmatch: bool, dwmerit: u32, binputneeded: bool, cinputtypes: u32, pinputtypes: Option<*const windows_core::GUID>, pmedin: Option<*const REGPINMEDIUM>, ppincategoryin: Option<*const windows_core::GUID>, brender: bool, boutputneeded: bool, coutputtypes: u32, poutputtypes: Option<*const windows_core::GUID>, pmedout: Option<*const REGPINMEDIUM>, ppincategoryout: Option<*const windows_core::GUID>) -> windows_core::HRESULT {
@@ -11052,24 +11063,27 @@ impl IFilterMapper2 {
 pub struct IFilterMapper2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub UnregisterFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "objidl")]
-    pub RegisterFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *mut *mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *const REGFILTER2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "objidl"))]
+    #[cfg(feature = "wtypesbase")]
+    pub UnregisterFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::LPCOLESTR, *const windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    UnregisterFilter: usize,
+    #[cfg(all(feature = "objidl", feature = "wtypesbase"))]
+    pub RegisterFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *mut *mut core::ffi::c_void, *const windows_core::GUID, super::LPCOLESTR, *const REGFILTER2) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "objidl", feature = "wtypesbase")))]
     RegisterFilter: usize,
     #[cfg(feature = "objidl")]
     pub EnumMatchingFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, windows_core::BOOL, u32, windows_core::BOOL, u32, *const windows_core::GUID, *const REGPINMEDIUM, *const windows_core::GUID, windows_core::BOOL, windows_core::BOOL, u32, *const windows_core::GUID, *const REGPINMEDIUM, *const windows_core::GUID) -> windows_core::HRESULT,
     #[cfg(not(feature = "objidl"))]
     EnumMatchingFilters: usize,
 }
-#[cfg(feature = "objidl")]
+#[cfg(all(feature = "objidl", feature = "wtypesbase"))]
 pub trait IFilterMapper2_Impl: windows_core::IUnknownImpl {
     fn CreateCategory(&self, clsidcategory: *const windows_core::GUID, dwcategorymerit: u32, description: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn UnregisterFilter(&self, pclsidcategory: *const windows_core::GUID, szinstance: &windows_core::PCWSTR, filter: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn RegisterFilter(&self, clsidfilter: *const windows_core::GUID, name: &windows_core::PCWSTR, ppmoniker: windows_core::OutRef<super::IMoniker>, pclsidcategory: *const windows_core::GUID, szinstance: &windows_core::PCWSTR, prf2: *const REGFILTER2) -> windows_core::Result<()>;
+    fn UnregisterFilter(&self, pclsidcategory: *const windows_core::GUID, szinstance: super::LPCOLESTR, filter: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn RegisterFilter(&self, clsidfilter: *const windows_core::GUID, name: &windows_core::PCWSTR, ppmoniker: windows_core::OutRef<super::IMoniker>, pclsidcategory: *const windows_core::GUID, szinstance: super::LPCOLESTR, prf2: *const REGFILTER2) -> windows_core::Result<()>;
     fn EnumMatchingFilters(&self, ppenum: windows_core::OutRef<super::IEnumMoniker>, dwflags: u32, bexactmatch: windows_core::BOOL, dwmerit: u32, binputneeded: windows_core::BOOL, cinputtypes: u32, pinputtypes: *const windows_core::GUID, pmedin: *const REGPINMEDIUM, ppincategoryin: *const windows_core::GUID, brender: windows_core::BOOL, boutputneeded: windows_core::BOOL, coutputtypes: u32, poutputtypes: *const windows_core::GUID, pmedout: *const REGPINMEDIUM, ppincategoryout: *const windows_core::GUID) -> windows_core::Result<()>;
 }
-#[cfg(feature = "objidl")]
+#[cfg(all(feature = "objidl", feature = "wtypesbase"))]
 impl IFilterMapper2_Vtbl {
     pub const fn new<Identity: IFilterMapper2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateCategory<Identity: IFilterMapper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsidcategory: *const windows_core::GUID, dwcategorymerit: u32, description: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -11078,16 +11092,16 @@ impl IFilterMapper2_Vtbl {
                 IFilterMapper2_Impl::CreateCategory(this, core::mem::transmute_copy(&clsidcategory), core::mem::transmute_copy(&dwcategorymerit), core::mem::transmute(&description)).into()
             }
         }
-        unsafe extern "system" fn UnregisterFilter<Identity: IFilterMapper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclsidcategory: *const windows_core::GUID, szinstance: windows_core::PCWSTR, filter: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnregisterFilter<Identity: IFilterMapper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclsidcategory: *const windows_core::GUID, szinstance: super::LPCOLESTR, filter: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFilterMapper2_Impl::UnregisterFilter(this, core::mem::transmute_copy(&pclsidcategory), core::mem::transmute(&szinstance), core::mem::transmute_copy(&filter)).into()
+                IFilterMapper2_Impl::UnregisterFilter(this, core::mem::transmute_copy(&pclsidcategory), core::mem::transmute_copy(&szinstance), core::mem::transmute_copy(&filter)).into()
             }
         }
-        unsafe extern "system" fn RegisterFilter<Identity: IFilterMapper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsidfilter: *const windows_core::GUID, name: windows_core::PCWSTR, ppmoniker: *mut *mut core::ffi::c_void, pclsidcategory: *const windows_core::GUID, szinstance: windows_core::PCWSTR, prf2: *const REGFILTER2) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterFilter<Identity: IFilterMapper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsidfilter: *const windows_core::GUID, name: windows_core::PCWSTR, ppmoniker: *mut *mut core::ffi::c_void, pclsidcategory: *const windows_core::GUID, szinstance: super::LPCOLESTR, prf2: *const REGFILTER2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFilterMapper2_Impl::RegisterFilter(this, core::mem::transmute_copy(&clsidfilter), core::mem::transmute(&name), core::mem::transmute_copy(&ppmoniker), core::mem::transmute_copy(&pclsidcategory), core::mem::transmute(&szinstance), core::mem::transmute_copy(&prf2)).into()
+                IFilterMapper2_Impl::RegisterFilter(this, core::mem::transmute_copy(&clsidfilter), core::mem::transmute(&name), core::mem::transmute_copy(&ppmoniker), core::mem::transmute_copy(&pclsidcategory), core::mem::transmute_copy(&szinstance), core::mem::transmute_copy(&prf2)).into()
             }
         }
         unsafe extern "system" fn EnumMatchingFilters<Identity: IFilterMapper2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void, dwflags: u32, bexactmatch: windows_core::BOOL, dwmerit: u32, binputneeded: windows_core::BOOL, cinputtypes: u32, pinputtypes: *const windows_core::GUID, pmedin: *const REGPINMEDIUM, ppincategoryin: *const windows_core::GUID, brender: windows_core::BOOL, boutputneeded: windows_core::BOOL, coutputtypes: u32, poutputtypes: *const windows_core::GUID, pmedout: *const REGPINMEDIUM, ppincategoryout: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -11126,7 +11140,7 @@ impl IFilterMapper2_Vtbl {
         iid == &<IFilterMapper2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidl")]
+#[cfg(all(feature = "objidl", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFilterMapper2 {}
 windows_core::imp::define_interface!(IFilterMapper3, IFilterMapper3_Vtbl, 0xb79bb0b1_33c1_11d1_abe1_00a0c905f375);
 impl core::ops::Deref for IFilterMapper3 {
@@ -11150,11 +11164,11 @@ pub struct IFilterMapper3_Vtbl {
     pub base__: IFilterMapper2_Vtbl,
     pub GetICreateDevEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "objidl")]
+#[cfg(all(feature = "objidl", feature = "wtypesbase"))]
 pub trait IFilterMapper3_Impl: IFilterMapper2_Impl {
     fn GetICreateDevEnum(&self) -> windows_core::Result<ICreateDevEnum>;
 }
-#[cfg(feature = "objidl")]
+#[cfg(all(feature = "objidl", feature = "wtypesbase"))]
 impl IFilterMapper3_Vtbl {
     pub const fn new<Identity: IFilterMapper3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetICreateDevEnum<Identity: IFilterMapper3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11175,7 +11189,7 @@ impl IFilterMapper3_Vtbl {
         iid == &<IFilterMapper3 as windows_core::Interface>::IID || iid == &<IFilterMapper2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "objidl")]
+#[cfg(all(feature = "objidl", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFilterMapper3 {}
 windows_core::imp::define_interface!(IGetCapabilitiesKey, IGetCapabilitiesKey_Vtbl, 0xa8809222_07bb_48ea_951c_33158100625b);
 windows_core::imp::interface_hierarchy!(IGetCapabilitiesKey, windows_core::IUnknown);
@@ -11406,7 +11420,7 @@ impl IGraphConfig {
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveFilterFromCache)(windows_core::Interface::as_raw(self), pfilter.param().abi()) }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetStartTime(&self) -> windows_core::Result<super::REFERENCE_TIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11467,9 +11481,9 @@ pub struct IGraphConfig_Vtbl {
     pub RemoveFilterFromCache: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "objidl"))]
     RemoveFilterFromCache: usize,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub GetStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetStartTime: usize,
     #[cfg(feature = "winnt")]
     pub PushThroughData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::HANDLE) -> windows_core::HRESULT,
@@ -11488,7 +11502,7 @@ pub struct IGraphConfig_Vtbl {
     #[cfg(not(feature = "objidl"))]
     RemoveFilterEx: usize,
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl", feature = "winnt"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl", feature = "winnt"))]
 pub trait IGraphConfig_Impl: windows_core::IUnknownImpl {
     fn Reconnect(&self, poutputpin: windows_core::Ref<IPin>, pinputpin: windows_core::Ref<IPin>, pmtfirstconnection: *const AM_MEDIA_TYPE, pusingfilter: windows_core::Ref<IBaseFilter>, habortevent: super::HANDLE, dwflags: u32) -> windows_core::Result<()>;
     fn Reconfigure(&self, pcallback: windows_core::Ref<IGraphConfigCallback>, pvcontext: *const core::ffi::c_void, dwflags: u32, habortevent: super::HANDLE) -> windows_core::Result<()>;
@@ -11501,7 +11515,7 @@ pub trait IGraphConfig_Impl: windows_core::IUnknownImpl {
     fn GetFilterFlags(&self, pfilter: windows_core::Ref<IBaseFilter>) -> windows_core::Result<u32>;
     fn RemoveFilterEx(&self, pfilter: windows_core::Ref<IBaseFilter>, flags: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl", feature = "winnt"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl", feature = "winnt"))]
 impl IGraphConfig_Vtbl {
     pub const fn new<Identity: IGraphConfig_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Reconnect<Identity: IGraphConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutputpin: *mut core::ffi::c_void, pinputpin: *mut core::ffi::c_void, pmtfirstconnection: *const AM_MEDIA_TYPE, pusingfilter: *mut core::ffi::c_void, habortevent: super::HANDLE, dwflags: u32) -> windows_core::HRESULT {
@@ -11600,7 +11614,7 @@ impl IGraphConfig_Vtbl {
         iid == &<IGraphConfig as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl", feature = "winnt"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl", feature = "winnt"))]
 impl windows_core::RuntimeName for IGraphConfig {}
 windows_core::imp::define_interface!(IGraphConfigCallback, IGraphConfigCallback_Vtbl, 0xade0fd60_d19d_11d2_abf6_00a0c905f375);
 windows_core::imp::interface_hierarchy!(IGraphConfigCallback, windows_core::IUnknown);
@@ -11845,7 +11859,7 @@ impl IMediaFilter {
     pub unsafe fn Pause(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn Run(&self, tstart: super::REFERENCE_TIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Run)(windows_core::Interface::as_raw(self), tstart) }
     }
@@ -11877,9 +11891,9 @@ pub struct IMediaFilter_Vtbl {
     pub base__: super::IPersist_Vtbl,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub Run: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     Run: usize,
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut FILTER_STATE) -> windows_core::HRESULT,
     #[cfg(feature = "dsound")]
@@ -11891,7 +11905,7 @@ pub struct IMediaFilter_Vtbl {
     #[cfg(not(feature = "dsound"))]
     GetSyncSource: usize,
 }
-#[cfg(all(feature = "dsound", feature = "ksmedia", feature = "objidl"))]
+#[cfg(all(feature = "dsound", feature = "mediaobj", feature = "objidl"))]
 pub trait IMediaFilter_Impl: super::IPersist_Impl {
     fn Stop(&self) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
@@ -11900,7 +11914,7 @@ pub trait IMediaFilter_Impl: super::IPersist_Impl {
     fn SetSyncSource(&self, pclock: windows_core::Ref<super::IReferenceClock>) -> windows_core::Result<()>;
     fn GetSyncSource(&self) -> windows_core::Result<super::IReferenceClock>;
 }
-#[cfg(all(feature = "dsound", feature = "ksmedia", feature = "objidl"))]
+#[cfg(all(feature = "dsound", feature = "mediaobj", feature = "objidl"))]
 impl IMediaFilter_Vtbl {
     pub const fn new<Identity: IMediaFilter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Stop<Identity: IMediaFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11965,7 +11979,7 @@ impl IMediaFilter_Vtbl {
         iid == &<IMediaFilter as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "dsound", feature = "ksmedia", feature = "objidl"))]
+#[cfg(all(feature = "dsound", feature = "mediaobj", feature = "objidl"))]
 impl windows_core::RuntimeName for IMediaFilter {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IMediaPropertyBag, IMediaPropertyBag_Vtbl, 0x6025a880_c0d5_11d0_bd4e_00a0c911ce86);
@@ -11980,7 +11994,7 @@ impl core::ops::Deref for IMediaPropertyBag {
 windows_core::imp::interface_hierarchy!(IMediaPropertyBag, windows_core::IUnknown, super::IPropertyBag);
 #[cfg(feature = "oaidl")]
 impl IMediaPropertyBag {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn EnumProperty(&self, iproperty: u32, pvarpropertyname: *mut super::VARIANT, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumProperty)(windows_core::Interface::as_raw(self), iproperty, pvarpropertyname, pvarpropertyvalue) }
     }
@@ -11990,16 +12004,16 @@ impl IMediaPropertyBag {
 #[doc(hidden)]
 pub struct IMediaPropertyBag_Vtbl {
     pub base__: super::IPropertyBag_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub EnumProperty: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::VARIANT, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     EnumProperty: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMediaPropertyBag_Impl: super::IPropertyBag_Impl {
     fn EnumProperty(&self, iproperty: u32, pvarpropertyname: *mut super::VARIANT, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IMediaPropertyBag_Vtbl {
     pub const fn new<Identity: IMediaPropertyBag_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumProperty<Identity: IMediaPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iproperty: u32, pvarpropertyname: *mut super::VARIANT, pvarpropertyvalue: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -12014,7 +12028,7 @@ impl IMediaPropertyBag_Vtbl {
         iid == &<IMediaPropertyBag as windows_core::Interface>::IID || iid == &<super::IPropertyBag as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMediaPropertyBag {}
 windows_core::imp::define_interface!(IMediaSample, IMediaSample_Vtbl, 0x56a8689a_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IMediaSample, windows_core::IUnknown);
@@ -12028,11 +12042,11 @@ impl IMediaSample {
     pub unsafe fn GetSize(&self) -> i32 {
         unsafe { (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetTime(&self, ptimestart: *mut super::REFERENCE_TIME, ptimeend: *mut super::REFERENCE_TIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTime)(windows_core::Interface::as_raw(self), ptimestart as _, ptimeend as _) }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn SetTime(&self, ptimestart: Option<*const super::REFERENCE_TIME>, ptimeend: Option<*const super::REFERENCE_TIME>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTime)(windows_core::Interface::as_raw(self), ptimestart.unwrap_or(core::mem::zeroed()) as _, ptimeend.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -12051,8 +12065,8 @@ impl IMediaSample {
     pub unsafe fn GetActualDataLength(&self) -> i32 {
         unsafe { (windows_core::Interface::vtable(self).GetActualDataLength)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetActualDataLength(&self, param0: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetActualDataLength)(windows_core::Interface::as_raw(self), param0) }
+    pub unsafe fn SetActualDataLength(&self, __midl__imediasample0000: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetActualDataLength)(windows_core::Interface::as_raw(self), __midl__imediasample0000) }
     }
     pub unsafe fn GetMediaType(&self) -> windows_core::Result<*mut AM_MEDIA_TYPE> {
         unsafe {
@@ -12082,13 +12096,13 @@ pub struct IMediaSample_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPointer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8) -> windows_core::HRESULT,
     pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> i32,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub GetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFERENCE_TIME, *mut super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetTime: usize,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub SetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::REFERENCE_TIME, *const super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     SetTime: usize,
     pub IsSyncPoint: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSyncPoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -12103,7 +12117,7 @@ pub struct IMediaSample_Vtbl {
     pub GetMediaTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64, *mut i64) -> windows_core::HRESULT,
     pub SetMediaTime: unsafe extern "system" fn(*mut core::ffi::c_void, *const i64, *const i64) -> windows_core::HRESULT,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub trait IMediaSample_Impl: windows_core::IUnknownImpl {
     fn GetPointer(&self) -> windows_core::Result<*mut u8>;
     fn GetSize(&self) -> i32;
@@ -12114,7 +12128,7 @@ pub trait IMediaSample_Impl: windows_core::IUnknownImpl {
     fn IsPreroll(&self) -> windows_core::Result<()>;
     fn SetPreroll(&self, bispreroll: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetActualDataLength(&self) -> i32;
-    fn SetActualDataLength(&self, param0: i32) -> windows_core::Result<()>;
+    fn SetActualDataLength(&self, __midl__imediasample0000: i32) -> windows_core::Result<()>;
     fn GetMediaType(&self) -> windows_core::Result<*mut AM_MEDIA_TYPE>;
     fn SetMediaType(&self, pmediatype: *const AM_MEDIA_TYPE) -> windows_core::Result<()>;
     fn IsDiscontinuity(&self) -> windows_core::Result<()>;
@@ -12122,7 +12136,7 @@ pub trait IMediaSample_Impl: windows_core::IUnknownImpl {
     fn GetMediaTime(&self, ptimestart: *mut i64, ptimeend: *mut i64) -> windows_core::Result<()>;
     fn SetMediaTime(&self, ptimestart: *const i64, ptimeend: *const i64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl IMediaSample_Vtbl {
     pub const fn new<Identity: IMediaSample_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPointer<Identity: IMediaSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbuffer: *mut *mut u8) -> windows_core::HRESULT {
@@ -12185,10 +12199,10 @@ impl IMediaSample_Vtbl {
                 IMediaSample_Impl::GetActualDataLength(this)
             }
         }
-        unsafe extern "system" fn SetActualDataLength<Identity: IMediaSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetActualDataLength<Identity: IMediaSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__imediasample0000: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaSample_Impl::SetActualDataLength(this, core::mem::transmute_copy(&param0)).into()
+                IMediaSample_Impl::SetActualDataLength(this, core::mem::transmute_copy(&__midl__imediasample0000)).into()
             }
         }
         unsafe extern "system" fn GetMediaType<Identity: IMediaSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmediatype: *mut *mut AM_MEDIA_TYPE) -> windows_core::HRESULT {
@@ -12257,7 +12271,7 @@ impl IMediaSample_Vtbl {
         iid == &<IMediaSample as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IMediaSample {}
 windows_core::imp::define_interface!(IMediaSample2, IMediaSample2_Vtbl, 0x36b73884_c2c8_11cf_8b46_00805f6cef60);
 impl core::ops::Deref for IMediaSample2 {
@@ -12282,12 +12296,12 @@ pub struct IMediaSample2_Vtbl {
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
     pub SetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub trait IMediaSample2_Impl: IMediaSample_Impl {
     fn GetProperties(&self, cbproperties: u32, pbproperties: *mut u8) -> windows_core::Result<()>;
     fn SetProperties(&self, cbproperties: u32, pbproperties: *const u8) -> windows_core::Result<()>;
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl IMediaSample2_Vtbl {
     pub const fn new<Identity: IMediaSample2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetProperties<Identity: IMediaSample2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbproperties: u32, pbproperties: *mut u8) -> windows_core::HRESULT {
@@ -12312,7 +12326,7 @@ impl IMediaSample2_Vtbl {
         iid == &<IMediaSample2 as windows_core::Interface>::IID || iid == &<IMediaSample as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IMediaSample2 {}
 windows_core::imp::define_interface!(IMediaSample2Config, IMediaSample2Config_Vtbl, 0x68961e68_832b_41ea_bc91_63593f3e70e3);
 windows_core::imp::interface_hierarchy!(IMediaSample2Config, windows_core::IUnknown);
@@ -12673,7 +12687,7 @@ impl IMemAllocator {
     pub unsafe fn Decommit(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Decommit)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetBuffer(&self, ppbuffer: *mut Option<IMediaSample>, pstarttime: Option<*const super::REFERENCE_TIME>, pendtime: Option<*const super::REFERENCE_TIME>, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(ppbuffer), pstarttime.unwrap_or(core::mem::zeroed()) as _, pendtime.unwrap_or(core::mem::zeroed()) as _, dwflags) }
     }
@@ -12692,13 +12706,13 @@ pub struct IMemAllocator_Vtbl {
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ALLOCATOR_PROPERTIES) -> windows_core::HRESULT,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Decommit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *const super::REFERENCE_TIME, *const super::REFERENCE_TIME, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetBuffer: usize,
     pub ReleaseBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub trait IMemAllocator_Impl: windows_core::IUnknownImpl {
     fn SetProperties(&self, prequest: *const ALLOCATOR_PROPERTIES) -> windows_core::Result<ALLOCATOR_PROPERTIES>;
     fn GetProperties(&self) -> windows_core::Result<ALLOCATOR_PROPERTIES>;
@@ -12707,7 +12721,7 @@ pub trait IMemAllocator_Impl: windows_core::IUnknownImpl {
     fn GetBuffer(&self, ppbuffer: windows_core::OutRef<IMediaSample>, pstarttime: *const super::REFERENCE_TIME, pendtime: *const super::REFERENCE_TIME, dwflags: u32) -> windows_core::Result<()>;
     fn ReleaseBuffer(&self, pbuffer: windows_core::Ref<IMediaSample>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl IMemAllocator_Vtbl {
     pub const fn new<Identity: IMemAllocator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetProperties<Identity: IMemAllocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prequest: *const ALLOCATOR_PROPERTIES, pactual: *mut ALLOCATOR_PROPERTIES) -> windows_core::HRESULT {
@@ -12772,7 +12786,7 @@ impl IMemAllocator_Vtbl {
         iid == &<IMemAllocator as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IMemAllocator {}
 windows_core::imp::define_interface!(IMemAllocatorCallbackTemp, IMemAllocatorCallbackTemp_Vtbl, 0x379a0cf0_c1de_11d2_abf5_00a0c905f375);
 impl core::ops::Deref for IMemAllocatorCallbackTemp {
@@ -12803,12 +12817,12 @@ pub struct IMemAllocatorCallbackTemp_Vtbl {
     pub SetNotify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFreeCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub trait IMemAllocatorCallbackTemp_Impl: IMemAllocator_Impl {
     fn SetNotify(&self, pnotify: windows_core::Ref<IMemAllocatorNotifyCallbackTemp>) -> windows_core::Result<()>;
     fn GetFreeCount(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl IMemAllocatorCallbackTemp_Vtbl {
     pub const fn new<Identity: IMemAllocatorCallbackTemp_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetNotify<Identity: IMemAllocatorCallbackTemp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnotify: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12835,7 +12849,7 @@ impl IMemAllocatorCallbackTemp_Vtbl {
         iid == &<IMemAllocatorCallbackTemp as windows_core::Interface>::IID || iid == &<IMemAllocator as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IMemAllocatorCallbackTemp {}
 windows_core::imp::define_interface!(IMemAllocatorNotifyCallbackTemp, IMemAllocatorNotifyCallbackTemp_Vtbl, 0x92980b30_c1de_11d2_abf5_00a0c905f375);
 windows_core::imp::interface_hierarchy!(IMemAllocatorNotifyCallbackTemp, windows_core::IUnknown);
@@ -13566,7 +13580,7 @@ impl IPin {
     pub unsafe fn EndFlush(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndFlush)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn NewSegment(&self, tstart: super::REFERENCE_TIME, tstop: super::REFERENCE_TIME, drate: f64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).NewSegment)(windows_core::Interface::as_raw(self), tstart, tstop, drate) }
     }
@@ -13592,12 +13606,12 @@ pub struct IPin_Vtbl {
     pub EndOfStream: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BeginFlush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndFlush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub NewSegment: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFERENCE_TIME, super::REFERENCE_TIME, f64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     NewSegment: usize,
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl"))]
 pub trait IPin_Impl: windows_core::IUnknownImpl {
     fn Connect(&self, preceivepin: windows_core::Ref<IPin>, pmt: *const AM_MEDIA_TYPE) -> windows_core::Result<()>;
     fn ReceiveConnection(&self, pconnector: windows_core::Ref<IPin>, pmt: *const AM_MEDIA_TYPE) -> windows_core::Result<()>;
@@ -13615,7 +13629,7 @@ pub trait IPin_Impl: windows_core::IUnknownImpl {
     fn EndFlush(&self) -> windows_core::Result<()>;
     fn NewSegment(&self, tstart: super::REFERENCE_TIME, tstop: super::REFERENCE_TIME, drate: f64) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl"))]
 impl IPin_Vtbl {
     pub const fn new<Identity: IPin_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Connect<Identity: IPin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preceivepin: *mut core::ffi::c_void, pmt: *const AM_MEDIA_TYPE) -> windows_core::HRESULT {
@@ -13755,7 +13769,7 @@ impl IPin_Vtbl {
         iid == &<IPin as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl"))]
 impl windows_core::RuntimeName for IPin {}
 windows_core::imp::define_interface!(IPinConnection, IPinConnection_Vtbl, 0x4a9a62d3_27d4_403d_91e9_89f540e55534);
 windows_core::imp::interface_hierarchy!(IPinConnection, windows_core::IUnknown);
@@ -13875,7 +13889,7 @@ impl windows_core::RuntimeName for IPinFlowControl {}
 windows_core::imp::define_interface!(IQualityControl, IQualityControl_Vtbl, 0x56a868a5_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IQualityControl, windows_core::IUnknown);
 impl IQualityControl {
-    #[cfg(all(feature = "ksmedia", feature = "objidl"))]
+    #[cfg(all(feature = "mediaobj", feature = "objidl"))]
     pub unsafe fn Notify<P0>(&self, pself: P0, q: Quality) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IBaseFilter>,
@@ -13893,18 +13907,18 @@ impl IQualityControl {
 #[doc(hidden)]
 pub struct IQualityControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "ksmedia", feature = "objidl"))]
+    #[cfg(all(feature = "mediaobj", feature = "objidl"))]
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, Quality) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ksmedia", feature = "objidl")))]
+    #[cfg(not(all(feature = "mediaobj", feature = "objidl")))]
     Notify: usize,
     pub SetSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl"))]
 pub trait IQualityControl_Impl: windows_core::IUnknownImpl {
     fn Notify(&self, pself: windows_core::Ref<IBaseFilter>, q: &Quality) -> windows_core::Result<()>;
     fn SetSink(&self, piqc: windows_core::Ref<IQualityControl>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl"))]
 impl IQualityControl_Vtbl {
     pub const fn new<Identity: IQualityControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Notify<Identity: IQualityControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pself: *mut core::ffi::c_void, q: Quality) -> windows_core::HRESULT {
@@ -13925,7 +13939,7 @@ impl IQualityControl_Vtbl {
         iid == &<IQualityControl as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "ksmedia", feature = "objidl"))]
+#[cfg(all(feature = "mediaobj", feature = "objidl"))]
 impl windows_core::RuntimeName for IQualityControl {}
 #[cfg(feature = "dsound")]
 windows_core::imp::define_interface!(IReferenceClock2, IReferenceClock2_Vtbl, 0x36b73885_c2c8_11cf_8b46_00805f6cef60);
@@ -13944,9 +13958,9 @@ windows_core::imp::interface_hierarchy!(IReferenceClock2, windows_core::IUnknown
 pub struct IReferenceClock2_Vtbl {
     pub base__: super::IReferenceClock_Vtbl,
 }
-#[cfg(all(feature = "dsound", feature = "ksmedia", feature = "winnt"))]
+#[cfg(all(feature = "dsound", feature = "mediaobj", feature = "minwindef", feature = "winnt"))]
 pub trait IReferenceClock2_Impl: super::IReferenceClock_Impl {}
-#[cfg(all(feature = "dsound", feature = "ksmedia", feature = "winnt"))]
+#[cfg(all(feature = "dsound", feature = "mediaobj", feature = "minwindef", feature = "winnt"))]
 impl IReferenceClock2_Vtbl {
     pub const fn new<Identity: IReferenceClock2_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::IReferenceClock_Vtbl::new::<Identity, OFFSET>() }
@@ -13955,16 +13969,16 @@ impl IReferenceClock2_Vtbl {
         iid == &<IReferenceClock2 as windows_core::Interface>::IID || iid == &<super::IReferenceClock as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "dsound", feature = "ksmedia", feature = "winnt"))]
+#[cfg(all(feature = "dsound", feature = "mediaobj", feature = "minwindef", feature = "winnt"))]
 impl windows_core::RuntimeName for IReferenceClock2 {}
 windows_core::imp::define_interface!(IReferenceClockTimerControl, IReferenceClockTimerControl_Vtbl, 0xebec459c_2eca_4d42_a8af_30df557614b8);
 windows_core::imp::interface_hierarchy!(IReferenceClockTimerControl, windows_core::IUnknown);
 impl IReferenceClockTimerControl {
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn SetDefaultTimerResolution(&self, timerresolution: super::REFERENCE_TIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultTimerResolution)(windows_core::Interface::as_raw(self), timerresolution) }
     }
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub unsafe fn GetDefaultTimerResolution(&self) -> windows_core::Result<super::REFERENCE_TIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -13976,21 +13990,21 @@ impl IReferenceClockTimerControl {
 #[doc(hidden)]
 pub struct IReferenceClockTimerControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub SetDefaultTimerResolution: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     SetDefaultTimerResolution: usize,
-    #[cfg(feature = "ksmedia")]
+    #[cfg(feature = "mediaobj")]
     pub GetDefaultTimerResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ksmedia"))]
+    #[cfg(not(feature = "mediaobj"))]
     GetDefaultTimerResolution: usize,
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 pub trait IReferenceClockTimerControl_Impl: windows_core::IUnknownImpl {
     fn SetDefaultTimerResolution(&self, timerresolution: super::REFERENCE_TIME) -> windows_core::Result<()>;
     fn GetDefaultTimerResolution(&self) -> windows_core::Result<super::REFERENCE_TIME>;
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl IReferenceClockTimerControl_Vtbl {
     pub const fn new<Identity: IReferenceClockTimerControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetDefaultTimerResolution<Identity: IReferenceClockTimerControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timerresolution: super::REFERENCE_TIME) -> windows_core::HRESULT {
@@ -14021,7 +14035,7 @@ impl IReferenceClockTimerControl_Vtbl {
         iid == &<IReferenceClockTimerControl as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 impl windows_core::RuntimeName for IReferenceClockTimerControl {}
 windows_core::imp::define_interface!(IRegisterServiceProvider, IRegisterServiceProvider_Vtbl, 0x7b3a2f01_0751_48dd_b556_004785171c54);
 windows_core::imp::interface_hierarchy!(IRegisterServiceProvider, windows_core::IUnknown);
@@ -14351,6 +14365,7 @@ impl windows_core::RuntimeName for IStreamBuilder {}
 windows_core::imp::define_interface!(IVMRAspectRatioControl, IVMRAspectRatioControl_Vtbl, 0xede80b5c_bad6_4623_b537_65586c9f8dfd);
 windows_core::imp::interface_hierarchy!(IVMRAspectRatioControl, windows_core::IUnknown);
 impl IVMRAspectRatioControl {
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetAspectRatioMode(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -14365,16 +14380,21 @@ impl IVMRAspectRatioControl {
 #[doc(hidden)]
 pub struct IVMRAspectRatioControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetAspectRatioMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub GetAspectRatioMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPDWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetAspectRatioMode: usize,
     pub SetAspectRatioMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IVMRAspectRatioControl_Impl: windows_core::IUnknownImpl {
     fn GetAspectRatioMode(&self) -> windows_core::Result<u32>;
     fn SetAspectRatioMode(&self, dwarmode: u32) -> windows_core::Result<()>;
 }
+#[cfg(feature = "minwindef")]
 impl IVMRAspectRatioControl_Vtbl {
     pub const fn new<Identity: IVMRAspectRatioControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetAspectRatioMode<Identity: IVMRAspectRatioControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdwarmode: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAspectRatioMode<Identity: IVMRAspectRatioControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdwarmode: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVMRAspectRatioControl_Impl::GetAspectRatioMode(this) {
@@ -14402,25 +14422,31 @@ impl IVMRAspectRatioControl_Vtbl {
         iid == &<IVMRAspectRatioControl as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IVMRAspectRatioControl {}
 windows_core::imp::define_interface!(IVMRDeinterlaceControl, IVMRDeinterlaceControl_Vtbl, 0xbb057577_0db8_4e6a_87a7_1a8c9a505a0f);
 windows_core::imp::interface_hierarchy!(IVMRDeinterlaceControl, windows_core::IUnknown);
 impl IVMRDeinterlaceControl {
-    pub unsafe fn GetNumberOfDeinterlaceModes(&self, lpvideodescription: *const VMRVideoDesc, lpdwnumdeinterlacemodes: *mut u32, lpdeinterlacemodes: *mut windows_core::GUID) -> windows_core::HRESULT {
+    #[cfg(all(feature = "guiddef", feature = "minwindef"))]
+    pub unsafe fn GetNumberOfDeinterlaceModes(&self, lpvideodescription: *const VMRVideoDesc, lpdwnumdeinterlacemodes: super::LPDWORD, lpdeinterlacemodes: super::LPGUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetNumberOfDeinterlaceModes)(windows_core::Interface::as_raw(self), lpvideodescription, lpdwnumdeinterlacemodes as _, lpdeinterlacemodes as _) }
     }
-    pub unsafe fn GetDeinterlaceModeCaps(&self, lpdeinterlacemode: *const windows_core::GUID, lpvideodescription: *const VMRVideoDesc, lpdeinterlacecaps: *mut VMRDeinterlaceCaps) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn GetDeinterlaceModeCaps(&self, lpdeinterlacemode: super::LPGUID, lpvideodescription: *const VMRVideoDesc, lpdeinterlacecaps: *mut VMRDeinterlaceCaps) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeinterlaceModeCaps)(windows_core::Interface::as_raw(self), lpdeinterlacemode, lpvideodescription, lpdeinterlacecaps as _) }
     }
+    #[cfg(feature = "guiddef")]
     pub unsafe fn GetDeinterlaceMode(&self, dwstreamid: u32) -> windows_core::Result<windows_core::GUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDeinterlaceMode)(windows_core::Interface::as_raw(self), dwstreamid, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDeinterlaceMode(&self, dwstreamid: u32, lpdeinterlacemode: *const windows_core::GUID) -> windows_core::HRESULT {
+    #[cfg(feature = "guiddef")]
+    pub unsafe fn SetDeinterlaceMode(&self, dwstreamid: u32, lpdeinterlacemode: super::LPGUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDeinterlaceMode)(windows_core::Interface::as_raw(self), dwstreamid, lpdeinterlacemode) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetDeinterlacePrefs(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -14430,6 +14456,7 @@ impl IVMRDeinterlaceControl {
     pub unsafe fn SetDeinterlacePrefs(&self, dwdeinterlaceprefs: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDeinterlacePrefs)(windows_core::Interface::as_raw(self), dwdeinterlaceprefs) }
     }
+    #[cfg(feature = "guiddef")]
     pub unsafe fn GetActualDeinterlaceMode(&self, dwstreamid: u32) -> windows_core::Result<windows_core::GUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -14441,38 +14468,58 @@ impl IVMRDeinterlaceControl {
 #[doc(hidden)]
 pub struct IVMRDeinterlaceControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetNumberOfDeinterlaceModes: unsafe extern "system" fn(*mut core::ffi::c_void, *const VMRVideoDesc, *mut u32, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub GetDeinterlaceModeCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const VMRVideoDesc, *mut VMRDeinterlaceCaps) -> windows_core::HRESULT,
-    pub GetDeinterlaceMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub SetDeinterlaceMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub GetDeinterlacePrefs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "guiddef", feature = "minwindef"))]
+    pub GetNumberOfDeinterlaceModes: unsafe extern "system" fn(*mut core::ffi::c_void, *const VMRVideoDesc, super::LPDWORD, super::LPGUID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "minwindef")))]
+    GetNumberOfDeinterlaceModes: usize,
+    #[cfg(feature = "guiddef")]
+    pub GetDeinterlaceModeCaps: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPGUID, *const VMRVideoDesc, *mut VMRDeinterlaceCaps) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetDeinterlaceModeCaps: usize,
+    #[cfg(feature = "guiddef")]
+    pub GetDeinterlaceMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPGUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetDeinterlaceMode: usize,
+    #[cfg(feature = "guiddef")]
+    pub SetDeinterlaceMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPGUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    SetDeinterlaceMode: usize,
+    #[cfg(feature = "minwindef")]
+    pub GetDeinterlacePrefs: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPDWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetDeinterlacePrefs: usize,
     pub SetDeinterlacePrefs: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetActualDeinterlaceMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetActualDeinterlaceMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPGUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetActualDeinterlaceMode: usize,
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
 pub trait IVMRDeinterlaceControl_Impl: windows_core::IUnknownImpl {
-    fn GetNumberOfDeinterlaceModes(&self, lpvideodescription: *const VMRVideoDesc, lpdwnumdeinterlacemodes: *mut u32, lpdeinterlacemodes: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn GetDeinterlaceModeCaps(&self, lpdeinterlacemode: *const windows_core::GUID, lpvideodescription: *const VMRVideoDesc, lpdeinterlacecaps: *mut VMRDeinterlaceCaps) -> windows_core::Result<()>;
+    fn GetNumberOfDeinterlaceModes(&self, lpvideodescription: *const VMRVideoDesc, lpdwnumdeinterlacemodes: super::LPDWORD, lpdeinterlacemodes: super::LPGUID) -> windows_core::Result<()>;
+    fn GetDeinterlaceModeCaps(&self, lpdeinterlacemode: super::LPGUID, lpvideodescription: *const VMRVideoDesc, lpdeinterlacecaps: *mut VMRDeinterlaceCaps) -> windows_core::Result<()>;
     fn GetDeinterlaceMode(&self, dwstreamid: u32) -> windows_core::Result<windows_core::GUID>;
-    fn SetDeinterlaceMode(&self, dwstreamid: u32, lpdeinterlacemode: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn SetDeinterlaceMode(&self, dwstreamid: u32, lpdeinterlacemode: super::LPGUID) -> windows_core::Result<()>;
     fn GetDeinterlacePrefs(&self) -> windows_core::Result<u32>;
     fn SetDeinterlacePrefs(&self, dwdeinterlaceprefs: u32) -> windows_core::Result<()>;
     fn GetActualDeinterlaceMode(&self, dwstreamid: u32) -> windows_core::Result<windows_core::GUID>;
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
 impl IVMRDeinterlaceControl_Vtbl {
     pub const fn new<Identity: IVMRDeinterlaceControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetNumberOfDeinterlaceModes<Identity: IVMRDeinterlaceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpvideodescription: *const VMRVideoDesc, lpdwnumdeinterlacemodes: *mut u32, lpdeinterlacemodes: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNumberOfDeinterlaceModes<Identity: IVMRDeinterlaceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpvideodescription: *const VMRVideoDesc, lpdwnumdeinterlacemodes: super::LPDWORD, lpdeinterlacemodes: super::LPGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVMRDeinterlaceControl_Impl::GetNumberOfDeinterlaceModes(this, core::mem::transmute_copy(&lpvideodescription), core::mem::transmute_copy(&lpdwnumdeinterlacemodes), core::mem::transmute_copy(&lpdeinterlacemodes)).into()
             }
         }
-        unsafe extern "system" fn GetDeinterlaceModeCaps<Identity: IVMRDeinterlaceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdeinterlacemode: *const windows_core::GUID, lpvideodescription: *const VMRVideoDesc, lpdeinterlacecaps: *mut VMRDeinterlaceCaps) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeinterlaceModeCaps<Identity: IVMRDeinterlaceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdeinterlacemode: super::LPGUID, lpvideodescription: *const VMRVideoDesc, lpdeinterlacecaps: *mut VMRDeinterlaceCaps) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVMRDeinterlaceControl_Impl::GetDeinterlaceModeCaps(this, core::mem::transmute_copy(&lpdeinterlacemode), core::mem::transmute_copy(&lpvideodescription), core::mem::transmute_copy(&lpdeinterlacecaps)).into()
             }
         }
-        unsafe extern "system" fn GetDeinterlaceMode<Identity: IVMRDeinterlaceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: u32, lpdeinterlacemode: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeinterlaceMode<Identity: IVMRDeinterlaceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: u32, lpdeinterlacemode: super::LPGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVMRDeinterlaceControl_Impl::GetDeinterlaceMode(this, core::mem::transmute_copy(&dwstreamid)) {
@@ -14484,13 +14531,13 @@ impl IVMRDeinterlaceControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDeinterlaceMode<Identity: IVMRDeinterlaceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: u32, lpdeinterlacemode: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDeinterlaceMode<Identity: IVMRDeinterlaceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: u32, lpdeinterlacemode: super::LPGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVMRDeinterlaceControl_Impl::SetDeinterlaceMode(this, core::mem::transmute_copy(&dwstreamid), core::mem::transmute_copy(&lpdeinterlacemode)).into()
             }
         }
-        unsafe extern "system" fn GetDeinterlacePrefs<Identity: IVMRDeinterlaceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdwdeinterlaceprefs: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeinterlacePrefs<Identity: IVMRDeinterlaceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdwdeinterlaceprefs: super::LPDWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVMRDeinterlaceControl_Impl::GetDeinterlacePrefs(this) {
@@ -14508,7 +14555,7 @@ impl IVMRDeinterlaceControl_Vtbl {
                 IVMRDeinterlaceControl_Impl::SetDeinterlacePrefs(this, core::mem::transmute_copy(&dwdeinterlaceprefs)).into()
             }
         }
-        unsafe extern "system" fn GetActualDeinterlaceMode<Identity: IVMRDeinterlaceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: u32, lpdeinterlacemode: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetActualDeinterlaceMode<Identity: IVMRDeinterlaceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwstreamid: u32, lpdeinterlacemode: super::LPGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVMRDeinterlaceControl_Impl::GetActualDeinterlaceMode(this, core::mem::transmute_copy(&dwstreamid)) {
@@ -14535,6 +14582,7 @@ impl IVMRDeinterlaceControl_Vtbl {
         iid == &<IVMRDeinterlaceControl as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
 impl windows_core::RuntimeName for IVMRDeinterlaceControl {}
 windows_core::imp::define_interface!(IVMRFilterConfig, IVMRFilterConfig_Vtbl, 0x9e5530c5_7034_48b4_bb46_0b8a6efc8e36);
 windows_core::imp::interface_hierarchy!(IVMRFilterConfig, windows_core::IUnknown);
@@ -14679,7 +14727,7 @@ impl IVMRImageCompositor {
     pub unsafe fn InitCompositionTarget<P0, P1>(&self, pd3ddevice: P0, pddsrendertarget: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::IDirectDrawSurface7>,
+        P1: windows_core::Param<super::LPDIRECTDRAWSURFACE7>,
     {
         unsafe { (windows_core::Interface::vtable(self).InitCompositionTarget)(windows_core::Interface::as_raw(self), pd3ddevice.param().abi(), pddsrendertarget.param().abi()) }
     }
@@ -14687,18 +14735,18 @@ impl IVMRImageCompositor {
     pub unsafe fn TermCompositionTarget<P0, P1>(&self, pd3ddevice: P0, pddsrendertarget: P1) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::IDirectDrawSurface7>,
+        P1: windows_core::Param<super::LPDIRECTDRAWSURFACE7>,
     {
         unsafe { (windows_core::Interface::vtable(self).TermCompositionTarget)(windows_core::Interface::as_raw(self), pd3ddevice.param().abi(), pddsrendertarget.param().abi()) }
     }
     pub unsafe fn SetStreamMediaType(&self, dwstrmid: u32, pmt: *const AM_MEDIA_TYPE, ftexture: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStreamMediaType)(windows_core::Interface::as_raw(self), dwstrmid, pmt, ftexture.into()) }
     }
-    #[cfg(all(feature = "ddraw", feature = "ksmedia"))]
+    #[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "minwindef"))]
     pub unsafe fn CompositeImage<P0, P1>(&self, pd3ddevice: P0, pddsrendertarget: P1, pmtrendertarget: *const AM_MEDIA_TYPE, rtstart: super::REFERENCE_TIME, rtend: super::REFERENCE_TIME, dwclrbkgnd: u32, pvideostreaminfo: *const VMRVIDEOSTREAMINFO, cstreams: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::IDirectDrawSurface7>,
+        P1: windows_core::Param<super::LPDIRECTDRAWSURFACE7>,
     {
         unsafe { (windows_core::Interface::vtable(self).CompositeImage)(windows_core::Interface::as_raw(self), pd3ddevice.param().abi(), pddsrendertarget.param().abi(), pmtrendertarget, rtstart, rtend, dwclrbkgnd, pvideostreaminfo, cstreams) }
     }
@@ -14716,19 +14764,19 @@ pub struct IVMRImageCompositor_Vtbl {
     #[cfg(not(feature = "ddraw"))]
     TermCompositionTarget: usize,
     pub SetStreamMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const AM_MEDIA_TYPE, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(all(feature = "ddraw", feature = "ksmedia"))]
+    #[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "minwindef"))]
     pub CompositeImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const AM_MEDIA_TYPE, super::REFERENCE_TIME, super::REFERENCE_TIME, u32, *const VMRVIDEOSTREAMINFO, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ddraw", feature = "ksmedia")))]
+    #[cfg(not(all(feature = "ddraw", feature = "mediaobj", feature = "minwindef")))]
     CompositeImage: usize,
 }
-#[cfg(all(feature = "ddraw", feature = "ksmedia"))]
+#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "minwindef"))]
 pub trait IVMRImageCompositor_Impl: windows_core::IUnknownImpl {
-    fn InitCompositionTarget(&self, pd3ddevice: windows_core::Ref<windows_core::IUnknown>, pddsrendertarget: windows_core::Ref<super::IDirectDrawSurface7>) -> windows_core::Result<()>;
-    fn TermCompositionTarget(&self, pd3ddevice: windows_core::Ref<windows_core::IUnknown>, pddsrendertarget: windows_core::Ref<super::IDirectDrawSurface7>) -> windows_core::Result<()>;
+    fn InitCompositionTarget(&self, pd3ddevice: windows_core::Ref<windows_core::IUnknown>, pddsrendertarget: windows_core::Ref<super::LPDIRECTDRAWSURFACE7>) -> windows_core::Result<()>;
+    fn TermCompositionTarget(&self, pd3ddevice: windows_core::Ref<windows_core::IUnknown>, pddsrendertarget: windows_core::Ref<super::LPDIRECTDRAWSURFACE7>) -> windows_core::Result<()>;
     fn SetStreamMediaType(&self, dwstrmid: u32, pmt: *const AM_MEDIA_TYPE, ftexture: windows_core::BOOL) -> windows_core::Result<()>;
-    fn CompositeImage(&self, pd3ddevice: windows_core::Ref<windows_core::IUnknown>, pddsrendertarget: windows_core::Ref<super::IDirectDrawSurface7>, pmtrendertarget: *const AM_MEDIA_TYPE, rtstart: super::REFERENCE_TIME, rtend: super::REFERENCE_TIME, dwclrbkgnd: u32, pvideostreaminfo: *const VMRVIDEOSTREAMINFO, cstreams: u32) -> windows_core::Result<()>;
+    fn CompositeImage(&self, pd3ddevice: windows_core::Ref<windows_core::IUnknown>, pddsrendertarget: windows_core::Ref<super::LPDIRECTDRAWSURFACE7>, pmtrendertarget: *const AM_MEDIA_TYPE, rtstart: super::REFERENCE_TIME, rtend: super::REFERENCE_TIME, dwclrbkgnd: u32, pvideostreaminfo: *const VMRVIDEOSTREAMINFO, cstreams: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "ddraw", feature = "ksmedia"))]
+#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "minwindef"))]
 impl IVMRImageCompositor_Vtbl {
     pub const fn new<Identity: IVMRImageCompositor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitCompositionTarget<Identity: IVMRImageCompositor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pd3ddevice: *mut core::ffi::c_void, pddsrendertarget: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14767,7 +14815,7 @@ impl IVMRImageCompositor_Vtbl {
         iid == &<IVMRImageCompositor as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "ddraw", feature = "ksmedia"))]
+#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "minwindef"))]
 impl windows_core::RuntimeName for IVMRImageCompositor {}
 windows_core::imp::define_interface!(IVMRImagePresenter, IVMRImagePresenter_Vtbl, 0xce704fe7_e71e_41fb_baa2_c4403e1182f5);
 windows_core::imp::interface_hierarchy!(IVMRImagePresenter, windows_core::IUnknown);
@@ -14778,7 +14826,7 @@ impl IVMRImagePresenter {
     pub unsafe fn StopPresenting(&self, dwuserid: usize) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).StopPresenting)(windows_core::Interface::as_raw(self), dwuserid) }
     }
-    #[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef"))]
+    #[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
     pub unsafe fn PresentImage(&self, dwuserid: usize, lppresinfo: *const VMRPRESENTATIONINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PresentImage)(windows_core::Interface::as_raw(self), dwuserid, lppresinfo) }
     }
@@ -14789,18 +14837,18 @@ pub struct IVMRImagePresenter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartPresenting: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
     pub StopPresenting: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
-    #[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef"))]
+    #[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
     pub PresentImage: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *const VMRPRESENTATIONINFO) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ddraw", feature = "ksmedia", feature = "windef")))]
+    #[cfg(not(all(feature = "ddraw", feature = "mediaobj", feature = "windef")))]
     PresentImage: usize,
 }
-#[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
 pub trait IVMRImagePresenter_Impl: windows_core::IUnknownImpl {
     fn StartPresenting(&self, dwuserid: usize) -> windows_core::Result<()>;
     fn StopPresenting(&self, dwuserid: usize) -> windows_core::Result<()>;
     fn PresentImage(&self, dwuserid: usize, lppresinfo: *const VMRPRESENTATIONINFO) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
 impl IVMRImagePresenter_Vtbl {
     pub const fn new<Identity: IVMRImagePresenter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartPresenting<Identity: IVMRImagePresenter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwuserid: usize) -> windows_core::HRESULT {
@@ -14832,7 +14880,7 @@ impl IVMRImagePresenter_Vtbl {
         iid == &<IVMRImagePresenter as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
 impl windows_core::RuntimeName for IVMRImagePresenter {}
 windows_core::imp::define_interface!(IVMRImagePresenterConfig, IVMRImagePresenterConfig_Vtbl, 0x9f3a1c85_8555_49ba_935f_be5b5b29d178);
 windows_core::imp::interface_hierarchy!(IVMRImagePresenterConfig, windows_core::IUnknown);
@@ -14901,13 +14949,13 @@ impl IVMRImagePresenterExclModeConfig {
     #[cfg(feature = "ddraw")]
     pub unsafe fn SetXlcModeDDObjAndPrimarySurface<P0, P1>(&self, lpddobj: P0, lpprimarysurf: P1) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<super::IDirectDraw7>,
-        P1: windows_core::Param<super::IDirectDrawSurface7>,
+        P0: windows_core::Param<super::LPDIRECTDRAW7>,
+        P1: windows_core::Param<super::LPDIRECTDRAWSURFACE7>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetXlcModeDDObjAndPrimarySurface)(windows_core::Interface::as_raw(self), lpddobj.param().abi(), lpprimarysurf.param().abi()) }
     }
     #[cfg(feature = "ddraw")]
-    pub unsafe fn GetXlcModeDDObjAndPrimarySurface(&self, lpddobj: *mut Option<super::IDirectDraw7>, lpprimarysurf: *mut Option<super::IDirectDrawSurface7>) -> windows_core::HRESULT {
+    pub unsafe fn GetXlcModeDDObjAndPrimarySurface(&self, lpddobj: *mut Option<super::LPDIRECTDRAW7>, lpprimarysurf: *mut Option<super::LPDIRECTDRAWSURFACE7>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetXlcModeDDObjAndPrimarySurface)(windows_core::Interface::as_raw(self), core::mem::transmute(lpddobj), core::mem::transmute(lpprimarysurf)) }
     }
 }
@@ -14926,8 +14974,8 @@ pub struct IVMRImagePresenterExclModeConfig_Vtbl {
 }
 #[cfg(feature = "ddraw")]
 pub trait IVMRImagePresenterExclModeConfig_Impl: IVMRImagePresenterConfig_Impl {
-    fn SetXlcModeDDObjAndPrimarySurface(&self, lpddobj: windows_core::Ref<super::IDirectDraw7>, lpprimarysurf: windows_core::Ref<super::IDirectDrawSurface7>) -> windows_core::Result<()>;
-    fn GetXlcModeDDObjAndPrimarySurface(&self, lpddobj: windows_core::OutRef<super::IDirectDraw7>, lpprimarysurf: windows_core::OutRef<super::IDirectDrawSurface7>) -> windows_core::Result<()>;
+    fn SetXlcModeDDObjAndPrimarySurface(&self, lpddobj: windows_core::Ref<super::LPDIRECTDRAW7>, lpprimarysurf: windows_core::Ref<super::LPDIRECTDRAWSURFACE7>) -> windows_core::Result<()>;
+    fn GetXlcModeDDObjAndPrimarySurface(&self, lpddobj: windows_core::OutRef<super::LPDIRECTDRAW7>, lpprimarysurf: windows_core::OutRef<super::LPDIRECTDRAWSURFACE7>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "ddraw")]
 impl IVMRImagePresenterExclModeConfig_Vtbl {
@@ -14959,16 +15007,16 @@ impl windows_core::RuntimeName for IVMRImagePresenterExclModeConfig {}
 windows_core::imp::define_interface!(IVMRMixerBitmap, IVMRMixerBitmap_Vtbl, 0x1e673275_0257_40aa_af20_7c608d4a0428);
 windows_core::imp::interface_hierarchy!(IVMRMixerBitmap, windows_core::IUnknown);
 impl IVMRMixerBitmap {
-    #[cfg(all(feature = "ddraw", feature = "windef"))]
+    #[cfg(all(feature = "ddraw", feature = "minwindef", feature = "windef"))]
     pub unsafe fn SetAlphaBitmap(&self, pbmpparms: *const VMRALPHABITMAP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAlphaBitmap)(windows_core::Interface::as_raw(self), pbmpparms) }
     }
-    #[cfg(all(feature = "ddraw", feature = "windef"))]
-    pub unsafe fn UpdateAlphaBitmapParameters(&self, pbmpparms: *const VMRALPHABITMAP) -> windows_core::HRESULT {
+    #[cfg(all(feature = "ddraw", feature = "minwindef", feature = "windef"))]
+    pub unsafe fn UpdateAlphaBitmapParameters(&self, pbmpparms: PVMRALPHABITMAP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UpdateAlphaBitmapParameters)(windows_core::Interface::as_raw(self), pbmpparms) }
     }
-    #[cfg(all(feature = "ddraw", feature = "windef"))]
-    pub unsafe fn GetAlphaBitmapParameters(&self, pbmpparms: *mut VMRALPHABITMAP) -> windows_core::HRESULT {
+    #[cfg(all(feature = "ddraw", feature = "minwindef", feature = "windef"))]
+    pub unsafe fn GetAlphaBitmapParameters(&self, pbmpparms: PVMRALPHABITMAP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAlphaBitmapParameters)(windows_core::Interface::as_raw(self), pbmpparms) }
     }
 }
@@ -14976,26 +15024,26 @@ impl IVMRMixerBitmap {
 #[doc(hidden)]
 pub struct IVMRMixerBitmap_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "ddraw", feature = "windef"))]
+    #[cfg(all(feature = "ddraw", feature = "minwindef", feature = "windef"))]
     pub SetAlphaBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, *const VMRALPHABITMAP) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ddraw", feature = "windef")))]
+    #[cfg(not(all(feature = "ddraw", feature = "minwindef", feature = "windef")))]
     SetAlphaBitmap: usize,
-    #[cfg(all(feature = "ddraw", feature = "windef"))]
-    pub UpdateAlphaBitmapParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *const VMRALPHABITMAP) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ddraw", feature = "windef")))]
+    #[cfg(all(feature = "ddraw", feature = "minwindef", feature = "windef"))]
+    pub UpdateAlphaBitmapParameters: unsafe extern "system" fn(*mut core::ffi::c_void, PVMRALPHABITMAP) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "ddraw", feature = "minwindef", feature = "windef")))]
     UpdateAlphaBitmapParameters: usize,
-    #[cfg(all(feature = "ddraw", feature = "windef"))]
-    pub GetAlphaBitmapParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VMRALPHABITMAP) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ddraw", feature = "windef")))]
+    #[cfg(all(feature = "ddraw", feature = "minwindef", feature = "windef"))]
+    pub GetAlphaBitmapParameters: unsafe extern "system" fn(*mut core::ffi::c_void, PVMRALPHABITMAP) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "ddraw", feature = "minwindef", feature = "windef")))]
     GetAlphaBitmapParameters: usize,
 }
-#[cfg(all(feature = "ddraw", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "minwindef", feature = "windef"))]
 pub trait IVMRMixerBitmap_Impl: windows_core::IUnknownImpl {
     fn SetAlphaBitmap(&self, pbmpparms: *const VMRALPHABITMAP) -> windows_core::Result<()>;
-    fn UpdateAlphaBitmapParameters(&self, pbmpparms: *const VMRALPHABITMAP) -> windows_core::Result<()>;
-    fn GetAlphaBitmapParameters(&self, pbmpparms: *mut VMRALPHABITMAP) -> windows_core::Result<()>;
+    fn UpdateAlphaBitmapParameters(&self, pbmpparms: PVMRALPHABITMAP) -> windows_core::Result<()>;
+    fn GetAlphaBitmapParameters(&self, pbmpparms: PVMRALPHABITMAP) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "ddraw", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "minwindef", feature = "windef"))]
 impl IVMRMixerBitmap_Vtbl {
     pub const fn new<Identity: IVMRMixerBitmap_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetAlphaBitmap<Identity: IVMRMixerBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmpparms: *const VMRALPHABITMAP) -> windows_core::HRESULT {
@@ -15004,13 +15052,13 @@ impl IVMRMixerBitmap_Vtbl {
                 IVMRMixerBitmap_Impl::SetAlphaBitmap(this, core::mem::transmute_copy(&pbmpparms)).into()
             }
         }
-        unsafe extern "system" fn UpdateAlphaBitmapParameters<Identity: IVMRMixerBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmpparms: *const VMRALPHABITMAP) -> windows_core::HRESULT {
+        unsafe extern "system" fn UpdateAlphaBitmapParameters<Identity: IVMRMixerBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmpparms: PVMRALPHABITMAP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVMRMixerBitmap_Impl::UpdateAlphaBitmapParameters(this, core::mem::transmute_copy(&pbmpparms)).into()
             }
         }
-        unsafe extern "system" fn GetAlphaBitmapParameters<Identity: IVMRMixerBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmpparms: *mut VMRALPHABITMAP) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAlphaBitmapParameters<Identity: IVMRMixerBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmpparms: PVMRALPHABITMAP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVMRMixerBitmap_Impl::GetAlphaBitmapParameters(this, core::mem::transmute_copy(&pbmpparms)).into()
@@ -15027,7 +15075,7 @@ impl IVMRMixerBitmap_Vtbl {
         iid == &<IVMRMixerBitmap as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "ddraw", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IVMRMixerBitmap {}
 windows_core::imp::define_interface!(IVMRMixerControl, IVMRMixerControl_Vtbl, 0x1c1a17b0_bed0_415d_974b_dc6696131599);
 windows_core::imp::interface_hierarchy!(IVMRMixerControl, windows_core::IUnknown);
@@ -15233,7 +15281,7 @@ impl IVMRMonitorConfig {
     pub unsafe fn GetDefaultMonitor(&self, pguid: *mut VMRGUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDefaultMonitor)(windows_core::Interface::as_raw(self), pguid as _) }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "windef", feature = "winnt"))]
     pub unsafe fn GetAvailableMonitors(&self, pinfo: *mut VMRMONITORINFO, dwmaxinfoarraysize: u32, pdwnumdevices: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAvailableMonitors)(windows_core::Interface::as_raw(self), pinfo as _, dwmaxinfoarraysize, pdwnumdevices as _) }
     }
@@ -15246,12 +15294,12 @@ pub struct IVMRMonitorConfig_Vtbl {
     pub GetMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VMRGUID) -> windows_core::HRESULT,
     pub SetDefaultMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, *const VMRGUID) -> windows_core::HRESULT,
     pub GetDefaultMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VMRGUID) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "windef", feature = "winnt"))]
     pub GetAvailableMonitors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VMRMONITORINFO, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "windef", feature = "winnt")))]
     GetAvailableMonitors: usize,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 pub trait IVMRMonitorConfig_Impl: windows_core::IUnknownImpl {
     fn SetMonitor(&self, pguid: *const VMRGUID) -> windows_core::Result<()>;
     fn GetMonitor(&self, pguid: *mut VMRGUID) -> windows_core::Result<()>;
@@ -15259,7 +15307,7 @@ pub trait IVMRMonitorConfig_Impl: windows_core::IUnknownImpl {
     fn GetDefaultMonitor(&self, pguid: *mut VMRGUID) -> windows_core::Result<()>;
     fn GetAvailableMonitors(&self, pinfo: *mut VMRMONITORINFO, dwmaxinfoarraysize: u32, pdwnumdevices: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl IVMRMonitorConfig_Vtbl {
     pub const fn new<Identity: IVMRMonitorConfig_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetMonitor<Identity: IVMRMonitorConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguid: *const VMRGUID) -> windows_core::HRESULT {
@@ -15305,7 +15353,7 @@ impl IVMRMonitorConfig_Vtbl {
         iid == &<IVMRMonitorConfig as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IVMRMonitorConfig {}
 windows_core::imp::define_interface!(IVMRSurface, IVMRSurface_Vtbl, 0xa9849bbe_9ec8_4263_b764_62730f0d15d0);
 windows_core::imp::interface_hierarchy!(IVMRSurface, windows_core::IUnknown);
@@ -15323,7 +15371,7 @@ impl IVMRSurface {
         unsafe { (windows_core::Interface::vtable(self).UnlockSurface)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "ddraw")]
-    pub unsafe fn GetSurface(&self) -> windows_core::Result<super::IDirectDrawSurface7> {
+    pub unsafe fn GetSurface(&self) -> windows_core::Result<super::LPDIRECTDRAWSURFACE7> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSurface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -15347,7 +15395,7 @@ pub trait IVMRSurface_Impl: windows_core::IUnknownImpl {
     fn IsSurfaceLocked(&self) -> windows_core::Result<()>;
     fn LockSurface(&self) -> windows_core::Result<*mut u8>;
     fn UnlockSurface(&self) -> windows_core::Result<()>;
-    fn GetSurface(&self) -> windows_core::Result<super::IDirectDrawSurface7>;
+    fn GetSurface(&self) -> windows_core::Result<super::LPDIRECTDRAWSURFACE7>;
 }
 #[cfg(feature = "ddraw")]
 impl IVMRSurface_Vtbl {
@@ -15406,7 +15454,7 @@ windows_core::imp::define_interface!(IVMRSurfaceAllocator, IVMRSurfaceAllocator_
 windows_core::imp::interface_hierarchy!(IVMRSurfaceAllocator, windows_core::IUnknown);
 impl IVMRSurfaceAllocator {
     #[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef", feature = "wingdi"))]
-    pub unsafe fn AllocateSurface(&self, dwuserid: usize, lpallocinfo: *const VMRALLOCATIONINFO, lpdwactualbuffers: *mut u32, lplpsurface: *mut Option<super::IDirectDrawSurface7>) -> windows_core::HRESULT {
+    pub unsafe fn AllocateSurface(&self, dwuserid: usize, lpallocinfo: *const VMRALLOCATIONINFO, lpdwactualbuffers: *mut u32, lplpsurface: *mut Option<super::LPDIRECTDRAWSURFACE7>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AllocateSurface)(windows_core::Interface::as_raw(self), dwuserid, lpallocinfo, lpdwactualbuffers as _, core::mem::transmute(lplpsurface)) }
     }
     pub unsafe fn FreeSurface(&self, dwid: usize) -> windows_core::HRESULT {
@@ -15415,7 +15463,7 @@ impl IVMRSurfaceAllocator {
     #[cfg(feature = "ddraw")]
     pub unsafe fn PrepareSurface<P1>(&self, dwuserid: usize, lpsurface: P1, dwsurfaceflags: u32) -> windows_core::HRESULT
     where
-        P1: windows_core::Param<super::IDirectDrawSurface7>,
+        P1: windows_core::Param<super::LPDIRECTDRAWSURFACE7>,
     {
         unsafe { (windows_core::Interface::vtable(self).PrepareSurface)(windows_core::Interface::as_raw(self), dwuserid, lpsurface.param().abi(), dwsurfaceflags) }
     }
@@ -15443,9 +15491,9 @@ pub struct IVMRSurfaceAllocator_Vtbl {
 }
 #[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef", feature = "wingdi"))]
 pub trait IVMRSurfaceAllocator_Impl: windows_core::IUnknownImpl {
-    fn AllocateSurface(&self, dwuserid: usize, lpallocinfo: *const VMRALLOCATIONINFO, lpdwactualbuffers: *mut u32, lplpsurface: windows_core::OutRef<super::IDirectDrawSurface7>) -> windows_core::Result<()>;
+    fn AllocateSurface(&self, dwuserid: usize, lpallocinfo: *const VMRALLOCATIONINFO, lpdwactualbuffers: *mut u32, lplpsurface: windows_core::OutRef<super::LPDIRECTDRAWSURFACE7>) -> windows_core::Result<()>;
     fn FreeSurface(&self, dwid: usize) -> windows_core::Result<()>;
-    fn PrepareSurface(&self, dwuserid: usize, lpsurface: windows_core::Ref<super::IDirectDrawSurface7>, dwsurfaceflags: u32) -> windows_core::Result<()>;
+    fn PrepareSurface(&self, dwuserid: usize, lpsurface: windows_core::Ref<super::LPDIRECTDRAWSURFACE7>, dwsurfaceflags: u32) -> windows_core::Result<()>;
     fn AdviseNotify(&self, lpivmrsurfallocnotify: windows_core::Ref<IVMRSurfaceAllocatorNotify>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef", feature = "wingdi"))]
@@ -15501,14 +15549,14 @@ impl IVMRSurfaceAllocatorNotify {
     #[cfg(all(feature = "ddraw", feature = "windef"))]
     pub unsafe fn SetDDrawDevice<P0>(&self, lpddrawdevice: P0, hmonitor: super::HMONITOR) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<super::IDirectDraw7>,
+        P0: windows_core::Param<super::LPDIRECTDRAW7>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDDrawDevice)(windows_core::Interface::as_raw(self), lpddrawdevice.param().abi(), hmonitor) }
     }
     #[cfg(all(feature = "ddraw", feature = "windef"))]
     pub unsafe fn ChangeDDrawDevice<P0>(&self, lpddrawdevice: P0, hmonitor: super::HMONITOR) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<super::IDirectDraw7>,
+        P0: windows_core::Param<super::LPDIRECTDRAW7>,
     {
         unsafe { (windows_core::Interface::vtable(self).ChangeDDrawDevice)(windows_core::Interface::as_raw(self), lpddrawdevice.param().abi(), hmonitor) }
     }
@@ -15546,8 +15594,8 @@ pub struct IVMRSurfaceAllocatorNotify_Vtbl {
 #[cfg(all(feature = "ddraw", feature = "windef"))]
 pub trait IVMRSurfaceAllocatorNotify_Impl: windows_core::IUnknownImpl {
     fn AdviseSurfaceAllocator(&self, dwuserid: usize, lpivrmsurfaceallocator: windows_core::Ref<IVMRSurfaceAllocator>) -> windows_core::Result<()>;
-    fn SetDDrawDevice(&self, lpddrawdevice: windows_core::Ref<super::IDirectDraw7>, hmonitor: super::HMONITOR) -> windows_core::Result<()>;
-    fn ChangeDDrawDevice(&self, lpddrawdevice: windows_core::Ref<super::IDirectDraw7>, hmonitor: super::HMONITOR) -> windows_core::Result<()>;
+    fn SetDDrawDevice(&self, lpddrawdevice: windows_core::Ref<super::LPDIRECTDRAW7>, hmonitor: super::HMONITOR) -> windows_core::Result<()>;
+    fn ChangeDDrawDevice(&self, lpddrawdevice: windows_core::Ref<super::LPDIRECTDRAW7>, hmonitor: super::HMONITOR) -> windows_core::Result<()>;
     fn RestoreDDrawSurfaces(&self) -> windows_core::Result<()>;
     fn NotifyEvent(&self, eventcode: i32, param1: isize, param2: isize) -> windows_core::Result<()>;
     fn SetBorderColor(&self, clrborder: super::COLORREF) -> windows_core::Result<()>;
@@ -15611,7 +15659,7 @@ windows_core::imp::define_interface!(IVMRVideoStreamControl, IVMRVideoStreamCont
 windows_core::imp::interface_hierarchy!(IVMRVideoStreamControl, windows_core::IUnknown);
 impl IVMRVideoStreamControl {
     #[cfg(feature = "ddraw")]
-    pub unsafe fn SetColorKey(&self, lpclrkey: *const super::DDCOLORKEY) -> windows_core::HRESULT {
+    pub unsafe fn SetColorKey(&self, lpclrkey: super::LPDDCOLORKEY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), lpclrkey) }
     }
     #[cfg(feature = "ddraw")]
@@ -15636,11 +15684,11 @@ impl IVMRVideoStreamControl {
 pub struct IVMRVideoStreamControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "ddraw")]
-    pub SetColorKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::DDCOLORKEY) -> windows_core::HRESULT,
+    pub SetColorKey: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPDDCOLORKEY) -> windows_core::HRESULT,
     #[cfg(not(feature = "ddraw"))]
     SetColorKey: usize,
     #[cfg(feature = "ddraw")]
-    pub GetColorKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DDCOLORKEY) -> windows_core::HRESULT,
+    pub GetColorKey: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPDDCOLORKEY) -> windows_core::HRESULT,
     #[cfg(not(feature = "ddraw"))]
     GetColorKey: usize,
     pub SetStreamActiveState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -15648,7 +15696,7 @@ pub struct IVMRVideoStreamControl_Vtbl {
 }
 #[cfg(feature = "ddraw")]
 pub trait IVMRVideoStreamControl_Impl: windows_core::IUnknownImpl {
-    fn SetColorKey(&self, lpclrkey: *const super::DDCOLORKEY) -> windows_core::Result<()>;
+    fn SetColorKey(&self, lpclrkey: super::LPDDCOLORKEY) -> windows_core::Result<()>;
     fn GetColorKey(&self) -> windows_core::Result<super::DDCOLORKEY>;
     fn SetStreamActiveState(&self, factive: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetStreamActiveState(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -15656,13 +15704,13 @@ pub trait IVMRVideoStreamControl_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "ddraw")]
 impl IVMRVideoStreamControl_Vtbl {
     pub const fn new<Identity: IVMRVideoStreamControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetColorKey<Identity: IVMRVideoStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpclrkey: *const super::DDCOLORKEY) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetColorKey<Identity: IVMRVideoStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpclrkey: super::LPDDCOLORKEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVMRVideoStreamControl_Impl::SetColorKey(this, core::mem::transmute_copy(&lpclrkey)).into()
             }
         }
-        unsafe extern "system" fn GetColorKey<Identity: IVMRVideoStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpclrkey: *mut super::DDCOLORKEY) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetColorKey<Identity: IVMRVideoStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpclrkey: super::LPDDCOLORKEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVMRVideoStreamControl_Impl::GetColorKey(this) {
@@ -15719,11 +15767,11 @@ impl IVMRWindowlessControl {
         unsafe { (windows_core::Interface::vtable(self).GetMaxIdealVideoSize)(windows_core::Interface::as_raw(self), lpwidth as _, lpheight as _) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn SetVideoPosition(&self, lpsrcrect: *const super::RECT, lpdstrect: *const super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn SetVideoPosition(&self, lpsrcrect: super::LPRECT, lpdstrect: super::LPRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVideoPosition)(windows_core::Interface::as_raw(self), lpsrcrect, lpdstrect) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn GetVideoPosition(&self, lpsrcrect: *mut super::RECT, lpdstrect: *mut super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn GetVideoPosition(&self, lpsrcrect: super::LPRECT, lpdstrect: super::LPRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetVideoPosition)(windows_core::Interface::as_raw(self), lpsrcrect as _, lpdstrect as _) }
     }
     pub unsafe fn GetAspectRatioMode(&self) -> windows_core::Result<u32> {
@@ -15783,11 +15831,11 @@ pub struct IVMRWindowlessControl_Vtbl {
     pub GetMinIdealVideoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetMaxIdealVideoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub SetVideoPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT, *const super::RECT) -> windows_core::HRESULT,
+    pub SetVideoPosition: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPRECT, super::LPRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     SetVideoPosition: usize,
     #[cfg(feature = "windef")]
-    pub GetVideoPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::RECT, *mut super::RECT) -> windows_core::HRESULT,
+    pub GetVideoPosition: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPRECT, super::LPRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     GetVideoPosition: usize,
     pub GetAspectRatioMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -15824,8 +15872,8 @@ pub trait IVMRWindowlessControl_Impl: windows_core::IUnknownImpl {
     fn GetNativeVideoSize(&self, lpwidth: *mut i32, lpheight: *mut i32, lparwidth: *mut i32, lparheight: *mut i32) -> windows_core::Result<()>;
     fn GetMinIdealVideoSize(&self, lpwidth: *mut i32, lpheight: *mut i32) -> windows_core::Result<()>;
     fn GetMaxIdealVideoSize(&self, lpwidth: *mut i32, lpheight: *mut i32) -> windows_core::Result<()>;
-    fn SetVideoPosition(&self, lpsrcrect: *const super::RECT, lpdstrect: *const super::RECT) -> windows_core::Result<()>;
-    fn GetVideoPosition(&self, lpsrcrect: *mut super::RECT, lpdstrect: *mut super::RECT) -> windows_core::Result<()>;
+    fn SetVideoPosition(&self, lpsrcrect: super::LPRECT, lpdstrect: super::LPRECT) -> windows_core::Result<()>;
+    fn GetVideoPosition(&self, lpsrcrect: super::LPRECT, lpdstrect: super::LPRECT) -> windows_core::Result<()>;
     fn GetAspectRatioMode(&self) -> windows_core::Result<u32>;
     fn SetAspectRatioMode(&self, aspectratiomode: u32) -> windows_core::Result<()>;
     fn SetVideoClippingWindow(&self, hwnd: super::HWND) -> windows_core::Result<()>;
@@ -15858,13 +15906,13 @@ impl IVMRWindowlessControl_Vtbl {
                 IVMRWindowlessControl_Impl::GetMaxIdealVideoSize(this, core::mem::transmute_copy(&lpwidth), core::mem::transmute_copy(&lpheight)).into()
             }
         }
-        unsafe extern "system" fn SetVideoPosition<Identity: IVMRWindowlessControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpsrcrect: *const super::RECT, lpdstrect: *const super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetVideoPosition<Identity: IVMRWindowlessControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpsrcrect: super::LPRECT, lpdstrect: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVMRWindowlessControl_Impl::SetVideoPosition(this, core::mem::transmute_copy(&lpsrcrect), core::mem::transmute_copy(&lpdstrect)).into()
             }
         }
-        unsafe extern "system" fn GetVideoPosition<Identity: IVMRWindowlessControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpsrcrect: *mut super::RECT, lpdstrect: *mut super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVideoPosition<Identity: IVMRWindowlessControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpsrcrect: super::LPRECT, lpdstrect: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVMRWindowlessControl_Impl::GetVideoPosition(this, core::mem::transmute_copy(&lpsrcrect), core::mem::transmute_copy(&lpdstrect)).into()
@@ -16047,9 +16095,9 @@ windows_core::imp::interface_hierarchy!(IVideoEncoder, windows_core::IUnknown, I
 pub struct IVideoEncoder_Vtbl {
     pub base__: IEncoderAPI_Vtbl,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IVideoEncoder_Impl: IEncoderAPI_Impl {}
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IVideoEncoder_Vtbl {
     pub const fn new<Identity: IVideoEncoder_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IEncoderAPI_Vtbl::new::<Identity, OFFSET>() }
@@ -16058,7 +16106,7 @@ impl IVideoEncoder_Vtbl {
         iid == &<IVideoEncoder as windows_core::Interface>::IID || iid == &<IEncoderAPI as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IVideoEncoder {}
 windows_core::imp::define_interface!(IVideoFrameStep, IVideoFrameStep_Vtbl, 0xe46a9787_2b71_444d_a4b5_1fab7b708d6a);
 windows_core::imp::interface_hierarchy!(IVideoFrameStep, windows_core::IUnknown);
@@ -16128,15 +16176,19 @@ pub type InterleavingMode = i32;
 pub type LPAMCOPPCommand = *mut AMCOPPCommand;
 pub type LPAMCOPPStatusInput = *mut AMCOPPStatusInput;
 pub type LPAMCOPPStatusOutput = *mut AMCOPPStatusOutput;
+#[cfg(feature = "oaidl")]
+pub type LPMEDIAPROPERTYBAG = IMediaPropertyBag;
+#[cfg(feature = "objidl")]
+pub type LPPERSISTMEDIAPROPERTYBAG = IPersistMediaPropertyBag;
 pub const MAX_FILTER_NAME: i32 = 128;
-pub const MAX_NUMBER_OF_STREAMS: i32 = 16;
+pub const MAX_NUMBER_OF_STREAMS: __MIDL___MIDL_itf_strmif_0000_0122_0001 = 16;
 pub const MAX_PIN_NAME: i32 = 128;
-pub const MERIT_DO_NOT_USE: i32 = 2097152;
-pub const MERIT_HW_COMPRESSOR: i32 = 1048656;
-pub const MERIT_NORMAL: i32 = 6291456;
-pub const MERIT_PREFERRED: i32 = 8388608;
-pub const MERIT_SW_COMPRESSOR: i32 = 1048576;
-pub const MERIT_UNLIKELY: i32 = 4194304;
+pub const MERIT_DO_NOT_USE: __MIDL_IFilterMapper_0001 = 2097152;
+pub const MERIT_HW_COMPRESSOR: __MIDL_IFilterMapper_0001 = 1048656;
+pub const MERIT_NORMAL: __MIDL_IFilterMapper_0001 = 6291456;
+pub const MERIT_PREFERRED: __MIDL_IFilterMapper_0001 = 8388608;
+pub const MERIT_SW_COMPRESSOR: __MIDL_IFilterMapper_0001 = 1048576;
+pub const MERIT_UNLIKELY: __MIDL_IFilterMapper_0001 = 4194304;
 pub const MPEG2_PROGRAM_DIRECTORY_PES_PACKET: i32 = 2;
 pub const MPEG2_PROGRAM_ELEMENTARY_STREAM: i32 = 1;
 pub const MPEG2_PROGRAM_PACK_HEADER: i32 = 3;
@@ -16170,7 +16222,27 @@ pub struct NORMALIZEDRECT {
     pub right: f32,
     pub bottom: f32,
 }
+pub type PAMDEVMEMORYALLOCATOR = IAMDevMemoryAllocator;
+pub type PAMDEVMEMORYCONTROL = IAMDevMemoryControl;
+pub type PAMOVIESETUP = IAMovieSetup;
+pub type PAMPHYSICALPININFO = IAMPhysicalPinInfo;
+pub type PAMSTREAMSELECT = IAMStreamSelect;
 pub type PDVINFO = *mut DVINFO;
+pub type PENUMFILTERS = IEnumFilters;
+pub type PENUMMEDIATYPES = IEnumMediaTypes;
+pub type PENUMPINS = IEnumPins;
+pub type PENUMREGFILTERS = IEnumRegFilters;
+pub type PEXTDEVICE = IAMExtDevice;
+pub type PFILESINKFILTER2 = IFileSinkFilter2;
+#[cfg(feature = "objidl")]
+pub type PFILTER = IBaseFilter;
+pub type PFILTERFILESINK = IFileSinkFilter;
+pub type PFILTERFILESOURCE = IFileSourceFilter;
+pub type PFILTERGRAPH = IFilterGraph;
+pub type PIAMEXTTRANSPORT = IAMExtTransport;
+pub type PIAMTIMECODEDISPLAY = IAMTimecodeDisplay;
+pub type PIAMTIMECODEGENERATOR = IAMTimecodeGenerator;
+pub type PIAMTIMECODEREADER = IAMTimecodeReader;
 pub const PINDIR_INPUT: PIN_DIRECTION = 0;
 pub const PINDIR_OUTPUT: PIN_DIRECTION = 1;
 pub type PIN_DIRECTION = i32;
@@ -16188,8 +16260,25 @@ impl Default for PIN_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
+pub type PMEDIAEVENTSINK = IMediaEventSink;
+#[cfg(feature = "objidl")]
+pub type PMEDIAFILTER = IMediaFilter;
+pub type PMEDIASAMPLE = IMediaSample;
+pub type PMEDIASAMPLE2 = IMediaSample2;
+pub type PMEDIASEEKING = IMediaSeeking;
+pub type PMEMALLOCATOR = IMemAllocator;
+pub type PMEMINPUTPIN = IMemInputPin;
 pub type PNORMALIZEDRECT = *mut NORMALIZEDRECT;
-#[cfg(all(feature = "ddraw", feature = "windef"))]
+pub type POVERLAY = IOverlay;
+pub type POVERLAYNOTIFY = IOverlayNotify;
+pub type POVERLAYNOTIFY2 = IOverlayNotify2;
+pub type PPIN = IPin;
+pub type PQUALITYCONTROL = IQualityControl;
+#[cfg(feature = "dsound")]
+pub type PREFERENCECLOCK = super::IReferenceClock;
+#[cfg(feature = "dsound")]
+pub type PREFERENCECLOCK2 = IReferenceClock2;
+#[cfg(all(feature = "ddraw", feature = "minwindef", feature = "windef"))]
 pub type PVMRALPHABITMAP = *mut VMRALPHABITMAP;
 pub const PhysConn_Audio_1394: PhysicalConnectorType = 4103;
 pub const PhysConn_Audio_AESDigital: PhysicalConnectorType = 4099;
@@ -16218,7 +16307,7 @@ pub const PhysConn_Video_VideoEncoder: PhysicalConnectorType = 13;
 pub const PhysConn_Video_YRYBY: PhysicalConnectorType = 5;
 pub type PhysicalConnectorType = i32;
 #[repr(C)]
-#[cfg(feature = "ksmedia")]
+#[cfg(feature = "mediaobj")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Quality {
     pub Type: QualityMessageType,
@@ -16227,6 +16316,7 @@ pub struct Quality {
     pub TimeStamp: super::REFERENCE_TIME,
 }
 pub type QualityMessageType = i32;
+pub type REFTIME = f64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REGFILTER {
@@ -16305,10 +16395,10 @@ pub struct REGPINTYPES {
     pub clsMajorType: *const windows_core::GUID,
     pub clsMinorType: *const windows_core::GUID,
 }
-pub const REG_PINFLAG_B_MANY: i32 = 4;
-pub const REG_PINFLAG_B_OUTPUT: i32 = 8;
-pub const REG_PINFLAG_B_RENDERER: i32 = 2;
-pub const REG_PINFLAG_B_ZERO: i32 = 1;
+pub const REG_PINFLAG_B_MANY: __MIDL___MIDL_itf_strmif_0000_0023_0001 = 4;
+pub const REG_PINFLAG_B_OUTPUT: __MIDL___MIDL_itf_strmif_0000_0023_0001 = 8;
+pub const REG_PINFLAG_B_RENDERER: __MIDL___MIDL_itf_strmif_0000_0023_0001 = 2;
+pub const REG_PINFLAG_B_ZERO: __MIDL___MIDL_itf_strmif_0000_0023_0001 = 1;
 pub const REMFILTERF_LEAVECONNECTED: _REM_FILTER_FLAGS = 1;
 pub const RenderPrefs_AllowOffscreen: VMRRenderPrefs = 0;
 pub const RenderPrefs_AllowOverlays: VMRRenderPrefs = 0;
@@ -16362,9 +16452,7 @@ pub const UOP_FLAG_ShowMenu_Title: VALID_UOP_FLAG = 1024;
 pub const UOP_FLAG_Still_Off: VALID_UOP_FLAG = 262144;
 pub const UOP_FLAG_Stop: VALID_UOP_FLAG = 8;
 pub type VALID_UOP_FLAG = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct VALID_UOP_SOMTHING_OR_OTHER(pub u32);
+pub type VALID_UOP_SOMTHING_OR_OTHER = u32;
 #[repr(C)]
 #[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16405,15 +16493,15 @@ pub struct VMRALLOCATIONINFO {
     pub szNativeSize: super::SIZE,
 }
 #[repr(C)]
-#[cfg(all(feature = "ddraw", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct VMRALPHABITMAP {
     pub dwFlags: u32,
     pub hdc: super::HDC,
-    pub pDDS: core::mem::ManuallyDrop<Option<super::IDirectDrawSurface7>>,
+    pub pDDS: Option<super::LPDIRECTDRAWSURFACE7>,
     pub rSrc: super::RECT,
     pub rDest: NORMALIZEDRECT,
-    pub fAlpha: f32,
+    pub fAlpha: super::FLOAT,
     pub clrSrcKey: super::COLORREF,
 }
 pub const VMRBITMAP_DISABLE: i32 = 1;
@@ -16445,8 +16533,8 @@ pub struct VMRGUID {
     pub GUID: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "windef", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct VMRMONITORINFO {
     pub guid: VMRGUID,
     pub rcMonitor: super::RECT,
@@ -16454,13 +16542,13 @@ pub struct VMRMONITORINFO {
     pub dwFlags: u32,
     pub szDevice: [u16; 32],
     pub szDescription: [u16; 256],
-    pub liDriverVersion: i64,
+    pub liDriverVersion: super::LARGE_INTEGER,
     pub dwVendorId: u32,
     pub dwDeviceId: u32,
     pub dwSubSysId: u32,
     pub dwRevision: u32,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 impl Default for VMRMONITORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -16473,11 +16561,11 @@ pub const VMRMode_Renderless: VMRMode = 4;
 pub const VMRMode_Windowed: VMRMode = 1;
 pub const VMRMode_Windowless: VMRMode = 2;
 #[repr(C)]
-#[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct VMRPRESENTATIONINFO {
     pub dwFlags: u32,
-    pub lpSurf: core::mem::ManuallyDrop<Option<super::IDirectDrawSurface7>>,
+    pub lpSurf: Option<super::LPDIRECTDRAWSURFACE7>,
     pub rtStart: super::REFERENCE_TIME,
     pub rtEnd: super::REFERENCE_TIME,
     pub szAspectRatio: super::SIZE,
@@ -16495,14 +16583,14 @@ pub const VMRSample_SyncPoint: VMRPresentationFlags = 1;
 pub const VMRSample_TimeValid: VMRPresentationFlags = 8;
 pub type VMRSurfaceAllocationFlags = i32;
 #[repr(C)]
-#[cfg(feature = "ddraw")]
+#[cfg(all(feature = "ddraw", feature = "minwindef"))]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct VMRVIDEOSTREAMINFO {
-    pub pddsVideoSurface: core::mem::ManuallyDrop<Option<super::IDirectDrawSurface7>>,
+    pub pddsVideoSurface: Option<super::LPDIRECTDRAWSURFACE7>,
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub dwStrmID: u32,
-    pub fAlpha: f32,
+    pub fAlpha: super::FLOAT,
     pub ddClrKey: super::DDCOLORKEY,
     pub rNormal: NORMALIZEDRECT,
 }
@@ -16569,5 +16657,10 @@ pub type _DVENCODERRESOLUTION = i32;
 pub type _DVENCODERVIDEOFORMAT = i32;
 pub type _DVRESOLUTION = i32;
 pub type _REM_FILTER_FLAGS = i32;
+pub type __MIDL_IFilterMapper_0001 = i32;
+pub type __MIDL___MIDL_itf_strmif_0000_0023_0001 = i32;
+pub type __MIDL___MIDL_itf_strmif_0000_0026_0001 = i32;
+pub type __MIDL___MIDL_itf_strmif_0000_0026_0002 = i32;
+pub type __MIDL___MIDL_itf_strmif_0000_0122_0001 = i32;
 pub type tagAM_MEDIAEVENT_FLAGS = i32;
 pub type tagAM_SAMPLE_PROPERTY_FLAGS = i32;

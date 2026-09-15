@@ -597,14 +597,14 @@ impl windows_core::RuntimeName for IWiaDataCallback {}
 windows_core::imp::define_interface!(IWiaDataTransfer, IWiaDataTransfer_Vtbl, 0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c);
 windows_core::imp::interface_hierarchy!(IWiaDataTransfer, windows_core::IUnknown);
 impl IWiaDataTransfer {
-    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
-    pub unsafe fn idtGetData<P1>(&self, pmedium: *mut super::STGMEDIUM, piwiadatacallback: P1) -> windows_core::HRESULT
+    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn idtGetData<P1>(&self, pmedium: super::LPSTGMEDIUM, piwiadatacallback: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IWiaDataCallback>,
     {
         unsafe { (windows_core::Interface::vtable(self).idtGetData)(windows_core::Interface::as_raw(self), pmedium, piwiadatacallback.param().abi()) }
     }
-    pub unsafe fn idtGetBandedData<P1>(&self, pwiadatatransinfo: *const WIA_DATA_TRANSFER_INFO, piwiadatacallback: P1) -> windows_core::HRESULT
+    pub unsafe fn idtGetBandedData<P1>(&self, pwiadatatransinfo: PWIA_DATA_TRANSFER_INFO, piwiadatacallback: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IWiaDataCallback>,
     {
@@ -619,7 +619,7 @@ impl IWiaDataTransfer {
             (windows_core::Interface::vtable(self).idtEnumWIA_FORMAT_INFO)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn idtGetExtendedTransferInfo(&self, pextendedtransferinfo: *mut WIA_EXTENDED_TRANSFER_INFO) -> windows_core::HRESULT {
+    pub unsafe fn idtGetExtendedTransferInfo(&self, pextendedtransferinfo: PWIA_EXTENDED_TRANSFER_INFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).idtGetExtendedTransferInfo)(windows_core::Interface::as_raw(self), pextendedtransferinfo as _) }
     }
 }
@@ -627,33 +627,33 @@ impl IWiaDataTransfer {
 #[doc(hidden)]
 pub struct IWiaDataTransfer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
-    pub idtGetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::STGMEDIUM, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes")))]
+    #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub idtGetData: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPSTGMEDIUM, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     idtGetData: usize,
-    pub idtGetBandedData: unsafe extern "system" fn(*mut core::ffi::c_void, *const WIA_DATA_TRANSFER_INFO, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub idtGetBandedData: unsafe extern "system" fn(*mut core::ffi::c_void, PWIA_DATA_TRANSFER_INFO, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub idtQueryGetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const WIA_FORMAT_INFO) -> windows_core::HRESULT,
     pub idtEnumWIA_FORMAT_INFO: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub idtGetExtendedTransferInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WIA_EXTENDED_TRANSFER_INFO) -> windows_core::HRESULT,
+    pub idtGetExtendedTransferInfo: unsafe extern "system" fn(*mut core::ffi::c_void, PWIA_EXTENDED_TRANSFER_INFO) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWiaDataTransfer_Impl: windows_core::IUnknownImpl {
-    fn idtGetData(&self, pmedium: *mut super::STGMEDIUM, piwiadatacallback: windows_core::Ref<IWiaDataCallback>) -> windows_core::Result<()>;
-    fn idtGetBandedData(&self, pwiadatatransinfo: *const WIA_DATA_TRANSFER_INFO, piwiadatacallback: windows_core::Ref<IWiaDataCallback>) -> windows_core::Result<()>;
+    fn idtGetData(&self, pmedium: super::LPSTGMEDIUM, piwiadatacallback: windows_core::Ref<IWiaDataCallback>) -> windows_core::Result<()>;
+    fn idtGetBandedData(&self, pwiadatatransinfo: PWIA_DATA_TRANSFER_INFO, piwiadatacallback: windows_core::Ref<IWiaDataCallback>) -> windows_core::Result<()>;
     fn idtQueryGetData(&self, pfe: *const WIA_FORMAT_INFO) -> windows_core::Result<()>;
     fn idtEnumWIA_FORMAT_INFO(&self) -> windows_core::Result<IEnumWIA_FORMAT_INFO>;
-    fn idtGetExtendedTransferInfo(&self, pextendedtransferinfo: *mut WIA_EXTENDED_TRANSFER_INFO) -> windows_core::Result<()>;
+    fn idtGetExtendedTransferInfo(&self, pextendedtransferinfo: PWIA_EXTENDED_TRANSFER_INFO) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWiaDataTransfer_Vtbl {
     pub const fn new<Identity: IWiaDataTransfer_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn idtGetData<Identity: IWiaDataTransfer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmedium: *mut super::STGMEDIUM, piwiadatacallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn idtGetData<Identity: IWiaDataTransfer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmedium: super::LPSTGMEDIUM, piwiadatacallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWiaDataTransfer_Impl::idtGetData(this, core::mem::transmute_copy(&pmedium), core::mem::transmute_copy(&piwiadatacallback)).into()
             }
         }
-        unsafe extern "system" fn idtGetBandedData<Identity: IWiaDataTransfer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwiadatatransinfo: *const WIA_DATA_TRANSFER_INFO, piwiadatacallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn idtGetBandedData<Identity: IWiaDataTransfer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwiadatatransinfo: PWIA_DATA_TRANSFER_INFO, piwiadatacallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWiaDataTransfer_Impl::idtGetBandedData(this, core::mem::transmute_copy(&pwiadatatransinfo), core::mem::transmute_copy(&piwiadatacallback)).into()
@@ -677,7 +677,7 @@ impl IWiaDataTransfer_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn idtGetExtendedTransferInfo<Identity: IWiaDataTransfer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextendedtransferinfo: *mut WIA_EXTENDED_TRANSFER_INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn idtGetExtendedTransferInfo<Identity: IWiaDataTransfer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextendedtransferinfo: PWIA_EXTENDED_TRANSFER_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWiaDataTransfer_Impl::idtGetExtendedTransferInfo(this, core::mem::transmute_copy(&pextendedtransferinfo)).into()
@@ -696,7 +696,7 @@ impl IWiaDataTransfer_Vtbl {
         iid == &<IWiaDataTransfer as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWiaDataTransfer {}
 windows_core::imp::define_interface!(IWiaDevMgr, IWiaDevMgr_Vtbl, 0x5eb2502a_8cf1_11d1_bf92_0060081ed811);
 windows_core::imp::interface_hierarchy!(IWiaDevMgr, windows_core::IUnknown);
@@ -2211,30 +2211,30 @@ impl windows_core::RuntimeName for IWiaPreview {}
 windows_core::imp::define_interface!(IWiaPropertyStorage, IWiaPropertyStorage_Vtbl, 0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6);
 windows_core::imp::interface_hierarchy!(IWiaPropertyStorage, windows_core::IUnknown);
 impl IWiaPropertyStorage {
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::PROPSPEC) -> windows_core::Result<super::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn WriteMultiple(&self, cpspec: u32, rgpspec: *const super::PROPSPEC, rgpropvar: *const super::PROPVARIANT, propidnamefirst: super::PROPID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WriteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, rgpropvar, propidnamefirst) }
     }
-    #[cfg(all(feature = "propidlbase", feature = "wtypes"))]
+    #[cfg(all(feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const super::PROPSPEC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeleteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec) }
     }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID) -> windows_core::Result<windows_core::PWSTR> {
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID) -> windows_core::Result<super::LPOLESTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadPropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *const windows_core::PCWSTR) -> windows_core::HRESULT {
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *const super::LPOLESTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WritePropertyNames)(windows_core::Interface::as_raw(self), cpropid, rgpropid, rglpwstrname) }
     }
     #[cfg(feature = "wtypes")]
@@ -2265,7 +2265,7 @@ impl IWiaPropertyStorage {
     pub unsafe fn Stat(&self, pstatpsstg: *mut super::STATPROPSETSTG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Stat)(windows_core::Interface::as_raw(self), pstatpsstg as _) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPropertyAttributes(&self, cpspec: u32, rgpspec: *const super::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyAttributes)(windows_core::Interface::as_raw(self), cpspec, rgpspec, rgflags as _, rgpropvar) }
     }
@@ -2291,25 +2291,25 @@ impl IWiaPropertyStorage {
 #[doc(hidden)]
 pub struct IWiaPropertyStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub ReadMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPSPEC, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ReadMultiple: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub WriteMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPSPEC, *const super::PROPVARIANT, super::PROPID) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     WriteMultiple: usize,
-    #[cfg(all(feature = "propidlbase", feature = "wtypes"))]
+    #[cfg(all(feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub DeleteMultiple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPSPEC) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "propidlbase", feature = "wtypes")))]
+    #[cfg(not(all(feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
     DeleteMultiple: usize,
-    #[cfg(feature = "wtypes")]
-    pub ReadPropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPID, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypes"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    pub ReadPropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPID, *mut super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     ReadPropertyNames: usize,
-    #[cfg(feature = "wtypes")]
-    pub WritePropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPID, *const windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypes"))]
+    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    pub WritePropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPID, *const super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
     WritePropertyNames: usize,
     #[cfg(feature = "wtypes")]
     pub DeletePropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPID) -> windows_core::HRESULT,
@@ -2330,9 +2330,9 @@ pub struct IWiaPropertyStorage_Vtbl {
     pub Stat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::STATPROPSETSTG) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwindef", feature = "propidlbase")))]
     Stat: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPropertyAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::PROPSPEC, *mut u32, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetPropertyAttributes: usize,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "objidlbase")]
@@ -2344,13 +2344,13 @@ pub struct IWiaPropertyStorage_Vtbl {
     #[cfg(not(feature = "objidlbase"))]
     SetPropertyStream: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWiaPropertyStorage_Impl: windows_core::IUnknownImpl {
     fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::PROPSPEC) -> windows_core::Result<super::PROPVARIANT>;
     fn WriteMultiple(&self, cpspec: u32, rgpspec: *const super::PROPSPEC, rgpropvar: *const super::PROPVARIANT, propidnamefirst: super::PROPID) -> windows_core::Result<()>;
     fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const super::PROPSPEC) -> windows_core::Result<()>;
-    fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID) -> windows_core::Result<windows_core::PWSTR>;
-    fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *const windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID) -> windows_core::Result<super::LPOLESTR>;
+    fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *const super::LPOLESTR) -> windows_core::Result<()>;
     fn DeletePropertyNames(&self, cpropid: u32, rgpropid: *const super::PROPID) -> windows_core::Result<()>;
     fn Commit(&self, grfcommitflags: u32) -> windows_core::Result<()>;
     fn Revert(&self) -> windows_core::Result<()>;
@@ -2363,7 +2363,7 @@ pub trait IWiaPropertyStorage_Impl: windows_core::IUnknownImpl {
     fn GetPropertyStream(&self, pcompatibilityid: *mut windows_core::GUID, ppistream: windows_core::OutRef<super::IStream>) -> windows_core::Result<()>;
     fn SetPropertyStream(&self, pcompatibilityid: *const windows_core::GUID, pistream: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IWiaPropertyStorage_Vtbl {
     pub const fn new<Identity: IWiaPropertyStorage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReadMultiple<Identity: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const super::PROPSPEC, rgpropvar: *mut super::PROPVARIANT) -> windows_core::HRESULT {
@@ -2390,7 +2390,7 @@ impl IWiaPropertyStorage_Vtbl {
                 IWiaPropertyStorage_Impl::DeleteMultiple(this, core::mem::transmute_copy(&cpspec), core::mem::transmute_copy(&rgpspec)).into()
             }
         }
-        unsafe extern "system" fn ReadPropertyNames<Identity: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadPropertyNames<Identity: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *mut super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWiaPropertyStorage_Impl::ReadPropertyNames(this, core::mem::transmute_copy(&cpropid), core::mem::transmute_copy(&rgpropid)) {
@@ -2402,7 +2402,7 @@ impl IWiaPropertyStorage_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn WritePropertyNames<Identity: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *const windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn WritePropertyNames<Identity: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpropid: u32, rgpropid: *const super::PROPID, rglpwstrname: *const super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWiaPropertyStorage_Impl::WritePropertyNames(this, core::mem::transmute_copy(&cpropid), core::mem::transmute_copy(&rgpropid), core::mem::transmute_copy(&rglpwstrname)).into()
@@ -2510,7 +2510,7 @@ impl IWiaPropertyStorage_Vtbl {
         iid == &<IWiaPropertyStorage as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWiaPropertyStorage {}
 windows_core::imp::define_interface!(IWiaSegmentationFilter, IWiaSegmentationFilter_Vtbl, 0xec46a697_ac04_4447_8f65_ff63d5154b21);
 windows_core::imp::interface_hierarchy!(IWiaSegmentationFilter, windows_core::IUnknown);
@@ -2716,7 +2716,7 @@ pub type PWIA_DITHER_PATTERN_DATA = *mut WIA_DITHER_PATTERN_DATA;
 pub type PWIA_EVENT_HANDLER = *mut WIA_DEV_CAP;
 pub type PWIA_EXTENDED_TRANSFER_INFO = *mut WIA_EXTENDED_TRANSFER_INFO;
 pub type PWIA_FORMAT_INFO = *mut WIA_FORMAT_INFO;
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type PWIA_PROPID_TO_NAME = *mut WIA_PROPID_TO_NAME;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2774,11 +2774,11 @@ pub struct WIA_FORMAT_INFO {
     pub lTymed: i32,
 }
 #[repr(C)]
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIA_PROPID_TO_NAME {
     pub propid: super::PROPID,
-    pub pszName: windows_core::PWSTR,
+    pub pszName: super::LPOLESTR,
 }
 pub const WiaDevMgr: windows_core::GUID = windows_core::GUID::from_u128(0xa1f4e726_8cf1_11d1_bf92_0060081ed811);
 pub const WiaDevMgr2: windows_core::GUID = windows_core::GUID::from_u128(0xb6c292bc_7c88_41ee_8b54_8ec92617e599);

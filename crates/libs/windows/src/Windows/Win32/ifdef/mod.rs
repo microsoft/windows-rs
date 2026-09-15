@@ -1,4 +1,4 @@
-pub const IFI_UNSPECIFIED: u32 = 0;
+pub const IFI_UNSPECIFIED: NET_IFINDEX = 0;
 pub const IF_ADMINISTRATIVE_DEMANDDIAL: IF_ADMINISTRATIVE_STATE = 2;
 pub const IF_ADMINISTRATIVE_DISABLED: IF_ADMINISTRATIVE_STATE = 0;
 pub const IF_ADMINISTRATIVE_ENABLED: IF_ADMINISTRATIVE_STATE = 1;
@@ -46,6 +46,7 @@ pub const MediaDuplexStateFull: NET_IF_MEDIA_DUPLEX_STATE = 2;
 pub const MediaDuplexStateHalf: NET_IF_MEDIA_DUPLEX_STATE = 1;
 pub const MediaDuplexStateUnknown: NET_IF_MEDIA_DUPLEX_STATE = 0;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_INTERFACE_INFORMATION {
     pub ifOperStatus: NET_IF_OPER_STATUS,
@@ -53,8 +54,8 @@ pub struct NDIS_INTERFACE_INFORMATION {
     pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
     pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
     pub ifMtu: u32,
-    pub ifPromiscuousMode: bool,
-    pub ifDeviceWakeUpEnable: bool,
+    pub ifPromiscuousMode: super::BOOLEAN,
+    pub ifDeviceWakeUpEnable: super::BOOLEAN,
     pub XmitLinkSpeed: u64,
     pub RcvLinkSpeed: u64,
     pub ifLastChange: u64,
@@ -81,14 +82,10 @@ pub struct NDIS_INTERFACE_INFORMATION {
     pub CompartmentId: NET_IF_COMPARTMENT_ID,
     pub SupportedStatistics: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NET_IFINDEX(pub u32);
-pub const NET_IFINDEX_UNSPECIFIED: u32 = 0;
+pub type NET_IFINDEX = u32;
+pub const NET_IFINDEX_UNSPECIFIED: NET_IFINDEX = 0;
 pub const NET_IFLUID_UNSPECIFIED: i32 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NET_IFTYPE(pub u16);
+pub type NET_IFTYPE = u16;
 pub const NET_IF_ACCESS_BROADCAST: NET_IF_ACCESS_TYPE = 2;
 pub const NET_IF_ACCESS_LOOPBACK: NET_IF_ACCESS_TYPE = 1;
 pub const NET_IF_ACCESS_MAXIMUM: NET_IF_ACCESS_TYPE = 5;
@@ -106,16 +103,12 @@ pub struct NET_IF_ALIAS_LH {
     pub ifAliasLength: u16,
     pub ifAliasOffset: u16,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NET_IF_COMPARTMENT_ID(pub u32);
-pub const NET_IF_COMPARTMENT_ID_PRIMARY: NET_IF_COMPARTMENT_ID = NET_IF_COMPARTMENT_ID(1);
-pub const NET_IF_COMPARTMENT_ID_UNSPECIFIED: NET_IF_COMPARTMENT_ID = NET_IF_COMPARTMENT_ID(0);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NET_IF_COMPARTMENT_SCOPE(pub u32);
-pub const NET_IF_COMPARTMENT_SCOPE_ALL: NET_IF_COMPARTMENT_SCOPE = NET_IF_COMPARTMENT_SCOPE(4294967295);
-pub const NET_IF_COMPARTMENT_SCOPE_UNSPECIFIED: NET_IF_COMPARTMENT_SCOPE = NET_IF_COMPARTMENT_SCOPE(0);
+pub type NET_IF_COMPARTMENT_ID = u32;
+pub const NET_IF_COMPARTMENT_ID_PRIMARY: NET_IF_COMPARTMENT_ID = 1;
+pub const NET_IF_COMPARTMENT_ID_UNSPECIFIED: NET_IF_COMPARTMENT_ID = 0;
+pub type NET_IF_COMPARTMENT_SCOPE = u32;
+pub const NET_IF_COMPARTMENT_SCOPE_ALL: NET_IF_COMPARTMENT_SCOPE = 4294967295;
+pub const NET_IF_COMPARTMENT_SCOPE_UNSPECIFIED: NET_IF_COMPARTMENT_SCOPE = 0;
 pub const NET_IF_CONNECTION_DEDICATED: NET_IF_CONNECTION_TYPE = 1;
 pub const NET_IF_CONNECTION_DEMAND: NET_IF_CONNECTION_TYPE = 3;
 pub const NET_IF_CONNECTION_MAXIMUM: NET_IF_CONNECTION_TYPE = 4;
@@ -130,9 +123,7 @@ pub const NET_IF_LINK_SPEED_UNKNOWN: u64 = 18446744073709551615;
 pub type NET_IF_MEDIA_CONNECT_STATE = i32;
 pub type NET_IF_MEDIA_DUPLEX_STATE = i32;
 pub type NET_IF_NETWORK_GUID = windows_core::GUID;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NET_IF_OBJECT_ID(pub u32);
+pub type NET_IF_OBJECT_ID = u32;
 pub const NET_IF_OID_COMPARTMENT_ID: i32 = 2;
 pub const NET_IF_OID_IF_ALIAS: i32 = 1;
 pub const NET_IF_OID_IF_ENTRY: i32 = 4;
@@ -229,6 +220,7 @@ pub type PIF_INDEX = *mut NET_IFINDEX;
 pub type PIF_LUID = *mut NET_LUID;
 pub type PIF_PHYSICAL_ADDRESS = *mut IF_PHYSICAL_ADDRESS;
 pub type PIF_PHYSICAL_ADDRESS_LH = *mut IF_PHYSICAL_ADDRESS_LH;
+#[cfg(feature = "winnt")]
 pub type PNDIS_INTERFACE_INFORMATION = *mut NDIS_INTERFACE_INFORMATION;
 pub type PNET_IFINDEX = *mut u32;
 pub type PNET_IFTYPE = *mut u16;

@@ -13,19 +13,19 @@ impl Default for ARRAYDESC {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
     pub lpvardesc: *mut VARDESC,
     pub lptcomp: core::mem::ManuallyDrop<Option<ITypeComp>>,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for BINDPTR {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for BINDPTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -62,25 +62,25 @@ pub struct CLEANLOCALSTORAGE {
 #[cfg(feature = "wtypes")]
 pub type CURRENCY = super::CY;
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CUSTDATA {
     pub cCustData: u32,
     pub prgCustData: LPCUSTDATAITEM,
 }
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub struct CUSTDATAITEM {
     pub guid: windows_core::GUID,
     pub varValue: VARIANTARG,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for CUSTDATAITEM {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for CUSTDATAITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -93,9 +93,7 @@ pub const DESCKIND_MAX: DESCKIND = 5;
 pub const DESCKIND_NONE: DESCKIND = 0;
 pub const DESCKIND_TYPECOMP: DESCKIND = 3;
 pub const DESCKIND_VARDESC: DESCKIND = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DISPID(pub i32);
+pub type DISPID = i32;
 pub const DISPID_COLLECT: i32 = -8;
 pub const DISPID_CONSTRUCTOR: i32 = -6;
 pub const DISPID_DESTRUCTOR: i32 = -7;
@@ -105,7 +103,7 @@ pub const DISPID_PROPERTYPUT: i32 = -3;
 pub const DISPID_UNKNOWN: i32 = -1;
 pub const DISPID_VALUE: i32 = 0;
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPPARAMS {
     pub rgvarg: *mut VARIANTARG,
@@ -114,26 +112,26 @@ pub struct DISPPARAMS {
     pub cNamedArgs: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct ELEMDESC {
     pub tdesc: TYPEDESC,
     pub Anonymous: ELEMDESC_0,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for ELEMDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union ELEMDESC_0 {
     pub idldesc: IDLDESC,
     pub paramdesc: PARAMDESC,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for ELEMDESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -166,7 +164,7 @@ pub const FADF_STATIC: i32 = 2;
 pub const FADF_UNKNOWN: i32 = 512;
 pub const FADF_VARIANT: i32 = 2048;
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct FUNCDESC {
     pub memid: MEMBERID,
@@ -182,7 +180,7 @@ pub struct FUNCDESC {
     pub elemdescFunc: ELEMDESC,
     pub wFuncFlags: u16,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for FUNCDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -208,32 +206,24 @@ pub const FUNC_NONVIRTUAL: FUNCKIND = 2;
 pub const FUNC_PUREVIRTUAL: FUNCKIND = 1;
 pub const FUNC_STATIC: FUNCKIND = 3;
 pub const FUNC_VIRTUAL: FUNCKIND = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HREFTYPE(pub u32);
+pub type HREFTYPE = u32;
 windows_core::imp::define_interface!(ICreateErrorInfo, ICreateErrorInfo_Vtbl, 0x22f03340_547d_101b_8e65_08002b2bd119);
 windows_core::imp::interface_hierarchy!(ICreateErrorInfo, windows_core::IUnknown);
 impl ICreateErrorInfo {
     pub unsafe fn SetGUID(&self, rguid: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetGUID)(windows_core::Interface::as_raw(self), rguid) }
     }
-    pub unsafe fn SetSource<P0>(&self, szsource: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetSource)(windows_core::Interface::as_raw(self), szsource.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetSource(&self, szsource: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSource)(windows_core::Interface::as_raw(self), szsource) }
     }
-    pub unsafe fn SetDescription<P0>(&self, szdescription: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), szdescription.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetDescription(&self, szdescription: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), szdescription) }
     }
-    pub unsafe fn SetHelpFile<P0>(&self, szhelpfile: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetHelpFile)(windows_core::Interface::as_raw(self), szhelpfile.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetHelpFile(&self, szhelpfile: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetHelpFile)(windows_core::Interface::as_raw(self), szhelpfile) }
     }
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHelpContext)(windows_core::Interface::as_raw(self), dwhelpcontext) }
@@ -244,18 +234,29 @@ impl ICreateErrorInfo {
 pub struct ICreateErrorInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetGUID: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub SetHelpFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetSource: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetDescription: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub SetHelpFile: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetHelpFile: usize,
     pub SetHelpContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "wtypesbase")]
 pub trait ICreateErrorInfo_Impl: windows_core::IUnknownImpl {
     fn SetGUID(&self, rguid: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn SetSource(&self, szsource: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetDescription(&self, szdescription: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetHelpFile(&self, szhelpfile: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetSource(&self, szsource: super::LPOLESTR) -> windows_core::Result<()>;
+    fn SetDescription(&self, szdescription: super::LPOLESTR) -> windows_core::Result<()>;
+    fn SetHelpFile(&self, szhelpfile: super::LPOLESTR) -> windows_core::Result<()>;
     fn SetHelpContext(&self, dwhelpcontext: u32) -> windows_core::Result<()>;
 }
+#[cfg(feature = "wtypesbase")]
 impl ICreateErrorInfo_Vtbl {
     pub const fn new<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetGUID<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguid: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -264,22 +265,22 @@ impl ICreateErrorInfo_Vtbl {
                 ICreateErrorInfo_Impl::SetGUID(this, core::mem::transmute_copy(&rguid)).into()
             }
         }
-        unsafe extern "system" fn SetSource<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szsource: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSource<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szsource: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateErrorInfo_Impl::SetSource(this, core::mem::transmute(&szsource)).into()
+                ICreateErrorInfo_Impl::SetSource(this, core::mem::transmute_copy(&szsource)).into()
             }
         }
-        unsafe extern "system" fn SetDescription<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szdescription: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDescription<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szdescription: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateErrorInfo_Impl::SetDescription(this, core::mem::transmute(&szdescription)).into()
+                ICreateErrorInfo_Impl::SetDescription(this, core::mem::transmute_copy(&szdescription)).into()
             }
         }
-        unsafe extern "system" fn SetHelpFile<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szhelpfile: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHelpFile<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szhelpfile: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateErrorInfo_Impl::SetHelpFile(this, core::mem::transmute(&szhelpfile)).into()
+                ICreateErrorInfo_Impl::SetHelpFile(this, core::mem::transmute_copy(&szhelpfile)).into()
             }
         }
         unsafe extern "system" fn SetHelpContext<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwhelpcontext: u32) -> windows_core::HRESULT {
@@ -301,6 +302,7 @@ impl ICreateErrorInfo_Vtbl {
         iid == &<ICreateErrorInfo as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for ICreateErrorInfo {}
 windows_core::imp::define_interface!(ICreateTypeInfo, ICreateTypeInfo_Vtbl, 0x00020405_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(ICreateTypeInfo, windows_core::IUnknown);
@@ -311,11 +313,9 @@ impl ICreateTypeInfo {
     pub unsafe fn SetTypeFlags(&self, utypeflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTypeFlags)(windows_core::Interface::as_raw(self), utypeflags) }
     }
-    pub unsafe fn SetDocString<P0>(&self, pstrdoc: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetDocString)(windows_core::Interface::as_raw(self), pstrdoc.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetDocString(&self, pstrdoc: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDocString)(windows_core::Interface::as_raw(self), pstrdoc) }
     }
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHelpContext)(windows_core::Interface::as_raw(self), dwhelpcontext) }
@@ -329,7 +329,7 @@ impl ICreateTypeInfo {
     {
         unsafe { (windows_core::Interface::vtable(self).AddRefTypeInfo)(windows_core::Interface::as_raw(self), ptinfo.param().abi(), phreftype) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddFuncDesc(&self, index: u32, pfuncdesc: *const FUNCDESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddFuncDesc)(windows_core::Interface::as_raw(self), index, pfuncdesc) }
     }
@@ -342,47 +342,37 @@ impl ICreateTypeInfo {
     pub unsafe fn SetAlignment(&self, cbalignment: u16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAlignment)(windows_core::Interface::as_raw(self), cbalignment) }
     }
-    pub unsafe fn SetSchema<P0>(&self, pstrschema: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetSchema)(windows_core::Interface::as_raw(self), pstrschema.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetSchema(&self, pstrschema: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetSchema)(windows_core::Interface::as_raw(self), pstrschema) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddVarDesc(&self, index: u32, pvardesc: *const VARDESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddVarDesc)(windows_core::Interface::as_raw(self), index, pvardesc) }
     }
-    pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: *const windows_core::PCWSTR, cnames: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: *const super::LPOLESTR, cnames: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFuncAndParamNames)(windows_core::Interface::as_raw(self), index, rgsznames, cnames) }
     }
-    pub unsafe fn SetVarName<P1>(&self, index: u32, szname: P1) -> windows_core::HRESULT
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetVarName)(windows_core::Interface::as_raw(self), index, szname.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetVarName(&self, index: u32, szname: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetVarName)(windows_core::Interface::as_raw(self), index, szname) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn SetTypeDescAlias(&self, ptdescalias: *const TYPEDESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTypeDescAlias)(windows_core::Interface::as_raw(self), ptdescalias) }
     }
-    pub unsafe fn DefineFuncAsDllEntry<P1, P2>(&self, index: u32, szdllname: P1, szprocname: P2) -> windows_core::HRESULT
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).DefineFuncAsDllEntry)(windows_core::Interface::as_raw(self), index, szdllname.param().abi(), szprocname.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn DefineFuncAsDllEntry(&self, index: u32, szdllname: super::LPOLESTR, szprocname: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DefineFuncAsDllEntry)(windows_core::Interface::as_raw(self), index, szdllname, szprocname) }
     }
-    pub unsafe fn SetFuncDocString<P1>(&self, index: u32, szdocstring: P1) -> windows_core::HRESULT
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetFuncDocString)(windows_core::Interface::as_raw(self), index, szdocstring.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetFuncDocString(&self, index: u32, szdocstring: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFuncDocString)(windows_core::Interface::as_raw(self), index, szdocstring) }
     }
-    pub unsafe fn SetVarDocString<P1>(&self, index: u32, szdocstring: P1) -> windows_core::HRESULT
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetVarDocString)(windows_core::Interface::as_raw(self), index, szdocstring.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetVarDocString(&self, index: u32, szdocstring: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetVarDocString)(windows_core::Interface::as_raw(self), index, szdocstring) }
     }
     pub unsafe fn SetFuncHelpContext(&self, index: u32, dwhelpcontext: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFuncHelpContext)(windows_core::Interface::as_raw(self), index, dwhelpcontext) }
@@ -406,42 +396,63 @@ pub struct ICreateTypeInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub SetTypeFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub SetDocString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub SetDocString: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetDocString: usize,
     pub SetHelpContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16) -> windows_core::HRESULT,
     pub AddRefTypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const HREFTYPE) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub AddFuncDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const FUNCDESC) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     AddFuncDesc: usize,
     pub AddImplType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, HREFTYPE) -> windows_core::HRESULT,
     pub SetImplTypeFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32) -> windows_core::HRESULT,
     pub SetAlignment: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
-    pub SetSchema: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(feature = "wtypesbase")]
+    pub SetSchema: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetSchema: usize,
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub AddVarDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const VARDESC) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     AddVarDesc: usize,
-    pub SetFuncAndParamNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::PCWSTR, u32) -> windows_core::HRESULT,
-    pub SetVarName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub SetFuncAndParamNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::LPOLESTR, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetFuncAndParamNames: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub SetVarName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetVarName: usize,
     #[cfg(feature = "wtypes")]
     pub SetTypeDescAlias: unsafe extern "system" fn(*mut core::ffi::c_void, *const TYPEDESC) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     SetTypeDescAlias: usize,
-    pub DefineFuncAsDllEntry: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub SetFuncDocString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub SetVarDocString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub DefineFuncAsDllEntry: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPOLESTR, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    DefineFuncAsDllEntry: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub SetFuncDocString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetFuncDocString: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub SetVarDocString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetVarDocString: usize,
     pub SetFuncHelpContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub SetVarHelpContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub SetMops: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTypeIdldesc: unsafe extern "system" fn(*mut core::ffi::c_void, *const IDLDESC) -> windows_core::HRESULT,
     pub LayOut: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICreateTypeInfo_Impl: windows_core::IUnknownImpl {
     fn SetGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn SetTypeFlags(&self, utypeflags: u32) -> windows_core::Result<()>;
-    fn SetDocString(&self, pstrdoc: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetDocString(&self, pstrdoc: super::LPOLESTR) -> windows_core::Result<()>;
     fn SetHelpContext(&self, dwhelpcontext: u32) -> windows_core::Result<()>;
     fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> windows_core::Result<()>;
     fn AddRefTypeInfo(&self, ptinfo: windows_core::Ref<ITypeInfo>, phreftype: *const HREFTYPE) -> windows_core::Result<()>;
@@ -449,21 +460,21 @@ pub trait ICreateTypeInfo_Impl: windows_core::IUnknownImpl {
     fn AddImplType(&self, index: u32, hreftype: HREFTYPE) -> windows_core::Result<()>;
     fn SetImplTypeFlags(&self, index: u32, impltypeflags: i32) -> windows_core::Result<()>;
     fn SetAlignment(&self, cbalignment: u16) -> windows_core::Result<()>;
-    fn SetSchema(&self, pstrschema: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetSchema(&self, pstrschema: super::LPOLESTR) -> windows_core::Result<()>;
     fn AddVarDesc(&self, index: u32, pvardesc: *const VARDESC) -> windows_core::Result<()>;
-    fn SetFuncAndParamNames(&self, index: u32, rgsznames: *const windows_core::PCWSTR, cnames: u32) -> windows_core::Result<()>;
-    fn SetVarName(&self, index: u32, szname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetFuncAndParamNames(&self, index: u32, rgsznames: *const super::LPOLESTR, cnames: u32) -> windows_core::Result<()>;
+    fn SetVarName(&self, index: u32, szname: super::LPOLESTR) -> windows_core::Result<()>;
     fn SetTypeDescAlias(&self, ptdescalias: *const TYPEDESC) -> windows_core::Result<()>;
-    fn DefineFuncAsDllEntry(&self, index: u32, szdllname: &windows_core::PCWSTR, szprocname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetFuncDocString(&self, index: u32, szdocstring: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetVarDocString(&self, index: u32, szdocstring: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn DefineFuncAsDllEntry(&self, index: u32, szdllname: super::LPOLESTR, szprocname: super::LPOLESTR) -> windows_core::Result<()>;
+    fn SetFuncDocString(&self, index: u32, szdocstring: super::LPOLESTR) -> windows_core::Result<()>;
+    fn SetVarDocString(&self, index: u32, szdocstring: super::LPOLESTR) -> windows_core::Result<()>;
     fn SetFuncHelpContext(&self, index: u32, dwhelpcontext: u32) -> windows_core::Result<()>;
     fn SetVarHelpContext(&self, index: u32, dwhelpcontext: u32) -> windows_core::Result<()>;
     fn SetMops(&self, index: u32, bstrmops: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetTypeIdldesc(&self, pidldesc: *const IDLDESC) -> windows_core::Result<()>;
     fn LayOut(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl ICreateTypeInfo_Vtbl {
     pub const fn new<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetGuid<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -478,10 +489,10 @@ impl ICreateTypeInfo_Vtbl {
                 ICreateTypeInfo_Impl::SetTypeFlags(this, core::mem::transmute_copy(&utypeflags)).into()
             }
         }
-        unsafe extern "system" fn SetDocString<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrdoc: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDocString<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrdoc: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetDocString(this, core::mem::transmute(&pstrdoc)).into()
+                ICreateTypeInfo_Impl::SetDocString(this, core::mem::transmute_copy(&pstrdoc)).into()
             }
         }
         unsafe extern "system" fn SetHelpContext<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwhelpcontext: u32) -> windows_core::HRESULT {
@@ -526,10 +537,10 @@ impl ICreateTypeInfo_Vtbl {
                 ICreateTypeInfo_Impl::SetAlignment(this, core::mem::transmute_copy(&cbalignment)).into()
             }
         }
-        unsafe extern "system" fn SetSchema<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrschema: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSchema<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrschema: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetSchema(this, core::mem::transmute(&pstrschema)).into()
+                ICreateTypeInfo_Impl::SetSchema(this, core::mem::transmute_copy(&pstrschema)).into()
             }
         }
         unsafe extern "system" fn AddVarDesc<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, pvardesc: *const VARDESC) -> windows_core::HRESULT {
@@ -538,16 +549,16 @@ impl ICreateTypeInfo_Vtbl {
                 ICreateTypeInfo_Impl::AddVarDesc(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pvardesc)).into()
             }
         }
-        unsafe extern "system" fn SetFuncAndParamNames<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, rgsznames: *const windows_core::PCWSTR, cnames: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFuncAndParamNames<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, rgsznames: *const super::LPOLESTR, cnames: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICreateTypeInfo_Impl::SetFuncAndParamNames(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&rgsznames), core::mem::transmute_copy(&cnames)).into()
             }
         }
-        unsafe extern "system" fn SetVarName<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, szname: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetVarName<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, szname: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetVarName(this, core::mem::transmute_copy(&index), core::mem::transmute(&szname)).into()
+                ICreateTypeInfo_Impl::SetVarName(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&szname)).into()
             }
         }
         unsafe extern "system" fn SetTypeDescAlias<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptdescalias: *const TYPEDESC) -> windows_core::HRESULT {
@@ -556,22 +567,22 @@ impl ICreateTypeInfo_Vtbl {
                 ICreateTypeInfo_Impl::SetTypeDescAlias(this, core::mem::transmute_copy(&ptdescalias)).into()
             }
         }
-        unsafe extern "system" fn DefineFuncAsDllEntry<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, szdllname: windows_core::PCWSTR, szprocname: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn DefineFuncAsDllEntry<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, szdllname: super::LPOLESTR, szprocname: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::DefineFuncAsDllEntry(this, core::mem::transmute_copy(&index), core::mem::transmute(&szdllname), core::mem::transmute(&szprocname)).into()
+                ICreateTypeInfo_Impl::DefineFuncAsDllEntry(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&szdllname), core::mem::transmute_copy(&szprocname)).into()
             }
         }
-        unsafe extern "system" fn SetFuncDocString<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, szdocstring: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFuncDocString<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, szdocstring: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetFuncDocString(this, core::mem::transmute_copy(&index), core::mem::transmute(&szdocstring)).into()
+                ICreateTypeInfo_Impl::SetFuncDocString(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&szdocstring)).into()
             }
         }
-        unsafe extern "system" fn SetVarDocString<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, szdocstring: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetVarDocString<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, szdocstring: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo_Impl::SetVarDocString(this, core::mem::transmute_copy(&index), core::mem::transmute(&szdocstring)).into()
+                ICreateTypeInfo_Impl::SetVarDocString(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&szdocstring)).into()
             }
         }
         unsafe extern "system" fn SetFuncHelpContext<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, dwhelpcontext: u32) -> windows_core::HRESULT {
@@ -635,7 +646,7 @@ impl ICreateTypeInfo_Vtbl {
         iid == &<ICreateTypeInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICreateTypeInfo {}
 windows_core::imp::define_interface!(ICreateTypeInfo2, ICreateTypeInfo2_Vtbl, 0x0002040e_0000_0000_c000_000000000046);
 impl core::ops::Deref for ICreateTypeInfo2 {
@@ -661,23 +672,23 @@ impl ICreateTypeInfo2 {
     pub unsafe fn DeleteImplType(&self, index: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeleteImplType)(windows_core::Interface::as_raw(self), index) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetCustData(&self, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCustData)(windows_core::Interface::as_raw(self), guid, pvarval) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetFuncCustData(&self, index: u32, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFuncCustData)(windows_core::Interface::as_raw(self), index, guid, pvarval) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetParamCustData)(windows_core::Interface::as_raw(self), indexfunc, indexparam, guid, pvarval) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetVarCustData(&self, index: u32, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVarCustData)(windows_core::Interface::as_raw(self), index, guid, pvarval) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetImplTypeCustData(&self, index: u32, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetImplTypeCustData)(windows_core::Interface::as_raw(self), index, guid, pvarval) }
     }
@@ -693,11 +704,9 @@ impl ICreateTypeInfo2 {
     pub unsafe fn Invalidate(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Invalidate)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetName<P0>(&self, szname: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), szname.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetName(&self, szname: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), szname) }
     }
 }
 #[repr(C)]
@@ -709,33 +718,36 @@ pub struct ICreateTypeInfo2_Vtbl {
     pub DeleteVarDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub DeleteVarDescByMemId: unsafe extern "system" fn(*mut core::ffi::c_void, MEMBERID) -> windows_core::HRESULT,
     pub DeleteImplType: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub SetCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     SetCustData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub SetFuncCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     SetFuncCustData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub SetParamCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const windows_core::GUID, *const VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     SetParamCustData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub SetVarCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     SetVarCustData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub SetImplTypeCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     SetImplTypeCustData: usize,
     pub SetHelpStringContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetFuncHelpStringContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub SetVarHelpStringContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub Invalidate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetName: usize,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICreateTypeInfo2_Impl: ICreateTypeInfo_Impl {
     fn DeleteFuncDesc(&self, index: u32) -> windows_core::Result<()>;
     fn DeleteFuncDescByMemId(&self, memid: MEMBERID, invkind: INVOKEKIND) -> windows_core::Result<()>;
@@ -751,9 +763,9 @@ pub trait ICreateTypeInfo2_Impl: ICreateTypeInfo_Impl {
     fn SetFuncHelpStringContext(&self, index: u32, dwhelpstringcontext: u32) -> windows_core::Result<()>;
     fn SetVarHelpStringContext(&self, index: u32, dwhelpstringcontext: u32) -> windows_core::Result<()>;
     fn Invalidate(&self) -> windows_core::Result<()>;
-    fn SetName(&self, szname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetName(&self, szname: super::LPOLESTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl ICreateTypeInfo2_Vtbl {
     pub const fn new<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DeleteFuncDesc<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
@@ -840,10 +852,10 @@ impl ICreateTypeInfo2_Vtbl {
                 ICreateTypeInfo2_Impl::Invalidate(this).into()
             }
         }
-        unsafe extern "system" fn SetName<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeInfo2_Impl::SetName(this, core::mem::transmute(&szname)).into()
+                ICreateTypeInfo2_Impl::SetName(this, core::mem::transmute_copy(&szname)).into()
             }
         }
         Self {
@@ -869,25 +881,21 @@ impl ICreateTypeInfo2_Vtbl {
         iid == &<ICreateTypeInfo2 as windows_core::Interface>::IID || iid == &<ICreateTypeInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICreateTypeInfo2 {}
 windows_core::imp::define_interface!(ICreateTypeLib, ICreateTypeLib_Vtbl, 0x00020406_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(ICreateTypeLib, windows_core::IUnknown);
 impl ICreateTypeLib {
-    pub unsafe fn CreateTypeInfo<P0>(&self, szname: P0, tkind: TYPEKIND) -> windows_core::Result<ICreateTypeInfo>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn CreateTypeInfo(&self, szname: super::LPOLESTR, tkind: TYPEKIND) -> windows_core::Result<ICreateTypeInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTypeInfo)(windows_core::Interface::as_raw(self), szname.param().abi(), tkind, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTypeInfo)(windows_core::Interface::as_raw(self), szname, tkind, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetName<P0>(&self, szname: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), szname.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetName(&self, szname: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), szname) }
     }
     pub unsafe fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVersion)(windows_core::Interface::as_raw(self), wmajorvernum, wminorvernum) }
@@ -895,17 +903,13 @@ impl ICreateTypeLib {
     pub unsafe fn SetGuid(&self, guid: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetGuid)(windows_core::Interface::as_raw(self), guid) }
     }
-    pub unsafe fn SetDocString<P0>(&self, szdoc: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetDocString)(windows_core::Interface::as_raw(self), szdoc.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetDocString(&self, szdoc: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDocString)(windows_core::Interface::as_raw(self), szdoc) }
     }
-    pub unsafe fn SetHelpFileName<P0>(&self, szhelpfilename: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetHelpFileName)(windows_core::Interface::as_raw(self), szhelpfilename.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetHelpFileName(&self, szhelpfilename: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetHelpFileName)(windows_core::Interface::as_raw(self), szhelpfilename) }
     }
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHelpContext)(windows_core::Interface::as_raw(self), dwhelpcontext) }
@@ -925,12 +929,24 @@ impl ICreateTypeLib {
 #[doc(hidden)]
 pub struct ICreateTypeLib_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub CreateTypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, TYPEKIND, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub CreateTypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR, TYPEKIND, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    CreateTypeInfo: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetName: usize,
     pub SetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16) -> windows_core::HRESULT,
     pub SetGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub SetDocString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub SetHelpFileName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub SetDocString: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetDocString: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub SetHelpFileName: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetHelpFileName: usize,
     pub SetHelpContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     #[cfg(feature = "winnt")]
     pub SetLcid: unsafe extern "system" fn(*mut core::ffi::c_void, super::LCID) -> windows_core::HRESULT,
@@ -939,26 +955,26 @@ pub struct ICreateTypeLib_Vtbl {
     pub SetLibFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SaveAllChanges: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
 pub trait ICreateTypeLib_Impl: windows_core::IUnknownImpl {
-    fn CreateTypeInfo(&self, szname: &windows_core::PCWSTR, tkind: TYPEKIND) -> windows_core::Result<ICreateTypeInfo>;
-    fn SetName(&self, szname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn CreateTypeInfo(&self, szname: super::LPOLESTR, tkind: TYPEKIND) -> windows_core::Result<ICreateTypeInfo>;
+    fn SetName(&self, szname: super::LPOLESTR) -> windows_core::Result<()>;
     fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> windows_core::Result<()>;
     fn SetGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn SetDocString(&self, szdoc: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetHelpFileName(&self, szhelpfilename: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetDocString(&self, szdoc: super::LPOLESTR) -> windows_core::Result<()>;
+    fn SetHelpFileName(&self, szhelpfilename: super::LPOLESTR) -> windows_core::Result<()>;
     fn SetHelpContext(&self, dwhelpcontext: u32) -> windows_core::Result<()>;
     fn SetLcid(&self, lcid: super::LCID) -> windows_core::Result<()>;
     fn SetLibFlags(&self, ulibflags: u32) -> windows_core::Result<()>;
     fn SaveAllChanges(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
 impl ICreateTypeLib_Vtbl {
     pub const fn new<Identity: ICreateTypeLib_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateTypeInfo<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: windows_core::PCWSTR, tkind: TYPEKIND, ppctinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTypeInfo<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: super::LPOLESTR, tkind: TYPEKIND, ppctinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICreateTypeLib_Impl::CreateTypeInfo(this, core::mem::transmute(&szname), core::mem::transmute_copy(&tkind)) {
+                match ICreateTypeLib_Impl::CreateTypeInfo(this, core::mem::transmute_copy(&szname), core::mem::transmute_copy(&tkind)) {
                     Ok(ok__) => {
                         ppctinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -967,10 +983,10 @@ impl ICreateTypeLib_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetName<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib_Impl::SetName(this, core::mem::transmute(&szname)).into()
+                ICreateTypeLib_Impl::SetName(this, core::mem::transmute_copy(&szname)).into()
             }
         }
         unsafe extern "system" fn SetVersion<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wmajorvernum: u16, wminorvernum: u16) -> windows_core::HRESULT {
@@ -985,16 +1001,16 @@ impl ICreateTypeLib_Vtbl {
                 ICreateTypeLib_Impl::SetGuid(this, core::mem::transmute_copy(&guid)).into()
             }
         }
-        unsafe extern "system" fn SetDocString<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szdoc: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDocString<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szdoc: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib_Impl::SetDocString(this, core::mem::transmute(&szdoc)).into()
+                ICreateTypeLib_Impl::SetDocString(this, core::mem::transmute_copy(&szdoc)).into()
             }
         }
-        unsafe extern "system" fn SetHelpFileName<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szhelpfilename: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHelpFileName<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szhelpfilename: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib_Impl::SetHelpFileName(this, core::mem::transmute(&szhelpfilename)).into()
+                ICreateTypeLib_Impl::SetHelpFileName(this, core::mem::transmute_copy(&szhelpfilename)).into()
             }
         }
         unsafe extern "system" fn SetHelpContext<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwhelpcontext: u32) -> windows_core::HRESULT {
@@ -1039,7 +1055,7 @@ impl ICreateTypeLib_Vtbl {
         iid == &<ICreateTypeLib as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICreateTypeLib {}
 windows_core::imp::define_interface!(ICreateTypeLib2, ICreateTypeLib2_Vtbl, 0x0002040f_0000_0000_c000_000000000046);
 impl core::ops::Deref for ICreateTypeLib2 {
@@ -1050,52 +1066,54 @@ impl core::ops::Deref for ICreateTypeLib2 {
 }
 windows_core::imp::interface_hierarchy!(ICreateTypeLib2, windows_core::IUnknown, ICreateTypeLib);
 impl ICreateTypeLib2 {
-    pub unsafe fn DeleteTypeInfo<P0>(&self, szname: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).DeleteTypeInfo)(windows_core::Interface::as_raw(self), szname.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn DeleteTypeInfo(&self, szname: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).DeleteTypeInfo)(windows_core::Interface::as_raw(self), szname) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetCustData(&self, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCustData)(windows_core::Interface::as_raw(self), guid, pvarval) }
     }
     pub unsafe fn SetHelpStringContext(&self, dwhelpstringcontext: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHelpStringContext)(windows_core::Interface::as_raw(self), dwhelpstringcontext) }
     }
-    pub unsafe fn SetHelpStringDll<P0>(&self, szfilename: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetHelpStringDll)(windows_core::Interface::as_raw(self), szfilename.param().abi()) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn SetHelpStringDll(&self, szfilename: super::LPOLESTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetHelpStringDll)(windows_core::Interface::as_raw(self), szfilename) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICreateTypeLib2_Vtbl {
     pub base__: ICreateTypeLib_Vtbl,
-    pub DeleteTypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(feature = "wtypesbase")]
+    pub DeleteTypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    DeleteTypeInfo: usize,
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub SetCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     SetCustData: usize,
     pub SetHelpStringContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub SetHelpStringDll: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub SetHelpStringDll: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    SetHelpStringDll: usize,
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICreateTypeLib2_Impl: ICreateTypeLib_Impl {
-    fn DeleteTypeInfo(&self, szname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn DeleteTypeInfo(&self, szname: super::LPOLESTR) -> windows_core::Result<()>;
     fn SetCustData(&self, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::Result<()>;
     fn SetHelpStringContext(&self, dwhelpstringcontext: u32) -> windows_core::Result<()>;
-    fn SetHelpStringDll(&self, szfilename: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetHelpStringDll(&self, szfilename: super::LPOLESTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICreateTypeLib2_Vtbl {
     pub const fn new<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DeleteTypeInfo<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteTypeInfo<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib2_Impl::DeleteTypeInfo(this, core::mem::transmute(&szname)).into()
+                ICreateTypeLib2_Impl::DeleteTypeInfo(this, core::mem::transmute_copy(&szname)).into()
             }
         }
         unsafe extern "system" fn SetCustData<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pvarval: *const VARIANT) -> windows_core::HRESULT {
@@ -1110,10 +1128,10 @@ impl ICreateTypeLib2_Vtbl {
                 ICreateTypeLib2_Impl::SetHelpStringContext(this, core::mem::transmute_copy(&dwhelpstringcontext)).into()
             }
         }
-        unsafe extern "system" fn SetHelpStringDll<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szfilename: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHelpStringDll<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szfilename: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICreateTypeLib2_Impl::SetHelpStringDll(this, core::mem::transmute(&szfilename)).into()
+                ICreateTypeLib2_Impl::SetHelpStringDll(this, core::mem::transmute_copy(&szfilename)).into()
             }
         }
         Self {
@@ -1128,7 +1146,7 @@ impl ICreateTypeLib2_Vtbl {
         iid == &<ICreateTypeLib2 as windows_core::Interface>::IID || iid == &<ICreateTypeLib as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICreateTypeLib2 {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1157,16 +1175,16 @@ impl IDispatch {
             (windows_core::Interface::vtable(self).GetTypeInfo)(windows_core::Interface::as_raw(self), itinfo, lcid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "winnt")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const windows_core::GUID, rgsznames: *const windows_core::PCWSTR, cnames: u32, lcid: super::LCID) -> windows_core::Result<DISPID> {
+    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const windows_core::GUID, rgsznames: *const super::LPOLESTR, cnames: u32, lcid: super::LCID) -> windows_core::Result<DISPID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIDsOfNames)(windows_core::Interface::as_raw(self), riid, rgsznames, cnames, lcid, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Invoke(&self, dispidmember: DISPID, riid: *const windows_core::GUID, lcid: super::LCID, wflags: u16, pdispparams: *const DISPPARAMS, pvarresult: Option<*mut VARIANT>, pexcepinfo: Option<*mut EXCEPINFO>, puargerr: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), dispidmember, riid, lcid, wflags, pdispparams, pvarresult.unwrap_or(core::mem::zeroed()) as _, pexcepinfo.unwrap_or(core::mem::zeroed()) as _, puargerr.unwrap_or(core::mem::zeroed()) as _) }
+    #[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn Invoke(&self, dispidmember: DISPID, riid: *const windows_core::GUID, lcid: super::LCID, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: Option<*mut VARIANT>, pexcepinfo: Option<*mut EXCEPINFO>, puargerr: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), dispidmember, riid, lcid, wflags, pdispparams as _, pvarresult.unwrap_or(core::mem::zeroed()) as _, pexcepinfo.unwrap_or(core::mem::zeroed()) as _, puargerr.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -1178,23 +1196,23 @@ pub struct IDispatch_Vtbl {
     pub GetTypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LCID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "winnt"))]
     GetTypeInfo: usize,
-    #[cfg(feature = "winnt")]
-    pub GetIDsOfNames: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::PCWSTR, u32, super::LCID, *mut DISPID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+    pub GetIDsOfNames: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::LPOLESTR, u32, super::LCID, *mut DISPID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "winnt", feature = "wtypesbase")))]
     GetIDsOfNames: usize,
-    #[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, DISPID, *const windows_core::GUID, super::LCID, u16, *const DISPPARAMS, *mut VARIANT, *mut EXCEPINFO, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, DISPID, *const windows_core::GUID, super::LCID, u16, *mut DISPPARAMS, *mut VARIANT, *mut EXCEPINFO, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Invoke: usize,
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDispatch_Impl: windows_core::IUnknownImpl {
     fn GetTypeInfoCount(&self) -> windows_core::Result<u32>;
     fn GetTypeInfo(&self, itinfo: u32, lcid: super::LCID) -> windows_core::Result<ITypeInfo>;
-    fn GetIDsOfNames(&self, riid: *const windows_core::GUID, rgsznames: *const windows_core::PCWSTR, cnames: u32, lcid: super::LCID) -> windows_core::Result<DISPID>;
-    fn Invoke(&self, dispidmember: DISPID, riid: *const windows_core::GUID, lcid: super::LCID, wflags: u16, pdispparams: *const DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> windows_core::Result<()>;
+    fn GetIDsOfNames(&self, riid: *const windows_core::GUID, rgsznames: *const super::LPOLESTR, cnames: u32, lcid: super::LCID) -> windows_core::Result<DISPID>;
+    fn Invoke(&self, dispidmember: DISPID, riid: *const windows_core::GUID, lcid: super::LCID, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDispatch_Vtbl {
     pub const fn new<Identity: IDispatch_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTypeInfoCount<Identity: IDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pctinfo: *mut u32) -> windows_core::HRESULT {
@@ -1221,7 +1239,7 @@ impl IDispatch_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetIDsOfNames<Identity: IDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, rgsznames: *const windows_core::PCWSTR, cnames: u32, lcid: super::LCID, rgdispid: *mut DISPID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIDsOfNames<Identity: IDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, rgsznames: *const super::LPOLESTR, cnames: u32, lcid: super::LCID, rgdispid: *mut DISPID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispatch_Impl::GetIDsOfNames(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&rgsznames), core::mem::transmute_copy(&cnames), core::mem::transmute_copy(&lcid)) {
@@ -1233,7 +1251,7 @@ impl IDispatch_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Invoke<Identity: IDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispidmember: DISPID, riid: *const windows_core::GUID, lcid: super::LCID, wflags: u16, pdispparams: *const DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Invoke<Identity: IDispatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispidmember: DISPID, riid: *const windows_core::GUID, lcid: super::LCID, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDispatch_Impl::Invoke(this, core::mem::transmute_copy(&dispidmember), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pdispparams), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&pexcepinfo), core::mem::transmute_copy(&puargerr)).into()
@@ -1251,12 +1269,12 @@ impl IDispatch_Vtbl {
         iid == &<IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDispatch {}
 windows_core::imp::define_interface!(IEnumVARIANT, IEnumVARIANT_Vtbl, 0x00020404_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IEnumVARIANT, windows_core::IUnknown);
 impl IEnumVARIANT {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Next(&self, celt: u32, rgvar: *mut VARIANT, pceltfetched: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgvar, pceltfetched as _) }
     }
@@ -1277,22 +1295,22 @@ impl IEnumVARIANT {
 #[doc(hidden)]
 pub struct IEnumVARIANT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut VARIANT, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Next: usize,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IEnumVARIANT_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: u32, rgvar: *mut VARIANT, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumVARIANT>;
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl IEnumVARIANT_Vtbl {
     pub const fn new<Identity: IEnumVARIANT_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumVARIANT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut VARIANT, pceltfetched: *mut u32) -> windows_core::HRESULT {
@@ -1337,7 +1355,7 @@ impl IEnumVARIANT_Vtbl {
         iid == &<IEnumVARIANT as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IEnumVARIANT {}
 windows_core::imp::define_interface!(IErrorInfo, IErrorInfo_Vtbl, 0x1cf2b120_547d_101b_8e65_08002b2bd119);
 windows_core::imp::interface_hierarchy!(IErrorInfo, windows_core::IUnknown);
@@ -1470,11 +1488,8 @@ windows_core::imp::define_interface!(IErrorLog, IErrorLog_Vtbl, 0x3127ca40_446e_
 windows_core::imp::interface_hierarchy!(IErrorLog, windows_core::IUnknown);
 impl IErrorLog {
     #[cfg(feature = "wtypesbase")]
-    pub unsafe fn AddError<P0>(&self, pszpropname: P0, pexcepinfo: *const EXCEPINFO) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).AddError)(windows_core::Interface::as_raw(self), pszpropname.param().abi(), pexcepinfo) }
+    pub unsafe fn AddError(&self, pszpropname: super::LPCOLESTR, pexcepinfo: *const EXCEPINFO) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddError)(windows_core::Interface::as_raw(self), pszpropname, pexcepinfo) }
     }
 }
 #[repr(C)]
@@ -1482,21 +1497,21 @@ impl IErrorLog {
 pub struct IErrorLog_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "wtypesbase")]
-    pub AddError: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const EXCEPINFO) -> windows_core::HRESULT,
+    pub AddError: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, *const EXCEPINFO) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypesbase"))]
     AddError: usize,
 }
 #[cfg(feature = "wtypesbase")]
 pub trait IErrorLog_Impl: windows_core::IUnknownImpl {
-    fn AddError(&self, pszpropname: &windows_core::PCWSTR, pexcepinfo: *const EXCEPINFO) -> windows_core::Result<()>;
+    fn AddError(&self, pszpropname: super::LPCOLESTR, pexcepinfo: *const EXCEPINFO) -> windows_core::Result<()>;
 }
 #[cfg(feature = "wtypesbase")]
 impl IErrorLog_Vtbl {
     pub const fn new<Identity: IErrorLog_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddError<Identity: IErrorLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: windows_core::PCWSTR, pexcepinfo: *const EXCEPINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddError<Identity: IErrorLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: super::LPCOLESTR, pexcepinfo: *const EXCEPINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IErrorLog_Impl::AddError(this, core::mem::transmute(&pszpropname), core::mem::transmute_copy(&pexcepinfo)).into()
+                IErrorLog_Impl::AddError(this, core::mem::transmute_copy(&pszpropname), core::mem::transmute_copy(&pexcepinfo)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddError: AddError::<Identity, OFFSET> }
@@ -1519,53 +1534,49 @@ pub const INVOKE_PROPERTYPUTREF: INVOKEKIND = 8;
 windows_core::imp::define_interface!(IPropertyBag, IPropertyBag_Vtbl, 0x55272a00_42cb_11ce_8135_00aa004bb851);
 windows_core::imp::interface_hierarchy!(IPropertyBag, windows_core::IUnknown);
 impl IPropertyBag {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Read<P0, P2>(&self, pszpropname: P0, pvar: *mut VARIANT, perrorlog: P2) -> windows_core::HRESULT
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn Read<P2>(&self, pszpropname: super::LPCOLESTR, pvar: *mut VARIANT, perrorlog: P2) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<IErrorLog>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pszpropname.param().abi(), pvar, perrorlog.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pszpropname, pvar, perrorlog.param().abi()) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const VARIANT) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pszpropname.param().abi(), pvar) }
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn Write(&self, pszpropname: super::LPCOLESTR, pvar: *const VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pszpropname, pvar) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyBag_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut VARIANT, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
+    pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, *mut VARIANT, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Read: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
+    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCOLESTR, *const VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Write: usize,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPropertyBag_Impl: windows_core::IUnknownImpl {
-    fn Read(&self, pszpropname: &windows_core::PCWSTR, pvar: *mut VARIANT, perrorlog: windows_core::Ref<IErrorLog>) -> windows_core::Result<()>;
-    fn Write(&self, pszpropname: &windows_core::PCWSTR, pvar: *const VARIANT) -> windows_core::Result<()>;
+    fn Read(&self, pszpropname: super::LPCOLESTR, pvar: *mut VARIANT, perrorlog: windows_core::Ref<IErrorLog>) -> windows_core::Result<()>;
+    fn Write(&self, pszpropname: super::LPCOLESTR, pvar: *const VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl IPropertyBag_Vtbl {
     pub const fn new<Identity: IPropertyBag_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Read<Identity: IPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: windows_core::PCWSTR, pvar: *mut VARIANT, perrorlog: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Read<Identity: IPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: super::LPCOLESTR, pvar: *mut VARIANT, perrorlog: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertyBag_Impl::Read(this, core::mem::transmute(&pszpropname), core::mem::transmute_copy(&pvar), core::mem::transmute_copy(&perrorlog)).into()
+                IPropertyBag_Impl::Read(this, core::mem::transmute_copy(&pszpropname), core::mem::transmute_copy(&pvar), core::mem::transmute_copy(&perrorlog)).into()
             }
         }
-        unsafe extern "system" fn Write<Identity: IPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: windows_core::PCWSTR, pvar: *const VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Write<Identity: IPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: super::LPCOLESTR, pvar: *const VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertyBag_Impl::Write(this, core::mem::transmute(&pszpropname), core::mem::transmute_copy(&pvar)).into()
+                IPropertyBag_Impl::Write(this, core::mem::transmute_copy(&pszpropname), core::mem::transmute_copy(&pvar)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Read: Read::<Identity, OFFSET>, Write: Write::<Identity, OFFSET> }
@@ -1574,7 +1585,7 @@ impl IPropertyBag_Vtbl {
         iid == &<IPropertyBag as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyBag {}
 windows_core::imp::define_interface!(IRecordInfo, IRecordInfo_Vtbl, 0x0000002f_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IRecordInfo, windows_core::IUnknown);
@@ -1612,36 +1623,24 @@ impl IRecordInfo {
             (windows_core::Interface::vtable(self).GetTypeInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetField<P1>(&self, pvdata: *const core::ffi::c_void, szfieldname: P1) -> windows_core::Result<VARIANT>
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetField(&self, pvdata: *const core::ffi::c_void, szfieldname: super::LPCOLESTR) -> windows_core::Result<VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetField)(windows_core::Interface::as_raw(self), pvdata, szfieldname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).GetField)(windows_core::Interface::as_raw(self), pvdata, szfieldname, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetFieldNoCopy<P1>(&self, pvdata: *const core::ffi::c_void, szfieldname: P1, pvarfield: *mut VARIANT, ppvdatacarray: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetFieldNoCopy)(windows_core::Interface::as_raw(self), pvdata, szfieldname.param().abi(), pvarfield, ppvdatacarray as _) }
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetFieldNoCopy(&self, pvdata: *const core::ffi::c_void, szfieldname: super::LPCOLESTR, pvarfield: *mut VARIANT, ppvdatacarray: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFieldNoCopy)(windows_core::Interface::as_raw(self), pvdata, szfieldname, pvarfield, ppvdatacarray as _) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn PutField<P2>(&self, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: P2, pvarfield: *const VARIANT) -> windows_core::HRESULT
-    where
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).PutField)(windows_core::Interface::as_raw(self), wflags, pvdata as _, szfieldname.param().abi(), pvarfield) }
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn PutField(&self, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: super::LPCOLESTR, pvarfield: *const VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PutField)(windows_core::Interface::as_raw(self), wflags, pvdata as _, szfieldname, pvarfield) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn PutFieldNoCopy<P2>(&self, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: P2, pvarfield: *const VARIANT) -> windows_core::HRESULT
-    where
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).PutFieldNoCopy)(windows_core::Interface::as_raw(self), wflags, pvdata as _, szfieldname.param().abi(), pvarfield) }
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn PutFieldNoCopy(&self, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: super::LPCOLESTR, pvarfield: *const VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PutFieldNoCopy)(windows_core::Interface::as_raw(self), wflags, pvdata as _, szfieldname, pvarfield) }
     }
     pub unsafe fn GetFieldNames(&self, pcnames: *mut u32, rgbstrnames: *mut windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFieldNames)(windows_core::Interface::as_raw(self), pcnames as _, core::mem::transmute(rgbstrnames)) }
@@ -1673,21 +1672,21 @@ pub struct IRecordInfo_Vtbl {
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetTypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub GetField: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, windows_core::PCWSTR, *mut VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetField: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, super::LPCOLESTR, *mut VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetField: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub GetFieldNoCopy: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, windows_core::PCWSTR, *mut VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetFieldNoCopy: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, super::LPCOLESTR, *mut VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetFieldNoCopy: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub PutField: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::PCWSTR, *const VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
+    pub PutField: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, super::LPCOLESTR, *const VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     PutField: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub PutFieldNoCopy: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::PCWSTR, *const VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
+    pub PutFieldNoCopy: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, super::LPCOLESTR, *const VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     PutFieldNoCopy: usize,
     pub GetFieldNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsMatchingType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::BOOL,
@@ -1695,7 +1694,7 @@ pub struct IRecordInfo_Vtbl {
     pub RecordCreateCopy: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RecordDestroy: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRecordInfo_Impl: windows_core::IUnknownImpl {
     fn RecordInit(&self, pvnew: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn RecordClear(&self, pvexisting: *const core::ffi::c_void) -> windows_core::Result<()>;
@@ -1704,17 +1703,17 @@ pub trait IRecordInfo_Impl: windows_core::IUnknownImpl {
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetSize(&self) -> windows_core::Result<u32>;
     fn GetTypeInfo(&self) -> windows_core::Result<ITypeInfo>;
-    fn GetField(&self, pvdata: *const core::ffi::c_void, szfieldname: &windows_core::PCWSTR) -> windows_core::Result<VARIANT>;
-    fn GetFieldNoCopy(&self, pvdata: *const core::ffi::c_void, szfieldname: &windows_core::PCWSTR, pvarfield: *mut VARIANT, ppvdatacarray: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn PutField(&self, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: &windows_core::PCWSTR, pvarfield: *const VARIANT) -> windows_core::Result<()>;
-    fn PutFieldNoCopy(&self, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: &windows_core::PCWSTR, pvarfield: *const VARIANT) -> windows_core::Result<()>;
+    fn GetField(&self, pvdata: *const core::ffi::c_void, szfieldname: super::LPCOLESTR) -> windows_core::Result<VARIANT>;
+    fn GetFieldNoCopy(&self, pvdata: *const core::ffi::c_void, szfieldname: super::LPCOLESTR, pvarfield: *mut VARIANT, ppvdatacarray: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn PutField(&self, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: super::LPCOLESTR, pvarfield: *const VARIANT) -> windows_core::Result<()>;
+    fn PutFieldNoCopy(&self, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: super::LPCOLESTR, pvarfield: *const VARIANT) -> windows_core::Result<()>;
     fn GetFieldNames(&self, pcnames: *mut u32, rgbstrnames: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn IsMatchingType(&self, precordinfo: windows_core::Ref<IRecordInfo>) -> windows_core::BOOL;
     fn RecordCreate(&self) -> *mut core::ffi::c_void;
     fn RecordCreateCopy(&self, pvsource: *const core::ffi::c_void, ppvdest: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn RecordDestroy(&self, pvrecord: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl IRecordInfo_Vtbl {
     pub const fn new<Identity: IRecordInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RecordInit<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvnew: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1783,10 +1782,10 @@ impl IRecordInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetField<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdata: *const core::ffi::c_void, szfieldname: windows_core::PCWSTR, pvarfield: *mut VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetField<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdata: *const core::ffi::c_void, szfieldname: super::LPCOLESTR, pvarfield: *mut VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRecordInfo_Impl::GetField(this, core::mem::transmute_copy(&pvdata), core::mem::transmute(&szfieldname)) {
+                match IRecordInfo_Impl::GetField(this, core::mem::transmute_copy(&pvdata), core::mem::transmute_copy(&szfieldname)) {
                     Ok(ok__) => {
                         pvarfield.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1795,22 +1794,22 @@ impl IRecordInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetFieldNoCopy<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdata: *const core::ffi::c_void, szfieldname: windows_core::PCWSTR, pvarfield: *mut VARIANT, ppvdatacarray: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFieldNoCopy<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdata: *const core::ffi::c_void, szfieldname: super::LPCOLESTR, pvarfield: *mut VARIANT, ppvdatacarray: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::GetFieldNoCopy(this, core::mem::transmute_copy(&pvdata), core::mem::transmute(&szfieldname), core::mem::transmute_copy(&pvarfield), core::mem::transmute_copy(&ppvdatacarray)).into()
+                IRecordInfo_Impl::GetFieldNoCopy(this, core::mem::transmute_copy(&pvdata), core::mem::transmute_copy(&szfieldname), core::mem::transmute_copy(&pvarfield), core::mem::transmute_copy(&ppvdatacarray)).into()
             }
         }
-        unsafe extern "system" fn PutField<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: windows_core::PCWSTR, pvarfield: *const VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn PutField<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: super::LPCOLESTR, pvarfield: *const VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::PutField(this, core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pvdata), core::mem::transmute(&szfieldname), core::mem::transmute_copy(&pvarfield)).into()
+                IRecordInfo_Impl::PutField(this, core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pvdata), core::mem::transmute_copy(&szfieldname), core::mem::transmute_copy(&pvarfield)).into()
             }
         }
-        unsafe extern "system" fn PutFieldNoCopy<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: windows_core::PCWSTR, pvarfield: *const VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn PutFieldNoCopy<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: super::LPCOLESTR, pvarfield: *const VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRecordInfo_Impl::PutFieldNoCopy(this, core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pvdata), core::mem::transmute(&szfieldname), core::mem::transmute_copy(&pvarfield)).into()
+                IRecordInfo_Impl::PutFieldNoCopy(this, core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pvdata), core::mem::transmute_copy(&szfieldname), core::mem::transmute_copy(&pvarfield)).into()
             }
         }
         unsafe extern "system" fn GetFieldNames<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcnames: *mut u32, rgbstrnames: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1867,7 +1866,7 @@ impl IRecordInfo_Vtbl {
         iid == &<IRecordInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRecordInfo {}
 windows_core::imp::define_interface!(ISupportErrorInfo, ISupportErrorInfo_Vtbl, 0xdf0b3d60_548f_101b_8e65_08002b2bd119);
 windows_core::imp::interface_hierarchy!(ISupportErrorInfo, windows_core::IUnknown);
@@ -1903,41 +1902,49 @@ impl windows_core::RuntimeName for ISupportErrorInfo {}
 windows_core::imp::define_interface!(ITypeChangeEvents, ITypeChangeEvents_Vtbl, 0x00020410_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(ITypeChangeEvents, windows_core::IUnknown);
 impl ITypeChangeEvents {
-    pub unsafe fn RequestTypeChange<P1, P2>(&self, changekind: CHANGEKIND, ptinfobefore: P1, pstrname: P2) -> windows_core::Result<i32>
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn RequestTypeChange<P1>(&self, changekind: CHANGEKIND, ptinfobefore: P1, pstrname: super::LPOLESTR) -> windows_core::Result<i32>
     where
         P1: windows_core::Param<ITypeInfo>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestTypeChange)(windows_core::Interface::as_raw(self), changekind, ptinfobefore.param().abi(), pstrname.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).RequestTypeChange)(windows_core::Interface::as_raw(self), changekind, ptinfobefore.param().abi(), pstrname, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AfterTypeChange<P1, P2>(&self, changekind: CHANGEKIND, ptinfoafter: P1, pstrname: P2) -> windows_core::HRESULT
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn AfterTypeChange<P1>(&self, changekind: CHANGEKIND, ptinfoafter: P1, pstrname: super::LPOLESTR) -> windows_core::HRESULT
     where
         P1: windows_core::Param<ITypeInfo>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AfterTypeChange)(windows_core::Interface::as_raw(self), changekind, ptinfoafter.param().abi(), pstrname.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).AfterTypeChange)(windows_core::Interface::as_raw(self), changekind, ptinfoafter.param().abi(), pstrname) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITypeChangeEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub RequestTypeChange: unsafe extern "system" fn(*mut core::ffi::c_void, CHANGEKIND, *mut core::ffi::c_void, windows_core::PCWSTR, *mut i32) -> windows_core::HRESULT,
-    pub AfterTypeChange: unsafe extern "system" fn(*mut core::ffi::c_void, CHANGEKIND, *mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub RequestTypeChange: unsafe extern "system" fn(*mut core::ffi::c_void, CHANGEKIND, *mut core::ffi::c_void, super::LPOLESTR, *mut i32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    RequestTypeChange: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub AfterTypeChange: unsafe extern "system" fn(*mut core::ffi::c_void, CHANGEKIND, *mut core::ffi::c_void, super::LPOLESTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    AfterTypeChange: usize,
 }
+#[cfg(feature = "wtypesbase")]
 pub trait ITypeChangeEvents_Impl: windows_core::IUnknownImpl {
-    fn RequestTypeChange(&self, changekind: CHANGEKIND, ptinfobefore: windows_core::Ref<ITypeInfo>, pstrname: &windows_core::PCWSTR) -> windows_core::Result<i32>;
-    fn AfterTypeChange(&self, changekind: CHANGEKIND, ptinfoafter: windows_core::Ref<ITypeInfo>, pstrname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn RequestTypeChange(&self, changekind: CHANGEKIND, ptinfobefore: windows_core::Ref<ITypeInfo>, pstrname: super::LPOLESTR) -> windows_core::Result<i32>;
+    fn AfterTypeChange(&self, changekind: CHANGEKIND, ptinfoafter: windows_core::Ref<ITypeInfo>, pstrname: super::LPOLESTR) -> windows_core::Result<()>;
 }
+#[cfg(feature = "wtypesbase")]
 impl ITypeChangeEvents_Vtbl {
     pub const fn new<Identity: ITypeChangeEvents_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn RequestTypeChange<Identity: ITypeChangeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changekind: CHANGEKIND, ptinfobefore: *mut core::ffi::c_void, pstrname: windows_core::PCWSTR, pfcancel: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RequestTypeChange<Identity: ITypeChangeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changekind: CHANGEKIND, ptinfobefore: *mut core::ffi::c_void, pstrname: super::LPOLESTR, pfcancel: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITypeChangeEvents_Impl::RequestTypeChange(this, core::mem::transmute_copy(&changekind), core::mem::transmute_copy(&ptinfobefore), core::mem::transmute(&pstrname)) {
+                match ITypeChangeEvents_Impl::RequestTypeChange(this, core::mem::transmute_copy(&changekind), core::mem::transmute_copy(&ptinfobefore), core::mem::transmute_copy(&pstrname)) {
                     Ok(ok__) => {
                         pfcancel.write(ok__);
                         windows_core::HRESULT(0)
@@ -1946,10 +1953,10 @@ impl ITypeChangeEvents_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AfterTypeChange<Identity: ITypeChangeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changekind: CHANGEKIND, ptinfoafter: *mut core::ffi::c_void, pstrname: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn AfterTypeChange<Identity: ITypeChangeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changekind: CHANGEKIND, ptinfoafter: *mut core::ffi::c_void, pstrname: super::LPOLESTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeChangeEvents_Impl::AfterTypeChange(this, core::mem::transmute_copy(&changekind), core::mem::transmute_copy(&ptinfoafter), core::mem::transmute(&pstrname)).into()
+                ITypeChangeEvents_Impl::AfterTypeChange(this, core::mem::transmute_copy(&changekind), core::mem::transmute_copy(&ptinfoafter), core::mem::transmute_copy(&pstrname)).into()
             }
         }
         Self {
@@ -1962,52 +1969,51 @@ impl ITypeChangeEvents_Vtbl {
         iid == &<ITypeChangeEvents as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for ITypeChangeEvents {}
 windows_core::imp::define_interface!(ITypeComp, ITypeComp_Vtbl, 0x00020403_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(ITypeComp, windows_core::IUnknown);
 impl ITypeComp {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Bind<P0>(&self, szname: P0, lhashval: u32, wflags: u16, pptinfo: *mut Option<ITypeInfo>, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), szname.param().abi(), lhashval, wflags, core::mem::transmute(pptinfo), pdesckind as _, pbindptr) }
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn Bind(&self, szname: super::LPOLESTR, lhashval: u32, wflags: u16, pptinfo: *mut Option<ITypeInfo>, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), szname, lhashval, wflags, core::mem::transmute(pptinfo), pdesckind as _, pbindptr) }
     }
-    pub unsafe fn BindType<P0>(&self, szname: P0, lhashval: u32, pptinfo: *mut Option<ITypeInfo>, pptcomp: *mut Option<Self>) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).BindType)(windows_core::Interface::as_raw(self), szname.param().abi(), lhashval, core::mem::transmute(pptinfo), core::mem::transmute(pptcomp)) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn BindType(&self, szname: super::LPOLESTR, lhashval: u32, pptinfo: *mut Option<ITypeInfo>, pptcomp: *mut Option<Self>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).BindType)(windows_core::Interface::as_raw(self), szname, lhashval, core::mem::transmute(pptinfo), core::mem::transmute(pptcomp)) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITypeComp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Bind: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u16, *mut *mut core::ffi::c_void, *mut DESCKIND, *mut BINDPTR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
+    pub Bind: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR, u32, u16, *mut *mut core::ffi::c_void, *mut DESCKIND, *mut BINDPTR) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Bind: usize,
-    pub BindType: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub BindType: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR, u32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    BindType: usize,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITypeComp_Impl: windows_core::IUnknownImpl {
-    fn Bind(&self, szname: &windows_core::PCWSTR, lhashval: u32, wflags: u16, pptinfo: windows_core::OutRef<ITypeInfo>, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> windows_core::Result<()>;
-    fn BindType(&self, szname: &windows_core::PCWSTR, lhashval: u32, pptinfo: windows_core::OutRef<ITypeInfo>, pptcomp: windows_core::OutRef<ITypeComp>) -> windows_core::Result<()>;
+    fn Bind(&self, szname: super::LPOLESTR, lhashval: u32, wflags: u16, pptinfo: windows_core::OutRef<ITypeInfo>, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> windows_core::Result<()>;
+    fn BindType(&self, szname: super::LPOLESTR, lhashval: u32, pptinfo: windows_core::OutRef<ITypeInfo>, pptcomp: windows_core::OutRef<ITypeComp>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl ITypeComp_Vtbl {
     pub const fn new<Identity: ITypeComp_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Bind<Identity: ITypeComp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: windows_core::PCWSTR, lhashval: u32, wflags: u16, pptinfo: *mut *mut core::ffi::c_void, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn Bind<Identity: ITypeComp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: super::LPOLESTR, lhashval: u32, wflags: u16, pptinfo: *mut *mut core::ffi::c_void, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeComp_Impl::Bind(this, core::mem::transmute(&szname), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pptinfo), core::mem::transmute_copy(&pdesckind), core::mem::transmute_copy(&pbindptr)).into()
+                ITypeComp_Impl::Bind(this, core::mem::transmute_copy(&szname), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pptinfo), core::mem::transmute_copy(&pdesckind), core::mem::transmute_copy(&pbindptr)).into()
             }
         }
-        unsafe extern "system" fn BindType<Identity: ITypeComp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: windows_core::PCWSTR, lhashval: u32, pptinfo: *mut *mut core::ffi::c_void, pptcomp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn BindType<Identity: ITypeComp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: super::LPOLESTR, lhashval: u32, pptinfo: *mut *mut core::ffi::c_void, pptcomp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeComp_Impl::BindType(this, core::mem::transmute(&szname), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&pptinfo), core::mem::transmute_copy(&pptcomp)).into()
+                ITypeComp_Impl::BindType(this, core::mem::transmute_copy(&szname), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&pptinfo), core::mem::transmute_copy(&pptcomp)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Bind: Bind::<Identity, OFFSET>, BindType: BindType::<Identity, OFFSET> }
@@ -2016,7 +2022,7 @@ impl ITypeComp_Vtbl {
         iid == &<ITypeComp as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITypeComp {}
 windows_core::imp::define_interface!(ITypeFactory, ITypeFactory_Vtbl, 0x0000002e_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(ITypeFactory, windows_core::IUnknown);
@@ -2057,7 +2063,7 @@ impl windows_core::RuntimeName for ITypeFactory {}
 windows_core::imp::define_interface!(ITypeInfo, ITypeInfo_Vtbl, 0x00020401_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(ITypeInfo, windows_core::IUnknown);
 impl ITypeInfo {
-    #[cfg(all(feature = "winnt", feature = "wtypes"))]
+    #[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetTypeAttr(&self) -> windows_core::Result<*mut TYPEATTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2070,14 +2076,14 @@ impl ITypeInfo {
             (windows_core::Interface::vtable(self).GetTypeComp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetFuncDesc(&self, index: u32) -> windows_core::Result<*mut FUNCDESC> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFuncDesc)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetVarDesc(&self, index: u32) -> windows_core::Result<*mut VARDESC> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2099,13 +2105,14 @@ impl ITypeInfo {
             (windows_core::Interface::vtable(self).GetImplTypeFlags)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetIDsOfNames(&self, rgsznames: *const windows_core::PCWSTR, cnames: u32) -> windows_core::Result<MEMBERID> {
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn GetIDsOfNames(&self, rgsznames: *const super::LPOLESTR, cnames: u32) -> windows_core::Result<MEMBERID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIDsOfNames)(windows_core::Interface::as_raw(self), rgsznames, cnames, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Invoke(&self, pvinstance: *const core::ffi::c_void, memid: MEMBERID, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), pvinstance, memid, wflags, pdispparams as _, pvarresult, pexcepinfo, puargerr as _) }
     }
@@ -2141,19 +2148,19 @@ impl ITypeInfo {
     pub unsafe fn GetContainingTypeLib(&self, pptlib: *mut Option<ITypeLib>, pindex: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetContainingTypeLib)(windows_core::Interface::as_raw(self), core::mem::transmute(pptlib), pindex as _) }
     }
-    #[cfg(all(feature = "winnt", feature = "wtypes"))]
+    #[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ReleaseTypeAttr(&self, ptypeattr: *const TYPEATTR) {
         unsafe {
             (windows_core::Interface::vtable(self).ReleaseTypeAttr)(windows_core::Interface::as_raw(self), ptypeattr);
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ReleaseFuncDesc(&self, pfuncdesc: *const FUNCDESC) {
         unsafe {
             (windows_core::Interface::vtable(self).ReleaseFuncDesc)(windows_core::Interface::as_raw(self), pfuncdesc);
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ReleaseVarDesc(&self, pvardesc: *const VARDESC) {
         unsafe {
             (windows_core::Interface::vtable(self).ReleaseVarDesc)(windows_core::Interface::as_raw(self), pvardesc);
@@ -2164,26 +2171,29 @@ impl ITypeInfo {
 #[doc(hidden)]
 pub struct ITypeInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "winnt", feature = "wtypes"))]
+    #[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetTypeAttr: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut TYPEATTR) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "winnt", feature = "wtypes")))]
+    #[cfg(not(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetTypeAttr: usize,
     pub GetTypeComp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetFuncDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut FUNCDESC) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetFuncDesc: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetVarDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut VARDESC) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetVarDesc: usize,
     pub GetNames: unsafe extern "system" fn(*mut core::ffi::c_void, MEMBERID, *mut *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetRefTypeOfImplType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut HREFTYPE) -> windows_core::HRESULT,
     pub GetImplTypeFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut i32) -> windows_core::HRESULT,
-    pub GetIDsOfNames: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::PCWSTR, u32, *mut MEMBERID) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(feature = "wtypesbase")]
+    pub GetIDsOfNames: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::LPOLESTR, u32, *mut MEMBERID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    GetIDsOfNames: usize,
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, MEMBERID, u16, *mut DISPPARAMS, *mut VARIANT, *mut EXCEPINFO, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Invoke: usize,
     pub GetDocumentation: unsafe extern "system" fn(*mut core::ffi::c_void, MEMBERID, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDllEntry: unsafe extern "system" fn(*mut core::ffi::c_void, MEMBERID, INVOKEKIND, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -2192,20 +2202,20 @@ pub struct ITypeInfo_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMops: unsafe extern "system" fn(*mut core::ffi::c_void, MEMBERID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetContainingTypeLib: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "winnt", feature = "wtypes"))]
+    #[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub ReleaseTypeAttr: unsafe extern "system" fn(*mut core::ffi::c_void, *const TYPEATTR),
-    #[cfg(not(all(feature = "winnt", feature = "wtypes")))]
+    #[cfg(not(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ReleaseTypeAttr: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub ReleaseFuncDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *const FUNCDESC),
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     ReleaseFuncDesc: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub ReleaseVarDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *const VARDESC),
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     ReleaseVarDesc: usize,
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITypeInfo_Impl: windows_core::IUnknownImpl {
     fn GetTypeAttr(&self) -> windows_core::Result<*mut TYPEATTR>;
     fn GetTypeComp(&self) -> windows_core::Result<ITypeComp>;
@@ -2214,7 +2224,7 @@ pub trait ITypeInfo_Impl: windows_core::IUnknownImpl {
     fn GetNames(&self, memid: MEMBERID, rgbstrnames: *mut windows_core::BSTR, cmaxnames: u32, pcnames: *mut u32) -> windows_core::Result<()>;
     fn GetRefTypeOfImplType(&self, index: u32) -> windows_core::Result<HREFTYPE>;
     fn GetImplTypeFlags(&self, index: u32) -> windows_core::Result<i32>;
-    fn GetIDsOfNames(&self, rgsznames: *const windows_core::PCWSTR, cnames: u32) -> windows_core::Result<MEMBERID>;
+    fn GetIDsOfNames(&self, rgsznames: *const super::LPOLESTR, cnames: u32) -> windows_core::Result<MEMBERID>;
     fn Invoke(&self, pvinstance: *const core::ffi::c_void, memid: MEMBERID, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> windows_core::Result<()>;
     fn GetDocumentation(&self, memid: MEMBERID, pbstrname: *mut windows_core::BSTR, pbstrdocstring: *mut windows_core::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetDllEntry(&self, memid: MEMBERID, invkind: INVOKEKIND, pbstrdllname: *mut windows_core::BSTR, pbstrname: *mut windows_core::BSTR, pwordinal: *mut u16) -> windows_core::Result<()>;
@@ -2227,7 +2237,7 @@ pub trait ITypeInfo_Impl: windows_core::IUnknownImpl {
     fn ReleaseFuncDesc(&self, pfuncdesc: *const FUNCDESC);
     fn ReleaseVarDesc(&self, pvardesc: *const VARDESC);
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITypeInfo_Vtbl {
     pub const fn new<Identity: ITypeInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTypeAttr<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptypeattr: *mut *mut TYPEATTR) -> windows_core::HRESULT {
@@ -2308,7 +2318,7 @@ impl ITypeInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetIDsOfNames<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rgsznames: *const windows_core::PCWSTR, cnames: u32, pmemid: *mut MEMBERID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIDsOfNames<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rgsznames: *const super::LPOLESTR, cnames: u32, pmemid: *mut MEMBERID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo_Impl::GetIDsOfNames(this, core::mem::transmute_copy(&rgsznames), core::mem::transmute_copy(&cnames)) {
@@ -2425,7 +2435,7 @@ impl ITypeInfo_Vtbl {
         iid == &<ITypeInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITypeInfo {}
 windows_core::imp::define_interface!(ITypeInfo2, ITypeInfo2_Vtbl, 0x00020412_0000_0000_c000_000000000046);
 impl core::ops::Deref for ITypeInfo2 {
@@ -2460,35 +2470,35 @@ impl ITypeInfo2 {
             (windows_core::Interface::vtable(self).GetVarIndexOfMemId)(windows_core::Interface::as_raw(self), memid, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetCustData(&self, guid: *const windows_core::GUID) -> windows_core::Result<VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCustData)(windows_core::Interface::as_raw(self), guid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetFuncCustData(&self, index: u32, guid: *const windows_core::GUID) -> windows_core::Result<VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFuncCustData)(windows_core::Interface::as_raw(self), index, guid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const windows_core::GUID) -> windows_core::Result<VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetParamCustData)(windows_core::Interface::as_raw(self), indexfunc, indexparam, guid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetVarCustData(&self, index: u32, guid: *const windows_core::GUID) -> windows_core::Result<VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetVarCustData)(windows_core::Interface::as_raw(self), index, guid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetImplTypeCustData(&self, index: u32, guid: *const windows_core::GUID) -> windows_core::Result<VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2499,35 +2509,35 @@ impl ITypeInfo2 {
     pub unsafe fn GetDocumentation2(&self, memid: MEMBERID, lcid: super::LCID, pbstrhelpstring: *mut windows_core::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDocumentation2)(windows_core::Interface::as_raw(self), memid, lcid, core::mem::transmute(pbstrhelpstring), pdwhelpstringcontext as _, core::mem::transmute(pbstrhelpstringdll)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAllCustData(&self) -> windows_core::Result<CUSTDATA> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAllCustData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAllFuncCustData(&self, index: u32) -> windows_core::Result<CUSTDATA> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAllFuncCustData)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAllParamCustData(&self, indexfunc: u32, indexparam: u32) -> windows_core::Result<CUSTDATA> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAllParamCustData)(windows_core::Interface::as_raw(self), indexfunc, indexparam, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAllVarCustData(&self, index: u32) -> windows_core::Result<CUSTDATA> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAllVarCustData)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAllImplTypeCustData(&self, index: u32) -> windows_core::Result<CUSTDATA> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2543,52 +2553,52 @@ pub struct ITypeInfo2_Vtbl {
     pub GetTypeFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetFuncIndexOfMemId: unsafe extern "system" fn(*mut core::ffi::c_void, MEMBERID, INVOKEKIND, *mut u32) -> windows_core::HRESULT,
     pub GetVarIndexOfMemId: unsafe extern "system" fn(*mut core::ffi::c_void, MEMBERID, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetCustData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetFuncCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetFuncCustData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetParamCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const windows_core::GUID, *mut VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetParamCustData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetVarCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetVarCustData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetImplTypeCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetImplTypeCustData: usize,
     #[cfg(feature = "winnt")]
     pub GetDocumentation2: unsafe extern "system" fn(*mut core::ffi::c_void, MEMBERID, super::LCID, *mut *mut core::ffi::c_void, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "winnt"))]
     GetDocumentation2: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetAllCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CUSTDATA) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetAllCustData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetAllFuncCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut CUSTDATA) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetAllFuncCustData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetAllParamCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut CUSTDATA) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetAllParamCustData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetAllVarCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut CUSTDATA) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetAllVarCustData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetAllImplTypeCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut CUSTDATA) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetAllImplTypeCustData: usize,
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITypeInfo2_Impl: ITypeInfo_Impl {
     fn GetTypeKind(&self) -> windows_core::Result<TYPEKIND>;
     fn GetTypeFlags(&self) -> windows_core::Result<u32>;
@@ -2606,7 +2616,7 @@ pub trait ITypeInfo2_Impl: ITypeInfo_Impl {
     fn GetAllVarCustData(&self, index: u32) -> windows_core::Result<CUSTDATA>;
     fn GetAllImplTypeCustData(&self, index: u32) -> windows_core::Result<CUSTDATA>;
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITypeInfo2_Vtbl {
     pub const fn new<Identity: ITypeInfo2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTypeKind<Identity: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptypekind: *mut TYPEKIND) -> windows_core::HRESULT {
@@ -2806,7 +2816,7 @@ impl ITypeInfo2_Vtbl {
         iid == &<ITypeInfo2 as windows_core::Interface>::IID || iid == &<ITypeInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITypeInfo2 {}
 windows_core::imp::define_interface!(ITypeLib, ITypeLib_Vtbl, 0x00020402_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(ITypeLib, windows_core::IUnknown);
@@ -2848,11 +2858,13 @@ impl ITypeLib {
     pub unsafe fn GetDocumentation(&self, index: i32, pbstrname: *mut windows_core::BSTR, pbstrdocstring: *mut windows_core::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDocumentation)(windows_core::Interface::as_raw(self), index, core::mem::transmute(pbstrname), core::mem::transmute(pbstrdocstring), pdwhelpcontext as _, core::mem::transmute(pbstrhelpfile)) }
     }
-    pub unsafe fn IsName(&self, sznamebuf: windows_core::PWSTR, lhashval: u32, pfname: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).IsName)(windows_core::Interface::as_raw(self), sznamebuf, lhashval, pfname as _) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn IsName(&self, sznamebuf: super::LPOLESTR, lhashval: u32, pfname: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).IsName)(windows_core::Interface::as_raw(self), sznamebuf as _, lhashval, pfname as _) }
     }
-    pub unsafe fn FindName(&self, sznamebuf: windows_core::PWSTR, lhashval: u32, pptinfo: *mut Option<ITypeInfo>, rgmemid: *mut MEMBERID, pcfound: *mut u16) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).FindName)(windows_core::Interface::as_raw(self), sznamebuf, lhashval, core::mem::transmute(pptinfo), rgmemid as _, pcfound as _) }
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn FindName(&self, sznamebuf: super::LPOLESTR, lhashval: u32, pptinfo: *mut Option<ITypeInfo>, rgmemid: *mut MEMBERID, pcfound: *mut u16) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).FindName)(windows_core::Interface::as_raw(self), sznamebuf as _, lhashval, core::mem::transmute(pptinfo), rgmemid as _, pcfound as _) }
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn ReleaseTLibAttr(&self, ptlibattr: *const TLIBATTR) {
@@ -2875,14 +2887,20 @@ pub struct ITypeLib_Vtbl {
     GetLibAttr: usize,
     pub GetTypeComp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDocumentation: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    pub FindName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut *mut core::ffi::c_void, *mut MEMBERID, *mut u16) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub IsName: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    IsName: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub FindName: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPOLESTR, u32, *mut *mut core::ffi::c_void, *mut MEMBERID, *mut u16) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    FindName: usize,
     #[cfg(feature = "winnt")]
     pub ReleaseTLibAttr: unsafe extern "system" fn(*mut core::ffi::c_void, *const TLIBATTR),
     #[cfg(not(feature = "winnt"))]
     ReleaseTLibAttr: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
 pub trait ITypeLib_Impl: windows_core::IUnknownImpl {
     fn GetTypeInfoCount(&self) -> u32;
     fn GetTypeInfo(&self, index: u32) -> windows_core::Result<ITypeInfo>;
@@ -2891,11 +2909,11 @@ pub trait ITypeLib_Impl: windows_core::IUnknownImpl {
     fn GetLibAttr(&self) -> windows_core::Result<*mut TLIBATTR>;
     fn GetTypeComp(&self) -> windows_core::Result<ITypeComp>;
     fn GetDocumentation(&self, index: i32, pbstrname: *mut windows_core::BSTR, pbstrdocstring: *mut windows_core::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn IsName(&self, sznamebuf: windows_core::PWSTR, lhashval: u32, pfname: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn FindName(&self, sznamebuf: windows_core::PWSTR, lhashval: u32, pptinfo: windows_core::OutRef<ITypeInfo>, rgmemid: *mut MEMBERID, pcfound: *mut u16) -> windows_core::Result<()>;
+    fn IsName(&self, sznamebuf: super::LPOLESTR, lhashval: u32, pfname: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn FindName(&self, sznamebuf: super::LPOLESTR, lhashval: u32, pptinfo: windows_core::OutRef<ITypeInfo>, rgmemid: *mut MEMBERID, pcfound: *mut u16) -> windows_core::Result<()>;
     fn ReleaseTLibAttr(&self, ptlibattr: *const TLIBATTR);
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
 impl ITypeLib_Vtbl {
     pub const fn new<Identity: ITypeLib_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTypeInfoCount<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
@@ -2970,13 +2988,13 @@ impl ITypeLib_Vtbl {
                 ITypeLib_Impl::GetDocumentation(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pbstrname), core::mem::transmute_copy(&pbstrdocstring), core::mem::transmute_copy(&pdwhelpcontext), core::mem::transmute_copy(&pbstrhelpfile)).into()
             }
         }
-        unsafe extern "system" fn IsName<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sznamebuf: windows_core::PWSTR, lhashval: u32, pfname: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsName<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sznamebuf: super::LPOLESTR, lhashval: u32, pfname: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITypeLib_Impl::IsName(this, core::mem::transmute_copy(&sznamebuf), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&pfname)).into()
             }
         }
-        unsafe extern "system" fn FindName<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sznamebuf: windows_core::PWSTR, lhashval: u32, pptinfo: *mut *mut core::ffi::c_void, rgmemid: *mut MEMBERID, pcfound: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindName<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sznamebuf: super::LPOLESTR, lhashval: u32, pptinfo: *mut *mut core::ffi::c_void, rgmemid: *mut MEMBERID, pcfound: *mut u16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITypeLib_Impl::FindName(this, core::mem::transmute_copy(&sznamebuf), core::mem::transmute_copy(&lhashval), core::mem::transmute_copy(&pptinfo), core::mem::transmute_copy(&rgmemid), core::mem::transmute_copy(&pcfound)).into()
@@ -3006,7 +3024,7 @@ impl ITypeLib_Vtbl {
         iid == &<ITypeLib as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITypeLib {}
 windows_core::imp::define_interface!(ITypeLib2, ITypeLib2_Vtbl, 0x00020411_0000_0000_c000_000000000046);
 impl core::ops::Deref for ITypeLib2 {
@@ -3017,7 +3035,7 @@ impl core::ops::Deref for ITypeLib2 {
 }
 windows_core::imp::interface_hierarchy!(ITypeLib2, windows_core::IUnknown, ITypeLib);
 impl ITypeLib2 {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetCustData(&self, guid: *const windows_core::GUID) -> windows_core::Result<VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3031,7 +3049,7 @@ impl ITypeLib2 {
     pub unsafe fn GetDocumentation2(&self, index: i32, lcid: super::LCID, pbstrhelpstring: *mut windows_core::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDocumentation2)(windows_core::Interface::as_raw(self), index, lcid, core::mem::transmute(pbstrhelpstring), pdwhelpstringcontext as _, core::mem::transmute(pbstrhelpstringdll)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAllCustData(&self) -> windows_core::Result<CUSTDATA> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3043,28 +3061,28 @@ impl ITypeLib2 {
 #[doc(hidden)]
 pub struct ITypeLib2_Vtbl {
     pub base__: ITypeLib_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetCustData: usize,
     pub GetLibStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "winnt")]
     pub GetDocumentation2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::LCID, *mut *mut core::ffi::c_void, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "winnt"))]
     GetDocumentation2: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub GetAllCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CUSTDATA) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     GetAllCustData: usize,
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITypeLib2_Impl: ITypeLib_Impl {
     fn GetCustData(&self, guid: *const windows_core::GUID) -> windows_core::Result<VARIANT>;
     fn GetLibStatistics(&self, pcuniquenames: *mut u32, pcchuniquenames: *mut u32) -> windows_core::Result<()>;
     fn GetDocumentation2(&self, index: i32, lcid: super::LCID, pbstrhelpstring: *mut windows_core::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetAllCustData(&self) -> windows_core::Result<CUSTDATA>;
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITypeLib2_Vtbl {
     pub const fn new<Identity: ITypeLib2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCustData<Identity: ITypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pvarval: *mut VARIANT) -> windows_core::HRESULT {
@@ -3115,7 +3133,7 @@ impl ITypeLib2_Vtbl {
         iid == &<ITypeLib2 as windows_core::Interface>::IID || iid == &<ITypeLib as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITypeLib2 {}
 windows_core::imp::define_interface!(ITypeLibRegistration, ITypeLibRegistration_Vtbl, 0x76a3e735_02df_4a12_98eb_043ad3600af3);
 windows_core::imp::interface_hierarchy!(ITypeLibRegistration, windows_core::IUnknown);
@@ -3445,56 +3463,74 @@ pub const LIBFLAG_FCONTROL: LIBFLAGS = 2;
 pub const LIBFLAG_FHASDISKIMAGE: LIBFLAGS = 8;
 pub const LIBFLAG_FHIDDEN: LIBFLAGS = 4;
 pub const LIBFLAG_FRESTRICTED: LIBFLAGS = 1;
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPBINDPTR = *mut BINDPTR;
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+pub type LPCREATEERRORINFO = ICreateErrorInfo;
+pub type LPCREATETYPEINFO = ICreateTypeInfo;
+pub type LPCREATETYPEINFO2 = ICreateTypeInfo2;
+pub type LPCREATETYPELIB = ICreateTypeLib;
+pub type LPCREATETYPELIB2 = ICreateTypeLib2;
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPCUSTDATA = *mut CUSTDATA;
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPCUSTDATAITEM = *mut CUSTDATAITEM;
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+pub type LPDISPATCH = IDispatch;
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPELEMDESC = *mut ELEMDESC;
+pub type LPENUMVARIANT = IEnumVARIANT;
+pub type LPERRORINFO = IErrorInfo;
+pub type LPERRORLOG = IErrorLog;
 #[cfg(feature = "wtypesbase")]
 pub type LPEXCEPINFO = *mut EXCEPINFO;
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPFUNCDESC = *mut FUNCDESC;
 pub type LPIDLDESC = *mut IDLDESC;
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPPARAMDESC = *mut PARAMDESC;
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPPARAMDESCEX = *mut PARAMDESCEX;
+pub type LPPROPERTYBAG = IPropertyBag;
+pub type LPRECORDINFO = IRecordInfo;
 pub type LPSAFEARRAY = *mut SAFEARRAY;
 pub type LPSAFEARRAYBOUND = *mut SAFEARRAYBOUND;
+pub type LPSUPPORTERRORINFO = ISupportErrorInfo;
 #[cfg(feature = "winnt")]
 pub type LPTLIBATTR = *mut TLIBATTR;
-#[cfg(all(feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPTYPEATTR = *mut TYPEATTR;
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+pub type LPTYPECHANGEEVENTS = ITypeChangeEvents;
+pub type LPTYPECOMP = ITypeComp;
+pub type LPTYPEINFO = ITypeInfo;
+pub type LPTYPEINFO2 = ITypeInfo2;
+pub type LPTYPELIB = ITypeLib;
+pub type LPTYPELIB2 = ITypeLib2;
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPVARDESC = *mut VARDESC;
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPVARIANT = *mut VARIANT;
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub type LPVARIANTARG = *mut VARIANT;
 pub type MEMBERID = DISPID;
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARAMDESC {
     pub pparamdescex: LPPARAMDESCEX,
     pub wParamFlags: u16,
 }
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub struct PARAMDESCEX {
     pub cBytes: u32,
     pub varDefaultValue: VARIANTARG,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for PARAMDESCEX {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for PARAMDESCEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3530,35 +3566,14 @@ pub struct SAFEARRAYBOUND {
     pub lLbound: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SAFEARRAYUNION {
     pub sfType: u32,
-    pub u: SAFEARRAYUNION_0,
+    pub u: __MIDL_IOleAutomationTypes_0001,
 }
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for SAFEARRAYUNION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
-pub union SAFEARRAYUNION_0 {
-    pub BstrStr: SAFEARR_BSTR,
-    pub UnknownStr: SAFEARR_UNKNOWN,
-    pub DispatchStr: SAFEARR_DISPATCH,
-    pub VariantStr: SAFEARR_VARIANT,
-    pub RecordStr: SAFEARR_BRECORD,
-    pub HaveIidStr: SAFEARR_HAVEIID,
-    pub ByteStr: super::BYTE_SIZEDARR,
-    pub WordStr: super::WORD_SIZEDARR,
-    pub LongStr: super::DWORD_SIZEDARR,
-    pub HyperStr: super::HYPER_SIZEDARR,
-}
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for SAFEARRAYUNION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3597,7 +3612,7 @@ pub struct SAFEARR_UNKNOWN {
     pub apUnknown: *mut Option<windows_core::IUnknown>,
 }
 #[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARR_VARIANT {
     pub Size: u32,
@@ -3641,7 +3656,7 @@ pub struct TLIBATTR {
     pub wLibFlags: u16,
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct TYPEATTR {
     pub guid: windows_core::GUID,
@@ -3649,7 +3664,7 @@ pub struct TYPEATTR {
     pub dwReserved: u32,
     pub memidConstructor: MEMBERID,
     pub memidDestructor: MEMBERID,
-    pub lpstrSchema: windows_core::PWSTR,
+    pub lpstrSchema: super::LPOLESTR,
     pub cbSizeInstance: u32,
     pub typekind: TYPEKIND,
     pub cFuncs: u16,
@@ -3663,7 +3678,7 @@ pub struct TYPEATTR {
     pub tdescAlias: TYPEDESC,
     pub idldescType: IDLDESC,
 }
-#[cfg(all(feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for TYPEATTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3714,30 +3729,30 @@ pub const TYPEFLAG_FRESTRICTED: TYPEFLAGS = 512;
 pub const TYPEFLAG_FREVERSEBIND: TYPEFLAGS = 8192;
 pub type TYPEKIND = i32;
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct VARDESC {
     pub memid: MEMBERID,
-    pub lpstrSchema: windows_core::PWSTR,
+    pub lpstrSchema: super::LPOLESTR,
     pub Anonymous: VARDESC_0,
     pub elemdescVar: ELEMDESC,
     pub wVarFlags: u16,
     pub varkind: VARKIND,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for VARDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union VARDESC_0 {
     pub oInst: u32,
     pub lpvarValue: *mut VARIANT,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for VARDESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3758,42 +3773,42 @@ pub const VARFLAG_FRESTRICTED: VARFLAGS = 128;
 pub const VARFLAG_FSOURCE: VARFLAGS = 2;
 pub const VARFLAG_FUIDEFAULT: VARFLAGS = 512;
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub struct VARIANT {
     pub Anonymous: VARIANT_0,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for VARIANT {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for VARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub union VARIANT_0 {
     pub Anonymous: core::mem::ManuallyDrop<VARIANT_0_0>,
     pub decVal: super::DECIMAL,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for VARIANT_0 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for VARIANT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub struct VARIANT_0_0 {
     pub vt: super::VARTYPE,
     pub wReserved1: u16,
@@ -3801,32 +3816,32 @@ pub struct VARIANT_0_0 {
     pub wReserved3: u16,
     pub Anonymous: VARIANT_0_0_0,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for VARIANT_0_0 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for VARIANT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub union VARIANT_0_0_0 {
     pub llVal: i64,
     pub lVal: i32,
     pub bVal: u8,
     pub iVal: i16,
-    pub fltVal: f32,
-    pub dblVal: f64,
+    pub fltVal: super::FLOAT,
+    pub dblVal: super::DOUBLE,
     pub boolVal: super::VARIANT_BOOL,
     pub __OBSOLETE__VARIANT_BOOL: super::VARIANT_BOOL,
     pub scode: super::SCODE,
     pub cyVal: super::CY,
-    pub date: f64,
+    pub date: super::DATE,
     pub bstrVal: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub punkVal: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub pdispVal: core::mem::ManuallyDrop<Option<IDispatch>>,
@@ -3835,13 +3850,13 @@ pub union VARIANT_0_0_0 {
     pub piVal: *mut i16,
     pub plVal: *mut i32,
     pub pllVal: *mut i64,
-    pub pfltVal: *mut f32,
-    pub pdblVal: *mut f64,
+    pub pfltVal: *mut super::FLOAT,
+    pub pdblVal: *mut super::DOUBLE,
     pub pboolVal: *mut super::VARIANT_BOOL,
     pub __OBSOLETE__VARIANT_PBOOL: *mut super::VARIANT_BOOL,
     pub pscode: *mut super::SCODE,
     pub pcyVal: *mut super::CY,
-    pub pdate: *mut f64,
+    pub pdate: *mut super::DATE,
     pub pbstrVal: *mut windows_core::BSTR,
     pub ppunkVal: *mut Option<windows_core::IUnknown>,
     pub ppdispVal: *mut Option<IDispatch>,
@@ -3863,32 +3878,53 @@ pub union VARIANT_0_0_0 {
     pub puintVal: *mut u32,
     pub Anonymous: core::mem::ManuallyDrop<VARIANT_0_0_0_0>,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for VARIANT_0_0_0 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for VARIANT_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut core::ffi::c_void,
     pub pRecInfo: core::mem::ManuallyDrop<Option<IRecordInfo>>,
 }
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
 pub type VARIANTARG = VARIANT;
 pub type VARKIND = i32;
 pub const VAR_CONST: VARKIND = 2;
 pub const VAR_DISPATCH: VARKIND = 3;
 pub const VAR_PERINSTANCE: VARKIND = 0;
 pub const VAR_STATIC: VARKIND = 1;
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
+pub union __MIDL_IOleAutomationTypes_0001 {
+    pub BstrStr: SAFEARR_BSTR,
+    pub UnknownStr: SAFEARR_UNKNOWN,
+    pub DispatchStr: SAFEARR_DISPATCH,
+    pub VariantStr: SAFEARR_VARIANT,
+    pub RecordStr: SAFEARR_BRECORD,
+    pub HaveIidStr: SAFEARR_HAVEIID,
+    pub ByteStr: super::BYTE_SIZEDARR,
+    pub WordStr: super::WORD_SIZEDARR,
+    pub LongStr: super::DWORD_SIZEDARR,
+    pub HyperStr: super::HYPER_SIZEDARR,
+}
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for __MIDL_IOleAutomationTypes_0001 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "rpc")]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -3899,7 +3935,7 @@ pub struct _wireBRECORD {
     pub pRecord: *mut super::byte,
 }
 #[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct _wireSAFEARRAY {
     pub cDims: u16,
@@ -3909,14 +3945,14 @@ pub struct _wireSAFEARRAY {
     pub uArrayStructs: SAFEARRAYUNION,
     pub rgsabound: [SAFEARRAYBOUND; 1],
 }
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for _wireSAFEARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 pub struct _wireVARIANT {
     pub clSize: u32,
     pub rpcReserved: u32,
@@ -3926,31 +3962,31 @@ pub struct _wireVARIANT {
     pub wReserved3: u16,
     pub Anonymous: _wireVARIANT_0,
 }
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for _wireVARIANT {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for _wireVARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 pub union _wireVARIANT_0 {
     pub llVal: i64,
     pub lVal: i32,
     pub bVal: u8,
     pub iVal: i16,
-    pub fltVal: f32,
-    pub dblVal: f64,
+    pub fltVal: super::FLOAT,
+    pub dblVal: super::DOUBLE,
     pub boolVal: super::VARIANT_BOOL,
     pub scode: super::SCODE,
     pub cyVal: super::CY,
-    pub date: f64,
+    pub date: super::DATE,
     pub bstrVal: super::wireBSTR,
     pub punkVal: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub pdispVal: core::mem::ManuallyDrop<Option<IDispatch>>,
@@ -3960,12 +3996,12 @@ pub union _wireVARIANT_0 {
     pub piVal: *mut i16,
     pub plVal: *mut i32,
     pub pllVal: *mut i64,
-    pub pfltVal: *mut f32,
-    pub pdblVal: *mut f64,
+    pub pfltVal: *mut super::FLOAT,
+    pub pdblVal: *mut super::DOUBLE,
     pub pboolVal: *mut super::VARIANT_BOOL,
     pub pscode: *mut super::SCODE,
     pub pcyVal: *mut super::CY,
-    pub pdate: *mut f64,
+    pub pdate: *mut super::DATE,
     pub pbstrVal: *mut super::wireBSTR,
     pub ppunkVal: *mut Option<windows_core::IUnknown>,
     pub ppdispVal: *mut Option<IDispatch>,
@@ -3986,13 +4022,13 @@ pub union _wireVARIANT_0 {
     pub pintVal: *mut i32,
     pub puintVal: *mut u32,
 }
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for _wireVARIANT_0 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for _wireVARIANT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4000,9 +4036,9 @@ impl Default for _wireVARIANT_0 {
 }
 #[cfg(feature = "rpc")]
 pub type wireBRECORD = *mut _wireBRECORD;
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 pub type wirePSAFEARRAY = *mut wireSAFEARRAY;
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 pub type wireSAFEARRAY = *mut _wireSAFEARRAY;
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 pub type wireVARIANT = *mut _wireVARIANT;

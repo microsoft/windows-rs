@@ -380,7 +380,7 @@ pub struct IPenInputPanel_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     EnableTsf: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPenInputPanel_Impl: super::IDispatch_Impl {
     fn Busy(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn Factoid(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -408,7 +408,7 @@ pub trait IPenInputPanel_Impl: super::IDispatch_Impl {
     fn Refresh(&self) -> windows_core::Result<()>;
     fn EnableTsf(&self, enable: super::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPenInputPanel_Vtbl {
     pub const fn new<Identity: IPenInputPanel_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Busy<Identity: IPenInputPanel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busy: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -672,7 +672,7 @@ impl IPenInputPanel_Vtbl {
         iid == &<IPenInputPanel as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPenInputPanel {}
 windows_core::imp::define_interface!(ITextInputPanel, ITextInputPanel_Vtbl, 0x6b6a65a5_6af3_46c2_b6ea_56cd1f80df71);
 windows_core::imp::interface_hierarchy!(ITextInputPanel, windows_core::IUnknown);
@@ -1405,9 +1405,9 @@ windows_core::imp::interface_hierarchy!(_IPenInputPanelEvents, windows_core::IUn
 pub struct _IPenInputPanelEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait _IPenInputPanelEvents_Impl: super::IDispatch_Impl {}
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl _IPenInputPanelEvents_Vtbl {
     pub const fn new<Identity: _IPenInputPanelEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -1416,5 +1416,5 @@ impl _IPenInputPanelEvents_Vtbl {
         iid == &<_IPenInputPanelEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for _IPenInputPanelEvents {}

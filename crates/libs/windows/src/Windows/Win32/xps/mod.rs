@@ -29,13 +29,15 @@ impl core::ops::Deref for IXpsOMBrush {
 }
 windows_core::imp::interface_hierarchy!(IXpsOMBrush, windows_core::IUnknown, IXpsOMShareable);
 impl IXpsOMBrush {
-    pub unsafe fn GetOpacity(&self) -> windows_core::Result<f32> {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn GetOpacity(&self) -> windows_core::Result<super::FLOAT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOpacity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetOpacity(&self, opacity: f32) -> windows_core::HRESULT {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn SetOpacity(&self, opacity: super::FLOAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetOpacity)(windows_core::Interface::as_raw(self), opacity) }
     }
 }
@@ -43,16 +45,24 @@ impl IXpsOMBrush {
 #[doc(hidden)]
 pub struct IXpsOMBrush_Vtbl {
     pub base__: IXpsOMShareable_Vtbl,
-    pub GetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub GetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetOpacity: usize,
+    #[cfg(feature = "minwindef")]
+    pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetOpacity: usize,
 }
+#[cfg(feature = "minwindef")]
 pub trait IXpsOMBrush_Impl: IXpsOMShareable_Impl {
-    fn GetOpacity(&self) -> windows_core::Result<f32>;
-    fn SetOpacity(&self, opacity: f32) -> windows_core::Result<()>;
+    fn GetOpacity(&self) -> windows_core::Result<super::FLOAT>;
+    fn SetOpacity(&self, opacity: super::FLOAT) -> windows_core::Result<()>;
 }
+#[cfg(feature = "minwindef")]
 impl IXpsOMBrush_Vtbl {
     pub const fn new<Identity: IXpsOMBrush_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetOpacity<Identity: IXpsOMBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOpacity<Identity: IXpsOMBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: *mut super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMBrush_Impl::GetOpacity(this) {
@@ -64,7 +74,7 @@ impl IXpsOMBrush_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetOpacity<Identity: IXpsOMBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOpacity<Identity: IXpsOMBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMBrush_Impl::SetOpacity(this, core::mem::transmute_copy(&opacity)).into()
@@ -76,6 +86,7 @@ impl IXpsOMBrush_Vtbl {
         iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IXpsOMBrush {}
 windows_core::imp::define_interface!(IXpsOMCanvas, IXpsOMCanvas_Vtbl, 0x221d1452_331e_47c6_87e9_6ccefb9b5ba3);
 impl core::ops::Deref for IXpsOMCanvas {
@@ -180,7 +191,7 @@ pub struct IXpsOMCanvas_Vtbl {
     pub SetDictionaryResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "minwindef", feature = "urlmon"))]
 pub trait IXpsOMCanvas_Impl: IXpsOMVisual_Impl {
     fn GetVisuals(&self) -> windows_core::Result<IXpsOMVisualCollection>;
     fn GetUseAliasedEdgeMode(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -196,7 +207,7 @@ pub trait IXpsOMCanvas_Impl: IXpsOMVisual_Impl {
     fn SetDictionaryResource(&self, remotedictionaryresource: windows_core::Ref<IXpsOMRemoteDictionaryResource>) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMCanvas>;
 }
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "minwindef", feature = "urlmon"))]
 impl IXpsOMCanvas_Vtbl {
     pub const fn new<Identity: IXpsOMCanvas_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetVisuals<Identity: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visuals: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -346,7 +357,7 @@ impl IXpsOMCanvas_Vtbl {
         iid == &<IXpsOMCanvas as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMVisual as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "minwindef", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMCanvas {}
 windows_core::imp::define_interface!(IXpsOMColorProfileResource, IXpsOMColorProfileResource_Vtbl, 0x67bd7d69_1eef_4bb1_b5e7_6f4f87be8abe);
 impl core::ops::Deref for IXpsOMColorProfileResource {
@@ -1245,21 +1256,25 @@ impl IXpsOMDashCollection {
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetAt(&self, index: u32) -> windows_core::Result<XPS_DASH> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn InsertAt(&self, index: u32, dash: *const XPS_DASH) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InsertAt)(windows_core::Interface::as_raw(self), index, dash) }
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetAt(&self, index: u32, dash: *const XPS_DASH) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, dash) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn Append(&self, dash: *const XPS_DASH) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), dash) }
     }
@@ -1269,12 +1284,25 @@ impl IXpsOMDashCollection {
 pub struct IXpsOMDashCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut XPS_DASH) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetAt: usize,
+    #[cfg(feature = "minwindef")]
     pub InsertAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const XPS_DASH) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    InsertAt: usize,
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
     pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const XPS_DASH) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetAt: usize,
+    #[cfg(feature = "minwindef")]
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_DASH) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    Append: usize,
 }
+#[cfg(feature = "minwindef")]
 pub trait IXpsOMDashCollection_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, index: u32) -> windows_core::Result<XPS_DASH>;
@@ -1283,6 +1311,7 @@ pub trait IXpsOMDashCollection_Impl: windows_core::IUnknownImpl {
     fn SetAt(&self, index: u32, dash: *const XPS_DASH) -> windows_core::Result<()>;
     fn Append(&self, dash: *const XPS_DASH) -> windows_core::Result<()>;
 }
+#[cfg(feature = "minwindef")]
 impl IXpsOMDashCollection_Vtbl {
     pub const fn new<Identity: IXpsOMDashCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IXpsOMDashCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
@@ -1347,6 +1376,7 @@ impl IXpsOMDashCollection_Vtbl {
         iid == &<IXpsOMDashCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IXpsOMDashCollection {}
 windows_core::imp::define_interface!(IXpsOMDictionary, IXpsOMDictionary_Vtbl, 0x897c86b8_8eaf_4ae3_bdde_56419fcf4236);
 windows_core::imp::interface_hierarchy!(IXpsOMDictionary, windows_core::IUnknown);
@@ -2531,7 +2561,8 @@ impl IXpsOMGeometryFigure {
             (windows_core::Interface::vtable(self).GetOwner)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetSegmentData(&self, datacount: *mut u32, segmentdata: *mut f32) -> windows_core::HRESULT {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn GetSegmentData(&self, datacount: *mut u32, segmentdata: *mut super::FLOAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSegmentData)(windows_core::Interface::as_raw(self), datacount as _, segmentdata as _) }
     }
     pub unsafe fn GetSegmentTypes(&self, segmentcount: *mut u32, segmenttypes: *mut XPS_SEGMENT_TYPE) -> windows_core::HRESULT {
@@ -2540,15 +2571,18 @@ impl IXpsOMGeometryFigure {
     pub unsafe fn GetSegmentStrokes(&self, segmentcount: *mut u32, segmentstrokes: *mut windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSegmentStrokes)(windows_core::Interface::as_raw(self), segmentcount as _, segmentstrokes as _) }
     }
-    pub unsafe fn SetSegments(&self, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const f32, segmentstrokes: *const windows_core::BOOL) -> windows_core::HRESULT {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn SetSegments(&self, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const super::FLOAT, segmentstrokes: *const windows_core::BOOL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSegments)(windows_core::Interface::as_raw(self), segmentcount, segmentdatacount, segmenttypes, segmentdata, segmentstrokes) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetStartPoint(&self) -> windows_core::Result<XPS_POINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStartPoint)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetStartPoint(&self, startpoint: *const XPS_POINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStartPoint)(windows_core::Interface::as_raw(self), startpoint) }
     }
@@ -2600,12 +2634,24 @@ impl IXpsOMGeometryFigure {
 pub struct IXpsOMGeometryFigure_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetSegmentData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut f32) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub GetSegmentData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetSegmentData: usize,
     pub GetSegmentTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut XPS_SEGMENT_TYPE) -> windows_core::HRESULT,
     pub GetSegmentStrokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    pub SetSegments: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const XPS_SEGMENT_TYPE, *const f32, *const windows_core::BOOL) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub SetSegments: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const XPS_SEGMENT_TYPE, *const super::FLOAT, *const windows_core::BOOL) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetSegments: usize,
+    #[cfg(feature = "minwindef")]
     pub GetStartPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_POINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetStartPoint: usize,
+    #[cfg(feature = "minwindef")]
     pub SetStartPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_POINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetStartPoint: usize,
     pub GetIsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetIsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetIsFilled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -2615,12 +2661,13 @@ pub struct IXpsOMGeometryFigure_Vtbl {
     pub GetSegmentStrokePattern: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_SEGMENT_STROKE_PATTERN) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IXpsOMGeometryFigure_Impl: windows_core::IUnknownImpl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMGeometry>;
-    fn GetSegmentData(&self, datacount: *mut u32, segmentdata: *mut f32) -> windows_core::Result<()>;
+    fn GetSegmentData(&self, datacount: *mut u32, segmentdata: *mut super::FLOAT) -> windows_core::Result<()>;
     fn GetSegmentTypes(&self, segmentcount: *mut u32, segmenttypes: *mut XPS_SEGMENT_TYPE) -> windows_core::Result<()>;
     fn GetSegmentStrokes(&self, segmentcount: *mut u32, segmentstrokes: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetSegments(&self, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const f32, segmentstrokes: *const windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetSegments(&self, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const super::FLOAT, segmentstrokes: *const windows_core::BOOL) -> windows_core::Result<()>;
     fn GetStartPoint(&self) -> windows_core::Result<XPS_POINT>;
     fn SetStartPoint(&self, startpoint: *const XPS_POINT) -> windows_core::Result<()>;
     fn GetIsClosed(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -2632,6 +2679,7 @@ pub trait IXpsOMGeometryFigure_Impl: windows_core::IUnknownImpl {
     fn GetSegmentStrokePattern(&self) -> windows_core::Result<XPS_SEGMENT_STROKE_PATTERN>;
     fn Clone(&self) -> windows_core::Result<IXpsOMGeometryFigure>;
 }
+#[cfg(feature = "minwindef")]
 impl IXpsOMGeometryFigure_Vtbl {
     pub const fn new<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2646,7 +2694,7 @@ impl IXpsOMGeometryFigure_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetSegmentData<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datacount: *mut u32, segmentdata: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSegmentData<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datacount: *mut u32, segmentdata: *mut super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMGeometryFigure_Impl::GetSegmentData(this, core::mem::transmute_copy(&datacount), core::mem::transmute_copy(&segmentdata)).into()
@@ -2664,7 +2712,7 @@ impl IXpsOMGeometryFigure_Vtbl {
                 IXpsOMGeometryFigure_Impl::GetSegmentStrokes(this, core::mem::transmute_copy(&segmentcount), core::mem::transmute_copy(&segmentstrokes)).into()
             }
         }
-        unsafe extern "system" fn SetSegments<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const f32, segmentstrokes: *const windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSegments<Identity: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const super::FLOAT, segmentstrokes: *const windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMGeometryFigure_Impl::SetSegments(this, core::mem::transmute_copy(&segmentcount), core::mem::transmute_copy(&segmentdatacount), core::mem::transmute_copy(&segmenttypes), core::mem::transmute_copy(&segmentdata), core::mem::transmute_copy(&segmentstrokes)).into()
@@ -2795,6 +2843,7 @@ impl IXpsOMGeometryFigure_Vtbl {
         iid == &<IXpsOMGeometryFigure as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IXpsOMGeometryFigure {}
 windows_core::imp::define_interface!(IXpsOMGeometryFigureCollection, IXpsOMGeometryFigureCollection_Vtbl, 0xfd48c3f3_a58e_4b5a_8826_1de54abe72b2);
 windows_core::imp::interface_hierarchy!(IXpsOMGeometryFigureCollection, windows_core::IUnknown);
@@ -2938,6 +2987,7 @@ impl IXpsOMGlyphs {
             (windows_core::Interface::vtable(self).GetGlyphIndexCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetGlyphIndices(&self, indexcount: *mut u32, glyphindices: *mut XPS_GLYPH_INDEX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetGlyphIndices)(windows_core::Interface::as_raw(self), indexcount as _, glyphindices as _) }
     }
@@ -2986,22 +3036,26 @@ impl IXpsOMGlyphs {
     pub unsafe fn SetStyleSimulations(&self, stylesimulations: XPS_STYLE_SIMULATION) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStyleSimulations)(windows_core::Interface::as_raw(self), stylesimulations) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetOrigin(&self) -> windows_core::Result<XPS_POINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOrigin)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetOrigin(&self, origin: *const XPS_POINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetOrigin)(windows_core::Interface::as_raw(self), origin) }
     }
-    pub unsafe fn GetFontRenderingEmSize(&self) -> windows_core::Result<f32> {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn GetFontRenderingEmSize(&self) -> windows_core::Result<super::FLOAT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFontRenderingEmSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFontRenderingEmSize(&self, fontrenderingemsize: f32) -> windows_core::HRESULT {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn SetFontRenderingEmSize(&self, fontrenderingemsize: super::FLOAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFontRenderingEmSize)(windows_core::Interface::as_raw(self), fontrenderingemsize) }
     }
     pub unsafe fn GetFontResource(&self) -> windows_core::Result<IXpsOMFontResource> {
@@ -3074,7 +3128,10 @@ pub struct IXpsOMGlyphs_Vtbl {
     pub base__: IXpsOMVisual_Vtbl,
     pub GetUnicodeString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetGlyphIndexCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
     pub GetGlyphIndices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut XPS_GLYPH_INDEX) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetGlyphIndices: usize,
     pub GetGlyphMappingCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetGlyphMappings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut XPS_GLYPH_MAPPING) -> windows_core::HRESULT,
     pub GetProhibitedCaretStopCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3084,10 +3141,22 @@ pub struct IXpsOMGlyphs_Vtbl {
     pub GetDeviceFontName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetStyleSimulations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_STYLE_SIMULATION) -> windows_core::HRESULT,
     pub SetStyleSimulations: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_STYLE_SIMULATION) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
     pub GetOrigin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_POINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetOrigin: usize,
+    #[cfg(feature = "minwindef")]
     pub SetOrigin: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_POINT) -> windows_core::HRESULT,
-    pub GetFontRenderingEmSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetFontRenderingEmSize: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetOrigin: usize,
+    #[cfg(feature = "minwindef")]
+    pub GetFontRenderingEmSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetFontRenderingEmSize: usize,
+    #[cfg(feature = "minwindef")]
+    pub SetFontRenderingEmSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetFontRenderingEmSize: usize,
     pub GetFontResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFontResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontFaceIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
@@ -3100,7 +3169,7 @@ pub struct IXpsOMGlyphs_Vtbl {
     pub GetGlyphsEditor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "minwindef", feature = "urlmon"))]
 pub trait IXpsOMGlyphs_Impl: IXpsOMVisual_Impl {
     fn GetUnicodeString(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetGlyphIndexCount(&self) -> windows_core::Result<u32>;
@@ -3116,8 +3185,8 @@ pub trait IXpsOMGlyphs_Impl: IXpsOMVisual_Impl {
     fn SetStyleSimulations(&self, stylesimulations: XPS_STYLE_SIMULATION) -> windows_core::Result<()>;
     fn GetOrigin(&self) -> windows_core::Result<XPS_POINT>;
     fn SetOrigin(&self, origin: *const XPS_POINT) -> windows_core::Result<()>;
-    fn GetFontRenderingEmSize(&self) -> windows_core::Result<f32>;
-    fn SetFontRenderingEmSize(&self, fontrenderingemsize: f32) -> windows_core::Result<()>;
+    fn GetFontRenderingEmSize(&self) -> windows_core::Result<super::FLOAT>;
+    fn SetFontRenderingEmSize(&self, fontrenderingemsize: super::FLOAT) -> windows_core::Result<()>;
     fn GetFontResource(&self) -> windows_core::Result<IXpsOMFontResource>;
     fn SetFontResource(&self, fontresource: windows_core::Ref<IXpsOMFontResource>) -> windows_core::Result<()>;
     fn GetFontFaceIndex(&self) -> windows_core::Result<i16>;
@@ -3130,7 +3199,7 @@ pub trait IXpsOMGlyphs_Impl: IXpsOMVisual_Impl {
     fn GetGlyphsEditor(&self) -> windows_core::Result<IXpsOMGlyphsEditor>;
     fn Clone(&self) -> windows_core::Result<IXpsOMGlyphs>;
 }
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "minwindef", feature = "urlmon"))]
 impl IXpsOMGlyphs_Vtbl {
     pub const fn new<Identity: IXpsOMGlyphs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetUnicodeString<Identity: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicodestring: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -3271,7 +3340,7 @@ impl IXpsOMGlyphs_Vtbl {
                 IXpsOMGlyphs_Impl::SetOrigin(this, core::mem::transmute_copy(&origin)).into()
             }
         }
-        unsafe extern "system" fn GetFontRenderingEmSize<Identity: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontrenderingemsize: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFontRenderingEmSize<Identity: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontrenderingemsize: *mut super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphs_Impl::GetFontRenderingEmSize(this) {
@@ -3283,7 +3352,7 @@ impl IXpsOMGlyphs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetFontRenderingEmSize<Identity: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontrenderingemsize: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFontRenderingEmSize<Identity: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontrenderingemsize: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMGlyphs_Impl::SetFontRenderingEmSize(this, core::mem::transmute_copy(&fontrenderingemsize)).into()
@@ -3432,7 +3501,7 @@ impl IXpsOMGlyphs_Vtbl {
         iid == &<IXpsOMGlyphs as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMVisual as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "minwindef", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMGlyphs {}
 windows_core::imp::define_interface!(IXpsOMGlyphsEditor, IXpsOMGlyphsEditor_Vtbl, 0xa5ab8616_5b16_4b9f_9629_89b323ed7909);
 windows_core::imp::interface_hierarchy!(IXpsOMGlyphsEditor, windows_core::IUnknown);
@@ -3458,9 +3527,11 @@ impl IXpsOMGlyphsEditor {
             (windows_core::Interface::vtable(self).GetGlyphIndexCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetGlyphIndices(&self, indexcount: *mut u32, glyphindices: *mut XPS_GLYPH_INDEX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetGlyphIndices)(windows_core::Interface::as_raw(self), indexcount as _, glyphindices as _) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetGlyphIndices(&self, indexcount: u32, glyphindices: *const XPS_GLYPH_INDEX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetGlyphIndices)(windows_core::Interface::as_raw(self), indexcount, glyphindices) }
     }
@@ -3527,8 +3598,14 @@ pub struct IXpsOMGlyphsEditor_Vtbl {
     pub GetUnicodeString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetUnicodeString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetGlyphIndexCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
     pub GetGlyphIndices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut XPS_GLYPH_INDEX) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetGlyphIndices: usize,
+    #[cfg(feature = "minwindef")]
     pub SetGlyphIndices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const XPS_GLYPH_INDEX) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetGlyphIndices: usize,
     pub GetGlyphMappingCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetGlyphMappings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut XPS_GLYPH_MAPPING) -> windows_core::HRESULT,
     pub SetGlyphMappings: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const XPS_GLYPH_MAPPING) -> windows_core::HRESULT,
@@ -3542,6 +3619,7 @@ pub struct IXpsOMGlyphsEditor_Vtbl {
     pub GetDeviceFontName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetDeviceFontName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IXpsOMGlyphsEditor_Impl: windows_core::IUnknownImpl {
     fn ApplyEdits(&self) -> windows_core::Result<()>;
     fn GetUnicodeString(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -3562,6 +3640,7 @@ pub trait IXpsOMGlyphsEditor_Impl: windows_core::IUnknownImpl {
     fn GetDeviceFontName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetDeviceFontName(&self, devicefontname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
+#[cfg(feature = "minwindef")]
 impl IXpsOMGlyphsEditor_Vtbl {
     pub const fn new<Identity: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ApplyEdits<Identity: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3740,6 +3819,7 @@ impl IXpsOMGlyphsEditor_Vtbl {
         iid == &<IXpsOMGlyphsEditor as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IXpsOMGlyphsEditor {}
 windows_core::imp::define_interface!(IXpsOMGradientBrush, IXpsOMGradientBrush_Vtbl, 0xedb59622_61a2_42c3_bace_acf2286c06bf);
 impl core::ops::Deref for IXpsOMGradientBrush {
@@ -3820,6 +3900,7 @@ pub struct IXpsOMGradientBrush_Vtbl {
     pub GetColorInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_COLOR_INTERPOLATION) -> windows_core::HRESULT,
     pub SetColorInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_COLOR_INTERPOLATION) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IXpsOMGradientBrush_Impl: IXpsOMBrush_Impl {
     fn GetGradientStops(&self) -> windows_core::Result<IXpsOMGradientStopCollection>;
     fn GetTransform(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
@@ -3832,6 +3913,7 @@ pub trait IXpsOMGradientBrush_Impl: IXpsOMBrush_Impl {
     fn GetColorInterpolationMode(&self) -> windows_core::Result<XPS_COLOR_INTERPOLATION>;
     fn SetColorInterpolationMode(&self, colorinterpolationmode: XPS_COLOR_INTERPOLATION) -> windows_core::Result<()>;
 }
+#[cfg(feature = "minwindef")]
 impl IXpsOMGradientBrush_Vtbl {
     pub const fn new<Identity: IXpsOMGradientBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetGradientStops<Identity: IXpsOMGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradientstops: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3948,6 +4030,7 @@ impl IXpsOMGradientBrush_Vtbl {
         iid == &<IXpsOMGradientBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IXpsOMGradientBrush {}
 windows_core::imp::define_interface!(IXpsOMGradientStop, IXpsOMGradientStop_Vtbl, 0x5cf4f5cc_3969_49b5_a70a_5550b618fe49);
 windows_core::imp::interface_hierarchy!(IXpsOMGradientStop, windows_core::IUnknown);
@@ -3958,21 +4041,25 @@ impl IXpsOMGradientStop {
             (windows_core::Interface::vtable(self).GetOwner)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetOffset(&self) -> windows_core::Result<f32> {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn GetOffset(&self) -> windows_core::Result<super::FLOAT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetOffset(&self, offset: f32) -> windows_core::HRESULT {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn SetOffset(&self, offset: super::FLOAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetOffset)(windows_core::Interface::as_raw(self), offset) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetColor(&self, color: *mut XPS_COLOR) -> windows_core::Result<IXpsOMColorProfileResource> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetColor)(windows_core::Interface::as_raw(self), color as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetColor<P1>(&self, color: *const XPS_COLOR, colorprofile: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IXpsOMColorProfileResource>,
@@ -3991,20 +4078,34 @@ impl IXpsOMGradientStop {
 pub struct IXpsOMGradientStop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub GetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetOffset: usize,
+    #[cfg(feature = "minwindef")]
+    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetOffset: usize,
+    #[cfg(feature = "minwindef")]
     pub GetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_COLOR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetColor: usize,
+    #[cfg(feature = "minwindef")]
     pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_COLOR, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetColor: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IXpsOMGradientStop_Impl: windows_core::IUnknownImpl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMGradientBrush>;
-    fn GetOffset(&self) -> windows_core::Result<f32>;
-    fn SetOffset(&self, offset: f32) -> windows_core::Result<()>;
+    fn GetOffset(&self) -> windows_core::Result<super::FLOAT>;
+    fn SetOffset(&self, offset: super::FLOAT) -> windows_core::Result<()>;
     fn GetColor(&self, color: *mut XPS_COLOR) -> windows_core::Result<IXpsOMColorProfileResource>;
     fn SetColor(&self, color: *const XPS_COLOR, colorprofile: windows_core::Ref<IXpsOMColorProfileResource>) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMGradientStop>;
 }
+#[cfg(feature = "minwindef")]
 impl IXpsOMGradientStop_Vtbl {
     pub const fn new<Identity: IXpsOMGradientStop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMGradientStop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4019,7 +4120,7 @@ impl IXpsOMGradientStop_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetOffset<Identity: IXpsOMGradientStop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOffset<Identity: IXpsOMGradientStop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: *mut super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGradientStop_Impl::GetOffset(this) {
@@ -4031,7 +4132,7 @@ impl IXpsOMGradientStop_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetOffset<Identity: IXpsOMGradientStop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffset<Identity: IXpsOMGradientStop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMGradientStop_Impl::SetOffset(this, core::mem::transmute_copy(&offset)).into()
@@ -4081,6 +4182,7 @@ impl IXpsOMGradientStop_Vtbl {
         iid == &<IXpsOMGradientStop as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IXpsOMGradientStop {}
 windows_core::imp::define_interface!(IXpsOMGradientStopCollection, IXpsOMGradientStopCollection_Vtbl, 0xc9174c3a_3cd3_4319_bda4_11a39392ceef);
 windows_core::imp::interface_hierarchy!(IXpsOMGradientStopCollection, windows_core::IUnknown);
@@ -4253,6 +4355,7 @@ pub struct IXpsOMImageBrush_Vtbl {
     pub SetColorProfileResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IXpsOMImageBrush_Impl: IXpsOMTileBrush_Impl {
     fn GetImageResource(&self) -> windows_core::Result<IXpsOMImageResource>;
     fn SetImageResource(&self, imageresource: windows_core::Ref<IXpsOMImageResource>) -> windows_core::Result<()>;
@@ -4260,6 +4363,7 @@ pub trait IXpsOMImageBrush_Impl: IXpsOMTileBrush_Impl {
     fn SetColorProfileResource(&self, colorprofileresource: windows_core::Ref<IXpsOMColorProfileResource>) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMImageBrush>;
 }
+#[cfg(feature = "minwindef")]
 impl IXpsOMImageBrush_Vtbl {
     pub const fn new<Identity: IXpsOMImageBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetImageResource<Identity: IXpsOMImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4323,6 +4427,7 @@ impl IXpsOMImageBrush_Vtbl {
         iid == &<IXpsOMImageBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMTileBrush as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IXpsOMImageBrush {}
 windows_core::imp::define_interface!(IXpsOMImageResource, IXpsOMImageResource_Vtbl, 0x3db8417d_ae50_485e_9a44_d7758f78a23f);
 impl core::ops::Deref for IXpsOMImageResource {
@@ -4582,21 +4687,25 @@ impl core::ops::Deref for IXpsOMLinearGradientBrush {
 }
 windows_core::imp::interface_hierarchy!(IXpsOMLinearGradientBrush, windows_core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMGradientBrush);
 impl IXpsOMLinearGradientBrush {
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetStartPoint(&self) -> windows_core::Result<XPS_POINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStartPoint)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetStartPoint(&self, startpoint: *const XPS_POINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStartPoint)(windows_core::Interface::as_raw(self), startpoint) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetEndPoint(&self) -> windows_core::Result<XPS_POINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEndPoint)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetEndPoint(&self, endpoint: *const XPS_POINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEndPoint)(windows_core::Interface::as_raw(self), endpoint) }
     }
@@ -4611,12 +4720,25 @@ impl IXpsOMLinearGradientBrush {
 #[doc(hidden)]
 pub struct IXpsOMLinearGradientBrush_Vtbl {
     pub base__: IXpsOMGradientBrush_Vtbl,
+    #[cfg(feature = "minwindef")]
     pub GetStartPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_POINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetStartPoint: usize,
+    #[cfg(feature = "minwindef")]
     pub SetStartPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_POINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetStartPoint: usize,
+    #[cfg(feature = "minwindef")]
     pub GetEndPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_POINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetEndPoint: usize,
+    #[cfg(feature = "minwindef")]
     pub SetEndPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_POINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetEndPoint: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IXpsOMLinearGradientBrush_Impl: IXpsOMGradientBrush_Impl {
     fn GetStartPoint(&self) -> windows_core::Result<XPS_POINT>;
     fn SetStartPoint(&self, startpoint: *const XPS_POINT) -> windows_core::Result<()>;
@@ -4624,6 +4746,7 @@ pub trait IXpsOMLinearGradientBrush_Impl: IXpsOMGradientBrush_Impl {
     fn SetEndPoint(&self, endpoint: *const XPS_POINT) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMLinearGradientBrush>;
 }
+#[cfg(feature = "minwindef")]
 impl IXpsOMLinearGradientBrush_Vtbl {
     pub const fn new<Identity: IXpsOMLinearGradientBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetStartPoint<Identity: IXpsOMLinearGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: *mut XPS_POINT) -> windows_core::HRESULT {
@@ -4687,6 +4810,7 @@ impl IXpsOMLinearGradientBrush_Vtbl {
         iid == &<IXpsOMLinearGradientBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMGradientBrush as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IXpsOMLinearGradientBrush {}
 windows_core::imp::define_interface!(IXpsOMMatrixTransform, IXpsOMMatrixTransform_Vtbl, 0xb77330ff_bb37_4501_a93e_f1b1e50bfc46);
 impl core::ops::Deref for IXpsOMMatrixTransform {
@@ -4697,12 +4821,14 @@ impl core::ops::Deref for IXpsOMMatrixTransform {
 }
 windows_core::imp::interface_hierarchy!(IXpsOMMatrixTransform, windows_core::IUnknown, IXpsOMShareable);
 impl IXpsOMMatrixTransform {
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetMatrix(&self) -> windows_core::Result<XPS_MATRIX> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMatrix)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetMatrix(&self, matrix: *const XPS_MATRIX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMatrix)(windows_core::Interface::as_raw(self), matrix) }
     }
@@ -4717,15 +4843,23 @@ impl IXpsOMMatrixTransform {
 #[doc(hidden)]
 pub struct IXpsOMMatrixTransform_Vtbl {
     pub base__: IXpsOMShareable_Vtbl,
+    #[cfg(feature = "minwindef")]
     pub GetMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_MATRIX) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetMatrix: usize,
+    #[cfg(feature = "minwindef")]
     pub SetMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_MATRIX) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetMatrix: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IXpsOMMatrixTransform_Impl: IXpsOMShareable_Impl {
     fn GetMatrix(&self) -> windows_core::Result<XPS_MATRIX>;
     fn SetMatrix(&self, matrix: *const XPS_MATRIX) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
 }
+#[cfg(feature = "minwindef")]
 impl IXpsOMMatrixTransform_Vtbl {
     pub const fn new<Identity: IXpsOMMatrixTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMatrix<Identity: IXpsOMMatrixTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrix: *mut XPS_MATRIX) -> windows_core::HRESULT {
@@ -4769,6 +4903,7 @@ impl IXpsOMMatrixTransform_Vtbl {
         iid == &<IXpsOMMatrixTransform as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IXpsOMMatrixTransform {}
 windows_core::imp::define_interface!(IXpsOMNameCollection, IXpsOMNameCollection_Vtbl, 0x4bddf8ec_c915_421b_a166_d173d25653d2);
 windows_core::imp::interface_hierarchy!(IXpsOMNameCollection, windows_core::IUnknown);
@@ -4940,13 +5075,14 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateDocument)(windows_core::Interface::as_raw(self), parturi.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreatePageReference(&self, advisorypagedimensions: *const XPS_SIZE) -> windows_core::Result<IXpsOMPageReference> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreatePageReference)(windows_core::Interface::as_raw(self), advisorypagedimensions, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "msopc", feature = "urlmon"))]
+    #[cfg(all(feature = "minwindef", feature = "msopc", feature = "urlmon"))]
     pub unsafe fn CreatePage<P1, P2>(&self, pagedimensions: *const XPS_SIZE, language: P1, parturi: P2) -> windows_core::Result<IXpsOMPage>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -4996,18 +5132,21 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateGeometry)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateGeometryFigure(&self, startpoint: *const XPS_POINT) -> windows_core::Result<IXpsOMGeometryFigure> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateGeometryFigure)(windows_core::Interface::as_raw(self), startpoint, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateMatrixTransform(&self, matrix: *const XPS_MATRIX) -> windows_core::Result<IXpsOMMatrixTransform> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateMatrixTransform)(windows_core::Interface::as_raw(self), matrix, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateSolidColorBrush<P1>(&self, color: *const XPS_COLOR, colorprofile: P1) -> windows_core::Result<IXpsOMSolidColorBrush>
     where
         P1: windows_core::Param<IXpsOMColorProfileResource>,
@@ -5028,6 +5167,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateColorProfileResource)(windows_core::Interface::as_raw(self), acquiredstream.param().abi(), parturi.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateImageBrush<P0>(&self, image: P0, viewbox: *const XPS_RECT, viewport: *const XPS_RECT) -> windows_core::Result<IXpsOMImageBrush>
     where
         P0: windows_core::Param<IXpsOMImageResource>,
@@ -5037,6 +5177,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateImageBrush)(windows_core::Interface::as_raw(self), image.param().abi(), viewbox, viewport, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateVisualBrush(&self, viewbox: *const XPS_RECT, viewport: *const XPS_RECT) -> windows_core::Result<IXpsOMVisualBrush> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5076,7 +5217,8 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateFontResource)(windows_core::Interface::as_raw(self), acquiredstream.param().abi(), fontembedding, parturi.param().abi(), isobfsourcestream.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateGradientStop<P1>(&self, color: *const XPS_COLOR, colorprofile: P1, offset: f32) -> windows_core::Result<IXpsOMGradientStop>
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn CreateGradientStop<P1>(&self, color: *const XPS_COLOR, colorprofile: P1, offset: super::FLOAT) -> windows_core::Result<IXpsOMGradientStop>
     where
         P1: windows_core::Param<IXpsOMColorProfileResource>,
     {
@@ -5085,6 +5227,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateGradientStop)(windows_core::Interface::as_raw(self), color, colorprofile.param().abi(), offset, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateLinearGradientBrush<P0, P1>(&self, gradstop1: P0, gradstop2: P1, startpoint: *const XPS_POINT, endpoint: *const XPS_POINT) -> windows_core::Result<IXpsOMLinearGradientBrush>
     where
         P0: windows_core::Param<IXpsOMGradientStop>,
@@ -5095,6 +5238,7 @@ impl IXpsOMObjectFactory {
             (windows_core::Interface::vtable(self).CreateLinearGradientBrush)(windows_core::Interface::as_raw(self), gradstop1.param().abi(), gradstop2.param().abi(), startpoint, endpoint, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn CreateRadialGradientBrush<P0, P1>(&self, gradstop1: P0, gradstop2: P1, centerpoint: *const XPS_POINT, gradientorigin: *const XPS_POINT, radiisizes: *const XPS_SIZE) -> windows_core::Result<IXpsOMRadialGradientBrush>
     where
         P0: windows_core::Param<IXpsOMGradientStop>,
@@ -5128,7 +5272,7 @@ impl IXpsOMObjectFactory {
         }
     }
     #[cfg(all(feature = "minwinbase", feature = "msopc", feature = "urlmon"))]
-    pub unsafe fn CreatePackageWriterOnFile<P0, P5, P6, P7, P8, P9>(&self, filename: P0, securityattributes: *const super::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: bool, interleaving: XPS_INTERLEAVING, documentsequencepartname: P5, coreproperties: P6, packagethumbnail: P7, documentsequenceprintticket: P8, discardcontrolpartname: P9) -> windows_core::Result<IXpsOMPackageWriter>
+    pub unsafe fn CreatePackageWriterOnFile<P0, P5, P6, P7, P8, P9>(&self, filename: P0, securityattributes: super::LPSECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: bool, interleaving: XPS_INTERLEAVING, documentsequencepartname: P5, coreproperties: P6, packagethumbnail: P7, documentsequenceprintticket: P8, discardcontrolpartname: P9) -> windows_core::Result<IXpsOMPackageWriter>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<super::IOpcPartUri>,
@@ -5217,10 +5361,13 @@ pub struct IXpsOMObjectFactory_Vtbl {
     pub CreateDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     CreateDocument: usize,
+    #[cfg(feature = "minwindef")]
     pub CreatePageReference: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_SIZE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "msopc", feature = "urlmon"))]
+    #[cfg(not(feature = "minwindef"))]
+    CreatePageReference: usize,
+    #[cfg(all(feature = "minwindef", feature = "msopc", feature = "urlmon"))]
     pub CreatePage: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_SIZE, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
+    #[cfg(not(all(feature = "minwindef", feature = "msopc", feature = "urlmon")))]
     CreatePage: usize,
     #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub CreatePageFromStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5230,15 +5377,30 @@ pub struct IXpsOMObjectFactory_Vtbl {
     pub CreateGlyphs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreatePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateGeometry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
     pub CreateGeometryFigure: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_POINT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    CreateGeometryFigure: usize,
+    #[cfg(feature = "minwindef")]
     pub CreateMatrixTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_MATRIX, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    CreateMatrixTransform: usize,
+    #[cfg(feature = "minwindef")]
     pub CreateSolidColorBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_COLOR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    CreateSolidColorBrush: usize,
     #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub CreateColorProfileResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     CreateColorProfileResource: usize,
+    #[cfg(feature = "minwindef")]
     pub CreateImageBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const XPS_RECT, *const XPS_RECT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    CreateImageBrush: usize,
+    #[cfg(feature = "minwindef")]
     pub CreateVisualBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_RECT, *const XPS_RECT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    CreateVisualBrush: usize,
     #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
     pub CreateImageResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, XPS_IMAGE_TYPE, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
@@ -5251,9 +5413,18 @@ pub struct IXpsOMObjectFactory_Vtbl {
     pub CreateFontResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, XPS_FONT_EMBEDDING, *mut core::ffi::c_void, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "msopc", feature = "objidlbase", feature = "urlmon")))]
     CreateFontResource: usize,
-    pub CreateGradientStop: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_COLOR, *mut core::ffi::c_void, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub CreateGradientStop: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_COLOR, *mut core::ffi::c_void, super::FLOAT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    CreateGradientStop: usize,
+    #[cfg(feature = "minwindef")]
     pub CreateLinearGradientBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const XPS_POINT, *const XPS_POINT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    CreateLinearGradientBrush: usize,
+    #[cfg(feature = "minwindef")]
     pub CreateRadialGradientBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const XPS_POINT, *const XPS_POINT, *const XPS_SIZE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    CreateRadialGradientBrush: usize,
     #[cfg(all(feature = "msopc", feature = "urlmon"))]
     pub CreateCoreProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
@@ -5261,7 +5432,7 @@ pub struct IXpsOMObjectFactory_Vtbl {
     pub CreateDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreatePartUriCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "minwinbase", feature = "msopc", feature = "urlmon"))]
-    pub CreatePackageWriterOnFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::SECURITY_ATTRIBUTES, u32, windows_core::BOOL, XPS_INTERLEAVING, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePackageWriterOnFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::LPSECURITY_ATTRIBUTES, u32, windows_core::BOOL, XPS_INTERLEAVING, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwinbase", feature = "msopc", feature = "urlmon")))]
     CreatePackageWriterOnFile: usize,
     #[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
@@ -5277,7 +5448,7 @@ pub struct IXpsOMObjectFactory_Vtbl {
     #[cfg(not(feature = "objidlbase"))]
     CreateReadOnlyStreamOnFile: usize,
 }
-#[cfg(all(feature = "minwinbase", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 pub trait IXpsOMObjectFactory_Impl: windows_core::IUnknownImpl {
     fn CreatePackage(&self) -> windows_core::Result<IXpsOMPackage>;
     fn CreatePackageFromFile(&self, filename: &windows_core::PCWSTR, reuseobjects: windows_core::BOOL) -> windows_core::Result<IXpsOMPackage>;
@@ -5306,18 +5477,18 @@ pub trait IXpsOMObjectFactory_Impl: windows_core::IUnknownImpl {
     fn CreateImageResource(&self, acquiredstream: windows_core::Ref<super::IStream>, contenttype: XPS_IMAGE_TYPE, parturi: windows_core::Ref<super::IOpcPartUri>) -> windows_core::Result<IXpsOMImageResource>;
     fn CreatePrintTicketResource(&self, acquiredstream: windows_core::Ref<super::IStream>, parturi: windows_core::Ref<super::IOpcPartUri>) -> windows_core::Result<IXpsOMPrintTicketResource>;
     fn CreateFontResource(&self, acquiredstream: windows_core::Ref<super::IStream>, fontembedding: XPS_FONT_EMBEDDING, parturi: windows_core::Ref<super::IOpcPartUri>, isobfsourcestream: windows_core::BOOL) -> windows_core::Result<IXpsOMFontResource>;
-    fn CreateGradientStop(&self, color: *const XPS_COLOR, colorprofile: windows_core::Ref<IXpsOMColorProfileResource>, offset: f32) -> windows_core::Result<IXpsOMGradientStop>;
+    fn CreateGradientStop(&self, color: *const XPS_COLOR, colorprofile: windows_core::Ref<IXpsOMColorProfileResource>, offset: super::FLOAT) -> windows_core::Result<IXpsOMGradientStop>;
     fn CreateLinearGradientBrush(&self, gradstop1: windows_core::Ref<IXpsOMGradientStop>, gradstop2: windows_core::Ref<IXpsOMGradientStop>, startpoint: *const XPS_POINT, endpoint: *const XPS_POINT) -> windows_core::Result<IXpsOMLinearGradientBrush>;
     fn CreateRadialGradientBrush(&self, gradstop1: windows_core::Ref<IXpsOMGradientStop>, gradstop2: windows_core::Ref<IXpsOMGradientStop>, centerpoint: *const XPS_POINT, gradientorigin: *const XPS_POINT, radiisizes: *const XPS_SIZE) -> windows_core::Result<IXpsOMRadialGradientBrush>;
     fn CreateCoreProperties(&self, parturi: windows_core::Ref<super::IOpcPartUri>) -> windows_core::Result<IXpsOMCoreProperties>;
     fn CreateDictionary(&self) -> windows_core::Result<IXpsOMDictionary>;
     fn CreatePartUriCollection(&self) -> windows_core::Result<IXpsOMPartUriCollection>;
-    fn CreatePackageWriterOnFile(&self, filename: &windows_core::PCWSTR, securityattributes: *const super::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: windows_core::Ref<super::IOpcPartUri>, coreproperties: windows_core::Ref<IXpsOMCoreProperties>, packagethumbnail: windows_core::Ref<IXpsOMImageResource>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::IOpcPartUri>) -> windows_core::Result<IXpsOMPackageWriter>;
+    fn CreatePackageWriterOnFile(&self, filename: &windows_core::PCWSTR, securityattributes: super::LPSECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: windows_core::Ref<super::IOpcPartUri>, coreproperties: windows_core::Ref<IXpsOMCoreProperties>, packagethumbnail: windows_core::Ref<IXpsOMImageResource>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::IOpcPartUri>) -> windows_core::Result<IXpsOMPackageWriter>;
     fn CreatePackageWriterOnStream(&self, outputstream: windows_core::Ref<super::ISequentialStream>, optimizemarkupsize: windows_core::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: windows_core::Ref<super::IOpcPartUri>, coreproperties: windows_core::Ref<IXpsOMCoreProperties>, packagethumbnail: windows_core::Ref<IXpsOMImageResource>, documentsequenceprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, discardcontrolpartname: windows_core::Ref<super::IOpcPartUri>) -> windows_core::Result<IXpsOMPackageWriter>;
     fn CreatePartUri(&self, uri: &windows_core::PCWSTR) -> windows_core::Result<super::IOpcPartUri>;
     fn CreateReadOnlyStreamOnFile(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<super::IStream>;
 }
-#[cfg(all(feature = "minwinbase", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl IXpsOMObjectFactory_Vtbl {
     pub const fn new<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreatePackage<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5644,7 +5815,7 @@ impl IXpsOMObjectFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateGradientStop<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const XPS_COLOR, colorprofile: *mut core::ffi::c_void, offset: f32, gradientstop: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateGradientStop<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const XPS_COLOR, colorprofile: *mut core::ffi::c_void, offset: super::FLOAT, gradientstop: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory_Impl::CreateGradientStop(this, core::mem::transmute_copy(&color), core::mem::transmute_copy(&colorprofile), core::mem::transmute_copy(&offset)) {
@@ -5716,7 +5887,7 @@ impl IXpsOMObjectFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreatePackageWriterOnFile<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void, packagethumbnail: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePackageWriterOnFile<Identity: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: super::LPSECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void, packagethumbnail: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory_Impl::CreatePackageWriterOnFile(this, core::mem::transmute(&filename), core::mem::transmute_copy(&securityattributes), core::mem::transmute_copy(&flagsandattributes), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&interleaving), core::mem::transmute_copy(&documentsequencepartname), core::mem::transmute_copy(&coreproperties), core::mem::transmute_copy(&packagethumbnail), core::mem::transmute_copy(&documentsequenceprintticket), core::mem::transmute_copy(&discardcontrolpartname)) {
@@ -5809,7 +5980,7 @@ impl IXpsOMObjectFactory_Vtbl {
         iid == &<IXpsOMObjectFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwinbase", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMObjectFactory {}
 windows_core::imp::define_interface!(IXpsOMPackage, IXpsOMPackage_Vtbl, 0x18c3df65_81e1_4674_91dc_fc452f5a416f);
 windows_core::imp::interface_hierarchy!(IXpsOMPackage, windows_core::IUnknown);
@@ -5865,7 +6036,7 @@ impl IXpsOMPackage {
         unsafe { (windows_core::Interface::vtable(self).SetThumbnailResource)(windows_core::Interface::as_raw(self), imageresource.param().abi()) }
     }
     #[cfg(feature = "minwinbase")]
-    pub unsafe fn WriteToFile<P0>(&self, filename: P0, securityattributes: *const super::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: bool) -> windows_core::HRESULT
+    pub unsafe fn WriteToFile<P0>(&self, filename: P0, securityattributes: super::LPSECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -5898,7 +6069,7 @@ pub struct IXpsOMPackage_Vtbl {
     pub GetThumbnailResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetThumbnailResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "minwinbase")]
-    pub WriteToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::SECURITY_ATTRIBUTES, u32, windows_core::BOOL) -> windows_core::HRESULT,
+    pub WriteToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::LPSECURITY_ATTRIBUTES, u32, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "minwinbase"))]
     WriteToFile: usize,
     #[cfg(feature = "objidlbase")]
@@ -5916,7 +6087,7 @@ pub trait IXpsOMPackage_Impl: windows_core::IUnknownImpl {
     fn SetDiscardControlPartName(&self, discardcontrolparturi: windows_core::Ref<super::IOpcPartUri>) -> windows_core::Result<()>;
     fn GetThumbnailResource(&self) -> windows_core::Result<IXpsOMImageResource>;
     fn SetThumbnailResource(&self, imageresource: windows_core::Ref<IXpsOMImageResource>) -> windows_core::Result<()>;
-    fn WriteToFile(&self, filename: &windows_core::PCWSTR, securityattributes: *const super::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL) -> windows_core::Result<()>;
+    fn WriteToFile(&self, filename: &windows_core::PCWSTR, securityattributes: super::LPSECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL) -> windows_core::Result<()>;
     fn WriteToStream(&self, stream: windows_core::Ref<super::ISequentialStream>, optimizemarkupsize: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwinbase", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
@@ -5994,7 +6165,7 @@ impl IXpsOMPackage_Vtbl {
                 IXpsOMPackage_Impl::SetThumbnailResource(this, core::mem::transmute_copy(&imageresource)).into()
             }
         }
-        unsafe extern "system" fn WriteToFile<Identity: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteToFile<Identity: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: super::LPSECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMPackage_Impl::WriteToFile(this, core::mem::transmute(&filename), core::mem::transmute_copy(&securityattributes), core::mem::transmute_copy(&flagsandattributes), core::mem::transmute_copy(&optimizemarkupsize)).into()
@@ -6092,6 +6263,7 @@ impl IXpsOMPackageWriter {
     {
         unsafe { (windows_core::Interface::vtable(self).StartNewDocument)(windows_core::Interface::as_raw(self), documentpartname.param().abi(), documentprintticket.param().abi(), documentstructure.param().abi(), signatureblockresources.param().abi(), restrictedfonts.param().abi()) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn AddPage<P0, P2, P3, P4, P5>(&self, page: P0, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: P2, storyfragments: P3, pageprintticket: P4, pagethumbnail: P5) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IXpsOMPage>,
@@ -6126,12 +6298,15 @@ pub struct IXpsOMPackageWriter_Vtbl {
     pub StartNewDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "msopc", feature = "urlmon")))]
     StartNewDocument: usize,
+    #[cfg(feature = "minwindef")]
     pub AddPage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const XPS_SIZE, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    AddPage: usize,
     pub AddResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "msopc", feature = "urlmon"))]
+#[cfg(all(feature = "minwindef", feature = "msopc", feature = "urlmon"))]
 pub trait IXpsOMPackageWriter_Impl: windows_core::IUnknownImpl {
     fn StartNewDocument(&self, documentpartname: windows_core::Ref<super::IOpcPartUri>, documentprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, documentstructure: windows_core::Ref<IXpsOMDocumentStructureResource>, signatureblockresources: windows_core::Ref<IXpsOMSignatureBlockResourceCollection>, restrictedfonts: windows_core::Ref<IXpsOMPartUriCollection>) -> windows_core::Result<()>;
     fn AddPage(&self, page: windows_core::Ref<IXpsOMPage>, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: windows_core::Ref<IXpsOMPartUriCollection>, storyfragments: windows_core::Ref<IXpsOMStoryFragmentsResource>, pageprintticket: windows_core::Ref<IXpsOMPrintTicketResource>, pagethumbnail: windows_core::Ref<IXpsOMImageResource>) -> windows_core::Result<()>;
@@ -6139,7 +6314,7 @@ pub trait IXpsOMPackageWriter_Impl: windows_core::IUnknownImpl {
     fn Close(&self) -> windows_core::Result<()>;
     fn IsClosed(&self) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(all(feature = "msopc", feature = "urlmon"))]
+#[cfg(all(feature = "minwindef", feature = "msopc", feature = "urlmon"))]
 impl IXpsOMPackageWriter_Vtbl {
     pub const fn new<Identity: IXpsOMPackageWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartNewDocument<Identity: IXpsOMPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentpartname: *mut core::ffi::c_void, documentprintticket: *mut core::ffi::c_void, documentstructure: *mut core::ffi::c_void, signatureblockresources: *mut core::ffi::c_void, restrictedfonts: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6191,7 +6366,7 @@ impl IXpsOMPackageWriter_Vtbl {
         iid == &<IXpsOMPackageWriter as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "msopc", feature = "urlmon"))]
+#[cfg(all(feature = "minwindef", feature = "msopc", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMPackageWriter {}
 windows_core::imp::define_interface!(IXpsOMPage, IXpsOMPage_Vtbl, 0xd3e18888_f120_4fee_8c68_35296eae91d4);
 impl core::ops::Deref for IXpsOMPage {
@@ -6214,30 +6389,36 @@ impl IXpsOMPage {
             (windows_core::Interface::vtable(self).GetVisuals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetPageDimensions(&self) -> windows_core::Result<XPS_SIZE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPageDimensions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetPageDimensions(&self, pagedimensions: *const XPS_SIZE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPageDimensions)(windows_core::Interface::as_raw(self), pagedimensions) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetContentBox(&self) -> windows_core::Result<XPS_RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetContentBox)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetContentBox(&self, contentbox: *const XPS_RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetContentBox)(windows_core::Interface::as_raw(self), contentbox) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetBleedBox(&self) -> windows_core::Result<XPS_RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBleedBox)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetBleedBox(&self, bleedbox: *const XPS_RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBleedBox)(windows_core::Interface::as_raw(self), bleedbox) }
     }
@@ -6330,12 +6511,30 @@ pub struct IXpsOMPage_Vtbl {
     pub base__: IXpsOMPart_Vtbl,
     pub GetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVisuals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
     pub GetPageDimensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_SIZE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetPageDimensions: usize,
+    #[cfg(feature = "minwindef")]
     pub SetPageDimensions: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_SIZE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetPageDimensions: usize,
+    #[cfg(feature = "minwindef")]
     pub GetContentBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_RECT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetContentBox: usize,
+    #[cfg(feature = "minwindef")]
     pub SetContentBox: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_RECT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetContentBox: usize,
+    #[cfg(feature = "minwindef")]
     pub GetBleedBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_RECT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetBleedBox: usize,
+    #[cfg(feature = "minwindef")]
     pub SetBleedBox: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_RECT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetBleedBox: usize,
     pub GetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -6354,7 +6553,7 @@ pub struct IXpsOMPage_Vtbl {
     pub GenerateUnusedLookupKey: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_OBJECT_TYPE, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "minwindef", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 pub trait IXpsOMPage_Impl: IXpsOMPart_Impl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMPageReference>;
     fn GetVisuals(&self) -> windows_core::Result<IXpsOMVisualCollection>;
@@ -6379,7 +6578,7 @@ pub trait IXpsOMPage_Impl: IXpsOMPart_Impl {
     fn GenerateUnusedLookupKey(&self, r#type: XPS_OBJECT_TYPE) -> windows_core::Result<windows_core::PWSTR>;
     fn Clone(&self) -> windows_core::Result<IXpsOMPage>;
 }
-#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "minwindef", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl IXpsOMPage_Vtbl {
     pub const fn new<Identity: IXpsOMPage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagereference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6622,7 +6821,7 @@ impl IXpsOMPage_Vtbl {
         iid == &<IXpsOMPage as windows_core::Interface>::IID || iid == &<IXpsOMPart as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
+#[cfg(all(feature = "minwindef", feature = "msopc", feature = "objidlbase", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMPage {}
 windows_core::imp::define_interface!(IXpsOMPageReference, IXpsOMPageReference_Vtbl, 0xed360180_6f92_4998_890d_2f208531a0a0);
 windows_core::imp::interface_hierarchy!(IXpsOMPageReference, windows_core::IUnknown);
@@ -6654,12 +6853,14 @@ impl IXpsOMPageReference {
             (windows_core::Interface::vtable(self).IsPageLoaded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetAdvisoryPageDimensions(&self) -> windows_core::Result<XPS_SIZE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAdvisoryPageDimensions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetAdvisoryPageDimensions(&self, pagedimensions: *const XPS_SIZE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAdvisoryPageDimensions)(windows_core::Interface::as_raw(self), pagedimensions) }
     }
@@ -6733,8 +6934,14 @@ pub struct IXpsOMPageReference_Vtbl {
     pub SetPage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DiscardPage: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsPageLoaded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
     pub GetAdvisoryPageDimensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_SIZE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetAdvisoryPageDimensions: usize,
+    #[cfg(feature = "minwindef")]
     pub SetAdvisoryPageDimensions: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_SIZE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetAdvisoryPageDimensions: usize,
     pub GetStoryFragmentsResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetStoryFragmentsResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPrintTicketResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6746,6 +6953,7 @@ pub struct IXpsOMPageReference_Vtbl {
     pub HasRestrictedFonts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IXpsOMPageReference_Impl: windows_core::IUnknownImpl {
     fn GetOwner(&self) -> windows_core::Result<IXpsOMDocument>;
     fn GetPage(&self) -> windows_core::Result<IXpsOMPage>;
@@ -6765,6 +6973,7 @@ pub trait IXpsOMPageReference_Impl: windows_core::IUnknownImpl {
     fn HasRestrictedFonts(&self) -> windows_core::Result<windows_core::BOOL>;
     fn Clone(&self) -> windows_core::Result<IXpsOMPageReference>;
 }
+#[cfg(feature = "minwindef")]
 impl IXpsOMPageReference_Vtbl {
     pub const fn new<Identity: IXpsOMPageReference_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOwner<Identity: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, document: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6960,6 +7169,7 @@ impl IXpsOMPageReference_Vtbl {
         iid == &<IXpsOMPageReference as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IXpsOMPageReference {}
 windows_core::imp::define_interface!(IXpsOMPageReferenceCollection, IXpsOMPageReferenceCollection_Vtbl, 0xca16ba4d_e7b9_45c5_958b_f98022473745);
 windows_core::imp::interface_hierarchy!(IXpsOMPageReferenceCollection, windows_core::IUnknown);
@@ -7514,13 +7724,15 @@ impl IXpsOMPath {
     pub unsafe fn SetStrokeDashCap(&self, strokedashcap: XPS_DASH_CAP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStrokeDashCap)(windows_core::Interface::as_raw(self), strokedashcap) }
     }
-    pub unsafe fn GetStrokeDashOffset(&self) -> windows_core::Result<f32> {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn GetStrokeDashOffset(&self) -> windows_core::Result<super::FLOAT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStrokeDashOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStrokeDashOffset(&self, strokedashoffset: f32) -> windows_core::HRESULT {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn SetStrokeDashOffset(&self, strokedashoffset: super::FLOAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStrokeDashOffset)(windows_core::Interface::as_raw(self), strokedashoffset) }
     }
     pub unsafe fn GetStrokeStartLineCap(&self) -> windows_core::Result<XPS_LINE_CAP> {
@@ -7550,22 +7762,26 @@ impl IXpsOMPath {
     pub unsafe fn SetStrokeLineJoin(&self, strokelinejoin: XPS_LINE_JOIN) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStrokeLineJoin)(windows_core::Interface::as_raw(self), strokelinejoin) }
     }
-    pub unsafe fn GetStrokeMiterLimit(&self) -> windows_core::Result<f32> {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn GetStrokeMiterLimit(&self) -> windows_core::Result<super::FLOAT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStrokeMiterLimit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStrokeMiterLimit(&self, strokemiterlimit: f32) -> windows_core::HRESULT {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn SetStrokeMiterLimit(&self, strokemiterlimit: super::FLOAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStrokeMiterLimit)(windows_core::Interface::as_raw(self), strokemiterlimit) }
     }
-    pub unsafe fn GetStrokeThickness(&self) -> windows_core::Result<f32> {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn GetStrokeThickness(&self) -> windows_core::Result<super::FLOAT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStrokeThickness)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStrokeThickness(&self, strokethickness: f32) -> windows_core::HRESULT {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn SetStrokeThickness(&self, strokethickness: super::FLOAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStrokeThickness)(windows_core::Interface::as_raw(self), strokethickness) }
     }
     pub unsafe fn GetFillBrush(&self) -> windows_core::Result<IXpsOMBrush> {
@@ -7628,18 +7844,36 @@ pub struct IXpsOMPath_Vtbl {
     pub GetStrokeDashes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetStrokeDashCap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_DASH_CAP) -> windows_core::HRESULT,
     pub SetStrokeDashCap: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_DASH_CAP) -> windows_core::HRESULT,
-    pub GetStrokeDashOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetStrokeDashOffset: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub GetStrokeDashOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetStrokeDashOffset: usize,
+    #[cfg(feature = "minwindef")]
+    pub SetStrokeDashOffset: unsafe extern "system" fn(*mut core::ffi::c_void, super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetStrokeDashOffset: usize,
     pub GetStrokeStartLineCap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_LINE_CAP) -> windows_core::HRESULT,
     pub SetStrokeStartLineCap: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_LINE_CAP) -> windows_core::HRESULT,
     pub GetStrokeEndLineCap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_LINE_CAP) -> windows_core::HRESULT,
     pub SetStrokeEndLineCap: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_LINE_CAP) -> windows_core::HRESULT,
     pub GetStrokeLineJoin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_LINE_JOIN) -> windows_core::HRESULT,
     pub SetStrokeLineJoin: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_LINE_JOIN) -> windows_core::HRESULT,
-    pub GetStrokeMiterLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetStrokeMiterLimit: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub GetStrokeThickness: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetStrokeThickness: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub GetStrokeMiterLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetStrokeMiterLimit: usize,
+    #[cfg(feature = "minwindef")]
+    pub SetStrokeMiterLimit: unsafe extern "system" fn(*mut core::ffi::c_void, super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetStrokeMiterLimit: usize,
+    #[cfg(feature = "minwindef")]
+    pub GetStrokeThickness: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetStrokeThickness: usize,
+    #[cfg(feature = "minwindef")]
+    pub SetStrokeThickness: unsafe extern "system" fn(*mut core::ffi::c_void, super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetStrokeThickness: usize,
     pub GetFillBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFillBrushLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFillBrushLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7647,7 +7881,7 @@ pub struct IXpsOMPath_Vtbl {
     pub SetFillBrushLookup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "minwindef", feature = "urlmon"))]
 pub trait IXpsOMPath_Impl: IXpsOMVisual_Impl {
     fn GetGeometry(&self) -> windows_core::Result<IXpsOMGeometry>;
     fn GetGeometryLocal(&self) -> windows_core::Result<IXpsOMGeometry>;
@@ -7668,18 +7902,18 @@ pub trait IXpsOMPath_Impl: IXpsOMVisual_Impl {
     fn GetStrokeDashes(&self) -> windows_core::Result<IXpsOMDashCollection>;
     fn GetStrokeDashCap(&self) -> windows_core::Result<XPS_DASH_CAP>;
     fn SetStrokeDashCap(&self, strokedashcap: XPS_DASH_CAP) -> windows_core::Result<()>;
-    fn GetStrokeDashOffset(&self) -> windows_core::Result<f32>;
-    fn SetStrokeDashOffset(&self, strokedashoffset: f32) -> windows_core::Result<()>;
+    fn GetStrokeDashOffset(&self) -> windows_core::Result<super::FLOAT>;
+    fn SetStrokeDashOffset(&self, strokedashoffset: super::FLOAT) -> windows_core::Result<()>;
     fn GetStrokeStartLineCap(&self) -> windows_core::Result<XPS_LINE_CAP>;
     fn SetStrokeStartLineCap(&self, strokestartlinecap: XPS_LINE_CAP) -> windows_core::Result<()>;
     fn GetStrokeEndLineCap(&self) -> windows_core::Result<XPS_LINE_CAP>;
     fn SetStrokeEndLineCap(&self, strokeendlinecap: XPS_LINE_CAP) -> windows_core::Result<()>;
     fn GetStrokeLineJoin(&self) -> windows_core::Result<XPS_LINE_JOIN>;
     fn SetStrokeLineJoin(&self, strokelinejoin: XPS_LINE_JOIN) -> windows_core::Result<()>;
-    fn GetStrokeMiterLimit(&self) -> windows_core::Result<f32>;
-    fn SetStrokeMiterLimit(&self, strokemiterlimit: f32) -> windows_core::Result<()>;
-    fn GetStrokeThickness(&self) -> windows_core::Result<f32>;
-    fn SetStrokeThickness(&self, strokethickness: f32) -> windows_core::Result<()>;
+    fn GetStrokeMiterLimit(&self) -> windows_core::Result<super::FLOAT>;
+    fn SetStrokeMiterLimit(&self, strokemiterlimit: super::FLOAT) -> windows_core::Result<()>;
+    fn GetStrokeThickness(&self) -> windows_core::Result<super::FLOAT>;
+    fn SetStrokeThickness(&self, strokethickness: super::FLOAT) -> windows_core::Result<()>;
     fn GetFillBrush(&self) -> windows_core::Result<IXpsOMBrush>;
     fn GetFillBrushLocal(&self) -> windows_core::Result<IXpsOMBrush>;
     fn SetFillBrushLocal(&self, brush: windows_core::Ref<IXpsOMBrush>) -> windows_core::Result<()>;
@@ -7687,7 +7921,7 @@ pub trait IXpsOMPath_Impl: IXpsOMVisual_Impl {
     fn SetFillBrushLookup(&self, lookup: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMPath>;
 }
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "minwindef", feature = "urlmon"))]
 impl IXpsOMPath_Vtbl {
     pub const fn new<Identity: IXpsOMPath_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetGeometry<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7870,7 +8104,7 @@ impl IXpsOMPath_Vtbl {
                 IXpsOMPath_Impl::SetStrokeDashCap(this, core::mem::transmute_copy(&strokedashcap)).into()
             }
         }
-        unsafe extern "system" fn GetStrokeDashOffset<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokedashoffset: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStrokeDashOffset<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokedashoffset: *mut super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetStrokeDashOffset(this) {
@@ -7882,7 +8116,7 @@ impl IXpsOMPath_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetStrokeDashOffset<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokedashoffset: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStrokeDashOffset<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokedashoffset: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMPath_Impl::SetStrokeDashOffset(this, core::mem::transmute_copy(&strokedashoffset)).into()
@@ -7942,7 +8176,7 @@ impl IXpsOMPath_Vtbl {
                 IXpsOMPath_Impl::SetStrokeLineJoin(this, core::mem::transmute_copy(&strokelinejoin)).into()
             }
         }
-        unsafe extern "system" fn GetStrokeMiterLimit<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokemiterlimit: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStrokeMiterLimit<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokemiterlimit: *mut super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetStrokeMiterLimit(this) {
@@ -7954,13 +8188,13 @@ impl IXpsOMPath_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetStrokeMiterLimit<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokemiterlimit: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStrokeMiterLimit<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokemiterlimit: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMPath_Impl::SetStrokeMiterLimit(this, core::mem::transmute_copy(&strokemiterlimit)).into()
             }
         }
-        unsafe extern "system" fn GetStrokeThickness<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokethickness: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStrokeThickness<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokethickness: *mut super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetStrokeThickness(this) {
@@ -7972,7 +8206,7 @@ impl IXpsOMPath_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetStrokeThickness<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokethickness: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStrokeThickness<Identity: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokethickness: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMPath_Impl::SetStrokeThickness(this, core::mem::transmute_copy(&strokethickness)).into()
@@ -8083,7 +8317,7 @@ impl IXpsOMPath_Vtbl {
         iid == &<IXpsOMPath as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMVisual as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "minwindef", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMPath {}
 windows_core::imp::define_interface!(IXpsOMPrintTicketResource, IXpsOMPrintTicketResource_Vtbl, 0xe7ff32d2_34aa_499b_bbe9_9cd4ee6c59f7);
 impl core::ops::Deref for IXpsOMPrintTicketResource {
@@ -8166,30 +8400,36 @@ impl core::ops::Deref for IXpsOMRadialGradientBrush {
 }
 windows_core::imp::interface_hierarchy!(IXpsOMRadialGradientBrush, windows_core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMGradientBrush);
 impl IXpsOMRadialGradientBrush {
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetCenter(&self) -> windows_core::Result<XPS_POINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCenter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetCenter(&self, center: *const XPS_POINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCenter)(windows_core::Interface::as_raw(self), center) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetRadiiSizes(&self) -> windows_core::Result<XPS_SIZE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRadiiSizes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetRadiiSizes(&self, radiisizes: *const XPS_SIZE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRadiiSizes)(windows_core::Interface::as_raw(self), radiisizes) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetGradientOrigin(&self) -> windows_core::Result<XPS_POINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGradientOrigin)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetGradientOrigin(&self, origin: *const XPS_POINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetGradientOrigin)(windows_core::Interface::as_raw(self), origin) }
     }
@@ -8204,14 +8444,33 @@ impl IXpsOMRadialGradientBrush {
 #[doc(hidden)]
 pub struct IXpsOMRadialGradientBrush_Vtbl {
     pub base__: IXpsOMGradientBrush_Vtbl,
+    #[cfg(feature = "minwindef")]
     pub GetCenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_POINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetCenter: usize,
+    #[cfg(feature = "minwindef")]
     pub SetCenter: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_POINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetCenter: usize,
+    #[cfg(feature = "minwindef")]
     pub GetRadiiSizes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_SIZE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetRadiiSizes: usize,
+    #[cfg(feature = "minwindef")]
     pub SetRadiiSizes: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_SIZE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetRadiiSizes: usize,
+    #[cfg(feature = "minwindef")]
     pub GetGradientOrigin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_POINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetGradientOrigin: usize,
+    #[cfg(feature = "minwindef")]
     pub SetGradientOrigin: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_POINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetGradientOrigin: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IXpsOMRadialGradientBrush_Impl: IXpsOMGradientBrush_Impl {
     fn GetCenter(&self) -> windows_core::Result<XPS_POINT>;
     fn SetCenter(&self, center: *const XPS_POINT) -> windows_core::Result<()>;
@@ -8221,6 +8480,7 @@ pub trait IXpsOMRadialGradientBrush_Impl: IXpsOMGradientBrush_Impl {
     fn SetGradientOrigin(&self, origin: *const XPS_POINT) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMRadialGradientBrush>;
 }
+#[cfg(feature = "minwindef")]
 impl IXpsOMRadialGradientBrush_Vtbl {
     pub const fn new<Identity: IXpsOMRadialGradientBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCenter<Identity: IXpsOMRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, center: *mut XPS_POINT) -> windows_core::HRESULT {
@@ -8304,6 +8564,7 @@ impl IXpsOMRadialGradientBrush_Vtbl {
         iid == &<IXpsOMRadialGradientBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMGradientBrush as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IXpsOMRadialGradientBrush {}
 windows_core::imp::define_interface!(IXpsOMRemoteDictionaryResource, IXpsOMRemoteDictionaryResource_Vtbl, 0xc9bd7cd4_e16a_4bf8_8c84_c950af7a3061);
 impl core::ops::Deref for IXpsOMRemoteDictionaryResource {
@@ -8868,12 +9129,14 @@ impl core::ops::Deref for IXpsOMSolidColorBrush {
 }
 windows_core::imp::interface_hierarchy!(IXpsOMSolidColorBrush, windows_core::IUnknown, IXpsOMShareable, IXpsOMBrush);
 impl IXpsOMSolidColorBrush {
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetColor(&self, color: *mut XPS_COLOR) -> windows_core::Result<IXpsOMColorProfileResource> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetColor)(windows_core::Interface::as_raw(self), color as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetColor<P1>(&self, color: *const XPS_COLOR, colorprofile: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IXpsOMColorProfileResource>,
@@ -8891,15 +9154,23 @@ impl IXpsOMSolidColorBrush {
 #[doc(hidden)]
 pub struct IXpsOMSolidColorBrush_Vtbl {
     pub base__: IXpsOMBrush_Vtbl,
+    #[cfg(feature = "minwindef")]
     pub GetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_COLOR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetColor: usize,
+    #[cfg(feature = "minwindef")]
     pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_COLOR, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetColor: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IXpsOMSolidColorBrush_Impl: IXpsOMBrush_Impl {
     fn GetColor(&self, color: *mut XPS_COLOR) -> windows_core::Result<IXpsOMColorProfileResource>;
     fn SetColor(&self, color: *const XPS_COLOR, colorprofile: windows_core::Ref<IXpsOMColorProfileResource>) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMSolidColorBrush>;
 }
+#[cfg(feature = "minwindef")]
 impl IXpsOMSolidColorBrush_Vtbl {
     pub const fn new<Identity: IXpsOMSolidColorBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetColor<Identity: IXpsOMSolidColorBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *mut XPS_COLOR, colorprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8943,6 +9214,7 @@ impl IXpsOMSolidColorBrush_Vtbl {
         iid == &<IXpsOMSolidColorBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IXpsOMSolidColorBrush {}
 windows_core::imp::define_interface!(IXpsOMStoryFragmentsResource, IXpsOMStoryFragmentsResource_Vtbl, 0xc2b3ca09_0473_4282_87ae_1780863223f0);
 impl core::ops::Deref for IXpsOMStoryFragmentsResource {
@@ -9131,21 +9403,25 @@ impl IXpsOMTileBrush {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTransformLookup)(windows_core::Interface::as_raw(self), key.param().abi()) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetViewbox(&self) -> windows_core::Result<XPS_RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetViewbox)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetViewbox(&self, viewbox: *const XPS_RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetViewbox)(windows_core::Interface::as_raw(self), viewbox) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetViewport(&self) -> windows_core::Result<XPS_RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetViewport)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetViewport(&self, viewport: *const XPS_RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetViewport)(windows_core::Interface::as_raw(self), viewport) }
     }
@@ -9168,13 +9444,26 @@ pub struct IXpsOMTileBrush_Vtbl {
     pub SetTransformLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTransformLookup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetTransformLookup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
     pub GetViewbox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_RECT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetViewbox: usize,
+    #[cfg(feature = "minwindef")]
     pub SetViewbox: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_RECT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetViewbox: usize,
+    #[cfg(feature = "minwindef")]
     pub GetViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_RECT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetViewport: usize,
+    #[cfg(feature = "minwindef")]
     pub SetViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *const XPS_RECT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetViewport: usize,
     pub GetTileMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_TILE_MODE) -> windows_core::HRESULT,
     pub SetTileMode: unsafe extern "system" fn(*mut core::ffi::c_void, XPS_TILE_MODE) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IXpsOMTileBrush_Impl: IXpsOMBrush_Impl {
     fn GetTransform(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
     fn GetTransformLocal(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
@@ -9188,6 +9477,7 @@ pub trait IXpsOMTileBrush_Impl: IXpsOMBrush_Impl {
     fn GetTileMode(&self) -> windows_core::Result<XPS_TILE_MODE>;
     fn SetTileMode(&self, tilemode: XPS_TILE_MODE) -> windows_core::Result<()>;
 }
+#[cfg(feature = "minwindef")]
 impl IXpsOMTileBrush_Vtbl {
     pub const fn new<Identity: IXpsOMTileBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTransform<Identity: IXpsOMTileBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9311,6 +9601,7 @@ impl IXpsOMTileBrush_Vtbl {
         iid == &<IXpsOMTileBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IXpsOMTileBrush {}
 windows_core::imp::define_interface!(IXpsOMVisual, IXpsOMVisual_Vtbl, 0xbc3e7333_fb0b_4af3_a819_0b4eaad0d2fd);
 impl core::ops::Deref for IXpsOMVisual {
@@ -9381,13 +9672,15 @@ impl IXpsOMVisual {
     {
         unsafe { (windows_core::Interface::vtable(self).SetClipGeometryLookup)(windows_core::Interface::as_raw(self), key.param().abi()) }
     }
-    pub unsafe fn GetOpacity(&self) -> windows_core::Result<f32> {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn GetOpacity(&self) -> windows_core::Result<super::FLOAT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOpacity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetOpacity(&self, opacity: f32) -> windows_core::HRESULT {
+    #[cfg(feature = "minwindef")]
+    pub unsafe fn SetOpacity(&self, opacity: super::FLOAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetOpacity)(windows_core::Interface::as_raw(self), opacity) }
     }
     pub unsafe fn GetOpacityMaskBrush(&self) -> windows_core::Result<IXpsOMBrush> {
@@ -9482,8 +9775,14 @@ pub struct IXpsOMVisual_Vtbl {
     pub SetClipGeometryLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetClipGeometryLookup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetClipGeometryLookup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    #[cfg(feature = "minwindef")]
+    pub GetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetOpacity: usize,
+    #[cfg(feature = "minwindef")]
+    pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, super::FLOAT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetOpacity: usize,
     pub GetOpacityMaskBrush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetOpacityMaskBrushLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetOpacityMaskBrushLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9504,7 +9803,7 @@ pub struct IXpsOMVisual_Vtbl {
     pub GetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "minwindef", feature = "urlmon"))]
 pub trait IXpsOMVisual_Impl: IXpsOMShareable_Impl {
     fn GetTransform(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
     fn GetTransformLocal(&self) -> windows_core::Result<IXpsOMMatrixTransform>;
@@ -9516,8 +9815,8 @@ pub trait IXpsOMVisual_Impl: IXpsOMShareable_Impl {
     fn SetClipGeometryLocal(&self, clipgeometry: windows_core::Ref<IXpsOMGeometry>) -> windows_core::Result<()>;
     fn GetClipGeometryLookup(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetClipGeometryLookup(&self, key: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetOpacity(&self) -> windows_core::Result<f32>;
-    fn SetOpacity(&self, opacity: f32) -> windows_core::Result<()>;
+    fn GetOpacity(&self) -> windows_core::Result<super::FLOAT>;
+    fn SetOpacity(&self, opacity: super::FLOAT) -> windows_core::Result<()>;
     fn GetOpacityMaskBrush(&self) -> windows_core::Result<IXpsOMBrush>;
     fn GetOpacityMaskBrushLocal(&self) -> windows_core::Result<IXpsOMBrush>;
     fn SetOpacityMaskBrushLocal(&self, opacitymaskbrush: windows_core::Ref<IXpsOMBrush>) -> windows_core::Result<()>;
@@ -9532,7 +9831,7 @@ pub trait IXpsOMVisual_Impl: IXpsOMShareable_Impl {
     fn GetLanguage(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetLanguage(&self, language: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "minwindef", feature = "urlmon"))]
 impl IXpsOMVisual_Vtbl {
     pub const fn new<Identity: IXpsOMVisual_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTransform<Identity: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrixtransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9631,7 +9930,7 @@ impl IXpsOMVisual_Vtbl {
                 IXpsOMVisual_Impl::SetClipGeometryLookup(this, core::mem::transmute(&key)).into()
             }
         }
-        unsafe extern "system" fn GetOpacity<Identity: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOpacity<Identity: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: *mut super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMVisual_Impl::GetOpacity(this) {
@@ -9643,7 +9942,7 @@ impl IXpsOMVisual_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetOpacity<Identity: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOpacity<Identity: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: super::FLOAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXpsOMVisual_Impl::SetOpacity(this, core::mem::transmute_copy(&opacity)).into()
@@ -9802,7 +10101,7 @@ impl IXpsOMVisual_Vtbl {
         iid == &<IXpsOMVisual as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "urlmon")]
+#[cfg(all(feature = "minwindef", feature = "urlmon"))]
 impl windows_core::RuntimeName for IXpsOMVisual {}
 windows_core::imp::define_interface!(IXpsOMVisualBrush, IXpsOMVisualBrush_Vtbl, 0x97e294af_5b37_46b4_8057_874d2f64119b);
 impl core::ops::Deref for IXpsOMVisualBrush {
@@ -9861,6 +10160,7 @@ pub struct IXpsOMVisualBrush_Vtbl {
     pub SetVisualLookup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "minwindef")]
 pub trait IXpsOMVisualBrush_Impl: IXpsOMTileBrush_Impl {
     fn GetVisual(&self) -> windows_core::Result<IXpsOMVisual>;
     fn GetVisualLocal(&self) -> windows_core::Result<IXpsOMVisual>;
@@ -9869,6 +10169,7 @@ pub trait IXpsOMVisualBrush_Impl: IXpsOMTileBrush_Impl {
     fn SetVisualLookup(&self, lookup: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IXpsOMVisualBrush>;
 }
+#[cfg(feature = "minwindef")]
 impl IXpsOMVisualBrush_Vtbl {
     pub const fn new<Identity: IXpsOMVisualBrush_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetVisual<Identity: IXpsOMVisualBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visual: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9945,6 +10246,7 @@ impl IXpsOMVisualBrush_Vtbl {
         iid == &<IXpsOMVisualBrush as windows_core::Interface>::IID || iid == &<IXpsOMShareable as windows_core::Interface>::IID || iid == &<IXpsOMBrush as windows_core::Interface>::IID || iid == &<IXpsOMTileBrush as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IXpsOMVisualBrush {}
 windows_core::imp::define_interface!(IXpsOMVisualCollection, IXpsOMVisualCollection_Vtbl, 0x94d8abde_ab91_46a8_82b7_f5b05ef01a96);
 windows_core::imp::interface_hierarchy!(IXpsOMVisualCollection, windows_core::IUnknown);
@@ -10168,51 +10470,14 @@ impl IXpsPrintJobStream_Vtbl {
 #[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IXpsPrintJobStream {}
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy)]
 pub struct XPS_COLOR {
     pub colorType: XPS_COLOR_TYPE,
-    pub value: XPS_COLOR_0,
+    pub value: __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028,
 }
+#[cfg(feature = "minwindef")]
 impl Default for XPS_COLOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union XPS_COLOR_0 {
-    pub sRGB: XPS_COLOR_0_0,
-    pub scRGB: XPS_COLOR_0_1,
-    pub context: XPS_COLOR_0_2,
-}
-impl Default for XPS_COLOR_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct XPS_COLOR_0_0 {
-    pub alpha: u8,
-    pub red: u8,
-    pub green: u8,
-    pub blue: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct XPS_COLOR_0_1 {
-    pub alpha: f32,
-    pub red: f32,
-    pub green: f32,
-    pub blue: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct XPS_COLOR_0_2 {
-    pub channelCount: u8,
-    pub channels: [f32; 9],
-}
-impl Default for XPS_COLOR_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -10225,91 +10490,92 @@ pub const XPS_COLOR_TYPE_CONTEXT: XPS_COLOR_TYPE = 3;
 pub const XPS_COLOR_TYPE_SCRGB: XPS_COLOR_TYPE = 2;
 pub const XPS_COLOR_TYPE_SRGB: XPS_COLOR_TYPE = 1;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_DASH {
-    pub length: f32,
-    pub gap: f32,
+    pub length: super::FLOAT,
+    pub gap: super::FLOAT,
 }
 pub type XPS_DASH_CAP = i32;
 pub const XPS_DASH_CAP_FLAT: XPS_DASH_CAP = 1;
 pub const XPS_DASH_CAP_ROUND: XPS_DASH_CAP = 2;
 pub const XPS_DASH_CAP_SQUARE: XPS_DASH_CAP = 3;
 pub const XPS_DASH_CAP_TRIANGLE: XPS_DASH_CAP = 4;
-pub const XPS_E_ALREADY_OWNED: i32 = -2142108413;
-pub const XPS_E_BLEED_BOX_PAGE_DIMENSIONS_NOT_IN_SYNC: i32 = -2142108407;
-pub const XPS_E_BOTH_PATHFIGURE_AND_ABBR_SYNTAX_PRESENT: i32 = -2142108409;
-pub const XPS_E_BOTH_RESOURCE_AND_SOURCEATTR_PRESENT: i32 = -2142108408;
-pub const XPS_E_CARET_OUTSIDE_STRING: i32 = -2142108923;
-pub const XPS_E_CARET_OUT_OF_ORDER: i32 = -2142108922;
-pub const XPS_E_COLOR_COMPONENT_OUT_OF_RANGE: i32 = -2142108410;
-pub const XPS_E_DICTIONARY_ITEM_NAMED: i32 = -2142108671;
-pub const XPS_E_DUPLICATE_NAMES: i32 = -2142109175;
-pub const XPS_E_DUPLICATE_RESOURCE_KEYS: i32 = -2142109184;
-pub const XPS_E_INDEX_OUT_OF_RANGE: i32 = -2142108416;
-pub const XPS_E_INVALID_BLEED_BOX: i32 = -2142109692;
-pub const XPS_E_INVALID_CONTENT_BOX: i32 = -2142109685;
-pub const XPS_E_INVALID_CONTENT_TYPE: i32 = -2142109682;
-pub const XPS_E_INVALID_FLOAT: i32 = -2142109689;
-pub const XPS_E_INVALID_FONT_URI: i32 = -2142109686;
-pub const XPS_E_INVALID_LANGUAGE: i32 = -2142109696;
-pub const XPS_E_INVALID_LOOKUP_TYPE: i32 = -2142109690;
-pub const XPS_E_INVALID_MARKUP: i32 = -2142109684;
-pub const XPS_E_INVALID_NAME: i32 = -2142109695;
-pub const XPS_E_INVALID_OBFUSCATED_FONT_URI: i32 = -2142109681;
-pub const XPS_E_INVALID_PAGE_SIZE: i32 = -2142109693;
-pub const XPS_E_INVALID_RESOURCE_KEY: i32 = -2142109694;
-pub const XPS_E_INVALID_THUMBNAIL_IMAGE_TYPE: i32 = -2142109691;
-pub const XPS_E_INVALID_XML_ENCODING: i32 = -2142109683;
-pub const XPS_E_MAPPING_OUTSIDE_INDICES: i32 = -2142108924;
-pub const XPS_E_MAPPING_OUTSIDE_STRING: i32 = -2142108925;
-pub const XPS_E_MAPPING_OUT_OF_ORDER: i32 = -2142108926;
-pub const XPS_E_MISSING_COLORPROFILE: i32 = -2142109436;
-pub const XPS_E_MISSING_DISCARDCONTROL: i32 = -2142109422;
-pub const XPS_E_MISSING_DOCUMENT: i32 = -2142109431;
-pub const XPS_E_MISSING_DOCUMENTSEQUENCE_RELATIONSHIP: i32 = -2142109432;
-pub const XPS_E_MISSING_FONTURI: i32 = -2142109433;
-pub const XPS_E_MISSING_GLYPHS: i32 = -2142109438;
-pub const XPS_E_MISSING_IMAGE_IN_IMAGEBRUSH: i32 = -2142109426;
-pub const XPS_E_MISSING_LOOKUP: i32 = -2142109439;
-pub const XPS_E_MISSING_NAME: i32 = -2142109440;
-pub const XPS_E_MISSING_PAGE_IN_DOCUMENT: i32 = -2142109428;
-pub const XPS_E_MISSING_PAGE_IN_PAGEREFERENCE: i32 = -2142109427;
-pub const XPS_E_MISSING_PART_REFERENCE: i32 = -2142109424;
-pub const XPS_E_MISSING_PART_STREAM: i32 = -2142109421;
-pub const XPS_E_MISSING_REFERRED_DOCUMENT: i32 = -2142109430;
-pub const XPS_E_MISSING_REFERRED_PAGE: i32 = -2142109429;
-pub const XPS_E_MISSING_RELATIONSHIP_TARGET: i32 = -2142109435;
-pub const XPS_E_MISSING_RESOURCE_KEY: i32 = -2142109425;
-pub const XPS_E_MISSING_RESOURCE_RELATIONSHIP: i32 = -2142109434;
-pub const XPS_E_MISSING_RESTRICTED_FONT_RELATIONSHIP: i32 = -2142109423;
-pub const XPS_E_MISSING_SEGMENT_DATA: i32 = -2142109437;
-pub const XPS_E_MULTIPLE_DOCUMENTSEQUENCE_RELATIONSHIPS: i32 = -2142109182;
-pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENT: i32 = -2142109178;
-pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENTSEQUENCE: i32 = -2142109177;
-pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_PAGE: i32 = -2142109179;
-pub const XPS_E_MULTIPLE_REFERENCES_TO_PART: i32 = -2142109176;
-pub const XPS_E_MULTIPLE_RESOURCES: i32 = -2142109183;
-pub const XPS_E_MULTIPLE_THUMBNAILS_ON_PACKAGE: i32 = -2142109180;
-pub const XPS_E_MULTIPLE_THUMBNAILS_ON_PAGE: i32 = -2142109181;
-pub const XPS_E_NEGATIVE_FLOAT: i32 = -2142108918;
-pub const XPS_E_NESTED_REMOTE_DICTIONARY: i32 = -2142108670;
-pub const XPS_E_NOT_ENOUGH_GRADIENT_STOPS: i32 = -2142108405;
-pub const XPS_E_NO_CUSTOM_OBJECTS: i32 = -2142108414;
-pub const XPS_E_ODD_BIDILEVEL: i32 = -2142108921;
-pub const XPS_E_ONE_TO_ONE_MAPPING_EXPECTED: i32 = -2142108920;
-pub const XPS_E_PACKAGE_WRITER_NOT_CLOSED: i32 = -2142108404;
-pub const XPS_E_RELATIONSHIP_EXTERNAL: i32 = -2142108406;
-pub const XPS_E_RESOURCE_NOT_OWNED: i32 = -2142108412;
-pub const XPS_E_RESTRICTED_FONT_NOT_OBFUSCATED: i32 = -2142108919;
-pub const XPS_E_STRING_TOO_LONG: i32 = -2142108928;
-pub const XPS_E_TOO_MANY_INDICES: i32 = -2142108927;
-pub const XPS_E_UNAVAILABLE_PACKAGE: i32 = -2142109420;
-pub const XPS_E_UNEXPECTED_COLORPROFILE: i32 = -2142108411;
-pub const XPS_E_UNEXPECTED_CONTENT_TYPE: i32 = -2142109688;
-pub const XPS_E_UNEXPECTED_RELATIONSHIP_TYPE: i32 = -2142109680;
-pub const XPS_E_UNEXPECTED_RESTRICTED_FONT_RELATIONSHIP: i32 = -2142109679;
-pub const XPS_E_VISUAL_CIRCULAR_REF: i32 = -2142108415;
-pub const XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: i32 = -2142108672;
+pub const XPS_E_ALREADY_OWNED: windows_core::HRESULT = windows_core::HRESULT(0x80520503_u32 as _);
+pub const XPS_E_BLEED_BOX_PAGE_DIMENSIONS_NOT_IN_SYNC: windows_core::HRESULT = windows_core::HRESULT(0x80520509_u32 as _);
+pub const XPS_E_BOTH_PATHFIGURE_AND_ABBR_SYNTAX_PRESENT: windows_core::HRESULT = windows_core::HRESULT(0x80520507_u32 as _);
+pub const XPS_E_BOTH_RESOURCE_AND_SOURCEATTR_PRESENT: windows_core::HRESULT = windows_core::HRESULT(0x80520508_u32 as _);
+pub const XPS_E_CARET_OUTSIDE_STRING: windows_core::HRESULT = windows_core::HRESULT(0x80520305_u32 as _);
+pub const XPS_E_CARET_OUT_OF_ORDER: windows_core::HRESULT = windows_core::HRESULT(0x80520306_u32 as _);
+pub const XPS_E_COLOR_COMPONENT_OUT_OF_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x80520506_u32 as _);
+pub const XPS_E_DICTIONARY_ITEM_NAMED: windows_core::HRESULT = windows_core::HRESULT(0x80520401_u32 as _);
+pub const XPS_E_DUPLICATE_NAMES: windows_core::HRESULT = windows_core::HRESULT(0x80520209_u32 as _);
+pub const XPS_E_DUPLICATE_RESOURCE_KEYS: windows_core::HRESULT = windows_core::HRESULT(0x80520200_u32 as _);
+pub const XPS_E_INDEX_OUT_OF_RANGE: windows_core::HRESULT = windows_core::HRESULT(0x80520500_u32 as _);
+pub const XPS_E_INVALID_BLEED_BOX: windows_core::HRESULT = windows_core::HRESULT(0x80520004_u32 as _);
+pub const XPS_E_INVALID_CONTENT_BOX: windows_core::HRESULT = windows_core::HRESULT(0x8052000B_u32 as _);
+pub const XPS_E_INVALID_CONTENT_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x8052000E_u32 as _);
+pub const XPS_E_INVALID_FLOAT: windows_core::HRESULT = windows_core::HRESULT(0x80520007_u32 as _);
+pub const XPS_E_INVALID_FONT_URI: windows_core::HRESULT = windows_core::HRESULT(0x8052000A_u32 as _);
+pub const XPS_E_INVALID_LANGUAGE: windows_core::HRESULT = windows_core::HRESULT(0x80520000_u32 as _);
+pub const XPS_E_INVALID_LOOKUP_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80520006_u32 as _);
+pub const XPS_E_INVALID_MARKUP: windows_core::HRESULT = windows_core::HRESULT(0x8052000C_u32 as _);
+pub const XPS_E_INVALID_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80520001_u32 as _);
+pub const XPS_E_INVALID_OBFUSCATED_FONT_URI: windows_core::HRESULT = windows_core::HRESULT(0x8052000F_u32 as _);
+pub const XPS_E_INVALID_PAGE_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x80520003_u32 as _);
+pub const XPS_E_INVALID_RESOURCE_KEY: windows_core::HRESULT = windows_core::HRESULT(0x80520002_u32 as _);
+pub const XPS_E_INVALID_THUMBNAIL_IMAGE_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80520005_u32 as _);
+pub const XPS_E_INVALID_XML_ENCODING: windows_core::HRESULT = windows_core::HRESULT(0x8052000D_u32 as _);
+pub const XPS_E_MAPPING_OUTSIDE_INDICES: windows_core::HRESULT = windows_core::HRESULT(0x80520304_u32 as _);
+pub const XPS_E_MAPPING_OUTSIDE_STRING: windows_core::HRESULT = windows_core::HRESULT(0x80520303_u32 as _);
+pub const XPS_E_MAPPING_OUT_OF_ORDER: windows_core::HRESULT = windows_core::HRESULT(0x80520302_u32 as _);
+pub const XPS_E_MISSING_COLORPROFILE: windows_core::HRESULT = windows_core::HRESULT(0x80520104_u32 as _);
+pub const XPS_E_MISSING_DISCARDCONTROL: windows_core::HRESULT = windows_core::HRESULT(0x80520112_u32 as _);
+pub const XPS_E_MISSING_DOCUMENT: windows_core::HRESULT = windows_core::HRESULT(0x80520109_u32 as _);
+pub const XPS_E_MISSING_DOCUMENTSEQUENCE_RELATIONSHIP: windows_core::HRESULT = windows_core::HRESULT(0x80520108_u32 as _);
+pub const XPS_E_MISSING_FONTURI: windows_core::HRESULT = windows_core::HRESULT(0x80520107_u32 as _);
+pub const XPS_E_MISSING_GLYPHS: windows_core::HRESULT = windows_core::HRESULT(0x80520102_u32 as _);
+pub const XPS_E_MISSING_IMAGE_IN_IMAGEBRUSH: windows_core::HRESULT = windows_core::HRESULT(0x8052010E_u32 as _);
+pub const XPS_E_MISSING_LOOKUP: windows_core::HRESULT = windows_core::HRESULT(0x80520101_u32 as _);
+pub const XPS_E_MISSING_NAME: windows_core::HRESULT = windows_core::HRESULT(0x80520100_u32 as _);
+pub const XPS_E_MISSING_PAGE_IN_DOCUMENT: windows_core::HRESULT = windows_core::HRESULT(0x8052010C_u32 as _);
+pub const XPS_E_MISSING_PAGE_IN_PAGEREFERENCE: windows_core::HRESULT = windows_core::HRESULT(0x8052010D_u32 as _);
+pub const XPS_E_MISSING_PART_REFERENCE: windows_core::HRESULT = windows_core::HRESULT(0x80520110_u32 as _);
+pub const XPS_E_MISSING_PART_STREAM: windows_core::HRESULT = windows_core::HRESULT(0x80520113_u32 as _);
+pub const XPS_E_MISSING_REFERRED_DOCUMENT: windows_core::HRESULT = windows_core::HRESULT(0x8052010A_u32 as _);
+pub const XPS_E_MISSING_REFERRED_PAGE: windows_core::HRESULT = windows_core::HRESULT(0x8052010B_u32 as _);
+pub const XPS_E_MISSING_RELATIONSHIP_TARGET: windows_core::HRESULT = windows_core::HRESULT(0x80520105_u32 as _);
+pub const XPS_E_MISSING_RESOURCE_KEY: windows_core::HRESULT = windows_core::HRESULT(0x8052010F_u32 as _);
+pub const XPS_E_MISSING_RESOURCE_RELATIONSHIP: windows_core::HRESULT = windows_core::HRESULT(0x80520106_u32 as _);
+pub const XPS_E_MISSING_RESTRICTED_FONT_RELATIONSHIP: windows_core::HRESULT = windows_core::HRESULT(0x80520111_u32 as _);
+pub const XPS_E_MISSING_SEGMENT_DATA: windows_core::HRESULT = windows_core::HRESULT(0x80520103_u32 as _);
+pub const XPS_E_MULTIPLE_DOCUMENTSEQUENCE_RELATIONSHIPS: windows_core::HRESULT = windows_core::HRESULT(0x80520202_u32 as _);
+pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENT: windows_core::HRESULT = windows_core::HRESULT(0x80520206_u32 as _);
+pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENTSEQUENCE: windows_core::HRESULT = windows_core::HRESULT(0x80520207_u32 as _);
+pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_PAGE: windows_core::HRESULT = windows_core::HRESULT(0x80520205_u32 as _);
+pub const XPS_E_MULTIPLE_REFERENCES_TO_PART: windows_core::HRESULT = windows_core::HRESULT(0x80520208_u32 as _);
+pub const XPS_E_MULTIPLE_RESOURCES: windows_core::HRESULT = windows_core::HRESULT(0x80520201_u32 as _);
+pub const XPS_E_MULTIPLE_THUMBNAILS_ON_PACKAGE: windows_core::HRESULT = windows_core::HRESULT(0x80520204_u32 as _);
+pub const XPS_E_MULTIPLE_THUMBNAILS_ON_PAGE: windows_core::HRESULT = windows_core::HRESULT(0x80520203_u32 as _);
+pub const XPS_E_NEGATIVE_FLOAT: windows_core::HRESULT = windows_core::HRESULT(0x8052030A_u32 as _);
+pub const XPS_E_NESTED_REMOTE_DICTIONARY: windows_core::HRESULT = windows_core::HRESULT(0x80520402_u32 as _);
+pub const XPS_E_NOT_ENOUGH_GRADIENT_STOPS: windows_core::HRESULT = windows_core::HRESULT(0x8052050B_u32 as _);
+pub const XPS_E_NO_CUSTOM_OBJECTS: windows_core::HRESULT = windows_core::HRESULT(0x80520502_u32 as _);
+pub const XPS_E_ODD_BIDILEVEL: windows_core::HRESULT = windows_core::HRESULT(0x80520307_u32 as _);
+pub const XPS_E_ONE_TO_ONE_MAPPING_EXPECTED: windows_core::HRESULT = windows_core::HRESULT(0x80520308_u32 as _);
+pub const XPS_E_PACKAGE_WRITER_NOT_CLOSED: windows_core::HRESULT = windows_core::HRESULT(0x8052050C_u32 as _);
+pub const XPS_E_RELATIONSHIP_EXTERNAL: windows_core::HRESULT = windows_core::HRESULT(0x8052050A_u32 as _);
+pub const XPS_E_RESOURCE_NOT_OWNED: windows_core::HRESULT = windows_core::HRESULT(0x80520504_u32 as _);
+pub const XPS_E_RESTRICTED_FONT_NOT_OBFUSCATED: windows_core::HRESULT = windows_core::HRESULT(0x80520309_u32 as _);
+pub const XPS_E_STRING_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0x80520300_u32 as _);
+pub const XPS_E_TOO_MANY_INDICES: windows_core::HRESULT = windows_core::HRESULT(0x80520301_u32 as _);
+pub const XPS_E_UNAVAILABLE_PACKAGE: windows_core::HRESULT = windows_core::HRESULT(0x80520114_u32 as _);
+pub const XPS_E_UNEXPECTED_COLORPROFILE: windows_core::HRESULT = windows_core::HRESULT(0x80520505_u32 as _);
+pub const XPS_E_UNEXPECTED_CONTENT_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80520008_u32 as _);
+pub const XPS_E_UNEXPECTED_RELATIONSHIP_TYPE: windows_core::HRESULT = windows_core::HRESULT(0x80520010_u32 as _);
+pub const XPS_E_UNEXPECTED_RESTRICTED_FONT_RELATIONSHIP: windows_core::HRESULT = windows_core::HRESULT(0x80520011_u32 as _);
+pub const XPS_E_VISUAL_CIRCULAR_REF: windows_core::HRESULT = windows_core::HRESULT(0x80520501_u32 as _);
+pub const XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: windows_core::HRESULT = windows_core::HRESULT(0x80520400_u32 as _);
 pub type XPS_FILL_RULE = i32;
 pub const XPS_FILL_RULE_EVENODD: XPS_FILL_RULE = 1;
 pub const XPS_FILL_RULE_NONZERO: XPS_FILL_RULE = 2;
@@ -10319,12 +10585,13 @@ pub const XPS_FONT_EMBEDDING_OBFUSCATED: XPS_FONT_EMBEDDING = 2;
 pub const XPS_FONT_EMBEDDING_RESTRICTED: XPS_FONT_EMBEDDING = 3;
 pub const XPS_FONT_EMBEDDING_RESTRICTED_UNOBFUSCATED: XPS_FONT_EMBEDDING = 4;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_GLYPH_INDEX {
     pub index: i32,
-    pub advanceWidth: f32,
-    pub horizontalOffset: f32,
-    pub verticalOffset: f32,
+    pub advanceWidth: super::FLOAT,
+    pub horizontalOffset: super::FLOAT,
+    pub verticalOffset: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10368,14 +10635,15 @@ pub const XPS_LINE_JOIN_BEVEL: XPS_LINE_JOIN = 2;
 pub const XPS_LINE_JOIN_MITER: XPS_LINE_JOIN = 1;
 pub const XPS_LINE_JOIN_ROUND: XPS_LINE_JOIN = 3;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_MATRIX {
-    pub m11: f32,
-    pub m12: f32,
-    pub m21: f32,
-    pub m22: f32,
-    pub m31: f32,
-    pub m32: f32,
+    pub m11: super::FLOAT,
+    pub m12: super::FLOAT,
+    pub m21: super::FLOAT,
+    pub m22: super::FLOAT,
+    pub m31: super::FLOAT,
+    pub m32: super::FLOAT,
 }
 pub type XPS_OBJECT_TYPE = i32;
 pub const XPS_OBJECT_TYPE_CANVAS: XPS_OBJECT_TYPE = 1;
@@ -10389,18 +10657,20 @@ pub const XPS_OBJECT_TYPE_RADIAL_GRADIENT_BRUSH: XPS_OBJECT_TYPE = 9;
 pub const XPS_OBJECT_TYPE_SOLID_COLOR_BRUSH: XPS_OBJECT_TYPE = 6;
 pub const XPS_OBJECT_TYPE_VISUAL_BRUSH: XPS_OBJECT_TYPE = 10;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_POINT {
-    pub x: f32,
-    pub y: f32,
+    pub x: super::FLOAT,
+    pub y: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_RECT {
-    pub x: f32,
-    pub y: f32,
-    pub width: f32,
-    pub height: f32,
+    pub x: super::FLOAT,
+    pub y: super::FLOAT,
+    pub width: super::FLOAT,
+    pub height: super::FLOAT,
 }
 pub type XPS_SEGMENT_STROKE_PATTERN = i32;
 pub const XPS_SEGMENT_STROKE_PATTERN_ALL: XPS_SEGMENT_STROKE_PATTERN = 1;
@@ -10415,10 +10685,11 @@ pub const XPS_SEGMENT_TYPE_BEZIER: XPS_SEGMENT_TYPE = 5;
 pub const XPS_SEGMENT_TYPE_LINE: XPS_SEGMENT_TYPE = 6;
 pub const XPS_SEGMENT_TYPE_QUADRATIC_BEZIER: XPS_SEGMENT_TYPE = 7;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_SIZE {
-    pub width: f32,
-    pub height: f32,
+    pub width: super::FLOAT,
+    pub height: super::FLOAT,
 }
 pub type XPS_SPREAD_METHOD = i32;
 pub const XPS_SPREAD_METHOD_PAD: XPS_SPREAD_METHOD = 1;
@@ -10442,3 +10713,48 @@ pub const XPS_TILE_MODE_NONE: XPS_TILE_MODE = 1;
 pub const XPS_TILE_MODE_TILE: XPS_TILE_MODE = 2;
 pub const XpsOMObjectFactory: windows_core::GUID = windows_core::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
 pub const XpsOMThumbnailGenerator: windows_core::GUID = windows_core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);
+#[repr(C)]
+#[cfg(feature = "minwindef")]
+#[derive(Clone, Copy)]
+pub union __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028 {
+    pub sRGB: __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_0,
+    pub scRGB: __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_1,
+    pub context: __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_2,
+}
+#[cfg(feature = "minwindef")]
+impl Default for __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "minwindef")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_0 {
+    pub alpha: u8,
+    pub red: u8,
+    pub green: u8,
+    pub blue: u8,
+}
+#[repr(C)]
+#[cfg(feature = "minwindef")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_1 {
+    pub alpha: super::FLOAT,
+    pub red: super::FLOAT,
+    pub green: super::FLOAT,
+    pub blue: super::FLOAT,
+}
+#[repr(C)]
+#[cfg(feature = "minwindef")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_2 {
+    pub channelCount: u8,
+    pub channels: [super::FLOAT; 9],
+}
+#[cfg(feature = "minwindef")]
+impl Default for __MIDL___MIDL_itf_xpsobjectmodel_0000_0000_0028_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}

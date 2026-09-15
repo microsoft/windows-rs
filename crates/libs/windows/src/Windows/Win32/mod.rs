@@ -2067,6 +2067,10 @@ pub use windowsdatapdfinterop::*;
 pub mod windowsdevicesdisplaycoreinterop;
 #[cfg(feature = "windowsdevicesdisplaycoreinterop")]
 pub use windowsdevicesdisplaycoreinterop::*;
+#[cfg(feature = "windowsfoundation")]
+pub mod windowsfoundation;
+#[cfg(feature = "windowsfoundation")]
+pub use windowsfoundation::*;
 #[cfg(feature = "windowsgraphicscaptureinterop")]
 pub mod windowsgraphicscaptureinterop;
 #[cfg(feature = "windowsgraphicscaptureinterop")]

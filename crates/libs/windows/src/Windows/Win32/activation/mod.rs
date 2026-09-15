@@ -38,3 +38,4 @@ impl IActivationFactory_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IActivationFactory {}
+pub type PACTIVATIONFACTORY = IActivationFactory;

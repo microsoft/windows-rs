@@ -1,7 +1,7 @@
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn CheckRemoteDebuggerPresent(hprocess: super::HANDLE, pbdebuggerpresent: *mut windows_core::BOOL) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn CheckRemoteDebuggerPresent(hprocess : super::HANDLE, pbdebuggerpresent : *mut windows_core::BOOL) -> windows_core::BOOL);
+pub unsafe fn CheckRemoteDebuggerPresent(hprocess: super::HANDLE, pbdebuggerpresent: super::PBOOL) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn CheckRemoteDebuggerPresent(hprocess : super::HANDLE, pbdebuggerpresent : super::PBOOL) -> windows_core::BOOL);
     unsafe { CheckRemoteDebuggerPresent(hprocess, pbdebuggerpresent as _) }
 }
 #[inline]
@@ -47,13 +47,13 @@ where
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn WaitForDebugEvent(lpdebugevent: *mut super::DEBUG_EVENT, dwmilliseconds: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn WaitForDebugEvent(lpdebugevent : *mut super::DEBUG_EVENT, dwmilliseconds : u32) -> windows_core::BOOL);
+pub unsafe fn WaitForDebugEvent(lpdebugevent: super::LPDEBUG_EVENT, dwmilliseconds: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn WaitForDebugEvent(lpdebugevent : super::LPDEBUG_EVENT, dwmilliseconds : u32) -> windows_core::BOOL);
     unsafe { WaitForDebugEvent(lpdebugevent as _, dwmilliseconds) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn WaitForDebugEventEx(lpdebugevent: *mut super::DEBUG_EVENT, dwmilliseconds: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn WaitForDebugEventEx(lpdebugevent : *mut super::DEBUG_EVENT, dwmilliseconds : u32) -> windows_core::BOOL);
+pub unsafe fn WaitForDebugEventEx(lpdebugevent: super::LPDEBUG_EVENT, dwmilliseconds: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn WaitForDebugEventEx(lpdebugevent : super::LPDEBUG_EVENT, dwmilliseconds : u32) -> windows_core::BOOL);
     unsafe { WaitForDebugEventEx(lpdebugevent as _, dwmilliseconds) }
 }

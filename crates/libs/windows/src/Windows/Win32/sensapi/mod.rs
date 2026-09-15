@@ -1,23 +1,24 @@
 #[inline]
-pub unsafe fn IsDestinationReachableA<P0>(lpszdestination: P0, lpqocinfo: *mut QOCINFO) -> windows_core::BOOL
+pub unsafe fn IsDestinationReachableA<P0>(lpszdestination: P0, lpqocinfo: LPQOCINFO) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("sensapi.dll" "system" fn IsDestinationReachableA(lpszdestination : windows_core::PCSTR, lpqocinfo : *mut QOCINFO) -> windows_core::BOOL);
-    unsafe { IsDestinationReachableA(lpszdestination.param().abi(), lpqocinfo as _) }
+    windows_core::link!("sensapi.dll" "system" fn IsDestinationReachableA(lpszdestination : windows_core::PCSTR, lpqocinfo : LPQOCINFO) -> windows_core::BOOL);
+    unsafe { IsDestinationReachableA(lpszdestination.param().abi(), lpqocinfo) }
 }
 #[inline]
-pub unsafe fn IsDestinationReachableW<P0>(lpszdestination: P0, lpqocinfo: *mut QOCINFO) -> windows_core::BOOL
+pub unsafe fn IsDestinationReachableW<P0>(lpszdestination: P0, lpqocinfo: LPQOCINFO) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("sensapi.dll" "system" fn IsDestinationReachableW(lpszdestination : windows_core::PCWSTR, lpqocinfo : *mut QOCINFO) -> windows_core::BOOL);
-    unsafe { IsDestinationReachableW(lpszdestination.param().abi(), lpqocinfo as _) }
+    windows_core::link!("sensapi.dll" "system" fn IsDestinationReachableW(lpszdestination : windows_core::PCWSTR, lpqocinfo : LPQOCINFO) -> windows_core::BOOL);
+    unsafe { IsDestinationReachableW(lpszdestination.param().abi(), lpqocinfo) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("sensapi.dll" "system" fn IsNetworkAlive(lpdwflags : *mut u32) -> windows_core::BOOL);
-    unsafe { IsNetworkAlive(lpdwflags as _) }
+pub unsafe fn IsNetworkAlive(lpdwflags: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("sensapi.dll" "system" fn IsNetworkAlive(lpdwflags : super::LPDWORD) -> windows_core::BOOL);
+    unsafe { IsNetworkAlive(lpdwflags) }
 }
 pub type LPQOCINFO = *mut QOCINFO;
 pub const NETWORK_ALIVE_AOL: i32 = 4;

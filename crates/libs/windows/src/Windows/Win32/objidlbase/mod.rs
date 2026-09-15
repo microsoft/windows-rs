@@ -5,9 +5,7 @@ pub const ACTIVATIONTYPE_FROM_MONIKER: ACTIVATIONTYPE = 1;
 pub const ACTIVATIONTYPE_FROM_STORAGE: ACTIVATIONTYPE = 4;
 pub const ACTIVATIONTYPE_FROM_STREAM: ACTIVATIONTYPE = 8;
 pub const ACTIVATIONTYPE_UNCATEGORIZED: ACTIVATIONTYPE = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct APARTMENTID(pub u32);
+pub type APARTMENTID = u32;
 pub type APTTYPE = i32;
 pub type APTTYPEQUALIFIER = i32;
 pub const APTTYPEQUALIFIER_APPLICATION_STA: APTTYPEQUALIFIER = 6;
@@ -145,10 +143,12 @@ impl AsyncIPipeDouble {
     pub unsafe fn Begin_Pull(&self, crequest: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Begin_Pull)(windows_core::Interface::as_raw(self), crequest) }
     }
-    pub unsafe fn Finish_Pull(&self, buf: *mut f64, pcreturned: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn Finish_Pull(&self, buf: *mut super::DOUBLE, pcreturned: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Finish_Pull)(windows_core::Interface::as_raw(self), buf as _, pcreturned as _) }
     }
-    pub unsafe fn Begin_Push(&self, buf: *const f64, csent: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn Begin_Push(&self, buf: *const super::DOUBLE, csent: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Begin_Push)(windows_core::Interface::as_raw(self), buf, csent) }
     }
     pub unsafe fn Finish_Push(&self) -> windows_core::HRESULT {
@@ -160,16 +160,24 @@ impl AsyncIPipeDouble {
 pub struct AsyncIPipeDouble_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_Pull: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub Finish_Pull: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64, *mut u32) -> windows_core::HRESULT,
-    pub Begin_Push: unsafe extern "system" fn(*mut core::ffi::c_void, *const f64, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub Finish_Pull: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DOUBLE, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    Finish_Pull: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub Begin_Push: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::DOUBLE, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    Begin_Push: usize,
     pub Finish_Push: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "wtypesbase")]
 pub trait AsyncIPipeDouble_Impl: windows_core::IUnknownImpl {
     fn Begin_Pull(&self, crequest: u32) -> windows_core::Result<()>;
-    fn Finish_Pull(&self, buf: *mut f64, pcreturned: *mut u32) -> windows_core::Result<()>;
-    fn Begin_Push(&self, buf: *const f64, csent: u32) -> windows_core::Result<()>;
+    fn Finish_Pull(&self, buf: *mut super::DOUBLE, pcreturned: *mut u32) -> windows_core::Result<()>;
+    fn Begin_Push(&self, buf: *const super::DOUBLE, csent: u32) -> windows_core::Result<()>;
     fn Finish_Push(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "wtypesbase")]
 impl AsyncIPipeDouble_Vtbl {
     pub const fn new<Identity: AsyncIPipeDouble_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Begin_Pull<Identity: AsyncIPipeDouble_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crequest: u32) -> windows_core::HRESULT {
@@ -178,13 +186,13 @@ impl AsyncIPipeDouble_Vtbl {
                 AsyncIPipeDouble_Impl::Begin_Pull(this, core::mem::transmute_copy(&crequest)).into()
             }
         }
-        unsafe extern "system" fn Finish_Pull<Identity: AsyncIPipeDouble_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buf: *mut f64, pcreturned: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_Pull<Identity: AsyncIPipeDouble_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buf: *mut super::DOUBLE, pcreturned: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 AsyncIPipeDouble_Impl::Finish_Pull(this, core::mem::transmute_copy(&buf), core::mem::transmute_copy(&pcreturned)).into()
             }
         }
-        unsafe extern "system" fn Begin_Push<Identity: AsyncIPipeDouble_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buf: *const f64, csent: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_Push<Identity: AsyncIPipeDouble_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buf: *const super::DOUBLE, csent: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 AsyncIPipeDouble_Impl::Begin_Push(this, core::mem::transmute_copy(&buf), core::mem::transmute_copy(&csent)).into()
@@ -208,6 +216,7 @@ impl AsyncIPipeDouble_Vtbl {
         iid == &<AsyncIPipeDouble as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for AsyncIPipeDouble {}
 windows_core::imp::define_interface!(AsyncIPipeLong, AsyncIPipeLong_Vtbl, 0xdb2f3acd_2f86_11d1_8e04_00c04fb9989a);
 windows_core::imp::interface_hierarchy!(AsyncIPipeLong, windows_core::IUnknown);
@@ -279,7 +288,8 @@ impl AsyncIPipeLong_Vtbl {
     }
 }
 impl windows_core::RuntimeName for AsyncIPipeLong {}
-pub const COLE_DEFAULT_PRINCIPAL: windows_core::PCWSTR = windows_core::PCWSTR(-1 as _);
+pub const COLE_DEFAULT_AUTHINFO: *mut core::ffi::c_void = core::ptr::without_provenance_mut::<core::ffi::c_void>((-1i32) as usize);
+pub const COLE_DEFAULT_PRINCIPAL: *mut u16 = core::ptr::without_provenance_mut::<u16>((-1i32) as usize);
 pub const COMBND_RESERVED1: RPCOPT_PROPERTIES = 4;
 pub const COMBND_RESERVED2: RPCOPT_PROPERTIES = 5;
 pub const COMBND_RESERVED3: RPCOPT_PROPERTIES = 8;
@@ -570,12 +580,8 @@ impl IAsyncManager {
     pub unsafe fn CompleteCall(&self, result: windows_core::HRESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CompleteCall)(windows_core::Interface::as_raw(self), result) }
     }
-    pub unsafe fn GetCallContext<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetCallContext)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    pub unsafe fn GetCallContext(&self, riid: *const windows_core::GUID, pinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCallContext)(windows_core::Interface::as_raw(self), riid, pinterface as _) }
     }
     pub unsafe fn GetState(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1083,7 +1089,8 @@ pub struct IEnumContextProps(pub u8);
 windows_core::imp::define_interface!(IEnumString, IEnumString_Vtbl, 0x00000101_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IEnumString, windows_core::IUnknown);
 impl IEnumString {
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut windows_core::PWSTR, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut super::LPOLESTR, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
@@ -1103,20 +1110,25 @@ impl IEnumString {
 #[doc(hidden)]
 pub struct IEnumString_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::LPOLESTR, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    Next: usize,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "wtypesbase")]
 pub trait IEnumString_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: *mut windows_core::PWSTR, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut super::LPOLESTR, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumString>;
 }
+#[cfg(feature = "wtypesbase")]
 impl IEnumString_Vtbl {
     pub const fn new<Identity: IEnumString_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IEnumString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut windows_core::PWSTR, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut super::LPOLESTR, pceltfetched: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnumString_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
@@ -1158,6 +1170,7 @@ impl IEnumString_Vtbl {
         iid == &<IEnumString as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for IEnumString {}
 windows_core::imp::define_interface!(IEnumUnknown, IEnumUnknown_Vtbl, 0x00000100_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IEnumUnknown, windows_core::IUnknown);
@@ -1429,12 +1442,8 @@ impl windows_core::RuntimeName for IGlobalOptions {}
 windows_core::imp::define_interface!(IInternalUnknown, IInternalUnknown_Vtbl, 0x00000021_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IInternalUnknown, windows_core::IUnknown);
 impl IInternalUnknown {
-    pub unsafe fn QueryInternalInterface<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).QueryInternalInterface)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    pub unsafe fn QueryInternalInterface(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryInternalInterface)(windows_core::Interface::as_raw(self), riid, ppv as _) }
     }
 }
 #[repr(C)]
@@ -1656,13 +1665,11 @@ impl IMarshal {
     {
         unsafe { (windows_core::Interface::vtable(self).MarshalInterface)(windows_core::Interface::as_raw(self), pstm.param().abi(), riid, pv.unwrap_or(core::mem::zeroed()) as _, dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags) }
     }
-    pub unsafe fn UnmarshalInterface<P0, T>(&self, pstm: P0) -> windows_core::Result<T>
+    pub unsafe fn UnmarshalInterface<P0>(&self, pstm: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IStream>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).UnmarshalInterface)(windows_core::Interface::as_raw(self), pstm.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).UnmarshalInterface)(windows_core::Interface::as_raw(self), pstm.param().abi(), riid, ppv as _) }
     }
     pub unsafe fn ReleaseMarshalData<P0>(&self, pstm: P0) -> windows_core::HRESULT
     where
@@ -1803,11 +1810,11 @@ pub struct IMarshalingStream_Vtbl {
     pub base__: IStream_Vtbl,
     pub GetMarshalingContextAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, CO_MARSHALING_CONTEXT_ATTRIBUTES, *mut usize) -> windows_core::HRESULT,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
 pub trait IMarshalingStream_Impl: IStream_Impl {
     fn GetMarshalingContextAttribute(&self, attribute: CO_MARSHALING_CONTEXT_ATTRIBUTES) -> windows_core::Result<usize>;
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
 impl IMarshalingStream_Vtbl {
     pub const fn new<Identity: IMarshalingStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMarshalingContextAttribute<Identity: IMarshalingStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attribute: CO_MARSHALING_CONTEXT_ATTRIBUTES, pattributevalue: *mut usize) -> windows_core::HRESULT {
@@ -1828,7 +1835,7 @@ impl IMarshalingStream_Vtbl {
         iid == &<IMarshalingStream as windows_core::Interface>::IID || iid == &<ISequentialStream as windows_core::Interface>::IID || iid == &<IStream as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMarshalingStream {}
 windows_core::imp::define_interface!(IMultiQI, IMultiQI_Vtbl, 0x00000020_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IMultiQI, windows_core::IUnknown);
@@ -1884,13 +1891,11 @@ pub struct IObjContext(pub u8);
 windows_core::imp::define_interface!(IPSFactoryBuffer, IPSFactoryBuffer_Vtbl, 0xd5f569d0_593b_101a_b569_08002b2dbf7a);
 windows_core::imp::interface_hierarchy!(IPSFactoryBuffer, windows_core::IUnknown);
 impl IPSFactoryBuffer {
-    pub unsafe fn CreateProxy<P0, T>(&self, punkouter: P0, ppproxy: *mut Option<IRpcProxyBuffer>) -> windows_core::Result<T>
+    pub unsafe fn CreateProxy<P0>(&self, punkouter: P0, riid: *const windows_core::GUID, ppproxy: *mut Option<IRpcProxyBuffer>, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateProxy)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, core::mem::transmute(ppproxy), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateProxy)(windows_core::Interface::as_raw(self), punkouter.param().abi(), riid, core::mem::transmute(ppproxy), ppv as _) }
     }
     pub unsafe fn CreateStub<P1>(&self, riid: *const windows_core::GUID, punkserver: P1) -> windows_core::Result<IRpcStubBuffer>
     where
@@ -2029,10 +2034,12 @@ impl windows_core::RuntimeName for IPipeByte {}
 windows_core::imp::define_interface!(IPipeDouble, IPipeDouble_Vtbl, 0xdb2f3ace_2f86_11d1_8e04_00c04fb9989a);
 windows_core::imp::interface_hierarchy!(IPipeDouble, windows_core::IUnknown);
 impl IPipeDouble {
-    pub unsafe fn Pull(&self, buf: *mut f64, crequest: u32, pcreturned: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn Pull(&self, buf: *mut super::DOUBLE, crequest: u32, pcreturned: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Pull)(windows_core::Interface::as_raw(self), buf as _, crequest, pcreturned as _) }
     }
-    pub unsafe fn Push(&self, buf: *const f64, csent: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypesbase")]
+    pub unsafe fn Push(&self, buf: *const super::DOUBLE, csent: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Push)(windows_core::Interface::as_raw(self), buf, csent) }
     }
 }
@@ -2040,22 +2047,30 @@ impl IPipeDouble {
 #[doc(hidden)]
 pub struct IPipeDouble_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Pull: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64, u32, *mut u32) -> windows_core::HRESULT,
-    pub Push: unsafe extern "system" fn(*mut core::ffi::c_void, *const f64, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypesbase")]
+    pub Pull: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DOUBLE, u32, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    Pull: usize,
+    #[cfg(feature = "wtypesbase")]
+    pub Push: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::DOUBLE, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypesbase"))]
+    Push: usize,
 }
+#[cfg(feature = "wtypesbase")]
 pub trait IPipeDouble_Impl: windows_core::IUnknownImpl {
-    fn Pull(&self, buf: *mut f64, crequest: u32, pcreturned: *mut u32) -> windows_core::Result<()>;
-    fn Push(&self, buf: *const f64, csent: u32) -> windows_core::Result<()>;
+    fn Pull(&self, buf: *mut super::DOUBLE, crequest: u32, pcreturned: *mut u32) -> windows_core::Result<()>;
+    fn Push(&self, buf: *const super::DOUBLE, csent: u32) -> windows_core::Result<()>;
 }
+#[cfg(feature = "wtypesbase")]
 impl IPipeDouble_Vtbl {
     pub const fn new<Identity: IPipeDouble_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Pull<Identity: IPipeDouble_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buf: *mut f64, crequest: u32, pcreturned: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Pull<Identity: IPipeDouble_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buf: *mut super::DOUBLE, crequest: u32, pcreturned: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPipeDouble_Impl::Pull(this, core::mem::transmute_copy(&buf), core::mem::transmute_copy(&crequest), core::mem::transmute_copy(&pcreturned)).into()
             }
         }
-        unsafe extern "system" fn Push<Identity: IPipeDouble_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buf: *const f64, csent: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Push<Identity: IPipeDouble_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buf: *const super::DOUBLE, csent: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPipeDouble_Impl::Push(this, core::mem::transmute_copy(&buf), core::mem::transmute_copy(&csent)).into()
@@ -2067,6 +2082,7 @@ impl IPipeDouble_Vtbl {
         iid == &<IPipeDouble as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "wtypesbase")]
 impl windows_core::RuntimeName for IPipeDouble {}
 windows_core::imp::define_interface!(IPipeLong, IPipeLong_Vtbl, 0xdb2f3acc_2f86_11d1_8e04_00c04fb9989a);
 windows_core::imp::interface_hierarchy!(IPipeLong, windows_core::IUnknown);
@@ -2321,12 +2337,8 @@ impl IRpcChannelBuffer3 {
     pub unsafe fn Cancel(&self, pmsg: *mut RPCOLEMESSAGE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self), pmsg as _) }
     }
-    pub unsafe fn GetCallContext<T>(&self, pmsg: *const RPCOLEMESSAGE) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetCallContext)(windows_core::Interface::as_raw(self), pmsg, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    pub unsafe fn GetCallContext(&self, pmsg: *const RPCOLEMESSAGE, riid: *const windows_core::GUID, pinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCallContext)(windows_core::Interface::as_raw(self), pmsg, riid, pinterface as _) }
     }
     pub unsafe fn GetDestCtxEx(&self, pmsg: *const RPCOLEMESSAGE, pdwdestcontext: *mut u32, ppvdestcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDestCtxEx)(windows_core::Interface::as_raw(self), pmsg, pdwdestcontext as _, ppvdestcontext as _) }
@@ -2914,13 +2926,16 @@ impl core::ops::Deref for IStream {
 }
 windows_core::imp::interface_hierarchy!(IStream, windows_core::IUnknown, ISequentialStream);
 impl IStream {
-    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: u32, plibnewposition: Option<*mut u64>) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn Seek(&self, dlibmove: super::LARGE_INTEGER, dworigin: u32, plibnewposition: Option<*mut super::ULARGE_INTEGER>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Seek)(windows_core::Interface::as_raw(self), dlibmove, dworigin, plibnewposition.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn SetSize(&self, libnewsize: u64) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn SetSize(&self, libnewsize: super::ULARGE_INTEGER) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), libnewsize) }
     }
-    pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: u64, pcbread: Option<*mut u64>, pcbwritten: Option<*mut u64>) -> windows_core::HRESULT
+    #[cfg(feature = "winnt")]
+    pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: super::ULARGE_INTEGER, pcbread: Option<*mut super::ULARGE_INTEGER>, pcbwritten: Option<*mut super::ULARGE_INTEGER>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
@@ -2932,13 +2947,15 @@ impl IStream {
     pub unsafe fn Revert(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Revert)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn LockRegion(&self, liboffset: super::ULARGE_INTEGER, cb: super::ULARGE_INTEGER, dwlocktype: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LockRegion)(windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype) }
     }
-    pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "winnt")]
+    pub unsafe fn UnlockRegion(&self, liboffset: super::ULARGE_INTEGER, cb: super::ULARGE_INTEGER, dwlocktype: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnlockRegion)(windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype) }
     }
-    #[cfg(feature = "minwindef")]
+    #[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
     pub unsafe fn Stat(&self, pstatstg: *mut STATSTG, grfstatflag: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Stat)(windows_core::Interface::as_raw(self), pstatstg as _, grfstatflag) }
     }
@@ -2953,50 +2970,65 @@ impl IStream {
 #[doc(hidden)]
 pub struct IStream_Vtbl {
     pub base__: ISequentialStream_Vtbl,
-    pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, i64, u32, *mut u64) -> windows_core::HRESULT,
-    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
-    pub CopyTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *mut u64, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "winnt")]
+    pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, super::LARGE_INTEGER, u32, *mut super::ULARGE_INTEGER) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    Seek: usize,
+    #[cfg(feature = "winnt")]
+    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULARGE_INTEGER) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    SetSize: usize,
+    #[cfg(feature = "winnt")]
+    pub CopyTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::ULARGE_INTEGER, *mut super::ULARGE_INTEGER, *mut super::ULARGE_INTEGER) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    CopyTo: usize,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Revert: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LockRegion: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32) -> windows_core::HRESULT,
-    pub UnlockRegion: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "minwindef")]
+    #[cfg(feature = "winnt")]
+    pub LockRegion: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULARGE_INTEGER, super::ULARGE_INTEGER, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    LockRegion: usize,
+    #[cfg(feature = "winnt")]
+    pub UnlockRegion: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULARGE_INTEGER, super::ULARGE_INTEGER, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "winnt"))]
+    UnlockRegion: usize,
+    #[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
     pub Stat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STATSTG, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
+    #[cfg(not(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase")))]
     Stat: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
 pub trait IStream_Impl: ISequentialStream_Impl {
-    fn Seek(&self, dlibmove: i64, dworigin: u32, plibnewposition: *mut u64) -> windows_core::Result<()>;
-    fn SetSize(&self, libnewsize: u64) -> windows_core::Result<()>;
-    fn CopyTo(&self, pstm: windows_core::Ref<IStream>, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> windows_core::Result<()>;
+    fn Seek(&self, dlibmove: &super::LARGE_INTEGER, dworigin: u32, plibnewposition: *mut super::ULARGE_INTEGER) -> windows_core::Result<()>;
+    fn SetSize(&self, libnewsize: &super::ULARGE_INTEGER) -> windows_core::Result<()>;
+    fn CopyTo(&self, pstm: windows_core::Ref<IStream>, cb: &super::ULARGE_INTEGER, pcbread: *mut super::ULARGE_INTEGER, pcbwritten: *mut super::ULARGE_INTEGER) -> windows_core::Result<()>;
     fn Commit(&self, grfcommitflags: u32) -> windows_core::Result<()>;
     fn Revert(&self) -> windows_core::Result<()>;
-    fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> windows_core::Result<()>;
-    fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> windows_core::Result<()>;
+    fn LockRegion(&self, liboffset: &super::ULARGE_INTEGER, cb: &super::ULARGE_INTEGER, dwlocktype: u32) -> windows_core::Result<()>;
+    fn UnlockRegion(&self, liboffset: &super::ULARGE_INTEGER, cb: &super::ULARGE_INTEGER, dwlocktype: u32) -> windows_core::Result<()>;
     fn Stat(&self, pstatstg: *mut STATSTG, grfstatflag: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IStream>;
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
 impl IStream_Vtbl {
     pub const fn new<Identity: IStream_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Seek<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dlibmove: i64, dworigin: u32, plibnewposition: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn Seek<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dlibmove: super::LARGE_INTEGER, dworigin: u32, plibnewposition: *mut super::ULARGE_INTEGER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStream_Impl::Seek(this, core::mem::transmute_copy(&dlibmove), core::mem::transmute_copy(&dworigin), core::mem::transmute_copy(&plibnewposition)).into()
+                IStream_Impl::Seek(this, core::mem::transmute(&dlibmove), core::mem::transmute_copy(&dworigin), core::mem::transmute_copy(&plibnewposition)).into()
             }
         }
-        unsafe extern "system" fn SetSize<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, libnewsize: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSize<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, libnewsize: super::ULARGE_INTEGER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStream_Impl::SetSize(this, core::mem::transmute_copy(&libnewsize)).into()
+                IStream_Impl::SetSize(this, core::mem::transmute(&libnewsize)).into()
             }
         }
-        unsafe extern "system" fn CopyTo<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyTo<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void, cb: super::ULARGE_INTEGER, pcbread: *mut super::ULARGE_INTEGER, pcbwritten: *mut super::ULARGE_INTEGER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStream_Impl::CopyTo(this, core::mem::transmute_copy(&pstm), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&pcbread), core::mem::transmute_copy(&pcbwritten)).into()
+                IStream_Impl::CopyTo(this, core::mem::transmute_copy(&pstm), core::mem::transmute(&cb), core::mem::transmute_copy(&pcbread), core::mem::transmute_copy(&pcbwritten)).into()
             }
         }
         unsafe extern "system" fn Commit<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfcommitflags: u32) -> windows_core::HRESULT {
@@ -3011,16 +3043,16 @@ impl IStream_Vtbl {
                 IStream_Impl::Revert(this).into()
             }
         }
-        unsafe extern "system" fn LockRegion<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, liboffset: u64, cb: u64, dwlocktype: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn LockRegion<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, liboffset: super::ULARGE_INTEGER, cb: super::ULARGE_INTEGER, dwlocktype: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStream_Impl::LockRegion(this, core::mem::transmute_copy(&liboffset), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&dwlocktype)).into()
+                IStream_Impl::LockRegion(this, core::mem::transmute(&liboffset), core::mem::transmute(&cb), core::mem::transmute_copy(&dwlocktype)).into()
             }
         }
-        unsafe extern "system" fn UnlockRegion<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, liboffset: u64, cb: u64, dwlocktype: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnlockRegion<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, liboffset: super::ULARGE_INTEGER, cb: super::ULARGE_INTEGER, dwlocktype: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStream_Impl::UnlockRegion(this, core::mem::transmute_copy(&liboffset), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&dwlocktype)).into()
+                IStream_Impl::UnlockRegion(this, core::mem::transmute(&liboffset), core::mem::transmute(&cb), core::mem::transmute_copy(&dwlocktype)).into()
             }
         }
         unsafe extern "system" fn Stat<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatstg: *mut STATSTG, grfstatflag: u32) -> windows_core::HRESULT {
@@ -3058,7 +3090,7 @@ impl IStream_Vtbl {
         iid == &<IStream as windows_core::Interface>::IID || iid == &<ISequentialStream as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IStream {}
 windows_core::imp::define_interface!(ISupportActivateAsActivatorPackaged, ISupportActivateAsActivatorPackaged_Vtbl, 0x765d1df2_f0af_4ef8_aa50_84789ca330ed);
 windows_core::imp::interface_hierarchy!(ISupportActivateAsActivatorPackaged, windows_core::IUnknown);
@@ -3406,11 +3438,8 @@ windows_core::imp::define_interface!(ISynchronizeHandle, ISynchronizeHandle_Vtbl
 windows_core::imp::interface_hierarchy!(ISynchronizeHandle, windows_core::IUnknown);
 impl ISynchronizeHandle {
     #[cfg(feature = "winnt")]
-    pub unsafe fn GetHandle(&self) -> windows_core::Result<super::HANDLE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetHandle(&self, ph: *mut super::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetHandle)(windows_core::Interface::as_raw(self), ph as _) }
     }
 }
 #[repr(C)]
@@ -3424,7 +3453,7 @@ pub struct ISynchronizeHandle_Vtbl {
 }
 #[cfg(feature = "winnt")]
 pub trait ISynchronizeHandle_Impl: windows_core::IUnknownImpl {
-    fn GetHandle(&self) -> windows_core::Result<super::HANDLE>;
+    fn GetHandle(&self, ph: *mut super::HANDLE) -> windows_core::Result<()>;
 }
 #[cfg(feature = "winnt")]
 impl ISynchronizeHandle_Vtbl {
@@ -3432,13 +3461,7 @@ impl ISynchronizeHandle_Vtbl {
         unsafe extern "system" fn GetHandle<Identity: ISynchronizeHandle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ph: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISynchronizeHandle_Impl::GetHandle(this) {
-                    Ok(ok__) => {
-                        ph.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISynchronizeHandle_Impl::GetHandle(this, core::mem::transmute_copy(&ph)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetHandle: GetHandle::<Identity, OFFSET> }
@@ -3548,6 +3571,20 @@ pub type LOCKTYPE = i32;
 pub const LOCK_EXCLUSIVE: LOCKTYPE = 2;
 pub const LOCK_ONLYONCE: LOCKTYPE = 4;
 pub const LOCK_WRITE: LOCKTYPE = 1;
+pub type LPADDREXCLUSIONCONTROL = IAddrExclusionControl;
+pub type LPADDRTRACKINGCONTROL = IAddrTrackingControl;
+pub type LPCANCELMETHODCALLS = ICancelMethodCalls;
+pub type LPENUMSTRING = IEnumString;
+pub type LPENUMUNKNOWN = IEnumUnknown;
+pub type LPEXTERNALCONNECTION = IExternalConnection;
+pub type LPGLOBALINTERFACETABLE = IGlobalInterfaceTable;
+pub type LPMALLOC = IMalloc;
+pub type LPMARSHAL = IMarshal;
+pub type LPMARSHAL2 = IMarshal2;
+pub type LPMULTIQI = IMultiQI;
+pub type LPSTDMARSHALINFO = IStdMarshalInfo;
+pub type LPSTREAM = IStream;
+pub type LPSURROGATE = ISurrogate;
 #[repr(C)]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MULTI_QI {
@@ -3555,17 +3592,18 @@ pub struct MULTI_QI {
     pub pItf: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub hr: windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MachineGlobalObjectTableRegistrationToken(pub *mut core::ffi::c_void);
+pub type MachineGlobalObjectTableRegistrationToken = *mut MachineGlobalObjectTableRegistrationToken__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MachineGlobalObjectTableRegistrationToken__ {
+    pub unused: i32,
+}
 pub type PRPCOLEMESSAGE = *mut RPCOLEMESSAGE;
 pub type PSOLE_AUTHENTICATION_INFO = *mut SOLE_AUTHENTICATION_INFO;
 pub type PSOLE_AUTHENTICATION_LIST = *mut SOLE_AUTHENTICATION_LIST;
 #[cfg(feature = "wtypesbase")]
 pub type PSOLE_AUTHENTICATION_SERVICE = *mut SOLE_AUTHENTICATION_SERVICE;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct RPCOLEDATAREP(pub u32);
+pub type RPCOLEDATAREP = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPCOLEMESSAGE {
@@ -3620,12 +3658,12 @@ pub struct SOLE_AUTHENTICATION_SERVICE {
     pub hr: windows_core::HRESULT,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
 pub struct STATSTG {
-    pub pwcsName: windows_core::PWSTR,
+    pub pwcsName: super::LPOLESTR,
     pub r#type: u32,
-    pub cbSize: u64,
+    pub cbSize: super::ULARGE_INTEGER,
     pub mtime: super::FILETIME,
     pub ctime: super::FILETIME,
     pub atime: super::FILETIME,
@@ -3634,6 +3672,12 @@ pub struct STATSTG {
     pub clsid: windows_core::GUID,
     pub grfStateBits: u32,
     pub reserved: u32,
+}
+#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
+impl Default for STATSTG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type STGTY = i32;
 pub const STGTY_LOCKBYTES: STGTY = 3;

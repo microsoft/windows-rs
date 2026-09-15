@@ -8,6 +8,23 @@ where
     unsafe { DoPrivacyDlg(hwndowner.unwrap_or(core::mem::zeroed()) as _, pszurl.param().abi(), pprivacyenum, freportallsites.into()) }
 }
 #[inline]
+pub unsafe fn DriveType(idrive: i32) -> i32 {
+    windows_core::link!("shell32.dll" "system" fn DriveType(idrive : i32) -> i32);
+    unsafe { DriveType(idrive) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn GetFileNameFromBrowse<P3, P4, P5, P6>(hwnd: Option<super::HWND>, pszfilepath: &mut [u16], pszworkingdir: P3, pszdefext: P4, pszfilters: P5, psztitle: P6) -> windows_core::BOOL
+where
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
+    P6: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("shell32.dll" "system" fn GetFileNameFromBrowse(hwnd : super::HWND, pszfilepath : windows_core::PWSTR, cchfilepath : u32, pszworkingdir : windows_core::PCWSTR, pszdefext : windows_core::PCWSTR, pszfilters : windows_core::PCWSTR, psztitle : windows_core::PCWSTR) -> windows_core::BOOL);
+    unsafe { GetFileNameFromBrowse(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszfilepath.as_mut_ptr()), pszfilepath.len().try_into().unwrap(), pszworkingdir.param().abi(), pszdefext.param().abi(), pszfilters.param().abi(), psztitle.param().abi()) }
+}
+#[inline]
 pub unsafe fn ImportPrivacySettings<P0>(pszfilename: P0, pfparseprivacypreferences: *mut windows_core::BOOL, pfparsepersiterules: *mut windows_core::BOOL) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
@@ -83,11 +100,11 @@ where
 }
 #[cfg(all(feature = "urlmon", feature = "windef"))]
 #[inline]
-pub unsafe fn SoftwareUpdateMessageBox<P1>(hwnd: Option<super::HWND>, pszdistunit: P1, dwflags: u32, psdi: Option<*mut super::SOFTDISTINFO>) -> u32
+pub unsafe fn SoftwareUpdateMessageBox<P1>(hwnd: Option<super::HWND>, pszdistunit: P1, dwflags: u32, psdi: Option<super::LPSOFTDISTINFO>) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("shdocvw.dll" "system" fn SoftwareUpdateMessageBox(hwnd : super::HWND, pszdistunit : windows_core::PCWSTR, dwflags : u32, psdi : *mut super::SOFTDISTINFO) -> u32);
+    windows_core::link!("shdocvw.dll" "system" fn SoftwareUpdateMessageBox(hwnd : super::HWND, pszdistunit : windows_core::PCWSTR, dwflags : u32, psdi : super::LPSOFTDISTINFO) -> u32);
     unsafe { SoftwareUpdateMessageBox(hwnd.unwrap_or(core::mem::zeroed()) as _, pszdistunit.param().abi(), dwflags, psdi.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(C)]
@@ -406,15 +423,15 @@ impl windows_core::RuntimeName for IBanneredBar {}
 windows_core::imp::define_interface!(IColumnProvider, IColumnProvider_Vtbl, 0xe8025004_1c42_11d2_be2c_00a0c9a83da1);
 windows_core::imp::interface_hierarchy!(IColumnProvider, windows_core::IUnknown);
 impl IColumnProvider {
-    pub unsafe fn Initialize(&self, psci: *const SHCOLUMNINIT) -> windows_core::HRESULT {
+    pub unsafe fn Initialize(&self, psci: LPCSHCOLUMNINIT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psci) }
     }
     #[cfg(all(feature = "shtypes", feature = "wtypes"))]
     pub unsafe fn GetColumnInfo(&self, dwindex: u32, psci: *mut SHCOLUMNINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetColumnInfo)(windows_core::Interface::as_raw(self), dwindex, psci as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn GetItemData(&self, pscid: *const super::SHCOLUMNID, pscd: *const SHCOLUMNDATA) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn GetItemData(&self, pscid: super::LPCSHCOLUMNID, pscd: LPCSHCOLUMNDATA) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetItemData)(windows_core::Interface::as_raw(self), pscid, pscd, &mut result__).map(|| core::mem::transmute(result__))
@@ -425,26 +442,26 @@ impl IColumnProvider {
 #[doc(hidden)]
 pub struct IColumnProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const SHCOLUMNINIT) -> windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, LPCSHCOLUMNINIT) -> windows_core::HRESULT,
     #[cfg(all(feature = "shtypes", feature = "wtypes"))]
     pub GetColumnInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut SHCOLUMNINFO) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "shtypes", feature = "wtypes")))]
     GetColumnInfo: usize,
-    #[cfg(all(feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
-    pub GetItemData: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SHCOLUMNID, *const SHCOLUMNDATA, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
+    pub GetItemData: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCSHCOLUMNID, LPCSHCOLUMNDATA, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase")))]
     GetItemData: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IColumnProvider_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psci: *const SHCOLUMNINIT) -> windows_core::Result<()>;
+    fn Initialize(&self, psci: LPCSHCOLUMNINIT) -> windows_core::Result<()>;
     fn GetColumnInfo(&self, dwindex: u32, psci: *mut SHCOLUMNINFO) -> windows_core::Result<()>;
-    fn GetItemData(&self, pscid: *const super::SHCOLUMNID, pscd: *const SHCOLUMNDATA) -> windows_core::Result<super::VARIANT>;
+    fn GetItemData(&self, pscid: super::LPCSHCOLUMNID, pscd: LPCSHCOLUMNDATA) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
 impl IColumnProvider_Vtbl {
     pub const fn new<Identity: IColumnProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Initialize<Identity: IColumnProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psci: *const SHCOLUMNINIT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: IColumnProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psci: LPCSHCOLUMNINIT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IColumnProvider_Impl::Initialize(this, core::mem::transmute_copy(&psci)).into()
@@ -456,7 +473,7 @@ impl IColumnProvider_Vtbl {
                 IColumnProvider_Impl::GetColumnInfo(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&psci)).into()
             }
         }
-        unsafe extern "system" fn GetItemData<Identity: IColumnProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pscid: *const super::SHCOLUMNID, pscd: *const SHCOLUMNDATA, pvardata: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetItemData<Identity: IColumnProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pscid: super::LPCSHCOLUMNID, pscd: LPCSHCOLUMNDATA, pvardata: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IColumnProvider_Impl::GetItemData(this, core::mem::transmute_copy(&pscid), core::mem::transmute_copy(&pscd)) {
@@ -479,7 +496,7 @@ impl IColumnProvider_Vtbl {
         iid == &<IColumnProvider as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IColumnProvider {}
 windows_core::imp::define_interface!(ICopyHookA, ICopyHookA_Vtbl, 0x000214ef_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(ICopyHookA, windows_core::IUnknown);
@@ -659,7 +676,7 @@ pub struct IDeskBarClient_Vtbl {
     pub SetModeDBC: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub UIActivateDBC: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::RECT) -> windows_core::HRESULT,
+    pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::LPRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     GetSize: usize,
 }
@@ -691,7 +708,7 @@ impl IDeskBarClient_Vtbl {
                 IDeskBarClient_Impl::UIActivateDBC(this, core::mem::transmute_copy(&dwstate)).into()
             }
         }
-        unsafe extern "system" fn GetSize<Identity: IDeskBarClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwwhich: u32, prc: *mut super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSize<Identity: IDeskBarClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwwhich: u32, prc: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDeskBarClient_Impl::GetSize(this, core::mem::transmute_copy(&dwwhich)) {
@@ -720,7 +737,7 @@ impl windows_core::RuntimeName for IDeskBarClient {}
 windows_core::imp::define_interface!(IDocViewSite, IDocViewSite_Vtbl, 0x87d605e0_c511_11cf_89a9_00a0c9054129);
 windows_core::imp::interface_hierarchy!(IDocViewSite, windows_core::IUnknown);
 impl IDocViewSite {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnSetTitle(&self, pvtitle: *const super::VARIANTARG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnSetTitle)(windows_core::Interface::as_raw(self), pvtitle) }
     }
@@ -729,16 +746,16 @@ impl IDocViewSite {
 #[doc(hidden)]
 pub struct IDocViewSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub OnSetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::VARIANTARG) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     OnSetTitle: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDocViewSite_Impl: windows_core::IUnknownImpl {
     fn OnSetTitle(&self, pvtitle: *const super::VARIANTARG) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IDocViewSite_Vtbl {
     pub const fn new<Identity: IDocViewSite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnSetTitle<Identity: IDocViewSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvtitle: *const super::VARIANTARG) -> windows_core::HRESULT {
@@ -753,7 +770,7 @@ impl IDocViewSite_Vtbl {
         iid == &<IDocViewSite as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDocViewSite {}
 #[cfg(feature = "oleidl")]
 windows_core::imp::define_interface!(IDockingWindowFrame, IDockingWindowFrame_Vtbl, 0x47d2657a_7b27_11d0_8ca9_00a0c92dbfe8);
@@ -781,13 +798,11 @@ impl IDockingWindowFrame {
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveToolbar)(windows_core::Interface::as_raw(self), punksrc.param().abi(), dwremoveflags) }
     }
-    pub unsafe fn FindToolbar<P0, T>(&self, pwszitem: P0) -> windows_core::Result<T>
+    pub unsafe fn FindToolbar<P0>(&self, pwszitem: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).FindToolbar)(windows_core::Interface::as_raw(self), pwszitem.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).FindToolbar)(windows_core::Interface::as_raw(self), pwszitem.param().abi(), riid, ppv as _) }
     }
 }
 #[cfg(feature = "oleidl")]
@@ -1108,18 +1123,18 @@ windows_core::imp::define_interface!(IShellFolderBand, IShellFolderBand_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IShellFolderBand, windows_core::IUnknown);
 impl IShellFolderBand {
     #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
-    pub unsafe fn InitializeSFB<P0>(&self, psf: P0, pidl: Option<*const super::ITEMIDLIST>) -> windows_core::HRESULT
+    pub unsafe fn InitializeSFB<P0>(&self, psf: P0, pidl: Option<super::LPCITEMIDLIST>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IShellFolder>,
     {
         unsafe { (windows_core::Interface::vtable(self).InitializeSFB)(windows_core::Interface::as_raw(self), psf.param().abi(), pidl.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-    pub unsafe fn SetBandInfoSFB(&self, pbi: *const BANDINFOSFB) -> windows_core::HRESULT {
+    pub unsafe fn SetBandInfoSFB(&self, pbi: PBANDINFOSFB) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBandInfoSFB)(windows_core::Interface::as_raw(self), pbi) }
     }
     #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-    pub unsafe fn GetBandInfoSFB(&self, pbi: *mut BANDINFOSFB) -> windows_core::HRESULT {
+    pub unsafe fn GetBandInfoSFB(&self, pbi: PBANDINFOSFB) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBandInfoSFB)(windows_core::Interface::as_raw(self), pbi) }
     }
 }
@@ -1128,40 +1143,40 @@ impl IShellFolderBand {
 pub struct IShellFolderBand_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
-    pub InitializeSFB: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::ITEMIDLIST) -> windows_core::HRESULT,
+    pub InitializeSFB: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LPCITEMIDLIST) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "shobjidl_core", feature = "shtypes")))]
     InitializeSFB: usize,
     #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-    pub SetBandInfoSFB: unsafe extern "system" fn(*mut core::ffi::c_void, *const BANDINFOSFB) -> windows_core::HRESULT,
+    pub SetBandInfoSFB: unsafe extern "system" fn(*mut core::ffi::c_void, PBANDINFOSFB) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef")))]
     SetBandInfoSFB: usize,
     #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-    pub GetBandInfoSFB: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BANDINFOSFB) -> windows_core::HRESULT,
+    pub GetBandInfoSFB: unsafe extern "system" fn(*mut core::ffi::c_void, PBANDINFOSFB) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef")))]
     GetBandInfoSFB: usize,
 }
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 pub trait IShellFolderBand_Impl: windows_core::IUnknownImpl {
-    fn InitializeSFB(&self, psf: windows_core::Ref<super::IShellFolder>, pidl: *const super::ITEMIDLIST) -> windows_core::Result<()>;
-    fn SetBandInfoSFB(&self, pbi: *const BANDINFOSFB) -> windows_core::Result<()>;
-    fn GetBandInfoSFB(&self, pbi: *mut BANDINFOSFB) -> windows_core::Result<()>;
+    fn InitializeSFB(&self, psf: windows_core::Ref<super::IShellFolder>, pidl: super::LPCITEMIDLIST) -> windows_core::Result<()>;
+    fn SetBandInfoSFB(&self, pbi: PBANDINFOSFB) -> windows_core::Result<()>;
+    fn GetBandInfoSFB(&self, pbi: PBANDINFOSFB) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 impl IShellFolderBand_Vtbl {
     pub const fn new<Identity: IShellFolderBand_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn InitializeSFB<Identity: IShellFolderBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psf: *mut core::ffi::c_void, pidl: *const super::ITEMIDLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn InitializeSFB<Identity: IShellFolderBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psf: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IShellFolderBand_Impl::InitializeSFB(this, core::mem::transmute_copy(&psf), core::mem::transmute_copy(&pidl)).into()
             }
         }
-        unsafe extern "system" fn SetBandInfoSFB<Identity: IShellFolderBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbi: *const BANDINFOSFB) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBandInfoSFB<Identity: IShellFolderBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbi: PBANDINFOSFB) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IShellFolderBand_Impl::SetBandInfoSFB(this, core::mem::transmute_copy(&pbi)).into()
             }
         }
-        unsafe extern "system" fn GetBandInfoSFB<Identity: IShellFolderBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbi: *mut BANDINFOSFB) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBandInfoSFB<Identity: IShellFolderBand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbi: PBANDINFOSFB) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IShellFolderBand_Impl::GetBandInfoSFB(this, core::mem::transmute_copy(&pbi)).into()
@@ -1232,6 +1247,10 @@ impl IThumbnailCapture_Vtbl {
 impl windows_core::RuntimeName for IThumbnailCapture {}
 pub type LPAASHELLMENUFILENAME = *mut AASHELLMENUFILENAME;
 pub type LPAASHELLMENUITEM = *mut AASHELLMENUITEM;
+pub type LPACTIVEDESKTOPP = IActiveDesktopP;
+pub type LPADESKTOPP2 = IADesktopP2;
+pub type LPCOPYHOOKA = ICopyHookA;
+pub type LPCOPYHOOKW = ICopyHookW;
 pub type LPCSHCOLUMNDATA = *const SHCOLUMNDATA;
 #[cfg(all(feature = "shtypes", feature = "wtypes"))]
 pub type LPCSHCOLUMNINFO = *const SHCOLUMNINFO;
@@ -1244,6 +1263,7 @@ pub type LPSHCOLUMNINFO = *mut SHCOLUMNINFO;
 pub type LPSHCOLUMNINIT = *mut SHCOLUMNINIT;
 pub type LPSHChangeProductKeyAsIDList = *mut SHChangeProductKeyAsIDList;
 pub type LPTBINFO = *mut TBINFO;
+pub type LPTHUMBNAILCAPTURE = IThumbnailCapture;
 pub const OPENPROPS_INHIBITPIF: i32 = 32768;
 pub const OPENPROPS_NONE: i32 = 0;
 pub const PANE_NAVIGATION: i32 = 5;

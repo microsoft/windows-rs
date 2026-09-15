@@ -20,13 +20,13 @@ pub const FILTER_PIXELFORMAT_BGR8: IMAGE_PIXELFORMAT = 2;
 pub const FILTER_PIXELFORMAT_BGRA8: IMAGE_PIXELFORMAT = 0;
 pub const FILTER_PIXELFORMAT_PBGRA8: IMAGE_PIXELFORMAT = 1;
 #[repr(C)]
-#[cfg(all(feature = "propidlbase", feature = "wtypes"))]
+#[cfg(all(feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct FULLPROPSPEC {
     pub guidPropSet: windows_core::GUID,
     pub psProperty: super::PROPSPEC,
 }
-#[cfg(all(feature = "propidlbase", feature = "wtypes"))]
+#[cfg(all(feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for FULLPROPSPEC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -63,7 +63,7 @@ impl IFilter {
     pub unsafe fn GetText(&self, pcwcbuffer: *mut u32, awcbuffer: *mut u16) -> super::SCODE {
         unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), pcwcbuffer as _, awcbuffer as _) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self, pppropvalue: *mut *mut super::PROPVARIANT) -> super::SCODE {
         unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), pppropvalue as _) }
     }
@@ -88,9 +88,9 @@ pub struct IFilter_Vtbl {
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u16) -> super::SCODE,
     #[cfg(not(feature = "wtypesbase"))]
     GetText: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::PROPVARIANT) -> super::SCODE,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
     #[cfg(feature = "wtypesbase")]
     pub BindRegion: unsafe extern "system" fn(*mut core::ffi::c_void, FILTERREGION, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> super::SCODE,
@@ -176,8 +176,8 @@ impl IPixelFilter {
             (windows_core::Interface::vtable(self).GetImageInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn GetPixelsForImage(&self, scalingfactor: f32, sourcerect: *const super::RECT, pixelbuffersize: u32) -> windows_core::Result<u8> {
+    #[cfg(all(feature = "minwindef", feature = "windef"))]
+    pub unsafe fn GetPixelsForImage(&self, scalingfactor: super::FLOAT, sourcerect: *const super::RECT, pixelbuffersize: u32) -> windows_core::Result<u8> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPixelsForImage)(windows_core::Interface::as_raw(self), scalingfactor, sourcerect, pixelbuffersize, &mut result__).map(|| result__)
@@ -189,15 +189,15 @@ impl IPixelFilter {
 pub struct IPixelFilter_Vtbl {
     pub base__: IFilter_Vtbl,
     pub GetImageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IMAGE_INFO) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub GetPixelsForImage: unsafe extern "system" fn(*mut core::ffi::c_void, f32, *const super::RECT, u32, *mut u8) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "minwindef", feature = "windef"))]
+    pub GetPixelsForImage: unsafe extern "system" fn(*mut core::ffi::c_void, super::FLOAT, *const super::RECT, u32, *mut u8) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "windef")))]
     GetPixelsForImage: usize,
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPixelFilter_Impl: IFilter_Impl {
     fn GetImageInfo(&self) -> windows_core::Result<IMAGE_INFO>;
-    fn GetPixelsForImage(&self, scalingfactor: f32, sourcerect: *const super::RECT, pixelbuffersize: u32) -> windows_core::Result<u8>;
+    fn GetPixelsForImage(&self, scalingfactor: super::FLOAT, sourcerect: *const super::RECT, pixelbuffersize: u32) -> windows_core::Result<u8>;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPixelFilter_Vtbl {
@@ -214,7 +214,7 @@ impl IPixelFilter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPixelsForImage<Identity: IPixelFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scalingfactor: f32, sourcerect: *const super::RECT, pixelbuffersize: u32, pixelbuffer: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPixelsForImage<Identity: IPixelFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scalingfactor: super::FLOAT, sourcerect: *const super::RECT, pixelbuffersize: u32, pixelbuffer: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPixelFilter_Impl::GetPixelsForImage(this, core::mem::transmute_copy(&scalingfactor), core::mem::transmute_copy(&sourcerect), core::mem::transmute_copy(&pixelbuffersize)) {
@@ -239,7 +239,7 @@ impl IPixelFilter_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPixelFilter {}
 #[repr(C)]
-#[cfg(all(feature = "propidlbase", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct STAT_CHUNK {
     pub idChunk: u32,
@@ -251,7 +251,7 @@ pub struct STAT_CHUNK {
     pub cwcStartSource: u32,
     pub cwcLenSource: u32,
 }
-#[cfg(all(feature = "propidlbase", feature = "winnt", feature = "wtypes"))]
+#[cfg(all(feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for STAT_CHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -11,22 +11,23 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_PROVISIONING_PARAMS, pppackagebindata: *mut super::PBYTE, pdwpackagebindatasize: Option<*mut u32>, pppackagetextdata: *mut windows_core::PWSTR) -> u32 {
-    windows_core::link!("netapi32.dll" "system" fn NetCreateProvisioningPackage(pprovisioningparams : *const NETSETUP_PROVISIONING_PARAMS, pppackagebindata : *mut super::PBYTE, pdwpackagebindatasize : *mut u32, pppackagetextdata : *mut windows_core::PWSTR) -> u32);
+pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: PNETSETUP_PROVISIONING_PARAMS, pppackagebindata: *mut super::PBYTE, pdwpackagebindatasize: Option<*mut u32>, pppackagetextdata: *mut windows_core::PWSTR) -> u32 {
+    windows_core::link!("netapi32.dll" "system" fn NetCreateProvisioningPackage(pprovisioningparams : PNETSETUP_PROVISIONING_PARAMS, pppackagebindata : *mut super::PBYTE, pdwpackagebindatasize : *mut u32, pppackagetextdata : *mut windows_core::PWSTR) -> u32);
     unsafe { NetCreateProvisioningPackage(pprovisioningparams, pppackagebindata as _, pdwpackagebindatasize.unwrap_or(core::mem::zeroed()) as _, pppackagetextdata as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetEnumerateComputerNames<P0>(server: P0, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut windows_core::PWSTR) -> u32
+pub unsafe fn NetEnumerateComputerNames<P0>(server: P0, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: super::PDWORD, computernames: *mut *mut windows_core::PWSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetEnumerateComputerNames(server : windows_core::PCWSTR, nametype : NET_COMPUTER_NAME_TYPE, reserved : u32, entrycount : *mut u32, computernames : *mut *mut windows_core::PWSTR) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetEnumerateComputerNames(server : windows_core::PCWSTR, nametype : NET_COMPUTER_NAME_TYPE, reserved : u32, entrycount : super::PDWORD, computernames : *mut *mut windows_core::PWSTR) -> u32);
     unsafe { NetEnumerateComputerNames(server.param().abi(), nametype, reserved, entrycount as _, computernames as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[inline]
-pub unsafe fn NetFreeAadJoinInformation(pjoininfo: Option<*const DSREG_JOIN_INFO>) {
-    windows_core::link!("netapi32.dll" "system" fn NetFreeAadJoinInformation(pjoininfo : *const DSREG_JOIN_INFO));
+pub unsafe fn NetFreeAadJoinInformation(pjoininfo: Option<PDSREG_JOIN_INFO>) {
+    windows_core::link!("netapi32.dll" "system" fn NetFreeAadJoinInformation(pjoininfo : PDSREG_JOIN_INFO));
     unsafe { NetFreeAadJoinInformation(pjoininfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
@@ -42,11 +43,11 @@ where
     }
 }
 #[inline]
-pub unsafe fn NetGetJoinInformation<P0>(lpserver: P0, lpnamebuffer: *mut windows_core::PWSTR, buffertype: *mut NETSETUP_JOIN_STATUS) -> u32
+pub unsafe fn NetGetJoinInformation<P0>(lpserver: P0, lpnamebuffer: *mut windows_core::PWSTR, buffertype: PNETSETUP_JOIN_STATUS) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetGetJoinInformation(lpserver : windows_core::PCWSTR, lpnamebuffer : *mut windows_core::PWSTR, buffertype : *mut NETSETUP_JOIN_STATUS) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetGetJoinInformation(lpserver : windows_core::PCWSTR, lpnamebuffer : *mut windows_core::PWSTR, buffertype : PNETSETUP_JOIN_STATUS) -> u32);
     unsafe { NetGetJoinInformation(lpserver.param().abi(), lpnamebuffer as _, buffertype as _) }
 }
 #[inline]
@@ -115,11 +116,11 @@ where
     unsafe { NetRequestOfflineDomainJoin(pprovisionbindata.as_ptr(), pprovisionbindata.len().try_into().unwrap(), dwoptions, lpwindowspath.param().abi()) }
 }
 #[inline]
-pub unsafe fn NetRequestProvisioningPackageInstall<P3>(ppackagebindata: &[u8], dwprovisionoptions: u32, lpwindowspath: P3, pvreserved: Option<*const core::ffi::c_void>) -> u32
+pub unsafe fn NetRequestProvisioningPackageInstall<P3>(ppackagebindata: &[u8], dwprovisionoptions: u32, lpwindowspath: P3, pvreserved: Option<*mut core::ffi::c_void>) -> u32
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetRequestProvisioningPackageInstall(ppackagebindata : *const u8, dwpackagebindatasize : u32, dwprovisionoptions : u32, lpwindowspath : windows_core::PCWSTR, pvreserved : *const core::ffi::c_void) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetRequestProvisioningPackageInstall(ppackagebindata : *const u8, dwpackagebindatasize : u32, dwprovisionoptions : u32, lpwindowspath : windows_core::PCWSTR, pvreserved : *mut core::ffi::c_void) -> u32);
     unsafe { NetRequestProvisioningPackageInstall(ppackagebindata.as_ptr(), ppackagebindata.len().try_into().unwrap(), dwprovisionoptions, lpwindowspath.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]

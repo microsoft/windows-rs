@@ -1,8 +1,8 @@
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn NetUseAdd(servername: Option<super::LPTSTR>, levelflags: u32, buf: *mut u8, parm_err: Option<*mut u32>) -> u32 {
-    windows_core::link!("netapi32.dll" "system" fn NetUseAdd(servername : super::LPTSTR, levelflags : u32, buf : *mut u8, parm_err : *mut u32) -> u32);
-    unsafe { NetUseAdd(servername.unwrap_or(core::mem::zeroed()) as _, levelflags, buf as _, parm_err.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn NetUseAdd(servername: Option<super::LPTSTR>, levelflags: u32, buf: super::LPBYTE, parm_err: Option<super::LPDWORD>) -> u32 {
+    windows_core::link!("netapi32.dll" "system" fn NetUseAdd(servername : super::LPTSTR, levelflags : u32, buf : super::LPBYTE, parm_err : super::LPDWORD) -> u32);
+    unsafe { NetUseAdd(servername.unwrap_or(core::mem::zeroed()) as _, levelflags, buf, parm_err.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NetUseDel<P0, P1>(uncservername: P0, usename: P1, forcelevelflags: u32) -> u32
@@ -15,11 +15,11 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetUseEnum<P0>(uncservername: P0, levelflags: u32, bufptr: *mut super::LPBYTE, preferedmaximumsize: u32, entriesread: Option<*mut u32>, totalentries: *mut u32, resumehandle: Option<*mut u32>) -> u32
+pub unsafe fn NetUseEnum<P0>(uncservername: P0, levelflags: u32, bufptr: *mut super::LPBYTE, preferedmaximumsize: u32, entriesread: Option<super::LPDWORD>, totalentries: super::LPDWORD, resumehandle: Option<super::LPDWORD>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetUseEnum(uncservername : windows_core::PCWSTR, levelflags : u32, bufptr : *mut super::LPBYTE, preferedmaximumsize : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetUseEnum(uncservername : windows_core::PCWSTR, levelflags : u32, bufptr : *mut super::LPBYTE, preferedmaximumsize : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::LPDWORD) -> u32);
     unsafe { NetUseEnum(uncservername.param().abi(), levelflags, bufptr as _, preferedmaximumsize, entriesread.unwrap_or(core::mem::zeroed()) as _, totalentries as _, resumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -33,9 +33,10 @@ where
     unsafe { NetUseGetInfo(uncservername.param().abi(), usename.param().abi(), levelflags, bufptr as _) }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLOCK_NTLM_INFO {
-    pub BlockNTLM: bool,
+    pub BlockNTLM: super::BOOLEAN,
     pub Reserved1: u8,
     pub Reserved2: u16,
     pub Reserved3: u32,
@@ -57,10 +58,13 @@ pub type LPUSE_INFO_4 = *mut USE_INFO_4;
 #[cfg(feature = "minwindef")]
 pub type LPUSE_INFO_5 = *mut USE_INFO_5;
 pub const NoneFlag: TRANSPORT_INFO_FLAG = 0;
+#[cfg(feature = "winnt")]
 pub type PBLOCK_NTLM_INFO = *mut BLOCK_NTLM_INFO;
+#[cfg(feature = "winnt")]
 pub type PSMB_COMPRESSION_INFO = *mut SMB_COMPRESSION_INFO;
 pub type PSMB_TREE_CONNECT_PARAMETERS = *mut SMB_TREE_CONNECT_PARAMETERS;
 pub type PSMB_USE_OPTION_COMPRESSION_PARAMETERS = *mut SMB_USE_OPTION_COMPRESSION_PARAMETERS;
+#[cfg(feature = "winnt")]
 pub type PTRANSPORT_INFO = *mut TRANSPORT_INFO;
 pub type PTRANSPORT_INFO_FLAG = *mut TRANSPORT_INFO_FLAG;
 pub type PTRANSPORT_TYPE = *mut TRANSPORT_TYPE;
@@ -80,9 +84,10 @@ pub type PUSE_OPTION_TRANSPORT_PARAMETERS = *mut USE_OPTION_TRANSPORT_PARAMETERS
 pub const QuicPortSetFlag: TRANSPORT_INFO_FLAG = 2;
 pub const RdmaPortSetFlag: TRANSPORT_INFO_FLAG = 4;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMB_COMPRESSION_INFO {
-    pub Switch: bool,
+    pub Switch: super::BOOLEAN,
     pub Reserved1: u8,
     pub Reserved2: u16,
     pub Reserved3: u32,
@@ -103,10 +108,11 @@ pub struct SMB_USE_OPTION_COMPRESSION_PARAMETERS {
     pub Reserved: u16,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPORT_INFO {
     pub Type: TRANSPORT_TYPE,
-    pub SkipCertificateCheck: bool,
+    pub SkipCertificateCheck: super::BOOLEAN,
     pub TcpPort: u16,
     pub QuicPort: u16,
     pub RdmaPort: u16,

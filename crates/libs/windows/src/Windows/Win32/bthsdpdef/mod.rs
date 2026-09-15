@@ -6,9 +6,7 @@ pub const NodeContainerTypeSequence: NodeContainerType = 0;
 pub type PSDP_ERROR = *mut u16;
 pub type PSDP_LARGE_INTEGER_16 = *mut SDP_LARGE_INTEGER_16;
 pub type PSDP_ULARGE_INTEGER_16 = *mut SDP_ULARGE_INTEGER_16;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SDP_ERROR(pub u16);
+pub type SDP_ERROR = u16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SDP_LARGE_INTEGER_16 {

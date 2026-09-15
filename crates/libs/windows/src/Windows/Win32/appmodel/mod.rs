@@ -74,8 +74,8 @@ where
     }
 }
 #[inline]
-pub unsafe fn ClosePackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE) -> i32 {
-    windows_core::link!("kernel32.dll" "system" fn ClosePackageInfo(packageinforeference : *const _PACKAGE_INFO_REFERENCE) -> i32);
+pub unsafe fn ClosePackageInfo(packageinforeference: PACKAGE_INFO_REFERENCE) -> i32 {
+    windows_core::link!("kernel32.dll" "system" fn ClosePackageInfo(packageinforeference : PACKAGE_INFO_REFERENCE) -> i32);
     unsafe { ClosePackageInfo(packageinforeference) }
 }
 #[inline]
@@ -170,8 +170,8 @@ pub unsafe fn GetIdForPackageDependencyContext(packagedependencycontext: PACKAGE
     }
 }
 #[inline]
-pub unsafe fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INFO_REFERENCE, bufferlength: *mut u32, buffer: Option<*mut u8>, count: Option<*mut u32>) -> i32 {
-    windows_core::link!("kernel32.dll" "system" fn GetPackageApplicationIds(packageinforeference : *const _PACKAGE_INFO_REFERENCE, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> i32);
+pub unsafe fn GetPackageApplicationIds(packageinforeference: PACKAGE_INFO_REFERENCE, bufferlength: *mut u32, buffer: Option<*mut u8>, count: Option<*mut u32>) -> i32 {
+    windows_core::link!("kernel32.dll" "system" fn GetPackageApplicationIds(packageinforeference : PACKAGE_INFO_REFERENCE, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> i32);
     unsafe { GetPackageApplicationIds(packageinforeference, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _, count.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -219,13 +219,13 @@ pub unsafe fn GetPackageId(hprocess: super::HANDLE, bufferlength: *mut u32, buff
     unsafe { GetPackageId(hprocess, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn GetPackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, bufferlength: *mut u32, buffer: Option<*mut u8>, count: Option<*mut u32>) -> i32 {
-    windows_core::link!("kernel32.dll" "system" fn GetPackageInfo(packageinforeference : *const _PACKAGE_INFO_REFERENCE, flags : u32, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> i32);
+pub unsafe fn GetPackageInfo(packageinforeference: PACKAGE_INFO_REFERENCE, flags: u32, bufferlength: *mut u32, buffer: Option<*mut u8>, count: Option<*mut u32>) -> i32 {
+    windows_core::link!("kernel32.dll" "system" fn GetPackageInfo(packageinforeference : PACKAGE_INFO_REFERENCE, flags : u32, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> i32);
     unsafe { GetPackageInfo(packageinforeference, flags, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _, count.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn GetPackageInfo2(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: Option<*mut u8>, count: Option<*mut u32>) -> i32 {
-    windows_core::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetPackageInfo2(packageinforeference : *const _PACKAGE_INFO_REFERENCE, flags : u32, packagepathtype : PackagePathType, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> i32);
+pub unsafe fn GetPackageInfo2(packageinforeference: PACKAGE_INFO_REFERENCE, flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: Option<*mut u8>, count: Option<*mut u32>) -> i32 {
+    windows_core::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetPackageInfo2(packageinforeference : PACKAGE_INFO_REFERENCE, flags : u32, packagepathtype : PackagePathType, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> i32);
     unsafe { GetPackageInfo2(packageinforeference, flags, packagepathtype, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _, count.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -504,9 +504,12 @@ pub struct FindPackageDependencyCriteria {
     pub ScopeIsSystem: windows_core::BOOL,
     pub PackageFamilyName: windows_core::PCWSTR,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PACKAGEDEPENDENCY_CONTEXT(pub *mut core::ffi::c_void);
+pub type PACKAGEDEPENDENCY_CONTEXT = *mut PACKAGEDEPENDENCY_CONTEXT__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PACKAGEDEPENDENCY_CONTEXT__ {
+    pub unused: i32,
+}
 pub const PACKAGE_DEPENDENCY_RANK_DEFAULT: i32 = 0;
 pub const PACKAGE_FILTER_ALL_LOADED: i32 = 0;
 pub const PACKAGE_FILTER_BUNDLE: i32 = 128;

@@ -1,17 +1,15 @@
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn CreateXmlReader<P2, T>(pmalloc: P2) -> windows_core::Result<T>
+pub unsafe fn CreateXmlReader<P2>(riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, pmalloc: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<super::IMalloc>,
-    T: windows_core::Interface,
 {
     windows_core::link!("xmllite.dll" "system" fn CreateXmlReader(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreateXmlReader(&T::IID, &mut result__, pmalloc.param().abi()).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CreateXmlReader(riid, ppvobject as _, pmalloc.param().abi()) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<P0, P1, P4>(pinputstream: P0, pmalloc: P1, nencodingcodepage: u32, fencodinghint: bool, pwszbaseuri: P4) -> windows_core::Result<windows_core::IUnknown>
+pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<P0, P1, P4>(pinputstream: P0, pmalloc: P1, nencodingcodepage: u32, fencodinghint: bool, pwszbaseuri: P4) -> windows_core::Result<IXmlReaderInput>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     P1: windows_core::Param<super::IMalloc>,
@@ -25,7 +23,7 @@ where
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn CreateXmlReaderInputWithEncodingName<P0, P1, P2, P4>(pinputstream: P0, pmalloc: P1, pwszencodingname: P2, fencodinghint: bool, pwszbaseuri: P4) -> windows_core::Result<windows_core::IUnknown>
+pub unsafe fn CreateXmlReaderInputWithEncodingName<P0, P1, P2, P4>(pinputstream: P0, pmalloc: P1, pwszencodingname: P2, fencodinghint: bool, pwszbaseuri: P4) -> windows_core::Result<IXmlReaderInput>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     P1: windows_core::Param<super::IMalloc>,
@@ -40,18 +38,16 @@ where
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn CreateXmlWriter<P2, T>(pmalloc: P2) -> windows_core::Result<T>
+pub unsafe fn CreateXmlWriter<P2>(riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, pmalloc: P2) -> windows_core::HRESULT
 where
     P2: windows_core::Param<super::IMalloc>,
-    T: windows_core::Interface,
 {
     windows_core::link!("xmllite.dll" "system" fn CreateXmlWriter(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreateXmlWriter(&T::IID, &mut result__, pmalloc.param().abi()).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { CreateXmlWriter(riid, ppvobject as _, pmalloc.param().abi()) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn CreateXmlWriterOutputWithEncodingCodePage<P0, P1>(poutputstream: P0, pmalloc: P1, nencodingcodepage: u32) -> windows_core::Result<windows_core::IUnknown>
+pub unsafe fn CreateXmlWriterOutputWithEncodingCodePage<P0, P1>(poutputstream: P0, pmalloc: P1, nencodingcodepage: u32) -> windows_core::Result<IXmlWriterOutput>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     P1: windows_core::Param<super::IMalloc>,
@@ -64,7 +60,7 @@ where
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn CreateXmlWriterOutputWithEncodingName<P0, P1, P2>(poutputstream: P0, pmalloc: P1, pwszencodingname: P2) -> windows_core::Result<windows_core::IUnknown>
+pub unsafe fn CreateXmlWriterOutputWithEncodingName<P0, P1, P2>(poutputstream: P0, pmalloc: P1, pwszencodingname: P2) -> windows_core::Result<IXmlWriterOutput>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     P1: windows_core::Param<super::IMalloc>,
@@ -438,6 +434,7 @@ impl IXmlReader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IXmlReader {}
+pub type IXmlReaderInput = windows_core::IUnknown;
 windows_core::imp::define_interface!(IXmlResolver, IXmlResolver_Vtbl, 0x7279fc82_709d_4095_b63d_69fe4b0d9030);
 windows_core::imp::interface_hierarchy!(IXmlResolver, windows_core::IUnknown);
 impl IXmlResolver {
@@ -1345,6 +1342,7 @@ impl IXmlWriterLite_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IXmlWriterLite {}
+pub type IXmlWriterOutput = windows_core::IUnknown;
 pub const MX_E_ENCODING: XmlError = -1072894462;
 pub const MX_E_ENCODINGSIGNATURE: XmlError = -1072894460;
 pub const MX_E_ENCODINGSWITCH: XmlError = -1072894461;

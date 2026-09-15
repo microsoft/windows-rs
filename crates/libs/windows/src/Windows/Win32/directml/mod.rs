@@ -19,18 +19,20 @@ where
     unsafe { DMLCreateDevice1(d3d12device.param().abi(), flags, minimumfeaturelevel, &T::IID, result__ as *mut _ as *mut _).ok() }
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ACTIVATION_CELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
+    pub Alpha: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ACTIVATION_ELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
+    pub Alpha: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -39,12 +41,13 @@ pub struct DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
-    pub Beta: f32,
+    pub Alpha: super::FLOAT,
+    pub Beta: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -53,19 +56,21 @@ pub struct DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
+    pub Alpha: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
-    pub Beta: f32,
+    pub Alpha: super::FLOAT,
+    pub Beta: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -81,12 +86,13 @@ pub struct DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
-    pub Beta: f32,
+    pub Alpha: super::FLOAT,
+    pub Beta: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -102,28 +108,31 @@ pub struct DML_ACTIVATION_RELU_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
-    pub Gamma: f32,
+    pub Alpha: super::FLOAT,
+    pub Gamma: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
-    pub Beta: f32,
+    pub Alpha: super::FLOAT,
+    pub Beta: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Bias: f32,
-    pub Threshold: f32,
+    pub Bias: super::FLOAT,
+    pub Threshold: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -138,11 +147,12 @@ pub struct DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Steepness: f32,
+    pub Steepness: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -157,13 +167,15 @@ pub struct DML_ACTIVATION_TANH_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
+    pub Alpha: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     pub InputParametersTensor: *const DML_TENSOR_DESC,
@@ -174,10 +186,10 @@ pub struct DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     pub OutputParametersTensor: *const DML_TENSOR_DESC,
     pub OutputFirstMomentTensor: *const DML_TENSOR_DESC,
     pub OutputSecondMomentTensor: *const DML_TENSOR_DESC,
-    pub LearningRate: f32,
-    pub Beta1: f32,
-    pub Beta2: f32,
-    pub Epsilon: f32,
+    pub LearningRate: super::FLOAT,
+    pub Beta1: super::FLOAT,
+    pub Beta2: super::FLOAT,
+    pub Epsilon: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -225,6 +237,7 @@ pub type DML_AXIS_DIRECTION = i32;
 pub const DML_AXIS_DIRECTION_DECREASING: DML_AXIS_DIRECTION = 1;
 pub const DML_AXIS_DIRECTION_INCREASING: DML_AXIS_DIRECTION = 0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -235,9 +248,10 @@ pub struct DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputScaleGradientTensor: *const DML_TENSOR_DESC,
     pub OutputBiasGradientTensor: *const DML_TENSOR_DESC,
-    pub Epsilon: f32,
+    pub Epsilon: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -247,10 +261,11 @@ pub struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     pub BiasTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Spatial: windows_core::BOOL,
-    pub Epsilon: f32,
+    pub Epsilon: super::FLOAT,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -261,9 +276,10 @@ pub struct DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC {
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputScaleGradientTensor: *const DML_TENSOR_DESC,
     pub OutputBiasGradientTensor: *const DML_TENSOR_DESC,
-    pub Epsilon: f32,
+    pub Epsilon: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_BATCH_NORMALIZATION_TRAINING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -273,7 +289,7 @@ pub struct DML_BATCH_NORMALIZATION_TRAINING_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub OutputMeanTensor: *const DML_TENSOR_DESC,
     pub OutputVarianceTensor: *const DML_TENSOR_DESC,
-    pub Epsilon: f32,
+    pub Epsilon: super::FLOAT,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 #[repr(C)]
@@ -413,11 +429,12 @@ pub struct DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     pub BlockSize: u32,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Offset: i32,
-    pub Value: f32,
+    pub Value: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -428,6 +445,7 @@ pub struct DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     pub OutputZeroPointTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -435,6 +453,7 @@ pub struct DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -442,6 +461,7 @@ pub struct DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -464,6 +484,7 @@ pub struct DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -471,6 +492,7 @@ pub struct DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -478,6 +500,7 @@ pub struct DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -485,6 +508,7 @@ pub struct DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -546,6 +570,7 @@ pub struct DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -553,6 +578,7 @@ pub struct DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DML_ELEMENT_WISE_CLIP1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -562,12 +588,14 @@ pub struct DML_ELEMENT_WISE_CLIP1_OPERATOR_DESC {
     pub Min: DML_SCALAR_UNION,
     pub Max: DML_SCALAR_UNION,
 }
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 impl Default for DML_ELEMENT_WISE_CLIP1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DML_ELEMENT_WISE_CLIP_GRAD1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -577,38 +605,43 @@ pub struct DML_ELEMENT_WISE_CLIP_GRAD1_OPERATOR_DESC {
     pub Min: DML_SCALAR_UNION,
     pub Max: DML_SCALAR_UNION,
 }
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 impl Default for DML_ELEMENT_WISE_CLIP_GRAD1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
-    pub Min: f32,
-    pub Max: f32,
+    pub Min: super::FLOAT,
+    pub Max: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
-    pub Min: f32,
-    pub Max: f32,
+    pub Min: super::FLOAT,
+    pub Max: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
-    pub Exponent: f32,
+    pub Exponent: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -616,6 +649,7 @@ pub struct DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -645,6 +679,7 @@ pub struct DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -652,6 +687,7 @@ pub struct DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -659,6 +695,7 @@ pub struct DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -666,6 +703,7 @@ pub struct DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -756,6 +794,7 @@ pub struct DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -811,6 +850,7 @@ pub struct DML_ELEMENT_WISE_NEGATE_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -840,6 +880,7 @@ pub struct DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -860,6 +901,7 @@ pub struct DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -867,6 +909,7 @@ pub struct DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -874,6 +917,7 @@ pub struct DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -888,6 +932,7 @@ pub struct DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -895,6 +940,7 @@ pub struct DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -902,12 +948,13 @@ pub struct DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
-    pub Min: f32,
+    pub Min: super::FLOAT,
 }
 pub type DML_EXECUTION_FLAGS = u32;
 pub const DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION: DML_EXECUTION_FLAGS = 1;
@@ -955,18 +1002,21 @@ pub struct DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
 }
 pub const DML_FEATURE_TENSOR_DATA_TYPE_SUPPORT: DML_FEATURE = 0;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ValueDataType: DML_TENSOR_DATA_TYPE,
     pub Value: DML_SCALAR_UNION,
 }
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 impl Default for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -974,6 +1024,7 @@ pub struct DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     pub ValueStart: DML_SCALAR_UNION,
     pub ValueDelta: DML_SCALAR_UNION,
 }
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 impl Default for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1016,6 +1067,7 @@ pub struct DML_GATHER_OPERATOR_DESC {
     pub IndexDimensions: u32,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_GEMM_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
@@ -1024,8 +1076,8 @@ pub struct DML_GEMM_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub TransA: DML_MATRIX_TRANSFORM,
     pub TransB: DML_MATRIX_TRANSFORM,
-    pub Alpha: f32,
-    pub Beta: f32,
+    pub Alpha: super::FLOAT,
+    pub Beta: super::FLOAT,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 #[repr(C)]
@@ -1111,6 +1163,7 @@ pub struct DML_JOIN_OPERATOR_DESC {
     pub Axis: u32,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1118,28 +1171,30 @@ pub struct DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
     pub CrossChannel: windows_core::BOOL,
     pub LocalSize: u32,
-    pub Alpha: f32,
-    pub Beta: f32,
-    pub Bias: f32,
+    pub Alpha: super::FLOAT,
+    pub Beta: super::FLOAT,
+    pub Bias: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub CrossChannel: windows_core::BOOL,
     pub LocalSize: u32,
-    pub Alpha: f32,
-    pub Beta: f32,
-    pub Bias: f32,
+    pub Alpha: super::FLOAT,
+    pub Beta: super::FLOAT,
+    pub Bias: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_LP_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
-    pub Epsilon: f32,
+    pub Epsilon: super::FLOAT,
     pub P: u32,
 }
 #[repr(C)]
@@ -1244,6 +1299,7 @@ pub struct DML_MAX_UNPOOLING_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1253,10 +1309,11 @@ pub struct DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     pub AxisCount: u32,
     pub Axes: *const u32,
     pub NormalizeVariance: windows_core::BOOL,
-    pub Epsilon: f32,
+    pub Epsilon: super::FLOAT,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1265,7 +1322,7 @@ pub struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub CrossChannel: windows_core::BOOL,
     pub NormalizeVariance: windows_core::BOOL,
-    pub Epsilon: f32,
+    pub Epsilon: super::FLOAT,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 #[repr(C)]
@@ -1463,6 +1520,7 @@ pub struct DML_OUTPUT_GRAPH_EDGE_DESC {
     pub Name: *const i8,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DML_PADDING1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1474,6 +1532,7 @@ pub struct DML_PADDING1_OPERATOR_DESC {
     pub StartPadding: *const u32,
     pub EndPadding: *const u32,
 }
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 impl Default for DML_PADDING1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1485,12 +1544,13 @@ pub const DML_PADDING_MODE_EDGE: DML_PADDING_MODE = 1;
 pub const DML_PADDING_MODE_REFLECTION: DML_PADDING_MODE = 2;
 pub const DML_PADDING_MODE_SYMMETRIC: DML_PADDING_MODE = 3;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_PADDING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub PaddingMode: DML_PADDING_MODE,
-    pub PaddingValue: f32,
+    pub PaddingValue: super::FLOAT,
     pub DimensionCount: u32,
     pub StartPadding: *const u32,
     pub EndPadding: *const u32,
@@ -1565,35 +1625,38 @@ pub struct DML_REDUCE_OPERATOR_DESC {
     pub Axes: *const u32,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_RESAMPLE1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
     pub DimensionCount: u32,
-    pub Scales: *const f32,
-    pub InputPixelOffsets: *const f32,
-    pub OutputPixelOffsets: *const f32,
+    pub Scales: *const super::FLOAT,
+    pub InputPixelOffsets: *const super::FLOAT,
+    pub OutputPixelOffsets: *const super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_RESAMPLE_GRAD_OPERATOR_DESC {
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
     pub DimensionCount: u32,
-    pub Scales: *const f32,
-    pub InputPixelOffsets: *const f32,
-    pub OutputPixelOffsets: *const f32,
+    pub Scales: *const super::FLOAT,
+    pub InputPixelOffsets: *const super::FLOAT,
+    pub OutputPixelOffsets: *const super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_RESAMPLE_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
     pub ScaleCount: u32,
-    pub Scales: *const f32,
+    pub Scales: *const super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1619,6 +1682,7 @@ pub struct DML_RNN_OPERATOR_DESC {
     pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ROI_ALIGN1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1627,16 +1691,17 @@ pub struct DML_ROI_ALIGN1_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ReductionFunction: DML_REDUCE_FUNCTION,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
-    pub SpatialScaleX: f32,
-    pub SpatialScaleY: f32,
-    pub InputPixelOffset: f32,
-    pub OutputPixelOffset: f32,
-    pub OutOfBoundsInputValue: f32,
+    pub SpatialScaleX: super::FLOAT,
+    pub SpatialScaleY: super::FLOAT,
+    pub InputPixelOffset: super::FLOAT,
+    pub OutputPixelOffset: super::FLOAT,
+    pub OutOfBoundsInputValue: super::FLOAT,
     pub MinimumSamplesPerOutput: u32,
     pub MaximumSamplesPerOutput: u32,
     pub AlignRegionsToCorners: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ROI_ALIGN_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1647,15 +1712,16 @@ pub struct DML_ROI_ALIGN_GRAD_OPERATOR_DESC {
     pub OutputROIGradientTensor: *const DML_TENSOR_DESC,
     pub ReductionFunction: DML_REDUCE_FUNCTION,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
-    pub SpatialScaleX: f32,
-    pub SpatialScaleY: f32,
-    pub InputPixelOffset: f32,
-    pub OutputPixelOffset: f32,
+    pub SpatialScaleX: super::FLOAT,
+    pub SpatialScaleY: super::FLOAT,
+    pub InputPixelOffset: super::FLOAT,
+    pub OutputPixelOffset: super::FLOAT,
     pub MinimumSamplesPerOutput: u32,
     pub MaximumSamplesPerOutput: u32,
     pub AlignRegionsToCorners: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ROI_ALIGN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1664,19 +1730,20 @@ pub struct DML_ROI_ALIGN_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ReductionFunction: DML_REDUCE_FUNCTION,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
-    pub SpatialScaleX: f32,
-    pub SpatialScaleY: f32,
-    pub OutOfBoundsInputValue: f32,
+    pub SpatialScaleX: super::FLOAT,
+    pub SpatialScaleY: super::FLOAT,
+    pub OutOfBoundsInputValue: super::FLOAT,
     pub MinimumSamplesPerOutput: u32,
     pub MaximumSamplesPerOutput: u32,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_ROI_POOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ROITensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub SpatialScale: f32,
+    pub SpatialScale: super::FLOAT,
     pub PooledSize: DML_SIZE_2D,
 }
 pub type DML_ROUNDING_MODE = i32;
@@ -1684,6 +1751,7 @@ pub const DML_ROUNDING_MODE_HALVES_TO_NEAREST_EVEN: DML_ROUNDING_MODE = 0;
 pub const DML_ROUNDING_MODE_TOWARD_INFINITY: DML_ROUNDING_MODE = 2;
 pub const DML_ROUNDING_MODE_TOWARD_ZERO: DML_ROUNDING_MODE = 1;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union DML_SCALAR_UNION {
     pub Bytes: [u8; 8],
@@ -1695,19 +1763,21 @@ pub union DML_SCALAR_UNION {
     pub UInt32: u32,
     pub Int64: i64,
     pub UInt64: u64,
-    pub Float32: f32,
-    pub Float64: f64,
+    pub Float32: super::FLOAT,
+    pub Float64: super::DOUBLE,
 }
+#[cfg(all(feature = "minwindef", feature = "wtypesbase"))]
 impl Default for DML_SCALAR_UNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_SCALE_BIAS {
-    pub Scale: f32,
-    pub Bias: f32,
+    pub Scale: super::FLOAT,
+    pub Bias: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1849,13 +1919,14 @@ pub struct DML_UPSAMPLE_2D_OPERATOR_DESC {
     pub InterpolationMode: DML_INTERPOLATION_MODE,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DML_VALUE_SCALE_2D_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Scale: f32,
+    pub Scale: super::FLOAT,
     pub ChannelCount: u32,
-    pub Bias: *const f32,
+    pub Bias: *const super::FLOAT,
 }
 windows_core::imp::define_interface!(IDMLBindingTable, IDMLBindingTable_Vtbl, 0x29c687dc_de74_4e3b_ab00_1168f2fc3cfc);
 impl core::ops::Deref for IDMLBindingTable {

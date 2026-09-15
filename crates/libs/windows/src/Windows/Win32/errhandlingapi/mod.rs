@@ -46,18 +46,10 @@ pub unsafe fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, lpargu
     windows_core::link!("kernel32.dll" "system" fn RaiseException(dwexceptioncode : u32, dwexceptionflags : u32, nnumberofarguments : u32, lparguments : *const usize));
     unsafe { RaiseException(dwexceptioncode, dwexceptionflags, lparguments.map_or(0, |slice| slice.len().try_into().unwrap()), lparguments.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RaiseFailFastException(pexceptionrecord: Option<*const super::EXCEPTION_RECORD>, pcontextrecord: Option<*const super::CONTEXT>, dwflags: u32) {
-    windows_core::link!("kernel32.dll" "system" fn RaiseFailFastException(pexceptionrecord : *const super::EXCEPTION_RECORD, pcontextrecord : *const super::CONTEXT, dwflags : u32));
-    unsafe { RaiseFailFastException(pexceptionrecord.unwrap_or(core::mem::zeroed()) as _, pcontextrecord.unwrap_or(core::mem::zeroed()) as _, dwflags) }
-}
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "winnt")]
-#[inline]
-pub unsafe fn RaiseFailFastException(pexceptionrecord: Option<*const super::EXCEPTION_RECORD>, pcontextrecord: Option<*const super::ARM64_NT_CONTEXT>, dwflags: u32) {
-    windows_core::link!("kernel32.dll" "system" fn RaiseFailFastException(pexceptionrecord : *const super::EXCEPTION_RECORD, pcontextrecord : *const super::ARM64_NT_CONTEXT, dwflags : u32));
+pub unsafe fn RaiseFailFastException(pexceptionrecord: Option<super::PEXCEPTION_RECORD>, pcontextrecord: Option<super::PCONTEXT>, dwflags: u32) {
+    windows_core::link!("kernel32.dll" "system" fn RaiseFailFastException(pexceptionrecord : super::PEXCEPTION_RECORD, pcontextrecord : super::PCONTEXT, dwflags : u32));
     unsafe { RaiseFailFastException(pexceptionrecord.unwrap_or(core::mem::zeroed()) as _, pcontextrecord.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[inline]
@@ -80,9 +72,10 @@ pub unsafe fn SetLastError(dwerrcode: u32) {
     windows_core::link!("kernel32.dll" "system" fn SetLastError(dwerrcode : u32));
     unsafe { SetLastError(dwerrcode) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn SetThreadErrorMode(dwnewmode: u32, lpoldmode: Option<*const u32>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetThreadErrorMode(dwnewmode : u32, lpoldmode : *const u32) -> windows_core::BOOL);
+pub unsafe fn SetThreadErrorMode(dwnewmode: u32, lpoldmode: Option<super::LPDWORD>) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SetThreadErrorMode(dwnewmode : u32, lpoldmode : super::LPDWORD) -> windows_core::BOOL);
     unsafe { SetThreadErrorMode(dwnewmode, lpoldmode.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]

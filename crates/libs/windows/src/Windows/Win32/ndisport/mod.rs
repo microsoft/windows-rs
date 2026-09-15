@@ -1,8 +1,6 @@
-pub const NDIS_DEFAULT_PORT_NUMBER: NDIS_PORT_NUMBER = NDIS_PORT_NUMBER(0);
+pub const NDIS_DEFAULT_PORT_NUMBER: NDIS_PORT_NUMBER = 0;
 pub const NDIS_MAXIMUM_PORTS: i32 = 16777216;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NDIS_PORT_NUMBER(pub u32);
+pub type NDIS_PORT_NUMBER = u32;
 pub type NDIS_PORT_TYPE = i32;
 pub const NdisPortType8021xSupplicant: NDIS_PORT_TYPE = 3;
 pub const NdisPortTypeBridge: NDIS_PORT_TYPE = 1;

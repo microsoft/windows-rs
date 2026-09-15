@@ -249,7 +249,7 @@ pub struct WNODE_HEADER_0_0 {
 pub union WNODE_HEADER_1 {
     pub CountLost: u32,
     pub KernelHandle: super::HANDLE,
-    pub TimeStamp: i64,
+    pub TimeStamp: super::LARGE_INTEGER,
 }
 #[cfg(feature = "winnt")]
 impl Default for WNODE_HEADER_1 {

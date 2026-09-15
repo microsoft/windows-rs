@@ -66,7 +66,7 @@ pub struct ICertEncodeAltName_Vtbl {
     pub SetNameEntry: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Encode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertEncodeAltName_Impl: super::IDispatch_Impl {
     fn Decode(&self, strbinary: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetNameCount(&self) -> windows_core::Result<i32>;
@@ -76,7 +76,7 @@ pub trait ICertEncodeAltName_Impl: super::IDispatch_Impl {
     fn SetNameEntry(&self, nameindex: i32, namechoice: i32, strname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Encode(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertEncodeAltName_Vtbl {
     pub const fn new<Identity: ICertEncodeAltName_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Decode<Identity: ICertEncodeAltName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -160,7 +160,7 @@ impl ICertEncodeAltName_Vtbl {
         iid == &<ICertEncodeAltName as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertEncodeAltName {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertEncodeAltName2, ICertEncodeAltName2_Vtbl, 0xf67fe177_5ef1_4535_b4ce_29df15e2e0c3);
@@ -220,14 +220,14 @@ pub struct ICertEncodeAltName2_Vtbl {
     #[cfg(not(feature = "certenroll"))]
     SetNameEntryBlob: usize,
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertEncodeAltName2_Impl: ICertEncodeAltName_Impl {
     fn DecodeBlob(&self, strencodeddata: &windows_core::BSTR, encoding: super::EncodingType) -> windows_core::Result<()>;
     fn EncodeBlob(&self, encoding: super::EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn GetNameBlob(&self, nameindex: i32, encoding: super::EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn SetNameEntryBlob(&self, nameindex: i32, namechoice: i32, strname: &windows_core::BSTR, encoding: super::EncodingType) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertEncodeAltName2_Vtbl {
     pub const fn new<Identity: ICertEncodeAltName2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeAltName2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: super::EncodingType) -> windows_core::HRESULT {
@@ -278,7 +278,7 @@ impl ICertEncodeAltName2_Vtbl {
         iid == &<ICertEncodeAltName2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertEncodeAltName as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertEncodeAltName2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertEncodeBitString, ICertEncodeBitString_Vtbl, 0x6db525be_1278_11d1_9bd4_00c04fb683fa);
@@ -325,14 +325,14 @@ pub struct ICertEncodeBitString_Vtbl {
     pub GetBitString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Encode: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertEncodeBitString_Impl: super::IDispatch_Impl {
     fn Decode(&self, strbinary: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetBitCount(&self) -> windows_core::Result<i32>;
     fn GetBitString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Encode(&self, bitcount: i32, strbitstring: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertEncodeBitString_Vtbl {
     pub const fn new<Identity: ICertEncodeBitString_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Decode<Identity: ICertEncodeBitString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -389,7 +389,7 @@ impl ICertEncodeBitString_Vtbl {
         iid == &<ICertEncodeBitString as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertEncodeBitString {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertEncodeBitString2, ICertEncodeBitString2_Vtbl, 0xe070d6e7_23ef_4dd2_8242_ebd9c928cb30);
@@ -441,13 +441,13 @@ pub struct ICertEncodeBitString2_Vtbl {
     #[cfg(not(feature = "certenroll"))]
     GetBitStringBlob: usize,
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertEncodeBitString2_Impl: ICertEncodeBitString_Impl {
     fn DecodeBlob(&self, strencodeddata: &windows_core::BSTR, encoding: super::EncodingType) -> windows_core::Result<()>;
     fn EncodeBlob(&self, bitcount: i32, strbitstring: &windows_core::BSTR, encodingin: super::EncodingType, encoding: super::EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn GetBitStringBlob(&self, encoding: super::EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertEncodeBitString2_Vtbl {
     pub const fn new<Identity: ICertEncodeBitString2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeBitString2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: super::EncodingType) -> windows_core::HRESULT {
@@ -491,7 +491,7 @@ impl ICertEncodeBitString2_Vtbl {
         iid == &<ICertEncodeBitString2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertEncodeBitString as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertEncodeBitString2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertEncodeCRLDistInfo, ICertEncodeCRLDistInfo_Vtbl, 0x01958640_bbff_11d0_8825_00a0c903b83c);
@@ -564,7 +564,7 @@ pub struct ICertEncodeCRLDistInfo_Vtbl {
     pub SetNameEntry: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Encode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertEncodeCRLDistInfo_Impl: super::IDispatch_Impl {
     fn Decode(&self, strbinary: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetDistPointCount(&self) -> windows_core::Result<i32>;
@@ -576,7 +576,7 @@ pub trait ICertEncodeCRLDistInfo_Impl: super::IDispatch_Impl {
     fn SetNameEntry(&self, distpointindex: i32, nameindex: i32, namechoice: i32, strname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Encode(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertEncodeCRLDistInfo_Vtbl {
     pub const fn new<Identity: ICertEncodeCRLDistInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Decode<Identity: ICertEncodeCRLDistInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -680,7 +680,7 @@ impl ICertEncodeCRLDistInfo_Vtbl {
         iid == &<ICertEncodeCRLDistInfo as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertEncodeCRLDistInfo {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertEncodeCRLDistInfo2, ICertEncodeCRLDistInfo2_Vtbl, 0xb4275d4b_3e30_446f_ad36_09d03120b078);
@@ -721,12 +721,12 @@ pub struct ICertEncodeCRLDistInfo2_Vtbl {
     #[cfg(not(feature = "certenroll"))]
     EncodeBlob: usize,
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertEncodeCRLDistInfo2_Impl: ICertEncodeCRLDistInfo_Impl {
     fn DecodeBlob(&self, strencodeddata: &windows_core::BSTR, encoding: super::EncodingType) -> windows_core::Result<()>;
     fn EncodeBlob(&self, encoding: super::EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertEncodeCRLDistInfo2_Vtbl {
     pub const fn new<Identity: ICertEncodeCRLDistInfo2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeCRLDistInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: super::EncodingType) -> windows_core::HRESULT {
@@ -757,7 +757,7 @@ impl ICertEncodeCRLDistInfo2_Vtbl {
         iid == &<ICertEncodeCRLDistInfo2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertEncodeCRLDistInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertEncodeCRLDistInfo2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertEncodeDateArray, ICertEncodeDateArray_Vtbl, 0x2f9469a0_a470_11d0_8821_00a0c903b83c);
@@ -781,7 +781,8 @@ impl ICertEncodeDateArray {
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetValue(&self, index: i32) -> windows_core::Result<f64> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn GetValue(&self, index: i32) -> windows_core::Result<super::DATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
@@ -790,7 +791,8 @@ impl ICertEncodeDateArray {
     pub unsafe fn Reset(&self, count: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), count) }
     }
-    pub unsafe fn SetValue(&self, index: i32, value: f64) -> windows_core::HRESULT {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn SetValue(&self, index: i32, value: super::DATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), index, value) }
     }
     pub unsafe fn Encode(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -807,21 +809,27 @@ pub struct ICertEncodeDateArray_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Decode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    GetValue: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, f64) -> windows_core::HRESULT,
+    #[cfg(feature = "wtypes")]
+    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::DATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "wtypes"))]
+    SetValue: usize,
     pub Encode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertEncodeDateArray_Impl: super::IDispatch_Impl {
     fn Decode(&self, strbinary: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetCount(&self) -> windows_core::Result<i32>;
-    fn GetValue(&self, index: i32) -> windows_core::Result<f64>;
+    fn GetValue(&self, index: i32) -> windows_core::Result<super::DATE>;
     fn Reset(&self, count: i32) -> windows_core::Result<()>;
-    fn SetValue(&self, index: i32, value: f64) -> windows_core::Result<()>;
+    fn SetValue(&self, index: i32, value: super::DATE) -> windows_core::Result<()>;
     fn Encode(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertEncodeDateArray_Vtbl {
     pub const fn new<Identity: ICertEncodeDateArray_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Decode<Identity: ICertEncodeDateArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -842,7 +850,7 @@ impl ICertEncodeDateArray_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetValue<Identity: ICertEncodeDateArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvalue: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ICertEncodeDateArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvalue: *mut super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeDateArray_Impl::GetValue(this, core::mem::transmute_copy(&index)) {
@@ -860,7 +868,7 @@ impl ICertEncodeDateArray_Vtbl {
                 ICertEncodeDateArray_Impl::Reset(this, core::mem::transmute_copy(&count)).into()
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ICertEncodeDateArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, value: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ICertEncodeDateArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, value: super::DATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICertEncodeDateArray_Impl::SetValue(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&value)).into()
@@ -892,7 +900,7 @@ impl ICertEncodeDateArray_Vtbl {
         iid == &<ICertEncodeDateArray as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertEncodeDateArray {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertEncodeDateArray2, ICertEncodeDateArray2_Vtbl, 0x99a4edb5_2b8e_448d_bf95_bba8d7789dc8);
@@ -933,12 +941,12 @@ pub struct ICertEncodeDateArray2_Vtbl {
     #[cfg(not(feature = "certenroll"))]
     EncodeBlob: usize,
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertEncodeDateArray2_Impl: ICertEncodeDateArray_Impl {
     fn DecodeBlob(&self, strencodeddata: &windows_core::BSTR, encoding: super::EncodingType) -> windows_core::Result<()>;
     fn EncodeBlob(&self, encoding: super::EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertEncodeDateArray2_Vtbl {
     pub const fn new<Identity: ICertEncodeDateArray2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeDateArray2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: super::EncodingType) -> windows_core::HRESULT {
@@ -969,7 +977,7 @@ impl ICertEncodeDateArray2_Vtbl {
         iid == &<ICertEncodeDateArray2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertEncodeDateArray as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertEncodeDateArray2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertEncodeLongArray, ICertEncodeLongArray_Vtbl, 0x15e2f230_a0a2_11d0_8821_00a0c903b83c);
@@ -1024,7 +1032,7 @@ pub struct ICertEncodeLongArray_Vtbl {
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub Encode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertEncodeLongArray_Impl: super::IDispatch_Impl {
     fn Decode(&self, strbinary: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetCount(&self) -> windows_core::Result<i32>;
@@ -1033,7 +1041,7 @@ pub trait ICertEncodeLongArray_Impl: super::IDispatch_Impl {
     fn SetValue(&self, index: i32, value: i32) -> windows_core::Result<()>;
     fn Encode(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertEncodeLongArray_Vtbl {
     pub const fn new<Identity: ICertEncodeLongArray_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Decode<Identity: ICertEncodeLongArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1104,7 +1112,7 @@ impl ICertEncodeLongArray_Vtbl {
         iid == &<ICertEncodeLongArray as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertEncodeLongArray {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertEncodeLongArray2, ICertEncodeLongArray2_Vtbl, 0x4efde84a_bd9b_4fc2_a108_c347d478840f);
@@ -1145,12 +1153,12 @@ pub struct ICertEncodeLongArray2_Vtbl {
     #[cfg(not(feature = "certenroll"))]
     EncodeBlob: usize,
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertEncodeLongArray2_Impl: ICertEncodeLongArray_Impl {
     fn DecodeBlob(&self, strencodeddata: &windows_core::BSTR, encoding: super::EncodingType) -> windows_core::Result<()>;
     fn EncodeBlob(&self, encoding: super::EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertEncodeLongArray2_Vtbl {
     pub const fn new<Identity: ICertEncodeLongArray2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeLongArray2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: super::EncodingType) -> windows_core::HRESULT {
@@ -1181,7 +1189,7 @@ impl ICertEncodeLongArray2_Vtbl {
         iid == &<ICertEncodeLongArray2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertEncodeLongArray as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertEncodeLongArray2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertEncodeStringArray, ICertEncodeStringArray_Vtbl, 0x12a88820_7494_11d0_8816_00a0c903b83c);
@@ -1243,7 +1251,7 @@ pub struct ICertEncodeStringArray_Vtbl {
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Encode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertEncodeStringArray_Impl: super::IDispatch_Impl {
     fn Decode(&self, strbinary: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetStringType(&self) -> windows_core::Result<i32>;
@@ -1253,7 +1261,7 @@ pub trait ICertEncodeStringArray_Impl: super::IDispatch_Impl {
     fn SetValue(&self, index: i32, str: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Encode(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertEncodeStringArray_Vtbl {
     pub const fn new<Identity: ICertEncodeStringArray_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Decode<Identity: ICertEncodeStringArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1337,7 +1345,7 @@ impl ICertEncodeStringArray_Vtbl {
         iid == &<ICertEncodeStringArray as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertEncodeStringArray {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICertEncodeStringArray2, ICertEncodeStringArray2_Vtbl, 0x9c680d93_9b7d_4e95_9018_4ffe10ba5ada);
@@ -1378,12 +1386,12 @@ pub struct ICertEncodeStringArray2_Vtbl {
     #[cfg(not(feature = "certenroll"))]
     EncodeBlob: usize,
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICertEncodeStringArray2_Impl: ICertEncodeStringArray_Impl {
     fn DecodeBlob(&self, strencodeddata: &windows_core::BSTR, encoding: super::EncodingType) -> windows_core::Result<()>;
     fn EncodeBlob(&self, encoding: super::EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICertEncodeStringArray2_Vtbl {
     pub const fn new<Identity: ICertEncodeStringArray2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeStringArray2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: *mut core::ffi::c_void, encoding: super::EncodingType) -> windows_core::HRESULT {
@@ -1414,5 +1422,5 @@ impl ICertEncodeStringArray2_Vtbl {
         iid == &<ICertEncodeStringArray2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICertEncodeStringArray as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "certenroll", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "certenroll", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICertEncodeStringArray2 {}

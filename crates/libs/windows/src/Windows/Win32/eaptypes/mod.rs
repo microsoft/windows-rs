@@ -26,20 +26,9 @@ pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
 }
 pub const EAPHOST_METHOD_API_VERSION: i32 = 1;
 pub const EAPHOST_PEER_API_VERSION: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EAP_ATTRIBUTE {
-    pub eaType: EAP_ATTRIBUTE_TYPE,
-    pub dwLength: u32,
-    pub pValue: *mut u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EAP_ATTRIBUTES {
-    pub dwNumberOfAttributes: u32,
-    pub pAttribs: *mut EAP_ATTRIBUTE,
-}
-pub type EAP_ATTRIBUTE_TYPE = i32;
+pub type EAP_ATTRIBUTE = _EAP_ATTRIBUTE;
+pub type EAP_ATTRIBUTES = _EAP_ATTRIBUTES;
+pub type EAP_ATTRIBUTE_TYPE = _EAP_ATTRIBUTE_TYPE;
 pub const EAP_CERTIFICATE_CREDENTIAL: EapCredentialType = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -64,13 +53,8 @@ pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_DISPLAYABLE: i32 = 1;
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_PERSIST: i32 = 2;
 pub type EAP_CONFIG_INPUT_FIELD_TYPE = i32;
 pub const EAP_CREDENTIAL_VERSION: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct EAP_CRED_EXPIRY_REQ {
-    pub curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
-    pub newCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
-}
-pub type EAP_CRED_EXPIRY_RESP = EAP_CRED_EXPIRY_REQ;
+pub type EAP_CRED_EXPIRY_REQ = _EAP_CRED_EXPIRY_REQ;
+pub type EAP_CRED_EXPIRY_RESP = _EAP_CRED_EXPIRY_REQ;
 pub type EAP_CRED_LOGON_REQ = EAP_CONFIG_INPUT_FIELD_ARRAY;
 pub type EAP_CRED_LOGON_RESP = EAP_CONFIG_INPUT_FIELD_ARRAY;
 pub type EAP_CRED_REQ = EAP_CONFIG_INPUT_FIELD_ARRAY;
@@ -216,9 +200,7 @@ pub struct EAP_METHOD_TYPE {
     pub dwAuthorId: u32,
 }
 pub const EAP_PEER_FLAG_HEALTH_STATE_CHANGE: i32 = 32768;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct EAP_SESSIONID(pub u32);
+pub type EAP_SESSIONID = u32;
 pub const EAP_SIM_CREDENTIAL: EapCredentialType = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -246,11 +228,9 @@ pub const EAP_UI_INPUT_FIELD_PROPS_READ_ONLY: i32 = 4;
 pub const EAP_USERNAME_PASSWORD_CREDENTIAL: EapCredentialType = 1;
 pub const EAP_VALUENAME_PROPERTIES: windows_core::PCWSTR = windows_core::w!("Properties");
 pub const EAP_WINLOGON_CREDENTIAL: EapCredentialType = 2;
-pub type EapAttribute = EAP_ATTRIBUTE;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct EapAttributeType(pub EAP_ATTRIBUTE_TYPE);
-pub type EapAttributes = EAP_ATTRIBUTES;
+pub type EapAttribute = _EAP_ATTRIBUTE;
+pub type EapAttributeType = _EAP_ATTRIBUTE_TYPE;
+pub type EapAttributes = _EAP_ATTRIBUTES;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapCertificateCredential {
@@ -317,6 +297,26 @@ pub const MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH: i32 = 1024;
 pub type PEAP_CONFIG_INPUT_FIELD_ARRAY = *mut EAP_CONFIG_INPUT_FIELD_ARRAY;
 pub type PEAP_CONFIG_INPUT_FIELD_DATA = *mut EAP_CONFIG_INPUT_FIELD_DATA;
 pub type PEAP_CONFIG_INPUT_FIELD_TYPE = *mut EAP_CONFIG_INPUT_FIELD_TYPE;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _EAP_ATTRIBUTE {
+    pub eaType: EAP_ATTRIBUTE_TYPE,
+    pub dwLength: u32,
+    pub pValue: *mut u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _EAP_ATTRIBUTES {
+    pub dwNumberOfAttributes: u32,
+    pub pAttribs: *mut EAP_ATTRIBUTE,
+}
+pub type _EAP_ATTRIBUTE_TYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _EAP_CRED_EXPIRY_REQ {
+    pub curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
+    pub newCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
+}
 pub const eapPropCertifiedMethod: i32 = 4194304;
 pub const eapPropChannelBinding: i32 = 65536;
 pub const eapPropCipherSuiteNegotiation: i32 = 1;
@@ -347,104 +347,104 @@ pub const eapPropStandalone: i32 = 262144;
 pub const eapPropSupportsConfig: i32 = 2097152;
 pub const eapPropTunnelMethod: i32 = 1048576;
 pub const eapPropUserAuth: i32 = 33554432;
-pub const eatARAPChallengeResponse: EAP_ATTRIBUTE_TYPE = 84;
-pub const eatARAPFeatures: EAP_ATTRIBUTE_TYPE = 71;
-pub const eatARAPGuestLogon: EAP_ATTRIBUTE_TYPE = 8096;
-pub const eatARAPPassword: EAP_ATTRIBUTE_TYPE = 70;
-pub const eatARAPSecurity: EAP_ATTRIBUTE_TYPE = 73;
-pub const eatARAPSecurityData: EAP_ATTRIBUTE_TYPE = 74;
-pub const eatARAPZoneAccess: EAP_ATTRIBUTE_TYPE = 72;
-pub const eatAcctAuthentic: EAP_ATTRIBUTE_TYPE = 45;
-pub const eatAcctDelayTime: EAP_ATTRIBUTE_TYPE = 41;
-pub const eatAcctEventTimeStamp: EAP_ATTRIBUTE_TYPE = 55;
-pub const eatAcctInputOctets: EAP_ATTRIBUTE_TYPE = 42;
-pub const eatAcctInputPackets: EAP_ATTRIBUTE_TYPE = 47;
-pub const eatAcctInterimInterval: EAP_ATTRIBUTE_TYPE = 85;
-pub const eatAcctLinkCount: EAP_ATTRIBUTE_TYPE = 51;
-pub const eatAcctMultiSessionId: EAP_ATTRIBUTE_TYPE = 50;
-pub const eatAcctOutputOctets: EAP_ATTRIBUTE_TYPE = 43;
-pub const eatAcctOutputPackets: EAP_ATTRIBUTE_TYPE = 48;
-pub const eatAcctSessionId: EAP_ATTRIBUTE_TYPE = 44;
-pub const eatAcctSessionTime: EAP_ATTRIBUTE_TYPE = 46;
-pub const eatAcctStatusType: EAP_ATTRIBUTE_TYPE = 40;
-pub const eatAcctTerminateCause: EAP_ATTRIBUTE_TYPE = 49;
-pub const eatCallbackId: EAP_ATTRIBUTE_TYPE = 20;
-pub const eatCallbackNumber: EAP_ATTRIBUTE_TYPE = 19;
-pub const eatCalledStationId: EAP_ATTRIBUTE_TYPE = 30;
-pub const eatCallingStationId: EAP_ATTRIBUTE_TYPE = 31;
-pub const eatCertificateOID: EAP_ATTRIBUTE_TYPE = 8097;
-pub const eatCertificateThumbprint: EAP_ATTRIBUTE_TYPE = 8250;
-pub const eatClass: EAP_ATTRIBUTE_TYPE = 25;
-pub const eatClearTextPassword: EAP_ATTRIBUTE_TYPE = 8107;
-pub const eatConfigurationToken: EAP_ATTRIBUTE_TYPE = 78;
-pub const eatConnectInfo: EAP_ATTRIBUTE_TYPE = 77;
-pub const eatCredentialsChanged: EAP_ATTRIBUTE_TYPE = 8103;
-pub const eatEAPConfiguration: EAP_ATTRIBUTE_TYPE = 8098;
-pub const eatEAPMessage: EAP_ATTRIBUTE_TYPE = 79;
-pub const eatEAPTLV: EAP_ATTRIBUTE_TYPE = 8102;
-pub const eatEMSK: EAP_ATTRIBUTE_TYPE = 9003;
-pub const eatFastRoamedSession: EAP_ATTRIBUTE_TYPE = 8100;
-pub const eatFilterId: EAP_ATTRIBUTE_TYPE = 11;
-pub const eatFramedAppleTalkLink: EAP_ATTRIBUTE_TYPE = 37;
-pub const eatFramedAppleTalkNetwork: EAP_ATTRIBUTE_TYPE = 38;
-pub const eatFramedAppleTalkZone: EAP_ATTRIBUTE_TYPE = 39;
-pub const eatFramedCompression: EAP_ATTRIBUTE_TYPE = 13;
-pub const eatFramedIPAddress: EAP_ATTRIBUTE_TYPE = 8;
-pub const eatFramedIPNetmask: EAP_ATTRIBUTE_TYPE = 9;
-pub const eatFramedIPXNetwork: EAP_ATTRIBUTE_TYPE = 23;
-pub const eatFramedIPv6Pool: EAP_ATTRIBUTE_TYPE = 100;
-pub const eatFramedIPv6Prefix: EAP_ATTRIBUTE_TYPE = 97;
-pub const eatFramedIPv6Route: EAP_ATTRIBUTE_TYPE = 99;
-pub const eatFramedInterfaceId: EAP_ATTRIBUTE_TYPE = 96;
-pub const eatFramedMTU: EAP_ATTRIBUTE_TYPE = 12;
-pub const eatFramedProtocol: EAP_ATTRIBUTE_TYPE = 7;
-pub const eatFramedRoute: EAP_ATTRIBUTE_TYPE = 22;
-pub const eatFramedRouting: EAP_ATTRIBUTE_TYPE = 10;
-pub const eatIdleTimeout: EAP_ATTRIBUTE_TYPE = 28;
-pub const eatInnerEapMethodType: EAP_ATTRIBUTE_TYPE = 8104;
-pub const eatLoginIPHost: EAP_ATTRIBUTE_TYPE = 14;
-pub const eatLoginIPv6Host: EAP_ATTRIBUTE_TYPE = 98;
-pub const eatLoginLATGroup: EAP_ATTRIBUTE_TYPE = 36;
-pub const eatLoginLATNode: EAP_ATTRIBUTE_TYPE = 35;
-pub const eatLoginLATPort: EAP_ATTRIBUTE_TYPE = 63;
-pub const eatLoginLATService: EAP_ATTRIBUTE_TYPE = 34;
-pub const eatLoginService: EAP_ATTRIBUTE_TYPE = 15;
-pub const eatLoginTCPPort: EAP_ATTRIBUTE_TYPE = 16;
-pub const eatMD5CHAPChallenge: EAP_ATTRIBUTE_TYPE = 60;
-pub const eatMD5CHAPPassword: EAP_ATTRIBUTE_TYPE = 3;
-pub const eatMethodId: EAP_ATTRIBUTE_TYPE = 9002;
-pub const eatMinimum: EAP_ATTRIBUTE_TYPE = 0;
-pub const eatNASIPAddress: EAP_ATTRIBUTE_TYPE = 4;
-pub const eatNASIPv6Address: EAP_ATTRIBUTE_TYPE = 95;
-pub const eatNASIdentifier: EAP_ATTRIBUTE_TYPE = 32;
-pub const eatNASPort: EAP_ATTRIBUTE_TYPE = 5;
-pub const eatNASPortType: EAP_ATTRIBUTE_TYPE = 61;
-pub const eatPEAPEmbeddedEAPTypeId: EAP_ATTRIBUTE_TYPE = 8099;
-pub const eatPEAPFastRoamedSession: EAP_ATTRIBUTE_TYPE = 8100;
-pub const eatPasswordRetry: EAP_ATTRIBUTE_TYPE = 75;
-pub const eatPeerId: EAP_ATTRIBUTE_TYPE = 9000;
-pub const eatPortLimit: EAP_ATTRIBUTE_TYPE = 62;
-pub const eatPrompt: EAP_ATTRIBUTE_TYPE = 76;
-pub const eatProxyState: EAP_ATTRIBUTE_TYPE = 33;
-pub const eatQuarantineSoH: EAP_ATTRIBUTE_TYPE = 8150;
-pub const eatReplyMessage: EAP_ATTRIBUTE_TYPE = 18;
-pub const eatReserved: EAP_ATTRIBUTE_TYPE = -1;
-pub const eatServerId: EAP_ATTRIBUTE_TYPE = 9001;
-pub const eatServiceType: EAP_ATTRIBUTE_TYPE = 6;
-pub const eatSessionId: EAP_ATTRIBUTE_TYPE = 9004;
-pub const eatSessionTimeout: EAP_ATTRIBUTE_TYPE = 27;
-pub const eatSignature: EAP_ATTRIBUTE_TYPE = 80;
-pub const eatState: EAP_ATTRIBUTE_TYPE = 24;
-pub const eatTerminationAction: EAP_ATTRIBUTE_TYPE = 29;
-pub const eatTunnelClientEndpoint: EAP_ATTRIBUTE_TYPE = 66;
-pub const eatTunnelMediumType: EAP_ATTRIBUTE_TYPE = 65;
-pub const eatTunnelServerEndpoint: EAP_ATTRIBUTE_TYPE = 67;
-pub const eatTunnelType: EAP_ATTRIBUTE_TYPE = 64;
-pub const eatUnassigned17: EAP_ATTRIBUTE_TYPE = 17;
-pub const eatUnassigned21: EAP_ATTRIBUTE_TYPE = 21;
-pub const eatUserName: EAP_ATTRIBUTE_TYPE = 1;
-pub const eatUserPassword: EAP_ATTRIBUTE_TYPE = 2;
-pub const eatVendorSpecific: EAP_ATTRIBUTE_TYPE = 26;
+pub const eatARAPChallengeResponse: _EAP_ATTRIBUTE_TYPE = 84;
+pub const eatARAPFeatures: _EAP_ATTRIBUTE_TYPE = 71;
+pub const eatARAPGuestLogon: _EAP_ATTRIBUTE_TYPE = 8096;
+pub const eatARAPPassword: _EAP_ATTRIBUTE_TYPE = 70;
+pub const eatARAPSecurity: _EAP_ATTRIBUTE_TYPE = 73;
+pub const eatARAPSecurityData: _EAP_ATTRIBUTE_TYPE = 74;
+pub const eatARAPZoneAccess: _EAP_ATTRIBUTE_TYPE = 72;
+pub const eatAcctAuthentic: _EAP_ATTRIBUTE_TYPE = 45;
+pub const eatAcctDelayTime: _EAP_ATTRIBUTE_TYPE = 41;
+pub const eatAcctEventTimeStamp: _EAP_ATTRIBUTE_TYPE = 55;
+pub const eatAcctInputOctets: _EAP_ATTRIBUTE_TYPE = 42;
+pub const eatAcctInputPackets: _EAP_ATTRIBUTE_TYPE = 47;
+pub const eatAcctInterimInterval: _EAP_ATTRIBUTE_TYPE = 85;
+pub const eatAcctLinkCount: _EAP_ATTRIBUTE_TYPE = 51;
+pub const eatAcctMultiSessionId: _EAP_ATTRIBUTE_TYPE = 50;
+pub const eatAcctOutputOctets: _EAP_ATTRIBUTE_TYPE = 43;
+pub const eatAcctOutputPackets: _EAP_ATTRIBUTE_TYPE = 48;
+pub const eatAcctSessionId: _EAP_ATTRIBUTE_TYPE = 44;
+pub const eatAcctSessionTime: _EAP_ATTRIBUTE_TYPE = 46;
+pub const eatAcctStatusType: _EAP_ATTRIBUTE_TYPE = 40;
+pub const eatAcctTerminateCause: _EAP_ATTRIBUTE_TYPE = 49;
+pub const eatCallbackId: _EAP_ATTRIBUTE_TYPE = 20;
+pub const eatCallbackNumber: _EAP_ATTRIBUTE_TYPE = 19;
+pub const eatCalledStationId: _EAP_ATTRIBUTE_TYPE = 30;
+pub const eatCallingStationId: _EAP_ATTRIBUTE_TYPE = 31;
+pub const eatCertificateOID: _EAP_ATTRIBUTE_TYPE = 8097;
+pub const eatCertificateThumbprint: _EAP_ATTRIBUTE_TYPE = 8250;
+pub const eatClass: _EAP_ATTRIBUTE_TYPE = 25;
+pub const eatClearTextPassword: _EAP_ATTRIBUTE_TYPE = 8107;
+pub const eatConfigurationToken: _EAP_ATTRIBUTE_TYPE = 78;
+pub const eatConnectInfo: _EAP_ATTRIBUTE_TYPE = 77;
+pub const eatCredentialsChanged: _EAP_ATTRIBUTE_TYPE = 8103;
+pub const eatEAPConfiguration: _EAP_ATTRIBUTE_TYPE = 8098;
+pub const eatEAPMessage: _EAP_ATTRIBUTE_TYPE = 79;
+pub const eatEAPTLV: _EAP_ATTRIBUTE_TYPE = 8102;
+pub const eatEMSK: _EAP_ATTRIBUTE_TYPE = 9003;
+pub const eatFastRoamedSession: _EAP_ATTRIBUTE_TYPE = 8100;
+pub const eatFilterId: _EAP_ATTRIBUTE_TYPE = 11;
+pub const eatFramedAppleTalkLink: _EAP_ATTRIBUTE_TYPE = 37;
+pub const eatFramedAppleTalkNetwork: _EAP_ATTRIBUTE_TYPE = 38;
+pub const eatFramedAppleTalkZone: _EAP_ATTRIBUTE_TYPE = 39;
+pub const eatFramedCompression: _EAP_ATTRIBUTE_TYPE = 13;
+pub const eatFramedIPAddress: _EAP_ATTRIBUTE_TYPE = 8;
+pub const eatFramedIPNetmask: _EAP_ATTRIBUTE_TYPE = 9;
+pub const eatFramedIPXNetwork: _EAP_ATTRIBUTE_TYPE = 23;
+pub const eatFramedIPv6Pool: _EAP_ATTRIBUTE_TYPE = 100;
+pub const eatFramedIPv6Prefix: _EAP_ATTRIBUTE_TYPE = 97;
+pub const eatFramedIPv6Route: _EAP_ATTRIBUTE_TYPE = 99;
+pub const eatFramedInterfaceId: _EAP_ATTRIBUTE_TYPE = 96;
+pub const eatFramedMTU: _EAP_ATTRIBUTE_TYPE = 12;
+pub const eatFramedProtocol: _EAP_ATTRIBUTE_TYPE = 7;
+pub const eatFramedRoute: _EAP_ATTRIBUTE_TYPE = 22;
+pub const eatFramedRouting: _EAP_ATTRIBUTE_TYPE = 10;
+pub const eatIdleTimeout: _EAP_ATTRIBUTE_TYPE = 28;
+pub const eatInnerEapMethodType: _EAP_ATTRIBUTE_TYPE = 8104;
+pub const eatLoginIPHost: _EAP_ATTRIBUTE_TYPE = 14;
+pub const eatLoginIPv6Host: _EAP_ATTRIBUTE_TYPE = 98;
+pub const eatLoginLATGroup: _EAP_ATTRIBUTE_TYPE = 36;
+pub const eatLoginLATNode: _EAP_ATTRIBUTE_TYPE = 35;
+pub const eatLoginLATPort: _EAP_ATTRIBUTE_TYPE = 63;
+pub const eatLoginLATService: _EAP_ATTRIBUTE_TYPE = 34;
+pub const eatLoginService: _EAP_ATTRIBUTE_TYPE = 15;
+pub const eatLoginTCPPort: _EAP_ATTRIBUTE_TYPE = 16;
+pub const eatMD5CHAPChallenge: _EAP_ATTRIBUTE_TYPE = 60;
+pub const eatMD5CHAPPassword: _EAP_ATTRIBUTE_TYPE = 3;
+pub const eatMethodId: _EAP_ATTRIBUTE_TYPE = 9002;
+pub const eatMinimum: _EAP_ATTRIBUTE_TYPE = 0;
+pub const eatNASIPAddress: _EAP_ATTRIBUTE_TYPE = 4;
+pub const eatNASIPv6Address: _EAP_ATTRIBUTE_TYPE = 95;
+pub const eatNASIdentifier: _EAP_ATTRIBUTE_TYPE = 32;
+pub const eatNASPort: _EAP_ATTRIBUTE_TYPE = 5;
+pub const eatNASPortType: _EAP_ATTRIBUTE_TYPE = 61;
+pub const eatPEAPEmbeddedEAPTypeId: _EAP_ATTRIBUTE_TYPE = 8099;
+pub const eatPEAPFastRoamedSession: _EAP_ATTRIBUTE_TYPE = 8100;
+pub const eatPasswordRetry: _EAP_ATTRIBUTE_TYPE = 75;
+pub const eatPeerId: _EAP_ATTRIBUTE_TYPE = 9000;
+pub const eatPortLimit: _EAP_ATTRIBUTE_TYPE = 62;
+pub const eatPrompt: _EAP_ATTRIBUTE_TYPE = 76;
+pub const eatProxyState: _EAP_ATTRIBUTE_TYPE = 33;
+pub const eatQuarantineSoH: _EAP_ATTRIBUTE_TYPE = 8150;
+pub const eatReplyMessage: _EAP_ATTRIBUTE_TYPE = 18;
+pub const eatReserved: _EAP_ATTRIBUTE_TYPE = -1;
+pub const eatServerId: _EAP_ATTRIBUTE_TYPE = 9001;
+pub const eatServiceType: _EAP_ATTRIBUTE_TYPE = 6;
+pub const eatSessionId: _EAP_ATTRIBUTE_TYPE = 9004;
+pub const eatSessionTimeout: _EAP_ATTRIBUTE_TYPE = 27;
+pub const eatSignature: _EAP_ATTRIBUTE_TYPE = 80;
+pub const eatState: _EAP_ATTRIBUTE_TYPE = 24;
+pub const eatTerminationAction: _EAP_ATTRIBUTE_TYPE = 29;
+pub const eatTunnelClientEndpoint: _EAP_ATTRIBUTE_TYPE = 66;
+pub const eatTunnelMediumType: _EAP_ATTRIBUTE_TYPE = 65;
+pub const eatTunnelServerEndpoint: _EAP_ATTRIBUTE_TYPE = 67;
+pub const eatTunnelType: _EAP_ATTRIBUTE_TYPE = 64;
+pub const eatUnassigned17: _EAP_ATTRIBUTE_TYPE = 17;
+pub const eatUnassigned21: _EAP_ATTRIBUTE_TYPE = 21;
+pub const eatUserName: _EAP_ATTRIBUTE_TYPE = 1;
+pub const eatUserPassword: _EAP_ATTRIBUTE_TYPE = 2;
+pub const eatVendorSpecific: _EAP_ATTRIBUTE_TYPE = 26;
 pub const emptLegacyMethodPropertyFlag: EAP_METHOD_PROPERTY_TYPE = 31;
 pub const emptPropCertifiedMethod: EAP_METHOD_PROPERTY_TYPE = 22;
 pub const emptPropChannelBinding: EAP_METHOD_PROPERTY_TYPE = 16;

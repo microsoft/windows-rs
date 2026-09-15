@@ -19,8 +19,8 @@ pub unsafe fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilitie
     unsafe { XInputGetCapabilities(dwuserindex, dwflags, pcapabilities as _) }
 }
 #[inline]
-pub unsafe fn XInputGetKeystroke(dwuserindex: u32, dwreserved: Option<u32>, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32 {
-    windows_core::link!("xinput1_4.dll" "system" fn XInputGetKeystroke(dwuserindex : u32, dwreserved : u32, pkeystroke : *mut XINPUT_KEYSTROKE) -> u32);
+pub unsafe fn XInputGetKeystroke(dwuserindex: u32, dwreserved: Option<u32>, pkeystroke: PXINPUT_KEYSTROKE) -> u32 {
+    windows_core::link!("xinput1_4.dll" "system" fn XInputGetKeystroke(dwuserindex : u32, dwreserved : u32, pkeystroke : PXINPUT_KEYSTROKE) -> u32);
     unsafe { XInputGetKeystroke(dwuserindex, dwreserved.unwrap_or(core::mem::zeroed()) as _, pkeystroke as _) }
 }
 #[inline]
@@ -114,6 +114,7 @@ pub const XINPUT_DEVSUBTYPE_GUITAR_BASS: i32 = 11;
 pub const XINPUT_DEVSUBTYPE_UNKNOWN: i32 = 0;
 pub const XINPUT_DEVSUBTYPE_WHEEL: i32 = 2;
 pub const XINPUT_DEVTYPE_GAMEPAD: i32 = 1;
+pub const XINPUT_DLL: windows_core::PCSTR = windows_core::s!("xinput1_4.dll");
 pub const XINPUT_DLL_A: windows_core::PCSTR = windows_core::s!("xinput1_4.dll");
 pub const XINPUT_DLL_W: windows_core::PCWSTR = windows_core::w!("xinput1_4.dll");
 pub const XINPUT_FLAG_GAMEPAD: i32 = 1;

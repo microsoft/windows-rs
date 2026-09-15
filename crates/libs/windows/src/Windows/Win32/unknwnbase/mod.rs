@@ -169,3 +169,4 @@ impl IClassFactory_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IClassFactory {}
+pub type LPCLASSFACTORY = IClassFactory;

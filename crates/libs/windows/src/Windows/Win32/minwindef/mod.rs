@@ -1,6 +1,4 @@
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ATOM(pub u16);
+pub type ATOM = u16;
 pub const FALSE: i32 = 0;
 pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
 #[repr(C)]
@@ -9,56 +7,87 @@ pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
+pub type FLOAT = f32;
 #[cfg(feature = "winnt")]
 pub type GLOBALHANDLE = super::HANDLE;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HFILE(pub i32);
+pub type HFILE = i32;
 #[cfg(feature = "winnt")]
 pub type HGLOBAL = super::HANDLE;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HINSTANCE(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HKEY(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HKL(pub *mut core::ffi::c_void);
+pub type HINSTANCE = *mut HINSTANCE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HINSTANCE__ {
+    pub unused: i32,
+}
+pub type HKEY = *mut HKEY__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HKEY__ {
+    pub unused: i32,
+}
+pub type HKL = *mut HKL__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HKL__ {
+    pub unused: i32,
+}
 #[cfg(feature = "winnt")]
 pub type HLOCAL = super::HANDLE;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HLSURF(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HMETAFILE(pub *mut core::ffi::c_void);
+pub type HLSURF = *mut HLSURF__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HLSURF__ {
+    pub unused: i32,
+}
+pub type HMETAFILE = *mut HMETAFILE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HMETAFILE__ {
+    pub unused: i32,
+}
 pub type HMODULE = HINSTANCE;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HRGN(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HRSRC(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HSPRITE(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HSTR(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTASK(pub *mut core::ffi::c_void);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HWINSTA(pub *mut core::ffi::c_void);
+pub type HRGN = *mut HRGN__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HRGN__ {
+    pub unused: i32,
+}
+pub type HRSRC = *mut HRSRC__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HRSRC__ {
+    pub unused: i32,
+}
+pub type HSPRITE = *mut HSPRITE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HSPRITE__ {
+    pub unused: i32,
+}
+pub type HSTR = *mut HSTR__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HSTR__ {
+    pub unused: i32,
+}
+pub type HTASK = *mut HTASK__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HTASK__ {
+    pub unused: i32,
+}
+pub type HWINSTA = *mut HWINSTA__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HWINSTA__ {
+    pub unused: i32,
+}
 #[cfg(feature = "winnt")]
 pub type LOCALHANDLE = super::HANDLE;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPARAM(pub isize);
+pub type LPARAM = isize;
 pub type LPBOOL = *mut windows_core::BOOL;
 pub type LPBYTE = *mut u8;
+pub type LPCVOID = *const core::ffi::c_void;
 pub type LPDWORD = *mut u32;
 pub type LPFILETIME = *mut FILETIME;
 #[cfg(feature = "winnt")]
@@ -66,16 +95,14 @@ pub type LPHANDLE = *mut super::HANDLE;
 pub type LPINT = *mut i32;
 pub type LPLONG = *mut i32;
 pub type LPWORD = *mut u16;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LRESULT(pub isize);
+pub type LRESULT = isize;
 pub const MAX_PATH: i32 = 260;
 pub type NEARPROC = Option<unsafe extern "system" fn() -> isize>;
 pub type PBOOL = *mut windows_core::BOOL;
 pub type PBYTE = *mut u8;
 pub type PDWORD = *mut u32;
 pub type PFILETIME = *mut FILETIME;
-pub type PFLOAT = *mut f32;
+pub type PFLOAT = *mut FLOAT;
 pub type PHKEY = *mut HKEY;
 pub type PINT = *mut i32;
 pub type PROC = Option<unsafe extern "system" fn() -> isize>;
@@ -89,6 +116,4 @@ pub type PWORD = *mut u16;
 pub type SPHANDLE = *mut super::HANDLE;
 pub const STRICT: i32 = 1;
 pub const TRUE: i32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct WPARAM(pub usize);
+pub type WPARAM = usize;

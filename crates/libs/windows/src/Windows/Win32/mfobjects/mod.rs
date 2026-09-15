@@ -224,13 +224,13 @@ pub struct IMFActivate_Vtbl {
     pub ShutdownObject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DetachObject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFActivate_Impl: IMFAttributes_Impl {
     fn ActivateObject(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn ShutdownObject(&self) -> windows_core::Result<()>;
     fn DetachObject(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFActivate_Vtbl {
     pub const fn new<Identity: IMFActivate_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ActivateObject<Identity: IMFActivate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -262,7 +262,7 @@ impl IMFActivate_Vtbl {
         iid == &<IMFActivate as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFActivate {}
 windows_core::imp::define_interface!(IMFAsyncCallback, IMFAsyncCallback_Vtbl, 0xa27003cf_2354_4f2a_8d6a_ab7cff15437e);
 windows_core::imp::interface_hierarchy!(IMFAsyncCallback, windows_core::IUnknown);
@@ -468,7 +468,7 @@ impl windows_core::RuntimeName for IMFAsyncResult {}
 windows_core::imp::define_interface!(IMFAttributes, IMFAttributes_Vtbl, 0x2cd2d921_c447_44a7_a13c_4adabfc247e3);
 windows_core::imp::interface_hierarchy!(IMFAttributes, windows_core::IUnknown);
 impl IMFAttributes {
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetItem(&self, guidkey: *const windows_core::GUID, pvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), guidkey, pvalue) }
     }
@@ -478,7 +478,7 @@ impl IMFAttributes {
             (windows_core::Interface::vtable(self).GetItemType)(windows_core::Interface::as_raw(self), guidkey, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CompareItem(&self, guidkey: *const windows_core::GUID, value: *const super::PROPVARIANT) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -549,7 +549,7 @@ impl IMFAttributes {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetUnknown)(windows_core::Interface::as_raw(self), guidkey, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetItem(&self, guidkey: *const windows_core::GUID, value: *const super::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetItem)(windows_core::Interface::as_raw(self), guidkey, value) }
     }
@@ -598,7 +598,7 @@ impl IMFAttributes {
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut windows_core::GUID, pvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetItemByIndex)(windows_core::Interface::as_raw(self), unindex, pguidkey as _, pvalue) }
     }
@@ -613,14 +613,14 @@ impl IMFAttributes {
 #[doc(hidden)]
 pub struct IMFAttributes_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetItem: usize,
     pub GetItemType: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut MF_ATTRIBUTE_TYPE) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CompareItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::PROPVARIANT, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CompareItem: usize,
     pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, MF_ATTRIBUTES_MATCH_TYPE, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetUINT32: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32) -> windows_core::HRESULT,
@@ -634,9 +634,9 @@ pub struct IMFAttributes_Vtbl {
     pub GetBlob: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u8, u32, *mut u32) -> windows_core::HRESULT,
     pub GetAllocatedBlob: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetUnknown: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetItem: usize,
     pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub DeleteAllItems: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -650,13 +650,13 @@ pub struct IMFAttributes_Vtbl {
     pub LockStore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnlockStore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetItemByIndex: usize,
     pub CopyAllItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFAttributes_Impl: windows_core::IUnknownImpl {
     fn GetItem(&self, guidkey: *const windows_core::GUID, pvalue: *mut super::PROPVARIANT) -> windows_core::Result<()>;
     fn GetItemType(&self, guidkey: *const windows_core::GUID) -> windows_core::Result<MF_ATTRIBUTE_TYPE>;
@@ -689,7 +689,7 @@ pub trait IMFAttributes_Impl: windows_core::IUnknownImpl {
     fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut windows_core::GUID, pvalue: *mut super::PROPVARIANT) -> windows_core::Result<()>;
     fn CopyAllItems(&self, pdest: windows_core::Ref<IMFAttributes>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFAttributes_Vtbl {
     pub const fn new<Identity: IMFAttributes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetItem<Identity: IMFAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidkey: *const windows_core::GUID, pvalue: *mut super::PROPVARIANT) -> windows_core::HRESULT {
@@ -970,7 +970,7 @@ impl IMFAttributes_Vtbl {
         iid == &<IMFAttributes as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFAttributes {}
 windows_core::imp::define_interface!(IMFAudioMediaType, IMFAudioMediaType_Vtbl, 0x26a0adc3_ce26_4672_9304_69552edd3faf);
 impl core::ops::Deref for IMFAudioMediaType {
@@ -995,11 +995,11 @@ pub struct IMFAudioMediaType_Vtbl {
     #[cfg(not(feature = "mmeapi"))]
     GetAudioFormat: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFAudioMediaType_Impl: IMFMediaType_Impl {
     fn GetAudioFormat(&self) -> *const super::WAVEFORMATEX;
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFAudioMediaType_Vtbl {
     pub const fn new<Identity: IMFAudioMediaType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAudioFormat<Identity: IMFAudioMediaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *const super::WAVEFORMATEX {
@@ -1014,7 +1014,7 @@ impl IMFAudioMediaType_Vtbl {
         iid == &<IMFAudioMediaType as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID || iid == &<IMFMediaType as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFAudioMediaType {}
 windows_core::imp::define_interface!(IMFByteStream, IMFByteStream_Vtbl, 0xad4c1b00_4bf7_422f_9175_756693d9130d);
 windows_core::imp::interface_hierarchy!(IMFByteStream, windows_core::IUnknown);
@@ -1471,12 +1471,8 @@ impl windows_core::RuntimeName for IMFCollection {}
 windows_core::imp::define_interface!(IMFDXGIBuffer, IMFDXGIBuffer_Vtbl, 0xe7174cfa_1c9e_48b1_8866_626226bfc258);
 windows_core::imp::interface_hierarchy!(IMFDXGIBuffer, windows_core::IUnknown);
 impl IMFDXGIBuffer {
-    pub unsafe fn GetResource<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetResource)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    pub unsafe fn GetResource(&self, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetResource)(windows_core::Interface::as_raw(self), riid, ppvobject as _) }
     }
     pub unsafe fn GetSubresourceIndex(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1484,12 +1480,8 @@ impl IMFDXGIBuffer {
             (windows_core::Interface::vtable(self).GetSubresourceIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetUnknown<T>(&self, guid: *const windows_core::GUID) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetUnknown)(windows_core::Interface::as_raw(self), guid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    pub unsafe fn GetUnknown(&self, guid: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetUnknown)(windows_core::Interface::as_raw(self), guid, riid, ppvobject as _) }
     }
     pub unsafe fn SetUnknown<P1>(&self, guid: *const windows_core::GUID, punkdata: P1) -> windows_core::HRESULT
     where
@@ -1662,27 +1654,16 @@ impl IMFDXGIDeviceManager {
         unsafe { (windows_core::Interface::vtable(self).CloseDeviceHandle)(windows_core::Interface::as_raw(self), hdevice) }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn GetVideoService<T>(&self, hdevice: super::HANDLE) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetVideoService)(windows_core::Interface::as_raw(self), hdevice, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    pub unsafe fn GetVideoService(&self, hdevice: super::HANDLE, riid: *const windows_core::GUID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetVideoService)(windows_core::Interface::as_raw(self), hdevice, riid, ppservice as _) }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn LockDevice<T>(&self, hdevice: super::HANDLE, fblock: bool) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).LockDevice)(windows_core::Interface::as_raw(self), hdevice, &T::IID, &mut result__, fblock.into()).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    pub unsafe fn LockDevice(&self, hdevice: super::HANDLE, riid: *const windows_core::GUID, ppunkdevice: *mut *mut core::ffi::c_void, fblock: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).LockDevice)(windows_core::Interface::as_raw(self), hdevice, riid, ppunkdevice as _, fblock.into()) }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn OpenDeviceHandle(&self) -> windows_core::Result<super::HANDLE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenDeviceHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn OpenDeviceHandle(&self, phdevice: *mut super::HANDLE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).OpenDeviceHandle)(windows_core::Interface::as_raw(self), phdevice as _) }
     }
     pub unsafe fn ResetDevice<P0>(&self, punkdevice: P0, resettoken: u32) -> windows_core::HRESULT
     where
@@ -1734,7 +1715,7 @@ pub trait IMFDXGIDeviceManager_Impl: windows_core::IUnknownImpl {
     fn CloseDeviceHandle(&self, hdevice: super::HANDLE) -> windows_core::Result<()>;
     fn GetVideoService(&self, hdevice: super::HANDLE, riid: *const windows_core::GUID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn LockDevice(&self, hdevice: super::HANDLE, riid: *const windows_core::GUID, ppunkdevice: *mut *mut core::ffi::c_void, fblock: windows_core::BOOL) -> windows_core::Result<()>;
-    fn OpenDeviceHandle(&self) -> windows_core::Result<super::HANDLE>;
+    fn OpenDeviceHandle(&self, phdevice: *mut super::HANDLE) -> windows_core::Result<()>;
     fn ResetDevice(&self, punkdevice: windows_core::Ref<windows_core::IUnknown>, resettoken: u32) -> windows_core::Result<()>;
     fn TestDevice(&self, hdevice: super::HANDLE) -> windows_core::Result<()>;
     fn UnlockDevice(&self, hdevice: super::HANDLE, fsavestate: windows_core::BOOL) -> windows_core::Result<()>;
@@ -1763,13 +1744,7 @@ impl IMFDXGIDeviceManager_Vtbl {
         unsafe extern "system" fn OpenDeviceHandle<Identity: IMFDXGIDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phdevice: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMFDXGIDeviceManager_Impl::OpenDeviceHandle(this) {
-                    Ok(ok__) => {
-                        phdevice.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMFDXGIDeviceManager_Impl::OpenDeviceHandle(this, core::mem::transmute_copy(&phdevice)).into()
             }
         }
         unsafe extern "system" fn ResetDevice<Identity: IMFDXGIDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkdevice: *mut core::ffi::c_void, resettoken: u32) -> windows_core::HRESULT {
@@ -1934,7 +1909,7 @@ impl IMFMediaEvent {
             (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self) -> windows_core::Result<super::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1949,19 +1924,19 @@ pub struct IMFMediaEvent_Vtbl {
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaEventType) -> windows_core::HRESULT,
     pub GetExtendedType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFMediaEvent_Impl: IMFAttributes_Impl {
     fn GetType(&self) -> windows_core::Result<MediaEventType>;
     fn GetExtendedType(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetStatus(&self) -> windows_core::Result<windows_core::HRESULT>;
     fn GetValue(&self) -> windows_core::Result<super::PROPVARIANT>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFMediaEvent_Vtbl {
     pub const fn new<Identity: IMFMediaEvent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetType<Identity: IMFMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmet: *mut MediaEventType) -> windows_core::HRESULT {
@@ -2024,7 +1999,7 @@ impl IMFMediaEvent_Vtbl {
         iid == &<IMFMediaEvent as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFMediaEvent {}
 windows_core::imp::define_interface!(IMFMediaEventGenerator, IMFMediaEventGenerator_Vtbl, 0x2cd0bd52_bcd5_4b89_b62c_eadc0c031e7d);
 windows_core::imp::interface_hierarchy!(IMFMediaEventGenerator, windows_core::IUnknown);
@@ -2051,7 +2026,7 @@ impl IMFMediaEventGenerator {
             (windows_core::Interface::vtable(self).EndGetEvent)(windows_core::Interface::as_raw(self), presult.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn QueueEvent(&self, met: MediaEventType, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const super::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueueEvent)(windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, pvvalue) }
     }
@@ -2063,19 +2038,19 @@ pub struct IMFMediaEventGenerator_Vtbl {
     pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BeginGetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndGetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub QueueEvent: unsafe extern "system" fn(*mut core::ffi::c_void, MediaEventType, *const windows_core::GUID, windows_core::HRESULT, *const super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     QueueEvent: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFMediaEventGenerator_Impl: windows_core::IUnknownImpl {
     fn GetEvent(&self, dwflags: u32) -> windows_core::Result<IMFMediaEvent>;
     fn BeginGetEvent(&self, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EndGetEvent(&self, presult: windows_core::Ref<IMFAsyncResult>) -> windows_core::Result<IMFMediaEvent>;
     fn QueueEvent(&self, met: MediaEventType, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const super::PROPVARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFMediaEventGenerator_Vtbl {
     pub const fn new<Identity: IMFMediaEventGenerator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetEvent<Identity: IMFMediaEventGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, ppevent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2126,7 +2101,7 @@ impl IMFMediaEventGenerator_Vtbl {
         iid == &<IMFMediaEventGenerator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFMediaEventGenerator {}
 windows_core::imp::define_interface!(IMFMediaEventQueue, IMFMediaEventQueue_Vtbl, 0x36f846fc_2256_48b6_b58e_e2b638316581);
 windows_core::imp::interface_hierarchy!(IMFMediaEventQueue, windows_core::IUnknown);
@@ -2159,7 +2134,7 @@ impl IMFMediaEventQueue {
     {
         unsafe { (windows_core::Interface::vtable(self).QueueEvent)(windows_core::Interface::as_raw(self), pevent.param().abi()) }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn QueueEventParamVar(&self, met: MediaEventType, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const super::PROPVARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueueEventParamVar)(windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, pvvalue) }
     }
@@ -2181,14 +2156,14 @@ pub struct IMFMediaEventQueue_Vtbl {
     pub BeginGetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndGetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub QueueEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub QueueEventParamVar: unsafe extern "system" fn(*mut core::ffi::c_void, MediaEventType, *const windows_core::GUID, windows_core::HRESULT, *const super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     QueueEventParamVar: usize,
     pub QueueEventParamUnk: unsafe extern "system" fn(*mut core::ffi::c_void, MediaEventType, *const windows_core::GUID, windows_core::HRESULT, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFMediaEventQueue_Impl: windows_core::IUnknownImpl {
     fn GetEvent(&self, dwflags: u32) -> windows_core::Result<IMFMediaEvent>;
     fn BeginGetEvent(&self, pcallback: windows_core::Ref<IMFAsyncCallback>, punkstate: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -2198,7 +2173,7 @@ pub trait IMFMediaEventQueue_Impl: windows_core::IUnknownImpl {
     fn QueueEventParamUnk(&self, met: MediaEventType, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFMediaEventQueue_Vtbl {
     pub const fn new<Identity: IMFMediaEventQueue_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetEvent<Identity: IMFMediaEventQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, ppevent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2270,7 +2245,7 @@ impl IMFMediaEventQueue_Vtbl {
         iid == &<IMFMediaEventQueue as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFMediaEventQueue {}
 windows_core::imp::define_interface!(IMFMediaType, IMFMediaType_Vtbl, 0x44ae0fa8_ea31_4109_8d2e_4cae4997c555);
 impl core::ops::Deref for IMFMediaType {
@@ -2319,7 +2294,7 @@ pub struct IMFMediaType_Vtbl {
     pub GetRepresentation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FreeRepresentation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFMediaType_Impl: IMFAttributes_Impl {
     fn GetMajorType(&self) -> windows_core::Result<windows_core::GUID>;
     fn IsCompressedFormat(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -2327,7 +2302,7 @@ pub trait IMFMediaType_Impl: IMFAttributes_Impl {
     fn GetRepresentation(&self, guidrepresentation: &windows_core::GUID, ppvrepresentation: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn FreeRepresentation(&self, guidrepresentation: &windows_core::GUID, pvrepresentation: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFMediaType_Vtbl {
     pub const fn new<Identity: IMFMediaType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMajorType<Identity: IMFMediaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidmajortype: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -2391,7 +2366,7 @@ impl IMFMediaType_Vtbl {
         iid == &<IMFMediaType as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFMediaType {}
 windows_core::imp::define_interface!(IMFMuxStreamAttributesManager, IMFMuxStreamAttributesManager_Vtbl, 0xce8bd576_e440_43b3_be34_1e53f565f7e8);
 windows_core::imp::interface_hierarchy!(IMFMuxStreamAttributesManager, windows_core::IUnknown);
@@ -2950,7 +2925,7 @@ pub struct IMFSample_Vtbl {
     pub GetTotalLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub CopyToBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFSample_Impl: IMFAttributes_Impl {
     fn GetSampleFlags(&self) -> windows_core::Result<u32>;
     fn SetSampleFlags(&self, dwsampleflags: u32) -> windows_core::Result<()>;
@@ -2967,7 +2942,7 @@ pub trait IMFSample_Impl: IMFAttributes_Impl {
     fn GetTotalLength(&self) -> windows_core::Result<u32>;
     fn CopyToBuffer(&self, pbuffer: windows_core::Ref<IMFMediaBuffer>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFSample_Vtbl {
     pub const fn new<Identity: IMFSample_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSampleFlags<Identity: IMFSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwsampleflags: *mut u32) -> windows_core::HRESULT {
@@ -3118,7 +3093,7 @@ impl IMFSample_Vtbl {
         iid == &<IMFSample as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFSample {}
 windows_core::imp::define_interface!(IMFSampleOutputStream, IMFSampleOutputStream_Vtbl, 0x8feed468_6f7e_440d_869a_49bdd283ad0d);
 windows_core::imp::interface_hierarchy!(IMFSampleOutputStream, windows_core::IUnknown);
@@ -3253,12 +3228,12 @@ pub struct IMFVideoMediaType_Vtbl {
     GetVideoFormat: usize,
     pub GetVideoRepresentation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMFVideoMediaType_Impl: IMFMediaType_Impl {
     fn GetVideoFormat(&self) -> *const MFVIDEOFORMAT;
     fn GetVideoRepresentation(&self, guidrepresentation: &windows_core::GUID, ppvrepresentation: *mut *mut core::ffi::c_void, lstride: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMFVideoMediaType_Vtbl {
     pub const fn new<Identity: IMFVideoMediaType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetVideoFormat<Identity: IMFVideoMediaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *const MFVIDEOFORMAT {
@@ -3283,128 +3258,128 @@ impl IMFVideoMediaType_Vtbl {
         iid == &<IMFVideoMediaType as windows_core::Interface>::IID || iid == &<IMFAttributes as windows_core::Interface>::IID || iid == &<IMFMediaType as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMFVideoMediaType {}
-pub const MEAudioSessionDeviceRemoved: i32 = 315;
-pub const MEAudioSessionDisconnected: i32 = 320;
-pub const MEAudioSessionExclusiveModeOverride: i32 = 321;
-pub const MEAudioSessionFormatChanged: i32 = 319;
-pub const MEAudioSessionGroupingParamChanged: i32 = 317;
-pub const MEAudioSessionIconChanged: i32 = 318;
-pub const MEAudioSessionNameChanged: i32 = 313;
-pub const MEAudioSessionServerShutdown: i32 = 316;
-pub const MEAudioSessionVolumeChanged: i32 = 314;
-pub const MEBufferingStarted: i32 = 122;
-pub const MEBufferingStopped: i32 = 123;
-pub const MEByteStreamCharacteristicsChanged: i32 = 700;
-pub const MECaptureAudioSessionDeviceRemoved: i32 = 323;
-pub const MECaptureAudioSessionDisconnected: i32 = 325;
-pub const MECaptureAudioSessionExclusiveModeOverride: i32 = 326;
-pub const MECaptureAudioSessionFormatChanged: i32 = 324;
-pub const MECaptureAudioSessionServerShutdown: i32 = 327;
-pub const MECaptureAudioSessionVolumeChanged: i32 = 322;
-pub const MEConnectEnd: i32 = 125;
-pub const MEConnectStart: i32 = 124;
-pub const MEContentProtectionMessage: i32 = 402;
-pub const MEContentProtectionMetadata: i32 = 900;
-pub const MEDeviceThermalStateChanged: i32 = 950;
-pub const MEEnablerCompleted: i32 = 119;
-pub const MEEnablerProgress: i32 = 118;
-pub const MEEncodingParameters: i32 = 803;
-pub const MEEndOfPresentation: i32 = 211;
-pub const MEEndOfPresentationSegment: i32 = 218;
-pub const MEEndOfStream: i32 = 212;
-pub const MEError: i32 = 1;
-pub const MEExtendedType: i32 = 2;
-pub const MEGenericV1Anchor: i32 = 3;
-pub const MEIndividualizationCompleted: i32 = 117;
-pub const MEIndividualizationStart: i32 = 116;
-pub const MELicenseAcquisitionCompleted: i32 = 115;
-pub const MELicenseAcquisitionStart: i32 = 114;
-pub const MEMediaSample: i32 = 213;
-pub const MENewPresentation: i32 = 113;
-pub const MENewStream: i32 = 205;
-pub const MENonFatalError: i32 = 3;
-pub const MEPolicyChanged: i32 = 401;
-pub const MEPolicyError: i32 = 120;
-pub const MEPolicyReport: i32 = 121;
-pub const MEPolicySet: i32 = 403;
-pub const MEQualityNotify: i32 = 311;
-pub const MEReconnectEnd: i32 = 127;
-pub const MEReconnectStart: i32 = 126;
-pub const MERendererEvent: i32 = 128;
-pub const MEReservedMax: i32 = 10000;
-pub const MESequencerSourceTopologyUpdated: i32 = 222;
-pub const MESessionCapabilitiesChanged: i32 = 110;
-pub const MESessionClosed: i32 = 106;
-pub const MESessionEnded: i32 = 107;
-pub const MESessionNotifyPresentationTime: i32 = 112;
-pub const MESessionPaused: i32 = 104;
-pub const MESessionRateChanged: i32 = 108;
-pub const MESessionScrubSampleComplete: i32 = 109;
-pub const MESessionStarted: i32 = 103;
-pub const MESessionStopped: i32 = 105;
-pub const MESessionStreamSinkFormatChanged: i32 = 129;
-pub const MESessionTopologiesCleared: i32 = 102;
-pub const MESessionTopologySet: i32 = 101;
-pub const MESessionTopologyStatus: i32 = 111;
-pub const MESessionUnknown: i32 = 100;
-pub const MESessionV1Anchor: i32 = 129;
-pub const MESinkInvalidated: i32 = 312;
-pub const MESinkUnknown: i32 = 300;
-pub const MESinkV1Anchor: i32 = 321;
-pub const MESinkV2Anchor: i32 = 327;
-pub const MESourceCharacteristicsChanged: i32 = 219;
-pub const MESourceMetadataChanged: i32 = 221;
-pub const MESourcePaused: i32 = 209;
-pub const MESourceRateChangeRequested: i32 = 220;
-pub const MESourceRateChanged: i32 = 217;
-pub const MESourceSeeked: i32 = 203;
-pub const MESourceStarted: i32 = 201;
-pub const MESourceStopped: i32 = 207;
-pub const MESourceUnknown: i32 = 200;
-pub const MESourceV1Anchor: i32 = 222;
-pub const MEStreamFormatChanged: i32 = 216;
-pub const MEStreamPaused: i32 = 210;
-pub const MEStreamSeeked: i32 = 204;
-pub const MEStreamSinkDeviceChanged: i32 = 310;
-pub const MEStreamSinkFormatChanged: i32 = 309;
-pub const MEStreamSinkFormatInvalidated: i32 = 802;
-pub const MEStreamSinkMarker: i32 = 306;
-pub const MEStreamSinkPaused: i32 = 303;
-pub const MEStreamSinkPrerolled: i32 = 307;
-pub const MEStreamSinkRateChanged: i32 = 304;
-pub const MEStreamSinkRequestSample: i32 = 305;
-pub const MEStreamSinkScrubSampleComplete: i32 = 308;
-pub const MEStreamSinkStarted: i32 = 301;
-pub const MEStreamSinkStopped: i32 = 302;
-pub const MEStreamStarted: i32 = 202;
-pub const MEStreamStopped: i32 = 208;
-pub const MEStreamThinMode: i32 = 215;
-pub const MEStreamTick: i32 = 214;
-pub const METransformDrainComplete: i32 = 603;
-pub const METransformHaveOutput: i32 = 602;
-pub const METransformInputStreamStateChanged: i32 = 605;
-pub const METransformMarker: i32 = 604;
-pub const METransformNeedInput: i32 = 601;
-pub const METransformUnknown: i32 = 600;
-pub const METrustUnknown: i32 = 400;
-pub const METrustV1Anchor: i32 = 403;
-pub const MEUnknown: i32 = 0;
-pub const MEUpdatedStream: i32 = 206;
-pub const MEVideoCaptureDevicePreempted: i32 = 801;
-pub const MEVideoCaptureDeviceRemoved: i32 = 800;
-pub const MEWMDRMIndividualizationCompleted: i32 = 508;
-pub const MEWMDRMIndividualizationProgress: i32 = 513;
-pub const MEWMDRMLicenseAcquisitionCompleted: i32 = 506;
-pub const MEWMDRMLicenseBackupCompleted: i32 = 500;
-pub const MEWMDRMLicenseBackupProgress: i32 = 501;
-pub const MEWMDRMLicenseRestoreCompleted: i32 = 502;
-pub const MEWMDRMLicenseRestoreProgress: i32 = 503;
-pub const MEWMDRMLicenseStoreCleaned: i32 = 515;
-pub const MEWMDRMProximityCompleted: i32 = 514;
-pub const MEWMDRMRevocationDownloadCompleted: i32 = 516;
-pub const MEWMDRMV1Anchor: i32 = 516;
+pub const MEAudioSessionDeviceRemoved: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 315;
+pub const MEAudioSessionDisconnected: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 320;
+pub const MEAudioSessionExclusiveModeOverride: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 321;
+pub const MEAudioSessionFormatChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 319;
+pub const MEAudioSessionGroupingParamChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 317;
+pub const MEAudioSessionIconChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 318;
+pub const MEAudioSessionNameChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 313;
+pub const MEAudioSessionServerShutdown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 316;
+pub const MEAudioSessionVolumeChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 314;
+pub const MEBufferingStarted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 122;
+pub const MEBufferingStopped: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 123;
+pub const MEByteStreamCharacteristicsChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 700;
+pub const MECaptureAudioSessionDeviceRemoved: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 323;
+pub const MECaptureAudioSessionDisconnected: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 325;
+pub const MECaptureAudioSessionExclusiveModeOverride: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 326;
+pub const MECaptureAudioSessionFormatChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 324;
+pub const MECaptureAudioSessionServerShutdown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 327;
+pub const MECaptureAudioSessionVolumeChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 322;
+pub const MEConnectEnd: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 125;
+pub const MEConnectStart: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 124;
+pub const MEContentProtectionMessage: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 402;
+pub const MEContentProtectionMetadata: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 900;
+pub const MEDeviceThermalStateChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 950;
+pub const MEEnablerCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 119;
+pub const MEEnablerProgress: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 118;
+pub const MEEncodingParameters: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 803;
+pub const MEEndOfPresentation: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 211;
+pub const MEEndOfPresentationSegment: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 218;
+pub const MEEndOfStream: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 212;
+pub const MEError: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 1;
+pub const MEExtendedType: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 2;
+pub const MEGenericV1Anchor: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 3;
+pub const MEIndividualizationCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 117;
+pub const MEIndividualizationStart: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 116;
+pub const MELicenseAcquisitionCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 115;
+pub const MELicenseAcquisitionStart: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 114;
+pub const MEMediaSample: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 213;
+pub const MENewPresentation: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 113;
+pub const MENewStream: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 205;
+pub const MENonFatalError: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 3;
+pub const MEPolicyChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 401;
+pub const MEPolicyError: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 120;
+pub const MEPolicyReport: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 121;
+pub const MEPolicySet: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 403;
+pub const MEQualityNotify: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 311;
+pub const MEReconnectEnd: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 127;
+pub const MEReconnectStart: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 126;
+pub const MERendererEvent: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 128;
+pub const MEReservedMax: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 10000;
+pub const MESequencerSourceTopologyUpdated: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 222;
+pub const MESessionCapabilitiesChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 110;
+pub const MESessionClosed: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 106;
+pub const MESessionEnded: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 107;
+pub const MESessionNotifyPresentationTime: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 112;
+pub const MESessionPaused: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 104;
+pub const MESessionRateChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 108;
+pub const MESessionScrubSampleComplete: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 109;
+pub const MESessionStarted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 103;
+pub const MESessionStopped: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 105;
+pub const MESessionStreamSinkFormatChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 129;
+pub const MESessionTopologiesCleared: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 102;
+pub const MESessionTopologySet: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 101;
+pub const MESessionTopologyStatus: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 111;
+pub const MESessionUnknown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 100;
+pub const MESessionV1Anchor: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 129;
+pub const MESinkInvalidated: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 312;
+pub const MESinkUnknown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 300;
+pub const MESinkV1Anchor: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 321;
+pub const MESinkV2Anchor: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 327;
+pub const MESourceCharacteristicsChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 219;
+pub const MESourceMetadataChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 221;
+pub const MESourcePaused: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 209;
+pub const MESourceRateChangeRequested: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 220;
+pub const MESourceRateChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 217;
+pub const MESourceSeeked: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 203;
+pub const MESourceStarted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 201;
+pub const MESourceStopped: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 207;
+pub const MESourceUnknown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 200;
+pub const MESourceV1Anchor: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 222;
+pub const MEStreamFormatChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 216;
+pub const MEStreamPaused: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 210;
+pub const MEStreamSeeked: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 204;
+pub const MEStreamSinkDeviceChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 310;
+pub const MEStreamSinkFormatChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 309;
+pub const MEStreamSinkFormatInvalidated: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 802;
+pub const MEStreamSinkMarker: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 306;
+pub const MEStreamSinkPaused: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 303;
+pub const MEStreamSinkPrerolled: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 307;
+pub const MEStreamSinkRateChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 304;
+pub const MEStreamSinkRequestSample: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 305;
+pub const MEStreamSinkScrubSampleComplete: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 308;
+pub const MEStreamSinkStarted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 301;
+pub const MEStreamSinkStopped: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 302;
+pub const MEStreamStarted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 202;
+pub const MEStreamStopped: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 208;
+pub const MEStreamThinMode: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 215;
+pub const MEStreamTick: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 214;
+pub const METransformDrainComplete: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 603;
+pub const METransformHaveOutput: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 602;
+pub const METransformInputStreamStateChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 605;
+pub const METransformMarker: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 604;
+pub const METransformNeedInput: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 601;
+pub const METransformUnknown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 600;
+pub const METrustUnknown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 400;
+pub const METrustV1Anchor: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 403;
+pub const MEUnknown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 0;
+pub const MEUpdatedStream: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 206;
+pub const MEVideoCaptureDevicePreempted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 801;
+pub const MEVideoCaptureDeviceRemoved: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 800;
+pub const MEWMDRMIndividualizationCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 508;
+pub const MEWMDRMIndividualizationProgress: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 513;
+pub const MEWMDRMLicenseAcquisitionCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 506;
+pub const MEWMDRMLicenseBackupCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 500;
+pub const MEWMDRMLicenseBackupProgress: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 501;
+pub const MEWMDRMLicenseRestoreCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 502;
+pub const MEWMDRMLicenseRestoreProgress: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 503;
+pub const MEWMDRMLicenseStoreCleaned: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 515;
+pub const MEWMDRMProximityCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 514;
+pub const MEWMDRMRevocationDownloadCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 516;
+pub const MEWMDRMV1Anchor: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = 516;
 pub type MF2DBuffer_LockFlags = i32;
 pub const MF2DBuffer_LockFlags_ForceDWORD: MF2DBuffer_LockFlags = 2147483647;
 pub const MF2DBuffer_LockFlags_LockTypeMask: MF2DBuffer_LockFlags = 3;
@@ -3590,9 +3565,9 @@ pub type MFVideoInterlaceMode = i32;
 pub const MFVideoInterlace_FieldInterleavedLowerFirst: MFVideoInterlaceMode = 4;
 pub const MFVideoInterlace_FieldInterleavedUpperFirst: MFVideoInterlaceMode = 3;
 pub const MFVideoInterlace_FieldSingleLower: MFVideoInterlaceMode = 6;
-pub const MFVideoInterlace_FieldSingleLowerFirst: i32 = 6;
+pub const MFVideoInterlace_FieldSingleLowerFirst: MFVideoInterlaceMode = 6;
 pub const MFVideoInterlace_FieldSingleUpper: MFVideoInterlaceMode = 5;
-pub const MFVideoInterlace_FieldSingleUpperFirst: i32 = 5;
+pub const MFVideoInterlace_FieldSingleUpperFirst: MFVideoInterlaceMode = 5;
 pub const MFVideoInterlace_ForceDWORD: MFVideoInterlaceMode = 2147483647;
 pub const MFVideoInterlace_Last: MFVideoInterlaceMode = 8;
 pub const MFVideoInterlace_MixedInterlaceOrProgressive: MFVideoInterlaceMode = 7;
@@ -3727,8 +3702,7 @@ pub type MF_STREAM_STATE = i32;
 pub const MF_STREAM_STATE_PAUSED: MF_STREAM_STATE = 1;
 pub const MF_STREAM_STATE_RUNNING: MF_STREAM_STATE = 2;
 pub const MF_STREAM_STATE_STOPPED: MF_STREAM_STATE = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MediaEventType(pub u32);
+pub type MediaEventType = u32;
+pub type __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = i32;
 pub const msoBegin: MFBYTESTREAM_SEEK_ORIGIN = 0;
 pub const msoCurrent: MFBYTESTREAM_SEEK_ORIGIN = 1;

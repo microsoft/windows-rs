@@ -23,7 +23,7 @@ pub const AM_PROPERTY_FRAMESTEP_CANSTEP: AM_PROPERTY_FRAMESTEP = 3;
 pub const AM_PROPERTY_FRAMESTEP_CANSTEPMULTIPLE: AM_PROPERTY_FRAMESTEP = 4;
 pub const AM_PROPERTY_FRAMESTEP_STEP: AM_PROPERTY_FRAMESTEP = 1;
 #[repr(C)]
-#[cfg(all(feature = "ksmedia", feature = "windef"))]
+#[cfg(all(feature = "mediaobj", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ANALOGVIDEOINFO {
     pub rcSource: super::RECT,
@@ -204,12 +204,12 @@ impl IDirectDrawVideo {
     #[cfg(feature = "ddraw")]
     pub unsafe fn SetDirectDraw<P0>(&self, pdirectdraw: P0) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<super::IDirectDraw>,
+        P0: windows_core::Param<super::LPDIRECTDRAW>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDirectDraw)(windows_core::Interface::as_raw(self), pdirectdraw.param().abi()) }
     }
     #[cfg(feature = "ddraw")]
-    pub unsafe fn GetDirectDraw(&self) -> windows_core::Result<super::IDirectDraw> {
+    pub unsafe fn GetDirectDraw(&self) -> windows_core::Result<super::LPDIRECTDRAW> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDirectDraw)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -296,8 +296,8 @@ pub trait IDirectDrawVideo_Impl: windows_core::IUnknownImpl {
     fn GetEmulatedCaps(&self, pcaps: *mut super::DDCAPS) -> windows_core::Result<()>;
     fn GetSurfaceDesc(&self, psurfacedesc: *mut super::DDSURFACEDESC) -> windows_core::Result<()>;
     fn GetFourCCCodes(&self, pcount: *mut u32, pcodes: *mut u32) -> windows_core::Result<()>;
-    fn SetDirectDraw(&self, pdirectdraw: windows_core::Ref<super::IDirectDraw>) -> windows_core::Result<()>;
-    fn GetDirectDraw(&self) -> windows_core::Result<super::IDirectDraw>;
+    fn SetDirectDraw(&self, pdirectdraw: windows_core::Ref<super::LPDIRECTDRAW>) -> windows_core::Result<()>;
+    fn GetDirectDraw(&self) -> windows_core::Result<super::LPDIRECTDRAW>;
     fn GetSurfaceType(&self) -> windows_core::Result<u32>;
     fn SetDefault(&self) -> windows_core::Result<()>;
     fn UseScanLine(&self, usescanline: i32) -> windows_core::Result<()>;
@@ -1005,7 +1005,7 @@ impl IQualProp_Vtbl {
 impl windows_core::RuntimeName for IQualProp {}
 pub const MAX_SIZE_MPEG1_SEQUENCE_INFO: i32 = 140;
 #[repr(C)]
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPEG1VIDEOINFO {
     pub hdr: VIDEOINFOHEADER,
@@ -1013,13 +1013,29 @@ pub struct MPEG1VIDEOINFO {
     pub cbSequenceHeader: u32,
     pub bSequenceHeader: [u8; 1],
 }
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 impl Default for MPEG1VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const SIZE_EGA_PALETTE: u32 = 64;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SIZE_EGA_PALETTE: u64 = 64;
+#[cfg(target_arch = "x86")]
+pub const SIZE_MASKS: u32 = 12;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SIZE_MASKS: u64 = 12;
+#[cfg(target_arch = "x86")]
+pub const SIZE_PALETTE: u32 = 1024;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SIZE_PALETTE: u64 = 1024;
 pub const SIZE_PREHEADER: i32 = 48;
+#[cfg(target_arch = "x86")]
+pub const SIZE_VIDEOHEADER: u32 = 88;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub const SIZE_VIDEOHEADER: u64 = 88;
 #[repr(C)]
 #[cfg(feature = "wingdi")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1034,7 +1050,7 @@ impl Default for TRUECOLORINFO {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub struct VIDEOINFO {
     pub rcSource: super::RECT,
@@ -1045,28 +1061,28 @@ pub struct VIDEOINFO {
     pub bmiHeader: super::BITMAPINFOHEADER,
     pub Anonymous: VIDEOINFO_0,
 }
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 impl Default for VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub union VIDEOINFO_0 {
     pub bmiColors: [super::RGBQUAD; 256],
     pub dwBitMasks: [u32; 3],
     pub TrueColorInfo: TRUECOLORINFO,
 }
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 impl Default for VIDEOINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIDEOINFOHEADER {
     pub rcSource: super::RECT,

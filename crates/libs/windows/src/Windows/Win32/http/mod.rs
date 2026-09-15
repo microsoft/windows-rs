@@ -1,19 +1,19 @@
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpAddFragmentToCache<P1>(requestqueuehandle: super::HANDLE, urlprefix: P1, datachunk: *const HTTP_DATA_CHUNK, cachepolicy: *const HTTP_CACHE_POLICY, overlapped: Option<*const super::OVERLAPPED>) -> u32
+pub unsafe fn HttpAddFragmentToCache<P1>(requestqueuehandle: super::HANDLE, urlprefix: P1, datachunk: PHTTP_DATA_CHUNK, cachepolicy: PHTTP_CACHE_POLICY, overlapped: Option<super::LPOVERLAPPED>) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("httpapi.dll" "system" fn HttpAddFragmentToCache(requestqueuehandle : super::HANDLE, urlprefix : windows_core::PCWSTR, datachunk : *const HTTP_DATA_CHUNK, cachepolicy : *const HTTP_CACHE_POLICY, overlapped : *const super::OVERLAPPED) -> u32);
+    windows_core::link!("httpapi.dll" "system" fn HttpAddFragmentToCache(requestqueuehandle : super::HANDLE, urlprefix : windows_core::PCWSTR, datachunk : PHTTP_DATA_CHUNK, cachepolicy : PHTTP_CACHE_POLICY, overlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpAddFragmentToCache(requestqueuehandle, urlprefix.param().abi(), datachunk, cachepolicy, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn HttpAddUrl<P1>(requestqueuehandle: super::HANDLE, fullyqualifiedurl: P1, reserved: Option<*const core::ffi::c_void>) -> u32
+pub unsafe fn HttpAddUrl<P1>(requestqueuehandle: super::HANDLE, fullyqualifiedurl: P1, reserved: Option<*mut core::ffi::c_void>) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("httpapi.dll" "system" fn HttpAddUrl(requestqueuehandle : super::HANDLE, fullyqualifiedurl : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> u32);
+    windows_core::link!("httpapi.dll" "system" fn HttpAddUrl(requestqueuehandle : super::HANDLE, fullyqualifiedurl : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> u32);
     unsafe { HttpAddUrl(requestqueuehandle, fullyqualifiedurl.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -26,8 +26,8 @@ where
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpCancelHttpRequest(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, overlapped: Option<*const super::OVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpCancelHttpRequest(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, overlapped : *const super::OVERLAPPED) -> u32);
+pub unsafe fn HttpCancelHttpRequest(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpCancelHttpRequest(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, overlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpCancelHttpRequest(requestqueuehandle, requestid, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -48,67 +48,67 @@ pub unsafe fn HttpCloseUrlGroup(urlgroupid: HTTP_URL_GROUP_ID) -> u32 {
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: *mut super::HANDLE, reserved: Option<u32>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpCreateHttpHandle(requestqueuehandle : *mut super::HANDLE, reserved : u32) -> u32);
+pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: super::PHANDLE, reserved: Option<u32>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpCreateHttpHandle(requestqueuehandle : super::PHANDLE, reserved : u32) -> u32);
     unsafe { HttpCreateHttpHandle(requestqueuehandle as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpCreateRequestQueue<P1>(version: HTTPAPI_VERSION, name: P1, securityattributes: Option<*const super::SECURITY_ATTRIBUTES>, flags: Option<u32>, requestqueuehandle: *mut super::HANDLE) -> u32
+pub unsafe fn HttpCreateRequestQueue<P1>(version: HTTPAPI_VERSION, name: P1, securityattributes: Option<super::PSECURITY_ATTRIBUTES>, flags: Option<u32>, requestqueuehandle: super::PHANDLE) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("httpapi.dll" "system" fn HttpCreateRequestQueue(version : HTTPAPI_VERSION, name : windows_core::PCWSTR, securityattributes : *const super::SECURITY_ATTRIBUTES, flags : u32, requestqueuehandle : *mut super::HANDLE) -> u32);
+    windows_core::link!("httpapi.dll" "system" fn HttpCreateRequestQueue(version : HTTPAPI_VERSION, name : windows_core::PCWSTR, securityattributes : super::PSECURITY_ATTRIBUTES, flags : u32, requestqueuehandle : super::PHANDLE) -> u32);
     unsafe { HttpCreateRequestQueue(version, name.param().abi(), securityattributes.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _, requestqueuehandle as _) }
 }
 #[inline]
-pub unsafe fn HttpCreateServerSession(version: HTTPAPI_VERSION, serversessionid: *mut HTTP_OPAQUE_ID, reserved: Option<u32>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpCreateServerSession(version : HTTPAPI_VERSION, serversessionid : *mut HTTP_OPAQUE_ID, reserved : u32) -> u32);
+pub unsafe fn HttpCreateServerSession(version: HTTPAPI_VERSION, serversessionid: PHTTP_SERVER_SESSION_ID, reserved: Option<u32>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpCreateServerSession(version : HTTPAPI_VERSION, serversessionid : PHTTP_SERVER_SESSION_ID, reserved : u32) -> u32);
     unsafe { HttpCreateServerSession(version, serversessionid as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HttpCreateUrlGroup(serversessionid: HTTP_SERVER_SESSION_ID, purlgroupid: *mut HTTP_OPAQUE_ID, reserved: Option<u32>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpCreateUrlGroup(serversessionid : HTTP_SERVER_SESSION_ID, purlgroupid : *mut HTTP_OPAQUE_ID, reserved : u32) -> u32);
+pub unsafe fn HttpCreateUrlGroup(serversessionid: HTTP_SERVER_SESSION_ID, purlgroupid: PHTTP_URL_GROUP_ID, reserved: Option<u32>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpCreateUrlGroup(serversessionid : HTTP_SERVER_SESSION_ID, purlgroupid : PHTTP_URL_GROUP_ID, reserved : u32) -> u32);
     unsafe { HttpCreateUrlGroup(serversessionid, purlgroupid as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn HttpDeclarePush<P3, P4>(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, verb: HTTP_VERB, path: P3, query: P4, headers: Option<*const HTTP_REQUEST_HEADERS>) -> u32
+pub unsafe fn HttpDeclarePush<P3, P4>(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, verb: HTTP_VERB, path: P3, query: P4, headers: Option<PHTTP_REQUEST_HEADERS>) -> u32
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("httpapi.dll" "system" fn HttpDeclarePush(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, verb : HTTP_VERB, path : windows_core::PCWSTR, query : windows_core::PCSTR, headers : *const HTTP_REQUEST_HEADERS) -> u32);
+    windows_core::link!("httpapi.dll" "system" fn HttpDeclarePush(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, verb : HTTP_VERB, path : windows_core::PCWSTR, query : windows_core::PCSTR, headers : PHTTP_REQUEST_HEADERS) -> u32);
     unsafe { HttpDeclarePush(requestqueuehandle, requestid, verb, path.param().abi(), query.param().abi(), headers.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn HttpDelegateRequestEx(requestqueuehandle: super::HANDLE, delegatequeuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, delegateurlgroupid: HTTP_URL_GROUP_ID, propertyinfosetsize: u32, propertyinfoset: *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpDelegateRequestEx(requestqueuehandle : super::HANDLE, delegatequeuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, delegateurlgroupid : HTTP_URL_GROUP_ID, propertyinfosetsize : u32, propertyinfoset : *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32);
+pub unsafe fn HttpDelegateRequestEx(requestqueuehandle: super::HANDLE, delegatequeuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, delegateurlgroupid: HTTP_URL_GROUP_ID, propertyinfosetsize: u32, propertyinfoset: PHTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpDelegateRequestEx(requestqueuehandle : super::HANDLE, delegatequeuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, delegateurlgroupid : HTTP_URL_GROUP_ID, propertyinfosetsize : u32, propertyinfoset : PHTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32);
     unsafe { HttpDelegateRequestEx(requestqueuehandle, delegatequeuehandle, requestid, delegateurlgroupid, propertyinfosetsize, propertyinfoset) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpDeleteServiceConfiguration(servicehandle: Option<super::HANDLE>, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const core::ffi::c_void, configinformationlength: u32, poverlapped: Option<*const super::OVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpDeleteServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : *const core::ffi::c_void, configinformationlength : u32, poverlapped : *const super::OVERLAPPED) -> u32);
+pub unsafe fn HttpDeleteServiceConfiguration(servicehandle: Option<super::HANDLE>, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const core::ffi::c_void, configinformationlength: u32, poverlapped: Option<super::LPOVERLAPPED>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpDeleteServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : *const core::ffi::c_void, configinformationlength : u32, poverlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpDeleteServiceConfiguration(servicehandle.unwrap_or(core::mem::zeroed()) as _, configid, pconfiginformation, configinformationlength, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn HttpFindUrlGroupId<P0>(fullyqualifiedurl: P0, requestqueuehandle: super::HANDLE, urlgroupid: *mut HTTP_OPAQUE_ID) -> u32
+pub unsafe fn HttpFindUrlGroupId<P0>(fullyqualifiedurl: P0, requestqueuehandle: super::HANDLE, urlgroupid: PHTTP_URL_GROUP_ID) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("httpapi.dll" "system" fn HttpFindUrlGroupId(fullyqualifiedurl : windows_core::PCWSTR, requestqueuehandle : super::HANDLE, urlgroupid : *mut HTTP_OPAQUE_ID) -> u32);
+    windows_core::link!("httpapi.dll" "system" fn HttpFindUrlGroupId(fullyqualifiedurl : windows_core::PCWSTR, requestqueuehandle : super::HANDLE, urlgroupid : PHTTP_URL_GROUP_ID) -> u32);
     unsafe { HttpFindUrlGroupId(fullyqualifiedurl.param().abi(), requestqueuehandle, urlgroupid as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpFlushResponseCache<P1>(requestqueuehandle: super::HANDLE, urlprefix: P1, flags: u32, overlapped: Option<*const super::OVERLAPPED>) -> u32
+pub unsafe fn HttpFlushResponseCache<P1>(requestqueuehandle: super::HANDLE, urlprefix: P1, flags: u32, overlapped: Option<super::LPOVERLAPPED>) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("httpapi.dll" "system" fn HttpFlushResponseCache(requestqueuehandle : super::HANDLE, urlprefix : windows_core::PCWSTR, flags : u32, overlapped : *const super::OVERLAPPED) -> u32);
+    windows_core::link!("httpapi.dll" "system" fn HttpFlushResponseCache(requestqueuehandle : super::HANDLE, urlprefix : windows_core::PCWSTR, flags : u32, overlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpFlushResponseCache(requestqueuehandle, urlprefix.param().abi(), flags, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -117,8 +117,8 @@ pub unsafe fn HttpGetExtension(version: HTTPAPI_VERSION, extension: u32, buffer:
     unsafe { HttpGetExtension(version, extension, buffer as _, buffersize) }
 }
 #[inline]
-pub unsafe fn HttpInitialize(version: HTTPAPI_VERSION, flags: u32, preserved: Option<*const core::ffi::c_void>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpInitialize(version : HTTPAPI_VERSION, flags : u32, preserved : *const core::ffi::c_void) -> u32);
+pub unsafe fn HttpInitialize(version: HTTPAPI_VERSION, flags: u32, preserved: Option<*mut core::ffi::c_void>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpInitialize(version : HTTPAPI_VERSION, flags : u32, preserved : *mut core::ffi::c_void) -> u32);
     unsafe { HttpInitialize(version, flags, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -127,66 +127,68 @@ pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> windows_core
     unsafe { HttpIsFeatureSupported(featureid) }
 }
 #[inline]
-pub unsafe fn HttpPrepareUrl<P2>(reserved: Option<*const core::ffi::c_void>, flags: Option<u32>, url: P2, preparedurl: *mut windows_core::PWSTR) -> u32
+pub unsafe fn HttpPrepareUrl<P2>(reserved: Option<*mut core::ffi::c_void>, flags: Option<u32>, url: P2, preparedurl: *mut windows_core::PWSTR) -> u32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("httpapi.dll" "system" fn HttpPrepareUrl(reserved : *const core::ffi::c_void, flags : u32, url : windows_core::PCWSTR, preparedurl : *mut windows_core::PWSTR) -> u32);
+    windows_core::link!("httpapi.dll" "system" fn HttpPrepareUrl(reserved : *mut core::ffi::c_void, flags : u32, url : windows_core::PCWSTR, preparedurl : *mut windows_core::PWSTR) -> u32);
     unsafe { HttpPrepareUrl(reserved.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _, url.param().abi(), preparedurl as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpQueryRequestProperty(requestqueuehandle: super::HANDLE, id: HTTP_OPAQUE_ID, propertyid: HTTP_REQUEST_PROPERTY, qualifier: Option<*const core::ffi::c_void>, qualifiersize: u32, output: Option<*mut core::ffi::c_void>, outputbuffersize: u32, bytesreturned: Option<*mut u32>, overlapped: Option<*const super::OVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpQueryRequestProperty(requestqueuehandle : super::HANDLE, id : HTTP_OPAQUE_ID, propertyid : HTTP_REQUEST_PROPERTY, qualifier : *const core::ffi::c_void, qualifiersize : u32, output : *mut core::ffi::c_void, outputbuffersize : u32, bytesreturned : *mut u32, overlapped : *const super::OVERLAPPED) -> u32);
+pub unsafe fn HttpQueryRequestProperty(requestqueuehandle: super::HANDLE, id: HTTP_OPAQUE_ID, propertyid: HTTP_REQUEST_PROPERTY, qualifier: Option<*const core::ffi::c_void>, qualifiersize: u32, output: Option<*mut core::ffi::c_void>, outputbuffersize: u32, bytesreturned: Option<super::PULONG>, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpQueryRequestProperty(requestqueuehandle : super::HANDLE, id : HTTP_OPAQUE_ID, propertyid : HTTP_REQUEST_PROPERTY, qualifier : *const core::ffi::c_void, qualifiersize : u32, output : *mut core::ffi::c_void, outputbuffersize : u32, bytesreturned : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpQueryRequestProperty(requestqueuehandle, id, propertyid, qualifier.unwrap_or(core::mem::zeroed()) as _, qualifiersize, output.unwrap_or(core::mem::zeroed()) as _, outputbuffersize, bytesreturned.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpQueryRequestQueueProperty(requestqueuehandle: super::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<*mut core::ffi::c_void>, propertyinformationlength: u32, reserved1: Option<u32>, returnlength: Option<*mut u32>, reserved2: Option<*const core::ffi::c_void>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpQueryRequestQueueProperty(requestqueuehandle : super::HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, reserved1 : u32, returnlength : *mut u32, reserved2 : *const core::ffi::c_void) -> u32);
+pub unsafe fn HttpQueryRequestQueueProperty(requestqueuehandle: super::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<*mut core::ffi::c_void>, propertyinformationlength: u32, reserved1: Option<u32>, returnlength: Option<super::PULONG>, reserved2: Option<*mut core::ffi::c_void>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpQueryRequestQueueProperty(requestqueuehandle : super::HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, reserved1 : u32, returnlength : super::PULONG, reserved2 : *mut core::ffi::c_void) -> u32);
     unsafe { HttpQueryRequestQueueProperty(requestqueuehandle, property, propertyinformation.unwrap_or(core::mem::zeroed()) as _, propertyinformationlength, reserved1.unwrap_or(core::mem::zeroed()) as _, returnlength.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn HttpQueryServerSessionProperty(serversessionid: HTTP_SERVER_SESSION_ID, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<*mut core::ffi::c_void>, propertyinformationlength: u32, returnlength: Option<*mut u32>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpQueryServerSessionProperty(serversessionid : HTTP_SERVER_SESSION_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, returnlength : *mut u32) -> u32);
+pub unsafe fn HttpQueryServerSessionProperty(serversessionid: HTTP_SERVER_SESSION_ID, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<*mut core::ffi::c_void>, propertyinformationlength: u32, returnlength: Option<super::PULONG>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpQueryServerSessionProperty(serversessionid : HTTP_SERVER_SESSION_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, returnlength : super::PULONG) -> u32);
     unsafe { HttpQueryServerSessionProperty(serversessionid, property, propertyinformation.unwrap_or(core::mem::zeroed()) as _, propertyinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpQueryServiceConfiguration(servicehandle: Option<super::HANDLE>, configid: HTTP_SERVICE_CONFIG_ID, pinput: Option<*const core::ffi::c_void>, inputlength: u32, poutput: Option<*mut core::ffi::c_void>, outputlength: u32, preturnlength: Option<*mut u32>, poverlapped: Option<*const super::OVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpQueryServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pinput : *const core::ffi::c_void, inputlength : u32, poutput : *mut core::ffi::c_void, outputlength : u32, preturnlength : *mut u32, poverlapped : *const super::OVERLAPPED) -> u32);
+pub unsafe fn HttpQueryServiceConfiguration(servicehandle: Option<super::HANDLE>, configid: HTTP_SERVICE_CONFIG_ID, pinput: Option<*const core::ffi::c_void>, inputlength: u32, poutput: Option<*mut core::ffi::c_void>, outputlength: u32, preturnlength: Option<super::PULONG>, poverlapped: Option<super::LPOVERLAPPED>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpQueryServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pinput : *const core::ffi::c_void, inputlength : u32, poutput : *mut core::ffi::c_void, outputlength : u32, preturnlength : super::PULONG, poverlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpQueryServiceConfiguration(servicehandle.unwrap_or(core::mem::zeroed()) as _, configid, pinput.unwrap_or(core::mem::zeroed()) as _, inputlength, poutput.unwrap_or(core::mem::zeroed()) as _, outputlength, preturnlength.unwrap_or(core::mem::zeroed()) as _, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: HTTP_URL_GROUP_ID, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<*mut core::ffi::c_void>, propertyinformationlength: u32, returnlength: Option<*mut u32>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpQueryUrlGroupProperty(urlgroupid : HTTP_URL_GROUP_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, returnlength : *mut u32) -> u32);
+pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: HTTP_URL_GROUP_ID, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<*mut core::ffi::c_void>, propertyinformationlength: u32, returnlength: Option<super::PULONG>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpQueryUrlGroupProperty(urlgroupid : HTTP_URL_GROUP_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, returnlength : super::PULONG) -> u32);
     unsafe { HttpQueryUrlGroupProperty(urlgroupid, property, propertyinformation.unwrap_or(core::mem::zeroed()) as _, propertyinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpReadFragmentFromCache<P1>(requestqueuehandle: super::HANDLE, urlprefix: P1, byterange: Option<*const HTTP_BYTE_RANGE>, buffer: *mut core::ffi::c_void, bufferlength: u32, bytesread: Option<*mut u32>, overlapped: Option<*const super::OVERLAPPED>) -> u32
+pub unsafe fn HttpReadFragmentFromCache<P1>(requestqueuehandle: super::HANDLE, urlprefix: P1, byterange: Option<PHTTP_BYTE_RANGE>, buffer: *mut core::ffi::c_void, bufferlength: u32, bytesread: Option<super::PULONG>, overlapped: Option<super::LPOVERLAPPED>) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("httpapi.dll" "system" fn HttpReadFragmentFromCache(requestqueuehandle : super::HANDLE, urlprefix : windows_core::PCWSTR, byterange : *const HTTP_BYTE_RANGE, buffer : *mut core::ffi::c_void, bufferlength : u32, bytesread : *mut u32, overlapped : *const super::OVERLAPPED) -> u32);
+    windows_core::link!("httpapi.dll" "system" fn HttpReadFragmentFromCache(requestqueuehandle : super::HANDLE, urlprefix : windows_core::PCWSTR, byterange : PHTTP_BYTE_RANGE, buffer : *mut core::ffi::c_void, bufferlength : u32, bytesread : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpReadFragmentFromCache(requestqueuehandle, urlprefix.param().abi(), byterange.unwrap_or(core::mem::zeroed()) as _, buffer as _, bufferlength, bytesread.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpReceiveClientCertificate(requestqueuehandle: super::HANDLE, connectionid: HTTP_CONNECTION_ID, flags: u32, sslclientcertinfo: *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize: u32, bytesreceived: Option<*mut u32>, overlapped: Option<*const super::OVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpReceiveClientCertificate(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, flags : u32, sslclientcertinfo : *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize : u32, bytesreceived : *mut u32, overlapped : *const super::OVERLAPPED) -> u32);
+pub unsafe fn HttpReceiveClientCertificate(requestqueuehandle: super::HANDLE, connectionid: HTTP_CONNECTION_ID, flags: u32, sslclientcertinfo: PHTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize: u32, bytesreceived: Option<super::PULONG>, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpReceiveClientCertificate(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, flags : u32, sslclientcertinfo : PHTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize : u32, bytesreceived : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpReceiveClientCertificate(requestqueuehandle, connectionid, flags, sslclientcertinfo as _, sslclientcertinfosize, bytesreceived.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "ws2"))]
 #[inline]
-pub unsafe fn HttpReceiveHttpRequest(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: u32, requestbuffer: *mut HTTP_REQUEST, requestbufferlength: u32, bytesreturned: Option<*mut u32>, overlapped: Option<*const super::OVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpReceiveHttpRequest(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, requestbuffer : *mut HTTP_REQUEST, requestbufferlength : u32, bytesreturned : *mut u32, overlapped : *const super::OVERLAPPED) -> u32);
+pub unsafe fn HttpReceiveHttpRequest(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: u32, requestbuffer: PHTTP_REQUEST, requestbufferlength: u32, bytesreturned: Option<super::PULONG>, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpReceiveHttpRequest(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, requestbuffer : PHTTP_REQUEST, requestbufferlength : u32, bytesreturned : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpReceiveHttpRequest(requestqueuehandle, requestid, flags, requestbuffer as _, requestbufferlength, bytesreturned.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpReceiveRequestEntityBody(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: u32, entitybuffer: *mut core::ffi::c_void, entitybufferlength: u32, bytesreturned: Option<*mut u32>, overlapped: Option<*const super::OVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpReceiveRequestEntityBody(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, entitybuffer : *mut core::ffi::c_void, entitybufferlength : u32, bytesreturned : *mut u32, overlapped : *const super::OVERLAPPED) -> u32);
+pub unsafe fn HttpReceiveRequestEntityBody(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: u32, entitybuffer: *mut core::ffi::c_void, entitybufferlength: u32, bytesreturned: Option<super::PULONG>, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpReceiveRequestEntityBody(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, entitybuffer : *mut core::ffi::c_void, entitybufferlength : u32, bytesreturned : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpReceiveRequestEntityBody(requestqueuehandle, requestid, flags, entitybuffer as _, entitybufferlength, bytesreturned.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -206,28 +208,28 @@ where
     windows_core::link!("httpapi.dll" "system" fn HttpRemoveUrlFromUrlGroup(urlgroupid : HTTP_URL_GROUP_ID, pfullyqualifiedurl : windows_core::PCWSTR, flags : u32) -> u32);
     unsafe { HttpRemoveUrlFromUrlGroup(urlgroupid, pfullyqualifiedurl.param().abi(), flags) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpSendHttpResponse(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: u32, httpresponse: *const HTTP_RESPONSE, cachepolicy: Option<*const HTTP_CACHE_POLICY>, bytessent: Option<*mut u32>, reserved1: Option<*const core::ffi::c_void>, reserved2: Option<u32>, overlapped: Option<*const super::OVERLAPPED>, logdata: Option<*const HTTP_LOG_DATA>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpSendHttpResponse(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, httpresponse : *const HTTP_RESPONSE, cachepolicy : *const HTTP_CACHE_POLICY, bytessent : *mut u32, reserved1 : *const core::ffi::c_void, reserved2 : u32, overlapped : *const super::OVERLAPPED, logdata : *const HTTP_LOG_DATA) -> u32);
+pub unsafe fn HttpSendHttpResponse(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: u32, httpresponse: PHTTP_RESPONSE, cachepolicy: Option<PHTTP_CACHE_POLICY>, bytessent: Option<super::PULONG>, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>, overlapped: Option<super::LPOVERLAPPED>, logdata: Option<PHTTP_LOG_DATA>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpSendHttpResponse(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, httpresponse : PHTTP_RESPONSE, cachepolicy : PHTTP_CACHE_POLICY, bytessent : super::PULONG, reserved1 : *mut core::ffi::c_void, reserved2 : u32, overlapped : super::LPOVERLAPPED, logdata : PHTTP_LOG_DATA) -> u32);
     unsafe { HttpSendHttpResponse(requestqueuehandle, requestid, flags, httpresponse, cachepolicy.unwrap_or(core::mem::zeroed()) as _, bytessent.unwrap_or(core::mem::zeroed()) as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _, logdata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpSendResponseEntityBody(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: u32, entitychunks: Option<&[HTTP_DATA_CHUNK]>, bytessent: Option<*mut u32>, reserved1: Option<*const core::ffi::c_void>, reserved2: Option<u32>, overlapped: Option<*const super::OVERLAPPED>, logdata: Option<*const HTTP_LOG_DATA>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpSendResponseEntityBody(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, entitychunkcount : u16, entitychunks : *const HTTP_DATA_CHUNK, bytessent : *mut u32, reserved1 : *const core::ffi::c_void, reserved2 : u32, overlapped : *const super::OVERLAPPED, logdata : *const HTTP_LOG_DATA) -> u32);
-    unsafe { HttpSendResponseEntityBody(requestqueuehandle, requestid, flags, entitychunks.map_or(0, |slice| slice.len().try_into().unwrap()), entitychunks.map_or(core::ptr::null(), |slice| slice.as_ptr()), bytessent.unwrap_or(core::mem::zeroed()) as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _, logdata.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpSendResponseEntityBody(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: u32, entitychunks: Option<&[HTTP_DATA_CHUNK]>, bytessent: Option<super::PULONG>, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>, overlapped: Option<super::LPOVERLAPPED>, logdata: Option<PHTTP_LOG_DATA>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpSendResponseEntityBody(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, entitychunkcount : u16, entitychunks : PHTTP_DATA_CHUNK, bytessent : super::PULONG, reserved1 : *mut core::ffi::c_void, reserved2 : u32, overlapped : super::LPOVERLAPPED, logdata : PHTTP_LOG_DATA) -> u32);
+    unsafe { HttpSendResponseEntityBody(requestqueuehandle, requestid, flags, entitychunks.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entitychunks.map_or(core::ptr::null(), |slice| slice.as_ptr())), bytessent.unwrap_or(core::mem::zeroed()) as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _, logdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpSetRequestProperty(requestqueuehandle: super::HANDLE, id: HTTP_OPAQUE_ID, propertyid: HTTP_REQUEST_PROPERTY, input: Option<*const core::ffi::c_void>, inputpropertysize: u32, overlapped: *const super::OVERLAPPED) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpSetRequestProperty(requestqueuehandle : super::HANDLE, id : HTTP_OPAQUE_ID, propertyid : HTTP_REQUEST_PROPERTY, input : *const core::ffi::c_void, inputpropertysize : u32, overlapped : *const super::OVERLAPPED) -> u32);
+pub unsafe fn HttpSetRequestProperty(requestqueuehandle: super::HANDLE, id: HTTP_OPAQUE_ID, propertyid: HTTP_REQUEST_PROPERTY, input: Option<*const core::ffi::c_void>, inputpropertysize: u32, overlapped: super::LPOVERLAPPED) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpSetRequestProperty(requestqueuehandle : super::HANDLE, id : HTTP_OPAQUE_ID, propertyid : HTTP_REQUEST_PROPERTY, input : *const core::ffi::c_void, inputpropertysize : u32, overlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpSetRequestProperty(requestqueuehandle, id, propertyid, input.unwrap_or(core::mem::zeroed()) as _, inputpropertysize, overlapped) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn HttpSetRequestQueueProperty(requestqueuehandle: super::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: *const core::ffi::c_void, propertyinformationlength: u32, reserved1: Option<u32>, reserved2: Option<*const core::ffi::c_void>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpSetRequestQueueProperty(requestqueuehandle : super::HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : *const core::ffi::c_void, propertyinformationlength : u32, reserved1 : u32, reserved2 : *const core::ffi::c_void) -> u32);
+pub unsafe fn HttpSetRequestQueueProperty(requestqueuehandle: super::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: *const core::ffi::c_void, propertyinformationlength: u32, reserved1: Option<u32>, reserved2: Option<*mut core::ffi::c_void>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpSetRequestQueueProperty(requestqueuehandle : super::HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : *const core::ffi::c_void, propertyinformationlength : u32, reserved1 : u32, reserved2 : *mut core::ffi::c_void) -> u32);
     unsafe { HttpSetRequestQueueProperty(requestqueuehandle, property, propertyinformation, propertyinformationlength, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -237,8 +239,8 @@ pub unsafe fn HttpSetServerSessionProperty(serversessionid: HTTP_SERVER_SESSION_
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpSetServiceConfiguration(servicehandle: Option<super::HANDLE>, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const core::ffi::c_void, configinformationlength: u32, poverlapped: Option<*const super::OVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpSetServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : *const core::ffi::c_void, configinformationlength : u32, poverlapped : *const super::OVERLAPPED) -> u32);
+pub unsafe fn HttpSetServiceConfiguration(servicehandle: Option<super::HANDLE>, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const core::ffi::c_void, configinformationlength: u32, poverlapped: Option<super::LPOVERLAPPED>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpSetServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : *const core::ffi::c_void, configinformationlength : u32, poverlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpSetServiceConfiguration(servicehandle.unwrap_or(core::mem::zeroed()) as _, configid, pconfiginformation, configinformationlength, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -253,32 +255,32 @@ pub unsafe fn HttpShutdownRequestQueue(requestqueuehandle: super::HANDLE) -> u32
     unsafe { HttpShutdownRequestQueue(requestqueuehandle) }
 }
 #[inline]
-pub unsafe fn HttpTerminate(flags: u32, preserved: Option<*const core::ffi::c_void>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpTerminate(flags : u32, preserved : *const core::ffi::c_void) -> u32);
+pub unsafe fn HttpTerminate(flags: u32, preserved: Option<*mut core::ffi::c_void>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpTerminate(flags : u32, preserved : *mut core::ffi::c_void) -> u32);
     unsafe { HttpTerminate(flags, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpUpdateServiceConfiguration(handle: Option<super::HANDLE>, configid: HTTP_SERVICE_CONFIG_ID, configinfo: *const core::ffi::c_void, configinfolength: u32, overlapped: Option<*const super::OVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpUpdateServiceConfiguration(handle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, configinfo : *const core::ffi::c_void, configinfolength : u32, overlapped : *const super::OVERLAPPED) -> u32);
+pub unsafe fn HttpUpdateServiceConfiguration(handle: Option<super::HANDLE>, configid: HTTP_SERVICE_CONFIG_ID, configinfo: *const core::ffi::c_void, configinfolength: u32, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpUpdateServiceConfiguration(handle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, configinfo : *const core::ffi::c_void, configinfolength : u32, overlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpUpdateServiceConfiguration(handle.unwrap_or(core::mem::zeroed()) as _, configid, configinfo, configinfolength, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpWaitForDemandStart(requestqueuehandle: super::HANDLE, overlapped: Option<*const super::OVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpWaitForDemandStart(requestqueuehandle : super::HANDLE, overlapped : *const super::OVERLAPPED) -> u32);
+pub unsafe fn HttpWaitForDemandStart(requestqueuehandle: super::HANDLE, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpWaitForDemandStart(requestqueuehandle : super::HANDLE, overlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpWaitForDemandStart(requestqueuehandle, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpWaitForDisconnect(requestqueuehandle: super::HANDLE, connectionid: HTTP_CONNECTION_ID, overlapped: Option<*const super::OVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpWaitForDisconnect(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, overlapped : *const super::OVERLAPPED) -> u32);
+pub unsafe fn HttpWaitForDisconnect(requestqueuehandle: super::HANDLE, connectionid: HTTP_CONNECTION_ID, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpWaitForDisconnect(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, overlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpWaitForDisconnect(requestqueuehandle, connectionid, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpWaitForDisconnectEx(requestqueuehandle: super::HANDLE, connectionid: HTTP_CONNECTION_ID, reserved: Option<u32>, overlapped: Option<*const super::OVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpWaitForDisconnectEx(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, reserved : u32, overlapped : *const super::OVERLAPPED) -> u32);
+pub unsafe fn HttpWaitForDisconnectEx(requestqueuehandle: super::HANDLE, connectionid: HTTP_CONNECTION_ID, reserved: Option<u32>, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
+    windows_core::link!("httpapi.dll" "system" fn HttpWaitForDisconnectEx(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, reserved : u32, overlapped : super::LPOVERLAPPED) -> u32);
     unsafe { HttpWaitForDisconnectEx(requestqueuehandle, connectionid, reserved.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 pub const CacheRangeChunkSize: HTTP_SERVICE_CONFIG_CACHE_KEY = 1;
@@ -336,10 +338,17 @@ pub struct HTTP_BINDING_INFO {
     pub RequestQueueHandle: super::HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct HTTP_BYTE_RANGE {
-    pub StartingOffset: u64,
-    pub Length: u64,
+    pub StartingOffset: super::ULARGE_INTEGER,
+    pub Length: super::ULARGE_INTEGER,
+}
+#[cfg(feature = "winnt")]
+impl Default for HTTP_BYTE_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HTTP_BYTE_RANGE_TO_EOF: u64 = 18446744073709551615;
 #[repr(C)]
@@ -459,10 +468,16 @@ pub struct HTTP_DATA_CHUNK_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_1 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub FileHandle: super::HANDLE,
+}
+#[cfg(feature = "winnt")]
+impl Default for HTTP_DATA_CHUNK_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -473,10 +488,16 @@ pub struct HTTP_DATA_CHUNK_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_3 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub pFragmentName: windows_core::PCWSTR,
+}
+#[cfg(feature = "winnt")]
+impl Default for HTTP_DATA_CHUNK_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -510,10 +531,11 @@ pub struct HTTP_ERROR_HEADERS_PARAM {
     pub Headers: PHTTP_UNKNOWN_HEADER,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_FAST_FORWARD_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
-    pub EnableFastForwarding: bool,
+    pub EnableFastForwarding: super::BOOLEAN,
 }
 pub type HTTP_FEATURE_ID = i32;
 #[repr(C)]
@@ -536,10 +558,11 @@ pub struct HTTP_KNOWN_HEADER {
 }
 pub const HTTP_LIMIT_INFINITE: u32 = 4294967295;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_LISTEN_ENDPOINT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
-    pub EnableSharing: bool,
+    pub EnableSharing: super::BOOLEAN,
 }
 pub const HTTP_LOGGING_FLAG_LOCAL_TIME_ROLLOVER: i32 = 1;
 pub const HTTP_LOGGING_FLAG_LOG_ERRORS_ONLY: i32 = 4;
@@ -653,9 +676,7 @@ pub struct HTTP_MULTIPLE_KNOWN_HEADERS {
     pub KnownHeaders: PHTTP_KNOWN_HEADER,
 }
 pub const HTTP_NULL_ID: u64 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTTP_OPAQUE_ID(pub u64);
+pub type HTTP_OPAQUE_ID = u64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_PERFORMANCE_PARAM {
@@ -1010,13 +1031,14 @@ pub struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     pub Realm: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVER_AUTHENTICATION_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub AuthSchemes: u32,
-    pub ReceiveMutualAuth: bool,
-    pub ReceiveContextHandle: bool,
-    pub DisableNTLMCredentialCaching: bool,
+    pub ReceiveMutualAuth: super::BOOLEAN,
+    pub ReceiveContextHandle: super::BOOLEAN,
+    pub DisableNTLMCredentialCaching: super::BOOLEAN,
     pub ExFlags: u8,
     pub DigestParams: HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS,
     pub BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
@@ -1046,9 +1068,7 @@ pub struct HTTP_SERVICE_BINDING_W {
     pub BufferSize: u32,
 }
 pub type HTTP_SERVICE_CONFIG_CACHE_KEY = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTTP_SERVICE_CONFIG_CACHE_PARAM(pub u32);
+pub type HTTP_SERVICE_CONFIG_CACHE_PARAM = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_CACHE_SET {
@@ -1078,9 +1098,7 @@ impl Default for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
 }
 pub type HTTP_SERVICE_CONFIG_QUERY_TYPE = i32;
 pub type HTTP_SERVICE_CONFIG_SETTING_KEY = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTTP_SERVICE_CONFIG_SETTING_PARAM(pub u32);
+pub type HTTP_SERVICE_CONFIG_SETTING_PARAM = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SETTING_SET {
@@ -1281,9 +1299,7 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     }
 }
 pub type HTTP_SERVICE_CONFIG_TIMEOUT_KEY = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTTP_SERVICE_CONFIG_TIMEOUT_PARAM(pub u16);
+pub type HTTP_SERVICE_CONFIG_TIMEOUT_PARAM = u16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_SET {
@@ -1323,7 +1339,7 @@ pub struct HTTP_SSL_CLIENT_CERT_INFO {
     pub CertEncodedSize: u32,
     pub pCertEncoded: super::PUCHAR,
     pub Token: super::HANDLE,
-    pub CertDeniedByMapper: bool,
+    pub CertDeniedByMapper: super::BOOLEAN,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -1394,9 +1410,7 @@ pub struct HTTP_UNKNOWN_HEADER {
     pub pName: windows_core::PCSTR,
     pub pRawValue: windows_core::PCSTR,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTTP_URL_CONTEXT(pub u64);
+pub type HTTP_URL_CONTEXT = u64;
 pub const HTTP_URL_FLAG_REMOVE_ALL: i32 = 1;
 pub type HTTP_URL_GROUP_ID = HTTP_OPAQUE_ID;
 pub type HTTP_VERB = i32;
@@ -1693,6 +1707,7 @@ pub type PHTTP_AUTH_STATUS = *mut HTTP_AUTH_STATUS;
 pub type PHTTP_BANDWIDTH_LIMIT_INFO = *mut HTTP_BANDWIDTH_LIMIT_INFO;
 #[cfg(feature = "winnt")]
 pub type PHTTP_BINDING_INFO = *mut HTTP_BINDING_INFO;
+#[cfg(feature = "winnt")]
 pub type PHTTP_BYTE_RANGE = *mut HTTP_BYTE_RANGE;
 pub type PHTTP_CACHE_POLICY = *mut HTTP_CACHE_POLICY;
 pub type PHTTP_CACHE_POLICY_TYPE = *mut HTTP_CACHE_POLICY_TYPE;
@@ -1715,11 +1730,13 @@ pub type PHTTP_DELEGATE_REQUEST_PROPERTY_ID = *mut HTTP_DELEGATE_REQUEST_PROPERT
 pub type PHTTP_DELEGATE_REQUEST_PROPERTY_INFO = *mut HTTP_DELEGATE_REQUEST_PROPERTY_INFO;
 pub type PHTTP_ENABLED_STATE = *mut HTTP_ENABLED_STATE;
 pub type PHTTP_ERROR_HEADERS_PARAM = *mut HTTP_ERROR_HEADERS_PARAM;
+#[cfg(feature = "winnt")]
 pub type PHTTP_FAST_FORWARD_INFO = *mut HTTP_FAST_FORWARD_INFO;
 pub type PHTTP_FEATURE_ID = *mut HTTP_FEATURE_ID;
 pub type PHTTP_FLOWRATE_INFO = *mut HTTP_FLOWRATE_INFO;
 pub type PHTTP_HEADER_ID = *mut HTTP_HEADER_ID;
 pub type PHTTP_KNOWN_HEADER = *mut HTTP_KNOWN_HEADER;
+#[cfg(feature = "winnt")]
 pub type PHTTP_LISTEN_ENDPOINT_INFO = *mut HTTP_LISTEN_ENDPOINT_INFO;
 #[cfg(feature = "winnt")]
 pub type PHTTP_LOGGING_INFO = *mut HTTP_LOGGING_INFO;
@@ -1784,6 +1801,7 @@ pub type PHTTP_RESPONSE_V1 = *mut HTTP_RESPONSE_V1;
 pub type PHTTP_RESPONSE_V2 = *mut HTTP_RESPONSE_V2;
 pub type PHTTP_SERVER_AUTHENTICATION_BASIC_PARAMS = *mut HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS;
 pub type PHTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS = *mut HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS;
+#[cfg(feature = "winnt")]
 pub type PHTTP_SERVER_AUTHENTICATION_INFO = *mut HTTP_SERVER_AUTHENTICATION_INFO;
 pub type PHTTP_SERVER_PROPERTY = *mut HTTP_SERVER_PROPERTY;
 pub type PHTTP_SERVER_SESSION_ID = *mut HTTP_OPAQUE_ID;

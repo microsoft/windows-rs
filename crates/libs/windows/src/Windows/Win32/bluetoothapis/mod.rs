@@ -6,8 +6,8 @@ pub unsafe fn BluetoothAuthenticateDevice(hwndparent: Option<super::HWND>, hradi
 }
 #[cfg(all(feature = "bthdef", feature = "minwinbase", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn BluetoothAuthenticateDeviceEx(hwndparentin: Option<super::HWND>, hradioin: Option<super::HANDLE>, pbtdiinout: *mut BLUETOOTH_DEVICE_INFO_STRUCT, pbtoobdata: Option<*const BLUETOOTH_OOB_DATA_INFO>, authenticationrequirement: super::AUTHENTICATION_REQUIREMENTS) -> u32 {
-    windows_core::link!("bthprops.cpl" "system" fn BluetoothAuthenticateDeviceEx(hwndparentin : super::HWND, hradioin : super::HANDLE, pbtdiinout : *mut BLUETOOTH_DEVICE_INFO_STRUCT, pbtoobdata : *const BLUETOOTH_OOB_DATA_INFO, authenticationrequirement : super::AUTHENTICATION_REQUIREMENTS) -> u32);
+pub unsafe fn BluetoothAuthenticateDeviceEx(hwndparentin: Option<super::HWND>, hradioin: Option<super::HANDLE>, pbtdiinout: *mut BLUETOOTH_DEVICE_INFO_STRUCT, pbtoobdata: Option<PBLUETOOTH_OOB_DATA_INFO>, authenticationrequirement: super::AUTHENTICATION_REQUIREMENTS) -> u32 {
+    windows_core::link!("bthprops.cpl" "system" fn BluetoothAuthenticateDeviceEx(hwndparentin : super::HWND, hradioin : super::HANDLE, pbtdiinout : *mut BLUETOOTH_DEVICE_INFO_STRUCT, pbtoobdata : PBLUETOOTH_OOB_DATA_INFO, authenticationrequirement : super::AUTHENTICATION_REQUIREMENTS) -> u32);
     unsafe { BluetoothAuthenticateDeviceEx(hwndparentin.unwrap_or(core::mem::zeroed()) as _, hradioin.unwrap_or(core::mem::zeroed()) as _, pbtdiinout as _, pbtoobdata.unwrap_or(core::mem::zeroed()) as _, authenticationrequirement) }
 }
 #[cfg(all(feature = "bthdef", feature = "minwinbase", feature = "windef", feature = "winnt"))]
@@ -84,8 +84,8 @@ pub unsafe fn BluetoothGetDeviceInfo(hradio: Option<super::HANDLE>, pbtdi: *mut 
 }
 #[cfg(all(feature = "bthdef", feature = "winnt"))]
 #[inline]
-pub unsafe fn BluetoothGetRadioInfo(hradio: super::HANDLE, pradioinfo: *mut BLUETOOTH_RADIO_INFO) -> u32 {
-    windows_core::link!("bthprops.cpl" "system" fn BluetoothGetRadioInfo(hradio : super::HANDLE, pradioinfo : *mut BLUETOOTH_RADIO_INFO) -> u32);
+pub unsafe fn BluetoothGetRadioInfo(hradio: super::HANDLE, pradioinfo: PBLUETOOTH_RADIO_INFO) -> u32 {
+    windows_core::link!("bthprops.cpl" "system" fn BluetoothGetRadioInfo(hradio : super::HANDLE, pradioinfo : PBLUETOOTH_RADIO_INFO) -> u32);
     unsafe { BluetoothGetRadioInfo(hradio, pradioinfo as _) }
 }
 #[cfg(feature = "winnt")]
@@ -123,33 +123,35 @@ pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS_STRUCT) -
     windows_core::link!("bthprops.cpl" "system" fn BluetoothRemoveDevice(paddress : *const BLUETOOTH_ADDRESS_STRUCT) -> u32);
     unsafe { BluetoothRemoveDevice(paddress) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: &[u8], pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: *const core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpEnumAttributes(psdpstream : *const u8, cbstreamsize : u32, pfncallback : PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { BluetoothSdpEnumAttributes(psdpstream.as_ptr(), psdpstream.len().try_into().unwrap(), pfncallback, pvparam) }
+    windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpEnumAttributes(psdpstream : super::LPBYTE, cbstreamsize : u32, pfncallback : PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { BluetoothSdpEnumAttributes(core::mem::transmute(psdpstream.as_ptr()), psdpstream.len().try_into().unwrap(), pfncallback, pvparam) }
 }
 #[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
 #[inline]
-pub unsafe fn BluetoothSdpGetAttributeValue(precordstream: &[u8], usattributeid: u16, pattributedata: *mut SDP_ELEMENT_DATA) -> u32 {
-    windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpGetAttributeValue(precordstream : *const u8, cbrecordlength : u32, usattributeid : u16, pattributedata : *mut SDP_ELEMENT_DATA) -> u32);
-    unsafe { BluetoothSdpGetAttributeValue(precordstream.as_ptr(), precordstream.len().try_into().unwrap(), usattributeid, pattributedata as _) }
+pub unsafe fn BluetoothSdpGetAttributeValue(precordstream: &[u8], usattributeid: u16, pattributedata: PSDP_ELEMENT_DATA) -> u32 {
+    windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpGetAttributeValue(precordstream : super::LPBYTE, cbrecordlength : u32, usattributeid : u16, pattributedata : PSDP_ELEMENT_DATA) -> u32);
+    unsafe { BluetoothSdpGetAttributeValue(core::mem::transmute(precordstream.as_ptr()), precordstream.len().try_into().unwrap(), usattributeid, pattributedata as _) }
 }
 #[cfg(all(feature = "bthsdpdef", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn BluetoothSdpGetContainerElementData(pcontainerstream: &[u8], pelement: *mut HBLUETOOTH_CONTAINER_ELEMENT, pdata: *mut SDP_ELEMENT_DATA) -> u32 {
-    windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpGetContainerElementData(pcontainerstream : *const u8, cbcontainerlength : u32, pelement : *mut HBLUETOOTH_CONTAINER_ELEMENT, pdata : *mut SDP_ELEMENT_DATA) -> u32);
-    unsafe { BluetoothSdpGetContainerElementData(pcontainerstream.as_ptr(), pcontainerstream.len().try_into().unwrap(), pelement as _, pdata as _) }
+pub unsafe fn BluetoothSdpGetContainerElementData(pcontainerstream: &[u8], pelement: *mut HBLUETOOTH_CONTAINER_ELEMENT, pdata: PSDP_ELEMENT_DATA) -> u32 {
+    windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpGetContainerElementData(pcontainerstream : super::LPBYTE, cbcontainerlength : u32, pelement : *mut HBLUETOOTH_CONTAINER_ELEMENT, pdata : PSDP_ELEMENT_DATA) -> u32);
+    unsafe { BluetoothSdpGetContainerElementData(core::mem::transmute(pcontainerstream.as_ptr()), pcontainerstream.len().try_into().unwrap(), pelement as _, pdata as _) }
 }
 #[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
 #[inline]
-pub unsafe fn BluetoothSdpGetElementData(psdpstream: &[u8], pdata: *mut SDP_ELEMENT_DATA) -> u32 {
-    windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpGetElementData(psdpstream : *const u8, cbsdpstreamlength : u32, pdata : *mut SDP_ELEMENT_DATA) -> u32);
-    unsafe { BluetoothSdpGetElementData(psdpstream.as_ptr(), psdpstream.len().try_into().unwrap(), pdata as _) }
+pub unsafe fn BluetoothSdpGetElementData(psdpstream: &[u8], pdata: PSDP_ELEMENT_DATA) -> u32 {
+    windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpGetElementData(psdpstream : super::LPBYTE, cbsdpstreamlength : u32, pdata : PSDP_ELEMENT_DATA) -> u32);
+    unsafe { BluetoothSdpGetElementData(core::mem::transmute(psdpstream.as_ptr()), psdpstream.len().try_into().unwrap(), pdata as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn BluetoothSdpGetString(precordstream: &[u8], pstringdata: Option<*const SDP_STRING_TYPE_DATA>, usstringoffset: u16, pszstring: windows_core::PWSTR, pcchstringlength: *mut u32) -> u32 {
-    windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpGetString(precordstream : *const u8, cbrecordlength : u32, pstringdata : *const SDP_STRING_TYPE_DATA, usstringoffset : u16, pszstring : windows_core::PWSTR, pcchstringlength : *mut u32) -> u32);
-    unsafe { BluetoothSdpGetString(precordstream.as_ptr(), precordstream.len().try_into().unwrap(), pstringdata.unwrap_or(core::mem::zeroed()) as _, usstringoffset, pszstring, pcchstringlength as _) }
+pub unsafe fn BluetoothSdpGetString(precordstream: &[u8], pstringdata: Option<PSDP_STRING_TYPE_DATA>, usstringoffset: u16, pszstring: windows_core::PWSTR, pcchstringlength: super::PULONG) -> u32 {
+    windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpGetString(precordstream : super::LPBYTE, cbrecordlength : u32, pstringdata : PSDP_STRING_TYPE_DATA, usstringoffset : u16, pszstring : windows_core::PWSTR, pcchstringlength : super::PULONG) -> u32);
+    unsafe { BluetoothSdpGetString(core::mem::transmute(precordstream.as_ptr()), precordstream.len().try_into().unwrap(), pstringdata.unwrap_or(core::mem::zeroed()) as _, usstringoffset, pszstring, pcchstringlength as _) }
 }
 #[cfg(all(feature = "bthdef", feature = "minwinbase", feature = "windef"))]
 #[inline]
@@ -174,8 +176,8 @@ where
 }
 #[cfg(all(feature = "bthdef", feature = "winnt"))]
 #[inline]
-pub unsafe fn BluetoothSendAuthenticationResponseEx(hradioin: Option<super::HANDLE>, pauthresponse: *const BLUETOOTH_AUTHENTICATE_RESPONSE) -> u32 {
-    windows_core::link!("bthprops.cpl" "system" fn BluetoothSendAuthenticationResponseEx(hradioin : super::HANDLE, pauthresponse : *const BLUETOOTH_AUTHENTICATE_RESPONSE) -> u32);
+pub unsafe fn BluetoothSendAuthenticationResponseEx(hradioin: Option<super::HANDLE>, pauthresponse: PBLUETOOTH_AUTHENTICATE_RESPONSE) -> u32 {
+    windows_core::link!("bthprops.cpl" "system" fn BluetoothSendAuthenticationResponseEx(hradioin : super::HANDLE, pauthresponse : PBLUETOOTH_AUTHENTICATE_RESPONSE) -> u32);
     unsafe { BluetoothSendAuthenticationResponseEx(hradioin.unwrap_or(core::mem::zeroed()) as _, pauthresponse) }
 }
 #[cfg(all(feature = "bthdef", feature = "winnt"))]
@@ -467,10 +469,11 @@ pub type PBLUETOOTH_PIN_INFO = *mut BLUETOOTH_PIN_INFO;
 #[cfg(feature = "bthdef")]
 pub type PBLUETOOTH_RADIO_INFO = *mut BLUETOOTH_RADIO_INFO;
 #[cfg(all(feature = "bthdef", feature = "minwinbase"))]
-pub type PFN_AUTHENTICATION_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> windows_core::BOOL>;
+pub type PFN_AUTHENTICATION_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: PBLUETOOTH_DEVICE_INFO) -> windows_core::BOOL>;
 #[cfg(all(feature = "bthdef", feature = "minwinbase"))]
-pub type PFN_AUTHENTICATION_CALLBACK_EX = Option<unsafe extern "system" fn(pvparam: *const core::ffi::c_void, pauthcallbackparams: *const BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> windows_core::BOOL>;
-pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = Option<unsafe extern "system" fn(uattribid: u32, pvaluestream: *const u8, cbstreamsize: u32, pvparam: *const core::ffi::c_void) -> windows_core::BOOL>;
+pub type PFN_AUTHENTICATION_CALLBACK_EX = Option<unsafe extern "system" fn(pvparam: *const core::ffi::c_void, pauthcallbackparams: PBLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> windows_core::BOOL>;
+#[cfg(feature = "minwindef")]
+pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = Option<unsafe extern "system" fn(uattribid: u32, pvaluestream: super::LPBYTE, cbstreamsize: u32, pvparam: *const core::ffi::c_void) -> windows_core::BOOL>;
 #[cfg(all(feature = "bthdef", feature = "minwinbase"))]
 pub type PFN_DEVICE_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO_STRUCT) -> windows_core::BOOL>;
 #[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]

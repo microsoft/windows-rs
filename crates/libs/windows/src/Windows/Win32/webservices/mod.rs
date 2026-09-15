@@ -392,9 +392,9 @@ pub unsafe fn WsGetMissingMetadataDocumentAddress(metadata: *const WS_METADATA, 
     unsafe { WsGetMissingMetadataDocumentAddress(metadata, address as _, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WsGetNamespaceFromPrefix(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: bool, ns: *mut *mut WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
-    windows_core::link!("webservices.dll" "system" fn WsGetNamespaceFromPrefix(reader : *const WS_XML_READER, prefix : *const WS_XML_STRING, required : windows_core::BOOL, ns : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetNamespaceFromPrefix(reader, prefix, required.into(), ns as _, error.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn WsGetNamespaceFromPrefix(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: bool, ns: *const *const WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+    windows_core::link!("webservices.dll" "system" fn WsGetNamespaceFromPrefix(reader : *const WS_XML_READER, prefix : *const WS_XML_STRING, required : windows_core::BOOL, ns : *const *const WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetNamespaceFromPrefix(reader, prefix, required.into(), ns, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WsGetOperationContextProperty(context: *const WS_OPERATION_CONTEXT, id: WS_OPERATION_CONTEXT_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
@@ -412,14 +412,14 @@ pub unsafe fn WsGetPolicyProperty(policy: *const WS_POLICY, id: WS_POLICY_PROPER
     unsafe { WsGetPolicyProperty(policy, id, value as _, valuesize, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WsGetPrefixFromNamespace(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: bool, prefix: *mut *mut WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
-    windows_core::link!("webservices.dll" "system" fn WsGetPrefixFromNamespace(writer : *const WS_XML_WRITER, ns : *const WS_XML_STRING, required : windows_core::BOOL, prefix : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetPrefixFromNamespace(writer, ns, required.into(), prefix as _, error.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn WsGetPrefixFromNamespace(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: bool, prefix: *const *const WS_XML_STRING, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+    windows_core::link!("webservices.dll" "system" fn WsGetPrefixFromNamespace(writer : *const WS_XML_WRITER, ns : *const WS_XML_STRING, required : windows_core::BOOL, prefix : *const *const WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetPrefixFromNamespace(writer, ns, required.into(), prefix, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WsGetReaderNode(xmlreader: *const WS_XML_READER, node: *mut *mut WS_XML_NODE, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
-    windows_core::link!("webservices.dll" "system" fn WsGetReaderNode(xmlreader : *const WS_XML_READER, node : *mut *mut WS_XML_NODE, error : *const WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetReaderNode(xmlreader, node as _, error.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn WsGetReaderNode(xmlreader: *const WS_XML_READER, node: *const *const WS_XML_NODE, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
+    windows_core::link!("webservices.dll" "system" fn WsGetReaderNode(xmlreader : *const WS_XML_READER, node : *const *const WS_XML_NODE, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetReaderNode(xmlreader, node, error.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WsGetReaderPosition(reader: *const WS_XML_READER, nodeposition: *mut WS_XML_NODE_POSITION, error: Option<*const WS_ERROR>) -> windows_core::HRESULT {
@@ -1090,7 +1090,7 @@ pub struct WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
 }
 pub const WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = 3;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-pub type WS_CERTIFICATE_VALIDATION_CALLBACK = Option<unsafe extern "system" fn(certcontext: *const super::CERT_CONTEXT, state: *const core::ffi::c_void) -> windows_core::HRESULT>;
+pub type WS_CERTIFICATE_VALIDATION_CALLBACK = Option<unsafe extern "system" fn(certcontext: super::PCCERT_CONTEXT, state: *const core::ffi::c_void) -> windows_core::HRESULT>;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -1137,9 +1137,7 @@ pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     pub samlValidatorCallbackState: *mut core::ffi::c_void,
 }
 pub const WS_CERT_SIGNED_SAML_AUTHENTICATOR_TYPE: WS_SAML_AUTHENTICATOR_TYPE = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_CHANNEL(pub u8);
+pub type WS_CHANNEL = _WS_CHANNEL;
 pub type WS_CHANNEL_BINDING = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
@@ -1522,9 +1520,7 @@ pub type WS_ENVELOPE_VERSION = i32;
 pub const WS_ENVELOPE_VERSION_NONE: WS_ENVELOPE_VERSION = 3;
 pub const WS_ENVELOPE_VERSION_SOAP_1_1: WS_ENVELOPE_VERSION = 1;
 pub const WS_ENVELOPE_VERSION_SOAP_1_2: WS_ENVELOPE_VERSION = 2;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_ERROR(pub u8);
+pub type WS_ERROR = _WS_ERROR;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_ERROR_PROPERTY {
@@ -1626,7 +1622,7 @@ pub type WS_FREE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerin
 pub const WS_FROM_HEADER: WS_HEADER_TYPE = 5;
 pub const WS_FULL_FAULT_DISCLOSURE: WS_FAULT_DISCLOSURE = 1;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-pub type WS_GET_CERT_CALLBACK = Option<unsafe extern "system" fn(getcertcallbackstate: *const core::ffi::c_void, targetaddress: *const WS_ENDPOINT_ADDRESS, viauri: *const WS_STRING, cert: *mut *mut super::CERT_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_GET_CERT_CALLBACK = Option<unsafe extern "system" fn(getcertcallbackstate: *const core::ffi::c_void, targetaddress: *const WS_ENDPOINT_ADDRESS, viauri: *const WS_STRING, cert: *const *const super::CERT_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_GET_CHANNEL_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_GET_LISTENER_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
@@ -1637,9 +1633,7 @@ pub struct WS_GUID_DESCRIPTION {
 pub const WS_GUID_TYPE: WS_TYPE = 14;
 pub const WS_GUID_VALUE_TYPE: WS_VALUE_TYPE = 14;
 pub type WS_HEADER_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_HEAP(pub u8);
+pub type WS_HEAP = _WS_HEAP;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_HEAP_PROPERTIES {
@@ -1973,9 +1967,7 @@ pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
     pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
 }
 pub const WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = 5;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_LISTENER(pub u8);
+pub type WS_LISTENER = _WS_LISTENER;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_LISTENER_PROPERTIES {
@@ -2026,9 +2018,7 @@ pub const WS_MATCH_URL_NO_QUERY: i32 = 256;
 pub const WS_MATCH_URL_PORT: i32 = 32;
 pub const WS_MATCH_URL_PREFIX_PATH: i32 = 128;
 pub const WS_MATCH_URL_THIS_HOST: i32 = 31;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_MESSAGE(pub u8);
+pub type WS_MESSAGE = _WS_MESSAGE;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_MESSAGE_DESCRIPTION {
@@ -2081,9 +2071,7 @@ pub const WS_MESSAGE_STATE_EMPTY: WS_MESSAGE_STATE = 1;
 pub const WS_MESSAGE_STATE_INITIALIZED: WS_MESSAGE_STATE = 2;
 pub const WS_MESSAGE_STATE_READING: WS_MESSAGE_STATE = 3;
 pub const WS_MESSAGE_STATE_WRITING: WS_MESSAGE_STATE = 4;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_METADATA(pub u8);
+pub type WS_METADATA = _WS_METADATA;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_METADATA_ENDPOINT {
@@ -2191,9 +2179,7 @@ pub const WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRAT
 pub type WS_OPEN_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_OPEN_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, url: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_OPERATION_CANCEL_CALLBACK = Option<unsafe extern "system" fn(reason: WS_SERVICE_CANCEL_REASON, state: *const core::ffi::c_void)>;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_OPERATION_CONTEXT(pub u8);
+pub type WS_OPERATION_CONTEXT = _WS_OPERATION_CONTEXT;
 pub const WS_OPERATION_CONTEXT_PROPERTY_CHANNEL: WS_OPERATION_CONTEXT_PROPERTY_ID = 0;
 pub const WS_OPERATION_CONTEXT_PROPERTY_CHANNEL_USER_STATE: WS_OPERATION_CONTEXT_PROPERTY_ID = 3;
 pub const WS_OPERATION_CONTEXT_PROPERTY_CONTRACT_DESCRIPTION: WS_OPERATION_CONTEXT_PROPERTY_ID = 1;
@@ -2231,9 +2217,7 @@ pub const WS_PARAMETER_TYPE_ARRAY: WS_PARAMETER_TYPE = 1;
 pub const WS_PARAMETER_TYPE_ARRAY_COUNT: WS_PARAMETER_TYPE = 2;
 pub const WS_PARAMETER_TYPE_MESSAGES: WS_PARAMETER_TYPE = 3;
 pub const WS_PARAMETER_TYPE_NORMAL: WS_PARAMETER_TYPE = 0;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_POLICY(pub u8);
+pub type WS_POLICY = _WS_POLICY;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_POLICY_CONSTRAINTS {
@@ -2538,9 +2522,7 @@ pub struct WS_SECURITY_CONSTRAINTS {
     pub securityBindingConstraints: *mut *mut WS_SECURITY_BINDING_CONSTRAINT,
     pub securityBindingConstraintCount: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_SECURITY_CONTEXT(pub u8);
+pub type WS_SECURITY_CONTEXT = _WS_SECURITY_CONTEXT;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
@@ -2665,9 +2647,7 @@ pub type WS_SECURITY_TIMESTAMP_USAGE = i32;
 pub const WS_SECURITY_TIMESTAMP_USAGE_ALWAYS: WS_SECURITY_TIMESTAMP_USAGE = 1;
 pub const WS_SECURITY_TIMESTAMP_USAGE_NEVER: WS_SECURITY_TIMESTAMP_USAGE = 2;
 pub const WS_SECURITY_TIMESTAMP_USAGE_REQUESTS_ONLY: WS_SECURITY_TIMESTAMP_USAGE = 3;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_SECURITY_TOKEN(pub u8);
+pub type WS_SECURITY_TOKEN = _WS_SECURITY_TOKEN;
 pub const WS_SECURITY_TOKEN_PROPERTY_ATTACHED_REFERENCE_XML: WS_SECURITY_TOKEN_PROPERTY_ID = 5;
 pub type WS_SECURITY_TOKEN_PROPERTY_ID = i32;
 pub const WS_SECURITY_TOKEN_PROPERTY_KEY_TYPE: WS_SECURITY_TOKEN_PROPERTY_ID = 1;
@@ -2737,9 +2717,7 @@ pub const WS_SERVICE_ENDPOINT_PROPERTY_MESSAGE_PROPERTIES: WS_SERVICE_ENDPOINT_P
 pub const WS_SERVICE_ENDPOINT_PROPERTY_METADATA: WS_SERVICE_ENDPOINT_PROPERTY_ID = 12;
 pub const WS_SERVICE_ENDPOINT_PROPERTY_METADATA_EXCHANGE_TYPE: WS_SERVICE_ENDPOINT_PROPERTY_ID = 11;
 pub const WS_SERVICE_ENDPOINT_PROPERTY_METADATA_EXCHANGE_URL_SUFFIX: WS_SERVICE_ENDPOINT_PROPERTY_ID = 13;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_SERVICE_HOST(pub u8);
+pub type WS_SERVICE_HOST = _WS_SERVICE_HOST;
 pub const WS_SERVICE_HOST_ABORT: WS_SERVICE_CANCEL_REASON = 0;
 pub type WS_SERVICE_HOST_STATE = i32;
 pub const WS_SERVICE_HOST_STATE_CLOSED: WS_SERVICE_HOST_STATE = 4;
@@ -2788,9 +2766,7 @@ pub const WS_SERVICE_PROPERTY_HOST_STATE: WS_SERVICE_PROPERTY_ID = 3;
 pub const WS_SERVICE_PROPERTY_HOST_USER_STATE: WS_SERVICE_PROPERTY_ID = 0;
 pub type WS_SERVICE_PROPERTY_ID = i32;
 pub const WS_SERVICE_PROPERTY_METADATA: WS_SERVICE_PROPERTY_ID = 4;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_SERVICE_PROXY(pub u8);
+pub type WS_SERVICE_PROXY = _WS_SERVICE_PROXY;
 pub type WS_SERVICE_PROXY_STATE = i32;
 pub const WS_SERVICE_PROXY_STATE_CLOSED: WS_SERVICE_PROXY_STATE = 4;
 pub const WS_SERVICE_PROXY_STATE_CLOSING: WS_SERVICE_PROXY_STATE = 3;
@@ -3466,9 +3442,7 @@ pub struct WS_XML_BOOL_TEXT {
     pub text: WS_XML_TEXT,
     pub value: windows_core::BOOL,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_XML_BUFFER(pub u8);
+pub type WS_XML_BUFFER = _WS_XML_BUFFER;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_BUFFER_PROPERTY {
@@ -3621,9 +3595,7 @@ pub struct WS_XML_QNAME_TEXT {
     pub ns: *mut WS_XML_STRING,
 }
 pub const WS_XML_QNAME_TYPE: WS_TYPE = 20;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_XML_READER(pub u8);
+pub type WS_XML_READER = _WS_XML_READER;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_XML_READER_BINARY_ENCODING {
@@ -3807,9 +3779,7 @@ pub struct WS_XML_UTF8_TEXT {
     pub text: WS_XML_TEXT,
     pub value: WS_XML_STRING,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct WS_XML_WRITER(pub u8);
+pub type WS_XML_WRITER = _WS_XML_WRITER;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct WS_XML_WRITER_BINARY_ENCODING {
@@ -3903,3 +3873,48 @@ pub struct WS_XML_WRITER_TEXT_ENCODING {
     pub encoding: WS_XML_WRITER_ENCODING,
     pub charSet: WS_CHARSET,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_CHANNEL(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_ERROR(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_HEAP(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_LISTENER(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_MESSAGE(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_METADATA(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_OPERATION_CONTEXT(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_POLICY(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_SECURITY_CONTEXT(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_SECURITY_TOKEN(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_SERVICE_HOST(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_SERVICE_PROXY(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_XML_BUFFER(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_XML_READER(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _WS_XML_WRITER(pub u8);

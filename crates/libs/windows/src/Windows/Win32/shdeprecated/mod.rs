@@ -114,12 +114,12 @@ impl core::ops::Deref for CIE4ConnectionPoint {
 windows_core::imp::interface_hierarchy!(CIE4ConnectionPoint, windows_core::IUnknown, super::IConnectionPoint);
 #[cfg(feature = "ocidl")]
 impl CIE4ConnectionPoint {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn DoInvokeIE4(&self, pf: *mut windows_core::BOOL, ppv: *mut *mut core::ffi::c_void, dispid: super::DISPID, pdispparams: *mut super::DISPPARAMS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DoInvokeIE4)(windows_core::Interface::as_raw(self), pf as _, ppv as _, dispid, pdispparams as _) }
     }
     #[cfg(all(feature = "oaidl", feature = "shtypes"))]
-    pub unsafe fn DoInvokePIDLIE4(&self, dispid: super::DISPID, pidl: *const super::ITEMIDLIST, fcancancel: bool) -> windows_core::HRESULT {
+    pub unsafe fn DoInvokePIDLIE4(&self, dispid: super::DISPID, pidl: super::LPCITEMIDLIST, fcancancel: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DoInvokePIDLIE4)(windows_core::Interface::as_raw(self), dispid, pidl, fcancancel.into()) }
     }
 }
@@ -128,21 +128,21 @@ impl CIE4ConnectionPoint {
 #[doc(hidden)]
 pub struct CIE4ConnectionPoint_Vtbl {
     pub base__: super::IConnectionPoint_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub DoInvokeIE4: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut *mut core::ffi::c_void, super::DISPID, *mut super::DISPPARAMS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     DoInvokeIE4: usize,
     #[cfg(all(feature = "oaidl", feature = "shtypes"))]
-    pub DoInvokePIDLIE4: unsafe extern "system" fn(*mut core::ffi::c_void, super::DISPID, *const super::ITEMIDLIST, windows_core::BOOL) -> windows_core::HRESULT,
+    pub DoInvokePIDLIE4: unsafe extern "system" fn(*mut core::ffi::c_void, super::DISPID, super::LPCITEMIDLIST, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "oaidl", feature = "shtypes")))]
     DoInvokePIDLIE4: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
 pub trait CIE4ConnectionPoint_Impl: super::IConnectionPoint_Impl {
     fn DoInvokeIE4(&self, pf: *mut windows_core::BOOL, ppv: *mut *mut core::ffi::c_void, dispid: super::DISPID, pdispparams: *mut super::DISPPARAMS) -> windows_core::Result<()>;
-    fn DoInvokePIDLIE4(&self, dispid: super::DISPID, pidl: *const super::ITEMIDLIST, fcancancel: windows_core::BOOL) -> windows_core::Result<()>;
+    fn DoInvokePIDLIE4(&self, dispid: super::DISPID, pidl: super::LPCITEMIDLIST, fcancancel: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
 impl CIE4ConnectionPoint_Vtbl {
     pub const fn new<Identity: CIE4ConnectionPoint_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DoInvokeIE4<Identity: CIE4ConnectionPoint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pf: *mut windows_core::BOOL, ppv: *mut *mut core::ffi::c_void, dispid: super::DISPID, pdispparams: *mut super::DISPPARAMS) -> windows_core::HRESULT {
@@ -151,7 +151,7 @@ impl CIE4ConnectionPoint_Vtbl {
                 CIE4ConnectionPoint_Impl::DoInvokeIE4(this, core::mem::transmute_copy(&pf), core::mem::transmute_copy(&ppv), core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&pdispparams)).into()
             }
         }
-        unsafe extern "system" fn DoInvokePIDLIE4<Identity: CIE4ConnectionPoint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: super::DISPID, pidl: *const super::ITEMIDLIST, fcancancel: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn DoInvokePIDLIE4<Identity: CIE4ConnectionPoint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: super::DISPID, pidl: super::LPCITEMIDLIST, fcancancel: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 CIE4ConnectionPoint_Impl::DoInvokePIDLIE4(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&pidl), core::mem::transmute_copy(&fcancancel)).into()
@@ -167,7 +167,7 @@ impl CIE4ConnectionPoint_Vtbl {
         iid == &<CIE4ConnectionPoint as windows_core::Interface>::IID || iid == &<super::IConnectionPoint as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for CIE4ConnectionPoint {}
 #[repr(C)]
 #[cfg(feature = "shobjidl_core")]
@@ -233,7 +233,7 @@ impl IBrowserService {
         }
     }
     #[cfg(feature = "shtypes")]
-    pub unsafe fn IEGetDisplayName(&self, pidl: *const super::ITEMIDLIST, pwszname: windows_core::PWSTR, uflags: u32) -> windows_core::HRESULT {
+    pub unsafe fn IEGetDisplayName(&self, pidl: super::LPCITEMIDLIST, pwszname: windows_core::PWSTR, uflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IEGetDisplayName)(windows_core::Interface::as_raw(self), pidl, pwszname, uflags) }
     }
     #[cfg(feature = "shtypes")]
@@ -253,7 +253,7 @@ impl IBrowserService {
         unsafe { (windows_core::Interface::vtable(self).DisplayParseError)(windows_core::Interface::as_raw(self), hres, pwszpath.param().abi()) }
     }
     #[cfg(feature = "shtypes")]
-    pub unsafe fn NavigateToPidl(&self, pidl: *const super::ITEMIDLIST, grfhlnf: u32) -> windows_core::HRESULT {
+    pub unsafe fn NavigateToPidl(&self, pidl: super::LPCITEMIDLIST, grfhlnf: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).NavigateToPidl)(windows_core::Interface::as_raw(self), pidl, grfhlnf) }
     }
     pub unsafe fn SetNavigateState(&self, bnstate: BNSTATE) -> windows_core::HRESULT {
@@ -266,7 +266,7 @@ impl IBrowserService {
         }
     }
     #[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "shtypes"))]
-    pub unsafe fn NotifyRedirect<P0>(&self, psv: P0, pidl: *const super::ITEMIDLIST) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn NotifyRedirect<P0>(&self, psv: P0, pidl: super::LPCITEMIDLIST) -> windows_core::Result<windows_core::BOOL>
     where
         P0: windows_core::Param<super::IShellView>,
     {
@@ -301,7 +301,7 @@ impl IBrowserService {
         }
     }
     #[cfg(feature = "shtypes")]
-    pub unsafe fn SetReferrer(&self, pidl: *const super::ITEMIDLIST) -> windows_core::HRESULT {
+    pub unsafe fn SetReferrer(&self, pidl: super::LPCITEMIDLIST) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetReferrer)(windows_core::Interface::as_raw(self), pidl) }
     }
     pub unsafe fn GetBrowserIndex(&self) -> u32 {
@@ -331,14 +331,14 @@ impl IBrowserService {
     {
         unsafe { (windows_core::Interface::vtable(self).CacheOLEServer)(windows_core::Interface::as_raw(self), pole.param().abi()) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetSetCodePage(&self, pvarin: *const super::VARIANT) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSetCodePage)(windows_core::Interface::as_raw(self), pvarin, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnHttpEquiv<P0>(&self, psv: P0, fdone: bool, pvarargin: *const super::VARIANT) -> windows_core::Result<super::VARIANT>
     where
         P0: windows_core::Param<super::IShellView>,
@@ -383,7 +383,7 @@ pub struct IBrowserService_Vtbl {
     pub ShowControlWindow: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub IsControlWindowShown: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(feature = "shtypes")]
-    pub IEGetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::ITEMIDLIST, windows_core::PWSTR, u32) -> windows_core::HRESULT,
+    pub IEGetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCITEMIDLIST, windows_core::PWSTR, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "shtypes"))]
     IEGetDisplayName: usize,
     #[cfg(feature = "shtypes")]
@@ -392,13 +392,13 @@ pub struct IBrowserService_Vtbl {
     IEParseDisplayName: usize,
     pub DisplayParseError: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, windows_core::PCWSTR) -> windows_core::HRESULT,
     #[cfg(feature = "shtypes")]
-    pub NavigateToPidl: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::ITEMIDLIST, u32) -> windows_core::HRESULT,
+    pub NavigateToPidl: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCITEMIDLIST, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "shtypes"))]
     NavigateToPidl: usize,
     pub SetNavigateState: unsafe extern "system" fn(*mut core::ffi::c_void, BNSTATE) -> windows_core::HRESULT,
     pub GetNavigateState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BNSTATE) -> windows_core::HRESULT,
     #[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "shtypes"))]
-    pub NotifyRedirect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::ITEMIDLIST, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub NotifyRedirect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LPCITEMIDLIST, *mut windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "oleidl", feature = "shobjidl_core", feature = "shtypes")))]
     NotifyRedirect: usize,
     pub UpdateWindowList: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -411,7 +411,7 @@ pub struct IBrowserService_Vtbl {
     #[cfg(not(feature = "shtypes"))]
     GetPidl: usize,
     #[cfg(feature = "shtypes")]
-    pub SetReferrer: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::ITEMIDLIST) -> windows_core::HRESULT,
+    pub SetReferrer: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCITEMIDLIST) -> windows_core::HRESULT,
     #[cfg(not(feature = "shtypes"))]
     SetReferrer: usize,
     pub GetBrowserIndex: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -428,13 +428,13 @@ pub struct IBrowserService_Vtbl {
     pub CacheOLEServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "oleidl"))]
     CacheOLEServer: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetSetCodePage: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::VARIANT, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetSetCodePage: usize,
-    #[cfg(all(feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "wtypes", feature = "wtypesbase"))]
     pub OnHttpEquiv: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *const super::VARIANT, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "wtypes", feature = "wtypesbase")))]
     OnHttpEquiv: usize,
     #[cfg(feature = "windef")]
     pub GetPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::HPALETTE) -> windows_core::HRESULT,
@@ -442,7 +442,7 @@ pub struct IBrowserService_Vtbl {
     GetPalette: usize,
     pub RegisterWindow: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBrowserService_Impl: windows_core::IUnknownImpl {
     fn GetParentSite(&self) -> windows_core::Result<super::IOleInPlaceSite>;
     fn SetTitle(&self, psv: windows_core::Ref<super::IShellView>, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -451,20 +451,20 @@ pub trait IBrowserService_Impl: windows_core::IUnknownImpl {
     fn GetTravelLog(&self) -> windows_core::Result<ITravelLog>;
     fn ShowControlWindow(&self, id: u32, fshow: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsControlWindowShown(&self, id: u32) -> windows_core::Result<windows_core::BOOL>;
-    fn IEGetDisplayName(&self, pidl: *const super::ITEMIDLIST, pwszname: windows_core::PWSTR, uflags: u32) -> windows_core::Result<()>;
+    fn IEGetDisplayName(&self, pidl: super::LPCITEMIDLIST, pwszname: windows_core::PWSTR, uflags: u32) -> windows_core::Result<()>;
     fn IEParseDisplayName(&self, uicp: u32, pwszpath: &windows_core::PCWSTR) -> windows_core::Result<super::LPITEMIDLIST>;
     fn DisplayParseError(&self, hres: windows_core::HRESULT, pwszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn NavigateToPidl(&self, pidl: *const super::ITEMIDLIST, grfhlnf: u32) -> windows_core::Result<()>;
+    fn NavigateToPidl(&self, pidl: super::LPCITEMIDLIST, grfhlnf: u32) -> windows_core::Result<()>;
     fn SetNavigateState(&self, bnstate: BNSTATE) -> windows_core::Result<()>;
     fn GetNavigateState(&self) -> windows_core::Result<BNSTATE>;
-    fn NotifyRedirect(&self, psv: windows_core::Ref<super::IShellView>, pidl: *const super::ITEMIDLIST) -> windows_core::Result<windows_core::BOOL>;
+    fn NotifyRedirect(&self, psv: windows_core::Ref<super::IShellView>, pidl: super::LPCITEMIDLIST) -> windows_core::Result<windows_core::BOOL>;
     fn UpdateWindowList(&self) -> windows_core::Result<()>;
     fn UpdateBackForwardState(&self) -> windows_core::Result<()>;
     fn SetFlags(&self, dwflags: u32, dwflagmask: u32) -> windows_core::Result<()>;
     fn GetFlags(&self) -> windows_core::Result<u32>;
     fn CanNavigateNow(&self) -> windows_core::Result<()>;
     fn GetPidl(&self) -> windows_core::Result<super::LPITEMIDLIST>;
-    fn SetReferrer(&self, pidl: *const super::ITEMIDLIST) -> windows_core::Result<()>;
+    fn SetReferrer(&self, pidl: super::LPCITEMIDLIST) -> windows_core::Result<()>;
     fn GetBrowserIndex(&self) -> u32;
     fn GetBrowserByIndex(&self, dwid: u32) -> windows_core::Result<windows_core::IUnknown>;
     fn GetHistoryObject(&self, ppole: windows_core::OutRef<super::IOleObject>, pstm: windows_core::OutRef<super::IStream>, ppbc: windows_core::OutRef<super::IBindCtx>) -> windows_core::Result<()>;
@@ -475,7 +475,7 @@ pub trait IBrowserService_Impl: windows_core::IUnknownImpl {
     fn GetPalette(&self) -> windows_core::Result<super::HPALETTE>;
     fn RegisterWindow(&self, fforceregister: windows_core::BOOL, swc: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl IBrowserService_Vtbl {
     pub const fn new<Identity: IBrowserService_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetParentSite<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppipsite: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -544,7 +544,7 @@ impl IBrowserService_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IEGetDisplayName<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const super::ITEMIDLIST, pwszname: windows_core::PWSTR, uflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn IEGetDisplayName<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST, pwszname: windows_core::PWSTR, uflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBrowserService_Impl::IEGetDisplayName(this, core::mem::transmute_copy(&pidl), core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&uflags)).into()
@@ -568,7 +568,7 @@ impl IBrowserService_Vtbl {
                 IBrowserService_Impl::DisplayParseError(this, core::mem::transmute_copy(&hres), core::mem::transmute(&pwszpath)).into()
             }
         }
-        unsafe extern "system" fn NavigateToPidl<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const super::ITEMIDLIST, grfhlnf: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn NavigateToPidl<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST, grfhlnf: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBrowserService_Impl::NavigateToPidl(this, core::mem::transmute_copy(&pidl), core::mem::transmute_copy(&grfhlnf)).into()
@@ -592,7 +592,7 @@ impl IBrowserService_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn NotifyRedirect<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psv: *mut core::ffi::c_void, pidl: *const super::ITEMIDLIST, pfdidbrowse: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn NotifyRedirect<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psv: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST, pfdidbrowse: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBrowserService_Impl::NotifyRedirect(this, core::mem::transmute_copy(&psv), core::mem::transmute_copy(&pidl)) {
@@ -652,7 +652,7 @@ impl IBrowserService_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetReferrer<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const super::ITEMIDLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetReferrer<Identity: IBrowserService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBrowserService_Impl::SetReferrer(this, core::mem::transmute_copy(&pidl)).into()
@@ -774,7 +774,7 @@ impl IBrowserService_Vtbl {
         iid == &<IBrowserService as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IBrowserService {}
 windows_core::imp::define_interface!(IBrowserService2, IBrowserService2_Vtbl, 0x68bd21cc_438b_11d2_a560_00a0c92dbfe8);
 impl core::ops::Deref for IBrowserService2 {
@@ -831,7 +831,7 @@ impl IBrowserService2 {
         unsafe { (windows_core::Interface::vtable(self).ActivatePendingView)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
-    pub unsafe fn CreateViewWindow<P0, P1>(&self, psvnew: P0, psvold: P1, prcview: *const super::RECT) -> windows_core::Result<super::HWND>
+    pub unsafe fn CreateViewWindow<P0, P1>(&self, psvnew: P0, psvold: P1, prcview: super::LPRECT) -> windows_core::Result<super::HWND>
     where
         P0: windows_core::Param<super::IShellView>,
         P1: windows_core::Param<super::IShellView>,
@@ -916,11 +916,11 @@ impl IBrowserService2 {
         unsafe { (windows_core::Interface::vtable(self)._DisableModeless)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "shtypes")]
-    pub unsafe fn _NavigateToPidl(&self, pidl: *const super::ITEMIDLIST, grfhlnf: u32, dwflags: u32) -> windows_core::HRESULT {
+    pub unsafe fn _NavigateToPidl(&self, pidl: super::LPCITEMIDLIST, grfhlnf: u32, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self)._NavigateToPidl)(windows_core::Interface::as_raw(self), pidl, grfhlnf, dwflags) }
     }
     #[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "shtypes"))]
-    pub unsafe fn _TryShell2Rename<P0>(&self, psv: P0, pidlnew: *const super::ITEMIDLIST) -> windows_core::HRESULT
+    pub unsafe fn _TryShell2Rename<P0>(&self, psv: P0, pidlnew: super::LPCITEMIDLIST) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IShellView>,
     {
@@ -929,7 +929,7 @@ impl IBrowserService2 {
     pub unsafe fn _SwitchActivationNow(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self)._SwitchActivationNow)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn _ExecChildren<P0>(&self, punkbar: P0, fbroadcast: bool, pguidcmdgroup: Option<*const windows_core::GUID>, ncmdid: u32, ncmdexecopt: u32, pvarargin: Option<*const super::VARIANTARG>, pvarargout: Option<*mut super::VARIANTARG>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -976,11 +976,11 @@ impl IBrowserService2 {
         unsafe { (windows_core::Interface::vtable(self)._ResizeView)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn _GetEffectiveClientArea(&self, lprectborder: *mut super::RECT, hmon: super::HMONITOR) -> windows_core::HRESULT {
+    pub unsafe fn _GetEffectiveClientArea(&self, lprectborder: super::LPRECT, hmon: super::HMONITOR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self)._GetEffectiveClientArea)(windows_core::Interface::as_raw(self), lprectborder as _, hmon) }
     }
     #[cfg(all(feature = "objidlbase", feature = "shtypes"))]
-    pub unsafe fn v_GetViewStream<P2>(&self, pidl: *const super::ITEMIDLIST, grfmode: u32, pwszname: P2) -> Option<super::IStream>
+    pub unsafe fn v_GetViewStream<P2>(&self, pidl: super::LPCITEMIDLIST, grfmode: u32, pwszname: P2) -> Option<super::IStream>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1019,7 +1019,7 @@ impl IBrowserService2 {
         unsafe { (windows_core::Interface::vtable(self)._CloseAndReleaseToolbars)(windows_core::Interface::as_raw(self), fclose.into()) }
     }
     #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "windef", feature = "winuser"))]
-    pub unsafe fn v_MayGetNextToolbarFocus(&self, lpmsg: *const super::MSG, itbnext: u32, citb: i32, pptbi: *mut LPTOOLBARITEM, phwnd: *mut super::HWND) -> windows_core::HRESULT {
+    pub unsafe fn v_MayGetNextToolbarFocus(&self, lpmsg: super::LPMSG, itbnext: u32, citb: i32, pptbi: *mut LPTOOLBARITEM, phwnd: *mut super::HWND) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).v_MayGetNextToolbarFocus)(windows_core::Interface::as_raw(self), lpmsg, itbnext, citb, pptbi as _, phwnd as _) }
     }
     pub unsafe fn _ResizeNextBorderHelper(&self, itb: u32, busehmonitor: bool) -> windows_core::HRESULT {
@@ -1032,7 +1032,7 @@ impl IBrowserService2 {
         unsafe { (windows_core::Interface::vtable(self)._FindTBar)(windows_core::Interface::as_raw(self), punksrc.param().abi()) }
     }
     #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "windef", feature = "winuser"))]
-    pub unsafe fn _SetFocus(&self, ptbi: *const TOOLBARITEM, hwnd: super::HWND, lpmsg: *const super::MSG) -> windows_core::HRESULT {
+    pub unsafe fn _SetFocus(&self, ptbi: LPTOOLBARITEM, hwnd: super::HWND, lpmsg: super::LPMSG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self)._SetFocus)(windows_core::Interface::as_raw(self), ptbi, hwnd, lpmsg) }
     }
     #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
@@ -1040,14 +1040,14 @@ impl IBrowserService2 {
         unsafe { (windows_core::Interface::vtable(self).v_MayTranslateAccelerator)(windows_core::Interface::as_raw(self), pmsg) }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn _GetBorderDWHelper<P0>(&self, punksrc: P0, lprectborder: *mut super::RECT, busehmonitor: bool) -> windows_core::HRESULT
+    pub unsafe fn _GetBorderDWHelper<P0>(&self, punksrc: P0, lprectborder: super::LPRECT, busehmonitor: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self)._GetBorderDWHelper)(windows_core::Interface::as_raw(self), punksrc.param().abi(), lprectborder as _, busehmonitor.into()) }
     }
     #[cfg(feature = "shtypes")]
-    pub unsafe fn v_CheckZoneCrossing(&self, pidl: *const super::ITEMIDLIST) -> windows_core::HRESULT {
+    pub unsafe fn v_CheckZoneCrossing(&self, pidl: super::LPCITEMIDLIST) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).v_CheckZoneCrossing)(windows_core::Interface::as_raw(self), pidl) }
     }
 }
@@ -1086,7 +1086,7 @@ pub struct IBrowserService2_Vtbl {
     pub ReleaseShellView: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ActivatePendingView: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
-    pub CreateViewWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const super::RECT, *mut super::HWND) -> windows_core::HRESULT,
+    pub CreateViewWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::LPRECT, *mut super::HWND) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef")))]
     CreateViewWindow: usize,
     pub CreateBrowserPropSheetExt: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1120,17 +1120,17 @@ pub struct IBrowserService2_Vtbl {
     pub _PauseOrResumeView: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub _DisableModeless: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "shtypes")]
-    pub _NavigateToPidl: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::ITEMIDLIST, u32, u32) -> windows_core::HRESULT,
+    pub _NavigateToPidl: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCITEMIDLIST, u32, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "shtypes"))]
     _NavigateToPidl: usize,
     #[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "shtypes"))]
-    pub _TryShell2Rename: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::ITEMIDLIST) -> windows_core::HRESULT,
+    pub _TryShell2Rename: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LPCITEMIDLIST) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "oleidl", feature = "shobjidl_core", feature = "shtypes")))]
     _TryShell2Rename: usize,
     pub _SwitchActivationNow: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub _ExecChildren: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL, *const windows_core::GUID, u32, u32, *const super::VARIANTARG, *mut super::VARIANTARG) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     _ExecChildren: usize,
     #[cfg(all(feature = "minwindef", feature = "windef"))]
     pub _SendChildren: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, windows_core::BOOL, u32, super::WPARAM, super::LPARAM) -> windows_core::HRESULT,
@@ -1153,11 +1153,11 @@ pub struct IBrowserService2_Vtbl {
     pub _ResizeNextBorder: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub _ResizeView: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
-    pub _GetEffectiveClientArea: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::RECT, super::HMONITOR) -> windows_core::HRESULT,
+    pub _GetEffectiveClientArea: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPRECT, super::HMONITOR) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     _GetEffectiveClientArea: usize,
     #[cfg(all(feature = "objidlbase", feature = "shtypes"))]
-    pub v_GetViewStream: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::ITEMIDLIST, u32, windows_core::PCWSTR) -> Option<super::IStream>,
+    pub v_GetViewStream: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCITEMIDLIST, u32, windows_core::PCWSTR) -> Option<super::IStream>,
     #[cfg(not(all(feature = "objidlbase", feature = "shtypes")))]
     v_GetViewStream: usize,
     #[cfg(feature = "minwindef")]
@@ -1183,13 +1183,13 @@ pub struct IBrowserService2_Vtbl {
     _LoadToolbars: usize,
     pub _CloseAndReleaseToolbars: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "windef", feature = "winuser"))]
-    pub v_MayGetNextToolbarFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::MSG, u32, i32, *mut LPTOOLBARITEM, *mut super::HWND) -> windows_core::HRESULT,
+    pub v_MayGetNextToolbarFocus: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPMSG, u32, i32, *mut LPTOOLBARITEM, *mut super::HWND) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "windef", feature = "winuser")))]
     v_MayGetNextToolbarFocus: usize,
     pub _ResizeNextBorderHelper: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub _FindTBar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> u32,
     #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "windef", feature = "winuser"))]
-    pub _SetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *const TOOLBARITEM, super::HWND, *const super::MSG) -> windows_core::HRESULT,
+    pub _SetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, LPTOOLBARITEM, super::HWND, super::LPMSG) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "windef", feature = "winuser")))]
     _SetFocus: usize,
     #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
@@ -1197,11 +1197,11 @@ pub struct IBrowserService2_Vtbl {
     #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
     v_MayTranslateAccelerator: usize,
     #[cfg(feature = "windef")]
-    pub _GetBorderDWHelper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::RECT, windows_core::BOOL) -> windows_core::HRESULT,
+    pub _GetBorderDWHelper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LPRECT, windows_core::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     _GetBorderDWHelper: usize,
     #[cfg(feature = "shtypes")]
-    pub v_CheckZoneCrossing: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::ITEMIDLIST) -> windows_core::HRESULT,
+    pub v_CheckZoneCrossing: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCITEMIDLIST) -> windows_core::HRESULT,
     #[cfg(not(feature = "shtypes"))]
     v_CheckZoneCrossing: usize,
 }
@@ -1219,7 +1219,7 @@ pub trait IBrowserService2_Impl: IBrowserService_Impl {
     fn OnFrameWindowActivateBS(&self, factive: windows_core::BOOL) -> windows_core::Result<()>;
     fn ReleaseShellView(&self) -> windows_core::Result<()>;
     fn ActivatePendingView(&self) -> windows_core::Result<()>;
-    fn CreateViewWindow(&self, psvnew: windows_core::Ref<super::IShellView>, psvold: windows_core::Ref<super::IShellView>, prcview: *const super::RECT) -> windows_core::Result<super::HWND>;
+    fn CreateViewWindow(&self, psvnew: windows_core::Ref<super::IShellView>, psvold: windows_core::Ref<super::IShellView>, prcview: super::LPRECT) -> windows_core::Result<super::HWND>;
     fn CreateBrowserPropSheetExt(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetViewWindow(&self) -> windows_core::Result<super::HWND>;
     fn GetBaseBrowserData(&self) -> windows_core::Result<LPCBASEBROWSERDATA>;
@@ -1238,8 +1238,8 @@ pub trait IBrowserService2_Impl: IBrowserService_Impl {
     fn _MaySaveChanges(&self) -> windows_core::Result<()>;
     fn _PauseOrResumeView(&self, fpaused: windows_core::BOOL) -> windows_core::Result<()>;
     fn _DisableModeless(&self) -> windows_core::Result<()>;
-    fn _NavigateToPidl(&self, pidl: *const super::ITEMIDLIST, grfhlnf: u32, dwflags: u32) -> windows_core::Result<()>;
-    fn _TryShell2Rename(&self, psv: windows_core::Ref<super::IShellView>, pidlnew: *const super::ITEMIDLIST) -> windows_core::Result<()>;
+    fn _NavigateToPidl(&self, pidl: super::LPCITEMIDLIST, grfhlnf: u32, dwflags: u32) -> windows_core::Result<()>;
+    fn _TryShell2Rename(&self, psv: windows_core::Ref<super::IShellView>, pidlnew: super::LPCITEMIDLIST) -> windows_core::Result<()>;
     fn _SwitchActivationNow(&self) -> windows_core::Result<()>;
     fn _ExecChildren(&self, punkbar: windows_core::Ref<windows_core::IUnknown>, fbroadcast: windows_core::BOOL, pguidcmdgroup: *const windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvarargin: *const super::VARIANTARG, pvarargout: *mut super::VARIANTARG) -> windows_core::Result<()>;
     fn _SendChildren(&self, hwndbar: super::HWND, fbroadcast: windows_core::BOOL, umsg: u32, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_core::Result<()>;
@@ -1253,8 +1253,8 @@ pub trait IBrowserService2_Impl: IBrowserService_Impl {
     fn _UpdateViewRectSize(&self) -> windows_core::Result<()>;
     fn _ResizeNextBorder(&self, itb: u32) -> windows_core::Result<()>;
     fn _ResizeView(&self) -> windows_core::Result<()>;
-    fn _GetEffectiveClientArea(&self, lprectborder: *mut super::RECT, hmon: super::HMONITOR) -> windows_core::Result<()>;
-    fn v_GetViewStream(&self, pidl: *const super::ITEMIDLIST, grfmode: u32, pwszname: &windows_core::PCWSTR) -> Option<super::IStream>;
+    fn _GetEffectiveClientArea(&self, lprectborder: super::LPRECT, hmon: super::HMONITOR) -> windows_core::Result<()>;
+    fn v_GetViewStream(&self, pidl: super::LPCITEMIDLIST, grfmode: u32, pwszname: &windows_core::PCWSTR) -> Option<super::IStream>;
     fn ForwardViewMsg(&self, umsg: u32, wparam: super::WPARAM, lparam: super::LPARAM) -> super::LRESULT;
     fn SetAcceleratorMenu(&self, hacc: super::HACCEL) -> windows_core::Result<()>;
     fn _GetToolbarCount(&self) -> i32;
@@ -1262,13 +1262,13 @@ pub trait IBrowserService2_Impl: IBrowserService_Impl {
     fn _SaveToolbars(&self, pstm: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
     fn _LoadToolbars(&self, pstm: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
     fn _CloseAndReleaseToolbars(&self, fclose: windows_core::BOOL) -> windows_core::Result<()>;
-    fn v_MayGetNextToolbarFocus(&self, lpmsg: *const super::MSG, itbnext: u32, citb: i32, pptbi: *mut LPTOOLBARITEM, phwnd: *mut super::HWND) -> windows_core::Result<()>;
+    fn v_MayGetNextToolbarFocus(&self, lpmsg: super::LPMSG, itbnext: u32, citb: i32, pptbi: *mut LPTOOLBARITEM, phwnd: *mut super::HWND) -> windows_core::Result<()>;
     fn _ResizeNextBorderHelper(&self, itb: u32, busehmonitor: windows_core::BOOL) -> windows_core::Result<()>;
     fn _FindTBar(&self, punksrc: windows_core::Ref<windows_core::IUnknown>) -> u32;
-    fn _SetFocus(&self, ptbi: *const TOOLBARITEM, hwnd: super::HWND, lpmsg: *const super::MSG) -> windows_core::Result<()>;
+    fn _SetFocus(&self, ptbi: LPTOOLBARITEM, hwnd: super::HWND, lpmsg: super::LPMSG) -> windows_core::Result<()>;
     fn v_MayTranslateAccelerator(&self, pmsg: *const super::MSG) -> windows_core::Result<()>;
-    fn _GetBorderDWHelper(&self, punksrc: windows_core::Ref<windows_core::IUnknown>, lprectborder: *mut super::RECT, busehmonitor: windows_core::BOOL) -> windows_core::Result<()>;
-    fn v_CheckZoneCrossing(&self, pidl: *const super::ITEMIDLIST) -> windows_core::Result<()>;
+    fn _GetBorderDWHelper(&self, punksrc: windows_core::Ref<windows_core::IUnknown>, lprectborder: super::LPRECT, busehmonitor: windows_core::BOOL) -> windows_core::Result<()>;
+    fn v_CheckZoneCrossing(&self, pidl: super::LPCITEMIDLIST) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef", feature = "winuser", feature = "wtypes", feature = "wtypesbase"))]
 impl IBrowserService2_Vtbl {
@@ -1351,7 +1351,7 @@ impl IBrowserService2_Vtbl {
                 IBrowserService2_Impl::ActivatePendingView(this).into()
             }
         }
-        unsafe extern "system" fn CreateViewWindow<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psvnew: *mut core::ffi::c_void, psvold: *mut core::ffi::c_void, prcview: *const super::RECT, phwnd: *mut super::HWND) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateViewWindow<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psvnew: *mut core::ffi::c_void, psvold: *mut core::ffi::c_void, prcview: super::LPRECT, phwnd: *mut super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBrowserService2_Impl::CreateViewWindow(this, core::mem::transmute_copy(&psvnew), core::mem::transmute_copy(&psvold), core::mem::transmute_copy(&prcview)) {
@@ -1483,13 +1483,13 @@ impl IBrowserService2_Vtbl {
                 IBrowserService2_Impl::_DisableModeless(this).into()
             }
         }
-        unsafe extern "system" fn _NavigateToPidl<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const super::ITEMIDLIST, grfhlnf: u32, dwflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn _NavigateToPidl<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST, grfhlnf: u32, dwflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBrowserService2_Impl::_NavigateToPidl(this, core::mem::transmute_copy(&pidl), core::mem::transmute_copy(&grfhlnf), core::mem::transmute_copy(&dwflags)).into()
             }
         }
-        unsafe extern "system" fn _TryShell2Rename<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psv: *mut core::ffi::c_void, pidlnew: *const super::ITEMIDLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn _TryShell2Rename<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psv: *mut core::ffi::c_void, pidlnew: super::LPCITEMIDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBrowserService2_Impl::_TryShell2Rename(this, core::mem::transmute_copy(&psv), core::mem::transmute_copy(&pidlnew)).into()
@@ -1579,13 +1579,13 @@ impl IBrowserService2_Vtbl {
                 IBrowserService2_Impl::_ResizeView(this).into()
             }
         }
-        unsafe extern "system" fn _GetEffectiveClientArea<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprectborder: *mut super::RECT, hmon: super::HMONITOR) -> windows_core::HRESULT {
+        unsafe extern "system" fn _GetEffectiveClientArea<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprectborder: super::LPRECT, hmon: super::HMONITOR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBrowserService2_Impl::_GetEffectiveClientArea(this, core::mem::transmute_copy(&lprectborder), core::mem::transmute_copy(&hmon)).into()
             }
         }
-        unsafe extern "system" fn v_GetViewStream<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const super::ITEMIDLIST, grfmode: u32, pwszname: windows_core::PCWSTR) -> Option<super::IStream> {
+        unsafe extern "system" fn v_GetViewStream<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST, grfmode: u32, pwszname: windows_core::PCWSTR) -> Option<super::IStream> {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBrowserService2_Impl::v_GetViewStream(this, core::mem::transmute_copy(&pidl), core::mem::transmute_copy(&grfmode), core::mem::transmute(&pwszname))
@@ -1633,7 +1633,7 @@ impl IBrowserService2_Vtbl {
                 IBrowserService2_Impl::_CloseAndReleaseToolbars(this, core::mem::transmute_copy(&fclose)).into()
             }
         }
-        unsafe extern "system" fn v_MayGetNextToolbarFocus<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpmsg: *const super::MSG, itbnext: u32, citb: i32, pptbi: *mut LPTOOLBARITEM, phwnd: *mut super::HWND) -> windows_core::HRESULT {
+        unsafe extern "system" fn v_MayGetNextToolbarFocus<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpmsg: super::LPMSG, itbnext: u32, citb: i32, pptbi: *mut LPTOOLBARITEM, phwnd: *mut super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBrowserService2_Impl::v_MayGetNextToolbarFocus(this, core::mem::transmute_copy(&lpmsg), core::mem::transmute_copy(&itbnext), core::mem::transmute_copy(&citb), core::mem::transmute_copy(&pptbi), core::mem::transmute_copy(&phwnd)).into()
@@ -1651,7 +1651,7 @@ impl IBrowserService2_Vtbl {
                 IBrowserService2_Impl::_FindTBar(this, core::mem::transmute_copy(&punksrc))
             }
         }
-        unsafe extern "system" fn _SetFocus<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptbi: *const TOOLBARITEM, hwnd: super::HWND, lpmsg: *const super::MSG) -> windows_core::HRESULT {
+        unsafe extern "system" fn _SetFocus<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptbi: LPTOOLBARITEM, hwnd: super::HWND, lpmsg: super::LPMSG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBrowserService2_Impl::_SetFocus(this, core::mem::transmute_copy(&ptbi), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&lpmsg)).into()
@@ -1663,13 +1663,13 @@ impl IBrowserService2_Vtbl {
                 IBrowserService2_Impl::v_MayTranslateAccelerator(this, core::mem::transmute_copy(&pmsg)).into()
             }
         }
-        unsafe extern "system" fn _GetBorderDWHelper<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punksrc: *mut core::ffi::c_void, lprectborder: *mut super::RECT, busehmonitor: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn _GetBorderDWHelper<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punksrc: *mut core::ffi::c_void, lprectborder: super::LPRECT, busehmonitor: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBrowserService2_Impl::_GetBorderDWHelper(this, core::mem::transmute_copy(&punksrc), core::mem::transmute_copy(&lprectborder), core::mem::transmute_copy(&busehmonitor)).into()
             }
         }
-        unsafe extern "system" fn v_CheckZoneCrossing<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: *const super::ITEMIDLIST) -> windows_core::HRESULT {
+        unsafe extern "system" fn v_CheckZoneCrossing<Identity: IBrowserService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBrowserService2_Impl::v_CheckZoneCrossing(this, core::mem::transmute_copy(&pidl)).into()
@@ -1757,7 +1757,7 @@ impl core::ops::Deref for IBrowserService3 {
 windows_core::imp::interface_hierarchy!(IBrowserService3, windows_core::IUnknown, IBrowserService, IBrowserService2);
 impl IBrowserService3 {
     #[cfg(feature = "windef")]
-    pub unsafe fn _PositionViewWindow(&self, hwnd: super::HWND, prc: *const super::RECT) -> windows_core::HRESULT {
+    pub unsafe fn _PositionViewWindow(&self, hwnd: super::HWND, prc: super::LPRECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self)._PositionViewWindow)(windows_core::Interface::as_raw(self), hwnd, prc) }
     }
     #[cfg(feature = "shtypes")]
@@ -1776,7 +1776,7 @@ impl IBrowserService3 {
 pub struct IBrowserService3_Vtbl {
     pub base__: IBrowserService2_Vtbl,
     #[cfg(feature = "windef")]
-    pub _PositionViewWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, *const super::RECT) -> windows_core::HRESULT,
+    pub _PositionViewWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, super::LPRECT) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     _PositionViewWindow: usize,
     #[cfg(feature = "shtypes")]
@@ -1786,13 +1786,13 @@ pub struct IBrowserService3_Vtbl {
 }
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef", feature = "winuser", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBrowserService3_Impl: IBrowserService2_Impl {
-    fn _PositionViewWindow(&self, hwnd: super::HWND, prc: *const super::RECT) -> windows_core::Result<()>;
+    fn _PositionViewWindow(&self, hwnd: super::HWND, prc: super::LPRECT) -> windows_core::Result<()>;
     fn IEParseDisplayNameEx(&self, uicp: u32, pwszpath: &windows_core::PCWSTR, dwflags: u32) -> windows_core::Result<super::LPITEMIDLIST>;
 }
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef", feature = "winuser", feature = "wtypes", feature = "wtypesbase"))]
 impl IBrowserService3_Vtbl {
     pub const fn new<Identity: IBrowserService3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn _PositionViewWindow<Identity: IBrowserService3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, prc: *const super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn _PositionViewWindow<Identity: IBrowserService3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::HWND, prc: super::LPRECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBrowserService3_Impl::_PositionViewWindow(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&prc)).into()
@@ -1905,7 +1905,7 @@ impl IExpDispSupport {
     pub unsafe fn OnTranslateAccelerator(&self, pmsg: *const super::MSG, grfmodifiers: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnTranslateAccelerator)(windows_core::Interface::as_raw(self), pmsg, grfmodifiers) }
     }
-    #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnInvoke(&self, dispidmember: super::DISPID, iid: *const windows_core::GUID, lcid: super::LCID, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnInvoke)(windows_core::Interface::as_raw(self), dispidmember, iid, lcid, wflags, pdispparams, pvarresult, pexcepinfo, puargerr as _) }
     }
@@ -1922,9 +1922,9 @@ pub struct IExpDispSupport_Vtbl {
     pub OnTranslateAccelerator: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::MSG, u32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
     OnTranslateAccelerator: usize,
-    #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub OnInvoke: unsafe extern "system" fn(*mut core::ffi::c_void, super::DISPID, *const windows_core::GUID, super::LCID, u16, *const super::DISPPARAMS, *mut super::VARIANT, *mut super::EXCEPINFO, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     OnInvoke: usize,
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "windef", feature = "winnt", feature = "winuser", feature = "wtypes", feature = "wtypesbase"))]
@@ -1987,7 +1987,7 @@ impl IExpDispSupportXP {
     pub unsafe fn OnTranslateAccelerator(&self, pmsg: *const super::MSG, grfmodifiers: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnTranslateAccelerator)(windows_core::Interface::as_raw(self), pmsg, grfmodifiers) }
     }
-    #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnInvoke(&self, dispidmember: super::DISPID, iid: *const windows_core::GUID, lcid: super::LCID, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnInvoke)(windows_core::Interface::as_raw(self), dispidmember, iid, lcid, wflags, pdispparams, pvarresult, pexcepinfo, puargerr as _) }
     }
@@ -2004,9 +2004,9 @@ pub struct IExpDispSupportXP_Vtbl {
     pub OnTranslateAccelerator: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::MSG, u32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "minwindef", feature = "windef", feature = "winuser")))]
     OnTranslateAccelerator: usize,
-    #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub OnInvoke: unsafe extern "system" fn(*mut core::ffi::c_void, super::DISPID, *const windows_core::GUID, super::LCID, u16, *const super::DISPPARAMS, *mut super::VARIANT, *mut super::EXCEPINFO, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     OnInvoke: usize,
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "windef", feature = "winnt", feature = "winuser", feature = "wtypes", feature = "wtypesbase"))]
@@ -2275,7 +2275,7 @@ impl ITravelLog {
         }
     }
     #[cfg(feature = "shtypes")]
-    pub unsafe fn FindTravelEntry<P0>(&self, punk: P0, pidl: *const super::ITEMIDLIST) -> windows_core::Result<ITravelEntry>
+    pub unsafe fn FindTravelEntry<P0>(&self, punk: P0, pidl: super::LPCITEMIDLIST) -> windows_core::Result<ITravelEntry>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -2323,7 +2323,7 @@ pub struct ITravelLog_Vtbl {
     pub Travel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetTravelEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "shtypes")]
-    pub FindTravelEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::ITEMIDLIST, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindTravelEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::LPCITEMIDLIST, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "shtypes"))]
     FindTravelEntry: usize,
     pub GetToolTipText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, windows_core::PWSTR, u32) -> windows_core::HRESULT,
@@ -2342,7 +2342,7 @@ pub trait ITravelLog_Impl: windows_core::IUnknownImpl {
     fn UpdateExternal(&self, punk: windows_core::Ref<windows_core::IUnknown>, punkhlbrowsecontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Travel(&self, punk: windows_core::Ref<windows_core::IUnknown>, ioffset: i32) -> windows_core::Result<()>;
     fn GetTravelEntry(&self, punk: windows_core::Ref<windows_core::IUnknown>, ioffset: i32) -> windows_core::Result<ITravelEntry>;
-    fn FindTravelEntry(&self, punk: windows_core::Ref<windows_core::IUnknown>, pidl: *const super::ITEMIDLIST) -> windows_core::Result<ITravelEntry>;
+    fn FindTravelEntry(&self, punk: windows_core::Ref<windows_core::IUnknown>, pidl: super::LPCITEMIDLIST) -> windows_core::Result<ITravelEntry>;
     fn GetToolTipText(&self, punk: windows_core::Ref<windows_core::IUnknown>, ioffset: i32, idstemplate: i32, pwztext: windows_core::PWSTR, cchtext: u32) -> windows_core::Result<()>;
     fn InsertMenuEntries(&self, punk: windows_core::Ref<windows_core::IUnknown>, hmenu: super::HMENU, npos: i32, idfirst: i32, idlast: i32, dwflags: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<ITravelLog>;
@@ -2388,7 +2388,7 @@ impl ITravelLog_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn FindTravelEntry<Identity: ITravelLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void, pidl: *const super::ITEMIDLIST, ppte: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindTravelEntry<Identity: ITravelLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void, pidl: super::LPCITEMIDLIST, ppte: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITravelLog_Impl::FindTravelEntry(this, core::mem::transmute_copy(&punk), core::mem::transmute_copy(&pidl)) {

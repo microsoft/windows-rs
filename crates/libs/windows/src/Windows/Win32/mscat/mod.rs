@@ -6,11 +6,11 @@ pub unsafe fn CryptCATAdminAcquireContext(phcatadmin: *mut super::HCATADMIN, pgs
 }
 #[cfg(all(feature = "wincrypt", feature = "winnt", feature = "wintrust"))]
 #[inline]
-pub unsafe fn CryptCATAdminAcquireContext2<P2>(phcatadmin: *mut super::HCATADMIN, pgsubsystem: Option<*const windows_core::GUID>, pwszhashalgorithm: P2, pstronghashpolicy: Option<*const super::CERT_STRONG_SIGN_PARA>, dwflags: Option<u32>) -> windows_core::BOOL
+pub unsafe fn CryptCATAdminAcquireContext2<P2>(phcatadmin: *mut super::HCATADMIN, pgsubsystem: Option<*const windows_core::GUID>, pwszhashalgorithm: P2, pstronghashpolicy: Option<super::PCCERT_STRONG_SIGN_PARA>, dwflags: Option<u32>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wintrust.dll" "system" fn CryptCATAdminAcquireContext2(phcatadmin : *mut super::HCATADMIN, pgsubsystem : *const windows_core::GUID, pwszhashalgorithm : windows_core::PCWSTR, pstronghashpolicy : *const super::CERT_STRONG_SIGN_PARA, dwflags : u32) -> windows_core::BOOL);
+    windows_core::link!("wintrust.dll" "system" fn CryptCATAdminAcquireContext2(phcatadmin : *mut super::HCATADMIN, pgsubsystem : *const windows_core::GUID, pwszhashalgorithm : windows_core::PCWSTR, pstronghashpolicy : super::PCCERT_STRONG_SIGN_PARA, dwflags : u32) -> windows_core::BOOL);
     unsafe { CryptCATAdminAcquireContext2(phcatadmin as _, pgsubsystem.unwrap_or(core::mem::zeroed()) as _, pwszhashalgorithm.param().abi(), pstronghashpolicy.unwrap_or(core::mem::zeroed()) as _, dwflags.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "winnt", feature = "wintrust"))]
@@ -69,12 +69,9 @@ where
 }
 #[cfg(all(feature = "winnt", feature = "wintrust"))]
 #[inline]
-pub unsafe fn CryptCATAdminResolveCatalogPath<P1>(hcatadmin: super::HCATADMIN, pwszcatalogfile: P1, pscatinfo: *mut CATALOG_INFO, dwflags: u32) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("wintrust.dll" "system" fn CryptCATAdminResolveCatalogPath(hcatadmin : super::HCATADMIN, pwszcatalogfile : windows_core::PCWSTR, pscatinfo : *mut CATALOG_INFO, dwflags : u32) -> windows_core::BOOL);
-    unsafe { CryptCATAdminResolveCatalogPath(hcatadmin, pwszcatalogfile.param().abi(), pscatinfo as _, dwflags) }
+pub unsafe fn CryptCATAdminResolveCatalogPath(hcatadmin: super::HCATADMIN, pwszcatalogfile: *const u16, pscatinfo: *mut CATALOG_INFO, dwflags: u32) -> windows_core::BOOL {
+    windows_core::link!("wintrust.dll" "system" fn CryptCATAdminResolveCatalogPath(hcatadmin : super::HCATADMIN, pwszcatalogfile : *const u16, pscatinfo : *mut CATALOG_INFO, dwflags : u32) -> windows_core::BOOL);
+    unsafe { CryptCATAdminResolveCatalogPath(hcatadmin, pwszcatalogfile, pscatinfo as _, dwflags) }
 }
 #[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
 #[inline]
@@ -238,12 +235,9 @@ pub unsafe fn CryptCATStoreFromHandle(hcatalog: super::HANDLE) -> *mut CRYPTCATS
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn IsCatalogFile<P1>(hfile: Option<super::HANDLE>, pwszfilename: P1) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("wintrust.dll" "system" fn IsCatalogFile(hfile : super::HANDLE, pwszfilename : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { IsCatalogFile(hfile.unwrap_or(core::mem::zeroed()) as _, pwszfilename.param().abi()) }
+pub unsafe fn IsCatalogFile(hfile: Option<super::HANDLE>, pwszfilename: Option<*const u16>) -> windows_core::BOOL {
+    windows_core::link!("wintrust.dll" "system" fn IsCatalogFile(hfile : super::HANDLE, pwszfilename : *const u16) -> windows_core::BOOL);
+    unsafe { IsCatalogFile(hfile.unwrap_or(core::mem::zeroed()) as _, pwszfilename.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -12,9 +12,9 @@ pub unsafe fn CreateTimerQueue() -> super::HANDLE {
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CreateTimerQueueTimer(phnewtimer: *mut super::HANDLE, timerqueue: Option<super::HANDLE>, callback: super::WAITORTIMERCALLBACK, parameter: Option<*const core::ffi::c_void>, duetime: u32, period: u32, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn CreateTimerQueueTimer(phnewtimer : *mut super::HANDLE, timerqueue : super::HANDLE, callback : super::WAITORTIMERCALLBACK, parameter : *const core::ffi::c_void, duetime : u32, period : u32, flags : u32) -> windows_core::BOOL);
-    unsafe { CreateTimerQueueTimer(phnewtimer as _, timerqueue.unwrap_or(core::mem::zeroed()) as _, callback, parameter.unwrap_or(core::mem::zeroed()) as _, duetime, period, flags) }
+pub unsafe fn CreateTimerQueueTimer(phnewtimer: super::PHANDLE, timerqueue: Option<super::HANDLE>, callback: super::WAITORTIMERCALLBACK, parameter: Option<*const core::ffi::c_void>, duetime: u32, period: u32, flags: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn CreateTimerQueueTimer(phnewtimer : super::PHANDLE, timerqueue : super::HANDLE, callback : super::WAITORTIMERCALLBACK, parameter : *const core::ffi::c_void, duetime : u32, period : u32, flags : u32) -> windows_core::BOOL);
+    unsafe { CreateTimerQueueTimer(phnewtimer, timerqueue.unwrap_or(core::mem::zeroed()) as _, callback, parameter.unwrap_or(core::mem::zeroed()) as _, duetime, period, flags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

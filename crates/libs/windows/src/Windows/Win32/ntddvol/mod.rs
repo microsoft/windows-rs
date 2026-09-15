@@ -28,6 +28,7 @@ pub const IOCTL_VOLUME_SET_GPT_ATTRIBUTES: i32 = 5636148;
 pub const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: i32 = 5636100;
 pub const IOCTL_VOLUME_UPDATE_PROPERTIES: i32 = 5636180;
 pub type PFILE_EXTENT = *mut FILE_EXTENT;
+#[cfg(feature = "winnt")]
 pub type PVOLUME_ALLOCATE_BC_STREAM_INPUT = *mut VOLUME_ALLOCATE_BC_STREAM_INPUT;
 pub type PVOLUME_ALLOCATE_BC_STREAM_OUTPUT = *mut VOLUME_ALLOCATE_BC_STREAM_OUTPUT;
 pub type PVOLUME_ALLOCATION_HINT_INPUT = *mut VOLUME_ALLOCATION_HINT_INPUT;
@@ -40,23 +41,27 @@ pub type PVOLUME_LOGICAL_OFFSET = *mut VOLUME_LOGICAL_OFFSET;
 pub type PVOLUME_NUMBER = *mut VOLUME_NUMBER;
 pub type PVOLUME_PHYSICAL_OFFSET = *mut VOLUME_PHYSICAL_OFFSET;
 pub type PVOLUME_PHYSICAL_OFFSETS = *mut VOLUME_PHYSICAL_OFFSETS;
+#[cfg(feature = "winnt")]
 pub type PVOLUME_READ_PLEX_INPUT = *mut VOLUME_READ_PLEX_INPUT;
+#[cfg(feature = "winnt")]
 pub type PVOLUME_SET_GPT_ATTRIBUTES_INFORMATION = *mut VOLUME_SET_GPT_ATTRIBUTES_INFORMATION;
 pub type PVOLUME_SHRINK_INFO = *mut VOLUME_SHRINK_INFO;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
     pub RequestsPerPeriod: u32,
     pub Period: u32,
-    pub RetryFailures: bool,
-    pub Discardable: bool,
-    pub Reserved1: [bool; 2],
+    pub RetryFailures: super::BOOLEAN,
+    pub Discardable: super::BOOLEAN,
+    pub Reserved1: [super::BOOLEAN; 2],
     pub LowestByteOffset: u64,
     pub HighestByteOffset: u64,
     pub AccessType: u32,
     pub AccessMode: u32,
 }
+#[cfg(feature = "winnt")]
 impl Default for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -162,18 +167,26 @@ impl Default for VOLUME_PHYSICAL_OFFSETS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
 pub struct VOLUME_READ_PLEX_INPUT {
-    pub ByteOffset: i64,
+    pub ByteOffset: super::LARGE_INTEGER,
     pub Length: u32,
     pub PlexNumber: u32,
 }
+#[cfg(feature = "winnt")]
+impl Default for VOLUME_READ_PLEX_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     pub GptAttributes: u64,
-    pub RevertOnClose: bool,
-    pub ApplyToAllConnectedVolumes: bool,
+    pub RevertOnClose: super::BOOLEAN,
+    pub ApplyToAllConnectedVolumes: super::BOOLEAN,
     pub Reserved1: u16,
     pub Reserved2: u32,
 }

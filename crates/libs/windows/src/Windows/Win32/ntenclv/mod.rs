@@ -69,10 +69,9 @@ pub type PENCLAVE_VBS_BASIC_KEY_REQUEST = *mut ENCLAVE_VBS_BASIC_KEY_REQUEST;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PVBS_BASIC_ENCLAVE_EXCEPTION = PVBS_BASIC_ENCLAVE_EXCEPTION_AMD64;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PVBS_BASIC_ENCLAVE_EXCEPTION(pub *mut core::ffi::c_void);
+pub type PVBS_BASIC_ENCLAVE_EXCEPTION = *mut core::ffi::c_void;
 pub type PVBS_BASIC_ENCLAVE_EXCEPTION_AMD64 = *mut VBS_BASIC_ENCLAVE_EXCEPTION_AMD64;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PVBS_BASIC_ENCLAVE_SYSCALL_PAGE = *mut VBS_BASIC_ENCLAVE_SYSCALL_PAGE;
 #[cfg(target_arch = "x86")]
 pub type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32;
@@ -80,19 +79,21 @@ pub type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = PVBS_BASIC_ENCLAVE_THREAD_DESCRI
 pub type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64;
 pub type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 = *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32;
 pub type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 = *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *const core::ffi::c_void, numberofbytes: usize, sourceaddress: *const core::ffi::c_void, pageprotection: u32) -> i32>;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = Option<unsafe extern "system" fn(threaddescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32>;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *const core::ffi::c_void, numberofbytes: usize) -> i32>;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY = Option<unsafe extern "system" fn(keyrequest: *mut ENCLAVE_VBS_BASIC_KEY_REQUEST, requestedkeysize: u32, returnedkey: *mut u8) -> i32>;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA = Option<unsafe extern "system" fn(buffer: *mut u8, numberofbytes: u32, generation: *mut u64) -> i32>;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT = Option<unsafe extern "system" fn(enclavedata: *const u8, report: *mut core::ffi::c_void, buffersize: u32, outputsize: *mut u32) -> i32>;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION = Option<unsafe extern "system" fn(enclaveinfo: *mut ENCLAVE_INFORMATION) -> i32>;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = Option<unsafe extern "system" fn(threaddescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32>;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *const core::ffi::c_void, numberofytes: usize, pageprotection: u32) -> i32>;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE = Option<unsafe extern "system" fn(returnvalue: usize)>;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = Option<unsafe extern "system" fn(exceptionrecord: PVBS_BASIC_ENCLAVE_EXCEPTION) -> i32>;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = Option<unsafe extern "system" fn(threaddescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32>;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT = Option<unsafe extern "system" fn(report: *const core::ffi::c_void, reportsize: u32) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = Option<unsafe extern "C" fn(enclaveaddress: *const core::ffi::c_void, numberofbytes: usize, sourceaddress: *const core::ffi::c_void, pageprotection: u32) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = Option<unsafe extern "C" fn(threaddescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES = Option<unsafe extern "C" fn(enclaveaddress: *const core::ffi::c_void, numberofbytes: usize) -> i32>;
+#[cfg(feature = "minwindef")]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY = Option<unsafe extern "C" fn(keyrequest: PENCLAVE_VBS_BASIC_KEY_REQUEST, requestedkeysize: u32, returnedkey: super::PUCHAR) -> i32>;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA = Option<unsafe extern "C" fn(buffer: super::PUCHAR, numberofbytes: u32, generation: super::PULONGLONG) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT = Option<unsafe extern "C" fn(enclavedata: *const u8, report: *mut core::ffi::c_void, buffersize: u32, outputsize: *mut u32) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION = Option<unsafe extern "C" fn(enclaveinfo: *mut ENCLAVE_INFORMATION) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = Option<unsafe extern "C" fn(threaddescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES = Option<unsafe extern "C" fn(enclaveaddress: *const core::ffi::c_void, numberofytes: usize, pageprotection: u32) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE = Option<unsafe extern "C" fn(returnvalue: usize)>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = Option<unsafe extern "C" fn(exceptionrecord: PVBS_BASIC_ENCLAVE_EXCEPTION) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = Option<unsafe extern "C" fn(threaddescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT = Option<unsafe extern "C" fn(report: *const core::ffi::c_void, reportsize: u32) -> i32>;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type VBS_BASIC_ENCLAVE_EXCEPTION = VBS_BASIC_ENCLAVE_EXCEPTION_AMD64;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
@@ -115,21 +116,22 @@ impl Default for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
-    pub ReturnFromEnclave: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE,
-    pub ReturnFromException: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION,
-    pub TerminateThread: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD,
-    pub InterruptThread: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD,
-    pub CommitPages: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES,
-    pub DecommitPages: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES,
-    pub ProtectPages: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES,
-    pub CreateThread: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD,
-    pub GetEnclaveInformation: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION,
-    pub GenerateKey: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY,
-    pub GenerateReport: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT,
-    pub VerifyReport: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT,
-    pub GenerateRandomData: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA,
+    pub ReturnFromEnclave: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE,
+    pub ReturnFromException: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION,
+    pub TerminateThread: VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD,
+    pub InterruptThread: VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD,
+    pub CommitPages: VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES,
+    pub DecommitPages: VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES,
+    pub ProtectPages: VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES,
+    pub CreateThread: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD,
+    pub GetEnclaveInformation: VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION,
+    pub GenerateKey: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY,
+    pub GenerateReport: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT,
+    pub VerifyReport: VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT,
+    pub GenerateRandomData: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA,
 }
 #[cfg(target_arch = "x86")]
 pub type VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32;

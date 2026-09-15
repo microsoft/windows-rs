@@ -895,12 +895,12 @@ pub struct IPortableDeviceDataStream_Vtbl {
     pub GetObjectID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 pub trait IPortableDeviceDataStream_Impl: super::IStream_Impl {
     fn GetObjectID(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Cancel(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl IPortableDeviceDataStream_Vtbl {
     pub const fn new<Identity: IPortableDeviceDataStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetObjectID<Identity: IPortableDeviceDataStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszobjectid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -927,7 +927,7 @@ impl IPortableDeviceDataStream_Vtbl {
         iid == &<IPortableDeviceDataStream as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPortableDeviceDataStream {}
 windows_core::imp::define_interface!(IPortableDeviceDispatchFactory, IPortableDeviceDispatchFactory_Vtbl, 0x5e1eafc3_e3d7_4132_96fa_759c0f9d1e0f);
 windows_core::imp::interface_hierarchy!(IPortableDeviceDispatchFactory, windows_core::IUnknown);
@@ -2598,8 +2598,8 @@ impl windows_core::RuntimeName for IPortableDeviceServiceOpenCallback {}
 windows_core::imp::define_interface!(IPortableDeviceUnitsStream, IPortableDeviceUnitsStream_Vtbl, 0x5e98025f_bfc4_47a2_9a5f_bc900a507c67);
 windows_core::imp::interface_hierarchy!(IPortableDeviceUnitsStream, windows_core::IUnknown);
 impl IPortableDeviceUnitsStream {
-    #[cfg(feature = "portabledevicetypes")]
-    pub unsafe fn SeekInUnits(&self, dlibmove: i64, units: super::WPD_STREAM_UNITS, dworigin: u32, plibnewposition: Option<*mut u64>) -> windows_core::HRESULT {
+    #[cfg(all(feature = "portabledevicetypes", feature = "winnt"))]
+    pub unsafe fn SeekInUnits(&self, dlibmove: super::LARGE_INTEGER, units: super::WPD_STREAM_UNITS, dworigin: u32, plibnewposition: Option<*mut super::ULARGE_INTEGER>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SeekInUnits)(windows_core::Interface::as_raw(self), dlibmove, units, dworigin, plibnewposition.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Cancel(&self) -> windows_core::HRESULT {
@@ -2610,24 +2610,24 @@ impl IPortableDeviceUnitsStream {
 #[doc(hidden)]
 pub struct IPortableDeviceUnitsStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "portabledevicetypes")]
-    pub SeekInUnits: unsafe extern "system" fn(*mut core::ffi::c_void, i64, super::WPD_STREAM_UNITS, u32, *mut u64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "portabledevicetypes"))]
+    #[cfg(all(feature = "portabledevicetypes", feature = "winnt"))]
+    pub SeekInUnits: unsafe extern "system" fn(*mut core::ffi::c_void, super::LARGE_INTEGER, super::WPD_STREAM_UNITS, u32, *mut super::ULARGE_INTEGER) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "portabledevicetypes", feature = "winnt")))]
     SeekInUnits: usize,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "portabledevicetypes")]
+#[cfg(all(feature = "portabledevicetypes", feature = "winnt"))]
 pub trait IPortableDeviceUnitsStream_Impl: windows_core::IUnknownImpl {
-    fn SeekInUnits(&self, dlibmove: i64, units: super::WPD_STREAM_UNITS, dworigin: u32, plibnewposition: *mut u64) -> windows_core::Result<()>;
+    fn SeekInUnits(&self, dlibmove: &super::LARGE_INTEGER, units: super::WPD_STREAM_UNITS, dworigin: u32, plibnewposition: *mut super::ULARGE_INTEGER) -> windows_core::Result<()>;
     fn Cancel(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "portabledevicetypes")]
+#[cfg(all(feature = "portabledevicetypes", feature = "winnt"))]
 impl IPortableDeviceUnitsStream_Vtbl {
     pub const fn new<Identity: IPortableDeviceUnitsStream_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SeekInUnits<Identity: IPortableDeviceUnitsStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dlibmove: i64, units: super::WPD_STREAM_UNITS, dworigin: u32, plibnewposition: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SeekInUnits<Identity: IPortableDeviceUnitsStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dlibmove: super::LARGE_INTEGER, units: super::WPD_STREAM_UNITS, dworigin: u32, plibnewposition: *mut super::ULARGE_INTEGER) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPortableDeviceUnitsStream_Impl::SeekInUnits(this, core::mem::transmute_copy(&dlibmove), core::mem::transmute_copy(&units), core::mem::transmute_copy(&dworigin), core::mem::transmute_copy(&plibnewposition)).into()
+                IPortableDeviceUnitsStream_Impl::SeekInUnits(this, core::mem::transmute(&dlibmove), core::mem::transmute_copy(&units), core::mem::transmute_copy(&dworigin), core::mem::transmute_copy(&plibnewposition)).into()
             }
         }
         unsafe extern "system" fn Cancel<Identity: IPortableDeviceUnitsStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2642,7 +2642,7 @@ impl IPortableDeviceUnitsStream_Vtbl {
         iid == &<IPortableDeviceUnitsStream as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "portabledevicetypes")]
+#[cfg(all(feature = "portabledevicetypes", feature = "winnt"))]
 impl windows_core::RuntimeName for IPortableDeviceUnitsStream {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IPortableDeviceWebControl, IPortableDeviceWebControl_Vtbl, 0x94fc7953_5ca1_483a_8aee_df52e7747d00);
@@ -2679,12 +2679,12 @@ pub struct IPortableDeviceWebControl_Vtbl {
     pub GetDeviceFromId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceFromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPortableDeviceWebControl_Impl: super::IDispatch_Impl {
     fn GetDeviceFromId(&self, deviceid: &windows_core::BSTR) -> windows_core::Result<super::IDispatch>;
     fn GetDeviceFromIdAsync(&self, deviceid: &windows_core::BSTR, pcompletionhandler: windows_core::Ref<super::IDispatch>, perrorhandler: windows_core::Ref<super::IDispatch>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPortableDeviceWebControl_Vtbl {
     pub const fn new<Identity: IPortableDeviceWebControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDeviceFromId<Identity: IPortableDeviceWebControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceid: *mut core::ffi::c_void, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2715,7 +2715,7 @@ impl IPortableDeviceWebControl_Vtbl {
         iid == &<IPortableDeviceWebControl as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPortableDeviceWebControl {}
 pub const PortableDevice: windows_core::GUID = windows_core::GUID::from_u128(0x728a21c5_3d9e_48d7_9810_864848f0f404);
 pub const PortableDeviceDispatchFactory: windows_core::GUID = windows_core::GUID::from_u128(0x43232233_8338_4658_ae01_0b4ae830b6b0);

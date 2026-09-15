@@ -758,8 +758,8 @@ pub unsafe fn FwpmSystemPortsGet0(enginehandle: Option<super::HANDLE>, sysports:
 }
 #[cfg(all(feature = "fwpmtypes", feature = "winnt"))]
 #[inline]
-pub unsafe fn FwpmSystemPortsSubscribe0(enginehandle: Option<super::HANDLE>, reserved: Option<*const core::ffi::c_void>, callback: FWPM_SYSTEM_PORTS_CALLBACK0, context: Option<*const core::ffi::c_void>, sysportshandle: *mut super::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsSubscribe0(enginehandle : super::HANDLE, reserved : *const core::ffi::c_void, callback : FWPM_SYSTEM_PORTS_CALLBACK0, context : *const core::ffi::c_void, sysportshandle : *mut super::HANDLE) -> u32);
+pub unsafe fn FwpmSystemPortsSubscribe0(enginehandle: Option<super::HANDLE>, reserved: Option<*mut core::ffi::c_void>, callback: FWPM_SYSTEM_PORTS_CALLBACK0, context: Option<*const core::ffi::c_void>, sysportshandle: *mut super::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsSubscribe0(enginehandle : super::HANDLE, reserved : *mut core::ffi::c_void, callback : FWPM_SYSTEM_PORTS_CALLBACK0, context : *const core::ffi::c_void, sysportshandle : *mut super::HANDLE) -> u32);
     unsafe { FwpmSystemPortsSubscribe0(enginehandle.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _, callback, context.unwrap_or(core::mem::zeroed()) as _, sysportshandle as _) }
 }
 #[cfg(feature = "winnt")]

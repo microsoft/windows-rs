@@ -1,3 +1,51 @@
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HBITMAP_UserFree(param0: *mut u32, param1: *mut super::HBITMAP) {
+    windows_core::link!("ole32.dll" "system" fn HBITMAP_UserFree(param0 : *mut u32, param1 : *mut super::HBITMAP));
+    unsafe { HBITMAP_UserFree(param0 as _, param1 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HBITMAP_UserFree64(param0: *mut u32, param1: *mut super::HBITMAP) {
+    windows_core::link!("ole32.dll" "system" fn HBITMAP_UserFree64(param0 : *mut u32, param1 : *mut super::HBITMAP));
+    unsafe { HBITMAP_UserFree64(param0 as _, param1 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HBITMAP_UserMarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HBITMAP) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HBITMAP_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HBITMAP) -> *mut u8);
+    unsafe { HBITMAP_UserMarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HBITMAP_UserMarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HBITMAP) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HBITMAP_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HBITMAP) -> *mut u8);
+    unsafe { HBITMAP_UserMarshal64(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HBITMAP_UserSize(param0: *mut u32, param1: u32, param2: *mut super::HBITMAP) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn HBITMAP_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HBITMAP) -> u32);
+    unsafe { HBITMAP_UserSize(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HBITMAP_UserSize64(param0: *mut u32, param1: u32, param2: *mut super::HBITMAP) -> u32 {
+    windows_core::link!("ole32.dll" "system" fn HBITMAP_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HBITMAP) -> u32);
+    unsafe { HBITMAP_UserSize64(param0 as _, param1, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HBITMAP_UserUnmarshal(param0: *mut u32, param1: *mut u8, param2: *mut super::HBITMAP) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HBITMAP_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HBITMAP) -> *mut u8);
+    unsafe { HBITMAP_UserUnmarshal(param0 as _, param1 as _, param2 as _) }
+}
+#[cfg(feature = "windef")]
+#[inline]
+pub unsafe fn HBITMAP_UserUnmarshal64(param0: *mut u32, param1: *mut u8, param2: *mut super::HBITMAP) -> *mut u8 {
+    windows_core::link!("ole32.dll" "system" fn HBITMAP_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HBITMAP) -> *mut u8);
+    unsafe { HBITMAP_UserUnmarshal64(param0 as _, param1 as _, param2 as _) }
+}
 pub const CPAO_EMPTY_CONNECTED: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 2;
 pub const CPAO_EMPTY_LOCAL: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 1;
 pub const CPAO_NONE: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 0;
@@ -1062,7 +1110,7 @@ impl ICredentialProviderUser {
             (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<super::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1080,19 +1128,19 @@ pub struct ICredentialProviderUser_Vtbl {
     pub GetStringValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     GetStringValue: usize,
-    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::PROPERTYKEY, *mut super::PROPVARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetValue: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICredentialProviderUser_Impl: windows_core::IUnknownImpl {
     fn GetSid(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetProviderID(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetStringValue(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<windows_core::PWSTR>;
     fn GetValue(&self, key: *const super::PROPERTYKEY) -> windows_core::Result<super::PROPVARIANT>;
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICredentialProviderUser_Vtbl {
     pub const fn new<Identity: ICredentialProviderUser_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSid<Identity: ICredentialProviderUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -1155,7 +1203,7 @@ impl ICredentialProviderUser_Vtbl {
         iid == &<ICredentialProviderUser as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICredentialProviderUser {}
 windows_core::imp::define_interface!(ICredentialProviderUserArray, ICredentialProviderUserArray_Vtbl, 0x90c119ae_0f18_4520_a1f1_114366a40fe8);
 windows_core::imp::interface_hierarchy!(ICredentialProviderUserArray, windows_core::IUnknown);

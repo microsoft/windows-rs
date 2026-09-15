@@ -286,8 +286,12 @@ impl windows_core::RuntimeName for IWbemEventProviderQuerySink {}
 windows_core::imp::define_interface!(IWbemEventProviderSecurity, IWbemEventProviderSecurity_Vtbl, 0x631f7d96_d993_11d2_b339_00105a1f4aaf);
 windows_core::imp::interface_hierarchy!(IWbemEventProviderSecurity, windows_core::IUnknown);
 impl IWbemEventProviderSecurity {
-    pub unsafe fn AccessCheck(&self, wszquerylanguage: WBEM_CWSTR, wszquery: WBEM_CWSTR, lsidlength: i32, psid: *const u8) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AccessCheck)(windows_core::Interface::as_raw(self), wszquerylanguage, wszquery, lsidlength, psid) }
+    pub unsafe fn AccessCheck<P0, P1>(&self, wszquerylanguage: P0, wszquery: P1, lsidlength: i32, psid: *const u8) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<WBEM_CWSTR>,
+        P1: windows_core::Param<WBEM_CWSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).AccessCheck)(windows_core::Interface::as_raw(self), wszquerylanguage.param().abi(), wszquery.param().abi(), lsidlength, psid) }
     }
 }
 #[repr(C)]
@@ -414,13 +418,12 @@ windows_core::imp::define_interface!(IWbemHiPerfProvider, IWbemHiPerfProvider_Vt
 windows_core::imp::interface_hierarchy!(IWbemHiPerfProvider, windows_core::IUnknown);
 impl IWbemHiPerfProvider {
     #[cfg(feature = "wbemcli")]
-    pub unsafe fn QueryInstances<P0, P3, P4>(&self, pnamespace: P0, wszclass: *const u16, lflags: i32, pctx: P3, psink: P4) -> windows_core::HRESULT
+    pub unsafe fn QueryInstances<P0, P3>(&self, pnamespace: P0, wszclass: *const u16, lflags: i32, pctx: P3, psink: &Option<super::IWbemObjectSink>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IWbemServices>,
         P3: windows_core::Param<super::IWbemContext>,
-        P4: windows_core::Param<super::IWbemObjectSink>,
     {
-        unsafe { (windows_core::Interface::vtable(self).QueryInstances)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), wszclass, lflags, pctx.param().abi(), psink.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).QueryInstances)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), wszclass, lflags, pctx.param().abi(), core::mem::transmute_copy(psink)) }
     }
     #[cfg(feature = "wbemcli")]
     pub unsafe fn CreateRefresher<P0>(&self, pnamespace: P0, lflags: i32) -> windows_core::Result<super::IWbemRefresher>
@@ -464,12 +467,12 @@ impl IWbemHiPerfProvider {
         }
     }
     #[cfg(feature = "wbemcli")]
-    pub unsafe fn GetObjects<P0, P4>(&self, pnamespace: P0, lnumobjects: i32, apobj: *mut Option<super::IWbemObjectAccess>, lflags: i32, pcontext: P4) -> windows_core::HRESULT
+    pub unsafe fn GetObjects<P0, P4>(&self, pnamespace: P0, apobj: &mut [Option<super::IWbemObjectAccess>], lflags: i32, pcontext: P4) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IWbemServices>,
         P4: windows_core::Param<super::IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetObjects)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), lnumobjects, core::mem::transmute(apobj), lflags, pcontext.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetObjects)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), apobj.len().try_into().unwrap(), core::mem::transmute(apobj.as_mut_ptr()), lflags, pcontext.param().abi()) }
     }
 }
 #[repr(C)]
@@ -503,7 +506,7 @@ pub struct IWbemHiPerfProvider_Vtbl {
 }
 #[cfg(feature = "wbemcli")]
 pub trait IWbemHiPerfProvider_Impl: windows_core::IUnknownImpl {
-    fn QueryInstances(&self, pnamespace: windows_core::Ref<super::IWbemServices>, wszclass: *const u16, lflags: i32, pctx: windows_core::Ref<super::IWbemContext>, psink: windows_core::Ref<super::IWbemObjectSink>) -> windows_core::Result<()>;
+    fn QueryInstances(&self, pnamespace: windows_core::Ref<super::IWbemServices>, wszclass: *const u16, lflags: i32, pctx: windows_core::Ref<super::IWbemContext>, psink: windows_core::OutRef<super::IWbemObjectSink>) -> windows_core::Result<()>;
     fn CreateRefresher(&self, pnamespace: windows_core::Ref<super::IWbemServices>, lflags: i32) -> windows_core::Result<super::IWbemRefresher>;
     fn CreateRefreshableObject(&self, pnamespace: windows_core::Ref<super::IWbemServices>, ptemplate: windows_core::Ref<super::IWbemObjectAccess>, prefresher: windows_core::Ref<super::IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<super::IWbemContext>, pprefreshable: windows_core::OutRef<super::IWbemObjectAccess>, plid: *mut i32) -> windows_core::Result<()>;
     fn StopRefreshing(&self, prefresher: windows_core::Ref<super::IWbemRefresher>, lid: i32, lflags: i32) -> windows_core::Result<()>;
@@ -516,7 +519,7 @@ impl IWbemHiPerfProvider_Vtbl {
         unsafe extern "system" fn QueryInstances<Identity: IWbemHiPerfProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnamespace: *mut core::ffi::c_void, wszclass: *const u16, lflags: i32, pctx: *mut core::ffi::c_void, psink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWbemHiPerfProvider_Impl::QueryInstances(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute_copy(&wszclass), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&psink)).into()
+                IWbemHiPerfProvider_Impl::QueryInstances(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute_copy(&wszclass), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pctx), core::mem::transmute(&psink)).into()
             }
         }
         unsafe extern "system" fn CreateRefresher<Identity: IWbemHiPerfProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnamespace: *mut core::ffi::c_void, lflags: i32, pprefresher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -580,14 +583,14 @@ impl windows_core::RuntimeName for IWbemHiPerfProvider {}
 windows_core::imp::define_interface!(IWbemPropertyProvider, IWbemPropertyProvider_Vtbl, 0xce61e841_65bc_11d0_b6bd_00aa003240c7);
 windows_core::imp::interface_hierarchy!(IWbemPropertyProvider, windows_core::IUnknown);
 impl IWbemPropertyProvider {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetProperty(&self, lflags: i32, strlocale: &windows_core::BSTR, strclassmapping: &windows_core::BSTR, strinstmapping: &windows_core::BSTR, strpropmapping: &windows_core::BSTR) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(strlocale), core::mem::transmute_copy(strclassmapping), core::mem::transmute_copy(strinstmapping), core::mem::transmute_copy(strpropmapping), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn PutProperty(&self, lflags: i32, strlocale: &windows_core::BSTR, strclassmapping: &windows_core::BSTR, strinstmapping: &windows_core::BSTR, strpropmapping: &windows_core::BSTR, pvvalue: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PutProperty)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(strlocale), core::mem::transmute_copy(strclassmapping), core::mem::transmute_copy(strinstmapping), core::mem::transmute_copy(strpropmapping), pvvalue) }
     }
@@ -596,21 +599,21 @@ impl IWbemPropertyProvider {
 #[doc(hidden)]
 pub struct IWbemPropertyProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     GetProperty: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub PutProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     PutProperty: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IWbemPropertyProvider_Impl: windows_core::IUnknownImpl {
     fn GetProperty(&self, lflags: i32, strlocale: &windows_core::BSTR, strclassmapping: &windows_core::BSTR, strinstmapping: &windows_core::BSTR, strpropmapping: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
     fn PutProperty(&self, lflags: i32, strlocale: &windows_core::BSTR, strclassmapping: &windows_core::BSTR, strinstmapping: &windows_core::BSTR, strpropmapping: &windows_core::BSTR, pvvalue: *const super::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IWbemPropertyProvider_Vtbl {
     pub const fn new<Identity: IWbemPropertyProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetProperty<Identity: IWbemPropertyProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, strlocale: *mut core::ffi::c_void, strclassmapping: *mut core::ffi::c_void, strinstmapping: *mut core::ffi::c_void, strpropmapping: *mut core::ffi::c_void, pvvalue: *mut super::VARIANT) -> windows_core::HRESULT {
@@ -641,7 +644,7 @@ impl IWbemPropertyProvider_Vtbl {
         iid == &<IWbemPropertyProvider as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IWbemPropertyProvider {}
 windows_core::imp::define_interface!(IWbemProviderIdentity, IWbemProviderIdentity_Vtbl, 0x631f7d97_d993_11d2_b339_00105a1f4aaf);
 windows_core::imp::interface_hierarchy!(IWbemProviderIdentity, windows_core::IUnknown);
@@ -820,7 +823,7 @@ pub const WBEM_S_INDIRECTLY_UPDATED: WBEM_EXTRA_RETURN_CODES = 274434;
 pub const WBEM_S_INITIALIZED: WBEM_EXTRA_RETURN_CODES = 0;
 pub const WBEM_S_LIMITED_SERVICE: WBEM_EXTRA_RETURN_CODES = 274433;
 pub const WBEM_S_SUBJECT_TO_SDS: WBEM_EXTRA_RETURN_CODES = 274435;
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub type WBEM_VARIANT = super::VARIANT;
 pub type WBEM_WSTR = windows_core::PWSTR;
 pub const WbemAdministrativeLocator: windows_core::GUID = windows_core::GUID::from_u128(0xcb8555cc_9128_11d1_ad9b_00c04fd8fdff);

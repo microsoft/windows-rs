@@ -1,9 +1,10 @@
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetScheduleJobAdd<P0>(servername: P0, buffer: *const u8, jobid: *mut u32) -> u32
+pub unsafe fn NetScheduleJobAdd<P0>(servername: P0, buffer: super::LPBYTE, jobid: super::LPDWORD) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetScheduleJobAdd(servername : windows_core::PCWSTR, buffer : *const u8, jobid : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetScheduleJobAdd(servername : windows_core::PCWSTR, buffer : super::LPBYTE, jobid : super::LPDWORD) -> u32);
     unsafe { NetScheduleJobAdd(servername.param().abi(), buffer, jobid as _) }
 }
 #[inline]
@@ -16,11 +17,11 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn NetScheduleJobEnum<P0>(servername: P0, pointertobuffer: *mut super::LPBYTE, prefferedmaximumlength: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32
+pub unsafe fn NetScheduleJobEnum<P0>(servername: P0, pointertobuffer: *mut super::LPBYTE, prefferedmaximumlength: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resumehandle: super::LPDWORD) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetScheduleJobEnum(servername : windows_core::PCWSTR, pointertobuffer : *mut super::LPBYTE, prefferedmaximumlength : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetScheduleJobEnum(servername : windows_core::PCWSTR, pointertobuffer : *mut super::LPBYTE, prefferedmaximumlength : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resumehandle : super::LPDWORD) -> u32);
     unsafe { NetScheduleJobEnum(servername.param().abi(), pointertobuffer as _, prefferedmaximumlength, entriesread as _, totalentries as _, resumehandle as _) }
 }
 #[cfg(feature = "minwindef")]

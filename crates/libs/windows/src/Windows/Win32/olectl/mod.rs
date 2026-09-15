@@ -1,37 +1,26 @@
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn OleCreateFontIndirect<T>(lpfontdesc: *mut FONTDESC) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
-    windows_core::link!("oleaut32.dll" "system" fn OleCreateFontIndirect(lpfontdesc : *mut FONTDESC, riid : *const windows_core::GUID, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreateFontIndirect(lpfontdesc as _, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+pub unsafe fn OleCreateFontIndirect(lpfontdesc: LPFONTDESC, riid: *const windows_core::GUID, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    windows_core::link!("oleaut32.dll" "system" fn OleCreateFontIndirect(lpfontdesc : LPFONTDESC, riid : *const windows_core::GUID, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { OleCreateFontIndirect(lpfontdesc, riid, lplpvobj as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn OleCreatePictureIndirect<T>(lppictdesc: *mut PICTDESC, fown: bool) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
-    windows_core::link!("oleaut32.dll" "system" fn OleCreatePictureIndirect(lppictdesc : *mut PICTDESC, riid : *const windows_core::GUID, fown : windows_core::BOOL, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { OleCreatePictureIndirect(lppictdesc as _, &T::IID, fown.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+pub unsafe fn OleCreatePictureIndirect(lppictdesc: LPPICTDESC, riid: *const windows_core::GUID, fown: bool, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    windows_core::link!("oleaut32.dll" "system" fn OleCreatePictureIndirect(lppictdesc : LPPICTDESC, riid : *const windows_core::GUID, fown : windows_core::BOOL, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { OleCreatePictureIndirect(lppictdesc, riid, fown.into(), lplpvobj as _) }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn OleCreatePropertyFrame<P3>(hwndowner: super::HWND, x: u32, y: u32, lpszcaption: P3, cobjects: u32, ppunk: *mut Option<windows_core::IUnknown>, cpages: u32, ppageclsid: *mut windows_core::GUID, lcid: super::LCID, dwreserved: u32, pvreserved: *mut core::ffi::c_void) -> windows_core::HRESULT
-where
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("oleaut32.dll" "system" fn OleCreatePropertyFrame(hwndowner : super::HWND, x : u32, y : u32, lpszcaption : windows_core::PCWSTR, cobjects : u32, ppunk : *mut *mut core::ffi::c_void, cpages : u32, ppageclsid : *mut windows_core::GUID, lcid : super::LCID, dwreserved : u32, pvreserved : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { OleCreatePropertyFrame(hwndowner, x, y, lpszcaption.param().abi(), cobjects, core::mem::transmute(ppunk), cpages, ppageclsid as _, lcid, dwreserved, pvreserved as _) }
+pub unsafe fn OleCreatePropertyFrame(hwndowner: super::HWND, x: u32, y: u32, lpszcaption: super::LPCOLESTR, cobjects: u32, ppunk: *mut Option<windows_core::IUnknown>, cpages: u32, ppageclsid: super::LPCLSID, lcid: super::LCID, dwreserved: u32, pvreserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    windows_core::link!("oleaut32.dll" "system" fn OleCreatePropertyFrame(hwndowner : super::HWND, x : u32, y : u32, lpszcaption : super::LPCOLESTR, cobjects : u32, ppunk : *mut *mut core::ffi::c_void, cpages : u32, ppageclsid : super::LPCLSID, lcid : super::LCID, dwreserved : u32, pvreserved : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { OleCreatePropertyFrame(hwndowner, x, y, lpszcaption, cobjects, core::mem::transmute(ppunk), cpages, ppageclsid, lcid, dwreserved, pvreserved as _) }
 }
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn OleCreatePropertyFrameIndirect(lpparams: *mut OCPFIPARAMS) -> windows_core::HRESULT {
-    windows_core::link!("oleaut32.dll" "system" fn OleCreatePropertyFrameIndirect(lpparams : *mut OCPFIPARAMS) -> windows_core::HRESULT);
-    unsafe { OleCreatePropertyFrameIndirect(lpparams as _) }
+pub unsafe fn OleCreatePropertyFrameIndirect(lpparams: LPOCPFIPARAMS) -> windows_core::HRESULT {
+    windows_core::link!("oleaut32.dll" "system" fn OleCreatePropertyFrameIndirect(lpparams : LPOCPFIPARAMS) -> windows_core::HRESULT);
+    unsafe { OleCreatePropertyFrameIndirect(lpparams) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
@@ -41,61 +30,54 @@ pub unsafe fn OleIconToCursor(hinstexe: super::HINSTANCE, hicon: super::HICON) -
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn OleLoadPicture<P0, T>(lpstream: P0, lsize: i32, frunmode: bool) -> windows_core::Result<T>
+pub unsafe fn OleLoadPicture<P0>(lpstream: P0, lsize: i32, frunmode: bool, riid: *const windows_core::GUID, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<super::IStream>,
-    T: windows_core::Interface,
+    P0: windows_core::Param<super::LPSTREAM>,
 {
     windows_core::link!("oleaut32.dll" "system" fn OleLoadPicture(lpstream : *mut core::ffi::c_void, lsize : i32, frunmode : windows_core::BOOL, riid : *const windows_core::GUID, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { OleLoadPicture(lpstream.param().abi(), lsize, frunmode.into(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { OleLoadPicture(lpstream.param().abi(), lsize, frunmode.into(), riid, lplpvobj as _) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn OleLoadPictureEx<P0, T>(lpstream: P0, lsize: i32, frunmode: bool, xsizedesired: u32, ysizedesired: u32, dwflags: u32) -> windows_core::Result<T>
+pub unsafe fn OleLoadPictureEx<P0>(lpstream: P0, lsize: i32, frunmode: bool, riid: *const windows_core::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<super::IStream>,
-    T: windows_core::Interface,
+    P0: windows_core::Param<super::LPSTREAM>,
 {
     windows_core::link!("oleaut32.dll" "system" fn OleLoadPictureEx(lpstream : *mut core::ffi::c_void, lsize : i32, frunmode : windows_core::BOOL, riid : *const windows_core::GUID, xsizedesired : u32, ysizedesired : u32, dwflags : u32, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { OleLoadPictureEx(lpstream.param().abi(), lsize, frunmode.into(), &T::IID, xsizedesired, ysizedesired, dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { OleLoadPictureEx(lpstream.param().abi(), lsize, frunmode.into(), riid, xsizedesired, ysizedesired, dwflags, lplpvobj as _) }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn OleLoadPictureFile(varfilename: &super::VARIANT) -> windows_core::Result<super::IDispatch> {
+pub unsafe fn OleLoadPictureFile(varfilename: &super::VARIANT) -> windows_core::Result<super::LPDISPATCH> {
     windows_core::link!("oleaut32.dll" "system" fn OleLoadPictureFile(varfilename : super::VARIANT, lplpdisppicture : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         OleLoadPictureFile(core::mem::transmute_copy(varfilename), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn OleLoadPictureFileEx(varfilename: &super::VARIANT, xsizedesired: u32, ysizedesired: u32, dwflags: u32) -> windows_core::Result<super::IDispatch> {
+pub unsafe fn OleLoadPictureFileEx(varfilename: &super::VARIANT, xsizedesired: u32, ysizedesired: u32, dwflags: u32) -> windows_core::Result<super::LPDISPATCH> {
     windows_core::link!("oleaut32.dll" "system" fn OleLoadPictureFileEx(varfilename : super::VARIANT, xsizedesired : u32, ysizedesired : u32, dwflags : u32, lplpdisppicture : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         OleLoadPictureFileEx(core::mem::transmute_copy(varfilename), xsizedesired, ysizedesired, dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "ocidl")]
+#[cfg(all(feature = "ocidl", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn OleLoadPicturePath<P0, P1, T>(szurlorpath: P0, punkcaller: P1, dwreserved: u32, clrreserved: super::OLE_COLOR) -> windows_core::Result<T>
+pub unsafe fn OleLoadPicturePath<P1>(szurlorpath: super::LPOLESTR, punkcaller: P1, dwreserved: u32, clrreserved: super::OLE_COLOR, riid: *const windows_core::GUID, ppvret: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
-    windows_core::link!("oleaut32.dll" "system" fn OleLoadPicturePath(szurlorpath : windows_core::PCWSTR, punkcaller : *mut core::ffi::c_void, dwreserved : u32, clrreserved : super::OLE_COLOR, riid : *const windows_core::GUID, ppvret : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { OleLoadPicturePath(szurlorpath.param().abi(), punkcaller.param().abi(), dwreserved, clrreserved, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    windows_core::link!("oleaut32.dll" "system" fn OleLoadPicturePath(szurlorpath : super::LPOLESTR, punkcaller : *mut core::ffi::c_void, dwreserved : u32, clrreserved : super::OLE_COLOR, riid : *const windows_core::GUID, ppvret : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { OleLoadPicturePath(szurlorpath, punkcaller.param().abi(), dwreserved, clrreserved, riid, ppvret as _) }
 }
 #[cfg(feature = "oaidl")]
 #[inline]
 pub unsafe fn OleSavePictureFile<P0>(lpdisppicture: P0, bstrfilename: &windows_core::BSTR) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<super::IDispatch>,
+    P0: windows_core::Param<super::LPDISPATCH>,
 {
     windows_core::link!("oleaut32.dll" "system" fn OleSavePictureFile(lpdisppicture : *mut core::ffi::c_void, bstrfilename : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { OleSavePictureFile(lpdisppicture.param().abi(), core::mem::transmute_copy(bstrfilename)) }
@@ -116,55 +98,104 @@ pub const CLSID_ConvertVBX: windows_core::GUID = windows_core::GUID::from_u128(0
 pub const CLSID_PersistPropset: windows_core::GUID = windows_core::GUID::from_u128(0xfb8f0821_0164_101b_84ed_08002b2ec713);
 pub const CLSID_StdFont: windows_core::GUID = windows_core::GUID::from_u128(0x0be35203_8f91_11ce_9de3_00aa004bb851);
 pub const CLSID_StdPicture: windows_core::GUID = windows_core::GUID::from_u128(0x0be35204_8f91_11ce_9de3_00aa004bb851);
-pub const CONNECT_E_ADVISELIMIT: i32 = -2147220991;
-pub const CONNECT_E_CANNOTCONNECT: i32 = -2147220990;
-pub const CONNECT_E_FIRST: i32 = -2147220992;
-pub const CONNECT_E_LAST: i32 = -2147220977;
-pub const CONNECT_E_NOCONNECTION: i32 = -2147220992;
-pub const CONNECT_E_OVERRIDDEN: i32 = -2147220989;
-pub const CONNECT_S_FIRST: i32 = 262656;
-pub const CONNECT_S_LAST: i32 = 262671;
-pub const CTL_E_BADFILEMODE: i32 = -2146828234;
-pub const CTL_E_BADFILENAME: i32 = -2146828224;
-pub const CTL_E_BADFILENAMEORNUMBER: i32 = -2146828236;
-pub const CTL_E_BADRECORDLENGTH: i32 = -2146828229;
-pub const CTL_E_BADRECORDNUMBER: i32 = -2146828225;
-pub const CTL_E_CANTSAVEFILETOTEMP: i32 = -2146827553;
-pub const CTL_E_CUSTOM_FIRST: i32 = -2146827688;
-pub const CTL_E_DEVICEIOERROR: i32 = -2146828231;
-pub const CTL_E_DEVICEUNAVAILABLE: i32 = -2146828220;
-pub const CTL_E_DISKFULL: i32 = -2146828227;
-pub const CTL_E_DISKNOTREADY: i32 = -2146828217;
-pub const CTL_E_DIVISIONBYZERO: i32 = -2146828277;
-pub const CTL_E_FILEALREADYEXISTS: i32 = -2146828230;
-pub const CTL_E_FILEALREADYOPEN: i32 = -2146828233;
-pub const CTL_E_FILENOTFOUND: i32 = -2146828235;
-pub const CTL_E_GETNOTSUPPORTED: i32 = -2146827894;
-pub const CTL_E_GETNOTSUPPORTEDATRUNTIME: i32 = -2146827895;
-pub const CTL_E_ILLEGALFUNCTIONCALL: i32 = -2146828283;
-pub const CTL_E_INVALIDCLIPBOARDFORMAT: i32 = -2146827828;
-pub const CTL_E_INVALIDFILEFORMAT: i32 = -2146827967;
-pub const CTL_E_INVALIDPATTERNSTRING: i32 = -2146828195;
-pub const CTL_E_INVALIDPICTURE: i32 = -2146827807;
-pub const CTL_E_INVALIDPROPERTYARRAYINDEX: i32 = -2146827907;
-pub const CTL_E_INVALIDPROPERTYVALUE: i32 = -2146827908;
-pub const CTL_E_INVALIDUSEOFNULL: i32 = -2146828194;
-pub const CTL_E_NEEDPROPERTYARRAYINDEX: i32 = -2146827903;
-pub const CTL_E_OUTOFMEMORY: i32 = -2146828281;
-pub const CTL_E_OUTOFSTACKSPACE: i32 = -2146828260;
-pub const CTL_E_OUTOFSTRINGSPACE: i32 = -2146828274;
-pub const CTL_E_OVERFLOW: i32 = -2146828282;
-pub const CTL_E_PATHFILEACCESSERROR: i32 = -2146828213;
-pub const CTL_E_PATHNOTFOUND: i32 = -2146828212;
-pub const CTL_E_PERMISSIONDENIED: i32 = -2146828218;
-pub const CTL_E_PRINTERERROR: i32 = -2146827806;
-pub const CTL_E_PROPERTYNOTFOUND: i32 = -2146827866;
-pub const CTL_E_REPLACEMENTSTOOLONG: i32 = -2146827542;
-pub const CTL_E_SEARCHTEXTNOTFOUND: i32 = -2146827544;
-pub const CTL_E_SETNOTPERMITTED: i32 = -2146827901;
-pub const CTL_E_SETNOTSUPPORTED: i32 = -2146827905;
-pub const CTL_E_SETNOTSUPPORTEDATRUNTIME: i32 = -2146827906;
-pub const CTL_E_TOOMANYFILES: i32 = -2146828221;
+#[cfg(feature = "wtypesbase")]
+pub const CONNECT_E_ADVISELIMIT: super::SCODE = 0x80040201_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CONNECT_E_CANNOTCONNECT: super::SCODE = 0x80040202_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CONNECT_E_FIRST: super::SCODE = 0x80040200_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CONNECT_E_LAST: super::SCODE = 0x8004020F_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CONNECT_E_NOCONNECTION: super::SCODE = 0x80040200_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CONNECT_E_OVERRIDDEN: super::SCODE = 0x80040203_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CONNECT_S_FIRST: super::SCODE = 0x40200_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CONNECT_S_LAST: super::SCODE = 0x4020F_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_BADFILEMODE: super::SCODE = 0x800A0036_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_BADFILENAME: super::SCODE = 0x800A0040_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_BADFILENAMEORNUMBER: super::SCODE = 0x800A0034_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_BADRECORDLENGTH: super::SCODE = 0x800A003B_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_BADRECORDNUMBER: super::SCODE = 0x800A003F_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_CANTSAVEFILETOTEMP: super::SCODE = 0x800A02DF_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_CUSTOM_FIRST: super::SCODE = 0x800A0258_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_DEVICEIOERROR: super::SCODE = 0x800A0039_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_DEVICEUNAVAILABLE: super::SCODE = 0x800A0044_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_DISKFULL: super::SCODE = 0x800A003D_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_DISKNOTREADY: super::SCODE = 0x800A0047_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_DIVISIONBYZERO: super::SCODE = 0x800A000B_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_FILEALREADYEXISTS: super::SCODE = 0x800A003A_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_FILEALREADYOPEN: super::SCODE = 0x800A0037_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_FILENOTFOUND: super::SCODE = 0x800A0035_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_GETNOTSUPPORTED: super::SCODE = 0x800A018A_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_GETNOTSUPPORTEDATRUNTIME: super::SCODE = 0x800A0189_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_ILLEGALFUNCTIONCALL: super::SCODE = 0x800A0005_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_INVALIDCLIPBOARDFORMAT: super::SCODE = 0x800A01CC_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_INVALIDFILEFORMAT: super::SCODE = 0x800A0141_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_INVALIDPATTERNSTRING: super::SCODE = 0x800A005D_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_INVALIDPICTURE: super::SCODE = 0x800A01E1_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_INVALIDPROPERTYARRAYINDEX: super::SCODE = 0x800A017D_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_INVALIDPROPERTYVALUE: super::SCODE = 0x800A017C_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_INVALIDUSEOFNULL: super::SCODE = 0x800A005E_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_NEEDPROPERTYARRAYINDEX: super::SCODE = 0x800A0181_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_OUTOFMEMORY: super::SCODE = 0x800A0007_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_OUTOFSTACKSPACE: super::SCODE = 0x800A001C_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_OUTOFSTRINGSPACE: super::SCODE = 0x800A000E_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_OVERFLOW: super::SCODE = 0x800A0006_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_PATHFILEACCESSERROR: super::SCODE = 0x800A004B_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_PATHNOTFOUND: super::SCODE = 0x800A004C_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_PERMISSIONDENIED: super::SCODE = 0x800A0046_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_PRINTERERROR: super::SCODE = 0x800A01E2_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_PROPERTYNOTFOUND: super::SCODE = 0x800A01A6_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_REPLACEMENTSTOOLONG: super::SCODE = 0x800A02EA_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_SEARCHTEXTNOTFOUND: super::SCODE = 0x800A02E8_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_SETNOTPERMITTED: super::SCODE = 0x800A0183_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_SETNOTSUPPORTED: super::SCODE = 0x800A017F_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_SETNOTSUPPORTEDATRUNTIME: super::SCODE = 0x800A017E_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const CTL_E_TOOMANYFILES: super::SCODE = 0x800A0043_u32 as _;
 pub const DISPID_ABOUTBOX: i32 = -552;
 pub const DISPID_ACCELERATOR: i32 = -543;
 pub const DISPID_ADDITEM: i32 = -553;
@@ -274,11 +305,11 @@ pub const DISPID_TOPTOBOTTOM: i32 = -612;
 pub const DISPID_VALID: i32 = -524;
 pub const DISPID_WORDWRAP: i32 = -536;
 #[repr(C)]
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct FONTDESC {
     pub cbSizeofstruct: u32,
-    pub lpstrName: windows_core::PWSTR,
+    pub lpstrName: super::LPOLESTR,
     pub cySize: super::CY,
     pub sWeight: i16,
     pub sCharset: i16,
@@ -286,7 +317,7 @@ pub struct FONTDESC {
     pub fUnderline: windows_core::BOOL,
     pub fStrikethrough: windows_core::BOOL,
 }
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 impl Default for FONTDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -312,9 +343,9 @@ pub const GUID_YPOSPIXEL: windows_core::GUID = windows_core::GUID::from_u128(0x6
 pub const GUID_YSIZE: windows_core::GUID = windows_core::GUID::from_u128(0x66504309_be0f_101a_8bbb_00aa00300cab);
 pub const GUID_YSIZEPIXEL: windows_core::GUID = windows_core::GUID::from_u128(0x66504305_be0f_101a_8bbb_00aa00300cab);
 pub const IID_IPropertyFrame: windows_core::GUID = windows_core::GUID::from_u128(0xb196b28a_bab4_101a_b69c_00aa00341d07);
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 pub type LPFONTDESC = *mut FONTDESC;
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
 pub type LPOCPFIPARAMS = *mut OCPFIPARAMS;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPPICTDESC = *mut PICTDESC;
@@ -342,14 +373,14 @@ pub const OCM_VKEYTOITEM: i32 = 8238;
 pub const OCM_VSCROLL: i32 = 8469;
 pub const OCM__BASE: i32 = 8192;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OCPFIPARAMS {
     pub cbStructSize: u32,
     pub hWndOwner: super::HWND,
     pub x: i32,
     pub y: i32,
-    pub lpszCaption: windows_core::PCWSTR,
+    pub lpszCaption: super::LPCOLESTR,
     pub cObjects: u32,
     pub lplpUnk: *mut Option<windows_core::IUnknown>,
     pub cPages: u32,
@@ -358,6 +389,15 @@ pub struct OCPFIPARAMS {
     pub dispidInitialProperty: super::DISPID,
 }
 pub const OLEIVERB_PROPERTIES: i32 = -7;
+pub const OLEMISC_ACTSLIKEBUTTON: i32 = 4096;
+pub const OLEMISC_ACTSLIKELABEL: i32 = 8192;
+pub const OLEMISC_ALIGNABLE: i32 = 32768;
+pub const OLEMISC_ALWAYSRUN: i32 = 2048;
+pub const OLEMISC_IMEMODE: i32 = 262144;
+pub const OLEMISC_INVISIBLEATRUNTIME: i32 = 1024;
+pub const OLEMISC_NOUIACTIVATE: i32 = 16384;
+pub const OLEMISC_SETCLIENTSITEFIRST: i32 = 131072;
+pub const OLEMISC_SIMPLEFRAME: i32 = 65536;
 #[cfg(feature = "wtypes")]
 pub type OLE_CANCELBOOL = super::VARIANT_BOOL;
 #[cfg(feature = "wtypes")]
@@ -365,23 +405,24 @@ pub type OLE_ENABLEDEFAULTBOOL = super::VARIANT_BOOL;
 #[cfg(feature = "wtypes")]
 pub type OLE_OPTEXCLUSIVE = super::VARIANT_BOOL;
 pub type OLE_TRISTATE = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OLE_XPOS_PIXELS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OLE_XSIZE_PIXELS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OLE_YPOS_PIXELS(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OLE_YSIZE_PIXELS(pub i32);
-pub const PERPROP_E_FIRST: i32 = -2147220992;
-pub const PERPROP_E_LAST: i32 = -2147220977;
-pub const PERPROP_E_NOPAGEAVAILABLE: i32 = -2147220992;
-pub const PERPROP_S_FIRST: i32 = 262656;
-pub const PERPROP_S_LAST: i32 = 262671;
+pub type OLE_XPOS_CONTAINER = f32;
+pub type OLE_XPOS_PIXELS = i32;
+pub type OLE_XSIZE_CONTAINER = f32;
+pub type OLE_XSIZE_PIXELS = i32;
+pub type OLE_YPOS_CONTAINER = f32;
+pub type OLE_YPOS_PIXELS = i32;
+pub type OLE_YSIZE_CONTAINER = f32;
+pub type OLE_YSIZE_PIXELS = i32;
+#[cfg(feature = "wtypesbase")]
+pub const PERPROP_E_FIRST: super::SCODE = 0x80040200_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const PERPROP_E_LAST: super::SCODE = 0x8004020F_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const PERPROP_E_NOPAGEAVAILABLE: super::SCODE = 0x80040200_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const PERPROP_S_FIRST: super::SCODE = 0x40200_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const PERPROP_S_LAST: super::SCODE = 0x4020F_u32 as _;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[derive(Clone, Copy)]
@@ -444,30 +485,50 @@ pub const PICTYPE_ICON: i32 = 3;
 pub const PICTYPE_METAFILE: i32 = 2;
 pub const PICTYPE_NONE: i32 = 0;
 pub const PICTYPE_UNINITIALIZED: i32 = -1;
-pub const SELFREG_E_CLASS: i32 = -2147220991;
-pub const SELFREG_E_FIRST: i32 = -2147220992;
-pub const SELFREG_E_LAST: i32 = -2147220977;
-pub const SELFREG_E_TYPELIB: i32 = -2147220992;
-pub const SELFREG_S_FIRST: i32 = 262656;
-pub const SELFREG_S_LAST: i32 = 262671;
+#[cfg(feature = "wtypesbase")]
+pub const SELFREG_E_CLASS: super::SCODE = 0x80040201_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const SELFREG_E_FIRST: super::SCODE = 0x80040200_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const SELFREG_E_LAST: super::SCODE = 0x8004020F_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const SELFREG_E_TYPELIB: super::SCODE = 0x80040200_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const SELFREG_S_FIRST: super::SCODE = 0x40200_u32 as _;
+#[cfg(feature = "wtypesbase")]
+pub const SELFREG_S_LAST: super::SCODE = 0x4020F_u32 as _;
 pub const VT_BLOB_PROPSET: i32 = 75;
-pub const VT_COLOR: i32 = 3;
-pub const VT_FONT: i32 = 9;
-pub const VT_HANDLE: i32 = 3;
-pub const VT_OPTEXCLUSIVE: i32 = 11;
-pub const VT_PICTURE: i32 = 9;
+#[cfg(feature = "wtypes")]
+pub const VT_COLOR: super::VARENUM = 3;
+#[cfg(feature = "wtypes")]
+pub const VT_FONT: super::VARENUM = 9;
+#[cfg(feature = "wtypes")]
+pub const VT_HANDLE: super::VARENUM = 3;
+#[cfg(feature = "wtypes")]
+pub const VT_OPTEXCLUSIVE: super::VARENUM = 11;
+#[cfg(feature = "wtypes")]
+pub const VT_PICTURE: super::VARENUM = 9;
 pub const VT_STORED_PROPSET: i32 = 74;
 pub const VT_STREAMED_PROPSET: i32 = 73;
-pub const VT_TRISTATE: i32 = 2;
+#[cfg(feature = "wtypes")]
+pub const VT_TRISTATE: super::VARENUM = 2;
 pub const VT_VERBOSE_ENUM: i32 = 76;
-pub const VT_XPOS_HIMETRIC: i32 = 3;
-pub const VT_XPOS_PIXELS: i32 = 3;
-pub const VT_XSIZE_HIMETRIC: i32 = 3;
-pub const VT_XSIZE_PIXELS: i32 = 3;
-pub const VT_YPOS_HIMETRIC: i32 = 3;
-pub const VT_YPOS_PIXELS: i32 = 3;
-pub const VT_YSIZE_HIMETRIC: i32 = 3;
-pub const VT_YSIZE_PIXELS: i32 = 3;
+#[cfg(feature = "wtypes")]
+pub const VT_XPOS_HIMETRIC: super::VARENUM = 3;
+#[cfg(feature = "wtypes")]
+pub const VT_XPOS_PIXELS: super::VARENUM = 3;
+#[cfg(feature = "wtypes")]
+pub const VT_XSIZE_HIMETRIC: super::VARENUM = 3;
+#[cfg(feature = "wtypes")]
+pub const VT_XSIZE_PIXELS: super::VARENUM = 3;
+#[cfg(feature = "wtypes")]
+pub const VT_YPOS_HIMETRIC: super::VARENUM = 3;
+#[cfg(feature = "wtypes")]
+pub const VT_YPOS_PIXELS: super::VARENUM = 3;
+#[cfg(feature = "wtypes")]
+pub const VT_YSIZE_HIMETRIC: super::VARENUM = 3;
+#[cfg(feature = "wtypes")]
+pub const VT_YSIZE_PIXELS: super::VARENUM = 3;
 pub const triChecked: OLE_TRISTATE = 1;
 pub const triGray: OLE_TRISTATE = 2;
 pub const triUnchecked: OLE_TRISTATE = 0;

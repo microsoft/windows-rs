@@ -1,8 +1,8 @@
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
-    windows_core::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
-    unsafe { Netbios(pncb as _) }
+pub unsafe fn Netbios(pncb: PNCB) -> u8 {
+    windows_core::link!("netapi32.dll" "system" fn Netbios(pncb : PNCB) -> u8);
+    unsafe { Netbios(pncb) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

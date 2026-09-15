@@ -13,13 +13,9 @@ pub unsafe fn IsErrorPropagationEnabled() -> windows_core::BOOL {
     unsafe { IsErrorPropagationEnabled() }
 }
 #[inline]
-pub unsafe fn MetaDataGetDispenser<T>(rclsid: *const windows_core::GUID) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
+pub unsafe fn MetaDataGetDispenser(rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("rometadata.dll" "system" fn MetaDataGetDispenser(rclsid : *const windows_core::GUID, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { MetaDataGetDispenser(rclsid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    unsafe { MetaDataGetDispenser(rclsid, riid, ppv as _) }
 }
 #[inline]
 pub unsafe fn RoActivateInstance(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
@@ -51,7 +47,7 @@ pub unsafe fn RoFreeParameterizedTypeExtra(extra: ROPARAMIIDHANDLE) {
 }
 #[cfg(feature = "activationregistration")]
 #[inline]
-pub unsafe fn RoGetActivatableClassRegistration(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<super::IActivatableClassRegistration> {
+pub unsafe fn RoGetActivatableClassRegistration(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<PActivatableClassRegistration> {
     windows_core::link!("api-ms-win-core-winrt-registration-l1-1-0.dll" "system" fn RoGetActivatableClassRegistration(activatableclassid : *mut core::ffi::c_void, activatableclassregistration : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -208,8 +204,8 @@ where
     }
 }
 #[inline]
-pub unsafe fn RoRevokeActivationFactories(cookie: *const _RO_REGISTRATION_COOKIE) {
-    windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRevokeActivationFactories(cookie : *const _RO_REGISTRATION_COOKIE));
+pub unsafe fn RoRevokeActivationFactories(cookie: RO_REGISTRATION_COOKIE) {
+    windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRevokeActivationFactories(cookie : RO_REGISTRATION_COOKIE));
     unsafe { RoRevokeActivationFactories(cookie) }
 }
 #[inline]
@@ -249,9 +245,12 @@ where
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn SetRestrictedErrorInfo(prestrictederrorinfo : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SetRestrictedErrorInfo(prestrictederrorinfo.param().abi()) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(pub *mut core::ffi::c_void);
+pub type APARTMENT_SHUTDOWN_REGISTRATION_COOKIE = *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE__ {
+    pub unused: i32,
+}
 pub const EXCEPTION_RO_ORIGINATEERROR: u32 = 1074266625;
 pub const EXCEPTION_RO_TRANSFORMERROR: u32 = 1074266626;
 pub const ForceExceptions: RoErrorReportingFlags = 2;
@@ -522,12 +521,17 @@ impl IRoSimpleMetaDataBuilder {
 }
 pub const MAX_ERROR_MESSAGE_CHARS: i32 = 512;
 pub const None: RoErrorReportingFlags = 0;
+#[cfg(feature = "activationregistration")]
+pub type PActivatableClassRegistration = super::IActivatableClassRegistration;
 #[cfg(feature = "activation")]
 pub type PFNGETACTIVATIONFACTORY = Option<unsafe extern "system" fn(param0: windows_core::Ref<windows_core::HSTRING>, param1: windows_core::OutRef<super::IActivationFactory>) -> windows_core::HRESULT>;
 pub type PINSPECT_MEMORY_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ROPARAMIIDHANDLE(pub *mut core::ffi::c_void);
+pub type ROPARAMIIDHANDLE = *mut ROPARAMIIDHANDLE__;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ROPARAMIIDHANDLE__ {
+    pub unused: i32,
+}
 pub type RO_ERROR_REPORTING_FLAGS = u32;
 pub const RO_ERROR_REPORTING_FORCEEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = 2;
 pub const RO_ERROR_REPORTING_NONE: RO_ERROR_REPORTING_FLAGS = 0;
@@ -542,6 +546,6 @@ pub type RoErrorReportingFlags = u32;
 pub const SuppressExceptions: RoErrorReportingFlags = 1;
 pub const SuppressSetErrorInfo: RoErrorReportingFlags = 8;
 pub const UseSetErrorInfo: RoErrorReportingFlags = 4;
-#[repr(C, align(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _RO_REGISTRATION_COOKIE(pub u8);

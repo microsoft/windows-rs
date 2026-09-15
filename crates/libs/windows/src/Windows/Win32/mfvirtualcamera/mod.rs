@@ -20,11 +20,11 @@ pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: MFVirtualCameraType) -> win
     }
 }
 #[cfg(feature = "devpropdef")]
-pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: super::DEVPROPID(3) };
+pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 3 };
 #[cfg(feature = "devpropdef")]
-pub const DEVPKEY_DeviceInterface_IsWindowsCameraEffectAvailable: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: super::DEVPROPID(4) };
+pub const DEVPKEY_DeviceInterface_IsWindowsCameraEffectAvailable: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 4 };
 #[cfg(feature = "devpropdef")]
-pub const DEVPKEY_DeviceInterface_VirtualCameraAssociatedCameras: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: super::DEVPROPID(5) };
+pub const DEVPKEY_DeviceInterface_VirtualCameraAssociatedCameras: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 5 };
 windows_core::imp::define_interface!(IMFCameraSyncObject, IMFCameraSyncObject_Vtbl, 0x6338b23a_3042_49d2_a3ea_ec0fed815407);
 windows_core::imp::interface_hierarchy!(IMFCameraSyncObject, windows_core::IUnknown);
 impl IMFCameraSyncObject {

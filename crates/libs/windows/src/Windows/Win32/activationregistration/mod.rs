@@ -30,7 +30,8 @@ impl IActivatableClassRegistration {
             (windows_core::Interface::vtable(self).get_RegisteredTrustLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn get_Attributes(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    #[cfg(feature = "windowsfoundation")]
+    pub unsafe fn get_Attributes(&self) -> windows_core::Result<super::__FIMapView_2_HSTRING_IInspectable_t> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Attributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -48,17 +49,20 @@ pub struct IActivatableClassRegistration_Vtbl {
     pub get_RegisteredTrustLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RegisteredTrustLevel) -> windows_core::HRESULT,
     #[cfg(not(feature = "inspectable"))]
     get_RegisteredTrustLevel: usize,
+    #[cfg(feature = "windowsfoundation")]
     pub get_Attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "windowsfoundation"))]
+    get_Attributes: usize,
 }
-#[cfg(feature = "inspectable")]
+#[cfg(all(feature = "inspectable", feature = "windowsfoundation"))]
 pub trait IActivatableClassRegistration_Impl: windows_core::IUnknownImpl {
     fn get_ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn get_ActivationType(&self) -> windows_core::Result<ActivationType>;
     fn get_RegistrationScope(&self) -> windows_core::Result<RegistrationScope>;
     fn get_RegisteredTrustLevel(&self) -> windows_core::Result<RegisteredTrustLevel>;
-    fn get_Attributes(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>;
+    fn get_Attributes(&self) -> windows_core::Result<super::__FIMapView_2_HSTRING_IInspectable_t>;
 }
-#[cfg(feature = "inspectable")]
+#[cfg(all(feature = "inspectable", feature = "windowsfoundation"))]
 impl IActivatableClassRegistration_Vtbl {
     pub const fn new<Identity: IActivatableClassRegistration_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn get_ActivatableClassId<Identity: IActivatableClassRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activatableclassid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -134,12 +138,10 @@ impl IActivatableClassRegistration_Vtbl {
         iid == &<IActivatableClassRegistration as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "inspectable")]
+#[cfg(all(feature = "inspectable", feature = "windowsfoundation"))]
 impl windows_core::RuntimeName for IActivatableClassRegistration {}
 #[cfg(feature = "inspectable")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct RegisteredTrustLevel(pub super::TrustLevel);
+pub type RegisteredTrustLevel = super::TrustLevel;
 pub type RegistrationScope = i32;
 pub const RegistrationScope_InboxApp: RegistrationScope = 2;
 pub const RegistrationScope_PerMachine: RegistrationScope = 0;

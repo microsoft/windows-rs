@@ -16,118 +16,118 @@ pub const ComponentType: windows_core::GUID = windows_core::GUID::from_u128(0x82
 pub const ComponentTypes: windows_core::GUID = windows_core::GUID::from_u128(0xa1a2b1c4_0e3a_11d3_9d8e_00c04f72d980);
 pub const Components: windows_core::GUID = windows_core::GUID::from_u128(0x809b6661_94c4_49e6_b6ec_3f0f862215aa);
 pub const CreatePropBagOnRegKey: windows_core::GUID = windows_core::GUID::from_u128(0x8a674b49_1f63_11d3_b64c_00c04f79498e);
-pub const DISPID_CHTUNER_ACTR_MINOR_CHANNEL: i32 = 201;
-pub const DISPID_CHTUNER_ATVAC_CHANNEL: i32 = 101;
-pub const DISPID_CHTUNER_ATVDC_CONTENT: i32 = 102;
-pub const DISPID_CHTUNER_ATVDC_SYSTEM: i32 = 101;
-pub const DISPID_CHTUNER_CIDTR_CHANNELID: i32 = 101;
-pub const DISPID_CHTUNER_CTR_CHANNEL: i32 = 101;
-pub const DISPID_CHTUNER_DCTR_MAJOR_CHANNEL: i32 = 301;
-pub const DISPID_CHTUNER_DCTR_SRCID: i32 = 302;
-pub const DISPID_DVBTUNER_DVBC_ATTRIBUTESVALID: i32 = 101;
-pub const DISPID_DVBTUNER_DVBC_COMPONENTTYPE: i32 = 104;
-pub const DISPID_DVBTUNER_DVBC_PID: i32 = 102;
-pub const DISPID_DVBTUNER_DVBC_TAG: i32 = 103;
-pub const DISPID_DVBTUNER_ONID: i32 = 101;
-pub const DISPID_DVBTUNER_SID: i32 = 103;
-pub const DISPID_DVBTUNER_TSID: i32 = 102;
-pub const DISPID_MP2TUNERFACTORY_CREATETUNEREQUEST: i32 = 1;
-pub const DISPID_MP2TUNER_PROGNO: i32 = 102;
-pub const DISPID_MP2TUNER_TSID: i32 = 101;
-pub const DISPID_TUNER_ATSCCT_FLAGS: i32 = 300;
-pub const DISPID_TUNER_CT_CATEGORY: i32 = 1;
-pub const DISPID_TUNER_CT_CLONE: i32 = 9;
-pub const DISPID_TUNER_CT_MEDIAFORMATTYPE: i32 = 6;
-pub const DISPID_TUNER_CT_MEDIAMAJORTYPE: i32 = 2;
-pub const DISPID_TUNER_CT_MEDIASUBTYPE: i32 = 4;
-pub const DISPID_TUNER_CT_MEDIATYPE: i32 = 8;
-pub const DISPID_TUNER_CT__MEDIAFORMATTYPE: i32 = 7;
-pub const DISPID_TUNER_CT__MEDIAMAJORTYPE: i32 = 3;
-pub const DISPID_TUNER_CT__MEDIASUBTYPE: i32 = 5;
-pub const DISPID_TUNER_C_ANALOG_AUDIO: i32 = 201;
-pub const DISPID_TUNER_C_CLONE: i32 = 5;
-pub const DISPID_TUNER_C_DESCRIPTION: i32 = 4;
-pub const DISPID_TUNER_C_LANGID: i32 = 3;
-pub const DISPID_TUNER_C_MP2_PCRPID: i32 = 102;
-pub const DISPID_TUNER_C_MP2_PID: i32 = 101;
-pub const DISPID_TUNER_C_MP2_PROGNO: i32 = 103;
-pub const DISPID_TUNER_C_STATUS: i32 = 2;
-pub const DISPID_TUNER_C_TYPE: i32 = 1;
-pub const DISPID_TUNER_LCT_LANGID: i32 = 100;
-pub const DISPID_TUNER_L_ANALOG_STANDARD: i32 = 601;
-pub const DISPID_TUNER_L_ATSC_MP2_PROGNO: i32 = 203;
-pub const DISPID_TUNER_L_ATSC_PHYS_CHANNEL: i32 = 201;
-pub const DISPID_TUNER_L_ATSC_TSID: i32 = 202;
-pub const DISPID_TUNER_L_CARRFREQ: i32 = 1;
-pub const DISPID_TUNER_L_CLONE: i32 = 8;
-pub const DISPID_TUNER_L_DTV_O_MAJOR_CHANNEL: i32 = 701;
-pub const DISPID_TUNER_L_DVBS2_DISEQ_LNB_SOURCE: i32 = 406;
-pub const DISPID_TUNER_L_DVBS2_PILOT: i32 = 412;
-pub const DISPID_TUNER_L_DVBS2_ROLLOFF: i32 = 411;
-pub const DISPID_TUNER_L_DVBS_AZIMUTH: i32 = 404;
-pub const DISPID_TUNER_L_DVBS_ELEVATION: i32 = 405;
-pub const DISPID_TUNER_L_DVBS_ORBITAL: i32 = 403;
-pub const DISPID_TUNER_L_DVBS_POLARISATION: i32 = 401;
-pub const DISPID_TUNER_L_DVBS_WEST: i32 = 402;
-pub const DISPID_TUNER_L_DVBT2_PHYSICALLAYERPIPEID: i32 = 351;
-pub const DISPID_TUNER_L_DVBT_BANDWIDTH: i32 = 301;
-pub const DISPID_TUNER_L_DVBT_GUARDINTERVAL: i32 = 304;
-pub const DISPID_TUNER_L_DVBT_HALPHA: i32 = 305;
-pub const DISPID_TUNER_L_DVBT_INUSE: i32 = 307;
-pub const DISPID_TUNER_L_DVBT_LPINNERFECMETHOD: i32 = 302;
-pub const DISPID_TUNER_L_DVBT_LPINNERFECRATE: i32 = 303;
-pub const DISPID_TUNER_L_DVBT_TRANSMISSIONMODE: i32 = 306;
-pub const DISPID_TUNER_L_INNERFECMETHOD: i32 = 2;
-pub const DISPID_TUNER_L_INNERFECRATE: i32 = 3;
-pub const DISPID_TUNER_L_MOD: i32 = 6;
-pub const DISPID_TUNER_L_OUTERFECMETHOD: i32 = 4;
-pub const DISPID_TUNER_L_OUTERFECRATE: i32 = 5;
-pub const DISPID_TUNER_L_SYMRATE: i32 = 7;
-pub const DISPID_TUNER_MP2CT_TYPE: i32 = 200;
-pub const DISPID_TUNER_TR_CLONE: i32 = 3;
-pub const DISPID_TUNER_TR_COMPONENTS: i32 = 2;
-pub const DISPID_TUNER_TR_LOCATOR: i32 = 4;
-pub const DISPID_TUNER_TR_TUNINGSPACE: i32 = 1;
-pub const DISPID_TUNER_TS_AR_COUNTRYCODE: i32 = 104;
-pub const DISPID_TUNER_TS_AR_MAXFREQUENCY: i32 = 102;
-pub const DISPID_TUNER_TS_AR_MINFREQUENCY: i32 = 101;
-pub const DISPID_TUNER_TS_AR_STEP: i32 = 103;
-pub const DISPID_TUNER_TS_ATSC_MAXMINORCHANNEL: i32 = 202;
-pub const DISPID_TUNER_TS_ATSC_MAXPHYSCHANNEL: i32 = 204;
-pub const DISPID_TUNER_TS_ATSC_MINMINORCHANNEL: i32 = 201;
-pub const DISPID_TUNER_TS_ATSC_MINPHYSCHANNEL: i32 = 203;
-pub const DISPID_TUNER_TS_ATV_COUNTRYCODE: i32 = 104;
-pub const DISPID_TUNER_TS_ATV_INPUTTYPE: i32 = 103;
-pub const DISPID_TUNER_TS_ATV_MAXCHANNEL: i32 = 102;
-pub const DISPID_TUNER_TS_ATV_MINCHANNEL: i32 = 101;
-pub const DISPID_TUNER_TS_AUX_COUNTRYCODE: i32 = 101;
-pub const DISPID_TUNER_TS_CLONE: i32 = 12;
-pub const DISPID_TUNER_TS_CLSID: i32 = 3;
-pub const DISPID_TUNER_TS_CREATETUNEREQUEST: i32 = 6;
-pub const DISPID_TUNER_TS_DC_MAXMAJORCHANNEL: i32 = 302;
-pub const DISPID_TUNER_TS_DC_MAXSOURCEID: i32 = 304;
-pub const DISPID_TUNER_TS_DC_MINMAJORCHANNEL: i32 = 301;
-pub const DISPID_TUNER_TS_DC_MINSOURCEID: i32 = 303;
-pub const DISPID_TUNER_TS_DEFAULTPREFERREDCOMPONENTTYPES: i32 = 9;
-pub const DISPID_TUNER_TS_DEFLOCATOR: i32 = 11;
-pub const DISPID_TUNER_TS_DVB2_NETWORK_ID: i32 = 102;
-pub const DISPID_TUNER_TS_DVBS2_HI_OSC_FREQ_OVERRIDE: i32 = 408;
-pub const DISPID_TUNER_TS_DVBS2_LNB_SWITCH_FREQ_OVERRIDE: i32 = 409;
-pub const DISPID_TUNER_TS_DVBS2_LOW_OSC_FREQ_OVERRIDE: i32 = 407;
-pub const DISPID_TUNER_TS_DVBS2_SPECTRAL_INVERSION_OVERRIDE: i32 = 410;
-pub const DISPID_TUNER_TS_DVBS_HI_OSC_FREQ: i32 = 1002;
-pub const DISPID_TUNER_TS_DVBS_INPUT_RANGE: i32 = 1004;
-pub const DISPID_TUNER_TS_DVBS_LNB_SWITCH_FREQ: i32 = 1003;
-pub const DISPID_TUNER_TS_DVBS_LOW_OSC_FREQ: i32 = 1001;
-pub const DISPID_TUNER_TS_DVBS_SPECTRAL_INVERSION: i32 = 1005;
-pub const DISPID_TUNER_TS_DVB_SYSTEMTYPE: i32 = 101;
-pub const DISPID_TUNER_TS_ENUMCATEGORYGUIDS: i32 = 7;
-pub const DISPID_TUNER_TS_ENUMDEVICEMONIKERS: i32 = 8;
-pub const DISPID_TUNER_TS_FREQMAP: i32 = 10;
-pub const DISPID_TUNER_TS_FRIENDLYNAME: i32 = 2;
-pub const DISPID_TUNER_TS_NETWORKTYPE: i32 = 4;
-pub const DISPID_TUNER_TS_UNIQUENAME: i32 = 1;
-pub const DISPID_TUNER_TS__NETWORKTYPE: i32 = 5;
+pub const DISPID_CHTUNER_ACTR_MINOR_CHANNEL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 201;
+pub const DISPID_CHTUNER_ATVAC_CHANNEL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 101;
+pub const DISPID_CHTUNER_ATVDC_CONTENT: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 102;
+pub const DISPID_CHTUNER_ATVDC_SYSTEM: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 101;
+pub const DISPID_CHTUNER_CIDTR_CHANNELID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 101;
+pub const DISPID_CHTUNER_CTR_CHANNEL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 101;
+pub const DISPID_CHTUNER_DCTR_MAJOR_CHANNEL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 301;
+pub const DISPID_CHTUNER_DCTR_SRCID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 302;
+pub const DISPID_DVBTUNER_DVBC_ATTRIBUTESVALID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 101;
+pub const DISPID_DVBTUNER_DVBC_COMPONENTTYPE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 104;
+pub const DISPID_DVBTUNER_DVBC_PID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 102;
+pub const DISPID_DVBTUNER_DVBC_TAG: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 103;
+pub const DISPID_DVBTUNER_ONID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 101;
+pub const DISPID_DVBTUNER_SID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 103;
+pub const DISPID_DVBTUNER_TSID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 102;
+pub const DISPID_MP2TUNERFACTORY_CREATETUNEREQUEST: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 1;
+pub const DISPID_MP2TUNER_PROGNO: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 102;
+pub const DISPID_MP2TUNER_TSID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 101;
+pub const DISPID_TUNER_ATSCCT_FLAGS: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 300;
+pub const DISPID_TUNER_CT_CATEGORY: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 1;
+pub const DISPID_TUNER_CT_CLONE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 9;
+pub const DISPID_TUNER_CT_MEDIAFORMATTYPE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 6;
+pub const DISPID_TUNER_CT_MEDIAMAJORTYPE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 2;
+pub const DISPID_TUNER_CT_MEDIASUBTYPE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 4;
+pub const DISPID_TUNER_CT_MEDIATYPE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 8;
+pub const DISPID_TUNER_CT__MEDIAFORMATTYPE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 7;
+pub const DISPID_TUNER_CT__MEDIAMAJORTYPE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 3;
+pub const DISPID_TUNER_CT__MEDIASUBTYPE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 5;
+pub const DISPID_TUNER_C_ANALOG_AUDIO: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 201;
+pub const DISPID_TUNER_C_CLONE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 5;
+pub const DISPID_TUNER_C_DESCRIPTION: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 4;
+pub const DISPID_TUNER_C_LANGID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 3;
+pub const DISPID_TUNER_C_MP2_PCRPID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 102;
+pub const DISPID_TUNER_C_MP2_PID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 101;
+pub const DISPID_TUNER_C_MP2_PROGNO: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 103;
+pub const DISPID_TUNER_C_STATUS: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 2;
+pub const DISPID_TUNER_C_TYPE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 1;
+pub const DISPID_TUNER_LCT_LANGID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 100;
+pub const DISPID_TUNER_L_ANALOG_STANDARD: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 601;
+pub const DISPID_TUNER_L_ATSC_MP2_PROGNO: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 203;
+pub const DISPID_TUNER_L_ATSC_PHYS_CHANNEL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 201;
+pub const DISPID_TUNER_L_ATSC_TSID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 202;
+pub const DISPID_TUNER_L_CARRFREQ: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 1;
+pub const DISPID_TUNER_L_CLONE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 8;
+pub const DISPID_TUNER_L_DTV_O_MAJOR_CHANNEL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 701;
+pub const DISPID_TUNER_L_DVBS2_DISEQ_LNB_SOURCE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 406;
+pub const DISPID_TUNER_L_DVBS2_PILOT: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 412;
+pub const DISPID_TUNER_L_DVBS2_ROLLOFF: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 411;
+pub const DISPID_TUNER_L_DVBS_AZIMUTH: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 404;
+pub const DISPID_TUNER_L_DVBS_ELEVATION: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 405;
+pub const DISPID_TUNER_L_DVBS_ORBITAL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 403;
+pub const DISPID_TUNER_L_DVBS_POLARISATION: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 401;
+pub const DISPID_TUNER_L_DVBS_WEST: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 402;
+pub const DISPID_TUNER_L_DVBT2_PHYSICALLAYERPIPEID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 351;
+pub const DISPID_TUNER_L_DVBT_BANDWIDTH: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 301;
+pub const DISPID_TUNER_L_DVBT_GUARDINTERVAL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 304;
+pub const DISPID_TUNER_L_DVBT_HALPHA: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 305;
+pub const DISPID_TUNER_L_DVBT_INUSE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 307;
+pub const DISPID_TUNER_L_DVBT_LPINNERFECMETHOD: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 302;
+pub const DISPID_TUNER_L_DVBT_LPINNERFECRATE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 303;
+pub const DISPID_TUNER_L_DVBT_TRANSMISSIONMODE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 306;
+pub const DISPID_TUNER_L_INNERFECMETHOD: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 2;
+pub const DISPID_TUNER_L_INNERFECRATE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 3;
+pub const DISPID_TUNER_L_MOD: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 6;
+pub const DISPID_TUNER_L_OUTERFECMETHOD: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 4;
+pub const DISPID_TUNER_L_OUTERFECRATE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 5;
+pub const DISPID_TUNER_L_SYMRATE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 7;
+pub const DISPID_TUNER_MP2CT_TYPE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 200;
+pub const DISPID_TUNER_TR_CLONE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 3;
+pub const DISPID_TUNER_TR_COMPONENTS: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 2;
+pub const DISPID_TUNER_TR_LOCATOR: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 4;
+pub const DISPID_TUNER_TR_TUNINGSPACE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 1;
+pub const DISPID_TUNER_TS_AR_COUNTRYCODE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 104;
+pub const DISPID_TUNER_TS_AR_MAXFREQUENCY: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 102;
+pub const DISPID_TUNER_TS_AR_MINFREQUENCY: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 101;
+pub const DISPID_TUNER_TS_AR_STEP: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 103;
+pub const DISPID_TUNER_TS_ATSC_MAXMINORCHANNEL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 202;
+pub const DISPID_TUNER_TS_ATSC_MAXPHYSCHANNEL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 204;
+pub const DISPID_TUNER_TS_ATSC_MINMINORCHANNEL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 201;
+pub const DISPID_TUNER_TS_ATSC_MINPHYSCHANNEL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 203;
+pub const DISPID_TUNER_TS_ATV_COUNTRYCODE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 104;
+pub const DISPID_TUNER_TS_ATV_INPUTTYPE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 103;
+pub const DISPID_TUNER_TS_ATV_MAXCHANNEL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 102;
+pub const DISPID_TUNER_TS_ATV_MINCHANNEL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 101;
+pub const DISPID_TUNER_TS_AUX_COUNTRYCODE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 101;
+pub const DISPID_TUNER_TS_CLONE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 12;
+pub const DISPID_TUNER_TS_CLSID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 3;
+pub const DISPID_TUNER_TS_CREATETUNEREQUEST: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 6;
+pub const DISPID_TUNER_TS_DC_MAXMAJORCHANNEL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 302;
+pub const DISPID_TUNER_TS_DC_MAXSOURCEID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 304;
+pub const DISPID_TUNER_TS_DC_MINMAJORCHANNEL: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 301;
+pub const DISPID_TUNER_TS_DC_MINSOURCEID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 303;
+pub const DISPID_TUNER_TS_DEFAULTPREFERREDCOMPONENTTYPES: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 9;
+pub const DISPID_TUNER_TS_DEFLOCATOR: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 11;
+pub const DISPID_TUNER_TS_DVB2_NETWORK_ID: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 102;
+pub const DISPID_TUNER_TS_DVBS2_HI_OSC_FREQ_OVERRIDE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 408;
+pub const DISPID_TUNER_TS_DVBS2_LNB_SWITCH_FREQ_OVERRIDE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 409;
+pub const DISPID_TUNER_TS_DVBS2_LOW_OSC_FREQ_OVERRIDE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 407;
+pub const DISPID_TUNER_TS_DVBS2_SPECTRAL_INVERSION_OVERRIDE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 410;
+pub const DISPID_TUNER_TS_DVBS_HI_OSC_FREQ: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 1002;
+pub const DISPID_TUNER_TS_DVBS_INPUT_RANGE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 1004;
+pub const DISPID_TUNER_TS_DVBS_LNB_SWITCH_FREQ: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 1003;
+pub const DISPID_TUNER_TS_DVBS_LOW_OSC_FREQ: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 1001;
+pub const DISPID_TUNER_TS_DVBS_SPECTRAL_INVERSION: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 1005;
+pub const DISPID_TUNER_TS_DVB_SYSTEMTYPE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 101;
+pub const DISPID_TUNER_TS_ENUMCATEGORYGUIDS: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 7;
+pub const DISPID_TUNER_TS_ENUMDEVICEMONIKERS: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 8;
+pub const DISPID_TUNER_TS_FREQMAP: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 10;
+pub const DISPID_TUNER_TS_FRIENDLYNAME: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 2;
+pub const DISPID_TUNER_TS_NETWORKTYPE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 4;
+pub const DISPID_TUNER_TS_UNIQUENAME: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 1;
+pub const DISPID_TUNER_TS__NETWORKTYPE: __MIDL___MIDL_itf_tuner_0000_0000_0001 = 5;
 pub const DVBCLocator: windows_core::GUID = windows_core::GUID::from_u128(0xc531d9fd_9685_4028_8b68_6e1232079f1e);
 pub const DVBSLocator: windows_core::GUID = windows_core::GUID::from_u128(0x1df7d126_4050_47f0_a7cf_4c4ca9241333);
 pub const DVBSTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xb64016f3_c9a2_4066_96f0_bd9563314726);
@@ -172,12 +172,12 @@ pub struct IATSCChannelTuneRequest_Vtbl {
     pub MinorChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetMinorChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IATSCChannelTuneRequest_Impl: IChannelTuneRequest_Impl {
     fn MinorChannel(&self) -> windows_core::Result<i32>;
     fn SetMinorChannel(&self, minorchannel: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IATSCChannelTuneRequest_Vtbl {
     pub const fn new<Identity: IATSCChannelTuneRequest_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MinorChannel<Identity: IATSCChannelTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minorchannel: *mut i32) -> windows_core::HRESULT {
@@ -208,7 +208,7 @@ impl IATSCChannelTuneRequest_Vtbl {
         iid == &<IATSCChannelTuneRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuneRequest as windows_core::Interface>::IID || iid == &<IChannelTuneRequest as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IATSCChannelTuneRequest {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IATSCComponentType, IATSCComponentType_Vtbl, 0xfc189e4d_7bd4_4125_b3b3_3a76a332cc96);
@@ -241,12 +241,12 @@ pub struct IATSCComponentType_Vtbl {
     pub Flags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IATSCComponentType_Impl: IMPEG2ComponentType_Impl {
     fn Flags(&self) -> windows_core::Result<i32>;
     fn SetFlags(&self, flags: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IATSCComponentType_Vtbl {
     pub const fn new<Identity: IATSCComponentType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Flags<Identity: IATSCComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
@@ -273,7 +273,7 @@ impl IATSCComponentType_Vtbl {
         iid == &<IATSCComponentType as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IComponentType as windows_core::Interface>::IID || iid == &<ILanguageComponentType as windows_core::Interface>::IID || iid == &<IMPEG2ComponentType as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IATSCComponentType {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IATSCLocator, IATSCLocator_Vtbl, 0xbf8d986f_8c2b_4131_94d7_4d3d9fcc21ef);
@@ -317,14 +317,14 @@ pub struct IATSCLocator_Vtbl {
     pub TSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetTSID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IATSCLocator_Impl: IDigitalLocator_Impl {
     fn PhysicalChannel(&self) -> windows_core::Result<i32>;
     fn SetPhysicalChannel(&self, physicalchannel: i32) -> windows_core::Result<()>;
     fn TSID(&self) -> windows_core::Result<i32>;
     fn SetTSID(&self, tsid: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IATSCLocator_Vtbl {
     pub const fn new<Identity: IATSCLocator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PhysicalChannel<Identity: IATSCLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, physicalchannel: *mut i32) -> windows_core::HRESULT {
@@ -375,7 +375,7 @@ impl IATSCLocator_Vtbl {
         iid == &<IATSCLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IATSCLocator {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IATSCLocator2, IATSCLocator2_Vtbl, 0x612aa885_66cf_4090_ba0a_566f5312e4ca);
@@ -408,12 +408,12 @@ pub struct IATSCLocator2_Vtbl {
     pub ProgramNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetProgramNumber: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IATSCLocator2_Impl: IATSCLocator_Impl {
     fn ProgramNumber(&self) -> windows_core::Result<i32>;
     fn SetProgramNumber(&self, programnumber: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IATSCLocator2_Vtbl {
     pub const fn new<Identity: IATSCLocator2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProgramNumber<Identity: IATSCLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, programnumber: *mut i32) -> windows_core::HRESULT {
@@ -444,7 +444,7 @@ impl IATSCLocator2_Vtbl {
         iid == &<IATSCLocator2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID || iid == &<IATSCLocator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IATSCLocator2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IATSCTuningSpace, IATSCTuningSpace_Vtbl, 0x0369b4e2_45b6_11d3_b650_00c04f79498e);
@@ -510,7 +510,7 @@ pub struct IATSCTuningSpace_Vtbl {
     pub MaxPhysicalChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetMaxPhysicalChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IATSCTuningSpace_Impl: IAnalogTVTuningSpace_Impl {
     fn MinMinorChannel(&self) -> windows_core::Result<i32>;
     fn SetMinMinorChannel(&self, newminminorchannelval: i32) -> windows_core::Result<()>;
@@ -521,7 +521,7 @@ pub trait IATSCTuningSpace_Impl: IAnalogTVTuningSpace_Impl {
     fn MaxPhysicalChannel(&self) -> windows_core::Result<i32>;
     fn SetMaxPhysicalChannel(&self, newmaxphysicalchannelval: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IATSCTuningSpace_Vtbl {
     pub const fn new<Identity: IATSCTuningSpace_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MinMinorChannel<Identity: IATSCTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minminorchannelval: *mut i32) -> windows_core::HRESULT {
@@ -612,7 +612,7 @@ impl IATSCTuningSpace_Vtbl {
         iid == &<IATSCTuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID || iid == &<IAnalogTVTuningSpace as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IATSCTuningSpace {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IAnalogAudioComponentType, IAnalogAudioComponentType_Vtbl, 0x2cfeb2a8_1787_4a24_a941_c6eaec39c842);
@@ -653,12 +653,12 @@ pub struct IAnalogAudioComponentType_Vtbl {
     #[cfg(not(feature = "strmif"))]
     SetAnalogAudioMode: usize,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAnalogAudioComponentType_Impl: IComponentType_Impl {
     fn AnalogAudioMode(&self) -> windows_core::Result<super::TVAudioMode>;
     fn SetAnalogAudioMode(&self, mode: super::TVAudioMode) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAnalogAudioComponentType_Vtbl {
     pub const fn new<Identity: IAnalogAudioComponentType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AnalogAudioMode<Identity: IAnalogAudioComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut super::TVAudioMode) -> windows_core::HRESULT {
@@ -689,7 +689,7 @@ impl IAnalogAudioComponentType_Vtbl {
         iid == &<IAnalogAudioComponentType as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IComponentType as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAnalogAudioComponentType {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IAnalogLocator, IAnalogLocator_Vtbl, 0x34d1f26b_e339_430d_abce_738cb48984dc);
@@ -730,12 +730,12 @@ pub struct IAnalogLocator_Vtbl {
     #[cfg(not(feature = "strmif"))]
     SetVideoStandard: usize,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAnalogLocator_Impl: ILocator_Impl {
     fn VideoStandard(&self) -> windows_core::Result<super::AnalogVideoStandard>;
     fn SetVideoStandard(&self, avs: super::AnalogVideoStandard) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAnalogLocator_Vtbl {
     pub const fn new<Identity: IAnalogLocator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn VideoStandard<Identity: IAnalogLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, avs: *mut super::AnalogVideoStandard) -> windows_core::HRESULT {
@@ -766,7 +766,7 @@ impl IAnalogLocator_Vtbl {
         iid == &<IAnalogLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAnalogLocator {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IAnalogRadioTuningSpace, IAnalogRadioTuningSpace_Vtbl, 0x2a6e293b_2595_11d3_b64c_00c04f79498e);
@@ -821,7 +821,7 @@ pub struct IAnalogRadioTuningSpace_Vtbl {
     pub Step: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetStep: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAnalogRadioTuningSpace_Impl: ITuningSpace_Impl {
     fn MinFrequency(&self) -> windows_core::Result<i32>;
     fn SetMinFrequency(&self, newminfrequencyval: i32) -> windows_core::Result<()>;
@@ -830,7 +830,7 @@ pub trait IAnalogRadioTuningSpace_Impl: ITuningSpace_Impl {
     fn Step(&self) -> windows_core::Result<i32>;
     fn SetStep(&self, newstepval: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAnalogRadioTuningSpace_Vtbl {
     pub const fn new<Identity: IAnalogRadioTuningSpace_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MinFrequency<Identity: IAnalogRadioTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minfrequencyval: *mut i32) -> windows_core::HRESULT {
@@ -901,7 +901,7 @@ impl IAnalogRadioTuningSpace_Vtbl {
         iid == &<IAnalogRadioTuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAnalogRadioTuningSpace {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IAnalogRadioTuningSpace2, IAnalogRadioTuningSpace2_Vtbl, 0x39dd45da_2da8_46ba_8a8a_87e2b73d983a);
@@ -934,12 +934,12 @@ pub struct IAnalogRadioTuningSpace2_Vtbl {
     pub CountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetCountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAnalogRadioTuningSpace2_Impl: IAnalogRadioTuningSpace_Impl {
     fn CountryCode(&self) -> windows_core::Result<i32>;
     fn SetCountryCode(&self, newcountrycodeval: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAnalogRadioTuningSpace2_Vtbl {
     pub const fn new<Identity: IAnalogRadioTuningSpace2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CountryCode<Identity: IAnalogRadioTuningSpace2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, countrycodeval: *mut i32) -> windows_core::HRESULT {
@@ -970,7 +970,7 @@ impl IAnalogRadioTuningSpace2_Vtbl {
         iid == &<IAnalogRadioTuningSpace2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID || iid == &<IAnalogRadioTuningSpace as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAnalogRadioTuningSpace2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IAnalogTVTuningSpace, IAnalogTVTuningSpace_Vtbl, 0x2a6e293c_2595_11d3_b64c_00c04f79498e);
@@ -1044,7 +1044,7 @@ pub struct IAnalogTVTuningSpace_Vtbl {
     pub CountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetCountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAnalogTVTuningSpace_Impl: ITuningSpace_Impl {
     fn MinChannel(&self) -> windows_core::Result<i32>;
     fn SetMinChannel(&self, newminchannelval: i32) -> windows_core::Result<()>;
@@ -1055,7 +1055,7 @@ pub trait IAnalogTVTuningSpace_Impl: ITuningSpace_Impl {
     fn CountryCode(&self) -> windows_core::Result<i32>;
     fn SetCountryCode(&self, newcountrycodeval: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAnalogTVTuningSpace_Vtbl {
     pub const fn new<Identity: IAnalogTVTuningSpace_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MinChannel<Identity: IAnalogTVTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minchannelval: *mut i32) -> windows_core::HRESULT {
@@ -1146,7 +1146,7 @@ impl IAnalogTVTuningSpace_Vtbl {
         iid == &<IAnalogTVTuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAnalogTVTuningSpace {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IAuxInTuningSpace, IAuxInTuningSpace_Vtbl, 0xe48244b8_7e17_4f76_a763_5090ff1e2f30);
@@ -1165,9 +1165,9 @@ windows_core::imp::interface_hierarchy!(IAuxInTuningSpace, windows_core::IUnknow
 pub struct IAuxInTuningSpace_Vtbl {
     pub base__: ITuningSpace_Vtbl,
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAuxInTuningSpace_Impl: ITuningSpace_Impl {}
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAuxInTuningSpace_Vtbl {
     pub const fn new<Identity: IAuxInTuningSpace_Impl, const OFFSET: isize>() -> Self {
         Self { base__: ITuningSpace_Vtbl::new::<Identity, OFFSET>() }
@@ -1176,7 +1176,7 @@ impl IAuxInTuningSpace_Vtbl {
         iid == &<IAuxInTuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAuxInTuningSpace {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IAuxInTuningSpace2, IAuxInTuningSpace2_Vtbl, 0xb10931ed_8bfe_4ab0_9dce_e469c29a9729);
@@ -1209,12 +1209,12 @@ pub struct IAuxInTuningSpace2_Vtbl {
     pub CountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetCountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAuxInTuningSpace2_Impl: IAuxInTuningSpace_Impl {
     fn CountryCode(&self) -> windows_core::Result<i32>;
     fn SetCountryCode(&self, newcountrycodeval: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAuxInTuningSpace2_Vtbl {
     pub const fn new<Identity: IAuxInTuningSpace2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CountryCode<Identity: IAuxInTuningSpace2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, countrycodeval: *mut i32) -> windows_core::HRESULT {
@@ -1245,7 +1245,7 @@ impl IAuxInTuningSpace2_Vtbl {
         iid == &<IAuxInTuningSpace2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID || iid == &<IAuxInTuningSpace as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAuxInTuningSpace2 {}
 windows_core::imp::define_interface!(IBDAComparable, IBDAComparable_Vtbl, 0xb34505e0_2f0e_497b_80bc_d43f3b24ed7f);
 windows_core::imp::interface_hierarchy!(IBDAComparable, windows_core::IUnknown);
@@ -1490,12 +1490,12 @@ pub struct IChannelIDTuneRequest_Vtbl {
     pub ChannelID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetChannelID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IChannelIDTuneRequest_Impl: ITuneRequest_Impl {
     fn ChannelID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetChannelID(&self, channelid: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IChannelIDTuneRequest_Vtbl {
     pub const fn new<Identity: IChannelIDTuneRequest_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ChannelID<Identity: IChannelIDTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channelid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1522,7 +1522,7 @@ impl IChannelIDTuneRequest_Vtbl {
         iid == &<IChannelIDTuneRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuneRequest as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IChannelIDTuneRequest {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IChannelTuneRequest, IChannelTuneRequest_Vtbl, 0x0369b4e0_45b6_11d3_b650_00c04f79498e);
@@ -1555,12 +1555,12 @@ pub struct IChannelTuneRequest_Vtbl {
     pub Channel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IChannelTuneRequest_Impl: ITuneRequest_Impl {
     fn Channel(&self) -> windows_core::Result<i32>;
     fn SetChannel(&self, channel: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IChannelTuneRequest_Vtbl {
     pub const fn new<Identity: IChannelTuneRequest_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Channel<Identity: IChannelTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channel: *mut i32) -> windows_core::HRESULT {
@@ -1587,7 +1587,7 @@ impl IChannelTuneRequest_Vtbl {
         iid == &<IChannelTuneRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuneRequest as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IChannelTuneRequest {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IComponent, IComponent_Vtbl, 0x1a5576fc_0e19_11d3_9d8e_00c04f72d980);
@@ -1671,7 +1671,7 @@ pub struct IComponent_Vtbl {
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IComponent_Impl: super::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<IComponentType>;
     fn SetType(&self, ct: windows_core::Ref<IComponentType>) -> windows_core::Result<()>;
@@ -1683,7 +1683,7 @@ pub trait IComponent_Impl: super::IDispatch_Impl {
     fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IComponent>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IComponent_Vtbl {
     pub const fn new<Identity: IComponent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Type<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ct: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1787,7 +1787,7 @@ impl IComponent_Vtbl {
         iid == &<IComponent as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IComponent {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IComponentType, IComponentType_Vtbl, 0x6a340dc0_0311_11d3_9d8e_00c04f72d980);
@@ -1920,7 +1920,7 @@ pub struct IComponentType_Vtbl {
     SetMediaType: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IComponentType_Impl: super::IDispatch_Impl {
     fn Category(&self) -> windows_core::Result<super::ComponentCategory>;
     fn SetCategory(&self, category: super::ComponentCategory) -> windows_core::Result<()>;
@@ -1940,7 +1940,7 @@ pub trait IComponentType_Impl: super::IDispatch_Impl {
     fn SetMediaType(&self, mediatype: *const super::AM_MEDIA_TYPE) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IComponentType>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IComponentType_Vtbl {
     pub const fn new<Identity: IComponentType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Category<Identity: IComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: *mut super::ComponentCategory) -> windows_core::HRESULT {
@@ -2124,7 +2124,7 @@ impl IComponentType_Vtbl {
         iid == &<IComponentType as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IComponentType {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IComponentTypes, IComponentTypes_Vtbl, 0x0dc13d4a_0313_11d3_9d8e_00c04f72d980);
@@ -2157,21 +2157,21 @@ impl IComponentTypes {
             (windows_core::Interface::vtable(self).EnumComponentTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IComponentType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetItem<P1>(&self, index: &super::VARIANT, componenttype: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IComponentType>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index), componenttype.param().abi()) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Add<P0>(&self, componenttype: P0) -> windows_core::Result<super::VARIANT>
     where
         P0: windows_core::Param<IComponentType>,
@@ -2181,7 +2181,7 @@ impl IComponentTypes {
             (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), componenttype.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Remove(&self, index: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index)) }
     }
@@ -2200,25 +2200,25 @@ pub struct IComponentTypes_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumComponentTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub SetItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     SetItem: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Add: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Remove: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IComponentTypes_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
@@ -2229,7 +2229,7 @@ pub trait IComponentTypes_Impl: super::IDispatch_Impl {
     fn Remove(&self, index: &super::VARIANT) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IComponentTypes>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IComponentTypes_Vtbl {
     pub const fn new<Identity: IComponentTypes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: IComponentTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -2332,7 +2332,7 @@ impl IComponentTypes_Vtbl {
         iid == &<IComponentTypes as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IComponentTypes {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IComponents, IComponents_Vtbl, 0x39a48091_fffe_4182_a161_3ff802640e26);
@@ -2365,14 +2365,14 @@ impl IComponents {
             (windows_core::Interface::vtable(self).EnumComponents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IComponent> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Add<P0>(&self, component: P0) -> windows_core::Result<super::VARIANT>
     where
         P0: windows_core::Param<IComponent>,
@@ -2382,7 +2382,7 @@ impl IComponents {
             (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), component.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Remove(&self, index: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index)) }
     }
@@ -2392,7 +2392,7 @@ impl IComponents {
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetItem<P1>(&self, index: &super::VARIANT, ppcomponent: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IComponent>,
@@ -2408,25 +2408,25 @@ pub struct IComponents_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumComponents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Add: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Remove: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub SetItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     SetItem: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IComponents_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
@@ -2437,7 +2437,7 @@ pub trait IComponents_Impl: super::IDispatch_Impl {
     fn Clone(&self) -> windows_core::Result<IComponents>;
     fn SetItem(&self, index: &super::VARIANT, ppcomponent: windows_core::Ref<IComponent>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IComponents_Vtbl {
     pub const fn new<Identity: IComponents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: IComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -2540,7 +2540,7 @@ impl IComponents_Vtbl {
         iid == &<IComponents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IComponents {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IComponentsOld, IComponentsOld_Vtbl, 0xfcd01846_0e19_11d3_9d8e_00c04f72d980);
@@ -2573,14 +2573,14 @@ impl IComponentsOld {
             (windows_core::Interface::vtable(self).EnumComponents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, index: &super::VARIANT) -> windows_core::Result<IComponent> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Add<P0>(&self, component: P0) -> windows_core::Result<super::VARIANT>
     where
         P0: windows_core::Param<IComponent>,
@@ -2590,7 +2590,7 @@ impl IComponentsOld {
             (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), component.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Remove(&self, index: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index)) }
     }
@@ -2609,21 +2609,21 @@ pub struct IComponentsOld_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumComponents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Add: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Remove: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IComponentsOld_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
@@ -2633,7 +2633,7 @@ pub trait IComponentsOld_Impl: super::IDispatch_Impl {
     fn Remove(&self, index: &super::VARIANT) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IComponents>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IComponentsOld_Vtbl {
     pub const fn new<Identity: IComponentsOld_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: IComponentsOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -2729,7 +2729,7 @@ impl IComponentsOld_Vtbl {
         iid == &<IComponentsOld as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IComponentsOld {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDVBCLocator, IDVBCLocator_Vtbl, 0x6e42f36e_1dd2_43c4_9f78_69d25ae39034);
@@ -2748,9 +2748,9 @@ windows_core::imp::interface_hierarchy!(IDVBCLocator, windows_core::IUnknown, su
 pub struct IDVBCLocator_Vtbl {
     pub base__: IDigitalLocator_Vtbl,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBCLocator_Impl: IDigitalLocator_Impl {}
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBCLocator_Vtbl {
     pub const fn new<Identity: IDVBCLocator_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IDigitalLocator_Vtbl::new::<Identity, OFFSET>() }
@@ -2759,7 +2759,7 @@ impl IDVBCLocator_Vtbl {
         iid == &<IDVBCLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDVBCLocator {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDVBSLocator, IDVBSLocator_Vtbl, 0x3d7c353c_0d04_45f1_a742_f97cc1188dc8);
@@ -2852,7 +2852,7 @@ pub struct IDVBSLocator_Vtbl {
     pub Elevation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetElevation: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBSLocator_Impl: IDigitalLocator_Impl {
     fn SignalPolarisation(&self) -> windows_core::Result<super::Polarisation>;
     fn SetSignalPolarisation(&self, polarisationval: super::Polarisation) -> windows_core::Result<()>;
@@ -2865,7 +2865,7 @@ pub trait IDVBSLocator_Impl: IDigitalLocator_Impl {
     fn Elevation(&self) -> windows_core::Result<i32>;
     fn SetElevation(&self, elevation: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBSLocator_Vtbl {
     pub const fn new<Identity: IDVBSLocator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SignalPolarisation<Identity: IDVBSLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, polarisationval: *mut super::Polarisation) -> windows_core::HRESULT {
@@ -2976,7 +2976,7 @@ impl IDVBSLocator_Vtbl {
         iid == &<IDVBSLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDVBSLocator {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDVBSLocator2, IDVBSLocator2_Vtbl, 0x6044634a_1733_4f99_b982_5fb12afce4f0);
@@ -3107,7 +3107,7 @@ pub struct IDVBSLocator2_Vtbl {
     #[cfg(not(feature = "bdatypes"))]
     SetSignalPilot: usize,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBSLocator2_Impl: IDVBSLocator_Impl {
     fn DiseqLNBSource(&self) -> windows_core::Result<super::LNB_Source>;
     fn SetDiseqLNBSource(&self, diseqlnbsourceval: super::LNB_Source) -> windows_core::Result<()>;
@@ -3124,7 +3124,7 @@ pub trait IDVBSLocator2_Impl: IDVBSLocator_Impl {
     fn SignalPilot(&self) -> windows_core::Result<super::Pilot>;
     fn SetSignalPilot(&self, pilotval: super::Pilot) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBSLocator2_Vtbl {
     pub const fn new<Identity: IDVBSLocator2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DiseqLNBSource<Identity: IDVBSLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, diseqlnbsourceval: *mut super::LNB_Source) -> windows_core::HRESULT {
@@ -3275,7 +3275,7 @@ impl IDVBSLocator2_Vtbl {
         iid == &<IDVBSLocator2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID || iid == &<IDVBSLocator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDVBSLocator2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDVBSTuningSpace, IDVBSTuningSpace_Vtbl, 0xcdf7be60_d954_42fd_a972_78971958e470);
@@ -3360,7 +3360,7 @@ pub struct IDVBSTuningSpace_Vtbl {
     #[cfg(not(feature = "bdatypes"))]
     SetSpectralInversion: usize,
 }
-#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBSTuningSpace_Impl: IDVBTuningSpace2_Impl {
     fn LowOscillator(&self) -> windows_core::Result<i32>;
     fn SetLowOscillator(&self, lowoscillator: i32) -> windows_core::Result<()>;
@@ -3373,7 +3373,7 @@ pub trait IDVBSTuningSpace_Impl: IDVBTuningSpace2_Impl {
     fn SpectralInversion(&self) -> windows_core::Result<super::SpectralInversion>;
     fn SetSpectralInversion(&self, spectralinversionval: super::SpectralInversion) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBSTuningSpace_Vtbl {
     pub const fn new<Identity: IDVBSTuningSpace_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LowOscillator<Identity: IDVBSTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lowoscillator: *mut i32) -> windows_core::HRESULT {
@@ -3484,7 +3484,7 @@ impl IDVBSTuningSpace_Vtbl {
         iid == &<IDVBSTuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID || iid == &<IDVBTuningSpace as windows_core::Interface>::IID || iid == &<IDVBTuningSpace2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDVBSTuningSpace {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDVBTLocator, IDVBTLocator_Vtbl, 0x8664da16_dda2_42ac_926a_c18f9127c302);
@@ -3631,7 +3631,7 @@ pub struct IDVBTLocator_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     SetOtherFrequencyInUse: usize,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBTLocator_Impl: IDigitalLocator_Impl {
     fn Bandwidth(&self) -> windows_core::Result<i32>;
     fn SetBandwidth(&self, bandwidthval: i32) -> windows_core::Result<()>;
@@ -3648,7 +3648,7 @@ pub trait IDVBTLocator_Impl: IDigitalLocator_Impl {
     fn OtherFrequencyInUse(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetOtherFrequencyInUse(&self, otherfrequencyinuseval: super::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBTLocator_Vtbl {
     pub const fn new<Identity: IDVBTLocator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Bandwidth<Identity: IDVBTLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bandwidthval: *mut i32) -> windows_core::HRESULT {
@@ -3799,7 +3799,7 @@ impl IDVBTLocator_Vtbl {
         iid == &<IDVBTLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDVBTLocator {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDVBTLocator2, IDVBTLocator2_Vtbl, 0x448a2edf_ae95_4b43_a3cc_747843c453d4);
@@ -3832,12 +3832,12 @@ pub struct IDVBTLocator2_Vtbl {
     pub PhysicalLayerPipeId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetPhysicalLayerPipeId: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBTLocator2_Impl: IDVBTLocator_Impl {
     fn PhysicalLayerPipeId(&self) -> windows_core::Result<i32>;
     fn SetPhysicalLayerPipeId(&self, physicallayerpipeidval: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBTLocator2_Vtbl {
     pub const fn new<Identity: IDVBTLocator2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PhysicalLayerPipeId<Identity: IDVBTLocator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, physicallayerpipeidval: *mut i32) -> windows_core::HRESULT {
@@ -3868,7 +3868,7 @@ impl IDVBTLocator2_Vtbl {
         iid == &<IDVBTLocator2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID || iid == &<IDVBTLocator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDVBTLocator2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDVBTuneRequest, IDVBTuneRequest_Vtbl, 0x0d6f567e_a636_42bb_83ba_ce4c1704afa2);
@@ -3923,7 +3923,7 @@ pub struct IDVBTuneRequest_Vtbl {
     pub SID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetSID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBTuneRequest_Impl: ITuneRequest_Impl {
     fn ONID(&self) -> windows_core::Result<i32>;
     fn SetONID(&self, onid: i32) -> windows_core::Result<()>;
@@ -3932,7 +3932,7 @@ pub trait IDVBTuneRequest_Impl: ITuneRequest_Impl {
     fn SID(&self) -> windows_core::Result<i32>;
     fn SetSID(&self, sid: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBTuneRequest_Vtbl {
     pub const fn new<Identity: IDVBTuneRequest_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ONID<Identity: IDVBTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onid: *mut i32) -> windows_core::HRESULT {
@@ -4003,7 +4003,7 @@ impl IDVBTuneRequest_Vtbl {
         iid == &<IDVBTuneRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuneRequest as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDVBTuneRequest {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDVBTuningSpace, IDVBTuningSpace_Vtbl, 0xada0b268_3b19_4e5b_acc4_49f852be13ba);
@@ -4044,12 +4044,12 @@ pub struct IDVBTuningSpace_Vtbl {
     #[cfg(not(feature = "bdatypes"))]
     SetSystemType: usize,
 }
-#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBTuningSpace_Impl: ITuningSpace_Impl {
     fn SystemType(&self) -> windows_core::Result<super::DVBSystemType>;
     fn SetSystemType(&self, systype: super::DVBSystemType) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBTuningSpace_Vtbl {
     pub const fn new<Identity: IDVBTuningSpace_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SystemType<Identity: IDVBTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, systype: *mut super::DVBSystemType) -> windows_core::HRESULT {
@@ -4080,7 +4080,7 @@ impl IDVBTuningSpace_Vtbl {
         iid == &<IDVBTuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDVBTuningSpace {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDVBTuningSpace2, IDVBTuningSpace2_Vtbl, 0x843188b4_ce62_43db_966b_8145a094e040);
@@ -4113,12 +4113,12 @@ pub struct IDVBTuningSpace2_Vtbl {
     pub NetworkID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetNetworkID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDVBTuningSpace2_Impl: IDVBTuningSpace_Impl {
     fn NetworkID(&self) -> windows_core::Result<i32>;
     fn SetNetworkID(&self, networkid: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDVBTuningSpace2_Vtbl {
     pub const fn new<Identity: IDVBTuningSpace2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn NetworkID<Identity: IDVBTuningSpace2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkid: *mut i32) -> windows_core::HRESULT {
@@ -4149,7 +4149,7 @@ impl IDVBTuningSpace2_Vtbl {
         iid == &<IDVBTuningSpace2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID || iid == &<IDVBTuningSpace as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDVBTuningSpace2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDigitalCableLocator, IDigitalCableLocator_Vtbl, 0x48f66a11_171a_419a_9525_beeecd51584c);
@@ -4168,9 +4168,9 @@ windows_core::imp::interface_hierarchy!(IDigitalCableLocator, windows_core::IUnk
 pub struct IDigitalCableLocator_Vtbl {
     pub base__: IATSCLocator2_Vtbl,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDigitalCableLocator_Impl: IATSCLocator2_Impl {}
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDigitalCableLocator_Vtbl {
     pub const fn new<Identity: IDigitalCableLocator_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IATSCLocator2_Vtbl::new::<Identity, OFFSET>() }
@@ -4179,7 +4179,7 @@ impl IDigitalCableLocator_Vtbl {
         iid == &<IDigitalCableLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID || iid == &<IATSCLocator as windows_core::Interface>::IID || iid == &<IATSCLocator2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDigitalCableLocator {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDigitalCableTuneRequest, IDigitalCableTuneRequest_Vtbl, 0xbad7753b_6b37_4810_ae57_3ce0c4a9e6cb);
@@ -4223,14 +4223,14 @@ pub struct IDigitalCableTuneRequest_Vtbl {
     pub SourceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetSourceID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDigitalCableTuneRequest_Impl: IATSCChannelTuneRequest_Impl {
     fn MajorChannel(&self) -> windows_core::Result<i32>;
     fn SetMajorChannel(&self, majorchannel: i32) -> windows_core::Result<()>;
     fn SourceID(&self) -> windows_core::Result<i32>;
     fn SetSourceID(&self, sourceid: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDigitalCableTuneRequest_Vtbl {
     pub const fn new<Identity: IDigitalCableTuneRequest_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MajorChannel<Identity: IDigitalCableTuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmajorchannel: *mut i32) -> windows_core::HRESULT {
@@ -4281,7 +4281,7 @@ impl IDigitalCableTuneRequest_Vtbl {
         iid == &<IDigitalCableTuneRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuneRequest as windows_core::Interface>::IID || iid == &<IChannelTuneRequest as windows_core::Interface>::IID || iid == &<IATSCChannelTuneRequest as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDigitalCableTuneRequest {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDigitalCableTuningSpace, IDigitalCableTuningSpace_Vtbl, 0x013f9f9c_b449_4ec7_a6d2_9d4f2fc70ae5);
@@ -4347,7 +4347,7 @@ pub struct IDigitalCableTuningSpace_Vtbl {
     pub MaxSourceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetMaxSourceID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDigitalCableTuningSpace_Impl: IATSCTuningSpace_Impl {
     fn MinMajorChannel(&self) -> windows_core::Result<i32>;
     fn SetMinMajorChannel(&self, newminmajorchannelval: i32) -> windows_core::Result<()>;
@@ -4358,7 +4358,7 @@ pub trait IDigitalCableTuningSpace_Impl: IATSCTuningSpace_Impl {
     fn MaxSourceID(&self) -> windows_core::Result<i32>;
     fn SetMaxSourceID(&self, newmaxsourceidval: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDigitalCableTuningSpace_Vtbl {
     pub const fn new<Identity: IDigitalCableTuningSpace_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MinMajorChannel<Identity: IDigitalCableTuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minmajorchannelval: *mut i32) -> windows_core::HRESULT {
@@ -4449,7 +4449,7 @@ impl IDigitalCableTuningSpace_Vtbl {
         iid == &<IDigitalCableTuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuningSpace as windows_core::Interface>::IID || iid == &<IAnalogTVTuningSpace as windows_core::Interface>::IID || iid == &<IATSCTuningSpace as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDigitalCableTuningSpace {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IDigitalLocator, IDigitalLocator_Vtbl, 0x19b595d8_839a_47f0_96df_4f194f3c768c);
@@ -4468,9 +4468,9 @@ windows_core::imp::interface_hierarchy!(IDigitalLocator, windows_core::IUnknown,
 pub struct IDigitalLocator_Vtbl {
     pub base__: ILocator_Vtbl,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IDigitalLocator_Impl: ILocator_Impl {}
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IDigitalLocator_Vtbl {
     pub const fn new<Identity: IDigitalLocator_Impl, const OFFSET: isize>() -> Self {
         Self { base__: ILocator_Vtbl::new::<Identity, OFFSET>() }
@@ -4479,7 +4479,7 @@ impl IDigitalLocator_Vtbl {
         iid == &<IDigitalLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IDigitalLocator {}
 #[cfg(feature = "bdaiface")]
 windows_core::imp::define_interface!(IESCloseMmiEvent, IESCloseMmiEvent_Vtbl, 0x6b80e96f_55e2_45aa_b754_0c23c8e7d5c1);
@@ -5922,9 +5922,9 @@ windows_core::imp::interface_hierarchy!(IISDBSLocator, windows_core::IUnknown, s
 pub struct IISDBSLocator_Vtbl {
     pub base__: IDVBSLocator_Vtbl,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IISDBSLocator_Impl: IDVBSLocator_Impl {}
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IISDBSLocator_Vtbl {
     pub const fn new<Identity: IISDBSLocator_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IDVBSLocator_Vtbl::new::<Identity, OFFSET>() }
@@ -5933,7 +5933,7 @@ impl IISDBSLocator_Vtbl {
         iid == &<IISDBSLocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ILocator as windows_core::Interface>::IID || iid == &<IDigitalLocator as windows_core::Interface>::IID || iid == &<IDVBSLocator as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IISDBSLocator {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ILanguageComponentType, ILanguageComponentType_Vtbl, 0xb874c8ba_0fa2_11d3_9d8e_00c04f72d980);
@@ -5966,12 +5966,12 @@ pub struct ILanguageComponentType_Vtbl {
     pub LangID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetLangID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ILanguageComponentType_Impl: IComponentType_Impl {
     fn LangID(&self) -> windows_core::Result<i32>;
     fn SetLangID(&self, langid: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ILanguageComponentType_Vtbl {
     pub const fn new<Identity: ILanguageComponentType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LangID<Identity: ILanguageComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: *mut i32) -> windows_core::HRESULT {
@@ -5998,7 +5998,7 @@ impl ILanguageComponentType_Vtbl {
         iid == &<ILanguageComponentType as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IComponentType as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ILanguageComponentType {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ILocator, ILocator_Vtbl, 0x286d7f89_760c_4f89_80c4_66841d2507aa);
@@ -6144,7 +6144,7 @@ pub struct ILocator_Vtbl {
     pub SetSymbolRate: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ILocator_Impl: super::IDispatch_Impl {
     fn CarrierFrequency(&self) -> windows_core::Result<i32>;
     fn SetCarrierFrequency(&self, frequency: i32) -> windows_core::Result<()>;
@@ -6162,7 +6162,7 @@ pub trait ILocator_Impl: super::IDispatch_Impl {
     fn SetSymbolRate(&self, rate: i32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<ILocator>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ILocator_Vtbl {
     pub const fn new<Identity: ILocator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CarrierFrequency<Identity: ILocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frequency: *mut i32) -> windows_core::HRESULT {
@@ -6326,7 +6326,7 @@ impl ILocator_Vtbl {
         iid == &<ILocator as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ILocator {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IMPEG2Component, IMPEG2Component_Vtbl, 0x1493e353_1eb6_473c_802d_8e6b8ec9d2a9);
@@ -6381,7 +6381,7 @@ pub struct IMPEG2Component_Vtbl {
     pub ProgramNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetProgramNumber: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMPEG2Component_Impl: IComponent_Impl {
     fn PID(&self) -> windows_core::Result<i32>;
     fn SetPID(&self, pid: i32) -> windows_core::Result<()>;
@@ -6390,7 +6390,7 @@ pub trait IMPEG2Component_Impl: IComponent_Impl {
     fn ProgramNumber(&self) -> windows_core::Result<i32>;
     fn SetProgramNumber(&self, programnumber: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMPEG2Component_Vtbl {
     pub const fn new<Identity: IMPEG2Component_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PID<Identity: IMPEG2Component_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: *mut i32) -> windows_core::HRESULT {
@@ -6461,7 +6461,7 @@ impl IMPEG2Component_Vtbl {
         iid == &<IMPEG2Component as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IComponent as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMPEG2Component {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IMPEG2ComponentType, IMPEG2ComponentType_Vtbl, 0x2c073d84_b51c_48c9_aa9f_68971e1f6e38);
@@ -6502,12 +6502,12 @@ pub struct IMPEG2ComponentType_Vtbl {
     #[cfg(not(feature = "bdatypes"))]
     SetStreamType: usize,
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMPEG2ComponentType_Impl: ILanguageComponentType_Impl {
     fn StreamType(&self) -> windows_core::Result<super::MPEG2StreamType>;
     fn SetStreamType(&self, mp2streamtype: super::MPEG2StreamType) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMPEG2ComponentType_Vtbl {
     pub const fn new<Identity: IMPEG2ComponentType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StreamType<Identity: IMPEG2ComponentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mp2streamtype: *mut super::MPEG2StreamType) -> windows_core::HRESULT {
@@ -6538,7 +6538,7 @@ impl IMPEG2ComponentType_Vtbl {
         iid == &<IMPEG2ComponentType as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IComponentType as windows_core::Interface>::IID || iid == &<ILanguageComponentType as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bdatypes", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "bdatypes", feature = "minwindef", feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMPEG2ComponentType {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IMPEG2TuneRequest, IMPEG2TuneRequest_Vtbl, 0xeb7d987f_8a01_42ad_b8ae_574deee44d1a);
@@ -6582,14 +6582,14 @@ pub struct IMPEG2TuneRequest_Vtbl {
     pub ProgNo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetProgNo: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMPEG2TuneRequest_Impl: ITuneRequest_Impl {
     fn TSID(&self) -> windows_core::Result<i32>;
     fn SetTSID(&self, tsid: i32) -> windows_core::Result<()>;
     fn ProgNo(&self) -> windows_core::Result<i32>;
     fn SetProgNo(&self, progno: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMPEG2TuneRequest_Vtbl {
     pub const fn new<Identity: IMPEG2TuneRequest_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TSID<Identity: IMPEG2TuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tsid: *mut i32) -> windows_core::HRESULT {
@@ -6640,7 +6640,7 @@ impl IMPEG2TuneRequest_Vtbl {
         iid == &<IMPEG2TuneRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ITuneRequest as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMPEG2TuneRequest {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IMPEG2TuneRequestFactory, IMPEG2TuneRequestFactory_Vtbl, 0x14e11abd_ee37_4893_9ea1_6964de933e39);
@@ -6672,11 +6672,11 @@ pub struct IMPEG2TuneRequestFactory_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub CreateTuneRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMPEG2TuneRequestFactory_Impl: super::IDispatch_Impl {
     fn CreateTuneRequest(&self, tuningspace: windows_core::Ref<ITuningSpace>) -> windows_core::Result<IMPEG2TuneRequest>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMPEG2TuneRequestFactory_Vtbl {
     pub const fn new<Identity: IMPEG2TuneRequestFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateTuneRequest<Identity: IMPEG2TuneRequestFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tuningspace: *mut core::ffi::c_void, tunerequest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6697,7 +6697,7 @@ impl IMPEG2TuneRequestFactory_Vtbl {
         iid == &<IMPEG2TuneRequestFactory as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMPEG2TuneRequestFactory {}
 windows_core::imp::define_interface!(IMPEG2TuneRequestSupport, IMPEG2TuneRequestSupport_Vtbl, 0x1b9d5fc3_5bbc_4b6c_bb18_b9d10e3eeebf);
 windows_core::imp::interface_hierarchy!(IMPEG2TuneRequestSupport, windows_core::IUnknown);
@@ -6732,11 +6732,11 @@ impl IPersistTuneXml {
     pub unsafe fn InitNew(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitNew)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Load(&self, varvalue: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varvalue)) }
     }
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Save(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6750,22 +6750,22 @@ impl IPersistTuneXml {
 pub struct IPersistTuneXml_Vtbl {
     pub base__: super::IPersist_Vtbl,
     pub InitNew: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     Load: usize,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     Save: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPersistTuneXml_Impl: super::IPersist_Impl {
     fn InitNew(&self) -> windows_core::Result<()>;
     fn Load(&self, varvalue: &super::VARIANT) -> windows_core::Result<()>;
     fn Save(&self) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IPersistTuneXml_Vtbl {
     pub const fn new<Identity: IPersistTuneXml_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitNew<Identity: IPersistTuneXml_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6803,12 +6803,12 @@ impl IPersistTuneXml_Vtbl {
         iid == &<IPersistTuneXml as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPersistTuneXml {}
 windows_core::imp::define_interface!(IPersistTuneXmlUtility, IPersistTuneXmlUtility_Vtbl, 0x990237ae_ac11_4614_be8f_dd217a4cb4cb);
 windows_core::imp::interface_hierarchy!(IPersistTuneXmlUtility, windows_core::IUnknown);
 impl IPersistTuneXmlUtility {
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Deserialize(&self, varvalue: &super::VARIANT) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6820,16 +6820,16 @@ impl IPersistTuneXmlUtility {
 #[doc(hidden)]
 pub struct IPersistTuneXmlUtility_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub Deserialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase")))]
     Deserialize: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPersistTuneXmlUtility_Impl: windows_core::IUnknownImpl {
     fn Deserialize(&self, varvalue: &super::VARIANT) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IPersistTuneXmlUtility_Vtbl {
     pub const fn new<Identity: IPersistTuneXmlUtility_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Deserialize<Identity: IPersistTuneXmlUtility_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: super::VARIANT, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6850,7 +6850,7 @@ impl IPersistTuneXmlUtility_Vtbl {
         iid == &<IPersistTuneXmlUtility as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPersistTuneXmlUtility {}
 windows_core::imp::define_interface!(IPersistTuneXmlUtility2, IPersistTuneXmlUtility2_Vtbl, 0x992e165f_ea24_4b2f_9a1d_009d92120451);
 impl core::ops::Deref for IPersistTuneXmlUtility2 {
@@ -6881,11 +6881,11 @@ pub struct IPersistTuneXmlUtility2_Vtbl {
     #[cfg(not(feature = "oaidl"))]
     Serialize: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPersistTuneXmlUtility2_Impl: IPersistTuneXmlUtility_Impl {
     fn Serialize(&self, pitunerequest: windows_core::Ref<ITuneRequest>) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl IPersistTuneXmlUtility2_Vtbl {
     pub const fn new<Identity: IPersistTuneXmlUtility2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Serialize<Identity: IPersistTuneXmlUtility2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitunerequest: *mut core::ffi::c_void, pstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6906,7 +6906,7 @@ impl IPersistTuneXmlUtility2_Vtbl {
         iid == &<IPersistTuneXmlUtility2 as windows_core::Interface>::IID || iid == &<IPersistTuneXmlUtility as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPersistTuneXmlUtility2 {}
 windows_core::imp::define_interface!(IRegisterTuner, IRegisterTuner_Vtbl, 0x359b3901_572c_4854_bb49_cdef66606a25);
 windows_core::imp::interface_hierarchy!(IRegisterTuner, windows_core::IUnknown);
@@ -7269,7 +7269,7 @@ pub struct ITuneRequest_Vtbl {
     pub Locator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLocator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITuneRequest_Impl: super::IDispatch_Impl {
     fn TuningSpace(&self) -> windows_core::Result<ITuningSpace>;
     fn Components(&self) -> windows_core::Result<IComponents>;
@@ -7277,7 +7277,7 @@ pub trait ITuneRequest_Impl: super::IDispatch_Impl {
     fn Locator(&self) -> windows_core::Result<ILocator>;
     fn SetLocator(&self, locator: windows_core::Ref<ILocator>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITuneRequest_Vtbl {
     pub const fn new<Identity: ITuneRequest_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TuningSpace<Identity: ITuneRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tuningspace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7347,7 +7347,7 @@ impl ITuneRequest_Vtbl {
         iid == &<ITuneRequest as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITuneRequest {}
 windows_core::imp::define_interface!(ITuner, ITuner_Vtbl, 0x28c52640_018a_11d3_9d8e_00c04f72d980);
 windows_core::imp::interface_hierarchy!(ITuner, windows_core::IUnknown);
@@ -7830,7 +7830,7 @@ pub struct ITuningSpace_Vtbl {
     pub SetDefaultLocator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITuningSpace_Impl: super::IDispatch_Impl {
     fn UniqueName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetUniqueName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -7852,7 +7852,7 @@ pub trait ITuningSpace_Impl: super::IDispatch_Impl {
     fn SetDefaultLocator(&self, locatorval: windows_core::Ref<ILocator>) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<ITuningSpace>;
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITuningSpace_Vtbl {
     pub const fn new<Identity: ITuningSpace_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn UniqueName<Identity: ITuningSpace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8068,7 +8068,7 @@ impl ITuningSpace_Vtbl {
         iid == &<ITuningSpace as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "comcat", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "comcat", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITuningSpace {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ITuningSpaceContainer, ITuningSpaceContainer_Vtbl, 0x5b692e84_e2f1_11d2_9493_00c04f72d980);
@@ -8095,14 +8095,14 @@ impl ITuningSpaceContainer {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, varindex: &super::VARIANT) -> windows_core::Result<ITuningSpace> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetItem<P1>(&self, varindex: &super::VARIANT, tuningspace: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<ITuningSpace>,
@@ -8136,7 +8136,7 @@ impl ITuningSpaceContainer {
             (windows_core::Interface::vtable(self).FindID)(windows_core::Interface::as_raw(self), tuningspace.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Add<P0>(&self, tuningspace: P0) -> windows_core::Result<super::VARIANT>
     where
         P0: windows_core::Param<ITuningSpace>,
@@ -8152,7 +8152,7 @@ impl ITuningSpaceContainer {
             (windows_core::Interface::vtable(self).EnumTuningSpaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Remove(&self, index: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index)) }
     }
@@ -8173,31 +8173,31 @@ pub struct ITuningSpaceContainer_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub SetItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     SetItem: usize,
     pub TuningSpacesForCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub _TuningSpacesForCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TuningSpacesForName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Add: usize,
     pub EnumTuningSpaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Remove: usize,
     pub MaxCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetMaxCount: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITuningSpaceContainer_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
@@ -8213,7 +8213,7 @@ pub trait ITuningSpaceContainer_Impl: super::IDispatch_Impl {
     fn MaxCount(&self) -> windows_core::Result<i32>;
     fn SetMaxCount(&self, maxcount: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITuningSpaceContainer_Vtbl {
     pub const fn new<Identity: ITuningSpaceContainer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -8375,7 +8375,7 @@ impl ITuningSpaceContainer_Vtbl {
         iid == &<ITuningSpaceContainer as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITuningSpaceContainer {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ITuningSpaces, ITuningSpaces_Vtbl, 0x901284e4_33fe_4b69_8d63_634a596f3756);
@@ -8402,7 +8402,7 @@ impl ITuningSpaces {
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, varindex: &super::VARIANT) -> windows_core::Result<ITuningSpace> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8423,20 +8423,20 @@ pub struct ITuningSpaces_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
     pub EnumTuningSpaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITuningSpaces_Impl: super::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::IEnumVARIANT>;
     fn Item(&self, varindex: &super::VARIANT) -> windows_core::Result<ITuningSpace>;
     fn EnumTuningSpaces(&self) -> windows_core::Result<IEnumTuningSpaces>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ITuningSpaces_Vtbl {
     pub const fn new<Identity: ITuningSpaces_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ITuningSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -8499,7 +8499,7 @@ impl ITuningSpaces_Vtbl {
         iid == &<ITuningSpaces as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ITuningSpaces {}
 pub const LanguageComponentType: windows_core::GUID = windows_core::GUID::from_u128(0x1be49f30_0e1b_11d3_9d8e_00c04f72d980);
 pub const Locator: windows_core::GUID = windows_core::GUID::from_u128(0x0888c883_ac4f_4943_b516_2c38d9b34562);
@@ -8512,3 +8512,4 @@ pub const SystemTuningSpaces: windows_core::GUID = windows_core::GUID::from_u128
 pub const TuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0xb46e0d38_ab35_4a06_a137_70576b01b39f);
 pub const TunerMarshaler: windows_core::GUID = windows_core::GUID::from_u128(0x6438570b_0c08_4a25_9504_8012bb4d50cf);
 pub const TuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0x5ffdc5e6_b83a_4b55_b6e8_c69e765fe9db);
+pub type __MIDL___MIDL_itf_tuner_0000_0000_0001 = i32;
