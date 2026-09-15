@@ -51,12 +51,14 @@ impl TransientMenuHost {
         presenter.SetBorderAndTitleBar(false, false)?;
         presenter.SetIsAlwaysOnTop(true)?;
 
-        let mut hwnd = HWND::default();
+        let mut raw_hwnd = std::ptr::null_mut();
+        let hwnd;
         unsafe {
             window
                 .cast::<IWindowNative>()?
-                .WindowHandle(&mut hwnd)
+                .WindowHandle(&mut raw_hwnd)
                 .ok()?;
+            hwnd = raw_hwnd.cast();
             SetLastError(0);
             let style = GetWindowLongW(hwnd, GWL_EXSTYLE);
             let error = GetLastError();

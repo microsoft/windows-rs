@@ -880,7 +880,7 @@ impl WinUiRuntime {
             let (min_width, min_height, max_width, max_height) =
                 if let Some(constraints) = visuals.constraints {
                     let hwnd = window_handle()?;
-                    let dpi = unsafe { GetDpiForWindow(hwnd) }.max(96);
+                    let dpi = unsafe { GetDpiForWindow(hwnd.cast()) }.max(96);
                     let pixels = |dips: f64| (dips * f64::from(dpi) / 96.0).round() as i32;
                     let client_window = app_window.cast::<IAppWindow2>().map_err(native_error)?;
                     let outer = app_window.Size().map_err(native_error)?;
@@ -916,7 +916,7 @@ impl WinUiRuntime {
             && let Some((width, height)) = visuals.client_size
         {
             let hwnd = window_handle()?;
-            let dpi = unsafe { GetDpiForWindow(hwnd) }.max(96);
+            let dpi = unsafe { GetDpiForWindow(hwnd.cast()) }.max(96);
             let pixels = |dips: f64| (dips * f64::from(dpi) / 96.0).round() as i32;
             window_2
                 .AppWindow()
@@ -1440,10 +1440,10 @@ impl WinUiRuntime {
                     let mut hwnd = std::ptr::null_mut();
                     unsafe {
                         if native.WindowHandle(&mut hwnd).is_ok() {
-                            if IsIconic(hwnd).as_bool() {
-                                _ = ShowWindow(hwnd, SW_RESTORE);
+                            if IsIconic(hwnd.cast()).as_bool() {
+                                _ = ShowWindow(hwnd.cast(), SW_RESTORE);
                             }
-                            _ = SetForegroundWindow(hwnd);
+                            _ = SetForegroundWindow(hwnd.cast());
                         }
                     }
                 }
