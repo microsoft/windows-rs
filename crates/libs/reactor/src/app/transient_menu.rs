@@ -26,6 +26,10 @@ struct TransientMenuState {
 struct ActiveMenu {
     flyout: IFlyoutBase,
     _revokers: Vec<windows_core::EventRevoker>,
+    #[cfg(feature = "test")]
+    first_item: Option<MenuFlyoutItem>,
+    #[cfg(feature = "test")]
+    opened: bool,
 }
 
 impl TransientMenuHost {
@@ -100,6 +104,33 @@ impl TransientMenuHost {
             state: Rc::clone(&self.state),
         }
     }
+
+    #[cfg(feature = "test")]
+    pub(super) fn item_for_test(&self) -> windows_core::Result<MenuFlyoutItem> {
+        let state = self.state.borrow();
+        let menu = state
+            .menu
+            .as_ref()
+            .ok_or_else(|| windows_core::Error::new(E_FAIL, "live application menu is not open"))?;
+        if !menu.opened {
+            return Err(windows_core::Error::new(
+                E_FAIL,
+                "live application menu is not ready",
+            ));
+        }
+        menu.first_item.clone().ok_or_else(|| {
+            windows_core::Error::new(E_FAIL, "live application menu has no command item")
+        })
+    }
+
+    #[cfg(feature = "test")]
+    pub(super) fn is_open_for_test(&self) -> bool {
+        self.state
+            .borrow()
+            .menu
+            .as_ref()
+            .is_some_and(|menu| menu.opened)
+    }
 }
 
 impl TransientMenuHandle {
@@ -139,6 +170,7 @@ impl Drop for TransientMenuHost {
             let ActiveMenu {
                 flyout,
                 _revokers: revokers,
+                ..
             } = active;
             drop(revokers);
             _ = flyout.Hide();
@@ -184,6 +216,23 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
         let mut revokers = Vec::new();
         build_native_menu_items(&menu.items, &flyout.Items()?, &mut revokers, &invoke)?;
 
+        #[cfg(feature = "test")]
+        let first_item = flyout
+            .Items()?
+            .GetAt(0)
+            .ok()
+            .and_then(|item| item.cast::<MenuFlyoutItem>().ok());
+        #[cfg(feature = "test")]
+        let opened_state = Rc::downgrade(state);
+        #[cfg(feature = "test")]
+        revokers.push(flyout_base.Opened(move |_, _| {
+            if let Some(state) = opened_state.upgrade()
+                && let Some(menu) = state.borrow_mut().menu.as_mut()
+            {
+                menu.opened = true;
+            }
+        })?);
+
         let closed_state = Rc::downgrade(state);
         let closed = flyout_base.Closed(move |_, _| {
             let Some(state) = closed_state.upgrade() else {
@@ -215,6 +264,10 @@ fn show_pending(state: &Rc<RefCell<TransientMenuState>>) -> windows_core::Result
         state.borrow_mut().menu = Some(ActiveMenu {
             flyout: flyout_base.clone(),
             _revokers: revokers,
+            #[cfg(feature = "test")]
+            first_item,
+            #[cfg(feature = "test")]
+            opened: false,
         });
         flyout_base.ShowAt(&anchor)
     })();
